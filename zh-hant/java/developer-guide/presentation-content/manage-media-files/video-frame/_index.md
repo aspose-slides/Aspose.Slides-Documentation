@@ -1,6 +1,6 @@
 ---
-title: 使用 Java 管理簡報中的影片框架
-linktitle: 影片框架
+title: 使用 Java 管理簡報中的影片畫格
+linktitle: 影片畫格
 type: docs
 weight: 10
 url: /zh-hant/java/video-frame/
@@ -10,172 +10,204 @@ keywords:
 - 嵌入影片
 - 擷取影片
 - 取得影片
-- 影片框架
+- 影片畫格
 - 網路來源
 - PowerPoint
 - OpenDocument
 - 簡報
 - Java
 - Aspose.Slides
-description: "學會使用 Aspose.Slides for Java 在 PowerPoint 與 OpenDocument 投影片中以程式方式新增與擷取影片框架。快速操作指南。"
+description: "學習如何使用 Aspose.Slides for Java 在 PowerPoint 與 OpenDocument 投影片中以程式方式新增與擷取影片畫格。快速操作指南。"
 ---
 ## **簡介**
 
-在簡報中恰當放置的影片可以使您的訊息更具說服力，並提升觀眾的參與度。
+影片可以幫助說明概念並吸引觀眾。Aspose.Slides for Java 可讓您將視頻畫格新增至投影片，調整播放設定，管理字幕，並擷取內嵌的視頻資料。
 
-PowerPoint 允許您以兩種方式將影片加入簡報投影片中：
+PowerPoint 支援本機影片以及指向線上影片的連結，例如 YouTube 影片。
 
-* 新增或嵌入本機影片（儲存在您的電腦上）
-* 新增線上影片（來自例如 YouTube 等網站來源）。
+為了表示影片資料和影片畫格，Aspose.Slides 提供了 [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) 介面、[IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) 介面以及其他相關類型。
 
-為了讓您能在簡報中加入影片（video 物件），Aspose.Slides 提供了 [IVideo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideo/) 介面、[IVideoFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/) 介面以及其他相關類型。
+## **建立內嵌影片畫格**
 
-## **建立嵌入式影片框架**
+如果您要新增至投影片的影片檔案儲存在本機，您可以建立影片畫格，以將影片內嵌至簡報中。
 
-如果您想加入投影片的影片檔案儲存在本機，您可以建立影片框架將影片嵌入簡報中。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation) 類別的執行個體。
-1. 透過索引取得投影片的參考。
-1. 加入一個 [IVideo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideo/) 物件，並傳遞影片檔案路徑以將影片嵌入簡報。
-1. 加入一個 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/) 物件，以為影片建立框架。  
-1. 儲存已修改的簡報。
-
-以下 Java 程式碼示範如何將本機儲存的影片加入簡報：
+此範例將本機影片內嵌於現有簡報的第一張投影片，並儲存結果。畫格座標與尺寸以點為單位。因為 [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) 在簡報使用期間會保持串流鎖定，所以串流會持續開啟直到儲存完成。
 
 ```java
-// 建立 Presentation 類別的實例
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // 載入影片
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // 取得第一張投影片並加入影片框架
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+Presentation presentation = new Presentation("presentation.pptx");
+try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 將簡報儲存至磁碟
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IVideo video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-或者，您也可以直接將檔案路徑傳遞給 [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) 方法：
-
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **建立來自網路來源的影片框架**
-
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) 支援在簡報中使用 YouTube 影片。如果您要使用的影片可於線上取得（例如 YouTube），可透過其網路連結將其加入簡報。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation) 類別的執行個體
-1. 透過索引取得投影片的參考。
-1. 加入一個 [IVideo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideo/) 物件，並傳遞影片的連結。
-1. 為影片框架設定縮圖。
-1. 儲存簡報。
-
-以下 Java 程式碼示範如何將線上影片加入 PowerPoint 投影片：
-
-```java
-// 實例化一個代表簡報檔案的 Presentation 物件
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // 新增影片框架
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // 載入縮圖
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-```
-
-## **剪裁影片框架**
-
-Aspose.Slides 允許您透過 [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) 與 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) 設定剪裁起始與結束值，以控制播放哪一段影片。這兩個值以毫秒為單位，分別定義從影片開頭與結尾跳過的時間長度。此設定會變更簡報中的影片播放行為；不會切割或修改嵌入的影片二進位資料。
-
-**設定剪裁參數**
-
-建立影片框架並設定剪裁參數的步驟：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的執行個體。
-1. 加入一個 [IVideo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideo/) 物件至簡報。
-1. 加入一個 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/) 物件至投影片。
-1. 透過 [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) 與 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) 設定剪裁起始與結束值。
-1. 儲存已修改的簡報。
-
-以下程式碼示範在播放期間跳過前 2.5 秒與最後 1 秒的嵌入影片：
-
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream videoStream = new FileInputStream("video.mp4");
-    try {
-        IVideo video = presentation.getVideos().addVideo(
-                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        ISlide slide = presentation.getSlides().get_Item(0);
-        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
-
-        videoFrame.setTrimFromStart(2500f);
-        videoFrame.setTrimFromEnd(1000f);
-
-        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
-    } finally {
-        videoStream.close();
-    }
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**讀取剪裁參數**
-
-若要檢查現有的剪裁設定，請載入簡報、在第一張投影片的圖形中找到 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/) 物件，並透過 [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/#getTrimFromStart--) 與 [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/#getTrimFromEnd--) 讀取值。
-
-以下程式碼示範在第一張投影片上找到第一個影片框架並以毫秒回報其剪裁設定：
+您也可以直接將本機影片路徑傳遞給 [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-)。此範例將影片內嵌於新簡報的第一張投影片。影片必須在簡報儲存之前保持可存取。
 
 ```java
-Presentation presentation = new Presentation("video_with_trim.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **建立來自網站來源的影片畫格**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 在簡報中支援線上影片。您可以建立連結至線上影片（例如 YouTube 影片）的影片畫格。
+
+此範例在第一張投影片加入 YouTube 影片連結與縮圖。請替換影片識別碼以使用其他影片。[setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) 方法會要求自動播放。下載縮圖與播放影片皆需網際網路存取。簡報檢視器也必須支援線上影片播放。
+
+```java
+import com.aspose.slides.*;
+import java.io.InputStream;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String videoId = "aqz-KE-bpKQ";
+    String videoUrl = "https://www.youtube.com/embed/" + videoId;
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    URL thumbnailLocation = new URL(thumbnailUrl);
+    try (InputStream thumbnailStream = thumbnailLocation.openStream()) {
+        IPPImage thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    }
+
+    presentation.save("online_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **以全螢幕模式播放影片**
+
+在訓練簡報中，您可以以全螢幕模式播放軟體示範，讓觀眾看到細節。於播放期間呼叫 [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) 並傳入 `true`，即可啟用此行為。
+
+此範例開啟簡報，於第一張投影片中找到第一個 [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/)，並啟用全螢幕播放。輸入簡報必須至少在第一張投影片上含有一個現有的影片畫格。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
-            float trimFromStart = videoFrame.getTrimFromStart();
-            float trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            System.out.println("Trim from start: " + trimFromStart + " ms");
-            System.out.println("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+全螢幕播放會控制影片的顯示方式。另一方面，[setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) 控制影片是自動開始或點擊播放，[setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) 控制是否重複播放。若要選擇開始行為，請將播放模式設定為 [VideoPlayModePreset.Auto 或 VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/)。此範例保留了現有的開始與循環設定。
+
+## **在播放後倒帶影片**
+
+在訓練簡報中，將示範影片倒回開頭可讓簡報者再次播放。於播放結束後呼叫 [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) 並傳入 `true`，即可將影片倒回開頭。
+
+此範例開啟簡報，於第一張投影片中找到第一個 [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/)，並啟用倒帶。它會停用循環，使播放能完整結束，並將播放設定為點擊開始。輸入簡報必須至少在第一張投影片上包含一個現有的影片畫格。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+倒帶會將影片返回開頭而不會再次啟動。相較之下，將 [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) 設為 `true` 會自動重複播放。若希望影片結束後保持可重新播放，請保持循環停用。[setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) 獨立控制自動或點擊啟動；本範例使用 [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/)，讓簡報者自行決定何時開始播放。正如範例所示，請在設定循環之後再設定播放模式。倒帶的運作與 [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) 無關。
+
+## **裁剪影片畫格**
+
+使用 [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) 和 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) 可於播放時略過影片開頭或結尾的部分。兩個值皆以毫秒為單位。裁剪會變更播放設定，但不會修改內嵌的影片資料。
+
+**設定裁剪**
+
+此範例將本機影片內嵌，並在播放時略過前 2.5 秒與最後 1 秒。請使用長度超過 3.5 秒的影片，以保留可播放的片段。
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    Path videoPath = Paths.get("video.mp4");
+    byte[] videoData = Files.readAllBytes(videoPath);
+    IVideo video = presentation.getVideos().addVideo(videoData);
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500f);
+    videoFrame.setTrimFromEnd(1000f);
+
+    presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**讀取裁剪設定**
+
+此範例以毫秒為單位印出第一張投影片上第一個影片畫格的裁剪值。簡報必須至少包含一張投影片。若該投影片沒有影片畫格，則不會印出任何內容。前一個範例會產生 2500 與 1000 的值。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            System.out.println("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            System.out.println("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -186,30 +218,27 @@ try {
 
 ## **管理影片字幕**
 
-Aspose.Slides 允許您在 PowerPoint 簡報的影片框架中管理隱藏式字幕。字幕以 WebVTT 格式儲存，並可透過 [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) 方法取得。
+Aspose.Slides 允許您管理 PowerPoint 簡報中影片畫格的隱藏字幕。字幕以 WebVTT 格式儲存，並可透過 [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) 方法取得。
 
-**將字幕加入影片框架**
+**為影片畫格新增字幕**
 
-將字幕加入影片框架的步驟：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的執行個體。
-1. 將影片加入簡報。
-1. 加入一個 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/) 物件至投影片。
-1. 使用由 [getCaptionTracks](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) 回傳的 [ICaptionsCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icaptionscollection/) 新增 WebVTT 字幕軌道。
-1. 儲存已修改的簡報。
-
-以下程式碼示範如何將字幕加入影片框架：
+此範例將本機影片內嵌，並新增一條標註為 English 的 WebVTT 字幕軌。字幕的時間戳記應與影片相符。儲存的簡報同時包含影片與其字幕。
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = Files.readAllBytes(Paths.get("video.mp4"));
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    Path videoPath = Paths.get("video.mp4");
+    byte[] videoData = Files.readAllBytes(videoPath);
     IVideo video = presentation.getVideos().addVideo(videoData);
 
-    ISlide slide = presentation.getSlides().get_Item(0);
     IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
-
-    // 從 WebVTT 檔案新增字幕軌道。
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -218,58 +247,54 @@ try {
 }
 ```
 
-[ICaptionsCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icaptionscollection/) 介面亦提供允許從串流新增字幕的重載方法。
+[ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) 介面亦提供一個重載，可讓您從串流加入字幕。
 
-**從影片框架擷取字幕**
+**從影片畫格擷取字幕**
 
-從影片框架擷取字幕的步驟：
-
-1. 載入包含影片的簡報。
-1. 找到目標的 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/) 物件。
-1. 迭代 [ICaptionsCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icaptionscollection/) 中的字幕軌道。
-1. 將每個字幕軌道儲存為 `.vtt` 檔案。
-
-以下程式碼示範如何從影片框架擷取字幕：
+此範例將第一張投影片上所有影片畫格的字幕軌儲存為個別的 WebVTT 檔案。使用連續編號以區分輸出檔案。主控台會報告擷取的軌道數量。簡報必須至少包含一張投影片。
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    int trackCount = 0;
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
-            IVideoFrame videoFrame = (IVideoFrame)shape;
+            IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // 將字幕軌道儲存為 WebVTT 檔案。
-                String filePath = captionTrack.getCaptionId().toString() + ".vtt";
-                Files.write(Paths.get(filePath), captionTrack.getBinaryData());
+                trackCount++;
+                Path outputPath = Paths.get("captions_" + trackCount + ".vtt");
+                Files.write(outputPath, captionTrack.getBinaryData());
             }
         }
     }
+
+    System.out.println("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-每個 [ICaptions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icaptions/) 物件會公開字幕識別碼、標籤、二進位資料以及以 UTF-8 字串呈現的字幕文字。
+每個 [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) 物件會公開字幕識別碼、標籤、二進位資料，以及以 UTF-8 字串表示的字幕文字。
 
-**從影片框架移除字幕**
+**從影片畫格移除字幕**
 
-移除影片框架字幕的步驟：
-
-1. 載入包含影片的簡報。
-1. 取得目標的 [IVideoFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ivideoframe/) 物件。
-1. 從 [ICaptionsCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icaptionscollection/) 中移除字幕軌道。
-1. 儲存已修改的簡報。
-
-以下程式碼示範如何移除影片框架中的所有字幕：
+此範例移除第一張投影片第一個圖形位置之影片畫格的所有字幕，並儲存結果。它假設該投影片與圖形皆存在且圖形為影片畫格。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = (IVideoFrame)slide.getShapes().get_Item(0);
 
-    // 從影片框架中移除所有字幕。
+    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -278,65 +303,61 @@ try {
 }
 ```
 
-如果只需要移除單一字幕軌道，請改用 [remove](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) 或 [removeAt](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icaptionscollection/#removeAt-int-) 方法，而非 [clear](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icaptionscollection/#clear--)。
+如果您只需要移除單一字幕軌，請使用 [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) 或 [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) 方法，而非 [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--)。
 
-## **從投影片中擷取影片**
+## **從投影片擷取影片**
 
-除了將影片加入投影片之外，Aspose.Slides 也允許您擷取簡報中嵌入的影片。
+除了將影片新增至投影片外，Aspose.Slides 也允許您擷取簡報中內嵌的影片。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation) 類別的執行個體以載入含有影片的簡報。 
-2. 迭代所有 [ISlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/islide/) 物件。
-3. 迭代所有 [IShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/) 物件以尋找 [VideoFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/videoframe/)。 
-4. 將影片儲存至磁碟。
-
-以下 Java 程式碼示範如何擷取簡報投影片上的影片：
+此範例將每張投影片內嵌的影片擷取為分別編號的二進位檔案。連結的影片會被略過，因為它們沒有內嵌資料。主控台會印出每支影片的 MIME 類型與總數。輸出使用通用的 `.bin` 副檔名；必要時可依報告的媒體類型更改副檔名。
 
 ```java
-// 實例化一個代表簡報檔案的 Presentation 物件 
-Presentation pres = new Presentation("VideoSample.pptx");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("presentation_with_videos.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
+    int videoCount = 0;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                IVideoFrame videoFrame = (IVideoFrame) shape;
+                IVideo video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    System.out.println("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
 
-                // 取得檔案副檔名
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                videoCount++;
+                Path outputPath = Paths.get("extracted_video_" + videoCount + ".bin");
+                Files.write(outputPath, video.getBinaryData());
+                System.out.println("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (IOException e) {
+
+    System.out.println("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **常見問題**
 
-**可以變更 VideoFrame 的哪些影片播放參數？**
+**可以變更影片畫格的哪種播放參數？**
 
-您可以透過 [VideoFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/videoframe/) 物件的屬性控制 [playback mode](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/videoframe/#setPlayMode-int-)（自動或點擊）以及 [looping](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-)。這些選項皆可於 VideoFrame 物件取得。
+您可以透過 [playback mode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-)（自動或點擊）與 [looping](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) 來控制。這些選項可透過 [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) 物件的方法使用。
 
-**新增影片會影響 PPTX 檔案大小嗎？**
+**加入影片會影響 PPTX 檔案大小嗎？**
 
-會的。當您嵌入本機影片時，二進位資料會被納入文件中，簡報大小會與檔案大小成正比增長。當您加入線上影片時，僅嵌入連結與縮圖，檔案大小的增加較小。
+會。當您內嵌本機影片時，二進位資料會寫入文件，簡報大小會隨檔案大小成比例增加。當您連結至線上影片並加入縮圖時，簡報僅儲存連結與預覽圖像，而非影片資料，因此大小增幅通常較小。
 
-**我可以在不變更位置和尺寸的情況下替換現有 VideoFrame 中的影片嗎？**
+**我可以在不更改位置與尺寸的情況下，取代現有影片畫格中的影片嗎？**
 
-可以。您可以在保留圖形幾何形狀的前提下，使用 [setEmbeddedVideo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) 交換框架內的影片內容；這在更新已有佈局的媒體時相當常見。
+可以。您可以在保持形狀幾何不變的情況下，交換畫格內的 [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-)，這是更新既有版面媒體的常見情境。
 
-**可以判斷嵌入影片的內容類型（MIME）嗎？**
+**可以判斷內嵌影片的內容類型（MIME）嗎？**
 
-可以。嵌入的影片具有可透過 [getContentType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/video/#getContentType--) 讀取的內容類型，您可將其用於例如儲存至磁碟等情境。
+可以。內嵌影片具有可讀取的 [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--)，您可以使用它，例如在儲存至磁碟時。

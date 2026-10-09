@@ -1,6 +1,6 @@
 ---
-title: 使用 PHP 管理簡報中的影片框格
-linktitle: 影片框格
+title: 使用 PHP 管理簡報中的影片框架
+linktitle: 影片框架
 type: docs
 weight: 10
 url: /zh-hant/php-java/video-frame/
@@ -9,131 +9,45 @@ keywords:
 - 建立影片
 - 嵌入影片
 - 擷取影片
-- 檢索影片
-- 影片框格
+- 取得影片
+- 影片框架
 - 網路來源
 - PowerPoint
 - OpenDocument
 - 簡報
 - PHP
 - Aspose.Slides
-description: "學習使用 Aspose.Slides for PHP via Java 以程式方式在 PowerPoint 和 OpenDocument 投影片中新增與擷取影片框格。快速上手指南。"
+description: "學習如何使用 Aspose.Slides for PHP via Java 以程式方式在 PowerPoint 與 OpenDocument 投影片中新增與擷取影片框架。快速操作指南。"
 ---
 ## **簡介**
 
-在簡報中恰當放置的影片可以讓您的訊息更具說服力，並提升觀眾的參與度。 
+影片可以幫助說明概念並吸引觀眾。Aspose.Slides for PHP via Java 讓您能將影片框架添加到投影片、調整播放設定、管理字幕，並提取嵌入的影片資料。
 
-PowerPoint 允許您以兩種方式向簡報的投影片添加影片：
+PowerPoint 支援本機影片以及指向線上影片的連結，例如 YouTube 影片。
 
-* 新增或嵌入本機影片（儲存在您的電腦上）
-* 新增線上影片（來自 YouTube 等網路來源）。
+為了表示影片資料與影片框架，Aspose.Slides 提供了 [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) 類別、[VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) 類別，以及其他相關型別。
 
-為了讓您能向簡報添加影片（video 物件），Aspose.Slides 提供了 [Video](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/video/) 類別、[VideoFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/) 類別以及其他相關型別。
+## **建立嵌入式影片框架**
 
-## **建立嵌入式影片框格**
+如果您想加入投影片的影片檔案儲存在本機，您可以建立影片框架將影片嵌入簡報中。
 
-如果您要添加到投影片的影片檔案儲存在本機，您可以建立影片框格將影片嵌入簡報中。 
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
-1. 透過索引取得投影片的參考。 
-1. 加入一個 [Video](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/video/) 物件，並傳入影片檔案路徑以將影片嵌入簡報中。
-1. 加入一個 [VideoFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/) 物件，以為影片建立框格。
-1. 儲存已修改的簡報。 
-
-以下 PHP 程式碼示範如何將本機儲存的影片添加至簡報：
+此範例將本機影片嵌入現有簡報的第一張投影片，並儲存結果。框架座標與尺寸以點為單位。因為 [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) 會在簡報使用期間保持鎖定，所以串流會一直開啟直到儲存完成。
 
 ```php
-  # 實例化 Presentation 類別
-  $pres = new Presentation("pres.pptx");
-  try {
-    # 載入影片
-    $fileStream = new Java("java.io.FileInputStream", "Wildlife.mp4");
-    $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
-    # 取得第一張投影片並加入影片框格
-    $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
-    # 將簡報儲存到磁碟
-    $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\LoadingStreamBehavior;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-或者，您也可以直接將檔案路徑傳遞給 [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/addvideoframe/) 方法來加入影片：
-
-```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $vf = $sld->getShapes()->addVideoFrame(50, 150, 300, 150, "video1.avi");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **使用網路來源影片建立影片框格**
-
-Microsoft [PowerPoint 2013 及更新版本](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) 支援在簡報中使用 YouTube 影片。如果您要使用的影片可於線上取得（例如 YouTube），可以透過其網路連結將其添加到簡報中。 
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例
-1. 透過索引取得投影片的參考。 
-1. 加入一個 [Video](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/video/) 物件，並傳入影片的連結。
-1. 為影片框格設定縮圖。 
-1. 儲存簡報。 
-
-以下 PHP 程式碼示範如何將網路影片添加至 PowerPoint 簡報的投影片中：
-
-```php
-  # 實例化一個代表簡報檔案的 Presentation 物件
-  $pres = new Presentation();
-  try {
-    addVideoFromYouTube($pres, "Tj75Arhq5ho");
-    $pres->save("out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-```php
-
-```
-
-## **裁剪影片框格**
-
-Aspose.Slides 允許您透過 [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/#setTrimFromStart) 與 [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/#setTrimFromEnd) 設定 trim-from-start 與 trim-from-end 之值，以控制影片播放的部分。兩個值皆以毫秒為單位，分別定義從影片開頭與結尾略過的時間長度。這些設定會變更簡報中影片的播放設定；不會裁切或以其他方式修改嵌入之影片二進位資料。
-
-**設定裁剪參數**
-
-建立影片框格並設定其裁剪參數的步驟：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
-1. 將 [Video](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/video/) 物件加入簡報。
-1. 將 [VideoFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/) 物件加入投影片。
-1. 透過 [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/#setTrimFromStart) 與 [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/#setTrimFromEnd) 設定 trim-from-start 與 trim-from-end 的值。
-1. 儲存已修改的簡報。
-
-以下程式碼範例會在播放時跳過嵌入式影片的前 2.5 秒與最後 1 秒：
-
-```php
-$presentation = new Presentation();
+$presentation = new Presentation("presentation.pptx");
 $videoStream = null;
 try {
     $videoStream = new Java("java.io.FileInputStream", "video.mp4");
-    $video = $presentation->getVideos()->addVideo(
-        $videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
     $slide = $presentation->getSlides()->get_Item(0);
-    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
 
-    $videoFrame->setTrimFromStart(2500);
-    $videoFrame->setTrimFromEnd(1000);
+    $video = $presentation->getVideos()->addVideo($videoStream, LoadingStreamBehavior::KeepLocked);
+    $slide->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
 
-    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+    $presentation->save("embedded_video.pptx", SaveFormat::Pptx);
 } finally {
     if ($videoStream !== null) {
         $videoStream->close();
@@ -142,26 +56,176 @@ try {
 }
 ```
 
-**讀取裁剪參數**
-
-若要檢查現有的裁剪參數，請載入簡報、在第一張投影片的圖形中找出 [VideoFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/) 物件，並透過 [VideoFrame::getTrimFromStart](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/#getTrimFromStart) 與 [VideoFrame::getTrimFromEnd](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/#getTrimFromEnd) 讀取其值。
-
-以下程式碼範例會找出第一張投影片上的第一個影片框格，並以毫秒為單位回報其裁剪參數：
+您也可以直接將本機影片路徑傳遞給 [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame)。此範例將影片嵌入新簡報的第一張投影片。影片必須在簡報儲存之前保持可存取。
 
 ```php
-$presentation = new Presentation("video_with_trim.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    $presentation->save("video_from_path.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **建立來自網路來源的影片框架**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 在簡報中支援線上影片。您可以建立影片框架，將其連結至線上影片，例如 YouTube 影片。
+
+此範例將 YouTube 影片連結與縮圖加入第一張投影片。將影片識別碼替換為其他影片即可使用另一支影片。[setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) 方法請求自動播放。下載縮圖與播放影片需要網路存取。簡報檢視器也必須支援線上影片播放。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\VideoPlayModePreset;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoId = "aqz-KE-bpKQ";
+    $videoUrl = "https://www.youtube.com/embed/" . $videoId;
+    $videoFrame = $slide->getShapes()->addVideoFrame(10, 10, 427, 240, $videoUrl);
+    $videoFrame->setPlayMode(VideoPlayModePreset::Auto);
+
+    $thumbnailUrl = "https://img.youtube.com/vi/" . $videoId . "/hqdefault.jpg";
+    $thumbnailLocation = new Java("java.net.URL", $thumbnailUrl);
+    $thumbnailStream = $thumbnailLocation->openStream();
+    try {
+        $thumbnail = $presentation->getImages()->addImage($thumbnailStream);
+        $videoFrame->getPictureFormat()->getPicture()->setImage($thumbnail);
+    } finally {
+        $thumbnailStream->close();
+    }
+
+    $presentation->save("online_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **在全螢幕模式下播放影片**
+
+在訓練簡報中，您可以在全螢幕模式下播放軟體示範，讓觀眾看到細節。以 `true` 呼叫 [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) 即可於播放期間啟用此行為。
+
+此範例開啟簡報，於第一張投影片上找到第一個 [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/)，並啟用全螢幕播放。輸入簡報必須至少包含一張投影片，且在第一張投影片上有已存在的影片框架。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("training.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $shapeCount = java_values($slide->getShapes()->size());
     for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
         $shape = $slide->getShapes()->get_Item($shapeIndex);
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
             $videoFrame = $shape;
-            $trimFromStart = java_values($videoFrame->getTrimFromStart());
-            $trimFromEnd = java_values($videoFrame->getTrimFromEnd());
+            $videoFrame->setFullScreenMode(true);
+            break;
+        }
+    }
 
-            echo "Trim from start: " . $trimFromStart . " ms\n";
-            echo "Trim from end: " . $trimFromEnd . " ms\n";
+    $presentation->save("full_screen_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+全螢幕播放控制影片的顯示方式。另一方面，[setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) 控制是自動開始或點擊開始，[setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) 控制是否重複播放。若要選擇開始行為，請將播放模式設定為 [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/)。此範例保留了現有的開始與迴圈設定。
+
+## **回倒影片於播放後**
+
+在訓練簡報中，將示範影片回到開頭可讓簡報者再次播放。以 `true` 呼叫 [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) 即可在播放結束後將影片回到開頭。
+
+此範例開啟簡報，於第一張投影片上找到第一個 [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/)，並啟用回倒。它會停用迴圈讓播放能結束，並將播放設定為點擊開始。輸入簡報必須至少包含一張投影片，且在第一張投影片上有已存在的影片框架。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\VideoPlayModePreset;
+
+$presentation = new Presentation("training.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $videoFrame->setRewindVideo(true);
+            $videoFrame->setPlayLoopMode(false);
+            $videoFrame->setPlayMode(VideoPlayModePreset::OnClick);
+            break;
+        }
+    }
+
+    $presentation->save("rewind_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+回倒會將影片返回開頭而不會再次啟動。相較之下，將 [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) 設為 `true` 會自動重複播放。想讓影片結束後保持可再次播放時，請將迴圈關閉。[setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) 獨立控制自動或點擊啟動；此範例使用 [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/)，讓簡報者自行決定何時開始播放。請如範例所示在設定迴圈之後再設定播放模式。回倒的行為與 [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) 無關。
+
+## **裁剪影片框架**
+
+使用 [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) 與 [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) 可在播放時略過影片的開頭或結尾部分。兩個值皆以毫秒為單位。裁剪會變更播放設定，卻不會修改嵌入的影片資料。
+
+**設定裁剪參數**
+
+此範例將本機影片嵌入，並於播放時略過前 2.5 秒與最後 1 秒。請使用長度超過 3.5 秒的影片，以保留可播放的片段。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoFile = new Java("java.io.File", "video.mp4");
+    $videoPath = $videoFile->toPath();
+    $videoData = java("java.nio.file.Files")->readAllBytes($videoPath);
+    $video = $presentation->getVideos()->addVideo($videoData);
+
+    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
+    $videoFrame->setTrimFromStart(2500);
+    $videoFrame->setTrimFromEnd(1000);
+
+    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+**讀取裁剪設定**
+
+此範例以毫秒為單位列印第一張投影片上第一個影片框架的裁剪值。簡報必須至少包含一張投影片。如果該投影片沒有影片框架，則不會輸出任何內容。前述範例會產生 2500 與 1000 兩個值。
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("video_with_trim.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            echo "Trim from start: " . java_values($videoFrame->getTrimFromStart()) . " ms\n";
+            echo "Trim from end: " . java_values($videoFrame->getTrimFromEnd()) . " ms\n";
             break;
         }
     }
@@ -172,30 +236,26 @@ try {
 
 ## **管理影片字幕**
 
-Aspose.Slides 允許您在 PowerPoint 簡報的影片框格中管理隱藏式字幕。字幕以 WebVTT 格式儲存，並透過 [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/#getCaptionTracks) 方法取得。
+Aspose.Slides 允許您在 PowerPoint 簡報中管理影片框架的隱藏字幕。字幕以 WebVTT 格式儲存，並可透過 [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) 方法取得。
 
-**為影片框格新增字幕**
+**為影片框架新增字幕**
 
-將字幕新增至影片框格的步驟：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
-1. 將影片加入簡報。
-1. 將 [VideoFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/) 物件加入投影片。
-1. 使用 [getCaptionTracks](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/#getCaptionTracks) 回傳的 [CaptionsCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/captionscollection/) 集合，新增 WebVTT 字幕軌。
-1. 儲存已修改的簡報。
-
-以下程式碼示範如何為影片框格新增字幕：
+此範例將本機影片嵌入，並新增一條標示為 English 的 WebVTT 字幕軌。字幕時間戳記應與影片相符。儲存的簡報會同時包含影片與其字幕。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $videoData = file_get_contents("video.mp4");
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoFile = new Java("java.io.File", "video.mp4");
+    $videoPath = $videoFile->toPath();
+    $videoData = java("java.nio.file.Files")->readAllBytes($videoPath);
     $video = $presentation->getVideos()->addVideo($videoData);
 
-    $slide = $presentation->getSlides()->get_Item(0);
     $videoFrame = $slide->getShapes()->addVideoFrame(0, 0, 100, 100, $video);
-
-    // 從 WebVTT 檔案新增一個字幕軌道。
     $videoFrame->getCaptionTracks()->add("English", "track.vtt");
 
     $presentation->save("video_with_captions.pptx", SaveFormat::Pptx);
@@ -204,62 +264,60 @@ try {
 }
 ```
 
-[CaptionsCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/captionscollection/) 類別亦提供一個重載，可讓您從串流新增字幕。
+[CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) 類別也提供一個重載方法，允許您從串流加入字幕。
 
-**從影片框格擷取字幕**
+**從影片框架擷取字幕**
 
-從影片框格擷取字幕的步驟：
-
-1. 載入含有影片的簡報。
-1. 找出目標的 [VideoFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/) 物件。
-1. 遍歷 [getCaptionTracks](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/#getCaptionTracks) 集合。
-1. 將每個字幕軌儲存為 `.vtt` 檔案。
-
-以下程式碼示範如何從影片框格擷取字幕：
+此範例將第一張投影片上所有影片框架的字幕軌另存為個別的 WebVTT 檔案。使用連續編號以保持輸出檔案的唯一性。主控台會回報擷取到的字幕軌數量。簡報必須至少包含一張投影片。
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("video_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $trackCount = 0;
     $shapeCount = java_values($slide->getShapes()->size());
     for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
         $shape = $slide->getShapes()->get_Item($shapeIndex);
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
             $videoFrame = $shape;
-            $trackCount = java_values($videoFrame->getCaptionTracks()->getCount());
-            for ($trackIndex = 0; $trackIndex < $trackCount; $trackIndex++) {
+            $captionCount = java_values($videoFrame->getCaptionTracks()->getCount());
+            for ($trackIndex = 0; $trackIndex < $captionCount; $trackIndex++) {
                 $captionTrack = $videoFrame->getCaptionTracks()->get_Item($trackIndex);
-                // 保存字幕軌道到 WebVTT 檔案。
-                $filePath = $captionTrack->getCaptionId() . ".vtt";
-                file_put_contents($filePath, $captionTrack->getBinaryData());
+                $trackCount++;
+                $outputStream = new Java("java.io.FileOutputStream", "captions_" . $trackCount . ".vtt");
+                try {
+                    $outputStream->write($captionTrack->getBinaryData());
+                } finally {
+                    $outputStream->close();
+                }
             }
         }
     }
+
+    echo "Caption tracks extracted: " . $trackCount . "\n";
 } finally {
     $presentation->dispose();
 }
 ```
 
-每個 [Captions](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/captions/) 物件會公開字幕識別碼、標籤、二進位資料，以及作為 UTF-8 字串的字幕文字。
+每個 [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) 物件會揭露字幕識別碼、標籤、二進位資料，以及以 UTF-8 字串表示的字幕文字。
 
-**從影片框格移除字幕**
+**從影片框架移除字幕**
 
-從影片框格移除字幕的步驟：
-
-1. 載入含有影片的簡報。
-1. 取得目標的 [VideoFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/) 物件。
-1. 從 [getCaptionTracks](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/#getCaptionTracks) 集合中移除字幕軌。
-1. 儲存已修改的簡報。
-
-以下程式碼示範如何從影片框格中移除全部字幕：
+此範例移除第一張投影片上第一個形狀位置的影片框架中所有的字幕，並儲存結果。假設該投影片與形狀均存在，且該形狀為影片框架。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("video_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $videoFrame = $slide->getShapes()->get_Item(0); // 類型: VideoFrame
 
-    // 從影片框格中移除所有字幕。
+    $videoFrame = $slide->getShapes()->get_Item(0);
     $videoFrame->getCaptionTracks()->clear();
 
     $presentation->save("video_without_captions.pptx", SaveFormat::Pptx);
@@ -268,62 +326,66 @@ try {
 }
 ```
 
-如果您只需要移除單一字幕軌，請使用 [remove](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/captionscollection/#removeAt) 方法，而非 [clear](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/captionscollection/#clear)。
+如果只需要移除單一字幕軌，請使用 [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) 方法，而非 [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear)。
 
 ## **從投影片擷取影片**
 
-除了向投影片添加影片之外，Aspose.Slides 也允許您擷取嵌入於簡報中的影片。
+除了將影片加入投影片外，Aspose.Slides 亦可從簡報中擷取已嵌入的影片。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例以載入含有影片的簡報。
-2. 遍歷所有 [Slide](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/slide/) 物件。
-3. 遍歷所有 [Shape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shape/) 物件以尋找 [VideoFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/)。
-4. 將影片儲存至磁碟。
-
-以下 PHP 程式碼示範如何擷取簡報投影片中的影片：
+此範例將每張投影片中嵌入的影片擷取為獨立的編號二進位檔案。連結的影片會被略過，因為它們沒有嵌入資料。主控台會列印每支影片的 MIME 類型及總計數量。輸出使用通用的 `.bin` 副檔名；如有需要，可依回報的媒體類型自行更改副檔名。
 
 ```php
-  # 實例化一個代表簡報檔案的 Presentation 物件
-  $pres = new Presentation("VideoSample.pptx");
-  try {
-    foreach($pres->getSlides() as $slide) {
-      foreach($slide->getShapes() as $shape) {
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
-          $vf = $shape;
-          $type = $vf->getEmbeddedVideo()->getContentType();
-          $ss = $type->lastIndexOf('-');
-          $buffer = $vf->getEmbeddedVideo()->getBinaryData();
-          # 取得檔案副檔名
-          $charIndex = $type->indexOf("/");
-          $type = $type->substring($charIndex + 1);
-          $fop = new Java("java.io.FileOutputStream", "testing2." . $type);
-          $fop->write($buffer);
-          $fop->flush();
-          $fop->close();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation_with_videos.pptx");
+try {
+    $videoCount = 0;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                $videoFrame = $shape;
+                $video = $videoFrame->getEmbeddedVideo();
+                if (java_is_null($video)) {
+                    echo "Skipped a linked video: no embedded data is available.\n";
+                    continue;
+                }
+
+                $videoCount++;
+                $outputStream = new Java("java.io.FileOutputStream", "extracted_video_" . $videoCount . ".bin");
+                try {
+                    $outputStream->write($video->getBinaryData());
+                } finally {
+                    $outputStream->close();
+                }
+                echo "Video " . $videoCount . ": " . java_values($video->getContentType()) . "\n";
+            }
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    echo "Embedded videos extracted: " . $videoCount . "\n";
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **常見問題**
 
-**可以變更 VideoFrame 的哪些影片播放參數？**
+**可以變更影片框架的哪些播放參數？**
 
-您可以透過 [VideoFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/) 物件的屬性，控制 [playback mode](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/setplaymode/)（自動或點擊播放）以及 [looping](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/setplayloopmode/)（循環播放）。
+您可以控制 [playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode)（自動或點擊）與 [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode)。這些選項可透過 [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) 物件的方法取得。
 
-**新增影片會影響 PPTX 檔案大小嗎？**
+**加入影片會影響 PPTX 檔案大小嗎？**
 
-會。當您嵌入本機影片時，二進位資料會被納入文件中，導致簡報大小隨檔案大小成比例增加。當您新增線上影片時，僅嵌入連結與縮圖，大小增加較少。
+會的。若您嵌入本機影片，二進位資料會被納入文件中，簡報大小會隨影片檔案大小成比例增長。若您連結到線上影片並加入縮圖，簡報只會儲存連結與預覽圖，而非影片本身，通常會較少增加檔案大小。
 
-**我能在不變更位置和大小的情況下，取代現有 VideoFrame 中的影片嗎？**
+**我可以在不變更位置與尺寸的前提下，取代已存在影片框架中的影片嗎？**
 
-可以。您可以在保留形狀幾何的前提下，交換框格內的 [video content](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/videoframe/setembeddedvideo/)，這在現有布局中更新媒體時是常見的情況。
+可以。您可以在保持形狀幾何尺寸不變的情況下，交換影片框架內的 [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo)，這在更新已佈局媒體時相當常見。
 
-**可以判斷嵌入影片的內容類型（MIME）嗎？**
+**能否判斷嵌入影片的內容類型 (MIME)？**
 
-會。嵌入的影片具有可讀取的 [content type](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/video/getcontenttype/)，您可以利用它，例如在儲存至磁碟時使用。
+能。嵌入的影片具有可透過 [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) 取得的 MIME 類型，您可在儲存至磁碟或其他用途時使用。

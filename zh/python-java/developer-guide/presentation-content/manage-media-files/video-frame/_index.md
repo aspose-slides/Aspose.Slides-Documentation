@@ -17,30 +17,21 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "学习如何使用 Aspose.Slides for Python via Java，以编程方式在 PowerPoint 和 OpenDocument 幻灯片中添加和提取视频帧。快速实用指南。"
+description: "学习使用 Aspose.Slides for Python via Java，以编程方式在 PowerPoint 和 OpenDocument 幻灯片中添加和提取视频帧。快速入门指南。"
 ---
 ## **简介**
 
-在演示文稿中恰当地放置视频可以使您的信息更具说服力，并提升观众的参与度。
+视频可以帮助解释理念并吸引受众。Aspose.Slides for Python via Java 允许您向幻灯片添加视频帧、调整播放设置、管理字幕并提取嵌入的视频数据。
 
-PowerPoint 允许您以两种方式向演示文稿的幻灯片添加视频：
+PowerPoint 支持本地视频和指向在线视频（例如 YouTube 视频）的链接。
 
-* 添加或嵌入本地视频（存储在您的机器上）
-* 添加在线视频（来自诸如 YouTube 的网络来源）。
-
-为了让您能够向演示文稿添加视频（video 对象），Aspose.Slides 提供了 [Video](https://reference.aspose.com/slides/zh/python-java/aspose.slides/video/) 类、[VideoFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/) 类以及其他相关类型。
+为表示视频数据和视频帧，Aspose.Slides 提供了 [Video](https://reference.aspose.com/slides/python-java/aspose.slides/video/) 类、[VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) 类以及其他相关类型。
 
 ## **创建嵌入式视频帧**
 
-如果您要添加到幻灯片的视频文件存储在本地，您可以创建视频帧以在演示文稿中嵌入该视频。
+如果要添加到幻灯片的视频文件存储在本地，您可以创建视频帧将视频嵌入到演示文稿中。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例。
-1. 通过索引获取幻灯片的引用。
-1. 添加一个 [Video](https://reference.aspose.com/slides/zh/python-java/aspose.slides/video/) 对象并传入视频文件数据，以将视频嵌入演示文稿。
-1. 添加一个 [VideoFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/) 对象以创建视频帧。
-1. 保存修改后的演示文稿。
-
-以下 Python 代码演示了如何将本地存储的视频添加到演示文稿中：
+此示例在现有演示文稿的第一页上嵌入本地视频并保存结果。帧坐标和尺寸使用点（points）单位。Python 从磁盘读取视频字节，JPype 将其转换为 Java 字节数组后再将视频添加到演示文稿。
 
 ```python
 from pathlib import Path
@@ -53,18 +44,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("pres.pptx")
+presentation = Presentation("presentation.pptx")
 try:
-    video_data = Path("Wildlife.mp4").read_bytes()
+    slide = presentation.getSlides().get_Item(0)
+
+    video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video)
-    presentation.save("pres-with-video.pptx", SaveFormat.Pptx)
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video)
+
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-或者，您可以直接将视频文件路径传递给 [addVideoFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shapecollection/#addVideoFrame) 方法来添加视频：
+您也可以直接将本地视频路径传递给 [addVideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addVideoFrame)。此示例在新演示文稿的第一页嵌入视频。视频必须在演示文稿保存之前保持可访问。
 
 ```python
 import jpype
@@ -73,27 +68,24 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    video_frame = slide.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi")
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi")
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **使用网络来源视频创建视频帧**
+## **创建来自网络来源的视频帧**
 
-Microsoft [PowerPoint 2013 及更高版本](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) 支持在演示文稿中使用 YouTube 视频。如果您要使用的视频可在线获取（例如在 YouTube 上），您可以通过其网络链接将其添加到演示文稿中。
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 支持在演示文稿中使用在线视频。您可以创建指向在线视频（例如 YouTube 视频）的视频帧。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例。
-1. 通过索引获取幻灯片的引用。
-1. 添加一个 [VideoFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/) 对象并传入视频链接。
-1. 为视频帧设置缩略图。
-1. 保存演示文稿。
-
-以下 Python 代码演示了如何将网络视频添加到 PowerPoint 演示文稿的幻灯片中：
+此示例在第一页添加 YouTube 视频链接和缩略图。替换视频标识符即可使用其他视频。[setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) 方法请求自动播放。下载缩略图和播放视频需要互联网连接。演示文稿查看器也必须支持在线视频播放。
 
 ```python
 from urllib.request import urlopen
@@ -102,47 +94,102 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpway.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, VideoPlayModePreset
 
-video_id = "Tj75Arhq5ho"
 presentation = Presentation()
 try:
-    video_frame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + video_id)
+    slide = presentation.getSlides().get_Item(0)
+
+    video_id = "aqz-KE-bpKQ"
+    video_url = "https://www.youtube.com/embed/" + video_id
+    video_frame = slide.getShapes().addVideoFrame(10, 10, 427, 240, video_url)
     video_frame.setPlayMode(VideoPlayModePreset.Auto)
 
-    # 加载缩略图。
-    thumbnail_uri = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
-    try:
-        with urlopen(thumbnail_uri) as response:
-            thumbnail_data = response.read()
-        java_thumbnail_data = jpype.JArray(jpype.JByte)(thumbnail_data)
-        thumbnail = presentation.getImages().addImage(java_thumbnail_data)
-        video_frame.getPictureFormat().getPicture().setImage(thumbnail)
-    except OSError as error:
-        print("Could not load the thumbnail:", error)
+    thumbnail_url = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
+    with urlopen(thumbnail_url) as response:
+        thumbnail_data = response.read()
+    java_thumbnail_data = jpype.JArray(jpype.JByte)(thumbnail_data)
+    thumbnail = presentation.getImages().addImage(java_thumbnail_data)
+    video_frame.getPictureFormat().getPicture().setImage(thumbnail)
 
-    presentation.save("out.pptx", SaveFormat.Pptx)
+    presentation.save("online_video.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **剪裁视频帧**
+## **全屏播放视频**
 
-Aspose.Slides 允许您通过在 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/#setTrimFromStart) 和 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/#setTrimFromEnd) 中设置 trim-from-start 和 trim-from-end 值来控制播放的视频片段。两个值均以毫秒为单位，定义了从视频开头和结尾分别跳过的时间。这些设置更改演示文稿中的视频播放设置；它们不会剪切或以其他方式修改嵌入视频的二进制数据。
+在培训演示中，您可以以全屏模式播放软件演示，让观众看到细节。调用 [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode) 并传入 `True` 可在播放期间启用此行为。
 
-**设置剪裁参数**
+此示例打开一个演示文稿，查找第一页上的第一个 [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/)，并启用全屏播放。输入的演示文稿必须至少在第一页包含一个已存在的视频帧。
 
-要创建视频帧并设置其剪裁参数：
+```python
+import jpype
+import asposeslides
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例。
-1. 添加一个 [Video](https://reference.aspose.com/slides/zh/python-java/aspose.slides/video/) 对象到演示文稿。
-1. 添加一个 [VideoFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/) 对象到幻灯片。
-1. 通过 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/#setTrimFromStart) 和 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/#setTrimFromEnd) 设置 trim-from-start 和 trim-from-end 值。
-1. 保存修改后的演示文稿。
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-以下代码示例在播放期间跳过嵌入视频的前 2.5 秒和最后 1 秒：
+from asposeslides.api import Presentation, SaveFormat, VideoFrame
+
+presentation = Presentation("training.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if isinstance(shape, VideoFrame):
+            shape.setFullScreenMode(True)
+            break
+
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+全屏播放控制视频的显示方式。独立地，[setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) 控制是自动播放还是点击播放，[setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) 控制是否循环。要选择启动行为，请将播放模式设置为 [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/)。示例保留了现有的启动和循环设置。
+
+## **播放后倒回视频**
+
+在培训演示中，将演示视频倒回到起始位置可以让演示者再次播放。调用 [setRewindVideo](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setRewindVideo) 并传入 `True` 可在播放结束后将视频返回到开头。
+
+此示例打开演示文稿，查找第一页上的第一个 [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/)，并启用倒回。它禁用循环以让播放完成，并将播放设置为点击启动。输入的演示文稿必须至少在第一页包含一个现有的视频帧。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, VideoFrame, VideoPlayModePreset
+
+presentation = Presentation("training.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if isinstance(shape, VideoFrame):
+            shape.setRewindVideo(True)
+            shape.setPlayLoopMode(False)
+            shape.setPlayMode(VideoPlayModePreset.OnClick)
+            break
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+倒回会将视频返回到起始位置而不再次启动。相反，调用 [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) 并传入 `True` 会自动循环播放。当您希望视频播放完毕后保持可重新播放状态时，请禁用循环。[setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) 独立控制自动或点击启动；本示例使用 [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/)，因此由演示者控制何时开始播放。请按示例所示先设置循环，再设置播放模式。倒回与 [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode) 无关，独立工作。
+
+## **剪辑视频帧**
+
+使用 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromStart) 和 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromEnd) 可在播放时跳过视频的开头或结尾部分。两者的数值单位为毫秒。剪辑会更改播放设置，但不会修改嵌入的视频数据。
+
+**设置剪辑参数**
+
+此示例嵌入本地视频，并在播放时跳过前 2.5 秒和最后 1 秒。请使用时长超过 3.5 秒的视频，以保证仍有可播放的片段。
 
 ```python
 from pathlib import Path
@@ -157,24 +204,25 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
+    slide = presentation.getSlides().get_Item(0)
+
     video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video)
 
     video_frame.setTrimFromStart(2500.0)
     video_frame.setTrimFromEnd(1000.0)
+
     presentation.save("video_with_trim.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**读取剪裁参数**
+**读取剪辑参数**
 
-要检查现有的剪裁参数，加载演示文稿，查找第一张幻灯片上的形状中 [VideoFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/) 对象，并通过 [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/#getTrimFromStart) 和 [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/#getTrimFromEnd) 读取这些值。
-
-以下代码示例查找第一张幻灯片上的第一个视频帧，并以毫秒为单位报告其剪裁参数：
+此示例以毫秒为单位打印第一页上第一个视频帧的剪辑数值。演示文稿必须至少包含一页。如果该页没有视频帧，则不输出任何内容。前面的示例会产生 2500 和 1000 的值。
 
 ```python
 import jpype
@@ -188,6 +236,7 @@ from asposeslides.api import Presentation, VideoFrame
 presentation = Presentation("video_with_trim.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             trim_from_start = shape.getTrimFromStart()
@@ -201,17 +250,11 @@ finally:
 
 ## **管理视频字幕**
 
-Aspose.Slides 允许您管理 PowerPoint 演示文稿中视频帧的闭合字幕。字幕以 WebVTT 格式存储，可通过 [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/#getCaptionTracks) 方法获取。
+Aspose.Slides 允许您管理 PowerPoint 演示文稿中视频帧的闭合字幕。字幕以 WebVTT 格式存储，可通过 [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks) 方法获取。
 
 **向视频帧添加字幕**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例。
-1. 向演示文稿添加 video。
-1. 添加一个 [VideoFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/) 对象到幻灯片。
-1. 使用 [getCaptionTracks](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/#getCaptionTracks) 返回的 [CaptionsCollection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/) 添加 WebVTT 字幕轨道。
-1. 保存修改后的演示文稿。
-
-以下代码演示了如何向视频帧添加字幕：
+此示例嵌入本地视频，并添加标记为 English 的 WebVTT 字幕轨道。字幕时间戳应与视频对应。保存的演示文稿同时包含视频和字幕。
 
 ```python
 from pathlib import Path
@@ -226,29 +269,27 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
+    slide = presentation.getSlides().get_Item(0)
+
     video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
-    # 添加来自 WebVTT 文件的新字幕轨道。
+    # 添加一个来自 WebVTT 文件的新字幕轨道。
     video_frame.getCaptionTracks().add("English", "track.vtt")
+
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-[CaptionsCollection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/) 类还提供了一个重载，允许您从流中添加字幕。
+[CaptionsCollection](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/) 类还提供了一个重载，允许您从流中添加字幕。
 
 **从视频帧提取字幕**
 
-1. 加载包含视频的演示文稿。
-1. 找到目标 [VideoFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/) 对象。
-1. 遍历 [CaptionsCollection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/) 中的字幕轨道。
-1. 将每个字幕轨道保存为 `.vtt` 文件。
-
-以下代码演示了如何从视频帧提取字幕：
+此示例将第一页上所有视频帧的字幕轨道保存为单独的 WebVTT 文件。使用顺序编号以保持输出文件唯一。控制台会报告提取的轨道数量。演示文稿必须至少包含一页。
 
 ```python
 from pathlib import Path
@@ -264,27 +305,26 @@ from asposeslides.api import Presentation, VideoFrame
 presentation = Presentation("video_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
+    track_count = 0
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             for caption_track in shape.getCaptionTracks():
-                # 将字幕轨道保存为 WebVTT 文件。
-                file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
+                track_count += 1
+                output_path = Path(f"captions_{track_count}.vtt")
                 caption_data = bytes(caption_track.getBinaryData())
-                file_path.write_bytes(caption_data)
+                output_path.write_bytes(caption_data)
+
+    print(f"Caption tracks extracted: {track_count}")
 finally:
     presentation.dispose()
 ```
 
-每个 [Captions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captions/) 对象公开字幕标识符、标签、二进制数据以及以 UTF-8 字符串形式的字幕文本。
+每个 [Captions](https://reference.aspose.com/slides/python-java/aspose.slides/captions/) 对象公开字幕标识符、标签、二进制数据以及 UTF-8 字符串形式的字幕文本。
 
 **从视频帧移除字幕**
 
-1. 加载包含视频的演示文稿。
-1. 获取目标 [VideoFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/) 对象。
-1. 从 [CaptionsCollection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/) 中移除字幕轨道。
-1. 保存修改后的演示文稿。
-
-以下代码演示了如何从视频帧中移除所有字幕：
+此示例移除第一页第一形状位置视频帧的所有字幕并保存结果。它假设该页和形状存在且该形状是视频帧。
 
 ```python
 import jpype
@@ -298,10 +338,12 @@ from asposeslides.api import Presentation, SaveFormat, VideoFrame
 presentation = Presentation("video_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     video_frame = slide.getShapes().get_Item(0)
     if isinstance(video_frame, VideoFrame):
         # 删除视频帧中的所有字幕。
         video_frame.getCaptionTracks().clear()
+        
         presentation.save("video_without_captions.pptx", SaveFormat.Pptx)
     else:
         print("The shape is not a video frame.")
@@ -309,18 +351,13 @@ finally:
     presentation.dispose()
 ```
 
-如果只需要移除单个字幕轨道，请使用 [remove](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/#removeAt) 方法，而不是 [clear](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/#clear)。
+如果只需移除单个字幕轨道，请使用 [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) 方法，而不是 [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear)。
 
-## **从幻灯片提取视频**
+## **从幻灯片中提取视频**
 
-除了向幻灯片添加视频外，Aspose.Slides 还允许您提取嵌入演示文稿中的视频。
+除了向幻灯片添加视频外，Aspose.Slides 还可以提取嵌入在演示文稿中的视频。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例以加载包含视频的演示文稿。
-2. 遍历所有的 [Slide](https://reference.aspose.com/slides/zh/python-java/aspose.slides/slide/) 对象。
-3. 遍历所有的 [Shape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/) 对象以查找 [VideoFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/)。
-4. 将视频保存到磁盘。
-
-以下 Python 代码演示了如何提取演示文稿幻灯片中的视频：
+此示例将每页上的嵌入视频提取为单独的、带编号的二进制文件。链接视频会被跳过，因为它们没有嵌入数据。控制台打印每个视频的 MIME 类型和总计数。输出使用通用的 `.bin` 扩展名；如有需要可改为匹配报告的媒体类型。
 
 ```python
 from pathlib import Path
@@ -333,37 +370,42 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, VideoFrame
 
-presentation = Presentation("VideoSample.pptx")
+presentation = Presentation("presentation_with_videos.pptx")
 try:
+    video_count = 0
     for slide in presentation.getSlides():
         for shape in slide.getShapes():
             if isinstance(shape, VideoFrame):
                 video = shape.getEmbeddedVideo()
-                if video is not None:
-                    content_type = str(video.getContentType())
-                    file_extension = content_type.split("/", 1)[-1]
-                    video_data = bytes(video.getBinaryData())
-                    Path("testing2." + file_extension).write_bytes(video_data)
-                else:
-                    print("The video frame has no embedded video.")
+                if video is None:
+                    print("Skipped a linked video: no embedded data is available.")
+                    continue
+
+                video_count += 1
+                output_path = Path(f"extracted_video_{video_count}.bin")
+                video_data = bytes(video.getBinaryData())
+                output_path.write_bytes(video_data)
+                print(f"Video {video_count}: {video.getContentType()}")
+
+    print(f"Embedded videos extracted: {video_count}")
 finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **常见问题**
 
-**可以更改 VideoFrame 的哪些视频播放参数？**
+**可以更改视频帧的哪些播放参数？**
 
-您可以通过 VideoFrame 对象的属性控制 [playback mode](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/#setPlayMode)（自动或单击）和 [looping](https://reference.aspose.com/slides/zh/python-java/aspose.slides/videoframe/#setPlayLoopMode)。这些选项可通过 VideoFrame 对象的属性获得。
+您可以控制 [playback mode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode)（自动或点击）和 [looping](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode)。这些选项可通过 [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) 对象的方法使用。
 
 **添加视频会影响 PPTX 文件大小吗？**
 
-会。嵌入本地视频时，二进制数据会包含在文档中，演示文稿大小会随文件大小等比例增加。添加在线视频时，只会嵌入链接和缩略图，因此大小增幅较小。
+是的。嵌入本地视频时，二进制数据会包含在文档中，演示文稿大小会随文件大小成比例增长。若链接到在线视频并添加缩略图，演示文稿只存储链接和预览图像而非视频数据，大小增长通常较小。
 
-**可以在不更改位置和大小的情况下替换现有 VideoFrame 中的视频吗？**
+**我可以在不更改位置和尺寸的情况下替换现有视频帧中的视频吗？**
 
-可以。您可以在保持形状几何不变的情况下交换帧内的视频内容，这在更新已有布局中的媒体时非常常见。
+可以。您可以在保持形状几何不变的情况下替换帧内的 [video content](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setEmbeddedVideo)；这是在现有布局中更新媒体的常见场景。
 
 **可以确定嵌入视频的内容类型（MIME）吗？**
 
-可以。嵌入的视频具有可读取的内容类型，例如在保存到磁盘时可使用该信息。
+可以。嵌入视频拥有可读取的 [content type](https://reference.aspose.com/slides/python-java/aspose.slides/video/#getContentType)，例如在保存到磁盘时使用。

@@ -1,5 +1,5 @@
 ---
-title: Video-Frames in Präsentationen mit Java verwalten
+title: Verwalten von Video-Frames in Präsentationen mit Java
 linktitle: Video-Frame
 type: docs
 weight: 10
@@ -17,161 +17,197 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides für Java programmgesteuert Video‑Frames in PowerPoint‑ und OpenDocument‑Folien hinzufügen und extrahieren. Schnelle Schritt‑für‑Schritt‑Anleitung."
+description: "Lernen Sie, wie Sie programmgesteuert Video-Frames in PowerPoint- und OpenDocument-Folien mit Aspose.Slides für Java hinzufügen und extrahieren. Schnelle Anleitung."
 ---
 ## **Einleitung**
 
-Ein gut platziertes Video in einer Präsentation kann Ihre Botschaft überzeugender machen und die Engagement‑Level Ihres Publikums erhöhen.  
+Videos können dabei helfen, Ideen zu erklären und ein Publikum zu fesseln. Aspose.Slides for Java ermöglicht das Hinzufügen von Videoframes zu Folien, das Anpassen von Wiedergabeeinstellungen, das Verwalten von Untertiteln und das Extrahieren eingebetteter Videodaten.
 
-PowerPoint ermöglicht es Ihnen, Videos auf einer Folie einer Präsentation auf zwei Arten hinzuzufügen:
+PowerPoint unterstützt lokale Videos und Links zu Online‑Videos, wie z. B. YouTube‑Videos.
 
-* Ein lokales Video hinzufügen oder einbetten (auf Ihrem Rechner gespeichert)
-* Ein Online‑Video hinzufügen (aus einer Web‑Quelle wie YouTube).
+Um Videodaten und Videoframes darzustellen, stellt Aspose.Slides das Interface [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) und das Interface [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) sowie weitere relevante Typen bereit.
 
-Damit Sie Videos (Video‑Objekte) zu einer Präsentation hinzufügen können, stellt Aspose.Slides das [IVideo](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideo/)‑Interface, das [IVideoFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/)‑Interface und weitere relevante Typen bereit. 
+## **Ein eingebettetes Video‑Frame erstellen**
 
-## **Erstellen eingebetteter Video‑Frames**
+Wenn die Videodatei, die Sie Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie ein Videoframe erstellen, um das Video in Ihre Präsentation einzubetten.
 
-Wenn die Videodatei, die Sie Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Video‑Frame erstellen, um das Video in Ihre Präsentation einzubetten. 
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/Presentation)‑Klasse.  
-1. Holen Sie die Referenz einer Folie anhand ihres Index.  
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideo/)‑Objekt hinzu und übergeben Sie den Pfad zur Videodatei, um das Video in die Präsentation einzubetten.  
-1. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/)‑Objekt hinzu, um einen Rahmen für das Video zu erstellen.  
-1. Speichern Sie die geänderte Präsentation.  
-
-Dieser Java‑Code zeigt, wie Sie ein lokal gespeichertes Video zu einer Präsentation hinzufügen:
+Dieses Beispiel bettet ein lokales Video auf der ersten Folie einer vorhandenen Präsentation ein und speichert das Ergebnis. Die Koordinaten und Abmessungen des Frames sind in Punkten angegeben. Der Stream bleibt geöffnet, bis das Speichern abgeschlossen ist, weil [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) ihn gesperrt hält, solange die Präsentation ihn verwendet.
 
 ```java
-// Instanziiert die Presentation-Klasse
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // Lädt das Video
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Holt die erste Folie und fügt einen Video-Frame hinzu
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+Presentation presentation = new Presentation("presentation.pptx");
+try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Speichert die Präsentation auf die Festplatte
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IVideo video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-Alternativ können Sie ein Video hinzufügen, indem Sie seinen Dateipfad direkt an die Methode [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) übergeben:
-
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **Erstellen von Video‑Frames mit Videos aus Web‑Quellen**
-
-Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube‑Videos in Präsentationen. Wenn das Video, das Sie verwenden möchten, online verfügbar ist (z. B. auf YouTube), können Sie es über seinen Web‑Link zu Ihrer Präsentation hinzufügen. 
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/Presentation)‑Klasse.  
-1. Holen Sie die Referenz einer Folie anhand ihres Index.  
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideo/)‑Objekt hinzu und übergeben Sie den Link zum Video.  
-1. Legen Sie ein Thumbnail für den Video‑Frame fest.  
-1. Speichern Sie die Präsentation.  
-
-Dieser Java‑Code zeigt, wie Sie ein Video aus dem Web zu einer Folie in einer PowerPoint‑Präsentation hinzufügen:
-
-```java
-// Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei repräsentiert
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // Fügt einen Video-Frame hinzu
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // Lädt das Thumbnail
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-```
-
-## **Trimmen eines Video‑Frames**
-
-Aspose.Slides ermöglicht es Ihnen, welchen Teil eines Videos Sie abspielen, indem Sie die Werte trim‑from‑start und trim‑from‑end über [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) und [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) festlegen. Beide Werte werden in Millisekunden angegeben und definieren, wie viel Zeit zu Beginn bzw. am Ende des Videos übersprungen wird. Diese Einstellungen ändern die Wiedergabe‑Parameter im Präsentations‑Video; sie schneiden das eingebettete Videobinary nicht zu oder ändern es anderweitig.
-
-**Trim‑Einstellungen festlegen**
-
-Um einen Video‑Frame zu erstellen und seine Trim‑Einstellungen festzulegen:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.  
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideo/)‑Objekt zur Präsentation hinzu.  
-1. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/)‑Objekt zu einer Folie hinzu.  
-1. Setzen Sie die Werte trim‑from‑start und trim‑from‑end über [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) und [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-).  
-1. Speichern Sie die geänderte Präsentation.  
-
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream videoStream = new FileInputStream("video.mp4");
-    try {
-        IVideo video = presentation.getVideos().addVideo(
-                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        ISlide slide = presentation.getSlides().get_Item(0);
-        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
-
-        videoFrame.setTrimFromStart(2500f);
-        videoFrame.setTrimFromEnd(1000f);
-
-        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
-    } finally {
-        videoStream.close();
-    }
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Trim‑Einstellungen auslesen**
-
-Um vorhandene Trim‑Einstellungen zu prüfen, laden Sie eine Präsentation, finden ein [IVideoFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/)‑Objekt unter den Formen der ersten Folie und lesen die Werte über [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/#getTrimFromStart--) und [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/#getTrimFromEnd--).
+Sie können zudem einen lokalen Videopfad direkt an [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-) übergeben. Dieses Beispiel bettet das Video auf der ersten Folie einer neuen Präsentation ein. Das Video muss bis zum Speichern der Präsentation zugänglich bleiben.
 
 ```java
-Presentation presentation = new Presentation("video_with_trim.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ein Video‑Frame mit Video aus einer Web‑Quelle erstellen**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) unterstützt Online‑Videos in Präsentationen. Sie können ein Video‑Frame erstellen, das auf ein Online‑Video, zum Beispiel ein YouTube‑Video, verlinkt.
+
+Dieses Beispiel fügt der ersten Folie einen YouTube‑Video‑Link und ein Vorschaubild hinzu. Ersetzen Sie den Video‑Bezeichner, um ein anderes Video zu verwenden. Die Methode [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) fordert die automatische Wiedergabe an. Das Herunterladen des Vorschaubilds und das Abspielen des Videos benötigen Internetzugang. Der Präsentations‑Viewer muss außerdem die Online‑Video‑Wiedergabe unterstützen.
+
+```java
+import com.aspose.slides.*;
+import java.io.InputStream;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String videoId = "aqz-KE-bpKQ";
+    String videoUrl = "https://www.youtube.com/embed/" + videoId;
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    URL thumbnailLocation = new URL(thumbnailUrl);
+    try (InputStream thumbnailStream = thumbnailLocation.openStream()) {
+        IPPImage thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    }
+
+    presentation.save("online_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ein Video im Vollbildmodus abspielen**
+
+In einer Schulungspräsentation können Sie eine Software‑Demonstration im Vollbildmodus abspielen, damit das Publikum die Details sehen kann. Rufen Sie [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) mit `true` auf, um dieses Verhalten während der Wiedergabe zu aktivieren.
+
+Dieses Beispiel öffnet eine Präsentation, findet das erste [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) auf der ersten Folie und aktiviert die Wiedergabe im Vollbildmodus. Die Eingabepräsentation muss mindestens eine Folie mit einem bereits vorhandenen Video‑Frame auf der ersten Folie enthalten.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
-            float trimFromStart = videoFrame.getTrimFromStart();
-            float trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            System.out.println("Trim from start: " + trimFromStart + " ms");
-            System.out.println("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Die Vollbild‑Wiedergabe bestimmt, wie das Video angezeigt wird. Unabhängig davon steuert [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) ob es automatisch oder per Klick startet, und [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) legt fest, ob es wiederholt wird. Um das Startverhalten zu wählen, setzen Sie den Wiedergabemodus auf [VideoPlayModePreset.Auto oder VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/). Das Beispiel bewahrt die vorhandenen Start‑ und Schleife‑Einstellungen.
+
+## **Ein Video nach der Wiedergabe zurückspulen**
+
+In einer Schulungspräsentation stellt das Zurückspulen eines Demonstrationsvideos zum Anfang sicher, dass es vom Vortragenden erneut abgespielt werden kann. Rufen Sie [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) mit `true` auf, um das Video nach Abschluss der Wiedergabe zum Anfang zurückzusetzen.
+
+Dieses Beispiel öffnet eine Präsentation, findet das erste [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) auf der ersten Folie und aktiviert das Zurückspulen. Es deaktiviert die Schleife, damit die Wiedergabe beendet werden kann, und legt die Wiedergabe so fest, dass sie per Klick startet. Die Eingabepräsentation muss mindestens eine Folie mit einem vorhandenen Video‑Frame auf der ersten Folie enthalten.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Zurückspulen setzt das Video auf den Anfang zurück, ohne es erneut zu starten. Im Gegensatz dazu wiederholt ein Aufruf von [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) mit `true` die Wiedergabe automatisch. Deaktivieren Sie die Schleife, wenn das Video zu Ende laufen und bereit für eine erneute Wiedergabe sein soll. [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) steuert unabhängig davon, ob die Wiedergabe automatisch oder per Klick startet; dieses Beispiel verwendet [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/), sodass der Vortragende bestimmt, wann die Wiedergabe beginnt. Setzen Sie den Wiedergabemodus nach der Schleifeinstellung, wie im Beispiel gezeigt. Das Zurückspulen funktioniert unabhängig von [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+
+## **Ein Video‑Frame zuschneiden**
+
+Verwenden Sie [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) und [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-), um zu Beginn oder am Ende eines Videos während der Wiedergabe einen Teil zu überspringen. Beide Werte sind in Millisekunden angegeben. Das Zuschneiden ändert die Wiedergabeeinstellungen, ohne die eingebetteten Videodaten zu verändern.
+
+**Trim-Einstellungen festlegen**
+
+Dieses Beispiel bettet ein lokales Video ein und überspringt während der Wiedergabe die ersten 2,5 Sekunden und die letzte Sekunde. Verwenden Sie ein Video, das länger als 3,5 Sekunden ist, damit ein abspielbarer Abschnitt erhalten bleibt.
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    Path videoPath = Paths.get("video.mp4");
+    byte[] videoData = Files.readAllBytes(videoPath);
+    IVideo video = presentation.getVideos().addVideo(videoData);
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500f);
+    videoFrame.setTrimFromEnd(1000f);
+
+    presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Trim-Einstellungen auslesen**
+
+Dieses Beispiel gibt die Trimmwerte des ersten Video‑Frames auf der ersten Folie in Millisekunden aus. Die Präsentation muss mindestens eine Folie enthalten. Hat diese Folie keinen Video‑Frame, wird nichts ausgegeben. Das vorherige Beispiel erzeugt die Werte 2500 und 1000.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            System.out.println("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            System.out.println("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -180,28 +216,29 @@ try {
 }
 ```
 
-## **Verwalten von Video‑Untertiteln**
+## **Video‑Captions verwalten**
 
-Aspose.Slides erlaubt es Ihnen, geschlossene Untertitel für Video‑Frames in PowerPoint‑Präsentationen zu verwalten. Untertitel werden im WebVTT‑Format gespeichert und über die Methode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) bereitgestellt.
+Aspose.Slides ermöglicht das Verwalten von Closed‑Captions für Video‑Frames in PowerPoint‑Präsentationen. Captions werden im WebVTT‑Format gespeichert und über die Methode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) bereitgestellt.
 
-**Untertitel zu einem Video‑Frame hinzufügen**
+**Captions zu einem Video‑Frame hinzufügen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.  
-1. Fügen Sie ein Video zur Präsentation hinzu.  
-1. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/)‑Objekt zu einer Folie hinzu.  
-1. Verwenden Sie die von [getCaptionTracks](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) zurückgegebene [ICaptionsCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/icaptionscollection/), um einen WebVTT‑Untertitel‑Track hinzuzufügen.  
-1. Speichern Sie die geänderte Präsentation.  
+Dieses Beispiel bettet ein lokales Video ein und fügt eine WebVTT‑Caption‑Spur mit dem Label English hinzu. Die Zeitstempel der Captions sollten zum Video passen. Die gespeicherte Präsentation enthält sowohl das Video als auch seine Captions.
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = Files.readAllBytes(Paths.get("video.mp4"));
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    Path videoPath = Paths.get("video.mp4");
+    byte[] videoData = Files.readAllBytes(videoPath);
     IVideo video = presentation.getVideos().addVideo(videoData);
 
-    ISlide slide = presentation.getSlides().get_Item(0);
     IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
-
-    // Fügt einen neuen Untertitel-Track aus einer WebVTT-Datei hinzu.
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -210,50 +247,54 @@ try {
 }
 ```
 
-Das [ICaptionsCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/icaptionscollection/)‑Interface bietet zudem eine Überladung, mit der Sie Untertitel aus einem Stream hinzufügen können.
+Das Interface [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) bietet ebenfalls eine Überladung, mit der Sie Captions aus einem Stream hinzufügen können.
 
-**Untertitel aus einem Video‑Frame extrahieren**
+**Captions aus einem Video‑Frame extrahieren**
 
-1. Laden Sie die Präsentation, die das Video enthält.  
-1. Finden Sie das Ziel‑[IVideoFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/)‑Objekt.  
-1. Durchlaufen Sie die Untertitel‑Tracks in der [ICaptionsCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/icaptionscollection/).  
-1. Speichern Sie jeden Untertitel‑Track in einer `.vtt`‑Datei.  
+Dieses Beispiel speichert alle Caption‑Spuren von Video‑Frames auf der ersten Folie als separate WebVTT‑Dateien. Fortlaufende Nummern halten die Ausgabedateien eindeutig. Die Konsole gibt die Anzahl der extrahierten Spuren aus. Die Präsentation muss mindestens eine Folie enthalten.
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    int trackCount = 0;
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
-            IVideoFrame videoFrame = (IVideoFrame)shape;
+            IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // Speichert den Untertitel-Track in einer WebVTT-Datei.
-                String filePath = captionTrack.getCaptionId().toString() + ".vtt";
-                Files.write(Paths.get(filePath), captionTrack.getBinaryData());
+                trackCount++;
+                Path outputPath = Paths.get("captions_" + trackCount + ".vtt");
+                Files.write(outputPath, captionTrack.getBinaryData());
             }
         }
     }
+
+    System.out.println("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-Jedes [ICaptions](https://reference.aspose.com/slides/de/java/com.aspose.slides/icaptions/)‑Objekt gibt die Untertitel‑Kennung, das Label, die Binärdaten und den Untertiteltext als UTF‑8‑Zeichenkette zurück.
+Jedes [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/)‑Objekt stellt den Caption‑Bezeichner, das Label, die Binärdaten und den Caption‑Text als UTF‑8‑Zeichenkette bereit.
 
-**Untertitel aus einem Video‑Frame entfernen**
+**Captions von einem Video‑Frame entfernen**
 
-1. Laden Sie die Präsentation, die das Video enthält.  
-1. Holen Sie das Ziel‑[IVideoFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ivideoframe/)‑Objekt.  
-1. Entfernen Sie Untertitel‑Tracks aus der [ICaptionsCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/icaptionscollection/).  
-1. Speichern Sie die geänderte Präsentation.  
+Dieses Beispiel entfernt alle Captions vom Video‑Frame an der ersten Shape‑Position auf der ersten Folie und speichert das Ergebnis. Es wird davon ausgegangen, dass die Folie und das Shape existieren und dass das Shape ein Video‑Frame ist.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = (IVideoFrame)slide.getShapes().get_Item(0);
 
-    // Entfernt alle Untertitel aus dem Video-Frame.
+    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -262,65 +303,61 @@ try {
 }
 ```
 
-Falls Sie nur einen Untertitel‑Track entfernen müssen, verwenden Sie die Methoden [remove](https://reference.aspose.com/slides/de/java/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) oder [removeAt](https://reference.aspose.com/slides/de/java/com.aspose.slides/icaptionscollection/#removeAt-int-) statt [clear](https://reference.aspose.com/slides/de/java/com.aspose.slides/icaptionscollection/#clear--).
+Wenn Sie nur eine Caption‑Spur entfernen müssen, verwenden Sie die Methoden [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) oder [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) , anstatt [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--).
 
-## **Video aus Folien extrahieren**
+## **Video aus einer Folie extrahieren**
 
-Neben dem Hinzufügen von Videos zu Folien erlaubt Aspose.Slides das Extrahieren von in Präsentationen eingebetteten Videos.
+Neben dem Hinzufügen von Videos zu Folien ermöglicht Aspose.Slides das Extrahieren von in Präsentationen eingebetteten Videos.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/Presentation)‑Klasse, um die Präsentation zu laden, die das Video enthält.  
-2. Durchlaufen Sie alle [ISlide](https://reference.aspose.com/slides/de/java/com.aspose.slides/islide/)‑Objekte.  
-3. Durchlaufen Sie alle [IShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/)‑Objekte, um ein [VideoFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/videoframe/) zu finden.  
-4. Speichern Sie das Video auf dem Datenträger.  
-
-Dieser Java‑Code zeigt, wie Sie das Video einer Präsentationsfolie extrahieren:
+Dieses Beispiel extrahiert eingebettete Videos von jeder Folie in separate, nummerierte Binärdateien. Verknüpfte Videos werden übersprungen, da sie keine eingebetteten Daten besitzen. Die Konsole gibt den MIME‑Typ jedes Videos und die Gesamtanzahl aus. Die Ausgabe verwendet die generische Erweiterung `.bin`; passen Sie sie bei Bedarf dem gemeldeten Medientyp an.
 
 ```java
-// Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
-Presentation pres = new Presentation("VideoSample.pptx");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("presentation_with_videos.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
+    int videoCount = 0;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                IVideoFrame videoFrame = (IVideoFrame) shape;
+                IVideo video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    System.out.println("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
 
-                //Ermittelt die Dateierweiterung
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                videoCount++;
+                Path outputPath = Paths.get("extracted_video_" + videoCount + ".bin");
+                Files.write(outputPath, video.getBinaryData());
+                System.out.println("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (IOException e) {
+
+    System.out.println("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Welche Video‑Wiedergabe‑Parameter können für einen VideoFrame geändert werden?**
+**Welche Videowiedergabe‑Parameter können für ein Video‑Frame geändert werden?**
 
-Sie können den [Wiedergabemodus](https://reference.aspose.com/slides/de/java/com.aspose.slides/videoframe/#setPlayMode-int-) (automatisch oder bei Klick) und das [Looping](https://reference.aspose.com/slides/de/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) steuern. Diese Optionen stehen über die Eigenschaften des [VideoFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/videoframe/)‑Objekts zur Verfügung.
+Sie können den [playback mode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (automatisch oder per Klick) und das [looping](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) steuern. Diese Optionen stehen über die Methoden des [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/)‑Objekts zur Verfügung.
 
-**Beeinflusst das Hinzufügen eines Videos die PPTX‑Dateigröße?**
+**Beeinflusst das Hinzufügen eines Videos die PPTX-Dateigröße?**
 
-Ja. Beim Einbetten eines lokalen Videos werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße wächst. Beim Hinzufügen eines Online‑Videos werden ein Link und ein Thumbnail eingebettet, sodass der Größenzuwachs geringer ist.
+Ja. Wenn Sie ein lokales Video einbetten, werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße wächst. Wenn Sie auf ein Online‑Video verlinken und ein Vorschaubild hinzufügen, speichert die Präsentation den Link und das Vorschaubild statt der Videodaten, sodass die Größenzunahme in der Regel geringer ist.
 
-**Kann ich das Video in einem bestehenden VideoFrame ersetzen, ohne Position und Größe zu ändern?**
+**Kann ich das Video in einem vorhandenen Video‑Frame ersetzen, ohne Position und Größe zu ändern?**
 
-Ja. Sie können den [Video‑Inhalt](https://reference.aspose.com/slides/de/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) innerhalb des Frames austauschen und gleichzeitig die Geometrie der Form beibehalten; dies ist ein häufiges Szenario zum Aktualisieren von Medien in einem bestehenden Layout.
+Ja. Sie können den [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) innerhalb des Frames austauschen, während Sie die Geometrie des Shapes beibehalten; dies ist ein häufiges Szenario zum Aktualisieren von Medien in einem bestehenden Layout.
 
-**Kann der Inhaltstyp (MIME) eines eingebetteten Videos ermittelt werden?**
+**Kann der Content‑Typ (MIME) eines eingebetteten Videos bestimmt werden?**
 
-Ja. Ein eingebettetes Video verfügt über einen [Content‑Type](https://reference.aspose.com/slides/de/java/com.aspose.slides/video/#getContentType--), den Sie auslesen und z. B. beim Speichern auf dem Datenträger verwenden können.
+Ja. Ein eingebettetes Video verfügt über einen [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) , den Sie auslesen und beispielsweise beim Speichern auf die Festplatte verwenden können.

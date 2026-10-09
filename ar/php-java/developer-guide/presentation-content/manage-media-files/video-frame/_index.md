@@ -17,123 +17,37 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint و OpenDocument باستخدام Aspose.Slides للـ PHP عبر Java. دليل سريع عملي."
+description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides for PHP عبر Java. دليل سريع عملي."
 ---
 ## **المقدمة**
 
-يمكن أن يجعل الفيديو الموجود في المكان المناسب داخل العرض التقديمي رسالتك أكثر إقناعًا ويزيد من مستويات التفاعل مع الجمهور.
+يمكن للفيديوهات أن تساعد في شرح الأفكار وإشراك الجمهور. تتيح لك Aspose.Slides for PHP عبر Java إضافة إطارات فيديو إلى الشرائح، وضبط إعدادات التشغيل، وإدارة الترجمات، واستخراج بيانات الفيديو المضمنة.
 
-يسمح PowerPoint بإضافة مقاطع فيديو إلى شريحة في العرض التقديمي بطريقتين:
+يدعم PowerPoint الفيديوهات المحلية والروابط إلى الفيديوهات على الإنترنت، مثل فيديوهات YouTube.
 
-* إضافة أو تضمين فيديو محلي (مخزن على جهازك)
-* إضافة فيديو عبر الإنترنت (من مصدر ويب مثل YouTube).
+لتمثيل بيانات الفيديو وإطارات الفيديو، توفر Aspose.Slides الفئة [فيديو](https://reference.aspose.com/slides/php-java/aspose.slides/video/)، الفئة [إطار فيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/)، وأنواع أخرى ذات صلة.
 
-لإضافة مقاطع فيديو (كائنات فيديو) إلى العرض التقديمي، توفر Aspose.Slides الفئة [Video](https://reference.aspose.com/slides/ar/php-java/aspose.slides/video/) والفئة [VideoFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/) وأنواع أخرى ذات صلة.
+## **إنشاء إطار فيديو مضمّن**
 
-## **إنشاء إطارات فيديو مضمَّنة**
+إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزّنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في عرضك التقديمي.
 
-إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في العرض التقديمي.
-
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).  
-1. الحصول على مرجع الشريحة عبر فهرستها.  
-1. إضافة كائن [Video](https://reference.aspose.com/slides/ar/php-java/aspose.slides/video/) وتمرير مسار ملف الفيديو لتضمينه مع العرض التقديمي.  
-1. إضافة كائن [VideoFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/) لإنشاء إطار للفيديو.  
-1. حفظ العرض التقديمي المعدل.  
-
-هذا المثال بلغة PHP يوضح كيفية إضافة فيديو مخزن محليًا إلى العرض التقديمي:
+يقوم هذا المثال بتضمين فيديو محلي على الشريحة الأولى من عرض تقديمي موجود ويحفظ النتيجة. إحداثيات الإطار وأبعاده بوحدات النقاط. يبقى التيار مفتوحًا حتى ينتهي الحفظ لأن [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) يبقيه مقفولًا أثناء استخدام العرض التقديمي له.
 
 ```php
-  # ينشئ فئة Presentation
-  $pres = new Presentation("pres.pptx");
-  try {
-    # يحمل الفيديو
-    $fileStream = new Java("java.io.FileInputStream", "Wildlife.mp4");
-    $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
-    # يحصل على الشريحة الأولى ويضيف إطار فيديو
-    $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
-    # يحفظ العرض التقديمي إلى القرص
-    $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\LoadingStreamBehavior;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-بدلاً من ذلك، يمكنك إضافة فيديو عن طريق تمرير مسار الملف مباشرةً إلى الطريقة [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addvideoframe/):
-
-```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $vf = $sld->getShapes()->addVideoFrame(50, 150, 300, 150, "video1.avi");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **إنشاء إطارات فيديو من مصادر ويب**
-
-يدعم Microsoft [PowerPoint 2013 والإصدارات الأحدث](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) مقاطع الفيديو من YouTube في العروض التقديمية. إذا كان الفيديو الذي تريد استخدامه متاحًا عبر الإنترنت (مثل YouTube)، يمكنك إضافته إلى العرض التقديمي من خلال رابطه على الويب.
-
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).  
-1. الحصول على مرجع الشريحة عبر فهرستها.  
-1. إضافة كائن [Video](https://reference.aspose.com/slides/ar/php-java/aspose.slides/video/) وتمرير رابط الفيديو.  
-1. تعيين صورة مصغرة لإطار الفيديو.  
-1. حفظ العرض التقديمي.  
-
-هذا المثال بلغة PHP يوضح كيفية إضافة فيديو من الويب إلى شريحة في عرض PowerPoint:
-
-```php
-  # ينشئ كائن Presentation يمثل ملف عرض تقديمي
-  $pres = new Presentation();
-  try {
-    addVideoFromYouTube($pres, "Tj75Arhq5ho");
-    $pres->save("out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-```php
-
-```
-
-## **قَص إطار الفيديو**
-
-تتيح Aspose.Slides التحكم في الجزء الذي يُشغَّل من الفيديو عن طريق تعيين قيمتي القطع من البداية والقطع من النهاية عبر [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/#setTrimFromStart) و[VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/#setTrimFromEnd). تُحدَّد القيمتين بالميليثانية وتحدد مقدار الوقت المُتَخطى من بداية ونهاية الفيديو على التوالي. تُغيِّر هذه الإعدادات طريقة تشغيل الفيديو في العرض التقديمي؛ ولا تقوم بقطع أو تعديل بيانات الفيديو المضمَّنة.
-
-**تعيين إعدادات القطع**
-
-لإنشاء إطار فيديو وتعيين إعدادات القطع الخاصة به:
-
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).  
-1. إضافة كائن [Video](https://reference.aspose.com/slides/ar/php-java/aspose.slides/video/) إلى العرض التقديمي.  
-1. إضافة كائن [VideoFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/) إلى شريحة.  
-1. تعيين قيمتي القطع من البداية والقطع من النهاية عبر [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/#setTrimFromStart) و[VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/#setTrimFromEnd).  
-1. حفظ العرض التقديمي المعدل.  
-
-الكود التالي يتخطى أول 2.5 ثانية وآخر ثانية من الفيديو المضمَّن أثناء التشغيل:
-
-```php
-$presentation = new Presentation();
+$presentation = new Presentation("presentation.pptx");
 $videoStream = null;
 try {
     $videoStream = new Java("java.io.FileInputStream", "video.mp4");
-    $video = $presentation->getVideos()->addVideo(
-        $videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
     $slide = $presentation->getSlides()->get_Item(0);
-    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
 
-    $videoFrame->setTrimFromStart(2500);
-    $videoFrame->setTrimFromEnd(1000);
+    $video = $presentation->getVideos()->addVideo($videoStream, LoadingStreamBehavior::KeepLocked);
+    $slide->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
 
-    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+    $presentation->save("embedded_video.pptx", SaveFormat::Pptx);
 } finally {
     if ($videoStream !== null) {
         $videoStream->close();
@@ -142,26 +56,176 @@ try {
 }
 ```
 
-**قراءة إعدادات القطع**
-
-لفحص إعدادات القطع الحالية، حمِّل عرض تقديمي، ابحث عن كائن [VideoFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/) بين الأشكال في الشريحة الأولى، واقرأ القيم عبر [VideoFrame::getTrimFromStart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/#getTrimFromStart) و[VideoFrame::getTrimFromEnd](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/#getTrimFromEnd).
-
-الكود التالي يجد أول إطار فيديو في الشريحة الأولى ويُظهر إعدادات القطع بالميليثانية:
+يمكنك أيضًا تمرير مسار الفيديو المحلي مباشرة إلى [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). يقوم هذا المثال بتضمين الفيديو على الشريحة الأولى من عرض تقديمي جديد. يجب أن يظل الفيديو متاحًا حتى يتم حفظ العرض التقديمي.
 
 ```php
-$presentation = new Presentation("video_with_trim.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    $presentation->save("video_from_path.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **إنشاء إطار فيديو مع فيديو من مصدر ويب**
+
+يدعم Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) الفيديوهات عبر الإنترنت في العروض التقديمية. يمكنك إنشاء إطار فيديو يرتبط بفيديو عبر الإنترنت، مثل فيديو YouTube.
+
+يضيف هذا المثال رابط فيديو YouTube وصورة مصغرة إلى الشريحة الأولى. استبدل معرف الفيديو لاستخدام فيديو آخر. طريقة [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) تطلب تشغيلًا تلقائيًا. تنزيل الصورة المصغرة وتشغيل الفيديو يتطلبان اتصالًا بالإنترنت. يجب أن يدعم عارض العرض التقديمي أيضًا تشغيل الفيديو عبر الإنترنت.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\VideoPlayModePreset;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoId = "aqz-KE-bpKQ";
+    $videoUrl = "https://www.youtube.com/embed/" . $videoId;
+    $videoFrame = $slide->getShapes()->addVideoFrame(10, 10, 427, 240, $videoUrl);
+    $videoFrame->setPlayMode(VideoPlayModePreset::Auto);
+
+    $thumbnailUrl = "https://img.youtube.com/vi/" . $videoId . "/hqdefault.jpg";
+    $thumbnailLocation = new Java("java.net.URL", $thumbnailUrl);
+    $thumbnailStream = $thumbnailLocation->openStream();
+    try {
+        $thumbnail = $presentation->getImages()->addImage($thumbnailStream);
+        $videoFrame->getPictureFormat()->getPicture()->setImage($thumbnail);
+    } finally {
+        $thumbnailStream->close();
+    }
+
+    $presentation->save("online_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **تشغيل فيديو في وضع ملء الشاشة**
+
+في عرض تدريبي، يمكنك تشغيل عرض توضيحي للبرنامج في وضع ملء الشاشة بحيث يراها الجمهور بالتفصيل. استدعِ [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) مع `true` لتمكين هذا السلوك أثناء التشغيل.
+
+يفتح هذا المثال عرضًا تقديميًا، يجد أول [إطار فيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) في الشريحة الأولى، ويفعل تشغيل ملء الشاشة. يجب أن يحتوي العرض التقديمي المدخل على شريحة واحدة على الأقل مع إطار فيديو موجود في الشريحة الأولى.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("training.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $shapeCount = java_values($slide->getShapes()->size());
     for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
         $shape = $slide->getShapes()->get_Item($shapeIndex);
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
             $videoFrame = $shape;
-            $trimFromStart = java_values($videoFrame->getTrimFromStart());
-            $trimFromEnd = java_values($videoFrame->getTrimFromEnd());
+            $videoFrame->setFullScreenMode(true);
+            break;
+        }
+    }
 
-            echo "Trim from start: " . $trimFromStart . " ms\n";
-            echo "Trim from end: " . $trimFromEnd . " ms\n";
+    $presentation->save("full_screen_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+تشغيل ملء الشاشة يتحكم في طريقة عرض الفيديو. بشكل مستقل، تتحكم [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) في ما إذا كان يبدأ تلقائيًا أو عند النقر، وتتحكم [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) في ما إذا كان يكرّر. لاختيار سلوك البدء، عيّن وضع التشغيل إلى [VideoPlayModePreset::Auto أو VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). يحافظ المثال على إعدادات البدء والتكرار الحالية.
+
+## **إعادة تموضع الفيديو بعد التشغيل**
+
+في عرض تدريبي، إعادة تشغيل فيديو التوضيح إلى بدايته يجعلها جاهزة للمقدم لتشغيله مرة أخرى. استدعِ [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) مع `true` لإرجاع الفيديو إلى بدايته بعد انتهاء التشغيل.
+
+يفتح هذا المثال عرضًا تقديميًا، يجد أول [إطار فيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) في الشريحة الأولى، ويفعل الإعادة إلى البداية. يعطل التكرار حتى يتمكن التشغيل من الانتهاء ويعيّن التشغيل للبدء عند النقر. يجب أن يحتوي العرض التقديمي المدخل على شريحة واحدة على الأقل مع إطار فيديو موجود في الشريحة الأولى.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\VideoPlayModePreset;
+
+$presentation = new Presentation("training.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $videoFrame->setRewindVideo(true);
+            $videoFrame->setPlayLoopMode(false);
+            $videoFrame->setPlayMode(VideoPlayModePreset::OnClick);
+            break;
+        }
+    }
+
+    $presentation->save("rewind_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+الإعادة إلى البداية تُعيد الفيديو إلى بدايته دون تشغيله مرة أخرى. على النقيض من ذلك، استدعاء [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) مع `true` يكرر التشغيل تلقائيًا. أبقِ التكرار معطلاً عندما تريد أن ينتهي الفيديو ويبقى جاهزًا لإعادة التشغيل. تتحكم [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) بشكل مستقل في التشغيل التلقائي أو عند النقر؛ يستخدم هذا المثال [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) بحيث يسيطر المقدم على بدء التشغيل. عيّن وضع التشغيل بعد إعداد التكرار، كما هو موضح في المثال. تعمل الإعادة إلى البداية بشكل مستقل عن [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
+
+## **قص إطار فيديو**
+
+استخدم [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) و[VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) لتخطي جزء من بداية أو نهاية الفيديو أثناء التشغيل. كلا القيمتين بوحدة المللي ثانية. القص يغيّر إعدادات التشغيل دون تعديل بيانات الفيديو المضمّن.
+
+**إعدادات القص**
+
+يقوم هذا المثال بتضمين فيديو محلي ويتخطى أول 2.5 ثانية وآخر ثانية واحدة أثناء التشغيل. استخدم فيديوً أطول من 3.5 ثانية حتى يبقى جزء قابل للتشغيل.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoFile = new Java("java.io.File", "video.mp4");
+    $videoPath = $videoFile->toPath();
+    $videoData = java("java.nio.file.Files")->readAllBytes($videoPath);
+    $video = $presentation->getVideos()->addVideo($videoData);
+
+    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
+    $videoFrame->setTrimFromStart(2500);
+    $videoFrame->setTrimFromEnd(1000);
+
+    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+**قراءة إعدادات القص**
+
+يطبع هذا المثال قيم قص أول إطار فيديو على الشريحة الأولى بالمللي ثانية. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل. إذا لم تحتوي تلك الشريحة على إطار فيديو، لا يُطبع شيء. ينتج المثال السابق قيمتين 2500 و1000.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("video_with_trim.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            echo "Trim from start: " . java_values($videoFrame->getTrimFromStart()) . " ms\n";
+            echo "Trim from end: " . java_values($videoFrame->getTrimFromEnd()) . " ms\n";
             break;
         }
     }
@@ -170,32 +234,28 @@ try {
 }
 ```
 
-## **إدارة تسميات الفيديو**
+## **إدارة ترجمات الفيديو**
 
-تتيح Aspose.Slides إدارة التسميات المغلقة (closed captions) لإطارات الفيديو في عروض PowerPoint. تُحفظ التسميات بتنسيق WebVTT وتُستخرج عبر طريقة [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/#getCaptionTracks).
+تسمح لك Aspose.Slides بإدارة الترجمات المغلقة لإطارات الفيديو في عروض PowerPoint. تُخزن الترجمات بتنسيق WebVTT وتُظهر عبر طريقة [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**إضافة تسميات إلى إطار فيديو**
+**إضافة ترجمات إلى إطار فيديو**
 
-لإضافة تسميات إلى إطار فيديو:
-
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).  
-1. إضافة فيديو إلى العرض التقديمي.  
-1. إضافة كائن [VideoFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/) إلى شريحة.  
-1. استخدام مجموعة [CaptionsCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/captionscollection/) التي تُرجِعها طريقة [getCaptionTracks](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/#getCaptionTracks) لإضافة مسار تسمية WebVTT.  
-1. حفظ العرض التقديمي المعدل.  
-
-الكود التالي يوضح كيفية إضافة تسميات إلى إطار فيديو:
+يقوم هذا المثال بتضمين فيديو محلي ويضيف مسار ترجمة WebVTT معلم بـ "English". يجب أن تتطابق طوابع زمنية الترجمة مع الفيديو. يتضمن العرض التقديمي المحفوظ كلًا من الفيديو وترجماته.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $videoData = file_get_contents("video.mp4");
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoFile = new Java("java.io.File", "video.mp4");
+    $videoPath = $videoFile->toPath();
+    $videoData = java("java.nio.file.Files")->readAllBytes($videoPath);
     $video = $presentation->getVideos()->addVideo($videoData);
 
-    $slide = $presentation->getSlides()->get_Item(0);
     $videoFrame = $slide->getShapes()->addVideoFrame(0, 0, 100, 100, $video);
-
-    // يضيف مسار تسميات جديد من ملف WebVTT.
     $videoFrame->getCaptionTracks()->add("English", "track.vtt");
 
     $presentation->save("video_with_captions.pptx", SaveFormat::Pptx);
@@ -204,62 +264,60 @@ try {
 }
 ```
 
-توفر الفئة [CaptionsCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/captionscollection/) أيضًا نسخة مُحمَّلة تسمح لك بإضافة تسميات من تدفق (stream).
+توفر الفئة [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) أيضًا حملًا إضافيًا يتيح لك إضافة الترجمات من تدفق.
 
-**استخراج التسميات من إطار فيديو**
+**استخراج ترجمات من إطار فيديو**
 
-لاستخراج التسميات من إطار فيديو:
-
-1. تحميل العرض التقديمي الذي يحتوي على الفيديو.  
-1. العثور على كائن [VideoFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/) المستهدف.  
-1. iterating عبر مجموعة [getCaptionTracks](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/#getCaptionTracks).  
-1. حفظ كل مسار تسمية إلى ملف `.vtt`.  
-
-الكود التالي يوضح كيفية استخراج التسميات من إطار فيديو:
+يحفظ هذا المثال جميع مسارات الترجمات من إطارات الفيديو على الشريحة الأولى كملفات WebVTT منفصلة. تُستخدم الأرقام المتسلسلة للحفاظ على تميز ملفات الإخراج. يسجل الطرفية عدد المسارات المستخرجة. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل.
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("video_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $trackCount = 0;
     $shapeCount = java_values($slide->getShapes()->size());
     for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
         $shape = $slide->getShapes()->get_Item($shapeIndex);
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
             $videoFrame = $shape;
-            $trackCount = java_values($videoFrame->getCaptionTracks()->getCount());
-            for ($trackIndex = 0; $trackIndex < $trackCount; $trackIndex++) {
+            $captionCount = java_values($videoFrame->getCaptionTracks()->getCount());
+            for ($trackIndex = 0; $trackIndex < $captionCount; $trackIndex++) {
                 $captionTrack = $videoFrame->getCaptionTracks()->get_Item($trackIndex);
-                // يحفظ مسار التسمية إلى ملف WebVTT.
-                $filePath = $captionTrack->getCaptionId() . ".vtt";
-                file_put_contents($filePath, $captionTrack->getBinaryData());
+                $trackCount++;
+                $outputStream = new Java("java.io.FileOutputStream", "captions_" . $trackCount . ".vtt");
+                try {
+                    $outputStream->write($captionTrack->getBinaryData());
+                } finally {
+                    $outputStream->close();
+                }
             }
         }
     }
+
+    echo "Caption tracks extracted: " . $trackCount . "\n";
 } finally {
     $presentation->dispose();
 }
 ```
 
-كل كائن [Captions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/captions/) يُظهر معرف التسمية، التسمية، البيانات الثنائية، ونص التسمية كسلسلة UTF-8.
+كل كائن [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) يكشف عن معرف الترجمة، اللقب، البيانات الثنائية، ونص الترجمة كسلسلة UTF-8.
 
-**إزالة التسميات من إطار فيديو**
+**إزالة ترجمات من إطار فيديو**
 
-لإزالة التسميات من إطار فيديو:
-
-1. تحميل العرض التقديمي الذي يحتوي على الفيديو.  
-1. الحصول على كائن [VideoFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/) المستهدف.  
-1. إزالة مسارات التسميات من مجموعة [getCaptionTracks](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/#getCaptionTracks).  
-1. حفظ العرض التقديمي المعدل.  
-
-الكود التالي يوضح كيفية إزالة جميع التسميات من إطار فيديو:
+يزيل هذا المثال جميع الترجمات من إطار الفيديو في أول موضع شكل على الشريحة الأولى ويحفظ النتيجة. يفترض وجود الشريحة والشكل وأن الشكل هو إطار فيديو.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("video_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $videoFrame = $slide->getShapes()->get_Item(0); // النوع: VideoFrame
 
-    // يزيل جميع التسميات من إطار الفيديو.
+    $videoFrame = $slide->getShapes()->get_Item(0);
     $videoFrame->getCaptionTracks()->clear();
 
     $presentation->save("video_without_captions.pptx", SaveFormat::Pptx);
@@ -268,62 +326,66 @@ try {
 }
 ```
 
-إذا كنت بحاجة إلى إزالة مسار تسمية واحد فقط، استخدم الطريقتين [remove](https://reference.aspose.com/slides/ar/php-java/aspose.slides/captionscollection/#remove) أو [removeAt](https://reference.aspose.com/slides/ar/php-java/aspose.slides/captionscollection/#removeAt) بدلًا من [clear](https://reference.aspose.com/slides/ar/php-java/aspose.slides/captionscollection/#clear).
+إذا كنت بحاجة إلى إزالة مسار ترجمة واحد فقط، استخدم طريقة [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) أو [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) بدلًا من [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
 
-## **استخراج الفيديو من الشرائح**
+## **استخراج فيديو من شريحة**
 
-إلى جانب إضافة الفيديو إلى الشرائح، تسمح Aspose.Slides باستخراج الفيديوهات المضمَّنة في العروض التقديمية.
+بالإضافة إلى إضافة فيديوهات إلى الشرائح، تتيح لك Aspose.Slides استخراج الفيديوهات المضمنة في العروض التقديمية.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) لتحميل العرض التقديمي الذي يحتوي على الفيديو.  
-2. iterating عبر جميع كائنات [Slide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slide/).  
-3. iterating عبر جميع كائنات [Shape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/) للعثور على كائن [VideoFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/).  
-4. حفظ الفيديو إلى القرص.  
-
-الكود PHP التالي يوضح كيفية استخراج الفيديو من شريحة في عرض PowerPoint:
+يستخرج هذا المثال الفيديوهات المضمنة من كل شريحة إلى ملفات ثنائية منفصلة مرقمة. تُهمل الفيديوهات المرتبطة لأنها لا تحتوي على بيانات مضمَّنة. يطبع الطرفية نوع MIME لكل فيديو وإجمالي العدد. يستخدم الإخراج الامتداد العام `.bin`؛ عدّل الامتداد ليتطابق مع نوع الوسائط المُبلغ عنه عند الحاجة.
 
 ```php
-  # ينشئ كائن Presentation يمثل ملف عرض تقديمي
-  $pres = new Presentation("VideoSample.pptx");
-  try {
-    foreach($pres->getSlides() as $slide) {
-      foreach($slide->getShapes() as $shape) {
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
-          $vf = $shape;
-          $type = $vf->getEmbeddedVideo()->getContentType();
-          $ss = $type->lastIndexOf('-');
-          $buffer = $vf->getEmbeddedVideo()->getBinaryData();
-          # يحصل على امتداد الملف
-          $charIndex = $type->indexOf("/");
-          $type = $type->substring($charIndex + 1);
-          $fop = new Java("java.io.FileOutputStream", "testing2." . $type);
-          $fop->write($buffer);
-          $fop->flush();
-          $fop->close();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation_with_videos.pptx");
+try {
+    $videoCount = 0;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                $videoFrame = $shape;
+                $video = $videoFrame->getEmbeddedVideo();
+                if (java_is_null($video)) {
+                    echo "Skipped a linked video: no embedded data is available.\n";
+                    continue;
+                }
+
+                $videoCount++;
+                $outputStream = new Java("java.io.FileOutputStream", "extracted_video_" . $videoCount . ".bin");
+                try {
+                    $outputStream->write($video->getBinaryData());
+                } finally {
+                    $outputStream->close();
+                }
+                echo "Video " . $videoCount . ": " . java_values($video->getContentType()) . "\n";
+            }
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    echo "Embedded videos extracted: " . $videoCount . "\n";
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما المعلمات القابلة للتغيير لتشغيل إطار الفيديو؟**
+**ما هي معلمات تشغيل الفيديو التي يمكن تعديلها لإطار الفيديو؟**
 
-يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/setplaymode/) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/setplayloopmode/). تتوفر هذه الخيارات عبر خصائص كائن [VideoFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/).
+يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). تتوفر هذه الخيارات عبر طرق كائن [إطار فيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
 
 **هل يؤثر إضافة فيديو على حجم ملف PPTX؟**
 
-نعم. عند تضمين فيديو محلي، تُدرَج البيانات الثنائية في المستند، وبالتالي يزداد حجم العرض التقديمي بنسبة حجم الملف. عند إضافة فيديو عبر الإنترنت، يُضمَّن رابط وصورة مصغرة فقط، لذا يكون الزيادة أصغر.
+نعم. عندما تُضمّن فيديو محلي، تُضمّن البيانات الثنائية في المستند، فيزداد حجم العرض التقديمي بما يتناسب مع حجم الملف. عند ربط فيديو عبر الإنترنت وإضافة صورة مصغرة، يخزن العرض التقديمي الرابط وصورة المعاينة بدلاً من بيانات الفيديو، لذا يكون الزيادة عادة أصغر.
 
-**هل يمكن استبدال الفيديو في إطار فيديو موجود دون تغيير موقعه وحجمه؟**
+**هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موضعه وحجمه؟**
 
-نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/ar/php-java/aspose.slides/videoframe/setembeddedvideo/) داخل الإطار مع الحفاظ على أبعاد الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
+نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) داخل الإطار مع الحفاظ على هندسة الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
 
-**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المضمَّن؟**
+**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المضمّن؟**
 
-نعم. للفيديو المضمَّن [نوع محتوى](https://reference.aspose.com/slides/ar/php-java/aspose.slides/video/getcontenttype/) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه إلى القرص.
+نعم. للفيديو المضمّن [نوع محتوى](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه على القرص.

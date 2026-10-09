@@ -1,11 +1,11 @@
 ---
-title: Διαχείριση Πλαισίων Βίντεο σε Παρουσιάσεις στο Android
-linktitle: Πλαίσιο Βίντεο
+title: Διαχείριση πλαισίων βίντεο σε παρουσιάσεις στο Android
+linktitle: Πλαίσιο βίντεο
 type: docs
 weight: 10
 url: /el/androidjava/video-frame/
 keywords:
-- προσθήκη βίντεο
+- πρόσθεση βίντεο
 - δημιουργία βίντεο
 - ενσωμάτωση βίντεο
 - εξαγωγή βίντεο
@@ -18,165 +18,196 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να εξάγετε προγραμματιστικά πλαίσια βίντεο σε διαφάνειες PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Android μέσω Java. Γρήγορος οδηγός βήμα-βήμα."
+description: "Μάθετε πώς να προσθέτετε και να εξάγετε προγραμματικά πλαίσια βίντεο σε διαφάνειες PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Android μέσω Java. Γρήγορος οδηγός βήμα προς βήμα."
 ---
 ## **Εισαγωγή**
 
-Ένα καλά τοποθετημένο βίντεο σε μια παρουσίαση μπορεί να κάνει το μήνυμά σας πιο ελκυστικό και να αυξήσει τα επίπεδα δέσμευσης με το κοινό σας. 
+Τα βίντεο μπορούν να βοηθήσουν στην εξήγηση ιδεών και στην εμπλοκή του κοινού. Το Aspose.Slides για Android μέσω Java σάς επιτρέπει να προσθέτετε πλαίσια βίντεο στις διαφάνειες, να προσαρμόζετε τις ρυθμίσεις αναπαραγωγής, να διαχειρίζεστε υπότιτλους και να εξάγετε ενσωματωμένα δεδομένα βίντεο.
 
-Το PowerPoint σάς επιτρέπει να προσθέτετε βίντεο σε μια διαφάνεια σε μια παρουσίαση με δύο τρόπους:
+Το PowerPoint υποστηρίζει τοπικά βίντεο και συνδέσμους σε διαδικτυακά βίντεο, όπως βίντεο του YouTube.
 
-* Προσθέστε ή ενσωματώστε ένα τοπικό βίντεο (αποθηκευμένο στον υπολογιστή σας)
-* Προσθέστε ένα διαδικτυακό βίντεο (από πηγή web όπως το YouTube).
+Για την αναπαράσταση δεδομένων βίντεο και πλαισίων βίντεο, το Aspose.Slides παρέχει τη διεπαφή [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) , τη διεπαφή [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) και άλλους σχετικούς τύπους.
 
-Για να σας επιτρέψει να προσθέσετε βίντεο (αντικείμενα βίντεο) σε μια παρουσίαση, το Aspose.Slides παρέχει τη διεπαφή [IVideo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideo/) , τη διεπαφή [IVideoFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/) και άλλους σχετικούς τύπους.
+## **Δημιουργία ενσωματωμένου πλαισίου βίντεο**
 
-## **Δημιουργία Ενσωματωμένου Πλαισίου Βίντεο**
+Αν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνειά σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας.
 
-Εάν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνειά σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας. 
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation)
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
-1. Προσθέστε ένα αντικείμενο [IVideo] και περάστε τη διαδρομή του αρχείου βίντεο για να ενσωματώσετε το βίντεο στην παρουσίαση.
-1. Προσθέστε ένα αντικείμενο [IVideoFrame] για να δημιουργήσετε ένα πλαίσιο για το βίντεο.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση. 
-
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε ένα τοπικό βίντεο σε μια παρουσίαση:
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης και αποθηκεύει το αποτέλεσμα. Οι συντεταγμένες και οι διαστάσεις του πλαισίου είναι σε μονάδες point. Η ροή παραμένει ανοιχτή μέχρι να ολοκληρωθεί η αποθήκευση, επειδή η μέθοδος [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) το κλειδώνει ενώ η παρουσίαση τη χρησιμοποιεί.
 
 ```java
-// Δημιουργεί ένα αντικείμενο της κλάσης Presentation
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // Φορτώνει το βίντεο
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Παίρνει την πρώτη διαφάνεια και προσθέτει ένα πλαίσιο βίντεο
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+Presentation presentation = new Presentation("presentation.pptx");
+try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Αποθηκεύει την παρουσίαση στο δίσκο
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IVideo video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-Εναλλακτικά, μπορείτε να προσθέσετε ένα βίντεο περνώντας απευθείας τη διαδρομή του αρχείου στη μέθοδο [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-):
-
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **Δημιουργία Πλαισίου Βίντεο με Βίντεο από Διαδικτυακή Πηγή**
-
-Οι νεότερες εκδόσεις του Microsoft PowerPoint υποστηρίζουν βίντεο στο διαδίκτυο σε παρουσιάσεις. Εάν το βίντεο που θέλετε να χρησιμοποιήσετε είναι διαθέσιμο στο διαδίκτυο (π.χ. στο YouTube), μπορείτε να το προσθέσετε στην παρουσίασή σας μέσω του διαδικτυακού του συνδέσμου.
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation)
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
-1. Προσθέστε ένα αντικείμενο [IVideo] και περάστε τον σύνδεσμο στο βίντεο.
-1. Ορίστε μια μικρογραφία για το πλαίσιο βίντεο. 
-1. Αποθηκεύστε την παρουσίαση. 
-
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε ένα βίντεο από το διαδίκτυο σε μια διαφάνεια σε παρουσίαση PowerPoint:
-
-```java
-// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // Προσθέτει ένα πλαίσιο βίντεο
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // Φορτώνει μικρογραφία
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-```
-
-## **Περικοπή Πλαισίου Βίντεο**
-
-Το Aspose.Slides σας επιτρέπει να ελέγχετε ποιο μέρος ενός βίντεο θα αναπαραχθεί ορίζοντας τις τιμές trim-from-start και trim-from-end μέσω των μεθόδων [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) και [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-). Και οι δύο τιμές καθορίζονται σε χιλιοστά του δευτερολέπτου και ορίζουν πόσο χρόνο παραλείπεται από την αρχή και το τέλος του βίντεο, αντίστοιχα. Αυτές οι ρυθμίσεις αλλάζουν τις ρυθμίσεις αναπαραγωγής βίντεο στην παρουσίαση· δεν κόβουν ή τροποποιούν τα ενσωματωμένα δυαδικά δεδομένα του βίντεο.
-
-**Ορισμός Ρυθμίσεων Κοπής**
-
-Για να δημιουργήσετε ένα πλαίσιο βίντεο και να ορίσετε τις ρυθμίσεις κοπής του:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/)
-1. Προσθέστε ένα αντικείμενο [IVideo] στην παρουσίαση.
-1. Προσθέστε ένα αντικείμενο [IVideoFrame] σε μια διαφάνεια.
-1. Ορίστε τις τιμές trim-from-start και trim-from-end μέσω των [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) και [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-).
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Το παρακάτω παράδειγμα κώδικα παραλείπει τα πρώτα 2,5 δευτερόλεπτα και το τελευταίο δευτερόλεπτο ενός ενσωματωμένου βίντεο κατά την αναπαραγωγή:
-
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream videoStream = new FileInputStream("video.mp4");
-    try {
-        IVideo video = presentation.getVideos().addVideo(
-                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        ISlide slide = presentation.getSlides().get_Item(0);
-        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
-
-        videoFrame.setTrimFromStart(2500f);
-        videoFrame.setTrimFromEnd(1000f);
-
-        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
-    } finally {
-        videoStream.close();
-    }
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Ανάγνωση Ρυθμίσεων Κοπής**
-
-Για να ελέγξετε τις υπάρχουσες ρυθμίσεις κοπής, φορτώστε μια παρουσίαση, βρείτε ένα αντικείμενο [IVideoFrame] μεταξύ των σχημάτων στην πρώτη διαφάνεια και διαβάστε τις τιμές μέσω των [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#getTrimFromStart--) και [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#getTrimFromEnd--).
-
-Το παρακάτω παράδειγμα κώδικα βρίσκει το πρώτο πλαίσιο βίντεο στην πρώτη διαφάνεια και αναφέρει τις ρυθμίσεις κοπής του σε χιλιοστά του δευτερολέπτου:
+Μπορείτε επίσης να περάσετε άμεσα τη διαδρομή ενός τοπικού βίντεο στη μέθοδο [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Αυτό το παράδειγμα ενσωματώνει το βίντεο στην πρώτη διαφάνεια μιας νέας παρουσίασης. Το βίντεο πρέπει να είναι προσβάσιμο μέχρι η παρουσίαση αποθηκευτεί.
 
 ```java
-Presentation presentation = new Presentation("video_with_trim.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Δημιουργία πλαισίου βίντεο με βίντεο από διαδικτυακή πηγή**
+
+Η Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) υποστηρίζει διαδικτυακά βίντεο στις παρουσιάσεις. Μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο που συνδέεται σε ένα διαδικτυακό βίντεο, όπως βίντεο του YouTube.
+
+Αυτό το παράδειγμα προσθέτει έναν σύνδεσμο βίντεο YouTube και μικρογραφία στην πρώτη διαφάνεια. Αντικαταστήστε το αναγνωριστικό βίντεο για να χρησιμοποιήσετε άλλο βίντεο. Η μέθοδος [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) ζητά αυτόματη αναπαραγωγή. Η λήψη της μικρογραφίας και η αναπαραγωγή του βίντεο απαιτούν πρόσβαση στο διαδίκτυο. Ο προβολέας της παρουσίασης πρέπει επίσης να υποστηρίζει την αναπαραγωγή διαδικτυακού βίντεο.
+
+```java
+import com.aspose.slides.*;
+import java.io.InputStream;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String videoId = "aqz-KE-bpKQ";
+    String videoUrl = "https://www.youtube.com/embed/" + videoId;
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    URL thumbnailLocation = new URL(thumbnailUrl);
+    try (InputStream thumbnailStream = thumbnailLocation.openStream()) {
+        IPPImage thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    }
+
+    presentation.save("online_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Αναπαραγωγή βίντεο σε λειτουργία πλήρους οθόνης**
+
+Σε εκπαίδευτική παρουσίαση, μπορείτε να αναπαράγετε μια επίδειξη λογισμικού σε λειτουργία πλήρους οθόνης ώστε το κοινό να δει τις λεπτομέρειες. Καλέστε τη μέθοδο [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) με `true` για να ενεργοποιήσετε αυτή τη συμπεριφορά κατά την αναπαραγωγή.
+
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την αναπαραγωγή πλήρους οθόνης. Η εισαγώμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μια διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
-            float trimFromStart = videoFrame.getTrimFromStart();
-            float trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            System.out.println("Trim from start: " + trimFromStart + " ms");
-            System.out.println("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η λειτουργία πλήρους οθόνης ελέγχει πώς εμφανίζεται το βίντεο. Ανεξάρτητα, η μέθοδος [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) ελέγχει αν ξεκινά αυτόματα ή με κλικ, ενώ η μέθοδος [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) ελέγχει αν επαναλαμβάνεται. Για να επιλέξετε τη συμπεριφορά εκκίνησης, ορίστε τη λειτουργία αναπαραγωγής σε [VideoPlayModePreset.Auto ή VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Το παράδειγμα διατηρεί τις υπάρχουσες ρυθμίσεις εκκίνησης και βρόχου.
+
+## **Επαναφορά βίντεο μετά την αναπαραγωγή**
+
+Σε εκπαίδευτική παρουσίαση, η επαναφορά του βίντεο επίδειξης στην αρχή το κάνει έτοιμο για το δάσκαλο να το παίξει ξανά. Καλέστε τη μέθοδο [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) με `true` για να επιστρέψετε το βίντεο στην αρχή αφού τελειώσει η αναπαραγωγή.
+
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την επαναφορά. Απενεργοποιεί την επανάληψη ώστε η αναπαραγωγή να μπορεί να τελειώσει και ορίζει την εκκίνηση με κλικ. Η εισαγώμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μια διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η επαναφορά επιστρέφει το βίντεο στην αρχή χωρίς να το ξεκινήσει ξανά. Αντίθετα, η κλήση της μεθόδου [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) με `true` επαναλαμβάνει την αναπαραγωγή αυτόματα. Διατηρήστε την επανάληψη απενεργοποιημένη όταν θέλετε το βίντεο να ολοκληρωθεί και να παραμείνει έτοιμο για επανάληψη. Η μέθοδος [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) ελέγχει ανεξάρτητα την αυτόματη ή με κλικ εκκίνηση· αυτό το παράδειγμα χρησιμοποιεί το [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) ώστε ο παρουσιαστής να ελέγχει πότε ξεκινά η αναπαραγωγή. Ορίστε τη λειτουργία αναπαραγωγής μετά τη ρύθμιση του βρόχου, όπως φαίνεται στο παράδειγμα. Η επαναφορά λειτουργεί ανεξάρτητα από τη μέθοδο [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+
+## **Κοπή πλαισίου βίντεο**
+
+Χρησιμοποιήστε τις μεθόδους [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) και [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) για να παραλείψετε μέρος της αρχής ή του τέλους ενός βίντεο κατά την αναπαραγωγή. Και οι δύο τιμές είναι σε χιλιοστά του δευτερολέπτου. Η κοπή αλλάζει τις ρυθμίσεις αναπαραγωγής χωρίς να τροποποιεί τα ενσωματωμένα δεδομένα βίντεο.
+
+**Ορισμός ρυθμίσεων κοπής**
+
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και παραλείπει τα πρώτα 2,5 δευτερόλεπτα και το τελευταίο δευτερόλεπτο κατά την αναπαραγωγή. Χρησιμοποιήστε βίντεο μεγαλύτερο από 3,5 δευτερόλεπτα ώστε να παραμείνει ένα αναπαραγώσιμο τμήμα.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500f);
+    videoFrame.setTrimFromEnd(1000f);
+
+    presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Ανάγνωση ρυθμίσεων κοπής**
+
+Αυτό το παράδειγμα εκτυπώνει τις τιμές κοπής του πρώτου πλαισίου βίντεο στην πρώτη διαφάνεια σε χιλιοστά του δευτερολέπτου. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μια διαφάνεια. Εάν η διαφάνεια δεν έχει πλαίσιο βίντεο, δεν εκτυπώνεται τίποτα. Το προηγούμενο παράδειγμα παράγει τις τιμές 2500 και 1000.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            System.out.println("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            System.out.println("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -185,32 +216,28 @@ try {
 }
 ```
 
-## **Διαχείριση Υπότιτλων Βίντεο**
+## **Διαχείριση υποτίτλων βίντεο**
 
-Το Aspose.Slides σας επιτρέπει να διαχειρίζεστε κλειστούς υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και είναι προσβάσιμοι μέσω της μεθόδου [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
+Το Aspose.Slides σας επιτρέπει να διαχειρίζεστε κλειστά υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και είναι προσβάσιμοι μέσω της μεθόδου [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
-**Προσθήκη Υπότιτλων σε Πλαίσιο Βίντεο**
+**Προσθήκη υποτίτλων σε πλαίσιο βίντεο**
 
-Για να προσθέσετε υπότιτλους σε ένα πλαίσιο βίντεο:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/)
-1. Προσθέστε ένα βίντεο στην παρουσίαση.
-1. Προσθέστε ένα αντικείμενο [IVideoFrame] σε μια διαφάνεια.
-1. Χρησιμοποιήστε τη [ICaptionsCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icaptionscollection/) που επιστρέφεται από το [getCaptionTracks](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) για να προσθέσετε ένα WebVTT κομμάτι υποτίτλου.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Ο κώδικας που ακολουθεί δείχνει πώς να προσθέσετε υπότιτλους σε ένα πλαίσιο βίντεο:
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και προσθέτει ένα κομμάτι WebVTT υπότιτλων με ετικέτα English. Τα χρονικά σημεία των υποτίτλων πρέπει να ταιριάζουν με το βίντεο. Η αποθηκευμένη παρουσίαση περιλαμβάνει τόσο το βίντεο όσο και τους υπότιτλους του.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = // "video.mp4";
-    IVideo video = presentation.getVideos().addVideo(videoData);
-
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
 
-    // Προσθέτει ένα νέο κομμάτι υπότιτλων από αρχείο WebVTT.
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -219,59 +246,53 @@ try {
 }
 ```
 
-Η διεπαφή [ICaptionsCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icaptionscollection/) παρέχει επίσης μια υπερφόρτιση που σας επιτρέπει να προσθέσετε υπότιτλους από μια ροή.
+Η διεπαφή [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) παρέχει επίσης μια υπερφόρτωση που σας επιτρέπει να προσθέσετε υπότιτλους από ροή.
 
-**Εξαγωγή Υπότιτλων από Πλαίσιο Βίντεο**
+**Εξαγωγή υποτίτλων από πλαίσιο βίντεο**
 
-Για να εξάγετε υπότιτλους από ένα πλαίσιο βίντεο:
-
-1. Φορτώστε την παρουσίαση που περιέχει το βίντεο.
-1. Βρείτε το στόχο αντικείμενο [IVideoFrame].
-1. Περάστε από τα κομμάτια υποτίτλων που επιστρέφει το [getCaptionTracks](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
-1. Αποθηκεύστε κάθε κομμάτι υποτίτλου σε αρχείο `.vtt`.
-
-Ο κώδικας που ακολουθεί δείχνει πώς να εξάγετε υπότιτλους από ένα πλαίσιο βίντεο:
+Αυτό το παράδειγμα αποθηκεύει όλα τα κομμάτια υποτίτλων από τα πλαίσια βίντεο στην πρώτη διαφάνεια ως ξεχωριστά αρχεία WebVTT. Οι διαδοχικοί αριθμοί κρατούν τα αρχεία εξόδου διαφορετικά. Η κονσόλα αναφέρει τον αριθμό των εξαγόμενων κομματιών. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μια διαφάνεια.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    int trackCount = 0;
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // Αποθηκεύει το κομμάτι υποτίτλων σε αρχείο WebVTT.
-                FileOutputStream outputStream = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                outputStream.write(captionTrack.getBinaryData());
-                outputStream.close();
+                trackCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("captions_" + trackCount + ".vtt")) {
+                    outputStream.write(captionTrack.getBinaryData());
+                }
             }
         }
     }
+
+    System.out.println("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-Κάθε αντικείμενο [ICaptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icaptions/) εκθέτει το αναγνωριστικό του υποτίτλου, την ετικέτα, τα δυαδικά δεδομένα και τα δεδομένα υποτίτλου ως συμβολοσειρά UTF-8.
+Κάθε αντικείμενο [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) εκθέτει το αναγνωριστικό του υποτίτλου, την ετικέτα, τα δυαδικά δεδομένα και το κείμενο του υποτίτλου ως συμβολοσειρά UTF‑8.
 
-**Αφαίρεση Υπότιτλων από Πλαίσιο Βίντεο**
+**Αφαίρεση υποτίτλων από πλαίσιο βίντεο**
 
-Για να αφαιρέσετε υπότιτλους από ένα πλαίσιο βίντεο:
-
-1. Φορτώστε την παρουσίαση που περιέχει το βίντεο.
-1. Αποκτήστε το στόχο αντικείμενο [IVideoFrame].
-1. Αφαιρέστε τα κομμάτια υποτίτλων από τη συλλογή που επιστρέφεται από το [getCaptionTracks](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Ο κώδικας που ακολουθεί δείχνει πώς να αφαιρέσετε όλους τους υπότιτλους από ένα πλαίσιο βίντεο:
+Αυτό το παράδειγμα αφαιρεί όλους τους υπότιτλους από το πλαίσιο βίντεο στην πρώτη θέση σχήματος στην πρώτη διαφάνεια και αποθηκεύει το αποτέλεσμα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι πλαίσιο βίντεο.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
 
-    // Αφαιρεί όλους τους υπότιτλους από το πλαίσιο βίντεο.
+    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -280,65 +301,60 @@ try {
 }
 ```
 
-Αν χρειάζεστε να αφαιρέσετε μόνο ένα κομμάτι υποτίτλου, χρησιμοποιήστε τις μεθόδους [remove](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) ή [removeAt](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) αντί για το [clear](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icaptionscollection/#clear--).
+Εάν χρειάζεστε να αφαιρέσετε μόνο ένα κομμάτι υπότιτλου, χρησιμοποιήστε τις μεθόδους [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) ή [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) αντί για τη [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--) .
 
-## **Εξαγωγή Βίντεο από Διαφάνεια**
+## **Εξαγωγή βίντεο από διαφάνεια**
 
-Εκτός από την προσθήκη βίντεο σε διαφάνειες, το Aspose.Slides σας επιτρέπει να εξάγετε βίντεο ενσωματωμένα σε παρουσιάσεις.
+Εκτός από την προσθήκη βίντεο στις διαφάνειες, το Aspose.Slides σας επιτρέπει να εξάγετε βίντεο που είναι ενσωματωμένα σε παρουσιάσεις.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) για να φορτώσετε την παρουσίαση που περιέχει το βίντεο.
-2. Περάστε από όλα τα αντικείμενα [ISlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/).
-3. Περάστε από όλα τα αντικείμενα [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) για να βρείτε ένα [VideoFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/videoframe/).
-4. Αποθηκεύστε το βίντεο στον δίσκο.
-
-Αυτός ο κώδικας Java δείχνει πώς να εξάγετε το βίντεο από μια διαφάνεια σε παρουσίαση:
+Αυτό το παράδειγμα εξάγει ενσωματωμένα βίντεο από κάθε διαφάνεια σε ξεχωριστά, αριθμημένα δυαδικά αρχεία. Τα συνδεδεμένα βίντεο παραλείπονται επειδή δεν έχουν ενσωματωμένα δεδομένα. Η κονσόλα εκτυπώνει τον τύπο MIME κάθε βίντεο και τον συνολικό αριθμό. Η έξοδος χρησιμοποιεί τη γενική επέκταση `.bin`; αλλάξτε την ώστε να ταιριάζει με τον τύπο μέσου που αναφέρεται όταν χρειάζεται.
 
 ```java
-// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης 
-Presentation pres = new Presentation("VideoSample.pptx");
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("presentation_with_videos.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
+    int videoCount = 0;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                IVideoFrame videoFrame = (IVideoFrame) shape;
+                IVideo video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    System.out.println("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
 
-                //Αποκτά την επέκταση αρχείου
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                videoCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("extracted_video_" + videoCount + ".bin")) {
+                    outputStream.write(video.getBinaryData());
+                }
+                System.out.println("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (IOException e) {
+
+    System.out.println("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Ποια παραμέτρους αναπαραγωγής βίντεο μπορούν να αλλάξουν για ένα VideoFrame;**
+**Ποιοι παράμετροι αναπαραγωγής βίντεο μπορούν να αλλάξουν για ένα πλαίσιο βίντεο;**
 
-Μπορείτε να ελέγξετε τη [λειτουργία αναπαραγωγής](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (αυτόματα ή με κλικ) και την [ανακύκλωση](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Αυτές οι επιλογές είναι διαθέσιμες μέσω των ιδιοτήτων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/videoframe/).
+Μπορείτε να ελέγξετε τη [λειτουργία αναπαραγωγής](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (αυτόματη ή με κλικ) και την [επανάληψη](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Αυτές οι επιλογές είναι διαθέσιμες μέσω των μεθόδων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) .
 
-**Επηρεάζει η προσθήκη ενός βίντεο το μέγεθος του αρχείου PPTX;**
+**Επηρεάζει η προσθήκη βίντεο το μέγεθος του αρχείου PPTX;**
 
-Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα συμπεριλαμβάνονται στο έγγραφο, οπότε το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν προσθέτετε ένα διαδικτυακό βίντεο, ένας σύνδεσμος και μια μικρογραφία ενσωματώνονται, οπότε η αύξηση του μεγέθους είναι μικρότερη.
+Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα περιλαμβάνονται στο έγγραφο, οπότε το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν συνδέετε ένα διαδικτυακό βίντεο και προσθέτετε μικρογραφία, η παρουσίαση αποθηκεύει μόνο το σύνδεσμο και την εικόνα προεπισκόπησης αντί για τα δεδομένα του βίντεο, οπότε η αύξηση του μεγέθους είναι συνήθως μικρότερη.
 
-**Μπορώ να αντικαταστήσω το βίντεο σε ένα υπάρχον VideoFrame χωρίς να αλλάξω τη θέση και το μέγεθός του;**
+**Μπορώ να αντικαταστήσω το βίντεο σε υπάρχον πλαίσιο βίντεο χωρίς να αλλάξω τη θέση και το μέγεθός του;**
 
-Ναι. Μπορείτε να αντικαταστήσετε το [περιεχόμενο βίντεο](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) μέσα στο πλαίσιο διατηρώντας τη γεωμετρία του σχήματος· αυτό είναι συνηθισμένο σενάριο για ενημέρωση πολυμέσου σε υπάρχουσα διάταξη.
+Ναι. Μπορείτε να ανταλλάξετε το [περιεχόμενο βίντεο](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) μέσα στο πλαίσιο ενώ διατηρείτε τη γεωμετρία του σχήματος· αυτό είναι συνηθισμένο σενάριο για την ενημέρωση μέσων σε υπάρχουσες διατάξεις.
 
 **Μπορεί να προσδιοριστεί ο τύπος περιεχομένου (MIME) ενός ενσωματωμένου βίντεο;**
 
-Ναι. Ένα ενσωματωμένο βίντεο έχει έναν [τύπο περιεχομένου](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/video/#getContentType--) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα όταν το αποθηκεύετε στον δίσκο.
+Ναι. Ένα ενσωματωμένο βίντεο διαθέτει έναν [τύπο περιεχομένου](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα όταν το αποθηκεύετε σε δίσκο.

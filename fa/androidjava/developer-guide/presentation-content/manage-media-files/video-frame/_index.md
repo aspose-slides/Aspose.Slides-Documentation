@@ -1,182 +1,213 @@
 ---
-title: مدیریت فریم‌های ویدئویی در ارائه‌ها در اندروید
-linktitle: فریم ویدئو
+title: "مدیریت فریم‌های ویدیو در ارائه‌ها بر روی اندروید"
+linktitle: "فریم ویدیو"
 type: docs
 weight: 10
 url: /fa/androidjava/video-frame/
 keywords:
-- اضافه کردن ویدئو
-- ایجاد ویدئو
-- جاسازی ویدئو
-- استخراج ویدئو
-- بازیابی ویدئو
-- فریم ویدئو
+- اضافه کردن ویدیو
+- ایجاد ویدیو
+- تعبیه ویدیو
+- استخراج ویدیو
+- بازیابی ویدیو
+- فریم ویدیو
 - منبع وب
-- PowerPoint
+- پاورپوینت
 - OpenDocument
 - ارائه
-- Android
-- Java
+- اندروید
+- جاوا
 - Aspose.Slides
-description: "با استفاده از Aspose.Slides برای اندروید از طریق جاوا، نحوه افزودن و استخراج فریم‌های ویدئویی به‌صورت برنامه‌نویسی در اسلایدهای PowerPoint و OpenDocument را بیاموزید. راهنمای سریع گام‌به‌گام."
+description: "یادگیری برنامه‌نویسی برای افزودن و استخراج فریم‌های ویدیو به صورت برنامه‌نویسی در اسلایدهای PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Android از طریق Java. راهنمای سریع و گام‌به‌گام."
 ---
-## **مقدمه**
+## **معرفی**
 
-یک ویدئوی به‌جا در یک ارائه می‌تواند پیام شما را جذاب‌تر کرده و سطح مشارکت مخاطبان را افزایش دهد.  
+ویدیوها می‌توانند به توضیح ایده‌ها کمک کرده و مخاطبان را جذب کنند. Aspose.Slides برای Android از طریق Java به شما امکان می‌دهد فریم‌های ویدیو را به اسلایدها اضافه کنید، تنظیمات پخش را تنظیم کنید، زیرنویس‌ها را مدیریت کنید و داده‌های ویدیو توکار را استخراج کنید.
 
-PowerPoint به شما دو روش برای افزودن ویدئو به یک اسلاید در ارائه ارائه می‌دهد:
+PowerPoint از ویدیوهای محلی و پیوندهای به ویدیوهای آنلاین، مانند ویدیوهای YouTube، پشتیبانی می‌کند.
 
-* افزودن یا جاسازی یک ویدئوی محلی (ذخیره‌شده در دستگاه شما)
-* افزودن یک ویدئوی آنلاین (از منبع وبی مانند YouTube).
+برای نمایاندن داده‌های ویدیو و فریم‌های ویدیو، Aspose.Slides رابط‌های [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) ، [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) و سایر انواع مرتبط را فراهم می‌آورد.
 
-برای این که بتوانید ویدئوها (اشیای ویدئویی) را به یک ارائه اضافه کنید، Aspose.Slides رابط‌های [IVideo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideo/)، [IVideoFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/) و سایر انواع مرتبط را فراهم می‌کند.
+## **ایجاد فریم ویدیو توکار**
 
-## **ایجاد یک فریم ویدئوی جاسازی‌شده**
+اگر فایل ویدیویی که می‌خواهید به اسلاید اضافه کنید به صورت محلی ذخیره شده باشد، می‌توانید فریم ویدیو ایجاد کنید تا ویدیو را در ارائه خود تعبیه کنید.
 
-اگر فایل ویدئویی که می‌خواهید به اسلاید خود اضافه کنید به‌صورت محلی ذخیره شده باشد، می‌توانید یک فریم ویدئویی ایجاد کنید تا ویدئو را در ارائه خود جاسازی کنید.  
-
-1. یک نمونه از کلاس [Presentation ](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.  
-1. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک شیء [IVideo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideo/) اضافه کنید و مسیر فایل ویدئو را برای جاسازی ویدئو در ارائه عبور دهید.  
-1. یک شیء [IVideoFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/) اضافه کنید تا فریمی برای ویدئو ایجاد شود.  
-1. ارائهٔ اصلاح‌شده را ذخیره کنید.  
-
-این کد Java نشان می‌دهد چگونه یک ویدئوی محلی را به یک ارائه اضافه کنید:
+این مثال یک ویدیو محلی را در اولین اسلاید یک ارائه موجود تعبیه می‌کند و نتیجه را ذخیره می‌نماید. مختصات و ابعاد فریم بر حسب نقطه (points) است. جریان (stream) تا پایان ذخیره‌سازی باز می‌ماند زیرا [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) آن را در حالی که ارائه از آن استفاده می‌کند قفل نگه می‌دارد.
 
 ```java
-// یک نمونه از کلاس Presentation ایجاد می‌کند
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // ویدئو را بارگذاری می‌کند
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // اسلاید اول را دریافت می‌کند و یک فریم ویدئویی اضافه می‌کند
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+Presentation presentation = new Presentation("presentation.pptx");
+try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // ارائه را روی دیسک ذخیره می‌کند
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IVideo video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-به‌جای این می‌توانید ویدئو را با عبور مستقیم مسیر فایل آن به متد [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) اضافه کنید:
-
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **ایجاد یک فریم ویدئوی با ویدئویی از منبع وب**
-
-نسخه‌های جدیدتر Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) از ویدئوهای آنلاین در ارائه‌ها پشتیبانی می‌کنند. اگر ویدئویی که می‌خواهید استفاده کنید به‌صورت آنلاین در دسترس باشد (مثلاً در YouTube)، می‌توانید آن را از طریق لینک وب به ارائه خود اضافه کنید.
-
-1. یک نمونه از کلاس [Presentation ](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید  
-1. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک شیء [IVideo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideo/) اضافه کنید و لینک ویدئو را عبور دهید.  
-1. برای فریم ویدئو یک تصویر بندانگشتی تنظیم کنید.  
-1. ارائه را ذخیره کنید.  
-
-این کد Java نشان می‌دهد چگونه یک ویدئوی وب را به یک اسلاید در یک ارائه PowerPoint اضافه کنید:
-
-```java
-// یک شیء Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // یک فریم ویدئو اضافه می‌کند
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // بارگذاری تصویر بندانگشتی
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-```
-
-## **قص کردن یک فریم ویدئوی**
-
-Aspose.Slides به شما امکان می‌دهد که بخش‌های پخش ویدئو را از طریق مقادیر trim‑from‑start و trim‑from‑end تنظیم کنید، با استفاده از [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) و [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-). هر دو مقدار بر حسب میلی‌ثانیه مشخص می‌شوند و میزان زمان صرف‌نظر شده از آغاز و انتهای ویدئو را تعریف می‌کنند. این تنظیمات فقط تنظیمات پخش ویدئو را در ارائه تغییر می‌دهند؛ دادهٔ باینری ویدئوی جاسازی‌شده را قطع یا تغییر نمی‌دهند.
-
-**تنظیمات قص**
-
-برای ایجاد یک فریم ویدئو و تنظیم مقادیر قص آن:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.  
-1. یک شیء [IVideo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideo/) به ارائه اضافه کنید.  
-1. یک شیء [IVideoFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/) به یک اسلاید اضافه کنید.  
-1. مقادیر trim‑from‑start و trim‑from‑end را از طریق [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) و [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) تنظیم کنید.  
-1. ارائهٔ اصلاح‌شده را ذخیره کنید.  
-
-کد زیر اولین ۲.۵ ثانیه و آخرین ثانیهٔ یک ویدئوی جاسازی‌شده را در زمان پخش نادیده می‌گیرد:
-
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream videoStream = new FileInputStream("video.mp4");
-    try {
-        IVideo video = presentation.getVideos().addVideo(
-                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        ISlide slide = presentation.getSlides().get_Item(0);
-        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
-
-        videoFrame.setTrimFromStart(2500f);
-        videoFrame.setTrimFromEnd(1000f);
-
-        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
-    } finally {
-        videoStream.close();
-    }
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**خواندن تنظیمات قص**
-
-برای بررسی تنظیمات قص موجود، یک ارائه را بارگذاری کنید، یک شیء [IVideoFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/) را در میان اشکال اسلاید اول پیدا کنید و مقادیر را از طریق [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/#getTrimFromStart--) و [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/#getTrimFromEnd--) بخوانید.  
-
-کد زیر اولین فریم ویدئویی را در اسلاید اول پیدا می‌کند و تنظیمات قص آن را برحسب میلی‌ثانیه گزارش می‌دهد:
+همچنین می‌توانید مسیر ویدیوی محلی را مستقیم به متد [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-) بدهید. این مثال ویدیو را در اولین اسلاید یک ارائهٔ جدید تعبیه می‌کند. ویدیو باید تا زمان ذخیره‌سازی ارائه در دسترس بماند.
 
 ```java
-Presentation presentation = new Presentation("video_with_trim.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ایجاد فریم ویدیو با ویدیو از منبع وب**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) از ویدیوهای آنلاین در ارائه‌ها پشتیبانی می‌کند. می‌توانید فریم ویدیو ایجاد کنید که به یک ویدیو آنلاین، مانند یک ویدیو YouTube، پیوند دارد.
+
+این مثال پیوند ویدیو YouTube و تصویر بندانگشتی آن را به اولین اسلاید اضافه می‌کند. برای استفاده از ویدیو دیگری، شناسه ویدیو را تغییر دهید. متد [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) درخواست پخش خودکار را می‌کند. دانلود تصویر بندانگشتی و پخش ویدیو به دسترسی به اینترنت نیاز دارد. نمایشگر ارائه نیز باید پخش ویدیوهای آنلاین را پشتیبانی کند.
+
+```java
+import com.aspose.slides.*;
+import java.io.InputStream;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String videoId = "aqz-KE-bpKQ";
+    String videoUrl = "https://www.youtube.com/embed/" + videoId;
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    URL thumbnailLocation = new URL(thumbnailUrl);
+    try (InputStream thumbnailStream = thumbnailLocation.openStream()) {
+        IPPImage thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    }
+
+    presentation.save("online_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **پخش ویدیو در حالت تمام‌صفحه**
+
+در یک ارائه آموزشی، می‌توانید یک دموی نرم‌افزاری را در حالت تمام‌صفحه پخش کنید تا مخاطب جزئیات را ببیند. با فراخوانی [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) با مقدار `true` این رفتار را در حین پخش فعال می‌کنید.
+
+این مثال یک ارائه را باز می‌کند، اولین [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) را در اولین اسلاید پیدا می‌کند و پخش تمام‌صفحه را فعال می‌سازد. ارائهٔ ورودی باید حداقل یک اسلاید با فریم ویدیو موجود در اولین اسلاید داشته باشد.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
-            float trimFromStart = videoFrame.getTrimFromStart();
-            float trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            System.out.println("Trim from start: " + trimFromStart + " ms");
-            System.out.println("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+پخش تمام‌صفحه نحوه نمایش ویدیو را کنترل می‌کند. به‌طور مستقل، [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) تعیین می‌کند که آیا به‌صورت خودکار یا با کلیک شروع شود و [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) تعیین می‌کند که آیا حلقه شود یا نه. برای انتخاب رفتار شروع، حالت پخش را به [VideoPlayModePreset.Auto یا VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) تنظیم کنید. مثال تنظیمات شروع و حلقه موجود را حفظ می‌کند.
+
+## **برگرداندن ویدیو پس از پخش**
+
+در یک ارائه آموزشی، بازگرداندن ویدیو دموی به ابتدای خود باعث می‌شود برای ارائه‌کننده آماده پخش مجدد باشد. با فراخوانی [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) با مقدار `true` ویدیو پس از پایان پخش به ابتدای خود بازمی‌گردد.
+
+این مثال یک ارائه را باز می‌کند، اولین [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) را در اولین اسلاید پیدا می‌کند و بازگردانی را فعال می‌سازد. حلقه‌پذیری را غیرفعال می‌کند تا پخش بتواند به پایان برسد و پخش را برای شروع با کلیک تنظیم می‌کند. ارائهٔ ورودی باید حداقل یک اسلاید با فریم ویدیو موجود در اولین اسلاید داشته باشد.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+بازگردانی ویدیو را به ابتدای آن می‌برد بدون اینکه دوباره شروع شود. در مقابل، فراخوانی [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) با مقدار `true` پخش را به‌صورت خودکار تکرار می‌کند. وقتی می‌خواهید ویدیو به پایان برسد و آمادهٔ بازپخش بماند، حلقه‌پذیری را غیرفعال نگه دارید. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) به‌صورت مستقل کنترل شروع خودکار یا با کلیک را بر عهده دارد؛ این مثال از [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) استفاده می‌کند تا ارائه‌کننده زمان شروع پخش را تعیین کند. تنظیم حالت پخش پس از تنظیم حلقه، همان‌طور که در مثال نشان داده شده، انجام می‌شود. بازگردانی به‌صورت مستقل از [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) عمل می‌کند.
+
+## **قصر (Trim) فریم ویدیو**
+
+از [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) و [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) برای گذر زمان بخشی از ابتدای یا انتهای ویدیو در حین پخش استفاده کنید. هر دو مقدار بر حسب میلی‌ثانیه هستند. قصر (Trim) تنظیمات پخش را بدون تغییر داده‌های ویدیو توکار تغییر می‌دهد.
+
+**تنظیمات قصر**
+
+این مثال یک ویدیو محلی را تعبیه می‌کند و در حین پخش اولین ۲٫۵ ثانیه و آخرین یک ثانیه را نادیده می‌گیرد. از ویدیویی با طول بیش از ۳٫۵ ثانیه استفاده کنید تا بخش قابل پخش باقی بماند.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500f);
+    videoFrame.setTrimFromEnd(1000f);
+
+    presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**خواندن تنظیمات قصر**
+
+این مثال مقادیر قصر فریم ویدیو اول در اولین اسلاید را به میلی‌ثانیه چاپ می‌کند. ارائه باید حداقل یک اسلاید داشته باشد. اگر آن اسلاید فریم ویدیویی نداشته باشد، هیچ چیزی چاپ نمی‌شود. مثال قبلی مقادیر ۲۵۰۰ و ۱۰۰۰ را تولید می‌کند.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            System.out.println("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            System.out.println("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -185,32 +216,28 @@ try {
 }
 ```
 
-## **مدیریت زیرنویس‌های ویدئویی**
+## **مدیریت زیرنویس‌های ویدیو**
 
-Aspose.Slides به شما امکان می‌دهد زیرنویس‌های بسته برای فریم‌های ویدئویی در ارائه‌های PowerPoint را مدیریت کنید. زیرنویس‌ها در قالب WebVTT ذخیره می‌شوند و از طریق متد [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) در دسترس هستند.
+Aspose.Slides به شما امکان می‌دهد زیرنویس‌های بسته (closed captions) برای فریم‌های ویدیو در ارائه‌های PowerPoint را مدیریت کنید. زیرنویس‌ها در قالب WebVTT ذخیره می‌شوند و از طریق متد [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) در دسترس هستند.
 
-**افزودن زیرنویس به فریم ویدئویی**
+**افزودن زیرنویس به فریم ویدیو**
 
-برای افزودن زیرنویس به فریم ویدئویی:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.  
-1. یک ویدئو به ارائه اضافه کنید.  
-1. یک شیء [IVideoFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/) به یک اسلاید اضافه کنید.  
-1. از [ICaptionsCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptionscollection/) که توسط متد [getCaptionTracks](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) برگردانده می‌شود، برای افزودن یک مسیر زیرنویس WebVTT استفاده کنید.  
-1. ارائهٔ اصلاح‌شده را ذخیره کنید.  
-
-کد زیر نشان می‌دهد چگونه زیرنویس‌ها را به یک فریم ویدئویی اضافه کنید:
+این مثال یک ویدیو محلی را تعبیه می‌کند و یک ردیف زیرنویس WebVTT با عنوان English اضافه می‌نماید. برچسب‌های زمانی زیرنویس باید با ویدیو هم‌خوانی داشته باشند. ارائهٔ ذخیره‌شده شامل هر دو ویدیو و زیرنویس‌های آن می‌شود.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = // "video.mp4";
-    IVideo video = presentation.getVideos().addVideo(videoData);
-
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
 
-    // یک مسیر زیرنویس جدید از یک فایل WebVTT اضافه می‌کند.
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -219,59 +246,53 @@ try {
 }
 ```
 
-رابط [ICaptionsCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptionscollection/) همچنین یک overload ارائه می‌دهد که به شما امکان می‌دهد زیرنویس‌ها را از یک جریان (stream) اضافه کنید.
+رابط [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) همچنین یک overload دارد که به شما امکان می‌دهد زیرنویس‌ها را از یک جریان (stream) اضافه کنید.
 
-**استخراج زیرنویس‌ها از فریم ویدئویی**
+**استخراج زیرنویس‌ها از فریم ویدیو**
 
-برای استخراج زیرنویس‌ها از فریم ویدئویی:
-
-1. ارائه‌ای که حاوی ویدئو است را بارگذاری کنید.  
-1. شیء [IVideoFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/) هدف را پیدا کنید.  
-1. در مسیرهای زیرنویس برگردانده‌شده توسط [getCaptionTracks](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) تکرار کنید.  
-1. هر مسیر زیرنویس را در یک فایل `.vtt` ذخیره کنید.  
-
-کد زیر نشان می‌دهد چگونه زیرنویس‌ها را از یک فریم ویدئویی استخراج کنید:
+این مثال تمامی ردیف‌های زیرنویس را از فریم‌های ویدیو در اولین اسلاید به‌صورت فایل‌های جداگانهٔ WebVTT ذخیره می‌کند. شماره‌گذاری ترتیبی فایل‌های خروجی را متمایز نگه می‌دارد. کنسول تعداد ردیف‌های استخراج‌شده را گزارش می‌دهد. ارائه باید حداقل یک اسلاید داشته باشد.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    int trackCount = 0;
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // مسیر زیرنویس را در یک فایل WebVTT ذخیره می‌کند.
-                FileOutputStream outputStream = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                outputStream.write(captionTrack.getBinaryData());
-                outputStream.close();
+                trackCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("captions_" + trackCount + ".vtt")) {
+                    outputStream.write(captionTrack.getBinaryData());
+                }
             }
         }
     }
+
+    System.out.println("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-هر شیء [ICaptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptions/) شناسهٔ زیرنویس، برچسب، دادهٔ باینری و دادهٔ متن زیرنویس را به‌صورت یک رشته UTF‑8 نشان می‌دهد.
+هر شیء [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) شناسه زیرنویس، برچسب، داده‌های باینری و متن زیرنویس را به‌صورت رشته UTF-8 در دسترس قرار می‌دهد.
 
-**حذف زیرنویس‌ها از فریم ویدئویی**
+**حذف زیرنویس‌ها از فریم ویدیو**
 
-برای حذف زیرنویس‌ها از فریم ویدئویی:
-
-1. ارائه‌ای که حاوی ویدئو است را بارگذاری کنید.  
-1. شیء [IVideoFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/) هدف را دریافت کنید.  
-1. مسیرهای زیرنویس را از مجموعه‌ای که توسط [getCaptionTracks](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) برگردانده می‌شود، حذف کنید.  
-1. ارائهٔ اصلاح‌شده را ذخیره کنید.  
-
-کد زیر نشان می‌دهد چگونه تمام زیرنویس‌ها را از یک فریم ویدئویی حذف کنید:
+این مثال تمامی زیرنویس‌ها را از فریم ویدیو در اولین موقعیت شکل در اولین اسلاید حذف می‌کند و نتیجه را ذخیره می‌نماید. فرض می‌شود اسلاید و شکل وجود داشته باشند و شکل یک فریم ویدیو باشد.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
 
-    // تمام زیرنویس‌ها را از فریم ویدئویی حذف می‌کند.
+    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -280,65 +301,60 @@ try {
 }
 ```
 
-اگر فقط می‌خواهید یک مسیر زیرنویس را حذف کنید، به‌جای متد [clear](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptionscollection/#clear--) از متدهای [remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) یا [removeAt](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) استفاده کنید.
+اگر نیاز به حذف تنها یک ردیف زیرنویس دارید، به جای [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--) از متدهای [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) یا [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) استفاده کنید.
 
-## **استخراج ویدئو از یک اسلاید**
+## **استخراج ویدیو از اسلاید**
 
-علاوه بر افزودن ویدئوها به اسلایدها، Aspose.Slides به شما امکان می‌دهد ویدئوهای جاسازی‌شده در ارائه‌ها را استخراج کنید.
+علاوه بر افزودن ویدیو به اسلایدها، Aspose.Slides به شما امکان می‌دهد ویدیوهای تعبیه‌شده در ارائه‌ها را استخراج کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید تا ارائهٔ حاوی ویدئو را بارگذاری کنید.  
-2. تمام اشیاء [ISlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/) را مرور کنید.  
-3. تمام اشیاء [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) را مرور کرده و یک [VideoFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/videoframe/) پیدا کنید.  
-4. ویدئو را بر روی دیسک ذخیره کنید.  
-
-این کد Java نشان می‌دهد چگونه ویدئوی موجود در یک اسلاید ارائه را استخراج کنید:
+این مثال ویدیوهای تعبیه‌شده را از هر اسلاید به فایل‌های باینری شماره‌دار جداگانه استخراج می‌کند. ویدیوهای پیوندی (linked) نادیده گرفته می‌شوند زیرا دادهٔ تعبیه‌شده‌ای ندارند. کنسول نوع MIME هر ویدیو و تعداد کل را چاپ می‌کند. خروجی از پسوند عمومی `.bin` استفاده می‌کند؛ در صورت نیاز می‌توانید آن را مطابق با نوع رسانهٔ گزارش‌شده تغییر دهید.
 
 ```java
-// یک شیء Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است 
-Presentation pres = new Presentation("VideoSample.pptx");
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("presentation_with_videos.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
+    int videoCount = 0;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                IVideoFrame videoFrame = (IVideoFrame) shape;
+                IVideo video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    System.out.println("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
 
-                //                پسوند فایل را دریافت می‌کند
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                videoCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("extracted_video_" + videoCount + ".bin")) {
+                    outputStream.write(video.getBinaryData());
+                }
+                System.out.println("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (IOException e) {
+
+    System.out.println("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **سؤال‌های متداول**
+## **سؤالات متداول**
 
-**کدام پارامترهای پخش ویدئو می‌توانند برای یک VideoFrame تغییر کنند؟**
+**کدام پارامترهای پخش ویدیو می‌تواند برای یک فریم ویدیو تغییر یابد؟**
 
-می‌توانید حالت پخش ([playback mode](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-)) (خودکار یا با کلیک) و حلقه‌دار بودن ([looping](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-)) را کنترل کنید. این گزینه‌ها از طریق ویژگی‌های شیء [VideoFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/videoframe/) در دسترس هستند.
+می‌توانید [حالت پخش](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (auto یا on click) و [حلقه‌پذیری](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) را کنترل کنید. این گزینه‌ها از طریق متدهای شیء [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) در دسترس هستند.
 
-**آیا افزودن یک ویدئو باعث افزایش حجم فایل PPTX می‌شود؟**
+**آیا افزودن ویدیو باعث افزایش حجم فایل PPTX می‌شود؟**
 
-بله. وقتی یک ویدئوی محلی را جاسازی می‌کنید، دادهٔ باینری در سند گنجانده می‌شود، بنابراین اندازهٔ ارائه متناسب با حجم فایل افزایش می‌یابد. وقتی ویدئوی آنلاین را اضافه می‌کنید، یک لینک و تصویر بندانگشتی جاسازی می‌شود، بنابراین افزایش حجم کمتر است.
+بله. وقتی یک ویدیو محلی را تعبیه می‌کنید، داده‌های باینری در سند گنجانده می‌شود، بنابراین اندازهٔ ارائه به نسبت اندازهٔ فایل افزایش می‌یابد. وقتی به یک ویدیو آنلاین پیوند می‌دهید و تصویر پیش‌نمایش اضافه می‌کنید، ارائه فقط پیوند و تصویر پیش‌نمایش را ذخیره می‌کند نه دادهٔ ویدیو، بنابراین افزایشت حجم معمولاً کمتر است.
 
-**آیا می‌توانم ویدئوی موجود در یک VideoFrame را بدون تغییر موقعیت و اندازهٔ آن جایگزین کنم؟**
+**آیا می‌توان ویدیو در یک فریم ویدیو موجود را بدون تغییر موقعیت و اندازه‌اش جایگزین کرد؟**
 
-بله. می‌توانید محتوای ویدئوی داخل فریم را با استفاده از متد [setEmbeddedVideo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) تعویض کنید در حالی که شکل هندسی فریم حفظ می‌شود؛ این سناریوی رایجی برای به‌روزرسانی رسانه در یک طرح موجود است.
+بله. می‌توانید محتوای [ویدیو](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) را داخل فریم تعویض کنید در حالی که هندسهٔ شکل حفظ می‌شود؛ این سناریوی رایجی برای به‌روزرسانی رسانه در یک طرح‌بندی موجود است.
 
-**آیا می‌توان نوع محتوا (MIME) یک ویدئوی جاسازی‌شده را تعیین کرد؟**
+**آیا می‌توان نوع محتوا (MIME) ویدیو توکار را تعیین کرد؟**
 
-بله. یک ویدئوی جاسازی‌شده دارای یک [content type](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/video/#getContentType--) است که می‌توانید آن را بخوانید و استفاده کنید، برای مثال هنگام ذخیره‌سازی بر روی دیسک.
+بله. یک ویدیو توکار دارای [نوع محتوا](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) است که می‌توانید آن را بخوانید و استفاده کنید، برای مثال هنگام ذخیره‌سازی بر روی دیسک.

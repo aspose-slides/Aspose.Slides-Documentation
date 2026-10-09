@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Πλαισίων Βίντεο σε Παρουσιάσεις με JavaScript
-linktitle: Πλαίσιο Βίντεο
+title: Διαχείριση πλαισίων βίντεο σε παρουσιάσεις χρησιμοποιώντας Node.js
+linktitle: Πλαίσιο βίντεο
 type: docs
 weight: 10
 url: /el/nodejs-java/video-frame/
@@ -18,153 +18,36 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να εξάγετε προγραμματιστικά πλαίσια βίντεο σε διαφάνειες PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Node.js μέσω Java. Γρήγορος οδηγός βήμα-βήμα."
+description: "Μάθετε πώς να προσθέτετε και να εξάγετε προγραμματισμένα πλαίσια βίντεο σε διαφάνειες PowerPoint και OpenDocument χρησιμοποιώντας Aspose.Slides για Node.js μέσω Java. Γρήγορος οδηγός how‑to."
 ---
 ## **Εισαγωγή**
 
-Ένα καλά τοποθετημένο βίντεο σε μια παρουσίαση μπορεί να κάνει το μήνυμά σας πιο συναρπαστικό και να αυξήσει τα επίπεδα εμπλοκής με το κοινό σας.  
+Τα βίντεο μπορούν να βοηθήσουν στην επεξήγηση ιδεών και στην προσέλκυση του κοινού. Το Aspose.Slides for Node.js μέσω Java σας επιτρέπει να προσθέτετε πλαίσια βίντεο στις διαφάνειες, να ρυθμίζετε τις επιλογές αναπαραγωγής, να διαχειρίζεστε υπότιτλους και να εξάγετε τα ενσωματωμένα δεδομένα βίντεο.
 
-Το PowerPoint σας επιτρέπει να προσθέσετε βίντεο σε μια διαφάνεια μιας παρουσίασης με δύο τρόπους:
+Το PowerPoint υποστηρίζει τοπικά βίντεο και συνδέσμους σε διαδικτυακά βίντεο, όπως βίντεο στο YouTube.
 
-* Προσθέστε ή ενσωματώστε ένα τοπικό βίντεο (αποθηκευμένο στον υπολογιστή σας)
-* Προσθέστε ένα διαδικτυακό βίντεο (από πηγή web όπως το YouTube).
+Για την αναπαράσταση δεδομένων βίντεο και πλαισίων βίντεο, το Aspose.Slides παρέχει την κλάση [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) , την κλάση [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) και άλλους σχετικούς τύπους.
 
-Για να μπορείτε να προσθέσετε βίντεο (αντικείμενα βίντεο) σε μια παρουσίαση, το Aspose.Slides παρέχει την κλάση [Video](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/video/) , την κλάση [VideoFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/) και άλλους σχετικούς τύπους.
+## **Δημιουργία ενσωματωμένου πλαισίου βίντεο**
 
-## **Δημιουργία Ενσωματωμένου Πλαισίου Βίντεο**
+Εάν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνειά σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας.
 
-Εάν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνεια σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας.  
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation)  
-1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-1. Προσθέστε ένα αντικείμενο [Video](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/video/) και περάστε τη διαδρομή του αρχείου βίντεο για να ενσωματώσετε το βίντεο στην παρουσίαση.  
-1. Προσθέστε ένα αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/) για να δημιουργήσετε ένα πλαίσιο για το βίντεο.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.  
-
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να προσθέσετε ένα τοπικά αποθηκευμένο βίντεο σε μια παρουσίαση:
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης και αποθηκεύει το αποτέλεσμα. Οι συντεταγμένες και οι διαστάσεις του πλαισίου είναι σε μονάδες σημείου (points). Η ροή παραμένει ανοιχτή μέχρι να ολοκληρωθεί η αποθήκευση, επειδή η μέθοδος [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) τη διατηρεί κλειδωμένη ενώ η παρουσίαση τη χρησιμοποιεί.
 
 ```javascript
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    // Φορτώνει το βίντεο
-    var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
-    var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
-    // Παίρνει την πρώτη διαφάνεια και προσθέτει ένα πλαίσιο βίντεο
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
-    // Αποθηκεύει την παρουσίαση στο δίσκο
-    pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-Εναλλακτικά, μπορείτε να προσθέσετε ένα βίντεο περνώντας απευθείας τη διαδρομή του αρχείου στη μέθοδο [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-):
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var sld = pres.getSlides().get_Item(0);
-    var vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Δημιουργία Πλαισίου Βίντεο με Βίντεο από Διαδικτυακή Πηγή**
-
-Η Microsoft [PowerPoint 2013 και νεότερες εκδόσεις](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) υποστηρίζει βίντεο YouTube στις παρουσιάσεις. Εάν το βίντεο που θέλετε να χρησιμοποιήσετε είναι διαθέσιμο online (π.χ. στο YouTube), μπορείτε να το προσθέσετε στην παρουσίαση μέσω του διαδικτυακού του συνδέσμου.  
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation)  
-1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-1. Προσθέστε ένα αντικείμενο [Video](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/video/) και περάστε τον σύνδεσμο προς το βίντεο.  
-1. Ορίστε μια μικρογραφία για το πλαίσιο βίντεο.  
-1. Αποθηκεύστε την παρουσίαση.  
-
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να προσθέσετε ένα βίντεο από το web σε μια διαφάνεια σε μια παρουσίαση PowerPoint:
-
-```javascript
-// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
-var pres = new aspose.slides.Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-```javascript
-async function addVideoFromYouTube(pres, videoID) {
-    let slide = pres.getSlides().get_Item(0);
-    let videoUrl = "https://www.youtube.com/embed/" + videoID;
-    let videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
-    
-    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
-
-    let thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-
-    try {
-        const imageStream = await getImageStream(thumbnailUri);
-        let image = pres.getImages().addImage(imageStream);
-        videoFrame.getPictureFormat().getPicture().setImage(image);
-    } catch (error) {
-        console.error("Error loading thumbnail:", error);
-    }
-}
-
-async function getImageStream(url) {
-    return new Promise((resolve, reject) => {
-        http.get(url, (response) => {
-            if (response.statusCode === 200) {
-                resolve(response);
-            } else {
-                reject(new Error(`Failed to load image: ${response.statusCode}`));
-            }
-        }).on('error', (e) => {
-            reject(e);
-        });
-    });
-}
-```
-
-## **Περικοπή Πλαισίου Βίντεο**
-
-Το Aspose.Slides σας επιτρέπει να ελέγξετε ποιο τμήμα ενός βίντεο θα αναπαραχθεί ορίζοντας τις τιμές trim-from-start και trim-from-end μέσω των [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/settrimfromstart/) και [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/settrimfromend/). Και οι δύο τιμές καθορίζονται σε χιλιοστά του δευτερολέπτου και ορίζουν πόσο χρόνο θα παραληφθεί από την αρχή και το τέλος του βίντεο, αντίστοιχα. Αυτές οι ρυθμίσεις αλλάζουν τις ρυθμίσεις αναπαραγωγής του βίντεο στην παρουσίαση· δεν κόβουν ή τροποποιούν τα ενσωματωμένα δυαδικά δεδομένα του βίντεο.
-
-**Ορισμός Ρυθμίσεων Περικοπής**
-
-Για να δημιουργήσετε ένα πλαίσιο βίντεο και να ορίσετε τις ρυθμίσεις περικοπής του:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/)  
-1. Προσθέστε ένα αντικείμενο [Video](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/video/) στην παρουσίαση.  
-1. Προσθέστε ένα αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/) σε μια διαφάνεια.  
-1. Ορίστε τις τιμές trim-from-start και trim-from-end μέσω των [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/settrimfromstart/) και [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/settrimfromend/).  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.  
-
-Ο παρακάτω κώδικας παραλείπει τα πρώτα 2,5 δευτερόλεπτα και το τελευταίο δευτερόλεπτο ενός ενσωματωμένου βίντεο κατά την αναπαραγωγή:
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
     try {
-        const video = presentation.getVideos().addVideo(
-            videoStream, aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
         const slide = presentation.getSlides().get_Item(0);
-        const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
 
-        videoFrame.setTrimFromStart(2500);
-        videoFrame.setTrimFromEnd(1000);
+        const video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+        slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-        presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+        presentation.save("embedded_video.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         videoStream.close();
     }
@@ -173,26 +56,171 @@ try {
 }
 ```
 
-**Ανάγνωση Ρυθμίσεων Περικοπής**
-
-Για να εξετάσετε υφιστάμενες ρυθμίσεις περικοπής, φορτώστε μια παρουσίαση, βρείτε ένα αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/) μεταξύ των σχημάτων στην πρώτη διαφάνεια και διαβάστε τις τιμές μέσω των [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/gettrimfromstart/) και [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/gettrimfromend/).  
-
-Ο παρακάτω κώδικας εντοπίζει το πρώτο πλαίσιο βίντεο στην πρώτη διαφάνεια και αναφέρει τις ρυθμίσεις περικοπής του σε χιλιοστά του δευτερολέπτου:
+Μπορείτε επίσης να περάσετε μια τοπική διαδρομή βίντεο απευθείας στη μέθοδο [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/). Αυτό το παράδειγμα ενσωματώνει το βίντεο στην πρώτη διαφάνεια μιας νέας παρουσίασης. Το βίντεο πρέπει να παραμένει προσβάσιμο μέχρι να αποθηκευτεί η παρουσίαση.
 
 ```javascript
-const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Δημιουργία πλαισίου βίντεο με βίντεο από διαδικτυακή πηγή**
+
+Το Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) υποστηρίζει διαδικτυακά βίντεο στις παρουσιάσεις. Μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο που συνδέεται με ένα διαδικτυακό βίντεο, όπως ένα βίντεο στο YouTube.
+
+Αυτό το παράδειγμα προσθέτει έναν σύνδεσμο βίντεο YouTube και μικρογραφία στην πρώτη διαφάνεια. Αντικαταστήστε το αναγνωριστικό βίντεο για να χρησιμοποιήσετε άλλο βίντεο. Η μέθοδος [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) ζητά αυτόματη αναπαραγωγή. Η λήψη της μικρογραφίας και η αναπαραγωγή του βίντεο απαιτούν πρόσβαση στο διαδίκτυο. Ο προγράμματος προβολής της παρουσίασης πρέπει επίσης να υποστηρίζει την αναπαραγωγή διαδικτυακού βίντεο.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const videoId = "aqz-KE-bpKQ";
+    const videoUrl = "https://www.youtube.com/embed/" + videoId;
+    const videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
+
+    const thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    const thumbnailLocation = java.newInstanceSync("java.net.URL", thumbnailUrl);
+    const thumbnailStream = thumbnailLocation.openStream();
+    try {
+        const thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    } finally {
+        thumbnailStream.close();
+    }
+
+    presentation.save("online_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Αναπαραγωγή βίντεο σε λειτουργία πλήρους οθόνης**
+
+Σε μια παρουσίαση εκπαίδευσης, μπορείτε να αναπαράγετε μια επίδειξη λογισμικού σε λειτουργία πλήρους οθόνης ώστε το κοινό να βλέπει τις λεπτομέρειες. Καλέστε τη μέθοδο [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) με `true` για να ενεργοποιήσετε αυτή τη συμπεριφορά κατά την αναπαραγωγή.
+
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση, εντοπίζει το πρώτο [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την αναπαραγωγή σε πλήρη οθόνη. Η εισαγόμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μια διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("training.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
         const shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
             const videoFrame = shape;
-            const trimFromStart = videoFrame.getTrimFromStart();
-            const trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            console.log("Trim from start: " + trimFromStart + " ms");
-            console.log("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η αναπαραγωγή σε πλήρη οθόνη ελέγχει πώς εμφανίζεται το βίντεο. Ξεχωριστά, η μέθοδος [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) ελέγχει αν η αναπαραγωγή ξεκινά αυτόματα ή με κλικ, και η [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) ελέγχει αν επαναλαμβάνεται. Για να επιλέξετε τη συμπεριφορά εκκίνησης, ορίστε τη λειτουργία αναπαραγωγής σε [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/). Το παράδειγμα διατηρεί τις υπάρχουσες ρυθμίσεις εκκίνησης και βρόχου.
+
+## **Επιστροφή του βίντεο στην αρχή μετά την αναπαραγωγή**
+
+Σε μια παρουσίαση εκπαίδευσης, η επιστροφή ενός βίντεο επίδειξης στην αρχή το καθιστά έτοιμο για ξανά αναπαραγωγή από τον παρουσιαστή. Καλέστε τη μέθοδο [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) με `true` για να επιστρέψετε το βίντεο στην αρχή μετά το τέλος της αναπαραγωγής.
+
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση, εντοπίζει το πρώτο [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την επαναφορά. Απενεργοποιεί τον βρόχο ώστε η αναπαραγωγή να μπορεί να ολοκληρωθεί και ορίζει την αναπαραγωγή να ξεκινά με κλικ. Η εισαγόμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μια διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("training.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η επαναφορά επιστρέφει το βίντεο στην αρχή χωρίς να το ξεκινήσει ξανά. Αντίθετα, η κλήση της [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) με `true` επαναλαμβάνει την αναπαραγωγή αυτόματα. Κρατήστε τον βρόχο απενεργοποιημένο όταν θέλετε το βίντεο να ολοκληρωθεί και να παραμείνει έτοιμο για επανεκκίνηση. Η [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) ελέγχει ανεξάρτητα την αυτόματη ή την έναρξη με κλικ· αυτό το παράδειγμα χρησιμοποιεί το [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) ώστε ο παρουσιαστής να ελέγχει πότε ξεκινά η αναπαραγωγή. Ορίστε τη λειτουργία αναπαραγωγής μετά τη ρύθμιση του βρόχου, όπως φαίνεται στο παράδειγμα. Η επαναφορά λειτουργεί ανεξάρτητα από τη [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/).
+
+## **Περικοπή πλαισίου βίντεο**
+
+Χρησιμοποιήστε τις μεθόδους [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) και [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) για να παραλείψετε μέρος της αρχής ή του τέλους ενός βίντεο κατά την αναπαραγωγή. Και οι δύο τιμές είναι σε χιλιοστά του δευτερολέπτου. Η περικοπή αλλάζει τις ρυθμίσεις αναπαραγωγής χωρίς να τροποποιεί τα ενσωματωμένα δεδομένα βίντεο.
+
+**Ορισμός ρυθμίσεων περικοπής**
+
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και παραλείπει τα πρώτα 2,5 δευτερόλεπτα και το τελευταίο δευτερόλεπτο κατά την αναπαραγωγή. Χρησιμοποιήστε ένα βίντεο μεγαλύτερο από 3,5 δευτερόλεπτα ώστε να παραμένει ένα αναπαραγώσιμο τμήμα.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const videoBuffer = fs.readFileSync("video.mp4");
+    const videoData = java.newArray("byte", Array.from(videoBuffer));
+    const video = presentation.getVideos().addVideo(videoData);
+
+    const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500);
+    videoFrame.setTrimFromEnd(1000);
+
+    presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Ανάγνωση ρυθμίσεων περικοπής**
+
+Αυτό το παράδειγμα εκτυπώνει τις τιμές περικοπής του πρώτου πλαισίου βίντεο στην πρώτη διαφάνεια σε χιλιοστά του δευτερολέπτου. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μια διαφάνεια. Εάν αυτή η διαφάνεια δεν έχει πλαίσιο βίντεο, δεν εκτυπώνεται τίποτα. Το προηγούμενο παράδειγμα παράγει τιμές 2500 και 1000.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            console.log("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            console.log("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -201,32 +229,28 @@ try {
 }
 ```
 
-## **Διαχείριση Υπότιτλων Βίντεο**
+## **Διαχείριση υποτίτλων βίντεο**
 
-Το Aspose.Slides σας επιτρέπει να διαχειριστείτε κλειστά υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και είναι προσβάσιμοι μέσω της μεθόδου [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
+Το Aspose.Slides σας επιτρέπει να διαχειρίζεστε κλειστά υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και εκτίθενται μέσω της μεθόδου [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Προσθήκη Υπότιτλων σε Πλαίσιο Βίντεο**
+**Προσθήκη υποτίτλων σε πλαίσιο βίντεο**
 
-Για να προσθέσετε υπότιτλους σε ένα πλαίσιο βίντεο:
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και προσθέτει ένα κομμάτι υπότιτλου WebVTT με ετικέτα English. Οι χρονικές σημάνσεις των υποτίτλων πρέπει να ταιριάζουν με το βίντεο. Η αποθηκευμένη παρουσίαση περιλαμβάνει τόσο το βίντεο όσο και τους υπότιτλούς του.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/)  
-1. Προσθέστε ένα βίντεο στην παρουσίαση.  
-1. Προσθέστε ένα αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/) σε μια διαφάνεια.  
-1. Χρησιμοποιήστε τη συλλογή [CaptionsCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/captionscollection/) για να προσθέσετε ένα κομμάτι υπότιτλου WebVTT.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.  
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
 
-Ο παρακάτω κώδικας δείχνει πώς να προσθέσετε υπότιτλους σε ένα πλαίσιο βίντεο:
-
-```js
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
-    let video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
+    const videoBuffer = fs.readFileSync("video.mp4");
+    const videoData = java.newArray("byte", Array.from(videoBuffer));
+    const video = presentation.getVideos().addVideo(videoData);
 
-    // Προσθέτει ένα νέο κομμάτι υπότιτλων από αρχείο WebVTT.
+    const videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -235,63 +259,56 @@ try {
 }
 ```
 
-Η κλάση [CaptionsCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/captionscollection/) παρέχει επίσης τη μέθοδο [addFromStream](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/captionscollection/#addFromStream) που σας επιτρέπει να προσθέσετε υπότιτλους από ένα ρεύμα.
+Η κλάση [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) παρέχει επίσης τη μέθοδο [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) για την προσθήκη υποτίτλων από μια ροή.
 
-**Εξαγωγή Υπότιτλων από Πλαίσιο Βίντεο**
+**Εξαγωγή υποτίτλων από πλαίσιο βίντεο**
 
-Για να εξάγετε υπότιτλους από ένα πλαίσιο βίντεο:
+Αυτό το παράδειγμα αποθηκεύει όλα τα κομμάτια υποτίτλων από τα πλαίσια βίντεο στην πρώτη διαφάνεια ως ξεχωριστά αρχεία WebVTT. Τα διαδοχικά νούμερα κρατούν τα αρχεία εξόδου διακεκριμένα. Η κονσόλα αναφέρει τον αριθμό των εξαγόμενων κομματιών. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μια διαφάνεια.
 
-1. Φορτώστε την παρουσίαση που περιέχει το βίντεο.  
-1. Εντοπίστε το αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/).  
-1. Περάστε τη συλλογή [CaptionsCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/captionscollection/).  
-1. Αποθηκεύστε κάθε κομμάτι υπότιτλου σε αρχείο `.vtt`.  
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
 
-Ο παρακάτω κώδικας δείχνει πώς να εξάγετε υπότιτλους από ένα πλαίσιο βίντεο:
-
-```js
-let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+const presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    let trackCount = 0;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-            let videoFrame = shape;
-            let trackCount = videoFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
-                // Αποθηκεύει το κομμάτι υποτίτλων σε αρχείο WebVTT.
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            const videoFrame = shape;
+            for (let trackIndex = 0; trackIndex < videoFrame.getCaptionTracks().getCount(); trackIndex++) {
+                const captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
+                trackCount++;
+                const outputPath = "captions_" + trackCount + ".vtt";
+                const outputData = Buffer.from(captionTrack.getBinaryData());
+                fs.writeFileSync(outputPath, outputData);
             }
         }
     }
+
+    console.log("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-Κάθε αντικείμενο [Captions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/captions/) εκθέτει το αναγνωριστικό του υπότιτλου, την ετικέτα, τα δυαδικά δεδομένα και το κείμενο υπότιτλου ως συμβολοσειρά UTF-8.
+Κάθε αντικείμενο [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) εκθέτει το αναγνωριστικό υποτίτλου, την ετικέτα, τα δυαδικά δεδομένα και το κείμενο υποτίτλου ως συμβολοσειρά UTF-8.
 
-**Αφαίρεση Υπότιτλων από Πλαίσιο Βίντεο**
+**Αφαίρεση υποτίτλων από πλαίσιο βίντεο**
 
-Για να αφαιρέσετε υπότιτλους από ένα πλαίσιο βίντεο:
+Αυτό το παράδειγμα αφαιρεί όλους τους υπότιτλους από το πλαίσιο βίντεο στην πρώτη θέση σχήματος της πρώτης διαφάνειας και αποθηκεύει το αποτέλεσμα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι πλαίσιο βίντεο.
 
-1. Φορτώστε την παρουσίαση που περιέχει το βίντεο.  
-1. Αποκτήστε το αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/).  
-1. Αφαιρέστε τα κομμάτια υπότιτλων από τη συλλογή [CaptionsCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/captionscollection/).  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.  
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-Ο παρακάτω κώδικας δείχνει πώς να αφαιρέσετε όλους τους υπότιτλους από ένα πλαίσιο βίντεο:
-
-```js
-let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+const presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().get_Item(0); // τύπος: com.aspose.slides.VideoFrame
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Αφαίρεει όλους τους υπότιτλους από το πλαίσιο βίντεο.
+    const videoFrame = slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -300,63 +317,63 @@ try {
 }
 ```
 
-Εάν χρειάζεται να αφαιρέσετε μόνο ένα κομμάτι υπότιτλου, χρησιμοποιήστε τις μεθόδους [remove](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/captionscollection/#remove) ή [removeAt](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/captionscollection/#removeAt) αντί για τη [clear](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/captionscollection/#clear).
+Εάν χρειάζεται να αφαιρέσετε μόνο ένα κομμάτι υποτίτλου, χρησιμοποιήστε τις μεθόδους [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) ή [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) αντί για [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
 
-## **Εξαγωγή Βίντεο από Διαφάνεια**
+## **Εξαγωγή βίντεο από διαφάνεια**
 
-Εκτός από την προσθήκη βίντεο σε διαφάνειες, το Aspose.Slides σας επιτρέπει να εξάγετε βίντεο ενσωματωμένα σε παρουσιάσεις.
+Πέρα από την προσθήκη βίντεο στις διαφάνειες, το Aspose.Slides επιτρέπει την εξαγωγή βίντεο ενσωματωμένων σε παρουσιάσεις.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) για να φορτώσετε την παρουσίαση που περιέχει το βίντεο.  
-2. Περάστε όλα τα αντικείμενα [Slide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/).  
-3. Περάστε όλα τα αντικείμενα [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/) για να εντοπίσετε ένα [VideoFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/).  
-4. Αποθηκεύστε το βίντεο στο δίσκο.  
-
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να εξάγετε το βίντεο από μια διαφάνεια παρουσίασης:
+Αυτό το παράδειγμα εξάγει τα ενσωματωμένα βίντεο από κάθε διαφάνεια σε ξεχωριστά αριθμημένα δυαδικά αρχεία. Τα συνδεδεμένα βίντεο παραλείπονται επειδή δεν έχουν ενσωματωμένα δεδομένα. Η κονσόλα εκτυπώνει το τύπο MIME κάθε βίντεο και το συνολικό πλήθος. Η έξοδος χρησιμοποιεί τη γενική επέκταση `.bin`; αλλάξτε την ώστε να ταιριάζει με τον αναφερόμενο τύπο μέσου όταν χρειάζεται.
 
 ```javascript
-// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
-var pres = new aspose.slides.Presentation("VideoSample.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("presentation_with_videos.pptx");
 try {
-    for (let i = 0; i < pres.getSlides().size(); i++) {
-        let slide = pres.getSlides().get_Item(i);
-        for (let j = 0; j < slide.getShapes().size(); j++) {
-            let shape = slide.getShapes().get_Item(j);
+    let videoCount = 0;
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-                var vf = shape;
-                console.log(shape);
-                var type = vf.getEmbeddedVideo().getContentType();
-                var ss = type.lastIndexOf('-');
-                const buffer = Buffer.from(vf.getEmbeddedVideo().getBinaryData());
-                console.log(buffer);
-                // Λαμβάνει την επέκταση αρχείου
-                var charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-                fs.writeFileSync("testing2." + type, buffer);
+                const videoFrame = shape;
+                const video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    console.log("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
+
+                videoCount++;
+                const outputPath = "extracted_video_" + videoCount + ".bin";
+                const outputData = Buffer.from(video.getBinaryData());
+                fs.writeFileSync(outputPath, outputData);
+                console.log("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (e) {console.log(e);
+
+    console.log("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Ποιοι παράμετροι αναπαραγωγής βίντεο μπορούν να τροποποιηθούν για ένα VideoFrame;**
+**Ποια παραμέτρα αναπαραγωγής βίντεο μπορούν να αλλάξουν για ένα πλαίσιο βίντεο;**
 
-Μπορείτε να ελέγξετε τη [λειτουργία αναπαραγωγής](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/setplaymode/) (αυτόματα ή με κλικ) και την [επανάληψη](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Αυτές οι επιλογές είναι διαθέσιμες μέσω των ιδιοτήτων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/).
+Μπορείτε να ελέγξετε τη [λειτουργία αναπαραγωγής](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (αυτόματη ή με κλικ) και την [επανάληψη](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Αυτές οι επιλογές διατίθενται μέσω των μεθόδων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
 
 **Επηρεάζει η προσθήκη βίντεο το μέγεθος του αρχείου PPTX;**
 
-Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα συμπεριλαμβάνονται στο έγγραφο, οπότε το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν προσθέτετε ένα διαδικτυακό βίντεο, ενσωματώνεται ένας σύνδεσμος και μια μικρογραφία, οπότε η αύξηση του μεγέθους είναι μικρότερη.
+Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα περιλαμβάνονται στο έγγραφο, έτσι το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν συνδέεστε σε διαδικτυακό βίντεο και προσθέτετε μικρογραφία, η παρουσίαση αποθηκεύει τον σύνδεσμο και την εικόνα προεπισκόπησης αντί για τα δεδομένα του βίντεο, οπότε η αύξηση μεγέθους είναι συνήθως μικρότερη.
 
-**Μπορώ να αντικαταστήσω το βίντεο σε ένα υπάρχον VideoFrame χωρίς να αλλάξω τη θέση και το μέγεθός του;**
+**Μπορώ να αντικαταστήσω το βίντεο σε ένα υπάρχον πλαίσιο βίντεο χωρίς να αλλάξω τη θέση και το μέγεθός του;**
 
-Ναι. Μπορείτε να ανταλλάξετε το [περιεχόμενο βίντεο](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) μέσα στο πλαίσιο διατηρώντας τη γεωμετρία του σχήματος· αυτό είναι κοινή πρακτική για την ενημέρωση πολυμέσων σε υπάρχουσα διάταξη.
+Ναι. Μπορείτε να ανταλλάξετε το [περιεχόμενο βίντεο](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) μέσα στο πλαίσιο διατηρώντας τη γεωμετρία του σχήματος· αυτό είναι ένα συνηθισμένο σενάριο για την ενημέρωση πολυμέσων σε υπάρχουσα διάταξη.
 
 **Μπορεί να προσδιοριστεί ο τύπος περιεχομένου (MIME) ενός ενσωματωμένου βίντεο;**
 
-Ναι. Ένα ενσωματωμένο βίντεο έχει ένα [τύπο περιεχομένου](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/video/getcontenttype/) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα όταν το αποθηκεύετε στο δίσκο.
+Ναι. Ένα ενσωματωμένο βίντεο έχει έναν [τύπο περιεχομένου](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα όταν το αποθηκεύετε σε δίσκο.

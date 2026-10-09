@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση Πλαισίων Βίντεο σε Παρουσιάσεις Χρησιμοποιώντας Python
+title: Διαχείριση πλαισίων βίντεο σε παρουσιάσεις με Python
 linktitle: Πλαίσιο Βίντεο
 type: docs
 weight: 10
@@ -11,7 +11,7 @@ keywords:
 - εξαγωγή βίντεο
 - ανάκτηση βίντεο
 - πλαίσιο βίντεο
-- πηγή web
+- πηγή ιστού
 - PowerPoint
 - OpenDocument
 - παρουσίαση
@@ -21,26 +21,17 @@ description: "Μάθετε πώς να προσθέτετε και να εξάγ
 ---
 ## **Εισαγωγή**
 
-Ένα καλά τοποθετημένο βίντεο σε μια παρουσίαση μπορεί να κάνει το μήνυμά σας πιο ελκυστικό και να αυξήσει τα επίπεδα εμπλοκής με το κοινό σας.
+Τα βίντεο μπορούν να βοηθήσουν στην εξήγηση ιδεών και στην προσέλκυση του κοινού. Το Aspose.Slides για Python μέσω Java σας επιτρέπει να προσθέτετε πλαίσια βίντεο σε διαφάνειες, να ρυθμίζετε τις ρυθμίσεις αναπαραγωγής, να διαχειρίζεστε υπότιτλους και να εξάγετε ενσωματωμένα δεδομένα βίντεο.
 
-PowerPoint σας επιτρέπει να προσθέσετε βίντεο σε μια διαφάνεια σε μια παρουσίαση με δύο τρόπους:
+Το PowerPoint υποστηρίζει τοπικά βίντεο και συνδέσμους σε βίντεο στο διαδίκτυο, όπως βίντεο του YouTube.
 
-* Προσθήκη ή ενσωμάτωση τοπικού βίντεο (αποθηκευμένο στον υπολογιστή σας)
-* Προσθήκη διαδικτυακού βίντεο (από πηγή στο web όπως το YouTube).
+Για την αναπαράσταση δεδομένων βίντεο και πλαισίων βίντεο, το Aspose.Slides παρέχει την κλάση [Video](https://reference.aspose.com/slides/python-java/aspose.slides/video/) την κλάση [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) και άλλους σχετικούς τύπους.
 
-Για να μπορέσετε να προσθέσετε βίντεο (αντικείμενα βίντεο) σε μια παρουσίαση, Aspose.Slides παρέχει τις κλάσεις [Video](https://reference.aspose.com/slides/el/python-java/aspose.slides/video/) και [VideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/) και άλλους σχετικούς τύπους.
-
-## **Δημιουργία Ενσωματωμένων Πλαισίων Βίντεο**
+## **Δημιουργία ενσωματωμένου πλαισίου βίντεο**
 
 Εάν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνειά σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-1. Προσθέστε ένα αντικείμενο [Video](https://reference.aspose.com/slides/el/python-java/aspose.slides/video/) και περάστε τα δεδομένα του αρχείου βίντεο για να ενσωματώσετε το βίντεο στην παρουσίαση.
-1. Προσθέστε ένα αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/) για να δημιουργήσετε ένα πλαίσιο για το βίντεο.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτός ο κώδικας Python σας δείχνει πώς να προσθέσετε ένα βίντεο που είναι αποθηκευμένο τοπικά σε μια παρουσίαση:
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης και αποθηκεύει το αποτέλεσμα. Οι συντεταγμένες και οι διαστάσεις του πλαισίου είναι σε μονάδες point. Η Python διαβάζει τα byte του βίντεο από το δίσκο, και η JPype τα μετατρέπει σε σειρά byte της Java πριν το βίντεο προστεθεί στην παρουσίαση.
 
 ```python
 from pathlib import Path
@@ -53,18 +44,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("pres.pptx")
+presentation = Presentation("presentation.pptx")
 try:
-    video_data = Path("Wildlife.mp4").read_bytes()
+    slide = presentation.getSlides().get_Item(0)
+
+    video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video)
-    presentation.save("pres-with-video.pptx", SaveFormat.Pptx)
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video)
+
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Εναλλακτικά, μπορείτε να προσθέσετε ένα βίντεο περνώντας απευθείας τη διαδρομή του αρχείου στη μέθοδο [addVideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/shapecollection/#addVideoFrame):
+Μπορείτε επίσης να περάσετε τη διαδρομή ενός τοπικού βίντεο απευθείας στο [addVideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addVideoFrame). Αυτό το παράδειγμα ενσωματώνει το βίντεο στην πρώτη διαφάνεια μιας νέας παρουσίασης. Το βίντεο πρέπει να παραμένει προσβάσιμο μέχρι να αποθηκευτεί η παρουσίαση.
 
 ```python
 import jpype
@@ -73,27 +68,24 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    video_frame = slide.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi")
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi")
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Δημιουργία Πλαισίων Βίντεο από Πηγές στο Web**
+## **Δημιουργία πλαισίου βίντεο με βίντεο από πηγή στο διαδίκτυο**
 
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) υποστηρίζει βίντεο YouTube σε παρουσιάσεις. Εάν το βίντεο που θέλετε να χρησιμοποιήσετε είναι διαθέσιμο διαδικτυακά (π.χ. στο YouTube), μπορείτε να το προσθέσετε στην παρουσίασή σας μέσω του συνδέσμου του.
+Το Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) υποστηρίζει βίντεο στο διαδίκτυο στις παρουσιάσεις. Μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο που συνδέεται με ένα βίντεο στο διαδίκτυο, όπως ένα βίντεο του YouTube.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-1. Προσθέστε ένα αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/) και περάστε το σύνδεσμο προς το βίντεο.
-1. Ορίστε μια μικρογραφία (thumbnail) για το πλαίσιο βίντεο.
-1. Αποθηκεύστε την παρουσίαση.
-
-Αυτός ο κώδικας Python σας δείχνει πώς να προσθέσετε ένα βίντεο από το web σε μια διαφάνεια σε παρουσίαση PowerPoint:
+Αυτό το παράδειγμα προσθέτει έναν σύνδεσμο βίντεο YouTube και μικρογραφία στην πρώτη διαφάνεια. Αντικαταστήστε το αναγνωριστικό του βίντεο για να χρησιμοποιήσετε άλλο βίντεο. Η μέθοδος [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) ζητά αυτόματη αναπαραγωγή. Η λήψη της μικρογραφίας και η αναπαραγωγή του βίντεο απαιτούν πρόσβαση στο διαδίκτυο. Ο προβολέας της παρουσίασης πρέπει επίσης να υποστηρίζει αναπαραγωγή βίντεο στο διαδίκτυο.
 
 ```python
 from urllib.request import urlopen
@@ -106,43 +98,98 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, VideoPlayModePreset
 
-video_id = "Tj75Arhq5ho"
 presentation = Presentation()
 try:
-    video_frame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + video_id)
+    slide = presentation.getSlides().get_Item(0)
+
+    video_id = "aqz-KE-bpKQ"
+    video_url = "https://www.youtube.com/embed/" + video_id
+    video_frame = slide.getShapes().addVideoFrame(10, 10, 427, 240, video_url)
     video_frame.setPlayMode(VideoPlayModePreset.Auto)
 
-    # Φόρτωση μικρογραφίας.
-    thumbnail_uri = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
-    try:
-        with urlopen(thumbnail_uri) as response:
-            thumbnail_data = response.read()
-        java_thumbnail_data = jpype.JArray(jpype.JByte)(thumbnail_data)
-        thumbnail = presentation.getImages().addImage(java_thumbnail_data)
-        video_frame.getPictureFormat().getPicture().setImage(thumbnail)
-    except OSError as error:
-        print("Could not load the thumbnail:", error)
+    thumbnail_url = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
+    with urlopen(thumbnail_url) as response:
+        thumbnail_data = response.read()
+    java_thumbnail_data = jpype.JArray(jpype.JByte)(thumbnail_data)
+    thumbnail = presentation.getImages().addImage(java_thumbnail_data)
+    video_frame.getPictureFormat().getPicture().setImage(thumbnail)
 
-    presentation.save("out.pptx", SaveFormat.Pptx)
+    presentation.save("online_video.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Περικοπή Πλαισίου Βίντεο**
+## **Αναπαραγωγή βίντεο σε λειτουργία πλήρους οθνης**
 
-Aspose.Slides σάς επιτρέπει να ελέγχετε ποιο τμήμα ενός βίντεο θα αναπαράγεται ορίζοντας τις τιμές trim-from-start και trim-from-end μέσω των μεθόδων [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#setTrimFromStart) και [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#setTrimFromEnd). Και οι δύο τιμές ορίζονται σε χιλιοστά του δευτερολέπτου και καθορίζουν πόσο χρόνο θα παραλειφθεί από την αρχή και το τέλος του βίντεο, αντίστοιχα. Αυτές οι ρυθμίσεις αλλάζουν τις ρυθμίσεις αναπαραγωγής βίντεο στην παρουσίαση· δεν κόβουν ή τροποποιούν τα ενσωματωμένα δυαδικά δεδομένα του βίντεο.
+Σε μια εκπαιδευτική παρουσίαση, μπορείτε να αναπαράγετε μια επίδειξη λογισμικού σε λειτουργία πλήρους οθόνης ώστε το κοινό να δει τις λεπτομέρειες. Καλέστε το [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode) με `True` για να ενεργοποιήσετε αυτή τη συμπεριφορά κατά την αναπαραγωγή.
 
-**Ορισμός Ρυθμίσεων Περικοπής**
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την αναπαραγωγή σε πλήρη οθνη. Η παρουσίαση εισόδου πρέπει να περιέχει τουλάχιστον μία διαφάνεια με ένα υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
 
-Για να δημιουργήσετε ένα πλαίσιο βίντεο και να ορίσετε τις ρυθμίσεις περικοπής του:
+```python
+import jpype
+import asposeslides
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-1. Προσθέστε ένα αντικείμενο [Video](https://reference.aspose.com/slides/el/python-java/aspose.slides/video/) στην παρουσίαση.
-1. Προσθέστε ένα αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/) σε μια διαφάνεια.
-1. Ορίστε τις τιμές trim-from-start και trim-from-end μέσω των μεθόδων [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#setTrimFromStart) και [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#setTrimFromEnd).
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-Το παρακάτω παράδειγμα κώδικα παραλείπει τα πρώτα 2,5 δευτερόλεπτα και το τελευταίο δευτερόλεπτο ενός ενσωματωμένου βίντεο κατά την αναπαραγωγή:
+from asposeslides.api import Presentation, SaveFormat, VideoFrame
+
+presentation = Presentation("training.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if isinstance(shape, VideoFrame):
+            shape.setFullScreenMode(True)
+            break
+
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Η αναπαραγωγή σε πλήρη οθνη ελέγχει πώς εμφανίζεται το βίντεο. Ανεξάρτητα, το [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) ελέγχει αν ξεκινά αυτόματα ή με κλικ, και το [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) ελέγχει αν επαναλαμβάνεται. Για να επιλέξετε τη συμπεριφορά εκκίνησης, ορίστε τη λειτουργία αναπαραγωγής σε [VideoPlayModePreset.Auto ή VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/). Το παράδειγμα διατηρεί τις υπάρχουσες ρυθμίσεις εκκίνησης και λούπ.
+
+## **Επιστροφή του βίντεο στην αρχή μετά την αναπαραγωγή**
+
+Σε μια εκπαιδευτική παρουσίαση, η επαναφορά ενός βίντεο επίδειξης στην αρχή το καθιστά έτοιμο για τον παρουσιαστή να το ξαναπαίξει. Καλέστε το [setRewindVideo](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setRewindVideo) με `True` για να επιστρέψετε το βίντεο στην αρχή μετά το τέλος της αναπαραγωγής.
+
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την επιστροφή. Απενεργοποιεί τη λούπ ώστε η αναπαραγωγή να ολοκληρωθεί και θέτει την έναρξη αναπαραγωγής σε κλικ. Η παρουσίαση εισόδου πρέπει να περιέχει τουλάχιστον μία διαφάνεια με ένα υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, VideoFrame, VideoPlayModePreset
+
+presentation = Presentation("training.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if isinstance(shape, VideoFrame):
+            shape.setRewindVideo(True)
+            shape.setPlayLoopMode(False)
+            shape.setPlayMode(VideoPlayModePreset.OnClick)
+            break
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Η επιστροφή τοποθετεί το βίντεο στην αρχή χωρίς να το ξεκινήσει ξανά. Αντίθετα, η κλήση του [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) με `True` επαναλαμβάνει την αναπαραγωγή αυτόματα. Διατηρήστε τη λούπ απενεργοποιημένη όταν θέλετε το βίντεο να ολοκληρωθεί και να παραμείνει έτοιμο για επανάληψη. Το [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) ελέγχει ανεξάρτητα την αυτόματη ή με κλικ έναρξη· αυτό το παράδειγμα χρησιμοποιεί το [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/) ώστε ο παρουσιαστής να ελέγχει πότε ξεκινά η αναπαραγωγή. Ορίστε τη λειτουργία αναπαραγωγής μετά τη ρύθμιση λούπ, όπως φαίνεται στο παράδειγμα. Η επιστροφή λειτουργεί ανεξάρτητα από το [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode).
+
+## **Κοπή πλαισίου βίντεο**
+
+Χρησιμοποιήστε τα [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromStart) και [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromEnd) για να παραλείψετε μέρος της αρχής ή του τέλους ενός βίντεο κατά την αναπαραγωγή. Και οι δύο τιμές είναι σε χιλιοστά του δευτερολέπτου. Η κοπή αλλάζει τις ρυθμίσεις αναπαραγωγής χωρίς να τροποποιεί τα ενσωματωμένα δεδομένα βίντεο.
+
+**Ορισμός ρυθμίσεων κοπής**
+
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και παραλείπει τα πρώτα 2,5 δευτερόλεπτα και το τελευταίο δευτερόλεπτο κατά την αναπαραγωγή. Χρησιμοποιήστε ένα βίντεο μεγαλύτερο από 3,5 δευτερόλεπτα ώστε να παραμείνει ένα αναπαραγώσιμο τμήμα.
 
 ```python
 from pathlib import Path
@@ -157,24 +204,25 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
+    slide = presentation.getSlides().get_Item(0)
+
     video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video)
 
     video_frame.setTrimFromStart(2500.0)
     video_frame.setTrimFromEnd(1000.0)
+
     presentation.save("video_with_trim.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**Ανάγνωση Ρυθμίσεων Περικοπής**
+**Ανάγνωση ρυθμίσεων κοπής**
 
-Για να εξετάσετε τις υπάρχουσες ρυθμίσεις περικοπής, φορτώστε μια παρουσίαση, βρείτε ένα αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/) μεταξύ των σχημάτων στη πρώτη διαφάνεια και διαβάστε τις τιμές μέσω των μεθόδων [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#getTrimFromStart) και [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#getTrimFromEnd).
-
-Το παρακάτω παράδειγμα κώδικα βρίσκει το πρώτο πλαίσιο βίντεο στην πρώτη διαφάνεια και αναφέρει τις ρυθμίσεις περικοπής του σε χιλιοστά του δευτερολέπτου:
+Αυτό το παράδειγμα εκτυπώνει τις τιμές κοπής του πρώτου πλαισίου βίντεο στην πρώτη διαφάνεια σε χιλιοστά του δευτερολέπτου. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια. Εάν αυτή η διαφάνεια δεν έχει πλαίσιο βίντεο, δεν εκτυπώνεται τίποτα. Το προηγούμενο παράδειγμα παράγει τιμές 2500 και 1000.
 
 ```python
 import jpype
@@ -188,6 +236,7 @@ from asposeslides.api import Presentation, VideoFrame
 presentation = Presentation("video_with_trim.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             trim_from_start = shape.getTrimFromStart()
@@ -199,21 +248,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Διαχείριση Υπότιτλων Βίντεο**
+## **Διαχείριση υπότιτλων βίντεο**
 
-Aspose.Slides σάς επιτρέπει να διαχειρίζεστε κλειστά υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και εκτίθενται μέσω της μεθόδου [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#getCaptionTracks).
+Το Aspose.Slides σας επιτρέπει να διαχειρίζεστε κλειστούς υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και εκτίθενται μέσω της μεθόδου [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Προσθήκη Υπότιτλων σε Πλαίσιο Βίντεο**
+**Προσθήκη υποτίτλων σε πλαίσιο βίντεο**
 
-Για να προσθέσετε υπότιτλους σε ένα πλαίσιο βίντεο:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-1. Προσθέστε ένα βίντεο στην παρουσίαση.
-1. Προσθέστε ένα αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/) σε μια διαφάνεια.
-1. Χρησιμοποιήστε την [CaptionsCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/) που επιστρέφει η μέθοδος [getCaptionTracks](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#getCaptionTracks) για να προσθέσετε ένα κομμάτι υπότιτλου WebVTT.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Ο παρακάτω κώδικας σας δείχνει πώς να προσθέσετε υπότιτλους σε ένα πλαίσιο βίντεο:
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και προσθέτει ένα WebVTT κανάλι υποτίτλων με ετικέτα English. Οι χρονοκνώσεις των υποτίτλων πρέπει να ταιριάζουν με το βίντεο. Η αποθηκευμένη παρουσίαση περιλαμβάνει τόσο το βίντεο όσο και τους υπότιτλους.
 
 ```python
 from pathlib import Path
@@ -228,31 +269,27 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
+    slide = presentation.getSlides().get_Item(0)
+
     video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
-    # Προσθήκη νέας γραμμής υπότιτλων από αρχείο WebVTT.
+    # Προσθέστε ένα νέο κανάλι υπότιτλων από αρχείο WebVTT.
     video_frame.getCaptionTracks().add("English", "track.vtt")
+
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Η κλάση [CaptionsCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/) παρέχει επίσης μια υπερφόρτωση που σάς επιτρέπει να προσθέσετε υπότιτλους από ένα ρεύμα (stream).
+Η κλάση [CaptionsCollection](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/) παρέχει επίσης υπερφόρτωση που σας επιτρέπει να προσθέσετε υπότιτλους από μια ροή.
 
-**Εξαγωγή Υπότιτλων από Πλαίσιο Βίντεο**
+**Εξαγωγή υποτίτλων από πλαίσιο βίντεο**
 
-Για να εξαγάγετε υπότιτλους από ένα πλαίσιο βίντεο:
-
-1. Φορτώστε την παρουσίαση που περιέχει το βίντεο.
-1. Βρείτε το επιθυμητό αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/).
-1. Επανάληψη μέσω των κομματιών υπότιτλου στην [CaptionsCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/).
-1. Αποθηκεύστε κάθε κομμάτι υπότιτλου σε αρχείο `.vtt`.
-
-Ο παρακάτω κώδικας σας δείχνει πώς να εξαγάγετε υπότιτλους από ένα πλαίσιο βίντεο:
+Αυτό το παράδειγμα αποθηκεύει όλα τα κανάλια υποτίτλων από πλαίσια βίντεο στην πρώτη διαφάνεια ως ξεχωριστά αρχεία WebVTT. Οι διαδοχικοί αριθμοί διατηρούν τα αρχεία εξόδου διαφορετικά. Η κονσόλα αναφέρει τον αριθμό των εξαγόμενων καναλιών. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια.
 
 ```python
 from pathlib import Path
@@ -268,29 +305,26 @@ from asposeslides.api import Presentation, VideoFrame
 presentation = Presentation("video_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
+    track_count = 0
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             for caption_track in shape.getCaptionTracks():
-                # Αποθήκευση της γραμμής υπότιτλου σε αρχείο WebVTT.
-                file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
+                track_count += 1
+                output_path = Path(f"captions_{track_count}.vtt")
                 caption_data = bytes(caption_track.getBinaryData())
-                file_path.write_bytes(caption_data)
+                output_path.write_bytes(caption_data)
+
+    print(f"Caption tracks extracted: {track_count}")
 finally:
     presentation.dispose()
 ```
 
-Κάθε αντικείμενο [Captions](https://reference.aspose.com/slides/el/python-java/aspose.slides/captions/) εκθέτει το αναγνωριστικό του υπότιτλου, την ετικέτα, τα δυαδικά δεδομένα και το κείμενο του υπότιτλου ως συμβολοσειρά UTF-8.
+Κάθε αντικείμενο [Captions](https://reference.aspose.com/slides/python-java/aspose.slides/captions/) εκθέτει το αναγνωριστικό του υποτίτλου, την ετικέτα, τα δυαδικά δεδομένα και το κείμενο του υποτίτλου ως συμβολοσειρά UTF-8.
 
-**Αφαίρεση Υπότιτλων από Πλαίσιο Βίντεο**
+**Αφαίρεση υποτίτλων από πλαίσιο βίντεο**
 
-Για να αφαιρέσετε υπότιτλους από ένα πλαίσιο βίντεο:
-
-1. Φορτώστε την παρουσίαση που περιέχει το βίντεο.
-1. Λάβετε το επιθυμητό αντικείμενο [VideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/).
-1. Αφαιρέστε τα κομμάτια υπότιτλου από την [CaptionsCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/).
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Ο παρακάτω κώδικας σας δείχνει πώς να αφαιρέσετε όλους τους υπότιτλους από ένα πλαίσιο βίντεο:
+Αυτό το παράδειγμα αφαιρεί όλους τους υπότιτλους από το πλαίσιο βίντεο στην πρώτη θέση σχήματος στην πρώτη διαφάνεια και αποθηκεύει το αποτέλεσμα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι πλαίσιο βίντεο.
 
 ```python
 import jpype
@@ -304,10 +338,12 @@ from asposeslides.api import Presentation, SaveFormat, VideoFrame
 presentation = Presentation("video_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     video_frame = slide.getShapes().get_Item(0)
     if isinstance(video_frame, VideoFrame):
-        # Αφαίρεση όλων των υποτίτλων από το πλαίσιο βίντεο.
+        # Αφαιρέστε όλους τους υπότιτλους από το πλαίσιο βίντεο.
         video_frame.getCaptionTracks().clear()
+        
         presentation.save("video_without_captions.pptx", SaveFormat.Pptx)
     else:
         print("The shape is not a video frame.")
@@ -315,18 +351,13 @@ finally:
     presentation.dispose()
 ```
 
-Εάν χρειάζεται να αφαιρέσετε μόνο ένα κομμάτι υπότιτλου, χρησιμοποιήστε τις μεθόδους [remove](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/#remove) ή [removeAt](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/#removeAt) αντί για τη μέθοδο [clear](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/#clear).
+Εάν χρειάζεται να αφαιρέσετε μόνο ένα κανάλι υποτίτλου, χρησιμοποιήστε τις μεθόδους [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) ή [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) αντί για τη [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear).
 
-## **Εξαγωγή Βίντεο από Διαφάνειες**
+## **Εξαγωγή βίντεο από διαφάνεια**
 
-Εκτός από την προσθήκη βίντεο σε διαφάνειες, το Aspose.Slides σας επιτρέπει να εξάγετε βίντεο που είναι ενσωματωμένα σε παρουσιάσεις.
+Εκτός από την προσθήκη βίντεο σε διαφάνειες, το Aspose.Slides επιτρέπει την εξαγωγή βίντεο ενσωματωμένων σε παρουσιάσεις.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) για να φορτώσετε την παρουσίαση που περιέχει το βίντεο.
-2. Επανάληψη σε όλα τα αντικείμενα [Slide](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/).
-3. Επανάληψη σε όλα τα αντικείμενα [Shape](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/) για να βρείτε ένα [VideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/).
-4. Αποθηκεύστε το βίντεο στο δίσκο.
-
-Αυτός ο κώδικας Python σας δείχνει πώς να εξάγετε το βίντεο από μια διαφάνεια παρουσίασης:
+Αυτό το παράδειγμα εξάγει ενσωματωμένα βίντεο από κάθε διαφάνεια σε ξεχωριστά, αριθμημένα δυαδικά αρχεία. Τα συνδεδεμένα βίντεο παραλείπονται επειδή δεν έχουν ενσωματωμένα δεδομένα. Η κονσόλα εκτυπώνει τον τύπο MIME κάθε βίντεο και το συνολικό πλήθος. Η έξοδος χρησιμοποιεί τη γενική επέκταση `.bin`; αλλάξτε την ώστε να ταιριάζει με τον αναφερθέν τύπο μέσου όταν χρειάζεται.
 
 ```python
 from pathlib import Path
@@ -339,37 +370,42 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, VideoFrame
 
-presentation = Presentation("VideoSample.pptx")
+presentation = Presentation("presentation_with_videos.pptx")
 try:
+    video_count = 0
     for slide in presentation.getSlides():
         for shape in slide.getShapes():
             if isinstance(shape, VideoFrame):
                 video = shape.getEmbeddedVideo()
-                if video is not None:
-                    content_type = str(video.getContentType())
-                    file_extension = content_type.split("/", 1)[-1]
-                    video_data = bytes(video.getBinaryData())
-                    Path("testing2." + file_extension).write_bytes(video_data)
-                else:
-                    print("The video frame has no embedded video.")
+                if video is None:
+                    print("Skipped a linked video: no embedded data is available.")
+                    continue
+
+                video_count += 1
+                output_path = Path(f"extracted_video_{video_count}.bin")
+                video_data = bytes(video.getBinaryData())
+                output_path.write_bytes(video_data)
+                print(f"Video {video_count}: {video.getContentType()}")
+
+    print(f"Embedded videos extracted: {video_count}")
 finally:
     presentation.dispose()
 ```
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Ποια παραμέτρους αναπαραγωγής βίντεο μπορούν να αλλάξουν για ένα VideoFrame;**
+**Ποια παραμέτρα αναπαραγωγής βίντεο μπορούν να αλλάξουν για ένα πλαίσιο βίντεο;**
 
-Μπορείτε να ελέγχετε τη [λειτουργία αναπαραγωγής](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#setPlayMode) (αυτόματα ή με κλικ) και την [επανάληψη](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#setPlayLoopMode). Αυτές οι επιλογές είναι διαθέσιμες μέσω των ιδιοτήτων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/).
+Μπορείτε να ελέγξετε τη [λειτουργία αναπαραγωγής](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) (αυτόματη ή με κλικ) και την [επανάληψη](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode). Αυτές οι επιλογές διατίθενται μέσω των μεθόδων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/).
 
 **Επηρεάζει η προσθήκη βίντεο το μέγεθος του αρχείου PPTX;**
 
-Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα συμπεριλαμβάνονται στο έγγραφο, οπότε το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν προσθέτετε ένα διαδικτυακό βίντεο, ενσωματώνεται ένας σύνδεσμος και μια μικρογραφία, οπότε η αύξηση του μεγέθους είναι μικρότερη.
+Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα περιλαμβάνονται στο έγγραφο, έτσι το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν συνδέεστε σε βίντεο στο διαδίκτυο και προσθέτετε μια μικρογραφία, η παρουσίαση αποθηκεύει τον σύνδεσμο και την εικόνα προεπισκόπησης αντί για τα δεδομένα του βίντεο, οπότε η αύξηση μεγέθους είναι συνήθως μικρότερη.
 
-**Μπορώ να αντικαταστήσω το βίντεο σε ένα υπάρχον VideoFrame χωρίς να αλλάξω τη θέση και το μέγεθός του;**
+**Μπορώ να αντικαταστήσω το βίντεο σε ένα υπάρχον πλαίσιο βίντεο χωρίς να αλλάξω τη θέση και το μέγεθός του;**
 
-Ναι. Μπορείτε να ανταλλάξετε το [περιεχόμενο βίντεο](https://reference.aspose.com/slides/el/python-java/aspose.slides/videoframe/#setEmbeddedVideo) μέσα στο πλαίσιο διατηρώντας τη γεωμετρία του σχήματος· αυτό είναι ένα συχνό σενάριο για την ενημέρωση μέσων σε υπάρχουσα διάταξη.
+Ναι. Μπορείτε να ανταλλάξετε το [περιεχόμενο βίντεο](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setEmbeddedVideo) μέσα στο πλαίσιο διατηρώντας τη γεωμετρία του σχήματος· αυτό είναι ένα κοινό σενάριο για την ενημέρωση μέσων σε υπάρχουσα διάταξη.
 
 **Μπορεί να προσδιοριστεί ο τύπος περιεχομένου (MIME) ενός ενσωματωμένου βίντεο;**
 
-Ναι. Ένα ενσωματωμένο βίντεο έχει έναν [τύπο περιεχομένου](https://reference.aspose.com/slides/el/python-java/aspose.slides/video/#getContentType) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα όταν το αποθηκεύετε στο δίσκο.
+Ναι. Ένα ενσωματωμένο βίντεο διαθέτει έναν [τύπο περιεχομένου](https://reference.aspose.com/slides/python-java/aspose.slides/video/#getContentType) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα κατά την αποθήκευση του σε δίσκο.

@@ -1,5 +1,5 @@
 ---
-title: إضافة مقاطع فيديو إلى العروض التقديمية في بايثون
+title: إدارة إطارات الفيديو في العروض التقديمية باستخدام Python
 linktitle: إطار الفيديو
 type: docs
 weight: 10
@@ -17,270 +17,273 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides لبايثون عبر .NET. دليل سريع لكيفية التنفيذ."
+description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides for Python عبر .NET. دليل سريع عملي."
 ---
 ## **مقدمة**
 
-يمكن أن يجعل الفيديو المناسب في العرض التقديمي رسالتك أكثر إقناعًا ويزيد من مستوى التفاعل مع جمهورك.
+يمكن للفيديوهات أن تساعد في شرح الأفكار وجذب الجمهور. تتيح لك Aspose.Slides for Python عبر .NET إضافة إطارات فيديو إلى الشرائح، وضبط إعدادات التشغيل، وإدارة التسميات التوضيحية، واستخراج بيانات الفيديو المضمنة.
 
-يتيح لك PowerPoint إضافة مقاطع فيديو إلى شريحة في عرض تقديمي بطريقتين:
+يدعم PowerPoint الفيديوهات المحلية والروابط إلى الفيديوهات عبر الإنترنت، مثل فيديوهات YouTube.
 
-* إضافة أو تضمين فيديو محلي (محفوظ على جهازك)
-* إضافة فيديو عبر الإنترنت (من مصدر ويب مثل YouTube).
+To represent video data and video frames, Aspose.Slides provides the [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) class, [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) class, and other relevant types.
 
-للسماح لك بإضافة مقاطع فيديو (كائنات فيديو) إلى عرض تقديمي، توفر Aspose.Slides الفئة [Video](https://reference.aspose.com/slides/ar/python-net/aspose.slides/video/) والفئة [VideoFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/) وأنواع أخرى ذات صلة. 
+## **إنشاء إطار فيديو مدمج**
 
-## **إنشاء إطار فيديو مضمّن**
+إذا كان ملف الفيديو الذي تريد إضافته إلى الشريحة مخزنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في عرضك التقديمي.
 
-إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في عرضك التقديمي. 
-
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-1. احصل على إشارة إلى الشريحة من خلال فهرستها. 
-1. أضف كائن [Video](https://reference.aspose.com/slides/ar/python-net/aspose.slides/video/) ومرّر مسار ملف الفيديو لتضمينه مع العرض التقديمي. 
-1. أضف كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/) لإنشاء إطار للفيديو.  
-1. احفظ العرض التقديمي المعدل. 
-
-هذا الكود بلغة Python يوضح لك كيفية إضافة فيديو مخزن محليًا إلى عرض تقديمي:
+يقوم هذا المثال بتضمين فيديو محلي في الشريحة الأولى من عرض تقديمي موجود ويحفظ النتيجة. إحداثيات الإطار وأبعاده بوحدة النقاط. يبقى التدفق مفتوحًا حتى الانتهاء من الحفظ لأن [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) يبقه مقفلًا أثناء استخدام العرض التقديمي له.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "pres.pptx") as pres:
-    with open("Wildlife.mp4", "br") as fileStream:
-        video = pres.videos.add_video(fileStream, slides.LoadingStreamBehavior.KEEP_LOCKED)
+with slides.Presentation("presentation.pptx") as presentation:
+    slide = presentation.slides[0]
 
-        # يحصل على الشريحة الأولى ويضيف إطار فيديو
-        pres.slides[0].shapes.add_video_frame(10, 10, 150, 250, video)
+    with open("video.mp4", "rb") as video_stream:
+        video = presentation.videos.add_video(video_stream, slides.LoadingStreamBehavior.KEEP_LOCKED)
+        slide.shapes.add_video_frame(10, 10, 150, 250, video)
 
-        # يحفظ العرض التقديمي إلى القرص
-        pres.save(path + "pres-with-video.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("embedded_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-بدلاً من ذلك، يمكنك إضافة فيديو بتمرير مسار ملفه مباشرة إلى طريقة `add_video_frame(x, y, width, height, fname)`:
-
-``` python
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-    vf = sld.shapes.add_video_frame(50, 150, 300, 150, "video1.avi")
-```
-
-## **إنشاء إطار فيديو باستخدام فيديو من مصدر ويب**
-
-تدعم الإصدارات الأحدث من Microsoft [PowerPoint](https://support.microsoft.com/en-us/office/insert-a-video-from-youtube-or-another-site-8340ec69-4cee-4fe1-ab96-4849154bc6db) مقاطع الفيديو عبر الإنترنت في العروض التقديمية. إذا كان الفيديو الذي تريد استخدامه متاحًا على الويب (مثل YouTube)، يمكنك إضافته إلى عرضك التقديمي عبر الرابط الخاص به.
-
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-1. احصل على إشارة إلى الشريحة من خلال فهرستها. 
-1. أضف كائن [Video](https://reference.aspose.com/slides/ar/python-net/aspose.slides/video/) ومرّر الرابط إلى الفيديو.
-1. عيّن صورة مصغرة لإطار الفيديو. 
-1. احفظ العرض التقديمي. 
-
-هذا الكود بلغة Python يوضح لك كيفية إضافة فيديو من الويب إلى شريحة في عرض PowerPoint:
-
-```python
-import aspose.slides as slides
-from urllib.request import urlopen
-
-def add_video_from_youyube(pres, videoId):
-    # يضيف إطار فيديو
-    videoFrame = pres.slides[0].shapes.add_video_frame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId)
-    videoFrame.play_mode = slides.VideoPlayModePreset.AUTO
-
-    # يحمل الصورة المصغرة
-    thumbnail_uri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg"
-    f = urlopen(thumbnail_uri)
-    videoFrame.picture_format.picture.image = pres.images.add_image(f.read())
-
-
-with slides.Presentation() as pres:
-    add_video_from_youyube(pres, "s5JbfQZ5Cc0")
-    pres.save("AddVideoFrameFromWebSource_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **تقليم إطار الفيديو**
-
-تتيح لك Aspose.Slides التحكم في الجزء الذي يُشغل من الفيديو عن طريق تعيين قيم trim-from-start وtrim-from-end من خلال [VideoFrame.trim_from_start](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/trim_from_start/) و[VideoFrame.trim_from_end](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/trim_from_end/). تُحدّد القيم بالملي ثانية وتحدد مقدار الوقت الذي يُتخطى من بداية الفيديو ونهايته على التوالي. هذه الإعدادات تغير طريقة تشغيل الفيديو في العرض التقديمي؛ ولا تقص أو تعدل البيانات الثنائية للفيديو المضمّن.
-
-**ضبط إعدادات التقليم**
-
-لإنشاء إطار فيديو وضبط إعدادات التقليم الخاصة به:
-
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-1. أضف كائن [Video](https://reference.aspose.com/slides/ar/python-net/aspose.slides/video/) إلى العرض التقديمي.
-1. أضف كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/) إلى شريحة.
-1. عيّن قيم trim-from-start وtrim-from-end عبر [VideoFrame.trim_from_start](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/trim_from_start/) و[VideoFrame.trim_from_end](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/trim_from_end/) .
-1. احفظ العرض التقديمي المعدل.
-
-مثال الكود التالي يتخطى الثانيتين والنصف الأولى والثانية الأخيرة من الفيديو المضمّن أثناء التشغيل:
+يمكنك أيضًا تمرير مسار الفيديو المحلي مباشرة إلى [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). يضيف هذا المثال الفيديو إلى الشريحة الأولى من عرض تقديمي جديد. يجب أن يظل الفيديو متاحًا حتى يتم حفظ العرض التقديمي.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    slide.shapes.add_video_frame(50, 150, 300, 150, "video.avi")
+
+    presentation.save("video_from_path.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **إنشاء إطار فيديو مع فيديو من مصدر ويب**
+
+يدعم Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) الفيديوهات عبر الإنترنت في العروض التقديمية. يمكنك إنشاء إطار فيديو يرتبط بفيديو عبر الإنترنت، مثل فيديو YouTube.
+
+يضيف هذا المثال رابط فيديو YouTube وصورة مصغرة إلى الشريحة الأولى. استبدل معرّف الفيديو لاستخدام فيديو آخر. يطلب إعداد [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) تشغيلًا تلقائيًا. تحميل الصورة المصغرة وتشغيل الفيديو يتطلبان اتصالًا بالإنترنت. يجب أن يدعم عارض العرض التقديمي تشغيل الفيديو عبر الإنترنت كذلك.
+
+```python
+from urllib.request import urlopen
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    video_id = "aqz-KE-bpKQ"
+    video_url = f"https://www.youtube.com/embed/{video_id}"
+    video_frame = slide.shapes.add_video_frame(10, 10, 427, 240, video_url)
+    video_frame.play_mode = slides.VideoPlayModePreset.AUTO
+
+    thumbnail_url = f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
+    with urlopen(thumbnail_url) as response:
+        thumbnail_data = response.read()
+    thumbnail = presentation.images.add_image(thumbnail_data)
+    video_frame.picture_format.picture.image = thumbnail
+
+    presentation.save("online_video.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **تشغيل فيديو في وضع ملء الشاشة**
+
+في عرض تقديمي تدريبي، يمكنك تشغيل عرض توضيحي للبرنامج في وضع ملء الشاشة حتى يتمكن الجمهور من رؤية التفاصيل. اضبط [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) إلى `True` لتمكين هذا السلوك أثناء التشغيل.
+
+يفتح هذا المثال عرض تقديمي، ويبحث عن أول [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) في الشريحة الأولى، ويفعل تشغيل ملء الشاشة. يجب أن يحتوي عرض التقديم الإدخالي على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود في الشريحة الأولى.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("training.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.VideoFrame):
+            shape.full_screen_mode = True
+            break
+
+    presentation.save("full_screen_video.pptx", slides.export.SaveFormat.PPTX)
+```
+
+يتحكم تشغيل ملء الشاشة في طريقة عرض الفيديو. بشكل مستقل، يتحكم [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) فيما إذا كان يبدأ تلقائيًا أو عند النقر، ويتحكم [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) فيما إذا كان يتكرر. لاختيار سلوك البدء، اضبط وضع التشغيل إلى [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). يحافظ المثال على إعدادات البدء والتكرار الحالية.
+
+## **إرجاع الفيديو إلى البداية بعد التشغيل**
+
+في عرض تقديمي تدريبي، إعادة فيديو العرض التوضيحي إلى بدايته تجعله جاهزًا للمُقدِّم لتشغيله مرة أخرى. اضبط [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) إلى `True` لإرجاع الفيديو إلى البداية بعد انتهاء التشغيل.
+
+يفتح هذا المثال عرض تقديمي، ويبحث عن أول [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) في الشريحة الأولى، ويفعل إرجاع الفيديو. يقوم بتعطيل التكرار حتى يتمكن التشغيل من الانتهاء ويضبط بدء التشغيل عند النقر. يجب أن يحتوي عرض التقديم الإدخالي على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود في الشريحة الأولى.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("training.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.VideoFrame):
+            shape.rewind_video = True
+            shape.play_loop_mode = False
+            shape.play_mode = slides.VideoPlayModePreset.ON_CLICK
+            break
+
+    presentation.save("rewind_video.pptx", slides.export.SaveFormat.PPTX)
+```
+
+تعيد الإعادة الفيديو إلى بدايته دون تشغيله مرة أخرى. وعلى النقيض من ذلك، يؤدي تمكين [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) إلى تكرار التشغيل تلقائيًا. ابقِ التكرار معطلًا عندما تريد أن ينتهي الفيديو ويظل جاهزًا لإعادة التشغيل. يتحكم [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) بشكل مستقل في البدء التلقائي أو عند النقر؛ يستخدم هذا المثال [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) بحيث يتحكم المُقدم في موعد بدء التشغيل. اضبط وضع التشغيل بعد إعداد التكرار، كما هو موضح في المثال. تعمل الإعادة بشكل مستقل عن [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
+
+## **قص إطار فيديو**
+
+استخدم [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) و[VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) لتخطي جزء من بداية أو نهاية الفيديو أثناء التشغيل. كلا القيمتين بو وحدة الميللي ثانية. يؤدي القص إلى تغيير إعدادات التشغيل دون تعديل بيانات الفيديو المضمنة.
+
+**ضبط إعدادات القص**
+
+يقوم هذا المثال بتضمين فيديو محلي ويتخطى أول 2.5 ثانية والثانية الأخيرة أثناء التشغيل. استخدم فيديوً أطول من 3.5 ثانية لتبقى قطعة قابلة للتشغيل.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
     with open("video.mp4", "rb") as video_stream:
         video_data = video_stream.read()
-
     video = presentation.videos.add_video(video_data)
 
-    slide = presentation.slides[0]
     video_frame = slide.shapes.add_video_frame(50, 50, 640, 360, video)
-
     video_frame.trim_from_start = 2500.0
     video_frame.trim_from_end = 1000.0
 
     presentation.save("video_with_trim.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**قراءة إعدادات التقليم**
+**قراءة إعدادات القص**
 
-لفحص إعدادات التقليم الحالية، حمّل عرضًا تقديميًا، وابحث عن كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/) بين الأشكال في الشريحة الأولى، واقرأ القيم عبر [VideoFrame.trim_from_start](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/trim_from_start/) و[VideoFrame.trim_from_end](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/trim_from_end/) .
-
-مثال الكود التالي يجد أول إطار فيديو في الشريحة الأولى ويعرض إعدادات تقليمه بالملي ثانية:
+يقوم هذا المثال بطباعة قيم القص لأول إطار فيديو في الشريحة الأولى بوحدة الميللي ثانية. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل. إذا لم تحتوي تلك الشريحة على إطار فيديو، لن يُطبع شيء. ينتج المثال السابق القيم 2500 و1000.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("video_with_trim.pptx") as presentation:
     slide = presentation.slides[0]
+
     for shape in slide.shapes:
         if isinstance(shape, slides.VideoFrame):
-            video_frame = shape
-            trim_from_start = video_frame.trim_from_start
-            trim_from_end = video_frame.trim_from_end
-
-            print(f"Trim from start: {trim_from_start} ms")
-            print(f"Trim from end: {trim_from_end} ms")
+            print(f"Trim from start: {shape.trim_from_start} ms")
+            print(f"Trim from end: {shape.trim_from_end} ms")
             break
 ```
 
-## **إدارة التسميات التوضيحية للفيديو**
+## **إدارة تسميات الفيديو**
 
-تتيح لك Aspose.Slides إدارة التسميات التوضيحية المغلقة لإطارات الفيديو في عروض PowerPoint. تُخزَّن التسميات بتنسيق WebVTT وتُعرض عبر الخاصية [VideoFrame.caption_tracks](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/caption_tracks/) .
+تتيح لك Aspose.Slides إدارة التسميات التوضيحية المغلقة لإطارات الفيديو في عروض PowerPoint. تُخزن التسميات بتنسيق WebVTT وتُعرض عبر الخاصية [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/).
 
-**إضافة تسميات توضيحية إلى إطار الفيديو**
+**إضافة تسميات إلى إطار فيديو**
 
-لإضافة تسميات توضيحية إلى إطار فيديو:
+يقوم هذا المثال بتضمين فيديو محلي ويضيف مسار تسميات WebVTT مسمى English. يجب أن تتطابق طوابع الوقت للتسميات مع الفيديو. يحتوي العرض التقديمي المحفوظ على الفيديو وتسم.ياته.
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
-1. أضف فيديو إلى العرض التقديمي.
-1. أضف كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/) إلى شريحة.
-1. استخدم [CaptionsCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/captionscollection/) التي تُرجعها الخاصية [caption_tracks](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/caption_tracks/) لإضافة مسار تسميات WebVTT.
-1. احفظ العرض التقديمي المعدل.
-
-الكود التالي يوضح لك كيفية إضافة تسميات توضيحية إلى إطار فيديو:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
     with open("video.mp4", "rb") as video_stream:
         video_data = video_stream.read()
-
     video = presentation.videos.add_video(video_data)
 
-    slide = presentation.slides[0]
     video_frame = slide.shapes.add_video_frame(0, 0, 100, 100, video)
-
-    # يضيف مسار تسميات جديد من ملف WebVTT.
     video_frame.caption_tracks.add("English", "track.vtt")
 
     presentation.save("video_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-توفّر فئة [CaptionsCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/captionscollection/) أيضًا نسخة محسّنة تسمح لك بإضافة تسميات من دفق بيانات.
+توفر فئة [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) أيضًا تحميلًا زائدًا يتيح لك إضافة تسميات من تدفق.
 
-**استخراج التسميات التوضيحية من إطار الفيديو**
+**استخراج تسميات من إطار فيديو**
 
-لاستخراج التسميات التوضيحية من إطار فيديو:
+يقوم هذا المثال بحفظ جميع مسارات التسميات من إطارات الفيديو في الشريحة الأولى كملفات WebVTT منفصلة. تُحافظ الأرقام المتسلسلة على تمييز ملفات الإخراج. يوضح الطرفية عدد المسارات المستخرجة. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل.
 
-1. حمّل العرض التقديمي الذي يحتوي على الفيديو.
-1. ابحث عن كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/) المستهدف.
-1. تنقّ عبر مجموعة [caption_tracks](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/caption_tracks/) .
-1. احفظ كل مسار تسميات في ملف `.vtt`.
-
-الكود التالي يوضح لك كيفية استخراج التسميات التوضيحية من إطار فيديو:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("video_with_captions.pptx") as presentation:
     slide = presentation.slides[0]
+
+    track_count = 0
     for shape in slide.shapes:
         if isinstance(shape, slides.VideoFrame):
             for caption_track in shape.caption_tracks:
-                # يحفظ مسار التسميات إلى ملف WebVTT.
-                file_path = f"{caption_track.caption_id}.vtt"
-                with open(file_path, "wb") as track_stream:
+                track_count += 1
+                output_path = f"captions_{track_count}.vtt"
+                with open(output_path, "wb") as track_stream:
                     track_stream.write(bytes(caption_track.binary_data))
+
+    print(f"Caption tracks extracted: {track_count}")
 ```
 
-كل كائن [Captions](https://reference.aspose.com/slides/ar/python-net/aspose.slides/captions/) يُظهر معرف التسمية، والعنوان، والبيانات الثنائية، ونص التسمية كسلسلة UTF-8.
+كل كائن [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) يُظهر معرّف التسمية، والملصق، والبيانات الثنائية، ونص التسمية كسلسلة UTF-8.
 
-**إزالة التسميات التوضيحية من إطار الفيديو**
+**إزالة تسميات من إطار فيديو**
 
-لإزالة التسميات التوضيحية من إطار فيديو:
+يقوم هذا المثال بإزالة جميع التسميات من إطار الفيديو الموجود في الموقع الأول للشكل في الشريحة الأولى ويحفظ النتيجة. يفترض وجود الشريحة والشكل وأن الشكل هو إطار فيديو.
 
-1. حمّل العرض التقديمي الذي يحتوي على الفيديو.
-1. احصل على كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/) المستهدف.
-1. أزل مسارات التسميات من [CaptionsCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/captionscollection/) .
-1. احفظ العرض التقديمي المعدل.
-
-الكود التالي يوضح لك كيفية إزالة جميع التسميات التوضيحية من إطار فيديو:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("video_with_captions.pptx") as presentation:
     slide = presentation.slides[0]
-    video_frame = slide.shapes[0]  # النوع: slides.VideoFrame
-
-    # يزيل جميع التسميات من إطار الفيديو.
+    
+    video_frame = slide.shapes[0]
     video_frame.caption_tracks.clear()
 
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-إذا كنت بحاجة إلى إزالة مسار تسمية واحد فقط، استخدم طريقتي [remove](https://reference.aspose.com/slides/ar/python-net/aspose.slides/captionscollection/remove/) أو [remove_at](https://reference.aspose.com/slides/ar/python-net/aspose.slides/captionscollection/remove_at/) بدلاً من [clear](https://reference.aspose.com/slides/ar/python-net/aspose.slides/captionscollection/clear/) .
+إذا احتجت إلى إزالة مسار تسميات واحد فقط، استخدم طرق [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) أو [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) بدلاً من [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/).
 
-## **استخراج الفيديو من الشريحة**
+## **استخراج فيديو من شريحة**
 
-بالإضافة إلى إضافة الفيديوهات إلى الشرائح، تتيح لك Aspose.Slides استخراج الفيديوهات المضمّنة في العروض التقديمية.
+بالإضافة إلى إضافة فيديوهات إلى الشرائح، تتيح لك Aspose.Slides استخراج الفيديوهات المضمنة في العروض التقديمية.
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) لتحميل العرض التقديمي الذي يحتوي على الفيديو. 
-2. تنقّ عبر جميع كائنات [Slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/) .
-3. تنقّ عبر جميع كائنات [Shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/) للعثور على كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/) . 
-4. احفظ الفيديو على القرص.
-
-هذا الكود بلغة Python يوضح لك كيفية استخراج الفيديو من شريحة في عرض PowerPoint:
+يقوم هذا المثال باستخراج الفيديوهات المضمنة من كل شريحة إلى ملفات ثنائية منفصلة مرقمة. تُتخطى الفيديوهات المرتبطة لأنها لا تحتوي على بيانات مضمّنة. يطبع الطرفية نوع MIME لكل فيديو والعدد الإجمالي. يستخدم الناتج الامتداد العام `.bin`؛ غّره ليناسب نوع الوسائط المبلغ عنه عند الحاجة.
 
 ```python
 import aspose.slides as slides
 
-# يجري إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي
-with slides.Presentation(path + "Video.pptx") as presentation:
-    for shape in presentation.slides[0].shapes:
-        if type(shape) is slides.VideoFrame:
-            type = shape.embedded_video.content_type
-            buffer = shape.embedded_video.binary_data
-            with open("NewVideo_out." + type[type.rfind('/') + 1:len(type)], "wb") as stream:
-                stream.write(buffer)
+with slides.Presentation("presentation_with_videos.pptx") as presentation:
+    video_count = 0
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, slides.VideoFrame):
+                video = shape.embedded_video
+                if video is None:
+                    print("Skipped a linked video: no embedded data is available.")
+                    continue
+
+                video_count += 1
+                output_path = f"extracted_video_{video_count}.bin"
+                with open(output_path, "wb") as video_stream:
+                    video_stream.write(bytes(video.binary_data))
+                print(f"Video {video_count}: {video.content_type}")
+
+    print(f"Embedded videos extracted: {video_count}")
 ```
 
-## **الأسئلة المتداولة**
+## **الأسئلة الشائعة**
 
-**ما هي معايير تشغيل الفيديو التي يمكن تغييرها لإطار الفيديو؟**
+**ما هي معلمات تشغيل الفيديو التي يمكن تغييرها لإطار الفيديو؟**
 
-يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/play_mode/) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/play_loop_mode/). تتوفر هذه الخيارات عبر خصائص كائن [VideoFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/) .
+يمكنك التحكم في [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (تلقائي أو عند النقر) و[looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/). تتوفر هذه الخيارات عبر خصائص كائن [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/).
 
 **هل يؤثر إضافة فيديو على حجم ملف PPTX؟**
 
-نعم. عندما تدمج فيديوًا محليًا، تُضمّن البيانات الثنائية في المستند، وبالتالي ينمو حجم العرض التقديمي بما يتناسب مع حجم الملف. عندما تضيف فيديوًا عبر الإنترنت، يُدمج رابط وصورة مصغرة فقط، لذا يكون الزيادة في الحجم أصغر.
+نعم. عندما تقوم بدمج فيديو محلي، تُضمّن البيانات الثنائية في المستند، لذلك يزداد حجم العرض التقديمي بنسبة حجم الملف. عندما تربط بفيديو عبر الإنترنت وتضيف صورة مصغرة، يخزن العرض التقديمي الرابط وصورة المعاينة بدلاً من بيانات الفيديو، لذا عادةً ما يكون الزيادة في الحجم أصغر.
 
 **هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موقعه وحجمه؟**
 
-نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/ar/python-net/aspose.slides/videoframe/embedded_video/) داخل الإطار مع الحفاظ على أبعاد الشكل؛ وهذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
+نعم. يمكنك تبديل [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) داخل الإطار مع الحفاظ على هندسة الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
 
-**هل يمكن تحديد نوع المحتوى (MIME) لفيديو مضمّن؟**
+**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المضمن؟**
 
-نعم. يحتوي الفيديو المضمّن على [نوع محتوى](https://reference.aspose.com/slides/ar/python-net/aspose.slides/video/content_type/) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه على القرص.
+نعم. يحتوي الفيديو المضمن على [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه على القرص.

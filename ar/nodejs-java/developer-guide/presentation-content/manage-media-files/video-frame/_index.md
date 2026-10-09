@@ -1,5 +1,5 @@
 ---
-title: إدارة إطارات الفيديو في العروض التقديمية باستخدام JavaScript
+title: إدارة إطارات الفيديو في العروض التقديمية باستخدام Node.js
 linktitle: إطار الفيديو
 type: docs
 weight: 10
@@ -7,7 +7,7 @@ url: /ar/nodejs-java/video-frame/
 keywords:
 - إضافة فيديو
 - إنشاء فيديو
-- دمج فيديو
+- تضمين فيديو
 - استخراج فيديو
 - استرجاع فيديو
 - إطار فيديو
@@ -18,154 +18,36 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تعلم كيف تضيف وتستخرج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Node.js عبر Java. دليل سريع خطوة بخطوة."
+description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجياً في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Node.js عبر Java. دليل سريع عملي."
 ---
-## **مقدمة**
+## **المقدمة**
 
-يمكن للفيديو الموضوع بشكل مناسب في العرض أن يجعل رسالتك أكثر إقناعًا ويزيد من مستوى تفاعل الجمهور معك. 
+يمكن أن تساعد مقاطع الفيديو في شرح الأفكار وجذب الجمهور. يتيح لك Aspose.Slides لـ Node.js عبر Java إضافة إطارات فيديو إلى الشرائح، وضبط إعدادات التشغيل، وإدارة التسميات التوضيحية، واستخراج بيانات الفيديو المضمنة.
 
-PowerPoint يتيح لك إضافة مقاطع فيديو إلى شريحة في عرض تقديمي بطريقتين:
+يدعم PowerPoint مقاطع الفيديو المحلية والروابط إلى مقاطع الفيديو على الإنترنت، مثل مقاطع YouTube.
 
-* إضافة أو دمج فيديو محلي (محفوظ على جهازك)
-* إضافة فيديو عبر الإنترنت (من مصدر ويب مثل YouTube).
+لتمثيل بيانات الفيديو وإطارات الفيديو، يوفر Aspose.Slides الفئة [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) والفئة [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) وغيرها من الأنواع ذات الصلة.
 
-للسماح لك بإضافة مقاطع فيديو (كائنات فيديو) إلى عرض تقديمي، توفر Aspose.Slides فئة [Video](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/video/)، وفئة [VideoFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/)، وغيرها من الأنواع ذات الصلة.
+## **إنشاء إطار فيديو مضمّن**
 
-## **إنشاء إطار فيديو مدمج**
+إذا كان ملف الفيديو الذي تريد إضافته إلى الشريحة مخزّنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في العرض التقديمي.
 
-إذا كان ملف الفيديو الذي تريد إضافته إلى شريحةك مخزنًا محليًا، يمكنك إنشاء إطار فيديو لدمج الفيديو في عرضك التقديمي. 
-
-1. إنشاء مثال من فئة [Presentation ](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Presentation)class.
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة كائن [Video](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/video/) وتمرير مسار ملف الفيديو لدمج الفيديو مع العرض التقديمي.
-1. إضافة كائن [VideoFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/) لإنشاء إطار للفيديو.
-1. حفظ العرض التقديمي المعدل. 
-
-يظهر لك هذا الكود JavaScript كيفية إضافة فيديو مخزن محليًا إلى عرض تقديمي:
+يُظهر هذا المثال كيفية تضمين فيديو محلي في الشريحة الأولى من عرض تقديمي موجود وحفظ النتيجة. إحداثيات الإطار وأبعاده بوحدة النقاط. يبقى التيار مفتوحًا حتى الانتهاء من الحفظ لأن [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) يبقيه مقفلاً بينما يستخدمه العرض التقديمي.
 
 ```javascript
-// إنشاء مثيل لفئة Presentation
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    // تحميل الفيديو
-    var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
-    var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
-    // الحصول على الشريحة الأولى وإضافة إطار فيديو
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
-    // حفظ العرض التقديمي إلى القرص
-    pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-بدلاً من ذلك، يمكنك إضافة فيديو بتمرير مسار ملفه مباشرة إلى طريقة [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) :
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var sld = pres.getSlides().get_Item(0);
-    var vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **إنشاء إطار فيديو باستخدام فيديو من مصدر ويب**
-
-يدعم Microsoft [PowerPoint 2013 والإصدارات الأحدث](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) مقاطع فيديو YouTube في العروض التقديمية. إذا كان الفيديو الذي تريد استخدامه متاحًا عبر الإنترنت (مثلًا على YouTube)، يمكنك إضافته إلى عرضك التقديمي عبر الرابط الإلكتروني الخاص به. 
-
-1. إنشاء مثال من فئة [Presentation ](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Presentation)class
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة كائن [Video](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/video/) وتمرير الرابط إلى الفيديو.
-1. تعيين صورة مصغرة لإطار الفيديو. 
-1. حفظ العرض التقديمي. 
-
-يظهر لك هذا الكود JavaScript كيفية إضافة فيديو من الويب إلى شريحة في عرض PowerPoint:
-
-```javascript
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي
-var pres = new aspose.slides.Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-```javascript
-async function addVideoFromYouTube(pres, videoID) {
-    let slide = pres.getSlides().get_Item(0);
-    let videoUrl = "https://www.youtube.com/embed/" + videoID;
-    let videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
-    
-    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
-
-    let thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-
-    try {
-        const imageStream = await getImageStream(thumbnailUri);
-        let image = pres.getImages().addImage(imageStream);
-        videoFrame.getPictureFormat().getPicture().setImage(image);
-    } catch (error) {
-        console.error("Error loading thumbnail:", error);
-    }
-}
-
-async function getImageStream(url) {
-    return new Promise((resolve, reject) => {
-        http.get(url, (response) => {
-            if (response.statusCode === 200) {
-                resolve(response);
-            } else {
-                reject(new Error(`Failed to load image: ${response.statusCode}`));
-            }
-        }).on('error', (e) => {
-            reject(e);
-        });
-    });
-}
-```
-
-## **قص إطار فيديو**
-
-تتيح لك Aspose.Slides التحكم في الجزء الذي يُشغل من الفيديو عن طريق ضبط قيمتي trim-from-start و trim-from-end من خلال [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/settrimfromstart/) و [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/settrimfromend/). يتم تحديد القيمتين بالميليثانية وتحدد مقدار الوقت الذي يتم تخطيه من بداية الفيديو ونهايته، على التوالي. هذه الإعدادات تغير إعدادات تشغيل الفيديو في العرض التقديمي؛ ولا تقوم بقطع أو تعديل بيانات الفيديو المدمجة.
-
-**ضبط إعدادات القص**
-
-لإنشاء إطار فيديو وضبط إعدادات القص الخاصة به:
-
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/)class.
-1. إضافة كائن [Video](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/video/) إلى العرض التقديمي.
-1. إضافة كائن [VideoFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/) إلى شريحة.
-1. ضبط قيمتي trim-from-start و trim-from-end من خلال [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/settrimfromstart/) و [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/settrimfromend/) .
-1. حفظ العرض التقديمي المعدل.
-
-يتخطى مثال الكود التالي أول 2.5 ثانية والثانية الأخيرة من فيديو مدمج أثناء التشغيل:
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
     try {
-        const video = presentation.getVideos().addVideo(
-            videoStream, aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
         const slide = presentation.getSlides().get_Item(0);
-        const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
 
-        videoFrame.setTrimFromStart(2500);
-        videoFrame.setTrimFromEnd(1000);
+        const video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+        slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-        presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+        presentation.save("embedded_video.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         videoStream.close();
     }
@@ -174,26 +56,171 @@ try {
 }
 ```
 
-**قراءة إعدادات القص**
-
-لفحص إعدادات القص الحالية، حمّل عرضًا تقديميًا، واعثر على كائن [VideoFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/) بين الأشكال على الشريحة الأولى، واقرأ القيم من خلال [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/gettrimfromstart/) و [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/gettrimfromend/) .
-
-يعثر مثال الكود التالي على أول إطار فيديو في الشريحة الأولى ويعرض إعدادات القص الخاصة به بالميليثانية:
+يمكنك أيضًا تمرير مسار الفيديو المحلي مباشرة إلى [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/). يُظهر هذا المثال كيفية تضمين الفيديو في الشريحة الأولى من عرض تقديمي جديد. يجب أن يظل الفيديو متاحًا حتى يتم حفظ العرض التقديمي.
 
 ```javascript
-const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **إنشاء إطار فيديو باستخدام فيديو من مصدر ويب**
+
+يدعم Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) مقاطع الفيديو عبر الإنترنت في العروض التقديمية. يمكنك إنشاء إطار فيديو يربط بفيديو على الإنترنت، مثل فيديو YouTube.
+
+يضيف هذا المثال رابط فيديو YouTube وصورة مصغرة إلى الشريحة الأولى. استبدل معرف الفيديو لاستخدام فيديو آخر. طريقة [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) تطلب التشغيل التلقائي. تنزيل الصورة المصغرة وتشغيل الفيديو يتطلب اتصالًا بالإنترنت. يجب أن يدعم عارض العروض التقديمية تشغيل الفيديو عبر الإنترنت أيضًا.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const videoId = "aqz-KE-bpKQ";
+    const videoUrl = "https://www.youtube.com/embed/" + videoId;
+    const videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
+
+    const thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    const thumbnailLocation = java.newInstanceSync("java.net.URL", thumbnailUrl);
+    const thumbnailStream = thumbnailLocation.openStream();
+    try {
+        const thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    } finally {
+        thumbnailStream.close();
+    }
+
+    presentation.save("online_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تشغيل فيديو في وضع الشاشة الكاملة**
+
+في عرض تقديمي تدريبي، يمكنك تشغيل عرض توضيحي للبرمجيات في وضع الشاشة الكاملة حتى يتمكن الجمهور من رؤية التفاصيل. استدعِ [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) مع `true` لتفعيل هذا السلوك أثناء التشغيل.
+
+يفتح هذا المثال عرضًا تقديميًا، يبحث عن أول [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) في الشريحة الأولى، ويُفعّل تشغيل الشاشة الكاملة. يجب أن يحتوي عرض الإدخال على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود في الشريحة الأولى.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("training.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
         const shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
             const videoFrame = shape;
-            const trimFromStart = videoFrame.getTrimFromStart();
-            const trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            console.log("Trim from start: " + trimFromStart + " ms");
-            console.log("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+تتحكم وضعية التشغيل الكاملة في طريقة عرض الفيديو. بشكل مستقل، تتحكم [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) في ما إذا كان يبدأ تلقائيًا أو عند النقر، وتتحكم [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) في ما إذا كان يتكرر. لاختيار سلوك البدء، اضبط وضع التشغيل على [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/). يحافظ المثال على إعدادات البدء والتكرار الحالية.
+
+## **إعادة تشغيل الفيديو بعد الانتهاء من التشغيل**
+
+في عرض تقديمي تدريبي، يعيد إرجاع فيديو العرض التوضيحي إلى بدايته جاهزيته للمقدم لتشغيله مرة أخرى. استدعِ [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) مع `true` لإرجاع الفيديو إلى البداية بعد انتهاء التشغيل.
+
+يفتح هذا المثال عرضًا تقديميًا، يبحث عن أول [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) في الشريحة الأولى، ويُفعّل إعادة التشغيل. يعطل التكرار حتى يتمكن التشغيل من الانتهاء ويضبط التشغيل على البدء عند النقر. يجب أن يحتوي عرض الإدخال على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود في الشريحة الأولى.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("training.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+إعادة التشغيل تُعيد الفيديو إلى بدايته دون بدء تشغيله مرة أخرى. على العكس، استدعاء [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) مع `true` يكرّر التشغيل تلقائيًا. أبقِ التكرار مُعطلاً عندما تريد أن ينتهي الفيديو ويبقى جاهزًا لإعادة التشغيل. تتحكم [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) بشكل مستقل في بدء التشغيل التلقائي أو عند النقر؛ يستخدم هذا المثال [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) بحيث يتحكم المقدم في موعد بدء التشغيل. اضبط وضع التشغيل بعد ضبط إعداد التكرار، كما هو موضح في المثال. تعمل إعادة التشغيل بشكل مستقل عن [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/).
+
+## **قص جزء من إطار الفيديو**
+
+استخدم [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) و[VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) لتخطي جزء من بداية أو نهاية الفيديو أثناء التشغيل. القيم بوحدة المللي ثانية. يغيّر القص إعدادات التشغيل دون تعديل بيانات الفيديو المضمنة.
+
+**تعيين إعدادات القص**
+
+يُظهر هذا المثال كيفية تضمين فيديو محلي وتخطي أول 2.5 ثانية وآخر ثانية أثناء التشغيل. استخدم فيديوً أطول من 3.5 ثانية لتبقى هناك مقطع قابل للتشغيل.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const videoBuffer = fs.readFileSync("video.mp4");
+    const videoData = java.newArray("byte", Array.from(videoBuffer));
+    const video = presentation.getVideos().addVideo(videoData);
+
+    const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500);
+    videoFrame.setTrimFromEnd(1000);
+
+    presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**قراءة إعدادات القص**
+
+يطبع هذا المثال قيم القص لإطار الفيديو الأول في الشريحة الأولى بالمللي ثانية. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل. إذا لم تحتوي الشريحة على إطار فيديو، لا يُطبع شيء. يُنتج المثال السابق القيم 2500 و1000.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            console.log("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            console.log("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -202,30 +229,28 @@ try {
 }
 ```
 
-## **إدارة ترجمات الفيديو**
+## **إدارة تسميات الفيديو**
 
-تتيح لك Aspose.Slides إدارة الترجمات المغلقة لإطارات الفيديو في عروض PowerPoint. تُخزن الترجمات بصيغة WebVTT وتُتاح عبر طريقة [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) .
+يسمح Aspose.Slides لك بإدارة التسميات المغلقة لإطارات الفيديو في عروض PowerPoint. تُخزن التسميات بتنسيق WebVTT وتُتاح عبر طريقة [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**إضافة ترجمات إلى إطار فيديو**
+**إضافة تسميات إلى إطار فيديو**
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/)class.
-1. إضافة فيديو إلى العرض التقديمي.
-1. إضافة كائن [VideoFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/) إلى شريحة.
-1. استخدام مجموعة [CaptionsCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/captionscollection/) لإضافة مسار ترجمة WebVTT.
-1. حفظ العرض التقديمي المعدل.
+يُظهر هذا المثال كيفية تضمين فيديو محلي وإضافة مسار تسمية WebVTT مسمى English. يجب أن تتطابق طوابع الوقت في التسمية مع الفيديو. يتضمن العرض التقديمي المحفوظ كلًا من الفيديو وتسمياته.
 
-يعرض لك الكود التالي كيفية إضافة ترجمات إلى إطار فيديو:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
 
-```js
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
-    let video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
+    const videoBuffer = fs.readFileSync("video.mp4");
+    const videoData = java.newArray("byte", Array.from(videoBuffer));
+    const video = presentation.getVideos().addVideo(videoData);
 
-    // إضافة مسار ترجمات جديد من ملف WebVTT.
+    const videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -234,59 +259,56 @@ try {
 }
 ```
 
-توفر فئة [CaptionsCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/captionscollection/) أيضًا طريقة [addFromStream](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/captionscollection/#addFromStream) التي تتيح لك إضافة الترجمات من تدفق.
+توفر الفئة [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) أيضًا طريقة [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) لإضافة تسميات من تيار.
 
-**استخراج الترجمات من إطار فيديو**
+**استخراج تسميات من إطار فيديو**
 
-1. تحميل العرض التقديمي الذي يحتوي على الفيديو.
-1. العثور على كائن [VideoFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/) المستهدف.
-1. التنقل عبر مجموعة [CaptionsCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/captionscollection/) .
-1. حفظ كل مسار ترجمة إلى ملف `.vtt` .
+يحفظ هذا المثال جميع مسارات التسميات من إطارات الفيديو في الشريحة الأولى كملفات WebVTT منفصلة. تُحافظ الأرقام المتسلسلة على تميز ملفات الإخراج. يُظهر سطر الأوامر عدد المسارات المستخرجة. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل.
 
-يعرض لك الكود التالي كيفية استخراج الترجمات من إطار فيديو:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
 
-```js
-let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+const presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    let trackCount = 0;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-            let videoFrame = shape;
-            let trackCount = videoFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
-                // يحفظ مسار الترجمات إلى ملف WebVTT.
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            const videoFrame = shape;
+            for (let trackIndex = 0; trackIndex < videoFrame.getCaptionTracks().getCount(); trackIndex++) {
+                const captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
+                trackCount++;
+                const outputPath = "captions_" + trackCount + ".vtt";
+                const outputData = Buffer.from(captionTrack.getBinaryData());
+                fs.writeFileSync(outputPath, outputData);
             }
         }
     }
+
+    console.log("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-كل كائن [Captions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/captions/) يكشف عن معرّف الترجمة، والوسم، والبيانات الثنائية، ونص الترجمة كسلسلة UTF-8.
+كل كائن [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) يُظهر معرف التسمية، والملصق، والبيانات الثنائية، ونص التسمية كسلسلة UTF-8.
 
-**إزالة الترجمات من إطار فيديو**
+**إزالة تسميات من إطار فيديو**
 
-1. تحميل العرض التقديمي الذي يحتوي على الفيديو.
-1. الحصول على كائن [VideoFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/) المستهدف.
-1. إزالة مسارات الترجمات من مجموعة [CaptionsCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/captionscollection/) .
-1. حفظ العرض التقديمي المعدل.
+يُظهر هذا المثال كيفية إزالة جميع التسميات من إطار الفيديو في أول موضع شكل في الشريحة الأولى وحفظ النتيجة. يفترض وجود الشريحة والشكل وأن الشكل هو إطار فيديو.
 
-يعرض لك الكود التالي كيفية إزالة جميع الترجمات من إطار فيديو:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+const presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().get_Item(0); // النوع: com.aspose.slides.VideoFrame
+    const slide = presentation.getSlides().get_Item(0);
 
-    // إزالة جميع الترجمات من إطار الفيديو.
+    const videoFrame = slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -295,64 +317,63 @@ try {
 }
 ```
 
-إذا كنت تحتاج إلى إزالة مسار ترجمة واحد فقط، استخدم طريقة [remove](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/captionscollection/#remove) أو [removeAt](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/captionscollection/#removeAt) بدلاً من [clear](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/captionscollection/#clear).
+إذا كنت بحاجة إلى إزالة مسار تسمية واحد فقط، استخدم طريقة [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) أو [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) بدلاً من [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
 
+## **استخراج فيديو من شريحة**
 
-## **استخراج فيديو من الشريحة**
+إلى جانب إضافة مقاطع الفيديو إلى الشرائح، يتيح Aspose.Slides استخراج مقاطع الفيديو المضمنة في العروض التقديمية.
 
-إلى جانب إضافة مقاطع فيديو إلى الشرائح، تسمح لك Aspose.Slides باستخراج مقاطع الفيديو المدمجة في العروض التقديمية.
-
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Presentation)class لتحميل العرض التقديمي الذي يحتوي على الفيديو.
-2. التنقل عبر جميع كائنات [Slide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slide/) .
-3. التنقل عبر جميع كائنات [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/) للعثور على [VideoFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/) .
-4. حفظ الفيديو إلى القرص.
-
-يعرض لك هذا الكود JavaScript كيفية استخراج الفيديو من شريحة عرض تقديمي:
+يُظهر هذا المثال استخراج مقاطع الفيديو المضمنة من كل شريحة إلى ملفات ثنائية مرقمة منفصلة. تُهمل الفيديوهات المرتبطة لأنها لا تحتوي على بيانات مضمّنة. يعرض سطر الأوامر نوع MIME لكل فيديو وإجمالي عدد الفيديوهات. يستخدم الإخراج الامتداد العام `.bin`؛ غيّره ليتطابق مع نوع الوسائط المُعلن عند الحاجة.
 
 ```javascript
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي
-var pres = new aspose.slides.Presentation("VideoSample.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("presentation_with_videos.pptx");
 try {
-    for (let i = 0; i < pres.getSlides().size(); i++) {
-        let slide = pres.getSlides().get_Item(i);
-        for (let j = 0; j < slide.getShapes().size(); j++) {
-            let shape = slide.getShapes().get_Item(j);
+    let videoCount = 0;
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-                var vf = shape;
-                console.log(shape);
-                var type = vf.getEmbeddedVideo().getContentType();
-                var ss = type.lastIndexOf('-');
-                const buffer = Buffer.from(vf.getEmbeddedVideo().getBinaryData());
-                console.log(buffer);
-                // يحصل على امتداد الملف
-                var charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-                fs.writeFileSync("testing2." + type, buffer);
+                const videoFrame = shape;
+                const video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    console.log("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
+
+                videoCount++;
+                const outputPath = "extracted_video_" + videoCount + ".bin";
+                const outputData = Buffer.from(video.getBinaryData());
+                fs.writeFileSync(outputPath, outputData);
+                console.log("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (e) {console.log(e);
+
+    console.log("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما هي معايير تشغيل الفيديو التي يمكن تغييرها لإطار الفيديو؟**
+**ما هي معلمات تشغيل الفيديو التي يمكن تغييرها لإطار فيديو؟**
 
-يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/setplaymode/) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/setplayloopmode/). هذه الخيارات متاحة عبر خصائص كائن [VideoFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/) .
+يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). تتوفر هذه الخيارات عبر طرق كائن [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
 
 **هل يؤثر إضافة فيديو على حجم ملف PPTX؟**
 
-نعم. عندما تقوم بدمج فيديو محلي، تُضمّن البيانات الثنائية في المستند، وبالتالي يزيد حجم العرض التقديمي نسبةً لحجم الملف. عندما تضيف فيديوًا عبر الإنترنت، يتم دمج رابط وصورة مصغرة، لذا تكون الزيادة في الحجم أصغر.
+نعم. عند تضمين فيديو محلي، تُضاف البيانات الثنائية إلى المستند، وبالتالي يزداد حجم العرض التقديمي proportionally لحجم الملف. عند ربط فيديو على الإنترنت وإضافة صورة مصغرة، يخزن العرض التقديمي الرابط وصورة المعاينة بدلًا من بيانات الفيديو، لذا عادةً ما يكون الزيادة أصغر.
 
-**هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موقعه وحجمه؟**
+**هل يمكن استبدال الفيديو في إطار فيديو موجود دون تغيير موضعه وحجمه؟**
 
-نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) داخل الإطار مع الحفاظ على هندسة الشكل؛ وهذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
+نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) داخل الإطار مع الحفاظ على شكل الهندسة؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
 
-**هل يمكن تحديد نوع المحتوى (MIME) لفيديو مدمج؟**
+**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المضمن؟**
 
-نعم. للفيديو المدمج [نوع محتوى](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/video/getcontenttype/) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه إلى القرص.
+نعم. يحتوي الفيديو المضمن على [نوع محتوى](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه إلى القرص.

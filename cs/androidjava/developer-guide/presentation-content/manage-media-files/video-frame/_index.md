@@ -1,6 +1,6 @@
 ---
-title: Správa video rámců v prezentacích na Androidu
-linktitle: Video rámec
+title: Správa video rámečků v prezentacích na Androidu
+linktitle: Video rámeček
 type: docs
 weight: 10
 url: /cs/androidjava/video-frame/
@@ -10,7 +10,7 @@ keywords:
 - vložit video
 - extrahovat video
 - získat video
-- video rámec
+- video rámeček
 - webový zdroj
 - PowerPoint
 - OpenDocument
@@ -18,163 +18,196 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se programově přidávat a extrahovat video rámy v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro Android v jazyce Java. Rychlý návod jak na to."
+description: "Naučte se programově přidávat a extrahovat video rámečky v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro Android prostřednictvím Javy. Rychlý návod typu jak na to."
 ---
 ## **Úvod**
 
-Dobře umístěné video v prezentaci může učinit vaši zprávu přesvědčivější a zvýšit úroveň zapojení publika.
+Videa mohou pomoci vysvětlit nápady a zaujmout publikum. Aspose.Slides for Android via Java vám umožňuje přidávat video rámečky do snímků, upravovat nastavení přehrávání, spravovat titulky a extrahovat vložená video data.
 
-PowerPoint vám umožňuje přidávat videa do snímku v prezentaci dvěma způsoby:
+PowerPoint podporuje místní videa i odkazy na online videa, například videa z YouTube.
 
-* Přidat nebo vložit lokální video (uložené ve vašem počítači)
-* Přidat online video (z webového zdroje, např. YouTube).
+Pro reprezentaci video dat a video rámečků poskytuje Aspose.Slides rozhraní [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) rozhraní [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) a další relevantní typy.
 
-Aspose.Slides poskytuje rozhraní [IVideo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideo/), rozhraní [IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/) a další relevantní typy, aby bylo možné přidávat videa (video objekty) do prezentace.
+## **Vytvoření vloženého video rámečku**
 
-## **Vytvoření vloženého video rámce**
+Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video rámeček, který video vloží do vaší prezentace.
 
-Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video rámec pro vložení videa do prezentace.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte objekt [IVideo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideo/) a předávejte cestu k video souboru pro vložení videa do prezentace.
-1. Přidejte objekt [IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/) pro vytvoření rámce videa.
-1. Uložte upravenou prezentaci.
-
-Tento Java kód ukazuje, jak přidat lokálně uložené video do prezentace:
+Tento příklad vloží místní video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry rámečku jsou v bodech. Proud zůstává otevřený až do dokončení ukládání, protože [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) jej udržuje zamčený, když jej prezentace používá.
 
 ```java
-// Vytvoří instanci třídy Presentation
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // Načte video
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Získá první snímek a přidá video rámec
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+Presentation presentation = new Presentation("presentation.pptx");
+try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Uloží prezentaci na disk
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IVideo video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-Alternativně můžete přidat video předáním cesty k souboru přímo metodě [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
-
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **Vytvoření video rámce s videem z webového zdroje**
-
-Novější verze Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporují online videa v prezentacích. Pokud je video, které chcete použít, dostupné online (např. na YouTube), můžete jej přidat do prezentace pomocí jeho webového odkazu.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte objekt [IVideo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideo/) a předávejte odkaz na video.
-1. Nastavte miniaturu pro video rámec.
-1. Uložte prezentaci.
-
-Tento Java kód ukazuje, jak přidat video z webu do snímku v PowerPoint prezentaci:
-
-```java
-// Vytvoří objekt Presentation, který představuje soubor prezentace 
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // Přidá video rámec
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // Načte miniaturu
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-```
-
-## **Ořezání video rámce**
-
-Aspose.Slides vám umožňuje řídit, která část videa se přehrává, nastavením hodnot trim-from-start a trim-from-end pomocí [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) a [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-). Obě hodnoty jsou zadány v milisekundách a určují, kolik času se přeskočí od začátku a konce videa. Tato nastavení mění nastavení přehrávání videa v prezentaci; nevyříznou ani jinak nemění binární data vloženého videa.
-
-**Nastavení ořezu**
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-1. Přidejte objekt [IVideo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideo/) do prezentace.
-1. Přidejte objekt [IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/) na snímek.
-1. Nastavte hodnoty trim-from-start a trim-from-end pomocí [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) a [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-).
-1. Uložte upravenou prezentaci.
-
-Následující příklad kódu přeskočí první 2,5 sekundy a poslední sekundu vloženého videa během přehrávání:
-
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream videoStream = new FileInputStream("video.mp4");
-    try {
-        IVideo video = presentation.getVideos().addVideo(
-                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        ISlide slide = presentation.getSlides().get_Item(0);
-        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
-
-        videoFrame.setTrimFromStart(2500f);
-        videoFrame.setTrimFromEnd(1000f);
-
-        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
-    } finally {
-        videoStream.close();
-    }
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Čtení nastavení ořezu**
-
-Pro kontrolu existujících nastavení ořezu načtěte prezentaci, najděte objekt [IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/) mezi tvary na prvním snímku a přečtěte hodnoty pomocí [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#getTrimFromStart--) a [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#getTrimFromEnd--).
-
-Následující příklad kódu najde první video rámec na prvním snímku a vypíše jeho nastavení ořezu v milisekundách:
+Můžete také předat cestu k místnímu videu přímo metodě [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Tento příklad vloží video na první snímek nové prezentace. Video musí zůstat přístupné až do uložení prezentace.
 
 ```java
-Presentation presentation = new Presentation("video_with_trim.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Vytvoření video rámečku s videem z webového zdroje**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit video rámeček, který odkazuje na online video, například video z YouTube.
+
+Tento příklad přidá odkaz na YouTube video a miniaturu na první snímek. Nahraďte identifikátor videa, pokud chcete použít jiné video. Metoda [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) požaduje automatické přehrávání. Stahování miniatury a přehrávání videa vyžadují připojení k internetu. Prohlížeč prezentací musí také podporovat přehrávání online videí.
+
+```java
+import com.aspose.slides.*;
+import java.io.InputStream;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String videoId = "aqz-KE-bpKQ";
+    String videoUrl = "https://www.youtube.com/embed/" + videoId;
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    URL thumbnailLocation = new URL(thumbnailUrl);
+    try (InputStream thumbnailStream = thumbnailLocation.openStream()) {
+        IPPImage thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    }
+
+    presentation.save("online_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Přehrání videa v režimu celé obrazovky**
+
+V tréninkové prezentaci můžete přehrát ukázku softwaru v režimu celé obrazovky, aby si publikum mohlo prohlédnout podrobnosti. Zavolejte [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) s `true`, aby se během přehrávání toto chování aktivovalo.
+
+Tento příklad otevře prezentaci, vyhledá první [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) na prvním snímku a povolí přehrávání v režimu celé obrazovky. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video rámečkem na prvním snímku.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
-            float trimFromStart = videoFrame.getTrimFromStart();
-            float trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            System.out.println("Trim from start: " + trimFromStart + " ms");
-            System.out.println("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Přehrávání v režimu celé obrazovky určuje, jak je video zobrazeno. Samostatně [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) určuje, zda se spustí automaticky nebo po kliknutí, a [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) určuje, zda se opakuje. Pro výběr způsobu spuštění nastavte režim přehrávání na [VideoPlayModePreset.Auto nebo VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Příklad zachovává existující nastavení spuštění a opakování.
+
+## **Převíjení videa po přehrání**
+
+V tréninkové prezentaci vrácení demonstračního videa na začátek připraví video k opětovnému přehrání. Zavolejte [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) s `true`, aby se video po skončení přehrávání vrátilo na začátek.
+
+Tento příklad otevře prezentaci, vyhledá první [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) na prvním snímku a povolí převíjení. Zakáže opakování, aby se přehrávání mohlo ukončit, a nastaví spuštění přehrávání po kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video rámečkem na prvním snímku.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Zpětné převíjení vrátí video na začátek, aniž by ho znovu spustilo. Naopak volání [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) s `true` opakuje přehrávání automaticky. Udržujte opakování vypnuté, pokud chcete, aby video skončilo a bylo připraveno k opětovnému přehrání. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) samostatně určuje automatické nebo kliknutím spuštění; tento příklad používá [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) , takže prezentující řídí, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení smyčky, jak je ukázáno v příkladu. Převíjení funguje nezávisle na [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+
+## **Oříznutí video rámečku**
+
+Použijte [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) a [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-), abyste během přehrávání přeskočili část začátku nebo konce videa. Obě hodnoty jsou v milisekundách. Oříznutí změní nastavení přehrávání, aniž by upravovalo vložená video data.
+
+**Nastavení oříznutí**
+
+Tento příklad vloží místní video a během přehrávání přeskočí první 2,5 sekundy a poslední sekundu. Použijte video delší než 3,5 sekundy, aby zbyl přehratelný úsek.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500f);
+    videoFrame.setTrimFromEnd(1000f);
+
+    presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Čtení nastavení oříznutí**
+
+Tento příklad vypíše hodnoty oříznutí prvního video rámečku na prvním snímku v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud tento snímek nemá video rámeček, nic se nevyptá. Předchozí příklad produkuje hodnoty 2500 a 1000.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            System.out.println("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            System.out.println("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -185,30 +218,26 @@ try {
 
 ## **Správa titulků videa**
 
-Aspose.Slides vám umožňuje spravovat uzavřené titulky pro video rámy v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou dostupné přes metodu [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
+Aspose.Slides vám umožňuje spravovat skryté titulky pro video rámečky v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou zpřístupněny metodou [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
 
-**Přidání titulků do video rámce**
+**Přidání titulků do video rámečku**
 
-Pro přidání titulků do video rámce:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-1. Přidejte video do prezentace.
-1. Přidejte objekt [IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/) na snímek.
-1. Použijte kolekci [ICaptionsCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icaptionscollection/) vrácenou metodou [getCaptionTracks](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) pro přidání WebVTT stopy titulků.
-1. Uložte upravenou prezentaci.
-
-Následující kód ukazuje, jak přidat titulky do video rámce:
+Tento příklad vloží místní video a přidá WebVTT stopu titulků označenou English. Časová razítka titulků by měla odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = // "video.mp4";
-    IVideo video = presentation.getVideos().addVideo(videoData);
-
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
 
-    // Přidá novou stopu titulků z WebVTT souboru.
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -217,59 +246,53 @@ try {
 }
 ```
 
-Rozhraní [ICaptionsCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icaptionscollection/) také poskytuje přetížení, které umožňuje přidat titulky ze streamu.
+Rozhraní [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) také poskytuje přetížení, které vám umožní přidat titulky ze streamu.
 
-**Extrahování titulků z video rámce**
+**Extrahování titulků z video rámečku**
 
-Pro extrahování titulků z video rámce:
-
-1. Načtěte prezentaci, která obsahuje video.
-1. Najděte cílový objekt [IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/).
-1. Procházejte titulkové stopy vrácené metodou [getCaptionTracks](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
-1. Uložte každou titulkovou stopu do souboru `.vtt`.
-
-Následující kód ukazuje, jak extrahovat titulky z video rámce:
+Tento příklad uloží všechny stopy titulků z video rámečků na prvním snímku jako samostatné WebVTT soubory. Pořadová čísla udržují výstupní soubory odlišné. Konzole hlásí počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    int trackCount = 0;
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // Uloží stopu titulků do souboru WebVTT.
-                FileOutputStream outputStream = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                outputStream.write(captionTrack.getBinaryData());
-                outputStream.close();
+                trackCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("captions_" + trackCount + ".vtt")) {
+                    outputStream.write(captionTrack.getBinaryData());
+                }
             }
         }
     }
+
+    System.out.println("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-Každý objekt [ICaptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icaptions/) vystavuje identifikátor titulků, štítek, binární data a data titulků jako řetězec UTF-8.
+Každý objekt [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) vystavuje identifikátor titulu, popisek, binární data a text titulu jako řetězec UTF-8.
 
-**Odstranění titulků z video rámce**
+**Odstranění titulků z video rámečku**
 
-Pro odstranění titulků z video rámce:
-
-1. Načtěte prezentaci, která obsahuje video.
-1. Získejte cílový objekt [IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/).
-1. Odstraňte titulkové stopy z kolekce vrácené metodou [getCaptionTracks](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
-1. Uložte upravenou prezentaci.
-
-Následující kód ukazuje, jak odstranit všechny titulky z video rámce:
+Tento příklad odstraní všechny titulky z video rámečku na první pozici objektu na prvním snímku a výsledek uloží. Předpokládá, že snímek a objekt existují a že objekt je video rámeček.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
 
-    // Odstraní všechny titulky z video rámce.
+    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -278,65 +301,60 @@ try {
 }
 ```
 
-Pokud potřebujete odstranit pouze jednu titulkovou stopu, použijte metodu [remove](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) nebo [removeAt](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) místo [clear](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icaptionscollection/#clear--).
+Pokud potřebujete odstranit pouze jednu stopu titulu, použijte metody [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) nebo [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) místo [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--).
 
 ## **Extrahování videa ze snímku**
 
 Kromě přidávání videí do snímků umožňuje Aspose.Slides také extrahovat videa vložená v prezentacích.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) pro načtení prezentace obsahující video.
-2. Projděte všechny objekty [ISlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/).
-3. Projděte všechny objekty [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/) a najděte [VideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/videoframe/).
-4. Uložte video na disk.
-
-Tento Java kód ukazuje, jak extrahovat video ze snímku v prezentaci:
+Tento příklad extrahuje vložená videa ze všech snímků do samostatných, číslovaných binárních souborů. Odkazovaná videa jsou přeskočena, protože neobsahují vložená data. Konzole vypíše MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; v případě potřeby ji změňte tak, aby odpovídala oznámenému typu média.
 
 ```java
-// Vytvoří objekt Presentation, který představuje soubor prezentace 
-Presentation pres = new Presentation("VideoSample.pptx");
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("presentation_with_videos.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
+    int videoCount = 0;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                IVideoFrame videoFrame = (IVideoFrame) shape;
+                IVideo video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    System.out.println("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
 
-                // Získá příponu souboru
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                videoCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("extracted_video_" + videoCount + ".bin")) {
+                    outputStream.write(video.getBinaryData());
+                }
+                System.out.println("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (IOException e) {
+
+    System.out.println("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Často kladené otázky**
 
-**Které parametry přehrávání videa lze změnit u VideoFrame?**
+**Které parametry přehrávání videa lze změnit pro video rámeček?**
 
-Můžete řídit [režim přehrávání](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (automaticky nebo při kliknutí) a [opakování](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Tyto možnosti jsou dostupné přes vlastnosti objektu [VideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/videoframe/).
+Můžete řídit [režim přehrávání](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (automaticky nebo po kliknutí) a [opakování](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Tyto možnosti jsou dostupné prostřednictvím metod objektu [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/).
 
 **Zvyšuje přidání videa velikost souboru PPTX?**
 
-Ano. Když vložíte lokální video, binární data jsou zahrnuta do dokumentu, takže velikost prezentace roste úměrně velikosti souboru. Když přidáte online video, vloží se odkaz a miniatura, takže nárůst velikosti je menší.
+Ano. Když vložíte místní video, binární data jsou zahrnuta do dokumentu, takže velikost prezentace roste úměrně velikosti souboru. Když odkazujete na online video a přidáte miniaturu, prezentace uloží odkaz a náhledový obrázek místo video dat, takže nárůst velikosti je obvykle menší.
 
-**Mohu nahradit video v existujícím VideoFrame, aniž bych změnil jeho polohu a velikost?**
+**Mohu nahradit video v existujícím video rámečku bez změny jeho pozice a velikosti?**
 
-Ano. Můžete vyměnit [video obsah](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) v rámci zachovávaje geometrii tvaru; jedná se o běžný scénář aktualizace médií v existujícím rozvržení.
+Ano. Můžete vyměnit [video obsah](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) uvnitř rámečku při zachování geometrie objektu; to je běžný scénář pro aktualizaci médií v existujícím rozvržení.
 
 **Lze určit typ obsahu (MIME) vloženého videa?**
 
-Ano. Vložené video má [typ obsahu](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/video/#getContentType--) který můžete přečíst a použít, například při ukládání na disk.
+Ano. Vložené video má [typ obsahu](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) , který můžete přečíst a použít, například při ukládání na disk.

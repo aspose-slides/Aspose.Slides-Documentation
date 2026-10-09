@@ -1,6 +1,6 @@
 ---
-title: 使用 JavaScript 在簡報中管理影片框格
-linktitle: 影片框格
+title: 使用 Node.js 管理簡報中的影片框架
+linktitle: 影片框架
 type: docs
 weight: 10
 url: /zh-hant/nodejs-java/video-frame/
@@ -10,7 +10,7 @@ keywords:
 - 嵌入影片
 - 擷取影片
 - 取得影片
-- 影片框格
+- 影片框架
 - 網路來源
 - PowerPoint
 - OpenDocument
@@ -18,153 +18,36 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "學習如何以程式方式使用 Aspose.Slides for Node.js（透過 Java）在 PowerPoint 與 OpenDocument 投影片中新增與擷取影片框格。快速上手指南。"
+description: "了解如何使用 Aspose.Slides for Node.js via Java，程式化地在 PowerPoint 與 OpenDocument 投影片中新增與擷取影片框架。快速上手指南。"
 ---
 ## **簡介**
 
-在簡報中恰當地放置影片可以使您的訊息更具說服力，並提升觀眾的參與度。 
+影片可以協助說明概念並吸引觀眾。Aspose.Slides for Node.js via Java 讓您能在投影片中加入影片框架、調整播放設定、管理字幕，並擷取嵌入的影片資料。
 
-PowerPoint 允許您以兩種方式在簡報的投影片中加入影片：
+PowerPoint 支援本機影片以及連結至線上影片（例如 YouTube 影片）。
 
-* 新增或嵌入本機影片（儲存在您的電腦上）
-* 新增線上影片（來自諸如 YouTube 等網站來源）。
+為了表示影片資料與影片框架，Aspose.Slides 提供了 [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) 類別、[VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) 類別以及其他相關型別。
 
-為了讓您能在簡報中加入影片（video 物件），Aspose.Slides 提供了 [Video](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/video/) 類別、[VideoFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/) 類別以及其他相關型別。
+## **建立嵌入式影片框架**
 
-## **建立嵌入式影片框格**
+如果要加入至投影片的影片檔案儲存在本機，您可以建立影片框架將影片嵌入簡報中。
 
-如果您想加入投影片的影片檔案儲存在本機，您可以建立影片框格，將影片嵌入簡報中。 
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入 [Video](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/video/) 物件，並傳入影片檔案路徑以將影片嵌入簡報。  
-4. 加入 [VideoFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/) 物件，以建立影片的框格。  
-5. 儲存已修改的簡報。 
-
-以下 JavaScript 程式碼示範如何將本機儲存的影片加入簡報：
+此範例將本機影片嵌入現有簡報的第一張投影片，並儲存結果。框架的座標與尺寸以點為單位。因為 [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) 在簡報使用時保持鎖定，資料流會在儲存完成前保持開啟。
 
 ```javascript
-// 建立 Presentation 類別的實例
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    // 載入影片
-    var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
-    var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
-    // 取得第一張投影片並新增影片框格
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
-    // 將簡報保存至磁碟
-    pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-或者，您也可以直接將檔案路徑傳入 [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) 方法來新增影片：
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var sld = pres.getSlides().get_Item(0);
-    var vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **使用網路來源影片建立影片框格**
-
-Microsoft [PowerPoint 2013 及更新版本](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) 支援在簡報中使用 YouTube 影片。如果您要使用的影片可在網路上取得（例如 YouTube），您可以透過其網址將其加入簡報。 
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入 [Video](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/video/) 物件，並傳入影片的連結。  
-4. 為影片框格設定縮圖。  
-5. 儲存簡報。 
-
-以下 JavaScript 程式碼示範如何將網路影片加入 PowerPoint 簡報的投影片中：
-
-```javascript
-// 建立代表簡報檔案的 Presentation 物件
-var pres = new aspose.slides.Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-```javascript
-async function addVideoFromYouTube(pres, videoID) {
-    let slide = pres.getSlides().get_Item(0);
-    let videoUrl = "https://www.youtube.com/embed/" + videoID;
-    let videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
-    
-    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
-
-    let thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-
-    try {
-        const imageStream = await getImageStream(thumbnailUri);
-        let image = pres.getImages().addImage(imageStream);
-        videoFrame.getPictureFormat().getPicture().setImage(image);
-    } catch (error) {
-        console.error("Error loading thumbnail:", error);
-    }
-}
-
-async function getImageStream(url) {
-    return new Promise((resolve, reject) => {
-        http.get(url, (response) => {
-            if (response.statusCode === 200) {
-                resolve(response);
-            } else {
-                reject(new Error(`Failed to load image: ${response.statusCode}`));
-            }
-        }).on('error', (e) => {
-            reject(e);
-        });
-    });
-}
-```
-
-## **裁切影片框格**
-
-Aspose.Slides 允許您透過 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/settrimfromstart/) 與 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/settrimfromend/) 設定 trim-from-start 與 trim-from-end 值，以控制影片的播放區段。兩個值以毫秒為單位，分別定義從影片開頭與結尾跳過的時間長度。這些設定會變更簡報中的影片播放行為；不會裁剪或以其他方式修改嵌入的影片二進位資料。
-
-**設定裁切參數**
-
-建立影片框格並設定其裁切參數：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
-2. 在簡報中加入 [Video](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/video/) 物件。  
-3. 在投影片中加入 [VideoFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/) 物件。  
-4. 透過 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/settrimfromstart/) 與 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/settrimfromend/) 設定 trim-from-start 與 trim-from-end 值。  
-5. 儲存已修改的簡報。
-
-以下程式碼範例在播放嵌入式影片時，跳過前 2.5 秒與最後 1 秒：
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     const videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
     try {
-        const video = presentation.getVideos().addVideo(
-            videoStream, aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
         const slide = presentation.getSlides().get_Item(0);
-        const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
 
-        videoFrame.setTrimFromStart(2500);
-        videoFrame.setTrimFromEnd(1000);
+        const video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+        slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-        presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+        presentation.save("embedded_video.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         videoStream.close();
     }
@@ -173,26 +56,171 @@ try {
 }
 ```
 
-**讀取裁切參數**
-
-若要檢視現有的裁切參數，請載入簡報、於第一張投影片的圖形中找到 [VideoFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/) 物件，並透過 [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/gettrimfromstart/) 與 [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/gettrimfromend/) 讀取其值。
-
-以下程式碼範例尋找第一張投影片上的第一個影片框格，並以毫秒為單位回報其裁切參數：
+您也可以直接將本機影片路徑傳遞給 [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/)。此範例將影片嵌入新簡報的第一張投影片。影片必須在簡報儲存之前保持可存取。
 
 ```javascript
-const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **建立來自網路來源的影片框架**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 支援在簡報中使用線上影片。您可以建立連結至線上影片（例如 YouTube 影片）的影片框架。
+
+此範例在第一張投影片加入 YouTube 影片連結與縮圖。將影片識別碼替換為其他影片即可使用。[setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) 方法請求自動播放。下載縮圖與播放影片均需網際網路連線。簡報檢視器亦必須支援線上影片播放。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const videoId = "aqz-KE-bpKQ";
+    const videoUrl = "https://www.youtube.com/embed/" + videoId;
+    const videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
+
+    const thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    const thumbnailLocation = java.newInstanceSync("java.net.URL", thumbnailUrl);
+    const thumbnailStream = thumbnailLocation.openStream();
+    try {
+        const thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    } finally {
+        thumbnailStream.close();
+    }
+
+    presentation.save("online_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **全螢幕模式播放影片**
+
+在培訓簡報中，您可以全螢幕播放軟體示範，讓觀眾看到細節。將 `true` 傳入 [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) 即可在播放期間啟用此行為。
+
+此範例開啟簡報，於第一張投影片找到第一個 [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/)，並啟用全螢幕播放。輸入的簡報必須至少在第一張投影片上含有一個現有的影片框架。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("training.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
         const shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
             const videoFrame = shape;
-            const trimFromStart = videoFrame.getTrimFromStart();
-            const trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            console.log("Trim from start: " + trimFromStart + " ms");
-            console.log("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+全螢幕播放控制影片的顯示方式。除此之外，[setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) 控制是否自動或點擊開始播放，且 [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) 控制是否重複播放。若要選擇開始行為，將播放模式設為 [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/)。此範例保留了既有的開始與迴圈設定。
+
+## **播放後倒帶影片**
+
+在培訓簡報中，將示範影片倒回開頭可讓簡報者再次播放。將 `true` 傳入 [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) 即可在播放結束後將影片倒回開頭。
+
+此範例開啟簡報，於第一張投影片找到第一個 [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/)，並啟用倒帶。它會停用迴圈，使播放能結束，並設定點擊開始播放。輸入的簡報必須至少在第一張投影片上含有一個現有的影片框架。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("training.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+倒帶會把影片返回開頭而不會再次自動開始。相較之下，將 [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) 設為 `true` 會自動重複播放。若希望影片播放完畢後保持可重新播放的狀態，請停用迴圈。[setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) 獨立控制自動或點擊啟動；此範例使用 [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) 讓簡報者自行決定何時開始播放。請先設定迴圈，再設定播放模式，如範例所示。倒帶與 [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) 的設定互不影響。
+
+## **裁剪影片框架**
+
+使用 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) 與 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) 可在播放時跳過影片開頭或結尾的部分。兩個值皆以毫秒為單位。裁剪僅會變更播放設定，不會改變嵌入的影片資料。
+
+**設定裁剪參數**
+
+此範例嵌入本機影片，於播放時跳過前 2.5 秒與最後 1 秒。請使用長度超過 3.5 秒的影片，以確保仍留下可播放的片段。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const videoBuffer = fs.readFileSync("video.mp4");
+    const videoData = java.newArray("byte", Array.from(videoBuffer));
+    const video = presentation.getVideos().addVideo(videoData);
+
+    const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500);
+    videoFrame.setTrimFromEnd(1000);
+
+    presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**讀取裁剪參數**
+
+此範例列印第一張投影片上第一個影片框架的裁剪值（毫秒）。簡報必須至少包含一張投影片；若該投影片沒有影片框架，則不會列印任何內容。前一個範例的輸出值為 2500 與 1000。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            console.log("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            console.log("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -203,28 +231,26 @@ try {
 
 ## **管理影片字幕**
 
-Aspose.Slides 允許您管理 PowerPoint 簡報中影片框格的隱蔽字幕 (closed captions)。字幕以 WebVTT 格式儲存，並可透過 [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) 方法取得。
+Aspose.Slides 允許您在 PowerPoint 簡報的影片框架中管理關閉式字幕。字幕以 WebVTT 格式儲存，並可透過 [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) 方法取得。
 
-**將字幕加入影片框格**
+**為影片框架新增字幕**
 
-將字幕加入影片框格的步驟：
+此範例嵌入本機影片，並加入一條標示為 English 的 WebVTT 字幕軌道。字幕的時間戳記應與影片相符。儲存的簡報會同時包含影片與其字幕。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
-2. 在簡報中加入影片。  
-3. 加入 [VideoFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/) 物件至投影片。  
-4. 使用 [CaptionsCollection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/captionscollection/) 集合加入 WebVTT 字幕軌道。  
-5. 儲存已修改的簡報。
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
 
-```js
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
-    let video = presentation.getVideos().addVideo(videoStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
+    const videoBuffer = fs.readFileSync("video.mp4");
+    const videoData = java.newArray("byte", Array.from(videoBuffer));
+    const video = presentation.getVideos().addVideo(videoData);
 
-    // 從 WebVTT 檔案新增一個字幕軌道。
+    const videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -233,59 +259,56 @@ try {
 }
 ```
 
-[CaptionsCollection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/captionscollection/) 類別亦提供 [addFromStream](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/captionscollection/#addFromStream) 方法，讓您從串流加入字幕。
+[CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) 類別亦提供 [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) 方法，以從資料流新增字幕。
 
-**從影片框格擷取字幕**
+**從影片框架擷取字幕**
 
-從影片框格擷取字幕的步驟：
+此範例將第一張投影片上所有影片框架的字幕軌道另存為個別的 WebVTT 檔案。使用連續編號以保持輸出檔案的唯一性。主控台會報告擷取的軌道數量。簡報必須至少包含一張投影片。
 
-1. 載入包含該影片的簡報。  
-2. 找到目標 [VideoFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/) 物件。  
-3. 迭代 [CaptionsCollection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/captionscollection/) 集合。  
-4. 將每個字幕軌道儲存為 `.vtt` 檔案。
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
 
-```js
-let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+const presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    let trackCount = 0;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-            let videoFrame = shape;
-            let trackCount = videoFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
-                // 將字幕軌道儲存為 WebVTT 檔案。
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            const videoFrame = shape;
+            for (let trackIndex = 0; trackIndex < videoFrame.getCaptionTracks().getCount(); trackIndex++) {
+                const captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
+                trackCount++;
+                const outputPath = "captions_" + trackCount + ".vtt";
+                const outputData = Buffer.from(captionTrack.getBinaryData());
+                fs.writeFileSync(outputPath, outputData);
             }
         }
     }
+
+    console.log("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-每個 [Captions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/captions/) 物件都會公開字幕識別碼、標籤、二進位資料，以及以 UTF-8 字串表示的字幕文字。
+每個 [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) 物件會公開字幕識別碼、標籤、二進位資料以及以 UTF-8 字串呈現的字幕文字。
 
-**從影片框格移除字幕**
+**從影片框架移除字幕**
 
-從影片框格移除字幕的步驟：
+此範例移除第一張投影片上第一個形狀位置的影片框架的所有字幕，並儲存結果。它假設投影片與形狀均已存在，且該形狀為影片框架。
 
-1. 載入包含該影片的簡報。  
-2. 取得目標 [VideoFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/) 物件。  
-3. 從 [CaptionsCollection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/captionscollection/) 集合移除字幕軌道。  
-4. 儲存已修改的簡報。
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
+const presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let videoFrame = slide.getShapes().get_Item(0); // 類型: com.aspose.slides.VideoFrame
+    const slide = presentation.getSlides().get_Item(0);
 
-    // 從影片框格中移除所有字幕。
+    const videoFrame = slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -294,63 +317,63 @@ try {
 }
 ```
 
-如果只需要移除單一字幕軌道，請使用 [remove](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/captionscollection/#removeAt) 方法，而非 [clear](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/captionscollection/#clear)。
+如果只需要移除單一字幕軌道，請使用 [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) 方法取代 [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear)。
 
 ## **從投影片擷取影片**
 
-除了將影片加入投影片之外，Aspose.Slides 也允許您擷取嵌入於簡報中的影片。
+除了將影片加入投影片之外，Aspose.Slides 亦允許您擷取簡報中嵌入的影片。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例，以載入包含影片的簡報。  
-2. 迭代所有 [Slide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/) 物件。  
-3. 迭代所有 [Shape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/) 物件以找到 [VideoFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/)。  
-4. 將影片儲存至磁碟。
-
-以下 JavaScript 程式碼示範如何從簡報投影片上擷取影片：
+此範例將每張投影片的嵌入影片擷取為單獨的編號二進位檔案。連結影片會被略過，因為它們不含嵌入資料。主控台會列印每支影片的 MIME 類型與總計數量。輸出使用通用的 `.bin` 副檔名；如有需要，可依報告的媒體類型自行更改副檔名。
 
 ```javascript
-// 建立代表簡報檔案的 Presentation 物件
-var pres = new aspose.slides.Presentation("VideoSample.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("presentation_with_videos.pptx");
 try {
-    for (let i = 0; i < pres.getSlides().size(); i++) {
-        let slide = pres.getSlides().get_Item(i);
-        for (let j = 0; j < slide.getShapes().size(); j++) {
-            let shape = slide.getShapes().get_Item(j);
+    let videoCount = 0;
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-                var vf = shape;
-                console.log(shape);
-                var type = vf.getEmbeddedVideo().getContentType();
-                var ss = type.lastIndexOf('-');
-                const buffer = Buffer.from(vf.getEmbeddedVideo().getBinaryData());
-                console.log(buffer);
-                // 取得檔案副檔名
-                var charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-                fs.writeFileSync("testing2." + type, buffer);
+                const videoFrame = shape;
+                const video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    console.log("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
+
+                videoCount++;
+                const outputPath = "extracted_video_" + videoCount + ".bin";
+                const outputData = Buffer.from(video.getBinaryData());
+                fs.writeFileSync(outputPath, outputData);
+                console.log("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (e) {console.log(e);
+
+    console.log("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **常見問題**
 
-**可以變更 VideoFrame 哪些影片播放參數？**
+**可以變更影片框架的哪些播放參數？**
 
-您可以透過 [VideoFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/) 物件的屬性控制[播放模式](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/setplaymode/)（自動或點擊）以及[循環播放](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/setplayloopmode/)。
+您可以透過 [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) 物件的方法控制 [playback mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/)（自動或點擊）以及 [looping](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/)。
 
 **加入影片會影響 PPTX 檔案大小嗎？**
 
-會的。當您嵌入本機影片時，二進位資料會寫入文件中，因此簡報大小會隨檔案大小等比例增加。加入線上影片時，僅嵌入連結與縮圖，大小增幅較小。
+會的。若嵌入本機影片，二進位資料會併入文件，簡報大小會隨影片檔案大小成比例增加。若連結至線上影片並加入縮圖，簡報只儲存連結與預覽圖像，大小增幅通常較小。
 
-**我可以在不變更位置與尺寸的情況下，取代現有 VideoFrame 中的影片嗎？**
+**我可以在不變更位置和尺寸的情況下，更換現有影片框架中的影片嗎？**
 
-可以。您可以在保留形狀幾何的前提下，替換框格內的[影片內容](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/videoframe/setembeddedvideo/)，這是更新既有版面媒體的常見情境。
+可以。您可以在保持形狀幾何的前提下，使用 [setEmbeddedVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) 交換框架內的影片內容，這是更新現有版面媒體的常見情境。
 
 **可以判斷嵌入影片的內容類型（MIME）嗎？**
 
-可以。嵌入的影片具有可讀取的[內容類型](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/video/getcontenttype/)，您可將其用於例如儲存至磁碟等情況。
+可以。嵌入影片具有可透過 [getContentType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/) 讀取的內容類型，您可將其用於例如儲存至磁碟等用途。

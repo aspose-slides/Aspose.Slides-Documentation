@@ -1,36 +1,36 @@
 ---
-title: JavaScript'te Sunumları XAML'e Dışa Aktarma
-linktitle: Sunumu XAML'e
+title: Sunumları JavaScript'te XAML'e Dışa Aktar
+linktitle: Sunumdan XAML'e
 type: docs
 weight: 30
 url: /tr/nodejs-java/export-to-xaml/
 keywords:
-- PowerPoint dışa aktar
-- OpenDocument dışa aktar
-- sunumu dışa aktar
-- PowerPoint dönüştür
-- OpenDocument dönüştür
-- sunumu dönüştür
-- PowerPoint'tan XAML'e
-- OpenDocument'tan XAML'e
-- sunumdan XAML'e
-- PPT'den XAML'e
-- PPTX'den XAML'e
-- ODP'den XAML'e
-- PPT'yi XAML olarak kaydet
-- PPTX'i XAML olarak kaydet
-- ODP'yi XAML olarak kaydet
-- PPT'yi XAML'e dışa aktar
-- PPTX'i XAML'e dışa aktar
-- ODP'yi XAML'e dışa aktar
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Aspose.Slides kullanarak JavaScript'te PowerPoint ve OpenDocument slaytlarını XAML'e dönüştürün—düzeni bozmayan hızlı, Office gerektirmeyen bir çözüm."
+  - PowerPoint'i dışa aktar
+  - OpenDocument'i dışa aktar
+  - sunumu dışa aktar
+  - PowerPoint'i dönüştür
+  - OpenDocument'i dönüştür
+  - sunumu dönüştür
+  - PowerPoint'ten XAML'e
+  - OpenDocument'ten XAML'e
+  - sunumdan XAML'e
+  - PPT'den XAML'e
+  - PPTX'den XAML'e
+  - ODP'den XAML'e
+  - PPT'yi XAML olarak kaydet
+  - PPTX'i XAML olarak kaydet
+  - ODP'yi XAML olarak kaydet
+  - PPT'yi XAML'e dışa aktar
+  - PPTX'i XAML'e dışa aktar
+  - ODP'yi XAML'e dışa aktar
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "Aspose.Slides kullanarak JavaScript'te PowerPoint ve OpenDocument slaytlarını XAML'e dönüştürün—düzeninizi koruyan hızlı, Office gerektirmeyen bir çözüm."
 ---
 ## **Genel Bakış**
 
-Bu makale, PowerPoint sunumlarını Aspose.Slides kullanarak XAML’e nasıl dışa aktaracağınızı açıklar. Kısa bir XAML tanıtımı içerir, varsayılan ayarlarla bir sunumun XAML’e nasıl kaydedileceğini gösterir ve gizli slaytların dışa aktarılması dahil olmak üzere [XamlOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/xamloptions/) üzerinden dışa aktarımı nasıl özelleştirebileceğinizi gösterir. Ayrıca yedek yazı tipleri, XAML yığını uyumluluğu ve gizli slayt dışa aktarım davranışıyla ilgili bazı yaygın soruları yanıtlar.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarını XAML'e nasıl dışa aktaracağınızı açıklar. XAML'e kısa bir giriş içerir, bir sunumu varsayılan ayarlarla XAML olarak nasıl kaydedeceğinizi gösterir ve dışa aktarmayı [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) aracılığıyla, gizli slaytların dışa aktarılması dahil, nasıl özelleştirebileceğinizi gösterir. Makale ayrıca yedek yazı tipleri, XAML yığını uyumluluğu ve gizli slayt dışa aktarım davranışıyla ilgili birkaç yaygın soruya da yanıt verir.
 
 ## **XAML Hakkında**
 
@@ -38,9 +38,9 @@ XAML, WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) ve
 
 XAML dosyalarıyla görsel bir tasarımcıda çalışabilir veya işaretlemeyi doğrudan yazıp düzenleyebilirsiniz.
 
-## **Varsayılan Seçeneklerle Sunumları XAML’e Dışa Aktarma**
+## **Varsayılan Seçeneklerle Sunumları XAML'e Dışa Aktarma**
 
-Aşağıdaki JavaScript örneği, bir sunumu varsayılan ayarlarla XAML’e nasıl dışa aktarılacağını gösterir:
+Aşağıdaki JavaScript örneği, bir sunumu varsayılan ayarlarla XAML'e nasıl dışa aktaracağınızı gösterir:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -54,17 +54,17 @@ try {
 }
 ```
 
-Varsayılan olarak, dışa aktarılan slaytlar işlemin geçerli çalışma dizininin bir `input` alt klasörüne kaydedilir. Klasör otomatik olarak oluşturulur ve gerekli tüm görüntüler de oraya kaydedilir.
+Varsayılan olarak, dışa aktarılan slaytlar, işlemin geçerli çalışma dizininin bir `input` alt klasöründe kaydedilir. Klasör otomatik olarak oluşturulur ve gerekli görüntüler de oraya kaydedilir.
 
-Çıktı klasörü adı, uzantısı olmadan kaynak dosya adından alınır. Aspose.Slides for Node.js via Java 26.8’de `input.pptx` dışa aktarmak, `input/input/Slide_1.xaml` gibi iç içe bir yol üretir. Çıktıyı işlerken oluşturulan tam yolları koruyun. Varsayılan çıktı, geçerli çalışma dizinine göredir; mutlaka giriş dosyasının yanında olmayabilir.
+Çıktı klasörü adı, kaynak dosya adından uzantısı olmadan alınır. Aspose.Slides for Node.js via Java 26.8'de `input.pptx` dışa aktarmak, `input/input/Slide_1.xaml` gibi iç içe bir yol üretir. Çıktıyı işlerken oluşturulan tam yolları koruyun. Varsayılan çıktı, geçerli çalışma dizinine göredir, mutlaka giriş dosyasının yanına değil.
 
-## **Özel Seçeneklerle Sunumları XAML’e Dışa Aktarma**
+## **Özel Seçeneklerle Sunumları XAML'e Dışa Aktarma**
 
-Aspose.Slides’in bir sunumu XAML’e nasıl dışa aktaracağını kontrol etmek için [IXamlOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ixamloptions/) arayüzünü kullanın.
+Aspose.Slides'in bir sunumu XAML'e nasıl dışa aktardığını kontrol etmek için [IXamlOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ixamloptions/) arayüzünü kullanın.
 
-Çıktıyı özel bir konuma kaydetmek için [IXamlOutputSaver](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ixamloutputsaver/) uygulayın ve örnekleyiminizi [XamlOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/xamloptions/) ‑in [setOutputSaver](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/xamloptions/#setOutputSaver) yöntemine iletin.
+Çıktıyı özel bir konuma kaydetmek için [IXamlOutputSaver](https://reference.aspose.com/slides/java/com.aspose.slides/ixamloutputsaver/)`ı uygulayın ve uygulamanızın bir örneğini [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/)`ın [setOutputSaver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/#setOutputSaver) metoduna geçirin.
 
-Gizli slaytları XAML çıktısına dahil etmek için aşağıdaki JavaScript örneğinde gösterildiği gibi `true` ile [setExportHiddenSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) çağırın:
+Gizli slaytları XAML çıktısına dahil etmek için, aşağıdaki JavaScript örneğinde gösterildiği gibi `true` ile [setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) metodunu çağırın:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -79,26 +79,26 @@ try {
 }
 ```
 
-## **Oluşturulan Tüm XAML Artefaktlarını Yakalama**
+## **Oluşturulan Tüm XAML Ürünlerini Yakalama**
 
-Bir XAML dışa aktarımı, dışa aktarılan her slayt için bir XAML belgesi ve ayrı görüntü ve yardımcı kaynaklar üretebilir. Bu artefaktları almak için varsayılan dosya‑sistemi kaydedicisi yerine bir özel [IXamlOutputSaver](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ixamloutputsaver/) atayın. XAML seçeneklerini kabul eden [Presentation.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#save) aşırı yüklemesiyle dışa aktarmayı başlatın.
+Bir XAML dışa aktarımı, dışa aktarılan her slayt için bir XAML belgesi ve ayrı görüntüler ile destek kaynakları üretebilir. Varsayılan dosya sistemi kaydedicisi yerine bu ürünleri almak için özel bir [IXamlOutputSaver](https://reference.aspose.com/slides/java/com.aspose.slides/ixamloutputsaver/)`ı [XamlOptions.setOutputSaver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/#setOutputSaver)ʼa atayın. Dışa aktarmayı, XAML‑specific [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save) aşırı yüklemesiyle başlatın.
 
-Node.js’te, Aspose.Slides tarafından kullanılan `java` paketinden `java.newProxy` ile Java arayüzünü uygulayın. Proxy, dışa aktarım tamamlanana kadar ulaşılabilir kalmalıdır.
+Node.js'te, Aspose.Slides tarafından kullanılan `java` paketindeki `java.newProxy` ile Java arayüzünü uygulayın. Proxy'i dışa aktarım tamamlanana kadar erişilebilir tutun.
 
-### **Geri Çağrı Yaşam Döngüsünü Anlama**
+### **Geri Çağrı Yaşam Döngüsünü Anlamak**
 
-Dışa aktarım, her oluşturulan artefakt için [IXamlOutputSaver.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ixamloutputsaver/#save-java.lang.String-byte:A-) metodunu ayrı ayrı çağırır:
+Dışa aktaran, oluşturulan her ürün için ayrı ayrı [IXamlOutputSaver.save](https://reference.aspose.com/slides/java/com.aspose.slides/ixamloutputsaver/#save-java.lang.String-byte:A-) metodunu çağırır:
 
-- `path` artefaktı tanımlar ve göreli dizinler içerebilir. XAML, kaynakları göreli yollarla referanslayabileceği için bu bilgiyi tutun.
-- `data` artefaktın baytlarını içerir. Görüntüler ve diğer ikili kaynaklar metin olarak çözümlenmemelidir.
-- Kaydedici, veriyi geri dönmeden önce saklamaktan veya kalıcı hale getirmekten sorumludur. Örneklerde her Java byte dizisi bir uygulama‑sahibi Node.js tamponuna kopyalanır.
-- Sunum kaydetme işlemi döndüğünde ve her geri çağrı başarılı bir şekilde tamamlandığında dışa aktarma başarılı kabul edilir. Depolama hatalarını yutmayın ve gözlemlenmeyen arka plan yazmalarını başlatmayın. Kalıcılık sonradan gerçekleşirse, bütün adım da başarılı olduğunda genel başarı rapor edilmelidir.
+- `path` ürünün kimliğini belirler ve göreli dizinler içerebilir. XAML'in kaynakları göreli yollarla referanslayabileceği için bu bilgiyi koruyun.
+- `data` ürünün baytlarını içerir. Görüntüler ve diğer ikili kaynaklar metin olarak çözülemez.
+- Kaydedici, döndürmeden önce veriyi tutmak ya da kalıcı hâle getirmekle sorumludur. Örnekler, her Java bayt dizisini uygulama sahipliğindeki bir Node.js tamponuna kopyalar.
+- Dışa aktarmayı yalnızca sunum kaydetme işlemi döndüğünde ve her geri çağrı başarıyla tamamlandığında başarılı olarak kabul edin. Depolama hatalarını yutmayın veya gözlemlenmeyen arka plan yazımlarını başlatmayın. Kalıcılık daha sonra gerçekleşirse, genel başarıyı yalnızca bu adım da başarılı olduğunda bildirin.
 
-[XamlOptions.setExportHiddenSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) özel kaydediciye de uygulanır. Varsayılan ayar `false` olduğundan gizli‑slayt XAML belgeleri dışarı çıkarılmaz. `true` geçirilirse bu belgeler ve ihracatları için gereken tüm kaynaklar dahil edilir. Kaynak sayısı sunuma bağlıdır; slayt başına tek bir geri çağrı ya da sabit bir sıra varsaymayın.
+[XamlOptions.setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) ayrıca özel bir kaydediciye de uygulanır. Varsayılan ayar `false`, gizli slayt XAML belgelerini hariç tutar. `true` geçirilmesi, bunları ve ihracatları için gereken tüm kaynakları içerir. Kaynak sayısı sunuma bağlıdır; slayt başına bir geri çağrı ya da sabit bir çağrı sırası varsaymayın.
 
-### **Belleğe Dışa Aktar ve Artefaktları İncele**
+### **Belleğe Dışa Aktar ve Ürünleri İncele**
 
-Bu tam örnek `input.pptx` dosyasını yükler, her artefaktı isim‑tampon eşlemesine toplar ve adını, türünü ve bayt sayısını yazdırır. Sağlanan adlar tam olarak korunur. Yinelenen adlar koleksiyonu geçersiz olarak işaretlenir ve sessizce üzerine yazılmaz. Örnek, sonuçları kullanmadan önce bunu kontrol eder.
+Bu tam örnek `input.pptx` dosyasını yükler, her ürünü isim‑tampon haritasında toplar ve adını, türünü ve bayt sayısını yazar. Sağlanan adları tam olarak korur. Yinelenen adlar, bir ürünün sessizce üzerine yazılması yerine koleksiyonu geçersiz olarak işaretler. Örnek, sonuçları kullanmadan önce bunu kontrol eder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -139,7 +139,7 @@ if (!valid) {
         const kind = isXaml ? "slide XAML" : isImage ? "image" : "supporting resource";
         console.log(name + ": " + data.length + " bytes (" + kind + ")");
 
-        // Yalnızca XAML'i çöz ve yalnızca metinsel inceleme gerektiğinde.
+        // Yalnızca XAML'i çözümlendir ve sadece metinsel inceleme gerektiğinde.
         if (isXaml && inspectXamlText) {
             console.log(data.toString("utf8"));
         }
@@ -147,11 +147,11 @@ if (!valid) {
 }
 ```
 
-Uzantı kontrolleri inceleme için faydalıdır; tanıdık olmayan kaynak türleri de dahil olmak üzere tüm artefaktları koruyun. Baytları depolarken ya da iletirken değiştirmeyin. Yalnızca XAML metin işleme gerektiren durumlarda UTF‑8 kod çözücüsü kullanın.
+Uzantı kontrolleri inceleme için faydalıdır; tanıdık olmayan kaynak tipleri dahil tüm ürünleri koruyun. Baytları depolarken veya iletirken değiştirmeyin. Yalnızca metin işleme gerektiren XAML için UTF‑8 kod çözümlemesi kullanın.
 
-### **Toplanan Artefaktları ZIP Arşivine Paketleme**
+### **Toplanan Ürünleri ZIP Arşivine Paketle**
 
-Bu bağımsız örnek dışa aktarımı toplar, adlarını doğrular ve Java köprüsüyle bir ZIP arşivine yazar. ZIP, diske kaydedilmeden önce bellekte birleştirilir. Eşzamanlı dışa aktarma işleri için benzersiz bir arşiv adı kullanılır. ZIP girdileri ileri eğik çizgi (`/`) kullanır ve göreli dizinleri korur. Normalleştirme sonrası çakışan ya da güvensiz adlar, arşiv yazılmadan önce tamamen reddedilir.
+Bu bağımsız örnek dışa aktarmayı toplar, adlarını doğrular ve orijinal baytları Java köprüsü aracılığıyla bir ZIP arşivine yazar. ZIP, diske kaydedilmeden önce bellek içinde oluşturulur. Benzersiz bir arşiv adı, eşzamanlı dışa aktarma işleri arasında ayrım sağlar. ZIP girdileri ileri eğik çizgi kullanır ve göreli dizinleri korur. Normalleştirmeden sonra çakışan güvensiz adlar, paket yazılmadan önce tüm paketi reddeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -174,7 +174,7 @@ const saver = java.newProxy("com.aspose.slides.IXamlOutputSaver", {
 
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    const options = new aspose.slides.XtraOptions();
+    const options = new aspose.slides.XamlOptions();
     options.setOutputSaver(saver);
     options.setExportHiddenSlides(false);
     presentation.save(options);
@@ -210,8 +210,7 @@ if (!valid) {
         for (const [name, data] of entries) {
             const entry = java.newInstanceSync("java.util.zip.ZipEntry", name);
             archive.putNextEntry(entry);
-            const signedBytes = Array.from(data, value => value > 127 ? value - 256 : value);
-            const bytes = java.newArray("byte", signedBytes);
+            const bytes = java.newArray("byte", Array.from(data));
             archive.write(bytes);
             archive.closeEntry();
         }
@@ -219,7 +218,7 @@ if (!valid) {
         archive.close();
     }
 
-    // Kapatma, arşiv kalıcı hâle getirilmeden önce ZIP dizinini sonlandırır.
+    // Kapatma, arşiv kalıcı hale getirilmeden önce ZIP dizinini sonlandırır.
     const archiveData = Buffer.from(output.toByteArray());
     try {
         fs.writeFileSync(archivePath, archiveData, { flag: "wx" });
@@ -230,29 +229,29 @@ if (!valid) {
 }
 ```
 
-Örnek, bir yerel arşiv yazmak için [ZipOutputStream](https://docs.oracle.com/javase/8/docs/api/java/util/zip/ZipOutputStream.html) kullanır; dışa aktarıcı kendisi gevşek XAML veya görüntü dosyaları yazmaz. Uzaktan depolama için, arşiv‑yazma aşamasını toplanan byte dizilerinin yüklemeleriyle değiştirin. Bir dışa aktarım‑iş kimliği ve tam göreli artefakt adı bir blob anahtarı olarak kullanılabilir veya iş kimliği, göreli ad ve ikili veri bir veritabanı satırında saklanabilir. Tüm yüklemeler tamamlanıp işlem onaylandığında işi yayınlayın. Kalıcılık başarısız olursa kısmi çıktıyı temizleyin.
+Örnek, tek bir yerel arşiv yazmak için [ZipOutputStream](https://docs.oracle.com/javase/8/docs/api/java/util/zip/ZipOutputStream.html) kullanır; dışa aktaran kendisi gevşek XAML veya görüntü dosyaları yazmaz. Uzaktan depolama için, arşiv‑yazma aşamasını toplanan bayt dizilerinin yüklemeleriyle değiştirin. Bir dışa aktarma‑iş kimliğiyle birlikte tam göreli ürün adını blob anahtarı olarak kullanın veya iş kimliğini, göreli adı ve ikili veriyi bir veritabanı satırında saklayın. Tüm yüklemeler tamamlandığında veya veritabanı işlemi commit edildiğinde işi yayımlayın. Kalıcılık başarısız olursa kısmi çıktıyı temizleyin.
 
-Büyük sunumlar için, bir özel kaydedici her artefaktu doğrudan uygulama depolamasına kalıcı hâle getirebilir; böylece tüm dışa aktarımın bir kopyasını bellek içinde tutmaya gerek kalmaz. Dışa aktarıcının bakış açısından her geri çağrıyı senkron tutun: hedef baytları kabul edene kadar döndürmeyin ve hataların çağrıcaya ulaşmasına izin verin.
+Büyük sunumlar için, özel bir kaydedici her ürünü doğrudan uygulama depolamasına kalıcı hâle getirerek tüm dışa aktarmanın ek bir kopyasını uygulama belleğinde tutmaktan kaçınabilir. Dışa aktaran perspektifinden her geri çağrıyı eşzamanlı tutun: hedef baytları kabul ettikten sonra döndürün ve hataların çağırıcıya ulaşmasına izin verin.
 
 ### **Kaynak Adlarını Koru ve Referansları Doğrula**
 
-- Hedef gerektiriyorsa yol ayırıcılarını normalleştirin, ancak göreli dizinleri koruyun. Tüm üretilen adların benzersiz olduğu ve kaynak referanslarının geçerli kaldığı kesin değilse sadece temel adı kullanmayın.
-- Hedefe‑özel ad doğrulaması uygulayın. Gevşek dosyalar yazılırken köklenmiş yolları ve travers (../) bölümlerini reddedin, hedefi mutlak bir yola dönüştürün ve belirtilen dışa aktarım dizini altında kaldığından emin olun; kontrol sırasında dizin ayırıcıyı da dahil edin. Sembolik bağlar içermeyen, yönlendirme yapabilecek dizinleri kullanmayın.
-- Her dışa aktarım işi için ayrı bir kaydedici ve depolama ad alanı kullanın. Ayırıcı normalleştirmesinden ve hedefin büyük/küçük harf duyarlılığı kurallarından kaynaklı çakışmaları tespit edin.
-- Yayınlamadan önce her XAML belgesini XML olarak ayrıştırın ve `Source` ya da `ImageSource` gibi dosya‑tabanlı kaynak referanslarını inceleyin. Her göreli URI’yı ilgili XAML artefaktının dizinine göre çözün, elde edilen depolama adını normalleştirin ve karşılık gelen harita anahtarı, ZIP girdisi ya da saklanmış nesnenin mevcut olduğunu doğrulayın. Harici URI’ları ve XAML işaretleme ifadelerini göreli dosya adlarından ayrı tutun.
+- Hedef gerektirdiğinde yol ayırıcılarını normalleştirin, ancak göreli dizinleri koruyun. Her oluşturulan adın benzersiz olduğu ve kaynak referanslarının geçerli kaldığı durumlar dışında yalnızca dosya adını (basename) kullanmayın.
+- Hedefe özgü ad doğrulaması uygulayın. Gevşek dosyalar yazarken kök yolları ve geçiş segmentlerini reddedin, hedefi mutlak bir yola çözün ve hedefin amaçlanan dışa aktarma dizini altında kalmasını doğrulayın; dizin ayırıcıyı da içerme kontrolünde kullanın. Yazımları yönlendirebilecek sembolik bağlar içermeyen uygulama‑kontrollü bir dizin kullanın.
+- Her dışa aktarma işi için ayrı bir kaydedici ve depolama ad alanı kullanın. Ayırıcı normalleştirmesinden sonra ve hedefin büyük‑küçük harf duyarlılığı kurallarına göre çakışmaları tespit edin.
+- Yayımlamadan önce, her XAML belgesini XML olarak ayrıştırın ve görüntü `Source` ya da `ImageSource` öznitelikleri gibi dosya‑tabanlı kaynak referanslarını inceleyin. Her göreli URI'yi, içeren XAML ürününün dizinine göre çözün, ortaya çıkan depolama adını normalleştirin ve karşılık gelen harita anahtarının, ZIP girdisinin veya saklanan nesnenin var olduğunu doğrulayın. Dış URI'leri ve XAML işaretleme ifadelerini göreli dosya adlarından ayrı olarak ele alın.
 
-Örneğin, `input/Slide_1.xaml` dosyası `images/image1.png` referans ediyorsa, depolanan kaynak `input/images/image1.png` olarak bulunmalıdır. Sadece `image1.png` saklamak ilişkiyi bozar. Nesne depolama kullanıyorsanız, aynı hiyerarşiyi iş kimliği altına koruyun ve bu kaynak URL’lerini XAML tüketicisi için erişilebilir hâle getirin. ZIP’ı tekrar açarak giriş adlarını ve kaynak baytlarını doğrulayın, ardından hedef XAML ortamında temsilî slaytları yükleyerek görüntülerin doğru çözümlendiğini kontrol edin.
+Örneğin, `input/Slide_1.xaml` dosyası `images/image1.png` referans veriyorsa, depolanmış kaynak `input/images/image1.png` olarak mevcut olmalıdır. Yalnızca `image1.png` tutmak bu ilişkiyi bozar. Nesne depolamada, iş önekinin altında aynı düzeni koruyun ve bu kaynak URL'lerini XAML tüketicisinin erişebileceği şekilde yapın. Tamamlanmış ZIP'ı yeniden açarak giriş adlarını ve kaynak baytlarını doğrulayın ve hedef XAML ortamında temsilci slaytları yükleyerek görüntülerin doğru çözüldüğünü teyit edin.
 
 ## **SSS**
 
-**Orijinal yazı tipi makinede bulunmuyorsa öngörülebilir bir yazı tipi nasıl sağlanır?**
+**Orijinal yazı tipi makinede bulunmuyorsa öngörülebilir yazı tiplerini nasıl sağlayabilirim?**
 
-[XamlOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/xamloptions/) içindeki [setDefaultRegularFont](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/saveoptions/#setDefaultRegularFont) metodunu çağırın — dışa aktarım sırasında eksik olduğunda yedek yazı tipi olarak kullanılır. Bu, üretilen XAML’in yedek yazı tipine referans vereceği ya da hedef makinede yazı tipinin bulunacağı garantisini vermez. XAML’in referans verdiği yazı tiplerinin görüntüleneceği ortamda mevcut olduğundan emin olun.
+Orijinal eksik olduğunda dışa aktarım sırasında yedek yazı tipi olarak kullanılmak üzere [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) içinde [setDefaultRegularFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setDefaultRegularFont) metodunu çağırın. Bu, oluşturulan XAML'in yedek yazı tipine referans verdiğini veya hedef makinede yazı tipinin mevcut olduğunu garanti etmez. XAML'in referans verdiği yazı tiplerinin görüntülendiği ortamda mevcut olduğundan emin olun.
 
 **Dışa aktarılan XAML yalnızca WPF için mi amaçlanmıştır, yoksa diğer XAML yığınlarında da kullanılabilir mi?**
 
-Aspose.Slides, WPF XAML’ini halka açık API’siyle dışa aktarır. UWP ya da Xamarin.Forms gibi diğer XAML yığınlarıyla uyumluluk garanti edilmez. Üretilen işaretlemeyi hedef ortamınızda test edin.
+Aspose.Slides, herkese açık API'si aracılığıyla WPF XAML'i dışa aktarır. UWP ve Xamarin.Forms gibi diğer XAML yığınlarıyla uyumluluk garanti edilmez. Oluşturulan işaretlemeyi hedef ortamınızda test edin.
 
-**Gizli slaytlar destekleniyor mu ve varsayılan olarak dışa aktarımından nasıl engellenir?**
+**Gizli slaytlar destekleniyor mu ve varsayılan olarak dışa aktarılmalarını nasıl engelleyebilirim?**
 
-Varsayılan olarak gizli slaytlar dışa aktarılmaz. Bu davranışı [XamlOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/xamloptions/) içinde bulunan [setExportHiddenSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) ile kontrol edebilirsiniz — ihtiyacınız yoksa devre dışı bırakın.
+Varsayılan olarak gizli slaytlar dahil edilmez. Bu davranışı [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) içinde [setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) ile kontrol edebilirsiniz — eğer dışa aktarmanıza ihtiyaç duymuyorsanız devre dışı bırakın.

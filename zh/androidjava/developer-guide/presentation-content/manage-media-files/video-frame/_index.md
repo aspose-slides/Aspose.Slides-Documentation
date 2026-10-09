@@ -18,165 +18,196 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "学习如何使用 Aspose.Slides for Android（Java）以编程方式在 PowerPoint 和 OpenDocument 幻灯片中添加和提取视频帧。快速使用指南。"
+description: "学习使用 Aspose.Slides for Android via Java 在 PowerPoint 和 OpenDocument 幻灯片中以编程方式添加和提取视频帧。快速实用指南。"
 ---
 ## **介绍**
 
-在演示文稿中恰当地放置视频可以使您的信息更具说服力并提升观众的参与度。
+视频可以帮助解释概念并吸引受众。Aspose.Slides for Android via Java 允许您向幻灯片添加视频帧、调整播放设置、管理字幕并提取嵌入的视频数据。
 
-PowerPoint 允许您以两种方式向演示文稿的幻灯片添加视频：
+PowerPoint 支持本地视频和指向在线视频的链接，例如 YouTube 视频。
 
-* 添加或嵌入本地视频（存储在您的计算机上）
-* 添加在线视频（来自如 YouTube 等网络来源）。
-
-为了让您能够向演示文稿添加视频（视频对象），Aspose.Slides 提供了 [IVideo](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideo/) 接口、[IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 接口以及其他相关类型。
+为了表示视频数据和视频帧，Aspose.Slides 提供了 [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) 接口、[IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) 接口以及其他相关类型。
 
 ## **创建嵌入式视频帧**
 
-如果您要添加到幻灯片的视频文件存储在本地，您可以创建视频帧以在演示文稿中嵌入该视频。
+如果您要添加到幻灯片的视频文件存储在本地，您可以创建视频帧将视频嵌入到演示文稿中。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加一个 [IVideo](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideo/) 对象，并传入视频文件路径以将视频嵌入演示文稿。
-4. 添加一个 [IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 对象，以为视频创建帧。
-5. 保存修改后的演示文稿。
-
-下面的 Java 代码演示了如何将本地存储的视频添加到演示文稿中：
+此示例在现有演示文稿的第一张幻灯片上嵌入本地视频并保存结果。帧坐标和尺寸使用点 (points) 为单位。由于 [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) 在演示文稿使用期间保持流锁定，流会保持打开，直到保存完成。
 
 ```java
-// 实例化 Presentation 类
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // 加载视频
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // 获取第一张幻灯片并添加视频帧
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+Presentation presentation = new Presentation("presentation.pptx");
+try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 将演示文稿保存到磁盘
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IVideo video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-或者，您可以将文件路径直接传递给 [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) 方法来添加视频：
-
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **使用网络来源视频创建视频帧**
-
-Microsoft 较新版本的 [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 支持在演示文稿中使用在线视频。如果您想使用的视频可以在线获取（例如 YouTube），您可以通过其网络链接将其添加到演示文稿中。
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加一个 [IVideo](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideo/) 对象，并传入视频链接。
-4. 为视频帧设置缩略图。
-5. 保存演示文稿。
-
-下面的 Java 代码演示了如何将来自网络的视频添加到 PowerPoint 演示文稿的幻灯片中：
-
-```java
-// 实例化一个表示演示文稿文件的 Presentation 对象
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // 添加一个视频帧
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // 加载缩略图
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-```
-
-## **裁剪视频帧**
-
-Aspose.Slides 允许您通过 [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) 和 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) 设置 trim-from-start 和 trim-from-end 值，以控制播放视频的哪一部分。这两个值以毫秒为单位，分别定义从视频开始和结束跳过的时间。这些设置更改演示文稿中视频的播放设置；它们不会剪切或以其他方式修改嵌入视频的二进制数据。
-
-**设置裁剪参数**
-
-创建视频帧并设置其裁剪参数的步骤如下：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
-2. 向演示文稿添加一个 [IVideo](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideo/) 对象。
-3. 向幻灯片添加一个 [IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 对象。
-4. 通过 [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) 和 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) 设置 trim-from-start 和 trim-from-end 值。
-5. 保存修改后的演示文稿。
-
-下面的代码示例在播放时跳过嵌入视频的前 2.5 秒和最后 1 秒：
-
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream videoStream = new FileInputStream("video.mp4");
-    try {
-        IVideo video = presentation.getVideos().addVideo(
-                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        ISlide slide = presentation.getSlides().get_Item(0);
-        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
-
-        videoFrame.setTrimFromStart(2500f);
-        videoFrame.setTrimFromEnd(1000f);
-
-        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
-    } finally {
-        videoStream.close();
-    }
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**读取裁剪参数**
-
-要检查现有的裁剪参数，加载演示文稿，在第一张幻灯片的形状中找到 [IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 对象，并通过 [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#getTrimFromStart--) 和 [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#getTrimFromEnd--) 读取相应的值。
-
-下面的代码示例查找第一张幻灯片上的第一个视频帧，并以毫秒为单位报告其裁剪参数：
+您也可以直接将本地视频路径传递给 [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-)。此示例在新演示文稿的第一张幻灯片上嵌入视频。视频必须保持可访问，直到演示文稿保存完成。
 
 ```java
-Presentation presentation = new Presentation("video_with_trim.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **使用来自网络来源的视频创建视频帧**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 在演示文稿中支持在线视频。您可以创建指向在线视频（例如 YouTube 视频）的视频帧。
+
+此示例向第一张幻灯片添加 YouTube 视频链接和缩略图。替换视频标识符即可使用其他视频。[setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) 方法请求自动播放。下载缩略图和播放视频需要互联网访问。演示文稿查看器还必须支持在线视频播放。
+
+```java
+import com.aspose.slides.*;
+import java.io.InputStream;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String videoId = "aqz-KE-bpKQ";
+    String videoUrl = "https://www.youtube.com/embed/" + videoId;
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    URL thumbnailLocation = new URL(thumbnailUrl);
+    try (InputStream thumbnailStream = thumbnailLocation.openStream()) {
+        IPPImage thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    }
+
+    presentation.save("online_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **全屏播放视频**
+
+在培训演示文稿中，您可以以全屏模式播放软件演示，以便观众看到细节。使用 `true` 调用 [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) 可在播放期间启用此行为。
+
+此示例打开演示文稿，查找第一张幻灯片上的第一个 [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/)，并启用全屏播放。输入演示文稿必须至少包含一张幻灯片，在其第一张幻灯片上已有视频帧。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
-            float trimFromStart = videoFrame.getTrimFromStart();
-            float trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            System.out.println("Trim from start: " + trimFromStart + " ms");
-            System.out.println("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+全屏播放控制视频的显示方式。除此之外，[setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) 控制是自动播放还是点击播放，而 [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) 控制是否循环播放。要选择启动行为，请将播放模式设为 [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/)。示例保留了现有的启动和循环设置。
+
+## **回放后倒带视频**
+
+在培训演示中，将演示视频返回到起始位置可使演讲者再次播放。使用 `true` 调用 [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) 可在播放结束后将视频倒回起始位置。
+
+此示例打开演示文稿，查找第一张幻灯片上的第一个 [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/)，并启用倒带。它禁用循环以便播放可以结束，并将播放设置为点击启动。输入演示文稿必须至少包含一张幻灯片，在其第一张幻灯片上已有视频帧。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+倒带会将视频返回到起始位置，但不会再次启动。相反，使用 `true` 调用 [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) 会自动循环播放。希望视频播放完毕后保持可重复播放时，请保持循环关闭。[setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) 独立控制自动或点击启动；本示例使用 [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) 使演讲者自行决定何时开始播放。正如示例所示，应在设置循环后再设置播放模式。倒带功能独立于 [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-)。
+
+## **剪辑视频帧**
+
+使用 [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) 和 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) 可在播放期间跳过视频的开头或结尾部分。两个值的单位均为毫秒。剪辑会更改播放设置，但不会修改嵌入的视频数据。
+
+**设置剪辑参数**
+
+此示例嵌入本地视频，并在播放时跳过前 2.5 秒和最后 1 秒。请使用时长超过 3.5 秒的视频，以确保仍有可播放片段。
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500f);
+    videoFrame.setTrimFromEnd(1000f);
+
+    presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**读取剪辑参数**
+
+此示例以毫秒为单位打印第一张幻灯片上第一个视频帧的剪辑值。演示文稿必须至少包含一张幻灯片。如果该幻灯片没有视频帧，则不会打印任何内容。前面的示例会产生 2500 和 1000 的值。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            System.out.println("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            System.out.println("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -187,30 +218,26 @@ try {
 
 ## **管理视频字幕**
 
-Aspose.Slides 允许您管理 PowerPoint 演示文稿中视频帧的闭合字幕。字幕以 WebVTT 格式存储，并通过 [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) 方法提供。
+Aspose.Slides 允许您管理 PowerPoint 演示文稿中视频帧的隐藏字幕。字幕以 WebVTT 格式存储，并通过 [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) 方法公开。
 
 **向视频帧添加字幕**
 
-向视频帧添加字幕的步骤如下：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
-2. 向演示文稿添加视频。
-3. 向幻灯片添加一个 [IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 对象。
-4. 使用由 [getCaptionTracks](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) 返回的 [ICaptionsCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icaptionscollection/) 添加 WebVTT 字幕轨道。
-5. 保存修改后的演示文稿。
-
-下面的代码演示了如何向视频帧添加字幕：
+此示例嵌入本地视频，并添加标记为 English 的 WebVTT 字幕轨。字幕时间戳应与视频匹配。保存的演示文稿同时包含视频及其字幕。
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = // "video.mp4";
-    IVideo video = presentation.getVideos().addVideo(videoData);
-
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
 
-    // 添加一个来自 WebVTT 文件的新字幕轨道。
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -219,59 +246,53 @@ try {
 }
 ```
 
-[ICaptionsCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icaptionscollection/) 接口还提供了一个重载，可让您从流中添加字幕。
+[ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) 接口还提供了一个重载，允许您从流中添加字幕。
 
 **从视频帧提取字幕**
 
-从视频帧提取字幕的步骤如下：
-
-1. 加载包含该视频的演示文稿。
-2. 找到目标 [IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 对象。
-3. 遍历 [getCaptionTracks](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) 返回的字幕轨道。
-4. 将每个字幕轨道保存为 `.vtt` 文件。
-
-下面的代码演示了如何从视频帧提取字幕：
+此示例将第一张幻灯片上视频帧的所有字幕轨保存为单独的 WebVTT 文件。使用顺序编号可保持输出文件的唯一性。控制台会报告提取的轨道数量。演示文稿必须至少包含一张幻灯片。
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    int trackCount = 0;
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // 将字幕轨道保存为 WebVTT 文件。
-                FileOutputStream outputStream = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                outputStream.write(captionTrack.getBinaryData());
-                outputStream.close();
+                trackCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("captions_" + trackCount + ".vtt")) {
+                    outputStream.write(captionTrack.getBinaryData());
+                }
             }
         }
     }
+
+    System.out.println("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-每个 [ICaptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icaptions/) 对象都会公开字幕标识符、标签、二进制数据以及作为 UTF-8 字符串的字幕内容。
+每个 [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) 对象都公开字幕标识符、标签、二进制数据以及作为 UTF-8 字符串的字幕文本。
 
-**删除视频帧字幕**
+**从视频帧移除字幕**
 
-删除视频帧字幕的步骤如下：
-
-1. 加载包含该视频的演示文稿。
-2. 获取目标 [IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 对象。
-3. 从 [getCaptionTracks](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) 返回的集合中移除字幕轨道。
-4. 保存修改后的演示文稿。
-
-下面的代码演示了如何删除视频帧中的所有字幕：
+此示例删除第一张幻灯片上第一个形状位置的视频帧中的所有字幕并保存结果。它假设幻灯片和形状均存在且该形状为视频帧。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
 
-    // 删除视频帧中的所有字幕。
+    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -280,65 +301,60 @@ try {
 }
 ```
 
-如果只需要删除单个字幕轨道，请使用 [remove](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) 或 [removeAt](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) 方法，而不是 [clear](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icaptionscollection/#clear--)。
+如果只需移除单个字幕轨道，请使用 [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) 或 [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) 方法，而不是 [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--)。
 
 ## **从幻灯片提取视频**
 
-除了向幻灯片添加视频，Aspose.Slides 还允许您提取嵌入在演示文稿中的视频。
+除了向幻灯片添加视频外，Aspose.Slides 还允许您提取演示文稿中嵌入的视频。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例，以加载包含视频的演示文稿。
-2. 遍历所有 [ISlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/islide/) 对象。
-3. 遍历所有 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 对象，查找 [VideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/videoframe/)。
-4. 将视频保存到磁盘。
-
-下面的 Java 代码演示了如何提取演示文稿幻灯片上的视频：
+此示例将每张幻灯片中的嵌入视频提取为单独的、编号的二进制文件。链接视频会被跳过，因为它们没有嵌入的数据。控制台会打印每个视频的 MIME 类型以及总数量。输出使用通用的 `.bin` 扩展名；如有需要，可将其更改为匹配报告的媒体类型。
 
 ```java
-// 实例化一个表示演示文稿文件的 Presentation 对象 
-Presentation pres = new Presentation("VideoSample.pptx");
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("presentation_with_videos.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
+    int videoCount = 0;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                IVideoFrame videoFrame = (IVideoFrame) shape;
+                IVideo video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    System.out.println("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
 
-                // 获取文件扩展名
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                videoCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("extracted_video_" + videoCount + ".bin")) {
+                    outputStream.write(video.getBinaryData());
+                }
+                System.out.println("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (IOException e) {
+
+    System.out.println("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **常见问题**
+## **FAQ**
 
-**可以更改 VideoFrame 的哪些视频播放参数？**
+**可以更改视频帧的哪些播放参数？**
 
-您可以通过 [VideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/videoframe/) 对象的属性控制 [playback mode](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-)（自动或单击）和 [looping](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-)（循环）。这些选项可通过 [VideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/videoframe/) 对象的属性进行设置。
+您可以通过 [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) 对象的方法控制[播放模式](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-)（自动或点击）和[循环](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-)。
 
 **添加视频会影响 PPTX 文件大小吗？**
 
-是的。嵌入本地视频时，二进制数据会写入文档，导致演示文稿大小按视频文件大小成比例增长。添加在线视频时，仅嵌入链接和缩略图，文件大小的增长相对较小。
+是的。当您嵌入本地视频时，二进制数据会包含在文档中，演示文稿的大小会随文件大小成比例增长。当您链接到在线视频并添加缩略图时，演示文稿仅存储链接和预览图像，而不是视频数据，因此大小增加通常较小。
 
-**我可以在不更改位置和大小的情况下替换现有 VideoFrame 中的视频吗？**
+**我能在不更改位置和大小的情况下替换现有视频帧中的视频吗？**
 
-可以。您可以在保持形状几何属性不变的情况下，替换框架内的 [video content](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-)，这在更新现有布局中的媒体时非常常见。
+可以。您可以在保持形状几何尺寸不变的情况下替换帧内的[视频内容](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-)，这在更新现有布局中的媒体时很常见。
 
 **可以确定嵌入视频的内容类型（MIME）吗？**
 
-可以。嵌入的视频具有可读取的 [content type](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/video/#getContentType--)，您可以在保存到磁盘等场景中使用该信息。
+可以。嵌入的视频具有[内容类型](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--)，您可以读取并使用，例如在保存到磁盘时。

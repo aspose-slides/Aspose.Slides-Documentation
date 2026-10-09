@@ -9,7 +9,7 @@ keywords:
 - tạo video
 - nhúng video
 - trích xuất video
-- lấy lại video
+- lấy video
 - khung video
 - nguồn web
 - PowerPoint
@@ -17,113 +17,227 @@ keywords:
 - bản trình bày
 - C++
 - Aspose.Slides
-description: "Học cách lập trình để thêm và trích xuất khung video trong slide PowerPoint và OpenDocument bằng Aspose.Slides cho C++. Hướng dẫn nhanh chóng."
+description: "Tìm hiểu cách thêm và trích xuất khung video một cách lập trình trong các slide PowerPoint và OpenDocument bằng Aspose.Slides cho C++. Hướng dẫn nhanh."
 ---
 ## **Giới thiệu**
 
-Một video được đặt đúng chỗ trong bản trình bày có thể làm cho thông điệp của bạn thuyết phục hơn và tăng mức độ tương tác với khán giả.
+Video có thể giúp giải thích ý tưởng và thu hút khán giả. Aspose.Slides for C++ cho phép bạn thêm khung video vào các slide, điều chỉnh cài đặt phát, quản lý phụ đề và trích xuất dữ liệu video được nhúng.
 
-PowerPoint cho phép bạn thêm video vào một slide trong bản trình bày theo hai cách:
+PowerPoint hỗ trợ video cục bộ và liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
 
-* Thêm hoặc nhúng video cục bộ (lưu trên máy tính của bạn)
-* Thêm video trực tuyến (từ nguồn web như YouTube).
+Để biểu diễn dữ liệu video và khung video, Aspose.Slides cung cấp giao diện [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) , giao diện [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) và các kiểu liên quan khác.
 
-Để cho phép bạn thêm video (đối tượng video) vào bản trình bày, Aspose.Slides cung cấp giao diện [IVideo](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideo/), giao diện [IVideoFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/) và các kiểu liên quan khác. 
+## **Tạo Khung Video Được Nhúng**
 
-## **Tạo Khung Video Nhúng**
+Nếu tệp video bạn muốn thêm vào slide được lưu trữ cục bộ, bạn có thể tạo một khung video để nhúng video vào bản trình bày của mình.
 
-Nếu tệp video bạn muốn thêm vào slide được lưu cục bộ, bạn có thể tạo một khung video để nhúng video vào bản trình bày.
+Ví dụ này nhúng video cục bộ vào slide đầu tiên của một bản trình bày hiện có và lưu kết quả. Tọa độ và kích thước khung được tính bằng điểm. Luồng vẫn mở cho đến khi lưu hoàn tất vì [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) giữ nó khóa trong khi bản trình bày sử dụng nó.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
-2. Lấy tham chiếu đến slide thông qua chỉ mục của nó. 
-3. Thêm một đối tượng [IVideo](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideo/) và truyền đường dẫn tệp video để nhúng video vào bản trình bày. 
-4. Thêm một đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/) để tạo khung cho video.  
-5. Lưu bản trình bày đã chỉnh sửa. 
+```cpp
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <Export/SaveFormat.h>
+#include <LoadingStreamBehavior.h>
+#include <system/smart_ptr.h>
 
-Đoạn mã C++ dưới đây cho bạn thấy cách thêm video được lưu cục bộ vào bản trình bày:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Loads the video
-System::SharedPtr<System::IO::FileStream> fileStream = System::MakeObject<System::IO::FileStream>(u"Wildlife.mp4", System::IO::FileMode::Open, System::IO::FileAccess::Read);
-System::SharedPtr<IVideo> video = pres->get_Videos()->AddVideo(fileStream, LoadingStreamBehavior::KeepLocked);
+auto videoStream = File::OpenRead(u"video.mp4");
+auto video = presentation->get_Videos()->AddVideo(videoStream, LoadingStreamBehavior::KeepLocked);
+slide->get_Shapes()->AddVideoFrame(10, 10, 150, 250, video);
 
-// Gets the first slide and adds a videoframe
-pres->get_Slide(0)->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 150.0f, 250.0f, video);
+presentation->Save(u"embedded_video.pptx", SaveFormat::Pptx);
 
-// Saves the presentation to disk
-pres->Save(u"pres-with-video.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+videoStream->Dispose();
 ```
 
-Ngoài ra, bạn có thể thêm video bằng cách truyền trực tiếp đường dẫn tệp vào phương thức [AddVideoFrame()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addvideoframe/) :
+Bạn cũng có thể truyền trực tiếp đường dẫn video cục bộ vào [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Ví dụ này nhúng video vào slide đầu tiên của một bản trình bày mới. Video phải vẫn có thể truy cập được cho đến khi bản trình bày được lưu.
 
-``` c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-System::SharedPtr<ISlide> sld = pres->get_Slide(0);
-System::SharedPtr<IVideoFrame> vf = sld->get_Shapes()->AddVideoFrame(50.0f, 150.0f, 300.0f, 150.0f, u"video1.avi");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+slide->get_Shapes()->AddVideoFrame(50, 150, 300, 150, u"video.avi");
+
+presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **Tạo Khung Video Với Video Từ Nguồn Web**
 
-## **Tạo Khung Video với Video Từ Nguồn Web**
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong bản trình bày. Bạn có thể tạo một khung video liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
 
-Các phiên bản mới hơn của Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong bản trình bày. Nếu video bạn muốn sử dụng có sẵn trên mạng (ví dụ trên YouTube), bạn có thể thêm nó vào bản trình bày thông qua liên kết web.
+Ví dụ này thêm liên kết video YouTube và ảnh thu nhỏ vào slide đầu tiên. Thay thế định danh video để sử dụng video khác. Phương thức [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) yêu cầu phát tự động. Tải ảnh thu nhỏ và phát video yêu cầu có kết nối internet. Trình xem bản trình bày cũng phải hỗ trợ phát video trực tuyến.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) 
-2. Lấy tham chiếu đến slide thông qua chỉ mục của nó. 
-3. Thêm một đối tượng [IVideo](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideo/) và truyền liên kết đến video. 
-4. Đặt hình thu nhỏ cho khung video. 
-5. Lưu bản trình bày. 
+```cpp
+#include <net/web_client.h>
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <DOM/VideoPlayModePreset.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <system/smart_ptr.h>
 
-Đoạn mã C++ dưới đây cho bạn thấy cách thêm video từ web vào một slide trong bản trình bày PowerPoint:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-```c++
-// Đường dẫn tới thư mục tài liệu.
-const String outPath = u"../out/AddVideoFrameFromWebSource_out.pptx";
-const String filePath = u"../templates/video1.avi";
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Tạo một đối tượng Presentation đại diện cho tệp bản trình bày
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// Truy cập slide đầu tiên
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+auto webClient = MakeObject<System::Net::WebClient>();
 
-// Thêm một Khung Video 
-System::SharedPtr<IVideoFrame> vf = slide->get_Shapes()->AddVideoFrame(10, 10, 427, 240,u"https://www.youtube.com/embed/Tj75Arhq5ho");
+String videoId = u"aqz-KE-bpKQ";
+auto videoUrl = String::Format(u"https://www.youtube.com/embed/{0}", videoId);
+auto videoFrame = slide->get_Shapes()->AddVideoFrame(10, 10, 427, 240, videoUrl);
+videoFrame->set_PlayMode(VideoPlayModePreset::Auto);
 
-// Đặt chế độ phát và âm lượng của video
-vf->set_PlayMode(VideoPlayModePreset::Auto);
+auto thumbnailUrl = String::Format(u"https://img.youtube.com/vi/{0}/hqdefault.jpg", videoId);
+auto thumbnailData = webClient->DownloadData(thumbnailUrl);
+auto thumbnail = presentation->get_Images()->AddImage(thumbnailData);
+videoFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
 
-//Lưu bản trình bày ra đĩa
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"online_video.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+## **Phát Video Trong Chế Độ Toàn Màn Hình**
+
+Trong một bản trình bày đào tạo, bạn có thể phát bản demo phần mềm trong chế độ toàn màn hình để khán giả có thể xem chi tiết. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) chấp nhận `true` để bật hành vi này khi phát.
+
+Ví dụ này mở một bản trình bày, tìm khung [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) đầu tiên trên slide đầu tiên, và bật phát toàn màn hình. Bản trình bày đầu vào phải có ít nhất một slide với một khung video hiện có trên slide đầu tiên.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"training.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    if (ObjectExt::Is<IVideoFrame>(shape))
+    {
+        auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+        videoFrame->set_FullScreenMode(true);
+        break;
+    }
+}
+
+presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Phát toàn màn hình kiểm soát cách video được hiển thị. Độc lập với đó, [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) kiểm soát việc video bắt đầu tự động hay khi nhấp, và [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) kiểm soát việc lặp lại. Để chọn hành vi bắt đầu, đặt chế độ phát thành [VideoPlayModePreset::Auto hoặc VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Ví dụ này giữ nguyên các cài đặt bắt đầu và lặp lại hiện có.
+
+## **Quay Lại Video Sau Khi Phát**
+
+Trong một bản trình bày đào tạo, việc đưa video demo trở về đầu giúp người thuyết trình có thể phát lại. Gọi [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) với `true` để đưa video trở về đầu sau khi phát xong.
+
+Ví dụ này mở một bản trình bày, tìm khung [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) đầu tiên trên slide đầu tiên, và bật tính năng quay lại. Nó tắt lặp lại để phát có thể kết thúc và đặt phát bắt đầu khi nhấp. Bản trình bày đầu vào phải có ít nhất một slide với một khung video hiện có trên slide đầu tiên.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <DOM/VideoPlayModePreset.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"training.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    if (ObjectExt::Is<IVideoFrame>(shape))
+    {
+        auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+        videoFrame->set_RewindVideo(true);
+        videoFrame->set_PlayLoopMode(false);
+        videoFrame->set_PlayMode(VideoPlayModePreset::OnClick);
+        break;
+    }
+}
+
+presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Quay lại đưa video trở về đầu mà không phát lại. Ngược lại, bật [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) sẽ tự động lặp lại phát. Giữ lặp lại tắt khi bạn muốn video kết thúc và sẵn sàng phát lại. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) độc lập kiểm soát việc khởi động tự động hay khi nhấp; ví dụ này sử dụng [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) để người thuyết trình kiểm soát thời điểm bắt đầu phát. Đặt chế độ phát sau cài đặt vòng lặp, như trong ví dụ. Quay lại hoạt động độc lập với [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
 
 ## **Cắt Bớt Khung Video**
 
-Aspose.Slides cho phép bạn kiểm soát phần nào của video sẽ được phát bằng cách đặt giá trị trim-from-start và trim-from-end thông qua [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/set_trimfromstart/) và [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/set_trimfromend/). Cả hai giá trị đều được chỉ định bằng mili giây và xác định thời gian bỏ qua từ đầu và cuối video tương ứng. Các cài đặt này thay đổi cách phát video trong bản trình bày; chúng không cắt hoặc sửa đổi dữ liệu nhị phân video đã nhúng.
+Sử dụng [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) và [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) để bỏ qua phần đầu hoặc cuối của video khi phát. Cả hai giá trị đều tính bằng mili giây. Cắt bớt thay đổi cài đặt phát mà không thay đổi dữ liệu video được nhúng.
 
-**Đặt Cài Đặt Cắt**
+**Đặt Cài Đặt Cắt Bớt**
 
-Để tạo một khung video và thiết lập cài đặt cắt:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
-2. Thêm một đối tượng [IVideo](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideo/) vào bản trình bày. 
-3. Thêm một đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/) vào một slide. 
-4. Đặt giá trị trim-from-start và trim-from-end qua [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/set_trimfromstart/) và [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/set_trimfromend/). 
-5. Lưu bản trình bày đã chỉnh sửa.
-
-Đoạn mã dưới đây bỏ qua 2,5 giây đầu và 1 giây cuối của video đã nhúng khi phát:
+Ví dụ này nhúng video cục bộ và bỏ qua 2,5 giây đầu và 1 giây cuối khi phát. Sử dụng video dài hơn 3,5 giây để vẫn còn đoạn có thể phát được.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
 auto videoData = File::ReadAllBytes(u"video.mp4");
 auto video = presentation->get_Videos()->AddVideo(videoData);
 
-auto slide = presentation->get_Slide(0);
 auto videoFrame = slide->get_Shapes()->AddVideoFrame(50, 50, 640, 360, video);
-
 videoFrame->set_TrimFromStart(2500.0f);
 videoFrame->set_TrimFromEnd(1000.0f);
 
@@ -131,27 +245,33 @@ presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Đọc Cài Đặt Cắt**
+**Đọc Cài Đặt Cắt Bớt**
 
-Để kiểm tra các cài đặt cắt hiện có, tải một bản trình bày, tìm đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/) trong các hình trên slide đầu tiên, và đọc các giá trị qua [IVideoFrame::get_TrimFromStart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/get_trimfromstart/) và [IVideoFrame::get_TrimFromEnd](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/get_trimfromend/).
-
-Đoạn mã dưới đây tìm khung video đầu tiên trên slide đầu tiên và báo cáo các cài đặt cắt bằng mili giây:
+Ví dụ này in ra các giá trị cắt bớt của khung video đầu tiên trên slide đầu tiên, tính bằng mili giây. Bản trình bày phải có ít nhất một slide. Nếu slide đó không có khung video, sẽ không in gì. Ví dụ trước đưa ra giá trị 2500 và 1000.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"video_with_trim.pptx");
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"video_with_trim.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
     if (ObjectExt::Is<IVideoFrame>(shape))
     {
         auto videoFrame = ExplicitCast<IVideoFrame>(shape);
-        auto trimFromStart = videoFrame->get_TrimFromStart();
-        auto trimFromEnd = videoFrame->get_TrimFromEnd();
-
-        Console::WriteLine(u"Trim from start: {0} ms", trimFromStart);
-        Console::WriteLine(u"Trim from end: {0} ms", trimFromEnd);
-
+        Console::WriteLine(String::Format(u"Trim from start: {0} ms", videoFrame->get_TrimFromStart()));
+        Console::WriteLine(String::Format(u"Trim from end: {0} ms", videoFrame->get_TrimFromEnd()));
         break;
     }
 }
@@ -161,148 +281,185 @@ presentation->Dispose();
 
 ## **Quản Lý Phụ Đề Video**
 
-Aspose.Slides cho phép bạn quản lý phụ đề đóng cho các khung video trong bản trình bày PowerPoint. Phụ đề được lưu dưới định dạng WebVTT và được truy cập qua phương thức [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/get_captiontracks/).
+Aspose.Slides cho phép bạn quản lý phụ đề đóng cho khung video trong bản trình bày PowerPoint. Phụ đề được lưu ở định dạng WebVTT và được truy cập qua phương thức [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
 
 **Thêm Phụ Đề Vào Khung Video**
 
-Để thêm phụ đề vào một khung video:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
-2. Thêm một video vào bản trình bày. 
-3. Thêm một đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/) vào một slide. 
-4. Sử dụng [ICaptionsCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptionscollection/) trả về bởi [get_CaptionTracks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/get_captiontracks/) để thêm một track phụ đề WebVTT. 
-5. Lưu bản trình bày đã chỉnh sửa.
-
-Đoạn mã dưới đây cho bạn thấy cách thêm phụ đề vào khung video:
+Ví dụ này nhúng video cục bộ và thêm một track phụ đề WebVTT có nhãn English. Thời gian phụ đề phải khớp với video. Bản trình bày đã lưu sẽ bao gồm cả video và phụ đề của nó.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <DOM/ICaptionsCollection.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
 auto videoData = File::ReadAllBytes(u"video.mp4");
 auto video = presentation->get_Videos()->AddVideo(videoData);
 
-auto slide = presentation->get_Slide(0);
 auto videoFrame = slide->get_Shapes()->AddVideoFrame(0, 0, 100, 100, video);
-
-// Adds a new captions track from a WebVTT file.
 videoFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Giao diện [ICaptionsCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptionscollection/) cũng cung cấp một overload cho phép bạn thêm phụ đề từ một luồng dữ liệu.
+Giao diện [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) cũng cung cấp một overload cho phép bạn thêm phụ đề từ một luồng.
 
 **Trích Xuất Phụ Đề Từ Khung Video**
 
-Để trích xuất phụ đề từ khung video:
-
-1. Tải bản trình bày chứa video. 
-2. Tìm đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/) mục tiêu. 
-3. Duyệt qua các track phụ đề trả về bởi [get_CaptionTracks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/get_captiontracks/). 
-4. Lưu mỗi track phụ đề vào tệp `.vtt`.
-
-Đoạn mã dưới đây cho bạn thấy cách trích xuất phụ đề từ khung video:
+Ví dụ này lưu tất cả các track phụ đề từ các khung video trên slide đầu tiên thành các tệp WebVTT riêng biệt. Các số thứ tự liên tiếp giữ cho các tệp đầu ra không trùng nhau. Console báo cáo số lượng track đã trích xuất. Bản trình bày phải có ít nhất một slide.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <system/io/file.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/console.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
 
-for (auto&& shape : slide->get_Shapes())
+auto trackCount = 0;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
     if (ObjectExt::Is<IVideoFrame>(shape))
     {
         auto videoFrame = ExplicitCast<IVideoFrame>(shape);
-        for (auto&& captionTrack : videoFrame->get_CaptionTracks())
+        for (auto&& captionTrack : IterateOver(videoFrame->get_CaptionTracks()))
         {
-            // Lưu track phụ đề vào tệp WebVTT.
-            auto filePath = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(filePath, captionTrack->get_BinaryData());
+            trackCount++;
+            auto outputPath = String::Format(u"captions_{0}.vtt", trackCount);
+            File::WriteAllBytes(outputPath, captionTrack->get_BinaryData());
         }
     }
 }
 
+Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount));
+
 presentation->Dispose();
 ```
 
-Mỗi đối tượng [ICaptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptions/) cung cấp định danh phụ đề, nhãn, dữ liệu nhị phân và dữ liệu phụ đề dưới dạng chuỗi UTF-8.
+Mỗi đối tượng [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) cung cấp định danh phụ đề, nhãn, dữ liệu nhị phân và văn bản phụ đề dưới dạng chuỗi UTF-8.
 
 **Xóa Phụ Đề Khỏi Khung Video**
 
-Để xóa phụ đề khỏi khung video:
-
-1. Tải bản trình bày chứa video. 
-2. Lấy đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/) mục tiêu. 
-3. Xóa các track phụ đề khỏi bộ sưu tập trả về bởi [get_CaptionTracks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ivideoframe/get_captiontracks/). 
-4. Lưu bản trình bày đã chỉnh sửa.
-
-Đoạn mã dưới đây cho bạn thấy cách xóa tất cả phụ đề khỏi khung video:
+Ví dụ này xóa tất cả phụ đề khỏi khung video tại vị trí hình dạng đầu tiên trên slide đầu tiên và lưu kết quả. Giả sử slide và hình dạng tồn tại và hình dạng là một khung video.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <Export/SaveFormat.h>
+#include <DOM/ICaptionsCollection.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-auto videoFrame = ExplicitCast<IVideoFrame>(slide->get_Shape(0));
 
-// Xóa tất cả phụ đề khỏi khung video.
+auto videoFrame = ExplicitCast<IVideoFrame>(slide->get_Shape(0));
 videoFrame->get_CaptionTracks()->Clear();
 
 presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Nếu bạn chỉ cần xóa một track phụ đề, hãy sử dụng phương thức [Remove](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptionscollection/remove/) hoặc [RemoveAt](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptionscollection/removeat/) thay vì [Clear](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptionscollection/clear/).
+Nếu bạn chỉ cần xóa một track phụ đề, hãy sử dụng các phương thức [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) hoặc [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) thay vì [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
 
 ## **Trích Xuất Video Từ Slide**
 
-Bên cạnh việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video đã nhúng trong bản trình bày.
+Ngoài việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video được nhúng trong bản trình bày.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) để tải bản trình bày chứa video. 
-2. Duyệt qua tất cả các đối tượng [ISlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islide/). 
-3. Duyệt qua tất cả các đối tượng [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) để tìm một [VideoFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/videoframe/). 
-4. Lưu video ra đĩa.
+Ví dụ này trích xuất các video được nhúng từ mọi slide thành các tệp nhị phân có số thứ tự riêng biệt. Các video được liên kết sẽ bị bỏ qua vì chúng không có dữ liệu nhúng. Console in ra loại MIME của mỗi video và tổng số lượng. Đầu ra sử dụng phần mở rộng chung `.bin`; bạn có thể đổi thành phần mở rộng phù hợp với loại media đã báo cáo khi cần.
 
-Đoạn mã C++ dưới đây cho bạn thấy cách trích xuất video trên một slide của bản trình bày:
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IVideo.h>
+#include <system/io/file.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
-```c++
-// Đường dẫn tới thư mục tài liệu.
-const System::String templatePath = u"../templates/Video.pptx";
-const System::String outPath = u"../out/Video_out";
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
 
-auto presentation = System::MakeObject<Presentation>(templatePath);
-for (auto&& slide : presentation->get_Slides())
+auto presentation = MakeObject<Presentation>(u"presentation_with_videos.pptx");
+
+auto videoCount = 0;
+for (auto&& slide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : slide->get_Shapes())
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
     {
-        if (System::ObjectExt::Is<VideoFrame>(shape))
+        if (ObjectExt::Is<IVideoFrame>(shape))
         {
-            System::SharedPtr<VideoFrame> vf = System::AsCast<VideoFrame>(shape);
-            System::String type = vf->get_EmbeddedVideo()->get_ContentType();
-            type = type.Remove(0, type.LastIndexOf('/') + 1);
-            auto buffer = vf->get_EmbeddedVideo()->get_BinaryData();
+            auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+            auto video = videoFrame->get_EmbeddedVideo();
+            if (video == nullptr)
+            {
+                Console::WriteLine(u"Skipped a linked video: no embedded data is available.");
+                continue;
+            }
 
-            auto stream = System::MakeObject<System::IO::FileStream>(
-                outPath + type, System::IO::FileMode::Create, System::IO::FileAccess::Write,
-                System::IO::FileShare::Read);
-            stream->Write(buffer, 0, buffer->get_Length());
+            videoCount++;
+            auto outputPath = String::Format(u"extracted_video_{0}.bin", videoCount);
+            File::WriteAllBytes(outputPath, video->get_BinaryData());
+            Console::WriteLine(String::Format(u"Video {0}: {1}", videoCount, video->get_ContentType()));
         }
     }
 }
+
+Console::WriteLine(String::Format(u"Embedded videos extracted: {0}", videoCount));
+
+presentation->Dispose();
 ```
 
 ## **Câu Hỏi Thường Gặp**
 
-**Tham số phát video nào có thể thay đổi cho một VideoFrame?**
+**Các tham số phát video nào có thể thay đổi cho một khung video?**
 
-Bạn có thể kiểm soát [chế độ phát](https://reference.aspose.com/slides/vi/cpp/aspose.slides/videoframe/set_playmode/) (tự động hoặc khi nhấp) và [vòng lặp](https://reference.aspose.com/slides/vi/cpp/aspose.slides/videoframe/set_playloopmode/). Các tùy chọn này có sẵn qua các thuộc tính của đối tượng [VideoFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/videoframe/).
+Bạn có thể điều khiển [chế độ phát](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (tự động hoặc khi nhấp) và [lặp lại](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Các tùy chọn này khả dụng qua các phương thức của đối tượng [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
 
-**Việc thêm video có làm tăng kích thước tệp PPTX không?**
+**Việc thêm video có ảnh hưởng đến kích thước tệp PPTX không?**
 
-Có. Khi bạn nhúng video cục bộ, dữ liệu nhị phân được bao gồm trong tài liệu, do đó kích thước bản trình bày sẽ tăng tỷ lệ với kích thước tệp. Khi bạn thêm video trực tuyến, một liên kết và hình thu nhỏ được nhúng, vì vậy mức tăng kích thước sẽ nhỏ hơn.
+Có. Khi bạn nhúng video cục bộ, dữ liệu nhị phân được đưa vào tài liệu, vì vậy kích thước bản trình bày tăng tỷ lệ với kích thước tệp video. Khi bạn liên kết tới video trực tuyến và thêm ảnh thu nhỏ, bản trình bày chỉ lưu liên kết và ảnh preview thay vì dữ liệu video, vì vậy tăng kích thước thường ít hơn.
 
-**Tôi có thể thay thế video trong một VideoFrame hiện có mà không thay đổi vị trí và kích thước không?**
+**Tôi có thể thay thế video trong một khung video hiện có mà không thay đổi vị trí và kích thước không?**
 
-Có. Bạn có thể hoán đổi [nội dung video](https://reference.aspose.com/slides/vi/cpp/aspose.slides/videoframe/set_embeddedvideo/) trong khung trong khi giữ nguyên hình dạng; đây là trường hợp phổ biến khi cập nhật phương tiện trong bố cục đã có.
+Có. Bạn có thể hoán đổi [nội dung video](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) trong khung trong khi giữ nguyên hình dạng; đây là kịch bản phổ biến để cập nhật media trong bố cục đã tồn tại.
 
-**Có thể xác định loại nội dung (MIME) của video đã nhúng không?**
+**Có thể xác định loại nội dung (MIME) của video được nhúng không?**
 
-Có. Một video đã nhúng có một [loại nội dung](https://reference.aspose.com/slides/vi/cpp/aspose.slides/video/get_contenttype/) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó ra đĩa.
+Có. Video được nhúng có một [loại nội dung](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó ra đĩa.

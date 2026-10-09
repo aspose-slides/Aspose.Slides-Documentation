@@ -26,21 +26,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تحويل شرائح PowerPoint و OpenDocument إلى XAML في JavaScript باستخدام Aspose.Slides—حل سريع وخالٍ من Office يحافظ على تخطيطك دون تغيير."
+description: "تحويل شرائح PowerPoint و OpenDocument إلى XAML باستخدام JavaScript و Aspose.Slides—حل سريع وخالٍ من Office يحافظ على تخطيطك دون تغيير."
 ---
 ## **نظرة عامة**
 
-يشرح هذا المقال كيفية تصدير عروض PowerPoint إلى XAML باستخدام Aspose.Slides. يتضمن مقدمة موجزة عن XAML، ويظهر كيفية حفظ عرض تقديمي إلى XAML بالإعدادات الافتراضية، ويعرض كيفية تخصيص التصدير عبر [XamlOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/xamloptions/)، بما في ذلك تصدير الشرائح المخفية. يجيب المقال أيضًا على بعض الأسئلة الشائعة المتعلقة بخطوط الاستبدال، توافق مجموعة XAML، وسلوك تصدير الشرائح المخفية.
+هذه المقالة تشرح كيفية تصدير عروض PowerPoint إلى XAML باستخدام Aspose.Slides. تتضمن مقدمة مختصرة عن XAML، وتوضح طريقة حفظ العرض إلى XAML بالإعدادات الافتراضية، وتظهر كيفية تخصيص التصدير عبر [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/)، بما في ذلك تصدير الشرائح المخفية. كما تجيب المقالة على بعض الأسئلة الشائعة المتعلقة بخطوط الاحتياطي، وتوافق XAML مع الأنظمة المختلفة، وسلوك تصدير الشرائح المخفية.
 
 ## **حول XAML**
 
-XAML هو لغة توصيف تعتمد على XML تُستخدم لوصف واجهات المستخدم في أطر العمل مثل WPF (Windows Presentation Foundation) وUWP (Universal Windows Platform) وXamarin.Forms.
+XAML هي لغة توصيف تعتمد على XML تُستخدم لوصف واجهات المستخدم في أطر عمل مثل WPF (Windows Presentation Foundation)، UWP (Universal Windows Platform)، وXamarin.Forms.
 
-يمكنك العمل مع ملفات XAML في مصمم مرئي أو كتابة التوصيف وتحريره مباشرة.
+يمكنك العمل مع ملفات XAML في مصمم مرئي أو كتابة وتحرير العلامات مباشرة.
 
-## **تصدير العروض إلى XAML باستخدام الإعدادات الافتراضية**
+## **تصدير العروض إلى XAML باستخدام الخيارات الافتراضية**
 
-يوضح المثال التالي بلغة JavaScript كيفية تصدير عرض تقديمي إلى XAML باستخدام الإعدادات الافتراضية:
+يوضح مثال JavaScript التالي كيفية تصدير عرض إلى XAML بالإعدادات الافتراضية:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -54,17 +54,17 @@ try {
 }
 ```
 
-بشكل افتراضي، يتم حفظ الشرائح المصدرة في مجلد فرعي `input` داخل الدليل الحالي للعملية. يتم إنشاء المجلد تلقائيًا، وتُحفظ أي صور مطلوبة هناك أيضًا.
+بشكل افتراضي، يتم حفظ الشرائح المصدرة في مجلد فرعي يسمى `input` داخل دليل العمل الحالي للعملية. يتم إنشاء المجلد تلقائيًا، ويتم حفظ أي صور مطلوبة هناك أيضًا.
 
-يُؤخذ اسم مجلد الإخراج من اسم ملف المصدر بدون الامتداد. في Aspose.Slides for Node.js via Java 26.8، ينتج تصدير `input.pptx` مسارًا متداخلًا مثل `input/input/Slide_1.xaml`. احتفظ بالمسارات الكاملة التي تم إنشاؤها عند التعامل مع الإخراج. الإخراج الافتراضي يكون نسبيًا بالنسبة للدليل الحالي للعمل، وليس بالضرورة بجوار ملف الإدخال.
+يُؤخذ اسم المجلد الناتج من اسم ملف المصدر بدون الامتداد. في Aspose.Slides for Node.js via Java 26.8، يُنتج تصدير `input.pptx` مسارًا متداخلًا مثل `input/input/Slide_1.xaml`. احتفظ بالمسارات الكاملة التي تم إنشاؤها عند معالجة المخرجات. يكون الإخراج الافتراضي نسبيًا إلى دليل العمل الحالي، وليس بالضرورة بجانب ملف الإدخال.
 
 ## **تصدير العروض إلى XAML باستخدام خيارات مخصصة**
 
-استخدم واجهة [IXamlOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ixamloptions/) للتحكم في طريقة تصدير Aspose.Slides للعرض إلى XAML.
+استخدم واجهة [IXamlOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ixamloptions/) للتحكم في طريقة تصدير Aspose.Slides للعرض إلى XAML.
 
-لحفظ الإخراج في موقع مخصص، قم بتنفيذ [IXamlOutputSaver](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ixamloutputsaver/) ومرّر مثيل تنفيذك إلى طريقة [setOutputSaver](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/xamloptions/#setOutputSaver) في [XamlOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/xamloptions/).
+لحفظ المخرجات في موقع مخصص، نفّذ [IXamlOutputSaver](https://reference.aspose.com/slides/java/com.aspose.slides/ixamloutputsaver/) ومرّر مثيل تنفيذك إلى طريقة [setOutputSaver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/#setOutputSaver) في [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/).
 
-لتضمين الشرائح المخفية في إخراج XAML، استدعِ [setExportHiddenSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) مع القيمة `true`، كما هو موضح في المثال التالي بلغة JavaScript:
+لإدراج الشرائح المخفية في مخرجات XAML، استدعِ [setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) مع القيمة `true`، كما هو موضح في مثال JavaScript التالي:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -79,26 +79,26 @@ try {
 }
 ```
 
-## **التقاط جميع الكائنات التي تم إنشاؤها بصيغة XAML**
+## **التقاط جميع قطع XAML المتولدة**
 
-يمكن لتصدير XAML أن ينتج مستند XAML لكل شريحة تم تصديرها بالإضافة إلى صور وموارد مساعدة منفصلة. قم بتعيين [IXamlOutputSaver](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ixamloutputsaver/) مخصص إلى [XamlOptions.setOutputSaver](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/xamloptions/#setOutputSaver) لتلقي هذه الكائنات بدلاً من استخدام الحفظ الافتراضي على نظام الملفات. ابدأ التصدير باستخدام التحميل الزائد لـ [Presentation.save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save) الذي يقبل خيارات XAML.
+قد ينتج تصدير XAML مستند XAML لكل شريحة تم تصديرها بالإضافة إلى صور وموارد داعمة منفصلة. عيّن [IXamlOutputSaver](https://reference.aspose.com/slides/java/com.aspose.slides/ixamloutputsaver/) مخصصًا إلى [XamlOptions.setOutputSaver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/#setOutputSaver) لاستلام هذه القطع بدلاً من استخدام الحافظ الافتراضي لنظام الملفات. ابدأ التصدير باستخدام الدالة المتعددة للمعلمات في [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save) التي تقبل خيارات XAML.
 
-في Node.js، نفّذ الواجهة Java باستخدام `java.newProxy` من حزمة `java` التي يستخدمها Aspose.Slides. حافظ على وصول الوكيل حتى يكتمل التصدير.
+في Node.js، نفّذ الواجهة Java باستخدام `java.newProxy` من حزمة `java` المستخدمة بواسطة Aspose.Slides. احتفظ بالوكيل فعالًا حتى يكتمل التصدير.
 
-### **فهم دورة حياة رد النداء**
+### **فهم دورة حياة الـ Callback**
 
-يقوم المُصدّر باستدعاء [IXamlOutputSaver.save](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ixamloutputsaver/#save-java.lang.String-byte:A-) بشكل منفصل لكل كائن تم إنشاؤه:
+المصدِّر يستدعي [IXamlOutputSaver.save](https://reference.aspose.com/slides/java/com.aspose.slides/ixamloutputsaver/#save-java.lang.String-byte:A-) بصورة منفصلة لكل قطعة متولدة:
 
-- `path` يحدد الكائن وقد يتضمن دلائل نسبية. احتفظ بهذه المعلومات لأن XAML قد يشير إلى موارد باستخدام مسارات نسبية.
-- `data` يحتوي على بايتات الكائن. يجب عدم فك تشفير الصور والموارد الثنائية الأخرى كنص.
-- يتحمل الحافظ مسؤولية الاحتفاظ أو حفظ البيانات قبل الإرجاع. النسخ النموذجية تنسخ كل مصفوفة بايت Java إلى مخزن Node.js مملوك للتطبيق.
-- اعتبر عملية التصدير ناجحة فقط عندما تعود عملية حفظ العرض وتكتمل كل ردود النداء بنجاح. لا تُهمش أخطاء التخزين ولا تبدأ عمليات كتابة خلفية غير مراقبة. إذا حدث الإيداع لاحقًا، فاعلِن النجاح الكلي فقط بعد أن ينجح هذا الخطوة أيضًا.
+- `path` يحدد القطعة وقد يتضمن أدلة نسبية. احفظ هذه المعلومات لأن XAML قد يشير إلى موارد باستخدام مسارات نسبية.
+- `data` يحتوي على بايتات القطعة. يجب عدم تحويل الصور والموارد الثنائية الأخرى إلى نص.
+- الحافظ مسؤول عن الاحتفاظ أو تخزين البيانات قبل الإرجاع. تنسخ الأمثلة كل مصفوفة بايت Java إلى مخزن Node.js مملوك للتطبيق.
+- عُدّ التصدير ناجحًا فقط عندما تعود عملية حفظ العرض وتكتم جميع الـ callbacks بنجاح. لا تتجاهل أخطاء التخزين ولا تبدأ عمليات كتابة خلفية غير مراقبة. إذا حدث التخزين لاحقًا، أبلغ عن النجاح الإجمالي فقط بعد نجاح تلك الخطوة كذلك.
 
-[XamlOptions.setExportHiddenSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) ينطبق أيضًا على الحافظ المخصص. الإعداد الافتراضي، `false`، يستثني وثائق XAML للشرائح المخفية. تمرير `true` يضمن تضمينها وأي موارد مطلوبة لتصديرها. عدد الموارد يعتمد على العرض؛ لا تفترض وجود رد نداء واحد لكل شريحة أو ترتيب ثابت لردود النداء.
+[XamlOptions.setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) ينطبق أيضًا على الحافظ المخصص. الإعداد الافتراضي، `false`، يستبعد مستندات XAML للشرائح المخفية. تمرير `true` يضيفها وجميع الموارد المطلوبة لتصديرها. عدد الموارد يعتمد على العرض؛ لا تفترض وجود استدعاء واحد لكل شريحة أو ترتيب ثابت للـ callbacks.
 
-### **التصدير إلى الذاكرة وفحص الكائنات**
+### **التصدير إلى الذاكرة وفحص القطع**
 
-هذا المثال الكامل يحمل `input.pptx`، يجمع كل كائن في خريطة JavaScript من أسماء إلى مخازن، ويطبع اسمه ونوعه وعدد البايتات. يحافظ على الأسماء المقدمة بدقة. الأسماء المكررة تجعل التجميع غير صالح بدلاً من الكتابة الصامتة لكائن. يتحقق المثال من ذلك قبل استخدام النتائج.
+هذا المثال الكامل يحمل `input.pptx`، يجمع كل قطعة في خريطة JavaScript من أسماء إلى مخازن، ويطبع الاسم والنوع وعدد البايتات. يحافظ على الأسماء المقدمة تمامًا. الأسماء المكررة تجعل المجموعة غير صالحة بدلاً من الكتابة فوق القطعة بصمت. يتحقق المثال من ذلك قبل استخدام النتائج.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -139,7 +139,7 @@ if (!valid) {
         const kind = isXaml ? "slide XAML" : isImage ? "image" : "supporting resource";
         console.log(name + ": " + data.length + " bytes (" + kind + ")");
 
-        // فك تشفير XAML فقط، وفقط عندما يكون الفحص النصي مطلوبًا.
+        // فك ترميز XAML فقط، وفقط عندما يكون الفحص النصي مطلوبًا.
         if (isXaml && inspectXamlText) {
             console.log(data.toString("utf8"));
         }
@@ -147,11 +147,11 @@ if (!valid) {
 }
 ```
 
-فحوصات الامتداد مفيدة للفحص؛ احتفظ بكل الكائنات، بما في ذلك أنواع الموارد غير المألوفة. لا تغير البايتات عند التخزين أو النقل. استخدم فك ترميز UTF-8 فقط لـ XAML الذي يحتاج إلى معالجة نصية.
+فحص الامتدادات مفيد للتدقيق؛ احتفظ بجميع القطع، بما في ذلك أنواع الموارد غير المألوفة. اترك البايتات دون تعديل عند التخزين أو النقل. استخدم فك ترميز UTF-8 فقط لـ XAML الذي يحتاج إلى معالجة نصية.
 
-### **تجميع الكائنات المجمعة في أرشيف ZIP**
+### **حزم القطع المجمعة في أرشيف ZIP**
 
-هذا المثال المستقل يجمع التصدير، يتحقق من أسمائه، ويكتب البايتات الأصلية إلى أرشيف ZIP باستخدام جسر Java. يتم تجميع ZIP في الذاكرة قبل حفظه على القرص. اسم الأرشيف الفريد يفصل بين وظائف التصدير المتزامنة. تستخدم إدخالات ZIP الشرط المائل للأمام وتحتفظ بالدلائل النسبية. تُرفض الأسماء غير الآمنة أو التي تتصادم بعد التطبيع قبل كتابة الحزمة بالكامل.
+هذا المثال المستقل يجمع التصدير، يتحقق من أسمائه، ويكتب البايتات الأصلية إلى أرشيف ZIP باستخدام جسر Java. يُجمع ZIP في الذاكرة قبل حفظه إلى القرص. يميز اسم الأرشيف الفريد بين وظائف التصدير المتزامنة. تستخدم إدخالات ZIP شرطة مائلة أمامية وتحتفظ بالأدلة النسبية. تُرفض الأسماء غير الآمنة أو المتصادمة بعد التطبيع قبل كتابة الحزمة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -210,8 +210,7 @@ if (!valid) {
         for (const [name, data] of entries) {
             const entry = java.newInstanceSync("java.util.zip.ZipEntry", name);
             archive.putNextEntry(entry);
-            const signedBytes = Array.from(data, value => value > 127 ? value - 256 : value);
-            const bytes = java.newArray("byte", signedBytes);
+            const bytes = java.newArray("byte", Array.from(data));
             archive.write(bytes);
             archive.closeEntry();
         }
@@ -219,7 +218,7 @@ if (!valid) {
         archive.close();
     }
 
-    // إغلاق العملية يُكمل دليل ZIP قبل حفظ الأرشيف.
+    // إغلاق ينهِ دليل ZIP قبل حفظ الأرشيف.
     const archiveData = Buffer.from(output.toByteArray());
     try {
         fs.writeFileSync(archivePath, archiveData, { flag: "wx" });
@@ -230,29 +229,29 @@ if (!valid) {
 }
 ```
 
-يستخدم المثال [ZipOutputStream](https://docs.oracle.com/javase/8/docs/api/java/util/zip/ZipOutputStream.html) لكتابة أرشيف محلي واحد؛ المُصدّر نفسه لا يكتب ملفات XAML أو صور منفصلة. للتخزين عن بعد، استبدل مرحلة كتابة الأرشيف بتحميل المصفوفات البايتية المجمعة. استخدم معرف وظيفة التصدير بالإضافة إلى اسم الكائن النسبي الكامل كمفتاح للكتلة، أو خزن معرف الوظيفة، الاسم النسبي، والبيانات الثنائية في صف قاعدة بيانات. انشر الوظيفة فقط بعد اكتمال جميع التحميلات أو التزامن على قاعدة البيانات. نظّف الإخراج الجزئي إذا فشل الإيداع.
+يستخدم المثال [ZipOutputStream](https://docs.oracle.com/javase/8/docs/api/java/util/zip/ZipOutputStream.html) لكتابة أرشيف محلي واحد؛ المصدِّر نفسه لا يكتب ملفات XAML أو صور منفصلة. للتخزين البعيد، استبدل مرحلة كتابة الأرشيف بتحميل القطع المجمعة. استخدم معرف مهمة التصدير مع الاسم النسبي الكامل للقطعة كمفتاح لـ blob، أو خزن معرف المهمة والاسم النسبي والبيانات الثنائية في صف قاعدة بيانات. انشر المهمة فقط بعد اكتمال جميع التحميلات أو ارتكاب معاملة قاعدة البيانات. نظف المخرجات الجزئية إذا فشل التخزين.
 
-لعروض تقديمية كبيرة، يمكن لمصرف مخصص حفظ كل كائن مباشرةً في تخزين التطبيق لتجنب الاحتفاظ بنسخة إضافية من التصدير الكامل في ذاكرة التطبيق. احفظ كل رد نداء متزامنًا من منظور المُصدّر: ارجع فقط بعد أن يقبل الوجهة البايتات، واسمح بفشل الأخطاء للوصول إلى المستدعي.
+للعروض الكبيرة، يمكن للحافظ المخصص تخزين كل قطعة مباشرة في تخزين التطبيق لتجنب الاحتفاظ بنسخة إضافية من التصدير بالكامل في الذاكرة. حافظ على تزامن كل callback من منظور المصدِّر: عُد فقط بعد أن يقبل الوجهة البايتات، واسمح للأخطاء بالوصول إلى المستدعي.
 
-### **الحفاظ على أسماء الموارد والتحقق من المراجع**
+### **حفظ أسماء الموارد والتحقق من المراجع**
 
-- نمّط فواصل المسار عندما يتطلب الوجهة ذلك، لكن احتفظ بالدلائل النسبية. لا تستخدم الاسم الأساسي فقط ما لم تكن كل الأسماء المولدة معروفة بأنها فريدة وتظل مراجع الموارد صالحة.
-- طبّق التحقق من صحة الاسم بحسب الوجهة. عند كتابة ملفات منفصلة، ارفض المسارات الجذرية وقطع التجوال، حل الوجهة إلى مسار مطلق، وتحقق من بقائها تحت دليل التصدير المقصود، مع تضمين فاصل الدليل في فحص الحاوية. استخدم دليلًا يتحكم فيه التطبيق دون روابط رمزية قد تُعيد توجيه الكتابة.
-- استخدم حافظًا ومساحة اسم تخزين منفصلة لكل وظيفة تصدير. اكتشف التضارب بعد تطبيع الفواصل ووفقًا لقواعد حساسية الحالة للوجهة.
-- قبل النشر، حلل كل مستند XAML كـ XML وافحص مراجع الموارد القائمة على الملفات، مثل سمات `Source` أو `ImageSource` للصور. حل كل URI نسبيًا ضد دليل الكائن XAML الحاوي، نمّط اسم التخزين الناتج، وتأكد من وجود المفتاح المطابق في الخريطة أو إدخال ZIP أو الكائن المخزن. عالج عناوين URI الخارجية وتعابير XAML بشكل منفصل عن أسماء الملفات النسبية.
+- طوّع فواصل المسار عندما يتطلب الوجهة ذلك، لكن حافظ على الأدلة النسبية. لا تستخدم الاسم الأساسي فقط إلا إذا كان كل اسم مولد فريدًا ومراجع الموارد لا تزال صالحة.
+- طبّق فحصًا خاصًا بالوجهة لأسماء الملفات. عند كتابة ملفات منفصلة، ارفض المسارات الجذرية و segments الانتقالية، حلّ الوجهة إلى مسار مطلق، وتحقق من بقائه تحت دليل التصدير المستهدف، بما في ذلك فاصل الدليل في فحص الاحتواء. استخدم دليلًا يتحكم به التطبيق دون روابط رمزية قد تعيد توجيه الكتابة.
+- استخدم حافظًا ونطاق تخزين منفصل لكل مهمة تصدير. اكتشف التصادمات بعد تطبيع الفاصل وبحسب حساسية حالة الأحرف للوجهة.
+- قبل النشر، حلل كل مستند XAML كـ XML وافحص مراجع الموارد القائمة على الملفات، مثل صفة `Source` أو `ImageSource` للصور. حل كل URI نسبي مقابل دليل القطعة XAML الحاوية، طوّع الاسم الناتج، وتأكد من وجود المفتاح المقابل في الخريطة أو إدخال ZIP أو الكائن المخزن. عالج URIs الخارجية وتعبيرات XAML markup بشكل منفصل عن أسماء الملفات النسبية.
 
-على سبيل المثال، إذا كان `input/Slide_1.xaml` يشير إلى `images/image1.png`، يجب أن يكون المورد المخزن متاحًا كـ `input/images/image1.png`. الاحتفاظ فقط بـ `image1.png` سيفسد ذلك العلاقة. في التخزين الكائني، احفظ نفس الهيكل تحت بادئة الوظيفة واجعل عناوين URL لتلك الموارد متاحة لمستهلك XAML. أعد فتح ZIP المكتمل للتحقق من أسماء الإدخالات و بايتات الموارد، وحمّل شرائح تمثيلية في بيئة XAML الهدف للتأكد من أن الصور تُحل بشكل صحيح.
+على سبيل المثال، إذا كان `input/Slide_1.xaml` يشير إلى `images/image1.png`، يجب أن يكون المورد المخزن متاحًا كـ `input/images/image1.png`. الاحتفاظ بـ `image1.png` فقط سيكسر هذه العلاقة. لتخزين الكائنات، احفظ نفس البنية تحت بادئة المهمة واجعل عناوين URL لتلك الموارد متاحة لمستهلك XAML. أعد فتح ملف ZIP المكتمل للتحقق من أسماء الإدخالات و بايتات الموارد، وحمّل شرائح نموذجية في بيئة XAML الهدف للتأكد من أن الصور تُحلّ بنجاح.
 
-## **الأسئلة المتداولة**
+## **الأسئلة الشائعة**
 
-**كيف يمكنني ضمان خطوط ثابتة إذا كان الخط الأصلي غير متوفر على الجهاز؟**
+**كيف يمكنني ضمان خط ثابت إذا لم يتوفر الخط الأصلي على الجهاز؟**
 
-استدعِ [setDefaultRegularFont](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/saveoptions/#setDefaultRegularFont) في [XamlOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/xamloptions/) — يُستخدم كخط احتياطي أثناء التصدير عندما يكون الأصلي مفقودًا. هذا لا يضمن أن XAML المُولد سيشير إلى الخط الاحتياطي أو أن الخط متوفر على الجهاز الهدف. تأكد من أن الخطوط المشار إليها في XAML متوفرة في البيئة التي يُعرض فيها.
+استدعِ [setDefaultRegularFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setDefaultRegularFont) في [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) — يُستخدم كخط احتياطي أثناء التصدير عندما يكون الأصلي غير موجود. هذا لا يضمن أن XAML المتولد سيشير إلى الخط الاحتياطي أو أن الخط متوفر على الجهاز الهدف. تأكد من أن الخطوط المشار إليها في XAML متوفرة في البيئة التي يُعرض فيها.
 
-**هل XAML المصدّر مخصص فقط لـ WPF، أم يمكن استخدامه في مجموعات XAML أخرى أيضًا؟**
+**هل XAML المصدّر مخصص فقط لـ WPF، أم يمكن استخدامه مع أنظمة XAML أخرى أيضًا؟**
 
-يقوم Aspose.Slides بتصدير XAML لـ WPF عبر API العامة له. لا يُضمن التوافق مع مجموعات XAML أخرى، مثل UWP وXamarin.Forms. اختبر التوصيف المُولد في بيئتك المستهدفة.
+تصدّر Aspose.Slides XAML لـ WPF عبر واجهته العامة. لا يضمن التوافق مع أنظمة XAML أخرى مثل UWP وXamarin.Forms. اختبر العلامات المتولدة في بيئتك المستهدفة.
 
-**هل يتم دعم الشرائح المخفية، وكيف يمكنني منع تصديرها افتراضيًا؟**
+**هل تدعم الشرائح المخفية، وكيف يمكنني منع تصديرها افتراضيًا؟**
 
-بشكل افتراضي، لا تُضمّن الشرائح المخفية. يمكنك التحكم في هذا السلوك عبر [setExportHiddenSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) في [XamlOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/xamloptions/) — احتفظ به معطلاً إذا لم تكن بحاجة لتصديرها.
+بشكل افتراضي، لا تُدرج الشرائح المخفية. يمكنك التحكم في هذا السلوك عبر [setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/#setExportHiddenSlides) في [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) — أبقها غير مفعلة إذا لم تكن بحاجة لتصديرها.

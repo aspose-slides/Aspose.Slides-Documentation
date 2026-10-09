@@ -8,8 +8,8 @@ keywords:
 - เพิ่มวิดีโอ
 - สร้างวิดีโอ
 - ฝังวิดีโอ
+- สกัดวิดีโอ
 - ดึงวิดีโอ
-- ดึงคืนวิดีโอ
 - เฟรมวิดีโอ
 - แหล่งเว็บ
 - PowerPoint
@@ -18,163 +18,196 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้การเพิ่มและดึงเฟรมวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างโปรแกรมโดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java. คู่มือวิธีทำแบบเร็ว"
+description: "เรียนรู้วิธีการเพิ่มและสกัดเฟรมวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างเป็นโปรแกรมโดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java คู่มือแนวทางที่รวดเร็ว"
 ---
-## **คำนำ**
+## **บทนำ**
 
-วิดีโอที่วางอย่างเหมาะสมในงานนำเสนอสามารถทำให้ข้อความของคุณน่าสนใจยิ่งขึ้นและเพิ่มระดับการมีส่วนร่วมกับผู้ชมของคุณ  
+วิดีโอสามารถช่วยอธิบายแนวคิดและดึงดูดผู้ชมได้ Aspose.Slides สำหรับ Android ผ่าน Java ช่วยให้คุณเพิ่มเฟรมวิดีโอลงในสไลด์ ปรับการตั้งค่าการเล่น จัดการคำบรรยาย และสกัดข้อมูลวิดีโอที่ฝังไว้
 
-PowerPoint อนุญาตให้คุณเพิ่มวิดีโอลงในสไลด์ของงานนำเสนอได้สองวิธี:
+PowerPoint รองรับวิดีโอในเครื่องและลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube
 
-* เพิ่มหรือฝังวิดีโอจากเครื่อง (จัดเก็บบนเครื่องของคุณ)  
-* เพิ่มวิดีโอออนไลน์ (จากแหล่งเว็บ เช่น YouTube).  
+เพื่อแสดงข้อมูลวิดีโอและเฟรมวิดีโอ Aspose.Slides มีอินเทอร์เฟซ [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) อินเทอร์เฟซ [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) และชนิดอื่นที่เกี่ยวข้อง
 
-เพื่อให้คุณสามารถเพิ่มวิดีโอ (วิดีโออ็อบเจ็กต์) ลงในงานนำเสนอ, Aspose.Slides ให้ส่วนต่อประสาน [IVideo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideo/) , [IVideoFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/) และประเภทที่เกี่ยวข้องอื่น ๆ  
+## **สร้างเฟรมวิดีโอที่ฝังไว้**
 
-## **สร้างเฟรมวิดีโอแบบฝัง**
+หากไฟล์วิดีโอที่คุณต้องการเพิ่มลงในสไลด์ถูกจัดเก็บในเครื่อง คุณสามารถสร้างเฟรมวิดีโอเพื่อฝังวิดีโอลงในงานนำเสนอได้
 
-หากไฟล์วิดีโอที่คุณต้องการเพิ่มลงในสไลด์จัดเก็บไว้ในเครื่อง, คุณสามารถสร้างเฟรมวิดีโอเพื่อฝังวิดีโอลงในงานนำเสนอได้  
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มอ็อบเจ็กต์ [IVideo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideo/) และส่งพาธไฟล์วิดีโอเพื่อฝังวิดีโอลงในงานนำเสนอ  
-4. เพิ่มอ็อบเจ็กต์ [IVideoFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/) เพื่อสร้างเฟรมสำหรับวิดีโอ  
-5. บันทึกงานนำเสนอที่แก้ไขแล้ว  
-
-โค้ด Java นี้แสดงวิธีการเพิ่มวิดีโอที่จัดเก็บในเครื่องลงในงานนำเสนอ:
+ตัวอย่างนี้ฝังวิดีโอในเครื่องลงบนสไลด์แรกของงานนำเสนอที่มีอยู่และบันทึกผลลัพธ์ พิกัดและขนาดของเฟรมใช้หน่วยจุด สตรีมจะเปิดค้างไว้จนกว่าจะบันทึกเสร็จเนื่องจาก [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) ทำให้มันล็อกขณะงานนำเสนอใช้มัน
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // โหลดวิดีโอ
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // ดึงสไลด์แรกและเพิ่มเฟรมวิดีโอ
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+Presentation presentation = new Presentation("presentation.pptx");
+try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // บันทึกงานนำเสนอลงดิสก์
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IVideo video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.KeepLocked);
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-หรือคุณสามารถเพิ่มวิดีโอโดยส่งพาธไฟล์โดยตรงไปยังเมธอด [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
-
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **สร้างเฟรมวิดีโอด้วยวิดีโอจากแหล่งเว็บ**
-
-เวอร์ชันใหม่ของ Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในงานนำเสนอ หากวิดีโอที่คุณต้องการใช้มีอยู่บนเว็บ (เช่น YouTube) คุณสามารถเพิ่มมันลงในงานนำเสนอผ่านลิงก์เว็บได้  
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มอ็อบเจ็กต์ [IVideo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideo/) และส่งลิงก์ไปยังวิดีโอ  
-4. ตั้งค่า thumbnail สำหรับเฟรมวิดีโอ  
-5. บันทึกงานนำเสนอ  
-
-โค้ด Java นี้แสดงวิธีการเพิ่มวิดีโอจากเว็บลงในสไลด์ของงานนำเสนอ PowerPoint:
-
-```java
-// สร้างอ็อบเจ็กต์ Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // เพิ่ม videoFrame
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // โหลด thumbnail
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-```
-
-## **ตัดเฟรมวิดีโอ**
-
-Aspose.Slides อนุญาตให้คุณควบคุมส่วนของวิดีโอที่จะแสดงโดยตั้งค่าการตัดจากต้นและจากท้ายผ่าน [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) และ [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) ค่าทั้งสองระบุเป็นมิลลิวินาทีและกำหนดเวลาที่จะข้ามจากจุดเริ่มต้นและจุดสิ้นสุดของวิดีโอตามลำดับ การตั้งค่าเหล่านี้เปลี่ยนการเล่นวิดีโอในงานนำเสนอ; พวกมันไม่ได้ตัดหรือแก้ไขข้อมูลไบนารีของวิดีโอที่ฝังอยู่  
-
-**ตั้งค่าการตัด**
-
-เพื่อสร้างเฟรมวิดีโอและตั้งค่าการตัด:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)  
-2. เพิ่มอ็อบเจ็กต์ [IVideo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideo/) ลงในงานนำเสนอ  
-3. เพิ่มอ็อบเจ็กต์ [IVideoFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/) ลงในสไลด์  
-4. ตั้งค่า trim-from-start และ trim-from-end ผ่าน [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) และ [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-)  
-5. บันทึกงานนำเสนอที่แก้ไขแล้ว  
-
-โค้ดตัวอย่างต่อไปนี้จะข้าม 2.5 วินาทีแรกและ 1 วินาทีสุดท้ายของวิดีโอที่ฝังอยู่ระหว่างการเล่น:
-
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream videoStream = new FileInputStream("video.mp4");
-    try {
-        IVideo video = presentation.getVideos().addVideo(
-                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
-        ISlide slide = presentation.getSlides().get_Item(0);
-        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
-
-        videoFrame.setTrimFromStart(2500f);
-        videoFrame.setTrimFromEnd(1000f);
-
-        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
-    } finally {
-        videoStream.close();
-    }
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**อ่านการตั้งค่าการตัด**
-
-เพื่อดูค่าการตัดที่มีอยู่ โหลดงานนำเสนอ, ค้นหาอ็อบเจ็กต์ [IVideoFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/) ที่อยู่ในรูปร่างบนสไลด์แรก, แล้วอ่านค่าผ่าน [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/#getTrimFromStart--) และ [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/#getTrimFromEnd--)  
+คุณยังสามารถส่งเส้นทางวิดีโอในเครื่องโดยตรงไปยัง [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). ตัวอย่างนี้ฝังวิดีโอลงบนสไลด์แรกของงานนำเสนอใหม่ วิดีโอจะต้องเข้าถึงได้จนกว่าจะบันทึกงานนำเสนอ
 
 ```java
-Presentation presentation = new Presentation("video_with_trim.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **สร้างเฟรมวิดีโอที่มีวิดีโอจากแหล่งเว็บ**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในงานนำเสนอ คุณสามารถสร้างเฟรมวิดีโอที่ลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube
+
+ตัวอย่างนี้เพิ่มลิงก์วิดีโอ YouTube และภาพย่อลงบนสไลด์แรก แทนที่ตัวระบุวิดีโอเพื่อใช้วิดีโออื่น วิธีการ [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) กำหนดให้เล่นอัตโนมัติ การดาวน์โหลดภาพย่อและการเล่นวิดีโอต้องการการเชื่อมต่ออินเทอร์เน็ต ตัวแสดงงานนำเสนอจะต้องสนับสนุนการเล่นวิดีโอออนไลน์ด้วย
+
+```java
+import com.aspose.slides.*;
+import java.io.InputStream;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String videoId = "aqz-KE-bpKQ";
+    String videoUrl = "https://www.youtube.com/embed/" + videoId;
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+    URL thumbnailLocation = new URL(thumbnailUrl);
+    try (InputStream thumbnailStream = thumbnailLocation.openStream()) {
+        IPPImage thumbnail = presentation.getImages().addImage(thumbnailStream);
+        videoFrame.getPictureFormat().getPicture().setImage(thumbnail);
+    }
+
+    presentation.save("online_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **เล่นวิดีโอในโหมดเต็มหน้าจอ**
+
+ในงานนำเสนอฝึกอบรม คุณสามารถเล่นการสาธิตซอฟต์แวร์ในโหมดเต็มหน้าจอเพื่อให้ผู้ชมเห็นรายละเอียด เรียกใช้ [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) พร้อมค่า `true` เพื่อเปิดพฤติกรรมนี้ระหว่างการเล่น
+
+ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) แรกบนสไลด์แรก และเปิดการเล่นแบบเต็มหน้าจอ งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโออยู่บนสไลด์แรก
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
-            float trimFromStart = videoFrame.getTrimFromStart();
-            float trimFromEnd = videoFrame.getTrimFromEnd();
+            videoFrame.setFullScreenMode(true);
+            break;
+        }
+    }
 
-            System.out.println("Trim from start: " + trimFromStart + " ms");
-            System.out.println("Trim from end: " + trimFromEnd + " ms");
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การเล่นแบบเต็มหน้าจอควบคุมวิธีการแสดงวิดีโอ อย่างแยกกัน [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) ควบคุมว่าจะเริ่มอัตโนมัติหรือด้วยการคลิก และ [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) ควบคุมว่าจะวนซ้ำหรือไม่ เพื่อเลือกพฤติกรรมการเริ่ม ให้ตั้งโหมดการเล่นเป็น [VideoPlayModePreset.Auto หรือ VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). ตัวอย่างจะคงการตั้งค่าเริ่มต้นและวนซ้ำเดิมไว้
+
+## **ถอยวิดีโอกลับหลังการเล่น**
+
+ในงานนำเสนอฝึกอบรม การคืนวิดีโอสาธิตกลับไปยังจุดเริ่มต้นทำให้พร้อมสำหรับผู้นำเสนอเล่นอีกครั้ง เรียกใช้ [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) ด้วยค่า `true` เพื่อคืนวิดีโอไปยังจุดเริ่มต้นหลังการเล่นเสร็จ
+
+ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) แรกบนสไลด์แรก และเปิดการถอยกลับ มันปิดการวนซ้ำเพื่อให้การเล่นจบได้และตั้งให้เริ่มด้วยการคลิก งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโออยู่บนสไลด์แรก
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("training.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            videoFrame.setRewindVideo(true);
+            videoFrame.setPlayLoopMode(false);
+            videoFrame.setPlayMode(VideoPlayModePreset.OnClick);
+            break;
+        }
+    }
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การถอยกลับจะคืนวิดีโอไปยังจุดเริ่มต้นโดยไม่เริ่มใหม่ ในทางตรงกันข้าม การเรียก [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) ด้วยค่า `true` จะทำให้การเล่นวนซ้ำอัตโนมัติ ปิดการวนซ้ำเมื่อคุณต้องการให้วิดีโอจบและพร้อมสำหรับการเล่นใหม่ [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) ควบคุมการเริ่มอัตโนมัติหรือด้วยการคลิกโดยอิสระ; ตัวอย่างนี้ใช้ [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) เพื่อให้ผู้นำเสนอควบคุมเวลาเริ่มต้นการเล่น ตั้งค่าโหมดการเล่นหลังจากตั้งค่าการวนซ้ำตามที่แสดงในตัวอย่าง การถอยกลับทำงานโดยอิสระจาก [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-)
+
+## **ตัดเฟรมวิดีโอ**
+
+ใช้ [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) และ [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) เพื่อตัดส่วนต้นหรือส่วนท้ายของวิดีโอในระหว่างการเล่น ค่าทั้งสองเป็นมิลลิวินาที การตัดเปลี่ยนการตั้งค่าการเล่นโดยไม่แก้ไขข้อมูลวิดีโอที่ฝังไว้
+
+**ตั้งค่าการตัด**
+
+ตัวอย่างนี้ฝังวิดีโอในเครื่องและข้าม 2.5 วินาทีแรกและ 1 วินาทีสุดท้ายระหว่างการเล่น ใช้วิดีโอที่ยาวกว่า 3.5 วินาทีเพื่อให้เหลือส่วนที่สามารถเล่นได้
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+    videoFrame.setTrimFromStart(2500f);
+    videoFrame.setTrimFromEnd(1000f);
+
+    presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**อ่านค่าการตัด**
+
+ตัวอย่างนี้พิมพ์ค่าการตัดของเฟรมวิดีโอแรกบนสไลด์แรกเป็นมิลลิวินาที งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์ หากสไลด์นั้นไม่มีเฟรมวิดีโอ จะไม่มีการพิมพ์ ตัวอย่างก่อนหน้านี้ให้ค่า 2500 และ 1000
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            System.out.println("Trim from start: " + videoFrame.getTrimFromStart() + " ms");
+            System.out.println("Trim from end: " + videoFrame.getTrimFromEnd() + " ms");
             break;
         }
     }
@@ -185,28 +218,26 @@ try {
 
 ## **จัดการคำบรรยายวิดีโอ**
 
-Aspose.Slides อนุญาตให้คุณจัดการคำบรรยายปิดสำหรับเฟรมวิดีโอในงานนำเสนอ PowerPoint คำบรรยายถูกจัดเก็บในรูปแบบ WebVTT และสามารถเข้าถึงได้ผ่านเมธอด [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--)  
+Aspose.Slides ให้คุณจัดการคำบรรยายปิดสำหรับเฟรมวิดีโอในงานนำเสนอ PowerPoint คำบรรยายถูกเก็บในรูปแบบ WebVTT และเปิดเผยผ่านวิธีการ [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--)
 
 **เพิ่มคำบรรยายให้กับเฟรมวิดีโอ**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)  
-2. เพิ่มวิดีโอลงในงานนำเสนอ  
-3. เพิ่มอ็อบเจ็กต์ [IVideoFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/) ลงในสไลด์  
-4. ใช้ [ICaptionsCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icaptionscollection/) ที่ได้จาก [getCaptionTracks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) เพื่อเพิ่มแทร็กคำบรรยาย WebVTT  
-5. บันทึกงานนำเสนอที่แก้ไขแล้ว  
-
-โค้ดต่อไปนี้แสดงวิธีการเพิ่มคำบรรยายให้กับเฟรมวิดีโอ:
+ตัวอย่างนี้ฝังวิดีโอในเครื่องและเพิ่มแทร็กคำบรรยาย WebVTT ที่มีชื่อภาษาอังกฤษ เวลาตำแหน่งของคำบรรยายต้องตรงกับวิดีโอ งานนำเสนอที่บันทึกจะรวมวิดีโอและคำบรรยายด้วย
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = // "video.mp4";
-    IVideo video = presentation.getVideos().addVideo(videoData);
-
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
 
-    // เพิ่มแทร็กคำบรรยายใหม่จากไฟล์ WebVTT.
+    IVideo video;
+    try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
+        video = presentation.getVideos().addVideo(videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+    }
+
+    IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -215,51 +246,53 @@ try {
 }
 ```
 
-ส่วนต่อประสาน [ICaptionsCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icaptionscollection/) ยังมี overload ที่ให้คุณเพิ่มคำบรรยายจากสตรีมได้อีกด้วย  
+อินเทอร์เฟซ [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) ยังมีโอเวอร์โหลดที่ให้คุณเพิ่มคำบรรยายจากสตรีมได้
 
-**ดึงคำบรรยายจากเฟรมวิดีโอ**
+**สกัดคำบรรยายจากเฟรมวิดีโอ**
 
-1. โหลดงานนำเสนอที่มีวิดีโออยู่  
-2. ค้นหาอ็อบเจ็กต์ [IVideoFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/) เป้าหมาย  
-3. วนรอบผ่านแทร็กคำบรรยายที่ได้จาก [getCaptionTracks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--)  
-4. บันทึกแต่ละแทร็กคำบรรยายเป็นไฟล์ `.vtt`  
+ตัวอย่างนี้บันทึกแทร็กคำบรรยายทั้งหมดจากเฟรมวิดีโอบนสไลด์แรกเป็นไฟล์ WebVTT แยกต่างหาก ตัวเลขต่อเนื่องทำให้ไฟล์ผลลัพธ์แตกต่างกัน คอนโซลรายงานจำนวนแทร็กที่สกัด งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    int trackCount = 0;
     for (IShape shape : slide.getShapes()) {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // บันทึกแทร็กคำบรรยายเป็นไฟล์ WebVTT.
-                FileOutputStream outputStream = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                outputStream.write(captionTrack.getBinaryData());
-                outputStream.close();
+                trackCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("captions_" + trackCount + ".vtt")) {
+                    outputStream.write(captionTrack.getBinaryData());
+                }
             }
         }
     }
+
+    System.out.println("Caption tracks extracted: " + trackCount);
 } finally {
     presentation.dispose();
 }
 ```
 
-แต่ละอ็อบเจ็กต์ [ICaptions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icaptions/) จะเปิดเผยตัวระบุคำบรรยาย, ป้ายชื่อ, ข้อมูลไบนารี และข้อมูลคำบรรยายในรูปแบบสตริง UTF-8  
+แต่ละอ็อบเจกต์ [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) เปิดเผยตัวระบุคำบรรยาย, ป้ายชื่อ, ข้อมูลไบนารี, และข้อความคำบรรยายเป็นสตริง UTF-8
 
 **ลบคำบรรยายจากเฟรมวิดีโอ**
 
-1. โหลดงานนำเสนอที่มีวิดีโออยู่  
-2. รับอ็อบเจ็กต์ [IVideoFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/) เป้าหมาย  
-3. ลบแทร็กคำบรรยายจากคอลเลกชันที่ได้จาก [getCaptionTracks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--)  
-4. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+ตัวอย่างนี้ลบคำบรรยายทั้งหมดจากเฟรมวิดีโอที่ตำแหน่งรูปร่างแรกบนสไลด์แรกและบันทึกผลลัพธ์ สมมติว่าสไลด์และรูปร่างมีอยู่และรูปร่างเป็นเฟรมวิดีโอ
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
 
-    // ลบคำบรรยายทั้งหมดออกจากเฟรมวิดีโอ.
+    IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -268,63 +301,60 @@ try {
 }
 ```
 
-หากต้องการลบเฉพาะแทร็กคำบรรยายหนึ่งเดียว ให้ใช้เมธอด [remove](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) หรือ [removeAt](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) แทนการใช้ [clear](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icaptionscollection/#clear--)  
+หากคุณต้องการลบเฉพาะแทร็กคำบรรยายหนึ่งรายการ ให้ใช้วิธีการ [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) หรือ [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) แทนการใช้ [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--)
 
-## **ดึงวิดีโอจากสไลด์**
+## **สกัดวิดีโอจากสไลด์**
 
-นอกเหนือจากการเพิ่มวิดีโอลงในสไลด์, Aspose.Slides ยังอนุญาตให้คุณดึงวิดีโอที่ฝังอยู่ในงานนำเสนอออกมาได้  
+นอกเหนือจากการเพิ่มวิดีโอลงสไลด์ Aspose.Slides ยังช่วยสกัดวิดีโอที่ฝังในงานนำเสนอได้
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation) เพื่อโหลดงานนำเสนอที่มีวิดีโอ  
-2. วนรอบผ่านอ็อบเจ็กต์ [ISlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islide/) ทั้งหมด  
-3. วนรอบผ่านอ็อบเจ็กต์ [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) ทั้งหมดเพื่อค้นหา [VideoFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/videoframe/)  
-4. บันทึกวิดีโอลงดิสก์  
+ตัวอย่างนี้สกัดวิดีโอที่ฝังจากทุกสไลด์เป็นไฟล์ไบนารีที่แยกกันและมีหมายเลข วิดีโอที่ลิงก์จะถูกข้ามเพราะไม่มีข้อมูลฝัง คอนโซลพิมพ์ประเภท MIME ของแต่ละวิดีโอและจำนวนทั้งหมด ผลลัพธ์ใช้ส่วนขยาย `.bin` ทั่วไป; ปรับเปลี่ยนตามประเภทสื่อที่รายงานเมื่อต้องการ
 
 ```java
-// สร้างอ็อบเจ็กต์ Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ 
-Presentation pres = new Presentation("VideoSample.pptx");
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("presentation_with_videos.pptx");
 try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
+    int videoCount = 0;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IVideoFrame) {
+                IVideoFrame videoFrame = (IVideoFrame) shape;
+                IVideo video = videoFrame.getEmbeddedVideo();
+                if (video == null) {
+                    System.out.println("Skipped a linked video: no embedded data is available.");
+                    continue;
+                }
 
-                // รับส่วนขยายของไฟล์
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                videoCount++;
+                try (FileOutputStream outputStream = new FileOutputStream("extracted_video_" + videoCount + ".bin")) {
+                    outputStream.write(video.getBinaryData());
+                }
+                System.out.println("Video " + videoCount + ": " + video.getContentType());
             }
         }
     }
-} catch (IOException e) {
+
+    System.out.println("Embedded videos extracted: " + videoCount);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**พารามิเตอร์การเล่นวิดีโอใดบ้างที่สามารถเปลี่ยนแปลงได้สำหรับ VideoFrame?**  
+**พารามิเตอร์การเล่นวิดีโอใดบ้างที่สามารถเปลี่ยนแปลงได้สำหรับเฟรมวิดีโอ?**
 
-คุณสามารถควบคุม [playback mode](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (อัตโนมัติหรือคลิก) และ [looping](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) ได้ ตัวเลือกเหล่านี้สามารถเข้าถึงได้ผ่านคุณสมบัติเวเจ็ตของอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/videoframe/)  
+คุณสามารถควบคุม [โหมดการเล่น](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (อัตโนมัติหรือด้วยการคลิก) และ [การวนซ้ำ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). ตัวเลือกเหล่านี้พร้อมใช้งานผ่านเมธอดของอ็อบเจกต์ [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/)
 
-**การเพิ่มวิดีโอมีกระทบต่อขนาดไฟล์ PPTX หรือไม่?**  
+**การเพิ่มวิดีโอมีผลต่อขนาดไฟล์ PPTX หรือไม่?**
 
-ใช่ เมื่อคุณฝังวิดีโอจากเครื่อง ไฟล์ไบนารีของวิดีโอจะถูกรวมอยู่ในเอกสาร ทำให้ขนาดงานนำเสนอเพิ่มตามขนาดไฟล์ของวิดีโอ เมื่อคุณเพิ่มวิดีโอออนไลน์ เพียงแค่ฝังลิงก์และ thumbnail ทำให้การเพิ่มขนาดน้อยกว่า  
+ใช่ เมื่อคุณฝังวิดีโอในเครื่อง ข้อมูลไบนารีจะถูกใส่ในเอกสาร ดังนั้นขนาดงานนำเสนอจะเพิ่มตามขนาดไฟล์ เมื่อคุณลิงก์ไปยังวิดีโอออนไลน์และเพิ่มภาพย่อ งานนำจะแสดงลิงก์และรูปภาพพรีวิวแทนข้อมูลวิดีโอ ทำให้การเพิ่มขนาดมักจะน้อยกว่า
 
-**ฉันสามารถแทนที่วิดีโอใน VideoFrame ที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**  
+**ฉันสามารถเปลี่ยนวิดีโอในเฟรมวิดีโอที่มีอยู่ได้โดยไม่เปลี่ยนตำแหน่งและขนาดหรือไม่?**
 
-ได้ คุณสามารถสลับ [video content](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) ภายในเฟรมได้โดยคงรูปทรงของเฟรมไว้ นี่เป็นสถานการณ์ทั่วไปสำหรับการอัปเดตสื่อในเลย์เอาต์ที่มีอยู่  
+ใช่ คุณสามารถสลับ [เนื้อหาวิดีโอ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) ภายในเฟรมโดยคงรูปทรงของรูปร่างไว้; นี่เป็นสถานการณ์ทั่วไปสำหรับการอัปเดตสื่อในเลเยาติดตั้งที่มีอยู่
 
-**สามารถกำหนดประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังอยู่ได้หรือไม่?**  
+**สามารถระบุประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังได้หรือไม่?**
 
-ได้ วิดีโอที่ฝังอยู่มี [content type](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/video/#getContentType--) ที่คุณสามารถอ่านและนำไปใช้ได้ เช่น เมื่อต้องการบันทึกลงดิสก์
+ใช่ วิดีโอที่ฝังมี [ประเภทเนื้อหา](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) ที่คุณสามารถอ่านและใช้ได้ เช่น เมื่อบันทึกลงดิสก์

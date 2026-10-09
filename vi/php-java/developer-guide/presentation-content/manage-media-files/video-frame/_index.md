@@ -1,5 +1,5 @@
 ---
-title: Quản lý khung video trong bản trình bày bằng PHP
+title: Quản lý Khung Video trong Bài Thuyết Trình bằng PHP
 linktitle: Khung Video
 type: docs
 weight: 10
@@ -9,131 +9,45 @@ keywords:
 - tạo video
 - nhúng video
 - trích xuất video
-- lấy lại video
+- lấy video
 - khung video
 - nguồn web
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bài thuyết trình
 - PHP
 - Aspose.Slides
-description: "Tìm hiểu cách thêm và trích xuất khung video một cách lập trình trong các slide PowerPoint và OpenDocument bằng Aspose.Slides cho PHP qua Java. Hướng dẫn nhanh cách thực hiện."
+description: "Tìm hiểu cách lập trình thêm và trích xuất khung video trong các slide PowerPoint và OpenDocument bằng Aspose.Slides cho PHP qua Java. Hướng dẫn nhanh chóng."
 ---
 ## **Giới thiệu**
 
-Một video được đặt đúng vị trí trong bản trình bày có thể làm cho thông điệp của bạn trở nên hấp dẫn hơn và tăng mức độ tương tác với khán giả.
+Video có thể giúp giải thích ý tưởng và thu hút khán giả. Aspose.Slides cho PHP thông qua Java cho phép bạn thêm khung video vào các slide, điều chỉnh cài đặt phát lại, quản lý phụ đề và trích xuất dữ liệu video nhúng.
 
-PowerPoint cho phép bạn thêm video vào một slide trong bản trình bày theo hai cách:
+PowerPoint hỗ trợ video cục bộ và liên kết tới video trực tuyến, chẳng hạn như video YouTube.
 
-* Thêm hoặc nhúng video cục bộ (được lưu trên máy của bạn)
-* Thêm video trực tuyến (từ nguồn web như YouTube).
+Để biểu diễn dữ liệu video và khung video, Aspose.Slides cung cấp lớp [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) , lớp [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) và các kiểu liên quan khác.
 
-Để cho phép bạn thêm video (đối tượng video) vào bản trình bày, Aspose.Slides cung cấp lớp [Video](https://reference.aspose.com/slides/vi/php-java/aspose.slides/video/), lớp [VideoFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/) và các kiểu liên quan khác.
+## **Tạo một Khung Video Nhúng**
 
-## **Tạo khung video nhúng**
+Nếu tệp video bạn muốn thêm vào slide được lưu trữ cục bộ, bạn có thể tạo một khung video để nhúng video vào bản trình bày của mình.
 
-Nếu tệp video bạn muốn thêm vào slide được lưu cục bộ, bạn có thể tạo một khung video để nhúng video vào bản trình bày.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
-1. Thêm một đối tượng [Video](https://reference.aspose.com/slides/vi/php-java/aspose.slides/video/) và truyền đường dẫn tệp video để nhúng video vào bản trình bày.
-1. Thêm một đối tượng [VideoFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/) để tạo khung cho video.
-1. Lưu bản trình bày đã sửa đổi.
-
-Đoạn mã PHP sau cho bạn thấy cách thêm video được lưu cục bộ vào bản trình bày:
+Ví dụ này nhúng một video cục bộ vào slide đầu tiên của bản trình bày hiện có và lưu kết quả. Tọa độ và kích thước khung được tính bằng point. Luồng dữ liệu vẫn mở cho đến khi lưu hoàn tất vì [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) giữ nó bị khóa trong khi bản trình bày sử dụng nó.
 
 ```php
-  # Khởi tạo lớp Presentation
-  $pres = new Presentation("pres.pptx");
-  try {
-    # Tải video
-    $fileStream = new Java("java.io.FileInputStream", "Wildlife.mp4");
-    $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
-    # Lấy slide đầu tiên và thêm khung video
-    $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
-    # Lưu bản trình bày vào đĩa
-    $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\LoadingStreamBehavior;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-Ngoài ra, bạn có thể thêm video bằng cách truyền trực tiếp đường dẫn tệp vào phương thức [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/addvideoframe/):
-
-```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $vf = $sld->getShapes()->addVideoFrame(50, 150, 300, 150, "video1.avi");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Tạo khung video với video từ nguồn web**
-
-Microsoft [PowerPoint 2013 và mới hơn](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) hỗ trợ video YouTube trong bản trình bày. Nếu video bạn muốn sử dụng có sẵn trực tuyến (ví dụ: trên YouTube), bạn có thể thêm nó vào bản trình bày qua liên kết web của nó.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
-1. Thêm một đối tượng [Video](https://reference.aspose.com/slides/vi/php-java/aspose.slides/video/) và truyền liên kết đến video.
-1. Đặt hình thu nhỏ cho khung video.
-1. Lưu bản trình bày.
-
-Đoạn mã PHP sau cho bạn thấy cách thêm video từ web vào một slide trong bản trình bày PowerPoint:
-
-```php
-  # Khởi tạo một đối tượng Presentation đại diện cho tệp bản trình bày
-  $pres = new Presentation();
-  try {
-    addVideoFromYouTube($pres, "Tj75Arhq5ho");
-    $pres->save("out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-```php
-
-```
-
-## **Cắt xén khung video**
-
-Aspose.Slides cho phép bạn kiểm soát phần nào của video sẽ được phát bằng cách thiết lập giá trị trim-from-start và trim-from-end thông qua [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/#setTrimFromStart) và [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/#setTrimFromEnd). Cả hai giá trị đều được chỉ định bằng mili giây và xác định thời gian bị bỏ qua từ đầu và cuối video, tương ứng. Các thiết lập này thay đổi cách phát video trong bản trình bày; chúng không cắt hoặc sửa đổi dữ liệu nhị phân của video đã nhúng.
-
-**Đặt thiết lập cắt xén**
-
-Để tạo một khung video và thiết lập các giá trị cắt xén:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-1. Thêm một đối tượng [Video](https://reference.aspose.com/slides/vi/php-java/aspose.slides/video/) vào bản trình bày.
-1. Thêm một đối tượng [VideoFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/) vào slide.
-1. Đặt giá trị trim-from-start và trim-from-end thông qua [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/#setTrimFromStart) và [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/#setTrimFromEnd).
-1. Lưu bản trình bày đã sửa đổi.
-
-Đoạn mã sau bỏ qua 2,5 giây đầu và 1 giây cuối của video đã nhúng khi phát:
-
-```php
-$presentation = new Presentation();
+$presentation = new Presentation("presentation.pptx");
 $videoStream = null;
 try {
     $videoStream = new Java("java.io.FileInputStream", "video.mp4");
-    $video = $presentation->getVideos()->addVideo(
-        $videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
     $slide = $presentation->getSlides()->get_Item(0);
-    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
 
-    $videoFrame->setTrimFromStart(2500);
-    $videoFrame->setTrimFromEnd(1000);
+    $video = $presentation->getVideos()->addVideo($videoStream, LoadingStreamBehavior::KeepLocked);
+    $slide->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
 
-    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+    $presentation->save("embedded_video.pptx", SaveFormat::Pptx);
 } finally {
     if ($videoStream !== null) {
         $videoStream->close();
@@ -142,26 +56,176 @@ try {
 }
 ```
 
-**Đọc thiết lập cắt xén**
-
-Để kiểm tra các thiết lập cắt xén hiện có, tải một bản trình bày, tìm đối tượng [VideoFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/) trong các shape trên slide đầu tiên, và đọc các giá trị qua [VideoFrame::getTrimFromStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/#getTrimFromStart) và [VideoFrame::getTrimFromEnd](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/#getTrimFromEnd).
-
-Đoạn mã sau tìm khung video đầu tiên trên slide đầu tiên và báo cáo các thiết lập cắt xén tính bằng mili giây:
+Bạn cũng có thể truyền đường dẫn video cục bộ trực tiếp tới [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). Ví dụ này nhúng video vào slide đầu tiên của một bản trình bày mới. Video phải vẫn có thể truy cập được cho đến khi bản trình bày được lưu.
 
 ```php
-$presentation = new Presentation("video_with_trim.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addVideoFrame(50, 150, 300, 150, "video.avi");
+
+    $presentation->save("video_from_path.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Tạo một Khung Video với Video từ Nguồn Web**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong bản trình bày. Bạn có thể tạo một khung video liên kết tới video trực tuyến, chẳng hạn như video YouTube.
+
+Ví dụ này thêm liên kết video YouTube và hình thu nhỏ vào slide đầu tiên. Thay thế định danh video để sử dụng video khác. Phương thức [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) yêu cầu phát lại tự động. Tải hình thu nhỏ và phát video cần có kết nối internet. Trình xem bản trình bày cũng phải hỗ trợ phát video trực tuyến.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\VideoPlayModePreset;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoId = "aqz-KE-bpKQ";
+    $videoUrl = "https://www.youtube.com/embed/" . $videoId;
+    $videoFrame = $slide->getShapes()->addVideoFrame(10, 10, 427, 240, $videoUrl);
+    $videoFrame->setPlayMode(VideoPlayModePreset::Auto);
+
+    $thumbnailUrl = "https://img.youtube.com/vi/" . $videoId . "/hqdefault.jpg";
+    $thumbnailLocation = new Java("java.net.URL", $thumbnailUrl);
+    $thumbnailStream = $thumbnailLocation->openStream();
+    try {
+        $thumbnail = $presentation->getImages()->addImage($thumbnailStream);
+        $videoFrame->getPictureFormat()->getPicture()->setImage($thumbnail);
+    } finally {
+        $thumbnailStream->close();
+    }
+
+    $presentation->save("online_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Phát Video ở Chế Độ Toàn Màn Hình**
+
+Trong bản trình bày đào tạo, bạn có thể phát một bản demo phần mềm ở chế độ toàn màn hình để khán giả nhìn thấy chi tiết. Gọi [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) với `true` để bật hành vi này trong quá trình phát.
+
+Ví dụ này mở một bản trình bày, tìm khung [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) đầu tiên trên slide đầu và bật phát toàn màn hình. Bản trình bày đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("training.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $shapeCount = java_values($slide->getShapes()->size());
     for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
         $shape = $slide->getShapes()->get_Item($shapeIndex);
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
             $videoFrame = $shape;
-            $trimFromStart = java_values($videoFrame->getTrimFromStart());
-            $trimFromEnd = java_values($videoFrame->getTrimFromEnd());
+            $videoFrame->setFullScreenMode(true);
+            break;
+        }
+    }
 
-            echo "Trim from start: " . $trimFromStart . " ms\n";
-            echo "Trim from end: " . $trimFromEnd . " ms\n";
+    $presentation->save("full_screen_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Phát toàn màn hình kiểm soát cách video được hiển thị. Độc lập, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) kiểm soát việc video bắt đầu tự động hay khi nhấp, và [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) kiểm soát việc lặp lại. Để chọn hành vi khởi động, đặt chế độ phát lại thành [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). Ví dụ giữ nguyên các cài đặt khởi động và vòng lặp hiện có.
+
+## **Quay Lại Video Sau Khi Phát**
+
+Trong bản trình bày đào tạo, trả video demo về đầu giúp người thuyết trình có thể phát lại. Gọi [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) với `true` để trả video về đầu sau khi phát hoàn thành.
+
+Ví dụ này mở một bản trình bày, tìm khung [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) đầu tiên trên slide đầu và bật tính năng quay lại. Nó tắt vòng lặp để phát có thể kết thúc và đặt phát bắt đầu khi nhấp. Bản trình bày đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\VideoPlayModePreset;
+
+$presentation = new Presentation("training.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $videoFrame->setRewindVideo(true);
+            $videoFrame->setPlayLoopMode(false);
+            $videoFrame->setPlayMode(VideoPlayModePreset::OnClick);
+            break;
+        }
+    }
+
+    $presentation->save("rewind_video.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Quay lại trả video về đầu mà không khởi động lại. Ngược lại, gọi [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) với `true` sẽ lặp lại phát tự động. Giữ vòng lặp tắt khi bạn muốn video kết thúc và sẵn sàng để phát lại. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) độc lập kiểm soát khởi động tự động hay khi nhấp; ví dụ này sử dụng [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) để người thuyết trình kiểm soát thời điểm phát. Đặt chế độ phát sau khi cấu hình vòng lặp, như trong ví dụ. Quay lại hoạt động độc lập với [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
+
+## **Cắt Bớt Khung Video**
+
+Sử dụng [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) và [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) để bỏ qua phần đầu hoặc cuối của video trong quá trình phát. Cả hai giá trị đều tính bằng mili giây. Việc cắt bớt thay đổi cài đặt phát lại mà không thay đổi dữ liệu video nhúng.
+
+**Đặt Cài Đặt Cắt**
+
+Ví dụ này nhúng một video cục bộ và bỏ qua 2,5 giây đầu và 1 giây cuối trong khi phát. Sử dụng video dài hơn 3,5 giây để phần có thể phát còn lại.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoFile = new Java("java.io.File", "video.mp4");
+    $videoPath = $videoFile->toPath();
+    $videoData = java("java.nio.file.Files")->readAllBytes($videoPath);
+    $video = $presentation->getVideos()->addVideo($videoData);
+
+    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
+    $videoFrame->setTrimFromStart(2500);
+    $videoFrame->setTrimFromEnd(1000);
+
+    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+**Đọc Cài Đặt Cắt**
+
+Ví dụ này in ra các giá trị cắt của khung video đầu tiên trên slide đầu, tính bằng mili giây. Bản trình bày phải chứa ít nhất một slide. Nếu slide đó không có khung video, sẽ không in gì. Ví dụ trước tạo ra các giá trị 2500 và 1000.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("video_with_trim.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            echo "Trim from start: " . java_values($videoFrame->getTrimFromStart()) . " ms\n";
+            echo "Trim from end: " . java_values($videoFrame->getTrimFromEnd()) . " ms\n";
             break;
         }
     }
@@ -170,32 +234,28 @@ try {
 }
 ```
 
-## **Quản lý phụ đề video**
+## **Quản Lý Phụ Đề Video**
 
-Aspose.Slides cho phép bạn quản lý phụ đề đóng (closed captions) cho các khung video trong bản trình bày PowerPoint. Phụ đề được lưu ở định dạng WebVTT và được truy cập thông qua phương pháp [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides cho phép bạn quản lý phụ đề đóng cho các khung video trong bản trình bày PowerPoint. Phụ đề được lưu dưới định dạng WebVTT và được cung cấp qua phương thức [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Thêm phụ đề vào khung video**
+**Thêm Phụ Đề vào Khung Video**
 
-Để thêm phụ đề vào khung video:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-1. Thêm một video vào bản trình bày.
-1. Thêm một đối tượng [VideoFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/) vào slide.
-1. Sử dụng bộ sưu tập [CaptionsCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/captionscollection/) trả về bởi [getCaptionTracks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/#getCaptionTracks) để thêm một track phụ đề WebVTT.
-1. Lưu bản trình bày đã sửa đổi.
-
-Đoạn mã sau cho bạn thấy cách thêm phụ đề vào khung video:
+Ví dụ này nhúng một video cục bộ và thêm một track phụ đề WebVTT có nhãn English. Các dấu thời gian phụ đề phải khớp với video. Bản trình bày đã lưu sẽ bao gồm cả video và phụ đề của nó.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $videoData = file_get_contents("video.mp4");
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $videoFile = new Java("java.io.File", "video.mp4");
+    $videoPath = $videoFile->toPath();
+    $videoData = java("java.nio.file.Files")->readAllBytes($videoPath);
     $video = $presentation->getVideos()->addVideo($videoData);
 
-    $slide = $presentation->getSlides()->get_Item(0);
     $videoFrame = $slide->getShapes()->addVideoFrame(0, 0, 100, 100, $video);
-
-    // Thêm một track phụ đề mới từ tệp WebVTT.
     $videoFrame->getCaptionTracks()->add("English", "track.vtt");
 
     $presentation->save("video_with_captions.pptx", SaveFormat::Pptx);
@@ -204,62 +264,60 @@ try {
 }
 ```
 
-Lớp [CaptionsCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/captionscollection/) cũng cung cấp một overload cho phép bạn thêm phụ đề từ một luồng (stream).
+Lớp [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) cũng cung cấp một overload cho phép bạn thêm phụ đề từ một luồng dữ liệu.
 
-**Trích xuất phụ đề từ khung video**
+**Trích Xuất Phụ Đề từ Khung Video**
 
-Để trích xuất phụ đề từ khung video:
-
-1. Tải bản trình bày chứa video.
-1. Tìm đối tượng [VideoFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/) mục tiêu.
-1. Duyệt qua bộ sưu tập [getCaptionTracks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/#getCaptionTracks).
-1. Lưu mỗi track phụ đề vào tệp `.vtt`.
-
-Đoạn mã sau cho bạn thấy cách trích xuất phụ đề từ khung video:
+Ví dụ này lưu tất cả các track phụ đề từ các khung video trên slide đầu tiên thành các tệp WebVTT riêng biệt. Các số thứ tự giữ cho các tệp đầu ra không trùng nhau. Bảng điều khiển in ra số lượng track đã trích xuất. Bản trình bày phải chứa ít nhất một slide.
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("video_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $trackCount = 0;
     $shapeCount = java_values($slide->getShapes()->size());
     for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
         $shape = $slide->getShapes()->get_Item($shapeIndex);
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
             $videoFrame = $shape;
-            $trackCount = java_values($videoFrame->getCaptionTracks()->getCount());
-            for ($trackIndex = 0; $trackIndex < $trackCount; $trackIndex++) {
+            $captionCount = java_values($videoFrame->getCaptionTracks()->getCount());
+            for ($trackIndex = 0; $trackIndex < $captionCount; $trackIndex++) {
                 $captionTrack = $videoFrame->getCaptionTracks()->get_Item($trackIndex);
-                // Lưu track phụ đề vào tệp WebVTT.
-                $filePath = $captionTrack->getCaptionId() . ".vtt";
-                file_put_contents($filePath, $captionTrack->getBinaryData());
+                $trackCount++;
+                $outputStream = new Java("java.io.FileOutputStream", "captions_" . $trackCount . ".vtt");
+                try {
+                    $outputStream->write($captionTrack->getBinaryData());
+                } finally {
+                    $outputStream->close();
+                }
             }
         }
     }
+
+    echo "Caption tracks extracted: " . $trackCount . "\n";
 } finally {
     $presentation->dispose();
 }
 ```
 
-Mỗi đối tượng [Captions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/captions/) cung cấp mã nhận dạng phụ đề, nhãn, dữ liệu nhị phân và văn bản phụ đề dưới dạng chuỗi UTF‑8.
+Mỗi đối tượng [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) cung cấp định danh phụ đề, nhãn, dữ liệu nhị phân và nội dung phụ đề dưới dạng chuỗi UTF-8.
 
-**Xóa phụ đề khỏi khung video**
+**Xóa Phụ Đề khỏi Khung Video**
 
-Để xóa phụ đề khỏi khung video:
-
-1. Tải bản trình bày chứa video.
-1. Lấy đối tượng [VideoFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/) mục tiêu.
-1. Xóa các track phụ đề khỏi bộ sưu tập [getCaptionTracks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/#getCaptionTracks).
-1. Lưu bản trình bày đã sửa đổi.
-
-Đoạn mã sau cho bạn thấy cách xóa tất cả phụ đề khỏi khung video:
+Ví dụ này xóa tất cả phụ đề khỏi khung video ở vị trí hình dạng đầu tiên trên slide đầu và lưu kết quả. Giả sử slide và hình dạng tồn tại và hình dạng là một khung video.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("video_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $videoFrame = $slide->getShapes()->get_Item(0); // loại: VideoFrame
 
-    // Xóa tất cả phụ đề khỏi khung video.
+    $videoFrame = $slide->getShapes()->get_Item(0);
     $videoFrame->getCaptionTracks()->clear();
 
     $presentation->save("video_without_captions.pptx", SaveFormat::Pptx);
@@ -268,62 +326,66 @@ try {
 }
 ```
 
-Nếu bạn chỉ cần xóa một track phụ đề, hãy sử dụng phương pháp [remove](https://reference.aspose.com/slides/vi/php-java/aspose.slides/captionscollection/#remove) hoặc [removeAt](https://reference.aspose.com/slides/vi/php-java/aspose.slides/captionscollection/#removeAt) thay vì [clear](https://reference.aspose.com/slides/vi/php-java/aspose.slides/captionscollection/#clear).
+Nếu bạn chỉ muốn xóa một track phụ đề, hãy dùng các phương thức [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) hoặc [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) thay vì [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
 
-## **Trích xuất video từ slide**
+## **Trích Xuất Video từ Slide**
 
-Ngoài việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video đã nhúng trong bản trình bày.
+Bên cạnh việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video nhúng trong bản trình bày.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) để tải bản trình bày chứa video.
-2. Duyệt qua tất cả các đối tượng [Slide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slide/).
-3. Duyệt qua tất cả các đối tượng [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) để tìm một [VideoFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/).
-4. Lưu video ra đĩa.
-
-Đoạn mã PHP sau cho bạn thấy cách trích xuất video trên một slide của bản trình bày:
+Ví dụ này trích xuất video nhúng từ mọi slide thành các tệp nhị phân có số thứ tự riêng. Video liên kết sẽ bị bỏ qua vì không có dữ liệu nhúng. Bảng điều khiển in ra loại MIME của mỗi video và tổng số video. Đầu ra sử dụng phần mở rộng `.bin` chung; thay đổi nó để phù hợp với loại media được báo cáo khi cần.
 
 ```php
-  # Khởi tạo một đối tượng Presentation đại diện cho tệp bản trình bày
-  $pres = new Presentation("VideoSample.pptx");
-  try {
-    foreach($pres->getSlides() as $slide) {
-      foreach($slide->getShapes() as $shape) {
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
-          $vf = $shape;
-          $type = $vf->getEmbeddedVideo()->getContentType();
-          $ss = $type->lastIndexOf('-');
-          $buffer = $vf->getEmbeddedVideo()->getBinaryData();
-          # Lấy phần mở rộng tệp
-          $charIndex = $type->indexOf("/");
-          $type = $type->substring($charIndex + 1);
-          $fop = new Java("java.io.FileOutputStream", "testing2." . $type);
-          $fop->write($buffer);
-          $fop->flush();
-          $fop->close();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation_with_videos.pptx");
+try {
+    $videoCount = 0;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                $videoFrame = $shape;
+                $video = $videoFrame->getEmbeddedVideo();
+                if (java_is_null($video)) {
+                    echo "Skipped a linked video: no embedded data is available.\n";
+                    continue;
+                }
+
+                $videoCount++;
+                $outputStream = new Java("java.io.FileOutputStream", "extracted_video_" . $videoCount . ".bin");
+                try {
+                    $outputStream->write($video->getBinaryData());
+                } finally {
+                    $outputStream->close();
+                }
+                echo "Video " . $videoCount . ": " . java_values($video->getContentType()) . "\n";
+            }
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    echo "Embedded videos extracted: " . $videoCount . "\n";
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Câu hỏi thường gặp**
 
-**Các tham số phát video nào có thể thay đổi cho một VideoFrame?**
+**Các tham số phát lại video có thể thay đổi cho một khung video là gì?**
 
-Bạn có thể kiểm soát [chế độ phát lại](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/setplaymode/) (tự động hoặc khi nhấp) và [vòng lặp](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/setplayloopmode/). Các tùy chọn này có sẵn qua các thuộc tính của đối tượng [VideoFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/).
+Bạn có thể kiểm soát [chế độ phát lại](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (tự động hoặc khi nhấp) và [vòng lặp](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). Các tùy chọn này có sẵn qua các phương thức của đối tượng [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
 
-**Việc thêm video có ảnh hưởng đến kích thước tệp PPTX không?**
+**Thêm video có ảnh hưởng đến kích thước tệp PPTX không?**
 
-Có. Khi bạn nhúng video cục bộ, dữ liệu nhị phân được đưa vào tài liệu, vì vậy kích thước bản trình bày tăng tỷ lệ với kích thước tệp. Khi bạn thêm video trực tuyến, một liên kết và hình thu nhỏ được nhúng, do đó tăng kích thước là ít hơn.
+Có. Khi bạn nhúng một video cục bộ, dữ liệu nhị phân được bao gồm trong tài liệu, vì vậy kích thước bản trình bày tăng tỷ lệ với kích thước tệp. Khi bạn liên kết tới video trực tuyến và thêm hình thu nhỏ, bản trình bày chỉ lưu liên kết và ảnh xem trước thay vì dữ liệu video, nên tăng kích thước thường ít hơn.
 
-**Tôi có thể thay thế video trong một VideoFrame hiện có mà không thay đổi vị trí và kích thước không?**
+**Tôi có thể thay thế video trong một khung video hiện có mà không thay đổi vị trí và kích thước không?**
 
-Có. Bạn có thể hoán đổi [nội dung video](https://reference.aspose.com/slides/vi/php-java/aspose.slides/videoframe/setembeddedvideo/) trong khung trong khi giữ nguyên hình học của shape; đây là kịch bản thường gặp khi cập nhật phương tiện trong bố cục hiện có.
+Có. Bạn có thể hoán đổi [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) trong khung mà vẫn giữ nguyên hình học của shape; đây là kịch bản phổ biến để cập nhật phương tiện trong bố cục hiện có.
 
-**Có thể xác định loại nội dung (MIME) của một video đã nhúng không?**
+**Có thể xác định loại nội dung (MIME) của video nhúng không?**
 
-Có. Một video đã nhúng có một [loại nội dung](https://reference.aspose.com/slides/vi/php-java/aspose.slides/video/getcontenttype/) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó ra đĩa.
+Có. Một video nhúng có một [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó ra đĩa.

@@ -17,30 +17,21 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie programmgesteuert Video-Frames in PowerPoint- und OpenDocument-Folien mithilfe von Aspose.Slides für Python via Java hinzufügen und extrahieren. Schnelle Anleitungs-Kurzfassung."
+description: "Erfahren Sie, wie Sie programmgesteuert Video-Frames in PowerPoint- und OpenDocument-Folien mithilfe von Aspose.Slides for Python via Java hinzufügen und extrahieren. Schnelle Anleitung."
 ---
-## **Einführung**
+## **Einleitung**
 
-Ein gut platziertes Video in einer Präsentation kann Ihre Botschaft überzeugender machen und das Engagement‑Level Ihres Publikums erhöhen.
+Videos können dabei helfen, Ideen zu erklären und ein Publikum zu fesseln. Aspose.Slides for Python via Java ermöglicht das Hinzufügen von Videoframes zu Folien, das Anpassen von Wiedergabeeinstellungen, das Verwalten von Untertiteln und das Extrahieren eingebetteter Videodaten.
 
-PowerPoint ermöglicht es Ihnen, Videos auf einer Folie in einer Präsentation auf zwei Arten hinzuzufügen:
+PowerPoint unterstützt lokale Videos und Links zu Online‑Videos, wie z. B. YouTube‑Videos.
 
-* Fügen Sie ein lokales Video hinzu oder betten Sie es ein (auf Ihrem Rechner gespeichert)
-* Fügen Sie ein Online‑Video hinzu (aus einer Webquelle wie YouTube).
+Um Videodaten und Videoframes darzustellen, stellt Aspose.Slides die Klasse [Video](https://reference.aspose.com/slides/python-java/aspose.slides/video/), die Klasse [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) und andere relevante Typen bereit.
 
-Um Ihnen das Hinzufügen von Videos (Video‑Objekten) zu einer Präsentation zu ermöglichen, stellt Aspose.Slides die Klasse [Video](https://reference.aspose.com/slides/de/python-java/aspose.slides/video/) bereit, die Klasse [VideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/) und weitere relevante Typen.
+## **Ein eingebettetes Videoframe erstellen**
 
-## **Erstellen eingebetteter Video‑Frames**
+Wenn die Videodatei, die Sie zu Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie ein Video‑Frame erstellen, um das Video in Ihre Präsentation einzubetten.
 
-Wenn die Videodatei, die Sie Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Video‑Frame erstellen, um das Video in Ihre Präsentation einzubetten.
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) .
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie ein [Video](https://reference.aspose.com/slides/de/python-java/aspose.slides/video/)‑Objekt hinzu und übergeben Sie die Videodateidaten, um das Video in die Präsentation einzubetten.
-1. Fügen Sie ein [VideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/)‑Objekt hinzu, um einen Frame für das Video zu erstellen.
-1. Speichern Sie die geänderte Präsentation.
-
-Dieses Python‑Beispiel zeigt, wie Sie ein lokal gespeichertes Video zu einer Präsentation hinzufügen:
+Dieses Beispiel bettet ein lokales Video in die erste Folie einer vorhandenen Präsentation ein und speichert das Ergebnis. Die Koordinaten und Abmessungen des Frames sind in Punkten angegeben. Python liest die Videobytes von der Festplatte, und JPype konvertiert sie in ein Java‑Byte‑Array, bevor das Video zur Präsentation hinzugefügt wird.
 
 ```python
 from pathlib import Path
@@ -53,18 +44,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("pres.pptx")
+presentation = Presentation("presentation.pptx")
 try:
-    video_data = Path("Wildlife.mp4").read_bytes()
+    slide = presentation.getSlides().get_Item(0)
+
+    video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video)
-    presentation.save("pres-with-video.pptx", SaveFormat.Pptx)
+    slide.getShapes().addVideoFrame(10, 10, 150, 250, video)
+
+    presentation.save("embedded_video.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Alternativ können Sie ein Video hinzufügen, indem Sie dessen Dateipfad direkt an die Methode [addVideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/shapecollection/#addVideoFrame) übergeben:
+Sie können auch einen lokalen Videopfad direkt an [addVideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addVideoFrame) übergeben. Dieses Beispiel bettet das Video in die erste Folie einer neuen Präsentation ein. Das Video muss bis zum Speichern der Präsentation zugänglich bleiben.
 
 ```python
 import jpype
@@ -73,25 +68,24 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation
+from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    video_frame = slide.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi")
+
+    slide.getShapes().addVideoFrame(50, 150, 300, 150, "video.avi")
+
+    presentation.save("video_from_path.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Erstellen von Video‑Frames mit Videos aus Web‑Quellen**
+## **Ein Video‑Frame mit Video aus einer Web‑Quelle erstellen**
 
-Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube‑Videos in Präsentationen. Wenn das Video, das Sie verwenden möchten, online verfügbar ist (z. B. auf YouTube), können Sie es über dessen Web‑Link zu Ihrer Präsentation hinzufügen.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) unterstützt Online‑Videos in Präsentationen. Sie können ein Video‑Frame erstellen, das auf ein Online‑Video verweist, beispielsweise ein YouTube‑Video.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) .
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie ein [VideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/)‑Objekt hinzu und übergeben Sie den Link zum Video.
-1. Legen Sie ein Thumbnail für den Video‑Frame fest.
-1. Speichern Sie die Präsentation.
+Dieses Beispiel fügt einen YouTube‑Video‑Link und ein Vorschaubild zur ersten Folie hinzu. Ersetzen Sie den Video‑Identifier, um ein anderes Video zu verwenden. Die Methode [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) fordert die automatische Wiedergabe an. Das Herunterladen des Vorschaubilds und das Abspielen des Videos erfordern Internetzugang. Der Präsentations‑Viewer muss ebenfalls die Online‑Videowiedergabe unterstützen.
 
 ```python
 from urllib.request import urlopen
@@ -104,41 +98,98 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, VideoPlayModePreset
 
-video_id = "Tj75Arhq5ho"
 presentation = Presentation()
 try:
-    video_frame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + video_id)
+    slide = presentation.getSlides().get_Item(0)
+
+    video_id = "aqz-KE-bpKQ"
+    video_url = "https://www.youtube.com/embed/" + video_id
+    video_frame = slide.getShapes().addVideoFrame(10, 10, 427, 240, video_url)
     video_frame.setPlayMode(VideoPlayModePreset.Auto)
 
-    # Lade das Thumbnail.
-    thumbnail_uri = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
-    try:
-        with urlopen(thumbnail_uri) as response:
-            thumbnail_data = response.read()
-        java_thumbnail_data = jpype.JArray(jpype.JByte)(thumbnail_data)
-        thumbnail = presentation.getImages().addImage(java_thumbnail_data)
-        video_frame.getPictureFormat().getPicture().setImage(thumbnail)
-    except OSError as error:
-        print("Could not load the thumbnail:", error)
+    thumbnail_url = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
+    with urlopen(thumbnail_url) as response:
+        thumbnail_data = response.read()
+    java_thumbnail_data = jpype.JArray(jpype.JByte)(thumbnail_data)
+    thumbnail = presentation.getImages().addImage(java_thumbnail_data)
+    video_frame.getPictureFormat().getPicture().setImage(thumbnail)
 
-    presentation.save("out.pptx", SaveFormat.Pptx)
+    presentation.save("online_video.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Trimmen eines Video‑Frames**
+## **Ein Video im Vollbildmodus abspielen**
 
-Aspose.Slides ermöglicht es Ihnen, welchen Teil eines Videos Sie abspielen, indem Sie die Werte trim‑from‑start und trim‑from‑end über [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#setTrimFromStart) und [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#setTrimFromEnd) festlegen. Beide Werte werden in Millisekunden angegeben und definieren, wie viel Zeit am Anfang bzw. Ende des Videos übersprungen wird. Diese Einstellungen ändern die Wiedergabe‑Parameter im Video‑Frame der Präsentation; sie schneiden das eingebettete Video‑Binary nicht zu und verändern es nicht.
+In einer Schulungspräsentation können Sie eine Software‑Demo im Vollbildmodus abspielen, damit das Publikum die Details sehen kann. Rufen Sie [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode) mit `True` auf, um dieses Verhalten während der Wiedergabe zu aktivieren.
 
-**Trim‑Einstellungen festlegen**
+Dieses Beispiel öffnet eine Präsentation, findet das erste [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) auf der ersten Folie und aktiviert die Vollbild‑Wiedergabe. Die Eingabe‑Präsentation muss mindestens eine Folie mit einem vorhandenen Video‑Frame auf der ersten Folie enthalten.
 
-Um einen Video‑Frame zu erstellen und dessen Trimm‑Einstellungen festzulegen:
+```python
+import jpype
+import asposeslides
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) .
-1. Fügen Sie ein [Video](https://reference.aspose.com/slides/de/python-java/aspose.slides/video/)‑Objekt zur Präsentation hinzu.
-1. Fügen Sie ein [VideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/)‑Objekt zu einer Folie hinzu.
-1. Setzen Sie die trim‑from‑start‑ und trim‑from‑end‑Werte über [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#setTrimFromStart) und [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#setTrimFromEnd) .
-1. Speichern Sie die geänderte Präsentation.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, VideoFrame
+
+presentation = Presentation("training.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if isinstance(shape, VideoFrame):
+            shape.setFullScreenMode(True)
+            break
+
+    presentation.save("full_screen_video.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Die Vollbild‑Wiedergabe steuert, wie das Video angezeigt wird. Unabhängig davon regelt [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode), ob es automatisch oder per Klick startet, und [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) bestimmt, ob es wiederholt wird. Um das Startverhalten zu wählen, setzen Sie den Wiedergabemodus auf [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/). Das Beispiel bewahrt die vorhandenen Start‑ und Schleife‑Einstellungen.
+
+## **Ein Video nach der Wiedergabe zurückspulen**
+
+In einer Schulungspräsentation macht das Zurückspulen eines Demonstrationsvideos an den Anfang das Video wieder bereit für den Präsentierenden. Rufen Sie [setRewindVideo](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setRewindVideo) mit `True` auf, um das Video nach Abschluss der Wiedergabe an den Anfang zurückzusetzen.
+
+Dieses Beispiel öffnet eine Präsentation, findet das erste [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) auf der ersten Folie und aktiviert das Zurückspulen. Es deaktiviert die Schleife, sodass die Wiedergabe beendet werden kann, und setzt die Wiedergabe so, dass sie per Klick startet. Die Eingabe‑Präsentation muss mindestens eine Folie mit einem vorhandenen Video‑Frame auf der ersten Folie enthalten.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, VideoFrame, VideoPlayModePreset
+
+presentation = Presentation("training.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if isinstance(shape, VideoFrame):
+            shape.setRewindVideo(True)
+            shape.setPlayLoopMode(False)
+            shape.setPlayMode(VideoPlayModePreset.OnClick)
+            break
+
+    presentation.save("rewind_video.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Das Zurückspulen bringt das Video an den Anfang, ohne es erneut zu starten. Im Gegensatz dazu wiederholt das Aufrufen von [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) mit `True` die Wiedergabe automatisch. Deaktivieren Sie die Schleife, wenn das Video bis zum Ende laufen und anschließend bereit zum erneuten Abspielen sein soll. [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) steuert unabhängig davon, ob die Wiedergabe automatisch oder per Klick startet; dieses Beispiel verwendet [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/), sodass der Präsentierende kontrolliert, wann die Wiedergabe beginnt. Setzen Sie den Wiedergabemodus nach der Schleife‑Einstellung, wie im Beispiel gezeigt. Das Zurückspulen funktioniert unabhängig von [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode).
+
+## **Ein Video‑Frame trimmen**
+
+Verwenden Sie [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromStart) und [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromEnd), um zu Beginn oder am Ende eines Videos während der Wiedergabe Teile zu überspringen. Beide Werte sind in Millisekunden angegeben. Das Trimmen ändert die Wiedergabeeinstellungen, ohne die eingebetteten Videodaten zu verändern.
+
+**Trimmeinstellungen festlegen**
+
+Dieses Beispiel bettet ein lokales Video ein und überspringt während der Wiedergabe die ersten 2,5 Sekunden und die letzte Sekunde. Verwenden Sie ein Video, das länger als 3,5 Sekunden ist, damit ein abspielbarer Abschnitt erhalten bleibt.
 
 ```python
 from pathlib import Path
@@ -153,22 +204,25 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
+    slide = presentation.getSlides().get_Item(0)
+
     video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video)
 
     video_frame.setTrimFromStart(2500.0)
     video_frame.setTrimFromEnd(1000.0)
+
     presentation.save("video_with_trim.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**Trim‑Einstellungen auslesen**
+**Trimmeinstellungen auslesen**
 
-Um vorhandene Trimm‑Einstellungen zu prüfen, laden Sie eine Präsentation, finden Sie ein [VideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/)‑Objekt unter den Shapes auf der ersten Folie und lesen Sie die Werte über [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#getTrimFromStart) und [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#getTrimFromEnd) aus.
+Dieses Beispiel gibt die Trimmwerte des ersten Video‑Frames auf der ersten Folie in Millisekunden aus. Die Präsentation muss mindestens eine Folie enthalten. Wenn diese Folie keinen Video‑Frame hat, wird nichts ausgegeben. Das vorherige Beispiel erzeugt die Werte 2500 und 1000.
 
 ```python
 import jpype
@@ -182,6 +236,7 @@ from asposeslides.api import Presentation, VideoFrame
 presentation = Presentation("video_with_trim.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             trim_from_start = shape.getTrimFromStart()
@@ -195,17 +250,11 @@ finally:
 
 ## **Video‑Untertitel verwalten**
 
-Aspose.Slides ermöglicht es Ihnen, geschlossene Untertitel für Video‑Frames in PowerPoint‑Präsentationen zu verwalten. Untertitel werden im WebVTT‑Format gespeichert und über die Methode [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#getCaptionTracks) bereitgestellt.
+Aspose.Slides ermöglicht es Ihnen, geschlossene Untertitel für Video‑Frames in PowerPoint‑Präsentationen zu verwalten. Untertitel werden im WebVTT‑Format gespeichert und über die Methode [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks) bereitgestellt.
 
 **Untertitel zu einem Video‑Frame hinzufügen**
 
-Um Untertitel zu einem Video‑Frame hinzuzufügen:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) .
-1. Fügen Sie ein Video zur Präsentation hinzu.
-1. Fügen Sie ein [VideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/)‑Objekt zu einer Folie hinzu.
-1. Verwenden Sie die [CaptionsCollection](https://reference.aspose.com/slides/de/python-java/aspose.slides/captionscollection/) , die von [getCaptionTracks](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#getCaptionTracks) zurückgegeben wird, um eine WebVTT‑Untertitelspur hinzuzufügen.
-1. Speichern Sie die geänderte Präsentation.
+Dieses Beispiel bettet ein lokales Video ein und fügt eine WebVTT‑Untertitelspur mit dem Namen English hinzu. Die Zeitstempel der Untertitel sollten mit dem Video übereinstimmen. Die gespeicherte Präsentation enthält sowohl das Video als auch seine Untertitel.
 
 ```python
 from pathlib import Path
@@ -214,35 +263,33 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpime.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
+    slide = presentation.getSlides().get_Item(0)
+
     video_data = Path("video.mp4").read_bytes()
     java_video_data = jpype.JArray(jpype.JByte)(video_data)
+
     video = presentation.getVideos().addVideo(java_video_data)
-    slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
-    # Eine neue Untertitelspur aus einer WebVTT-Datei hinzufügen.
+    # Fügen Sie eine neue Untertitelspur aus einer WebVTT-Datei hinzu.
     video_frame.getCaptionTracks().add("English", "track.vtt")
+
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Die Klasse [CaptionsCollection](https://reference.aspose.com/slides/de/python-java/aspose.slides/captionscollection/) bietet außerdem eine Überladung, mit der Sie Untertitel aus einem Stream hinzufügen können.
+Die Klasse [CaptionsCollection](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/) bietet außerdem eine Überladung, mit der Sie Untertitel aus einem Stream hinzufügen können.
 
 **Untertitel aus einem Video‑Frame extrahieren**
 
-Um Untertitel aus einem Video‑Frame zu extrahieren:
-
-1. Laden Sie die Präsentation, die das Video enthält.
-1. Finden Sie das Ziel‑[VideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/)‑Objekt.
-1. Iterieren Sie über die Untertitelspuren in der [CaptionsCollection](https://reference.aspose.com/slides/de/python-java/aspose.slides/captionscollection/) .
-1. Speichern Sie jede Untertitelspur in einer `.vtt`‑Datei.
+Dieses Beispiel speichert alle Untertitelspuren von Video‑Frames auf der ersten Folie als separate WebVTT‑Dateien. Fortlaufende Nummern halten die Ausgabedateien eindeutig. Die Konsole gibt die Anzahl der extrahierten Spuren aus. Die Präsentation muss mindestens eine Folie enthalten.
 
 ```python
 from pathlib import Path
@@ -258,27 +305,26 @@ from asposeslides.api import Presentation, VideoFrame
 presentation = Presentation("video_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
+    track_count = 0
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             for caption_track in shape.getCaptionTracks():
-                # Speichere die Untertitelspur in einer WebVTT-Datei.
-                file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
+                track_count += 1
+                output_path = Path(f"captions_{track_count}.vtt")
                 caption_data = bytes(caption_track.getBinaryData())
-                file_path.write_bytes(caption_data)
+                output_path.write_bytes(caption_data)
+
+    print(f"Caption tracks extracted: {track_count}")
 finally:
     presentation.dispose()
 ```
 
-Jedes [Captions](https://reference.aspose.com/slides/de/python-java/aspose.slides/captions/)‑Objekt stellt die Untertitel‑ID, das Label, die Binärdaten und den Untertiteltext als UTF‑8‑String bereit.
+Jedes [Captions](https://reference.aspose.com/slides/python-java/aspose.slides/captions/)‑Objekt stellt den Untertitel‑Identifier, das Label, die Binärdaten und den Untertiteltext als UTF‑8‑Zeichenkette bereit.
 
 **Untertitel aus einem Video‑Frame entfernen**
 
-Um Untertitel aus einem Video‑Frame zu entfernen:
-
-1. Laden Sie die Präsentation, die das Video enthält.
-1. Holen Sie das Ziel‑[VideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/)‑Objekt.
-1. Entfernen Sie Untertitelspuren aus der [CaptionsCollection](https://reference.aspose.com/slides/de/python-java/aspose.slides/captionscollection/) .
-1. Speichern Sie die geänderte Präsentation.
+Dieses Beispiel entfernt alle Untertitel aus dem Video‑Frame an der ersten Shape‑Position auf der ersten Folie und speichert das Ergebnis. Es wird vorausgesetzt, dass die Folie und das Shape existieren und dass das Shape ein Video‑Frame ist.
 
 ```python
 import jpype
@@ -292,10 +338,12 @@ from asposeslides.api import Presentation, SaveFormat, VideoFrame
 presentation = Presentation("video_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     video_frame = slide.getShapes().get_Item(0)
     if isinstance(video_frame, VideoFrame):
-        # Entferne alle Untertitel aus dem Video-Frame.
+        # Entfernen Sie alle Untertitel aus dem Video-Frame.
         video_frame.getCaptionTracks().clear()
+        
         presentation.save("video_without_captions.pptx", SaveFormat.Pptx)
     else:
         print("The shape is not a video frame.")
@@ -303,16 +351,13 @@ finally:
     presentation.dispose()
 ```
 
-Wenn Sie nur eine Untertitelspur entfernen möchten, verwenden Sie die Methoden [remove](https://reference.aspose.com/slides/de/python-java/aspose.slides/captionscollection/#remove) oder [removeAt](https://reference.aspose.com/slides/de/python-java/aspose.slides/captionscollection/#removeAt) anstelle von [clear](https://reference.aspose.com/slides/de/python-java/aspose.slides/captionscollection/#clear).
+Wenn Sie nur eine Untertitelspur entfernen müssen, verwenden Sie die Methoden [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) oder [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) anstelle von [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear).
 
-## **Video aus Folien extrahieren**
+## **Video aus einer Folie extrahieren**
 
 Neben dem Hinzufügen von Videos zu Folien ermöglicht Aspose.Slides das Extrahieren von in Präsentationen eingebetteten Videos.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) , um die Präsentation zu laden, die das Video enthält.
-2. Iterieren Sie über alle [Slide](https://reference.aspose.com/slides/de/python-java/aspose.slides/slide/)‑Objekte.
-3. Iterieren Sie über alle [Shape](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/)‑Objekte, um ein [VideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/) zu finden.
-4. Speichern Sie das Video auf dem Datenträger.
+Dieses Beispiel extrahiert eingebettete Videos von jeder Folie in separate, nummerierte Binärdateien. Verlinkte Videos werden übersprungen, da sie keine eingebetteten Daten besitzen. Die Konsole gibt den MIME‑Typ jedes Videos und die Gesamtanzahl aus. Die Ausgabe verwendet die generische Erweiterung `.bin`; passen Sie sie bei Bedarf an den gemeldeten Medientyp an.
 
 ```python
 from pathlib import Path
@@ -325,37 +370,42 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, VideoFrame
 
-presentation = Presentation("VideoSample.pptx")
+presentation = Presentation("presentation_with_videos.pptx")
 try:
+    video_count = 0
     for slide in presentation.getSlides():
         for shape in slide.getShapes():
             if isinstance(shape, VideoFrame):
                 video = shape.getEmbeddedVideo()
-                if video is not None:
-                    content_type = str(video.getContentType())
-                    file_extension = content_type.split("/", 1)[-1]
-                    video_data = bytes(video.getBinaryData())
-                    Path("testing2." + file_extension).write_bytes(video_data)
-                else:
-                    print("The video frame has no embedded video.")
+                if video is None:
+                    print("Skipped a linked video: no embedded data is available.")
+                    continue
+
+                video_count += 1
+                output_path = Path(f"extracted_video_{video_count}.bin")
+                video_data = bytes(video.getBinaryData())
+                output_path.write_bytes(video_data)
+                print(f"Video {video_count}: {video.getContentType()}")
+
+    print(f"Embedded videos extracted: {video_count}")
 finally:
     presentation.dispose()
 ```
 
 ## **FAQ**
 
-**Welche Video‑Wiedergabe‑Parameter können für einen Video‑Frame geändert werden?**
+**Welche Video‑Wiedergabeparameter können für einen Video‑Frame geändert werden?**
 
-Sie können den [playback mode](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#setPlayMode) (automatisch oder per Klick) und das [looping](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#setPlayLoopMode) steuern. Diese Optionen stehen über die Eigenschaften des [VideoFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/)‑Objekts zur Verfügung.
+Sie können den [playback mode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) (auto oder per Klick) und das [looping](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) steuern. Diese Optionen stehen über die Methoden des [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/)-Objekts zur Verfügung.
 
-**Beeinflusst das Hinzufügen eines Videos die Größe der PPTX‑Datei?**
+**Beeinflusst das Hinzufügen eines Videos die PPTX-Dateigröße?**
 
-Ja. Beim Einbetten eines lokalen Videos werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße wächst. Beim Hinzufügen eines Online‑Videos werden lediglich ein Link und ein Thumbnail eingebettet, wodurch die Größensteigerung geringer ist.
+Ja. Wenn Sie ein lokales Video einbetten, werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße wächst. Wenn Sie zu einem Online‑Video verlinken und ein Vorschaubild hinzufügen, speichert die Präsentation den Link und das Vorschaubild statt der Videodaten, sodass die Größensteigerung normalerweise geringer ist.
 
 **Kann ich das Video in einem bestehenden Video‑Frame ersetzen, ohne Position und Größe zu ändern?**
 
-Ja. Sie können den [video content](https://reference.aspose.com/slides/de/python-java/aspose.slides/videoframe/#setEmbeddedVideo) innerhalb des Frames austauschen, während die Geometrie der Shape unverändert bleibt; dies ist ein gängiges Szenario zum Aktualisieren von Medien in einem bestehenden Layout.
+Ja. Sie können den [video content](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setEmbeddedVideo) im Frame austauschen und dabei die Geometrie des Shapes beibehalten; dies ist ein übliches Szenario zum Aktualisieren von Medien in einem bestehenden Layout.
 
-**Kann der Content‑Typ (MIME) eines eingebetteten Videos ermittelt werden?**
+**Kann der Inhaltstyp (MIME) eines eingebetteten Videos ermittelt werden?**
 
-Ja. Ein eingebettetes Video besitzt einen [content type](https://reference.aspose.com/slides/de/python-java/aspose.slides/video/#getContentType), den Sie auslesen und beispielsweise beim Speichern auf dem Datenträger verwenden können.
+Ja. Ein eingebettetes Video hat einen [content type](https://reference.aspose.com/slides/python-java/aspose.slides/video/#getContentType), den Sie auslesen und verwenden können, beispielsweise beim Speichern auf die Festplatte.
