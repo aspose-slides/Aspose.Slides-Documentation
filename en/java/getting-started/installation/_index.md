@@ -124,7 +124,7 @@ Maven downloads Aspose.Slides for Java, compiles the program, and runs it. The p
 
 ## **Use the JAR File without Maven**
 
-1. Download *aspose-slides-26.9-jdk8.jar* from the [version folder](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.10/) in the repository. For another version, open its folder in the [repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) and download the file that ends in *-jdk8.jar*.
+1. Download *aspose-slides-26.10-jdk8.jar* from the [version folder](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/26.10/) in the repository. For another version, open its folder in the [repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) and download the file that ends in *-jdk8.jar*.
 2. Save the first example in [Create Presentations](/slides/java/create-presentation/) as *HelloSlides.java* in the same folder as the JAR file.
 3. In that folder, run:
 
