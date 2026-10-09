@@ -1,28 +1,28 @@
 ---
-title: Java を使用したプレゼンテーションでのチャート データ ラベルの管理
-linktitle: データ ラベル
+title: Java を使用したプレゼンテーションでのチャート データラベルの管理
+linktitle: データラベル
 type: docs
 url: /ja/java/chart-data-label/
 keywords:
 - チャート
-- データ ラベル
-- データ 精度
+- データラベル
+- データ精度
 - パーセンテージ
-- ラベル 距離
-- ラベル 位置
+- ラベル間隔
+- ラベル位置
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して、PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
+description: "Aspose.Slides for Java を使用して、PowerPoint プレゼンテーションにチャートのデータラベルを追加および書式設定し、スライドをより魅力的にする方法を学びます。"
 ---
 ## **はじめに**
 
-データ ラベルはチャートの系列や個々のデータ ポイントに関する情報を表示し、読者が値を識別しチャートを理解できるようにします。本記事では、値の書式設定、パーセンテージの表示、ラベル テキストの取得、軸の最大値を超えるラベルの制御、カテゴリ 軸ラベル間隔の調整、円グラフラベルの位置設定方法について説明します。
+データラベルはチャートの系列や個々のデータポイントに関する情報を表示し、読者が値を特定しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベルテキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、および円グラフラベルの位置設定について説明します。
 
-## **チャート データ ラベルの数値精度を設定する**
+## **チャート データラベルのデータ精度設定**
 
-シリーズの値を書式設定するには、[setNumberFormatOfValues](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) を使用します。この例では、デフォルト データで折れ線グラフを作成し、データ テーブルを表示し、最初の系列の値ラベルを有効にします。書式 `#,##0.00` は千区切りと小数点以下 2 桁を表示しますが、基になる値は変更しません。
+系列の値の書式設定には [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) を使用します。この例ではデフォルトデータで折れ線グラフを作成し、データテーブルを表示し、最初の系列に値ラベルを有効にします。書式 `#,##0.00` は千区切りと小数点以下2桁を表示しますが、基になる値は変更しません。
 
 ```java
 import com.aspose.slides.*;
@@ -44,9 +44,9 @@ try {
 }
 ```
 
-## **ラベルとしてパーセンテージを表示する**
+## **ラベルとしてパーセンテージを表示**
 
-積み上げ縦棒グラフの場合、各値をカテゴリ合計に対するパーセンテージとして計算し、[getTextFrameForOverriding](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) が返すテキストフレームにテキストを割り当てます。この例ではデフォルトのチャート データを使用し、8 ポイント フォントで小数点以下 2 桁のパーセンテージを表示します。合計が 0 のカテゴリは除外してゼロ除算を回避します。チャート データが変更された場合は、カスタム ラベル テキストを再計算してください。
+積み上げ縦棒グラフの場合、各値をカテゴリの合計に対するパーセンテージとして計算し、[getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) が返すテキストフレームにテキストを割り当てます。この例ではデフォルトのチャートデータを使用し、8ポイントのフォントで小数点以下2桁のパーセンテージを表示します。合計が0のカテゴリは除外され、ゼロ除算を回避します。チャートデータが変更された場合はカスタムラベルテキストを再計算してください。
 
 ```java
 import com.aspose.slides.*;
@@ -103,11 +103,11 @@ try {
 }
 ```
 
-## **チャート データ ラベルでパーセンテージ記号を設定する**
+## **チャート データラベルにパーセンテージ記号を設定**
 
-値が分数として格納されている場合は、[setNumberFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) を使用してパーセンテージを表示します。[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) に `false` を渡すことで、ラベルの書式をソース セルとは独立して適用できます。
+値が分数として格納されている場合、[setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) を使用してパーセンテージを表示します。[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) に `false` を渡すことで、ラベルの書式をソースセルとは独立して適用できます。
 
-この例では、4 つのカテゴリにわたる赤と青の系列を持つ 100% 積み上げ縦棒グラフを作成します。各ペアの値の合計は 1 になります。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下 2 桁を使用します。両方の系列は白色で 10 ポイントのラベル テキストを使用します。
+この例では、4つのカテゴリにわたる赤と青の系列を持つ 100% 積み上げ縦棒グラフを作成します。各ペアの値は合計で 1 になります。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下2桁を使用します。両系列とも白色の10ポイントラベルテキストを使用します。
 
 ```java
 import com.aspose.slides.*;
@@ -162,9 +162,9 @@ try {
 }
 ```
 
-## **データ ラベルの実際のテキストを取得する**
+## **データラベルの実際のテキストを取得**
 
-[getActualLabelText](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idatalabel/#getActualLabelText--) を使用して、データ ラベルの設定で生成されたテキストを取得します。これは、レポート用にラベルを抽出したり、プレゼンテーションの内容を検索したり、生成されたチャートを検証したりする際に便利です。以下の例では、デフォルトの [data label format](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idatalabelformat/) が各カテゴリ名、系列名、値を組み合わせます。あるポイントは値をパーセンテージとして書式設定し、別のポイントは [getTextFrameForOverriding](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) からのカスタム テキストを使用します。
+データラベルの設定で生成されたテキストを取得するには [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) を使用します。これはレポート用にラベルを抽出したり、プレゼンテーションの内容を検索したり、生成されたチャートを検証したりする際に便利です。以下の例では、デフォルトの [data label format](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) が各カテゴリ名、系列名、値を組み合わせます。あるデータポイントは値をパーセンテージとして書式設定し、別のポイントは [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) から取得したカスタムテキストを使用します。
 
 ```java
 import com.aspose.slides.*;
@@ -224,15 +224,15 @@ try {
 }
 ```
 
-データ ポイントに格納されている数値は `0.75` のままで、ラベルにはカテゴリ名と系列名とともに `75%` と表示されます。カスタム テキストは生成されたラベル テキストを置き換えます。[getActualLabelText](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idatalabel/#getActualLabelText--) はどちらの場合でも結果のラベル文字列を返します。表示されているラベルだけを抽出したい場合は、上記のように [isVisible](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idatalabel/#isVisible--) を別途確認してください。
+データポイントに格納されている数値は `0.75` のままで、ラベルがカテゴリ名と系列名とともに `75%` と表示されても変わりません。カスタムテキストは生成されたラベルテキストを置き換えます。[getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) はどちらの場合でも結果のラベル文字列を返します。表示されているラベルのみを抽出したい場合は、上記のように [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) を別途確認してください。
 
-## **軸の最大値を超えるデータ ラベルを制御する**
+## **軸の最大値を超えるデータラベルを制御**
 
-軸範囲を手動で制限すると、一部のデータ ポイントが最大値を超えることがあります。[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) を使用して、これらのデータ ラベルを表示するかどうかを制御します。この設定はラベルの表示/非表示を変更しますが、軸範囲や基になるデータ値は変更しません。
+軸範囲を手動で制限すると、一部のデータポイントが最大値を超えることがあります。[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) を使用して、これらのデータラベルを表示するかどうかを制御します。この設定はラベルの表示/非表示を変更しますが、軸範囲や基になるデータ値は変更しません。
 
-以下の例では、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。縦軸に対して [setAutomaticMaxValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) に `false` を渡し、[setMaxValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iaxis/#setMaxValue-double-) で最大値を 100 に設定します。最初のスライドは最大値を超えるラベルを表示し、同じスライドのコピーはそれらを無効にします。両方のスライドは `DataLabelsOverMaximum.pptx` に保存されます。
+以下の例では、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。縦軸に対して [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) に `false` を渡し、[setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) で最大値を 100 に設定します。最初のスライドは最大値を超えるラベルを表示し、コピーしたスライドではそれらを無効にしています。両方のスライドは `DataLabelsOverMaximum.pptx` に保存されます。
 
-[setShowValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) で値ラベルを有効にします。チャート レベルの設定だけでは値の表示が有効になるわけでも、個々のラベルの非表示設定を上書きするわけでもありません。この例では、シリーズ全体の値を有効にし、[setPosition](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idatalabelformat/#setPosition-int-) を使用して各列の外端にラベルを配置します。
+[setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) で値ラベルを有効にします。チャートレベルの設定だけでは値の表示が自動的に有効になるわけでも、個別ラベルの非表示設定を上書きするわけでもありません。この例では系列全体の値を有効にし、[setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) を使用して各列の外側端にラベルを配置しています。
 
 ```java
 import com.aspose.slides.*;
@@ -281,19 +281,19 @@ try {
 }
 ```
 
-以下の画像は、Microsoft PowerPoint でレンダリングされた保存スライドを示しています。`true` の場合、ラベル **120** が上限で表示され、`false` の場合は非表示になります。ラベル **60** は引き続き表示され、軸の最大値は **100** のままで、2 番目のデータ ポイントはどちらの場合も **120** のままです。
+以下の画像は Microsoft PowerPoint でレンダリングされた保存済みスライドを示しています。`true` の場合、ラベル **120** が上限に表示され、`false` の場合は非表示になります。ラベル **60** は表示されたままで、軸の最大値は **100** のまま、2 番目のデータポイントはどちらの場合も **120** のままです。
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![軸の最大値が 100 のとき、値ラベル 120 を表示している PowerPoint チャート](data-labels-over-maximum-true.png) | ![軸の最大値が 100 のとき、値ラベル 120 を非表示にした PowerPoint チャート](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-この例では、値軸を持つ 2D 縦棒グラフを使用しています。円グラフやドーナツ グラフなど、値軸のないチャートにはこのように軸の最大値を制限する概念がありません。
+この例では、値軸を持つ 2D 縦棒チャートを使用しています。円グラフやドーナツチャートのように値軸がないチャートでは、この方法で軸の最大値を制限することはできません。
 {{% /alert %}}
 
-## **軸からのラベル距離を設定する**
+## **軸からのラベル間隔を設定**
 
-[setLabelOffset](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iaxis/#setLabelOffset-int-) を使用してカテゴリ軸ラベルと軸との距離を制御します。値は軸ラベルの最大フォントサイズのパーセンテージです。この例では、クラスタ化縦棒グラフを作成し、横軸ラベルのオフセットを 500 に設定します。この設定は個々のデータ ポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
+[setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) を使用して、カテゴリ軸ラベルと軸との間隔を制御します。値は軸ラベルの最大フォントサイズに対するパーセンテージです。この例では、クラスタ化縦棒チャートを作成し、横軸ラベルのオフセットを 500 に設定します。この設定は個々のデータポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
 
 ```java
 import com.aspose.slides.*;
@@ -313,9 +313,9 @@ try {
 
 ## **ラベル位置の調整**
 
-円グラフでは、データ ラベルの位置を調整して間隔を改善し、リーダーラインのスペースを確保します。
+円グラフでは、データラベルの位置を調整して間隔を改善し、リーダーラインのための余裕を確保します。
 
-この例では、最初のデータ ポイントの値を表示し、そのラベルをスライスの外側に配置し、[setX](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutable/#setX-float-) および [setY](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutable/#setY-float-) を使用して水平・垂直オフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対値です。
+この例では、最初のデータポイントの値を表示し、ラベルをスライスの外側に配置し、[setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) と [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) を使用して水平および垂直オフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対値です。
 
 ```java
 import com.aspose.slides.*;
@@ -339,15 +339,130 @@ try {
 }
 ```
 
-![調整されたデータ ラベル位置の円グラフ](pie-chart-adjusted-label.png)
+![データラベル位置を調整した円グラフ](pie-chart-adjusted-label.png)
 
-## **よくある質問**
+## **縦棒チャート上部に複数行のデータラベルを追加**
 
-**密集したチャートでデータ ラベルが重なるのを防ぐにはどうすればよいですか？**  
-自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせます。必要に応じて一部のフィールド（例: カテゴリ）を非表示にするか、極端な値や重要なポイントのラベルのみを表示します。
+この例では、プロット領域の上部に 2 行のデータラベルを持つ縦棒チャートを作成します。Series A は表示される列を示し、Series B と Series C が追加のラベルを提供します。これらの列は塗りつぶしと輪郭を削除して非表示にします。[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) メソッドは、3 つの系列を同じカテゴリ中心に揃えます。
 
-**ゼロ、負の数、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**  
-ラベルを有効にする前にデータ ポイントをフィルタリングし、定義されたルールに従って 0、負の値、または欠損値の表示をオフにします。
+[ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) の設定でラベル行用のスペースを確保します。[Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) がデフォルト位置を計算した後、[DataLabel.setX と DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) が水平揃えを保持し、垂直オフセットを適用してラベルを 2 行に配置します。数値は系列の値にリンクされたデータラベルのままで、行見出しだけが別個のテキストシェイプです。
 
-**PDF/画像にエクスポートする際にラベルのスタイルを一貫させるにはどうすればよいですか？**  
-フォント ファミリーとサイズを明示的に設定し、フォントがレンダリング環境に存在することを確認してフォントフォールバックを防止します。
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    String[] categories = {"North", "South", "East", "West"};
+    String[] seriesNames = {"Series A", "Series B", "Series C"};
+    double[][] seriesValues = {
+            {35, 42, 28, 47},
+            {22, 31, 19, 26},
+            {12, 16, 14, 18}
+    };
+
+    for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        chart.getChartData().getCategories().add(
+                workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]));
+    }
+
+    for (int seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().add(
+                workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]),
+                ChartType.ClusteredColumn);
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            series.getDataPoints().addDataPointForBarSeries(workbook.getCell(
+                    0, categoryIndex + 1, seriesIndex + 1,
+                    seriesValues[seriesIndex][categoryIndex]));
+        }
+
+        if (seriesIndex > 0) {
+            // B と C の列を非表示にしますが、データラベルは保持します。
+            series.getFormat().getFill().setFillType(FillType.NoFill);
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat()
+                    .getTextFormat().getPortionFormat().setFontHeight(12);
+            IFillFormat labelFill = series.getLabels().getDefaultDataLabelFormat()
+                    .getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(FillType.Solid);
+            labelFill.getSolidFillColor().setColor(java.awt.Color.BLACK);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(
+                    LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // 3 つの系列を同じカテゴリ中心に揃えます。
+    chart.getChartData().getSeries().get_Item(0)
+            .getParentSeriesGroup().setOverlap((byte) 100);
+
+    // このコンパクトな例のためにグリッド線を減らします。
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // プロット上部にデータラベル用の 2 行分のスペースを確保します。
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
+    chart.getPlotArea().setX(0.15f);
+    chart.getPlotArea().setY(0.32f);
+    chart.getPlotArea().setWidth(0.80f);
+    chart.getPlotArea().setHeight(0.48f);
+    chart.validateChartLayout();
+
+    for (int seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // デフォルトの水平位置を保持します。Y は以下からのオフセットです
+            // デフォルトのラベル位置で、チャート高さの割合で表されます。
+            dataLabel.setX(0);
+            dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
+        }
+
+        // 行見出しだけが別個のテキストシェイプです。
+        IAutoShape rowHeading = slide.getShapes().addAutoShape(
+                ShapeType.Rectangle, chart.getX(),
+                chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        IPortionFormat headingFormat = rowHeading.getTextFrame().getParagraphs()
+                .get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(FillType.Solid);
+        headingFormat.getFillFormat().getSolidFillColor().setColor(java.awt.Color.BLACK);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **FAQ**
+
+**密集したチャートでデータラベルが重なるのを防ぐにはどうすればよいですか？**
+
+自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせます。必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要なポイントにだけラベルを表示します。
+
+**ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
+
+ラベルを有効にする前にデータポイントをフィルタリングし、定義されたルールに従って 0、負の値、または欠損値の場合は表示をオフにします。
+
+**PDF や画像にエクスポートする際に、一貫したラベルスタイルを確保するにはどうすればよいですか？**
+
+フォントファミリーとサイズを明示的に設定し、フォントがレンダリング環境で利用可能であることを確認してフォールバックを防ぎます。

@@ -1,5 +1,5 @@
 ---
-title: Java를 사용한 프레젠테이션에서 차트 데이터 레이블 관리
+title: Java를 사용하여 프레젠테이션에서 차트 데이터 레이블 관리
 linktitle: 데이터 레이블
 type: docs
 url: /ko/java/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java를 사용하여 PowerPoint 프레젠테이션에 차트 데이터 레이블을 추가하고 형식화하여 보다 매력적인 슬라이드를 만드는 방법을 배우세요."
+description: "Aspose.Slides for Java를 사용하여 PowerPoint 프레젠테이션에 차트 데이터 레이블을 추가하고 서식 지정하는 방법을 배워 보다 매력적인 슬라이드를 만들 수 있습니다."
 ---
-## **Introduction**
+## **소개**
 
-데이터 레이블은 차트 시리즈 및 개별 데이터 포인트에 대한 정보를 표시하여 독자가 값을 식별하고 차트를 이해하도록 돕습니다. 이 문서에서는 값 서식 지정, 백분율 표시, 레이블 텍스트 읽기, 축 최대값을 초과하는 레이블 제어, 범주 축 레이블 간격 조정 및 파이 차트 레이블 위치 지정 방법을 설명합니다.
+데이터 레이블은 차트 시리즈와 개별 데이터 포인트에 대한 정보를 표시하여 읽는 사람이 값을 식별하고 차트를 이해하도록 돕습니다. 이 문서에서는 값 형식 지정, 백분율 표시, 레이블 텍스트 읽기, 축 최대값을 초과하는 레이블 제어, 범주 축 레이블 간격 조정, 원형 차트 레이블 위치 지정 방법을 설명합니다.
 
-## **Set Data Precision in Chart Data Labels**
+## **차트 데이터 레이블에서 데이터 정밀도 설정**
 
-[setNumberFormatOfValues](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-)를 사용하여 시리즈 값을 서식 지정합니다. 이 예제는 기본 데이터를 사용해 라인 차트를 만들고, 데이터 표를 표시하며 첫 번째 시리즈에 값 레이블을 활성화합니다. `#,##0.00` 형식은 천 단위 구분 기호와 소수점 둘째 자리까지 표시하지만 기본값은 변경하지 않습니다.
+Use [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
 
 ```java
 import com.aspose.slides.*;
@@ -43,9 +43,10 @@ try {
     presentation.dispose();
 }
 ```
-## **Display Percentage as Labels**
 
-스택형 컬럼 차트의 경우 각 값을 해당 카테고리 총합에 대한 백분율로 계산한 뒤, [getTextFrameForOverriding](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--)가 반환하는 텍스트 프레임에 텍스트를 할당합니다. 이 예제는 기본 차트 데이터를 사용하고 8포인트 글꼴로 소수점 둘째 자리까지 백분율을 표시합니다. 총합이 0인 카테고리는 나눗셈 오류를 방지하기 위해 건너뜁니다. 차트 데이터가 변경되면 사용자 정의 레이블 텍스트를 다시 계산해야 합니다.
+## **레이블을 백분율로 표시**
+
+For a stacked column chart, calculate each value as a percentage of its category total and assign the text to the text frame returned by [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
 
 ```java
 import com.aspose.slides.*;
@@ -101,11 +102,12 @@ try {
     presentation.dispose();
 }
 ```
-## **Set Percentage Sign with Chart Data Labels**
 
-값이 분수 형태로 저장된 경우, [setNumberFormat](https://reference.aspose.com/slides/ko/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-)을 사용하여 백분율을 표시합니다. 라벨 형식을 원본 셀과 독립적으로 적용하려면 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ko/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-)에 `false`를 전달합니다.
+## **차트 데이터 레이블에 백분율 기호 설정**
 
-이 예제는 네 개 카테고리에 걸쳐 빨강 및 파랑 시리즈가 있는 100% 스택형 컬럼 차트를 생성합니다. 각 값 쌍의 합은 1입니다. 레이블 형식 `0.0%`는 0.30을 30.0%로 표시하고, 수직 축은 소수점 둘째 자리까지 사용합니다. 두 시리즈 모두 흰색 10포인트 레이블 텍스트를 사용합니다.
+When values are stored as fractions, use [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) to display percentages. Pass `false` to [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) to apply the label format independently of the source cells.
+
+This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
 
 ```java
 import com.aspose.slides.*;
@@ -159,9 +161,10 @@ try {
     presentation.dispose();
 }
 ```
-## **Read the Actual Text of Data Labels**
 
-[getActualLabelText](https://reference.aspose.com/slides/ko/java/com.aspose.slides/idatalabel/#getActualLabelText--)를 사용하여 데이터 레이블 설정에 의해 생성된 텍스트를 가져올 수 있습니다. 이는 보고서용 레이블 추출, 프레젠테이션 내용 검색 또는 생성된 차트 검증에 유용합니다. 아래 예제에서는 기본 [data label format](https://reference.aspose.com/slides/ko/java/com.aspose.slides/idatalabelformat/)이 각 카테고리 이름, 시리즈 이름 및 값을 결합합니다. 한 포인트는 값을 백분율로 서식 지정하고, 다른 포인트는 [getTextFrameForOverriding](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--)에서 가져온 사용자 정의 텍스트를 사용합니다.
+## **데이터 레이블 실제 텍스트 읽기**
+
+Use [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [데이터 레이블 형식](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -221,15 +224,15 @@ try {
 }
 ```
 
-데이터 포인트에 저장된 숫자는 `0.75`로 유지되며, 레이블에 카테고리 및 시리즈 이름과 함께 `75%`가 표시되더라도 값은 변하지 않습니다. 사용자 정의 텍스트는 생성된 레이블 텍스트를 대체합니다. [getActualLabelText](https://reference.aspose.com/slides/ko/java/com.aspose.slides/idatalabel/#getActualLabelText--)는 두 경우 모두 최종 레이블 문자열을 반환합니다. 표시된 레이블만 추출하려면 위와 같이 [isVisible](https://reference.aspose.com/slides/ko/java/com.aspose.slides/idatalabel/#isVisible--)를 별도로 확인하십시오.
+The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) returns the resulting label string in either case. Check [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) separately, as shown above, when you want to extract only visible labels.
 
-## **Control Data Labels Beyond the Axis Maximum**
+## **축 최대값을 초과하는 데이터 레이블 제어**
 
-축 범위를 수동으로 제한하면 일부 데이터 포인트가 최대값을 초과할 수 있습니다. [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-)을 사용하여 이러한 데이터 레이블을 표시할지 여부를 제어합니다. 이 설정은 레이블 가시성을 변경하지만 축 범위나 기본 데이터 값은 변경하지 않습니다.
+When you limit an axis range manually, some data points may exceed its maximum. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
 
-아래 예제는 값이 60과 120인 2D 클러스터형 컬럼 차트를 생성합니다. 수직 축에 대해 [setAutomaticMaxValue](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-)에 `false`를 전달하고 [setMaxValue](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iaxis/#setMaxValue-double-)으로 최대값을 100으로 설정합니다. 첫 번째 슬라이드는 최대값을 초과하는 레이블을 허용하고, 해당 슬라이드 복사본은 이를 비활성화합니다. 두 슬라이드 모두 `DataLabelsOverMaximum.pptx` 파일로 저장됩니다.
+The example below creates a 2D clustered column chart with values of 60 and 120. It passes `false` to [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) and sets the maximum to 100 with [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
 
-[setShowValue](https://reference.aspose.com/slides/ko/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-)를 사용하여 값 레이블을 활성화합니다. 차트 수준 설정만으로는 값 표시를 자동으로 활성화하거나 개별 레이블의 비활성화된 값 표시를 무시하지 않습니다. 이 예제에서는 전체 시리즈에 값을 활성화하고 [setPosition](https://reference.aspose.com/slides/ko/java/com.aspose.slides/idatalabelformat/#setPosition-int-)을 사용하여 각 컬럼 외부 끝에 레이블을 배치합니다.
+Enable value labels with [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) to place labels at the outside end of each column.
 
 ```java
 import com.aspose.slides.*;
@@ -278,19 +281,19 @@ try {
 }
 ```
 
-다음 이미지는 Microsoft PowerPoint에서 렌더링된 저장된 슬라이드를 보여줍니다. `true`인 경우 레이블 **120**이 상단 경계에 표시되고, `false`인 경우 숨겨집니다. 레이블 **60**은 계속 표시되며, 축 최대값은 **100**으로 유지되고 두 번째 데이터 포인트는 두 경우 모두 **120**으로 남습니다.
+The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint 차트가 축 최대값 100에서 값 레이블 120을 표시함](data-labels-over-maximum-true.png) | ![PowerPoint 차트가 축 최대값 100에서 값 레이블 120을 숨김](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Chart Type" %}}
-이 예제는 값 축이 있는 2D 컬럼 차트를 사용합니다. 파이 차트 및 도넛 차트와 같이 값 축이 없는 차트는 이러한 방식으로 제한할 축 최대값이 없습니다.
+{{% alert color="info" title="차트 유형" %}}
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
-## **Set Label Distance from an Axis**
+## **축에서 레이블 거리 설정**
 
-[setLabelOffset](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iaxis/#setLabelOffset-int-)을 사용하여 범주 축 레이블과 축 사이의 거리를 제어합니다. 값은 축 레이블 최대 글꼴 크기의 백분율입니다. 이 예제는 클러스터형 컬럼 차트를 만들고 수평 축 레이블 오프셋을 500으로 설정합니다. 이 설정은 개별 데이터 포인트에 부착된 레이블이 아니라 범주 축 레이블에 영향을 줍니다.
+Use [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
 
 ```java
 import com.aspose.slides.*;
@@ -307,11 +310,12 @@ try {
     presentation.dispose();
 }
 ```
-## **Adjust Label Location**
 
-파이 차트에서 데이터 레이블 위치를 조정하여 간격을 개선하고 리더 라인을 위한 공간을 확보합니다.
+## **레이블 위치 조정**
 
-이 예제는 첫 번째 데이터 포인트의 값을 표시하고 레이블을 슬라이스 밖에 배치하며, [setX](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutable/#setX-float-)와 [setY](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutable/#setY-float-)를 사용해 수평 및 수직 오프셋을 조정합니다. 이러한 오프셋은 차트 너비와 높이에 각각 비례합니다.
+On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
+
+This example displays the value of the first data point, places its label outside the slice, and adjusts its horizontal and vertical offsets using [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) and [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-). These offsets are relative to the chart width and height, respectively.
 
 ```java
 import com.aspose.slides.*;
@@ -335,18 +339,130 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![조정된 데이터 레이블 위치가 있는 파이 차트](pie-chart-adjusted-label.png)
+
+## **컬럼 차트 위에 여러 행 데이터 레이블 추가**
+
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) method aligns all three series with the same category centers.
+
+The [ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) settings reserve space for the label rows. After [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) calculates the default positions, [DataLabel.setX and DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    String[] categories = {"North", "South", "East", "West"};
+    String[] seriesNames = {"Series A", "Series B", "Series C"};
+    double[][] seriesValues = {
+            {35, 42, 28, 47},
+            {22, 31, 19, 26},
+            {12, 16, 14, 18}
+    };
+
+    for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        chart.getChartData().getCategories().add(
+                workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]));
+    }
+
+    for (int seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().add(
+                workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]),
+                ChartType.ClusteredColumn);
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            series.getDataPoints().addDataPointForBarSeries(workbook.getCell(
+                    0, categoryIndex + 1, seriesIndex + 1,
+                    seriesValues[seriesIndex][categoryIndex]));
+        }
+
+        if (seriesIndex > 0) {
+            // B와 C의 열을 숨기지만 데이터 레이블은 유지합니다.
+            series.getFormat().getFill().setFillType(FillType.NoFill);
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat()
+                    .getTextFormat().getPortionFormat().setFontHeight(12);
+            IFillFormat labelFill = series.getLabels().getDefaultDataLabelFormat()
+                    .getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(FillType.Solid);
+            labelFill.getSolidFillColor().setColor(java.awt.Color.BLACK);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(
+                    LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // 세 시리즈를 동일한 범주 중심에 맞춥니다.
+    chart.getChartData().getSeries().get_Item(0)
+            .getParentSeriesGroup().setOverlap((byte) 100);
+
+    // 이 간결한 예제에 대해 눈금선을 적게 사용합니다.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // 플롯 위에 데이터 레이블 두 행을 위한 공간을 예약합니다.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
+    chart.getPlotArea().setX(0.15f);
+    chart.getPlotArea().setY(0.32f);
+    chart.getPlotArea().setWidth(0.80f);
+    chart.getPlotArea().setHeight(0.48f);
+    chart.validateChartLayout();
+
+    for (int seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // 기본 수평 위치를 유지합니다. Y는 다음으로부터의 오프셋입니다.
+            // 기본 레이블 위치이며, 차트 높이 비율로 표현됩니다.
+            dataLabel.setX(0);
+            dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
+        }
+
+        // 행 제목만 별도의 텍스트 도형입니다.
+        IAutoShape rowHeading = slide.getShapes().addAutoShape(
+                ShapeType.Rectangle, chart.getX(),
+                chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        IPortionFormat headingFormat = rowHeading.getTextFrame().getParagraphs()
+                .get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(FillType.Solid);
+        headingFormat.getFillFormat().getSolidFillColor().setColor(java.awt.Color.BLACK);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
 **밀집된 차트에서 데이터 레이블이 겹치는 것을 어떻게 방지할 수 있나요?**
 
-자동 레이블 배치, 리더 라인, 글꼴 크기 축소를 결합합니다; 필요하면 일부 필드(예: 카테고리)를 숨기거나 극값 또는 핵심 포인트에만 레이블을 표시합니다.
+자동 레이블 배치, 리더 라인 및 폰트 크기 축소를 결합하고 필요시 일부 필드(예: 카테고리)를 숨기거나 극값 및 핵심 포인트에만 레이블을 표시합니다.
 
-**값이 0, 음수 또는 비어 있는 경우에만 레이블을 비활성화하려면 어떻게 해야 하나요?**
+**값이 0, 음수 또는 비어있는 경우에만 레이블을 비활성화하려면 어떻게 해야 하나요?**
 
-레이블을 활성화하기 전에 데이터 포인트를 필터링하고, 정의된 규칙에 따라 0값, 음수값 또는 비어 있는 값을 가진 경우 표시를 끕니다.
+레이블을 활성화하기 전에 데이터 포인트를 필터링하고 0, 음수 또는 누락된 값에 대해 표시를 끄는 규칙을 적용합니다.
 
 **PDF/이미지로 내보낼 때 일관된 레이블 스타일을 보장하려면 어떻게 해야 하나요?**
 
-글꼴 패밀리와 크기를 명시적으로 설정하고, 렌더링 환경에 해당 글꼴이 존재하는지 확인하여 대체 글꼴 사용을 방지합니다.
+폰트 패밀리와 크기를 명시적으로 설정하고 렌더링 환경에 해당 폰트가 존재하는지 확인하여 대체 폰트 사용을 방지합니다.
