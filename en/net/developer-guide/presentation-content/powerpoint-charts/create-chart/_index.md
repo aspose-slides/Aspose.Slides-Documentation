@@ -1154,6 +1154,8 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **Set Data Range for a Chart**
 
+To inspect the range already used by an existing chart, see [Retrieve a Chart's Data Range](/slides/net/chart-workbook/#retrieve-a-charts-data-range).
+
 Aspose.Slides for .NET provides the flexibility to define a specific data range from a worksheet as the source for your chart’s data. This means you can directly map a portion of your worksheet to the chart, allowing you to control which cells contribute to the chart's series and categories. As a result, you can easily update and synchronize your charts with the latest data changes in your worksheet, ensuring that your PowerPoint presentations reflect current and accurate information.
 
 1. Instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class that represents the presentation containing a chart.
