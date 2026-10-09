@@ -1304,6 +1304,8 @@ finally:
 
 ## **Set Data Range for a Chart**
 
+To inspect the range already used by an existing chart, see [Retrieve a Chart's Data Range](/slides/python-java/chart-workbook/#retrieve-a-charts-data-range).
+
 To set the data range for a chart, do this:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class that represents the presentation containing the chart.

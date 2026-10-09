@@ -1090,6 +1090,8 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **Set Data Range for a Chart**
 
+To inspect the range already used by an existing chart, see [Retrieve a Chart's Data Range](/slides/python-net/chart-workbook/#retrieve-a-charts-data-range).
+
 Aspose.Slides for Python via .NET lets you use a specific worksheet range as the data source for a chart. This controls which cells supply the chart's series and categories and lets you update the chart to reflect changes in the worksheet.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to open the presentation containing the chart.

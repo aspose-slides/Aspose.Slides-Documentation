@@ -52,7 +52,7 @@ In PowerPoint, you can create charts through the insert function, which provides
 
 {{% alert color="info" %}} 
 
-To allow you create charts, Aspose.Slides provides the [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) enum class under the [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/) namespace. The values under this enum class correspond to different chart types. 
+To allow you to create charts, Aspose.Slides provides the [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) enum class under the [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/) namespace. The values under this enum class correspond to different chart types.
 
 {{% /alert %}} 
 
@@ -1547,6 +1547,8 @@ pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::
 
 
 ## **Set the Data Range for Charts**
+
+To inspect the range already used by an existing chart, see [Retrieve a Chart's Data Range](/slides/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
 1. Open an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class containing the chart.
 2. Get a slide's reference through its index.

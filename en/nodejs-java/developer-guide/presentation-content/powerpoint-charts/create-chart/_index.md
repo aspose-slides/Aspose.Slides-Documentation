@@ -71,7 +71,7 @@ This section explains how to create clustered column charts using Aspose.Slides.
 1. Add labels to the chart series.
 1. Save the modified presentation as a PPTX file.
 
-This C# code demonstrates how to create a clustered column chart:
+This JavaScript code demonstrates how to create a clustered column chart:
 
 ```javascript
 var aspose = aspose || {};
@@ -1002,6 +1002,8 @@ try {
 ```
 
 ## **Set Data Range for a Chart**
+
+To inspect the range already used by an existing chart, see [Retrieve a Chart's Data Range](/slides/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
 To set the data range for a chart, do this:
 
