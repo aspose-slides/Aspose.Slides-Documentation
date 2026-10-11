@@ -20,30 +20,32 @@ description: "Personalize as notas da apresentação com Aspose.Slides para C++.
 ---
 ## **Visão geral**
 
-Aspose.Slides oferece suporte à remoção de notas de slides de uma apresentação. Neste tópico, apresentaremos esse recurso, incluindo como remover notas e como aplicar um estilo às notas de slides em uma apresentação. Aspose.Slides permite remover notas de qualquer slide e também aplicar estilos às notas existentes. Os desenvolvedores podem remover notas das seguintes maneiras:
+Aspose.Slides suporta a remoção de slides de notas de uma apresentação. Neste tópico, apresentaremos esse recurso, incluindo como remover notas e como aplicar um estilo aos slides de notas em uma apresentação. Aspose.Slides permite remover notas de qualquer slide e também aplicar estilos às notas existentes. Os desenvolvedores podem remover notas das seguintes maneiras:
 
 - Remover notas de um slide específico em uma apresentação.
-- Remover notas de todos os slides de uma apresentação.
+- Remover notas de todos os slides em uma apresentação.
+
+Para ler ou alterar as dimensões da página de notas, mudar a orientação e verificar o comportamento de exportação, veja [Tamanho da página de notas](/slides/pt/cpp/notes-size/).
 
 ## **Remover notas de um slide específico**
-As notas de um slide específico podem ser removidas conforme o exemplo abaixo:
+Notas de um slide específico podem ser removidas conforme o exemplo abaixo:
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveNotesAtSpecificSlide-RemoveNotesAtSpecificSlide.cpp" >}}
 ## **Remover notas de todos os slides**
-As notas de todos os slides de uma apresentação podem ser removidas conforme o exemplo abaixo:
+Notas de todos os slides em uma apresentação podem ser removidas conforme o exemplo abaixo:
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveNotesFromAllSlides-RemoveNotesFromAllSlides.cpp" >}}
-## **Adicionar um estilo de notas**
-A propriedade **NotesStyle** foi adicionada à interface **IMasterNotesSlide** e à classe **MasterNotesSlide**, respectivamente. Essa propriedade especifica o estilo do texto das notas. A implementação é demonstrada no exemplo abaixo.
+## **Adicionar estilo de notas**
+A propriedade NotesStyle foi adicionada à interface IMasterNotesSlide e à classe MasterNotesSlide. Essa propriedade especifica o estilo do texto das notas. A implementação é demonstrada no exemplo abaixo.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddNotesSlideWithNotesStyle-AddNotesSlideWithNotesStyle.cpp" >}}
 
-## **FAQ**
+## **Perguntas frequentes**
 
-**Qual entidade da API fornece acesso às notas de um slide específico?**
+### Qual entidade da API fornece acesso às notas de um slide específico?
 
-As notas são acessadas por meio do gerenciador de notas do slide: o slide possui um [NotesSlideManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/notesslidemanager/) e um [método](https://reference.aspose.com/slides/pt/cpp/aspose.slides/notesslidemanager/get_notesslide/) que retorna o objeto de notas, ou `null` se não houver notas.
+As notas são acessadas através do gerenciador de notas do slide: o slide possui um [NotesSlideManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/notesslidemanager/) e um [method](https://reference.aspose.com/slides/pt/cpp/aspose.slides/notesslidemanager/get_notesslide/) que retorna o objeto de notas, ou `null` se não houver notas.
 
-**Existem diferenças no suporte a notas entre as versões do PowerPoint com as quais a biblioteca funciona?**
+### Existem diferenças no suporte a notas entre as versões do PowerPoint com as quais a biblioteca funciona?
 
-A biblioteca tem como alvo uma ampla gama de formatos do Microsoft PowerPoint (97 ou posterior) e ODP; as notas são suportadas nesses formatos sem depender de uma cópia instalada do PowerPoint.
+A biblioteca tem como alvo uma ampla gama de formatos do Microsoft PowerPoint (97–mais recentes) e ODP; as notas são suportadas nesses formatos sem depender de uma cópia instalada do PowerPoint.

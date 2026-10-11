@@ -1,5 +1,5 @@
 ---
-title: Konversi Presentasi PowerPoint ke PDF dengan Catatan dalam PHP
+title: Mengonversi Presentasi PowerPoint ke PDF dengan Catatan dalam PHP
 linktitle: PowerPoint ke PDF dengan Catatan
 type: docs
 weight: 50
@@ -24,18 +24,20 @@ keywords:
 - PDF dengan catatan
 - PHP
 - Aspose.Slides
-description: "Mengonversi format PPT dan PPTX ke PDF dengan catatan menggunakan Aspose.Slides untuk PHP via Java. Mempertahankan tata letak dan catatan pembicara untuk presentasi profesional."
+description: "Konversi format PPT dan PPTX ke PDF dengan catatan menggunakan Aspose.Slides untuk PHP via Java. Pertahankan tata letak dan catatan pembicara untuk presentasi profesional."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Dalam artikel ini, Anda akan mempelajari cara mengonversi presentasi PowerPoint ke format PDF dengan catatan pembicara menggunakan Aspose.Slides. Panduan ini akan mencakup langkah‑langkah yang diperlukan dan menyediakan contoh kode untuk membantu Anda menyelesaikan tugas ini dengan efisien. Pada akhir artikel ini, Anda akan dapat:
+Pada artikel ini, Anda akan belajar cara mengonversi presentasi PowerPoint ke format PDF dengan catatan pembicara menggunakan Aspose.Slides. Panduan ini akan mencakup langkah‑langkah yang diperlukan serta memberikan contoh kode untuk membantu Anda menyelesaikan tugas ini secara efisien. Pada akhir artikel ini, Anda akan dapat:
 
 - Menerapkan proses konversi untuk mengubah slide PowerPoint menjadi dokumen PDF sambil mempertahankan catatan pembicara.
-- Menyesuaikan PDF output agar catatan pembicara disertakan dan diformat sesuai kebutuhan Anda.
+- Sesuaikan PDF keluaran agar catatan pembicara disertakan dan diformat sesuai kebutuhan Anda.
 
-## **Konversi PowerPoint ke PDF dengan Catatan**
+Untuk mengatur dimensi dan orientasi halaman catatan sebelum ekspor, lihat [Notes Page Size](/slides/id/php-java/notes-size/).
 
-Metode `save` dalam kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) dapat digunakan untuk mengonversi presentasi PPT atau PPTX ke PDF dengan catatan pembicara. Dengan Aspose.Slides, Anda cukup memuat presentasi, mengonfigurasi opsi tata letak menggunakan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/notescommentslayoutingoptions/) untuk menyertakan catatan pembicara, dan kemudian menyimpan file sebagai PDF. Potongan kode berikut menunjukkan cara mengonversi presentasi contoh ke PDF dalam tampilan Slide Catatan.
+## **Mengkonversi PowerPoint ke PDF dengan Catatan**
+
+Metode `save` dalam kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) dapat digunakan untuk mengonversi presentasi PPT atau PPTX ke PDF dengan catatan pembicara. Dengan Aspose.Slides, Anda cukup memuat presentasi, mengonfigurasi opsi tata letak menggunakan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/notescommentslayoutingoptions/) untuk menyertakan catatan pembicara, lalu menyimpan file sebagai PDF. Cuplikan kode berikut menunjukkan cara mengonversi contoh presentasi ke PDF dalam tampilan Slide Catatan.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -52,6 +54,6 @@ $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 $presentation->dispose();
 ```
 
-{{% alert color="primary" %}} 
-Anda mungkin ingin mencoba Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/id/conversion). 
+{{% alert color="info" title="Note" %}}
+Anda mungkin ingin melihat Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/id/conversion).
 {{% /alert %}}

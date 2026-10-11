@@ -1,33 +1,38 @@
 ---
-title: Java-ban a prezentációs jegyzetek kezelése
+title: Java prezentációs jegyzetek kezelése
 linktitle: Prezentációs jegyzetek
 type: docs
 weight: 110
 url: /hu/java/presentation-notes/
 keywords:
 - jegyzetek
-- jegyzetdia
+- jegyzetdiák
 - jegyzetek hozzáadása
 - jegyzetek eltávolítása
-- jegyzetstílus
-- master jegyzetek
+- jegyzet stílus
+- mester jegyzetek
 - PowerPoint
 - OpenDocument
-- prezentáció
+- presentation
 - Java
 - Aspose.Slides
-description: "Testreszabhatja a prezentációs jegyzeteket az Aspose.Slides for Java segítségével. Zökkenőmentesen dolgozhat PowerPoint és OpenDocument jegyzetekkel, hogy növelje a termelékenységét."
+description: "Testreszabhatja a prezentációs jegyzeteket az Aspose.Slides for Java segítségével. Zökkenőmentesen dolgozhat PowerPoint és OpenDocument jegyzetekkel, hogy növelje a hatékonyságát."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides támogatja a jegyzetdiák eltávolítását egy prezentációból. Ebben a témában bemutatjuk ezt a funkciót, beleértve, hogyan távolítható el a jegyzet, és hogyan alkalmazható stílus a jegyzetdiákra egy prezentációban. Az Aspose.Slides lehetővé teszi, hogy jegyzeteket távolítson el bármely diáról, valamint stílust alkalmazzon a meglévő jegyzetekre. A fejlesztők a jegyzeteket a következő módokon távolíthatják el:
-- Jegyzetek eltávolítása egy adott diáról egy prezentációban.
-- Jegyzetek eltávolítása az összes diáról egy prezentációban.
+Aspose.Slides támogatja a jegyzetdiák eltávolítását egy prezentációból. Ebben a témában bemutatjuk ezt a funkciót, beleértve a jegyzetek eltávolítását és a jegyzetdiákra való stílus alkalmazását egy prezentációban. Az Aspose.Slides lehetővé teszi, hogy jegyzeteket távolítson el bármely diáról, valamint alkalmazzon formázást a meglévő jegyzetekre. A fejlesztők a következő módokon távolíthatják el a jegyzeteket:
+
+- Jegyzetek eltávolítása egy adott diáról a prezentációban.
+- Jegyzetek eltávolítása az összes diáról a prezentációban.
+
+A jegyzetoldal méreteinek olvasásához vagy módosításához, az orientáció váltásához és az export viselkedés ellenőrzéséhez lásd a [Jegyzetoldal mérete](/slides/hu/java/notes-size/).
 
 ## **Jegyzetek eltávolítása egy diáról**
+Egy adott diáról a jegyzetek eltávolíthatók, ahogyan az alábbi példában látható:
 
-A konkrét dia jegyzetei eltávolíthatók, amint az alábbi példában látható:
 ```java
+import com.aspose.slides.*;
+
 // Létrehoz egy Presentation objektumot, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -42,10 +47,12 @@ try {
 }
 ```
 
-## **Jegyzetek eltávolítása egy prezentációból**
+## **Jegyzetek eltávolítása egy előadáson belül**
+Az összes diából származó jegyzetek eltávolíthatók, ahogyan az alábbi példában látható:
 
-Egy prezentáció összes dia jegyzetei eltávolíthatók, ahogyan az alábbi példában látható:
 ```java
+import com.aspose.slides.*;
+
 // Létrehoz egy Presentation objektumot, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -64,9 +71,11 @@ try {
 ```
 
 ## **Jegyzetstílus hozzáadása**
+A [getNotesStyle](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) metódus hozzáadva lett az [IMasterNotesSlide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IMasterNotesSlide) interfészhez és a [MasterNotesSlide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/MasterNotesSlide) osztályhoz. Ez a tulajdonság a jegyzet szövegének stílusát határozza meg. A megvalósítást az alábbi példában mutatjuk be.
 
-[getNotesStyle](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) metódust hozzáadták a [IMasterNotesSlide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IMasterNotesSlide) interfészhez és a [MasterNotesSlide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/MasterNotesSlide) osztályhoz. Ez a tulajdonság a jegyzet szövegének stílusát adja meg. A megvalósítást az alábbi példában mutatjuk be.
 ```java
+import com.aspose.slides.*;
+
 // Létrehoz egy Presentation objektumot, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -74,10 +83,10 @@ try {
     
     if (notesMaster != null)
     {
-        // Lekéri a MasterNotesSlide szövegstílusát
+        // Lekérdezi a MasterNotesSlide szövegstílusát
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        // Beállítja a szimbólum jelölőt az első szintű bekezdésekhez
+        // Beállítja a szimbólum típusú felsorolást az első szintű bekezdésekhez
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -87,12 +96,12 @@ try {
 }
 ```
 
-## **GYIK**
+## **Gyakran Ismételt Kérdések**
 
-**Melyik API-entitás biztosít hozzáférést egy adott dia jegyzetéhez?**
+**Melyik API entitás biztosítja a hozzáférést egy adott dia jegyzeteihez?**
 
-A jegyzetek a dia jegyzetkezelőjén keresztül érhetők el: a diához tartozik egy [NotesSlideManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notesslidemanager/) és egy [method](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notesslidemanager/#getNotesSlide--) amely visszaadja a jegyzet objektumot, vagy `null`, ha nincs jegyzet.
+A jegyzetek a dia jegyzetkezelőjén keresztül érhetők el: a diához tartozik egy [NotesSlideManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notesslidemanager/) és egy [metódus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notesslidemanager/#getNotesSlide--) amely visszaadja a jegyzet objektumot, vagy `null`, ha nincsenek jegyzetek.
 
-**Vannak-e különbségek a jegyzetek támogatásában a PowerPoint verziók között, amelyeken a könyvtár működik?**
+**Vannak-e különbségek a jegyzet támogatásban a könyvtár által támogatott PowerPoint verziók között?**
 
-A könyvtár a Microsoft PowerPoint széles körű formátumait (97-újabb) és az ODP-t célozza; a jegyzetek támogatottak ezekben a formátumokban, függetlenül attól, hogy telepített PowerPoint példány áll-e rendelkezésre.
+A könyvtár széles körű Microsoft PowerPoint formátumot (97-tól napjainkig) és ODP-t céloz meg; a jegyzetek támogatottak ezekben a formátumokban anélkül, hogy a PowerPoint telepített példányára lenne szükség.

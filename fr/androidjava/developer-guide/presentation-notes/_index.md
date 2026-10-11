@@ -17,24 +17,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Personnalisez les notes de présentation avec Aspose.Slides pour Android via Java. Travaillez de manière fluide avec les notes PowerPoint et OpenDocument pour augmenter votre productivité."
+description: "Personnalisez les notes de présentation avec Aspose.Slides pour Android via Java. Travaillez sans effort avec les notes PowerPoint et OpenDocument pour augmenter votre productivité."
 ---
+## **Vue d'ensemble**
 
-{{% alert color="primary" %}} 
+Aspose.Slides prend en charge la suppression des diapositives de notes d’une présentation. Dans ce sujet, nous présenterons cette fonctionnalité, y compris comment supprimer les notes et comment appliquer un style aux diapositives de notes dans une présentation. Aspose.Slides vous permet de supprimer les notes de n’importe quelle diapositive et également d’appliquer un style aux notes existantes. Les développeurs peuvent supprimer les notes de la manière suivante :
 
-Aspose.Slides prend en charge la suppression des diapositives de notes d'une presentation. Dans ce sujet, nous presenterons cette nouvelle fonctionnalite de suppression des notes ainsi que l'ajout de diapositives de style de notes a partir de n'importe quelle presentation. 
+- Supprimer les notes d’une diapositive spécifique d’une présentation.
+- Supprimer les notes de toutes les diapositives d’une présentation.
 
-{{% /alert %}} 
+Pour lire ou modifier les dimensions de la page de notes, changer l’orientation et vérifier le comportement d’exportation, consultez [Notes Page Size](/slides/fr/androidjava/notes-size/).
 
-Aspose.Slides for Android via Java offre la fonctionnalite de suppression des notes de n'importe quelle diapositive ainsi que l'ajout de style aux notes existantes. Les developpeurs peuvent supprimer les notes de la maniere suivante :
+## **Supprimer les notes d’une diapositive**
+Les notes d’une diapositive spécifique peuvent être supprimées comme le montre l’exemple ci-dessous :
 
-* Supprimer les notes d'une diapositive specifique d'une presentation.
-* Supprimer les notes de toutes les diapositives d'une presentation
-
-
-## **Supprimer les notes d'une diapositive**
-Les notes d'une diapositive specifique peuvent etre supprimees comme le montre l'exemple ci-dessous:
 ```java
+import com.aspose.slides.*;
+
 // Instancier un objet Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -49,10 +48,12 @@ try {
 }
 ```
 
+## **Supprimer les notes d’une présentation**
+Les notes de toutes les diapositives d’une présentation peuvent être supprimées comme le montre l’exemple ci-dessous :
 
-## **Supprimer les notes d'une presentation**
-Les notes de toutes les diapositives d'une presentation peuvent etre supprimees comme le montre l'exemple ci-dessous:
 ```java
+import com.aspose.slides.*;
+
 // Instancier un objet Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -70,10 +71,12 @@ try {
 }
 ```
 
-
 ## **Ajouter un style de notes**
-La methode [getNotesStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) a ete ajoutee à l'interface [IMasterNotesSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterNotesSlide) et à la classe [MasterNotesSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MasterNotesSlide) respectivement. Cette propriete specifie le style du texte des notes. L'implementation est demontree dans l'exemple ci-dessous.
+La méthode [getNotesStyle](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) a été ajoutée à l’interface [IMasterNotesSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/IMasterNotesSlide) et à la classe [MasterNotesSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/MasterNotesSlide) respectivement. Cette propriété spécifie le style du texte des notes. L’implémentation est démontrée dans l’exemple ci-dessous.
+
 ```java
+import com.aspose.slides.*;
+
 // Instancier un objet Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -81,10 +84,10 @@ try {
     
     if (notesMaster != null)
     {
-        // Obtenir le style de texte du MasterNotesSlide
+        // Obtenir le style de texte MasterNotesSlide
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        // Définir une puce symbole pour les paragraphes de premier niveau
+        //Définir le symbole de puce pour les paragraphes du premier niveau
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -94,13 +97,12 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Quelle entite API fournit l'acces aux notes d'une diapositive specifique ?**
+**Quelle entité API fournit l’accès aux notes d’une diapositive spécifique ?**
 
-Les notes sont accesibles via le gestionnaire de notes de la diapositive : la diapositive possede un [NotesSlideManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notesslidemanager/) et une [method](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) qui renvoie l'objet notes, ou `null` s'il n'y a aucune note.
+Les notes sont accessibles via le gestionnaire de notes de la diapositive : la diapositive possède un [NotesSlideManager](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/notesslidemanager/) et une [méthode](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) qui renvoie l’objet notes, ou `null` s’il n’y a aucune note.
 
-**Existe-t-il des differences de prise en charge des notes selon les versions de PowerPoint avec lesquelles la bibliotheque fonctionne ?**
+**Existe‑t‑il des différences de prise en charge des notes selon les versions de PowerPoint avec lesquelles la bibliothèque fonctionne ?**
 
-La bibliotheque cible une large gamme de formats Microsoft PowerPoint (97-et suivants) et ODP ; les notes sont prises en charge dans ces formats sans depender d'une copie installee de PowerPoint.
+La bibliothèque prend en charge un large éventail de formats Microsoft PowerPoint (97‑et suivants) ainsi que ODP ; les notes sont prises en charge dans ces formats sans dépendre d’une copie installée de PowerPoint.

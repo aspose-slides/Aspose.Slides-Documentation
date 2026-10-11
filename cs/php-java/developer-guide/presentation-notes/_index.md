@@ -1,6 +1,6 @@
 ---
-title: Správa poznámek prezentace v PHP
-linktitle: Poznámky k prezentaci
+title: Spravovat poznámky prezentace v PHP
+linktitle: Poznámky prezentace
 type: docs
 weight: 110
 url: /cs/php-java/presentation-notes/
@@ -8,7 +8,7 @@ keywords:
 - poznámky
 - snímek s poznámkami
 - přidat poznámky
-- odebrat poznámky
+- odstranit poznámky
 - styl poznámek
 - hlavní poznámky
 - PowerPoint
@@ -16,23 +16,25 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Přizpůsobte poznámky k prezentaci pomocí Aspose.Slides pro PHP přes Java. Plynule pracujte s poznámkami ve formátech PowerPoint a OpenDocument a zvyšte svou produktivitu."
+description: "Přizpůsobte poznámky prezentace pomocí Aspose.Slides pro PHP přes Java. Bezproblémově pracujte s poznámkami PowerPoint a OpenDocument a zvýšte svou produktivitu."
 ---
 ## **Přehled**
 
-Aspose.Slides podporuje odstraňování snímků s poznámkami z prezentace. V tomto tématu představíme tuto funkci, včetně toho, jak odebrat poznámky a jak použít styl na snímky s poznámkami v prezentaci. Aspose.Slides umožňuje odstranit poznámky z libovolného snímku a také aplikovat stylování na existující poznámky. Vývojáři mohou odstranit poznámky následujícími způsoby:
+Aspose.Slides podporuje odstraňování poznámkových snímků z prezentace. V tomto tématu představíme tuto funkci, včetně toho, jak odstranit poznámky a jak použít styl na poznámkové snímky v prezentaci. Aspose.Slides umožňuje odstranit poznámky z libovolného snímku a také aplikovat stylování na existující poznámky. Vývojáři mohou odstranit poznámky následujícími způsoby:
 
 - Odstranit poznámky z konkrétního snímku v prezentaci.
 - Odstranit poznámky ze všech snímků v prezentaci.
 
-## **Odstranění poznámek ze snímku**
-Poznámky některého konkrétního snímku lze odstranit, jak je ukázáno v příkladu níže:
+Pro čtení nebo změnu rozměrů stránky poznámek, změnu orientace a kontrolu chování exportu viz [Velikost stránky poznámek](/slides/cs/php-java/notes-size/).
+
+## **Odstranit poznámky ze snímku**
+Poznámky z konkrétního snímku lze odstranit, jak je ukázáno v níže uvedeném příkladu:
 
 ```php
   # Vytvořte objekt Presentation, který představuje soubor prezentace
   $pres = new Presentation("presWithNotes.pptx");
   try {
-    # Odstranění poznámek z první snímku
+    # Odstranění poznámek z prvního snímku
     $mgr = $pres->getSlides()->get_Item(0)->getNotesSlideManager();
     $mgr->removeNotesSlide();
     # Uložení prezentace na disk
@@ -44,8 +46,8 @@ Poznámky některého konkrétního snímku lze odstranit, jak je ukázáno v p�
   }
 ```
 
-## **Odstranění poznámek z prezentace**
-Poznámky ze všech snímků prezentace lze odstranit, jak je ukázáno v příkladu níže:
+## **Odstranit poznámky z prezentace**
+Poznámky ze všech snímků v prezentaci lze odstranit, jak je ukázáno v níže uvedeném příkladu:
 
 ```php
   # Vytvořte objekt Presentation, který představuje soubor prezentace
@@ -66,8 +68,8 @@ Poznámky ze všech snímků prezentace lze odstranit, jak je ukázáno v přík
   }
 ```
 
-## **Přidání stylu poznámek**
-[getNotesStyle](https://reference.aspose.com/slides/cs/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) metoda byla přidána do třídy [MasterNotesSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/MasterNotesSlide). Tato vlastnost určuje styl textu poznámek. Implementace je demonstrována v níže uvedeném příkladu.
+## **Přidat styl poznámek**
+Metoda [getNotesStyle](https://reference.aspose.com/slides/cs/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) třídy [MasterNotesSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/MasterNotesSlide) poskytuje přístup ke stylu textu poznámek. Implementace je ukázána v níže uvedeném příkladu.
 
 ```php
   # Vytvořte objekt Presentation, který představuje soubor prezentace
@@ -89,12 +91,12 @@ Poznámky ze všech snímků prezentace lze odstranit, jak je ukázáno v přík
   }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Který prvek API poskytuje přístup k poznámkám konkrétního snímku?**
+**Který objekt API poskytuje přístup k poznámkám konkrétního snímku?**
 
-Poznámky jsou přístupné prostřednictvím správce poznámek snímku: snímek má [NotesSlideManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notesslidemanager/) a [method](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notesslidemanager/getnotesslide/), který vrací objekt poznámek, nebo `null`, pokud nejsou žádné poznámky.
+Poznámky jsou přístupné prostřednictvím správce poznámek snímku: snímek má [NotesSlideManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notesslidemanager/) a [metodu](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notesslidemanager/getnotesslide/), která vrací objekt poznámek, nebo `null`, pokud žádné poznámky neexistují.
 
-**Existují rozdíly v podpoře poznámek napříč verzemi PowerPointu, se kterými knihovna pracuje?**
+**Existují rozdíly v podpoře poznámek mezi verzemi PowerPointu, se kterými knihovna pracuje?**
 
-Knihovna cílí na širokou škálu formátů Microsoft PowerPoint (97–novější) a ODP; poznámky jsou v těchto formátech podporovány bez ohledu na nainstalovanou kopii PowerPointu.
+Knihovna cílí na širokou škálu formátů Microsoft PowerPoint (97‑novější) a ODP; poznámky jsou v těchto formátech podporovány bez závislosti na nainstalované kopii PowerPointu.

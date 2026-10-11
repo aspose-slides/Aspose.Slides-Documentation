@@ -16,19 +16,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "使用 Java 通过 Python 将 PowerPoint 演示文稿转换为讲义。将多张幻灯片排列在每页，并使用 Aspose.Slides 导出为 PDF。"
+description: "在 Python via Java 中将 PowerPoint 演示文稿转换为讲义。将多张幻灯片排列在同一页上，并使用 Aspose.Slides 导出为 PDF。"
 ---
 ## **介绍**
 
-Aspose.Slides for Python via Java 允许您以讲义模式导出演示文稿，在单页上排列多张幻灯片。这对于为会议、研讨会等活动打印演示材料非常有用。
+Aspose.Slides for Python via Java 允许您以讲义模式导出演示文稿，将多张幻灯片排列在同一页上。这对于在会议、研讨会等活动中打印演示材料非常有用。
 
-通过 [setSlidesLayoutOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) 方法配置布局。讲义布局受到 [PdfOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/pdfoptions/)、[RenderingOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/renderingoptions/)、[HtmlOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/htmloptions/) 和 [TiffOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/tiffoptions/) 的支持。使用 [HandoutLayoutingOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/handoutlayoutingoptions/) 对象指定布局和显示设置。
+通过[setSlidesLayoutOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) 方法配置布局。讲义布局受[PdfOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/pdfoptions/)、[RenderingOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/renderingoptions/)、[HtmlOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/htmloptions/)和[TiffOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/tiffoptions/)的支持。使用[HandoutLayoutingOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/handoutlayoutingoptions/) 对象指定布局和显示设置。
+
+要在导出前设置讲义页面尺寸和方向，请参阅[备注页面大小](/slides/zh/python-java/notes-size/)。
 
 ## **讲义模式导出**
 
-要以讲义模式导出演示文稿，请创建一个 [HandoutLayoutingOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/handoutlayoutingoptions/) 实例，并通过 [setSlidesLayoutOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) 将其分配给目标导出选项。
+要以讲义模式导出演示文稿，创建一个[HandoutLayoutingOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/handoutlayoutingoptions/) 实例，并使用[setSlidesLayoutOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) 将其分配给目标导出选项。
 
-以下示例加载 `sample.pptx` 并将其导出为 PDF，每页水平排列四张幻灯片。示例包括幻灯片编号和幻灯片周围的边框，并排除评论。
+下面的示例加载 `sample.pptx`，并以水平顺序每页四张幻灯片的方式导出为 PDF。示例包括幻灯片编号和幻灯片四周的框架，并排除批注。
 
 ```python
 import jpype
@@ -59,19 +61,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-讲义布局设置适用于受支持的输出格式，例如 PDF、HTML、TIFF 和渲染图像。它们不会重新排列源演示文稿中的幻灯片顺序。
+讲义布局设置适用于受支持的输出格式，如 PDF、HTML、TIFF 和渲染的图像。它们不会重新排列源演示文稿中的幻灯片顺序。
 {{% /alert %}}
 
 ## **常见问题**
 
-**在讲义模式下每页最多可以显示多少个幻灯片缩略图？**
+**在讲义模式下，每页最多可以显示多少张幻灯片缩略图？**
 
-Aspose.Slides 最多支持每页九个缩略图。[HandoutType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/handouttype/) 预设提供每页 1、2、3、4、6 或 9 张幻灯片的布局。四、六、九张幻灯片的预设支持水平和垂直排序。
+Aspose.Slides 支持每页最多九张缩略图。[HandoutType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/handouttype/) 预设提供每页一、二、三、四、六或九张幻灯片。四、六、九张幻灯片的预设提供水平和垂直顺序。
 
 **我可以自定义网格，例如每页五张或八张幻灯片吗？**
 
-不能。缩略图的数量和排序由预定义的 [HandoutType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/handouttype/) 值控制。这些讲义布局设置不支持任意网格。
+不能。缩略图的数量和顺序由预定义的[HandoutType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/handouttype/) 值控制。这些讲义布局设置不支持任意网格。
 
 **我可以在讲义输出中包含隐藏的幻灯片吗？**
 
-可以。在目标格式的导出设置中启用隐藏幻灯片。对于 PDF，请在保存演示文稿之前调用 [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/zh/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) 并传入 `True`。
+可以。在目标格式的导出设置中启用隐藏幻灯片。对于 PDF，请在保存演示文稿之前调用[PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/zh/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) 并将参数设为 `True`。

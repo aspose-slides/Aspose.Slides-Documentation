@@ -6,33 +6,35 @@ weight: 110
 url: /nl/php-java/presentation-notes/
 keywords:
 - notities
-- notitiesdia
+- notitieslide
 - notities toevoegen
 - notities verwijderen
 - notitiestijl
-- hoofnotities
+- masternotities
 - PowerPoint
 - OpenDocument
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Pas presentatienotities aan met Aspose.Slides voor PHP via Java. Werk moeiteloos met PowerPoint- en OpenDocument-notities om je productiviteit te verhogen."
+description: "Pas presentatienotities aan met Aspose.Slides voor PHP via Java. Werk moeiteloos met PowerPoint- en OpenDocument-notities om uw productiviteit te verhogen."
 ---
 ## **Overzicht**
 
-Aspose.Slides ondersteunt het verwijderen van notitieslides uit een presentatie. In dit onderwerp introduceren we deze functie, inclusief hoe notities te verwijderen en hoe een stijl toe te passen op notitieslides in een presentatie. Aspose.Slides stelt je in staat notities van elke dia te verwijderen en ook styling toe te passen op bestaande notities. Ontwikkelaars kunnen notities op de volgende manieren verwijderen:
+Aspose.Slides ondersteunt het verwijderen van notitieslides uit een presentatie. In dit onderwerp zullen we deze functie introduceren, inclusief hoe je notities kunt verwijderen en hoe je een stijl kunt toepassen op notitieslides in een presentatie. Aspose.Slides stelt je in staat notities van elke slide te verwijderen en ook stijl toe te passen op bestaande notities. Ontwikkelaars kunnen notities op de volgende manieren verwijderen:
 
-- Verwijder notities van een specifieke dia in een presentatie.
-- Verwijder notities van alle dia's in een presentatie.
+- Verwijder notities van een specifieke slide in een presentatie.
+- Verwijder notities van alle slides in een presentatie.
 
-## **Notities van een dia verwijderen**
-Notities van een specifieke dia kunnen worden verwijderd zoals getoond in het onderstaande voorbeeld:
+Om de afmetingen van de notitiepagina te lezen of te wijzigen, de oriëntatie te schakelen en het exportgedrag te controleren, zie [Notes Page Size](/slides/nl/php-java/notes-size/).
+
+## **Notities van een slide verwijderen**
+Notities van een specifieke slide kunnen worden verwijderd zoals getoond in het onderstaande voorbeeld:
 
 ```php
   # Maak een Presentation-object aan dat een presentatiebestand vertegenwoordigt
   $pres = new Presentation("presWithNotes.pptx");
   try {
-    # Verwijderen van notities van de eerste dia
+    # Notities van de eerste slide verwijderen
     $mgr = $pres->getSlides()->get_Item(0)->getNotesSlideManager();
     $mgr->removeNotesSlide();
     # Presentatie opslaan op schijf
@@ -44,14 +46,14 @@ Notities van een specifieke dia kunnen worden verwijderd zoals getoond in het on
   }
 ```
 
-## **Notities van een presentatie verwijderen**
-Notities van alle dia's van een presentatie kunnen worden verwijderd zoals getoond in het onderstaande voorbeeld:
+## **Notities uit een presentatie verwijderen**
+Notities van alle slides in een presentatie kunnen worden verwijderd zoals getoond in het onderstaande voorbeeld:
 
 ```php
   # Maak een Presentation-object aan dat een presentatiebestand vertegenwoordigt
   $pres = new Presentation("presWithNotes.pptx");
   try {
-    # Verwijderen van notities van alle dia's
+    # Notities van alle slides verwijderen
     $mgr = null;
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
       $mgr = $pres->getSlides()->get_Item($i)->getNotesSlideManager();
@@ -67,7 +69,7 @@ Notities van alle dia's van een presentatie kunnen worden verwijderd zoals getoo
 ```
 
 ## **Een notitiestijl toevoegen**
-[getNotesStyle](https://reference.aspose.com/slides/nl/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) methode is toegevoegd aan de [MasterNotesSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/MasterNotesSlide) klasse respectievelijk. Deze eigenschap specificeert de stijl van een notitietekst. De implementatie wordt gedemonstreerd in het onderstaande voorbeeld.
+De [getNotesStyle](https://reference.aspose.com/slides/nl/php-java/aspose.slides/MasterNotesSlide#getNotesStyle)‑methode van de [MasterNotesSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/MasterNotesSlide)‑klasse biedt toegang tot de tekstopmaak van notities. De implementatie wordt gedemonstreerd in het onderstaande voorbeeld.
 
 ```php
   # Maak een Presentation-object aan dat een presentatiebestand vertegenwoordigt
@@ -75,9 +77,9 @@ Notities van alle dia's van een presentatie kunnen worden verwijderd zoals getoo
   try {
     $notesMaster = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
     if (!java_is_null($notesMaster)) {
-      # Haal MasterNotesSlide-tekststijl op
+      # Haal de tekststijl van MasterNotesSlide op
       $notesStyle = $notesMaster->getNotesStyle();
-      # Stel symbool-bullet in voor de alinea's van het eerste niveau
+      # Stel een symboolbullet in voor de alinea's van het eerste niveau
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
@@ -89,12 +91,12 @@ Notities van alle dia's van een presentatie kunnen worden verwijderd zoals getoo
   }
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Welke API‑entiteit biedt toegang tot de notities van een specifieke dia?**
+**Welke API‑entiteit biedt toegang tot de notities van een specifieke slide?**
 
-Notities worden benaderd via de notitie‑manager van de dia: de dia heeft een [NotesSlideManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/notesslidemanager/) en een [method](https://reference.aspose.com/slides/nl/php-java/aspose.slides/notesslidemanager/getnotesslide/) die het notitie‑object retourneert, of `null` als er geen notities zijn.
+Notities worden benaderd via de notitie‑manager van de slide: de slide heeft een [NotesSlideManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/notesslidemanager/) en een [method](https://reference.aspose.com/slides/nl/php-java/aspose.slides/notesslidemanager/getnotesslide/) die het notitie‑object retourneert, of `null` als er geen notities zijn.
 
-**Zijn er verschillen in ondersteuning van notities tussen de PowerPoint‑versies waarmee de bibliotheek werkt?**
+**Zijn er verschillen in notitie‑ondersteuning tussen de PowerPoint‑versies waarmee de bibliotheek werkt?**
 
-De bibliotheek richt zich op een breed scala aan Microsoft PowerPoint‑formaten (97‑en nieuwer) en ODP; notities worden ondersteerd in deze formaten zonder dat er een geïnstalleerde kopie van PowerPoint nodig is.
+De bibliotheek richt zich op een breed scala aan Microsoft PowerPoint‑formaten (97‑en nieuwer) en ODP; notities worden ondersteund in deze formaten zonder afhankelijk te zijn van een geïnstalleerde kopie van PowerPoint.

@@ -9,33 +9,35 @@ keywords:
 - اسلاید یادداشت
 - افزودن یادداشت
 - حذف یادداشت
-- استایل یادداشت
+- سبک یادداشت
 - یادداشت‌های اصلی
 - PowerPoint
 - OpenDocument
 - ارائه
 - PHP
 - Aspose.Slides
-description: "یادداشت‌های ارائه را با Aspose.Slides برای PHP از طریق Java سفارشی کنید. به‌صورت یکپارچه با یادداشت‌های PowerPoint و OpenDocument کار کنید تا بهره‌وری خود را ارتقا دهید."
+description: "یادداشت‌های ارائه را با Aspose.Slides برای PHP از طریق Java سفارشی کنید. به‌صورت یکپارچه با یادداشت‌های PowerPoint و OpenDocument کار کنید تا بهره‌وری خود را افزایش دهید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-Aspose.Slides از حذف اسلایدهای یادداشت از یک ارائه پشتیبانی می‌کند. در این مطلب، این ویژگی را معرفی خواهیم کرد، شامل نحوه حذف یادداشت‌ها و نحوه اعمال سبک به اسلایدهای یادداشت در یک ارائه. Aspose.Slides به شما امکان حذف یادداشت‌ها از هر اسلاید و همچنین اعمال استایل به یادداشت‌های موجود را می‌دهد. توسعه‌دهندگان می‌توانند یادداشت‌ها را به روش‌های زیر حذف کنند:
+Aspose.Slides امکان حذف اسلایدهای یادداشت را از یک ارائه فراهم می‌کند. در این مقاله، این ویژگی را معرفی می‌کنیم، از جمله نحوه حذف یادداشت‌ها و اعمال یک سبک به اسلایدهای یادداشت در یک ارائه. Aspose.Slides به شما اجازه می‌دهد یادداشت‌ها را از هر اسلاید حذف کنید و همچنین استایل‌گذاری بر روی یادداشت‌های موجود انجام دهید. توسعه‌دهندگان می‌توانند یادداشت‌ها را به روش‌های زیر حذف کنند:
 
-- حذف یادداشت‌ها از یک اسلاید خاص در یک ارائه.
+- حذف یادداشت‌ها از یک اسلاید خاص در ارائه.
 - حذف یادداشت‌ها از تمام اسلایدهای یک ارائه.
 
+برای خواندن یا تغییر ابعاد صفحه یادداشت‌ها، تغییر جهت و بررسی رفتار صادرات، به [اندازه صفحه یادداشت‌ها](/slides/fa/php-java/notes-size/) مراجعه کنید.
+
 ## **حذف یادداشت‌ها از یک اسلاید**
-یادداشت‌های یک اسلاید خاص می‌توانند همان‌گونه که در مثال زیر نشان داده شده است حذف شوند:
+یادداشت‌های یک اسلاید خاص می‌توانند همان‌طور که در مثال زیر نشان داده شده است، حذف شوند:
 
 ```php
-  # یک شیء Presentation نمونه می‌سازد که نمایانگر یک فایل ارائه است
+  # یک شی Presentation ایجاد کنید که نمایانگر یک فایل ارائه است
   $pres = new Presentation("presWithNotes.pptx");
   try {
     # حذف یادداشت‌های اسلاید اول
     $mgr = $pres->getSlides()->get_Item(0)->getNotesSlideManager();
     $mgr->removeNotesSlide();
-    # ذخیره‌سازی ارائه بر روی دیسک
+    # ذخیرهٔ ارائه در دیسک
     $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -45,10 +47,10 @@ Aspose.Slides از حذف اسلایدهای یادداشت از یک ارائه
 ```
 
 ## **حذف یادداشت‌ها از یک ارائه**
-یادداشت‌های تمام اسلایدهای یک ارائه می‌توانند همان‌گونه که در مثال زیر نشان داده شده است حذف شوند:
+یادداشت‌های تمام اسلایدهای یک ارائه می‌توانند همان‌طور که در مثال زیر نشان داده شده است، حذف شوند:
 
 ```php
-  # یک شیء Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است
+  # یک شی Presentation ایجاد کنید که نمایانگر یک فایل ارائه است
   $pres = new Presentation("presWithNotes.pptx");
   try {
     # حذف یادداشت‌های تمام اسلایدها
@@ -57,7 +59,7 @@ Aspose.Slides از حذف اسلایدهای یادداشت از یک ارائه
       $mgr = $pres->getSlides()->get_Item($i)->getNotesSlideManager();
       $mgr->removeNotesSlide();
     }
-    # ذخیره‌سازی ارائه بر روی دیسک
+    # ذخیرهٔ ارائه در دیسک
     $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -66,18 +68,18 @@ Aspose.Slides از حذف اسلایدهای یادداشت از یک ارائه
   }
 ```
 
-## **اضافه کردن سبک به یادداشت‌ها**
-[getNotesStyle](https://reference.aspose.com/slides/fa/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) متد به کلاس [MasterNotesSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/MasterNotesSlide) اضافه شده است. این خصوصیت سبک متن یادداشت را تعیین می‌کند. پیاده‌سازی در مثال زیر نشان داده شده است.
+## **اضافه کردن سبک یادداشت‌ها**
+متد [getNotesStyle](https://reference.aspose.com/slides/fa/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) از کلاس [MasterNotesSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/MasterNotesSlide) دسترسی به سبک متن یادداشت‌ها را فراهم می‌کند. پیاده‌سازی در مثال زیر نشان داده شده است.
 
 ```php
-  # یک شیء Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است
+  # یک شی Presentation ایجاد کنید که نمایانگر یک فایل ارائه است
   $pres = new Presentation("demo.pptx");
   try {
     $notesMaster = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
     if (!java_is_null($notesMaster)) {
       # دریافت سبک متن MasterNotesSlide
       $notesStyle = $notesMaster->getNotesStyle();
-      # تنظیم گلوله نمادیک برای پاراگراف‌های سطح اول
+      # تنظیم گلوله نماد برای پاراگراف‌های سطح اول
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
@@ -93,8 +95,8 @@ Aspose.Slides از حذف اسلایدهای یادداشت از یک ارائه
 
 **کدام موجودیت API دسترسی به یادداشت‌های یک اسلاید خاص را فراهم می‌کند؟**
 
-یادداشت‌ها از طریق مدیر یادداشت‌های اسلاید دسترسی می‌یابند: اسلاید دارای یک [NotesSlideManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/notesslidemanager/) و یک [متد](https://reference.aspose.com/slides/fa/php-java/aspose.slides/notesslidemanager/getnotesslide/) است که شیء یادداشت‌ها را برمی‌گرداند، یا `null` اگر هیچ یادداشتی وجود نداشته باشد.
+یادداشت‌ها از طریق مدیر یادداشت‌های اسلاید دسترسی پیدا می‌کنند: اسلاید دارای یک [NotesSlideManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/notesslidemanager/) و یک [متد](https://reference.aspose.com/slides/fa/php-java/aspose.slides/notesslidemanager/getnotesslide/) است که شیء یادداشت‌ها را برمی‌گرداند، یا `null` اگر یادداشتی وجود نداشته باشد.
 
-**آیا در پشتیبانی از یادداشت‌ها در نسخه‌های مختلف PowerPoint که کتابخانه با آن‌ها کار می‌کند، تفاوتی وجود دارد؟**
+**آیا تفاوت‌هایی در پشتیبانی از یادداشت‌ها بین نسخه‌های PowerPoint که کتابخانه با آن‌ها کار می‌کند وجود دارد؟**
 
-کتابخانه هدف‌گذاری خود را بر روی دامنه وسیعی از فرمت‌های Microsoft PowerPoint (از نسخه 97 به بعد) و ODP قرار داده است؛ یادداشت‌ها در این فرمت‌ها بدون وابستگی به یک نسخه نصب‌شده از PowerPoint پشتیبانی می‌شوند.
+این کتابخانه هدف‌گذاری بر طیف گسترده‌ای از فرمت‌های Microsoft PowerPoint (97 تا جدیدتر) و ODP را دارد؛ یادداشت‌ها در این فرمت‌ها بدون نیاز به نصب نسخه‌ای از PowerPoint پشتیبانی می‌شوند.

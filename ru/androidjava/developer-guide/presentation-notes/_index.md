@@ -10,28 +10,30 @@ keywords:
 - добавить заметки
 - удалить заметки
 - стиль заметок
-- главные заметки
+- мастер-заметки
 - PowerPoint
 - OpenDocument
 - презентация
 - Android
 - Java
 - Aspose.Slides
-description: "Настраивайте заметки презентации с помощью Aspose.Slides для Android через Java. Без проблем работайте с заметками PowerPoint и OpenDocument, повышая свою продуктивность."
+description: "Настройте заметки презентации с помощью Aspose.Slides для Android на Java. Без проблем работайте с заметками PowerPoint и OpenDocument, повышая свою продуктивность."
 ---
+## **Обзор**
 
-{{% alert color="primary" %}} 
-Aspose.Slides поддерживает удаление слайдов заметок из презентации. В этой статье мы познакомим вас с новой функцией удаления заметок, а также добавления слайдов со стилем заметок в любую презентацию. 
-{{% /alert %}} 
-Aspose.Slides для Android через Java предоставляет возможность удалять заметки любого слайда, а также добавлять стиль к существующим заметкам. Разработчики могут удалять заметки следующими способами:
+Aspose.Slides поддерживает удаление листов заметок из презентации. В этой теме мы представим эту возможность, включая то, как удалить заметки и как применить стиль к листам заметок в презентации. Aspose.Slides позволяет удалять заметки с любого слайда, а также применять оформление к существующим заметкам. Разработчики могут удалять заметки следующими способами:
 
-* Удалить заметки конкретного слайда презентации.
-* Удалить заметки всех слайдов презентации
+- Удалить заметки с конкретного слайда в презентации.
+- Удалить заметки со всех слайдов в презентации.
 
+Чтобы просмотреть или изменить размеры страницы заметок, переключить ориентацию и проверить поведение экспорта, см. [Размер страницы заметок](/slides/ru/androidjava/notes-size/).
 
 ## **Удалить заметки со слайда**
-Заметки определённого слайда можно удалить, как показано в примере ниже:
+Заметки с конкретного слайда можно удалить, как показано в примере ниже:
+
 ```java
+import com.aspose.slides.*;
+
 // Создайте объект Presentation, представляющий файл презентации
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -46,10 +48,12 @@ try {
 }
 ```
 
-
 ## **Удалить заметки из презентации**
-Заметки всех слайдов презентации можно удалить, как показано в примере ниже:
+Заметки со всех слайдов в презентации можно удалить, как показано в примере ниже:
+
 ```java
+import com.aspose.slides.*;
+
 // Создайте объект Presentation, представляющий файл презентации
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -67,10 +71,12 @@ try {
 }
 ```
 
-
 ## **Добавить стиль заметок**
-Метод [getNotesStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) был добавлен в интерфейс [IMasterNotesSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterNotesSlide) и класс [MasterNotesSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MasterNotesSlide) соответственно. Это свойство задаёт стиль текста заметок. Реализация продемонстрирована в примере ниже.
+[getNotesStyle](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) method был добавлен в интерфейс [IMasterNotesSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IMasterNotesSlide) и класс [MasterNotesSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/MasterNotesSlide) соответственно. Это свойство задаёт стиль текста заметок. Реализация продемонстрирована в примере ниже.
+
 ```java
+import com.aspose.slides.*;
+
 // Создайте объект Presentation, представляющий файл презентации
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -91,13 +97,12 @@ try {
 }
 ```
 
-
-## **FAQ**
+## **Вопросы и ответы**
 
 **Какой объект API предоставляет доступ к заметкам конкретного слайда?**
 
-Заметки доступны через менеджер заметок слайда: у слайда есть [NotesSlideManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notesslidemanager/) и [метод](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) , который возвращает объект заметок, или `null`, если заметок нет.
+Заметки доступны через менеджер заметок слайда: у слайда есть [NotesSlideManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/notesslidemanager/) и [метод](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) , который возвращает объект заметок, или `null`, если заметок нет.
 
 **Есть ли различия в поддержке заметок в разных версиях PowerPoint, с которыми работает библиотека?**
 
-Библиотека поддерживает широкий спектр форматов Microsoft PowerPoint (97-новее) и ODP; заметки поддерживаются в этих форматах без необходимости установленной копии PowerPoint.
+Библиотека поддерживает широкий спектр форматов Microsoft PowerPoint (97 и новее) и ODP; заметки поддерживаются в этих форматах без зависимости от установленной копии PowerPoint.

@@ -10,31 +10,28 @@ keywords:
 - добавить заметки
 - удалить заметки
 - стиль заметок
-- главные заметки
+- мастер-заметки
 - PowerPoint
 - OpenDocument
 - презентация
 - PHP
 - Aspose.Slides
-description: "Настраивайте заметки презентации с помощью Aspose.Slides for PHP via Java. Беспрепятственно работайте с заметками PowerPoint и OpenDocument, чтобы повысить свою продуктивность."
+description: "Настраивайте заметки презентации с помощью Aspose.Slides для PHP через Java. Беспрепятственно работайте с заметками PowerPoint и OpenDocument, чтобы повысить свою продуктивность."
 ---
+## **Обзор**
 
-{{% alert color="primary" %}} 
+Aspose.Slides поддерживает удаление заметок со слайдов презентации. В этой статье мы расскажем об этой возможности, включая то, как удалить заметки и как применить стиль к слайдам заметок в презентации. Aspose.Slides позволяет удалять заметки с любого слайда и также применять стили к существующим заметкам. Разработчики могут удалять заметки следующими способами:
 
-Aspose.Slides поддерживает удаление заметок со слайдов презентации. В этой статье мы представляем новую возможность удаления заметок, а также добавления стилей заметок к любой презентации. 
+- Удалить заметки с конкретного слайда в презентации.
+- Удалить заметки со всех слайдов в презентации.
 
-{{% /alert %}} 
+Чтобы прочитать или изменить размеры страницы заметок, сменить ориентацию и проверить поведение экспорта, см. [Размер страницы заметок](/slides/ru/php-java/notes-size/).
 
-Aspose.Slides for PHP via Java предоставляет возможность удаления заметок с любого слайда, а также применения стиля к существующим заметкам. Разработчики могут удалять заметки следующими способами:
+## **Удалить заметки со слайда**
+Заметки с конкретного слайда можно удалить, как показано в примере ниже:
 
-* Удалить заметки с конкретного слайда презентации.
-* Удалить заметки со всех слайдов презентации
-
-
-## **Remove Notes from a Slide**
-Заметки с определённого слайда можно удалить, как показано в примере ниже:
 ```php
-  # Создайте объект Presentation, представляющий файл презентации
+  # Создать объект Presentation, представляющий файл презентации
   $pres = new Presentation("presWithNotes.pptx");
   try {
     # Удаление заметок первого слайда
@@ -49,14 +46,14 @@ Aspose.Slides for PHP via Java предоставляет возможность
   }
 ```
 
+## **Удалить заметки из презентации**
+Заметки со всех слайдов в презентации можно удалить, как показано в примере ниже:
 
-## **Remove Notes from a Presentation**
-Заметки со всех слайдов презентации можно удалить, как показано в примере ниже:
 ```php
-  # Создайте объект Presentation, представляющий файл презентации
+  # Создать объект Presentation, представляющий файл презентации
   $pres = new Presentation("presWithNotes.pptx");
   try {
-    # Удаление заметок всех слайдов
+    # Удаление заметок со всех слайдов
     $mgr = null;
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
       $mgr = $pres->getSlides()->get_Item($i)->getNotesSlideManager();
@@ -71,11 +68,11 @@ Aspose.Slides for PHP via Java предоставляет возможность
   }
 ```
 
+## **Добавить стиль заметок**
+Метод [getNotesStyle](https://reference.aspose.com/slides/ru/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) класса [MasterNotesSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/MasterNotesSlide) предоставляет доступ к стилю текста заметок. Реализация продемонстрирована в примере ниже.
 
-## **Add a Notes Style**
-[getNotesStyle](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) метод был добавлен в класс [MasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide). Это свойство задаёт стиль текста заметки. Реализация продемонстрирована в примере ниже.
 ```php
-  # Создайте объект Presentation, представляющий файл презентации
+  # Создать объект Presentation, представляющий файл презентации
   $pres = new Presentation("demo.pptx");
   try {
     $notesMaster = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
@@ -94,13 +91,12 @@ Aspose.Slides for PHP via Java предоставляет возможность
   }
 ```
 
-
 ## **FAQ**
 
-**Which API entity provides access to the notes of a specific slide?**
+**Какой объект API предоставляет доступ к заметкам конкретного слайда?**
 
-Заметки доступны через менеджер заметок слайда: у слайда есть [NotesSlideManager](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/) и [method](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/getnotesslide/) который возвращает объект заметки, или `null`, если заметок нет.
+Заметки доступны через менеджер заметок слайда: у слайда есть [NotesSlideManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/notesslidemanager/) и [method](https://reference.aspose.com/slides/ru/php-java/aspose.slides/notesslidemanager/getnotesslide/), который возвращает объект заметок, либо `null`, если заметок нет.
 
-**Are there differences in notes support across the PowerPoint versions the library works with?**
+**Есть ли различия в поддержке заметок между версиями PowerPoint, с которыми работает библиотека?**
 
-Библиотека поддерживает широкий диапазон форматов Microsoft PowerPoint (97‑newer) и ODP; заметки поддерживаются в этих форматах без необходимости установленной копии PowerPoint.
+Библиотека ориентирована на широкий диапазон форматов Microsoft PowerPoint (97‑newer) и ODP; заметки поддерживаются в этих форматах без зависимости от установленной копии PowerPoint.

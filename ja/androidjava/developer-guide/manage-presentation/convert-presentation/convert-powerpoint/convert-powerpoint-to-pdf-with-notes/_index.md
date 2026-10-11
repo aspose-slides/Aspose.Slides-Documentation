@@ -1,53 +1,64 @@
 ---
-title: PowerPointをPDFノートに変換する
+title: Android でノート付き PowerPoint プレゼンテーションを PDF に変換
+linktitle: ノート付き PowerPoint を PDF に変換
 type: docs
 weight: 50
 url: /ja/androidjava/convert-powerpoint-to-pdf-with-notes/
-keywords: "JavaでPowerPointをノート付きPDFに変換する"
-description: "JavaでPowerPointをノート付きPDFに変換する"
+keywords:
+- PowerPoint を変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint を PDF に変換
+- プレゼンテーションを PDF に変換
+- スライドを PDF に変換
+- PPT を PDF に変換
+- PPTX を PDF に変換
+- プレゼンテーションを PDF として保存
+- PPT を PDF として保存
+- PPTX を PDF として保存
+- PPT を PDF にエクスポート
+- PPTX を PDF にエクスポート
+- スピーカーノート
+- ノート付き PDF
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android を Java で使用して、PPT および PPTX をノート付き PDF に変換します。レイアウトとスピーカーノートを保持し、プロフェッショナルなプレゼンテーションを作成できます。"
 ---
+## **概要**
 
-## **カスタムスライドサイズでPowerPointをPDFに変換する**
-以下の例は、カスタムスライドサイズを持つPDFノート文書にプレゼンテーションを変換する方法を示しています。1インチは72に相当します。
+この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーションをスピーカーノート付きの PDF 形式に変換する方法を学びます。このガイドでは、必要な手順を説明し、タスクを効率的に実行できるようコード例を提供します。この記事の最後までに、以下ができるようになります：
+
+- スライドの変換プロセスを実装し、スピーカーノートを保持したまま PowerPoint スライドを PDF ドキュメントに変換できるようになります。
+- 出力 PDF をカスタマイズして、スピーカーノートが含まれ、要件に合わせてフォーマットされていることを保証できます。
+
+エクスポート前にノートページのサイズと向きを設定するには、[Notes Page Size](/slides/ja/androidjava/notes-size/) を参照してください。
+
+## **ノート付きで PowerPoint を PDF に変換**
+
+`save` メソッドは、[Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスで、PPT または PPTX プレゼンテーションをスピーカーノート付きの PDF に変換するために使用できます。Aspose.Slides を使用すると、プレゼンテーションをロードし、[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/notescommentslayoutingoptions/) クラスを使用してスピーカーノートを含めるレイアウトオプションを設定し、ファイルを PDF として保存するだけです。以下のコードスニペットは、サンプルプレゼンテーションをノートスライド表示の PDF に変換する方法を示しています。
 
 ```java
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化する
-Presentation presIn = new Presentation("SelectedSlides.pptx");
-Presentation presOut = new Presentation();
-try {
-    ISlide slide = presIn.getSlides().get_Item(0);
-    presOut.getSlides().insertClone(0, slide);
-    
-    // スライドのタイプとサイズを設定する
-    presOut.getSlideSize().setSize(612F, 792F, SlideSizeScaleType.EnsureFit);
-        
-    PdfOptions pdfOptions = new PdfOptions();
-    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
+import com.aspose.slides.*;
 
-    presOut.save("PDF-SelectedSlide.pdf", SaveFormat.Pdf, pdfOptions);
+Presentation presentation = new Presentation("sample.pptx");
+try {
+	// スピーカーノートをレンダリングするための PDF オプションを設定します。
+	NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+	notesOptions.setNotesPosition(NotesPositions.BottomFull); // スライドの下にスピーカーノートを描画します。
+
+	PdfOptions pdfOptions = new PdfOptions();
+	pdfOptions.setSlidesLayoutOptions(notesOptions);
+
+	// スピーカーノート付きでプレゼンテーションを PDF に保存します。
+	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
-    if (presIn != null) presIn.dispose();
-    if (presOut != null) presOut.dispose();
+	if (presentation != null) presentation.dispose();
 }
 ```
 
-## **ノートスライドビューでPowerPointをPDFに変換する**
-[**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスによって公開される[**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-)メソッドを使用して、ノートスライドビューでの全プレゼンテーションをPDFに変換できます。以下のコードスニペットは、サンプルプレゼンテーションをノートスライドビューでPDFに更新します。
-
-```java
-Presentation pres = new Presentation("presentation.pptx");
-try {
-    PdfOptions pdfOptions = new PdfOptions();
-    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-
-    pres.save(resourcesOutputPath+"PDF-Notes.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{% alert color="primary" %}} 
-
-Asposeの[PowerPointをPDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf)や[PPTをPDF](https://products.aspose.app/slides/conversion/ppt-to-pdf)コンバータをチェックしてみてください。
-
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Aspose の [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/ja/conversion) をチェックしたいかもしれません。
+{{% /alert %}}

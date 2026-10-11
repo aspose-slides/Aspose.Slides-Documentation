@@ -1,6 +1,6 @@
 ---
 title: Gerenciar notas de apresentação em Python
-linktitle: Notas da apresentação
+linktitle: Notas de apresentação
 type: docs
 weight: 110
 url: /pt/python-net/presentation-notes/
@@ -16,7 +16,7 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Personalize as notas da apresentação com Aspose.Slides para Python via .NET. Trabalhe perfeitamente com notas do PowerPoint e OpenDocument para aumentar sua produtividade."
+description: "Personalize notas de apresentação com Aspose.Slides para Python via .NET. Trabalhe de forma fluida com notas do PowerPoint e OpenDocument para aumentar sua produtividade."
 ---
 ## **Visão geral**
 
@@ -25,14 +25,16 @@ Aspose.Slides oferece suporte à remoção de slides de notas de uma apresentaç
 - Remover notas de um slide específico em uma apresentação.
 - Remover notas de todos os slides em uma apresentação.
 
+Para ler ou alterar as dimensões da página de notas, mudar a orientação e verificar o comportamento de exportação, veja [Notes Page Size](/slides/pt/python-net/notes-size/).
+
 ## **Remover notas de um slide**
-As notas de um slide específico podem ser removidas como mostrado no exemplo abaixo:
+As notas de um slide específico podem ser removidas conforme mostrado no exemplo abaixo:
 
 ```py
 import aspose.slides as slides
 
-# Instanciar um objeto Presentation que representa um arquivo de apresentação
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+# Instanciar um objeto Presentation que representa um arquivo de apresentação 
+with slides.Presentation("AccessSlides.pptx") as presentation:
     # Removendo notas do primeiro slide
     mgr = presentation.slides[0].notes_slide_manager
     mgr.remove_notes_slide()
@@ -42,13 +44,13 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 ```
 
 ## **Remover notas de todos os slides**
-As notas de todos os slides de uma apresentação podem ser removidas como mostrado no exemplo abaixo:
+As notas de todos os slides em uma apresentação podem ser removidas conforme mostrado no exemplo abaixo:
 
 ```py
 import aspose.slides as slides
 
 # Instanciar um objeto Presentation que representa um arquivo de apresentação 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+with slides.Presentation("AccessSlides.pptx") as presentation:
     # Removendo notas de todos os slides
     for i in range(len(presentation.slides)):
         mgr = presentation.slides[i].notes_slide_manager
@@ -57,20 +59,20 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     presentation.save("RemoveNotesFromAllSlides_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Adicionar NotesStyle**
+## **Aplicar um estilo de notas**
 A propriedade [notes_style](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslide/notes_style/) foi adicionada à classe [MasterNotesSlide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslide/). Essa propriedade especifica o estilo do texto das notas. A implementação é demonstrada no exemplo abaixo.
 
 ```py
 import aspose.slides as slides
 
 # Instanciar a classe Presentation que representa o arquivo de apresentação
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+with slides.Presentation("AccessSlides.pptx") as presentation:
     notesMaster = presentation.master_notes_slide_manager.master_notes_slide
     if notesMaster != None:
         # Obter o estilo de texto do MasterNotesSlide
         notesStyle = notesMaster.notes_style
 
-        #Definir marcador de símbolo para os parágrafos de primeiro nível
+        #Definir marcadores de símbolo para os parágrafos de primeiro nível
         paragraphFormat = notesStyle.get_level(0)
         paragraphFormat.bullet.type = slides.BulletType.SYMBOL
 
@@ -82,8 +84,8 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
 **Qual entidade da API fornece acesso às notas de um slide específico?**
 
-As notas são acessadas através do gerenciador de notas do slide: o slide possui um [NotesSlideManager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/notesslidemanager/) e uma [property](https://reference.aspose.com/slides/pt/python-net/aspose.slides/notesslidemanager/notes_slide/) que retorna o objeto de notas, ou `None` se não houver notas.
+As notas são acessadas através do gerenciador de notas do slide: o slide possui um [NotesSlideManager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/notesslidemanager/) e uma [property](https://reference.aspose.com/slides/pt/python-net/aspose.slides/notesslidemanager/notes_slide/) que devolve o objeto de notas, ou `None` se não houver notas.
 
 **Existem diferenças no suporte a notas entre as versões do PowerPoint com as quais a biblioteca funciona?**
 
-A biblioteca tem como alvo uma ampla gama de formatos do Microsoft PowerPoint (97–mais recentes) e ODP; as notas são suportadas nesses formatos sem depender de uma cópia instalada do PowerPoint.
+A biblioteca tem como alvo uma ampla variedade de formatos do Microsoft PowerPoint (97‑mais recentes) e ODP; as notas são suportadas nesses formatos sem depender de uma cópia instalada do PowerPoint.

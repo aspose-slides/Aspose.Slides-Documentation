@@ -1,5 +1,5 @@
 ---
-title: Zmienianie rozmiaru slajdu prezentacji w Pythonie za pośrednictwem Javy
+title: Zmień rozmiar slajdu prezentacji w Pythonie za pośrednictwem Javy
 linktitle: Rozmiar slajdu
 type: docs
 weight: 70
@@ -8,7 +8,7 @@ keywords:
 - rozmiar slajdu
 - proporcje obrazu
 - standardowy
-- szerokokątny
+- panoramiczny
 - 4:3
 - 16:9
 - ustaw rozmiar slajdu
@@ -31,18 +31,20 @@ description: "Dowiedz się, jak szybko zmienić rozmiar slajdów w plikach PPT, 
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides zapewnia kompleksowe narzędzia do regulacji rozmiaru slajdu i proporcji obrazu w prezentacjach PowerPoint, co jest kluczowe zarówno przy drukowaniu, jak i wyświetlaniu na ekranie.
+Aspose.Slides udostępnia kompleksowe narzędzia do regulacji rozmiaru slajdu i proporcji obrazu w prezentacjach PowerPoint, co jest kluczowe zarówno przy druku, jak i wyświetlaniu na ekranie.
 
 Popularne rozmiary slajdów i proporcje:
 
-- **Standard (4:3 Aspect Ratio)**: Idealny dla starszych ekranów i urządzeń.
-- **Widescreen (16:9 Aspect Ratio)**: Polecany dla nowoczesnych projektorów i wyświetlaczy.
+- **Standard (proporcja 4:3)**: Idealny dla starszych ekranów i urządzeń.
+- **Panorama (proporcja 16:9)**: Zalecany dla nowoczesnych projektorów i wyświetlaczy.
 
-Upewnij się, że w całej prezentacji używany jest jeden rozmiar slajdu i jedna proporcja obrazu, które odnoszą się do wszystkich slajdów. Dla optymalnych rezultatów ustaw wymiary slajdu na początku procesu tworzenia prezentacji, aby uniknąć komplikacji.
+Zadbaj o spójność w całej prezentacji, ponieważ jeden rozmiar slajdu i proporcje obowiązują wszystkie slajdy. Aby uzyskać optymalne wyniki, ustaw wymiary slajdu na początku tworzenia prezentacji, aby uniknąć komplikacji.
 
-{{% alert color="info" title="Uwaga" %}}
+{{% alert color="info" title="Note" %}}
 Domyślnie prezentacje tworzone przy użyciu Aspose.Slides używają standardowej proporcji 4:3.
 {{% /alert %}}
+
+Strony notatek i materiały pomocnicze mają odrębne wymiary od zwykłych slajdów. Zobacz [Rozmiar strony notatek](/slides/pl/python-java/notes-size/), aby zmienić ich rozmiar i orientację.
 
 ## **Zmienianie rozmiaru slajdu w prezentacjach**
 
@@ -65,11 +67,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Określanie własnych rozmiarów slajdów w prezentacjach**
+## **Określanie niestandardowych rozmiarów slajdów w prezentacjach**
 
-Jeśli standardowe rozmiary slajdów (4:3 i 16:9) nie są odpowiednie dla Twojej pracy, możesz zdecydować się na użycie konkretnego lub unikalnego rozmiaru slajdu. Na przykład, jeśli planujesz drukować slajdy w pełnym rozmiarze na niestandardowym układzie strony lub chcesz wyświetlać prezentację na określonych typach ekranów, prawdopodobnie skorzystasz z ustawienia własnego rozmiaru dla prezentacji.
+Jeśli standardowe rozmiary slajdów (4:3 i 16:9) nie odpowiadają Twoim potrzebom, możesz zdecydować się na użycie konkretnego lub unikalnego rozmiaru slajdu. Na przykład, jeśli planujesz drukować slajdy w pełnym rozmiarze z prezentacji na niestandardowym układzie strony lub zamierzasz wyświetlać prezentację na określonych typach ekranów, prawdopodobnie skorzystasz z ustawienia niestandardowego rozmiaru dla swojej prezentacji.
 
-Ten przykładowy kod pokazuje, jak używać Aspose.Slides for Python via Java, aby określić niestandardowy rozmiar slajdu dla prezentacji:
+Ten przykładowy kod pokazuje, jak używać Aspose.Slides dla Pythona za pośrednictwem Javy, aby określić niestandardowy rozmiar slajdu w prezentacji:
 
 ```python
 import jpype
@@ -88,11 +90,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Obsługa zawartości slajdu po zmianie rozmiaru**
+## **Obsługa zawartości slajdów po zmianie rozmiaru**
 
-Po zmianie rozmiaru slajdu w prezentacji zawartość slajdów (np. obrazy lub obiekty) może ulec zniekształceniu. Domyślnie obiekty są automatycznie skalowane, aby pasowały do nowego rozmiaru slajdu. Jednak zmieniając rozmiar slajdu w prezentacji, możesz określić ustawienie, które definiuje, jak Aspose.Slides radzi sobie z zawartością na slajdach.
+Po zmianie rozmiaru slajdu w prezentacji zawartość slajdów (np. obrazy lub obiekty) może ulec zniekształceniu. Domyślnie obiekty są automatycznie skalowane, aby pasowały do nowego rozmiaru slajdu. Jednak przy zmianie rozmiaru slajdu prezentacji możesz określić ustawienie, które decyduje, jak Aspose.Slides radzi sobie z zawartością na slajdach.
 
-W zależności od tego, co chcesz osiągnąć, możesz użyć dowolnego z następujących ustawień:
+W zależności od tego, co zamierzasz zrobić lub osiągnąć, możesz użyć dowolnego z tych ustawień:
 
 - [DoNotScale](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slidesizescaletype/#DoNotScale)
 
@@ -100,13 +102,13 @@ W zależności od tego, co chcesz osiągnąć, możesz użyć dowolnego z nastę
 
 - [EnsureFit](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slidesizescaletype/#EnsureFit)
 
-  Jeśli chcesz skalować do mniejszego rozmiaru slajdu i potrzebujesz, aby Aspose.Slides zmniejszył obiekty slajdów, aby wszystkie zmieściły się na slajdzie (w ten sposób unikniesz utraty zawartości), użyj tego ustawienia.
+  Jeśli chcesz skalować do mniejszego rozmiaru slajdu i potrzebujesz, aby Aspose.Slides zmniejszyło obiekty slajdów, aby wszystkie zmieściły się na slajdach (w ten sposób unikniesz utraty treści), użyj tego ustawienia.
 
 - [Maximize](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slidesizescaletype/#Maximize)
 
-  Jeśli chcesz skalować do większego rozmiaru slajdu i potrzebujesz, aby Aspose.Slides powiększył obiekty slajdów, aby były proporcjonalne do nowego rozmiaru, użyj tego ustawienia.
+  Jeśli chcesz skalować do większego rozmiaru slajdu i potrzebujesz, aby Aspose.Slides powiększyło obiekty slajdów, aby były proporcjonalne do nowego rozmiaru, użyj tego ustawienia.
 
-Ten przykładowy kod pokazuje, jak używać ustawienia [Maximize](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slidesizescaletype/#Maximize) podczas zmiany rozmiaru slajdu w prezentacji:
+Ten przykładowy kod pokazuje, jak używać ustawienia [Maximize](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slidesizescaletype/#Maximize) przy zmianie rozmiaru slajdu w prezentacji:
 
 ```python
 import jpype
@@ -126,18 +128,18 @@ finally:
 
 ## **FAQ**
 
-**Czy mogę ustawić niestandardowy rozmiar slajdu używając jednostek innych niż cale (np. punktów lub milimetrów)?**
+**Czy mogę ustawić niestandardowy rozmiar slajdu używając jednostek innych niż cale (np. punkty lub milimetry)?**
 
-Tak. Aspose.Slides używa punktów wewnętrznie, gdzie 1 punkt to 1/72 cala. Możesz przeliczyć dowolną jednostkę (taką jak milimetry lub centymetry) na punkty i użyć przeliczone wartości do określenia szerokości i wysokości slajdu.
+Tak. Aspose.Slides wewnętrznie używa punktów, przy czym 1 punkt to 1/72 cala. Możesz przekonwertować dowolną jednostkę (np. milimetry lub centymetry) na punkty i użyć przeliczone wartości do określenia szerokości i wysokości slajdu.
 
 **Czy bardzo duży niestandardowy rozmiar slajdu wpłynie na wydajność i zużycie pamięci podczas renderowania?**
 
-Tak. Większe wymiary slajdu (w punktach) połączone z wyższą skalą renderowania prowadzą do zwiększonego zużycia pamięci i dłuższego czasu przetwarzania. Dąż do praktycznego rozmiaru slajdu i reguluj skalę renderowania tylko w razie potrzeby, aby osiągnąć wymaganą jakość wyjścia.
+Tak. Większe wymiary slajdu (w punktach) połączone z wyższą skalą renderowania prowadzą do zwiększonego zużycia pamięci i dłuższego czasu przetwarzania. Dąż do praktycznego rozmiaru slajdu i dostosowuj skalę renderowania tylko w razie potrzeby, aby uzyskać pożądaną jakość wyjścia.
 
-**Czy mogę zdefiniować jeden niestandardowy rozmiar slajdu, a następnie scalać slajdy z prezentacji o różnych rozmiarach?**
+**Czy mogę zdefiniować jeden niestandardowy rozmiar slajdu, a następnie łączyć slajdy z prezentacji o różnych rozmiarach?**
 
-Nie możesz [merge presentations](/slides/pl/python-java/merge-presentation/) gdy mają różne rozmiary slajdów — najpierw zmień rozmiar jednej prezentacji, aby dopasować go do drugiej. Podczas zmiany rozmiaru slajdu możesz wybrać, jak istniejąca zawartość ma być obsłużona, korzystając z opcji [SlideSizeScaleType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slidesizescaletype/). Po wyrównaniu rozmiarów możesz scalać slajdy, zachowując formatowanie.
+Nie możesz [łączyć prezentacji](/slides/pl/python-java/merge-presentation/), gdy mają różne rozmiary slajdów — najpierw zmień rozmiar jednej prezentacji, aby pasował do drugiej. Przy zmianie rozmiaru slajdu możesz wybrać, jak istniejąca zawartość zostanie obsłużona, używając opcji [SlideSizeScaleType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slidesizescaletype/). Po wyrównaniu rozmiarów możesz łączyć slajdy, zachowując formatowanie.
 
-**Czy mogę generować miniatury dla pojedynczych kształtów lub konkretnych obszarów slajdu i czy będą one respektować nowy rozmiar slajdu?**
+**Czy mogę generować miniatury dla poszczególnych kształtów lub konkretnych obszarów slajdu i czy będą one respektować nowy rozmiar slajdu?**
 
-Tak. Aspose.Slides może renderować miniatury dla [entire slides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slide/#getImage) oraz dla [selected shapes](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getImage). Powstałe obrazy odzwierciedlają aktualny rozmiar i proporcję slajdu, zapewniając spójne kadrowanie i geometrię.
+Tak. Aspose.Slides może renderować miniatury dla [całych slajdów](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slide/#getImage) oraz dla [wybranych kształtów](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getImage). Uzyskane obrazy odzwierciedlają bieżący rozmiar i proporcje slajdu, zapewniając spójne kadrowanie i geometrię.

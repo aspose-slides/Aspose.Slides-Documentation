@@ -1,6 +1,6 @@
 ---
-title: 使用 Python 變更簡報的投影片大小
-linktitle: 投影片大小
+title: Change the Slide Size in Presentations with Python
+linktitle: Slide Size
 type: docs
 weight: 70
 url: /zh-hant/python-net/slide-size/
@@ -26,90 +26,89 @@ keywords:
 - 簡報
 - Python
 - Aspose.Slides
-descriptions: "了解如何使用 Python 與 Aspose.Slides 快速調整 PPT、PPTX 與 ODP 檔案的投影片大小，為任何螢幕優化簡報且不失真。"
+description: "了解如何使用 Python 與 Aspose.Slides 迅速調整 PPT、PPTX 與 ODP 檔案中的投影片大小，為任何螢幕最佳化簡報且不失真。"
 ---
-## **Introduction**
+## **簡介**
 
-Aspose.Slides 提供完整的工具，以調整 PowerPoint 簡報中的投影片大小和長寬比，對列印和螢幕顯示皆相當重要。
+Aspose.Slides 提供全面的工具，用於調整 PowerPoint 簡報的投影片大小與長寬比，對於列印與螢幕顯示皆相當重要。
 
-常見的投影片大小與比例：
+常見的投影片尺寸與比例：
 
-- **Standard (4:3 長寬比)**：適用於較舊的螢幕和裝置。
-- **Widescreen (16:9 長寬比)**：建議用於現代投影機和顯示器。
+- **標準 (4:3 長寬比)**：適用於較舊的螢幕和裝置。
+- **寬螢幕 (16:9 長寬比)**：建議用於現代投影機和顯示器。
 
-確保整份簡報的一致性，因為單一的投影片大小和長寬比會套用到所有投影片。為獲得最佳效果，請在建立簡報之初就設定投影片尺寸，以免產生後續的複雜問題。
+確保簡報全程保持一致，因為所有投影片皆使用相同的尺寸與長寬比。為獲得最佳效果，請在建立簡報之初就設定投影片尺寸，以免產生問題。
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 預設情況下，使用 Aspose.Slides 建立的簡報會使用標準的 4:3 長寬比。
 {{% /alert %}}
 
-## **Change the Slide Size in a Presentation**
+註腳與講義頁面的尺寸與一般投影片不同。請參閱[註腳頁面大小](/slides/zh-hant/python-net/notes-size/)以變更其尺寸與方向。
 
-此範例程式碼示範如何在 Python 中使用 Aspose.Slides 變更簡報的投影片大小：
+## **變更簡報的投影片大小**
 
+ 此範例程式碼示範如何在 Python 中使用 Aspose.Slides 變更簡報的投影片大小：
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
-    pres.slide_size.set_size(slides.SlideSizeType.ON_SCREEN16X9, slides.SlideSizeScaleType.DO_NOT_SCALE)
-    pres.save("pres-4x3-aspect-ratio.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("AccessSlides.pptx") as pres:
+    pres.slide_size.set_size(slides.SlideSizeType.ON_SCREEN_16X9, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    pres.save("pres-16x9-aspect-ratio.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Specify Custom Slide Sizes**
+## **指定自訂投影片尺寸**
 
-如果您發現常見的投影片大小（4:3 與 16:9）不符合需求，您可以選擇使用特定或自訂的投影片尺寸。例如，若您打算在自訂頁面排版上列印完整尺寸的投影片，或是希望在特定類型的螢幕上顯示簡報，使用自訂尺寸設定將對您有所幫助。
+如果您發現常見的投影片尺寸（4:3 與 16:9）不適合您的需求，您可以決定使用特定或獨特的投影片尺寸。例如，若您打算在自訂版面上列印全尺寸投影片，或是希望在特定類型的螢幕上展示簡報，使用自訂尺寸設定將對您有所幫助。
 
-此範例程式碼示範如何在 Python（透過 .NET）使用 Aspose.Slides 為簡報指定自訂的投影片大小：
-
+此範例程式碼示範如何在 Python 中透過 .NET 使用 Aspose.Slides 來為簡報指定自訂投影片尺寸：
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
     pres.slide_size.set_size(780, 540, slides.SlideSizeScaleType.DO_NOT_SCALE) # A4 紙張大小
     pres.save("pres-a4-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Handle Slide Content After Resizing**
+## **調整投影片大小後的內容處理**
 
-變更簡報的投影片大小後，投影片內容（例如圖像或物件）可能會變形。預設情況下，物件會自動調整大小以符合新的投影片尺寸。然而，在變更投影片大小時，您可以指定設定，決定 Aspose.Slides 如何處理投影片上的內容。
+在變更簡報的投影片大小後，投影片的內容（例如影像或物件）可能會失真。預設情況下，物件會自動調整大小以符合新的投影片尺寸。然而，在變更簡報的投影片大小時，您可以指定一個設定，決定 Aspose.Slides 如何處理投影片上的內容。
 
-根據您的需求或目標，您可以使用以下任何設定：
+根據您的需求或目標，您可以使用以下任一設定：
 
 - `DO_NOT_SCALE`
   
-  若您 **不** 想讓投影片上的物件被重新調整大小，請使用此設定。
+  如果您不希望投影片上的物件被調整大小，請使用此設定。
 
 - `ENSURE_FIT`
   
-  若您欲縮小投影片尺寸，且需要 Aspose.Slides 將投影片物件縮小，使其全部適合於投影片（以避免遺失內容），請使用此設定。
+  如果您想縮小投影片尺寸，且需要 Aspose.Slides 將投影片的物件縮小以確保全部內容能容納於投影片內（避免遺失內容），請使用此設定。
 
 - `MAXIMIZE`
   
-  若您欲放大投影片尺寸，且需要 Aspose.Slides 將投影片物件放大，使其與新的投影片尺寸成比例，請使用此設定。
+  如果您想放大投影片尺寸，且需要 Aspose.Slides 將投影片的物件放大，使其與新的投影片尺寸成比例，請使用此設定。
 
-此範例程式碼示範在變更簡報投影片大小時，如何使用 `MAXIMIZE` 設定：
-
+此範例程式碼示範如何在變更簡報投影片尺寸時使用 `MAXIMIZE` 設定：
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
    pres.slide_size.set_size(slides.SlideSizeType.LEDGER, slides.SlideSizeScaleType.MAXIMIZE)
 ```
 
-## **FAQ**
+## **常見問題**
 
-**Can I set a custom slide size using units other than inches (for example, points or millimeters)?**
+**是否可以使用除英吋以外的單位（例如點或毫米）設定自訂投影片尺寸？**
 
-是的。Aspose.Slides 在內部使用點（point）作為單位，1 點等於 1/72 英吋。您可以將任何單位（例如毫米或公分）轉換為點，並使用轉換後的數值來定義投影片的寬度與高度。
+可以。Aspose.Slides 內部使用點 (point) 作為單位，1 point 等於 1/72 英吋。您可以將任何單位（例如毫米或公分）轉換為點，並使用轉換後的數值來定義投影片的寬度與高度。
 
-**Will a very large custom slide size affect performance and memory usage during rendering?**
+**非常大的自訂投影片尺寸會影響算繪時的效能與記憶體使用量嗎？**
 
-會的。較大的投影片尺寸（以點為單位）加上較高的渲染比例，會導致記憶體使用量增加且處理時間延長。請保持實用的投影片尺寸，並僅在必要時調整渲染比例，以取得所需的輸出品質。
+會。較大的投影片尺寸（以點為單位）加上較高的算繪比例，會導致記憶體消耗增加與處理時間變長。請以實用的投影片尺寸為目標，僅在需要提升輸出品質時調整算繪比例。
 
-**Can I define one non-standard slide size and then merge slides from presentations that have different sizes?**
+**我能定義單一非標準投影片尺寸，然後合併來自不同尺寸簡報的投影片嗎？**
 
-在投影片大小不同的情況下，無法 [merge presentations](/slides/zh-hant/python-net/merge-presentation/)。必須先將其中一個簡報的尺寸調整為與另一個相同。變更投影片大小時，您可以透過 [SlideSizeScaleType](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/slidesizescaletype/) 選項選擇如何處理現有內容。尺寸對齊後，您即可在保留格式的前提下合併投影片。
+當簡報的投影片尺寸不同時，您無法[合併簡報](/slides/zh-hant/python-net/merge-presentation/)。必須先將其中一個簡報的尺寸調整與另一個相同。變更投影片尺寸時，您可以透過[SlideSizeScaleType](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/slidesizescaletype/)選項選擇如何處理現有內容。尺寸對齊後，即可在保留格式的前提下合併投影片。
 
-**Can I generate thumbnails for individual shapes or specific regions of a slide, and will they respect the new slide size?**
+**我可以為投影片的單一圖形或特定區域產生縮圖，且它們會遵循新的投影片尺寸嗎？**
 
-是的。Aspose.Slides 可以為 [整張投影片](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/slide/get_image/)以及 [選取的圖形](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/get_image/)產生縮圖。產生的圖像會反映目前的投影片大小與長寬比，確保框架與幾何形狀的一致性。
+可以。Aspose.Slides 能為[整張投影片](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/slide/get_image/)以及[選取的圖形](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/get_image/)產生縮圖。產生的圖像會反映當前的投影片尺寸與長寬比，確保構圖與幾何的一致性。

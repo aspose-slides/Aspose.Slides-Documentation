@@ -1,6 +1,6 @@
 ---
-title: Správa poznámek prezentace v JavaScriptu
-linktitle: Poznámky prezentace
+title: Spravovat poznámky k prezentaci v JavaScriptu
+linktitle: Poznámky k prezentaci
 type: docs
 weight: 110
 url: /cs/nodejs-java/presentation-notes/
@@ -17,26 +17,31 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Přizpůsobte si poznámky prezentace v JavaScriptu pomocí Aspose.Slides pro Node.js. Bez problémů pracujte s poznámkami PowerPoint a OpenDocument a zvyšte svou produktivitu."
+description: "Přizpůsobte poznámky k prezentaci v JavaScriptu pomocí Aspose.Slides pro Node.js. Bez problémů pracujte s poznámkami PowerPoint a OpenDocument a zvýšte svou produktivitu."
 ---
 ## **Přehled**
 
-Aspose.Slides podporuje odstraňování snímků s poznámkami z prezentace. V tomto tématu představíme tuto funkci, včetně toho, jak odstranit poznámky a jak použít styl na snímky s poznámkami v prezentaci. Aspose.Slides umožňuje odstranit poznámky z libovolného snímku a také aplikovat stylování na existující poznámky. Vývojáři mohou odstranit poznámky následujícími způsoby:
+Aspose.Slides podporuje odstraňování poznámkových snímků z prezentace. V tomto tématu představíme tuto funkci, včetně toho, jak odstranit poznámky a jak použít styl na poznámkové snímky v prezentaci. Aspose.Slides vám umožňuje odstranit poznámky z libovolného snímku a také aplikovat formátování na existující poznámky. Vývojáři mohou poznámky odstranit následujícími způsoby:
 
 - Odstranit poznámky z konkrétního snímku v prezentaci.
 - Odstranit poznámky ze všech snímků v prezentaci.
 
+Pro čtení nebo změnu rozměrů stránky poznámek, změnu orientace a kontrolu chování při exportu viz [Notes Page Size](/slides/cs/nodejs-java/notes-size/).
+
 ## **Odstranění poznámek ze snímku**
-Poznámky některého konkrétního snímku lze odstranit, jak ukazuje příklad níže:
+Poznámky z konkrétního snímku lze odstranit, jak je ukázáno v níže uvedeném příkladu:
 
 ```javascript
-// Vytvořte objekt Presentation, který představuje soubor prezentace
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Vytvoření objektu Presentation, který představuje soubor prezentace
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
-    // Odstraňování poznámek z prvního snímku
+    // Odstranění poznámek z prvního snímku
     var mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
     mgr.removeNotesSlide();
-    // Ukládání prezentace na disk
+    // Uložení prezentace na disk
     pres.save("test.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -46,19 +51,22 @@ try {
 ```
 
 ## **Odstranění poznámek z prezentace**
-Poznámky ze všech snímků prezentace lze odstranit, jak ukazuje příklad níže:
+Poznámky ze všech snímků v prezentaci lze odstranit, jak je ukázáno v níže uvedeném příkladu:
 
 ```javascript
-// Vytvořte objekt Presentation, který představuje soubor prezentace
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Vytvoření objektu Presentation, který představuje soubor prezentace
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
-    // Odstraňování poznámek ze všech snímků
+    // Odstranění poznámek ze všech snímků
     var mgr = null;
     for (var i = 0; i < pres.getSlides().size(); i++) {
         mgr = pres.getSlides().get_Item(i).getNotesSlideManager();
         mgr.removeNotesSlide();
     }
-    // Ukládání prezentace na disk
+    // Uložení prezentace na disk
     pres.save("test.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -68,19 +76,23 @@ try {
 ```
 
 ## **Přidání NotesStyle**
-[getNotesStyle](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) metoda byla přidána do třídy [MasterNotesSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/MasterNotesSlide) a třídy [MasterNotesSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/MasterNotesSlide). Tato vlastnost určuje styl textu poznámek. Implementace je demonstrována v příkladu níže.
+Metoda [getNotesStyle](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) byla přidána do třídy [MasterNotesSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/MasterNotesSlide) a třídy [MasterNotesSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/MasterNotesSlide). Tato vlastnost určuje styl textu poznámek. Implementace je demonstrována v níže uvedeném příkladu.
 
 ```javascript
-// Vytvořte objekt Presentation, který představuje soubor prezentace
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Vytvoření objektu Presentation, který představuje soubor prezentace
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
     var notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (notesMaster != null) {
-        // Získat styl textu MasterNotesSlide
+        // Získání stylu textu MasterNotesSlide
         var notesStyle = notesMaster.getNotesStyle();
-        // Nastavit symbolový odrážkový znak pro odstavce první úrovně
+        // Nastavit symbol bulletu pro odstavce první úrovně
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -90,12 +102,12 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
 **Která entita API poskytuje přístup k poznámkám konkrétního snímku?**
 
-Poznámky jsou přístupné přes správce poznámek snímku: snímek má [NotesSlideManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notesslidemanager/) a [method](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/), která vrací objekt poznámek, nebo `null`, pokud poznámky neexistují.
+K poznámkám se přistupuje přes správce poznámek snímku: snímek má [NotesSlideManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notesslidemanager/) a [metodu](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/), která vrací objekt poznámek, nebo `null`, pokud poznámky neexistují.
 
-**Existují rozdíly v podpoře poznámek napříč verzemi PowerPointu, se kterými knihovna funguje?**
+**Existují rozdíly v podpoře poznámek mezi různými verzemi PowerPointu, se kterými knihovna funguje?**
 
-Knihovna cílí na širokou škálu formátů Microsoft PowerPoint (97–novější) a ODP; poznámky jsou v těchto formátech podporovány bez závislosti na nainstalované kopii PowerPointu.
+Knihovna cílí na širokou škálu formátů Microsoft PowerPoint (97‑a novější) a ODP; poznámky jsou v těchto formátech podporovány bez závislosti na nainstalované kopii PowerPointu.

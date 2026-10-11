@@ -7,36 +7,40 @@ url: /th/java/presentation-notes/
 keywords:
 - โน้ต
 - สไลด์โน้ต
-- เพิ่มโน้ต
-- ลบโน้ต
-- สไตล์โน้ต
-- โน้ตหลัก
+- เพิ่มโนต
+- ลบโนต
+- สไตล์โนต
+- โนตหลัก
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ปรับแต่งโน้ตการนำเสนอด้วย Aspose.Slides สำหรับ Java ทำงานกับโน้ต PowerPoint และ OpenDocument อย่างราบรื่นเพื่อเพิ่มประสิทธิภาพการทำงานของคุณ."
+description: "ปรับแต่งโน้ตการนำเสนอด้วย Aspose.Slides สำหรับ Java ทำงานอย่างราบรื่นกับโน้ต PowerPoint และ OpenDocument เพื่อเพิ่มประสิทธิภาพการทำงานของคุณ."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides รองรับการลบสไลด์โน้ตจากงานนำเสนอ ในหัวข้อนี้ เราจะอธิบายคุณลักษณะนี้ รวมถึงวิธีการลบโน้ตและวิธีการใช้สไตล์กับสไลด์โน้ตในงานนำเสนอ Aspose.Slides ให้คุณลบโน้ตจากสไลด์ใดก็ได้และยังสามารถนำสไตล์ไปใช้กับโน้ตที่มีอยู่แล้ว นักพัฒนาสามารถลบโน้ตได้ด้วยวิธีต่อไปนี้:
+Aspose.Slides รองรับการลบสไลด์โน้ตจากการนำเสนอ ในหัวข้อนี้ เราจะอธิบายคุณลักษณะนี้รวมถึงวิธีการลบโน้ตและวิธีการใช้สไตล์กับสไลด์โน้ตในการนำเสนอ Aspose.Slides ให้คุณลบโน้ตจากสไลด์ใด ๆ และยังสามารถใช้การจัดรูปแบบกับโน้ตที่มีอยู่ได้ นักพัฒนาสามารถลบโน้ตได้ตามวิธีต่อไปนี้:
 
-- ลบโน้ตจากสไลด์เฉพาะในงานนำเสนอ
-- ลบโน้ตจากสไลด์ทั้งหมดในงานนำเสนอ
+- ลบโน้ตจากสไลด์เฉพาะในการนำเสนอ
+- ลบโน้ตจากสไลด์ทั้งหมดในการนำเสนอ
+
+เพื่ออ่านหรือเปลี่ยนขนาดหน้ากระดาษโน้ต, สลับการวางแนว, และตรวจสอบพฤติกรรมการส่งออก, ดูที่ [ขนาดหน้าข้อความโน้ต](/slides/th/java/notes-size/).
 
 ## **ลบโน้ตจากสไลด์**
-โน้ตของสไลด์ที่ระบุสามารถลบได้ตามตัวอย่างด้านล่าง:
+โน้ตจากสไลด์เฉพาะสามารถลบได้ตามตัวอย่างด้านล่าง:
 
 ```java
-// สร้างอ็อบเจ็กต์ Presentation ที่แทนไฟล์งานนำเสนอ
+import com.aspose.slides.*;
+
+// สร้างอ็อบเจกต์ Presentation ที่เป็นตัวแทนของไฟล์การนำเสนอ
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
     // ลบโน้ตของสไลด์แรก
     INotesSlideManager mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
     mgr.removeNotesSlide();
 
-    // บันทึกงานนำเสนอลงดิสก์
+    // บันทึกการนำเสนอลงดิสก์
     pres.save("test.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -44,10 +48,12 @@ try {
 ```
 
 ## **ลบโน้ตจากการนำเสนอ**
-โน้ตของสไลด์ทั้งหมดในงานนำเสนอสามารถลบได้ตามตัวอย่างด้านล่าง:
+โน้ตจากสไลด์ทั้งหมดในการนำเสนอสามารถลบได้ตามตัวอย่างด้านล่าง:
 
 ```java
-// สร้างอ็อบเจ็กต์ Presentation ที่แทนไฟล์งานนำเสนอ
+import com.aspose.slides.*;
+
+// สร้างอ็อบเจกต์ Presentation ที่เป็นตัวแทนของไฟล์การนำเสนอ
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
     // ลบโน้ตของสไลด์ทั้งหมด
@@ -57,7 +63,7 @@ try {
         mgr.removeNotesSlide();
     }
     
-    // บันทึกงานนำเสนอลงดิสก์
+    // บันทึกการนำเสนอลงดิสก์
     pres.save("test.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -65,20 +71,22 @@ try {
 ```
 
 ## **เพิ่มสไตล์โน้ต**
-[getNotesStyle](https://reference.aspose.com/slides/th/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) method ได้ถูกเพิ่มเข้าไปในอินเทอร์เฟซ [IMasterNotesSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/IMasterNotesSlide) และคลาส [MasterNotesSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/MasterNotesSlide) ตามลำดับ . พร็อพเพอร์ตี้นี้ระบุสไตล์ของข้อความโน้ต การใช้งานได้แสดงในตัวอย่างด้านล่าง.
+เมธอด [getNotesStyle](https://reference.aspose.com/slides/th/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) ถูกเพิ่มในอินเตอร์เฟซ [IMasterNotesSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/IMasterNotesSlide) และคลาส [MasterNotesSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/MasterNotesSlide) ตามลำดับ คุณสมบัตินี้ระบุสไตล์ของข้อความโน้ต การใช้งานจะแสดงในตัวอย่างด้านล่าง
 
 ```java
-// สร้างอ็อบเจ็กต์ Presentation ที่แทนไฟล์งานนำเสนอ
+import com.aspose.slides.*;
+
+// สร้างอ็อบเจกต์ Presentation ที่เป็นตัวแทนของไฟล์การนำเสนอ
 Presentation pres = new Presentation("demo.pptx");
 try {
     IMasterNotesSlide notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     
     if (notesMaster != null)
     {
-        // รับสไตล์ข้อความของ MasterNotesSlide
+        // รับสไตล์ข้อความ MasterNotesSlide
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        // กำหนดสัญลักษณ์ bullet สำหรับย่อหน้าในระดับแรก
+        //ตั้งสัญลักษณ์บูลเล็ตสำหรับย่อหน้าในระดับแรก
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -88,12 +96,12 @@ try {
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**API entity ใดที่ให้การเข้าถึงโน้ตของสไลด์เฉพาะ?**
+**API entity ใดให้การเข้าถึงโน้ตของสไลด์เฉพาะ?**
 
-โน้ตจะเข้าถึงผ่านตัวจัดการโน้ตของสไลด์: สไลด์มี [NotesSlideManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/notesslidemanager/) และ [method](https://reference.aspose.com/slides/th/java/com.aspose.slides/notesslidemanager/#getNotesSlide--) ที่คืนค่าอ็อบเจ็กต์โน้ต หรือ `null` หากไม่มีโน้ต
+โน้ตเข้าถึงผ่านผู้จัดการโน้ตของสไลด์: สไלด์มี [NotesSlideManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/notesslidemanager/) และเมธอด [getNotesSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/notesslidemanager/#getNotesSlide--) ที่ส่งคืนอ็อบเจกต์โน้ต, หรือ `null` หากไม่มีโน้ต
 
-**มีความแตกต่างในการสนับสนุนโน้ตระหว่างเวอร์ชัน PowerPoint ที่ไลบรารีทำงานหรือไม่?**
+**มีความแตกต่างในการสนับสนุนโน้ตระหว่างเวอร์ชัน PowerPoint ที่ไลบรารีทำงานกับหรือไม่?**
 
-ไลบรารีรองรับรูปแบบไฟล์ Microsoft PowerPoint (97‑newer) และ ODP; โน้ตได้รับการสนับสนุนในรูปแบบเหล่านี้โดยไม่ต้องอิงกับการติดตั้ง PowerPoint.
+ไลบรารีรองรับรูปแบบ Microsoft PowerPoint ช่วงกว้าง (97–ใหม่กว่า) และ ODP; โน้ตได้รับการสนับสนุนในรูปแบบเหล่านี้โดยไม่ต้องพึ่งพาการติดตั้ง PowerPoint.

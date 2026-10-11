@@ -3,11 +3,11 @@ title: Převod prezentací PowerPoint do režimu Handout pomocí C++
 linktitle: Režim Handout
 type: docs
 weight: 150
-url: /cs/cpp/convert-powerpoint-in-Handout-mode/
+url: /cs/cpp/convert-powerpoint-in-handout-mode/
 keywords:
 - převést PowerPoint
 - převést prezentaci
-- režim handout
+- režim Handout
 - handout
 - PPT
 - PPTX
@@ -15,53 +15,63 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Převádějte prezentace na podklady v C++. Nastavte snímky na stránku, zachovejte poznámky, exportujte do PDF nebo obrázků s Aspose.Slides, s ukázkovým kódem. Vyzkoušejte zdarma."
+description: "Převádějte prezentace na podklady v C++. Nastavte počet snímků na stránku, zachovejte poznámky, exportujte do PDF nebo obrázků s Aspose.Slides, s ukázkovým kódem. Vyzkoušejte zdarma."
 ---
-## **Úvod**
+## **Introduction**
 
-Aspose.Slides poskytuje možnost převádět prezentace do různých formátů, včetně vytváření podkladů pro tisk v režimu Handout. Tento režim umožňuje nastavit, jak se na jedné stránce zobrazí více snímků, což je užitečné pro konference, semináře a další události. Tento režim můžete povolit nastavením metody `set_SlidesLayoutOptions` v rozhraních [IPdfOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/ihtmloptions/) a [ITiffOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/itiffoptions/).
+Aspose.Slides poskytuje možnost převádět prezentace do různých formátů, včetně vytváření podkladů pro tisk v režimu Handout. Tento režim vám umožňuje nastavit, jak se na jedné stránce zobrazí více snímků, což je užitečné pro konference, semináře a další události. Tento režim můžete aktivovat voláním metody `set_SlidesLayoutOptions` v rozhraních [IPdfOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/ihtmloptions/), a [ITiffOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/itiffoptions/) .
 
-## **Export v režimu Handout**
+Chcete‑li nastavit rozměry a orientaci stránky podkladu před exportem, viz [Velikost stránky poznámek](/slides/cs/cpp/notes-size/).
 
-Pro konfiguraci režimu Handout použijte objekt [HandoutLayoutingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/handoutlayoutingoptions/), který určuje, kolik snímků je umístěno na jedné stránce a další parametry zobrazení.
+## **Handout Mode Export**
+
+Pro nastavení režimu Handout použijte objekt [HandoutLayoutingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/handoutlayoutingoptions/), který určuje, kolik snímků je umístěno na jedné stránce a další parametry zobrazení.
 
 Níže je ukázkový kód, který ukazuje, jak převést prezentaci do PDF v režimu Handout.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/HandoutLayoutingOptions.h>
+#include <Export/HandoutType.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Načíst prezentaci.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Nastavit možnosti exportu.
+// Nastavit exportní možnosti.
 auto slidesLayoutOptions = MakeObject<HandoutLayoutingOptions>();
-slidesLayoutOptions->set_Handout(HandoutType::Handouts4Horizontal);  // 4 snímky na jedné stránce horizontálně
-slidesLayoutOptions->set_PrintSlideNumbers(true);                    // tisknout čísla snímků
-slidesLayoutOptions->set_PrintFrameSlide(true);                      // tisknout rámec kolem snímků
+slidesLayoutOptions->set_Handout(HandoutType::Handouts4Horizontal);  // 4 snímky na jedné stránce vodorovně
+slidesLayoutOptions->set_PrintSlideNumbers(true);                    // vytisknout čísla snímků
+slidesLayoutOptions->set_PrintFrameSlide(true);                      // vytisknout rám kolem snímků
 slidesLayoutOptions->set_PrintComments(false);                       // žádné komentáře
 
 auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_SlidesLayoutOptions(slidesLayoutOptions);
 
-// Exportovat prezentaci do PDF s vybraným rozvržením.
+// Exportovat prezentaci do PDF s vybraným rozložením.
 presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
 {{% alert color="warning" %}} 
-
-Mějte na paměti, že metoda `set_SlidesLayoutOptions` je k dispozici jen pro některé výstupní formáty, například PDF, HTML, TIFF a při vykreslování jako obrázky.
-
+Mějte na paměti, že metoda `set_SlidesLayoutOptions` je k dispozici pouze pro určité výstupní formáty, jako jsou PDF, HTML, TIFF, a při renderování jako obrázky.
 {{% /alert %}} 
 
-## **Časté dotazy**
+## **FAQ**
 
-**Jaký je maximální počet náhledů snímků na stránku v režimu Handout?**
+### What is the maximum number of slide thumbnails per page in Handout mode?
 
-Aspose.Slides podporuje [presets](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/handouttype/) až 9 náhledů na stránku s horizontálním nebo vertikálním uspořádáním: 1, 2, 3, 4 (horizontální/vertikální), 6 (horizontální/vertikální) a 9 (horizontální/vertikální).
+Aspose.Slides podporuje [předvolby](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/handouttype/) až 9 miniatur na stránku s horizontálním nebo vertikálním uspořádáním: 1, 2, 3, 4 (horizontální/vertikální), 6 (horizontální/vertikální) a 9 (horizontální/vertikální).
 
-**Mohu definovat vlastní mřížku, například 5 nebo 8 snímků na stránku?**
+### Can I define a custom grid, such as 5 or 8 slides per page?
 
-Ne. Počet a uspořádání náhledů je přísně řízen výčtem [HandoutType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/handouttype/); libovolné rozvržení není podporováno.
+Ne. Počet a uspořádání miniatur je přísně řízen výčtem [HandoutType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/handouttype/) ; libovolná rozvržení nejsou podporována.
 
-**Mohu zahrnout skryté snímky do výstupu Handout?**
+### Can I include hidden slides in the Handout output?
 
-Ano. Použijte metodu `set_ShowHiddenSlides` v nastavení exportu pro cílový formát, například [PdfOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/htmloptions/) nebo [TiffOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/tiffoptions/).
+Ano. Použijte metodu `set_ShowHiddenSlides` v nastavení exportu pro cílový formát, například [PdfOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/htmloptions/), nebo [TiffOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/tiffoptions/).
