@@ -1,11 +1,11 @@
 ---
-title: Spravovat popisky dat v grafech v prezentacích v .NET
-linktitle: Popisek dat
+title: Správa datových popisků v grafech v prezentacích v .NET
+linktitle: Datový popisek
 type: docs
 url: /cs/net/chart-data-label/
 keywords:
 - graf
-- popisek dat
+- datový popisek
 - přesnost dat
 - procento
 - vzdálenost popisku
@@ -15,15 +15,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se přidávat a formátovat popisky dat v grafech v prezentacích PowerPoint pomocí Aspose.Slides pro .NET pro poutavější snímky."
+description: "Naučte se přidávat a formátovat datové popisky grafů v PowerPoint prezentacích pomocí Aspose.Slides pro .NET, aby byly snímky poutavější."
 ---
 ## **Úvod**
 
-Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, control labels beyond the axis maximum, adjust category axis label spacing, and position pie chart labels.
+Datové popisky zobrazují informace o sériích grafu a jednotlivých datech, pomáhají čtenářům identifikovat hodnoty a pochopit graf. Tento článek vysvětluje, jak formátovat hodnoty, zobrazovat procenta, číst text popisku, řídit popisky mimo maximum osy, upravit rozestup popisků kategorií osy a umístit popisky v koláčových grafech.
 
 ## **Nastavení přesnosti dat v popiscích grafu**
 
-Use [NumberFormatOfValues](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/numberformatofvalues/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
+Použijte [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) k formátování hodnot sérií. Tento příklad vytvoří čárový graf s výchozími daty, zobrazí jeho datovou tabulku a povolí popisky hodnot pro první sérii. Formát `#,##0.00` zobrazuje oddělovač tisíců a dvě desetinná místa, aniž by měnil podkladové hodnoty.
 
 ```csharp
 using Aspose.Slides;
@@ -45,7 +45,7 @@ presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 
 ## **Zobrazení procent jako popisků**
 
-For a stacked column chart, calculate each value as a percentage of its category total and assign the text to [TextFrameForOverriding](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
+Pro sloupcový graf s naskládanými sloupci vypočítejte každou hodnotu jako procento celkového součtu kategorie a přiřaďte text pomocí [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Tento příklad používá výchozí data grafu a zobrazuje procenta se dvěma desetinnými místy ve 8‑bodovém písmu. Kategorie s celkovým součtem nula jsou vynechány, aby nedošlo k dělení nulou. Přepočtěte vlastní text popisku, pokud se data grafu změní.
 
 ```csharp
 using System;
@@ -106,11 +106,9 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Nastavení procentního znaménka v popiscích grafu**
+## **Nastavení procentního znaku u popisků grafu**
 
-When values are stored as fractions, use [NumberFormat](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatalabelformat/numberformat/) to display percentages. Set [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) to `false` to apply the label format independently of the source cells.
-
-This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
+Pokud jsou hodnoty uloženy jako zlomky, použijte [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) k zobrazení procent. Nastavte [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) na `false`, aby se formát popisku aplikoval nezávisle na zdrojových buňkách.
 
 ```csharp
 using System.Drawing;
@@ -166,9 +164,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Čtení skutečného textu popisků dat**
+## **Načtení skutečného textu datových popisků**
 
-Use [GetActualLabelText](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatalabel/getactuallabeltext/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [TextFrameForOverriding](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Použijte [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) k získání textu vytvořeného nastavením datového popisku. To je užitečné při extrahování popisků pro zprávy, vyhledávání obsahu prezentace nebo ověřování vygenerovaných grafů. V níže uvedeném příkladu výchozí [formát datového popisku](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) kombinuje název kategorie, název série a hodnotu. Jeden bod formátuje svou hodnotu jako procento a jiný používá vlastní text z [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -222,15 +220,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [GetActualLabelText](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatalabel/getactuallabeltext/) returns the resulting label string in either case. Check [IsVisible](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatalabel/isvisible/) separately, as shown above, when you want to extract only visible labels.
+Číslo uložené v datovém bodě zůstává `0.75`, i když jeho popisek zobrazuje `75%` spolu s názvy kategorie a série. Vlastní text nahrazuje vygenerovaný text popisku. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) vrací výsledný řetězec popisku v obou případech. Zkontrolujte [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) samostatně, jak je uvedeno výše, pokud chcete extrahovat pouze viditelné popisky.
 
-## **Ovládání popisků dat nad maximem osy**
+## **Řízení datových popisků mimo maximum osy**
 
-When you limit an axis range manually, some data points may exceed its maximum. Use [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+Pokud omezíte rozsah osy ručně, některé datové body mohou přesáhnout její maximum. Použijte [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) k ovládání toho, zda se jejich datové popisky zobrazí. Toto nastavení mění viditelnost popisků; nemění rozsah osy ani podkladové hodnoty.
 
-The example below creates a 2D clustered column chart with values of 60 and 120. It sets [IsAutomaticMaxValue](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) to `false` and [MaxValue](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/iaxis/maxvalue/) to 100 on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+Příklad níže vytvoří 2D seskupený sloupcový graf s hodnotami 60 a 120. Nastaví [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) na `false` a [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) na 100 na svislé ose. První snímek povolí popisky nad maximem; kopie tohoto snímku je zakáže. Oba snímky jsou uloženy v `DataLabelsOverMaximum.pptx`.
 
-Enable value labels with [ShowValue](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatalabelformat/showvalue/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [Position](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatalabelformat/position/) to place labels at the outside end of each column.
+Povolte popisky hodnot pomocí [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Nastavení na úrovni grafu samo o sobě nezpůsobí zobrazení hodnot ani nepřepíše zakázané zobrazení hodnot u jednotlivých popisků. Tento příklad povolí hodnoty pro celou sérii a použije [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) k umístění popisků na vnější konec každého sloupce.
 
 ```csharp
 using Aspose.Slides;
@@ -277,19 +275,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
+Následující obrázky ukazují uložené snímky vykreslené aplikací Microsoft PowerPoint. S `true` je popisek **120** viditelný na horní hranici; s `false` je skrytý. Popisek **60** zůstává viditelný, maximum osy zůstává na **100** a druhý datový bod zůstává **120** v obou případech.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Graf PowerPoint zobrazující popisek hodnoty 120 s maximem osy 100](data-labels-over-maximum-true.png) | ![Graf PowerPoint skrývající popisek hodnoty 120 s maximem osy 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+Tento příklad používá 2D sloupcový graf se svislou osou. Grafy bez svislé osy, jako jsou koláčové a prstencové grafy, nemají maximum osy, které by šlo takto omezit.
 {{% /alert %}}
 
 ## **Nastavení vzdálenosti popisku od osy**
 
-Use [LabelOffset](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/iaxis/labeloffset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
+Použijte [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) k ovládání vzdálenosti mezi popisky kategorií osy a samotnou osou. Hodnota je procento maximální velikosti písma popisků osy. Tento příklad vytvoří seskupený sloupcový graf a nastaví odsazení popisků vodorovné osy na 500. Toto nastavení ovlivňuje popisky kategorií osy, nikoli popisky připojené k jednotlivým datovým bodům.
 
 ```csharp
 using Aspose.Slides;
@@ -307,9 +305,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **Úprava umístění popisků**
 
-On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
+V koláčovém grafu upravte umístění datových popisků, aby se zlepšilo rozestupování a vytvořil se prostor pro čárové spoje.
 
-This example displays the value of the first data point, places its label outside the slice, and adjusts its [X](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ilayoutable/x/) and [Y](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ilayoutable/y/) offsets. These offsets are relative to the chart width and height, respectively.
+Příklad zobrazí hodnotu prvního datového bodu, umístí jeho popisek mimo výseč a upraví jeho [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) a [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) offsety. Tyto offsety jsou relativní k šířce a výšce grafu.
 
 ```csharp
 using Aspose.Slides;
@@ -331,18 +329,130 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Koláčový graf s upravenou pozicí datového popisku](pie-chart-adjusted-label.png)
+![Graf koláč s upraveným umístěním datového popisku](pie-chart-adjusted-label.png)
 
-## **Často kladené otázky**
+## **Přidání více řádků datových popisků nad sloupcový graf**
 
-**Jak mohu zabránit překrývání popisků dat v hustých grafech?**
+Příklad vytvoří sloupcový graf se dvěma řádky datových popisků nad oblastí vykreslení. Série A zobrazuje viditelné sloupce, zatímco série B a C poskytují další popisky. Jejich sloupce jsou skryté odstraněním výplně a obrysu. Vlastnost [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) zarovnává všechny tři série se stejnými středy kategorií.
 
-Combine automatic label placement, leader lines, and reduced font size; if necessary, hide some fields (for example, the category) or show labels only for extreme values or key points.
+Nastavení [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) vyhrazuje prostor pro řádky popisků. Po výpočtu výchozích pozic metodou [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) se zachovají [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) a [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/), aby udržely vodorovné zarovnání a použily svislé offsety k uspořádání popisků ve dvou řádcích. Čísla zůstávají datovými popisky propojenými s hodnotami sérií; pouze záhlaví řádků jsou samostatné textové tvary.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+chart.HasTitle = false;
+chart.HasLegend = false;
+chart.TextFormat.PortionFormat.FontHeight = 12;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+string[] categories = { "North", "South", "East", "West" };
+string[] seriesNames = { "Series A", "Series B", "Series C" };
+double[,] seriesValues = {
+    { 35, 42, 28, 47 },
+    { 22, 31, 19, 26 },
+    { 12, 16, 14, 18 }
+};
+
+for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+{
+    var categoryCell = workbook.GetCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+    chart.ChartData.Categories.Add(categoryCell);
+}
+
+for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
+{
+    var seriesCell = workbook.GetCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+    var series = chart.ChartData.Series.Add(seriesCell, ChartType.ClusteredColumn);
+
+    for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+    {
+        var valueCell = workbook.GetCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex, categoryIndex]);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
+
+    if (seriesIndex > 0)
+    {
+        // Skrýt sloupce B a C, ale zachovat jejich datové popisky.
+        series.Format.Fill.FillType = FillType.NoFill;
+        series.Format.Line.FillFormat.FillType = FillType.NoFill;
+        var labelFormat = series.Labels.DefaultDataLabelFormat;
+        labelFormat.ShowValue = true;
+        labelFormat.TextFormat.PortionFormat.FontHeight = 12;
+        var labelFill = labelFormat.TextFormat.PortionFormat.FillFormat;
+        labelFill.FillType = FillType.Solid;
+        labelFill.SolidFillColor.Color = Color.Black;
+        labelFormat.Position = LegendDataLabelPosition.InsideBase;
+    }
+}
+
+// Zarovnat všechny tři řady ke stejným středům kategorií.
+chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
+
+// Použít méně mřížkových čar pro tento kompaktní příklad.
+chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
+chart.Axes.VerticalAxis.MajorUnit = 10;
+
+// Rezervovat prostor nad výkresem pro dva řádky datových popisků.
+chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
+chart.PlotArea.X = 0.15f;
+chart.PlotArea.Y = 0.32f;
+chart.PlotArea.Width = 0.80f;
+chart.PlotArea.Height = 0.48f;
+chart.ValidateChartLayout();
+
+for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
+{
+    var series = chart.ChartData.Series[seriesIndex];
+    float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+    for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+    {
+        var dataLabel = series.DataPoints[categoryIndex].Label;
+        // Zachovat výchozí vodorovnou pozici. Y je posun od
+        // výchozí pozice popisku, vyjádřené jako podíl výšky grafu.
+        dataLabel.X = 0;
+        dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
+    }
+
+    // Pouze záhlaví řádku je samostatný textový tvar.
+    var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
+    rowHeading.FillFormat.FillType = FillType.NoFill;
+    rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
+    rowHeading.AddTextFrame(seriesNames[seriesIndex]);
+    rowHeading.TextFrame.TextFrameFormat.MarginTop = 0;
+    rowHeading.TextFrame.TextFrameFormat.MarginBottom = 0;
+    var headingFormat = rowHeading.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+    headingFormat.FontHeight = 12;
+    headingFormat.FillFormat.FillType = FillType.Solid;
+    headingFormat.FillFormat.SolidFillColor.Color = Color.Black;
+}
+
+presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+```
+
+![Sloupcový graf se dvěma řádky datových popisků nad oblastí vykreslení](multiple-rows-of-labels.png)
+
+## **FAQ**
+
+**Jak mohu zabránit překrývání datových popisků v hustých grafech?**
+
+Kombinujte automatické umístění popisků, čárové spoje a zmenšení velikosti písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazte popisky jen pro krajní hodnoty či klíčové body.
 
 **Jak mohu zakázat popisky pouze pro nulové, záporné nebo prázdné hodnoty?**
 
-Filter data points before enabling labels and turn off display for values of 0, negative values, or missing values according to a defined rule.
+Filtrujte datové body před povolením popisků a vypněte jejich zobrazení pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
 
 **Jak zajistit konzistentní styl popisků při exportu do PDF/obrázků?**
 
-Explicitly set the font family and size and verify that the font is available in the rendering environment to avoid fallback.
+Explicitně nastavte rodinu písma a velikost a ověřte, že je písmo dostupné v prostředí vykreslování, aby nedošlo k náhradnímu písmu.

@@ -1,5 +1,5 @@
 ---
-title: จัดการป้ายข้อมูลแผนภูมิในงานนำเสนอด้วย C++
+title: จัดการป้ายข้อมูลแผนภูมิในงานนำเสนอโดยใช้ C++
 linktitle: ป้ายข้อมูล
 type: docs
 url: /th/cpp/chart-data-label/
@@ -9,20 +9,20 @@ keywords:
 - ความแม่นยำของข้อมูล
 - เปอร์เซ็นต์
 - ระยะห่างของป้าย
-- ตำแหน่งป้าย
+- ตำแหน่งของป้าย
 - PowerPoint
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "เรียนรู้การเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ C++ เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น."
+description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ C++ เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น"
 ---
 ## **บทนำ**
 
-ป้ายข้อมูลแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิ บทความนี้อธิบายวิธีการจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย การควบคุมป้ายที่อยู่นอกค่ามากสุดของแกน การปรับช่องว่างของป้ายแกนประเภท และการกำหนดตำแหน่งป้ายของแผนภูมิวงกลม
+ป้ายข้อมูลแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย การควบคุมป้ายเกินค่ามากสุดของแกน ปรับช่องว่างของป้ายแกนประเภท และการจัดตำแหน่งป้ายของแผนภูมิเสา
 
-## **ตั้งค่าความแม่นยำของข้อมูลในป้ายแผนภูมิ**
+## **ตั้งค่าความแม่นยำของข้อมูลในป้ายข้อมูลแผนภูมิ**
 
-ใช้ [set_NumberFormatOfValues](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) เพื่อจัดรูปแบบค่าของชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นโดยใช้ข้อมูลเริ่มต้น แสดงตารางข้อมูลและเปิดใช้งานป้ายค่าสำหรับชุดแรก รูปแบบ `#,##0.00` แสดงตัวคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าพื้นฐาน
+ใช้ [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) เพื่อจัดรูปแบบค่าของชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลของมัน และเปิดใช้งานป้ายค่าสำหรับชุดแรก รูปแบบ `#,##0.00` แสดงเครื่องหมายคั่นหลักพันและสองตำแหน่งทศนิยมโดยไม่เปลี่ยนค่าพื้นฐาน
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,7 +59,7 @@ presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 
 ## **แสดงเปอร์เซ็นต์เป็นป้าย**
 
-สำหรับแผนภูมิคอลัมน์แบบซ้อนกัน คำนวณค่าของแต่ละรายการเป็นเปอร์เซ็นต์ของผลรวมในหมวดหมู่และกำหนดข้อความให้กับกรอบข้อความที่ส่งกลับโดย [get_TextFrameForOverriding](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). ตัวอย่างนี้ใช้ข้อมูลแผนภูมิโดยค่าเริ่มต้นและแสดงเปอร์เซ็นต์ด้วยทศนิยมสองตำแหน่งโดยใช้ฟอนท์ขนาด 8 จุด หมวดหมู่ที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ หากข้อมูลแผนภูมิมีการเปลี่ยนแปลงให้คำนวณข้อความป้ายแบบกำหนดใหม่
+สำหรับแผนภูมิคอลัมน์ซ้อนกัน ให้คำนวณแต่ละค่าเป็นเปอร์เซ็นต์ของผลรวมประเภทของมันและกำหนดข้อความไปยังกรอบข้อความที่ส่งคืนโดย [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). ตัวอย่างนี้ใช้ข้อมูลแผนภูมิเริ่มต้นและแสดงเปอร์เซ็นต์ด้วยสองตำแหน่งทศนิยมในฟอนต์ขนาด 8 จุด ประเภทที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ หากข้อมูลแผนภูมิเปลี่ยนแปลงให้คำนวณข้อความป้ายกำหนดเองใหม่
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -149,9 +149,9 @@ presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 
 ## **ตั้งสัญลักษณ์เปอร์เซ็นต์กับป้ายข้อมูลแผนภูมิ**
 
-เมื่อค่าถูกเก็บเป็นส่วนทศนิยม ใช้ [set_NumberFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) เพื่อแสดงเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) เพื่อให้รูปแบบป้ายทำงานอิสระจากเซลล์ต้นฉบับ
+เมื่อตัวเลขถูกจัดเก็บเป็นเศษส่วน ให้ใช้ [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) เพื่อแสดงเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) เพื่อใช้รูปแบบป้ายแยกจากเซลส์ต้นทาง
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบซ้อนกัน 100% พร้อมชุดสีแดงและสีน้ำเงินในสี่หมวดหมู่ แต่ละคู่ของค่าจะรวมกันเป็น 1 รูปแบบป้าย `0.0%` แสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองชุดใช้ข้อความป้ายสีขาว ขนาด 10 จุด
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ซ้อน 100% ด้วยชุดข้อมูลสีแดงและสีฟ้าครอบคลุมสี่ประเภท คู่ค่าต่าง ๆ รวมกันได้ 1 รูปแบบป้าย `0.0%` แสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้สองตำแหน่งทศนิยม ทั้งสองชุดข้อมูลใช้ข้อความป้ายสีขาว ขนาดฟอนต์ 10 จุด
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -238,7 +238,7 @@ presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 
 ## **อ่านข้อความจริงของป้ายข้อมูล**
 
-ใช้ [GetActualLabelText](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) เพื่อรับข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล ซึ่งเป็นประโยชน์เมื่อดึงป้ายสำหรับรายงาน ค้นหาเนื้อหาในงานนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้าง ตัวอย่างด้านล่าง รูปแบบ [ป้ายข้อมูลเริ่มต้น](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/idatalabelformat/) รวมชื่อหมวดหมู่ ชื่อชุดข้อมูล และค่า จุดหนึ่งจัดรูปค่าของมันเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [get_TextFrameForOverriding](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/)
+ใช้ [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล ซึ่งมีประโยชน์เมื่อสกัดป้ายสำหรับรายงาน ค้นหาเนื้อหาในงานนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง รูปแบบป้ายข้อมูลเริ่มต้น [data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) ผสานชื่อประเภท ชื่อชุดข้อมูล และค่าเข้าด้วยกัน จุดหนึ่งจัดรูปแบบค่าสำหรับเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/)
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -326,15 +326,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-จำนวนที่เก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายของมันจะแสดง `75%` พร้อมชื่อหมวดหมู่และชุดข้อมูล ข้อความกำหนดเองแทนที่ข้อความป้ายที่สร้างขึ้น [GetActualLabelText](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) จะส่งคืนสตริงป้ายที่ได้ในทั้งสองกรณี ตรวจสอบ [get_IsVisible](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/idatalabel/get_isvisible/) แยกต่างหากตามที่แสดงข้างต้นเมื่อคุณต้องการดึงเฉพาะป้ายที่มองเห็นได้
+ค่าตัวเลขที่เก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ป้ายของมันจะแสดง `75%` พร้อมกับชื่อประเภทและชื่อชุดข้อมูล ข้อความกำหนดเองแทนที่ข้อความป้ายที่สร้างขึ้น [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) จะคืนสตริงป้ายที่ได้ในกรณีใดกรณีหนึ่ง ตรวจสอบ [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) แยกต่างหากตามที่แสดงข้างต้นเมื่อคุณต้องการสกัดป้ายที่มองเห็นได้เท่านั้น
 
-## **ควบคุมป้ายข้อมูลที่เกินค่าสูงสุดของแกน**
+## **ควบคุมป้ายข้อมูลเกินค่ามากสุดของแกน**
 
-เมื่อคุณกำหนดช่วงแกนด้วยตนเอง บางจุดข้อมูลอาจเกินค่าสูงสุดของแกน ใช้ [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) เพื่อควบคุมว่าป้ายข้อมูลของพวกมันจะแสดงหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้าย; ไม่เปลี่ยนช่วงแกนหรือค่าพื้นฐานของข้อมูล
+เมื่อคุณจำกัดช่วงแกนด้วยตนเอง บางจุดข้อมูลอาจเกินค่ามากสุดของแกน ใช้ [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) เพื่อควบคุมว่าจะให้แสดงป้ายข้อมูลของพวกมันหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้าย; ไม่เปลี่ยนช่วงแกนหรือค่าข้อมูลพื้นฐาน
 
-ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์แบบกลุ่ม 2 มิติที่มีค่า 60 และ 120 ตั้งค่า [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) เป็น `false` และ [set_MaxValue](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/iaxis/set_maxvalue/) เป็น 100 บนแกนแนวตั้ง สไลด์แรกอนุญาตให้ป้ายแสดงเกินค่าสูงสุด; สไลด์สำเนาของสไลด์นั้นปิดการแสดงผล ทั้งสองสไลด์บันทึกเป็น `DataLabelsOverMaximum.pptx`
+ตัวอย่างด้านล่างสร้างแผนภูมิกลุ่มคอลัมน์ 2 มิติด้วยค่าที่ 60 และ 120 ตั้งค่า [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) เป็น `false` และ [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) เป็น 100 บนแกนแนวตั้ง สไลด์แรกอนุญาตให้แสดงป้ายเกินค่ามากสุด; สำเนาของสไลด์นั้นปิดการแสดงป้าย ทั้งสองสไลด์ถูกบันทึกเป็น `DataLabelsOverMaximum.pptx`
 
-เปิดใช้งานป้ายค่าโดยใช้ [set_ShowValue](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). การตั้งค่าระดับแผนภูมิไม่ทำให้ค่าถูกแสดงโดยอัตโนมัติหรือเขียนทับการปิดการแสดงค่าของป้ายแต่ละอัน ตัวอย่างนี้เปิดใช้งานค่าทั้งชุดและใช้ [set_Position](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/idatalabelformat/set_position/) เพื่อวางป้ายที่ด้านนอกของคอลัมน์แต่ละคอลัมน์
+เปิดใช้งานป้ายค่า ด้วย [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). การตั้งค่าระดับแผนภูมิไม่ทำให้แสดงค่าด้วยตนเองหรือละเมิดการปิดแสดงค่าของป้ายแต่ละอัน ตัวอย่างนี้เปิดค่าทั้งหมดสำหรับชุดข้อมูลทั้งหมดและใช้ [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) เพื่อตำแหน่งป้ายที่ส่วนปลายนอกของแต่ละคอลัมน์
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -405,19 +405,19 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-ภาพต่อไปนี้แสดงสไลด์ที่บันทึกและเรนเดอร์โดย Microsoft PowerPoint ด้วยค่า `true` ป้าย **120** จะมองเห็นได้ที่ขอบบน; ด้วยค่า `false` ป้ายจะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ ค่าสูงสุดของแกนคงที่ที่ **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
+ภาพต่อไปนี้แสดงสไลด์ที่บันทึกแล้วซึ่งเรนเดอร์โดย Microsoft PowerPoint เมื่อใช้ `true` ป้าย **120** จะมองเห็นได้ที่ขอบบน; เมื่อใช้ `false` ป้ายจะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ ค่ามากสุดของแกนคงที่ที่ **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![แผนภูมิ PowerPoint แสดงป้ายค่าที่ 120 กับค่าสูงสุดของแกนที่ 100](data-labels-over-maximum-true.png) | ![แผนภูมิ PowerPoint ซ่อนป้ายค่าที่ 120 กับค่าสูงสุดของแกนที่ 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2 มิติพร้อมแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิวงกลมและโดนัท จะไม่มีค่าสูงสุดของแกนเพื่อจำกัดในลักษณะนี้
+ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2 มิติที่มีแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิพายและโดนัท จะไม่มีค่ามากสุดของแกนที่สามารถจำกัดได้ด้วยวิธีนี้
 {{% /alert %}}
 
-## **ตั้งค่าระยะห่างของป้ายจากแกน**
+## **ตั้งระยะห่างของป้ายจากแกน**
 
-ใช้ [set_LabelOffset](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/iaxis/set_labeloffset/) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทและแกน ค่านี้เป็นเปอร์เซ็นต์ของขนาดฟอนท์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและตั้งค่าการเลื่อนป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภท ไม่ใช่ป้ายที่เชื่อมกับจุดข้อมูลแต่ละจุด
+ใช้ [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทกับแกน ค่านี้เป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิกลุ่มคอลัมน์และตั้งค่าการเยื้องป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภทมากกว่าป้ายที่แนบกับจุดข้อมูลแต่ละจุด
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -447,9 +447,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **ปรับตำแหน่งป้าย**
 
-บนแผนภูมิวงกลม ปรับตำแหน่งป้ายข้อมูลเพื่อเพิ่มช่องว่างและให้พื้นที่สำหรับเส้นเชื่อม
+บนแผนภูมิพาย ปรับตำแหน่งป้ายข้อมูลเพื่อปรับปรุงการเว้นระยะและทำให้มีพื้นที่สำหรับเส้นนำ
 
-ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายของมันไว้ด้านนอกสไลซ์ และใช้ [set_X](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ilayoutable/set_x/) และ [set_Y](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ilayoutable/set_y/) เพื่อปรับการเลื่อนของมัน การเลื่อนเหล่านี้เป็นค่าที่สัมพันธ์กับความกว้างและความสูงของแผนภูมิ ตามลำดับ
+ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายของมันด้านนอกชิ้นพาย และใช้ [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) และ [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) เพื่อปรับการเยื้อง การเยื้องเหล่านี้อ้างอิงจากความกว้างและความสูงของแผนภูมิตามลำดับ
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -487,15 +487,173 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![แผนภูมิวงกลมกับตำแหน่งป้ายข้อมูลที่ปรับแล้ว](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+
+## **เพิ่มหลายแถวของป้ายข้อมูลด้านบนแผนภูมิคอลัมน์**
+
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ที่มีสองแถวของป้ายข้อมูลเหนือพื้นที่การพล็อต ชุดข้อมูล A แสดงคอลัมน์ที่มองเห็นได้ในขณะที่ชุดข้อมูล B และ C ให้ป้ายเพิ่มเติม คอลัมน์ของพวกเขาถูกซ่อนโดยการลบการเติมสีและขอบ วิธี [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) ทำให้ทั้งสามชุดข้อมูลจัดแนวที่ศูนย์กลางประเภทเดียวกัน
+
+การตั้งค่า [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) จองพื้นที่สำหรับแถวป้าย หลังจากที่ [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) คำนวณตำแหน่งเริ่มต้นแล้ว [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) และ [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) รักษาการจัดแนวนอนและใช้การเยื้องแนวตั้งเพื่อจัดเรียงป้ายในสองแถว ตัวเลขยังคงเป็นป้ายข้อมูลที่เชื่อมโยงกับค่าของชุดข้อมูล; ส่วนหัวแถวเป็นรูปทรงข้อความแยกต่างหาก
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartPlotArea.h>
+#include <DOM/Chart/LayoutTargetType.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 40, 40, 640, 200);
+chart->set_HasTitle(false);
+chart->set_HasLegend(false);
+chart->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+String categories[] = { u"North", u"South", u"East", u"West" };
+String seriesNames[] = { u"Series A", u"Series B", u"Series C" };
+double seriesValues[3][4] = {
+    { 35, 42, 28, 47 },
+    { 22, 31, 19, 26 },
+    { 12, 16, 14, 18 }
+};
+
+for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+{
+    auto categoryCell = workbook->GetCell(0, categoryIndex + 1, 0, ObjectExt::Box(categories[categoryIndex]));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+}
+
+for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
+{
+    auto seriesCell = workbook->GetCell(0, 0, seriesIndex + 1, ObjectExt::Box(seriesNames[seriesIndex]));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, ChartType::ClusteredColumn);
+
+    for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+    {
+        auto valueCell = workbook->GetCell(0, categoryIndex + 1, seriesIndex + 1, ObjectExt::Box(seriesValues[seriesIndex][categoryIndex]));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
+
+    if (seriesIndex > 0)
+    {
+        // ซ่อนคอลัมน์ของ B และ C แต่คงป้ายข้อมูลไว้
+        series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
+        series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+        auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+        labelFormat->set_ShowValue(true);
+        labelFormat->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+        auto labelFill = labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat();
+        labelFill->set_FillType(FillType::Solid);
+        labelFill->get_SolidFillColor()->set_Color(Color::get_Black());
+        labelFormat->set_Position(LegendDataLabelPosition::InsideBase);
+    }
+}
+
+// จัดแนวทั้งสามชุดข้อมูลให้ศูนย์กลางประเภทเดียวกัน
+chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
+
+// ใช้เส้นตารางน้อยลงสำหรับตัวอย่างแบบกระชับนี้
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
+chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
+
+// จองพื้นที่เหนือพื้นที่พล็อตสำหรับสองแถวของป้ายข้อมูล
+chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
+chart->get_PlotArea()->set_X(0.15f);
+chart->get_PlotArea()->set_Y(0.32f);
+chart->get_PlotArea()->set_Width(0.80f);
+chart->get_PlotArea()->set_Height(0.48f);
+chart->ValidateChartLayout();
+
+for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(seriesIndex);
+    auto rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+    for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+    {
+        auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
+        // คงตำแหน่งแนวนอนเริ่มต้นไว้ Y เป็นการเยื้องจาก
+        // ตำแหน่งป้ายเริ่มต้น, แสดงเป็นส่วนของความสูงแผนภูมิ
+        dataLabel->set_X(0);
+        dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
+    }
+
+    // เฉพาะหัวแถวเป็นรูปข้อความแยกต่างหาก
+    auto rowHeading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, chart->get_X(), chart->get_Y() + rowTop * chart->get_Height(), 85, 18);
+    rowHeading->get_FillFormat()->set_FillType(FillType::NoFill);
+    rowHeading->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+    rowHeading->AddTextFrame(seriesNames[seriesIndex]);
+    rowHeading->get_TextFrame()->get_TextFrameFormat()->set_MarginTop(0);
+    rowHeading->get_TextFrame()->get_TextFrameFormat()->set_MarginBottom(0);
+    auto headingFormat = rowHeading->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
+    headingFormat->set_FontHeight(12);
+    headingFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    headingFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+}
+
+presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนกันในแผนภูมิที่หนาแน่นได้อย่างไร?**  
-ผสานการวางป้ายอัตโนมัติ, เส้นเชื่อม, และลดขนาดฟอนท์; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น หมวดหมู่) หรือแสดงป้ายเฉพาะค่าที่สุดหรือจุดสำคัญเท่านั้น
+**​**ฉันจะป้องกันไม่ให้ป้ายข้อมูลซ้อนทับกันในแผนภูมิที่หนาแน่นได้อย่างไร?**  
+ผสานการจัดวางป้ายอัตโนมัติ, เส้นนำ, และลดขนาดฟอนต์; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น ประเภท) หรือแสดงป้ายเฉพาะค่าที่สุดขีดหรือจุดสำคัญ
 
-**ฉันจะปิดการแสดงป้ายเฉพาะค่าศูนย์, ค่าลบ, หรือค่าที่ไม่มีข้อมูลได้อย่างไร?**  
-กรองจุดข้อมูลก่อนเปิดใช้งานป้าย และปิดการแสดงสำหรับค่าที่เป็น 0, ค่าลบ, หรือค่าที่ขาดหายไปตามกฎที่กำหนด
+**​**ฉันจะปิดการแสดงป้ายสำหรับค่าเป็นศูนย์, ลบ, หรือว่างได้อย่างไร?**  
+กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงสำหรับค่าที่เป็น 0, ค่าลบ หรือค่าไม่มี ตามกฎที่กำหนด
 
-**ฉันจะทำให้สไตล์ของป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**  
-กำหนดแบบอักษรและขนาดฟอนท์อย่างชัดเจนและตรวจสอบว่าฟอนท์มีอยู่ในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนท์สำรอง
+**​**ฉันจะทำให้สไตล์ป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**  
+กำหนดฟอนต์และขนาดอย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง

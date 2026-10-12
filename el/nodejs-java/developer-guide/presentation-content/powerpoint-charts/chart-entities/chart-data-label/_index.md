@@ -15,15 +15,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγράμματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας JavaScript και Aspose.Slides για Node.js μέσω Java, για πιο ελκυστικές διαφάνειες."
+description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγράμματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας JavaScript και Aspose.Slides για Node.js μέσω Java για πιο ελκυστικές διαφάνειες."
 ---
 ## **Εισαγωγή**
 
-Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες για τις σειρές του διαγράμματος και τα μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να αναγνωρίζουν τις τιμές και να κατανοούν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε τιμές, να εμφανίζετε ποσοστά, να διαβάζετε το κείμενο της ετικέτας, να ελέγχετε τις ετικέτες πέρα από το μέγιστο του άξονα, να ρυθμίζετε το διάστημα των ετικετών του άξονα κατηγορίας και να τοποθετείτε τις ετικέτες σε κυκλικό διάγραμμα.
+Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές διαγράμματος και μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να αναγνωρίζουν τις τιμές και να κατανοούν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε τις τιμές, να εμφανίσετε ποσοστά, να διαβάσετε το κείμενο των ετικετών, να ελέγξετε τις ετικέτες πέρα από το μέγιστο του άξονα, να προσαρμόσετε την απόσταση των ετικετών του άξονα κατηγορίας και να τοποθετήσετε τις ετικέτες του διαστήματος πίτας.
 
-## **Ορισμός ακρίβειας δεδομένων στις ετικέτες διαγράμματος**
+## **Ορισμός Ακρίβειας Δεδομένων στις Ετικέτες Δεδομένων Διαγράμματος**
 
-Χρησιμοποιήστε [setNumberFormatOfValues](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) για να μορφοποιήσετε τις τιμές της σειράς. Αυτό το παράδειγμα δημιουργεί ένα γραμμικό διάγραμμα με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
+Χρησιμοποιήστε [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) για να μορφοποιήσετε τις τιμές των σειρών. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -44,9 +44,10 @@ try {
     presentation.dispose();
 }
 ```
-## **Εμφάνιση ποσοστού ως ετικέτες**
 
-Για ένα στοίβαγμα στήλης, υπολογίστε κάθε τιμή ως ποσοστό του συνόλου της κατηγορίας της και εκχωρήστε το κείμενο στο πλαίσιο κειμένου που επιστρέφεται από το [getTextFrameForOverriding](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα διαγράμματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Οι κατηγορίες με σύνολο μηδέν παραλείπονται για να αποφευχθεί διαίρεση με το μηδέν. Επαναυπολογίστε το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
+## **Εμφάνιση Ποσοστού ως Ετικέτες**
+
+Για ένα στοίβακο στήλης διάγραμμα, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού ποσού της κατηγορίας της και αντιστοιχίστε το κείμενο στο πλαίσιο κειμένου που επιστρέφει η μέθοδος [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα διαγράμματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Οι κατηγορίες με συνολικό άθροισμα μηδέν παραλείπονται για να αποφευχθεί η διαίρεση με το μηδέν. Εξανανεώστε το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -101,9 +102,12 @@ try {
     presentation.dispose();
 }
 ```
-## **Ορισμός του συμβόλου ποσοστού στις ετικέτες δεδομένων του διαγράμματος**
 
-Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε [setNumberFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) για να εμφανίσετε τα ποσοστά. Προσαρμόστε την τιμή `false` στη μέθοδο [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) ώστε η μορφή ετικέτας να εφαρμοστεί ανεξάρτητα από τα κελιά προέλευσης. Αυτό το παράδειγμα δημιουργεί ένα στοίβαγμα στήλης 100% με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζει στο 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας μεγέθους 10 σημείων.
+## **Ορισμός Συντ. Ποσοστού με Ετικέτες Δεδομένων Διαγράμματος**
+
+Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε το [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) για να εμφανίσετε τα ποσοστά. Με τη μεταβλητή `false` στην κλήση της μεθόδου [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) εφαρμόζεται η μορφή ετικέτας ανεξάρτητα από τα κελιά προέλευσης.
+
+Αυτό το παράδειγμα δημιουργεί ένα στοίβακο στήλης διάγραμμα 100% με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζει στο 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -158,9 +162,10 @@ try {
     presentation.dispose();
 }
 ```
-## **Ανάγνωση του πραγματικού κειμένου των ετικετών δεδομένων**
 
-Χρησιμοποιήστε το [getActualLabelText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) για να ανακτήσετε το κείμενο που δημιουργείται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επικυρώνετε τα δημιουργημένα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [μορφή ετικέτας δεδομένων](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, και ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από το [getTextFrameForOverriding](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
+## **Ανάγνωση Πραγματικού Κειμένου των Ετικετών Δεδομένων**
+
+Χρησιμοποιήστε το [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) για να ανακτήσετε το κείμενο που παράγεται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επικυρώνετε δημιουργημένα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [data label format](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, και ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από το [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -223,15 +228,15 @@ try {
 }
 ```
 
-Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα της κατηγορίας και της σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [getActualLabelText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) επιστρέφει τη δεσμευόμενη συμβολοσειρά ετικέτας και στις δύο περιπτώσεις. Ελέγξτε το [isVisible](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/isvisible/) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
+Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα της κατηγορίας και της σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) επιστρέφει τη γραμμή ετικέτας σε κάθε περίπτωση. Ελέγξτε το [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
 
-## **Έλεγχος ετικετών δεδομένων πέρα από το μέγιστο του άξονα**
+## **Έλεγχος Ετικετών Δεδομένων Πέρα από το Μέγιστο του Άξονα**
 
-Όταν περιορίζετε το εύρος ενός άξονα χειροκίνητα, ορισμένα σημεία δεδομένων μπορεί να υπερβούν το μέγιστό του. Χρησιμοποιήστε το [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) για να ελέγξετε αν εμφανίζονται οι ετικέτες των δεδομένων τους. Αυτή η ρύθμιση αλλάζει την ορατότητα των ετικετών· δεν αλλάζει το εύρος του άξονα ή τις υποκείμενες τιμές δεδομένων.
+Όταν περιορίζετε το εύρος ενός άξονα χειροκίνητα, κάποια σημεία δεδομένων μπορεί να υπερβαίνουν το μέγιστό του. Χρησιμοποιήστε το [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) για να ελέγξετε αν οι ετικέτες δεδομένων τους εμφανίζονται. Αυτή η ρύθμιση αλλάζει την ορατότητα των ετικετών· δεν αλλάζει το εύρος του άξονα ή τις υποκείμενες τιμές των δεδομένων.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα δισδιάστατο ομαδοποιημένο διάγραμμα στήλης με τιμές 60 και 120. Περνά το `false` στη μέθοδο [setAutomaticMaxValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) και ορίζει το μέγιστο σε 100 με το [setMaxValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/axis/setmaxvalue/) στον κατακόρυφο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέρα από το μέγιστο· ένα αντίγραφο αυτής της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται στο `DataLabelsOverMaximum.pptx`.
+Το παρακάτω παράδειγμα δημιουργεί ένα 2Δ στήλης σύμπλεγμα με τιμές 60 και 120. Περνά το `false` στη μέθοδο [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) και ορίζει το μέγιστο σε 100 με τη μέθοδο [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) στον κατακόρυφο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέρα από το μέγιστο· ένα αντίγραφο της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται στο `DataLabelsOverMaximum.pptx`.
 
-Ενεργοποιήστε τις ετικέτες τιμών με το [setShowValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Η ρύθμιση σε επίπεδο διαγράμματος δεν ενεργοποιεί την εμφάνιση τιμών από μόνη της ή δεν παρακάμπτει την απενεργοποιημένη εμφάνιση τιμής μιας μεμονωμένης ετικέτας. Αυτό το παράδειγμα ενεργοποιεί τις τιμές για ολόκληρη τη σειρά και χρησιμοποιεί το [setPosition](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabelformat/setposition/) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
+Ενεργοποιήστε τις ετικέτες τιμών με το [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Η ρύθμιση σε επίπεδο διαγράμματος δεν ενεργοποιεί την εμφάνιση τιμών από μόνη της ούτε υπερκαλύπτει την απενεργοποίηση εμφάνισης τιμής μιας μεμονωμένης ετικέτας. Αυτό το παράδειγμα ενεργοποιεί τις τιμές για ολόκληρη τη σειρά και χρησιμοποιεί το [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -280,19 +285,19 @@ try {
 }
 ```
 
-Οι παρακάτω εικόνες δείχνουν τις αποθηκευμένες διαφάνειες που αποδίδονται από το Microsoft PowerPoint. Με `true`, η ετικέτα **120** είναι ορατή στο ανώτερο όριο· με `false`, είναι κρυφή. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα παραμένει στο **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
+Οι παρακάτω εικόνες δείχνουν τις αποθηκευμένες διαφάνειες που αποδόθηκαν από το Microsoft PowerPoint. Με `true`, η ετικέτα **120** είναι ορατή στο άνω όριο· με `false`, είναι κρυφή. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα παραμένει **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![Διάγραμμα PowerPoint που εμφανίζει την ετικέτα τιμής 120 με μέγιστο άξονα 100](data-labels-over-maximum-true.png) | ![Διάγραμμα PowerPoint που κρύβει την ετικέτα τιμής 120 με μέγιστο άξονα 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Αυτό το παράδειγμα χρησιμοποιεί ένα δισδιάστατο διάγραμμα στήλης με άξονα τιμών. Τα διαγράμματα χωρίς άξονα τιμών, όπως τα κυκλικά και τα δακτυλιοειδή διαγράμματα, δεν έχουν μέγιστο άξονα που να μπορεί να περιοριστεί με αυτόν τον τρόπο.
+Αυτό το παράδειγμα χρησιμοποιεί ένα 2Δ στήλης διάγραμμα με άξονα τιμών. Τα διαγράμματα χωρίς άξονα τιμών, όπως τα πίτες και τα δακτύλιο, δεν διαθέτουν μέγιστο άξονα προς περιορισμό με αυτόν τον τρόπο.
 {{% /alert %}}
 
-## **Ορισμός απόστασης ετικέτας από άξονα**
+## **Ορισμός Απόστασης Ετικέτας από Άξονα**
 
-Χρησιμοποιήστε το [setLabelOffset](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/axis/setlabeloffset/) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα ομαδοποιημένο διάγραμμα στήλης και ορίζει την απόσταση ετικέτας του οριζόντιου άξονα σε 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας και όχι τις ετικέτες που είναι προσαρτημένες σε μεμονωμένα σημεία δεδομένων.
+Χρησιμοποιήστε το [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ένα ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα στήλης σύμπλεγμα και ορίζει την απόσταση ετικετών του οριζόντιου άξονα σε 500. Η ρύθμιση αυτή επηρεάζει τις ετικέτες του άξονα κατηγορίας αντί για τις ετικέτες που συνδέονται με μεμονωμένα σημεία δεδομένων.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -309,11 +314,12 @@ try {
     presentation.dispose();
 }
 ```
-## **Ρύθμιση θέσης ετικέτας**
 
-Σε ένα κυκλικό διάγραμμα, ρυθμίστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε την απόσταση και να δημιουργήσετε χώρο για τις γραμμές καθοδήγησης.
+## **Προσαρμογή Θέσης Ετικέτας**
 
-Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και ρυθμίζει τις οριζόντιες και κάθετες μετατοπίσεις χρησιμοποιώντας τα [setX](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/setx/) και [setY](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/sety/). Αυτές οι μετατοπίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
+Σε ένα διάγραμμα πίτας, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε την απόσταση και να δημιουργήσετε χώρο για τις γραμμές οδηγού.
+
+Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και προσαρμόζει τις οριζόντιες και κατακόρυφες μετατοπίσεις χρησιμοποιώντας τα [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) και [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/). Αυτές οι μετατοπίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -338,18 +344,123 @@ try {
 }
 ```
 
-![Κυκλικό διάγραμμα με προσαρμοσμένη θέση ετικέτας δεδομένων](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Συχνές Ερωτήσεις**
+## **Προσθήκη Πολλαπλών Σειρών Ετικετών Δεδομένων Πάνω από Διάγραμμα Στήλης**
+
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στήλης με δύο σειρές ετικετών δεδομένων πάνω από την περιοχή σχεδίασης. Η Σειρά A εμφανίζει τις ορατές στήλες, ενώ οι Σειρές B και C παρέχουν τις επιπλέον ετικέτες. Οι στήλες τους κρύβονται αφαιρώντας τη γεμίσμα και το περίγραμμα. Η μέθοδος [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) ευθυγραμμίζει και τις τρεις σειρές με τα ίδια κέντρα κατηγορίας.
+
+Οι ρυθμίσεις του [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) διατηρούν χώρο για τις σειρές ετικετών. Μετά τον υπολογισμό των προεπιλεγμένων θέσεων από το [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/), τα [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) και [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) διατηρούν την οριζόντια στοίχιση και εφαρμόζουν κάθετες μετατοπίσεις για τη διάταξη των ετικετών σε δύο σειρές. Οι αριθμοί παραμένουν ετικέτες δεδομένων συνδεδεμένες με τις τιμές των σειρών· μόνο οι επικεφαλίδες των σειρών είναι ξεχωριστά σχήματα κειμένου.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    const categories = ["North", "South", "East", "West"];
+    const seriesNames = ["Series A", "Series B", "Series C"];
+    const seriesValues = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]];
+
+    for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        const categoryCell = workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (let seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        const seriesCell = workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+        const series = chart.getChartData().getSeries().add(seriesCell, aspose.slides.ChartType.ClusteredColumn);
+
+        for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            const valueCell = workbook.getCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        if (seriesIndex > 0) {
+            // Απόκρυψη των στηλών B και C, αλλά διατήρηση των ετικετών δεδομένων τους.
+            series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
+            const labelFill = series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+            labelFill.getSolidFillColor().setColor(black);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // Στοίχιση και των τριών σειρών με τα ίδια κέντρα κατηγοριών.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(java.newByte(100));
+
+    // Χρήση λιγότερων γραμμών πλέγματος για αυτό το συμπαγές παράδειγμα.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // Δέσμευση χώρου πάνω από το γράφημα για δύο σειρές ετικετών δεδομένων.
+    chart.getPlotArea().setLayoutTargetType(aspose.slides.LayoutTargetType.Inner);
+    chart.getPlotArea().setX(java.newFloat(0.15));
+    chart.getPlotArea().setY(java.newFloat(0.32));
+    chart.getPlotArea().setWidth(java.newFloat(0.80));
+    chart.getPlotArea().setHeight(java.newFloat(0.48));
+    chart.validateChartLayout();
+
+    for (let seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const rowTop = seriesIndex == 1 ? 0.15 : 0.03;
+
+        for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            const dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // Διατήρηση της προεπιλεγμένης οριζόντιας θέσης. Το Y είναι μια μετατόπιση από
+            // τη προεπιλεγμένη θέση ετικέτας, εκφρασμένη ως κλάσμα του ύψους του διαγράμματος.
+            dataLabel.setX(0);
+            dataLabel.setY(java.newFloat(rowTop - dataLabel.getActualY() / chart.getHeight()));
+        }
+
+        // Μόνο η επικεφαλίδα της σειράς είναι ξεχωριστό σχήμα κειμένου.
+        const rowHeading = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        rowHeading.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        const headingFormat = rowHeading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        headingFormat.getFillFormat().getSolidFillColor().setColor(black);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
+## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
 
 **Πώς μπορώ να αποτρέψω την επικάλυψη των ετικετών δεδομένων σε πυκνά διαγράμματα;**
 
-Συνδυάστε την αυτόματη τοποθέτηση ετικετών, τις γραμμές καθοδήγησης και τη μείωση του μεγέθους γραμματοσειράς· εάν χρειαστεί, αποκρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή βασικά σημεία.
+Συνδυάστε την αυτόματη τοποθέτηση ετικετών, τις γραμμές οδηγού και τη μείωση του μεγέθους γραμματοσειράς· εάν χρειάζεται, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή κύρια σημεία.
 
 **Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για μηδενικές, αρνητικές ή κενές τιμές;**
 
 Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν καθορισμένο κανόνα.
 
-**Πώς μπορώ να διασφαλίσω μια συνεπή μορφή ετικετών κατά την εξαγωγή σε PDF/εικόνες;**
+**Πώς μπορώ να εξασφαλίσω συνεπή στυλ ετικέτας κατά την εξαγωγή σε PDF/εικόνες;**
 
-Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης για να αποφύγετε την εναλλακτική.
+Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης για να αποφύγετε την εναλλακτική χρήση.

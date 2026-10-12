@@ -1,5 +1,5 @@
 ---
-title: Android पर प्रस्तुतियों में चार्ट डेटा लेबल प्रबंधित करें
+title: एंड्रॉयड पर प्रस्तुतियों में चार्ट डेटा लेबल प्रबंधित करें
 linktitle: डेटा लेबल
 type: docs
 url: /hi/androidjava/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ना और फ़ॉर्मेट करना सीखें, जिससे स्लाइड अधिक आकर्षक बनें।"
+description: "Aspose.Slides for Android का उपयोग करके Java के माध्यम से PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ने और स्वरूपित करने के बारे में सीखें, ताकि अधिक आकर्षक स्लाइड बन सकें।"
 ---
 ## **परिचय**
 
-डेटा लेबल चार्ट सीरीज़ और व्यक्तिगत डेटा बिंदुओं की जानकारी दर्शाते हैं, जिससे पाठकों को मानों की पहचान करने और चार्ट को समझने में मदद मिलती है। यह लेख मानों को फ़ॉर्मैट करने, प्रतिशत प्रदर्शित करने, लेबल टेक्स्ट पढ़ने, अक्ष अधिकतम से परे लेबल नियंत्रित करने, श्रेणी अक्ष लेबल की दूरी समायोजित करने, और पाई चार्ट लेबल की स्थिति निर्धारित करने के तरीकों को समझाता है।
+डेटा लेबल चार्ट श्रृंखला और व्यक्तिगत डेटा बिंदुओं के बारे में जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख बताता है कि मानों को कैसे स्वरूपित किया जाए, प्रतिशत कैसे दिखाएँ, लेबल टेक्स्ट को कैसे पढ़ें, अक्ष अधिकतम से परे लेबल को कैसे नियंत्रित करें, श्रेणी अक्ष लेबल स्पेसिंग को कैसे समायोजित करें, और पाई चार्ट लेबल की स्थिति कैसे निर्धारित करें।
 
 ## **चार्ट डेटा लेबल में डेटा सटीकता सेट करें**
 
-[setNumberFormatOfValues](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) का उपयोग करके सीरीज़ मानों को फ़ॉर्मैट करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसका डेटा टेबल प्रदर्शित करता है, और पहली सीरीज़ के लिए मान लेबल सक्षम करता है। फ़ॉर्मैट `#,##0.00` हज़ार विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मानों को बदले।
+सीरीज़ मानों को स्वरूपित करने के लिए [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसके डेटा टेबल को प्रदर्शित करता है, और पहले सीरीज़ के लिए मान लेबल सक्षम करता है। फॉर्मेट `#,##0.00` हज़ार विभाजक और दो दशमलव स्थान दिखाता है, बिना मूल मानों को बदले।
 
 ```java
 import com.aspose.slides.*;
@@ -45,9 +45,9 @@ try {
 }
 ```
 
-## **लेबल के रूप में प्रतिशत प्रदर्शित करें**
+## **लेबल के रूप में प्रतिशत प्रदर्शित करना**
 
-स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल का प्रतिशत गणना करें और उसे [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) द्वारा वापस किए गए टेक्स्ट फ्रेम में असाइन करें। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8‑पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत दिखाता है। कुल शून्य वाले वर्गों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। चार्ट डेटा बदलने पर कस्टम लेबल टेक्स्ट को पुनः गणना करें।
+एक स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी के कुल का प्रतिशत गणना करें और टेक्स्ट को उस टेक्स्ट फ्रेम में असाइन करें जो [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) द्वारा लौटाया जाता है। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8 पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत प्रदर्शित करता है। शून्य कुल वाली श्रेणियों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को फिर से गणना करें।
 
 ```java
 import com.aspose.slides.*;
@@ -104,11 +104,11 @@ try {
 }
 ```
 
-## **चार्ट डेटा लेबल के साथ प्रतिशत संकेत सेट करें**
+## **चार्ट डेटा लेबल में प्रतिशत चिह्न सेट करना**
 
-जब मान अंश के रूप में संग्रहित हों, तो प्रतिशत प्रदर्शित करने के लिए [setNumberFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) का उपयोग करें। लेबल फ़ॉर्मैट को स्रोत सेल से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) को `false` पास करें।
+जब मान अंश के रूप में संग्रहित होते हैं, तो प्रतिशत प्रदर्शित करने के लिए [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) का उपयोग करें। लेबल फॉर्मेट को स्रोत सेल्स से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) को `false` पास करें।
 
-यह उदाहरण चार श्रेणियों में लाल और नीले सीरीज़ के साथ 100 % स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान युग्म का कुल 1 होता है। लेबल फ़ॉर्मैट `0.0%` 0.30 को 30.0 % के रूप में दिखाता है, जबकि लंबवत अक्ष दो दशमलव स्थान उपयोग करता है। दोनों सीरीज़ 10‑पॉइंट सफेद लेबल टेक्स्ट प्रयोग करती हैं।
+यह उदाहरण चार श्रेणियों में लाल और नीले सीरीज़ के साथ 100% स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान की जोड़ी का योग 1 होता है। लेबल फॉर्मेट `0.0%` 0.30 को 30.0% के रूप में दिखाता है, जबकि लंबवत अक्ष दो दशमलव स्थान उपयोग करता है। दोनों सीरीज़ सफ़ेद, 10‑पॉइंट लेबल टेक्स्ट का उपयोग करते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -163,9 +163,9 @@ try {
 }
 ```
 
-## **डेटा लेबल का वास्तविक टेक्स्ट पढ़ें**
+## **डेटा लेबल के वास्तविक टेक्स्ट को पढ़ें**
 
-डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) का प्रयोग करें। यह रिपोर्ट के लिए लेबल निकालने, प्रस्तुति सामग्री खोजने, या उत्पन्न चार्ट की वैधता जाँचने में उपयोगी है। नीचे के उदाहरण में, डिफ़ॉल्ट [डेटा लेबल फ़ॉर्मैट](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatalabelformat/) प्रत्येक श्रेणी नाम, सीरीज़ नाम, और मान को संयोजित करता है। एक बिंदु अपने मान को प्रतिशत के रूप में फ़ॉर्मैट करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) से कस्टम टेक्स्ट उपयोग करता है।
+डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट को पुनः प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) का उपयोग करें। यह रिपोर्ट के लिए लेबल निकालने, प्रस्तुति सामग्री खोजने, या उत्पन्न चार्ट्स को वैध करने में उपयोगी है। नीचे के उदाहरण में, डिफ़ॉल्ट [डेटा लेबल फॉर्मेट](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) प्रत्येक श्रेणी नाम, सीरीज़ नाम, और मान को जोड़ता है। एक बिंदु अपना मान प्रतिशत के रूप में स्वरूपित करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) से कस्टम टेक्स्ट का उपयोग करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +225,15 @@ try {
 }
 ```
 
-डेटा बिंदु में संग्रहीत संख्या `0.75` बनी रहती है, चाहे लेबल `75%` को श्रेणी और सीरीज़ नाम के साथ दिखाए। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को बदल देता है। [getActualLabelText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) दोनों मामलों में परिणामी लेबल स्ट्रिंग लौटाता है। केवल दृश्यमान लेबल निकालना चाहते हों तो ऊपर दिखाए अनुसार [isVisible](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatalabel/#isVisible--) को अलग से जाँचें।
+डेटा बिंदु में संग्रहित संख्या `0.75` बनी रहती है, भले ही उसका लेबल `75%` तथा श्रेणी और सीरीज़ नाम दिखाए। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को प्रतिस्थापित करता है। [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) दोनों मामलों में परिणामी लेबल स्ट्रिंग लौटाता है। यदि आप केवल दृश्यमान लेबल निकालना चाहते हैं, तो ऊपर दर्शाए अनुसार [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) को अलग से जांचें।
 
-## **अक्ष अधिकतम से परे डेटा लेबल नियंत्रित करें**
+## **अक्ष अधिकतम से परे डेटा लेबल नियंत्रित करना**
 
-जब आप अक्ष सीमा को मैन्युअल रूप से सीमित करते हैं, तो कुछ डेटा बिंदु उसके अधिकतम से अधिक हो सकते हैं। यह नियंत्रित करने के लिए [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) का उपयोग करें कि उनके डेटा लेबल दिखाए जाएँ या नहीं। यह सेटिंग लेबल की दृश्यता बदलती है; यह अक्ष सीमा या मूल डेटा मानों को नहीं बदलती।
+जब आप मैन्युअल रूप से अक्ष रेंज सीमित करते हैं, तो कुछ डेटा बिंदु उसके अधिकतम से अधिक हो सकते हैं। यह नियंत्रित करने के लिए कि उनके डेटा लेबल दिखाए जाएँ या नहीं, [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) का उपयोग करें। यह सेटिंग लेबल की दृश्यता बदलती है; यह अक्ष रेंज या मूल डेटा मानों को नहीं बदलती।
 
-निचले उदाहरण में 60 और 120 मानों के साथ एक 2D क्लस्टर्ड कॉलम चार्ट बनाया गया है। यह [setAutomaticMaxValue](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) को `false` पास करता है और लंबवत अक्ष पर [setMaxValue](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) से अधिकतम 100 सेट करता है। पहला स्लाइड अधिकतम से परे लेबल की अनुमति देता है; उस स्लाइड की एक प्रतिलिपि उन्हें अक्षम करती है। दोनों स्लाइड `DataLabelsOverMaximum.pptx` में सहेजे जाते हैं।
+नीचे का उदाहरण 60 और 120 मानों के साथ 2D क्लस्टर्ड कॉलम चार्ट बनाता है। यह [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) को `false` पास करता है और लंबवत अक्ष पर [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) से अधिकतम को 100 सेट करता है। पहला स्लाइड अधिकतम से परे लेबल को अनुमति देता है; उस स्लाइड की एक प्रति उन्हें अक्षम करती है। दोनों स्लाइड `DataLabelsOverMaximum.pptx` में सहेजे जाते हैं।
 
-[value labels को सक्षम करने के लिए [setShowValue](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) का उपयोग करें। चार्ट‑स्तरीय सेटिंग खुद से मान प्रदर्शित नहीं करती और न ही व्यक्तिगत लेबल की अक्षम मान प्रदर्शनी को ओवरराइड करती है। यह उदाहरण पूरी सीरीज़ के लिए मान सक्षम करता है और [setPosition](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) का उपयोग करके प्रत्येक कॉलम के बाहर के सिरे पर लेबल रखता है।
+[setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) के साथ मान लेबल सक्षम करें। चार्ट‑स्तर की सेटिंग स्वयं मान प्रदर्शन को सक्षम नहीं करती या व्यक्तिगत लेबल के अक्षम मान प्रदर्शन को अधिलेखित नहीं करती। यह उदाहरण पूरे सीरीज़ के लिए मान सक्षम करता है और प्रत्येक कॉलम के बाहर के अंत में लेबल रखने के लिए [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) का उपयोग करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -282,19 +282,19 @@ try {
 }
 ```
 
-निम्न छवियों में Microsoft PowerPoint द्वारा रेंडर किए गए सहेजे गए स्लाइड दिखाए गए हैं। `true` के साथ, लेबल **120** ऊपरी सीमा पर दृश्यमान रहता है; `false` के साथ, यह छिपा रहता है। लेबल **60** दृश्यमान बना रहता है, अक्ष अधिकतम **100** पर रहता है, और दूसरा डेटा बिंदु दोनों मामलों में **120** ही रहता है।
+निम्न चित्र Microsoft PowerPoint द्वारा रेंडर किए गए सहेजे गए स्लाइड्स को दिखाते हैं। `true` के साथ, लेबल **120** ऊपरी सीमा पर दिखाई देता है; `false` के साथ, यह छिपा रहता है। लेबल **60** दिखाई रहता है, अक्ष का अधिकतम **100** पर बना रहता है, और दूसरा डेटा बिंदु दोनों मामलों में **120** ही रहता है।
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-यह उदाहरण एक 2D कॉलम चार्ट को वैल्यू अक्ष के साथ उपयोग करता है। वैल्यू अक्ष के बिना चार्ट, जैसे पाई और डोनट चार्ट, इस प्रकार की अक्ष अधिकतम सीमा नहीं रखते हैं।
+यह उदाहरण वैल्यू एक्सिस वाले 2D कॉलम चार्ट का उपयोग करता है। वैल्यू एक्सिस के बिना चार्ट, जैसे पाई और डोनट चार्ट, इस तरह के अक्ष अधिकतम को सीमित नहीं कर सकते।
 {{% /alert %}}
 
-## **अक्ष से लेबल की दूरी सेट करें**
+## **अक्ष से लेबल की दूरी सेट करना**
 
-[setLabelOffset](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच की दूरी नियंत्रित करें। यह मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा बिंदुओं से जुड़े लेबल की बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
+[setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच दूरी नियंत्रित करें। मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा बिंदुओं से जुड़े लेबल की बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
 
 ```java
 import com.aspose.slides.*;
@@ -314,9 +314,9 @@ try {
 
 ## **लेबल स्थान समायोजित करें**
 
-पाई चार्ट पर, डेटा लेबल की स्थिति को समायोजित करें ताकि अंतराल बेहतर हो और लीडर लाइनों के लिए जगह बन सके।
+पाई चार्ट में, स्पेसिंग सुधारने और लीडर लाइन के लिए जगह बनाने हेतु डेटा लेबल की स्थितियों को समायोजित करें।
 
-यह उदाहरण पहले डेटा बिंदु का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और [setX](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutable/#setX-float-) तथा [setY](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutable/#setY-float-) का उपयोग करके क्षैतिज और ऊर्ध्वाधर ऑफ़सेट समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के अनुपात में होते हैं।
+यह उदाहरण पहले डेटा बिंदु का मान दर्शाता है, उसका लेबल स्लाइस के बाहर रखता है, और क्षैतिज एवं ऊर्ध्वाधर ऑफ़सेट को [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) और [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) का उपयोग करके समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -340,18 +340,123 @@ try {
 }
 ```
 
-![समायोजित डेटा लेबल स्थिति वाला पाई चार्ट](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **कॉलम चार्ट के ऊपर कई पंक्तियों के डेटा लेबल जोड़ें**
 
-**मैं घने चार्ट पर डेटा लेबल के ओवरलैप को कैसे रोक सकता हूँ?**
+यह उदाहरण प्लॉट एरिया के ऊपर दो पंक्तियों के डेटा लेबल वाले कॉलम चार्ट बनाता है। सीरीज़ A दृश्यमान कॉलम दिखाता है, जबकि सीरीज़ B और C अतिरिक्त लेबल प्रदान करते हैं। उनके कॉलम भराव और आउटलाइन हटाकर छुपाए जाते हैं। [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) मेथड सभी तीन सीरीज़ को समान श्रेणी केंद्रों के साथ संरेखित करता है।
 
-स्वचालित लेबल प्लेसमेंट, लीडर लाइनों और छोटे फ़ॉन्ट आकार को मिलाएँ; आवश्यकता होने पर कुछ फ़ील्ड (जैसे श्रेणी) छिपाएँ या केवल अत्यधिक मान या मुख्य बिंदुओं के लेबल दिखाएँ।
+[ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) सेटिंग्स लेबल पंक्तियों के लिए स्थान आरक्षित करती हैं। [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) डिफ़ॉल्ट स्थितियों की गणना करने के बाद, [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) और [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) क्षैतिज संरेखण को बरकरार रखते हैं और लेबल को दो पंक्तियों में व्यवस्थित करने के लिए ऊर्ध्वाधर ऑफ़सेट लागू करते हैं। संख्याएँ सीरीज़ मानों से जुड़ी डेटा लेबल ही रहती हैं; केवल पंक्ति शीर्षक अलग टेक्स्ट शैप होते हैं।
 
-**मैं केवल शून्य, नकारात्मक या खाली मानों के लिए लेबल कैसे अक्षम कर सकता हूँ?**
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-लेबल सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले बंद करें, जैसा कि परिभाषित नियम में निर्दिष्ट हो।
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-**PDF/छवि में एक्सपोर्ट करते समय लेबल शैली सुसंगत कैसे रखें?**
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
 
-फ़ॉन्ट फ़ैमिली और आकार को स्पष्ट रूप से सेट करें और रेंडरिंग वातावरण में फ़ॉन्ट उपलब्ध हो इसे सत्यापित करें ताकि फ़ॉलबैक से बचा जा सके।
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    String[] categories = {"North", "South", "East", "West"};
+    String[] seriesNames = {"Series A", "Series B", "Series C"};
+    double[][] seriesValues = {
+            {35, 42, 28, 47},
+            {22, 31, 19, 26},
+            {12, 16, 14, 18}
+    };
+
+    for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        IChartDataCell categoryCell = workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (int seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartDataCell seriesCell = workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, ChartType.ClusteredColumn);
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IChartDataCell valueCell = workbook.getCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        if (seriesIndex > 0) {
+            // B और C के कॉलम छुपाएँ, लेकिन उनके डेटा लेबल रखें।
+            series.getFormat().getFill().setFillType(FillType.NoFill);
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
+            IFillFormat labelFill = series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(FillType.Solid);
+            labelFill.getSolidFillColor().setColor(Color.BLACK);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // सभी तीन सीरीज़ को समान श्रेणी केंद्रों के साथ संरेखित करें।
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
+
+    // इस संक्षिप्त उदाहरण के लिए कम ग्रिडलाइन का उपयोग करें।
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // प्लॉट के ऊपर दो पंक्तियों के डेटा लेबल के लिए स्थान आरक्षित करें।
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
+    chart.getPlotArea().setX(0.15f);
+    chart.getPlotArea().setY(0.32f);
+    chart.getPlotArea().setWidth(0.80f);
+    chart.getPlotArea().setHeight(0.48f);
+    chart.validateChartLayout();
+
+    for (int seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // डिफ़ॉल्ट क्षैतिज स्थिति रखें। Y एक ऑफ़सेट है
+            // डिफ़ॉल्ट लेबल स्थिति से, जिसे चार्ट-ऊँचाई के अंश के रूप में व्यक्त किया गया है।
+            dataLabel.setX(0);
+            dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
+        }
+
+        // केवल पंक्ति शीर्षक एक अलग टेक्स्ट शैप है।
+        IAutoShape rowHeading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        IPortionFormat headingFormat = rowHeading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(FillType.Solid);
+        headingFormat.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
+## **FAQ**
+
+**मैं घने चार्ट्स पर डेटा लेबल के ओवरलैप को कैसे रोक सकता हूँ?**  
+ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइन्स, और छोटे फ़ॉन्ट आकार को मिलाकर; यदि आवश्यक हो तो कुछ फ़ील्ड (जैसे श्रेणी) को छुपाएँ या केवल चरम मान या महत्वपूर्ण बिंदुओं के लिए लेबल दिखाएँ।
+
+**मैं केवल शून्य, नकारात्मक या खाली मानों के लिए लेबल कैसे अक्षम करूँ?**  
+लेबल सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और 0, नकारात्मक मानों या अनुपलब्ध मानों के लिए परिभाषित नियम के अनुसार प्रदर्शित होना बंद करें।
+
+**PDF/छवियों में निर्यात करते समय लेबल शैली में निरंतरता कैसे सुनिश्चित करूँ?**  
+फ़ॉन्ट फ़ैमिली और आकार को स्पष्ट रूप से सेट करें और रेंडरिंग वातावरण में फ़ॉन्ट उपलब्ध है या नहीं, यह सुनिश्चित करें ताकि फ़ॉलबैक न हो।

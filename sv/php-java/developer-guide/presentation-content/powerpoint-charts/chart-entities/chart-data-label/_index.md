@@ -1,28 +1,28 @@
 ---
-title: Hantera diagramdatatetiketter i presentationer med PHP
-linktitle: Datatetikett
+title: Hantera diagramdataetiketter i presentationer med PHP
+linktitle: Dataetikett
 type: docs
 url: /sv/php-java/chart-data-label/
 keywords:
 - diagram
-- datatetikett
+- dataetikett
 - dataprecision
 - procent
-- etikettavstånd
-- etikettplacering
+- etiketavstånd
+- etikettposition
 - PowerPoint
 - presentation
 - PHP
 - Aspose.Slides
-description: "Lär dig att lägga till och formatera diagramdatatetiketter i PowerPoint-presentationer med Aspose.Slides för PHP via Java för mer engagerande bilder."
+description: "Lär dig att lägga till och formatera diagramdataetiketter i PowerPoint-presentationer med Aspose.Slides för PHP via Java för mer engagerande bilder."
 ---
 ## **Introduktion**
 
-Dataetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsarna att identifiera värden och förstå diagrammet. Den här artikeln förklarar hur man formaterar värden, visar procenttal, läser etiketttext, styr etiketter utanför axelns maximum, justerar mellanrum för kategoriaxelns etiketter och placerar sektordiagrametiketter.
+Dataetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsare att identifiera värden och förstå diagrammet. Denna artikel förklarar hur man formaterar värden, visar procenttal, läser etiketttext, styr etiketter bortom axelns maximum, justerar avståndet mellan kategoriaxelns etiketter och placerar sektordiagrametiketter.
 
-## **Ställ in dataprecision i diagramdatatetiketter**
+## **Ställ in dataprecision i diagramdataetiketter**
 
-Använd [setNumberFormatOfValues](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) för att formatera serievärden. Det här exemplet skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdetiketter för den första serien. Formatet `#,##0.00` visar ett tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
+Använd [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdeetiketter för den första serien. Formatet `#,##0.00` visar en tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
 
 ```php
 use aspose\slides\Presentation;
@@ -48,7 +48,7 @@ try {
 
 ## **Visa procent som etiketter**
 
-För ett staplat stapeldiagram beräknas varje värde som en procentandel av kategori‑totalsumman och texten tilldelas textramen som returneras av [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Det här exemplet använder standarddiagramdata och visar procenttal med två decimaler i ett 8‑punkts teckensnitt. Kategorier med en total på noll hoppas över för att undvika division med noll. Beräkna om den anpassade etiketttexten om diagramdata ändras.
+För ett staplat stapeldiagram beräknas varje värde som en procentandel av dess kategori‑total och texten tilldelas textramen som returneras av [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Detta exempel använder standarddiagramdata och visar procent med två decimaler i en 8‑punkts teckensnitt. Kategorier med totalen noll hoppas över för att undvika division med noll. Beräkna om den anpassade etiketttexten om diagramdata ändras.
 
 ```php
 use aspose\slides\Presentation;
@@ -108,11 +108,11 @@ try {
 }
 ```
 
-## **Ställ in procenttecken med diagramdatatetiketter**
+## **Ange procentsymbol med diagramdataetiketter**
 
-När värden lagras som bråk använder du [setNumberFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabelformat/#setNumberFormat) för att visa procenttal. Skicka `false` till [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) för att tillämpa etikettformatet oberoende av källcellerna.
+När värden lagras som bråk, använd [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormat) för att visa procenttal. Skicka `false` till [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) för att tillämpa etikettformatet oberoende av källcellerna.
 
-Det här exemplet skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje par värden summeras till 1. Etikettformatet `0.0%` visar 0,30 som 30,0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit, 10‑punkts etiketttext.
+Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje värdepar summerar till 1. Etikettformatet `0.0%` visar 0,30 som 30,0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit etiketttext i 10‑punkts storlek.
 
 ```php
 use aspose\slides\Presentation;
@@ -170,9 +170,9 @@ try {
 }
 ```
 
-## **Läs den faktiska texten för datatetiketter**
+## **Läs den faktiska texten för dataetiketter**
 
-Använd [getActualLabelText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabel/#getActualLabelText) för att hämta texten som genereras av en datatetiketts inställningar. Detta är användbart när du extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard‑[datatetikettformat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som procenttal, och en annan använder anpassad text från [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Använd [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) för att hämta den text som produceras av en dataetiketts inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard‑[data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som procent, och en annan använder anpassad text från [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +236,15 @@ try {
 }
 ```
 
-Numret som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75%` tillsammans med kategori‑ och serienamnen. Anpassad text ersätter den genererade etiketttexten. [getActualLabelText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabel/#getActualLabelText) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [isVisible](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabel/#isVisible) separat, som visas ovan, när du bara vill extrahera synliga etiketter.
+Talet som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75 %` tillsammans med kategori‑ och serienamn. Anpassad text ersätter den genererade etiketttexten. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#isVisible) separat, som visas ovan, när du endast vill extrahera synliga etiketter.
 
-## **Styr datatetiketter utanför axelns maximum**
+## **Styr dataetiketter bortom axelns maximum**
 
-När du begränsar ett axelintervall manuellt kan vissa datapunkter överskrida dess maximum. Använd [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) för att styra om deras datatetiketter visas. Denna inställning ändrar etikettens synlighet; den ändrar inte axelintervallet eller de underliggande datavärdena.
+När du begränsar ett axelintervall manuellt kan vissa datapunkter överstiga dess maximum. Använd [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) för att styra om deras dataetiketter visas. Denna inställning ändrar etikettens synlighet; den ändrar inte axelintervallet eller de underliggande datavärdena.
 
-Exemplet nedan skapar ett 2D-klustrat stapeldiagram med värdena 60 och 120. Det skickar `false` till [setAutomaticMaxValue](https://reference.aspose.com/slides/sv/php-java/aspose.slides/axis/#setAutomaticMaxValue) och sätter maximum till 100 med [setMaxValue](https://reference.aspose.com/slides/sv/php-java/aspose.slides/axis/#setMaxValue) på den vertikala axeln. Den första bilden tillåter etiketter utanför maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
+Exemplet nedan skapar ett 2D grupperat stapeldiagram med värdena 60 och 120. Det skickar `false` till [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setAutomaticMaxValue) och sätter maximum till 100 med [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setMaxValue) på den vertikala axeln. Den första bilden tillåter etiketter bortom maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
 
-Aktivera värdetiketter med [setShowValue](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabelformat/#setShowValue). Diagramnivå‑inställningen aktiverar inte värdevisning i sig själv eller åsidosätter en enskild etikett som har inaktiverad värdevisning. Detta exempel aktiverar värden för hela serien och använder [setPosition](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabelformat/#setPosition) för att placera etiketter vid den yttre kanten av varje stapel.
+Aktivera värdeetiketter med [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). Diagramnivåinställningen aktiverar inte värdevisning i sig själv eller åsidosätter en enskild etikett som har inaktiverad värdevisning. Detta exempel aktiverar värden för hela serien och använder [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setPosition) för att placera etiketter vid den yttre änden av varje stapel.
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +296,19 @@ try {
 }
 ```
 
-Följande bilder visar de sparade bilderna som renderats av Microsoft PowerPoint. Med `true` är etiketten **120** synlig vid den övre gränsen; med `false` är den dold. Etiketten **60** förblir synlig, axelns maximum förblir **100**, och den andra datapunkten förblir **120** i båda fallen.
+Följande bilder visar de sparade bilderna som renderats av Microsoft PowerPoint. Med `true` är etiketten **120** synlig vid den övre gränsen; med `false` är den dold. Etiketten **60** förblir synlig, axelmaximumet förblir **100**, och den andra datapunkten förblir **120** i båda fallen.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint-diagram som visar värdetiketten 120 med ett axelmaximum på 100](data-labels-over-maximum-true.png) | ![PowerPoint-diagram som döljer värdetiketten 120 med ett axelmaximum på 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint-diagram som visar värdeetiketten 120 med ett axelmaximum på 100](data-labels-over-maximum-true.png) | ![PowerPoint-diagram som döljer värdeetiketten 120 med ett axelmaximum på 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Det här exemplet använder ett 2D-stapeldiagram med en värdeaxel. Diagram utan värdeaxel, såsom cirkel‑ och donutsdiagram, har inget axelmaximum att begränsa på detta sätt.
+Det här exemplet använder ett 2D stapeldiagram med en värdeaxel. Diagram utan värdeaxel, såsom sektordiagram och munkdiagram, har ingen axelmaximum att begränsa på detta sätt.
 {{% /alert %}}
 
-## **Ställ in etiketternas avstånd från en axel**
+## **Ange etikettavstånd från en axel**
 
-Använd [setLabelOffset](https://reference.aspose.com/slides/sv/php-java/aspose.slides/axis/#setLabelOffset) för att kontrollera avståndet mellan kategoriaxelns etiketter och axeln. Värdet är en procentsats av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett klustrat stapeldiagram och sätter den horisontella axelns etikettoffset till 500. Denna inställning påverkar kategoriaxelns etiketter snarare än etiketter som är fästa vid enskilda datapunkter.
+Använd [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setLabelOffset) för att styra avståndet mellan kategoriaxelns etiketter och axeln. Värdet är en procentsats av den maximala teckensnittsstorleken för axel­etiketterna. Detta exempel skapar ett grupperat stapeldiagram och sätter horisontell axel‑etikettförskjutning till 500. Denna inställning påverkar kategoriaxelns etiketter snarare än etiketter som är fästa vid enskilda datapunkter.
 
 ```php
 use aspose\slides\Presentation;
@@ -330,9 +330,9 @@ try {
 
 ## **Justera etikettposition**
 
-I ett cirkeldiagram justeras datapunktsetikettens positioner för att förbättra avståndet och skapa plats för förbindelselänkar.
+I ett sektordiagram justeras dataetiketternas positioner för att förbättra avståndet och ge plats för hjälplinjer.
 
-Det här exemplet visar värdet för den första datapunkten, placerar dess etikett utanför sektorn och justerar dess horisontella och vertikala offset med [setX](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabel/#setX) och [setY](https://reference.aspose.com/slides/sv/php-java/aspose.slides/datalabel/#setY). Dessa offset är relativa till diagrammets bredd respektive höjd.
+Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför skivan och justerar dess horisontella och vertikala förskjutningar med [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) och [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY). Dessa förskjutningar är relativa till diagrammets bredd respektive höjd.
 
 ```php
 use aspose\slides\Presentation;
@@ -359,18 +359,138 @@ try {
 }
 ```
 
-![Cirkeldiagram med en justerad datapunktsetikettposition](pie-chart-adjusted-label.png)
+![Sektordiagram med justerad dataetikettposition](pie-chart-adjusted-label.png)
+
+## **Lägg till flera rader av dataetiketter ovanför ett stapeldiagram**
+
+Detta exempel skapar ett stapeldiagram med två rader av dataetiketter ovanför plotområdet. Serie A visar de synliga staplarna, medan Serie B och Serie C tillhandahåller de extra etiketterna. Deras staplar döljs genom att ta bort fyllning och kontur. Metoden [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) justerar alla tre serier med samma kategoricentrum.
+
+Inställningarna för [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) reserverar utrymme för etikettraderna. Efter att [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#validateChartLayout) beräknat standardpositionerna, bevarar [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) och [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY) horisontell justering och applicerar vertikala förskjutningar för att ordna etiketterna i två rader. Siffrorna förblir dataetiketter som är länkade till serievärdena; endast radrubrikerna är separata textformer.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\LayoutTargetType;
+use aspose\slides\ShapeType;
+use aspose\slides\SaveFormat;
+
+$colors = java("java.awt.Color");
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 40, 40, 640, 200);
+    $chart->setTitle(false);
+    $chart->setLegend(false);
+    $chart->getTextFormat()->getPortionFormat()->setFontHeight(12);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $categories = [ "North", "South", "East", "West" ];
+    $seriesNames = [ "Series A", "Series B", "Series C" ];
+    $seriesValues = [
+        [ 35, 42, 28, 47 ],
+        [ 22, 31, 19, 26 ],
+        [ 12, 16, 14, 18 ]
+    ];
+    
+    for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
+        $categoryCell = $workbook->getCell(0, $categoryIndex + 1, 0, $categories[$categoryIndex]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+    }
+
+    for ($seriesIndex = 0; $seriesIndex < count($seriesNames); $seriesIndex++) {
+        $seriesCell = $workbook->getCell(0, 0, $seriesIndex + 1, $seriesNames[$seriesIndex]);
+        $series = $chart->getChartData()->getSeries()->add($seriesCell, ChartType::ClusteredColumn);
+
+        for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
+            $valueCell = $workbook->getCell(0, $categoryIndex + 1, $seriesIndex + 1, $seriesValues[$seriesIndex][$categoryIndex]);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+        }
+
+        if ($seriesIndex > 0) {
+            // Dölj kolumnerna för B och C, men behåll deras dataetiketter.
+            $series->getFormat()->getFill()->setFillType(FillType::NoFill);
+            $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+            $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+            $labelFormat->setShowValue(true);
+            $labelFormat->getTextFormat()->getPortionFormat()->setFontHeight(12);
+            $labelFill = $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat();
+            $labelFill->setFillType(FillType::Solid);
+            $labelFill->getSolidFillColor()->setColor($colors->BLACK);
+            $labelFormat->setPosition(LegendDataLabelPosition::InsideBase);
+        }
+    }
+
+    // Justera alla tre serier så att de har samma kategori­centrum.
+    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
+
+    // Använd färre rutnät för detta kompakta exempel.
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
+
+    // Reservera utrymme ovanför diagramområdet för två rader med dataetiketter.
+    $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
+    $chart->getPlotArea()->setX(0.15);
+    $chart->getPlotArea()->setY(0.32);
+    $chart->getPlotArea()->setWidth(0.80);
+    $chart->getPlotArea()->setHeight(0.48);
+    $chart->validateChartLayout();
+
+    $chartX = java_values($chart->getX());
+    $chartY = java_values($chart->getY());
+    $chartHeight = java_values($chart->getHeight());
+    for ($seriesIndex = 1; $seriesIndex < count($seriesNames); $seriesIndex++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($seriesIndex);
+        $rowTop = $seriesIndex == 1 ? 0.15 : 0.03;
+
+        for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
+            $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
+            // Behåll standard horisontell position. Y är ett avstånd från
+            // standardetikettpositionen, uttryckt som en bråkdel av diagramhöjden.
+            $actualY = java_values($dataLabel->getActualY());
+            $dataLabel->setX(0);
+            $dataLabel->setY($rowTop - $actualY / $chartHeight);
+        }
+
+        // Endast radrubriken är en separat textform.
+        $rowHeading = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $chartX, $chartY + $rowTop * $chartHeight, 85, 18);
+        $rowHeading->getFillFormat()->setFillType(FillType::NoFill);
+        $rowHeading->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+        $rowHeading->addTextFrame($seriesNames[$seriesIndex]);
+        $rowHeading->getTextFrame()->getTextFrameFormat()->setMarginTop(0);
+        $rowHeading->getTextFrame()->getTextFrameFormat()->setMarginBottom(0);
+        $headingFormat = $rowHeading->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
+        $headingFormat->setFontHeight(12);
+        $headingFormat->getFillFormat()->setFillType(FillType::Solid);
+        $headingFormat->getFillFormat()->getSolidFillColor()->setColor($colors->BLACK);
+    }
+
+    $presentation->save("multiple-rows-of-labels.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+![Stapeldiagram med två rader av dataetiketter ovanför plotområdet](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Hur kan jag förhindra att datatetiketter överlappar i täta diagram?**
+**Hur kan jag förhindra att dataetiketter överlappar i täta diagram?**
 
-Kombinera automatisk etikettplacering, förbindelselänkar och minskad teckenstorlek; vid behov dölja vissa fält (t.ex. kategori) eller visa etiketter endast för extrema värden eller nyckelpunkter.
+Kombinera automatisk etikettplacering, hjälplinjer och minskad teckenstorlek; vid behov, dölj vissa fält (t.ex. kategorin) eller visa etiketter endast för extrema värden eller nyckelpunkter.
 
-**Hur kan jag inaktivera etiketter endast för noll, negativa eller tomma värden?**
+**Hur kan jag inaktivera etiketter endast för noll-, negativa eller tomma värden?**
 
-Filtrera datapunkter innan etiketter aktiveras och stäng av visning för värden som är 0, negativa eller saknade enligt en definierad regel.
+Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden på 0, negativa värden eller saknade värden enligt en definierad regel.
 
 **Hur kan jag säkerställa en konsekvent etikettstil vid export till PDF/bilder?**
 
-Ange explicit teckensnittsfamilj och storlek och verifiera att teckensnittet finns i renderingsmiljön för att undvika fallback.
+Ange uttryckligen teckensnittsfamilj och storlek samt verifiera att teckensnittet finns tillgängligt i renderingsmiljön för att undvika reservteckensnitt.

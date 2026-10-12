@@ -1,29 +1,29 @@
 ---
-title: Quản lý nhãn dữ liệu biểu đồ trong bản trình chiếu bằng .NET
-linktitle: Nhãn dữ liệu
+title: Quản lý Nhãn Dữ Liệu Biểu Đồ trong Bài Trình Chiếu .NET
+linktitle: Nhãn Dữ Liệu
 type: docs
 url: /vi/net/chart-data-label/
 keywords:
-  - biểu đồ
-  - nhãn dữ liệu
-  - độ chính xác dữ liệu
-  - phần trăm
-  - khoảng cách nhãn
-  - vị trí nhãn
-  - PowerPoint
-  - bản trình chiếu
-  - .NET
-  - C#
-  - Aspose.Slides
-description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong bản trình chiếu PowerPoint bằng Aspose.Slides cho .NET để có các slide hấp dẫn hơn."
+- biểu đồ
+- nhãn dữ liệu
+- độ chính xác dữ liệu
+- phần trăm
+- khoảng cách nhãn
+- vị trí nhãn
+- PowerPoint
+- bài trình chiếu
+- .NET
+- C#
+- Aspose.Slides
+description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong các bản trình chiếu PowerPoint bằng Aspose.Slides cho .NET để tạo các slide hấp dẫn hơn."
 ---
 ## **Giới thiệu**
 
-Nhãn dữ liệu hiển thị thông tin về các chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc xác định giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, kiểm soát nhãn vượt quá giá trị trục tối đa, điều chỉnh khoảng cách nhãn trục danh mục, và định vị nhãn biểu đồ vòng tròn.
+Nhãn dữ liệu hiển thị thông tin về các chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc xác định giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, kiểm soát nhãn vượt quá giá trị tối đa của trục, điều chỉnh khoảng cách nhãn trục danh mục và vị trí nhãn biểu đồ tròn.
 
-## **Đặt độ chính xác dữ liệu trong Nhãn Dữ liệu Biểu đồ**
+## **Đặt Độ Chính Xác Dữ Liệu trong Nhãn Dữ Liệu Biểu Đồ**
 
-Sử dụng [NumberFormatOfValues](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/numberformatofvalues/) để định dạng giá trị của chuỗi. Ví dụ này tạo một biểu đồ đường với dữ liệu mặc định, hiển thị bảng dữ liệu và bật nhãn giá trị cho chuỗi đầu tiên. Định dạng `#,##0.00` hiển thị dấu phân cách hàng nghìn và hai chữ số thập phân mà không thay đổi giá trị gốc.
+Sử dụng [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) để định dạng giá trị của chuỗi. Ví dụ này tạo một biểu đồ đường với dữ liệu mặc định, hiển thị bảng dữ liệu của nó và bật nhãn giá trị cho chuỗi đầu tiên. Định dạng `#,##0.00` hiển thị dấu phân cách hàng nghìn và hai chữ số thập phân mà không thay đổi giá trị gốc.
 
 ```csharp
 using Aspose.Slides;
@@ -43,9 +43,9 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Hiển thị Phần trăm dưới dạng Nhãn**
+## **Hiển Thị Phần Trăm dưới Dạng Nhãn**
 
-Đối với biểu đồ cột chồng, tính mỗi giá trị dưới dạng phần trăm của tổng danh mục và gán văn bản cho [TextFrameForOverriding](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Ví dụ này sử dụng dữ liệu biểu đồ mặc định và hiển thị phần trăm với hai chữ số thập phân trong phông chữ 8 điểm. Các danh mục có tổng bằng không sẽ bị bỏ qua để tránh chia cho zero. Tính lại văn bản nhãn tùy chỉnh nếu dữ liệu biểu đồ thay đổi.
+Đối với biểu đồ cột chồng, tính mỗi giá trị dưới dạng phần trăm của tổng danh mục của nó và gán văn bản cho [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Ví dụ này sử dụng dữ liệu biểu đồ mặc định và hiển thị phần trăm với hai chữ số thập phân trong phông chữ 8 điểm. Các danh mục có tổng bằng không sẽ bị bỏ qua để tránh chia cho zero. Tính lại văn bản nhãn tùy chỉnh nếu dữ liệu biểu đồ thay đổi.
 
 ```csharp
 using System;
@@ -106,11 +106,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Đặt Ký hiệu Phần trăm trong Nhãn Dữ liệu Biểu đồ**
+## **Đặt Dấu Phần Trăm với Nhãn Dữ Liệu Biểu Đồ**
 
-Khi giá trị được lưu dưới dạng phân số, sử dụng [NumberFormat](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatalabelformat/numberformat/) để hiển thị phần trăm. Đặt [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) thành `false` để áp dụng định dạng nhãn một cách độc lập với các ô nguồn.
+Khi giá trị được lưu dưới dạng phân số, sử dụng [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) để hiển thị phần trăm. Đặt [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) thành `false` để áp dụng định dạng nhãn một cách độc lập với các ô nguồn.
 
-Ví dụ này tạo một biểu đồ cột chồng 100% với các chuỗi màu đỏ và xanh lam trên bốn danh mục. Mỗi cặp giá trị cộng lại bằng 1. Định dạng nhãn `0.0%` hiển thị 0.30 thành 30.0%, trong khi trục dọc sử dụng hai chữ số thập phân. Cả hai chuỗi đều sử dụng văn bản nhãn màu trắng, cỡ 10 điểm.
+Ví dụ này tạo một biểu đồ cột chồng 100% với các chuỗi màu đỏ và xanh dương trên bốn danh mục. Mỗi cặp giá trị cộng lại thành 1. Định dạng nhãn `0.0%` hiển thị 0.30 thành 30.0%, trong khi trục dọc sử dụng hai chữ số thập phân. Cả hai chuỗi đều sử dụng văn bản nhãn màu trắng, kích thước 10 điểm.
 
 ```csharp
 using System.Drawing;
@@ -166,9 +166,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Đọc Văn bản Thực tế của Nhãn Dữ liệu**
+## **Đọc Văn Bản Thực Tế của Nhãn Dữ Liệu**
 
-Sử dụng [GetActualLabelText](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatalabel/getactuallabeltext/) để lấy văn bản được tạo ra bởi cài đặt của nhãn dữ liệu. Điều này hữu ích khi trích xuất nhãn cho báo cáo, tìm kiếm nội dung bản trình chiếu, hoặc xác thực các biểu đồ đã tạo. Trong ví dụ dưới đây, định dạng [nhãn dữ liệu](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatalabelformat/) mặc định kết hợp mỗi tên danh mục, tên chuỗi và giá trị. Một điểm định dạng giá trị của nó dưới dạng phần trăm, và một điểm khác sử dụng văn bản tùy chỉnh từ [TextFrameForOverriding](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Sử dụng [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) để lấy văn bản được tạo ra bởi các thiết lập của nhãn dữ liệu. Điều này hữu ích khi trích xuất nhãn cho báo cáo, tìm kiếm nội dung bản trình bày hoặc xác thực các biểu đồ đã tạo. Trong ví dụ dưới đây, [định dạng nhãn dữ liệu](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) mặc định kết hợp mỗi tên danh mục, tên chuỗi và giá trị. Một điểm định dạng giá trị của nó dưới dạng phần trăm, và một điểm khác sử dụng văn bản tùy chỉnh từ [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -222,15 +222,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-Số được lưu trong một điểm dữ liệu vẫn là `0.75`, ngay cả khi nhãn của nó hiển thị `75%` cùng với tên danh mục và chuỗi. Văn bản tùy chỉnh thay thế nhãn được tạo ra. [GetActualLabelText](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatalabel/getactuallabeltext/) trả về chuỗi nhãn kết quả trong cả hai trường hợp. Kiểm tra [IsVisible](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatalabel/isvisible/) riêng biệt, như đã mô tả ở trên, khi bạn muốn chỉ trích xuất các nhãn hiển thị.
+Số lưu trong một điểm dữ liệu vẫn giữ là `0.75`, ngay cả khi nhãn của nó hiển thị `75%` cùng với tên danh mục và chuỗi. Văn bản tùy chỉnh thay thế văn bản nhãn được tạo ra. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) trả về chuỗi nhãn kết quả trong cả hai trường hợp. Kiểm tra [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) riêng biệt, như shown above, khi bạn muốn trích xuất chỉ các nhãn hiển thị.
 
-## **Kiểm soát Nhãn Dữ liệu vượt quá Giá trị Tối đa của Trục**
+## **Kiểm Soát Nhãn Dữ Liệu Vượt Quá Giá Trị Tối Đa Của Trục**
 
-Khi bạn giới hạn phạm vi trục một cách thủ công, một số điểm dữ liệu có thể vượt quá giá trị tối đa của nó. Sử dụng [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) để kiểm soát việc hiển thị nhãn dữ liệu của chúng. Cài đặt này thay đổi khả năng hiển thị nhãn; nó không thay đổi phạm vi trục hoặc giá trị dữ liệu gốc.
+Khi bạn giới hạn phạm vi trục một cách thủ công, một số điểm dữ liệu có thể vượt quá giá trị tối đa của nó. Sử dụng [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) để kiểm soát việc hiển thị nhãn dữ liệu của chúng. Cài đặt này thay đổi khả năng hiển thị nhãn; nó không thay đổi phạm vi trục hay các giá trị dữ liệu gốc.
 
-Ví dụ dưới tạo một biểu đồ cột nhóm 2D với các giá trị 60 và 120. Nó đặt [IsAutomaticMaxValue](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) thành `false` và [MaxValue](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/iaxis/maxvalue/) thành 100 trên trục dọc. Bản trình chiếu đầu tiên cho phép nhãn vượt quá tối đa; một bản sao của nó tắt tính năng này. Cả hai slide đều được lưu trong `DataLabelsOverMaximum.pptx`.
+Ví dụ dưới đây tạo một biểu đồ cột cụm 2D với các giá trị 60 và 120. Nó đặt [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) thành `false` và [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) thành 100 trên trục dọc. Slide đầu tiên cho phép nhãn vượt quá giá trị tối đa; một bản sao của slide đó tắt chúng. Cả hai slide được lưu trong `DataLabelsOverMaximum.pptx`.
 
-Bật nhãn giá trị bằng [ShowValue](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatalabelformat/showvalue/). Cài đặt ở mức biểu đồ không tự động bật hiển thị giá trị hoặc ghi đè lên cài đặt tắt của nhãn riêng lẻ. Ví dụ này bật giá trị cho toàn bộ chuỗi và sử dụng [Position](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatalabelformat/position/) để đặt nhãn ở cuối bên ngoài mỗi cột.
+Bật nhãn giá trị bằng [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Cài đặt ở mức biểu đồ không tự động bật hiển thị giá trị hoặc ghi đè việc tắt hiển thị giá trị của một nhãn riêng lẻ. Ví dụ này bật giá trị cho toàn bộ chuỗi và sử dụng [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) để đặt nhãn ở đầu ngoài của mỗi cột.
 
 ```csharp
 using Aspose.Slides;
@@ -277,19 +277,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-Các hình ảnh sau hiển thị các slide đã lưu được render bởi Microsoft PowerPoint. Khi `true`, nhãn **120** hiển thị ở rìa trên cùng; khi `false`, nó bị ẩn. Nhãn **60** vẫn hiển thị, trục tối đa vẫn là **100**, và điểm dữ liệu thứ hai vẫn là **120** trong cả hai trường hợp.
+Các hình ảnh dưới đây cho thấy các slide đã lưu được Microsoft PowerPoint render. Với `true`, nhãn **120** hiển thị ở rìa trên; với `false`, nó bị ẩn. Nhãn **60** vẫn hiển thị, giá trị tối đa của trục vẫn là **100**, và điểm dữ liệu thứ hai vẫn là **120** trong cả hai trường hợp.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Ví dụ này sử dụng biểu đồ cột 2D có trục giá trị. Các biểu đồ không có trục giá trị, như biểu đồ tròn và bánh donut, không có giá trị tối đa của trục để giới hạn theo cách này.
+Ví dụ này sử dụng biểu đồ cột 2D với trục giá trị. Các biểu đồ không có trục giá trị, như biểu đồ tròn và vòng donut, không có giá trị tối đa của trục để giới hạn theo cách này.
 {{% /alert %}}
 
-## **Đặt Khoảng cách Nhãn so với Trục**
+## **Đặt Khoảng Cách Nhãn Từ Trục**
 
-Sử dụng [LabelOffset](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/iaxis/labeloffset/) để kiểm soát khoảng cách giữa nhãn trục danh mục và trục. Giá trị là phần trăm của kích thước phông chữ tối đa của các nhãn trục. Ví dụ này tạo một biểu đồ cột nhóm và đặt độ lệch nhãn trục ngang thành 500. Cài đặt này ảnh hưởng đến nhãn trục danh mục hơn là nhãn gắn vào các điểm dữ liệu riêng lẻ.
+Sử dụng [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) để kiểm soát khoảng cách giữa các nhãn trục danh mục và trục. Giá trị là phần trăm của kích thước phông chữ tối đa của các nhãn trục. Ví dụ này tạo một biểu đồ cột cụm và đặt độ lệch nhãn trục ngang thành 500. Cài đặt này ảnh hưởng đến nhãn trục danh mục chứ không phải nhãn gắn vào các điểm dữ liệu riêng lẻ.
 
 ```csharp
 using Aspose.Slides;
@@ -305,11 +305,11 @@ chart.Axes.HorizontalAxis.LabelOffset = 500;
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Điều chỉnh Vị trí Nhãn**
+## **Điều Chỉnh Vị Trí Nhãn**
 
-Trong biểu đồ tròn, điều chỉnh vị trí nhãn dữ liệu để cải thiện khoảng cách và tạo chỗ cho các đường dẫn.
+Trong biểu đồ tròn, điều chỉnh vị trí nhãn dữ liệu để cải thiện khoảng cách và tạo chỗ cho các đường nối.
 
-Ví dụ này hiển thị giá trị của điểm dữ liệu đầu tiên, đặt nhãn của nó bên ngoài lát cắt, và điều chỉnh độ lệch [X](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ilayoutable/x/) và [Y](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ilayoutable/y/). Các độ lệch này tính tương đối so với chiều rộng và chiều cao của biểu đồ.
+Ví dụ này hiển thị giá trị của điểm dữ liệu đầu tiên, đặt nhãn của nó bên ngoài phần của biểu đồ, và điều chỉnh độ lệch [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) và [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). Các độ lệch này tương đối với chiều rộng và chiều cao của biểu đồ, tương ứng.
 
 ```csharp
 using Aspose.Slides;
@@ -331,18 +331,127 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Biểu đồ tròn với vị trí nhãn dữ liệu đã điều chỉnh](pie-chart-adjusted-label.png)
 
-## **Câu hỏi thường gặp**
+## **Thêm Nhiều Hàng Nhãn Dữ Liệu Phía Trên Biểu Đồ Cột**
 
-**Làm sao tôi có thể ngăn nhãn dữ liệu chồng lên nhau trong các biểu đồ dày đặc?**
+Ví dụ này tạo một biểu đồ cột với hai hàng nhãn dữ liệu phía trên khu vực vẽ. Chuỗi A hiển thị các cột có thể nhìn thấy, trong khi Chuỗi B và Chuỗi C cung cấp các nhãn bổ sung. Các cột của chúng bị ẩn bằng cách loại bỏ màu nền và viền. Thuộc tính [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) căn chỉnh cả ba chuỗi tại cùng trung tâm danh mục.
 
-Kết hợp đặt nhãn tự động, đường dẫn và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực đoan hoặc các điểm quan trọng.
+Cài đặt [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) dành chỗ cho các hàng nhãn. Sau khi [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) tính toán vị trí mặc định, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) và [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) giữ cân bằng ngang và áp dụng độ lệch dọc để sắp xếp các nhãn thành hai hàng. Các số vẫn là nhãn dữ liệu liên kết với giá trị của chuỗi; chỉ tiêu đề hàng là các hình dạng văn bản riêng.
 
-**Làm sao tôi có thể tắt nhãn chỉ cho các giá trị zero, âm hoặc trống?**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị bằng 0, giá trị âm, hoặc giá trị thiếu theo quy tắc đã định.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-**Làm sao tôi có thể đảm bảo phong cách nhãn nhất quán khi xuất ra PDF/hình ảnh?**
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+chart.HasTitle = false;
+chart.HasLegend = false;
+chart.TextFormat.PortionFormat.FontHeight = 12;
 
-Đặt rõ ràng họ phông chữ và kích thước, đồng thời xác minh phông chữ có sẵn trong môi trường render để tránh fallback.
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+string[] categories = { "North", "South", "East", "West" };
+string[] seriesNames = { "Series A", "Series B", "Series C" };
+double[,] seriesValues = {
+    { 35, 42, 28, 47 },
+    { 22, 31, 19, 26 },
+    { 12, 16, 14, 18 }
+};
+
+for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+{
+    var categoryCell = workbook.GetCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+    chart.ChartData.Categories.Add(categoryCell);
+}
+
+for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
+{
+    var seriesCell = workbook.GetCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+    var series = chart.ChartData.Series.Add(seriesCell, ChartType.ClusteredColumn);
+
+    for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+    {
+        var valueCell = workbook.GetCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex, categoryIndex]);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
+
+    if (seriesIndex > 0)
+    {
+        // Ẩn các cột của B và C, nhưng giữ lại nhãn dữ liệu của chúng.
+        series.Format.Fill.FillType = FillType.NoFill;
+        series.Format.Line.FillFormat.FillType = FillType.NoFill;
+        var labelFormat = series.Labels.DefaultDataLabelFormat;
+        labelFormat.ShowValue = true;
+        labelFormat.TextFormat.PortionFormat.FontHeight = 12;
+        var labelFill = labelFormat.TextFormat.PortionFormat.FillFormat;
+        labelFill.FillType = FillType.Solid;
+        labelFill.SolidFillColor.Color = Color.Black;
+        labelFormat.Position = LegendDataLabelPosition.InsideBase;
+    }
+}
+
+// Align all three series with the same category centers.
+chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
+
+// Use fewer gridlines for this compact example.
+chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
+chart.Axes.VerticalAxis.MajorUnit = 10;
+
+// Reserve space above the plot for two rows of data labels.
+chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
+chart.PlotArea.X = 0.15f;
+chart.PlotArea.Y = 0.32f;
+chart.PlotArea.Width = 0.80f;
+chart.PlotArea.Height = 0.48f;
+chart.ValidateChartLayout();
+
+for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
+{
+    var series = chart.ChartData.Series[seriesIndex];
+    float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+    for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+    {
+        var dataLabel = series.DataPoints[categoryIndex].Label;
+        // Giữ vị trí ngang mặc định. Y là một độ dịch từ
+        // vị trí nhãn mặc định, được biểu diễn dưới dạng tỷ lệ chiều cao biểu đồ.
+        dataLabel.X = 0;
+        dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
+    }
+
+    // Chỉ tiêu đề hàng là một hình dạng văn bản riêng biệt.
+    var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
+    rowHeading.FillFormat.FillType = FillType.NoFill;
+    rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
+    rowHeading.AddTextFrame(seriesNames[seriesIndex]);
+    rowHeading.TextFrame.TextFrameFormat.MarginTop = 0;
+    rowHeading.TextFrame.TextFrameFormat.MarginBottom = 0;
+    var headingFormat = rowHeading.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+    headingFormat.FontHeight = 12;
+    headingFormat.FillFormat.FillType = FillType.Solid;
+    headingFormat.FillFormat.SolidFillColor.Color = Color.Black;
+}
+
+presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+```
+
+![Biểu đồ cột với hai hàng nhãn dữ liệu phía trên khu vực vẽ](multiple-rows-of-labels.png)
+
+## **Câu Hỏi Thường Gặp**
+
+**Làm thế nào để ngăn nhãn dữ liệu chồng lên nhau trên các biểu đồ dày đặc?**  
+Kết hợp việc đặt nhãn tự động, đường nối và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực đoan hoặc các điểm then chốt.
+
+**Làm thế nào để tắt nhãn chỉ cho các giá trị zero, âm hoặc rỗng?**  
+Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị bằng 0, giá trị âm hoặc giá trị thiếu theo quy tắc đã định.
+
+**Làm thế nào để đảm bảo kiểu nhãn nhất quán khi xuất ra PDF/hình ảnh?**  
+Cài đặt rõ ràng họ phông chữ và kích thước, và xác minh phông chữ có sẵn trong môi trường render để tránh việc thay thế.

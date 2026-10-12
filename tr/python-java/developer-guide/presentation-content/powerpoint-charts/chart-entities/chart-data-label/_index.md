@@ -15,15 +15,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java kullanarak PowerPoint sunumlarına grafik veri etiketleri eklemeyi ve biçimlendirmeyi öğrenin, daha etkileyici slaytlar oluşturun."
+description: "Aspose.Slides for Python via Java kullanarak PowerPoint sunumlarına daha etkileyici slaytlar eklemek için grafik veri etiketlerini eklemeyi ve biçimlendirmeyi öğrenin."
 ---
 ## **Giriş**
 
-Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımasına ve grafiği anlamasına yardımcı olur. Bu makale, değerleri biçimlendirme, yüzde gösterme, etiket metnini okuma, eksen maksimumunun ötesindeki etiketleri kontrol etme, kategori ekseni etiket aralığını ayarlama ve pasta grafiği etiketlerini konumlandırma konularını açıklar.
+Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi göstererek okuyucuların değerleri tanımlamasına ve grafiği anlamasına yardımcı olur. Bu makale, değerleri biçimlendirme, yüzde gösterimi, etiket metnini okuma, eksen maksimumunun ötesindeki etiketleri kontrol etme, kategori ekseni etiketi aralığını ayarlama ve pasta grafik etiketlerini konumlandırma konularını açıklar.
 
 ## **Grafik Veri Etiketlerinde Veri Hassasiyetini Ayarlama**
 
-Seri değerlerini biçimlendirmek için [setNumberFormatOfValues](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) kullanın. Bu örnek, varsayılan verilerle bir çizgi grafik oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcıyı ve iki ondalık basamağı gösterir, temel değerleri değiştirmez.
+Seri değerlerini biçimlendirmek için [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) kullanın. Bu örnek, varsayılan veriyle bir çizgi grafik oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir; temel değerleri değiştirmez.
 
 ```python
 import jpype
@@ -50,12 +50,12 @@ finally:
     presentation.dispose()
 ```
 
-## **Yüzdeleri Etiket Olarak Görüntüleme**
+## **Yüzdeyi Etiket Olarak Görüntüleme**
 
-Yığılmış sütun grafik için her değeri kategori toplamının yüzdesi olarak hesaplayın ve metin çerçevesine atayın; metin çerçevesi, [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) tarafından döndürülür. Bu örnek, varsayılan grafik verilerini kullanır ve yüzde değerlerini iki ondalık basamakla, 8 punto fontla gösterir. Toplamı sıfır olan kategoriler, bölme hatasından kaçınmak için atlanır. Grafik verileri değişirse özel etiket metnini yeniden hesaplayın.
+Yığılmış bir sütun grafik için, her değeri kategori toplamının yüzde olarak hesaplayın ve metni [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) tarafından döndürülen metin çerçevesine atayın. Bu örnek varsayılan grafik verilerini kullanır ve yüzdeyi 8 puanlık bir yazı tipinde iki ondalık basamakla gösterir. Toplamı sıfır olan kategoriler, sıfıra bölmeyi önlemek için atlanır. Grafik verileri değiştiğinde özel etiket metnini yeniden hesaplayın.
 
 ```python
-import jpype
+import jpide
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -108,11 +108,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Grafik Veri Etiketleriyle Yüzde İşaretini Ayarlama**
+## **Grafik Veri Etiketlerinde Yüzde Simgesini Ayarlama**
 
-Değerler kesir olarak saklandığında, yüzde göstermek için [setNumberFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabelformat/#setNumberFormat) kullanın. Kaynak hücrelerden bağımsız olarak etiket biçimini uygulamak için [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) metoduna `False` geçirin.
+Değerler kesir olarak saklandığında, yüzde göstermek için [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) kullanın. Etiket biçimini kaynak hücrelerden bağımsız olarak uygulamak için [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) metoduna `False` geçirin.
 
-Bu örnek, dört kategori boyunca kırmızı ve mavi seriler içeren %100 yığılmış bir sütun grafik oluşturur. Her değer çifti 1’e kadar toplar. `0.0%` etiket biçimi, 0.30 değerini 30.0% olarak gösterirken, dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 punto etiket metni kullanır.
+Bu örnek, dört kategori boyunca kırmızı ve mavi seriler içeren %100 yığılmış bir sütun grafik oluşturur. Her değer çifti 1’e toplar. `0.0%` etiket biçimi 0.30’u %30.0 olarak gösterirken, dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 puanlık etiket metni kullanır.
 
 ```python
 import jpype
@@ -173,7 +173,7 @@ finally:
 
 ## **Veri Etiketlerinin Gerçek Metnini Okuma**
 
-[getActualLabelText](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabel/#getActualLabelText) kullanarak bir veri etiketinin ayarları tarafından üretilen metni alın. Bu, raporlar için etiketleri çıkarırken, sunum içeriğini ararken veya oluşturulan grafikleri doğrularken faydalıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimler, bir diğeri ise [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) aracılığıyla özel metin kullanır.
+[getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) metodunu kullanarak bir veri etiketinin ayarlarından üretilen metni alın. Bu, raporlar için etiket çıkarırken, sunum içeriği ararken veya oluşturulan grafikleri doğrularken faydalıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimler, diğeri ise [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) metodundan alınan özel metni kullanır.
 
 ```python
 import jpype
@@ -234,15 +234,15 @@ finally:
     presentation.dispose()
 ```
 
-Veri noktasında saklanan sayı `0.75` olarak kalır, etiketinde ise kategori ve seri adlarıyla birlikte `75%` gösterilir. Özel metin, oluşturulan etiket metninin yerini alır. [getActualLabelText](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabel/#getActualLabelText) her iki durumda da sonuç etiket dizesini döndürür. Sadece görünür etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi, [isVisible](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabel/#isVisible) ayrı ayrı kontrol edin.
+Bir veri noktasında saklanan sayı `0.75` olarak kalır, etiketinde ise kategori ve seri adlarıyla birlikte `75%` gösterilir. Özel metin, oluşturulan etiket metninin yerine geçer. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) her iki durumda da sonuç etiket dizesini döndürür. Yalnızca görünür etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) metodunu ayrı ayrı kontrol edin.
 
 ## **Eksen Maksimumunun Ötesindeki Veri Etiketlerini Kontrol Etme**
 
-Eksen aralığını manuel olarak sınırladığınızda, bazı veri noktaları maksimumu aşabilir. Bu noktaların veri etiketlerinin gösterilip gösterilmeyeceğini kontrol etmek için [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) kullanın. Bu ayar etiket görünürlüğünü değiştirir; eksen aralığını veya temel veri değerlerini değiştirmez.
+Eksen aralığını manuel olarak sınırladığınızda, bazı veri noktaları maksimumu aşabilir. Bu noktaların veri etiketlerinin gösterilip gösterilmeyeceğini kontrol etmek için [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) metodunu kullanın. Bu ayar etiket görünürlüğünü değiştirir; eksen aralığını veya temel veri değerlerini değiştirmez.
 
-Aşağıdaki örnek, 60 ve 120 değerli bir 2D kümelenmiş sütun grafik oluşturur. Dikey eksende [setAutomaticMaxValue](https://reference.aspose.com/slides/tr/python-java/aspose.slides/axis/#setAutomaticMaxValue) metoduna `False` geçer ve maksimumu [setMaxValue](https://reference.aspose.com/slides/tr/python-java/aspose.slides/axis/#setMaxValue) ile 100 olarak ayarlar. İlk slayt, maksimumun ötesinde etiketlere izin verir; bu slaydın bir kopyası ise bunları devre dışı bırakır. Her iki slayt da `DataLabelsOverMaximum.pptx` içinde kaydedilir.
+Aşağıdaki örnek, 60 ve 120 değerlerine sahip 2D bir kümelenmiş sütun grafik oluşturur. Dikey eksende `False` olarak [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) metoduna geçilir ve maksimum 100 olarak [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) ile ayarlanır. İlk slayt, maksimumun ötesindeki etiketlere izin verir; bu slaydın bir kopyası ise bunları devre dışı bırakır. Her iki slayt da `DataLabelsOverMaximum.pptx` içinde kaydedilir.
 
-Değer etiketlerini [setShowValue](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabelformat/#setShowValue) ile etkinleştirin. Grafik düzeyindeki bu ayar, tek başına değer gösterimini etkinleştirmez veya bireysel bir etiketin devre dışı bırakılmış değer gösterimini geçersiz kılmaz. Bu örnek, tüm seri için değerleri etkinleştirir ve [setPosition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabelformat/#setPosition) kullanarak etiketleri her sütunun dış ucuna yerleştirir.
+[setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) ile değer etiketlerini etkinleştirin. Grafik düzeyindeki bu ayar tek başına değer gösterimini etkinleştirmez ve bireysel bir etiketin devre dışı bırakılmış değer gösterimini geçersiz kılmaz. Bu örnek, tüm seri için değerleri etkinleştirir ve [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) ile etiketleri her sütunun dış ucuna yerleştirir.
 
 ```python
 import jpype
@@ -296,21 +296,19 @@ finally:
     presentation.dispose()
 ```
 
-Aşağıdaki görseller, Microsoft PowerPoint tarafından oluşturulan kaydedilmiş slaytları gösterir. `True` ile etiket **120** üst sınırda görünür; `False` ile gizlenir. Etiket **60** görünür kalır, eksen maksimumu **100** olarak kalır ve ikinci veri noktası her iki durumda da **120** olur.
+Aşağıdaki görseller, Microsoft PowerPoint tarafından oluşturulan kaydedilmiş slaytları gösterir. `True` olduğunda **120** etiketi üst sınırda görünür; `False` olduğunda gizlenir. **60** etiketi görünür kalır, eksen maksimumu **100** olarak kalır ve ikinci veri noktası her iki durumda da **120** olarak kalır.
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Grafik Türü" %}}
-
-Bu örnek, değer ekseni bulunan bir 2D sütun grafik kullanır. Pasta ve donut grafikleri gibi değer ekseni olmayan grafiklerde bu şekilde bir eksen maksimumu sınırlaması yoktur.
-
+{{% alert color="info" title="Chart Type" %}}
+Bu örnek, bir değer ekseni içeren 2D sütun grafik kullanır. Değer ekseni olmayan grafikler (örneğin pasta ve halka grafikler) bu şekilde sınırlanacak bir eksen maksimumuna sahip değildir.
 {{% /alert %}}
 
-## **Bir Eksenden Etiket Mesafesini Ayarlama**
+## **Etiketi Bir Eksenden Uzaklık Olarak Ayarlama**
 
-[setLabelOffset](https://reference.aspose.com/slides/tr/python-java/aspose.slides/axis/#setLabelOffset) kullanarak kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol edin. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun yüzde olarak ifade edilmesidir. Bu örnek, kümelenmiş bir sütun grafik oluşturur ve yatay eksen etiket kaydırmasını 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına eklenmiş etiketlerden ziyade kategori ekseni etiketlerini etkiler.
+[setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) metodunu kullanarak kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol edin. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun bir yüzdesidir. Bu örnek, bir kümelenmiş sütun grafik oluşturur ve yatay eksen etiketi kaydırmasını 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına bağlı etiketlerden ziyade kategori ekseni etiketlerini etkiler.
 
 ```python
 import jpype
@@ -335,9 +333,9 @@ finally:
 
 ## **Etiket Konumunu Ayarlama**
 
-Pasta grafiğinde, veri etiketi konumlarını ayarlayarak boşlukları iyileştirin ve lider çizgileri için yer açın.
+Bir pasta grafikte, veri etiketi konumlarını ayarlayarak boşlukları iyileştirin ve gösterge hatları için alan oluşturun.
 
-Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına yerleştirir ve yatay ve dikey kaydırmaları [setX](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabel/#setX) ve [setY](https://reference.aspose.com/slides/tr/python-java/aspose.slides/datalabel/#setY) kullanarak ayarlar. Bu kaydırmalar, sırasıyla grafik genişliği ve yüksekliğiyle orantılıdır.
+Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına yerleştirir ve [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) ve [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) metodlarıyla yatay ve dikey kaydırmalarını ayarlar. Bu kaydırmalar, sırasıyla grafiğin genişliği ve yüksekliğiyle orantılıdır.
 
 ```python
 import jpype
@@ -366,18 +364,124 @@ finally:
     presentation.dispose()
 ```
 
-![Ayarlanmış veri etiketi konumlu pasta grafik](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+
+## **Sütun Grafiğin Üstünde Birden Çok Satır Veri Etiketi Ekleme**
+
+Bu örnek, çizim alanının üzerinde iki satır veri etiketi olan bir sütun grafik oluşturur. Seri A, görünür sütunları gösterirken, Seri B ve Seri C ek etiketleri sağlar. Bu serilerin sütunları, dolgu ve anahat kaldırılarak gizlenir. [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) metodu, üç seriyi aynı kategori merkezleriyle hizalar.
+
+[ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) ayarları, etiket satırları için alan ayırır. [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) varsayılan konumları hesapladıktan sonra, [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) ve [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) yatay hizalamayı korur ve dikey kaydırmalar uygulayarak etiketleri iki satırda düzenler. Sayılar, serilerin değerlerine bağlı veri etiketleri olarak kalır; yalnızca satır başlıkları ayrı metin şekilleridir.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, LayoutTargetType, LegendDataLabelPosition, Presentation, SaveFormat, ShapeType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200)
+    chart.setTitle(False)
+    chart.setLegend(False)
+    chart.getTextFormat().getPortionFormat().setFontHeight(12)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    categories = ["North", "South", "East", "West"]
+    series_names = ["Series A", "Series B", "Series C"]
+    series_values = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]]
+
+    for category_index, category in enumerate(categories):
+        category_cell = workbook.getCell(0, category_index + 1, 0, category)
+        chart.getChartData().getCategories().add(category_cell)
+
+    for series_index, series_name in enumerate(series_names):
+        series_cell = workbook.getCell(0, 0, series_index + 1, series_name)
+        series = chart.getChartData().getSeries().add(series_cell, ChartType.ClusteredColumn)
+
+        for category_index, value in enumerate(series_values[series_index]):
+            value_cell = workbook.getCell(0, category_index + 1, series_index + 1, jpype.JDouble(value))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+        if series_index > 0:
+            # B ve C sütunlarını gizle, ancak veri etiketlerini koru.
+            series.getFormat().getFill().setFillType(FillType.NoFill)
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+            label_format = series.getLabels().getDefaultDataLabelFormat()
+            label_format.setShowValue(True)
+            label_format.getTextFormat().getPortionFormat().setFontHeight(12)
+            label_fill = label_format.getTextFormat().getPortionFormat().getFillFormat()
+            label_fill.setFillType(FillType.Solid)
+            label_fill.getSolidFillColor().setColor(Color.BLACK)
+            label_format.setPosition(LegendDataLabelPosition.InsideBase)
+
+    # Üç seriyi aynı kategori merkezleriyle hizala.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
+
+    # Bu kompakt örnek için daha az ızgara çizgisi kullan.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
+    chart.getAxes().getVerticalAxis().setMajorUnit(10)
+
+    # Grafiğin üstünde iki satır veri etiketi için alan ayır.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
+    chart.getPlotArea().setX(0.15)
+    chart.getPlotArea().setY(0.32)
+    chart.getPlotArea().setWidth(0.80)
+    chart.getPlotArea().setHeight(0.48)
+    chart.validateChartLayout()
+
+    for series_index in range(1, len(series_names)):
+        series = chart.getChartData().getSeries().get_Item(series_index)
+        row_top = 0.15 if series_index == 1 else 0.03
+
+        for category_index in range(len(categories)):
+            data_label = series.getDataPoints().get_Item(category_index).getLabel()
+            # Varsayılan yatay konumu koru. Y,
+            # varsayılan etiket konumundan gelen bir ofsettir, grafik yüksekliği oranı olarak ifade edilir.
+            data_label.setX(0)
+            data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
+
+        # Yalnızca satır başlığı ayrı bir metin şeklidir.
+        heading_y = chart.getY() + row_top * chart.getHeight()
+        row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
+        row_heading.getFillFormat().setFillType(FillType.NoFill)
+        row_heading.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        row_heading.addTextFrame(series_names[series_index])
+        row_heading.getTextFrame().getTextFrameFormat().setMarginTop(0)
+        row_heading.getTextFrame().getTextFrameFormat().setMarginBottom(0)
+        heading_format = row_heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        heading_format.setFontHeight(12)
+        heading_format.getFillFormat().setFillType(FillType.Solid)
+        heading_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **SSS**
 
-**Yoğun grafikleri üzerinde veri etiketlerinin çakışmasını nasıl önleyebilirim?**
+**Yoğun grafiklerde veri etiketlerinin üst üste gelmesini nasıl önleyebilirim?**
 
-Otomatik etiket yerleştirme, lider çizgileri ve daha küçük yazı tipi boyutlarını birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç değerler ya da ana noktalar için etiket gösterin.
+Otomatik etiket yerleştirme, gösterge hatları ve daha küçük yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç değerler ve ana noktalar için etiket gösterin.
 
-**Sıfır, negatif veya boş değerler için etiketleri sadece nasıl devre dışı bırakabilirim?**
+**Sıfır, negatif veya boş değerler için yalnızca etiketleri nasıl devre dışı bırakabilirim?**
 
-Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerlerin görüntülenmesini kapatın.
+Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve 0, negatif değerler veya eksik değerler için gösterimi tanımlı bir kurala göre kapatın.
 
-**PDF/görsellere dışa aktarırken tutarlı bir etiket stili nasıl sağlanır?**
+**PDF/görüntülere dışa aktarırken tutarlı bir etiket stili nasıl sağlanır?**
 
-Yazı tipi ailesini ve boyutunu açıkça belirleyin ve render ortamında yazı tipinin mevcut olduğundan emin olun, böylece yedekleme (fallback) önlenir.
+Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve render ortamında yazı tipinin mevcut olduğunu doğrulayarak yedekleme sorunlarından kaçının.

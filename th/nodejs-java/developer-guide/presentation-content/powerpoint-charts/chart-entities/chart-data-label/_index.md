@@ -15,15 +15,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เรียนรู้การเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ JavaScript และ Aspose.Slides สำหรับ Node.js ผ่าน Java เพื่อสไลด์ที่น่าสนใจมากขึ้น."
+description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint ด้วย JavaScript และ Aspose.Slides สำหรับ Node.js ผ่าน Java เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น."
 ---
 ## **บทนำ**
 
-ป้ายข้อมูลแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านสามารถระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีการจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย การควบคุมป้ายที่เกินค่าสูงสุดของแกน การปรับระยะห่างของป้ายแกนประเภท และการกำหนดตำแหน่งป้ายของแผนภูมิวงกลม
+ป้ายข้อมูลแสดงข้อมูลเกี่ยวกับชุดข้อมูลในแผนภูมิและจุดข้อมูลเดี่ยว ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย ควบคุมป้ายที่อยู่นอกขีดสุดของแกน ปรับระยะห่างของป้ายแกนประเภท และกำหนดตำแหน่งป้ายของแผนภูมิพาย
 
-## **กำหนดความแม่นยำของข้อมูลในป้ายข้อมูลแผนภูมิ**
+## **กำหนดความแม่นยำของข้อมูลในป้ายแผนภูมิ**
 
-ใช้ [setNumberFormatOfValues](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) เพื่อจัดรูปแบบค่าของชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมข้อมูลเริ่มต้น แสดงตารางข้อมูลของมัน และเปิดใช้งานป้ายค่าสำหรับชุดข้อมูลแรก รูปแบบ `#,##0.00` จะใส่คั่นหลักพันและแสดงตำแหน่งทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าที่อยู่เบื้องหลัง
+ใช้ [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) เพื่อจัดรูปแบบค่าชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลของมัน และเปิดใช้งานป้ายค่าของชุดข้อมูลแรก รูปแบบ `#,##0.00` แสดงเครื่องหมายคั่นหลักพันและสองตำแหน่งทศนิยมโดยไม่เปลี่ยนแปลงค่าที่อยู่เบื้องหลัง
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -47,7 +47,7 @@ try {
 
 ## **แสดงเปอร์เซ็นต์เป็นป้าย**
 
-สำหรับแผนภูมิคอลัมน์แบบซ้อนกัน คำนวณค่าตัวแต่ละค่าเป็นเปอร์เซ็นต์ของผลรวมในหมวดหมู่ของมันและกำหนดข้อความไปยังเฟรมข้อความที่ได้จาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). ตัวอย่างนี้ใช้ข้อมูลแผนภูมิเบื้องต้นและแสดงเปอร์เซ็นต์ด้วยตำแหน่งทศนิยมสองตำแหน่งในฟอนต์ขนาด 8 จุด หมวดหมู่ที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ คำนวณข้อความป้ายแบบกำหนดเองใหม่หากข้อมูลแผนภูมิเปลี่ยนแปลง
+สำหรับแผนภูมิคอลัมน์ซ้อนกัน คำนวณค่าทุกค่าเป็นเปอร์เซ็นต์ของผลรวมประเภทแล้วกำหนดข้อความให้กับกรอบข้อความที่ได้จาก [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) ตัวอย่างนี้ใช้ข้อมูลแผนภูมิปริยายและแสดงเปอร์เซ็นต์ด้วยสองตำแหน่งทศนิยมในฟอนต์ขนาด 8 จุด ประเภทที่มีผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ หากข้อมูลแผนภูมิมีการเปลี่ยนแปลงให้คำนวณข้อความป้ายแบบกำหนดใหม่
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -103,11 +103,11 @@ try {
 }
 ```
 
-## **ตั้งสัญลักษณ์เปอร์เซ็นต์กับป้ายข้อมูลแผนภูมิ**
+## **กำหนดสัญลักษณ์เปอร์เซ็นต์ในป้ายแผนภูมิ**
 
-เมื่อค่าถูกจัดเก็บเป็นเศษส่วน ใช้ [setNumberFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) เพื่อแสดงเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) เพื่อให้รูปแบบป้ายทำงานแยกจากเซลล์ต้นฉบับ
+เมื่อค่าถูกเก็บไว้ในรูปส่วน ให้ใช้ [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) เพื่อแสดงเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) เพื่อให้รูปแบบป้ายทำงานแยกจากเซลล์ต้นทาง
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบซ้อน 100% พร้อมชุดสีแดงและสีน้ำเงินในสี่หมวดหมู่ แต่ละคู่ค่ารวมกันเท่ากับ 1 รูปแบบป้าย `0.0%` จะแสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้ตำแหน่งทศนิยมสองตำแหน่ง ทั้งสองชุดใช้ข้อความป้ายสีขาวขนาด 10 จุด
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ซ้อน 100% ด้วยชุดสีแดงและสีน้ำเงินในสี่ประเภท แต่ละคู่ค่ารวมกันเท่ากับ 1 รูปแบบป้าย `0.0%` แสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้สองตำแหน่งทศนิยม ทั้งสองชุดใช้ข้อความป้ายสีขาวขนาด 10 จุด
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,7 +165,7 @@ try {
 
 ## **อ่านข้อความจริงของป้ายข้อมูล**
 
-ใช้ [getActualLabelText](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าของป้ายข้อมูล ซึ่งเป็นประโยชน์เมื่อดึงป้ายเพื่อสร้างรายงาน ค้นหาเนื้อหาในงานนำเสนอ หรือทำการตรวจสอบแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง รูปแบบป้ายข้อมูลเริ่มต้น ([data label format](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabelformat/)) จะรวมชื่อหมวดหมู่ ชื่อชุดข้อมูล และค่าไว้ด้วยกัน จุดหนึ่งจัดรูปแบบค่าของมันเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/)
+ใช้ [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล สิ่งนี้มีประโยชน์เมื่อดึงป้ายสำหรับรายงาน ค้นหาเนื้อหาในการนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่างรูปแบบ [data label format](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) เริ่มต้นรวมชื่อประเภท ชื่อชุดข้อมูลและค่า จุดหนึ่งจัดรูปแบบค่าเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/)
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -228,15 +228,15 @@ try {
 }
 ```
 
-จำนวนที่จัดเก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายของมันจะแสดง `75%` พร้อมกับชื่อหมวดหมู่และชื่อชุดข้อมูล ข้อความกำหนดเองจะทับข้อความป้ายที่สร้างขึ้น [getActualLabelText](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) จะคืนสตริงป้ายผลลัพธ์ในทั้งสองกรณี ตรวจสอบ [isVisible](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabel/isvisible/) แยกต่างหากตามที่แสดงด้านบนเมื่อคุณต้องการดึงเฉพาะป้ายที่มองเห็นได้
+ค่าที่เก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายจะแสดง `75%` พร้อมชื่อประเภทและชุดข้อมูล ข้อความกำหนดเองจะแทนที่ข้อความป้ายที่สร้างขึ้น [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) จะคืนสตริงป้ายผลลัพธ์ในทั้งสองกรณี ตรวจสอบ [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) แยกต่างหากตามตัวอย่างข้างต้นเมื่อคุณต้องการดึงเฉพาะป้ายที่มองเห็นได้
 
-## **ควบคุมป้ายข้อมูลที่เกินค่าสูงสุดของแกน**
+## **ควบคุมป้ายข้อมูลที่อยู่นอกขีดสุดของแกน**
 
-เมื่อคุณกำหนดช่วงแกนด้วยตนเอง จุดข้อมูลบางจุดอาจเกินค่าสูงสุด ใช้ [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) เพื่อควบคุมว่าจะแสดงป้ายข้อมูลของพวกมันหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้ายเท่านั้น ไม่ได้เปลี่ยนช่วงแกนหรือค่าข้อมูลพื้นฐาน
+เมื่อคุณกำหนดช่วงแกนด้วยตนเอง บางจุดข้อมูลอาจเกินขีดสุดของมัน ใช้ [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) เพื่อควบคุมว่าป้ายของพวกมันจะแสดงหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้าย ไม่ได้เปลี่ยนช่วงแกนหรือค่าข้อมูลพื้นฐาน
 
-ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์กลุ่ม 2 มิติที่มีค่า 60 และ 120 ส่งค่า `false` ไปยัง [setAutomaticMaxValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) และตั้งค่าสูงสุดเป็น 100 ด้วย [setMaxValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/axis/setmaxvalue/) บนแกนแนวตั้ง สไลด์แรกอนุญาตให้ป้ายอยู่เหนือค่าสูงสุด; สไลด์สำเนาใส่ค่า `false` เพื่อปิดการแสดง ทั้งสองสไลด์บันทึกเป็น `DataLabelsOverMaximum.pptx`
+ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์แบบจัดกลุ่ม 2D ด้วยค่า 60 และ 120 ส่งค่า `false` ไปยัง [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) แล้วตั้งค่าสูงสุดเป็น 100 ด้วย [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) บนแกนแนวตั้ง สไลด์แรกอนุญาตให้ป้ายอยู่เหนือขีดสุด; สไลด์ที่คัดลอกจะปิดการทำงานนี้ ทั้งสองสไลด์ถูกบันทึกเป็น `DataLabelsOverMaximum.pptx`
 
-เปิดใช้งานป้ายค่าโดยใช้ [setShowValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). การตั้งค่าที่ระดับแผนภูมิไม่ได้เปิดการแสดงค่าโดยอัตโนมัติหรือเขียนทับการแสดงค่าที่ปิดอยู่ในป้ายแต่ละอัน ตัวอย่างนี้เปิดค่าให้กับชุดข้อมูลทั้งหมดและใช้ [setPosition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabelformat/setposition/) เพื่อตำแหน่งป้ายที่ปลายนอกของแต่ละคอลัมน์
+เปิดใช้ป้ายค่าโดยใช้ [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). การตั้งค่าระดับแผนภูมิไม่ทำให้แสดงค่าตามตัวเองหรือเขียนทับการปิดการแสดงค่าสำหรับป้ายเดี่ยว ตัวอย่างนี้เปิดค่าทั้งชุดและใช้ [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) วางป้ายที่ปลายนอกของแต่ละคอลัมน์
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -285,19 +285,21 @@ try {
 }
 ```
 
-ตารางต่อไปแสดงสไลด์ที่บันทึกโดย Microsoft PowerPoint ด้วย `true` ป้าย **120** จะมองเห็นได้ที่ขอบบนสุด; ด้วย `false` ป้ายจะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ แกนสูงสุดคงที่ที่ **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
+ภาพต่อไปนี้แสดงสไลด์ที่บันทึกแล้วโดย Microsoft PowerPoint เมื่อ `true` ป้าย **120** จะมองเห็นได้ที่ขอบบน; เมื่อ `false` จะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ ขีดสุดแกนคงที่ที่ **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![แผนภูมิ PowerPoint แสดงป้ายค่า 120 พร้อมขีดสุดแกนที่ 100](data-labels-over-maximum-true.png) | ![แผนภูมิ PowerPoint ซ่อนป้ายค่า 120 พร้อมขีดสุดแกนที่ 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2 มิติพร้อมแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิเวลีย์และโดนัท จะไม่มีค่าสูงสุดของแกนที่สามารถจำกัดได้ในลักษณะนี้
+
+ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2D พร้อมแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น พายและโดนัท จะไม่มีขีดสุดแกนให้จำกัดวิธีนี้
+
 {{% /alert %}}
 
-## **ตั้งระยะห่างของป้ายจากแกน**
+## **กำหนดระยะห่างของป้ายจากแกน**
 
-ใช้ [setLabelOffset](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/axis/setlabeloffset/) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทและแกน ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์กลุ่มและตั้งค่า offset ของป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภทมากกว่าป้ายที่แนบกับจุดข้อมูลแต่ละจุด
+ใช้ [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทและแกนเอง ค่าจะเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบจัดกลุ่มและตั้งค่า offset ของป้ายแกนแนวนอนได้เป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภท ไม่ใช่ป้ายที่แนบกับจุดข้อมูลเดี่ยว
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -317,9 +319,9 @@ try {
 
 ## **ปรับตำแหน่งป้าย**
 
-บนแผนภูมิวงกลม ปรับตำแหน่งป้ายข้อมูลเพื่อเพิ่มระยะห่างและสร้างพื้นที่ให้กับเส้นเชื่อม
+บนแผนภูมิปาย ปรับตำแหน่งป้ายข้อมูลเพื่อเพิ่มระยะห่างและให้พื้นที่สำหรับเส้นเชื่อม
 
-ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายออกนอกชิ้นส่วน และปรับ offset แนวนอนและแนวตั้งโดยใช้ [setX](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabel/setx/) และ [setY](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabel/sety/). offset เหล่านี้เป็นอัตราส่วนของความกว้างและความสูงของแผนภูมิ ตามลำดับ
+ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายไว้ด้านนอกชิ้นส่วน และปรับ offset แนวนอนและแนวตั้งโดยใช้ [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) และ [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) offset เหล่านี้เป็นค่าที่สัมพันธ์กับความกว้างและความสูงของแผนภูมิ
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -344,18 +346,123 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![แผนภูมิปายพร้อมตำแหน่งป้ายที่ปรับแล้ว](pie-chart-adjusted-label.png)
+
+## **เพิ่มหลายแถวของป้ายข้อมูลเหนือแผนภูมิคอลัมน์**
+
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์พร้อมสองแถวของป้ายข้อมูลเหนือพื้นที่วาด ชุด A แสดงคอลัมน์ที่มองเห็นได้ ส่วนชุด B และชุด C ให้ป้ายเพิ่มเติม คอลัมน์ของพวกมันถูกซ่อนโดยลบการเติมสีและโครงร่าง วิธีการ [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) ทำให้ชุดทั้งหมดสามชุดสอดคล้องกับศูนย์กลางประเภทเดียวกัน
+
+การตั้งค่า [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) จัดสรรพื้นที่สำหรับแถวป้าย หลังจากที่ [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) คำนวณตำแหน่งเริ่มต้นแล้ว [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) และ [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) คงการจัดแนวแนวนอนและใช้ offset แนวตั้งเพื่อจัดเรียงป้ายในสองแถว ตัวเลขยังคงเป็นป้ายที่เชื่อมโยงกับค่าชุดข้อมูล; เฉพาะหัวแถวที่เป็นรูปร่างข้อความแยกต่างหาก
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    const categories = ["North", "South", "East", "West"];
+    const seriesNames = ["Series A", "Series B", "Series C"];
+    const seriesValues = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]];
+
+    for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        const categoryCell = workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (let seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        const seriesCell = workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+        const series = chart.getChartData().getSeries().add(seriesCell, aspose.slides.ChartType.ClusteredColumn);
+
+        for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            const valueCell = workbook.getCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        if (seriesIndex > 0) {
+            // ซ่อนคอลัมน์ของ B และ C แต่ยังคงแสดงป้ายข้อมูลของพวกมัน
+            series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
+            const labelFill = series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+            labelFill.getSolidFillColor().setColor(black);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // จัดแนวชุดข้อมูลทั้งสามให้ตรงศูนย์กลางของประเภทเดียวกัน
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(java.newByte(100));
+
+    // ใช้เส้นกริดน้อยลงสำหรับตัวอย่างที่กระชับนี้
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // สำรองพื้นที่เหนือพื้นที่วางแผนภูมิสำหรับสองแถวของป้ายข้อมูล
+    chart.getPlotArea().setLayoutTargetType(aspose.slides.LayoutTargetType.Inner);
+    chart.getPlotArea().setX(java.newFloat(0.15));
+    chart.getPlotArea().setY(java.newFloat(0.32));
+    chart.getPlotArea().setWidth(java.newFloat(0.80));
+    chart.getPlotArea().setHeight(java.newFloat(0.48));
+    chart.validateChartLayout();
+
+    for (let seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const rowTop = seriesIndex == 1 ? 0.15 : 0.03;
+
+        for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            const dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // คงตำแหน่งแนวนอนค่าเริ่มต้น. Y เป็นการเลื่อนจาก
+            // ตำแหน่งป้ายค่าเริ่มต้น, แสดงเป็นส่วนของความสูงแผนภูมิ
+            dataLabel.setX(0);
+            dataLabel.setY(java.newFloat(rowTop - dataLabel.getActualY() / chart.getHeight()));
+        }
+
+        // เฉพาะหัวแถวเป็นรูปร่างข้อความแยกต่างหาก
+        const rowHeading = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        rowHeading.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        const headingFormat = rowHeading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        headingFormat.getFillFormat().getSolidFillColor().setColor(black);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![แผนภูมิคอลัมน์พร้อมสองแถวของป้ายข้อมูลเหนือพื้นที่วาด](multiple-rows-of-labels.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะป้องกันไม่ให้ป้ายข้อมูลซ้อนทับกันในแผนภูมิที่หนาแน่นได้อย่างไร?**
+**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับกันบนแผนภูมิที่แน่นได้อย่างไร?**
 
-รวมการวางป้ายอัตโนมัติ เส้นเชื่อม และการลดขนาดฟอนต์; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น หมวดหมู่) หรือแสดงป้ายเฉพาะค่าที่สุดยอดหรือจุดสำคัญ
+ผสานการวางป้ายโดยอัตโนมัติ เส้นเชื่อม และลดขนาดฟอนต์ หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น ประเภท) หรือแสดงป้ายเฉพาะค่าขอบหรือจุดสำคัญ
 
-**ฉันจะปิดป้ายเฉพาะค่าศูนย์ ค่าลบ หรือค่าว่างได้อย่างไร?**
+**ฉันจะปิดการแสดงป้ายเฉพาะค่าศูนย์ ค่าลบ หรือค่าว่างได้อย่างไร?**
 
-กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงสำหรับค่า 0, ค่าลบ หรือค่าที่หายไปตามกฎที่กำหนด
+กรองจุดข้อมูลก่อนเปิดป้ายและปิดการแสดงสำหรับค่า 0, ค่าลบ หรือค่าที่ขาดตามกฎที่กำหนด
 
-**ฉันจะทำให้รูปแบบป้ายคงที่เมื่อนำออกเป็น PDF/รูปภาพได้อย่างไร?**
+**ฉันจะทำให้สไตล์ป้ายคงที่เมื่อส่งออกเป็น PDF/ภาพได้อย่างไร?**
 
-กำหนดฟอนต์และขนาดฟอนต์อย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นพร้อมใช้งานในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการเปลี่ยนเป็นฟอนต์สำรอง
+กำหนดฟอนต์และขนาดอย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีอยู่ในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง

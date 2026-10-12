@@ -1,5 +1,5 @@
 ---
-title: Zarządzaj etykietami danych wykresu w prezentacjach przy użyciu JavaScript
+title: Zarządzanie etykietami danych wykresu w prezentacjach przy użyciu JavaScript
 linktitle: Etykieta danych
 type: docs
 url: /pl/nodejs-java/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu JavaScript oraz Aspose.Slides dla Node.js poprzez Java, aby uzyskać bardziej atrakcyjne slajdy."
+description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu JavaScript i Aspose.Slides dla Node.js za pośrednictwem Java, aby uzyskać bardziej angażujące slajdy."
 ---
-## **Wprowadzenie**
+## **Introduction**
 
-Etykiety danych wyświetlają informacje o seriach wykresu i pojedynczych punktach danych, pomagając czytelnym zidentyfikować wartości i zrozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiety, kontrolować etykiety poza maksymalnym zakresem osi, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresów kołowych.
+Etykiety danych wyświetlają informacje o seriach wykresu i poszczególnych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiety, kontrolować etykiety poza maksymalnym zakresem osi, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresów kołowych.
 
-## **Ustaw precyzję danych w etykietach danych wykresu**
+## **Set Data Precision in Chart Data Labels**
 
-Użyj [setNumberFormatOfValues](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/), aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy oraz dwie miejsca po przecinku, nie zmieniając wartości bazowych.
+Użyj [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) do formatowania wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwa miejsca dziesiętne bez zmiany wartości podstawowych.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -45,9 +45,9 @@ try {
 }
 ```
 
-## **Wyświetl procent jako etykiety**
+## **Display Percentage as Labels**
 
-Dla wykresu słupkowego skumulowanego oblicz każdą wartość jako procent całkowitej sumy jej kategorii i przypisz tekst do ramki tekstowej zwróconej przez [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce 8‑punktowej. Kategorie o sumie zerowej są pomijane, aby uniknąć dzielenia przez zero. Przelicz ponownie niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
+Dla wykresu słupkowego skumulowanego oblicz każdą wartość jako procent całkowitej sumy kategorii i przypisz tekst do ramki tekstowej zwróconej przez [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Ten przykład wykorzystuje domyślne dane wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce o rozmiarze 8 punktów. Kategorie o sumie zerowej są pomijane, aby uniknąć dzielenia przez zero. Przelicz tekst etykiety niestandardowej, jeśli dane wykresu ulegną zmianie.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -103,11 +103,11 @@ try {
 }
 ```
 
-## **Ustaw znak procenta w etykietach danych wykresu**
+## **Set Percentage Sign with Chart Data Labels**
 
-Gdy wartości są przechowywane jako ułamki, użyj [setNumberFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabelformat/setnumberformat/), aby wyświetlić procenty. Przekaż `false` do [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/), aby zastosować format etykiety niezależnie od komórek źródłowych.
+Gdy wartości są przechowywane jako ułamki, użyj [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) do wyświetlania procentów. Przekaż `false` do [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/), aby zastosować format etykiety niezależnie od komórek źródłowych.
 
-Ten przykład tworzy wykres słupkowy skumulowany 100% z serią czerwoną i niebieską w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0,30 jako 30,0%, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
+Ten przykład tworzy wykres słupkowy skumulowany 100% z czerwonymi i niebieskimi seriami w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0,30 jako 30,0%, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -163,9 +163,9 @@ try {
 }
 ```
 
-## **Odczytaj rzeczywisty tekst etykiet danych**
+## **Read the Actual Text of Data Labels**
 
-Użyj [getActualLabelText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabel/getactuallabeltext/), aby pobrać tekst wygenerowany na podstawie ustawień etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu zawartości prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiet danych](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabelformat/) łączy nazwę każdej kategorii, nazwę serii oraz wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa niestandardowego tekstu z [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Użyj [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) aby pobrać tekst wygenerowany przez ustawienia etykiety danych. Jest to przydatne przy wyciąganiu etykiet do raportów, przeszukiwaniu zawartości prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [data label format](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) łączy nazwę każdej kategorii, nazwę serii i wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa własnego tekstu z [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -228,15 +228,15 @@ try {
 }
 ```
 
-Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet jeśli jego etykieta wyświetla `75%` wraz z nazwą kategorii i serii. Niestandardowy tekst zastępuje wygenerowany tekst etykiety. [getActualLabelText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) zwraca wynikowy ciąg etykiety w obu przypadkach. Sprawdź [isVisible](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabel/isvisible/) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
+Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta pokazuje `75%` wraz z nazwą kategorii i serii. Własny tekst zastępuje wygenerowany tekst etykiety. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) zwraca w obu przypadkach wynikowy ciąg etykiety. Sprawdź [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
 
-## **Kontroluj etykiety danych poza maksymalnym zakresem osi**
+## **Control Data Labels Beyond the Axis Maximum**
 
-Gdy ograniczasz zakres osi ręcznie, niektóre punkty danych mogą przekraczać jej maksymalną wartość. Użyj [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/), aby kontrolować, czy ich etykiety danych są wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani wartości bazowych danych.
+Kiedy ręcznie ograniczasz zakres osi, niektóre punkty danych mogą przekraczać jej maksymalny limit. Użyj [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) aby kontrolować, czy ich etykiety danych są wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani podstawowych wartości danych.
 
-Poniższy przykład tworzy dwuwymiarowy wykres słupkowy zgrupowany z wartościami 60 i 120. Przekazuje `false` do [setAutomaticMaxValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) i ustawia maksymalną wartość na 100 za pomocą [setMaxValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/axis/setmaxvalue/) na osi pionowej. Na pierwszym slajdzie etykiety są dopuszczone poza maksimum; kopia tego slajdu wyłącza je. Oba slajdy są zapisane w pliku `DataLabelsOverMaximum.pptx`.
+Poniższy przykład tworzy dwuwymiarowy wykres słupkowy grupowany z wartościami 60 i 120. Przekazuje `false` do [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) i ustawia maksymalną wartość na 100 za pomocą [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) na osi pionowej. Pierwszy slajd zezwala na etykiety poza maksymalnym limitem; kopia tego slajdu wyłącza je. Oba slajdy są zapisane w `DataLabelsOverMaximum.pptx`.
 
-Włącz etykiety wartości za pomocą [setShowValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Ustawienie na poziomie wykresu nie włącza wyświetlania wartości samo w sobie ani nie nadpisuje wyłączonego wyświetlania wartości w pojedynczej etykiecie. Ten przykład włącza wartości dla całej serii i używa [setPosition](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabelformat/setposition/), aby umieścić etykiety na zewnętrznej końcówce każdego słupka.
+Włącz etykiety wartości za pomocą [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Ustawienie na poziomie wykresu nie włącza wyświetlania wartości samo w sobie ani nie nadpisuje wyłączonego wyświetlania wartości dla pojedynczej etykiety. Ten przykład włącza wartości dla całej serii i używa [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) aby umieścić etykiety na zewnętrznym końcu każdego słupka.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -285,19 +285,19 @@ try {
 }
 ```
 
-Poniższe obrazy przedstawiają zapisane slajdy renderowane w programie Microsoft PowerPoint. Przy ustawieniu `true` etykieta **120** jest widoczna na górnej granicy; przy `false` jest ukryta. Etykieta **60** pozostaje widoczna, maksymalna wartość osi pozostaje **100**, a drugi punkt danych pozostaje **120** w obu przypadkach.
+Poniższe obrazy pokazują zapisane slajdy renderowane przez Microsoft PowerPoint. Przy `true` etykieta **120** jest widoczna na górnym brzegu; przy `false` jest ukryta. Etykieta **60** pozostaje widoczna, maksymalna wartość osi pozostaje **100**, a drugi punkt danych pozostaje **120** w obu przypadkach.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Wykres PowerPoint wyświetlający etykietę wartości 120 przy maksymalnym limicie osi 100](data-labels-over-maximum-true.png) | ![Wykres PowerPoint ukrywający etykietę wartości 120 przy maksymalnym limicie osi 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Ten przykład używa dwuwymiarowego wykresu słupkowego z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie posiadają maksymalnej wartości osi, którą można w ten sposób ograniczyć.
+Ten przykład używa dwuwymiarowego wykresu słupkowego z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie mają maksymalnego zakresu osi, który można w ten sposób ograniczyć.
 {{% /alert %}}
 
-## **Ustaw odległość etykiety od osi**
+## **Set Label Distance from an Axis**
 
-Użyj [setLabelOffset](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/axis/setlabeloffset/), aby kontrolować odległość między etykietami osi kategorii a samą osią. Wartość jest wyrażona jako procent maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy zgrupowany i ustawia offset etykiet osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do poszczególnych punktów danych.
+Użyj [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) aby kontrolować odległość między etykietami osi kategorii a samą osią. Wartość jest procentem maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy grupowany i ustawia przesunięcie etykiety osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do poszczególnych punktów danych.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,11 +315,11 @@ try {
 }
 ```
 
-## **Dostosuj położenie etykiety**
+## **Adjust Label Location**
 
-W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić rozmieszczenie i zrobić miejsce na linie pomocnicze.
+W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić odstępy i zrobić miejsce na linie prowadzące.
 
-Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza fragmentem i dostosowuje poziomy oraz pionowy offset przy użyciu [setX](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabel/setx/) i [setY](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/datalabel/sety/). Te offsety są względne względem szerokości i wysokości wykresu, odpowiednio.
+Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza fragmentem i dostosowuje poziome oraz pionowe przesunięcia za pomocą [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) i [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/). Te przesunięcia są względne odpowiednio do szerokości i wysokości wykresu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -346,16 +346,121 @@ try {
 
 ![Wykres kołowy z dostosowaną pozycją etykiety danych](pie-chart-adjusted-label.png)
 
+## **Add Multiple Rows of Data Labels Above a Column Chart**
+
+Ten przykład tworzy wykres słupkowy z dwoma wierszami etykiet danych nad obszarem wykresu. Seria A wyświetla widoczne słupki, natomiast Serie B i C dostarczają dodatkowe etykiety. Ich słupki są ukryte poprzez usunięcie wypełnienia i konturu. Metoda [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) wyrównuje wszystkie trzy serie względem tych samych środków kategorii.
+
+Ustawienia [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) rezerwują miejsce dla wierszy etykiet. Po obliczeniu domyślnych pozycji przez [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/), [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) i [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) zachowują wyrównanie poziome i stosują pionowe przesunięcia, aby rozmieszczać etykiety w dwóch wierszach. Liczby pozostają etykietami danych powiązanymi z wartościami serii; tylko nagłówki wierszy są oddzielnymi kształtami tekstowymi.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    const categories = ["North", "South", "East", "West"];
+    const seriesNames = ["Series A", "Series B", "Series C"];
+    const seriesValues = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]];
+
+    for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        const categoryCell = workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (let seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        const seriesCell = workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+        const series = chart.getChartData().getSeries().add(seriesCell, aspose.slides.ChartType.ClusteredColumn);
+
+        for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            const valueCell = workbook.getCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        if (seriesIndex > 0) {
+            // Ukryj kolumny B i C, ale pozostaw ich etykiety danych.
+            series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
+            const labelFill = series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+            labelFill.getSolidFillColor().setColor(black);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // Wyrównaj wszystkie trzy serie względem tych samych środków kategorii.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(java.newByte(100));
+
+    // Użyj mniej linii siatki w tym zwartym przykładzie.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // Zarezerwuj miejsce nad obszarem wykresu na dwa wiersze etykiet danych.
+    chart.getPlotArea().setLayoutTargetType(aspose.slides.LayoutTargetType.Inner);
+    chart.getPlotArea().setX(java.newFloat(0.15));
+    chart.getPlotArea().setY(java.newFloat(0.32));
+    chart.getPlotArea().setWidth(java.newFloat(0.80));
+    chart.getPlotArea().setHeight(java.newFloat(0.48));
+    chart.validateChartLayout();
+
+    for (let seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const rowTop = seriesIndex == 1 ? 0.15 : 0.03;
+
+        for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            const dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // Zachowaj domyślną pozycję poziomą. Y jest przesunięciem od
+            // domyślnej pozycji etykiety, wyrażonym jako ułamek wysokości wykresu.
+            dataLabel.setX(0);
+            dataLabel.setY(java.newFloat(rowTop - dataLabel.getActualY() / chart.getHeight()));
+        }
+
+        // Tylko nagłówek wiersza jest osobnym kształtem tekstowym.
+        const rowHeading = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        rowHeading.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        const headingFormat = rowHeading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        headingFormat.getFillFormat().getSolidFillColor().setColor(black);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Wykres słupkowy z dwoma wierszami etykiet danych nad obszarem wykresu](multiple-rows-of-labels.png)
+
 ## **FAQ**
 
 **Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**
 
-Połącz automatyczne rozmieszczanie etykiet, linie pomocnicze i zmniejszenie rozmiaru czcionki; w razie potrzeby ukryj niektóre pola (na przykład kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
+Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla ekstremalnych wartości lub kluczowych punktów.
 
-**Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**
+**Jak mogę wyłączyć etykiety tylko dla zerowych, ujemnych lub pustych wartości?**
 
 Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, wartości ujemnych lub brakujących, zgodnie z określoną regułą.
 
 **Jak zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**
 
-Jawnie ustaw rodzinę i rozmiar czcionki oraz sprawdź, czy czcionka jest dostępna w środowisku renderującym, aby uniknąć zastępowania.
+Explicitnie ustaw rodzinę i rozmiar czcionki oraz zweryfikuj, że czcionka jest dostępna w środowisku renderującym, aby uniknąć użycia alternatywnej czcionki.

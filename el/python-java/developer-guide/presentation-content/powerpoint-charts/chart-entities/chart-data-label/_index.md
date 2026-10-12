@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση ετικετών δεδομένων διαγράμματος σε παρουσιάσεις με χρήση Python
+title: Διαχείριση ετικετών δεδομένων διαγράμματος σε παρουσιάσεις χρησιμοποιώντας Python
 linktitle: Ετικέτα Δεδομένων
 type: docs
 url: /el/python-java/chart-data-label/
@@ -9,7 +9,7 @@ keywords:
 - ακρίβεια δεδομένων
 - ποσοστό
 - απόσταση ετικέτας
-- τοποθεσία ετικέτας
+- θέση ετικέτας
 - PowerPoint
 - παρουσίαση
 - Python
@@ -19,11 +19,11 @@ description: "Μάθετε πώς να προσθέτετε και να μορφ
 ---
 ## **Εισαγωγή**
 
-Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές του διαγράμματος και μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να αναγνωρίζουν τις τιμές και να κατανοούν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε τις τιμές, να εμφανίσετε ποσοστά, να διαβάσετε το κείμενο της ετικέτας, να ελέγξετε τις ετικέτες πέρα από το μέγιστο του άξονα, να ρυθμίσετε το διάστημα των ετικετών του άξονα κατηγορίας και να τοποθετήσετε ετικέτες σε διάγραμμα πίτας.
+Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές διαγραμμάτων και τα μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να αναγνωρίσουν τις τιμές και να κατανοήσουν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε τις τιμές, να εμφανίσετε ποσοστά, να διαβάσετε το κείμενο ετικετών, να ελέγξετε ετικέτες πέρα από το μέγιστο του άξονα, να προσαρμόσετε το διάστημα των ετικετών του άξονα κατηγορίας και να τοποθετήσετε ετικέτες διαγράμματος πίτας.
 
-## **Ορισμός Ακρίβειας Δεδομένων στις Ετικέτες Δεδομένων του Διαγράμματος**
+## **Ορισμός ακρίβειας δεδομένων στις ετικέτες δεδομένων διαγράμματος**
 
-Χρησιμοποιήστε [setNumberFormatOfValues](https://reference.aspose.com/slides/el/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) για να μορφοποιήσετε τις τιμές των σειρών. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστή χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
+Χρησιμοποιήστε [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) για να μορφοποιήσετε τις τιμές των σειρών. Αυτό το παράδειγμα δημιουργεί ένα διαγράμματος γραμμής με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
 
 ```python
 import jpype
@@ -50,9 +50,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Εμφάνιση Ποσοστού ως Ετικέτες**
+## **Εμφάνιση ποσοστού ως ετικέτες**
 
-Για ένα στοίβαγμα στήλης, υπολογίστε κάθε τιμή ως ποσοστό του συνόλου της κατηγορίας της και αναθέστε το κείμενο στο πλαίσιο κειμένου που επιστρέφει η [getTextFrameForOverriding](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα του διαγράμματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Οι κατηγορίες με σύνολο μηδέν παραλείπονται για να αποφευχθεί η διαίρεση με το μηδέν. Επαναϋπολογίστε το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
+Για ένα στοιβαγμένο διάγραμμα στήλης, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού της κατηγορίας και αντιστοιχίστε το κείμενο στο πλαίσιο κειμένου που επιστρέφεται από [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα διαγράμματος και εμφανίζει ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Οι κατηγορίες με σύνολο μηδέν παραλείπονται για να αποφευχθεί η διαίρεση δια του μηδενός. Επαναϋπολογίστε το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
 
 ```python
 import jpype
@@ -108,11 +108,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Ορισμός Σήματος Ποσοστού με Ετικέτες Δεδομένων Διαγράμματος**
+## **Ορισμός συμβόλου ποσοστού με ετικέτες δεδομένων διαγράμματος**
 
-Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε το [setNumberFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabelformat/#setNumberFormat) για να εμφανίσετε ποσοστά. Μεταβιβάστε `False` στη [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) για να εφαρμόσετε τη μορφή ετικέτας ανεξάρτητα από τα κελιά προέλευσης.
+Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) για να εμφανίσετε ποσοστά. Περάστε `False` στο [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) για να εφαρμόσετε τη μορφοποίηση ετικέτας ανεξάρτητα από τα κελιά προέλευσης.
 
-Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στοίβαξης στήλης 100% με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζει στο 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κάθετος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας μεγέθους 10 σημεία.
+Αυτό το παράδειγμα δημιουργεί ένα στοίβαγμα 100% στήλης με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζεται σε 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
 
 ```python
 import jpype
@@ -171,9 +171,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ανάγνωση του Πραγματικού Κειμένου των Ετικετών Δεδομένων**
+## **Ανάγνωση του πραγματικού κειμένου των ετικετών δεδομένων**
 
-Χρησιμοποιήστε το [getActualLabelText](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabel/#getActualLabelText) για να ανακτήσετε το κείμενο που δημιουργείται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επικυρώνετε τα δημιουργηθέντα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [μορφή ετικέτας δεδομένων](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, και ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από τη [getTextFrameForOverriding](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Χρησιμοποιήστε [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) για να λάβετε το κείμενο που παράγεται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή ελέγχετε τα παραγόμενα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [data label format](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, και ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από το [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -234,15 +234,15 @@ finally:
     presentation.dispose()
 ```
 
-Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα κατηγορίας και σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το αυτόματα παραγόμενο κείμενο ετικέτας. Το [getActualLabelText](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabel/#getActualLabelText) επιστρέφει το τελικό string ετικέτας και στις δύο περιπτώσεις. Ελέγξτε το [isVisible](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabel/#isVisible) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
+Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα κατηγορίας και σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) επιστρέφει τη δημιουργημένη συμβολοσειρά ετικέτας και στις δύο περιπτώσεις. Ελέγξτε τη [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
 
-## **Έλεγχος Ετικετών Δεδομένων Πέρα από το Μέγιστο του Άξονα**
+## **Έλεγχος ετικετών δεδομένων πέρα από το μέγιστο του άξονα**
 
-Όταν περιορίζετε το εύρος ενός άξονα χειροκίνητα, ορισμένα σημεία δεδομένων ενδέχεται να υπερβαίνουν το μέγιστό του. Χρησιμοποιήστε το [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/el/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) για να ελέγξετε αν οι ετικέτες τους εμφανίζονται. Αυτή η ρύθμιση αλλάζει την ορατότητα των ετικετών· δεν αλλάζει το εύρος του άξονα ή τις υποκείμενες τιμές δεδομένων.
+Όταν περιορίζετε το εύρος ενός άξονα χειροκίνητα, ορισμένα σημεία δεδομένων μπορεί να υπερβούν το μέγιστο. Χρησιμοποιήστε [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) για να ελέγξετε αν εμφανίζονται οι ετικέτες δεδομένων τους. Αυτή η ρύθμιση αλλάζει την ορατότητα των ετικετών· δεν αλλάζει το εύρος του άξονα ούτε τις υποκείμενες τιμές δεδομένων.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα 2D διάγραμμα στήλης σε ομάδες με τιμές 60 και 120. Μεταβιβάζει `False` στη [setAutomaticMaxValue](https://reference.aspose.com/slides/el/python-java/aspose.slides/axis/#setAutomaticMaxValue) και ορίζει το μέγιστο στο 100 με τη [setMaxValue](https://reference.aspose.com/slides/el/python-java/aspose.slides/axis/#setMaxValue) στον κάθετο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέρα από το μέγιστο· ένα αντίγραφο αυτής της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται στο `DataLabelsOverMaximum.pptx`.
+Το παρακάτω παράδειγμα δημιουργεί ένα 2D σύμπλεγμα διαγράμματος στήλης με τιμές 60 και 120. Περάζει `False` στο [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) και θέτει το μέγιστο σε 100 με το [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) στον κατακόρυφο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέρα από το μέγιστο· ένα αντίγραφο αυτής της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται στο `DataLabelsOverMaximum.pptx`.
 
-Ενεργοποιήστε τις ετικέτες τιμών με το [setShowValue](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabelformat/#setShowValue). Η ρύθμιση σε επίπεδο διαγράμματος δεν ενεργοποιεί την εμφάνιση τιμών μόνη της ούτε παρακάμπτει την απενεργοποίηση εμφάνισης τιμής μιας μεμονωμένης ετικέτας. Αυτό το παράδειγμα ενεργοποιεί τις τιμές για ολόκληρη τη σειρά και χρησιμοποιεί το [setPosition](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabelformat/#setPosition) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
+Ενεργοποιήστε τις ετικέτες τιμών με το [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Η ρύθμιση σε επίπεδο διαγράμματος δεν ενεργοποιεί την εμφάνιση τιμών από μόνη της ούτε παρακάμπτει την απενεργοποίηση εμφάνισης τιμών μιας μεμονωμένης ετικέτας. Αυτό το παράδειγμα ενεργοποιεί τις τιμές για ολόκληρη τη σειρά και χρησιμοποιεί το [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
 
 ```python
 import jpype
@@ -296,19 +296,19 @@ finally:
     presentation.dispose()
 ```
 
-Οι παρακάτω εικόνες δείχνουν τις αποθηκευμένες διαφάνειες που αποδίδονται από το Microsoft PowerPoint. Με `True`, η ετικέτα **120** είναι ορατή στο άνω όριο· με `False`, είναι κρυφή. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα παραμένει στο **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
+Οι παρακάτω εικόνες δείχνουν τις αποθηκευμένες διαφάνειες όπως αποδίδονται από το Microsoft PowerPoint. Με `True`, η ετικέτα **120** είναι ορατή στο άνω όριο· με `False`, είναι κρυφή. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα παραμένει **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
 | ![Διάγραμμα PowerPoint που εμφανίζει την ετικέτα τιμής 120 με μέγιστο άξονα 100](data-labels-over-maximum-true.png) | ![Διάγραμμα PowerPoint που κρύβει την ετικέτα τιμής 120 με μέγιστο άξονα 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Chart Type" %}}
-Αυτό το παράδειγμα χρησιμοποιεί ένα 2D διάγραμμα στήλης με άξονα τιμών. Διαγράμματα χωρίς άξονα τιμών, όπως τα διαγράμματα πίτας και δακτυλίου, δεν έχουν μέγιστο άξονα που να μπορεί να περιοριστεί με αυτόν τον τρόπο.
+{{% alert color="info" title="Τύπος Διαγράμματος" %}}
+Αυτό το παράδειγμα χρησιμοποιεί ένα 2D διάγραμμα στήλης με άξονα τιμών. Διαγράμματα χωρίς άξονα τιμών, όπως τα διαγράμματα πίτας και δαχτυλιδιού, δεν έχουν μέγιστο άξονα που να μπορεί να περιοριστεί με αυτόν τον τρόπο.
 {{% /alert %}}
 
-## **Ορισμός Απόστασης Ετικέτας από Άξονα**
+## **Ορισμός απόστασης ετικέτας από άξονα**
 
-Χρησιμοποιήστε το [setLabelOffset](https://reference.aspose.com/slides/el/python-java/aspose.slides/axis/#setLabelOffset) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στήλης σε ομάδες και ορίζει την απόκλιση ετικέτας του οριζόντιου άξονα στο 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας αντί για ετικέτες που συνδέονται με μεμονωμένα σημεία δεδομένων.
+Χρησιμοποιήστε [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών άξονα. Αυτό το παράδειγμα δημιουργεί ένα σύμπλεγμα διαγράμματος στήλης και θέτει την οριζόντια μετατόπιση ετικέτας άξονα σε 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας και όχι τις ετικέτες που συνδέονται με μεμονωμένα σημεία δεδομένων.
 
 ```python
 import jpype
@@ -331,11 +331,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Ρύθμιση Θέσης Ετικέτας**
+## **Προσαρμογή θέσης ετικέτας**
 
-Σε ένα διάγραμμα πίτας, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε το διάστημα και να δημιουργήσετε χώρο για τις γραμμές οδηγού.
+Σε διάγραμμα πίτας, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε το διάστημα και να δημιουργήσετε χώρο για τις γραμμές οδηγίας.
 
-Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και ρυθμίζει τις οριζόντιες και κάθετες αποκλίσεις του χρησιμοποιώντας τα [setX](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabel/#setX) και [setY](https://reference.aspose.com/slides/el/python-java/aspose.slides/datalabel/#setY). Αυτές οι αποκλίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
+Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και προσαρμόζει τις οριζόντιες και κατακόρυφες μετατοπίσεις χρησιμοποιώντας το [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) και το [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY). Αυτές οι μετατοπίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
 
 ```python
 import jpype
@@ -366,16 +366,122 @@ finally:
 
 ![Διάγραμμα πίτας με προσαρμοσμένη θέση ετικέτας δεδομένων](pie-chart-adjusted-label.png)
 
-## **Συχνές Ερωτήσεις**
+## **Προσθήκη πολλαπλών σειρών ετικετών δεδομένων πάνω από διάγραμμα στήλης**
 
-**Πώς μπορώ να αποτρέψω την επικάλυψη των ετικετών δεδομένων σε πυκνά διαγράμματα;**
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στήλης με δύο σειρές ετικετών δεδομένων πάνω από την περιοχή σχεδίασης. Η Σειρά A εμφανίζει τις ορατές στήλες, ενώ οι Σειρές B και C παρέχουν τις επιπλέον ετικέτες. Οι στήλες τους κρύβονται αφαιρώντας τη γέμιση και το περίγραμμα. Η μέθοδος [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) ευθυγραμμίζει όλες τις τρείς σειρές στο ίδιο κέντρο κατηγορίας.
 
-Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές οδηγού και μείωση του μεγέθους γραμματοσειράς· εάν χρειάζεται, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή βασικά σημεία.
+Οι ρυθμίσεις του [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) διατηρούν χώρο για τις σειρές ετικετών. Μετά τον υπολογισμό των προεπιλεγμένων θέσεων από το [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout), οι μέθοδοι [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) και [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) διατηρούν την οριζόντια στοίχιση και εφαρμόζουν κατακόρυφες μετατοπίσεις για τη διάταξη των ετικετών σε δύο σειρές. Οι αριθμοί παραμένουν ετικέτες δεδομένων συνδεδεμένες με τις τιμές των σειρών· μόνο οι επικεφαλίδες σειρών είναι ξεχωριστά σχήματα κειμένου.
 
-**Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για τιμές μηδέν, αρνητικές ή κενές;**
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, LayoutTargetType, LegendDataLabelPosition, Presentation, SaveFormat, ShapeType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200)
+    chart.setTitle(False)
+    chart.setLegend(False)
+    chart.getTextFormat().getPortionFormat().setFontHeight(12)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    categories = ["North", "South", "East", "West"]
+    series_names = ["Series A", "Series B", "Series C"]
+    series_values = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]]
+
+    for category_index, category in enumerate(categories):
+        category_cell = workbook.getCell(0, category_index + 1, 0, category)
+        chart.getChartData().getCategories().add(category_cell)
+
+    for series_index, series_name in enumerate(series_names):
+        series_cell = workbook.getCell(0, 0, series_index + 1, series_name)
+        series = chart.getChartData().getSeries().add(series_cell, ChartType.ClusteredColumn)
+
+        for category_index, value in enumerate(series_values[series_index]):
+            value_cell = workbook.getCell(0, category_index + 1, series_index + 1, jpype.JDouble(value))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+        if series_index > 0:
+            # Κρύψτε τις στήλες του B και του C, αλλά διατηρήστε τις ετικέτες δεδομένων τους.
+            series.getFormat().getFill().setFillType(FillType.NoFill)
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+            label_format = series.getLabels().getDefaultDataLabelFormat()
+            label_format.setShowValue(True)
+            label_format.getTextFormat().getPortionFormat().setFontHeight(12)
+            label_fill = label_format.getTextFormat().getPortionFormat().getFillFormat()
+            label_fill.setFillType(FillType.Solid)
+            label_fill.getSolidFillColor().setColor(Color.BLACK)
+            label_format.setPosition(LegendDataLabelPosition.InsideBase)
+
+    # Στοίχιση και των τριών σειρών στα ίδια κέντρα κατηγοριών.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
+
+    # Χρησιμοποιήστε λιγότερες γραμμές πλέγματος για αυτό το συμπαγές παράδειγμα.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
+    chart.getAxes().getVerticalAxis().setMajorUnit(10)
+
+    # Κατανομή χώρου πάνω από το διάγραμμα για δύο σειρές ετικετών δεδομένων.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
+    chart.getPlotArea().setX(0.15)
+    chart.getPlotArea().setY(0.32)
+    chart.getPlotArea().setWidth(0.80)
+    chart.getPlotArea().setHeight(0.48)
+    chart.validateChartLayout()
+
+    for series_index in range(1, len(series_names)):
+        series = chart.getChartData().getSeries().get_Item(series_index)
+        row_top = 0.15 if series_index == 1 else 0.03
+
+        for category_index in range(len(categories)):
+            data_label = series.getDataPoints().get_Item(category_index).getLabel()
+            # Διατηρήστε την προεπιλεγμένη οριζόντια θέση. Το Y είναι μετατόπιση από
+            # την προεπιλεγμένη θέση ετικέτας, εκφρασμένη ως κλάσμα του ύψους του διαγράμματος.
+            data_label.setX(0)
+            data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
+
+        # Μόνο η επικεφαλίδα της σειράς είναι ξεχωριστό σχήμα κειμένου.
+        heading_y = chart.getY() + row_top * chart.getHeight()
+        row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
+        row_heading.getFillFormat().setFillType(FillType.NoFill)
+        row_heading.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        row_heading.addTextFrame(series_names[series_index])
+        row_heading.getTextFrame().getTextFrameFormat().setMarginTop(0)
+        row_heading.getTextFrame().getTextFrameFormat().setMarginBottom(0)
+        heading_format = row_heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        heading_format.setFontHeight(12)
+        heading_format.getFillFormat().setFillType(FillType.Solid)
+        heading_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Διάγραμμα στήλης με δύο σειρές ετικετών δεδομένων πάνω από την περιοχή σχεδίασης](multiple-rows-of-labels.png)
+
+## **Συχνές ερωτήσεις**
+
+**Πώς μπορώ να αποτρέψω την επικάλυψη ετικετών δεδομένων σε πυκνά διαγράμματα;**
+
+Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές οδηγίας και μειωμένο μέγεθος γραμματοσειράς· εάν χρειαστεί, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή κρίσιμα σημεία.
+
+**Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για μηδενικές, αρνητικές ή κενές τιμές;**
 
 Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν ορισμένο κανόνα.
 
-**Πώς μπορώ να εξασφαλίσω συνεπή μορφή ετικετών κατά την εξαγωγή σε PDF/εικόνες;**
+**Πώς μπορώ να διασφαλίσω συνεπές στυλ ετικέτας κατά την εξαγωγή σε PDF/εικόνες;**
 
-Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης για να αποφύγετε την εναλλακτική.
+Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης για να αποφύγετε εναλλακτικές γραμματοσειρές.

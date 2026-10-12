@@ -5,25 +5,25 @@ type: docs
 url: /ar/androidjava/chart-data-label/
 keywords:
 - مخطط
-- تسمية بيانات
+- تسمية البيانات
 - دقة البيانات
 - نسبة مئوية
 - مسافة التسمية
-- موضع التسمية
+- موقع التسمية
 - PowerPoint
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides لنظام Android عبر Java لإنشاء شرائح أكثر تفاعلاً."
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides لنظام Android عبر Java لإنشاء شرائح أكثر جاذبية."
 ---
-## **المقدمة**
+## **مقدمة**
 
-تُظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القراء على تحديد القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص التسمية، والتحكم في التسميات التي تتجاوز الحد الأقصى للمحور، وضبط تباعد تسميات محور الفئة، وتحديد موضع تسميات مخطط الفطيرة.
+تظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القراء على تحديد القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص التسمية، والتحكم في التسميات بما يتجاوز الحد الأقصى للمحور، وضبط تباعد تسميات محور الفئات، وتحديد موضع تسميات المخططات الدائرية.
 
-## **تعيين دقة القيم في تسميات مخطط البيانات**
+## **تعيين دقة البيانات في تسميات مخطط البيانات**
 
-استخدم [setNumberFormatOfValues](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) لتنسيق قيم السلسلة. يُنشئ هذا المثال مخططًا خطيًا ببيانات افتراضية، يعرض جدول البيانات الخاص به، ويفعل تسميات القيم للسلسلة الأولى. التنسيق `#,##0.00` يعرض فاصل الآلاف ومكانين عشريين دون تغيير القيم الأساسية.
+استخدم [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) لتنسيق قيم السلسلة. ينشئ هذا المثال مخططًا خطيًا ببيانات افتراضية، يعرض جدول البيانات الخاص به، ويفعل تسميات القيم للسلسلة الأولى. التنسيق `#,##0.00` يعرض فاصل آلاف منزلتين عشريتين دون تغيير القيم الأصلية.
 
 ```java
 import com.aspose.slides.*;
@@ -45,9 +45,9 @@ try {
 }
 ```
 
-## **عرض النسب المئوية كتسميات**
+## **عرض النسب المئوية كوسوم**
 
-لإنشاء مخطط عمود مكدس، احسب كل قيمة كنسبة مئوية من إجمالي الفئة الخاص بها وعيّن النص لإطار النص الذي تُعيده الدالة [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بخط بحجم 8 نقاط. يتم تخطي الفئات التي يكون مجموعها صفرًا لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيرت بيانات المخطط.
+للمخطط العمودي المتراكم، احسب كل قيمة كنسبة مئوية من إجمالي الفئة وعيّن النص إلى إطار النص الذي يُرجعه [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمنزلتين عشريتين بخط بحجم 8 نقاط. تُتخطى الفئات التي يكون مجموعها صفرًا لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيرت بيانات المخطط.
 
 ```java
 import com.aspose.slides.*;
@@ -104,11 +104,11 @@ try {
 }
 ```
 
-## **تعيين علامة النسبة المئوية في تسميات مخطط البيانات**
+## **تعيين علامة النسبة المئوية مع تسميات بيانات المخطط**
 
-عندما تُخزن القيم ككسرات، استخدم [setNumberFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) لعرض النسب المئوية. مرِّر `false` إلى الدالة [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) لتطبيق تنسيق التسمية بشكل مستقل عن خلايا المصدر.
+عند تخزين القيم ككسور، استخدم [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) لعرض النسب المئوية. مرّر `false` إلى [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) لتطبيق تنسيق التسمية بشكل مستقل عن خلايا المصدر.
 
-ينشئ هذا المثال مخطط عمود مكدس بنسبة 100٪ مع سلسلتين حمراء وزرقاء عبر أربع فئات. كل زوج من القيم يساوي 1. تنسيق التسمية `0.0%` يعرض 0.30 كـ 30.0٪، بينما يستخدم المحور الرأسي منزلتين عشريتين. تستخدم السلسلتان نصًا أبيضًا بحجم 10 نقاط للتسمية.
+ينشئ هذا المثال مخططًا عموديًا متراكمًا بنسبة 100٪ به سلاسل حمراء وزرقاء عبر أربع فئات. كل زوج من القيم يساوي 1. تنسيق التسمية `0.0%` يعرض 0.30 كـ30.0٪، بينما يستخدم المحور العمودي منزلتين عشريتين. تستخدم السلسلتان نصًا أبيض بحجم 10 نقاط.
 
 ```java
 import com.aspose.slides.*;
@@ -165,7 +165,7 @@ try {
 
 ## **قراءة النص الفعلي لتسميات البيانات**
 
-استخدم [getActualLabelText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) لاسترجاع النص الذي تُنتجه إعدادات تسمية البيانات. يكون ذلك مفيدًا عند استخراج التسميات للتقارير، أو البحث في محتوى العروض التقديمية، أو التحقق من صحة المخططات المُولدة. في المثال أدناه، يجمع تنسيق [تسمية البيانات الافتراضي](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idatalabelformat/) كلًا من اسم الفئة، اسم السلسلة، والقيمة. تُنسق إحدى النقاط قيمتها كنسبة مئوية، وتستخدم أخرى نصًا مخصصًا من الدالة [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+استخدم [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) لاسترداد النص الناتج عن إعدادات تسمية البيانات. يكون هذا مفيدًا عند استخراج التسميات للتقارير، أو البحث في محتوى العروض التقديمية، أو التحقق من صحة المخططات المُولدة. في المثال أدناه، يجمع [تنسيق تسمية البيانات](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) الافتراضي كل اسم فئة، اسم سلسلة، والقيمة. يُظهر أحد النقاط قيمته كنسبة مئوية، وآخر يستخدم نصًا مخصصًا من [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +225,15 @@ try {
 }
 ```
 
-العدد المخزن في نقطة البيانات يظل `0.75`، حتى عندما تُظهر تسميتها `75%` مع اسم الفئة واسم السلسلة. يستبدل النص المخصص نص التسمية المُولد. تُعيد الدالة [getActualLabelText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) سلسلة التسمية الناتجة في كلتا الحالتين. تحقق من الدالة [isVisible](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idatalabel/#isVisible--) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات المرئية فقط.
+يظل الرقم المخزن في نقطة البيانات `0.75`، حتى عندما تُظهر تسميةه `75%` مع أسماء الفئة والسلسلة. يستبدل النص المخصص نص التسمية المُولَّد. تُعيد [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) سلسلة التسمية الناتجة في كلتا الحالتين. تحقق من [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات الظاهرة فقط.
 
-## **التحكم في تسميات البيانات التي تتجاوز الحد الأقصى للمحور**
+## **التحكم في تسميات البيانات بما يتجاوز الحد الأقصى للمحور**
 
-عند تحديد نطاق المحور يدويًا، قد تتجاوز بعض نقاط البيانات الحد الأقصى له. استخدم [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) للتحكم فيما إذا كانت تسميات بياناتها تُعرض. يغيّر هذا الإعداد رؤية التسميات؛ لا يغيّر نطاق المحور أو القيم الأساسية للبيانات.
+عند تحديد نطاق المحور يدويًا، قد تتجاوز بعض نقاط البيانات حدَّه الأقصى. استخدم [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) للتحكم فيما إذا كانت تسميات البيانات تُظهر. هذا الإعداد يغيّر رؤية التسمية؛ لا يغيّر نطاق المحور ولا قيم البيانات الأساسية.
 
-يُنشئ المثال أدناه مخطط عمود مُجَمَّع ثنائي الأبعاد بقيم 60 و120. يمرّر `false` إلى الدالة [setAutomaticMaxValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) ويحدد الحد الأقصى إلى 100 باستخدام [setMaxValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) على المحور الرأسي. الشريحة الأولى تسمح بالتسميات التي تتجاوز الحد الأقصى؛ نسخة من تلك الشريحة تعطلها. تُحفظ كلتا الشريحتين في الملف `DataLabelsOverMaximum.pptx`.
+ينشئ المثال أدناه مخططًا عموديًا متجمعًا ثنائي الأبعاد بقيم 60 و120. يمرّر `false` إلى [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) ويضبط الحد الأقصى على 100 باستخدام [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) للمحور العمودي. الشريحة الأولى تسمح بتسميات تتجاوز الحد الأقصى؛ نسخة تلك الشريحة تُعطلها. تُحفظ كلتا الشريحتين في `DataLabelsOverMaximum.pptx`.
 
-فعّل تسميات القيم باستخدام [setShowValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). لا يُفعِّل إعداد مستوى المخطط عرض القيم بمفرده ولا يتجاوز إعداد التسمية الفردية إذا تم تعطيله. يُظهر هذا المثال القيم للسلسلة بأكملها ويستخدم [setPosition](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) لوضع التسميات في النهاية الخارجية لكل عمود.
+فعّل تسميات القيم باستخدام [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). إعداد مستوى المخطط لا يفعل عرض القيم بذاته ولا يتجاوز إلغاء تمكين عرض قيمة تسمية فردية. يُمكّن هذا المثال القيم لكامل السلسلة ويستخدم [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) لوضع التسميات عند الطرف الخارجي لكل عمود.
 
 ```java
 import com.aspose.slides.*;
@@ -282,19 +282,19 @@ try {
 }
 ```
 
-تظهر الصور التالية الشرائح المحفوظة التي تم عرضها بواسطة Microsoft PowerPoint. مع `true`، تكون التسمية **120** مرئية عند الحد العلوي؛ مع `false`، تكون مخفية. تظل التسمية **60** مرئية، يبقى الحد الأقصى للمحور **100**، وتبقى نقطة البيانات الثانية **120** في الحالتين.
+تظهر الصور التالية الشرائح المحفوظة التي عُرضت بواسطة Microsoft PowerPoint. مع `true`، تكون التسمية **120** مرئية عند الحد العلوي؛ مع `false`، تكون مخفية. تظل التسمية **60** مرئية، ويظل الحد الأقصى للمحور **100**، وتظل نقطة البيانات الثانية **120** في كِلا الحالتين.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![مخطط PowerPoint يُظهر تسمية القيمة 120 بحد أقصى للمحور 100](data-labels-over-maximum-true.png) | ![مخطط PowerPoint يُخفي تسمية القيمة 120 بحد أقصى للمحور 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-يستخدم هذا المثال مخطط عمود ثنائي الأبعاد مع محور قيم. المخططات التي لا تحتوي على محور قيم، مثل مخططات الفطيرة والدونات، ليس لديها حد أقصى للمحور لتقييده بهذه الطريقة.
+هذا المثال يستخدم مخططًا عموديًا ثنائي الأبعاد مع محور قيم. المخططات التي لا تحتوي على محور قيم، مثل المخططات الدائرية ومخططات الدونات، لا تملك حدًا أقصى للمحور يمكن تحديده بهذه الطريقة.
 {{% /alert %}}
 
-## **تعيين مسافة التسمية من المحور**
+## **تعيين مسافة التسمية عن المحور**
 
-استخدم [setLabelOffset](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) للتحكم في المسافة بين تسميات محور الفئة والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم الخط لتسميات المحور. يُنشئ هذا المثال مخطط عمود مُجَمَّع ويضبط إزاحة تسمية محور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئة بدلاً من التسميات المرتبطة بنقاط البيانات الفردية.
+استخدم [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) للتحكم في المسافة بين تسميات محور الفئات والمحور. القيمة نسبة مئوية من الحد الأقصى لحجم خط تسميات المحور. ينشئ هذا المثال مخططًا عموديًا متجمعًا ويضبط إزاحة تسمية المحور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئات بدلاً من التسميات المرتبطة بنقاط البيانات الفردية.
 
 ```java
 import com.aspose.slides.*;
@@ -314,9 +314,9 @@ try {
 
 ## **ضبط موقع التسمية**
 
-في مخطط الفطيرة، ضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط الربط.
+في مخطط دائري، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط القائد.
 
-يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع تسميتها خارج القطعة، ويضبط إزاحتها الأفقية والعمودية باستخدام [setX](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutable/#setX-float-) و[setY](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutable/#setY-float-). تُعد هذه الإزاحات نسبية إلى عرض وارتفاع المخطط على التوالي.
+يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع تسميتها خارج الشريحة، ويضبط إزاحتها الأفقية والرأسية باستخدام [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) و[setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). هذه الإزاحات نسبية إلى عرض وارتفاع المخطط على التوالي.
 
 ```java
 import com.aspose.slides.*;
@@ -340,18 +340,126 @@ try {
 }
 ```
 
-![مخطط فطيرة مع موضع تسمية بيانات معدل](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **الأسئلة الشائعة**
+## **إضافة عدة صفوف من تسميات البيانات فوق مخطط عمودي**
+
+ينشئ هذا المثال مخططًا عموديًا بصفين من تسميات البيانات فوق منطقة الرسم. تعرض السلسلة A الأعمدة المرئية، بينما توفر السلسلة B والسلسلة C التسميات الإضافية. تُخفى أعمدتهما بإزالة التعبئة والحد. تُحاذي الطريقة [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) جميع السلاسل الثلاثة إلى مراكز الفئات نفسها.
+
+تحجز إعدادات [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) مساحة لصفوف التسميات. بعد أن تحسب [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) المواضع الافتراضية، تحافظ [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) و[DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) على المحاذاة الأفقية وتطبق إزاحات رأسية لترتيب التسميات في صفين. تظل الأرقام تسميات بيانات مرتبطة بقيم السلسلة؛ فقط رؤوس الصفوف هي أشكال نصية منفصلة.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    String[] categories = {"North", "South", "East", "West"};
+    String[] seriesNames = {"Series A", "Series B", "Series C"};
+    double[][] seriesValues = {
+            {35, 42, 28, 47},
+            {22, 31, 19, 26},
+            {12, 16, 14, 18}
+    };
+
+    for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        IChartDataCell categoryCell = workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (int seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartDataCell seriesCell = workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, ChartType.ClusteredColumn);
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IChartDataCell valueCell = workbook.getCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        if (seriesIndex > 0) {
+            // إخفاء أعمدة B و C، مع الحفاظ على تسميات البيانات.
+            series.getFormat().getFill().setFillType(FillType.NoFill);
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
+            IFillFormat labelFill = series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(FillType.Solid);
+            labelFill.getSolidFillColor().setColor(Color.BLACK);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // محاذاة جميع السلاسل الثلاثة إلى نفس مراكز الفئات.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
+
+    // استخدام خطوط شبكة أقل لهذا المثال المدمج.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // حجز مساحة فوق الرسم لصفين من تسميات البيانات.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
+    chart.getPlotArea().setX(0.15f);
+    chart.getPlotArea().setY(0.32f);
+    chart.getPlotArea().setWidth(0.80f);
+    chart.getPlotArea().setHeight(0.48f);
+    chart.validateChartLayout();
+
+    for (int seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // الحفاظ على الموضع الأفقي الافتراضي. Y هو إزاحة من
+            // الموضع الافتراضي للتسمية، معبرًا عنه ككسر من ارتفاع المخطط.
+            dataLabel.setX(0);
+            dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
+        }
+
+        // فقط عنوان الصف هو شكل نص منفصل.
+        IAutoShape rowHeading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        IPortionFormat headingFormat = rowHeading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(FillType.Solid);
+        headingFormat.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
+## **الأسئلة المتكررة**
 
 **كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**
 
-اجمع بين وضعية التسميات التلقائية، وخطوط الربط، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للقيم المتطرفة أو النقاط الرئيسية.
+استخدم وضعية وضع التسميات التلقائية، خطوط القائد، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو أظهر التسميات فقط للقيم المتطرفة أو النقاط المفتاحية.
 
-**كيف يمكنني إيقاف تشغيل التسميات فقط للقيم الصفرية أو السالبة أو الفارغة؟**
+**كيف يمكنني تعطيل التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**
 
-قم بترشيح نقاط البيانات قبل تفعيل التسميات وأوقف عرض القيم التي تساوي 0 أو القيم السالبة أو القيم المفقودة وفقًا لقاعدة محددة.
+قم بترشيح نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم التي تساوي 0 أو قيم سلبية أو قيم مفقودة وفق قاعدة محددة.
 
-**كيف أضمن نمطًا ثابتًا للتسميات عند التصدير إلى PDF/صور؟**
+**كيف يمكنني ضمان نمط تسمية متسق عند التصدير إلى PDF/صور؟**
 
-حدد عائلة الخط وحجمه صراحةً وتأكد من توفر الخط في بيئة العرض لتجنب الاعتماد على الخطوط البديلة.
+حدد صراحةً عائلة الخط وحجمه وتأكد من توفر الخط في بيئة العرض لتجنب الاعتماد على الخطوط البديلة.

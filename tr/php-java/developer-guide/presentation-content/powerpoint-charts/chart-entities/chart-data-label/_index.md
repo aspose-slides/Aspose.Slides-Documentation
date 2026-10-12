@@ -1,5 +1,5 @@
 ---
-title: PHP Kullanarak Sunumlarda Grafik Veri Etiketlerini Yönetme
+title: PowerPoint Sunumlarında PHP Kullanarak Grafik Veri Etiketlerini Yönetme
 linktitle: Veri Etiketi
 type: docs
 url: /tr/php-java/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PowerPoint sunumlarına grafik veri etiketleri eklemeyi ve biçimlendirmeyi öğrenin; daha etkileyici slaytlar oluşturun."
+description: "Aspose.Slides for PHP via Java kullanarak PowerPoint sunumlarına grafik veri etiketleri eklemeyi ve biçimlendirmeyi öğrenin, daha etkileyici slaytlar oluşturun."
 ---
 ## **Giriş**
 
-Veri etiketleri, grafik serileri ve ayrı veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımlamasına ve grafiği anlamasına yardımcı olur. Bu makale, değerleri biçimlendirme, yüzde gösterme, etiket metnini okuma, eksen maksimumunun ötesinde etiketleri kontrol etme, kategori ekseni etiketi aralığını ayarlama ve pasta grafik etiketlerini konumlandırma konularını açıklar.
+Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımlamasına ve grafiği anlamasına yardımcı olur. Bu makale, değerlerin biçimlendirilmesi, yüzde gösterimi, etiket metninin okunması, eksen maksimumunun ötesindeki etiketlerin kontrolü, kategori ekseni etiketi aralığının ayarlanması ve pasta grafik etiketlerinin konumlandırılması konularını açıklar.
 
 ## **Grafik Veri Etiketlerinde Veri Hassasiyetini Ayarlama**
 
-Seri değerlerini biçimlendirmek için [setNumberFormatOfValues](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) kullanın. Bu örnek, varsayılan verilerle bir çizgi grafik oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir; temel değerleri değiştirmez.
+Seri değerlerini biçimlendirmek için [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) işlevini kullanın. Bu örnek, varsayılan verilerle bir çizgi grafiği oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir; temel değerleri değiştirmez.
 
 ```php
 use aspose\slides\Presentation;
@@ -48,7 +48,7 @@ try {
 
 ## **Yüzdeyi Etiket Olarak Görüntüleme**
 
-Yığılmış sütun grafik için, her değeri ilgili kategori toplamının yüzdesi olarak hesaplayın ve [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) tarafından döndürülen metin çerçevesine atayın. Bu örnek, varsayılan grafik verilerini kullanır ve yüzdeyi iki ondalık basamakla, 8 punto boyutunda gösterir. Toplamı sıfır olan kategoriler, bölme hatasını önlemek için atlanır. Grafik verileri değişirse özel etiket metnini yeniden hesaplayın.
+Yığılmış sütun grafiği için, her değeri kategori toplamının yüzde olarak hesaplayın ve metni [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) tarafından döndürülen metin çerçevesine atayın. Bu örnek, varsayılan grafik verilerini kullanır ve yüzde değerlerini iki ondalık basamakla, 8 puanlık bir yazı tipiyle gösterir. Toplamı sıfır olan kategoriler, bölme hatasından kaçınmak için atlanır. Grafik verileri değiştiğinde özel etiket metnini yeniden hesaplayın.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,9 +110,7 @@ try {
 
 ## **Grafik Veri Etiketlerinde Yüzde İşaretini Ayarlama**
 
-Değerler kesir olarak depolandığında, yüzde görüntülemek için [setNumberFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabelformat/#setNumberFormat) kullanın. Etiket biçimini kaynak hücrelerden bağımsız olarak uygulamak için [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) metodına `false` geçirin.
-
-Bu örnek, dört kategori boyunca kırmızı ve mavi seriler içeren %100 yığılmış sütun grafiği oluşturur. Her değer çifti 1'e eşittir. `0.0%` etiket biçimi 0.30 değerini 30.0% olarak gösterir, düşey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 punto etiket metni kullanır.
+Değerler kesir olarak saklandığında, yüzde göstermek için [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormat) işlevini kullanın. Etiket biçimini kaynak hücrelerden bağımsız olarak uygulamak için [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) işlevine `false` geçirin. Bu örnek, dört kategori boyunca kırmızı ve mavi serilere sahip %100 yığılmış sütun grafiği oluşturur. Her değer çifti 1’e toplanır. `0.0%` etiket biçimi, 0.30 değerini 30.0% olarak gösterirken, dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 puanlık etiket metni kullanır.
 
 ```php
 use aspose\slides\Presentation;
@@ -172,7 +170,7 @@ try {
 
 ## **Veri Etiketlerinin Gerçek Metnini Okuma**
 
-[getActualLabelText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabel/#getActualLabelText) metodunu kullanarak bir veri etiketinin ayarlarıyla oluşturulan metni alın. Bu, raporlar için etiketleri çıkarmak, sunum içeriğini aramak veya oluşturulan grafikleri doğrulamak için faydalıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimler, bir diğer ise [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) üzerinden özel metin kullanır.
+[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) işlevini kullanarak bir veri etiketinin ayarlarıyla oluşturulan metni alın. Bu, raporlar için etiketleri çıkarmak, sunum içeriğini aramak veya oluşturulan grafikleri doğrulamak istediğinizde faydalıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimler, diğer bir nokta ise [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) tarafından sağlanan özel metni kullanır.
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +234,15 @@ try {
 }
 ```
 
-Bir veri noktasında depolanan sayı `0.75` olarak kalır, etiketinde `75%` ve kategori ile seri adları gösterilsin bile. Özel metin, oluşturulan etiket metninin yerini alır. [getActualLabelText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabel/#getActualLabelText) her iki durumda da sonuç etiket dizesini döndürür. Görünür etiketleri yalnızca çıkarmak istediğinizde, yukarıda gösterildiği gibi [isVisible](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabel/#isVisible) metodunu ayrı ayrı kontrol edin.
+Bir veri noktasında depolanan sayı `0.75` olarak kalır, etiketinde `75%` ve kategori ile seri adları gösterilse bile. Özel metin, oluşturulan etiket metninin yerini alır. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) her iki durumda da sonuç etiket dizesini döndürür. Sadece görünür etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#isVisible) ayrı ayrı kontrol edin.
 
 ## **Eksen Maksimumunun Ötesindeki Veri Etiketlerini Kontrol Etme**
 
-Bir eksen aralığını elle sınırladığınızda, bazı veri noktaları maksimumu aşabilir. Bu noktaların veri etiketlerinin gösterilip gösterilmeyeceğini kontrol etmek için [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) kullanın. Bu ayar etiket görünürlüğünü değiştirir; eksen aralığını veya temel veri değerlerini değiştirmez.
+Eksen aralığını manuel olarak sınırladığınızda, bazı veri noktaları maksimumu aşabilir. Bu noktaların veri etiketlerinin gösterilip gösterilmeyeceğini kontrol etmek için [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) işlevini kullanın. Bu ayar etiketin görünürlüğünü değiştirir; eksen aralığını veya temel veri değerlerini değiştirmez.
 
-Aşağıdaki örnek, 60 ve 120 değerlerine sahip 2B toplu sütun grafiği oluşturur. Düşey eksende [setAutomaticMaxValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/axis/#setAutomaticMaxValue) metoduna `false` geçirir ve maksimumu 100 olarak [setMaxValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/axis/#setMaxValue) ile ayarlar. İlk slayt, maksimumun ötesindeki etiketlere izin verir; bu slaydın bir kopyası ise onları devre dışı bırakır. Her iki slayt da `DataLabelsOverMaximum.pptx` dosyasına kaydedilir.
+Aşağıdaki örnek, 60 ve 120 değerlerine sahip 2D kümelenmiş sütun grafiği oluşturur. Dikey eksende [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setAutomaticMaxValue) işlevine `false` geçirir ve maksimumu 100 olarak [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setMaxValue) ile ayarlar. İlk slayt, maksimumun üzerindeki etiketlere izin verir; bu slaytın bir kopyası ise bunları devre dışı bırakır. Her iki slayt da `DataLabelsOverMaximum.pptx` dosyasına kaydedilir.
 
-Değer etiketlerini [setShowValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabelformat/#setShowValue) ile etkinleştirin. Grafik düzeyindeki ayar, tek başına değer gösterimini etkinleştirmez veya bireysel bir etiketin devre dışı değer gösterimini geçersiz kılmaz. Bu örnek, tüm seri için değerleri etkinleştirir ve etiketleri her sütunun dış ucuna yerleştirmek için [setPosition](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabelformat/#setPosition) kullanır.
+Değer etiketlerini [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) ile etkinleştirin. Grafik düzeyindeki bu ayar, tek başına değer gösterimini açmaz ve bireysel bir etiketin devre dışı bırakılmış değer gösterimini geçersiz kılmaz. Bu örnek, tüm seri için değerleri etkinleştirir ve etiketleri her sütunun dış ucuna yerleştirmek için [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setPosition) kullanır.
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +294,19 @@ try {
 }
 ```
 
-Aşağıdaki görüntüler, Microsoft PowerPoint tarafından render edilen kaydedilmiş slaytları gösterir. `true` ile **120** etiketi üst sınırda görünür; `false` ile gizlenir. **60** etiketi görünür kalır, eksen maksimumu **100** olarak kalır ve ikinci veri noktası her iki durumda da **120** olur.
+Aşağıdaki görseller, Microsoft PowerPoint tarafından oluşturulan kaydedilmiş slaytları gösterir. `true` ile etiket **120** üst sınırda görünür; `false` ile gizlenir. Etiket **60** görünür kalır, eksen maksimumu **100** olarak kalır ve ikinci veri noktası her iki durumda da **120** olarak kalır.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint grafiği, eksen maksimumu 100 iken değer etiketi 120'yi gösteriyor](data-labels-over-maximum-true.png) | ![PowerPoint grafiği, eksen maksimumu 100 iken değer etiketi 120'yi gizliyor](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Bu örnek, değer ekseni olan 2B sütun grafiği kullanır. Değer ekseni olmayan grafikler, örneğin pasta ve halka grafikler, bu şekilde sınırlanacak bir eksen maksimumuna sahip değildir.
+Bu örnek, değer ekseni olan 2D sütun grafiği kullanır. Değer ekseni olmayan grafikler, örneğin pasta ve halka grafikler, bu şekilde sınırlanabilecek bir eksen maksimumuna sahip değildir.
 {{% /alert %}}
 
-## **Etiketin Eksenle Olan Mesafesini Ayarlama**
+## **Etiketi Eksenden Uzaklık Olarak Ayarlama**
 
-[setLabelOffset](https://reference.aspose.com/slides/tr/php-java/aspose.slides/axis/#setLabelOffset) kullanarak kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol edin. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun yüzdesidir. Bu örnek, toplu sütun grafik oluşturur ve yatay eksen etiketi kaydırmasını 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına bağlı etiketler yerine kategori ekseni etiketlerini etkiler.
+[setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setLabelOffset) işlevini kullanarak kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol edin. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun bir yüzdesidir. Bu örnek, kümelenmiş sütun grafiği oluşturur ve yatay eksen etiketi ofsetini 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına ekli etiketler yerine kategori ekseni etiketlerini etkiler.
 
 ```php
 use aspose\slides\Presentation;
@@ -330,9 +328,9 @@ try {
 
 ## **Etiket Konumunu Ayarlama**
 
-Bir pasta grafiğinde, veri etiketlerinin konumlarını ayarlayarak boşlukları iyileştirin ve lider çizgileri için yer açın.
+Pasta grafiğinde, veri etiketi konumlarını ayarlayarak boşlukları iyileştirin ve lider çizgileri için yer açın.
 
-Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına konumlandırır ve yatay ve dikey kaydırmalarını [setX](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabel/#setX) ve [setY](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datalabel/#setY) kullanarak ayarlar. Bu kaydırmalar, sırasıyla grafik genişliği ve yüksekliğine göre görecelidir.
+Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına yerleştirir ve yatay ve dikey ofsetlerini [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) ve [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY) kullanarak ayarlar. Bu ofsetler, sırasıyla grafiğin genişliği ve yüksekliğiyle ilişkilidir.
 
 ```php
 use aspose\slides\Presentation;
@@ -359,15 +357,135 @@ try {
 }
 ```
 
-![Ayarlanmış veri etiketi konumuna sahip pasta grafik](pie-chart-adjusted-label.png)
+![Ayarlanmış veri etiketi konumlu pasta grafiği](pie-chart-adjusted-label.png)
+
+## **Bir Sütun Grafiği Üstünde Birden Fazla Satır Veri Etiketi Ekleme**
+
+Bu örnek, çizim alanının üstünde iki satır veri etiketi olan bir sütun grafiği oluşturur. Seri A görünür sütunları gösterirken, Seri B ve Seri C ek etiketleri sağlar. Bu serilerin sütunları, doldurma ve kenarlık kaldırılarak gizlenir. [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) yöntemi, üç seriyi aynı kategori merkezleriyle hizalar.
+
+[ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) ayarları etiket satırları için alan ayırır. [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#validateChartLayout) varsayılan konumları hesapladıktan sonra, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) ve [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY) yatay hizalamayı korur ve iki satırda etiketleri düzenlemek için dikey ofset uygular. Sayılar, seri değerlerine bağlı veri etiketleri olarak kalır; yalnızca satır başlıkları ayrı metin şekilleridir.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\LayoutTargetType;
+use aspose\slides\ShapeType;
+use aspose\slides\SaveFormat;
+
+$colors = java("java.awt.Color");
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 40, 40, 640, 200);
+    $chart->setTitle(false);
+    $chart->setLegend(false);
+    $chart->getTextFormat()->getPortionFormat()->setFontHeight(12);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $categories = [ "North", "South", "East", "West" ];
+    $seriesNames = [ "Series A", "Series B", "Series C" ];
+    $seriesValues = [
+        [ 35, 42, 28, 47 ],
+        [ 22, 31, 19, 26 ],
+        [ 12, 16, 14, 18 ]
+    ];
+    
+    for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
+        $categoryCell = $workbook->getCell(0, $categoryIndex + 1, 0, $categories[$categoryIndex]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+    }
+
+    for ($seriesIndex = 0; $seriesIndex < count($seriesNames); $seriesIndex++) {
+        $seriesCell = $workbook->getCell(0, 0, $seriesIndex + 1, $seriesNames[$seriesIndex]);
+        $series = $chart->getChartData()->getSeries()->add($seriesCell, ChartType::ClusteredColumn);
+
+        for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
+            $valueCell = $workbook->getCell(0, $categoryIndex + 1, $seriesIndex + 1, $seriesValues[$seriesIndex][$categoryIndex]);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+        }
+
+        if ($seriesIndex > 0) {
+            // B ve C sütunlarını gizle, ancak veri etiketlerini tut.
+            $series->getFormat()->getFill()->setFillType(FillType::NoFill);
+            $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+            $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+            $labelFormat->setShowValue(true);
+            $labelFormat->getTextFormat()->getPortionFormat()->setFontHeight(12);
+            $labelFill = $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat();
+            $labelFill->setFillType(FillType::Solid);
+            $labelFill->getSolidFillColor()->setColor($colors->BLACK);
+            $labelFormat->setPosition(LegendDataLabelPosition::InsideBase);
+        }
+    }
+
+    // Üç seriyi aynı kategori merkezleriyle hizala.
+    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
+
+    // Bu kompakt örnek için daha az ızgara çizgisi kullan.
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
+
+    // Veri etiketleri için iki satır boşluk ayırmak üzere çizim alanının üstünde alan ayır.
+    $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
+    $chart->getPlotArea()->setX(0.15);
+    $chart->getPlotArea()->setY(0.32);
+    $chart->getPlotArea()->setWidth(0.80);
+    $chart->getPlotArea()->setHeight(0.48);
+    $chart->validateChartLayout();
+
+    $chartX = java_values($chart->getX());
+    $chartY = java_values($chart->getY());
+    $chartHeight = java_values($chart->getHeight());
+    for ($seriesIndex = 1; $seriesIndex < count($seriesNames); $seriesIndex++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($seriesIndex);
+        $rowTop = $seriesIndex == 1 ? 0.15 : 0.03;
+
+        for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
+            $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
+            // Varsayılan yatay konumu koru. Y, şu konumdan bir offset'tir
+            // varsayılan etiket konumundan, grafik yüksekliği oranı olarak ifade edilen bir offset.
+            $actualY = java_values($dataLabel->getActualY());
+            $dataLabel->setX(0);
+            $dataLabel->setY($rowTop - $actualY / $chartHeight);
+        }
+
+        // Sadece satır başlığı ayrı bir metin şeklidir.
+        $rowHeading = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $chartX, $chartY + $rowTop * $chartHeight, 85, 18);
+        $rowHeading->getFillFormat()->setFillType(FillType::NoFill);
+        $rowHeading->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+        $rowHeading->addTextFrame($seriesNames[$seriesIndex]);
+        $rowHeading->getTextFrame()->getTextFrameFormat()->setMarginTop(0);
+        $rowHeading->getTextFrame()->getTextFrameFormat()->setMarginBottom(0);
+        $headingFormat = $rowHeading->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
+        $headingFormat->setFontHeight(12);
+        $headingFormat->getFillFormat()->setFillType(FillType::Solid);
+        $headingFormat->getFillFormat()->getSolidFillColor()->setColor($colors->BLACK);
+    }
+
+    $presentation->save("multiple-rows-of-labels.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+![Çizim alanının üstünde iki satır veri etiketi bulunan sütun grafiği](multiple-rows-of-labels.png)
 
 ## **SSS**
 
-**Yoğun grafiklerde veri etiketlerinin üst üste binmesini nasıl önleyebilirim?**  
-Otomatik etiket yerleştirmeyi, lider çizgileri ve küçültülmüş yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca aşırı değerler veya ana noktalar için etiketleri gösterin.
+**Yoğun grafiklerde veri etiketlerinin çakışmasını nasıl önleyebilirim?**  
+Otomatik etiket yerleştirme, lider çizgileri ve küçültülmüş yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç değerler ve kritik noktalar için etiket gösterin.
 
-**Sıfır, negatif veya boş değerler için etiketleri yalnızca nasıl devre dışı bırakabilirim?**  
-Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerler için görüntülemeyi kapatın.
+**Sıfır, negatif veya boş değerler için etiketleri nasıl devre dışı bırakabilirim?**  
+Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerlerin görüntülenmesini kapatın.
 
-**PDF/görsellere dışa aktarırken tutarlı bir etiket stili nasıl sağlanır?**  
-Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve geri dönüşümden kaçınmak için yazı tipinin render ortamında mevcut olduğunu doğrulayın.
+**PDF/görüntülere dışa aktarırken tutarlı bir etiket stili nasıl sağlarım?**  
+Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve yedekleme olmaması için fontun render ortamında mevcut olduğundan emin olun.

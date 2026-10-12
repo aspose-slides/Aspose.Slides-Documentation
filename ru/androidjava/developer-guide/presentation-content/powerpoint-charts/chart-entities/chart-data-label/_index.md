@@ -15,15 +15,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: Узнайте, как добавлять и форматировать метки данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для Android на Java, чтобы сделать слайды более привлекательными.
+description: "Узнайте, как добавлять и форматировать метки данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для Android на Java, чтобы сделать слайды более интересными."
 ---
 ## **Введение**
 
-Метки данных отображают информацию о сериях диаграммы и отдельных точках данных, помогая читателям идентифицировать значения и понимать диаграмму. Эта статья объясняет, как форматировать значения, отображать проценты, считывать текст метки, управлять метками за пределами максимума оси, регулировать интервал меток оси категорий и позиционировать метки круговой диаграммы.
+Метки данных отображают информацию о серии диаграммы и отдельных точках данных, помогая читателям определять значения и понимать диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, считывать текст метки, управлять метками за пределами максимума оси, регулировать интервал меток оси категорий и позиционировать метки на круговой диаграмме.
 
 ## **Установить точность данных в метках диаграммы**
 
-Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) для форматирования значений серии. В этом примере создаётся линейная диаграмма с данными по умолчанию, отображается её таблица данных и включаются метки значений для первой серии. Формат `#,##0.00` выводит разделитель тысяч и два знака после запятой без изменения базовых значений.
+Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) для форматирования значений серии. Этот пример создает линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает метки значений для первой серии. Формат `#,##0.00` отображает разделитель тысяч и два знака после запятой, не изменяя исходные значения.
 
 ```java
 import com.aspose.slides.*;
@@ -47,7 +47,7 @@ try {
 
 ## **Отображать проценты в виде меток**
 
-Для сложенной столбчатой диаграммы вычислите каждое значение как процент от общей суммы категории и назначьте текст фрейму текста, возвращаемому методом [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). В этом примере используется исходный набор данных диаграммы и отображаются проценты с двумя знаками после запятой шрифтом размером 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. Пересчитайте пользовательский текст метки, если данные диаграммы изменятся.
+Для столбчатой диаграммы с накоплением вычислите каждое значение как процент от общей суммы своей категории и присвойте текст возвращаемой текстовой рамке, полученной с помощью [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя знаками после запятой шрифтом 8 пунктов. Категории с общей суммой, равной нулю, пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы пересчитывайте пользовательский текст метки.
 
 ```java
 import com.aspose.slides.*;
@@ -104,11 +104,11 @@ try {
 }
 ```
 
-## **Установить знак процента в метках данных диаграммы**
+## **Установить знак процента в метках диаграммы**
 
-Когда значения хранятся в виде дробей, используйте [setNumberFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) для отображения процентов. Передайте `false` в метод [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-), чтобы применить формат метки независимо от исходных ячеек.
+Когда значения хранятся в виде дробей, используйте [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) для отображения процентов. Передайте `false` в [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-), чтобы применять формат метки независимо от ячеек-источников.
 
-В этом примере создаётся 100% сложенная столбчатая диаграмма с красными и синими сериями для четырёх категорий. Каждая пара значений в сумме даёт 1. Формат метки `0.0%` отображает 0.30 как 30.0%, тогда как вертикальная ось использует два знака после запятой. Обе серии используют белый текст метки размером 10 пунктов.
+Этот пример создает 100% столбчатую диаграмму с накоплением, с красными и синими сериями в четырёх категориях. Каждая пара значений в сумме дает 1. Формат метки `0.0%` отображает 0.30 как 30.0%, тогда как вертикальная ось использует два знака после запятой. Обе серии используют белый текст метки размером 10 пунктов.
 
 ```java
 import com.aspose.slides.*;
@@ -163,9 +163,9 @@ try {
 }
 ```
 
-## **Читать фактический текст меток данных**
+## **Получить фактический текст меток данных**
 
-Используйте [getActualLabelText](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) для получения текста, сформированного настройками метки данных. Это полезно при извлечении меток для отчётов, поиске содержимого презентации или проверке сгенерированных диаграмм. В примере ниже стандартный [формат метки данных](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/idatalabelformat/) комбинирует имя каждой категории, имя серии и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Используйте [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) для получения текста, созданного настройками метки данных. Это полезно при извлечении меток для отчетов, поиске содержания презентаций или валидации сгенерированных диаграмм. В примере ниже формат метки данных по умолчанию [формат метки данных](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) объединяет название каждой категории, название серии и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +225,15 @@ try {
 }
 ```
 
-Число, хранящееся в точке данных, остаётся `0.75`, даже если её метка отображает `75%` вместе с именами категории и серии. Пользовательский текст заменяет сгенерированный текст метки. [getActualLabelText](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) возвращает полученную строку метки в любом случае. Проверяйте [isVisible](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/idatalabel/#isVisible--) отдельно, как показано выше, когда нужно извлекать только видимые метки.
+Число, хранящееся в точке данных, остаётся `0.75`, даже когда её метка показывает `75%` вместе с названиями категории и серии. Пользовательский текст заменяет сгенерированный текст метки. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) возвращает полученную строку метки в любом случае. Проверяйте [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) отдельно, как показано выше, когда нужно извлекать только видимые метки.
 
 ## **Управление метками данных за пределами максимума оси**
 
-Когда диапазон оси ограничивается вручную, некоторые точки данных могут превышать его максимум. Используйте [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) для управления отображением их меток данных. Эта настройка меняет видимость метки; она не изменяет диапазон оси или базовые значения данных.
+Когда вы ограничиваете диапазон оси вручную, некоторые точки данных могут превышать её максимум. Используйте [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) для управления тем, отображаются ли их метки данных. Эта настройка меняет видимость меток; она не изменяет диапазон оси или исходные значения данных.
 
-В примере ниже создаётся 2D сгруппированная столбчатая диаграмма со значениями 60 и 120. Метод [setAutomaticMaxValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) получает `false`, а максимальное значение оси задаётся 100 с помощью [setMaxValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) на вертикальной оси. На первом слайде разрешены метки за пределами максимума; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
+Пример ниже создает 2D сгруппированную столбчатую диаграмму со значениями 60 и 120. Он передаёт `false` в [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) и задаёт максимум 100 с помощью [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) на вертикальной оси. На первом слайде разрешены метки за пределами максимума; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
 
-Включите метки значений с помощью [setShowValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Настройка уровня диаграммы сама по себе не активирует отображение значений и не переопределяет отключённое отображение значения отдельной метки. В этом примере значения включаются для всей серии, а [setPosition](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) используется для размещения меток во внешнем конце каждого столбца.
+Включите метки значений с помощью [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Настройка уровня диаграммы не активирует отображение значений сама по себе и не переопределяет отключённое отображение значений отдельной метки. Этот пример включает значения для всей серии и использует [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) для размещения меток на внешнем конце каждого столбца.
 
 ```java
 import com.aspose.slides.*;
@@ -282,19 +282,19 @@ try {
 }
 ```
 
-Ниже представлены изображения сохранённых слайдов, отрендеренных в Microsoft PowerPoint. При `true` метка **120** видна у верхней границы; при `false` она скрыта. Метка **60** остаётся видимой, максимум оси остаётся **100**, а второе значение данных остаётся **120** в обоих случаях.
+Ниже показаны изображения сохранённых слайдов, отрисованных в Microsoft PowerPoint. При `true` метка **120** видна у верхней границы; при `false` она скрыта. Метка **60** остаётся видимой, максимум оси остаётся **100**, и вторую точку данных по‑прежнему составляет **120** в обоих случаях.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Диаграмма PowerPoint, показывающая метку значения 120 при максимуме оси 100](data-labels-over-maximum-true.png) | ![Диаграмма PowerPoint, скрывающая метку значения 120 при максимуме оси 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-В этом примере использована 2D столбчатая диаграмма с осью значений. Диаграммы без оси значений, такие как круговые и пончиковые диаграммы, не имеют максимума оси, который можно ограничивать таким образом.
+В этом примере используется 2D столбчатая диаграмма со значительной осью. Диаграммы без оси значений, такие как круговые и кольцевые диаграммы, не имеют максимального значения оси, которое можно ограничить таким образом.
 {{% /alert %}}
 
 ## **Установить расстояние метки от оси**
 
-Используйте [setLabelOffset](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) для управления расстоянием между метками оси категорий и самой осью. Значение задаётся в процентах от максимального размера шрифта меток оси. В этом примере создаётся сгруппированная столбчатая диаграмма и устанавливается смещение меток горизонтальной оси равным 500. Эта настройка влияет на метки оси категорий, а не на метки, прикреплённые к отдельным точкам данных.
+Используйте [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) для управления расстоянием между метками оси категорий и самой осью. Значение задаётся в процентах от максимального размера шрифта меток оси. Этот пример создаёт сгруппированную столбчатую диаграмму и устанавливает смещение метки горизонтальной оси в 500. Эта настройка влияет на метки оси категорий, а не на метки, привязанные к отдельным точкам данных.
 
 ```java
 import com.aspose.slides.*;
@@ -312,11 +312,11 @@ try {
 }
 ```
 
-## **Регулировать расположение метки**
+## **Регулировка расположения метки**
 
-На круговой диаграмме скорректируйте позиции меток данных, чтобы улучшить интервалы и освободить место для выноски.
+На круговой диаграмме отрегулируйте положение меток данных, чтобы улучшить интервалы и освободить место для линий‑выноски.
 
-В этом примере отображается значение первой точки данных, её метка размещается за пределами сектора, а горизонтальное и вертикальное смещения регулируются с помощью [setX](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutable/#setX-float-) и [setY](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Эти смещения относятся соответственно к ширине и высоте диаграммы.
+Этот пример отображает значение первой точки данных, размещает её метку за пределами сектора и регулирует её горизонтальное и вертикальное смещение с помощью [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) и [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
 
 ```java
 import com.aspose.slides.*;
@@ -340,15 +340,123 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Круговая диаграмма с отрегулированным положением метки данных](pie-chart-adjusted-label.png)
+
+## **Добавить несколько строк меток над столбчатой диаграммой**
+
+Этот пример создаёт столбчатую диаграмму с двумя строками меток над областью построения. Серия A отображает видимые столбцы, а серии B и C предоставляют дополнительные метки. Их столбцы скрыты за счёт удаления заливки и контура. Метод [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) выравнивает все три серии по одинаковым центрам категорий.
+
+Настройки [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) резервируют пространство для строк меток. После того как [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) вычисляет позиции по умолчанию, [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) и [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) сохраняют горизонтальное выравнивание и применяют вертикальные смещения для размещения меток в две строки. Числа остаются метками данных, привязанными к значениям серий; только заголовки строк представляют отдельные текстовые фигуры.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    String[] categories = {"North", "South", "East", "West"};
+    String[] seriesNames = {"Series A", "Series B", "Series C"};
+    double[][] seriesValues = {
+            {35, 42, 28, 47},
+            {22, 31, 19, 26},
+            {12, 16, 14, 18}
+    };
+
+    for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        IChartDataCell categoryCell = workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (int seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartDataCell seriesCell = workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, ChartType.ClusteredColumn);
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IChartDataCell valueCell = workbook.getCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        if (seriesIndex > 0) {
+            // Скрыть столбцы B и C, но оставить их метки данных.
+            series.getFormat().getFill().setFillType(FillType.NoFill);
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
+            IFillFormat labelFill = series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(FillType.Solid);
+            labelFill.getSolidFillColor().setColor(Color.BLACK);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // Выравнить все три серии с одинаковыми центрами категорий.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
+
+    // Использовать меньше линий сетки для этого компактного примера.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // Зарезервировать пространство над областью построения для двух строк меток данных.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
+    chart.getPlotArea().setX(0.15f);
+    chart.getPlotArea().setY(0.32f);
+    chart.getPlotArea().setWidth(0.80f);
+    chart.getPlotArea().setHeight(0.48f);
+    chart.validateChartLayout();
+
+    for (int seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // Сохранить горизонтальное положение по умолчанию. Y — смещение от
+            // позиции метки по умолчанию, выраженное в долях высоты диаграммы.
+            dataLabel.setX(0);
+            dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
+        }
+
+        // Только заголовок строки является отдельной текстовой фигурой.
+        IAutoShape rowHeading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        IPortionFormat headingFormat = rowHeading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(FillType.Solid);
+        headingFormat.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Столбчатая диаграмма с двумя строками меток над областью построения](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Как предотвратить наложение меток данных на плотных диаграммах?**  
-Комбинируйте автоматическое размещение меток, выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте метки только для экстремальных значений или ключевых точек.
+**Как предотвратить наложение меток данных на плотно заполненных диаграммах?**  
+Сочетайте автоматическое размещение меток, линии‑выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте метки только для экстремальных значений или ключевых точек.
 
 **Как отключить метки только для нулевых, отрицательных или пустых значений?**  
-Отфильтруйте точки данных перед включением меток и отключите отображение для значений 0, отрицательных значений или отсутствующих данных в соответствии с заданным правилом.
+Отфильтруйте точки данных перед включением меток и отключите отображение для значений 0, отрицательных значений или отсутствующих значений в соответствии с определённым правилом.
 
-**Как обеспечить согласованный стиль меток при экспорте в PDF/изображения?**  
-Явно задайте семейство шрифтов и размер, и проверьте, что шрифт доступен в среде рендеринга, чтобы избежать подстановки.
+**Как обеспечить единообразный стиль меток при экспорте в PDF/изображения?**  
+Явно задайте семейство шрифта и размер, а также проверьте, что шрифт доступен в среде рендеринга, чтобы избежать подстановки.

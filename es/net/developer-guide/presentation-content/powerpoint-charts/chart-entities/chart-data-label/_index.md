@@ -15,15 +15,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a añadir y dar formato a las etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para .NET para crear diapositivas más atractivas."
+description: "Aprenda a añadir y dar formato a las etiquetas de datos de los gráficos en presentaciones de PowerPoint usando Aspose.Slides para .NET para diapositivas más atractivas."
 ---
 ## **Introducción**
 
-Las etiquetas de datos muestran información sobre las series del gráfico y los puntos de datos individuales, ayudando a los lectores a identificar los valores y comprender el gráfico. Este artículo explica cómo dar formato a los valores, mostrar porcentajes, leer el texto de la etiqueta, controlar las etiquetas más allá del máximo del eje, ajustar el espaciado de las etiquetas del eje de categorías y posicionar las etiquetas de los gráficos de sectores.
+Las etiquetas de datos muestran información sobre series del gráfico y puntos de datos individuales, ayudando a los lectores a identificar valores y comprender el gráfico. Este artículo explica cómo dar formato a los valores, mostrar porcentajes, leer el texto de la etiqueta, controlar etiquetas más allá del máximo del eje, ajustar el espaciado de las etiquetas del eje de categorías y posicionar las etiquetas de los gráficos circulares.
 
-## **Establecer la precisión de los valores en las etiquetas de datos del gráfico**
+## **Establecer la precisión de los datos en las etiquetas de datos del gráfico**
 
-Utilice [NumberFormatOfValues](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/numberformatofvalues/) para dar formato a los valores de la serie. Este ejemplo crea un gráfico de líneas con datos predeterminados, muestra su tabla de datos y habilita las etiquetas de valores para la primera serie. El formato `#,##0.00` muestra un separador de miles y dos decimales sin cambiar los valores subyacentes.
+Utilice [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) para dar formato a los valores de la serie. Este ejemplo crea un gráfico de líneas con datos predeterminados, muestra su tabla de datos y habilita las etiquetas de valor para la primera serie. El formato `#,##0.00` muestra un separador de miles y dos decimales sin cambiar los valores subyacentes.
 
 ```csharp
 using Aspose.Slides;
@@ -43,9 +43,9 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Mostrar porcentajes como etiquetas**
+## **Mostrar el porcentaje como etiquetas**
 
-Para un gráfico de columnas apiladas, calcule cada valor como porcentaje del total de su categoría y asigne el texto a [TextFrameForOverriding](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Este ejemplo usa los datos del gráfico predeterminados y muestra los porcentajes con dos decimales en una fuente de 8 puntos. Las categorías con un total de cero se omiten para evitar la división por cero. Vuelva a calcular el texto de la etiqueta personalizada si los datos del gráfico cambian.
+Para un gráfico de columnas apiladas, calcule cada valor como porcentaje del total de su categoría y asigne el texto a [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Este ejemplo utiliza los datos predeterminados del gráfico y muestra los porcentajes con dos decimales en una fuente de 8 puntos. Las categorías con un total de cero se omiten para evitar la división por cero. Recalcule el texto personalizado de la etiqueta si los datos del gráfico cambian.
 
 ```csharp
 using System;
@@ -108,9 +108,9 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 
 ## **Establecer el signo de porcentaje en las etiquetas de datos del gráfico**
 
-Cuando los valores se almacenan como fracciones, use [NumberFormat](https://reference.aspose.com/slides/es/net/aspose.slides.charts/idatalabelformat/numberformat/) para mostrar porcentajes. Establezca [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/es/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) a `false` para aplicar el formato de la etiqueta de forma independiente de las celdas de origen.
+Cuando los valores se almacenan como fracciones, utilice [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) para mostrarlos como porcentajes. Establezca [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) a `false` para aplicar el formato de la etiqueta independientemente de las celdas de origen.
 
-Este ejemplo crea un gráfico de columnas apiladas al 100 % con series roja y azul en cuatro categorías. Cada par de valores suma 1. El formato de etiqueta `0.0%` muestra 0.30 como 30.0 %, mientras que el eje vertical usa dos decimales. Ambas series usan texto de etiqueta blanco, de 10 puntos.
+Este ejemplo crea un gráfico de columnas apiladas al 100 % con series rojas y azules en cuatro categorías. Cada par de valores suma 1. El formato de etiqueta `0.0%` muestra 0.30 como 30.0 %, mientras que el eje vertical usa dos decimales. Ambas series utilizan texto de etiqueta blanco de 10 puntos.
 
 ```csharp
 using System.Drawing;
@@ -168,7 +168,7 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 
 ## **Leer el texto real de las etiquetas de datos**
 
-Use [GetActualLabelText](https://reference.aspose.com/slides/es/net/aspose.slides.charts/idatalabel/getactuallabeltext/) para obtener el texto generado por la configuración de una etiqueta de datos. Esto es útil al extraer etiquetas para informes, buscar contenido en la presentación o validar gráficos generados. En el ejemplo a continuación, el [formato de etiqueta de datos](https://reference.aspose.com/slides/es/net/aspose.slides.charts/idatalabelformat/) predeterminado combina el nombre de cada categoría, el nombre de la serie y el valor. Un punto formatea su valor como porcentaje, y otro usa texto personalizado de [TextFrameForOverriding](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Utilice [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) para obtener el texto generado por la configuración de una etiqueta de datos. Esto es útil al extraer etiquetas para informes, buscar contenido en la presentación o validar gráficos generados. En el ejemplo siguiente, el [formato de etiqueta de datos](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) predeterminado combina el nombre de cada categoría, el nombre de la serie y el valor. Un punto formatea su valor como porcentaje y otro utiliza texto personalizado de [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -222,15 +222,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-El número almacenado en un punto de datos sigue siendo `0.75`, incluso cuando su etiqueta muestra `75 %` junto con los nombres de categoría y serie. El texto personalizado reemplaza el texto de etiqueta generado. [GetActualLabelText](https://reference.aspose.com/slides/es/net/aspose.slides.charts/idatalabel/getactuallabeltext/) devuelve la cadena de etiqueta resultante en cualquier caso. Compruebe [IsVisible](https://reference.aspose.com/slides/es/net/aspose.slides.charts/idatalabel/isvisible/) por separado, como se muestra arriba, cuando quiera extraer solo etiquetas visibles.
+El número almacenado en un punto de datos sigue siendo `0.75`, incluso cuando su etiqueta muestra `75%` junto con los nombres de categoría y serie. El texto personalizado sustituye al texto de etiqueta generado. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) devuelve la cadena de etiqueta resultante en ambos casos. Compruebe [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) por separado, como se muestra arriba, cuando solo quiera extraer etiquetas visibles.
 
 ## **Controlar las etiquetas de datos más allá del máximo del eje**
 
-Cuando limita manualmente el rango de un eje, algunos puntos de datos pueden superar su máximo. Use [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) para controlar si sus etiquetas de datos se muestran. Esta configuración cambia la visibilidad de la etiqueta; no cambia el rango del eje ni los valores subyacentes.
+Cuando limita manualmente el rango de un eje, algunos puntos de datos pueden superar su máximo. Utilice [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) para decidir si se muestran sus etiquetas de datos. Esta configuración cambia la visibilidad de la etiqueta; no modifica el rango del eje ni los valores subyacentes.
 
-El ejemplo a continuación crea un gráfico de columnas agrupadas en 2D con valores de 60 y 120. Establece [IsAutomaticMaxValue](https://reference.aspose.com/slides/es/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) a `false` y [MaxValue](https://reference.aspose.com/slides/es/net/aspose.slides.charts/iaxis/maxvalue/) a 100 en el eje vertical. La primera diapositiva permite etiquetas más allá del máximo; una copia de esa diapositiva las desactiva. Ambas diapositivas se guardan en `DataLabelsOverMaximum.pptx`.
+El ejemplo siguiente crea un gráfico de columnas agrupadas 2D con valores de 60 y 120. Establece [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) a `false` y [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) a 100 en el eje vertical. La primera diapositiva permite etiquetas más allá del máximo; una copia de esa diapositiva las desactiva. Ambas diapositivas se guardan en `DataLabelsOverMaximum.pptx`.
 
-Habilite las etiquetas de valor con [ShowValue](https://reference.aspose.com/slides/es/net/aspose.slides.charts/idatalabelformat/showvalue/). La configuración a nivel de gráfico no habilita la visualización de valores por sí sola ni sobrescribe la visualización de valores desactivada de una etiqueta individual. Este ejemplo habilita valores para toda la serie y usa [Position](https://reference.aspose.com/slides/es/net/aspose.slides.charts/idatalabelformat/position/) para colocar las etiquetas al extremo exterior de cada columna.
+Habilite las etiquetas de valor con [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). La configuración a nivel de gráfico no habilita la visualización de valores por sí sola ni anula la desactivación de la visualización de valores de una etiqueta individual. Este ejemplo habilita los valores para toda la serie y utiliza [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) para colocar las etiquetas en el extremo exterior de cada columna.
 
 ```csharp
 using Aspose.Slides;
@@ -277,19 +277,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-Las imágenes siguientes muestran las diapositivas guardadas renderizadas por Microsoft PowerPoint. Con `true`, la etiqueta **120** es visible en el límite superior; con `false`, está oculta. La etiqueta **60** sigue visible, el máximo del eje permanece en **100**, y el segundo punto de datos sigue siendo **120** en ambos casos.
+Las imágenes siguientes muestran las diapositivas guardadas renderizadas por Microsoft PowerPoint. Con `true`, la etiqueta **120** es visible en el límite superior; con `false`, está oculta. La etiqueta **60** permanece visible, el máximo del eje se mantiene en **100** y el segundo punto de datos sigue siendo **120** en ambos casos.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Este ejemplo utiliza un gráfico de columnas 2D con un eje de valores. Los gráficos sin eje de valores, como los gráficos de sectores y rosquillas, no tienen un máximo de eje que pueda limitarse de esta manera.
+Este ejemplo utiliza un gráfico de columnas 2D con un eje de valores. Los gráficos sin eje de valores, como los circulares y de anillos, no tienen un máximo de eje que limitar de esta forma.
 {{% /alert %}}
 
-## **Establecer la distancia de la etiqueta desde un eje**
+## **Establecer la distancia de la etiqueta respecto a un eje**
 
-Use [LabelOffset](https://reference.aspose.com/slides/es/net/aspose.slides.charts/iaxis/labeloffset/) para controlar la distancia entre las etiquetas del eje de categorías y el eje. El valor es un porcentaje del tamaño máximo de fuente de las etiquetas del eje. Este ejemplo crea un gráfico de columnas agrupadas y establece el desplazamiento de la etiqueta del eje horizontal a 500. Esta configuración afecta a las etiquetas del eje de categorías más que a las etiquetas adjuntas a puntos de datos individuales.
+Utilice [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) para controlar la distancia entre las etiquetas del eje de categorías y el eje. El valor es un porcentaje del tamaño máximo de fuente de las etiquetas del eje. Este ejemplo crea un gráfico de columnas agrupadas y establece el desplazamiento de la etiqueta del eje horizontal a 500. Esta configuración afecta a las etiquetas del eje de categorías más que a las etiquetas asociadas a puntos de datos individuales.
 
 ```csharp
 using Aspose.Slides;
@@ -307,9 +307,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **Ajustar la ubicación de la etiqueta**
 
-En un gráfico de sectores, ajuste la posición de las etiquetas de datos para mejorar el espacio y dejar lugar a las líneas guía.
+En un gráfico circular, ajuste las posiciones de las etiquetas de datos para mejorar el espaciado y dejar espacio a las líneas guía.
 
-Este ejemplo muestra el valor del primer punto de datos, coloca su etiqueta fuera de la porción y ajusta sus desplazamientos [X](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ilayoutable/x/) y [Y](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ilayoutable/y/). Estos desplazamientos son relativos al ancho y la altura del gráfico, respectivamente.
+Este ejemplo muestra el valor del primer punto de datos, coloca su etiqueta fuera de la porción y ajusta sus desplazamientos [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) y [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). Estos desplazamientos son relativos al ancho y a la altura del gráfico, respectivamente.
 
 ```csharp
 using Aspose.Slides;
@@ -331,9 +331,122 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Gráfico de sectores con una posición de etiqueta de datos ajustada](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Preguntas frecuentes**
+## **Añadir varias filas de etiquetas de datos sobre un gráfico de columnas**
+
+Este ejemplo crea un gráfico de columnas con dos filas de etiquetas de datos sobre el área de trazado. La Serie A muestra las columnas visibles, mientras que las Series B y C proporcionan las etiquetas adicionales. Sus columnas se ocultan eliminando el relleno y el contorno. La propiedad [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) alinea las tres series con los mismos centros de categoría.
+
+Los ajustes del [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) reservan espacio para las filas de etiquetas. Después de que [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) calcule las posiciones predeterminadas, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) y [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) conservan la alineación horizontal y aplican desplazamientos verticales para disponer las etiquetas en dos filas. Los números siguen siendo etiquetas de datos vinculadas a los valores de la serie; solo los encabezados de fila son formas de texto independientes.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+chart.HasTitle = false;
+chart.HasLegend = false;
+chart.TextFormat.PortionFormat.FontHeight = 12;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+string[] categories = { "North", "South", "East", "West" };
+string[] seriesNames = { "Series A", "Series B", "Series C" };
+double[,] seriesValues = {
+    { 35, 42, 28, 47 },
+    { 22, 31, 19, 26 },
+    { 12, 16, 14, 18 }
+};
+
+for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+{
+    var categoryCell = workbook.GetCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+    chart.ChartData.Categories.Add(categoryCell);
+}
+
+for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
+{
+    var seriesCell = workbook.GetCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+    var series = chart.ChartData.Series.Add(seriesCell, ChartType.ClusteredColumn);
+
+    for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+    {
+        var valueCell = workbook.GetCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex, categoryIndex]);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
+
+    if (seriesIndex > 0)
+    {
+        // Ocultar las columnas de B y C, pero mantener sus etiquetas de datos.
+        series.Format.Fill.FillType = FillType.NoFill;
+        series.Format.Line.FillFormat.FillType = FillType.NoFill;
+        var labelFormat = series.Labels.DefaultDataLabelFormat;
+        labelFormat.ShowValue = true;
+        labelFormat.TextFormat.PortionFormat.FontHeight = 12;
+        var labelFill = labelFormat.TextFormat.PortionFormat.FillFormat;
+        labelFill.FillType = FillType.Solid;
+        labelFill.SolidFillColor.Color = Color.Black;
+        labelFormat.Position = LegendDataLabelPosition.InsideBase;
+    }
+}
+
+// Alinear las tres series con los mismos centros de categoría.
+chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
+
+// Usar menos líneas de cuadrícula para este ejemplo compacto.
+chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
+chart.Axes.VerticalAxis.MajorUnit = 10;
+
+// Reservar espacio sobre el área de trazado para dos filas de etiquetas de datos.
+chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
+chart.PlotArea.X = 0.15f;
+chart.PlotArea.Y = 0.32f;
+chart.PlotArea.Width = 0.80f;
+chart.PlotArea.Height = 0.48f;
+chart.ValidateChartLayout();
+
+for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
+{
+    var series = chart.ChartData.Series[seriesIndex];
+    float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+    for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+    {
+        var dataLabel = series.DataPoints[categoryIndex].Label;
+        // Mantener la posición horizontal predeterminada. Y es un desplazamiento desde
+        // la posición predeterminada de la etiqueta, expresado como una fracción de la altura del gráfico.
+        dataLabel.X = 0;
+        dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
+    }
+
+    // Solo el encabezado de fila es una forma de texto separada.
+    var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
+    rowHeading.FillFormat.FillType = FillType.NoFill;
+    rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
+    rowHeading.AddTextFrame(seriesNames[seriesIndex]);
+    rowHeading.TextFrame.TextFrameFormat.MarginTop = 0;
+    rowHeading.TextFrame.TextFrameFormat.MarginBottom = 0;
+    var headingFormat = rowHeading.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+    headingFormat.FontHeight = 12;
+    headingFormat.FillFormat.FillType = FillType.Solid;
+    headingFormat.FillFormat.SolidFillColor.Color = Color.Black;
+}
+
+presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
+## **FAQ**
 
 **¿Cómo puedo evitar que las etiquetas de datos se solapen en gráficos densos?**
 
@@ -343,6 +456,6 @@ Combine la colocación automática de etiquetas, líneas guía y reducción del 
 
 Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores ausentes según una regla definida.
 
-**¿Cómo puedo garantizar un estilo de etiqueta consistente al exportar a PDF/imagenes?**
+**¿Cómo puedo garantizar un estilo de etiqueta coherente al exportar a PDF/imagenes?**
 
-Establezca explícitamente la familia y el tamaño de la fuente y verifique que la fuente esté disponible en el entorno de renderizado para evitar sustituciones.
+Establezca explícitamente la familia y el tamaño de fuente y verifique que la fuente esté disponible en el entorno de renderizado para evitar sustituciones.

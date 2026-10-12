@@ -14,15 +14,15 @@ keywords:
 - 簡報
 - Java
 - Aspose.Slides
-description: "學習如何使用 Aspose.Slides for Java 在 PowerPoint 簡報中新增和格式化圖表資料標籤，以製作更具吸引力的投影片。"
+description: "學習如何使用 Aspose.Slides for Java 在 PowerPoint 簡報中新增與格式化圖表資料標籤，打造更具吸引力的投影片。"
 ---
 ## **簡介**
 
-資料標籤會顯示圖表系列和單一資料點的資訊，協助讀者辨識數值並理解圖表。本文章說明如何格式化數值、顯示百分比、讀取標籤文字、控制超出坐標軸最大值的標籤、調整類別坐標軸標籤間距，以及定位圓餅圖標籤。
+資料標籤顯示圖表系列與個別資料點的資訊，協助讀者辨識數值並了解圖表。本文說明如何格式化數值、顯示百分比、讀取標籤文字、在軸最大值之外控制標籤、調整類別軸標籤間距，以及設定圓形圖標籤的位置。
 
 ## **設定圖表資料標籤的資料精度**
 
-使用 [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) 來格式化系列值。此範例建立一個使用預設資料的折線圖，顯示其資料表，並為第一個系列啟用數值標籤。格式 `#,##0.00` 會顯示千位分隔符號與兩位小數，而不會更改底層的數值。
+使用[setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) 來格式化系列值。此範例建立一個具有預設資料的折線圖，顯示其資料表，並為第一個系列啟用數值標籤。格式 `#,##0.00` 會顯示千位分隔符號和兩位小數，而不會變更底層的值。
 
 ```java
 import com.aspose.slides.*;
@@ -44,9 +44,9 @@ try {
 }
 ```
 
-## **將百分比顯示為標籤**
+## **以百分比顯示標籤**
 
-對於堆疊直條圖，將每個值計算為其類別總計的百分比，並將文字指派給由 [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) 回傳的文字框。此範例使用預設圖表資料，並以 8 點字型顯示兩位小數的百分比。總計為零的類別會被略過，以避免除以零。若圖表資料變更，請重新計算自訂標籤文字。
+對於堆疊直條圖，將每個值計算為其類別總和的百分比，並將文字指派給由[getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) 回傳的文字框。此範例使用預設圖表資料，並以 8 點字型顯示兩位小數的百分比。總和為零的類別會被跳過，以避免除以零。若圖表資料變更，需重新計算自訂標籤文字。
 
 ```java
 import com.aspose.slides.*;
@@ -105,9 +105,9 @@ try {
 
 ## **使用圖表資料標籤設定百分比符號**
 
-當值以分數形式儲存時，使用 [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) 以顯示百分比。將 `false` 傳遞給 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-)，即可使標籤格式獨立於來源儲存格。
+當值以分數形式儲存時，使用[setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) 來顯示百分比。將 `false` 傳遞給[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) 以便使標籤格式獨立於來源儲存格。
 
-此範例建立一個 100% 堆疊直條圖，四個類別分別有紅色與藍色系列。每對值相加為 1。標籤格式 `0.0%` 會將 0.30 顯示為 30.0%，而垂直坐標軸使用兩位小數。兩個系列皆使用白色、10 點的標籤文字。
+此範例建立一個 100% 堆疊直條圖，包含紅色與藍色系列，跨越四個類別。每對數值加總為 1。標籤格式 `0.0%` 將 0.30 顯示為 30.0%，而垂直軸採用兩位小數。兩個系列皆使用白色、10 點的標籤文字。
 
 ```java
 import com.aspose.slides.*;
@@ -164,7 +164,7 @@ try {
 
 ## **讀取資料標籤的實際文字**
 
-使用 [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) 取得資料標籤設定產生的文字。這在將標籤提取為報告、搜尋簡報內容或驗證產生的圖表時很有用。以下範例中，預設的 [data label format](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) 結合了每個類別名稱、系列名稱與數值。一個點將其數值格式化為百分比，另一個則使用來自 [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) 的自訂文字。
+使用[getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) 取得資料標籤設定產生的文字。當需要為報告擷取標籤、搜尋簡報內容或驗證產生的圖表時，此功能相當有用。以下範例中，預設的[data label format](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) 結合了每個類別名稱、系列名稱與數值。一個資料點將其數值格式化為百分比，另一個則使用由[getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) 取得的自訂文字。
 
 ```java
 import com.aspose.slides.*;
@@ -224,15 +224,15 @@ try {
 }
 ```
 
-資料點中儲存的數值仍為 `0.75`，即使其標籤顯示 `75%` 且包含類別與系列名稱。自訂文字會取代產生的標籤文字。[getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) 於兩種情況下皆回傳最終的標籤字串。如需僅提取可見標籤，請如上所示分別檢查 [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--)。
+資料點中儲存的數字仍為 `0.75`，即使其標籤顯示 `75%` 並附帶類別與系列名稱。自訂文字會取代產生的標籤文字。無論哪種情況，[getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) 都會回傳最終的標籤字串。如需僅擷取可見標籤，請如上所示分別檢查[isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--)。
 
-## **控制坐標軸最大值之外的資料標籤**
+## **在軸最大值之外控制資料標籤**
 
-當手動限制坐標軸範圍時，某些資料點可能會超過其最大值。使用 [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) 來控制是否顯示其資料標籤。此設定僅改變標籤可見性；不會改變坐標軸範圍或底層資料值。
+當手動限制軸範圍時，某些資料點可能超過最大值。使用[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) 來控制是否顯示其資料標籤。此設定會變更標籤的可見性，卻不會改變軸範圍或底層資料值。
 
-以下範例建立一個 2D 群組直條圖，數值為 60 與 120。它對垂直坐標軸呼叫 [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) 並傳入 `false`，再以 [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) 設定最大值為 100。第一張投影片允許標籤超出最大值；其複本則停用此功能。兩張投影片皆儲存為 `DataLabelsOverMaximum.pptx`。
+以下範例建立一個 2D 群組直條圖，資料值為 60 與 120。它將 `false` 傳給[setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-)，並在垂直軸上使用[setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) 將最大值設定為 100。第一張投影片允許標籤超過最大值；該投影片的副本則將其停用。兩張投影片皆儲存為 `DataLabelsOverMaximum.pptx`。
 
-使用 [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) 來啟用數值標籤。圖表層級的設定本身不會啟用數值顯示，也不會覆寫個別標籤已停用的數值顯示。此範例為整個系列啟用數值，並使用 [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) 將標籤放置在每個直條的外側端點。
+使用[setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) 以啟用數值標籤。圖表層級的設定本身不會啟用數值顯示，也不會覆寫個別標籤被停用的數值顯示。此範例為整個系列啟用數值，並使用[setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) 將標籤放置於每個欄位的外側末端。
 
 ```java
 import com.aspose.slides.*;
@@ -281,19 +281,19 @@ try {
 }
 ```
 
-以下圖片顯示 Microsoft PowerPoint 呈現的已儲存投影片。設定為 `true` 時，標籤 **120** 會出現在上界；設定為 `false` 時則會隱藏。標籤 **60** 仍保持可見，坐標軸最大值仍為 **100**，且第二個資料點在兩種情況下皆為 **120**。
+以下圖像顯示 Microsoft PowerPoint 產生的投影片。`true` 時，標籤 **120** 會在上邊界可見；`false` 時則隱藏。標籤 **60** 保持可見，軸最大值維持 **100**，且第二個資料點在兩種情況下皆為 **120**。
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint 圖表顯示值標籤 120，坐標軸最大值為 100](data-labels-over-maximum-true.png) | ![PowerPoint 圖表隱藏值標籤 120，坐標軸最大值為 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint 圖表顯示軸最大值為 100 時的數值標籤 120](data-labels-over-maximum-true.png) | ![PowerPoint 圖表在軸最大值為 100 時隱藏數值標籤 120](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-此範例使用具有數值軸的 2D 直條圖。不具有數值軸的圖表（例如圓餅圖和環形圖）沒有此方式可限制的坐標軸最大值。
+此範例使用具有數值軸的 2D 直條圖。沒有數值軸的圖表（例如圓形圖與環形圖），沒有可供此類限制的軸最大值。
 {{% /alert %}}
 
-## **設定標籤與坐標軸的距離**
+## **設定標籤與軸的距離**
 
-使用 [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) 來控制類別坐標軸標籤與坐標軸之間的距離。此值為坐標軸標籤最大字型大小的百分比。此範例建立一個群組直條圖，並將水平坐標軸標籤偏移設定為 500。此設定影響類別坐標軸的標籤，而非附加於單一資料點的標籤。
+使用[setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) 來控制類別軸標籤與軸之間的距離。該值是軸標籤最大字型大小的百分比。本範例建立一個群組直條圖，並將水平軸標籤偏移量設定為 500。此設定影響類別軸標籤，而非附加於個別資料點的標籤。
 
 ```java
 import com.aspose.slides.*;
@@ -313,9 +313,9 @@ try {
 
 ## **調整標籤位置**
 
-在圓餅圖上，調整資料標籤位置以改善間距並為引線騰出空間。
+在圓形圖上，調整資料標籤位置以改善間距並為引線留出空間。
 
-此範例顯示第一個資料點的數值，將其標籤置於切片外側，並使用 [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) 與 [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) 調整水平與垂直偏移量。這些偏移量分別相對於圖表的寬度與高度。
+此範例顯示第一個資料點的數值，將其標籤置於切片外側，並使用[setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) 與[setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) 調整其水平與垂直偏移。這些偏移分別相對於圖表的寬度與高度。
 
 ```java
 import com.aspose.slides.*;
@@ -339,13 +339,13 @@ try {
 }
 ```
 
-![已調整資料標籤位置的圓餅圖](pie-chart-adjusted-label.png)
+![圓形圖，資料標籤位置已調整](pie-chart-adjusted-label.png)
 
-## **在直條圖上方新增多列資料標籤**
+## **在直條圖上方加入多列資料標籤**
 
-此範例建立一個直條圖，於繪圖區上方放置兩列資料標籤。系列 A 顯示可見的直條，而系列 B 與系列 C 提供額外的標籤。透過移除填色與輪廓來隱藏其直條。[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) 方法使三個系列以相同的類別中心對齊。
+此範例建立一個直條圖，在圖表區上方放置兩列資料標籤。Series A 顯示可見的欄位，而 Series B 與 Series C 提供額外的標籤。透過移除填色與輪廓，使它們的欄位隱藏。[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) 方法讓三個系列的類別中心對齊。
 
-[ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) 設定保留標籤列的空間。透過 [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) 計算預設位置後，[DataLabel.setX 與 DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) 保持水平對齊，並套用垂直偏移，以將標籤排列成兩列。這些數字仍為連結至系列值的資料標籤；僅列標題為獨立的文字圖形。
+[ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) 設定會為標籤列保留空間。於 [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) 計算預設位置後，[DataLabel.setX and DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) 保持水平對齊，並套用垂直偏移以將標籤排列於兩列。數字仍為連結至系列值的資料標籤；只有行標題是獨立的文字圖形。
 
 ```java
 Presentation presentation = new Presentation();
@@ -388,7 +388,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // 隱藏 B 與 C 的柱形，但保留它們的資料標籤。
+            // 隱藏 B 與 C 的欄位，但保留它們的資料標籤。
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -407,11 +407,11 @@ try {
     chart.getChartData().getSeries().get_Item(0)
             .getParentSeriesGroup().setOverlap((byte) 100);
 
-    // 在此緊湊範例中使用較少的格線。
+    // 在此簡潔範例中使用較少的格線。
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // 在圖表上方保留空間以放置兩列資料標籤。
+    // 在圖表區上方保留空間以放置兩列資料標籤。
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -425,13 +425,13 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // 保留預設的水平位置。Y 為相對於
-            // 預設標籤位置的偏移量，以圖表高度的比例表示。
+            // 保留預設的水平位置。Y 是相對於
+            // 預設標籤位置的偏移，以圖表高度的比例表示。
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // 只有列標題是獨立的文字形狀。
+        // 只有列標題是獨立的文字圖形。
         IAutoShape rowHeading = slide.getShapes().addAutoShape(
                 ShapeType.Rectangle, chart.getX(),
                 chart.getY() + rowTop * chart.getHeight(), 85, 18);
@@ -453,16 +453,18 @@ try {
 }
 ```
 
+![直條圖，圖表區上方有兩列資料標籤](multiple-rows-of-labels.png)
+
 ## **常見問題**
 
 **如何防止在密集圖表上資料標籤重疊？**
 
-結合自動標籤放置、引線與縮小字型大小；必要時，可隱藏某些欄位（例如類別），或僅對極端值或關鍵點顯示標籤。
+結合自動標籤放置、引線與縮小字型大小；必要時，隱藏某些欄位（例如類別）或僅對極端值或關鍵點顯示標籤。
 
-**如何僅對零、負值或空值停用標籤？**
+**如何僅對零值、負值或空值停用標籤？**
 
-在啟用標籤前先篩選資料點，並依據定義的規則關閉對 0、負值或缺失值的顯示。
+在啟用標籤之前先篩選資料點，依照設定的規則對 0、負值或遺失值關閉顯示。
 
-**如何在匯出為 PDF/影像時確保標籤樣式一致？**
+**如何在匯出為 PDF/圖像時確保標籤樣式一致？**
 
-明確設定字型系列與大小，並確認該字型在渲染環境中可用，以避免使用備用字型。
+明確指定字型系列與大小，並確認渲染環境中已安裝該字型，以避免回退。

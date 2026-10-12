@@ -8,22 +8,22 @@ keywords:
 - dataetikett
 - dataprecision
 - procent
-- etikettdistans
+- etikettavstånd
 - etikettplacering
 - PowerPoint
 - presentation
 - Python
 - Java
 - Aspose.Slides
-description: "Lär dig att lägga till och formatera diagramdataetiketter i PowerPoint-presentationer med Aspose.Slides för Python via Java för mer engagerande bildspel."
+description: "Lär dig att lägga till och formatera diagramdataetiketter i PowerPoint-presentationer med Aspose.Slides för Python via Java för mer engagerande bilder."
 ---
 ## **Introduktion**
 
-Dataetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsarna att identifiera värden och förstå diagrammet. Den här artikeln förklarar hur man formaterar värden, visar procentsatser, läser etiketttext, kontrollerar etiketter utanför axelns maximum, justerar avståndet för kategorialetiker och placerar cirkeldiagrametiketter.
+Dataetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsaren att identifiera värden och förstå diagrammet. Denna artikel förklarar hur man formaterar värden, visar procenttal, läser etiketttext, styr etiketter utanför axelns maximum, justerar avståndet mellan kategoriaxelns etiketter och placerar cirkeldiagramsetiketter.
 
-## **Ställ in dataprecision i diagrammets dataetiketter**
+## **Ange dataprecision i diagrammets dataetiketter**
 
-Använd [setNumberFormatOfValues](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdeetiketter för den första serien. Formatet `#,##0.00` visar ett tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
+Använd [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdeetiketter för den första serien. Formatet `#,##0.00` visar ett tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
 
 ```python
 import jpype
@@ -52,7 +52,7 @@ finally:
 
 ## **Visa procent som etiketter**
 
-För ett staplat stapeldiagram beräknas varje värde som en procentsats av sin kategoris total och texten tilldelas textramen som returneras av [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Detta exempel använder standarddiagramdata och visar procentsatser med två decimaler i ett 8‑punkts teckensnitt. Kategorier med en total på noll hoppas över för att undvika division med noll. Beräkna om den anpassade etiketttexten om diagramdata ändras.
+För ett staplat stapeldiagram beräknas varje värde som en procentandel av sin kategorisumma och texten tilldelas den textram som returneras av [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Detta exempel använder diagrammets standarddata och visar procent med två decimaler i ett 8‑punkts typsnitt. Kategorier med en totalsumma på noll hoppas över för att undvika division med noll. Beräkna om den anpassade etiketttexten om diagramdata ändras.
 
 ```python
 import jpype
@@ -110,9 +110,9 @@ finally:
 
 ## **Ställ in procenttecken med diagrammets dataetiketter**
 
-När värden lagras som bråk, använd [setNumberFormat](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabelformat/#setNumberFormat) för att visa procentsatser. Skicka `False` till [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) för att tillämpa etikettformatet oberoende av källcellerna.
+När värden lagras som bråk, använd [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) för att visa procenttal. Skicka `False` till [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) för att tillämpa etikettformatet oberoende av källcellerna.
 
-Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje värdepar summerar till 1. Etikettformatet `0.0%` visar 0.30 som 30,0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit etiketttext i 10 punkter.
+Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje par av värden summeras till 1. Etikettformatet `0.0%` visar 0,30 som 30,0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit etiketttext i 10 punkter.
 
 ```python
 import jpype
@@ -173,7 +173,7 @@ finally:
 
 ## **Läs den faktiska texten för dataetiketter**
 
-Använd [getActualLabelText](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabel/#getActualLabelText) för att hämta den text som produceras av en dataetiketts inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard [data label format](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som en procentsats, och en annan använder anpassad text från [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Använd [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) för att hämta den text som produceras av en dataetiketts inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard [data label format](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som procent, och en annan använder anpassad text från [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -234,15 +234,15 @@ finally:
     presentation.dispose()
 ```
 
-Numret som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75%` tillsammans med kategori- och serienamnen. Anpassad text ersätter den genererade etiketttexten. [getActualLabelText](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabel/#getActualLabelText) returnerar den resulterande etikettningen i båda fallen. Kontrollera [isVisible](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabel/#isVisible) separat, som visas ovan, när du bara vill extrahera synliga etiketter.
+Det tal som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75 %` tillsammans med kategori- och serienamnen. Anpassad text ersätter den genererade etiketttexten. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) separat, som visas ovan, när du vill extrahera endast synliga etiketter.
 
-## **Kontrollera dataetiketter utanför axelns maximum**
+## **Styr dataetiketter utanför axelns maximum**
 
-När du begränsar ett axelintervall manuellt kan vissa datapunkter överskrida dess maximum. Använd [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) för att kontrollera om deras dataetiketter visas. Denna inställning ändrar etikettens synlighet; den ändrar inte axelintervallet eller de underliggande datavärdena.
+När du begränsar ett axelintervall manuellt kan vissa datapunkter överskrida dess maximum. Använd [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) för att styra om deras dataetiketter visas. Denna inställning ändrar etikettens synlighet; den ändrar inte axelintervallet eller de underliggande datapunkterna.
 
-Exemplet nedan skapar ett 2D grupperat stapeldiagram med värdena 60 och 120. Det skickar `False` till [setAutomaticMaxValue](https://reference.aspose.com/slides/sv/python-java/aspose.slides/axis/#setAutomaticMaxValue) och sätter maximum till 100 med [setMaxValue](https://reference.aspose.com/slides/sv/python-java/aspose.slides/axis/#setMaxValue) på den vertikala axeln. Den första bilden tillåter etiketter utanför maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
+Exemplet nedan skapar ett 2D grupperat stapeldiagram med värdena 60 och 120. Det skickar `False` till [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) och sätter maximum till 100 med [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) på den vertikala axeln. Den första bilden tillåter etiketter utanför maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
 
-Aktivera värdeetiketter med [setShowValue](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabelformat/#setShowValue). Diagramnivåinställningen aktiverar inte värdevisning i sig själv och överskrider inte en enskild etikett som inaktiverat värdevisning. Detta exempel aktiverar värden för hela serien och använder [setPosition](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabelformat/#setPosition) för att placera etiketter på utsidan av varje stapel.
+Aktivera värdeetiketter med [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Diagramnivåinställningen aktiverar inte värdevisning i sig själv eller åsidosätter en enskild etikett som har inaktiverad värdevisning. Detta exempel aktiverar värden för hela serien och använder [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) för att placera etiketter på utsidan av varje stapel.
 
 ```python
 import jpype
@@ -294,6 +294,7 @@ try:
     presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
+
 ```
 
 Följande bilder visar de sparade bilderna renderade av Microsoft PowerPoint. Med `True` är etiketten **120** synlig vid den övre gränsen; med `False` är den dold. Etiketten **60** förblir synlig, axelmaximum förblir **100**, och den andra datapunkten förblir **120** i båda fallen.
@@ -306,9 +307,9 @@ Följande bilder visar de sparade bilderna renderade av Microsoft PowerPoint. Me
 Detta exempel använder ett 2D stapeldiagram med en värdeaxel. Diagram utan en värdeaxel, såsom cirkel- och donutdiagram, har inget axelmaximum att begränsa på detta sätt.
 {{% /alert %}}
 
-## **Ställ in etikettdistans från en axel**
+## **Ställ in etikettavstånd från en axel**
 
-Använd [setLabelOffset](https://reference.aspose.com/slides/sv/python-java/aspose.slides/axis/#setLabelOffset) för att styra avståndet mellan kategorialetiketter och axeln. Värdet är en procentsats av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett grupperat stapeldiagram och sätter det horisontella axelns etikettavstånd till 500. Denna inställning påverkar kategorialetiketter snarare än etiketter som är fästa vid enskilda datapunkter.
+Använd [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) för att styra avståndet mellan kategoriaxelns etiketter och axeln. Värdet är en procentandel av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett grupperat stapeldiagram och sätter den horisontella axelns etikettavstånd till 500. Denna inställning påverkar kategoriaxelns etiketter snarare än etiketter kopplade till enskilda datapunkter.
 
 ```python
 import jpype
@@ -333,12 +334,12 @@ finally:
 
 ## **Justera etikettplacering**
 
-I ett cirkeldiagram justeras dataetiketternas positioner för att förbättra avståndet och ge plats för linjeförbindelser.
+I ett cirkeldiagram justeras dataetikettens positioner för att förbättra avståndet och ge plats för förbindelselänkar.
 
-Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför sektorn och justerar dess horisontella och vertikala offset med [setX](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabel/#setX) och [setY](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datalabel/#setY). Dessa offset är relativa till diagrammets bredd respektive höjd.
+Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför sektorn och justerar dess horisontella och vertikala offset med hjälp av [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) och [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY). Dessa offset är relativa till diagrammets bredd respektive höjd.
 
 ```python
-import jpype
+import jpime
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -364,18 +365,124 @@ finally:
     presentation.dispose()
 ```
 
-![Cirkeldiagram med justerad dataetikettposition](pie-chart-adjusted-label.png)
+![Cirkeldiagram med en justerad dataetikettposition](pie-chart-adjusted-label.png)
+
+## **Lägg till flera rader med dataetiketter ovanför ett stapeldiagram**
+
+Detta exempel skapar ett stapeldiagram med två rader dataetiketter ovanför plotområdet. Serie A visar de synliga staplarna, medan Serie B och Serie C tillhandahåller de extra etiketterna. Deras staplar är dolda genom att ta bort fyllning och kontur. Metoden [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) justerar alla tre serier med samma kategoricentra.
+
+Inställningarna för [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) reserverar utrymme för etikettraderna. Efter att [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) beräknat standardpositionerna, bevarar [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) och [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) den horisontella justeringen och applicerar vertikala offset för att ordna etiketterna i två rader. Siffrorna förblir dataetiketter kopplade till serievärdena; endast radrubrikerna är separata textformer.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, LayoutTargetType, LegendDataLabelPosition, Presentation, SaveFormat, ShapeType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200)
+    chart.setTitle(False)
+    chart.setLegend(False)
+    chart.getTextFormat().getPortionFormat().setFontHeight(12)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    categories = ["North", "South", "East", "West"]
+    series_names = ["Series A", "Series B", "Series C"]
+    series_values = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]]
+
+    for category_index, category in enumerate(categories):
+        category_cell = workbook.getCell(0, category_index + 1, 0, category)
+        chart.getChartData().getCategories().add(category_cell)
+
+    for series_index, series_name in enumerate(series_names):
+        series_cell = workbook.getCell(0, 0, series_index + 1, series_name)
+        series = chart.getChartData().getSeries().add(series_cell, ChartType.ClusteredColumn)
+
+        for category_index, value in enumerate(series_values[series_index]):
+            value_cell = workbook.getCell(0, category_index + 1, series_index + 1, jpype.JDouble(value))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+        if series_index > 0:
+            # Dölj kolumnerna för B och C, men behåll deras dataetiketter.
+            series.getFormat().getFill().setFillType(FillType.NoFill)
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+            label_format = series.getLabels().getDefaultDataLabelFormat()
+            label_format.setShowValue(True)
+            label_format.getTextFormat().getPortionFormat().setFontHeight(12)
+            label_fill = label_format.getTextFormat().getPortionFormat().getFillFormat()
+            label_fill.setFillType(FillType.Solid)
+            label_fill.getSolidFillColor().setColor(Color.BLACK)
+            label_format.setPosition(LegendDataLabelPosition.InsideBase)
+
+    # Rikta in alla tre serier med samma kategoricentra.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
+
+    # Använd färre referenslinjer i detta kompakta exempel.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
+    chart.getAxes().getVerticalAxis().setMajorUnit(10)
+
+    # Reservera utrymme ovanför diagrammet för två rader med dataetiketter.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
+    chart.getPlotArea().setX(0.15)
+    chart.getPlotArea().setY(0.32)
+    chart.getPlotArea().setWidth(0.80)
+    chart.getPlotArea().setHeight(0.48)
+    chart.validateChartLayout()
+
+    for series_index in range(1, len(series_names)):
+        series = chart.getChartData().getSeries().get_Item(series_index)
+        row_top = 0.15 if series_index == 1 else 0.03
+
+        for category_index in range(len(categories)):
+            data_label = series.getDataPoints().get_Item(category_index).getLabel()
+            # Behåll standard horisontell position. Y är ett avstånd från
+            # den standardetikettpositionen, uttryckt som en andel av diagramhöjden.
+            data_label.setX(0)
+            data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
+
+        # Endast radrubriken är en separat textform.
+        heading_y = chart.getY() + row_top * chart.getHeight()
+        row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
+        row_heading.getFillFormat().setFillType(FillType.NoFill)
+        row_heading.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        row_heading.addTextFrame(series_names[series_index])
+        row_heading.getTextFrame().getTextFrameFormat().setMarginTop(0)
+        row_heading.getTextFrame().getTextFrameFormat().setMarginBottom(0)
+        heading_format = row_heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        heading_format.setFontHeight(12)
+        heading_format.getFillFormat().setFillType(FillType.Solid)
+        heading_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Stapeldiagram med två rader dataetiketter ovanför plotområdet](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
 **Hur kan jag förhindra att dataetiketter överlappar i täta diagram?**
 
-Kombinera automatisk etikettsplacering, linjeförbindelser och minskad teckenstorlek; om nödvändigt, göm vissa fält (till exempel kategorin) eller visa etiketter endast för extrema värden eller nyckelpunkter.
+Kombinera automatisk placering av etiketter, förbindelselänkar och minskad teckenstorlek; om nödvändigt, dölj vissa fält (t.ex. kategorin) eller visa etiketter endast för extrema värden eller nyckelpunkter.
 
-**Hur kan jag inaktivera etiketter endast för noll-, negativa eller tomma värden?**
+**Hur kan jag inaktivera etiketter endast för noll, negativa eller tomma värden?**
 
-Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden som är 0, negativa värden eller saknade värden enligt en definierad regel.
+Filtrera datapunkter innan etiketter aktiveras och stäng av visning för värden på 0, negativa värden eller saknade värden enligt en definierad regel.
 
-**Hur kan jag säkerställa en konsekvent etikettstil vid export till PDF/bilder?**
+**Hur kan jag säkerställa en enhetlig etikettstil vid export till PDF/bilder?**
 
-Ange explicit teckensnittsfamilj och storlek och verifiera att teckensnittet finns tillgängligt i renderingsmiljön för att undvika reservteckensnitt.
+Ange explicit teckensnittsfamilj och storlek och verifiera att teckensnittet är tillgängligt i renderingsmiljön för att undvika fallback.
