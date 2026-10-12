@@ -18,11 +18,11 @@ description: "یاد بگیرید چگونه برچسب‌های داده نمو
 ---
 ## **مقدمه**
 
-برچسب‌های داده اطلاعاتی دربارهٔ سری‌های نمودار و نقاط دادهٔ فردی نمایش می‌دهند و به خوانندگان کمک می‌کنند ارزش‌ها را شناسایی کرده و نمودار را درک کنند. این مقاله توضیح می‌دهد چگونه مقادیر را قالب‌بندی کنیم، درصدها را نمایش دهیم، متن برچسب را بخوانیم، برچسب‌ها را فراتر از حداکثر محور کنترل کنیم، فاصلهٔ برچسب‌های محور دسته‌بندی را تنظیم کنیم و مکان برچسب‌های نمودار دایره‌ای را تعیین کنیم.
+برچسب‌های داده اطلاعاتی دربارهٔ سری‌های نمودار و نقاط دادهٔ جداگانه نمایش می‌دهند و به خوانندگان کمک می‌کنند تا مقادیر را شناسایی کرده و نمودار را درک کنند. این مقاله توضیح می‌دهد که چگونه مقادیر را قالب‌بندی کنید، درصدها را نمایش دهید، متن برچسب را بخوانید، برچسب‌ها را فراتر از حداکثر محور کنترل کنید، فاصلهٔ برچسب‌های محور دسته‌بندی را تنظیم کنید و موقعیت برچسب‌های نمودار دایره‌ای را تعیین کنید.
 
-## **تنظیم دقت داده در برچسب‌های داده نمودار**
+## **تنظیم دقت داده در برچسب‌های دادهٔ نمودار**
 
-از [number_format_of_values](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/number_format_of_values/) برای قالب‌بندی مقادیر سری‌ها استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول داده‌های آن را نمایش می‌دهد و برچسب‌های مقدار را برای اولین سری فعال می‌سازد. قالب `#,##0.00` جداکنندهٔ هزارها و دو رقم اعشار را نمایش می‌دهد بدون اینکه مقادیر اصلی تغییر کند.
+از [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) برای قالب‌بندی مقادیر سری استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول داده آن را نمایش می‌دهد و برچسب‌های مقدار را برای اولین سری فعال می‌سازد. قالب `#,##0.00` جداکنندهٔ هزارگان و دو رقم اعشار را بدون تغییر مقادیر پایه نشان می‌دهد.
 
 ```python
 import aspose.slides as slides
@@ -41,9 +41,9 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **نمایش درصد به عنوان برچسب‌ها**
+## **نمایش درصد به‌عنوان برچسب‌ها**
 
-برای یک نمودار ستونی پشته‌ای، هر مقدار را به‌عنوان درصدی از مجموع دستهٔ خود محاسبه کنید و متن را به [text_frame_for_overriding](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم ۸ نقطه‌ای نشان می‌دهد. دسته‌های با مجموع صفر نادیده گرفته می‌شوند تا از تقسیم بر صفر جلوگیری شود. اگر داده‌های نمودار تغییر کنند، متن برچسب سفارشی را دوباره محاسبه کنید.
+برای یک نمودار ستونی انباشته، هر مقدار را به‌عنوان درصدی از مجموع دستهٔ مربوطه محاسبه کنید و متن را به [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در فونت ۸ پوینت نمایش می‌دهد. دسته‌هایی که مجموعشان صفر است برای جلوگیری از تقسیم بر صفر نادیده گرفته می‌شوند. اگر داده‌های نمودار تغییر کنند متن برچسب سفارشی را دوباره محاسبه کنید.
 
 ```python
 import aspose.slides as slides
@@ -90,11 +90,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تنظیم علامت درصد با برچسب‌های داده نمودار**
+## **تنظیم علامت درصد با برچسب‌های دادهٔ نمودار**
 
-هنگامی که مقادیر به صورت کسر ذخیره می‌شوند، از [number_format](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabelformat/number_format/) برای نمایش درصدها استفاده کنید. برای اعمال قالب برچسب به‌طور مستقل از سلول‌های منبع، [is_number_format_linked_to_source](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) را به `False` تنظیم کنید.
+وقتی مقادیر به‌صورت کسر ذخیره می‌شوند، برای نمایش درصدها از [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) استفاده کنید. مقدار [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) را به `False` تنظیم کنید تا قالب برچسب به‌صورت مستقل از سلول‌های منبع اعمال شود.
 
-این مثال یک نمودار ستونی پشته‌ای 100٪ با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار به 1 می‌رسد. قالب برچسب `0.0%`، مقدار 0.30 را به‌عنوان 30.0٪ نمایش می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید با اندازهٔ ۱۰ نقطه استفاده می‌کنند.
+این مثال یک نمودار ستونی 100٪ انباشته با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار مجموعاً برابر 1 است. قالب برچسب `0.0%` مقدار 0.30 را به‌صورت 30.0% نمایش می‌دهد، در حالی که محور عمودی دو رقم اعشار دارد. هر دو سری از متن برچسب سفید با اندازهٔ ۱۰ پوینت استفاده می‌کنند.
 
 ```python
 import aspose.slides as slides
@@ -145,7 +145,7 @@ with slides.Presentation() as presentation:
 
 ## **خواندن متن واقعی برچسب‌های داده**
 
-از [get_actual_label_text](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) برای بازیابی متنی که توسط تنظیمات یک برچسب داده تولید شده است استفاده کنید. این کار هنگام استخراج برچسب‌ها برای گزارش‌ها، جستجو در محتوای ارائه یا اعتبارسنجی نمودارهای تولید شده مفید است. در مثال زیر، [data label format](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabelformat/) پیش‌فرض هر نام دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدار خود را به‌عنوان درصد قالب‌بندی می‌کند و دیگری از متن سفارشی از [text_frame_for_overriding](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) استفاده می‌کند.
+از [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) برای بازیابی متنی که توسط تنظیمات یک برچسب داده تولید می‌شود استفاده کنید. این برای استخراج برچسب‌ها برای گزارش‌ها، جستجوی محتوای ارائه یا اعتبارسنجی نمودارهای تولید شده مفید است. در مثال زیر، قالب پیش‌فرض [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) ترکیبی از نام هر دسته، نام سری و مقدار است. یک نقطه مقدار خود را به‌صورت درصد قالب‌بندی می‌کند و نقطهٔ دیگر از متن سفارشی از [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) استفاده می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -196,15 +196,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-عدد ذخیره‌شده در یک نقطه داده همچنان `0.75` باقی می‌ماند، حتی اگر برچسب آن `75%` را همراه با نام‌های دسته و سری نشان دهد. متن سفارشی متن برچسب تولید شده را جایگزین می‌کند. [get_actual_label_text](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) در هر دو حالت رشتهٔ برچسب حاصل را برمی‌گرداند. برای استخراج فقط برچسب‌های قابل مشاهده، همان‌طور که در بالا نشان داده شد، به‌صورت جداگانه [is_visible](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabel/is_visible/) را بررسی کنید.
+عدد ذخیره‌شده در یک نقطه داده همان `0.75` می‌ماند، حتی اگر برچسب آن `75%` را همراه با نام دسته و سری نشان دهد. متن سفارشی متن برچسب تولید‌شده را جایگزین می‌کند. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) رشتهٔ برچسب حاصل را در هر دو حالت برمی‌گرداند. برای استخراج فقط برچسب‌های قابل مشاهده، همان‌طور که در بالا نشان داده شد، مقدار [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) را به‌صورت جداگانه بررسی کنید.
 
 ## **کنترل برچسب‌های داده فراتر از حداکثر محور**
 
-زمانی که بازهٔ محور را به‌صورت دستی محدود می‌کنید، ممکن است برخی نقاط داده از حداکثر آن فراتر روند. از [show_data_labels_over_maximum](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) برای کنترل نمایش برچسب‌های دادهٔ آن‌ها استفاده کنید. این تنظیم نمایش برچسب را تغییر می‌دهد؛ بازهٔ محور یا مقادیر دادهٔ زیرین را تغییر نمی‌دهد.
+زمانی که محدودهٔ محور را به‌صورت دستی محدود می‌کنید، ممکن است برخی نقاط داده از حداکثر آن فراتر بروند. از [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) برای کنترل اینکه آیا برچسب‌های دادهٔ آن‌ها نمایش داده شوند یا خیر استفاده کنید. این تنظیم visibility برچسب‌ها را تغییر می‌دهد؛ اما محدودهٔ محور یا مقادیر دادهٔ پایه را تغییر نمی‌دهد.
 
-مثال زیر یک نمودار ستونی خوشه‌ای 2D با مقادیر 60 و 120 ایجاد می‌کند. بر روی محور عمودی، [is_automatic_max_value](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/axis/is_automatic_max_value/) را به `False` و [max_value](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/axis/max_value/) را به 100 تنظیم می‌کند. اسلاید اول برچسب‌هایی فراتر از حداکثر را اجازه می‌دهد؛ یک کپی از آن اسلاید این برچسب‌ها را غیرفعال می‌کند. هر دو اسلاید در `DataLabelsOverMaximum.pptx` ذخیره می‌شوند.
+مثال زیر یک نمودار ستونی خوشه‌ای ۲بعدی با مقادیر ۶۰ و ۱۲۰ ایجاد می‌کند. مقدار [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) را بر روی `False` و [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) را بر روی ۱۰۰ برای محور عمودی تنظیم می‌کند. اسلاید اول اجازه می‌دهد برچسب‌ها فراتر از حداکثر باشند؛ یک نسخهٔ دیگر از آن اسلاید این قابلیت را غیرفعال می‌کند. هر دو اسلاید در `DataLabelsOverMaximum.pptx` ذخیره می‌شوند.
 
-برچسب‌های مقدار را با [show_value](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabelformat/show_value/) فعال کنید. تنظیم سطح نمودار به تنهایی نمایش مقدار را فعال نمی‌کند و تنظیم غیرفعال کردن نمایش مقدار برای یک برچسب خاص را بازنویسی نمی‌کند. این مثال مقادیر را برای تمام سری فعال می‌کند و با استفاده از [position](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabelformat/position/) برچسب‌ها را در انتهای بیرونی هر ستون قرار می‌دهد.
+برچسب‌های مقدار را با [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) فعال کنید. تنظیم سطح نمودار به‌تنهایی نمایش مقدار را فعال نمی‌کند یا نمایش مقدار غیرفعال در یک برچسب فردی را نادیده نمی‌گیرد. این مثال مقادیر را برای تمام سری‌ها فعال می‌کند و از [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) برای قرار دادن برچسب‌ها در انتهای بیرونی هر ستون استفاده می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -250,19 +250,19 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-تصاویر زیر اسلایدهای ذخیره‌شده را که توسط Microsoft PowerPoint رندر شده‌اند نشان می‌دهند. با مقدار `True`، برچسب **120** در مرز بالایی قابل مشاهده است؛ با مقدار `False`، مخفی می‌شود. برچسب **60** قابل مشاهده می‌ماند، حداکثر محور در **100** باقی می‌ماند و نقطه دادهٔ دوم در هر دو حالت **120** می‌ماند.
+تصاویر زیر اسلایدهای ذخیره‌شده را که توسط Microsoft PowerPoint رندر شده‌اند نشان می‌دهند. با مقدار `True`، برچسب **120** در مرز بالایی قابل مشاهده است؛ با `False`، مخفی می‌شود. برچسب **60** همچنان قابل مشاهده است، حداکثر محور در **100** باقی می‌ماند و نقطهٔ دادهٔ دوم در هر دو حالت **120** می‌ماند.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-این مثال از یک نمودار ستونی 2D با محور مقدار استفاده می‌کند. نمودارهایی که محور مقدار ندارند، مانند نمودارهای دایره‌ای و دونات، حداکثر محور ندارند که بتوان به این شکل محدودشان کرد.
+این مثال از یک نمودار ستونی ۲بعدی با محور مقدار استفاده می‌کند. نمودارهایی که محور مقدار ندارند، مانند نمودارهای دایره‌ای و دونات، حداکثر محوری برای محدود کردن به این شکل ندارند.
 {{% /alert %}}
 
-## **تنظیم فاصله برچسب از محور**
+## **تنظیم فاصلهٔ برچسب از محور**
 
-از [label_offset](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/axis/label_offset/) برای کنترل فاصله میان برچسب‌های محور دسته‌بندی و محور استفاده کنید. مقدار برحسب درصدی از حداکثر اندازهٔ قلم برچسب‌های محور است. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و فاصلهٔ برچسب محور افقی را به 500 تنظیم می‌کند. این تنظیم بر برچسب‌های محور دسته‌بندی اثر می‌گذارد نه بر برچسب‌های متصل به نقاط دادهٔ فردی.
+از [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) برای کنترل فاصله بین برچسب‌های محور دسته‌بندی و خود محور استفاده کنید. مقدار به‌صورت درصدی از حداکثر اندازهٔ قلم برچسب‌های محور است. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و مقدار label_offset محور افقی را به ۵۰۰ تنظیم می نماید. این تنظیم بر برچسب‌های محور دسته‌بندی تأثیر می‌گذارد نه بر برچسب‌های متصل به نقاط دادهٔ جداگانه.
 
 ```python
 import aspose.slides as slides
@@ -277,11 +277,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تنظیم مکان برچسب**
+## **تنظیم موقعیت برچسب**
 
-در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را تنظیم کنید تا فاصله بهبود یابد و فضای کافی برای خطوط راهنمایی فراهم شود.
+در یک نمودار دایره‌ای، موقعیت‌های برچسب‌های داده را تنظیم کنید تا فضا بهبود یابد و جای کافی برای خطوط راهنما فراهم شود.
 
-این مثال مقدار اولین نقطه داده را نمایش می‌دهد، برچسب آن را بیرون از قطعه قرار می‌دهد و جابجایی‌های [x](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabel/x/) و [y](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/datalabel/y/) آن را تنظیم می‌کند. این جابجایی‌ها به ترتیب نسبت به عرض و ارتفاع نمودار هستند.
+این مثال مقدار اولین نقطه داده را نمایش می‌دهد، برچسب آن را خارج از بخش قرار می‌دهد و مقادیر [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) و [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) آن را تنظیم می‌کند. این افست‌ها به‌ترتیب نسبت به عرض و ارتفاع نمودار هستند.
 
 ```python
 import aspose.slides as slides
@@ -302,18 +302,115 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![نمودار دایره‌ای با موقعیت برچسب داده تنظیم‌شده](pie-chart-adjusted-label.png)
+
+## **افزودن چند ردیف برچسب داده بالای یک نمودار ستونی**
+
+این مثال یک نمودار ستونی را با دو ردیف برچسب داده در بالای ناحیهٔ رسم ایجاد می‌کند. سری A ستون‌های قابل مشاهده را نمایش می‌دهد، درحالی‌که سری‌های B و C برچسب‌های اضافی را فراهم می‌کنند. ستون‌های آن‌ها با حذف پر و حاشیه مخفی می‌شوند. ویژگی [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) تمام سه سری را با مراکز دستهٔ یکسان هم‌راستا می‌کند.
+
+تنظیمات [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) فضایی برای ردیف‌های برچسب رزرو می‌کند. پس از اینکه [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) موقعیت‌های پیش‌فرض را محاسبه کرد، مقادیر [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) و [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) تراز افقی را حفظ کرده و افست‌های عمودی را برای چینش برچسب‌ها در دو ردیف اعمال می‌کنند. اعداد همچنان به‌عنوان برچسب داده‌های مرتبط با مقادیر سری باقی می‌مانند؛ فقط سرعنوان‌های ردیف به‌صورت اشکال متنی جداگانه هستند.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 40, 640, 200)
+    chart.has_title = False
+    chart.has_legend = False
+    chart.text_format.portion_format.font_height = 12
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    categories = ["North", "South", "East", "West"]
+    series_names = ["Series A", "Series B", "Series C"]
+    series_values = [
+        [35, 42, 28, 47],
+        [22, 31, 19, 26],
+        [12, 16, 14, 18]
+    ]
+
+    for category_index, category_name in enumerate(categories):
+        category_cell = workbook.get_cell(0, category_index + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+    for series_index, series_name in enumerate(series_names):
+        series_cell = workbook.get_cell(0, 0, series_index + 1, series_name)
+        series = chart.chart_data.series.add(series_cell, charts.ChartType.CLUSTERED_COLUMN)
+
+        for category_index in range(len(categories)):
+            value_cell = workbook.get_cell(0, category_index + 1, series_index + 1, series_values[series_index][category_index])
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        if series_index > 0:
+            # ستون‌های B و C را مخفی کنید، اما برچسب‌های داده آن‌ها را نگه دارید.
+            series.format.fill.fill_type = slides.FillType.NO_FILL
+            series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+            label_format = series.labels.default_data_label_format
+            label_format.show_value = True
+            label_format.text_format.portion_format.font_height = 12
+            label_fill = label_format.text_format.portion_format.fill_format
+            label_fill.fill_type = slides.FillType.SOLID
+            label_fill.solid_fill_color.color = drawing.Color.black
+            label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
+
+    # تمام سه سری را با مراکز دسته یکسان هم‌راستا کنید.
+    chart.chart_data.series[0].parent_series_group.overlap = 100
+
+    # برای این مثال فشرده خطوط شبکه کمتری استفاده کنید.
+    chart.axes.vertical_axis.is_automatic_major_unit = False
+    chart.axes.vertical_axis.major_unit = 10
+
+    # فضای بالای نمودار را برای دو ردیف برچسب داده رزرو کنید.
+    chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
+    chart.plot_area.x = 0.15
+    chart.plot_area.y = 0.32
+    chart.plot_area.width = 0.80
+    chart.plot_area.height = 0.48
+    chart.validate_chart_layout()
+
+    for series_index in range(1, len(series_names)):
+        series = chart.chart_data.series[series_index]
+        row_top = 0.15 if series_index == 1 else 0.03
+
+        for category_index in range(len(categories)):
+            data_label = series.data_points[category_index].label
+            # موقعیت افقی پیش‌فرض را حفظ کنید. Y یک افست از
+            # موقعیت پیش‌فرض برچسب است، که به صورت کسری از ارتفاع نمودار بیان می‌شود.
+            data_label.x = 0
+            data_label.y = row_top - data_label.actual_y / chart.height
+
+        # فقط عنوان ردیف یک شکل متن جداگانه است.
+        row_heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, chart.x, chart.y + row_top * chart.height, 85, 18)
+        row_heading.fill_format.fill_type = slides.FillType.NO_FILL
+        row_heading.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+        row_heading.add_text_frame(series_names[series_index])
+        row_heading.text_frame.text_frame_format.margin_top = 0
+        row_heading.text_frame.text_frame_format.margin_bottom = 0
+        heading_format = row_heading.text_frame.paragraphs[0].portions[0].portion_format
+        heading_format.font_height = 12
+        heading_format.fill_format.fill_type = slides.FillType.SOLID
+        heading_format.fill_format.solid_fill_color.color = drawing.Color.black
+
+    presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![نمودار ستونی با دو ردیف برچسب داده بالای ناحیهٔ رسم](multiple-rows-of-labels.png)
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای شلوغ جلوگیری کنم؟**
+**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای چگال جلوگیری کنم؟**  
+از ترکیب قرارگیری خودکار برچسب‌ها، خطوط راهنما و کاهش اندازهٔ قلم استفاده کنید؛ در صورت لزوم برخی فیلدها (مانند دسته) را مخفی کنید یا برچسب‌ها را تنها برای مقادیر نهایی یا نقاط کلیدی نمایش دهید.
 
-از ترکیب جایگذاری خودکار برچسب‌ها، خطوط راهنما و کاهش اندازه قلم استفاده کنید؛ در صورت لزوم برخی فیلدها (مثلاً دسته) را پنهان کنید یا فقط برای مقادیر افراطی یا نقاط کلیدی برچسب‌ها را نمایش دهید.
+**چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**  
+قبل از فعال‌سازی برچسب‌ها، نقاط داده را فیلتر کنید و نمایش مقادیر صفر، منفی یا خالی را براساس یک قانون تعریف‌شده غیرفعال کنید.
 
-**چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**
-
-نقاط داده را قبل از فعال‌سازی برچسب‌ها فیلتر کنید و نمایش مقادیر 0، مقادیر منفی یا مقادیر گمشده را بر اساس یک قانون تعریف‌شده غیرفعال نمایید.
-
-**چگونه می‌توانم اطمینان حاصل کنم که سبک برچسب‌ها در هنگام خروجی به PDF/تصاویر ثابت بماند؟**
-
-به‌صورت صریح خانوادهٔ قلم و اندازهٔ آن را تنظیم کنید و اطمینان حاصل کنید که قلم در محیط رندر موجود است تا از استفادهٔ جایگزین جلوگیری شود.
+**چگونه می‌توانم سبک برچسبی ثابت را هنگام خروجی به PDF/تصاویر تضمین کنم؟**  
+قابلاً خانواده و اندازهٔ قلم را تنظیم کنید و اطمینان حاصل کنید که قلم در محیط رندر موجود است تا از استفاده قلم جایگزین جلوگیری شود.

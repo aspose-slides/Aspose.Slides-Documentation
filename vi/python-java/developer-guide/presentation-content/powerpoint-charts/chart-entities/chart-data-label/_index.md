@@ -1,5 +1,5 @@
 ---
-title: Quản lý Nhãn Dữ liệu Biểu đồ trong Bản trình chiếu bằng Python
+title: Quản lý Nhãn Dữ liệu Biểu đồ trong Bản trình bày Sử dụng Python
 linktitle: Nhãn Dữ liệu
 type: docs
 url: /vi/python-java/chart-data-label/
@@ -11,19 +11,19 @@ keywords:
 - khoảng cách nhãn
 - vị trí nhãn
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Python
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong bản trình chiếu PowerPoint bằng Aspose.Slides cho Python thông qua Java để tạo các slide sinh động hơn."
+description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong các bản trình bày PowerPoint sử dụng Aspose.Slides cho Python qua Java để tạo slide hấp dẫn hơn."
 ---
 ## **Giới thiệu**
 
-Nhãn dữ liệu hiển thị thông tin về chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc xác định giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, kiểm soát nhãn vượt quá giá trị tối đa của trục, điều chỉnh khoảng cách nhãn trục danh mục và định vị nhãn biểu đồ tròn.
+Nhãn dữ liệu hiển thị thông tin về các chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc xác định giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, kiểm soát nhãn vượt quá giá trị tối đa của trục, điều chỉnh khoảng cách nhãn trục danh mục và định vị nhãn biểu đồ tròn.
 
-## **Đặt độ chính xác dữ liệu trong Nhãn Dữ liệu biểu đồ**
+## **Đặt độ chính xác dữ liệu trong Nhãn dữ liệu biểu đồ**
 
-Sử dụng [setNumberFormatOfValues](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) để định dạng giá trị của chuỗi. Ví dụ này tạo một biểu đồ đường với dữ liệu mặc định, hiển thị bảng dữ liệu của nó và bật nhãn giá trị cho chuỗi đầu tiên. Định dạng `#,##0.00` hiển thị dấu phân cách hàng nghìn và hai chữ số thập phân mà không thay đổi giá trị gốc.
+Sử dụng [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) để định dạng các giá trị của chuỗi. Ví dụ này tạo một biểu đồ đường với dữ liệu mặc định, hiển thị bảng dữ liệu của nó và bật nhãn giá trị cho chuỗi đầu tiên. Định dạng `#,##0.00` hiển thị dấu phân cách hàng ngàn và hai chữ số thập phân mà không thay đổi các giá trị gốc.
 
 ```python
 import jpype
@@ -50,9 +50,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Hiển thị phần trăm dưới dạng nhãn**
+## **Hiển thị phần trăm dưới dạng Nhãn**
 
-Đối với biểu đồ cột chồng, tính mỗi giá trị dưới dạng phần trăm của tổng danh mục và gán văn bản vào khung văn bản được trả về bởi [getTextFrameForOverriding](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Ví dụ này sử dụng dữ liệu biểu đồ mặc định và hiển thị phần trăm với hai chữ số thập phân trong phông chữ 8 điểm. Các danh mục có tổng bằng không sẽ bị bỏ qua để tránh chia cho không. Tính lại văn bản nhãn tùy chỉnh nếu dữ liệu biểu đồ thay đổi.
+Đối với biểu đồ cột chồng, tính mỗi giá trị dưới dạng phần trăm của tổng danh mục và gán văn bản vào khung văn bản được trả về bởi [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Ví dụ này sử dụng dữ liệu biểu đồ mặc định và hiển thị phần trăm với hai chữ số thập phân trong phông chữ 8 điểm. Các danh mục có tổng bằng không sẽ bị bỏ qua để tránh chia cho không. Tính lại văn bản nhãn tùy chỉnh nếu dữ liệu biểu đồ thay đổi.
 
 ```python
 import jpype
@@ -108,11 +108,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Đặt ký hiệu phần trăm với Nhãn Dữ liệu biểu đồ**
+## **Đặt ký hiệu phần trăm với Nhãn dữ liệu biểu đồ**
 
-Khi các giá trị được lưu dưới dạng phân số, sử dụng [setNumberFormat](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabelformat/#setNumberFormat) để hiển thị phần trăm. Gửi `False` vào [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) để áp dụng định dạng nhãn độc lập với các ô nguồn.
+Khi các giá trị được lưu dưới dạng phân số, sử dụng [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) để hiển thị phần trăm. Gửi `False` tới [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) để áp dụng định dạng nhãn một cách độc lập với các ô nguồn.
 
-Ví dụ này tạo một biểu đồ cột chồng 100% với các chuỗi màu đỏ và xanh lam qua bốn danh mục. Mỗi cặp giá trị cộng lại bằng 1. Định dạng nhãn `0.0%` hiển thị 0.30 thành 30.0%, trong khi trục dọc sử dụng hai chữ số thập phân. Cả hai chuỗi đều sử dụng nhãn màu trắng, kích thước 10 điểm.
+Ví dụ này tạo một biểu đồ cột chồng 100% với các chuỗi màu đỏ và xanh dương trên bốn danh mục. Mỗi cặp giá trị cộng lại thành 1. Định dạng nhãn `0.0%` hiển thị 0.30 dưới dạng 30.0%, trong khi trục tung sử dụng hai chữ số thập phân. Cả hai chuỗi đều sử dụng nhãn màu trắng, kích thước 10 điểm.
 
 ```python
 import jpype
@@ -171,9 +171,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Đọc văn bản thực tế của Nhãn Dữ liệu**
+## **Đọc Văn bản Thực tế của Nhãn Dữ liệu**
 
-Sử dụng [getActualLabelText](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabel/#getActualLabelText) để lấy văn bản do cài đặt của nhãn dữ liệu tạo ra. Điều này hữu ích khi trích xuất nhãn cho báo cáo, tìm kiếm nội dung bản trình chiếu hoặc xác nhận các biểu đồ đã tạo. Trong ví dụ dưới đây, định dạng nhãn dữ liệu mặc định kết hợp tên danh mục, tên chuỗi và giá trị. Một điểm định dạng giá trị của nó dưới dạng phần trăm, và một điểm khác sử dụng văn bản tùy chỉnh từ [getTextFrameForOverriding](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Use [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) để lấy văn bản được tạo ra bởi các cài đặt của nhãn dữ liệu. Điều này hữu ích khi trích xuất nhãn cho báo cáo, tìm kiếm nội dung bản trình bày, hoặc xác thực các biểu đồ đã tạo. Trong ví dụ dưới đây, định dạng [nhãn dữ liệu mặc định](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) kết hợp mỗi tên danh mục, tên chuỗi và giá trị. Một điểm định dạng giá trị của nó dưới dạng phần trăm, và một điểm khác sử dụng văn bản tùy chỉnh từ [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -234,15 +234,15 @@ finally:
     presentation.dispose()
 ```
 
-Số được lưu trong một điểm dữ liệu vẫn là `0.75`, ngay cả khi nhãn của nó hiển thị `75%` cùng với tên danh mục và chuỗi. Văn bản tùy chỉnh thay thế nhãn đã tạo. [getActualLabelText](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabel/#getActualLabelText) trả về chuỗi nhãn kết quả trong cả hai trường hợp. Kiểm tra [isVisible](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabel/#isVisible) riêng biệt, như đã trình bày ở trên, khi bạn muốn trích xuất chỉ những nhãn hiển thị.
+Số lưu trong một điểm dữ liệu vẫn là `0.75`, ngay cả khi nhãn của nó hiển thị `75%` cùng với tên danh mục và tên chuỗi. Văn bản tùy chỉnh thay thế văn bản nhãn được tạo. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) trả về chuỗi nhãn kết quả trong cả hai trường hợp. Kiểm tra [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) riêng biệt, như đã chỉ ra ở trên, khi bạn muốn trích xuất chỉ các nhãn hiển thị.
 
-## **Kiểm soát Nhãn Dữ liệu vượt quá Giá trị Tối đa của Trục**
+## **Kiểm soát Nhãn Dữ liệu Vượt quá Giá trị Tối đa của Trục**
 
-Khi bạn giới hạn phạm vi trục theo cách thủ công, một số điểm dữ liệu có thể vượt quá giá trị tối đa của nó. Sử dụng [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) để kiểm soát việc hiển thị nhãn dữ liệu của chúng. Cài đặt này thay đổi khả năng hiển thị nhãn; nó không thay đổi phạm vi trục hay giá trị dữ liệu gốc.
+Khi bạn giới hạn phạm vi trục một cách thủ công, một số điểm dữ liệu có thể vượt quá giá trị tối đa của nó. Sử dụng [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) để kiểm soát việc hiển thị nhãn dữ liệu của chúng. Cài đặt này chỉ thay đổi khả năng hiển thị nhãn; nó không thay đổi phạm vi trục hay các giá trị dữ liệu gốc.
 
-Ví dụ dưới đây tạo một biểu đồ cột cụm 2D với các giá trị 60 và 120. Nó gửi `False` vào [setAutomaticMaxValue](https://reference.aspose.com/slides/vi/python-java/aspose.slides/axis/#setAutomaticMaxValue) và đặt giá trị tối đa thành 100 bằng [setMaxValue](https://reference.aspose.com/slides/vi/python-java/aspose.slides/axis/#setMaxValue) trên trục dọc. Slide đầu tiên cho phép nhãn vượt quá giá trị tối đa; bản sao của slide đó vô hiệu hoá chúng. Cả hai slide đều được lưu trong `DataLabelsOverMaximum.pptx`.
+Ví dụ dưới đây tạo một biểu đồ cột cụm 2D với các giá trị 60 và 120. Nó gửi `False` tới [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) và đặt giá trị tối đa là 100 bằng [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) trên trục tung. Bản slide đầu tiên cho phép nhãn vượt quá tối đa; một bản sao của slide đó tắt tính năng này. Cả hai slide đều được lưu trong `DataLabelsOverMaximum.pptx`.
 
-Bật nhãn giá trị bằng [setShowValue](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabelformat/#setShowValue). Cài đặt ở mức biểu đồ không tự động bật hiển thị giá trị hoặc ghi đè lên việc tắt hiển thị giá trị của nhãn riêng lẻ. Ví dụ này bật giá trị cho toàn bộ chuỗi và sử dụng [setPosition](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabelformat/#setPosition) để đặt nhãn ở cuối ngoài của mỗi cột.
+Bật nhãn giá trị bằng [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Cài đặt ở mức biểu đồ không tự động bật hiển thị giá trị hoặc ghi đè việc tắt hiển thị giá trị của một nhãn riêng lẻ. Ví dụ này bật giá trị cho toàn bộ chuỗi và sử dụng [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) để đặt nhãn ở cuối ngoài của mỗi cột.
 
 ```python
 import jpype
@@ -296,19 +296,19 @@ finally:
     presentation.dispose()
 ```
 
-Các hình ảnh dưới đây cho thấy các slide đã lưu được render bằng Microsoft PowerPoint. Với `True`, nhãn **120** hiển thị ở rìa trên; với `False`, nó bị ẩn. Nhãn **60** vẫn hiển thị, giá trị tối đa của trục vẫn là **100**, và điểm dữ liệu thứ hai vẫn là **120** trong cả hai trường hợp.
+Hình ảnh sau đây hiển thị các slide đã lưu được render bởi Microsoft PowerPoint. Với `True`, nhãn **120** hiển thị tại ranh giới trên; với `False`, nó bị ẩn. Nhãn **60** vẫn hiển thị, giá trị tối đa của trục vẫn ở **100**, và điểm dữ liệu thứ hai vẫn là **120** trong cả hai trường hợp.
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
-| ![Biểu đồ PowerPoint hiển thị nhãn giá trị 120 với tối đa trục là 100](data-labels-over-maximum-true.png) | ![Biểu đồ PowerPoint ẩn nhãn giá trị 120 với tối đa trục là 100](data-labels-over-maximum-false.png) |
+| ![Biểu đồ PowerPoint hiển thị nhãn giá trị 120 với giá trị tối đa của trục là 100](data-labels-over-maximum-true.png) | ![Biểu đồ PowerPoint ẩn nhãn giá trị 120 với giá trị tối đa của trục là 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Ví dụ này sử dụng một biểu đồ cột 2D với trục giá trị. Các biểu đồ không có trục giá trị, như biểu đồ tròn và biểu đồ vòng, không có giá trị tối đa của trục để giới hạn theo cách này.
+Ví dụ này sử dụng biểu đồ cột 2D có trục giá trị. Các biểu đồ không có trục giá trị, như biểu đồ tròn và bánh donut, không có giá trị tối đa của trục để giới hạn theo cách này.
 {{% /alert %}}
 
-## **Đặt Khoảng cách Nhãn từ Trục**
+## **Đặt Khoảng cách Nhãn khỏi Trục**
 
-Sử dụng [setLabelOffset](https://reference.aspose.com/slides/vi/python-java/aspose.slides/axis/#setLabelOffset) để kiểm soát khoảng cách giữa nhãn trục danh mục và trục. Giá trị là phần trăm của kích thước phông chữ tối đa của các nhãn trục. Ví dụ này tạo một biểu đồ cột cụm và đặt khoảng cách nhãn trục ngang thành 500. Cài đặt này ảnh hưởng đến nhãn trục danh mục hơn là nhãn gắn vào các điểm dữ liệu riêng lẻ.
+Sử dụng [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) để kiểm soát khoảng cách giữa các nhãn trục danh mục và trục. Giá trị là phần trăm của kích thước phông chữ tối đa của các nhãn trục. Ví dụ này tạo một biểu đồ cột cụm và đặt độ lệch nhãn trục ngang thành 500. Cài đặt này ảnh hưởng đến các nhãn trục danh mục thay vì các nhãn gắn vào các điểm dữ liệu riêng lẻ.
 
 ```python
 import jpype
@@ -331,9 +331,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Điều chỉnh vị trí Nhãn**
+## **Điều chỉnh Vị trí Nhãn**
 
-Trên biểu đồ tròn, điều chỉnh vị trí nhãn dữ liệu để cải thiện khoảng cách và tạo không gian cho các đường dẫn. Ví dụ này hiển thị giá trị của điểm dữ liệu đầu tiên, đặt nhãn của nó bên ngoài phần bánh và điều chỉnh độ dịch ngang và dọc bằng [setX](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabel/#setX) và [setY](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datalabel/#setY). Các độ dịch này tương đối so với độ rộng và độ cao của biểu đồ, tương ứng.
+Trong biểu đồ tròn, điều chỉnh vị trí nhãn dữ liệu để cải thiện khoảng cách và tạo không gian cho các đường dẫn.
+
+Ví dụ này hiển thị giá trị của điểm dữ liệu đầu tiên, đặt nhãn của nó bên ngoài phần bánh, và điều chỉnh độ lệch ngang và dọc bằng cách sử dụng [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) và [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY). Các độ lệch này tương đối với chiều rộng và chiều cao của biểu đồ.
 
 ```python
 import jpype
@@ -362,18 +364,124 @@ finally:
     presentation.dispose()
 ```
 
-![Biểu đồ tròn với vị trí nhãn dữ liệu được điều chỉnh](pie-chart-adjusted-label.png)
+![Biểu đồ tròn với vị trí nhãn dữ liệu đã điều chỉnh](pie-chart-adjusted-label.png)
+
+## **Thêm Nhiều Hàng Nhãn Dữ liệu ở Trên Biểu đồ Cột**
+
+Ví dụ này tạo một biểu đồ cột với hai hàng nhãn dữ liệu ở trên khu vực vẽ. Chuỗi A hiển thị các cột có thể nhìn thấy, trong khi Chuỗi B và Chuỗi C cung cấp các nhãn bổ sung. Các cột của chúng được ẩn bằng cách loại bỏ nền và đường viền. Phương thức [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) căn chỉnh cả ba chuỗi với cùng một trung tâm danh mục.
+
+Cài đặt [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) dành không gian cho các hàng nhãn. Sau khi [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) tính toán vị trí mặc định, [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) và [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) giữ nguyên căn chỉnh ngang và áp dụng độ lệch dọc để sắp xếp các nhãn thành hai hàng. Các số vẫn là nhãn dữ liệu liên kết với giá trị của chuỗi; chỉ tiêu đề hàng là các hình dạng văn bản riêng biệt.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, LayoutTargetType, LegendDataLabelPosition, Presentation, SaveFormat, ShapeType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200)
+    chart.setTitle(False)
+    chart.setLegend(False)
+    chart.getTextFormat().getPortionFormat().setFontHeight(12)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    categories = ["North", "South", "East", "West"]
+    series_names = ["Series A", "Series B", "Series C"]
+    series_values = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]]
+
+    for category_index, category in enumerate(categories):
+        category_cell = workbook.getCell(0, category_index + 1, 0, category)
+        chart.getChartData().getCategories().add(category_cell)
+
+    for series_index, series_name in enumerate(series_names):
+        series_cell = workbook.getCell(0, 0, series_index + 1, series_name)
+        series = chart.getChartData().getSeries().add(series_cell, ChartType.ClusteredColumn)
+
+        for category_index, value in enumerate(series_values[series_index]):
+            value_cell = workbook.getCell(0, category_index + 1, series_index + 1, jpype.JDouble(value))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+        if series_index > 0:
+            # Ẩn các cột của B và C, nhưng giữ lại nhãn dữ liệu của chúng.
+            series.getFormat().getFill().setFillType(FillType.NoFill)
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+            label_format = series.getLabels().getDefaultDataLabelFormat()
+            label_format.setShowValue(True)
+            label_format.getTextFormat().getPortionFormat().setFontHeight(12)
+            label_fill = label_format.getTextFormat().getPortionFormat().getFillFormat()
+            label_fill.setFillType(FillType.Solid)
+            label_fill.getSolidFillColor().setColor(Color.BLACK)
+            label_format.setPosition(LegendDataLabelPosition.InsideBase)
+
+    # Căn chỉnh cả ba chuỗi sao cho các trung tâm danh mục giống nhau.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
+
+    # Sử dụng ít đường lưới hơn cho ví dụ gọn này.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
+    chart.getAxes().getVerticalAxis().setMajorUnit(10)
+
+    # Dành không gian phía trên vùng vẽ cho hai hàng nhãn dữ liệu.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
+    chart.getPlotArea().setX(0.15)
+    chart.getPlotArea().setY(0.32)
+    chart.getPlotArea().setWidth(0.80)
+    chart.getPlotArea().setHeight(0.48)
+    chart.validateChartLayout()
+
+    for series_index in range(1, len(series_names)):
+        series = chart.getChartData().getSeries().get_Item(series_index)
+        row_top = 0.15 if series_index == 1 else 0.03
+
+        for category_index in range(len(categories)):
+            data_label = series.getDataPoints().get_Item(category_index).getLabel()
+            # Giữ vị trí ngang mặc định. Y là độ lệch từ
+            # vị trí nhãn mặc định, biểu thị dưới dạng phần tỷ lệ chiều cao biểu đồ.
+            data_label.setX(0)
+            data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
+
+        # Chỉ tiêu đề hàng là một hình dạng văn bản riêng biệt.
+        heading_y = chart.getY() + row_top * chart.getHeight()
+        row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
+        row_heading.getFillFormat().setFillType(FillType.NoFill)
+        row_heading.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        row_heading.addTextFrame(series_names[series_index])
+        row_heading.getTextFrame().getTextFrameFormat().setMarginTop(0)
+        row_heading.getTextFrame().getTextFrameFormat().setMarginBottom(0)
+        heading_format = row_heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        heading_format.setFontHeight(12)
+        heading_format.getFillFormat().setFillType(FillType.Solid)
+        heading_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Biểu đồ cột với hai hàng nhãn dữ liệu ở trên khu vực vẽ](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Làm sao để ngăn nhãn dữ liệu chồng lên nhau trên các biểu đồ dày đặc?**
+**Làm thế nào để ngăn nhãn dữ liệu chồng lấn trên các biểu đồ dày đặc?**
 
-Kết hợp việc đặt nhãn tự động, các đường dẫn và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực trị hoặc các điểm quan trọng.
+Kết hợp việc đặt nhãn tự động, dùng đường dẫn, và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực đoan hoặc các điểm chính.
 
-**Làm sao để tắt nhãn chỉ cho các giá trị bằng không, âm hoặc trống?**
+**Làm thế nào để tắt nhãn chỉ cho các giá trị bằng không, âm, hoặc trống?**
 
-Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị bằng 0, giá trị âm hoặc giá trị thiếu theo quy tắc đã định.
+Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị bằng 0, giá trị âm, hoặc giá trị thiếu theo quy tắc đã định.
 
-**Làm sao để đảm bảo kiểu nhãn nhất quán khi xuất ra PDF/hình ảnh?**
+**Làm thế nào để đảm bảo phong cách nhãn nhất quán khi xuất ra PDF/hình ảnh?**
 
-Thiết lập rõ ràng họ phông chữ và kích thước, đồng thời xác minh phông chữ có sẵn trong môi trường render để tránh việc fallback.
+Đặt rõ ràng họ phông chữ và kích thước, và kiểm tra phông chữ có sẵn trong môi trường render để tránh fallback.

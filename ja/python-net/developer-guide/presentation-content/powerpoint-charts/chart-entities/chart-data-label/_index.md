@@ -14,15 +14,15 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
 ---
-## **はじめに**
+## **導入**
 
-データ ラベルは、チャートの系列や個々のデータ ポイントに関する情報を表示し、読者が値を特定しチャートを理解できるようにします。本記事では、値の書式設定、パーセンテージの表示、ラベル テキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、円グラフラベルの位置設定方法について説明します。
+データ ラベルはチャートの系列や個々のデータ ポイントに関する情報を表示し、読者が値を特定しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベル テキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、円グラフラベルの位置設定方法について説明します。
 
-## **チャート データ ラベルのデータ精度を設定する**
+## **チャート データ ラベルのデータ精度の設定**
 
-[number_format_of_values](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartseries/number_format_of_values/) を使用して系列の値の書式設定を行います。この例では、デフォルト データで折れ線グラフを作成し、データ テーブルを表示し、最初の系列の値ラベルを有効にします。書式 `#,##0.00` は、桁区切りと小数点以下 2 桁を表示しますが、元の値は変更されません。
+[number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) を使用して系列の値の書式を設定します。この例は既定データで折れ線グラフを作成し、データ テーブルを表示し、最初の系列に値ラベルを有効にします。書式 `#,##0.00` は千区切りと小数点以下 2 桁を表示し、基になる値は変更しません。
 
 ```python
 import aspose.slides as slides
@@ -41,9 +41,9 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ラベルとしてパーセンテージを表示する**
+## **ラベルとしてパーセンテージを表示**
 
-スタックされた縦棒グラフの場合、各値をカテゴリ合計に対するパーセンテージとして計算し、[text_frame_for_overriding](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) にテキストを割り当てます。この例はデフォルトのチャート データを使用し、8 ポイント フォントで小数点以下 2 桁のパーセンテージを表示します。合計がゼロのカテゴリは、ゼロ除算を防ぐためにスキップされます。チャート データが変更された場合は、カスタム ラベル テキストを再計算してください。
+積み上げ縦棒グラフの場合、各値をカテゴリ合計に対するパーセンテージに計算し、テキストを [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) に割り当てます。この例は既定のチャート データを使用し、8 ポイント フォントで小数点以下 2 桁のパーセンテージを表示します。合計が 0 のカテゴリは除外してゼロ除算を防止します。チャート データが変更された場合はカスタム ラベル テキストを再計算してください。
 
 ```python
 import aspose.slides as slides
@@ -90,11 +90,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **チャート データ ラベルにパーセンテージ記号を設定する**
+## **チャート データ ラベルでパーセンテージ記号を設定**
 
-値が分数として格納されている場合、[number_format](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabelformat/number_format/) を使用してパーセンテージを表示します。[is_number_format_linked_to_source](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) を `False` に設定すると、ラベルの書式が元のセルとは独立して適用されます。
+値が分数として格納されている場合、[number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) を使用してパーセンテージを表示します。ラベル書式をソース セルとは独立させるには、[is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) を `False` に設定します。
 
-この例では、4 つのカテゴリにわたって赤と青の系列を持つ 100% スタック縦棒グラフを作成します。各ペアの値は合計で 1 になります。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下 2 桁を使用します。両系列とも白色で 10 ポイントのラベル テキストを使用します。
+この例は 4 つのカテゴリに対して赤と青の系列を持つ 100% 積み上げ縦棒グラフを作成します。各ペアの値の合計は 1 です。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下 2 桁を使用します。両系列とも白色の 10 ポイント ラベル テキストを使用します。
 
 ```python
 import aspose.slides as slides
@@ -104,7 +104,7 @@ import aspose.pydrawing as drawing
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
+    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 23, 20, 500, 400)
 
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
     chart.axes.vertical_axis.number_format = "0.00%"
@@ -143,9 +143,9 @@ with slides.Presentation() as presentation:
     presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **データ ラベルの実際のテキストを取得する**
+## **データ ラベルの実際のテキストを取得**
 
-[get_actual_label_text](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) を使用して、データ ラベルの設定で生成されたテキストを取得します。これは、レポート用にラベルを抽出したり、プレゼンテーションの内容を検索したり、生成されたチャートを検証したりする場合に便利です。下の例では、デフォルトの[data label format](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabelformat/) が各カテゴリ名、系列名、値を結合します。あるポイントは値をパーセンテージで書式設定し、別のポイントは[text_frame_for_overriding](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) からカスタム テキストを使用します。
+[get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) を使用して、データ ラベル設定により生成されたテキストを取得します。これはレポート用ラベルの抽出、プレゼンテーション コンテンツの検索、生成されたチャートの検証に便利です。以下の例では、既定の [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) が各カテゴリ名、系列名、値を組み合わせます。あるポイントは値をパーセンテージとして書式設定し、別のポイントは [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) からのカスタム テキストを使用します。
 
 ```python
 import aspose.slides as slides
@@ -196,15 +196,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-データ ポイントに格納されている数値は `0.75` のままで、ラベルがカテゴリ名と系列名と共に `75%` と表示されても変わりません。カスタム テキストは生成されたラベル テキストを置き換えます。[get_actual_label_text](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) はどちらの場合でも結果のラベル文字列を返します。表示ラベルだけを抽出したい場合は、上記のように [is_visible](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabel/is_visible/) を別途確認してください。
+データ ポイントに格納されている数値は `0.75` のままで、ラベルはカテゴリ名と系列名に加えて `75%` を表示します。カスタム テキストは生成されたラベル テキストを置き換えます。[get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) はどちらの場合でも結果のラベル文字列を返します。表示ラベルのみを抽出したい場合は、上記のように [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) を別途確認してください。
 
-## **軸の最大値を超えるデータ ラベルを制御する**
+## **軸の最大値を超えるデータ ラベルの制御**
 
-軸範囲を手動で制限すると、いくつかのデータ ポイントが最大値を超えることがあります。[show_data_labels_over_maximum](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) を使用して、これらのデータ ラベルを表示するかどうかを制御します。この設定はラベルの表示/非表示を変更しますが、軸範囲や元のデータ値は変更しません。
+軸範囲を手動で制限すると、一部のデータ ポイントが最大値を超えることがあります。[show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) を使用して、これらのラベルを表示するかどうかを制御します。この設定はラベルの表示/非表示を変更しますが、軸範囲や基になるデータ値は変更しません。
 
-以下の例では、60 と 120 の値を持つ 2D クラスタ化縦棒グラフを作成します。縦軸の [is_automatic_max_value](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/axis/is_automatic_max_value/) を `False`、[max_value](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/axis/max_value/) を 100 に設定します。最初のスライドは最大値を超えるラベルを許可し、そのコピーは無効にします。両方のスライドは `DataLabelsOverMaximum.pptx` に保存されます。
+以下の例は 60 と 120 の値を持つ 2D クラスタ化縦棒グラフを作成します。縦軸の [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) を `False`、[max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) を 100 に設定します。最初のスライドは最大値を超えるラベルを許可し、コピーしたスライドはそれを無効にします。両スライドは `DataLabelsOverMaximum.pptx` に保存されます。
 
-[show_value](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabelformat/show_value/) で値ラベルを有効にします。チャート レベルの設定だけでは値の表示は有効にならず、個々のラベルで無効にされた表示を上書きもしません。この例では、系列全体の値を有効にし、[position](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabelformat/position/) を使用して各列の外側端にラベルを配置します。
+[show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) で値ラベルを有効にします。このチャート レベルの設定だけでは個々のラベルの非表示設定を上書きしたり、値の表示を自動的に有効にしたりしません。この例は系列全体の値を有効にし、[position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) を使用して各列の外側端にラベルを配置します。
 
 ```python
 import aspose.slides as slides
@@ -250,19 +250,21 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-以下の画像は、Microsoft PowerPoint でレンダリングされた保存されたスライドを示しています。`True` の場合、ラベル **120** が上限に表示され、`False` の場合は非表示になります。ラベル **60** は表示されたままで、軸の最大値は **100** のまま、2 番目のデータ ポイントはどちらの場合も **120** のままです。
+以下の画像は Microsoft PowerPoint でレンダリングされた保存済みスライドを示します。`True` の場合、ラベル **120** が上部境界に表示され、`False` の場合は非表示になります。ラベル **60** は常に表示され、軸最大値は **100** のままで、2 番目のデータ ポイントはどちらの場合も **120** のままです。
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Chart Type" %}}
-この例では、値軸を持つ 2D 縦棒グラフを使用しています。円グラフやドーナツ グラフなど、値軸のないチャートには、このように軸の最大値を制限することはできません。
+{{% alert color="info" title="チャートの種類" %}}
+
+この例は値軸を持つ 2D 縦棒グラフを使用しています。円グラフやドーナツ グラフのように値軸がないチャートには、この方法で制限できる軸最大値が存在しません。
+
 {{% /alert %}}
 
-## **軸からのラベル距離を設定する**
+## **軸からのラベル距離の設定**
 
-[label_offset](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/axis/label_offset/) を使用してカテゴリ軸ラベルと軸との距離を制御します。値は軸ラベルの最大フォントサイズのパーセンテージです。この例では、クラスタ化縦棒グラフを作成し、横軸ラベルのオフセットを 500 に設定します。この設定は個々のデータ ポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
+[label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) を使用してカテゴリ軸ラベルと軸との間隔を制御します。値は軸ラベルの最大フォント サイズのパーセンテージです。この例はクラスタ化縦棒グラフを作成し、横軸ラベルオフセットを 500 に設定します。この設定は個々のデータ ポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
 
 ```python
 import aspose.slides as slides
@@ -277,11 +279,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ラベルの位置を調整する**
+## **ラベル位置の調整**
 
-円グラフでは、データ ラベルの位置を調整して間隔を改善し、リーダー ラインの余裕を確保します。
+円グラフでは、データ ラベルの位置を調整して間隔を改善し、リーダー ラインの余白を確保します。
 
-この例では、最初のデータ ポイントの値を表示し、ラベルをスライスの外側に配置し、[x](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabel/x/) と [y](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/datalabel/y/) のオフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対位置です。
+この例は最初のデータ ポイントの値を表示し、ラベルをスライスの外側に配置し、[x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) と [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) オフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対位置です。
 
 ```python
 import aspose.slides as slides
@@ -302,18 +304,118 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![調整されたデータ ラベル位置の円グラフ](pie-chart-adjusted-label.png)
+
+## **列チャート上部に複数行のデータ ラベルを追加**
+
+この例はプロット領域の上部に 2 行のデータ ラベルを持つ列チャートを作成します。Series A は可視列を表示し、Series B と Series C が追加ラベルを提供します。これらの列は塗りつぶしと輪郭線を削除して非表示にします。[overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) プロパティにより、3 つの系列すべてが同じカテゴリ中心に揃えられます。
+
+[plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) 設定でラベル行のスペースを確保します。[validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) が既定位置を計算した後、[x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) と [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) が水平整列を保持し、垂直オフセットを適用してラベルを 2 行に配置します。数値は系列値にリンクしたデータ ラベルのままです。行見出しだけが別個のテキスト シェイプです。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 40, 640, 200)
+    chart.has_title = False
+    chart.has_legend = False
+    chart.text_format.portion_format.font_height = 12
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    categories = ["North", "South", "East", "West"]
+    series_names = ["Series A", "Series B", "Series C"]
+    series_values = [
+        [35, 42, 28, 47],
+        [22, 31, 19, 26],
+        [12, 16, 14, 18]
+    ]
+
+    for category_index, category_name in enumerate(categories):
+        category_cell = workbook.get_cell(0, category_index + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+    for series_index, series_name in enumerate(series_names):
+        series_cell = workbook.get_cell(0, 0, series_index + 1, series_name)
+        series = chart.chart_data.series.add(series_cell, charts.ChartType.CLUSTERED_COLUMN)
+
+        for category_index in range(len(categories)):
+            value_cell = workbook.get_cell(0, category_index + 1, series_index + 1, series_values[series_index][category_index])
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        if series_index > 0:
+            # B と C の列を非表示にし、データ ラベルは残す。
+            series.format.fill.fill_type = slides.FillType.NO_FILL
+            series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+            label_format = series.labels.default_data_label_format
+            label_format.show_value = True
+            label_format.text_format.portion_format.font_height = 12
+            label_fill = label_format.text_format.portion_format.fill_format
+            label_fill.fill_type = slides.FillType.SOLID
+            label_fill.solid_fill_color.color = drawing.Color.black
+            label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
+
+    # 3 つの系列すべてを同じカテゴリ中心に揃える。
+    chart.chart_data.series[0].parent_series_group.overlap = 100
+
+    # このコンパクトな例ではグリッド線を減らす。
+    chart.axes.vertical_axis.is_automatic_major_unit = False
+    chart.axes.vertical_axis.major_unit = 10
+
+    # プロット上部にデータ ラベル用の 2 行分のスペースを確保する。
+    chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
+    chart.plot_area.x = 0.15
+    chart.plot_area.y = 0.32
+    chart.plot_area.width = 0.80
+    chart.plot_area.height = 0.48
+    chart.validate_chart_layout()
+
+    for series_index in range(1, len(series_names)):
+        series = chart.chart_data.series[series_index]
+        row_top = 0.15 if series_index == 1 else 0.03
+
+        for category_index in range(len(categories)):
+            data_label = series.data_points[category_index].label
+            # デフォルトの水平位置を保持する。Y は次からのオフセットです
+            # デフォルトのラベル位置からのオフセットで、チャート高さの比率で表されます。
+            data_label.x = 0
+            data_label.y = row_top - data_label.actual_y / chart.height
+
+        # 行見出しだけが別個のテキスト シェイプです。
+        row_heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, chart.x, chart.y + row_top * chart.height, 85, 18)
+        row_heading.fill_format.fill_type = slides.FillType.NO_FILL
+        row_heading.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+        row_heading.add_text_frame(series_names[series_index])
+        row_heading.text_frame.text_frame_format.margin_top = 0
+        row_heading.text_frame.text_frame_format.margin_bottom = 0
+        heading_format = row_heading.text_frame.paragraphs[0].portions[0].portion_format
+        heading_format.font_height = 12
+        heading_format.fill_format.fill_type = slides.FillType.SOLID
+        heading_format.fill_format.solid_fill_color.color = drawing.Color.black
+
+    presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![プロット領域上部に 2 行のデータ ラベルを持つ列チャート](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**データ ラベルが密集したチャートで重なるのを防ぐにはどうすればよいですか？**
+**密集したチャートでデータ ラベルの重なりを防ぐにはどうすればよいですか？**
 
-自動ラベル配置、リーダー ライン、フォントサイズの縮小を組み合わせます。必要に応じて一部のフィールド（例: カテゴリ）を非表示にするか、極端な値や重要なポイントのみラベルを表示します。
+自動ラベル配置、リーダー ライン、フォント サイズの縮小を組み合わせます。必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要ポイントのみにラベルを表示します。
 
-**ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
+**0、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
 
-ラベルを有効にする前にデータ ポイントをフィルタリングし、定義されたルールに従って 0、負の値、または欠損値の表示をオフにします。
+ラベルを有効にする前にデータ ポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを設定します。
 
 **PDF/画像にエクスポートする際にラベルのスタイルを一貫させるにはどうすればよいですか？**
 
-フォント ファミリーとサイズを明示的に設定し、レンダリング環境でフォントが利用可能か確認してフォントのフォールバックを防ぎます。
+フォント ファミリとサイズを明示的に設定し、レンダリング環境にフォントが存在することを確認してフォールバックを防止します。

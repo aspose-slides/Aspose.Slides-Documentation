@@ -1,5 +1,5 @@
 ---
-title: Python을 사용하여 프레젠테이션에서 차트 데이터 레이블 관리
+title: Python을 사용한 프레젠테이션에서 차트 데이터 레이블 관리
 linktitle: 데이터 레이블
 type: docs
 url: /ko/python-net/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - 프레젠테이션
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET를 사용하여 PowerPoint 프레젠테이션에 차트 데이터 레이블을 추가하고 형식화하는 방법을 배우고, 더 매력적인 슬라이드를 만들 수 있습니다."
+description: "Aspose.Slides for Python via .NET를 사용하여 PowerPoint 프레젠테이션에 차트 데이터 레이블을 추가하고 형식화하는 방법을 배워 더 매력적인 슬라이드를 만들세요."
 ---
 ## **소개**
 
-데이터 레이블은 차트 시리즈 및 개별 데이터 포인트에 대한 정보를 표시하여 독자가 값을 식별하고 차트를 이해하는 데 도움을 줍니다. 이 문서에서는 값 형식 지정, 백분율 표시, 레이블 텍스트 읽기, 축 최대값을 초과하는 레이블 제어, 범주 축 레이블 간격 조정 및 파이 차트 레이블 위치 지정 방법을 설명합니다.
+데이터 레이블은 차트 시리즈와 개별 데이터 포인트에 대한 정보를 표시하여 독자가 값을 식별하고 차트를 이해하는 데 도움을 줍니다. 이 문서에서는 값 서식 지정, 백분율 표시, 레이블 텍스트 읽기, 축 최대값을 초과하는 레이블 제어, 범주 축 레이블 간격 조정 및 원형 차트 레이블 위치 지정 방법을 설명합니다.
 
 ## **차트 데이터 레이블에서 데이터 정밀도 설정**
 
-시리즈 값을 형식화하려면 [number_format_of_values](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chartseries/number_format_of_values/)를 사용합니다. 이 예제는 기본 데이터로 라인 차트를 만들고, 데이터 테이블을 표시하며 첫 번째 시리즈에 값 레이블을 활성화합니다. `#,##0.00` 형식은 천 단위 구분 기호와 소수점 두 자리를 표시하지만 기본 값은 변경하지 않습니다.
+Use [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
 
 ```python
 import aspose.slides as slides
@@ -43,7 +43,7 @@ with slides.Presentation() as presentation:
 
 ## **백분율을 레이블로 표시**
 
-누적 세로 막대 차트에서 각 값을 해당 범주의 총계에 대한 백분율로 계산하고 텍스트를 [text_frame_for_overriding](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)에 할당합니다. 이 예제는 기본 차트 데이터를 사용하고 8포인트 글꼴로 소수점 두 자리 백분율을 표시합니다. 총계가 0인 범주는 나눗셈 오류를 방지하기 위해 건너뜁니다. 차트 데이터가 변경되면 사용자 정의 레이블 텍스트를 다시 계산해야 합니다.
+For a stacked column chart, calculate each value as a percentage of its category total and assign the text to [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
 
 ```python
 import aspose.slides as slides
@@ -92,9 +92,9 @@ with slides.Presentation() as presentation:
 
 ## **차트 데이터 레이블에 백분율 기호 설정**
 
-값이 분수 형태로 저장된 경우 [number_format](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabelformat/number_format/)을 사용하여 백분율을 표시합니다. [is_number_format_linked_to_source](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/)를 `False`로 설정하면 원본 셀과 독립적으로 레이블 형식이 적용됩니다.
+When values are stored as fractions, use [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) to display percentages. Set [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) to `False` to apply the label format independently of the source cells.
 
-이 예제는 네 개 범주에 걸쳐 빨간색 및 파란색 시리즈가 있는 100% 누적 세로 막대 차트를 만듭니다. 각 값 쌍의 합은 1이 됩니다. 레이블 형식 `0.0%`는 0.30을 30.0%로 표시하고, 세로 축은 소수점 두 자리로 표시됩니다. 두 시리즈 모두 흰색 10포인트 레이블 텍스트를 사용합니다.
+This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
 
 ```python
 import aspose.slides as slides
@@ -145,7 +145,7 @@ with slides.Presentation() as presentation:
 
 ## **데이터 레이블의 실제 텍스트 읽기**
 
-[get_actual_label_text](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabel/get_actual_label_text/)을 사용하면 데이터 레이블 설정에 의해 생성된 텍스트를 가져올 수 있습니다. 이는 보고서를 위한 레이블 추출, 프레젠테이션 내용 검색 또는 생성된 차트 검증에 유용합니다. 아래 예제에서는 기본 [data label format](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabelformat/)이 각 범주 이름, 시리즈 이름 및 값을 결합합니다. 한 포인트는 값을 백분율로 형식화하고, 다른 포인트는 [text_frame_for_overriding](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)에서 가져온 사용자 정의 텍스트를 사용합니다.
+Use [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -196,15 +196,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-데이터 포인트에 저장된 숫자는 `0.75` 그대로이며, 레이블이 `75%`와 범주 및 시리즈 이름을 함께 표시하더라도 값은 변하지 않습니다. 사용자 정의 텍스트는 자동 생성 레이블 텍스트를 대체합니다. [get_actual_label_text](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabel/get_actual_label_text/)은 두 경우 모두 최종 레이블 문자열을 반환합니다. 보이는 레이블만 추출하려면 위와 같이 [is_visible](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabel/is_visible/)을 별도로 확인하십시오.
+The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) returns the resulting label string in either case. Check [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) separately, as shown above, when you want to extract only visible labels.
 
 ## **축 최대값을 초과하는 데이터 레이블 제어**
 
-축 범위를 수동으로 제한하면 일부 데이터 포인트가 최대값을 초과할 수 있습니다. [show_data_labels_over_maximum](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/)을 사용하면 이러한 데이터 레이블을 표시할지 여부를 제어할 수 있습니다. 이 설정은 레이블 표시 여부만 바꾸며, 축 범위나 기본 데이터 값은 변경하지 않습니다.
+When you limit an axis range manually, some data points may exceed its maximum. Use [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
 
-아래 예제는 값이 60과 120인 2D 클러스터드 세로 막대 차트를 만들고, 세로 축에 대해 [is_automatic_max_value](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/axis/is_automatic_max_value/)를 `False`로, [max_value](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/axis/max_value/)를 100으로 설정합니다. 첫 번째 슬라이드는 최대값을 초과하는 레이블을 허용하고, 복사본 슬라이드는 이를 비활성화합니다. 두 슬라이드 모두 `DataLabelsOverMaximum.pptx` 파일에 저장됩니다.
+The example below creates a 2D clustered column chart with values of 60 and 120. It sets [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) to `False` and [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) to 100 on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
 
-값 레이블을 활성화하려면 [show_value](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabelformat/show_value/)를 사용합니다. 차트 수준 설정만으로 값 표시가 자동으로 활성화되지는 않으며, 개별 레이블의 비활성화된 값 표시를 무시하지도 않습니다. 이 예제는 전체 시리즈에 대해 값을 활성화하고 [position](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabelformat/position/)을 사용해 각 열의 외부 끝에 레이블을 배치합니다.
+Enable value labels with [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) to place labels at the outside end of each column.
 
 ```python
 import aspose.slides as slides
@@ -250,19 +250,19 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-다음 이미지는 Microsoft PowerPoint에서 렌더링된 저장된 슬라이드를 보여 줍니다. `True`인 경우 레이블 **120**이 상한선에 표시되고, `False`인 경우 숨겨집니다. 레이블 **60**은 계속 표시되며, 축 최대값은 **100**으로 유지되고 두 번째 데이터 포인트는 두 경우 모두 **120**으로 남습니다.
+The following images show the saved slides rendered by Microsoft PowerPoint. With `True`, the label **120** is visible at the upper boundary; with `False`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-이 예제는 값 축이 있는 2D 세로 막대 차트를 사용합니다. 파이 차트 및 도넛 차트와 같이 값 축이 없는 차트는 이와 같은 축 최대값 제한이 적용되지 않습니다.
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
-## **축에서 레이블 거리 설정**
+## **축과 레이블 간 거리 설정**
 
-[label_offset](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/axis/label_offset/)을 사용하면 범주 축 레이블과 축 사이의 거리를 제어할 수 있습니다. 값은 축 레이블 최대 글꼴 크기의 백분율입니다. 이 예제는 클러스터드 세로 막대 차트를 만든 다음 수평 축 레이블 오프셋을 500으로 설정합니다. 이 설정은 개별 데이터 포인트에 연결된 레이블이 아니라 범주 축 레이블에 영향을 줍니다.
+Use [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
 
 ```python
 import aspose.slides as slides
@@ -279,9 +279,9 @@ with slides.Presentation() as presentation:
 
 ## **레이블 위치 조정**
 
-파이 차트에서 데이터 레이블 위치를 조정해 간격을 개선하고 리더 라인을 배치할 공간을 확보합니다.
+On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
 
-이 예제는 첫 번째 데이터 포인트의 값을 표시하고 레이블을 슬라이스 밖에 배치한 뒤 [x](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabel/x/) 및 [y](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/datalabel/y/) 오프셋을 조정합니다. 각각 차트 너비와 높이에 대한 상대값입니다.
+This example displays the value of the first data point, places its label outside the slice, and adjusts its [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) offsets. These offsets are relative to the chart width and height, respectively.
 
 ```python
 import aspose.slides as slides
@@ -302,18 +302,118 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![조정된 데이터 레이블 위치가 있는 파이 차트](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+
+## **열 차트 위에 여러 행의 데이터 레이블 추가**
+
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) property aligns all three series with the same category centers.
+
+The [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) settings reserve space for the label rows. After [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calculates the default positions, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 40, 640, 200)
+    chart.has_title = False
+    chart.has_legend = False
+    chart.text_format.portion_format.font_height = 12
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    categories = ["North", "South", "East", "West"]
+    series_names = ["Series A", "Series B", "Series C"]
+    series_values = [
+        [35, 42, 28, 47],
+        [22, 31, 19, 26],
+        [12, 16, 14, 18]
+    ]
+
+    for category_index, category_name in enumerate(categories):
+        category_cell = workbook.get_cell(0, category_index + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+    for series_index, series_name in enumerate(series_names):
+        series_cell = workbook.get_cell(0, 0, series_index + 1, series_name)
+        series = chart.chart_data.series.add(series_cell, charts.ChartType.CLUSTERED_COLUMN)
+
+        for category_index in range(len(categories)):
+            value_cell = workbook.get_cell(0, category_index + 1, series_index + 1, series_values[series_index][category_index])
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        if series_index > 0:
+            # B와 C의 열을 숨기되 데이터 레이블은 유지합니다.
+            series.format.fill.fill_type = slides.FillType.NO_FILL
+            series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+            label_format = series.labels.default_data_label_format
+            label_format.show_value = True
+            label_format.text_format.portion_format.font_height = 12
+            label_fill = label_format.text_format.portion_format.fill_format
+            label_fill.fill_type = slides.FillType.SOLID
+            label_fill.solid_fill_color.color = drawing.Color.black
+            label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
+
+    # 세 시리즈를 동일한 카테고리 중심에 맞춥니다.
+    chart.chart_data.series[0].parent_series_group.overlap = 100
+
+    # 이 간결한 예제에서는 격자선을 적게 사용합니다.
+    chart.axes.vertical_axis.is_automatic_major_unit = False
+    chart.axes.vertical_axis.major_unit = 10
+
+    # 플롯 위에 두 줄의 데이터 레이블을 위한 공간을 확보합니다.
+    chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
+    chart.plot_area.x = 0.15
+    chart.plot_area.y = 0.32
+    chart.plot_area.width = 0.80
+    chart.plot_area.height = 0.48
+    chart.validate_chart_layout()
+
+    for series_index in range(1, len(series_names)):
+        series = chart.chart_data.series[series_index]
+        row_top = 0.15 if series_index == 1 else 0.03
+
+        for category_index in range(len(categories)):
+            data_label = series.data_points[category_index].label
+            # 기본 수평 위치를 유지합니다. Y는 다음으로부터의 오프셋입니다.
+            # 기본 레이블 위치이며, 차트 높이 비율로 표현됩니다.
+            data_label.x = 0
+            data_label.y = row_top - data_label.actual_y / chart.height
+
+        # 행 머리글만 별도의 텍스트 도형입니다.
+        row_heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, chart.x, chart.y + row_top * chart.height, 85, 18)
+        row_heading.fill_format.fill_type = slides.FillType.NO_FILL
+        row_heading.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+        row_heading.add_text_frame(series_names[series_index])
+        row_heading.text_frame.text_frame_format.margin_top = 0
+        row_heading.text_frame.text_frame_format.margin_bottom = 0
+        heading_format = row_heading.text_frame.paragraphs[0].portions[0].portion_format
+        heading_format.font_height = 12
+        heading_format.fill_format.fill_type = slides.FillType.SOLID
+        heading_format.fill_format.solid_fill_color.color = drawing.Color.black
+
+    presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**밀집된 차트에서 데이터 레이블이 겹치는 것을 어떻게 방지할 수 있나요?**
+**How can I prevent data labels from overlapping on dense charts?**
 
-자동 레이블 배치, 리더 라인, 글꼴 크기 축소를 결합하고, 필요하면 일부 필드(예: 범주)를 숨기거나 극값 및 핵심 포인트에만 레이블을 표시합니다.
+Combine automatic label placement, leader lines, and reduced font size; if necessary, hide some fields (for example, the category) or show labels only for extreme values or key points.
 
-**값이 0이거나 음수이거나 비어 있는 경우에만 레이블을 비활성화하려면 어떻게 해야 하나요?**
+**How can I disable labels only for zero, negative, or empty values?**
 
-레이블을 활성화하기 전에 데이터 포인트를 필터링하고, 0, 음수 또는 누락된 값에 대해 표시를 끄는 규칙을 적용합니다.
+Filter data points before enabling labels and turn off display for values of 0, negative values, or missing values according to a defined rule.
 
-**PDF/이미지로 내보낼 때 일관된 레이블 스타일을 보장하려면 어떻게 해야 하나요?**
+**How can I ensure a consistent label style when exporting to PDF/images?**
 
-글꼴 패밀리와 크기를 명시적으로 설정하고, 렌더링 환경에 해당 글꼴이 존재하는지 확인하여 폰트 대체가 발생하지 않도록 합니다.
+Explicitly set the font family and size and verify that the font is available in the rendering environment to avoid fallback.

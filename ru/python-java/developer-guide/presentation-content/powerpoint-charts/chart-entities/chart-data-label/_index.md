@@ -1,29 +1,29 @@
 ---
-title: Управление метками данных диаграмм в презентациях с использованием Python
-linktitle: Метка данных
+title: Управление подписями данных диаграмм в презентациях с использованием Python
+linktitle: Подпись данных
 type: docs
 url: /ru/python-java/chart-data-label/
 keywords:
 - диаграмма
-- метка данных
+- подпись данных
 - точность данных
 - процент
-- расстояние метки
-- расположение метки
+- расстояние подписи
+- расположение подписи
 - PowerPoint
 - презентация
 - Python
 - Java
 - Aspose.Slides
-description: "Узнайте, как добавлять и форматировать метки данных диаграмм в презентациях PowerPoint с использованием Aspose.Slides для Python через Java, чтобы сделать слайды более привлекательными."
+description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для Python через Java, чтобы сделать слайды более привлекательными."
 ---
 ## **Введение**
 
-Метки данных отображают информацию о серииях диаграммы и отдельных точках данных, помогая читателям идентифицировать значения и понимать диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, читать текст метки, управлять метками за пределами максимума оси, регулировать интервал меток категориальной оси и позиционировать метки круговой диаграммы.
+Подписи данных отображают информацию о серияx диаграммы и отдельных точках данных, помогая читателям определять значения и понимать диаграмму. В этой статье объясняется, как форматировать значения, показывать проценты, читать текст подписи, управлять подписями за пределами максимального значения оси, регулировать интервал подписей оси категорий и позиционировать подписи круговой диаграммы.
 
-## **Установить точность данных в метках диаграмм**
+## **Установить точность данных в подписях диаграммы**
 
-Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) для форматирования значений серий. Этот пример создаёт линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает метки значений для первой серии. Формат `#,##0.00` выводит разделитель тысяч и два знака после запятой, не изменяя исходные значения.
+Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) для форматирования значений серии. В этом примере создаётся линейная диаграмма с данными по умолчанию, отображается её таблица данных и включаются подписи значений для первой серии. Формат `#,##0.00` выводит разделитель тысяч и два знака после запятой, не изменяя исходные значения.
 
 ```python
 import jpype
@@ -50,9 +50,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Отображать процент в виде меток**
+## **Отображать процент в виде подписей**
 
-Для сложенной столбчатой диаграммы вычислите каждый пункт как процент от общей суммы своей категории и задайте текст фрейму, возвращаемому методом [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Этот пример использует данные диаграммы по умолчанию и выводит проценты с двумя знаками после запятой шрифтом 8 пунктов. Категории с суммой, равной нулю, пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы пересчитайте пользовательский текст метки.
+Для сложенной столбчатой диаграммы вычислите каждое значение как процент от общей суммы категории и присвойте текст кадру текста, возвращённому [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Этот пример использует данные диаграммы по умолчанию и выводит проценты с двумя знаками после запятой шрифтом 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы нужно пересчитать пользовательский текст подписи.
 
 ```python
 import jpype
@@ -108,11 +108,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Установить знак процента в метках диаграмм**
+## **Установить знак процента в подписях данных диаграммы**
 
-Когда значения хранятся в виде дробей, используйте [setNumberFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabelformat/#setNumberFormat) для отображения процентов. Передайте `False` в [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource), чтобы применить формат метки независимо от исходных ячеек.
+Когда значения хранятся в виде дробей, используйте [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) для отображения процентов. Передайте `False` в [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource), чтобы применить формат подписи независимо от исходных ячеек.
 
-В этом примере создаётся 100 % сложенная столбчатая диаграмма с красными и синими сериями в четырёх категориях. Каждая пара значений в сумме даёт 1. Формат метки `0.0%` выводит 0.30 как 30.0 %, а вертикальная ось использует два знака после запятой. Обе серии используют белый текст меток размером 10 пунктов.
+В этом примере создаётся 100 % сложенная столбчатая диаграмма с красными и синими сериями по четырём категориям. Каждая пара значений в сумме даёт 1. Формат подписи `0.0%` выводит 0.30 как 30.0 %, тогда как вертикальная ось использует два знака после запятой. Обе серии используют белый текст подписи размером 10 пунктов.
 
 ```python
 import jpype
@@ -171,9 +171,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Прочитать фактический текст меток данных**
+## **Получить фактический текст подписи данных**
 
-Используйте [getActualLabelText](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabel/#getActualLabelText) для получения текста, сформированного настройками метки данных. Это полезно при извлечении меток для отчётов, поиске содержимого презентаций или проверке сгенерированных диаграмм. В примере ниже формат метки данных по умолчанию ([data label format](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabelformat/)) комбинирует имя категории, имя серии и значение. Одна точка форматирует своё значение как процент, другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Используйте [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) для получения текста, сформированного настройками подписи данных. Это полезно при извлечении подписей для отчётов, поиске содержимого презентаций или проверке сгенерированных диаграмм. В примере ниже формат подписи [данных по умолчанию](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) объединяет имя категории, имя серии и значение. Одна точка форматирует своё значение как процент, другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -234,15 +234,15 @@ finally:
     presentation.dispose()
 ```
 
-Число, хранящееся в точке данных, остаётся `0.75`, даже если её метка отображает `75 %` вместе с названиями категории и серии. Пользовательский текст заменяет сгенерированный текст метки. [getActualLabelText](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabel/#getActualLabelText) возвращает полученную строку метки в любом случае. Проверяйте [isVisible](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabel/#isVisible) отдельно, как показано выше, когда нужно извлекать только видимые метки.
+Число, хранящееся в точке данных, остаётся `0.75`, даже если её подпись показывает `75%` вместе с именами категории и серии. Пользовательский текст заменяет сгенерированный текст подписи. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) возвращает получившуюся строку подписи в обоих случаях. Проверяйте [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) отдельно, как показано выше, когда нужно извлечь только видимые подписи.
 
-## **Управление метками данных за пределами максимума оси**
+## **Управление подписями данных за пределами максимального значения оси**
 
-Когда диапазон оси ограничен вручную, некоторые точки данных могут превышать её максимум. Используйте [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) для управления тем, показываются ли их метки. Эта настройка меняет видимость меток; она не меняет диапазон оси и не изменяет исходные значения.
+Когда вы вручную ограничиваете диапазон оси, некоторые точки данных могут превышать её максимум. Используйте [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) для управления тем, отображаются ли их подписи. Эта настройка меняет видимость подписи; она не изменяет диапазон оси и не меняет исходные значения данных.
 
-В примере ниже создаётся 2‑D сгруппированная столбчатая диаграмма со значениями 60 и 120. Метод [setAutomaticMaxValue](https://reference.aspose.com/slides/ru/python-java/aspose.slides/axis/#setAutomaticMaxValue) получает `False`, а [setMaxValue](https://reference.aspose.com/slides/ru/python-java/aspose.slides/axis/#setMaxValue) задаёт максимум 100 на вертикальной оси. На первом слайде метки допускаются за пределами максимума; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
+В примере ниже создаётся 2D группированная столбчатая диаграмма со значениями 60 и 120. В неё передаётся `False` в [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) и устанавливается максимум 100 с помощью [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) на вертикальной оси. На первом слайде подписи за пределами максимума отображаются; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
 
-Включите метки значений с помощью [setShowValue](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabelformat/#setShowValue). Настройка уровня диаграммы не включает отображение значений автоматически и не переопределяет отключённый вывод отдельных меток. В этом примере включаются значения для всей серии и используется [setPosition](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabelformat/#setPosition) для размещения меток у наружного конца каждого столбца.
+Включите подписи значений с помощью [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Настройка уровня диаграммы не включает отображение значений сама по себе и не переопределяет отключённое отображение значения отдельной подписи. В этом примере включены значения для всей серии и используется [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) для размещения подписей на наружном конце каждого столбца.
 
 ```python
 import jpype
@@ -294,21 +294,24 @@ try:
     presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
+
 ```
 
-На следующих изображениях показаны сохранённые слайды, отрисованные Microsoft PowerPoint. При `True` метка **120** видна у верхней границы; при `False` она скрыта. Метка **60** остаётся видимой, максимум оси остаётся **100**, а второе значение данных остаётся **120** в обоих случаях.
+На следующих изображениях показаны сохранённые слайды, отрисованные Microsoft PowerPoint. При `True` подпись **120** видна у верхней границы; при `False` она скрыта. Подпись **60** остаётся видимой, максимум оси остаётся **100**, а вторая точка данных остаётся **120** в обоих случаях.
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Диаграмма PowerPoint, показывающая подпись значения 120 при максимуме оси 100](data-labels-over-maximum-true.png) | ![Диаграмма PowerPoint, скрывающая подпись значения 120 при максимуме оси 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Chart Type" %}}
-Этот пример использует 2‑D столбчатую диаграмму со значительной осью. Диаграммы без значительной оси, такие как круговые и кольцевые, не имеют максимума оси, который можно было бы ограничивать таким способом.
+{{% alert color="info" title="Тип диаграммы" %}}
+
+Этот пример использует 2D столбчатую диаграмму с осью значений. Диаграммы без оси значений, такие как круговые и кольцевые диаграммы, не имеют максимального значения оси, которое можно ограничить таким способом.
+
 {{% /alert %}}
 
-## **Установить расстояние метки от оси**
+## **Установить расстояние подписи от оси**
 
-Используйте [setLabelOffset](https://reference.aspose.com/slides/ru/python-java/aspose.slides/axis/#setLabelOffset) для контроля расстояния между метками категориальной оси и самой осью. Значение задаётся в процентах от максимального размера шрифта меток оси. Этот пример создаёт сгруппированную столбчатую диаграмму и задаёт смещение меток горизонтальной оси равным 500. Настройка влияет на метки категориальной оси, а не на метки, привязанные к отдельным точкам данных.
+Используйте [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) для управления расстоянием между подписями оси категорий и самой осью. Значение задаётся в процентах от максимального размера шрифта подписей оси. В этом примере создаётся группированная столбчатая диаграмма и задаётся смещение подписи горизонтальной оси равным 500. Эта настройка влияет на подписи оси категорий, а не на подписи, прикреплённые к отдельным точкам данных.
 
 ```python
 import jpype
@@ -331,11 +334,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Регулировка расположения метки**
+## **Регулировка положения подписи**
 
-На круговой диаграмме скорректируйте позиции меток данных, чтобы улучшить промежутки и освободить место для линий‑выноски.
+На круговой диаграмме регулируйте положение подписей данных, чтобы улучшить интервал и оставить место для выносных линий.
 
-В этом примере отображается значение первой точки, её метка помещается за пределы сектора, а горизонтальные и вертикальные смещения регулируются через [setX](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabel/#setX) и [setY](https://reference.aspose.com/slides/ru/python-java/aspose.slides/datalabel/#setY). Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
+В этом примере отображается значение первой точки данных, её подпись размещается за пределами сектора, а горизонтальное и вертикальное смещения регулируются с помощью [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) и [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY). Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
 
 ```python
 import jpype
@@ -364,15 +367,124 @@ finally:
     presentation.dispose()
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Круговая диаграмма с отрегулированным положением подписи данных](pie-chart-adjusted-label.png)
 
-## **Часто задаваемые вопросы**
+## **Добавить несколько строк подписей над столбчатой диаграммой**
 
-**Как предотвратить наложение меток данных на плотных диаграммах?**  
-Сочетайте автоматическое размещение меток, линии‑выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или показывайте метки только для экстремальных или ключевых точек.
+Этот пример создаёт столбчатую диаграмму с двумя строками подписей над областью построения. Серия A отображает видимые столбцы, а серии B и C предоставляют дополнительные подписи. Их столбцы скрыты за счёт удаления заливки и контура. Метод [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) выравнивает все три серии по одинаковым центрам категорий.
 
-**Как отключить метки только для нулевых, отрицательных или пустых значений?**  
-Отфильтруйте точки данных перед включением меток и отключите отображение для значений 0, отрицательных или отсутствующих согласно заданному правилу.
+Настройки [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) резервируют место для строк подписей. После того как [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) вычислит позиции по умолчанию, [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) и [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) сохраняют горизонтальное выравнивание и применяют вертикальные смещения для размещения подписей в две строки. Числа остаются подписями данных, связанными со значениями серий; только заголовки строк являются отдельными текстовыми фигурами.
 
-**Как обеспечить единообразный стиль меток при экспорте в PDF/изображения?**  
-Явно задайте семейство шрифта и размер, а также проверьте, что шрифт доступен в среде рендеринга, чтобы избежать замен.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, LayoutTargetType, LegendDataLabelPosition, Presentation, SaveFormat, ShapeType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200)
+    chart.setTitle(False)
+    chart.setLegend(False)
+    chart.getTextFormat().getPortionFormat().setFontHeight(12)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    categories = ["North", "South", "East", "West"]
+    series_names = ["Series A", "Series B", "Series C"]
+    series_values = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]]
+
+    for category_index, category in enumerate(categories):
+        category_cell = workbook.getCell(0, category_index + 1, 0, category)
+        chart.getChartData().getCategories().add(category_cell)
+
+    for series_index, series_name in enumerate(series_names):
+        series_cell = workbook.getCell(0, 0, series_index + 1, series_name)
+        series = chart.getChartData().getSeries().add(series_cell, ChartType.ClusteredColumn)
+
+        for category_index, value in enumerate(series_values[series_index]):
+            value_cell = workbook.getCell(0, category_index + 1, series_index + 1, jpype.JDouble(value))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+        if series_index > 0:
+            # Скрыть столбцы B и C, но оставить их подписи данных.
+            series.getFormat().getFill().setFillType(FillType.NoFill)
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+            label_format = series.getLabels().getDefaultDataLabelFormat()
+            label_format.setShowValue(True)
+            label_format.getTextFormat().getPortionFormat().setFontHeight(12)
+            label_fill = label_format.getTextFormat().getPortionFormat().getFillFormat()
+            label_fill.setFillType(FillType.Solid)
+            label_fill.getSolidFillColor().setColor(Color.BLACK)
+            label_format.setPosition(LegendDataLabelPosition.InsideBase)
+
+    # Выравнивание всех трех серий по одинаковым центрам категорий.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
+
+    # Использовать меньше линий сетки в этом компактном примере.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
+    chart.getAxes().getVerticalAxis().setMajorUnit(10)
+
+    # Зарезервировать место над областью построения для двух рядов подписей данных.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
+    chart.getPlotArea().setX(0.15)
+    chart.getPlotArea().setY(0.32)
+    chart.getPlotArea().setWidth(0.80)
+    chart.getPlotArea().setHeight(0.48)
+    chart.validateChartLayout()
+
+    for series_index in range(1, len(series_names)):
+        series = chart.getChartData().getSeries().get_Item(series_index)
+        row_top = 0.15 if series_index == 1 else 0.03
+
+        for category_index in range(len(categories)):
+            data_label = series.getDataPoints().get_Item(category_index).getLabel()
+            # Сохранить горизонтальное положение по умолчанию. Y — смещение от
+            # позиции подписи по умолчанию, выраженное в долях высоты диаграммы.
+            data_label.setX(0)
+            data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
+
+        # Только заголовок строки является отдельной текстовой фигурой.
+        heading_y = chart.getY() + row_top * chart.getHeight()
+        row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
+        row_heading.getFillFormat().setFillType(FillType.NoFill)
+        row_heading.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        row_heading.addTextFrame(series_names[series_index])
+        row_heading.getTextFrame().getTextFrameFormat().setMarginTop(0)
+        row_heading.getTextFrame().getTextFrameFormat().setMarginBottom(0)
+        heading_format = row_heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        heading_format.setFontHeight(12)
+        heading_format.getFillFormat().setFillType(FillType.Solid)
+        heading_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Столбчатая диаграмма с двумя строками подписей над областью построения](multiple-rows-of-labels.png)
+
+## **FAQ**
+
+**Как предотвратить перекрытие подписей данных на плотных диаграммах?**
+
+Комбинируйте автоматическое размещение подписей, выносные линии и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте подписи только для экстремальных значений или ключевых точек.
+
+**Как отключить подписи только для нулевых, отрицательных или пустых значений?**
+
+Отфильтруйте точки данных перед включением подписей и отключите отображение для значений 0, отрицательных значений или отсутствующих значений согласно заданному правилу.
+
+**Как обеспечить согласованный стиль подписи при экспорте в PDF/изображения?**
+
+Явно задайте семейство шрифта и размер и проверьте, что шрифт доступен в среде рендеринга, чтобы избежать замены.

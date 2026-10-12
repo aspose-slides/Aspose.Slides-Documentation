@@ -1,29 +1,29 @@
 ---
-title: Diagramadatcímkék kezelése Android prezentációkban
-linktitle: Adatcímke
+title: Manage Chart Data Labels in Presentations on Android
+linktitle: Data Label
 type: docs
 url: /hu/androidjava/chart-data-label/
 keywords:
-- diagram
-- adatcímke
-- adatpontosság
-- százalék
-- címke távolság
-- címke hely
+- chart
+- data label
+- data precision
+- percentage
+- label distance
+- label location
 - PowerPoint
-- prezentáció
+- presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan adhat hozzá és formázhat diagramadatcímkéket PowerPoint prezentációkban az Aspose.Slides for Android Java használatával, hogy lebilincselőbb diák készülhessenek."
+description: "Learn to add and format chart data labels in PowerPoint presentations using Aspose.Slides for Android via Java for more engaging slides."
 ---
 ## **Bevezetés**
 
-Az adatcímkék információkat jelenítenek meg a diagram sorozatairól és az egyes adatszámokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk elmagyarázza, hogyan formázhatja az értékeket, jeleníthet meg százalékokat, olvashatja a címke szövegét, szabályozhatja a címkéket a tengely maximumán túl, állíthatja a kategória tengely címkéinek távolságát, és pozicionálhatja a kördiagram címkéit.
+Az adatcímkék információkat jelenítenek meg a diagram sorozatairól és az egyes adatpontokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk bemutatja, hogyan formázhatók az értékek, hogyan jeleníthetők meg a százalékok, hogyan olvasható a címkeszöveg, hogyan vezérelhetők a címkék a tengely maximumán túl, hogyan állítható be a kategóriatengely címke távolsága, és hogyan pozicionálhatók a kördiagram címkéi.
 
-## **Adatcímkék pontosságának beállítása a diagramon**
+## **Adatcímkék adatpont pontosságának beállítása**
 
-Használja a [setNumberFormatOfValues](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) metódust a sorozatértékek formázásához. Ez a példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, megjeleníti az adat tábláját, és engedélyezi az értékcímkéket az első sorozathoz. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg az értékek underlying értékének módosítása nélkül.
+Használja a [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) metódust a sorozatértékek formázásához. Ez a példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, megjeleníti az adat táblázatát, és engedélyezi az értékcímkéket az első sorozatra. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná a mögöttes értékeket.
 
 ```java
 import com.aspose.slides.*;
@@ -47,7 +47,7 @@ try {
 
 ## **Százalékok megjelenítése címkeként**
 
-Halmozott oszlop diagram esetén számítsa ki minden értéket a kategória összegének százalékában, és rendelje a szöveget a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) által visszaadott szövegkerethez. Ez a példa az alapértelmezett diagram adatokat használja, és két tizedesjegy pontosságú százalékokkal jeleníti meg őket 8 pontos betűmérettel. A nulla összegű kategóriákat kihagyja, hogy elkerülje a nullával való osztást. Újraszámolja az egyedi címke szöveget, ha a diagram adatai megváltoznak.
+Halmozott oszlopdiagram esetén számítsa ki minden értéket a kategória összegének százalékában, és állítsa be a szöveget a [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) által visszaadott szövegkerethez. Ez a példa az alapértelmezett diagramadatokat használja, és két tizedesjegy pontosságú százalékokat jelenít meg 8 pontos betűmérettel. A nulla összegű kategóriákat kihagyja a nullával való osztás elkerülése érdekében. Számolja újra az egyéni címkeszöveget, ha a diagram adatai megváltoznak.
 
 ```java
 import com.aspose.slides.*;
@@ -106,9 +106,9 @@ try {
 
 ## **Százalékjel beállítása diagram adatcímkékkel**
 
-Amikor az értékek tört formában vannak tárolva, használja a [setNumberFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) metódust a százalékok megjelenítéséhez. Adja meg a `false` értéket a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) hívásában, hogy a címke formátuma független legyen a forráscelláktól.
+Ha az értékek törtként vannak tárolva, használja a [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) metódust a százalékok megjelenítéséhez. Adja át a `false` értéket a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) metódusnak, hogy a címkeformátumot a forráscelláktól függetlenül alkalmazza.
 
-Ez a példa egy 100%-os halmozott oszlop diagramot hoz létre piros és kék sorozatokkal négy kategóriában. Minden értékpár összege 1. A `0.0%` címkeformátum 0.30-at 30.0%-ként jelenít meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget használ.
+Ez a példa egy 100 % halmozott oszlopdiagramot hoz létre piros és kék sorozatokkal négy kategóriában. Minden értékpár összege 1. A `0.0%` címkeformátum a 0.30-at 30.0 %-ként jeleníti meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget használ.
 
 ```java
 import com.aspose.slides.*;
@@ -163,9 +163,9 @@ try {
 }
 ```
 
-## **Az adatcímkék tényleges szövegének beolvasása**
+## **Az adatcímkék tényleges szövegének lekérdezése**
 
-Használja a [getActualLabelText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) metódust a adatcímke beállításai által létrehozott szöveg lekéréséhez. Ez hasznos címkék kinyeréséhez jelentésekhez, a prezentáció tartalmának kereséséhez vagy a generált diagramok érvényesítéséhez. Az alábbi példában az alapértelmezett [data label format](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idatalabelformat/) kombinálja minden kategórianév, sorozatnév és érték. Az egyik pont értékét százalékos formátumban jeleníti meg, a másik a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) által visszaadott egyedi szöveggel.
+Használja a [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) metódust a címke beállításai által előállított szöveg lekéréséhez. Ez akkor hasznos, ha jelentésekhez kell kinyerni a címkéket, a prezentáció tartalmát keresni, vagy a generált diagramokat ellenőrizni szeretné. Az alábbi példában az alapértelmezett [adatajelző formátum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) minden kategórianév, sorozatnév és érték kombinációját tartalmazza. Egy pont az értékét százalékban formázza, egy másik pedig egyéni szöveget használ a [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) metódus által visszaadott szövegkeretből.
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +225,15 @@ try {
 }
 ```
 
-A data pontban tárolt szám `0.75` marad, még akkor is, ha a címkéje `75%`-ként jelenik meg a kategória és sorozat nevével együtt. Az egyedi szöveg felülírja a generált címke szöveget. A [getActualLabelText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) mindkét esetben a kapott címke karakterláncot adja vissza. A [isVisible](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idatalabel/#isVisible--) ellenőrzése külön történik, ahogyan fent látható, ha csak a látható címkéket szeretné kinyerni.
+A pontban tárolt szám `0.75` marad, még akkor is, ha a címkéje `75 %`-ot mutat a kategória- és sorozatnevekkel együtt. Az egyéni szöveg felülírja a generált címkeszöveget. A [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) mindkét esetben visszaadja a kapott címke karakterláncot. Ellenőrizze külön a [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) állapotot, ahogyan fent is látható, ha csak a látható címkéket szeretné kinyerni.
 
-## **Adatcímkék vezérlése a tengely maximumán túl**
+## **Címkék vezérlése a tengely maximumán túl**
 
-Ha kézzel korlátozza a tengely tartományt, egyes adatpontok meghaladhatják a maximumot. Használja a [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) metódust annak meghatározásához, hogy ezek a címkék megjelenjenek-e. Ez a beállítás a címke láthatóságát változtatja; nem módosítja a tengely tartományt vagy a mögöttes adatértékeket.
+Ha kézzel korlátozza a tengely tartományát, egyes adatpontok meghaladhatják a maximumot. Használja a [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) metódust annak szabályozására, hogy a címkék megjelenjenek-e. Ez a beállítás a címke láthatóságát módosítja; a tengely tartományát vagy a mögöttes adatértékeket nem változtatja.
 
-Az alábbi példa egy 2D csoportosított oszlopdiagramot hoz létre 60 és 120 értékekkel. A [setAutomaticMaxValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) metódusnak `false`-t ad, és a függőleges tengelyen a [setMaxValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) segítségével 100-ra állítja a maximumot. Az első dia engedélyezi a maximumot meghaladó címkéket; egy másolat letiltja őket. Mindkét dia `DataLabelsOverMaximum.pptx` fájlba van mentve.
+Az alábbi példa egy 2 D klaszterelt oszlopdiagramot hoz létre 60 és 120 értékekkel. A `false` értéket adja át a [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) metódusnak, és a függőleges tengely maximumát 100-ra állítja a [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) metódussal. Az első dia engedélyezi a maximumon túlmutató címkéket; egy másolat letiltja őket. Mindkét dia a `DataLabelsOverMaximum.pptx` fájlba kerül mentésre.
 
-Értékcímkéket engedélyezhet a [setShowValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) metódussal. A diagram szintű beállítás önmagában nem engedélyezi az értékek megjelenítését, és nem írja felül az egyes címkék letiltott értékmegjelenítését. Ez a példa engedélyezi az értékeket az egész sorozatra, és a [setPosition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) használatával a címkéket az egyes oszlopok külső végére helyezi.
+Engedélyezze az értékcímkéket a [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) metódussal. A diagram szintű beállítás önmagában nem aktiválja az értékkijelzést, és nem írja felül egy adott címke letiltott állapotát. Ez a példa a teljes sorozatra engedélyezi az értékeket, és a [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) metódussal a címkéket az egyes oszlopok külső végére helyezi.
 
 ```java
 import com.aspose.slides.*;
@@ -282,19 +282,19 @@ try {
 }
 ```
 
-A következő képek a Microsoft PowerPoint által renderelt mentett diákat mutatják. `true` esetén a **120** címke látható a felső határon; `false` esetén rejtve van. A **60** címke továbbra is látható, a tengely maximum **100** marad, és a második adatpont mindkét esetben **120**.
+Az alábbi képek a Microsoft PowerPoint által renderelt, mentett diákot mutatják. `true` esetén a **120** címke látható a felső határnál; `false` esetén rejtve marad. A **60** címke továbbra is látható, a tengely maximuma **100** marad, és a második adatpont **120** mindkét esetben.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint diagram, amely a 120 értékcímkét mutatja 100-as tengely maximumkal](data-labels-over-maximum-true.png) | ![PowerPoint diagram, amely elrejti a 120 értékcímkét 100-as tengely maximumkal](data-labels-over-maximum-false.png) |
+| ![PowerPoint diagram, amely megjeleníti a 120 értékcímkét a 100 tengelymaximumnál](data-labels-over-maximum-true.png) | ![PowerPoint diagram, amely elrejti a 120 értékcímkét a 100 tengelymaximumnál](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Ez a példa egy 2D oszlopdiagramot használ érték tengellyel. Az olyan diagramok, amelyek nem rendelkeznek érték tengellyel, például a kör- és fánkdiagramok, nem rendelkeznek ilyen módon korlátozható tengelymaximumszal.
+Ez a példa egy 2 D oszlopdiagramot használ értéktengellyel. Az olyan diagramok, amelyeknek nincs értéktengelye, mint a kör- és fánkok diagramok, nem rendelkeznek tengelymaximumsal, amit ilyen módon korlátozni lehetne.
 {{% /alert %}}
 
 ## **Címke távolságának beállítása a tengelytől**
 
-Használja a [setLabelOffset](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) metódust a kategória tengely címkéi és a tengely közötti távolság szabályozásához. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy csoportosított oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategória tengely címkéire hat, nem az egyes adatszámokhoz csatolt címkékre.
+Használja a [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) metódust a kategóriatengely címkéi és a tengely közötti távolság szabályozásához. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy klaszterelt oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategóriatengely címkéire vonatkozik, nem az egyes adatpontokhoz csatolt címkékre.
 
 ```java
 import com.aspose.slides.*;
@@ -312,9 +312,11 @@ try {
 }
 ```
 
-## **Címke elhelyezésének módosítása**
+## **Címkehelyzet igazítása**
 
-Egy kördiagramon módosítsa az adatcímkék helyzetét a távolság javítása és az összekötő vonalak számára. Ez a példa az első adatpont értékét jeleníti meg, a címkét a szelet kívülre helyezi, és a vízszintes és függőleges eltolásokat a [setX](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutable/#setX-float-) és a [setY](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutable/#setY-float-) segítségével állítja be. Ezek az eltolások a diagram szélességéhez és magasságához képest relatívak.
+Kördiagram esetén állítsa be az adatcímkék pozícióját a távolság javítása és a vezetővonalak számára való hely biztosítása érdekében.
+
+Ez a példa megjeleníti az első adatpont értékét, a címkét a szelet kívülre helyezi, és a [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) és a [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) metódusokkal állítja be a vízszintes és függőleges eltolásokat. Ezek az eltolások a diagram szélességéhez, illetve magasságához viszonyítva vannak.
 
 ```java
 import com.aspose.slides.*;
@@ -338,15 +340,126 @@ try {
 }
 ```
 
-![Kördiagram módosított adatcímke pozícióval](pie-chart-adjusted-label.png)
+![Kördiagram a módosított adatcímke pozícióval](pie-chart-adjusted-label.png)
+
+## **Több sor adatcímke hozzáadása oszlopdiagram fölé**
+
+Ez a példa egy oszlopdiagramot hoz létre, amely két sor adatcímkét helyez el a diagramterület fölé. Az A sorozat a látható oszlopokat jeleníti meg, míg a B és C sorozatok a további címkéket biztosítják. Az ő oszlopaikat a kitöltés és a körvonal eltávolításával rejtik el. A [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) metódus három sorozatot ugyanazokkal a kategóriaközéppontokkal igazít.
+
+A [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) beállítások helyet tartanak fenn a címkesorok számára. A [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) a alapértelmezett pozíciókat számolja ki, a [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) és a [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) pedig megőrzik a vízszintes igazítást és függőleges eltolásokat alkalmaznak, hogy a címkéket két sorban rendezze. A számok továbbra is a sorozatértékekhez kapcsolódó adatcímkék, csak a sorfejlécek külön szövegformák.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    String[] categories = {"North", "South", "East", "West"};
+    String[] seriesNames = {"Series A", "Series B", "Series C"};
+    double[][] seriesValues = {
+            {35, 42, 28, 47},
+            {22, 31, 19, 26},
+            {12, 16, 14, 18}
+    };
+
+    for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        IChartDataCell categoryCell = workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (int seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartDataCell seriesCell = workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, ChartType.ClusteredColumn);
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IChartDataCell valueCell = workbook.getCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        if (seriesIndex > 0) {
+            // Rejtse el a B és C oszlopokat, de tartsa meg azok adatcímkéit.
+            series.getFormat().getFill().setFillType(FillType.NoFill);
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
+            IFillFormat labelFill = series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(FillType.Solid);
+            labelFill.getSolidFillColor().setColor(Color.BLACK);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // Igazítsa a három sorozatot ugyanazokra a kategóriaközéppontokra.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
+
+    // Használjon kevesebb segédvonalat ebben a kompakt példában.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // Tartson helyet a diagram felett két sor adatcímkének.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
+    chart.getPlotArea().setX(0.15f);
+    chart.getPlotArea().setY(0.32f);
+    chart.getPlotArea().setWidth(0.80f);
+    chart.getPlotArea().setHeight(0.48f);
+    chart.validateChartLayout();
+
+    for (int seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+        for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // Tartsa meg az alapértelmezett vízszintes pozíciót. Az Y egy eltolás a
+            // az alapértelmezett címkepozíciótól, a diagrammagasság hányadosaként kifejezve.
+            dataLabel.setX(0);
+            dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
+        }
+
+        // Csak a sorfejléc egy külön szöveg alakzat.
+        IAutoShape rowHeading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        IPortionFormat headingFormat = rowHeading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(FillType.Solid);
+        headingFormat.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Oszlopdiagram két sor adatcímkével a diagramterület fölött](multiple-rows-of-labels.png)
 
 ## **GYIK**
 
-**Hogyan akadályozhatom meg, hogy az adatcímkék átfedjék egymást sűrű diagramokon?**  
-Használjon automatikus címkeelhelyezést, összekötő vonalakat és kisebb betűméretet; szükség esetén rejtse el egyes mezőket (például a kategóriát), vagy csak a szélső értékek vagy kulcspontok esetén jelenítse meg a címkéket.
+**Hogyan kerülhetem el az adatcímkék átfedését sűrű diagramok esetén?**
 
-**Hogyan kapcsolhatom ki a címkéket csak a nulla, negatív vagy üres értékek esetén?**  
-Szűrje meg az adatpontokat a címkék engedélyezése előtt, és kapcsolja ki a megjelenítést a 0, negatív vagy hiányzó értékekre vonatkozóan egy meghatározott szabály szerint.
+Használjon automatikus címkeelhelyezést, vezetővonalakat és kisebb betűméretet; szükség esetén rejtse el a felesleges mezőket (például a kategóriát), vagy csak a szélső értékekhez vagy kulcspontokhoz jelenítsen meg címkéket.
 
-**Hogyan biztosíthatom a következetes címkestílust PDF/ kép exportálásakor?**  
-Állítsa be kifejezetten a betűtípust és méretet, és ellenőrizze, hogy a betűtípus elérhető legyen a renderelési környezetben, hogy elkerülje a helyettesítést.
+**Hogyan tilthatom le a címkéket csak nullás, negatív vagy üres értékek esetén?**
+
+Szűrje le az adatpontokat a címkék engedélyezése előtt, és kapcsolja ki a megjelenítést 0, negatív vagy hiányzó értékekre egy meghatározott szabály alapján.
+
+**Hogyan biztosítható a címkestílus egységessége PDF/fájl exportálásakor?**
+
+Állítsa be kifejezetten a betűtípust és a méretet, és ellenőrizze, hogy a betűtípus elérhető-e a renderelő környezetben, hogy elkerülje a helyettesítést.

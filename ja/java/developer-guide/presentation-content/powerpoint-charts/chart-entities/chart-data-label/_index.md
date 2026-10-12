@@ -1,28 +1,28 @@
 ---
-title: Java を使用したプレゼンテーションでのチャート データラベルの管理
-linktitle: データラベル
+title: Java を使用したプレゼンテーションでのチャート データ ラベルの管理
+linktitle: データ ラベル
 type: docs
 url: /ja/java/chart-data-label/
 keywords:
 - チャート
-- データラベル
-- データ精度
+- データ ラベル
+- データ 精度
 - パーセンテージ
-- ラベル間隔
-- ラベル位置
+- ラベル 距離
+- ラベル 位置
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して、PowerPoint プレゼンテーションにチャートのデータラベルを追加および書式設定し、スライドをより魅力的にする方法を学びます。"
+description: "Aspose.Slides for Java を使用して PowerPoint プレゼンテーションにチャートのデータ ラベルを追加および書式設定し、スライドをより魅力的にする方法を学びます。"
 ---
-## **はじめに**
+## **導入**
 
-データラベルはチャートの系列や個々のデータポイントに関する情報を表示し、読者が値を特定しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベルテキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、および円グラフラベルの位置設定について説明します。
+データ ラベルはチャート系列および個々のデータ ポイントに関する情報を表示し、読者が値を識別しチャートを理解できるようにします。本記事では、値の書式設定、パーセンテージの表示、ラベル テキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、円グラフラベルの配置方法について説明します。
 
-## **チャート データラベルのデータ精度設定**
+## **チャート データ ラベルのデータ精度設定**
 
-系列の値の書式設定には [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) を使用します。この例ではデフォルトデータで折れ線グラフを作成し、データテーブルを表示し、最初の系列に値ラベルを有効にします。書式 `#,##0.00` は千区切りと小数点以下2桁を表示しますが、基になる値は変更しません。
+シリーズの値を書式設定するには、[setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) を使用します。この例は、デフォルト データで折れ線グラフを作成し、データ テーブルを表示し、最初の系列の値ラベルを有効にします。書式 `#,##0.00` は、千位区切りと小数点以下2桁を表示しますが、基になる値は変更しません。
 
 ```java
 import com.aspose.slides.*;
@@ -46,7 +46,7 @@ try {
 
 ## **ラベルとしてパーセンテージを表示**
 
-積み上げ縦棒グラフの場合、各値をカテゴリの合計に対するパーセンテージとして計算し、[getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) が返すテキストフレームにテキストを割り当てます。この例ではデフォルトのチャートデータを使用し、8ポイントのフォントで小数点以下2桁のパーセンテージを表示します。合計が0のカテゴリは除外され、ゼロ除算を回避します。チャートデータが変更された場合はカスタムラベルテキストを再計算してください。
+積み上げ縦棒グラフの場合、各値をカテゴリ合計に対するパーセンテージとして計算し、[getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) が返すテキスト フレームにテキストを割り当てます。この例はデフォルトのチャート データを使用し、8ポイントのフォントで小数点以下2桁のパーセンテージを表示します。合計がゼロのカテゴリは、ゼロ除算を回避するためにスキップされます。チャート データが変更された場合は、カスタム ラベル テキストを再計算してください。
 
 ```java
 import com.aspose.slides.*;
@@ -103,11 +103,11 @@ try {
 }
 ```
 
-## **チャート データラベルにパーセンテージ記号を設定**
+## **チャート データ ラベルにパーセンテージ記号を設定**
 
-値が分数として格納されている場合、[setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) を使用してパーセンテージを表示します。[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) に `false` を渡すことで、ラベルの書式をソースセルとは独立して適用できます。
+値が分数として格納されている場合、[setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) を使用してパーセンテージを表示します。[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) に `false` を渡すと、ラベルの書式がソース セルとは独立して適用されます。
 
-この例では、4つのカテゴリにわたる赤と青の系列を持つ 100% 積み上げ縦棒グラフを作成します。各ペアの値は合計で 1 になります。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下2桁を使用します。両系列とも白色の10ポイントラベルテキストを使用します。
+この例は、4つのカテゴリにわたる赤と青の系列を持つ 100% 積み上げ縦棒グラフを作成します。各ペアの値は合計で 1 になります。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下2桁を使用します。両方の系列は白色で10ポイントのラベルテキストを使用します。
 
 ```java
 import com.aspose.slides.*;
@@ -162,9 +162,9 @@ try {
 }
 ```
 
-## **データラベルの実際のテキストを取得**
+## **データ ラベルの実際のテキストを取得**
 
-データラベルの設定で生成されたテキストを取得するには [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) を使用します。これはレポート用にラベルを抽出したり、プレゼンテーションの内容を検索したり、生成されたチャートを検証したりする際に便利です。以下の例では、デフォルトの [data label format](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) が各カテゴリ名、系列名、値を組み合わせます。あるデータポイントは値をパーセンテージとして書式設定し、別のポイントは [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) から取得したカスタムテキストを使用します。
+[getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) を使用して、データ ラベルの設定によって生成されたテキストを取得します。これは、レポート用にラベルを抽出したり、プレゼンテーションの内容を検索したり、生成されたチャートを検証したりする場合に役立ちます。以下の例では、デフォルトの[data label format](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) が各カテゴリ名、系列名、値を結合しています。あるポイントは値をパーセンテージとして書式設定し、別のポイントは[getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) から取得したカスタム テキストを使用します。
 
 ```java
 import com.aspose.slides.*;
@@ -224,15 +224,15 @@ try {
 }
 ```
 
-データポイントに格納されている数値は `0.75` のままで、ラベルがカテゴリ名と系列名とともに `75%` と表示されても変わりません。カスタムテキストは生成されたラベルテキストを置き換えます。[getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) はどちらの場合でも結果のラベル文字列を返します。表示されているラベルのみを抽出したい場合は、上記のように [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) を別途確認してください。
+データ ポイントに格納されている数値は `0.75` のままで、ラベルがカテゴリ名と系列名とともに `75%` と表示されても変わりません。カスタム テキストは生成されたラベル テキストを置き換えます。[getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) は、いずれの場合でも結果のラベル文字列を返します。表示されているラベルのみを抽出したい場合は、上記のように [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) を別途確認してください。
 
-## **軸の最大値を超えるデータラベルを制御**
+## **軸の最大値を超えるデータ ラベルを制御**
 
-軸範囲を手動で制限すると、一部のデータポイントが最大値を超えることがあります。[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) を使用して、これらのデータラベルを表示するかどうかを制御します。この設定はラベルの表示/非表示を変更しますが、軸範囲や基になるデータ値は変更しません。
+軸範囲を手動で制限すると、一部のデータ ポイントが最大値を超えることがあります。[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) を使用して、これらのデータ ラベルを表示するかどうかを制御します。この設定はラベルの表示状態を変更しますが、軸の範囲や基になるデータ値は変更しません。
 
-以下の例では、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。縦軸に対して [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) に `false` を渡し、[setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) で最大値を 100 に設定します。最初のスライドは最大値を超えるラベルを表示し、コピーしたスライドではそれらを無効にしています。両方のスライドは `DataLabelsOverMaximum.pptx` に保存されます。
+以下の例は、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。縦軸で [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) に `false` を渡し、[setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) で最大値を 100 に設定します。最初のスライドは最大値を超えるラベルを許可し、同じスライドのコピーはそれらを無効にします。両方のスライドは `DataLabelsOverMaximum.pptx` に保存されます。
 
-[setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) で値ラベルを有効にします。チャートレベルの設定だけでは値の表示が自動的に有効になるわけでも、個別ラベルの非表示設定を上書きするわけでもありません。この例では系列全体の値を有効にし、[setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) を使用して各列の外側端にラベルを配置しています。
+[setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) で値ラベルを有効にします。チャートレベルの設定だけでは値の表示が有効になるわけではなく、個別ラベルの非表示設定を上書きもしません。この例では、シリーズ全体の値を有効にし、[setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) を使用して各列の外側端にラベルを配置します。
 
 ```java
 import com.aspose.slides.*;
@@ -281,19 +281,19 @@ try {
 }
 ```
 
-以下の画像は Microsoft PowerPoint でレンダリングされた保存済みスライドを示しています。`true` の場合、ラベル **120** が上限に表示され、`false` の場合は非表示になります。ラベル **60** は表示されたままで、軸の最大値は **100** のまま、2 番目のデータポイントはどちらの場合も **120** のままです。
+以下の画像は、Microsoft PowerPoint でレンダリングされた保存済みスライドを示しています。`true` の場合、ラベル **120** が上端に表示されますが、`false` の場合は非表示になります。ラベル **60** は常に表示され、軸の最大値は **100** のままで、2 番目のデータ ポイントはどちらの場合も **120** のままです。
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![軸の最大値が 100 のとき、値ラベル 120 を表示している PowerPoint チャート](data-labels-over-maximum-true.png) | ![軸の最大値が 100 のとき、値ラベル 120 を非表示にした PowerPoint チャート](data-labels-over-maximum-false.png) |
+| ![軸の最大値 100 で値ラベル 120 を表示する PowerPoint チャート](data-labels-over-maximum-true.png) | ![軸の最大値 100 で値ラベル 120 を非表示にする PowerPoint チャート](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-この例では、値軸を持つ 2D 縦棒チャートを使用しています。円グラフやドーナツチャートのように値軸がないチャートでは、この方法で軸の最大値を制限することはできません。
+この例は、値軸を持つ 2D 縦棒チャートを使用しています。円グラフやドーナツ グラフのように値軸がないチャートには、このように制限できる軸の最大値はありません。
 {{% /alert %}}
 
-## **軸からのラベル間隔を設定**
+## **軸からのラベル距離を設定**
 
-[setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) を使用して、カテゴリ軸ラベルと軸との間隔を制御します。値は軸ラベルの最大フォントサイズに対するパーセンテージです。この例では、クラスタ化縦棒チャートを作成し、横軸ラベルのオフセットを 500 に設定します。この設定は個々のデータポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
+[setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) を使用して、カテゴリ軸ラベルと軸との距離を制御します。値は軸ラベルの最大フォントサイズのパーセンテージです。この例はクラスタ化縦棒チャートを作成し、横軸ラベルのオフセットを 500 に設定します。この設定は個々のデータ ポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
 
 ```java
 import com.aspose.slides.*;
@@ -313,9 +313,9 @@ try {
 
 ## **ラベル位置の調整**
 
-円グラフでは、データラベルの位置を調整して間隔を改善し、リーダーラインのための余裕を確保します。
+円グラフでは、データ ラベルの位置を調整して間隔を改善し、リーダー ラインのスペースを確保します。
 
-この例では、最初のデータポイントの値を表示し、ラベルをスライスの外側に配置し、[setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) と [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) を使用して水平および垂直オフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対値です。
+この例は、最初のデータ ポイントの値を表示し、ラベルをスライスの外側に配置し、[setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) と [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) を使用して水平および垂直オフセットを調整します。これらのオフセットは、チャートの幅と高さに対してそれぞれ相対的です。
 
 ```java
 import com.aspose.slides.*;
@@ -339,13 +339,13 @@ try {
 }
 ```
 
-![データラベル位置を調整した円グラフ](pie-chart-adjusted-label.png)
+![調整されたデータラベル位置の円グラフ](pie-chart-adjusted-label.png)
 
-## **縦棒チャート上部に複数行のデータラベルを追加**
+## **縦棒チャートの上に複数行のデータ ラベルを追加**
 
-この例では、プロット領域の上部に 2 行のデータラベルを持つ縦棒チャートを作成します。Series A は表示される列を示し、Series B と Series C が追加のラベルを提供します。これらの列は塗りつぶしと輪郭を削除して非表示にします。[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) メソッドは、3 つの系列を同じカテゴリ中心に揃えます。
+この例は、プロット領域の上に 2 行のデータ ラベルを持つ縦棒チャートを作成します。シリーズ A は表示される列を示し、シリーズ B と C は追加のラベルを提供します。これらの列は塗りつぶしとアウトラインを削除して非表示にします。[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) メソッドは、3 つのシリーズを同じカテゴリ中心に揃えます。
 
-[ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) の設定でラベル行用のスペースを確保します。[Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) がデフォルト位置を計算した後、[DataLabel.setX と DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) が水平揃えを保持し、垂直オフセットを適用してラベルを 2 行に配置します。数値は系列の値にリンクされたデータラベルのままで、行見出しだけが別個のテキストシェイプです。
+[ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) の設定はラベル行のスペースを確保します。[Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) がデフォルト位置を計算した後、[DataLabel.setX と DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) が水平整列を保持し、垂直オフセットを適用してラベルを 2 行に配置します。数値はシリーズの値にリンクされたデータ ラベルのままで、行見出しだけが別個のテキスト シェイプです。
 
 ```java
 Presentation presentation = new Presentation();
@@ -388,7 +388,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // B と C の列を非表示にしますが、データラベルは保持します。
+            // B と C の列を非表示にし、データ ラベルは保持します。
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -403,15 +403,15 @@ try {
         }
     }
 
-    // 3 つの系列を同じカテゴリ中心に揃えます。
+    // 3 つの系列すべてを同じカテゴリ中心に揃えます。
     chart.getChartData().getSeries().get_Item(0)
             .getParentSeriesGroup().setOverlap((byte) 100);
 
-    // このコンパクトな例のためにグリッド線を減らします。
+    // このコンパクトな例のために目盛線を減らします。
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // プロット上部にデータラベル用の 2 行分のスペースを確保します。
+    // プロット領域上部に 2 行のデータ ラベル用のスペースを確保します。
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -425,13 +425,13 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // デフォルトの水平位置を保持します。Y は以下からのオフセットです
-            // デフォルトのラベル位置で、チャート高さの割合で表されます。
+            // デフォルトの水平位置を保持します。Y は次からのオフセットです。
+            // デフォルトのラベル位置で、チャート高さの割合として表されます。
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // 行見出しだけが別個のテキストシェイプです。
+        // 行見出しだけが別個のテキスト シェイプです。
         IAutoShape rowHeading = slide.getShapes().addAutoShape(
                 ShapeType.Rectangle, chart.getX(),
                 chart.getY() + rowTop * chart.getHeight(), 85, 18);
@@ -453,16 +453,15 @@ try {
 }
 ```
 
+![プロット領域上に2行のデータラベルを持つ縦棒チャート](multiple-rows-of-labels.png)
+
 ## **FAQ**
 
-**密集したチャートでデータラベルが重なるのを防ぐにはどうすればよいですか？**
+**密なチャートでデータ ラベルが重なるのを防ぐにはどうすればよいですか？**  
+自動ラベル配置、リーダー ライン、フォント サイズの縮小を組み合わせます。必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要なポイントのラベルのみを表示します。
 
-自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせます。必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要なポイントにだけラベルを表示します。
+**ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**  
+ラベルを有効にする前にデータ ポイントをフィルタリングし、定義されたルールに従って 0、負の値、または欠損値の表示をオフにします。
 
-**ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
-
-ラベルを有効にする前にデータポイントをフィルタリングし、定義されたルールに従って 0、負の値、または欠損値の場合は表示をオフにします。
-
-**PDF や画像にエクスポートする際に、一貫したラベルスタイルを確保するにはどうすればよいですか？**
-
-フォントファミリーとサイズを明示的に設定し、フォントがレンダリング環境で利用可能であることを確認してフォールバックを防ぎます。
+**PDF/画像にエクスポートする際にラベルのスタイルを一貫させるにはどうすればよいですか？**  
+フォント ファミリとサイズを明示的に設定し、レンダリング環境にフォントが存在することを確認してフォールバックを防止します。

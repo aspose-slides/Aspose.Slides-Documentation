@@ -1,28 +1,28 @@
 ---
-title: Hantera diagramdatamärkningar i presentationer med C++
-linktitle: Datamärkning
+title: Hantera diagramdataetiketter i presentationer med C++
+linktitle: Dataetikett
 type: docs
 url: /sv/cpp/chart-data-label/
 keywords:
 - diagram
-- datamärkning
+- dataetikett
 - dataprecision
-- procentsats
-- etikettafstånd
-- etikettposition
+- procent
+- etikettavstånd
+- etikettplacering
 - PowerPoint
 - presentation
 - C++
 - Aspose.Slides
-description: "Lär dig att lägga till och formatera diagramdatamärkningar i PowerPoint-presentationer med Aspose.Slides för C++ för mer engagerande bildspel."
+description: "Lär dig att lägga till och formatera diagramdataetiketter i PowerPoint-presentationer med Aspose.Slides för C++ för mer engagerande bilder."
 ---
 ## **Introduktion**
 
-Datamärkning visar information om diagramserier och enskilda datapunkter, vilket hjälper läsare att identifiera värden och förstå diagrammet. Denna artikel förklarar hur du formaterar värden, visar procentsatser, läser etiketttext, styr etiketter utanför axelns maximum, justerar avståndet mellan kategorialetiketter samt placerar etiketter i ett cirkeldiagram.
+Dataetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsaren att identifiera värden och förstå diagrammet. Den här artikeln förklarar hur du formaterar värden, visar procent, läser etiketttext, styr etiketter bortom axelns maximum, justerar avståndet mellan kategorinätsetiketter och axeln samt placerar etiketter i ett cirkeldiagram.
 
-## **Ställ in dataprecision i diagrammets datamärkningar**
+## **Ange dataprecision i diagramdataetiketter**
 
-Använd [set_NumberFormatOfValues](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdemärkningar för den första serien. Formatet `#,##0.00` visar ett tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
+Använd [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdeetiketter för den första serien. Formatet `#,##0.00` visar ett tusentalsseparator och två decimaler utan att ändra de underliggande värdena.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,7 +59,7 @@ presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 
 ## **Visa procent som etiketter**
 
-För ett staplat stapeldiagram beräknas varje värde som en procentandel av dess kategori totalt och tilldelas texten till textramen som returneras av [get_TextFrameForOverriding](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Detta exempel använder standarddiagramdata och visar procentsatser med två decimaler i en 8‑punkts teckenstorlek. Kategorier med totalen noll hoppas över för att undvika division med noll. Återberäkna den anpassade etiketttexten om diagramdata ändras.
+För ett staplat stapeldiagram beräknas varje värde som en procent av dess kategorisumma och texten tilldelas textramen som returneras av [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Detta exempel använder standarddiagramdata och visar procent med två decimaler i en 8‑punkts teckensnitt. Kategorier med totalsumman noll hoppas över för att undvika division med noll. Omdiagramdata ändras måste den anpassade etiketttexten beräknas på nytt.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -147,11 +147,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ställ in procenttecken med diagramdatamärkningar**
+## **Ange procenttecken med diagramdataetiketter**
 
-När värden lagras som bråk, använd [set_NumberFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) för att visa procent. Skicka `false` till [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) för att tillämpa etikettformatet oberoende av källcellerna.
+När värden lagras som bråk, använd [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) för att visa procent. Skicka `false` till [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) för att tillämpa etikettformatet oberoende av källcellerna.
 
-Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje par av värden summeras till 1. Etikettformatet `0.0%` visar 0.30 som 30,0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit, 10‑punkts etiketttext.
+Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje par av värden summeras till 1. Etikettformatet `0.0%` visar 0.30 som 30.0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit, 10‑punkts etiketttext.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -236,9 +236,9 @@ for (auto i = 0; i < 2; i++)
 presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Läs den faktiska texten för datamärkningar**
+## **Läs den faktiska texten för dataetiketter**
 
-Använd [GetActualLabelText](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) för att hämta texten som produceras av en datamärknings inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard[datamärkningsformat](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/idatalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som en procentandel, och en annan använder anpassad text från [get_TextFrameForOverriding](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Använd [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) för att hämta den text som produceras av en dataetiketts inställningar. Detta är användbart när etiketter ska extraheras för rapporter, sökas i presentationsinnehåll eller valideras i genererade diagram. I exemplet nedan kombinerar standard‑[dataetikettformat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som en procent, och en annan använder anpassad text från [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -326,15 +326,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Numret som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75%` tillsammans med kategori‑ och serienamnen. Användardefinierad text ersätter den genererade etiketttexten. [GetActualLabelText](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) returnerar den resulterande etikettssträngen i båda fallen. Kontrollera [get_IsVisible](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/idatalabel/get_isvisible/) separat, som visas ovan, när du bara vill extrahera synliga etiketter.
+Det tal som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75 %` tillsammans med kategori‑ och serienamn. Anpassad text ersätter den genererade etiketttexten. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) separat, som visas ovan, när du endast vill extrahera synliga etiketter.
 
-## **Styr datamärkningar utöver axelns maximum**
+## **Styr dataetiketter bortom axelns maximum**
 
-När du begränsar ett axelintervall manuellt kan vissa datapunkter överskrida dess maximum. Använd [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) för att styra om deras datamärkningar visas. Denna inställning ändrar enbart etikettens synlighet; den ändrar inte axelintervallet eller de underliggande datavärdena.
+När du begränsar ett axelintervall manuellt kan vissa datapunkter överskrida dess maximum. Använd [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) för att styra om deras dataetiketter visas. Denna inställning ändrar etikettens synlighet; den ändrar inte axelns intervall eller de underliggande datavärdena.
 
-Exemplet nedan skapar ett 2D grupperat stapeldiagram med värdena 60 och 120. Det sätter [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) till `false` och [set_MaxValue](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/iaxis/set_maxvalue/) till 100 på den vertikala axeln. Den första bilden tillåter etiketter utöver maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
+Exemplet nedan skapar ett 2D‑klustrat stapeldiagram med värdena 60 och 120. Det sätter [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) till `false` och [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) till 100 på den vertikala axeln. Den första bilden tillåter etiketter bortom maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
 
-Aktivera värdemärkningar med [set_ShowValue](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Diagraminställningen aktiverar inte värdevisning i sig själv eller åsidosätter en enskild etikett som har inaktiverad värdevisning. Detta exempel aktiverar värden för hela serien och använder [set_Position](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/idatalabelformat/set_position/) för att placera etiketter på utsidan av varje kolumn.
+Aktivera värdeetiketter med [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Diagramnivåinställningen aktiverar inte värdevisning per se och överrider inte en enskild etikett som har inaktiverad värdevisning. Detta exempel aktiverar värden för hela serien och använder [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) för att placera etiketter vid den yttre kanten av varje kolumn.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -405,19 +405,21 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-Följande bilder visar de sparade bilderna som renderats av Microsoft PowerPoint. Med `true` är etiketten **120** synlig vid den övre gränsen; med `false` är den dold. Etiketten **60** förblir synlig, axelmaximumet förblir **100**, och den andra datapunkten förblir **120** i båda fallen.
+Följande bilder visar de sparade bilderna som renderats av Microsoft PowerPoint. Med `true` är etiketten **120** synlig vid den övre gränsen; med `false` är den dold. Etiketten **60** förblir synlig, axelns maximum förblir **100**, och den andra datapunkten förblir **120** i båda fallen.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![PowerPoint-diagram som visar värdeetiketten 120 med ett axelmaximum på 100](data-labels-over-maximum-true.png) | ![PowerPoint-diagram som döljer värdeetiketten 120 med ett axelmaximum på 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Diagramtyp" %}}
-Detta exempel använder ett 2D stapeldiagram med en värdeaxel. Diagram utan värdeaxel, såsom cirkel- och donutdiagram, har inget axelmaximum att begränsa på detta sätt.
+
+Detta exempel använder ett 2D‑stapeldiagram med en värdeaxel. Diagram utan värdeaxel, såsom cirkel‑ och doughnut‑diagram, har inget axelmaximum att begränsa på detta sätt.
+
 {{% /alert %}}
 
-## **Ställ in etikettavstånd från en axel**
+## **Ange etikettavstånd från en axel**
 
-Använd [set_LabelOffset](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/iaxis/set_labeloffset/) för att styra avståndet mellan kategorialetiketter och axeln. Värdet är en procentsats av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett grupperat stapeldiagram och sätter horisontell axelns etikettavstånd till 500. Denna inställning påverkar kategorialetiketter snarare än etiketter kopplade till enskilda datapunkter.
+Använd [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) för att styra avståndet mellan kategori‑axelns etiketter och själva axeln. Värdet är en procentandel av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett klustrat stapeldiagram och sätter den horisontella axelns etikettavstånd till 500. Inställningen påverkar kategori‑axelns etiketter snarare än etiketter som är fästa vid enskilda datapunkter.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -445,11 +447,11 @@ chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
 presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Justera etikettposition**
+## **Justera etikettplacering**
 
-I ett cirkeldiagram justeras datamärkningspositioner för att förbättra avståndet och ge plats åt ledningslinjer.
+I ett cirkeldiagram justeras dataetikettpositionerna för att förbättra avståndet och ge plats åt ledlinjer.
 
-Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför sektorn och använder [set_X](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ilayoutable/set_x/) och [set_Y](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ilayoutable/set_y/) för att justera dess offset. Dessa offset är respektive relativa till diagrammets bredd och höjd.
+Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför sektorn och använder [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) och [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) för att justera dess offset. Dessa offset är relativa till diagrammets bredd respektive höjd.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -487,18 +489,176 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![Cirkeldiagram med justerad datamärkningsposition](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Vanliga frågor**
+## **Lägg till flera rader med dataetiketter ovanför ett stapeldiagram**
 
-**Hur kan jag förhindra att datamärkningar överlappar i täta diagram?**
+Detta exempel skapar ett stapeldiagram med två rader av dataetiketter ovanför ritområdet. Serie A visar de synliga kolumnerna, medan Serie B och Serie C tillhandahåller de extra etiketterna. Deras kolumner döljes genom att ta bort fyllning och kontur. Metoden [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) justerar alla tre serier så att de har samma kategoricentra.
 
-Kombinera automatisk placering av etiketter, ledningslinjer och minskad teckenstorlek; om nödvändigt, dölj vissa fält (t.ex. kategorin) eller visa etiketter endast för extrema värden eller nyckelpunkter.
+Inställningarna för [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) reserverar utrymme för etikett‑raderna. Efter att [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) beräknat standardpositionerna, bevarar [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) och [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) den horisontella justeringen och tillämpar vertikala offset för att placera etiketterna i två rader. Siffrorna förblir dataetiketter länkade till serievärdena; endast radrubrikerna är separata textformer.
 
-**Hur kan jag inaktivera etiketter endast för noll-, negativa eller tomma värden?**
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartPlotArea.h>
+#include <DOM/Chart/LayoutTargetType.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden som är 0, negativa värden eller saknade värden enligt en definierad regel.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-**Hur kan jag säkerställa en konsekvent etikettstil vid export till PDF/bilder?**
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Ange explicit teckensnittsfamilj och storlek och verifiera att teckensnittet är tillgängligt i renderingsmiljön för att undvika fallback.
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 40, 40, 640, 200);
+chart->set_HasTitle(false);
+chart->set_HasLegend(false);
+chart->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+String categories[] = { u"North", u"South", u"East", u"West" };
+String seriesNames[] = { u"Series A", u"Series B", u"Series C" };
+double seriesValues[3][4] = {
+    { 35, 42, 28, 47 },
+    { 22, 31, 19, 26 },
+    { 12, 16, 14, 18 }
+};
+
+for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+{
+    auto categoryCell = workbook->GetCell(0, categoryIndex + 1, 0, ObjectExt::Box(categories[categoryIndex]));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+}
+
+for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
+{
+    auto seriesCell = workbook->GetCell(0, 0, seriesIndex + 1, ObjectExt::Box(seriesNames[seriesIndex]));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, ChartType::ClusteredColumn);
+
+    for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+    {
+        auto valueCell = workbook->GetCell(0, categoryIndex + 1, seriesIndex + 1, ObjectExt::Box(seriesValues[seriesIndex][categoryIndex]));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
+
+    if (seriesIndex > 0)
+    {
+        // Dölj kolumnerna för B och C, men behåll deras dataetiketter.
+        series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
+        series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+        auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+        labelFormat->set_ShowValue(true);
+        labelFormat->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+        auto labelFill = labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat();
+        labelFill->set_FillType(FillType::Solid);
+        labelFill->get_SolidFillColor()->set_Color(Color::get_Black());
+        labelFormat->set_Position(LegendDataLabelPosition::InsideBase);
+    }
+}
+
+// Justera alla tre serier så att de har samma kategoricentra.
+chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
+
+// Använd färre rutnätlinjer i detta kompakta exempel.
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
+chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
+
+// Reservera utrymme ovanför diagrammet för två rader med dataetiketter.
+chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
+chart->get_PlotArea()->set_X(0.15f);
+chart->get_PlotArea()->set_Y(0.32f);
+chart->get_PlotArea()->set_Width(0.80f);
+chart->get_PlotArea()->set_Height(0.48f);
+chart->ValidateChartLayout();
+
+for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(seriesIndex);
+    auto rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+    for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+    {
+        auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
+        // Behåll standard horisontell position. Y är ett avstånd från
+        // standardetikettpositionen, uttryckt som en andel av diagramhöjden.
+        dataLabel->set_X(0);
+        dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
+    }
+
+    // Endast radrubriken är en separat textform.
+    auto rowHeading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, chart->get_X(), chart->get_Y() + rowTop * chart->get_Height(), 85, 18);
+    rowHeading->get_FillFormat()->set_FillType(FillType::NoFill);
+    rowHeading->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+    rowHeading->AddTextFrame(seriesNames[seriesIndex]);
+    rowHeading->get_TextFrame()->get_TextFrameFormat()->set_MarginTop(0);
+    rowHeading->get_TextFrame()->get_TextFrameFormat()->set_MarginBottom(0);
+    auto headingFormat = rowHeading->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
+    headingFormat->set_FontHeight(12);
+    headingFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    headingFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+}
+
+presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
+## **FAQ**
+
+**Hur kan jag förhindra att dataetiketter överlappar i täta diagram?**
+
+Kombinera automatisk etikettplacering, ledlinjer och minskad teckenstorlek; vid behov dölja vissa fält (t.ex. kategori) eller visa etiketter endast för extrema värden eller nyckelpunkter.
+
+**Hur kan jag inaktivera etiketter endast för noll‑, negativa‑ eller tomma värden?**
+
+Filtrera datapunkter innan etiketter aktiveras och stäng av visning för värden som är 0, negativa eller saknas enligt en definierad regel.
+
+**Hur kan jag säkerställa en enhetlig etikettstil vid export till PDF/bilder?**
+
+Ange uttryckligen teckensnittsfamilj och storlek och verifiera att teckensnittet finns tillgängligt i renderingsmiljön för att undvika fallback.

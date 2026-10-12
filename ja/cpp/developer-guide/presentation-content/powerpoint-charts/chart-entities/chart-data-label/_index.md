@@ -1,5 +1,5 @@
 ---
-title: C++ を使用したプレゼンテーションでのチャート データ ラベルの管理
+title: C++ を使用してプレゼンテーションでチャート データ ラベルを管理する
 linktitle: データ ラベル
 type: docs
 url: /ja/cpp/chart-data-label/
@@ -16,13 +16,13 @@ keywords:
 - Aspose.Slides
 description: "Aspose.Slides for C++ を使用して PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
 ---
-## **導入**
+## **はじめに**
 
-データ ラベルは、チャートの系列と個々のデータ ポイントに関する情報を表示し、読者が値を識別しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベルテキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、円グラフラベルの位置決めについて説明します。
+データラベルはチャートの系列や個々のデータポイントに関する情報を表示し、読者が値を特定しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベルテキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、そして円グラフラベルの位置設定について説明します。
 
-## **チャート データ ラベルでデータの精度を設定する**
+## **チャートデータラベルのデータ精度を設定する**
 
-系列の値をフォーマットするには、[set_NumberFormatOfValues](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) を使用します。この例では、デフォルト データで折れ線グラフを作成し、データ テーブルを表示し、最初の系列の値ラベルを有効にします。書式 `#,##0.00` は千桁区切りと小数点以下 2 桁を表示しますが、基になる値は変更しません。
+シリーズの値の書式設定には [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) を使用します。この例では、デフォルトデータで折れ線グラフを作成し、データテーブルを表示し、最初の系列に値ラベルを有効にしています。書式 `#,##0.00` は千区切りと小数点以下2桁を表示しますが、基になる値は変更しません。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,7 +59,7 @@ presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 
 ## **ラベルとしてパーセンテージを表示する**
 
-スタック縦棒グラフの場合、各値をそのカテゴリ合計に対するパーセンテージに計算し、[get_TextFrameForOverriding](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) が返すテキストフレームに割り当てます。この例はデフォルトのチャート データを使用し、8 ポイント フォントで小数点以下 2 桁のパーセンテージを表示します。合計が 0 のカテゴリは除外され、ゼロ除算を回避します。チャート データが変更された場合は、カスタム ラベル テキストを再計算してください。
+スタックされた縦棒グラフの場合、各値をそのカテゴリ合計に対するパーセンテージとして計算し、[get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) で返されるテキストフレームにテキストを割り当てます。この例はデフォルトのチャートデータを使用し、8 ポイントのフォントで小数点以下2桁のパーセンテージを表示します。合計が 0 のカテゴリは除外してゼロ除算を防止します。チャートデータが変更された場合はカスタムラベルテキストを再計算してください。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -147,11 +147,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **チャート データ ラベルでパーセンテージ記号を設定する**
+## **チャートデータラベルでパーセンテージ記号を設定する**
 
-値が分数として格納されている場合は、[set_NumberFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) を使用してパーセンテージを表示します。[set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) に `false` を渡すと、ラベル書式がソース セルに依存しなくなります。
+値が分数で格納されている場合、[set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) を使用してパーセンテージを表示します。ラベル書式をソースセルとは独立させるには、[set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) に `false` を渡します。
 
-この例は、4 つのカテゴリに対して赤と青の系列を持つ 100% スタック縦棒グラフを作成します。各ペアの値の合計は 1 です。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下 2 桁を使用します。両系列とも白色で 10 ポイントのラベル テキストを使用します。
+この例では、4 つのカテゴリにわたる赤と青の系列を持つ 100% スタック縦棒グラフを作成します。各ペアの値の合計は 1 です。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下2桁を使用します。両系列とも白色で 10 ポイントのラベルテキストを使用します。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -236,9 +236,9 @@ for (auto i = 0; i < 2; i++)
 presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **データ ラベルの実際のテキストを取得する**
+## **データラベルの実際のテキストを取得する**
 
-[GetActualLabelText](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) を使用すると、データ ラベルの設定によって生成されたテキストを取得できます。レポート用ラベルの抽出、プレゼンテーション コンテンツの検索、生成されたチャートの検証などに便利です。下の例では、デフォルトの[data label format](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/idatalabelformat/) が各カテゴリ名、系列名、値を結合します。あるポイントは値をパーセンテージとして書式設定し、別のポイントは[get_TextFrameForOverriding](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) から取得したカスタム テキストを使用します。
+データラベルの設定で生成されたテキストを取得するには [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) を使用します。これはレポート用にラベルを抽出したり、プレゼンテーションの内容を検索したり、生成されたチャートを検証したりする際に便利です。以下の例では、デフォルトの [データラベル形式](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) が各カテゴリ名、系列名、値を結合します。あるデータポイントは値をパーセンテージとして書式設定し、別のデータポイントは [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) から取得したカスタムテキストを使用します。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -326,15 +326,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-データ ポイントに格納されている数値は `0.75` のままで、ラベルはカテゴリ名と系列名に加えて `75%` と表示されます。カスタム テキストは生成されたラベル テキストを置き換えます。[GetActualLabelText](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) は、いずれの場合でも結果のラベル文字列を返します。表示されているラベルだけを抽出したい場合は、上記と同様に [get_IsVisible](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/idatalabel/get_isvisible/) を別途確認してください。
+データポイントに格納されている数値は `0.75` のままで、ラベルがカテゴリ名と系列名とともに `75%` と表示されても変わりません。カスタムテキストは生成されたラベルテキストを置き換えます。[GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) はどちらの場合でも結果のラベル文字列を返します。表示ラベルのみを抽出したい場合は、上記のように [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) を別途確認してください。
 
-## **軸の最大値を超えるデータ ラベルを制御する**
+## **軸の最大値を超えるデータラベルを制御する**
 
-軸の範囲を手動で制限すると、一部のデータ ポイントがその最大値を超えることがあります。[set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) を使用して、これらのデータ ラベルを表示するかどうかを制御します。この設定はラベルの表示/非表示を変更しますが、軸の範囲や基になるデータ値は変更しません。
+軸の範囲を手動で制限すると、データポイントが最大値を超えることがあります。[set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) を使用して、それらのデータラベルを表示するかどうかを制御します。この設定はラベルの表示/非表示を変更しますが、軸範囲や基になるデータ値は変更しません。
 
-以下の例では、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。縦軸の [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) を `false`、[set_MaxValue](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/iaxis/set_maxvalue/) を 100 に設定します。最初のスライドは最大値を超えるラベルを許可し、コピーしたスライドはそれを無効にします。両方のスライドは `DataLabelsOverMaximum.pptx` に保存されます。
+以下の例では、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。縦軸で [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) を `false` に設定し、[set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) を 100 に設定します。最初のスライドでは最大値を超えるラベルを許可し、そのスライドのコピーでは無効にします。両方のスライドは `DataLabelsOverMaximum.pptx` に保存されます。
 
-値ラベルは [set_ShowValue](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) で有効にします。チャート レベルの設定だけでは個々のラベルの非表示設定を上書きせず、値表示は自動的に有効になりません。この例では、系列全体の値を有効にし、[set_Position](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/idatalabelformat/set_position/) を使用して各列の外側端にラベルを配置します。
+[set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) で値ラベルを有効にします。チャートレベルの設定だけでは値の表示は有効にならず、個々のラベルで無効にされた値表示を上書きもしません。この例では、系列全体の値を有効にし、[set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) を使用して各列の外側端にラベルを配置しています。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -405,19 +405,19 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-以下の画像は Microsoft PowerPoint でレンダリングされた保存済みスライドを示しています。`true` の場合、ラベル **120** が上端に表示されます。`false` の場合は非表示になります。ラベル **60** は常に表示され、軸の最大値は **100** のままで、2 番目のデータ ポイントはどちらの場合も **120** のままです。
+以下の画像は Microsoft PowerPoint でレンダリングされた保存済みスライドを示しています。`true` の場合、ラベル **120** が上限に表示され、`false` の場合は非表示になります。ラベル **60** は表示されたままで、軸の最大値は **100** のまま、2 番目のデータポイントはどちらの場合も **120** のままです。
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![軸の最大値が 100 のときに値ラベル 120 を表示する PowerPoint チャート](data-labels-over-maximum-true.png) | ![軸の最大値が 100 のときに値ラベル 120 を非表示にする PowerPoint チャート](data-labels-over-maximum-false.png) |
+| ![軸の最大値が 100 のとき、値ラベル 120 を表示する PowerPoint チャート](data-labels-over-maximum-true.png) | ![軸の最大値が 100 のとき、値ラベル 120 を非表示にする PowerPoint チャート](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-この例は値軸を持つ 2D 縦棒グラフを使用しています。円グラフやドーナツ グラフなど、値軸がないチャートはこの方法で軸の最大値を制限できません。
+この例は、値軸を持つ 2D 縦棒チャートを使用しています。値軸を持たないチャート（円グラフやドーナッツグラフなど）は、このように軸の最大値で制限することができません。
 {{% /alert %}}
 
 ## **軸からのラベル距離を設定する**
 
-[set_LabelOffset](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/iaxis/set_labeloffset/) を使用して、カテゴリ軸ラベルと軸との距離を制御します。値は軸ラベルの最大フォントサイズに対するパーセンテージです。この例ではクラスタ化縦棒グラフを作成し、横軸ラベルのオフセットを 500 に設定します。この設定は個々のデータ ポイントに付随したラベルではなく、カテゴリ軸ラベルに影響します。
+[set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) を使用してカテゴリ軸ラベルと軸との距離を制御します。この値は軸ラベルの最大フォントサイズのパーセンテージです。この例では、クラスタ化縦棒チャートを作成し、横軸ラベルのオフセットを 500 に設定します。この設定は個々のデータポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -447,9 +447,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **ラベル位置の調整**
 
-円グラフでは、データ ラベルの位置を調整して間隔を改善し、リーダーラインの余裕を確保します。
+円グラフでは、データラベルの位置を調整して間隔を改善し、リーダーラインのスペースを確保します。
 
-この例では、最初のデータ ポイントの値を表示し、ラベルをスライスの外側に配置し、[set_X](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ilayoutable/set_x/) と [set_Y](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ilayoutable/set_y/) を使用してオフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対して相対的です。
+この例では、最初のデータポイントの値を表示し、ラベルをスライスの外側に配置し、[set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) と [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) を使用してオフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対位置です。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -487,18 +487,173 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![ラベル位置が調整された円グラフ](pie-chart-adjusted-label.png)
+![データラベル位置を調整した円グラフ](pie-chart-adjusted-label.png)
 
-## **FAQ**
+## **縦棒チャートの上に複数行のデータラベルを追加する**
 
-**データ ラベルが密集したチャートで重なるのを防ぐにはどうすればよいですか？**
+この例では、プロット領域の上に 2 行のデータラベルを配置した縦棒チャートを作成します。Series A は可視列を表示し、Series B と Series C が追加のラベルを提供します。これらの列は塗りつぶしと輪郭を削除して非表示にします。[set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) メソッドは、3 つの系列すべてを同じカテゴリ中心に揃えます。
 
-自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせます。必要に応じてカテゴリなどの一部フィールドを非表示にするか、極端な値や重要なポイントのみラベルを表示します。
+[get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) の設定でラベル行のためのスペースを確保します。[ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) がデフォルト位置を計算した後、[set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) と [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) で水平位置を保持し、垂直オフセットを適用してラベルを 2 行に配置します。数値は系列の値にリンクされたデータラベルのままで、行見出しのみが別個のテキストシェイプです。
 
-**ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartPlotArea.h>
+#include <DOM/Chart/LayoutTargetType.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-ラベルを有効にする前にデータ ポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを適用します。
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-**PDF や画像にエクスポートする際にラベルのスタイルを一貫させるにはどうすればよいですか？**
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-フォントファミリとサイズを明示的に設定し、レンダリング環境にそのフォントが存在することを確認してフォールバックを防ぎます。
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 40, 40, 640, 200);
+chart->set_HasTitle(false);
+chart->set_HasLegend(false);
+chart->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+String categories[] = { u"North", u"South", u"East", u"West" };
+String seriesNames[] = { u"Series A", u"Series B", u"Series C" };
+double seriesValues[3][4] = {
+    { 35, 42, 28, 47 },
+    { 22, 31, 19, 26 },
+    { 12, 16, 14, 18 }
+};
+
+for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+{
+    auto categoryCell = workbook->GetCell(0, categoryIndex + 1, 0, ObjectExt::Box(categories[categoryIndex]));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+}
+
+for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
+{
+    auto seriesCell = workbook->GetCell(0, 0, seriesIndex + 1, ObjectExt::Box(seriesNames[seriesIndex]));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, ChartType::ClusteredColumn);
+
+    for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+    {
+        auto valueCell = workbook->GetCell(0, categoryIndex + 1, seriesIndex + 1, ObjectExt::Box(seriesValues[seriesIndex][categoryIndex]));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
+
+    if (seriesIndex > 0)
+    {
+        // B と C の列を非表示にしますが、データラベルは保持します。
+        series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
+        series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+        auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+        labelFormat->set_ShowValue(true);
+        labelFormat->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+        auto labelFill = labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat();
+        labelFill->set_FillType(FillType::Solid);
+        labelFill->get_SolidFillColor()->set_Color(Color::get_Black());
+        labelFormat->set_Position(LegendDataLabelPosition::InsideBase);
+    }
+}
+
+// 3 つの系列すべてを同じカテゴリ中心に揃えます。
+chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
+
+// このコンパクトな例ではグリッド線を少なくします。
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
+chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
+
+// プロット上部に2行分のデータラベル用のスペースを確保します。
+chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
+chart->get_PlotArea()->set_X(0.15f);
+chart->get_PlotArea()->set_Y(0.32f);
+chart->get_PlotArea()->set_Width(0.80f);
+chart->get_PlotArea()->set_Height(0.48f);
+chart->ValidateChartLayout();
+
+for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(seriesIndex);
+    auto rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+    for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+    {
+        auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
+        // デフォルトの水平位置を保持します。Y は以下からのオフセットです
+        // デフォルトラベル位置で、チャート高さの割合で表されます。
+        dataLabel->set_X(0);
+        dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
+    }
+
+    // 行見出しだけが別個のテキストシェイプです。
+    auto rowHeading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, chart->get_X(), chart->get_Y() + rowTop * chart->get_Height(), 85, 18);
+    rowHeading->get_FillFormat()->set_FillType(FillType::NoFill);
+    rowHeading->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+    rowHeading->AddTextFrame(seriesNames[seriesIndex]);
+    rowHeading->get_TextFrame()->get_TextFrameFormat()->set_MarginTop(0);
+    rowHeading->get_TextFrame()->get_TextFrameFormat()->set_MarginBottom(0);
+    auto headingFormat = rowHeading->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
+    headingFormat->set_FontHeight(12);
+    headingFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    headingFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+}
+
+presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
+```
+
+![プロット領域の上に2行のデータラベルがある縦棒チャート](multiple-rows-of-labels.png)
+
+## **よくある質問**
+
+**密なチャートでデータラベルが重なるのを防ぐにはどうすればよいですか？**  
+自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせます。必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要なポイントのみにラベルを表示します。
+
+**ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**  
+ラベルを有効にする前にデータポイントをフィルタリングし、定義したルールに従って 0、負の値、または欠損値の表示をオフにします。
+
+**PDF/画像にエクスポートする際にラベルスタイルを一貫させるにはどうすればよいですか？**  
+フォントファミリとサイズを明示的に設定し、レンダリング環境にフォントが存在することを確認してフォールバックを防ぎます。

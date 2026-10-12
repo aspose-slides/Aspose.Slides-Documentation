@@ -1,29 +1,29 @@
 ---
-title: Gérer les libellés de données des graphiques dans les présentations avec JavaScript
-linktitle: Libellé de données
+title: Gérer les étiquettes de données des graphiques dans les présentations avec JavaScript
+linktitle: Étiquette de données
 type: docs
 url: /fr/nodejs-java/chart-data-label/
 keywords:
 - graphique
-- libellé de données
+- étiquette de données
 - précision des données
 - pourcentage
-- distance du libellé
-- emplacement du libellé
+- distance de l'étiquette
+- position de l'étiquette
 - PowerPoint
 - présentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Apprenez à ajouter et formater les libellés de données des graphiques dans les présentations PowerPoint en utilisant JavaScript et Aspose.Slides pour Node.js via Java pour des diapositives plus engageantes."
+description: "Apprenez à ajouter et formater les étiquettes de données de graphiques dans les présentations PowerPoint en utilisant JavaScript et Aspose.Slides pour Node.js via Java pour des diapositives plus attractives."
 ---
 ## **Introduction**
 
-Les libellés de données affichent des informations sur les séries de graphiques et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le graphique. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte des libellés, contrôler les libellés au‑delà du maximum de l’axe, ajuster l’espacement des libellés de l’axe des catégories et positionner les libellés des graphiques circulaires.
+Les étiquettes de données affichent des informations sur les séries de graphiques et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le graphique. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte des étiquettes, contrôler les étiquettes au‑delà du maximum de l'axe, ajuster l'espacement des étiquettes de l'axe des catégories et positionner les étiquettes d'un graphique circulaire.
 
-## **Définir la précision des valeurs dans les libellés de données du graphique**
+## **Définir la précision des données dans les étiquettes de graphique**
 
-Utilisez [setNumberFormatOfValues](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) pour formater les valeurs des séries. Cet exemple crée un graphique en courbes avec des données par défaut, affiche son tableau de données et active les libellés de valeur pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous‑jacentes.
+Utilisez [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) pour formater les valeurs des séries. Cet exemple crée un graphique en lignes avec des données par défaut, affiche son tableau de données et active les étiquettes de valeurs pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous‑jacentes.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -45,9 +45,9 @@ try {
 }
 ```
 
-## **Afficher le pourcentage en tant que libellés**
+## **Afficher le pourcentage comme étiquettes**
 
-Pour un graphique à colonnes empilées, calculez chaque valeur comme un pourcentage du total de sa catégorie et affectez le texte au cadre de texte renvoyé par [getTextFrameForOverriding](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Cet exemple utilise les données de graphique par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les catégories dont le total est zéro sont ignorées afin d’éviter une division par zéro. Recalculez le texte de libellé personnalisé si les données du graphique changent.
+Pour un graphique à colonnes empilées, calculez chaque valeur comme pourcentage du total de sa catégorie et affectez le texte au cadre de texte renvoyé par [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Cet exemple utilise les données de graphique par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les catégories dont le total est zéro sont ignorées pour éviter une division par zéro. Recalculez le texte personnalisé de l'étiquette si les données du graphique changent.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -103,10 +103,11 @@ try {
 }
 ```
 
-## **Définir le signe de pourcentage avec les libellés de données du graphique**
+## **Définir le signe de pourcentage avec les étiquettes de données**
 
-Lorsque les valeurs sont stockées sous forme de fractions, utilisez [setNumberFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) pour afficher les pourcentages. Passez `false` à [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) pour appliquer le format du libellé indépendamment des cellules sources.  
-Cet exemple crée un graphique à colonnes empilées à 100 % avec des séries rouge et bleu sur quatre catégories. Chaque paire de valeurs totalise 1. Le format de libellé `0.0%` affiche 0.30 comme 30,0 %, tandis que l’axe vertical utilise deux décimales. Les deux séries utilisent un texte de libellé blanc de 10 points.
+Lorsque les valeurs sont stockées sous forme de fractions, utilisez [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) pour afficher des pourcentages. Passez `false` à [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) pour appliquer le format de l'étiquette indépendamment des cellules source.
+
+Cet exemple crée un graphique à colonnes empilées à 100 % avec des séries rouge et bleue sur quatre catégories. Chaque paire de valeurs s'additionne à 1. Le format d'étiquette `0.0%` affiche 0.30 comme 30.0 %, tandis que l'axe vertical utilise deux décimales. Les deux séries utilisent un texte d'étiquette blanc, taille 10 points.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -162,9 +163,9 @@ try {
 }
 ```
 
-## **Lire le texte réel des libellés de données**
+## **Lire le texte réel des étiquettes de données**
 
-Utilisez [getActualLabelText](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) pour récupérer le texte généré par les paramètres d’un libellé de données. Cela est utile lors de l’extraction de libellés pour des rapports, de la recherche de contenu de présentation ou de la validation de graphiques générés. Dans l’exemple ci‑dessous, le [format de libellé de données](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabelformat/) par défaut combine le nom de chaque catégorie, le nom de la série et la valeur. Un point formate sa valeur en pourcentage, et un autre utilise du texte personnalisé provenant de [getTextFrameForOverriding](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Utilisez [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) pour récupérer le texte produit par les paramètres d'une étiquette de données. Cela est utile lors de l'extraction d'étiquettes pour des rapports, la recherche de contenu dans une présentation ou la validation de graphiques générés. Dans l'exemple ci‑dessous, le [format d'étiquette de données](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) par défaut combine chaque nom de catégorie, nom de série et valeur. Un point formate sa valeur en pourcentage, et un autre utilise du texte personnalisé provenant de [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -227,13 +228,15 @@ try {
 }
 ```
 
-Le nombre stocké dans un point de données reste `0.75`, même lorsque son libellé affiche `75 %` avec les noms de catégorie et de série. Le texte personnalisé remplace le texte de libellé généré. [getActualLabelText](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) renvoie la chaîne de libellé résultante dans les deux cas. Vérifiez [isVisible](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabel/isvisible/) séparément, comme illustré ci‑dessus, lorsque vous ne souhaitez extraire que les libellés visibles.
+Le nombre stocké dans un point de données reste `0.75`, même lorsque son étiquette indique `75%` avec les noms de catégorie et de série. Le texte personnalisé remplace le texte d'étiquette généré. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) renvoie la chaîne d'étiquette résultante dans les deux cas. Vérifiez [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) séparément, comme indiqué ci‑dessus, lorsque vous ne souhaitez extraire que les étiquettes visibles.
 
-## **Contrôler les libellés de données au‑delà du maximum de l’axe**
+## **Contrôler les étiquettes de données au‑delà du maximum de l'axe**
 
-Lorsque vous limitez manuellement la plage d’un axe, certains points de données peuvent dépasser son maximum. Utilisez [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) pour contrôler si leurs libellés de données sont affichés. Ce paramètre modifie la visibilité des libellés ; il ne modifie pas la plage de l’axe ni les valeurs sous‑jacentes.  
-L’exemple ci‑dessous crée un graphique à colonnes groupées 2D avec des valeurs de 60 et 120. Il transmet `false` à [setAutomaticMaxValue](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) et fixe le maximum à 100 avec [setMaxValue](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/axis/setmaxvalue/) sur l’axe vertical. La première diapositive autorise les libellés au‑delà du maximum ; une copie de cette diapositive les désactive. Les deux diapositives sont enregistrées dans `DataLabelsOverMaximum.pptx`.  
-Activez les libellés de valeur avec [setShowValue](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Le paramètre au niveau du graphique n’active pas l’affichage des valeurs par lui‑même et ne remplace pas la désactivation de l’affichage de la valeur d’un libellé individuel. Cet exemple active les valeurs pour l’ensemble de la série et utilise [setPosition](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabelformat/setposition/) pour placer les libellés à l’extrémité extérieure de chaque colonne.
+Lorsque vous limitez manuellement la plage d'un axe, certains points de données peuvent dépasser son maximum. Utilisez [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) pour contrôler si leurs étiquettes de données sont affichées. Ce paramètre modifie la visibilité des étiquettes ; il ne modifie pas la plage de l'axe ni les valeurs sous‑jacentes.
+
+L'exemple ci‑dessous crée un graphique à colonnes groupées 2D avec des valeurs de 60 et 120. Il transmet `false` à [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) et fixe le maximum à 100 avec [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) sur l'axe vertical. La première diapositive autorise les étiquettes au‑delà du maximum ; une copie de cette diapositive les désactive. Les deux diapositives sont enregistrées dans `DataLabelsOverMaximum.pptx`.
+
+Activez les étiquettes de valeur avec [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Le paramètre au niveau du graphique n'active pas l'affichage des valeurs par lui‑même et ne remplace pas la désactivation de l'affichage des valeurs d'une étiquette individuelle. Cet exemple active les valeurs pour toute la série et utilise [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) pour placer les étiquettes à l'extrémité extérieure de chaque colonne.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,19 +285,19 @@ try {
 }
 ```
 
-Les images suivantes montrent les diapositives enregistrées rendues par Microsoft PowerPoint. Avec `true`, le libellé **120** est visible à la limite supérieure ; avec `false`, il est masqué. Le libellé **60** reste visible, le maximum de l’axe reste à **100**, et le deuxième point de données reste **120** dans les deux cas.
+Les images suivantes montrent les diapositives enregistrées rendues par Microsoft PowerPoint. Avec `true`, l'étiquette **120** est visible à la limite supérieure ; avec `false`, elle est cachée. L'étiquette **60** reste visible, le maximum de l'axe reste à **100**, et le deuxième point de données reste **120** dans les deux cas.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![Graphique PowerPoint affichant le libellé de valeur 120 avec un maximum d’axe de 100](data-labels-over-maximum-true.png) | ![Graphique PowerPoint masquant le libellé de valeur 120 avec un maximum d’axe de 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Cet exemple utilise un graphique à colonnes 2D avec un axe des valeurs. Les graphiques sans axe des valeurs, tels que les graphiques circulaires et les graphiques en anneau, n’ont pas de maximum d’axe à limiter de cette manière.
+Cet exemple utilise un graphique à colonnes 2D avec un axe des valeurs. Les graphiques sans axe des valeurs, tels que les graphiques circulaires et les graphiques en anneau, n'ont pas de maximum d'axe à limiter de cette manière.
 {{% /alert %}}
 
-## **Définir la distance du libellé par rapport à un axe**
+## **Définir la distance de l'étiquette par rapport à un axe**
 
-Utilisez [setLabelOffset](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/axis/setlabeloffset/) pour contrôler la distance entre les libellés de l’axe des catégories et l’axe. La valeur est un pourcentage de la taille maximale de police des libellés de l’axe. Cet exemple crée un graphique à colonnes groupées et définit le décalage des libellés de l’axe horizontal à 500. Ce paramètre affecte les libellés de l’axe des catégories plutôt que les libellés attachés aux points de données individuels.
+Utilisez [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) pour contrôler la distance entre les étiquettes de l'axe des catégories et l'axe. La valeur est un pourcentage de la taille maximale de la police des étiquettes d'axe. Cet exemple crée un graphique à colonnes groupées et fixe le décalage des étiquettes de l'axe horizontal à 500. Ce paramètre affecte les étiquettes de l'axe des catégories plutôt que les étiquettes attachées aux points de données individuels.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -312,10 +315,11 @@ try {
 }
 ```
 
-## **Ajuster la position du libellé**
+## **Ajuster la position des étiquettes**
 
-Sur un graphique circulaire, ajustez la position des libellés de données pour améliorer l’espacement et laisser de la place aux lignes de connexion.  
-Cet exemple affiche la valeur du premier point de données, place son libellé à l’extérieur de la tranche et ajuste ses décalages horizontal et vertical à l’aide de [setX](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabel/setx/) et [setY](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datalabel/sety/). Ces décalages sont relatifs à la largeur et à la hauteur du graphique, respectivement.
+Sur un graphique circulaire, ajustez les positions des étiquettes de données pour améliorer l'espacement et laisser de la place aux lignes de recours.
+
+Cet exemple affiche la valeur du premier point de données, place son étiquette à l'extérieur de la part et ajuste ses décalages horizontaux et verticaux à l'aide de [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) et [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/). Ces décalages sont relatifs à la largeur et à la hauteur du graphique, respectivement.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -340,15 +344,123 @@ try {
 }
 ```
 
-![Graphique circulaire avec une position de libellé de données ajustée](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+
+## **Ajouter plusieurs lignes d'étiquettes au‑dessus d'un graphique à colonnes**
+
+Cet exemple crée un graphique à colonnes avec deux lignes d'étiquettes au‑dessus de la zone de tracé. La série A affiche les colonnes visibles, tandis que les séries B et C fournissent les étiquettes supplémentaires. Leurs colonnes sont cachées en supprimant le remplissage et le contour. La méthode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) aligne les trois séries sur les mêmes centres de catégorie.
+
+Les paramètres du [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) réservent de l'espace pour les lignes d'étiquettes. Après que [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) ait calculé les positions par défaut, [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) et [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) conservent l'alignement horizontal et appliquent des décalages verticaux pour organiser les étiquettes en deux lignes. Les nombres restent des étiquettes de données liées aux valeurs des séries ; seules les en‑têtes de ligne sont des formes de texte séparées.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    const categories = ["North", "South", "East", "West"];
+    const seriesNames = ["Series A", "Series B", "Series C"];
+    const seriesValues = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]];
+
+    for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        const categoryCell = workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (let seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        const seriesCell = workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+        const series = chart.getChartData().getSeries().add(seriesCell, aspose.slides.ChartType.ClusteredColumn);
+
+        for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            const valueCell = workbook.getCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        if (seriesIndex > 0) {
+            // Masquer les colonnes de B et C, mais conserver leurs étiquettes de données.
+            series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
+            const labelFill = series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+            labelFill.getSolidFillColor().setColor(black);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // Aligner les trois séries sur les mêmes centres de catégorie.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(java.newByte(100));
+
+    // Utiliser moins de lignes de grille pour cet exemple compact.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // Réserver de l'espace au-dessus du tracé pour deux lignes d'étiquettes de données.
+    chart.getPlotArea().setLayoutTargetType(aspose.slides.LayoutTargetType.Inner);
+    chart.getPlotArea().setX(java.newFloat(0.15));
+    chart.getPlotArea().setY(java.newFloat(0.32));
+    chart.getPlotArea().setWidth(java.newFloat(0.80));
+    chart.getPlotArea().setHeight(java.newFloat(0.48));
+    chart.validateChartLayout();
+
+    for (let seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const rowTop = seriesIndex == 1 ? 0.15 : 0.03;
+
+        for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            const dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // Conserver la position horizontale par défaut. Y est un décalage depuis
+            // la position d'étiquette par défaut, exprimé comme une fraction de la hauteur du graphique.
+            dataLabel.setX(0);
+            dataLabel.setY(java.newFloat(rowTop - dataLabel.getActualY() / chart.getHeight()));
+        }
+
+        // Seul l'en-tête de ligne est une forme de texte distincte.
+        const rowHeading = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        rowHeading.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        const headingFormat = rowHeading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        headingFormat.getFillFormat().getSolidFillColor().setColor(black);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Comment puis‑je empêcher les libellés de données de se chevaucher sur des graphiques denses ?**  
-Combinez le placement automatique des libellés, les lignes de connexion et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n’affichez les libellés que pour les valeurs extrêmes ou les points clés.
+**Comment éviter que les étiquettes de données se chevauchent sur des graphiques denses ?**
 
-**Comment désactiver les libellés uniquement pour les valeurs nulles, négatives ou vides ?**  
-Filtrez les points de données avant d’activer les libellés et désactivez l’affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
+Combinez le placement automatique des étiquettes, les lignes de recours et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n'affichez les étiquettes que pour les valeurs extrêmes ou les points clés.
 
-**Comment garantir un style de libellé cohérent lors de l’exportation en PDF/images ?**  
-Spécifiez explicitement la famille et la taille de police et vérifiez que la police est disponible dans l’environnement de rendu afin d’éviter le recours à une police de secours.
+**Comment désactiver les étiquettes uniquement pour les valeurs zéro, négatives ou vides ?**
+
+Filtrez les points de données avant d'activer les étiquettes et désactivez l'affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
+
+**Comment garantir un style d'étiquette cohérent lors de l'exportation en PDF/images ?**
+
+Définissez explicitement la famille et la taille de police et vérifiez que la police est disponible dans l'environnement de rendu pour éviter le recours à une police de secours.
