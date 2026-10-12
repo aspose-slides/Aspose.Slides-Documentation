@@ -349,6 +349,111 @@ try {
 
 ![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
+## **Add Multiple Rows of Data Labels Above a Column Chart**
+
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) method aligns all three series with the same category centers.
+
+The [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) settings reserve space for the label rows. After [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) calculates the default positions, [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) and [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 40, 40, 640, 200);
+    chart.setTitle(false);
+    chart.setLegend(false);
+    chart.getTextFormat().getPortionFormat().setFontHeight(12);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    const categories = ["North", "South", "East", "West"];
+    const seriesNames = ["Series A", "Series B", "Series C"];
+    const seriesValues = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]];
+
+    for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+        const categoryCell = workbook.getCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (let seriesIndex = 0; seriesIndex < seriesNames.length; seriesIndex++) {
+        const seriesCell = workbook.getCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+        const series = chart.getChartData().getSeries().add(seriesCell, aspose.slides.ChartType.ClusteredColumn);
+
+        for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            const valueCell = workbook.getCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        if (seriesIndex > 0) {
+            // Hide the columns of B and C, but keep their data labels.
+            series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+            series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
+            const labelFill = series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat();
+            labelFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+            labelFill.getSolidFillColor().setColor(black);
+            series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.InsideBase);
+        }
+    }
+
+    // Align all three series with the same category centers.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(java.newByte(100));
+
+    // Use fewer gridlines for this compact example.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setMajorUnit(10);
+
+    // Reserve space above the plot for two rows of data labels.
+    chart.getPlotArea().setLayoutTargetType(aspose.slides.LayoutTargetType.Inner);
+    chart.getPlotArea().setX(java.newFloat(0.15));
+    chart.getPlotArea().setY(java.newFloat(0.32));
+    chart.getPlotArea().setWidth(java.newFloat(0.80));
+    chart.getPlotArea().setHeight(java.newFloat(0.48));
+    chart.validateChartLayout();
+
+    for (let seriesIndex = 1; seriesIndex < seriesNames.length; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const rowTop = seriesIndex == 1 ? 0.15 : 0.03;
+
+        for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
+            const dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
+            // Keep the default horizontal position. Y is an offset from
+            // the default label position, expressed as a chart-height fraction.
+            dataLabel.setX(0);
+            dataLabel.setY(java.newFloat(rowTop - dataLabel.getActualY() / chart.getHeight()));
+        }
+
+        // Only the row heading is a separate text shape.
+        const rowHeading = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
+        rowHeading.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        rowHeading.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        rowHeading.addTextFrame(seriesNames[seriesIndex]);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginTop(0);
+        rowHeading.getTextFrame().getTextFrameFormat().setMarginBottom(0);
+        const headingFormat = rowHeading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        headingFormat.setFontHeight(12);
+        headingFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        headingFormat.getFillFormat().getSolidFillColor().setColor(black);
+    }
+
+    presentation.save("multiple-rows-of-labels.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
 ## **FAQ**
 
 **How can I prevent data labels from overlapping on dense charts?**

@@ -336,6 +336,119 @@ presentation.Save("presentation.pptx", SaveFormat.Pptx);
 
 ![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
+## **Add Multiple Rows of Data Labels Above a Column Chart**
+
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) property aligns all three series with the same category centers.
+
+The [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) settings reserve space for the label rows. After [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) calculates the default positions, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) and [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 40, 40, 640, 200);
+chart.HasTitle = false;
+chart.HasLegend = false;
+chart.TextFormat.PortionFormat.FontHeight = 12;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+string[] categories = { "North", "South", "East", "West" };
+string[] seriesNames = { "Series A", "Series B", "Series C" };
+double[,] seriesValues = {
+    { 35, 42, 28, 47 },
+    { 22, 31, 19, 26 },
+    { 12, 16, 14, 18 }
+};
+
+for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+{
+    var categoryCell = workbook.GetCell(0, categoryIndex + 1, 0, categories[categoryIndex]);
+    chart.ChartData.Categories.Add(categoryCell);
+}
+
+for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
+{
+    var seriesCell = workbook.GetCell(0, 0, seriesIndex + 1, seriesNames[seriesIndex]);
+    var series = chart.ChartData.Series.Add(seriesCell, ChartType.ClusteredColumn);
+
+    for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+    {
+        var valueCell = workbook.GetCell(0, categoryIndex + 1, seriesIndex + 1, seriesValues[seriesIndex, categoryIndex]);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
+
+    if (seriesIndex > 0)
+    {
+        // Hide the columns of B and C, but keep their data labels.
+        series.Format.Fill.FillType = FillType.NoFill;
+        series.Format.Line.FillFormat.FillType = FillType.NoFill;
+        var labelFormat = series.Labels.DefaultDataLabelFormat;
+        labelFormat.ShowValue = true;
+        labelFormat.TextFormat.PortionFormat.FontHeight = 12;
+        var labelFill = labelFormat.TextFormat.PortionFormat.FillFormat;
+        labelFill.FillType = FillType.Solid;
+        labelFill.SolidFillColor.Color = Color.Black;
+        labelFormat.Position = LegendDataLabelPosition.InsideBase;
+    }
+}
+
+// Align all three series with the same category centers.
+chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
+
+// Use fewer gridlines for this compact example.
+chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
+chart.Axes.VerticalAxis.MajorUnit = 10;
+
+// Reserve space above the plot for two rows of data labels.
+chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
+chart.PlotArea.X = 0.15f;
+chart.PlotArea.Y = 0.32f;
+chart.PlotArea.Width = 0.80f;
+chart.PlotArea.Height = 0.48f;
+chart.ValidateChartLayout();
+
+for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
+{
+    var series = chart.ChartData.Series[seriesIndex];
+    float rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+    for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
+    {
+        var dataLabel = series.DataPoints[categoryIndex].Label;
+        // Keep the default horizontal position. Y is an offset from
+        // the default label position, expressed as a chart-height fraction.
+        dataLabel.X = 0;
+        dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
+    }
+
+    // Only the row heading is a separate text shape.
+    var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
+    rowHeading.FillFormat.FillType = FillType.NoFill;
+    rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
+    rowHeading.AddTextFrame(seriesNames[seriesIndex]);
+    rowHeading.TextFrame.TextFrameFormat.MarginTop = 0;
+    rowHeading.TextFrame.TextFrameFormat.MarginBottom = 0;
+    var headingFormat = rowHeading.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+    headingFormat.FontHeight = 12;
+    headingFormat.FillFormat.FillType = FillType.Solid;
+    headingFormat.FillFormat.SolidFillColor.Color = Color.Black;
+}
+
+presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
 ## **FAQ**
 
 **How can I prevent data labels from overlapping on dense charts?**

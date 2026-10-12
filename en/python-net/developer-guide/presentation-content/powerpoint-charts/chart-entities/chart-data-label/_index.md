@@ -307,6 +307,106 @@ with slides.Presentation() as presentation:
 
 ![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
+## **Add Multiple Rows of Data Labels Above a Column Chart**
+
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) property aligns all three series with the same category centers.
+
+The [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) settings reserve space for the label rows. After [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calculates the default positions, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 40, 640, 200)
+    chart.has_title = False
+    chart.has_legend = False
+    chart.text_format.portion_format.font_height = 12
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    categories = ["North", "South", "East", "West"]
+    series_names = ["Series A", "Series B", "Series C"]
+    series_values = [
+        [35, 42, 28, 47],
+        [22, 31, 19, 26],
+        [12, 16, 14, 18]
+    ]
+
+    for category_index, category_name in enumerate(categories):
+        category_cell = workbook.get_cell(0, category_index + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+    for series_index, series_name in enumerate(series_names):
+        series_cell = workbook.get_cell(0, 0, series_index + 1, series_name)
+        series = chart.chart_data.series.add(series_cell, charts.ChartType.CLUSTERED_COLUMN)
+
+        for category_index in range(len(categories)):
+            value_cell = workbook.get_cell(0, category_index + 1, series_index + 1, series_values[series_index][category_index])
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        if series_index > 0:
+            # Hide the columns of B and C, but keep their data labels.
+            series.format.fill.fill_type = slides.FillType.NO_FILL
+            series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+            label_format = series.labels.default_data_label_format
+            label_format.show_value = True
+            label_format.text_format.portion_format.font_height = 12
+            label_fill = label_format.text_format.portion_format.fill_format
+            label_fill.fill_type = slides.FillType.SOLID
+            label_fill.solid_fill_color.color = drawing.Color.black
+            label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
+
+    # Align all three series with the same category centers.
+    chart.chart_data.series[0].parent_series_group.overlap = 100
+
+    # Use fewer gridlines for this compact example.
+    chart.axes.vertical_axis.is_automatic_major_unit = False
+    chart.axes.vertical_axis.major_unit = 10
+
+    # Reserve space above the plot for two rows of data labels.
+    chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
+    chart.plot_area.x = 0.15
+    chart.plot_area.y = 0.32
+    chart.plot_area.width = 0.80
+    chart.plot_area.height = 0.48
+    chart.validate_chart_layout()
+
+    for series_index in range(1, len(series_names)):
+        series = chart.chart_data.series[series_index]
+        row_top = 0.15 if series_index == 1 else 0.03
+
+        for category_index in range(len(categories)):
+            data_label = series.data_points[category_index].label
+            # Keep the default horizontal position. Y is an offset from
+            # the default label position, expressed as a chart-height fraction.
+            data_label.x = 0
+            data_label.y = row_top - data_label.actual_y / chart.height
+
+        # Only the row heading is a separate text shape.
+        row_heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, chart.x, chart.y + row_top * chart.height, 85, 18)
+        row_heading.fill_format.fill_type = slides.FillType.NO_FILL
+        row_heading.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+        row_heading.add_text_frame(series_names[series_index])
+        row_heading.text_frame.text_frame_format.margin_top = 0
+        row_heading.text_frame.text_frame_format.margin_bottom = 0
+        heading_format = row_heading.text_frame.paragraphs[0].portions[0].portion_format
+        heading_format.font_height = 12
+        heading_format.fill_format.fill_type = slides.FillType.SOLID
+        heading_format.fill_format.solid_fill_color.color = drawing.Color.black
+
+    presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
 ## **FAQ**
 
 **How can I prevent data labels from overlapping on dense charts?**

@@ -456,6 +456,8 @@ try {
 }
 ```
 
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
 ## **FAQ**
 
 **How can I prevent data labels from overlapping on dense charts?**
