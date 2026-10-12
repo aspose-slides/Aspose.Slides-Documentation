@@ -492,6 +492,164 @@ presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
+## **Add Multiple Rows of Data Labels Above a Column Chart**
+
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) method aligns all three series with the same category centers.
+
+The [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) settings reserve space for the label rows. After [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) calculates the default positions, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) and [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartPlotArea.h>
+#include <DOM/Chart/LayoutTargetType.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 40, 40, 640, 200);
+chart->set_HasTitle(false);
+chart->set_HasLegend(false);
+chart->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+String categories[] = { u"North", u"South", u"East", u"West" };
+String seriesNames[] = { u"Series A", u"Series B", u"Series C" };
+double seriesValues[3][4] = {
+    { 35, 42, 28, 47 },
+    { 22, 31, 19, 26 },
+    { 12, 16, 14, 18 }
+};
+
+for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+{
+    auto categoryCell = workbook->GetCell(0, categoryIndex + 1, 0, ObjectExt::Box(categories[categoryIndex]));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+}
+
+for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
+{
+    auto seriesCell = workbook->GetCell(0, 0, seriesIndex + 1, ObjectExt::Box(seriesNames[seriesIndex]));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, ChartType::ClusteredColumn);
+
+    for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+    {
+        auto valueCell = workbook->GetCell(0, categoryIndex + 1, seriesIndex + 1, ObjectExt::Box(seriesValues[seriesIndex][categoryIndex]));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
+
+    if (seriesIndex > 0)
+    {
+        // Hide the columns of B and C, but keep their data labels.
+        series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
+        series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+        auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+        labelFormat->set_ShowValue(true);
+        labelFormat->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+        auto labelFill = labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat();
+        labelFill->set_FillType(FillType::Solid);
+        labelFill->get_SolidFillColor()->set_Color(Color::get_Black());
+        labelFormat->set_Position(LegendDataLabelPosition::InsideBase);
+    }
+}
+
+// Align all three series with the same category centers.
+chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
+
+// Use fewer gridlines for this compact example.
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
+chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
+
+// Reserve space above the plot for two rows of data labels.
+chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
+chart->get_PlotArea()->set_X(0.15f);
+chart->get_PlotArea()->set_Y(0.32f);
+chart->get_PlotArea()->set_Width(0.80f);
+chart->get_PlotArea()->set_Height(0.48f);
+chart->ValidateChartLayout();
+
+for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(seriesIndex);
+    auto rowTop = seriesIndex == 1 ? 0.15f : 0.03f;
+
+    for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
+    {
+        auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
+        // Keep the default horizontal position. Y is an offset from
+        // the default label position, expressed as a chart-height fraction.
+        dataLabel->set_X(0);
+        dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
+    }
+
+    // Only the row heading is a separate text shape.
+    auto rowHeading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, chart->get_X(), chart->get_Y() + rowTop * chart->get_Height(), 85, 18);
+    rowHeading->get_FillFormat()->set_FillType(FillType::NoFill);
+    rowHeading->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+    rowHeading->AddTextFrame(seriesNames[seriesIndex]);
+    rowHeading->get_TextFrame()->get_TextFrameFormat()->set_MarginTop(0);
+    rowHeading->get_TextFrame()->get_TextFrameFormat()->set_MarginBottom(0);
+    auto headingFormat = rowHeading->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
+    headingFormat->set_FontHeight(12);
+    headingFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    headingFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+}
+
+presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
 ## **FAQ**
 
 **How can I prevent data labels from overlapping on dense charts?**

@@ -370,6 +370,112 @@ finally:
 
 ![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
+## **Add Multiple Rows of Data Labels Above a Column Chart**
+
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) method aligns all three series with the same category centers.
+
+The [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) settings reserve space for the label rows. After [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) calculates the default positions, [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) and [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, LayoutTargetType, LegendDataLabelPosition, Presentation, SaveFormat, ShapeType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 40, 40, 640, 200)
+    chart.setTitle(False)
+    chart.setLegend(False)
+    chart.getTextFormat().getPortionFormat().setFontHeight(12)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    categories = ["North", "South", "East", "West"]
+    series_names = ["Series A", "Series B", "Series C"]
+    series_values = [[35, 42, 28, 47], [22, 31, 19, 26], [12, 16, 14, 18]]
+
+    for category_index, category in enumerate(categories):
+        category_cell = workbook.getCell(0, category_index + 1, 0, category)
+        chart.getChartData().getCategories().add(category_cell)
+
+    for series_index, series_name in enumerate(series_names):
+        series_cell = workbook.getCell(0, 0, series_index + 1, series_name)
+        series = chart.getChartData().getSeries().add(series_cell, ChartType.ClusteredColumn)
+
+        for category_index, value in enumerate(series_values[series_index]):
+            value_cell = workbook.getCell(0, category_index + 1, series_index + 1, jpype.JDouble(value))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+        if series_index > 0:
+            # Hide the columns of B and C, but keep their data labels.
+            series.getFormat().getFill().setFillType(FillType.NoFill)
+            series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+            label_format = series.getLabels().getDefaultDataLabelFormat()
+            label_format.setShowValue(True)
+            label_format.getTextFormat().getPortionFormat().setFontHeight(12)
+            label_fill = label_format.getTextFormat().getPortionFormat().getFillFormat()
+            label_fill.setFillType(FillType.Solid)
+            label_fill.getSolidFillColor().setColor(Color.BLACK)
+            label_format.setPosition(LegendDataLabelPosition.InsideBase)
+
+    # Align all three series with the same category centers.
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
+
+    # Use fewer gridlines for this compact example.
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
+    chart.getAxes().getVerticalAxis().setMajorUnit(10)
+
+    # Reserve space above the plot for two rows of data labels.
+    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
+    chart.getPlotArea().setX(0.15)
+    chart.getPlotArea().setY(0.32)
+    chart.getPlotArea().setWidth(0.80)
+    chart.getPlotArea().setHeight(0.48)
+    chart.validateChartLayout()
+
+    for series_index in range(1, len(series_names)):
+        series = chart.getChartData().getSeries().get_Item(series_index)
+        row_top = 0.15 if series_index == 1 else 0.03
+
+        for category_index in range(len(categories)):
+            data_label = series.getDataPoints().get_Item(category_index).getLabel()
+            # Keep the default horizontal position. Y is an offset from
+            # the default label position, expressed as a chart-height fraction.
+            data_label.setX(0)
+            data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
+
+        # Only the row heading is a separate text shape.
+        heading_y = chart.getY() + row_top * chart.getHeight()
+        row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
+        row_heading.getFillFormat().setFillType(FillType.NoFill)
+        row_heading.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        row_heading.addTextFrame(series_names[series_index])
+        row_heading.getTextFrame().getTextFrameFormat().setMarginTop(0)
+        row_heading.getTextFrame().getTextFrameFormat().setMarginBottom(0)
+        heading_format = row_heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        heading_format.setFontHeight(12)
+        heading_format.getFillFormat().setFillType(FillType.Solid)
+        heading_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    presentation.save("multiple-rows-of-labels.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
 ## **FAQ**
 
 **How can I prevent data labels from overlapping on dense charts?**
