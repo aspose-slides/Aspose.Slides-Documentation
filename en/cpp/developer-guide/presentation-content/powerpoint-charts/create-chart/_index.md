@@ -1100,11 +1100,16 @@ The result:
 
 ### **Create Histogram Charts**
 
-Histogram charts are used to represent the distribution of numerical data by grouping values into ranges or bins. They are particularly useful for identifying data patterns such as frequency, skewness, and spread, and for detecting outliers in a dataset.
+Histogram charts show how numerical values are distributed across intervals (bins). For monthly reports on order processing times, use the same bin width and thresholds to keep intervals consistent and make distributions easier to compare.
 
-This example creates a histogram from six numerical values, including negative values. Calling [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) with the automatic value lets the chart determine the bins used to display the distribution.
+Call the horizontal axis [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) method with a mode from [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) applies only to `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) applies only to `ByNumberOfBins`. Use `Automatic` to let the chart choose the bins.
+
+#### **Use a Fixed Bin Width**
+
+This example groups processing times into 10-minute intervals, with separate bins for times at or below 10 minutes and above 40 minutes. Enable these bins with [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) and [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). When supplying explicit thresholds through [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) and [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), call [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) and [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) with `false`.
 
 ```cpp
+#include <system/array.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/string.h>
@@ -1139,7 +1144,10 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 500, 300);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
 
 chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
@@ -1148,27 +1156,99 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
-auto valueCell = workbook->GetCell(0, u"A1", ObjectExt::Box(15));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A2", ObjectExt::Box(-41));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A3", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A4", ObjectExt::Box(10));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A5", ObjectExt::Box(-23));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A6", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
 
-chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(AxisAggregationType::Automatic);
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByBinWidth);
+axis->set_BinWidth(10);
+axis->set_IsUnderflowBin(true);
+axis->set_IsAutomaticUnderflowBin(false);
+axis->set_UnderflowBin(10);
+axis->set_IsOverflowBin(true);
+axis->set_IsAutomaticOverflowBin(false);
+axis->set_OverflowBin(40);
 
-presentation->Save(u"Histogram.pptx", SaveFormat::Pptx);
+presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-The result:
+The presentation displayed in PowerPoint shows bin counts of **3, 4, 4, 4, and 2**. The underflow bin includes `5, 10, 10`, so its threshold is inclusive. The overflow bin includes only `41, 50`, so its threshold is exclusive; both values equal to `40` remain in the preceding interval. The interior bins contain values greater than their lower boundary and less than or equal to their upper boundary.
 
-![The Histogram chart](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **Specify the Number of Bins**
+
+For a fixed level of detail instead of fixed intervals, request five bins for the same data. This example leaves underflow and overflow bins disabled. The chart determines the width from the data range, so boundaries can change between reports.
+
+```cpp
+#include <system/array.h>
+#include <system/shared_ptr.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByNumberOfBins);
+axis->set_NumberOfBins(5);
+
+presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
+```
+
+The five bins have counts of **4, 4, 4, 4, and 1**. Compare this distribution with the fixed-width result above: the input values are identical, but the boundaries differ.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Create Radar Charts**
 
