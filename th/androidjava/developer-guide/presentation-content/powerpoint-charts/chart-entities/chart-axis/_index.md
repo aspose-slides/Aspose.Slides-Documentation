@@ -9,7 +9,7 @@ keywords:
 - แกนแนวนอน
 - ปรับแต่งแกน
 - จัดการแกน
-- ควบคุมแกน
+- บริหารจัดการแกน
 - คุณสมบัติของแกน
 - ค่าสูงสุด
 - ค่าต่ำสุด
@@ -26,13 +26,13 @@ description: "ค้นพบวิธีใช้ Aspose.Slides สำหรั
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีกำหนดค่าแกนของแผนภูมิด้วย Aspose.Slides สำหรับ Android ผ่าน Java โดยครอบคลุมค่าที่คำนวณของแกน การสลับแถวและคอลัมน์ของแผนภูมิ การแสดงหรือซ่อนแกน ช่วงเวลาของป้ายชื่อหมวดหมู่และเครื่องหมายหลัก หน่วยวันที่และการจัดรูปแบบ การหมุนชื่อเรื่อง การกำหนดตำแหน่งแกน และหน่วยการแสดงผล
+บทความนี้อธิบายวิธีการปรับแต่งแกนของแผนภูมิด้วย Aspose.Slides for Android ผ่าน Java ครอบคลุมค่าที่คำนวณของแกน การสลับแถวและคอลัมน์ของแผนภูมิ การมองเห็นแกน ช่วงของป้ายชื่อประเภทและเครื่องหมายติก วันที่และการจัดรูปแบบ การหมุนชื่อเรื่อง การกำหนดตำแหน่งแกน หน่วยการแสดงผล และการสเกลแบบลอการิทึม
 
-## **รับค่าสูงสุดบนแกนแนวตั้งในแผนภูมิ**
+## **รับค่ามากที่สุดบนแกนแนวตั้งของแผนภูมิ**
 
-สร้าง [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) และเพิ่มแผนภูมิแบบพื้นที่พร้อมข้อมูลเริ่มต้น เรียกใช้ [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) ก่อนอ่านค่าที่คำนวณของแกนเพื่อให้โครงร่างแผนภูมิมีความเป็นปัจจุบัน
+สร้าง [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) และเพิ่มแผนภูมิแบบพื้นที่พร้อมข้อมูลเริ่มต้น เรียกใช้ [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) ก่อนอ่านค่าที่คำนวณของแกนเพื่อให้การจัดวางแผนภูมิเป็นข้อมูลล่าสุด
 
-อ่าน [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) และ [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) เพื่อรับขอบเขตของแกน และ [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) กับ [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) เพื่อรับช่วงของเครื่องหมายหลัก [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) และ [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) ให้สเกลหน่วยเวลา ซึ่งเกี่ยวข้องกับแกนวันที่ ตัวอย่างนี้เก็บค่าดังกล่าวในตัวแปรท้องถิ่นและบันทึกแผนภูมิ
+อ่าน [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) และ [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) สำหรับขอบเขตของแกน และ [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) และ [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) สำหรับช่วงของเครื่องหมายติก [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) และ [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) ให้สเกลหน่วยเวลา ซึ่งเกี่ยวข้องกับแกนวันที่ ตัวอย่างเก็บค่าต่าง ๆ เหล่านี้ในตัวแปรท้องถิ่นและบันทึกแผนภูมิ
 
 ```java
 import com.aspose.slides.*;
@@ -61,7 +61,7 @@ try {
 
 ## **สลับข้อมูลระหว่างแกน**
 
-ใช้ [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) เพื่อสลับบทบาทของ series และ category ในข้อมูลแผนภูมิ แต่ละ category เดิมจะกลายเป็น series และแต่ละ series เดิมจะกลายเป็น category ซึ่งจะเปลี่ยนวิธีการจัดกลุ่มข้อมูล แต่ไม่ได้สลับแกนแนวนอนและแนวตั้ง ตัวอย่างใช้ [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) เพื่อเชื่อมข้อมูลเริ่มต้นกับ `Sheet1!A1:D5` รวมทั้งแถวหัวตารางและคอลัมน์ category ก่อนทำการสลับแถวและคอลัมน์ แล้วบันทึกแผนภูมิที่มีสี่ series และสาม category
+ใช้ [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) เพื่อสลับบทบาทของซีรีส์และประเภทในข้อมูลแผนภูมิ แต่ละประเภทเดิมจะกลายเป็นซีรีส์และแต่ละซีรีส์เดิมจะกลายเป็นประเภท สิ่งนี้เปลี่ยนวิธีการจัดกลุ่มข้อมูล ไม่ได้สลับแกนแนวนอนและแนวตั้ง ตัวอย่างใช้ [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) เพื่อผูกข้อมูลเริ่มต้นกับ `Sheet1!A1:D5` รวมแถวหัวและคอลัมน์ประเภท ก่อนสลับแถวและคอลัมน์ จากนั้นบันทึกแผนภูมิที่มีสี่ซีรีส์และสามประเภท
 
 ```java
 import com.aspose.slides.*;
@@ -80,9 +80,9 @@ try {
 }
 ```
 
-## **ปิดการใช้งานแกนแนวตั้งสำหรับแผนภูมิเส้น**
+## **ทำให้แกนแนวตั้งหายไปสำหรับแผนภูมิรูปเส้น**
 
-เรียกใช้ [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) ด้วยค่า `false` บนแกนแนวตั้งเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้นและบันทึกโดยมีแกนแนวตั้งซ่อนอยู่
+เรียก [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) ด้วยค่า `false` บนแกนแนวตั้งเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิรูปเส้นด้วยข้อมูลเริ่มต้นและบันทึกโดยที่แกนแนวตั้งถูกซ่อน
 
 ```java
 import com.aspose.slides.*;
@@ -100,9 +100,9 @@ try {
 }
 ```
 
-## **ปิดการใช้งานแกนแนวนอนสำหรับแผนภูมิเส้น**
+## **ทำให้แกนแนวนอนหายไปสำหรับแผนภูมิรูปเส้น**
 
-เรียกใช้ [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) ด้วยค่า `false` บนแกนแนวนอนเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้นและบันทึกโดยมีแกนแนวนอนซ่อนอยู่
+เรียก [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) ด้วยค่า `false` บนแกนแนวนอนเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิรูปเส้นด้วยข้อมูลเริ่มต้นและบันทึกโดยที่แกนแนวนอนถูกซ่อน
 
 ```java
 import com.aspose.slides.*;
@@ -122,7 +122,7 @@ try {
 
 ## **เปลี่ยนแกนประเภท**
 
-ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) เพื่อเลือกแกนประเภทแบบวันที่หรือข้อความ ตัวอย่างนี้ต้องใช้ไฟล์ `ExistingChart.pptx` โดยมีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรกและเซลล์ category มีค่าที่เป็นวันของ Excel แบบตัวเลข จะเปลี่ยนแกนแนวนอนเป็นแกนวันที่ การเรียกใช้ [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) ด้วยค่า `false`, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) ด้วยค่า `1` และ [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) ด้วยค่า `TimeUnitType.Months` จะทำให้เครื่องหมายหลักวางที่ช่วงหนึ่งเดือน
+ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) เพื่อเลือกแกนประเภทเป็นวันที่หรือข้อความ ตัวอย่างนี้ต้องการไฟล์ `ExistingChart.pptx` ซึ่งมีแผนภูมิเป็นรูปทรงแรกบนสไลด์แรกและเซลล์ประเภทมีค่าตัวเลขของวันที่ Excel มันเปลี่ยนแกนแนวนอนให้เป็นแกนวันที่ การเรียก [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) ด้วย `false` , [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) ด้วย `1` และ [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) ด้วย `TimeUnitType.Months` จะทำให้เครื่องหมายหลักปรากฏทุกหนึ่งเดือน
 
 ```java
 import com.aspose.slides.*;
@@ -143,21 +143,21 @@ try {
 }
 ```
 
-## **ควบคุมช่วงเวลาของป้ายชื่อแกนประเภท**
+## **ควบคุมช่วงของป้ายชื่อแกนประเภท**
 
-เมื่อแผนภูมิมีหลาย category ให้ลดจำนวนป้ายชื่อแกนที่แสดงโดยไม่ต้องลบ category หรือจุดข้อมูล เรียกใช้ [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) ด้วยค่า `false` แล้วส่งช่วง category ที่ต้องการไปยัง [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-int-) สำหรับ category แบบข้อความตามลำดับปกติ การนับเริ่มจาก category แรก:
+เมื่อแผนภูมิมีหลายประเภท ให้ลดจำนวนป้ายชื่อแกนที่มองเห็นได้โดยไม่ต้องลบประเภทหรือจุดข้อมูล เรียก [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) ด้วย `false` จากนั้นส่งช่วงประเภทที่ต้องการไปยัง [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-) สำหรับประเภทข้อความตามลำดับปกติ การนับจะเริ่มจากประเภทแรก:
 
-| ช่วง | ป้ายชื่อที่แสดงในตัวอย่าง |
+| ช่วง | ป้ายกำกับที่แสดงในตัวอย่าง |
 | --- | --- |
-| `1` | หมวดหมู่ 1, หมวดหมู่ 2, หมวดหมู่ 3, ... หมวดหมู่ 24 |
-| `2` | หมวดหมู่ 1, หมวดหมู่ 3, หมวดหมู่ 5, ... หมวดหมู่ 23 |
-| `3` | หมวดหมู่ 1, หมวดหมู่ 4, หมวดหมู่ 7, ... หมวดหมู่ 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-ช่วง `3` จะทำให้แสดงป้ายชื่อทุกสามรายการ ทำให้มีสองป้ายซ่อนอยู่ระหว่างป้ายที่แสดง ไม่ได้ลบคอลัมน์ที่สอดคล้องกัน การจัดช่องอัตโนมัติจะเลือกช่วงตามพื้นที่ที่ใช้ได้; ไม่ได้จำเป็นต้องแสดงทุกป้าย
+ช่วง `3` จะแสดงป้ายกำกับทุกสามรายการ โดยมีสองป้ายซ่อนไว้ระหว่างป้ายที่แสดง ไม่ได้ลบคอลัมน์ที่สอดคล้องกัน การเว้นช่องอัตโนมัติเ�เลือกช่วงตามพื้นที่ที่มีอยู่; ไม่ได้บังคับให้แสดงทุกป้าย
 
-เครื่องหมายติ๊กมีการควบคุมแยกต่างหาก เรียกใช้ [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) ด้วยค่า `false` และใช้ [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-int-) เพื่อตั้งค่าช่วงของมัน ตัวอย่างเช่น `1` จะทำให้มีเครื่องหมายติ๊กที่ทุกช่วงของ category ในขณะที่ป้ายชื่อจะปรากฏเพียงทุกสาม category ใช้ [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) พร้อมสไตล์ที่มองเห็นได้เพื่อดูผลลัพธ์ การเรียกใช้ตัวตั้งค่าอัตโนมัติกับค่า `true` อีกครั้งจะทำให้แผนภูมิเลือกช่วงนั้นอีกครั้ง
+เครื่องหมายติกมีการควบคุมแยกต่างหาก เรียก [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) ด้วย `false` และใช้ [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) เพื่อกำหนดช่วงของมัน ตัวอย่างเช่นค่า `1` จะทำให้มีเครื่องหมายติกทุกช่วงประเภทในขณะที่ป้ายชื่อปรากฏเพียงทุกสามประเภท ใช้ [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) พร้อมสไตล์ที่มองเห็นได้เพื่อดูผลลัพธ์ การตั้งค่าอัตโนมัติใด ๆ อีกครั้งด้วยค่า `true` จะให้แผนภูมิเลือกช่วงนั้นอีกครั้ง
 
-ตัวอย่างอิสระต่อไปนี้สร้าง 24 category และหนึ่ง series แล้วบันทึกสามสไลด์ในไฟล์ `CategoryAxisIntervals.pptx`: การจัดช่องอัตโนมัติ, การจัดช่องป้ายชื่อด้วยมือพร้อมเครื่องหมายติ๊กแยกกัน, และการคืนค่าการจัดช่องอัตโนมัติ สองสำเนาเก็บข้อมูลแผนภูดิดั้งเดิม ไม่จำเป็นต้องมีพรีเซนเทชันเข้า ข้อความป้ายแนวนอนทำให้เห็นความแตกต่างของความหนาแน่นได้ง่าย
+ตัวอย่างอิสระต่อไปนี้สร้างประเภท 24 รายการและซีรีส์หนึ่งรายการ แล้วบันทึกสไลด์สามสไลด์ใน `CategoryAxisIntervals.pptx`: การเว้นช่องอัตโนมัติ, การเว้นช่องป้ายชื่อแบบแมนนวลพร้อมเครื่องหมายติกอิสระ, และการคืนค่าเว้นช่องอัตโนมัติ สองสำเนาจะรักษาข้อมูลแผนภูมิเก่าไว้ ไม่จำเป็นต้องมีการนำเสนอเข้า ป้ายข้อความแนวนอนทำให้เห็นความหนาแน่นแตกต่างได้ง่าย
 
 ```java
 import com.aspose.slides.*;
@@ -191,7 +191,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // สไลด์ 2: แสดงป้ายชื่อทุกสามรายการ แต่รักษาเครื่องหมายติ๊กสำหรับทุกหมวดหมู่.
+    // Slide 2: แสดงป้ายทุกสามรายการ แต่คงเครื่องหมายติกสำหรับทุกประเภท.
     ISlide manualSlide = presentation.getSlides().addClone(slide);
     IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
     IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -200,7 +200,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // สไลด์ 3: ให้แผนภูมิเบอร์เลือกช่วงเวลาทั้งสองใหม่อีกครั้ง.
+    // Slide 3: ให้แผนภูมิเ�เลือกช่วงทั้งสองใหม่อีกครั้ง.
     ISlide restoredSlide = presentation.getSlides().addClone(manualSlide);
     IChart restoredChart = (IChart)restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -212,23 +212,23 @@ try {
 }
 ```
 
-**การจัดช่องอัตโนมัติ (สไลด์ 1):** ในการแสดงผลนี้ ป้ายชื่อของทุก category ที่สองจะแสดงและตัดบรรทัดเป็นสองบรรทัด ผลลัพธ์อัตโนมัติอาจแตกต่างกันขึ้นกับขนาดแผนภูมิ, ฟอนต์และเรนเดอร์
+**การเว้นช่องอัตโนมัติ (สไลด์ 1):** ในการเรนเดอร์นี้ ป้ายชื่อประเภทที่แสดงจะเป็นทุก ๆ สองรายการและห่อบรรทัดสองบรรทัด ผลลัพธ์อัตโนมัติอาจแตกต่างตามขนาดแผนภูมิ, แบบอักษรและตัวเรนเดอร์
 
-![การจัดช่องป้ายชื่อประเภทอัตโนมัติพร้อมคอลัมน์ทั้งหมด 24 คอลัมน์ที่มองเห็นได้](category-axis-automatic.png)
+![การจัดช่องว่างป้ายชื่อประเภทอัตโนมัติพร้อมคอลัมน์ทั้งหมด 24 คอลัมน์ที่มองเห็นได้](category-axis-automatic.png)
 
-**การจัดช่องด้วยมือ (สไลด์ 2):** ป้ายชื่อทุกสามรายการจะแสดงบนหนึ่งบรรทัด ในขณะที่เครื่องหมายติ๊กคงอยู่ที่ทุกช่วงของ category คอลัมน์ทั้งหมด 24 คอลัมน์รวมถึงที่ไม่มีป้ายชื่อยังคงมองเห็นได้ด้วยค่าเดียวกัน สไลด์ 3 คืนสภาพการแสดงอัตโนมัติที่แสดงข้างบน
+**การเว้นช่องแบบแมนนวล (สไลด์ 2):** ป้ายชื่อทุกสามรายการจะแสดงบนบรรทัดเดียวในขณะที่เครื่องหมายติกยังคงอยู่ทุกช่วงประเภท คอลัมน์ทั้งหมด 24 คอลัมน์รวมถึงที่ไม่มีป้ายชื่อก็ยังมองเห็นได้ด้วยค่าที่เหมือนกัน สไลด์ 3 คืนค่าการแสดงผลอัตโนมัติที่แสดงข้างบน
 
-![ช่วงป้ายชื่อประเภทแบบมือสามพร้อมคอลัมน์ทั้งหมด 24 คอลัมน์ที่มองเห็นได้](category-axis-manual.png)
+![การจัดช่องว่างป้ายชื่อประเภทแบบแมนนวลช่วงสามพร้อมคอลัมน์ทั้งหมด 24 คอลัมน์ที่มองเห็นได้](category-axis-manual.png)
 
 ### **เลือกแกนและช่วงที่ถูกต้อง**
 
-ใช้ช่วงจำนวน category นี้กับแกนประเภทแบบข้อความ เช่น แกน category ของแผนภูมิคอลัมน์, เส้น, พื้นที่ หรือแท่ง ในแผนภูมิคอลัมน์เป็นแกนแนวนอน ในแผนภูมิแท่งแนวนอนแกน category จะเป็นแนวตั้ง ดังนั้นให้ใช้การตั้งค่านี้กับแกนที่คืนโดย [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) การจัดช่องของเครื่องหมายติ๊กยังใช้กับแกน series ในแผนภูมิที่มี
+ใช้ช่วงจำนวนประเภทนี้สำหรับแกนประเภทข้อความ เช่น แกนประเภทของแผนภูมิคอลัมน์, เส้น, พื้นที่ หรือแถบ ในแผนภูมิคอลัมน์ จะเป็นแกนแนวนอน ในแผนภูมิแท่งแนวนอน แกนประเภทจะเป็นแนวตั้ง ดังนั้นให้ใช้การตั้งค่าเหล่านี้กับแกนที่ได้จาก [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) ระยะห่างของเครื่องหมายติกยังใช้ได้กับแกนซีรีส์ในแผนภูมิที่มีแกนซีรีส์
 
-ห้ามใช้การจัดช่องป้ายชื่อ category เพื่อกำหนดสเกลเชิงตัวเลขของแกนค่า ในแกนค่า, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) ระบุความแตกต่างของค่า เช่น หน่วยหลัก `10` จะสร้างเครื่องหมายที่ 0, 10, 20 เป็นต้นเมื่อแกนเริ่มที่ศูนย์ ช่วงป้ายชื่อ category `3` จะนับตำแหน่งของ category โดยไม่คำนึงถึงค่าข้อมูล แผนภูมิ scatter และ bubble ใช้แกนค่าแทนแกน category แบบข้อความ สำหรับแกนวันที่ ให้ใช้หน่วยหลักและสเกลตามเวลา ตามที่อธิบายใน [Change a Category Axis](#change-a-category-axis)
+ไม่ควรใช้การเว้นช่องป้ายชื่อประเภทเพื่อกำหนดสเกลเชิงตัวเลขของแกนค่า บนแกนค่า [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) ระบุความแตกต่างของค่า เช่น หน่วยหลัก `10` จะสร้างเครื่องหมายที่ 0, 10, 20 เป็นต้นเมื่อแกนเริ่มจากศูนย์ ช่วงป้ายชื่อประเภท `3` จะนับตำแหน่งประเภทโดยไม่สนค่าข้อมูล แผนภูมิกระจายและฟองใช้แกนค่ามากกว่าแกนประเภทข้อความ สำหรับแกนวันที่ ให้ใช้หน่วยหลักและสเกลตามเวลาอย่างที่อธิบายในส่วน [เปลี่ยนแกนประเภท](#change-a-category-axis)
 
-## **ตั้งรูปแบบวันที่สำหรับค่าของแกนประเภท**
+## **กำหนดรูปแบบวันที่สำหรับค่าของแกนประเภท**
 
-ตัวอย่างนี้แทนที่ข้อมูลแผนภูมิเบื้องต้นด้วยค่าประจำปีสี่ค่า วันที่ถูกเก็บเป็นเลขอนุกรม OLE Automation ในแผ่นงานแรก (ดัชนี `0`) คำนวณเป็นจำนวนวันตั้งแต่วันที่ 30 ธันวาคม 1899 สำหรับวันที่เหล่านี้ ทั้งสองปฏิทินใช้ UTC และถูกเคลียร์ก่อนตั้งค่าวันที่เพื่อไม่ให้เวลาออมแสงและเวลาปัจจุบันส่งผลต่อการคำนวณ ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) กับ `CategoryAxisType.Date`, เรียก [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) ด้วยค่า `false` และส่ง `yyyy` ไปยัง [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) เพื่อให้ป้ายชื่อ category แสดงปีสี่หลักโดยอิสระจากรูปแบบเซลล์
+ตัวอย่างนี้แทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยค่าประจำปีสี่ค่า วันที่ถูกเก็บเป็นเลขซีเรียล OLE Automation ในเวิร์กชีตแรก (ดัชนี `0`) คำนวนเป็นจำนวนวันตั้งแต่ 30 ธันวาคม 1899 สำหรับวันที่เหล่านี้ ทั้งสองปฏิทินใช้ UTC และจะถูกเคลียร์ก่อนตั้งค่าวันที่เพื่อไม่ให้การปรับเวลาแสงอาทิตย์หรือเวลาปัจจุบันมีผลต่อการคำนวน ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) กับ `CategoryAxisType.Date` , เรียก [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) ด้วย `false` และส่ง `yyyy` ไปยัง [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) เพื่อให้ป้ายชื่อประเภทแสดงปีสี่หลักโดยอิสระจากการจัดรูปแบบเซลล์
 
 ```java
 import com.aspose.slides.*;
@@ -276,9 +276,9 @@ try {
 }
 ```
 
-## **ตั้งมุมการหมุนสำหรับชื่อแกนแผนภูมิ**
+## **ตั้งค่ามุมการหมุนสำหรับชื่อเรื่องแกนแผนภูมิ**
 
-เรียก [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) ด้วยค่า `true` บนแกนแนวตั้ง ใส่ข้อความชื่อและใช้ [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) เพื่อหมุนชื่อ ช่วงมุมวัดเป็นองศา; ตัวอย่างนี้บันทึกแผนภูมิคอลัมน์โดยหัวข้อแกนค่าถูกหมุน 90 องศา
+เรียก [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) ด้วย `true` บนแกนแนวตั้ง ให้ข้อความชื่อเรื่อง แล้วใช้ [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) เพื่อหมุนชื่อเรื่อง มุมวัดเป็นองศา ตัวอย่างนี้บันทึกแผนภูมิคอลัมน์โดยให้ชื่อแกนค่าหมุน 90 องศา
 
 ```java
 import com.aspose.slides.*;
@@ -298,9 +298,9 @@ try {
 }
 ```
 
-## **ตั้งตำแหน่งแกนบนแกนประเภทหรือค่า**
+## **กำหนดตำแหน่งแกนบนแกนประเภทหรือค่า**
 
-ใช้ [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) เพื่อควบคุมว่าทำให้แกนค่เดินข้ามแกนประเภทระหว่าง category หรือที่เครื่องหมายติ๊กของ category การตั้งค่านี้ใช้กับแกนประเภท ตัวอย่างตั้งค่าเป็น `true` บนแกนประเภทแนวนอนของแผนภูมิคอลัมน์และบันทึกผลลัพธ์
+ใช้ [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) เพื่อควบคุมว่่าแกนค่าตัดกับแกนประเภทระหว่างประเภทหรือที่เครื่องหมายติกของประเภท การตั้งค่านี้ใช้กับแกนประเภท ตัวอย่างตั้งค่าเป็น `true` บนแกนประเภทแนวนอนของแผนภูมิคอลัมน์และบันทึกผลลัพธ์
 
 ```java
 import com.aspose.slides.*;
@@ -318,9 +318,9 @@ try {
 }
 ```
 
-## **ตั้งหน่วยการแสดงผลบนแกนค่าแผนภูมิ**
+## **ตั้งค่าหน่วยการแสดงผลบนแกนค่าของแผนภูมิ**
 
-ใช้ [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) เพื่อปรับสเกลป้ายของแกนค่าที่ไม่เปลี่ยนแปลงข้อมูลพื้นฐาน เมื่อกำหนด [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) เป็น `Millions` ค่าที่ 60,000,000 จะถูกแสดงเป็น 60 ตัวอย่างนี้สร้างแผนภูมิคอลัมน์และใช้หน่วยการแสดงผลล้านบนแกนแนวตั้งของมัน
+ใช้ [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) เพื่อสเกลป้ายกำกับบนแกนค่าโดยไม่เปลี่ยนข้อมูลพื้นฐาน ด้วย [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) ตั้งค่าเป็น `Millions` ค่า 60,000,000 จะปรากฏเป็น 60 ตัวอย่างสร้างแผนภูมิคอลัมน์และใช้หน่วยแสดงผลเป็นล้านบนแกนแนวตั้ง
 
 ```java
 import com.aspose.slides.*;
@@ -338,12 +338,81 @@ try {
 }
 ```
 
-## **FAQ**
+## **กำหนดค่าการแสดงผลลอการิทึมบนแกนค่า**
 
-**ฉันจะตั้งค่าค่าที่แกนหนึ่งข้ามแกนอีก (การข้ามแกน) อย่างไร?**
+แกนค่าลอการิทึมมีประโยชน์เมื่อค่าบวกกระจายตามหลายลำดับ magnitude ตัวอย่างเช่น บริการอาจรับคำขอ 10, 100, 1,000, 10,000, 100,000 ครั้งในห้าช่วง บนสเกลเชิงเส้น ค่าที่เล็กจะอยู่ใกล้ศูนย์มาก ลำดับลอการิทึมทำให้การเปรียบเทียบการเติบโตสัมพัทธ์ง่ายขึ้น: ระยะห่างที่เท่ากันแสดงอัตราส่วนที่เท่ากันแทนความแตกต่างที่เท่าเดิม
 
-ใช้ [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) เพื่อเลือกพฤติกรรมการข้าม ใช้ [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) เพื่อตั้งค่าตัวเลขของจุดข้าม การตั้งค่าเหล่านี้ทำให้คุณย้ายจุดข้ามของแกนไปยังระดับฐานที่เหมาะสม
+เรียก [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-) ด้วย `true` บนแกนค่าและใช้ [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-) เพื่อเลือกฐาน การทำเช่นนี้จะเปลี่ยนวิธีการแสดงค่าที่มีอยู่ ไม่ได้เปลี่ยนข้อมูลหรือเพิ่มเส้นแนวโน้มลอการิทึม เส้นแนวโน้มเป็นคุณลักษณะแยกที่จำลองความสัมพันธ์ที่ฟิตกับข้อมูล
 
-**ฉันจะกำหนดตำแหน่งป้ายเครื่องหมายติ๊กสัมพันธ์กับแกนอย่างไร?**
+### **เลือกแกนค่าและฐาน**
 
-เรียก [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) โดยใช้ [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, หรือ `None`. เพื่อควบคุมเครื่องหมายติ๊กเอง ให้ใช้ [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) หรือ [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-); สิ่งเหล่านี้แยกจากการกำหนดตำแหน่งของป้าย
+สำหรับแผนภูมิรูปเส้นหรือคอลัมน์ แกนค่าจะได้จาก [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) สำหรับแผนภูมิแท่งแนวนอน จะได้จาก [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) แผนภูมิกระจายและฟองมีแกนค่าสองแกน ดังนั้นให้เลือกแกนแนวนอนสำหรับค่า X, แกนแนวตั้งสำหรับค่า Y หรือทั้งสองแกน ไม่ควรใช้สเกลลอการิทึมกับแกนประเภท
+
+ฐานลอการิทึมเริ่มต้นคือ `10` สำหรับแผนภูมิ PPTX ให้ใช้ฐานตั้งแต่ `2` ถึง `1000` รวมถึงฐานเศษส่วนเช่น `2.5` ด้วย ฐาน `10` จะให้พลังเท่ากันเช่น 10, 100, 1,000, 10,000 ที่เว้นระยะเท่ากัน
+
+### **เปรียบเทียบสเกลเชิงเส้นและลอการิทึม**
+
+ตัวอย่างอิสระต่อไปนี้สร้างแผนภูมิรูปเส้นที่มีจำนวนคำขอห้าช่วงบนสไลด์แรก แล้วคลอนสไลด์นั้นและเปิดใช้งานแกนค่าลอการิทึมฐาน 10 บนสไลด์ที่สอง ทั้งสองสไลด์รักษาข้อมูลเดียวกัน
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 30, 40, 660, 200);
+
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.Line);
+    double[] values = { 10, 100, 1000, 10000, 100000 };
+
+    for (int i = 0; i < values.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Period " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
+    // คงให้สไลด์แรกเป็นเชิงเส้นและเปลี่ยนสเกลแกนค่าของสำเนาเท่านั้น.
+    ISlide logarithmicSlide = presentation.getSlides().addClone(slide);
+    IChart logarithmicChart = (IChart)logarithmicSlide.getShapes().get_Item(0);
+    IAxis valueAxis = logarithmicChart.getAxes().getVerticalAxis();
+    valueAxis.setLogarithmic(true);
+    valueAxis.setLogBase(10);
+
+    presentation.save("LogarithmicAxis.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**สเกลเชิงเส้น (สไลด์ 1):** ระยะทางแนวตั้งที่เท่ากันแสดงความต่างที่เท่ากันของจำนวนคำขอ ค่าใหญ่สุดครอบแผนภูมิ ทำให้ค่าที่เล็กยากต่อการแยก
+
+![แผนภูมิรูปเส้นใน PowerPoint แสดงจำนวนคำขอห้ารายการบนแกนค่าที่เป็นเชิงเส้น](value-axis-linear.png)
+
+**สเกลลอการิทึม (สไลด์ 2):** ระยะทางแนวตั้งที่เท่ากันแสดงอัตราส่วนที่เท่าเดิม แต่ละช่วงมีจำนวนคำขอเพิ่มขึ้นสิบเท่า ดังนั้นจุดต่าง ๆ จะอยู่บนเส้นตรงที่เพิ่มขึ้นบนสเกลฐาน 10 แกนป้ายยังคงแสดงจำนวนคำขอเดิม
+
+![จำนวนคำขอห้ารายการเดียวกันใน PowerPoint บนแกนค่าลอการิทึมฐาน 10](value-axis-logarithmic.png)
+
+### **จัดการค่าศูนย์และค่าติดลบ**
+
+สเกลลอการิทึมสามารถแสดงค่าได้เฉพาะค่าบวกเท่านั้น ตรวจสอบข้อมูลก่อนเปิดใช้ หากค่าศูนย์หรือค่าติดลบมีความหมาย ให้ใช้สเกลเชิงเส้นหรือแสดงแยกออก หากการยกเว้นค่าดังกล่าวเหมาะสมกับการวิเคราะห์ ให้อธิบายเหตุผล อย่าแทนที่ค่าดังกล่าวด้วยจำนวนบวกเล็ก ๆ อย่างเงียบ ๆ เพราะจะเปลี่ยนความหมายของข้อมูล ค่าต่ำสุดหรือค่าสูงสุดที่กำหนดด้วยตนเองสำหรับแกนลอการิทึมก็ต้องเป็นค่าบวกเช่นกัน
+
+## **คำถามที่พบบ่อย**
+
+**ฉันจะตั้งค่าค่าที่แกนหนึ่งข้ามแกนอื่น (การข้ามแกน) อย่างไร?**
+
+ใช้ [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) เพื่อเลือกพฤติกรรมการข้าม หากต้องการระบุค่าตัวเลขสำหรับการข้าม ให้ใช้ [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) การตั้งค่าเหล่านี้ช่วยให้คุณย้ายตำแหน่งการข้ามแกนไปยังฐานที่เหมาะสม
+
+**ฉันจะกำหนดตำแหน่งป้ายเครื่องหมายติกสัมพันธ์กับแกนอย่างไร?**
+
+เรียก [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) โดยใช้ [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, หรือ `None` เพื่อควบคุมตำแหน่งป้าย หากต้องการควบคุมเครื่องหมายติกโดยตรง ให้ใช้ [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) หรือ [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-) ซึ่งแยกจากการกำหนดตำแหน่งป้ายได้อย่างอิสระ

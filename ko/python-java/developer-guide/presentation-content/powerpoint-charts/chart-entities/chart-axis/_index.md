@@ -1,5 +1,5 @@
 ---
-title: Python을 사용하여 프레젠테이션에서 차트 축을 사용자 지정
+title: Python을 사용한 프레젠테이션의 차트 축 사용자 지정
 linktitle: 차트 축
 type: docs
 url: /ko/python-java/chart-axis/
@@ -21,17 +21,17 @@ keywords:
 - 프레젠테이션
 - Python
 - Aspose.Slides
-description: "보고서 및 시각화를 위해 PowerPoint 프레젠테이션에서 차트 축을 사용자 지정하는 방법을 Aspose.Slides for Python via Java를 사용하여 알아보세요."
+description: "보고서 및 시각화를 위한 PowerPoint 프레젠테이션에서 차트 축을 사용자 지정하기 위해 Java를 통한 Python용 Aspose.Slides 사용 방법을 알아보세요."
 ---
 ## **개요**
 
-이 문서에서는 Aspose.Slides for Python via Java를 사용하여 차트 축을 사용자 지정하는 방법을 설명합니다. 여기에는 계산된 축 값, 차트 행 및 열 전환, 축 표시 여부, 범주 레이블 및 눈금 간격, 날짜 범주 및 형식, 제목 회전, 축 위치 지정 및 표시 단위가 포함됩니다.
+이 문서는 Aspose.Slides for Python via Java에서 차트 축을 사용자 지정하는 방법을 설명합니다. 계산된 축 값, 차트 행과 열 교환, 축 표시 여부, 범주 레이블 및 눈금 간격, 날짜 범주 및 서식, 제목 회전, 축 위치 지정, 표시 단위 및 로그 스케일링을 다룹니다.
 
-## **차트의 수직 축에서 최대값 가져오기**
+## **차트 수직 축의 최대값 가져오기**
 
-Create a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) and add an area chart with default data. Call [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) before reading calculated axis values so that the chart layout is up to date.
+[Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)을 만들고 기본 데이터가 있는 영역 차트를 추가합니다. 계산된 축 값을 읽기 전에 차트 레이아웃을 최신 상태로 유지하려면 [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout)을 호출합니다.
 
-Read [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) and [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) for the axis limits, and [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) and [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) for the tick intervals. [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) and [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) provide time-unit scales, which are relevant to date axes. The example stores these values in local variables and saves the chart.
+축 한계를 위해 [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) 및 [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue)을 읽고, 눈금 간격을 위해 [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) 및 [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit)을 읽습니다. 날짜 축과 관련된 시간 단위 스케일은 [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) 및 [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale)에서 제공합니다. 예제는 이러한 값을 로컬 변수에 저장하고 차트를 저장합니다.
 
 ```python
 import jpype
@@ -63,9 +63,9 @@ finally:
     presentation.dispose()
 ```
 
-## **축 사이의 데이터 교환**
+## **축 간 데이터 교환**
 
-Use [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) to exchange the roles of series and categories in chart data. Each former category becomes a series, and each former series becomes a category. This changes how the data is grouped; it does not exchange the horizontal and vertical axes. The example uses [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) to bind the default data to `Sheet1!A1:D5`, including the header row and category column, before switching rows and columns. It saves a chart with four series and three categories.
+차트 데이터에서 시리즈와 범주의 역할을 교환하려면 [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn)을 사용합니다. 이전의 각 범주는 시리즈가 되고, 이전의 각 시리즈는 범주가 됩니다. 이 작업은 데이터 그룹화를 변경하며 수평 및 수직 축을 교환하지는 않습니다. 예제는 [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange)을 사용해 기본 데이터를 `Sheet1!A1:D5`(헤더 행과 범주 열 포함)에 바인딩한 뒤 행과 열을 교환합니다. 결과 차트는 4개의 시리즈와 3개의 범주를 가집니다.
 
 ```python
 import jpype
@@ -89,9 +89,9 @@ finally:
     presentation.dispose()
 ```
 
-## **라인 차트의 수직 축 비활성화**
+## **선 차트에서 수직 축 비활성화**
 
-Call [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) with `False` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
+수직 축에 대해 `False`와 함께 [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible)를 호출하면 축이 숨겨집니다. 예제는 기본 데이터가 있는 선 차트를 만들고 수직 축을 숨긴 채 저장합니다.
 
 ```python
 import jpype
@@ -114,9 +114,9 @@ finally:
     presentation.dispose()
 ```
 
-## **라인 차트의 수평 축 비활성화**
+## **선 차트에서 수평 축 비활성화**
 
-Call [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) with `False` on the horizontal axis to hide it. The example creates a line chart with default data and saves it with the horizontal axis hidden.
+수평 축에 대해 `False`와 함께 [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible)를 호출하면 축이 숨겨집니다. 예제는 기본 데이터가 있는 선 차트를 만들고 수평 축을 숨긴 채 저장합니다.
 
 ```python
 import jpype
@@ -141,7 +141,7 @@ finally:
 
 ## **범주 축 변경**
 
-Use [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) with `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) with `1`, and [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) with [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) places major ticks at one-month intervals.
+[setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType)를 사용해 날짜 축 또는 텍스트 축을 선택합니다. 이 예제는 첫 번째 슬라이드의 첫 번째 도형에 차트가 포함된 `ExistingChart.pptx`를 필요로 하며, 범주 셀에 숫자형 Excel 날짜 값이 들어 있습니다. 수평 축을 날짜 축으로 변경합니다. [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit)를 `False`로, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit)를 `1`로, 그리고 [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale)를 [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months)로 설정하면 주요 눈금이 한 달 간격으로 배치됩니다.
 
 ```python
 import jpype
@@ -169,19 +169,19 @@ finally:
 
 ## **범주 축 레이블 간격 제어**
 
-When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Call [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) with `False`, then pass the desired category interval to [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing). For text categories in their normal order, counting starts at the first category:
+차트에 범주가 많이 있을 때 범주나 데이터 포인트를 제거하지 않고 표시되는 축 레이블 수를 줄일 수 있습니다. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing)를 `False`로 호출한 뒤 원하는 범주 간격을 [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing)에 전달합니다. 텍스트 범주의 정상 순서에서는 첫 번째 범주부터 번호 매김이 시작됩니다.
 
-| 간격 | 예제에 표시된 레이블 |
+| Interval | Labels displayed in the example |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | 범주 1, 범주 2, 범주 3, ... 범주 24 |
+| `2` | 범주 1, 범주 3, 범주 5, ... 범주 23 |
+| `3` | 범주 1, 범주 4, 범주 7, ... 범주 22 |
 
-An interval of `3` displays every third label, leaving two labels hidden between displayed labels. It does not remove the corresponding columns. Automatic spacing chooses an interval based on the available space; it does not necessarily display every label.
+`3` 간격은 세 번째 레이블마다 표시하고, 표시된 레이블 사이에 두 개의 레이블을 숨깁니다. 이는 해당 열을 제거하지 않습니다. 자동 간격은 사용 가능한 공간을 기준으로 선택되며 반드시 모든 레이블을 표시하지는 않습니다.
 
-Tick marks have separate controls. Call [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) with `False` and use [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) to set their interval. For example, `1` keeps a tick mark at every category interval while labels appear only every third category. Use [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) with a visible style so you can see the result. Calling either automatic-spacing setter with `True` again lets the chart choose that interval again.
+눈금에도 별도의 제어가 있습니다. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing)를 `False`로 호출하고 [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing)으로 간격을 설정합니다. 예를 들어 `1`은 각 범주 간격마다 눈금을 유지하면서 레이블은 매 세 번째 범주에만 표시됩니다. [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark)를 가시적인 스타일로 설정해 결과를 확인합니다. 두 자동 간격 설정자를 다시 `True`로 호출하면 차트가 자동 간격을 다시 선택합니다.
 
-The following self-contained example creates 24 categories and one series, then saves three slides in `CategoryAxisIntervals.pptx`: automatic spacing, manual label spacing with independent tick marks, and restored automatic spacing. The two copies retain the original chart data. No input presentation is required. Horizontal label text makes the difference in density easy to see.
+다음 자체 포함 예제는 24개의 범주와 하나의 시리즈를 만든 뒤 `CategoryAxisIntervals.pptx`에 세 슬라이드를 저장합니다: 자동 간격, 레이블 간격 수동 설정(독립 눈금 포함), 자동 간격 복원. 두 복사본은 원본 차트 데이터를 유지합니다. 입력 프레젠테이션이 필요하지 않습니다. 수평 레이블 텍스트가 밀도를 쉽게 확인할 수 있게 합니다.
 
 ```python
 import jpype
@@ -220,7 +220,7 @@ try:
     axis.setAutomaticTickLabelSpacing(True)
     axis.setAutomaticTickMarksSpacing(True)
 
-    # 슬라이드 2: 세 번째 레이블마다 표시하고, 각 범주마다 눈금은 유지합니다.
+    # 슬라이드 2: 세 번째 레이블만 표시하되, 각 범주마다 눈금은 유지합니다.
     manual_slide = presentation.getSlides().addClone(slide)
     manual_chart = manual_slide.getShapes().get_Item(0)
     manual_axis = manual_chart.getAxes().getHorizontalAxis()
@@ -229,7 +229,7 @@ try:
     manual_axis.setAutomaticTickMarksSpacing(False)
     manual_axis.setTickMarksSpacing(1)
 
-    # 슬라이드 3: 차트가 레이블 간격과 눈금 간격을 다시 자동으로 선택하도록 합니다.
+    # 슬라이드 3: 차트가 두 간격을 다시 선택하도록 합니다.
     restored_slide = presentation.getSlides().addClone(manual_slide)
     restored_chart = restored_slide.getShapes().get_Item(0)
     restored_chart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(True)
@@ -242,21 +242,21 @@ finally:
 
 **Automatic spacing (slide 1):** In this rendering, every second category label is displayed and wraps onto two lines. The automatic result can vary with chart size, fonts, and the renderer.
 
-![24열 모두 표시된 자동 범주 레이블 간격](category-axis-automatic.png)
+![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
 
 **Manual spacing (slide 2):** Every third label is displayed on one line, while tick marks remain at every category interval. All 24 columns, including those without labels, remain visible with the same values. Slide 3 restores the automatic appearance shown above.
 
-![24열 모두 표시된 수동 범주 레이블 간격(간격 3)](category-axis-manual.png)
+![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
 
-### **올바른 축 및 간격 선택**
+### **Correct Axis and Interval Selection**
 
-Use this category-count interval for a text category axis, such as the category axis of a column, line, area, or bar chart. In a column chart, it is the horizontal axis. In a horizontal bar chart, the category axis is vertical, so apply these settings to the axis returned by [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). Tick-mark spacing also applies to a series axis in charts that have one.
+텍스트 범주 축(예: 열, 선, 영역 또는 막대 차트의 범주 축)에서는 이 범주 개수 간격을 사용합니다. 열 차트에서는 수평 축이며, 가로 막대 차트에서는 범주 축이 수직이므로 [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis)에서 반환된 축에 이 설정을 적용합니다. 눈금 간격은 값을 축으로 갖는 차트의 시리즈 축에도 적용됩니다.
 
-Do not use category label spacing to set the numeric scale of a value axis. On a value axis, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) specifies a difference in values: for example, a major unit of `10` produces ticks at 0, 10, 20, and so on when the axis starts at zero. A category label interval of `3` instead counts category positions, regardless of their data values. Scatter and bubble charts use value axes rather than a text category axis. For a date axis, use time-based major units and scales as described in [범주 축 변경](#change-a-category-axis).
+값 축의 숫자 스케일을 지정하려면 레이블 간격을 사용하지 마십시오. 값 축에서 [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit)은 값 차이를 지정합니다(예: `10`은 0, 10, 20 등). `3` 간격의 범주 레이블은 데이터 값과 무관하게 범주 위치를 셉니다. 산점도와 버블 차트는 텍스트 범주 축이 아닌 값 축을 사용합니다. 날짜 축의 경우 [Change a Category Axis](#change-a-category-axis)에서 설명한 대로 시간 기반 주요 단위와 스케일을 사용하십시오.
 
 ## **범주 축 값의 날짜 형식 설정**
 
-The example replaces the default chart data with four annual values. Dates are stored as OLE Automation serial numbers in the first worksheet (index `0`), calculated as the number of days since December 30, 1899, for these dates. Use [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) with [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date), call [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) with `False`, and pass `yyyy` to [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) so the category labels display four-digit years independently of the cell formatting.
+예제는 기본 차트 데이터를 네 개의 연간 값으로 교체합니다. 날짜는 첫 번째 워크시트(인덱스 `0`)에 OLE Automation 일련 번호(1899‑12‑30 이후 경과 일수) 형태로 저장됩니다. [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType)와 [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date)를 사용하고, [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource)를 `False`로 설정한 뒤 `yyyy`를 [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat)에 전달하면 셀 서식과 무관하게 네 자리 연도가 범주 레이블에 표시됩니다.
 
 ```python
 from datetime import date
@@ -304,10 +304,10 @@ finally:
 
 ## **차트 축 제목 회전 각도 설정**
 
-Call [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) with `True` on the vertical axis, provide title text, and set the rotation angle in the title’s text block formatting. The angle is measured in degrees; this example saves a column chart with its value-axis title rotated by 90 degrees.
+수직 축에 대해 `True`와 함께 [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle)를 호출하고 제목 텍스트를 제공한 뒤, 제목 텍스트 블록 서식에서 회전 각도를 지정합니다. 각도는 도 단위이며, 이 예제는 값 축 제목을 90도 회전시킨 열 차트를 저장합니다.
 
 ```python
-import jpype
+import jpase
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -329,9 +329,9 @@ finally:
     presentation.dispose()
 ```
 
-## **범주 축 또는 값 축에 대한 축 위치 설정**
+## **범주 또는 값 축의 위치 설정**
 
-Use [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) to control whether the value axis crosses the category axis between categories or at category tick marks. This setting applies to category axes. The example sets it to `True` on the horizontal category axis of a column chart and saves the result.
+[setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories)를 사용해 값 축이 범주 축을 범주 사이에 교차할지, 범주 눈금에 교차할지 제어합니다. 이 설정은 범주 축에만 적용됩니다. 예제는 열 차트의 수평 범주 축에 `True`를 설정하고 결과를 저장합니다.
 
 ```python
 import jpype
@@ -354,9 +354,9 @@ finally:
     presentation.dispose()
 ```
 
-## **차트 값 축에 표시 단위 설정**
+## **값 축의 표시 단위 설정**
 
-Use [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) to scale the labels on a value axis without changing the underlying data. With [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) set to `Millions`, a value of 60,000,000 is displayed as 60. The example creates a column chart and applies the millions display unit to its vertical axis.
+[setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit)을 사용하면 기본 데이터를 변경하지 않고 값 축 레이블을 스케일링할 수 있습니다. [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/)을 `Millions`로 설정하면 60,000,000이 60으로 표시됩니다. 예제는 열 차트를 만든 뒤 수직 축에 백만 단위 표시를 적용합니다.
 
 ```python
 import jpype
@@ -379,12 +379,85 @@ finally:
     presentation.dispose()
 ```
 
-## **자주 묻는 질문**
+## **로그값 축 구성**
 
-**한 축이 다른 축을 교차하는 위치(축 교차점)를 어떻게 설정합니까?**
+양의 값이 여러 자릿수에 걸쳐 있는 경우 로그값 축이 유용합니다. 예를 들어 한 서비스가 다섯 기간 동안 10, 100, 1,000, 10,000, 100,000 요청을 받는 경우를 생각해 보세요. 선형 스케일에서는 작은 값들이 0 근처에 몰려 보입니다. 로그 스케일은 동일한 거리마다 동일한 비율을 나타내어 상대 성장률을 쉽게 비교할 수 있게 합니다.
 
-Use [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) to select the crossing behavior. To specify a numeric crossing value, use [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). These settings let you move the axis crossing to a suitable baseline.
+값 축에 `True`와 함께 [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic)를 호출하고, [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase)으로 기반을 선택합니다. 이는 기존 값의 표시 방식을 바꾸지만 데이터 자체를 변경하거나 로그 추세선을 추가하지는 않습니다. 추세선은 데이터에 맞춰 만든 별도 기능입니다.
+
+### **값 축과 기반 선택**
+
+선 또는 열 차트에서는 값 축이 [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis)에서 반환됩니다. 가로 막대 차트에서는 [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis)에서 반환됩니다. 산점도와 버블 차트는 두 개의 값 축을 가지므로 X 값에는 수평 축, Y 값에는 수직 축을, 또는 둘 다 사용할 수 있습니다. 범주 축에는 로그 스케일을 적용하지 마십시오.
+
+기본 로그 기반은 `10`입니다. PPTX 차트에서는 `2`부터 `1000`까지(포함) 사용 가능하며, `2.5`와 같은 소수 기반도 지원됩니다. 기반 `10`에서는 10, 100, 1,000, 10,000 등이 균등하게 배치됩니다.
+
+### **선형 스케일과 로그 스케일 비교**
+
+다음 자체 포함 예제는 첫 번째 슬라이드에 요청 수 5개를 가진 선 차트를 만든 뒤, 해당 슬라이드를 복제하고 두 번째 슬라이드에 기반 10 로그값 축을 활성화합니다. 두 슬라이드 모두 동일한 데이터를 유지합니다.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ChartType, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Line, 30, 40, 660, 200)
+
+    chart.setLegend(False)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series = chart.getChartData().getSeries().add(ChartType.Line)
+    values = [10, 100, 1000, 10000, 100000]
+
+    for i, value in enumerate(values):
+        category_cell = workbook.getCell(0, i + 1, 0, f"Period {i + 1}")
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, float(value))
+        series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    # 첫 번째 슬라이드는 선형으로 유지하고 복사본의 값 축 스케일만 변경합니다.
+    logarithmic_slide = presentation.getSlides().addClone(slide)
+    logarithmic_chart = logarithmic_slide.getShapes().get_Item(0)
+    value_axis = logarithmic_chart.getAxes().getVerticalAxis()
+    value_axis.setLogarithmic(True)
+    value_axis.setLogBase(10)
+
+    presentation.save("LogarithmicAxis.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+**Linear scale (slide 1):** Equal vertical distances represent equal differences in request counts. The largest value dominates the chart, making the smaller values difficult to distinguish.
+
+![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
+
+**Logarithmic scale (slide 2):** Equal vertical distances represent equal ratios. Each period has ten times as many requests as the previous one, so the points form a straight rising line on the base-10 scale. The axis labels still show the original request counts.
+
+![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+
+### **Zero 및 음수 값 처리**
+
+로그 스케일은 양수 값만 표시할 수 있습니다. 활성화하기 전에 데이터를 확인하십시오. 0이나 음수 값이 의미가 있다면 선형 스케일을 유지하거나 별도로 표시하십시오. 해당 값을 제외하는 것이 분석에 적합하다면 그 이유를 설명해야 합니다. 데이터를 작은 양수로 대체하면 의미가 바뀌므로 조용히 바꾸지 마십시오. 로그 축에 수동으로 설정한 최소값이나 최대값도 양수여야 합니다.
+
+## **FAQ**
+
+**한 축이 다른 축을 교차하는 위치(축 교차)를 어떻게 설정합니까?**
+
+[setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType)을 사용해 교차 동작을 선택하고, 숫자 교차 값을 지정하려면 [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt)를 사용합니다. 이러한 설정으로 축 교차점을 적절한 기준선으로 이동할 수 있습니다.
 
 **눈금 레이블을 축에 상대적으로 어떻게 배치합니까?**
 
-Call [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) using [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, or `None`. To control the tick marks themselves, use [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) or [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark); these are separate from label positioning.
+[TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/) 중 `Low`, `High`, `NextTo`, `None`을 사용해 [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition)를 호출합니다. 눈금 자체를 제어하려면 [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) 또는 [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark)를 사용합니다; 이는 레이블 위치와 별개입니다.

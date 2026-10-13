@@ -8,7 +8,7 @@ keywords:
 - trục dọc
 - trục ngang
 - tùy chỉnh trục
-- thao tác trục
+- điều chỉnh trục
 - quản lý trục
 - thuộc tính trục
 - giá trị tối đa
@@ -21,17 +21,17 @@ keywords:
 - bản trình bày
 - PHP
 - Aspose.Slides
-description: "Khám phá cách sử dụng Aspose.Slides cho PHP thông qua Java để tùy chỉnh trục biểu đồ trong các bản thuyết trình PowerPoint cho báo cáo và trực quan hoá."
+description: "Khám phá cách sử dụng Aspose.Slides cho PHP thông qua Java để tùy chỉnh trục biểu đồ trong các bản trình bày PowerPoint cho báo cáo và trực quan hoá."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách tùy chỉnh trục biểu đồ với Aspose.Slides cho PHP thông qua Java. Nó bao gồm các giá trị trục đã tính toán, việc hoán đổi hàng và cột của biểu đồ, khả năng hiển thị trục, khoảng cách nhãn danh mục và dấu tick, các danh mục ngày và định dạng, xoay tiêu đề, vị trí trục và đơn vị hiển thị.
+Bài viết này giải thích cách tùy chỉnh trục biểu đồ với Aspose.Slides cho PHP thông qua Java. Nó bao gồm các giá trị trục tính toán, chuyển đổi hàng và cột biểu đồ, hiển thị trục, khoảng cách nhãn và dấu tick của danh mục, danh mục ngày và định dạng, xoay tiêu đề, vị trí trục, đơn vị hiển thị và tỉ lệ logarit.
 
-## **Lấy giá trị tối đa trên trục dọc trong biểu đồ**
+## **Lấy Giá Trị Tối Đa trên Trục Dọc của Biểu Đồ**
 
-Tạo một [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) và thêm một biểu đồ miền với dữ liệu mặc định. Gọi [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) trước khi đọc các giá trị trục đã tính toán để bố cục biểu đồ được cập nhật.
+Tạo một [Bản trình bày](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) và thêm một biểu đồ khu vực với dữ liệu mặc định. Gọi [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) trước khi đọc các giá trị trục đã tính để bố cục biểu đồ được cập nhật.
 
-Đọc [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) và [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) để lấy giới hạn trục, và [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) và [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) để lấy khoảng cách dấu tick. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) và [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) cung cấp các thang thời gian, liên quan đến trục ngày. Ví dụ lưu các giá trị này vào biến cục bộ và lưu biểu đồ.
+Đọc [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) và [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) để lấy các giới hạn của trục, và [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) và [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) để lấy khoảng cách dấu tick. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) và [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) cung cấp tỉ lệ đơn vị thời gian, liên quan đến trục ngày. Ví dụ lưu các giá trị này vào các biến cục bộ và lưu biểu đồ.
 
 ```php
 use aspose\slides\ChartType;
@@ -60,9 +60,9 @@ try {
 }
 ```
 
-## **Hoán đổi dữ liệu giữa các trục**
+## **Hoán Đổi Dữ Liệu Giữa Các Trục**
 
-Sử dụng [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) để đổi vai trò giữa series và categories trong dữ liệu biểu đồ. Mỗi category cũ trở thành một series, và mỗi series cũ trở thành một category. Thao tác này thay đổi cách nhóm dữ liệu; nó không hoán đổi trục ngang và trục dọc. Ví dụ sử dụng [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) để liên kết dữ liệu mặc định với `Sheet1!A1:D5`, bao gồm hàng tiêu đề và cột category, trước khi hoán đổi hàng và cột. Nó lưu một biểu đồ có bốn series và ba category.
+Sử dụng [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) để hoán đổi vai trò của series và categories trong dữ liệu biểu đồ. Mỗi category cũ trở thành một series, và mỗi series cũ trở thành một category. Điều này thay đổi cách nhóm dữ liệu; nó không hoán đổi các trục ngang và dọc. Ví dụ sử dụng [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) để gắn dữ liệu mặc định vào `Sheet1!A1:D5`, bao gồm hàng tiêu đề và cột category, trước khi hoán đổi hàng và cột. Nó lưu một biểu đồ với bốn series và ba category.
 
 ```php
 use aspose\slides\ChartType;
@@ -83,9 +83,9 @@ try {
 }
 ```
 
-## **Vô hiệu hoá trục dọc cho biểu đồ đường**
+## **Vô Hiệu Hóa Trục Dọc cho Biểu Đồ Đường**
 
-Gọi [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) với giá trị `false` trên trục dọc để ẩn nó. Ví dụ tạo một biểu đồ đường với dữ liệu mặc định và lưu nó với trục dọc bị ẩn.
+Gọi [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) với `false` trên trục dọc để ẩn nó. Ví dụ tạo một biểu đồ đường với dữ liệu mặc định và lưu lại với trục dọc bị ẩn.
 
 ```php
 use aspose\slides\ChartType;
@@ -105,9 +105,9 @@ try {
 }
 ```
 
-## **Vô hiệu hoá trục ngang cho biểu đồ đường**
+## **Vô Hiệu Hóa Trục Ngang cho Biểu Đồ Đường**
 
-Gọi [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) với giá trị `false` trên trục ngang để ẩn nó. Ví dụ tạo một biểu đồ đường với dữ liệu mặc định và lưu nó với trục ngang bị ẩn.
+Gọi [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) với `false` trên trục ngang để ẩn nó. Ví dụ tạo một biểu đồ đường với dữ liệu mặc định và lưu lại với trục ngang bị ẩn.
 
 ```php
 use aspose\slides\ChartType;
@@ -127,9 +127,9 @@ try {
 }
 ```
 
-## **Thay đổi trục danh mục**
+## **Thay Đổi Trục Danh Mục**
 
-Sử dụng [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) để chọn một trục danh mục kiểu ngày hoặc văn bản. Ví dụ này yêu cầu tệp `ExistingChart.pptx`, trong đó biểu đồ là hình dạng đầu tiên trên slide đầu và các ô category chứa giá trị ngày Excel dạng số. Nó thay đổi trục ngang thành trục ngày. Gọi [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) với `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) với `1`, và [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) với `TimeUnitType::Months` để đặt các dấu tick chính cách nhau một tháng.
+Sử dụng [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) để chọn trục danh mục kiểu ngày hoặc văn bản. Ví dụ này yêu cầu `ExistingChart.pptx`, với một biểu đồ là hình dạng đầu tiên trên slide đầu và các ô danh mục chứa giá trị ngày dạng số Excel. Nó thay đổi trục ngang thành trục ngày. Gọi [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) với `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) với `1`, và [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) với `TimeUnitType::Months` để đặt các dấu tick chính ở khoảng một tháng.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -153,21 +153,21 @@ try {
 }
 ```
 
-## **Kiểm soát khoảng cách nhãn trục danh mục**
+## **Kiểm Soát Khoảng Cách Nhãn Trục Danh Mục**
 
-Khi một biểu đồ có nhiều category, giảm số lượng nhãn trục hiển thị mà không loại bỏ các category hoặc điểm dữ liệu. Gọi [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) với `false`, sau đó truyền khoảng cách category mong muốn vào [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Đối với các category văn bản theo thứ tự bình thường, việc đếm bắt đầu từ category đầu tiên:
+Khi một biểu đồ có nhiều category, giảm số lượng nhãn trục hiển thị mà không loại bỏ category hoặc điểm dữ liệu. Gọi [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) với `false`, sau đó truyền khoảng cách category mong muốn vào [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Đối với category văn bản theo thứ tự bình thường, đếm bắt đầu từ category đầu tiên:
 
-| Interval | Labels displayed in the example |
+| Khoảng cách | Nhãn hiển thị trong ví dụ |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | Danh mục 1, Danh mục 2, Danh mục 3, ... Danh mục 24 |
+| `2` | Danh mục 1, Danh mục 3, Danh mục 5, ... Danh mục 23 |
+| `3` | Danh mục 1, Danh mục 4, Danh mục 7, ... Danh mục 22 |
 
-Một khoảng cách `3` sẽ hiển thị mỗi nhãn thứ ba, để lại hai nhãn ẩn giữa các nhãn được hiển thị. Nó không loại bỏ các cột tương ứng. Khoảng cách tự động chọn một khoảng dựa trên không gian có sẵn; nó không nhất thiết phải hiển thị mọi nhãn.
+Khoảng cách `3` hiển thị mỗi nhãn thứ ba, để lại hai nhãn ẩn giữa các nhãn hiển thị. Nó không loại bỏ các cột tương ứng. Khoảng cách tự động chọn một khoảng dựa trên không gian có sẵn; nó không nhất thiết hiển thị mọi nhãn.
 
-Dấu tick có các điều khiển riêng. Gọi [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) với `false` và sử dụng [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) để đặt khoảng cách của chúng. Ví dụ, `1` giữ một dấu tick ở mỗi khoảng category trong khi nhãn chỉ xuất hiện mỗi ba category. Sử dụng [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) với một kiểu hiển thị để nhìn thấy kết quả. Gọi lại bất kỳ setter tự động nào với `true` sẽ cho phép biểu đồ tự chọn lại khoảng cách đó.
+Các dấu tick có các điều khiển riêng. Gọi [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) với `false` và sử dụng [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) để đặt khoảng cách của chúng. Ví dụ, `1` giữ một dấu tick ở mỗi khoảng category trong khi nhãn chỉ xuất hiện mỗi ba category. Sử dụng [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) với kiểu hiển thị để bạn có thể thấy kết quả. Gọi lại bất kỳ setter khoảng cách tự động nào với `true` sẽ cho phép biểu đồ chọn lại khoảng cách đó.
 
-Ví dụ tự chứa sau tạo 24 category và một series, sau đó lưu ba slide trong tệp `CategoryAxisIntervals.pptx`: khoảng cách tự động, khoảng cách nhãn thủ công với các dấu tick độc lập, và khôi phục khoảng cách tự động. Hai bản sao giữ nguyên dữ liệu biểu đồ gốc. Không cần bản trình bày đầu vào. Văn bản nhãn ngang giúp dễ dàng nhận thấy sự khác biệt về mật độ.
+Ví dụ tự chứa sau tạo 24 category và một series, sau đó lưu ba slide trong `CategoryAxisIntervals.pptx`: khoảng cách tự động, khoảng cách nhãn thủ công với các dấu tick độc lập, và khôi phục khoảng cách tự động. Hai bản sao giữ nguyên dữ liệu biểu đồ gốc. Không cần bản trình bày đầu vào. Văn bản nhãn ngang làm cho sự khác biệt về mật độ dễ nhìn thấy.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -214,7 +214,7 @@ try {
     $manualAxis->setAutomaticTickMarksSpacing(false);
     $manualAxis->setTickMarksSpacing(1);
 
-    // Slide 3: để biểu đồ chọn cả hai khoảng cách lại một lần nữa.
+    // Slide 3: để biểu đồ chọn lại cả hai khoảng cách.
     $restoredSlide = $presentation->getSlides()->addClone($manualSlide);
     $restoredChart = $restoredSlide->getShapes()->get_Item(0);
     $restoredChart->getAxes()->getHorizontalAxis()->setAutomaticTickLabelSpacing(true);
@@ -226,23 +226,23 @@ try {
 }
 ```
 
-**Khoảng cách tự động (slide 1):** Trong hiển thị này, mỗi nhãn category thứ hai được hiển thị và xuống dòng thành hai dòng. Kết quả tự động có thể thay đổi tùy kích thước biểu đồ, phông chữ và bộ render.
+**Khoảng cách tự động (slide 1):** Trong bản render này, mỗi nhãn category thứ hai được hiển thị và chuyển sang hai dòng. Kết quả tự động có thể thay đổi tùy theo kích thước biểu đồ, phông chữ và bộ render.
 
 ![Khoảng cách nhãn category tự động với tất cả 24 cột hiển thị](category-axis-automatic.png)
 
-**Khoảng cách thủ công (slide 2):** Mỗi nhãn thứ ba được hiển thị trên một dòng, trong khi các dấu tick vẫn ở mỗi khoảng category. Tất cả 24 cột, bao gồm cả những cột không có nhãn, vẫn hiển thị với cùng giá trị. Slide 3 khôi phục giao diện tự động như trên.
+**Khoảng cách thủ công (slide 2):** Mỗi nhãn thứ ba được hiển thị trên một dòng, trong khi các dấu tick vẫn ở mỗi khoảng category. Tất cả 24 cột, bao gồm cả những cột không có nhãn, vẫn hiển thị với cùng giá trị. Slide 3 khôi phục lại giao diện tự động được hiển thị ở trên.
 
-![Khoảng cách nhãn category thủ công với ba và tất cả 24 cột hiển thị](category-axis-manual.png)
+![Khoảng cách nhãn category thủ công ba với tất cả 24 cột hiển thị](category-axis-manual.png)
 
-### **Chọn trục và khoảng cách phù hợp**
+### **Chọn Trục và Khoảng Cách Phù Hợp**
 
-Sử dụng khoảng cách dựa trên số lượng category này cho trục danh mục dạng văn bản, chẳng hạn như trục danh mục của biểu đồ cột, đường, miền hoặc thanh. Trong biểu đồ cột, đây là trục ngang. Trong biểu đồ thanh ngang, trục danh mục là trục dọc, vì vậy áp dụng các cài đặt này cho trục trả về bởi [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Khoảng cách dấu tick cũng áp dụng cho trục series trong các biểu đồ có trục series.
+Sử dụng khoảng cách đếm category này cho trục category dạng văn bản, như trục category của biểu đồ cột, đường, khu vực hoặc thanh. Trong biểu đồ cột, nó là trục ngang. Trong biểu đồ thanh ngang, trục category là trục dọc, vì vậy áp dụng các cài đặt này cho trục được trả về bởi [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Khoảng cách dấu tick cũng áp dụng cho trục series trong các biểu đồ có trục series.
 
-Không sử dụng khoảng cách nhãn category để đặt thang số của trục giá trị. Trên trục giá trị, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) chỉ ra sự chênh lệch giá trị: ví dụ, một đơn vị chính `10` tạo các dấu tick ở 0, 10, 20, … khi trục bắt đầu từ 0. Một khoảng cách nhãn category `3` đếm vị trí category, bất kể giá trị dữ liệu. Các biểu đồ scatter và bubble sử dụng trục giá trị thay vì trục danh mục văn bản. Đối với trục ngày, hãy sử dụng các đơn vị và thang thời gian như mô tả trong [Thay đổi trục danh mục](#thay-đổi-trục-danh-mục).
+Không sử dụng khoảng cách nhãn category để đặt thang số cho trục giá trị. Trên trục giá trị, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) chỉ định sự chênh lệch giá trị: ví dụ, một đơn vị chính `10` tạo các dấu tick ở 0, 10, 20, … khi trục bắt đầu từ 0. Một khoảng cách nhãn category `3` đếm vị trí category, bất kể giá trị dữ liệu của chúng. Các biểu đồ scatter và bubble sử dụng trục giá trị thay vì trục category dạng văn bản. Đối với trục ngày, sử dụng các đơn vị chính và thang thời gian như mô tả trong [Change a Category Axis](#change-a-category-axis).
 
-## **Đặt định dạng ngày cho giá trị trục danh mục**
+## **Đặt Định Dạng Ngày cho Giá Trị Trục Category**
 
-Ví dụ thay thế dữ liệu biểu đồ mặc định bằng bốn giá trị hàng năm. Các ngày được lưu dưới dạng số tuần tự OLE Automation trong worksheet đầu tiên (chỉ mục `0`), tính bằng số ngày kể từ 30‑12‑1899. Sử dụng [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) với `CategoryAxisType::Date`, gọi [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) với `false`, và truyền `yyyy` vào [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) để nhãn category hiển thị năm bốn chữ số độc lập với định dạng ô.
+Ví dụ thay thế dữ liệu biểu đồ mặc định bằng bốn giá trị hàng năm. Các ngày được lưu dưới dạng số serial OLE Automation trong worksheet đầu tiên (chỉ mục `0`), tính bằng số ngày kể từ 30 tháng 12 năm 1899 cho các ngày này. Sử dụng [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) với `CategoryAxisType::Date`, gọi [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) với `false`, và truyền `yyyy` vào [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) để các nhãn category hiển thị năm bốn chữ số độc lập với định dạng ô.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -285,9 +285,9 @@ try {
 }
 ```
 
-## **Đặt góc xoay cho tiêu đề trục biểu đồ**
+## **Đặt Góc Xoay cho Tiêu Đề Trục Biểu Đồ**
 
-Gọi [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) với `true` trên trục dọc, cung cấp văn bản tiêu đề, và dùng [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) để xoay tiêu đề. Góc được đo bằng độ; ví dụ này lưu một biểu đồ cột với tiêu đề trục giá trị được xoay 90 độ.
+Gọi [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) với `true` trên trục dọc, cung cấp văn bản tiêu đề, và sử dụng [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) để xoay tiêu đề. Góc được đo bằng độ; ví dụ này lưu một biểu đồ cột với tiêu đề trục giá trị được xoay 90 độ.
 
 ```php
 use aspose\slides\ChartType;
@@ -309,9 +309,9 @@ try {
 }
 ```
 
-## **Đặt vị trí trục trên trục danh mục hoặc giá trị**
+## **Đặt Vị Trí Trục trên Trục Category hoặc Giá Trị**
 
-Sử dụng [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) để kiểm soát việc trục giá trị cắt trục danh mục giữa các category hoặc tại các dấu tick của category. Cài đặt này áp dụng cho các trục danh mục. Ví dụ đặt nó thành `true` trên trục danh mục ngang của một biểu đồ cột và lưu kết quả.
+Sử dụng [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) để kiểm soát việc trục giá trị cắt qua trục category giữa các category hoặc tại các dấu tick của category. Cài đặt này áp dụng cho các trục category. Ví dụ này đặt nó thành `true` trên trục category ngang của biểu đồ cột và lưu kết quả.
 
 ```php
 use aspose\slides\ChartType;
@@ -331,9 +331,9 @@ try {
 }
 ```
 
-## **Đặt đơn vị hiển thị trên trục giá trị của biểu đồ**
+## **Đặt Đơn Vị Hiển Thị trên Trục Giá Trị của Biểu Đồ**
 
-Sử dụng [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) để thu nhỏ các nhãn trên trục giá trị mà không thay đổi dữ liệu gốc. Với [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) đặt thành `Millions`, giá trị 60 000 000 sẽ hiển thị là 60. Ví dụ tạo một biểu đồ cột và áp dụng đơn vị hiển thị triệu cho trục dọc của nó.
+Sử dụng [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) để tỷ lệ các nhãn trên trục giá trị mà không thay đổi dữ liệu gốc. Với [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) đặt thành `Millions`, giá trị 60.000.000 sẽ hiển thị là 60. Ví dụ tạo một biểu đồ cột và áp dụng đơn vị hiển thị hàng triệu cho trục dọc của nó.
 
 ```php
 use aspose\slides\ChartType;
@@ -354,12 +354,83 @@ try {
 }
 ```
 
-## **FAQ**
+## **Cấu Hình Trục Giá Trị Logarit**
 
-**Làm thế nào để đặt giá trị mà một trục giao với trục còn lại (giao trục)?**
+Trục giá trị logarit hữu ích khi các giá trị dương trải qua nhiều bậc độ. Ví dụ, một dịch vụ có thể nhận 10, 100, 1.000, 10.000 và 100.000 yêu cầu trong năm giai đoạn. Trên thang tuyến tính, các giá trị nhỏ hơn xuất hiện gần nhau ở gần zero. Thang logarit làm cho sự tăng trưởng tương đối của chúng dễ so sánh hơn: khoảng cách bằng nhau đại diện cho tỉ lệ bằng nhau chứ không phải hiệu số bằng nhau.
 
-Sử dụng [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) để chọn hành vi giao. Để chỉ định một giá trị giao số, dùng [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Các cài đặt này cho phép bạn di chuyển giao trục tới một mức cơ sở phù hợp.
+Gọi [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) với `true` trên trục giá trị và sử dụng [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) để chọn cơ số. Điều này thay đổi cách hiển thị các giá trị hiện có; nó không thay đổi dữ liệu hoặc thêm đường xu hướng logarit. Đường xu hướng là một tính năng riêng, biểu thị mối quan hệ phù hợp trong dữ liệu.
 
-**Làm sao tôi có thể đặt vị trí nhãn tick so với trục?**
+### **Chọn Trục Giá Trị và Cơ Số**
 
-Gọi [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) với một trong các giá trị của [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, hoặc `None`. Để kiểm soát các dấu tick riêng biệt, sử dụng [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) hoặc [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); chúng độc lập với việc vị trí nhãn.
+Đối với biểu đồ đường hoặc cột, trục giá trị được trả về bởi [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Đối với biểu đồ thanh ngang, trục này được trả về bởi [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Các biểu đồ scatter và bubble có hai trục giá trị, vì vậy chọn trục ngang cho giá trị X, trục dọc cho giá trị Y, hoặc cả hai. Không áp dụng tỉ lệ logarit cho trục category.
+
+Cơ số logarit mặc định là `10`. Đối với biểu đồ PPTX, sử dụng cơ số từ `2` đến `1000`, bao gồm; các cơ số phân số như `2.5` cũng được hỗ trợ. Với cơ số `10`, các lũy thừa liên tiếp như 10, 100, 1.000, và 10.000 được cách đều nhau.
+
+### **So Sánh Thang Tuyến Tính và Logarit**
+
+Ví dụ tự chứa sau tạo một biểu đồ đường với năm số yêu cầu trên slide đầu, sau đó sao chép slide đó và bật trục giá trị logarit cơ số 10 trên slide thứ hai. Cả hai slide giữ nguyên dữ liệu.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 30, 40, 660, 200);
+
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Line);
+    $values = [10, 100, 1000, 10000, 100000];
+
+    for ($i = 0; $i < count($values); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Period " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    }
+
+    // Giữ slide đầu tiên ở dạng tuyến tính và chỉ thay đổi thang trục giá trị của bản sao.
+    $logarithmicSlide = $presentation->getSlides()->addClone($slide);
+    $logarithmicChart = $logarithmicSlide->getShapes()->get_Item(0);
+    $valueAxis = $logarithmicChart->getAxes()->getVerticalAxis();
+    $valueAxis->setLogarithmic(true);
+    $valueAxis->setLogBase(10);
+
+    $presentation->save("LogarithmicAxis.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+**Thang tuyến tính (slide 1):** Khoảng cách dọc bằng nhau đại diện cho sự chênh lệch bằng nhau trong số lượt yêu cầu. Giá trị lớn nhất chiếm ưu thế trên biểu đồ, khiến các giá trị nhỏ hơn khó phân biệt.
+
+![Biểu đồ đường trong PowerPoint hiển thị năm số yêu cầu trên trục giá trị tuyến tính](value-axis-linear.png)
+
+**Thang logarit (slide 2):** Khoảng cách dọc bằng nhau đại diện cho tỉ lệ bằng nhau. Mỗi giai đoạn có số yêu cầu gấp mười lần so với giai đoạn trước, vì vậy các điểm tạo thành một đường thẳng tăng trên thang cơ số 10. Các nhãn trục vẫn hiển thị số lượt yêu cầu gốc.
+
+![Cùng năm số yêu cầu trong PowerPoint trên trục giá trị logarit cơ số 10](value-axis-logarithmic.png)
+
+### **Xử Lý Giá Trị Zero và Âm**
+
+Thang logarit chỉ có thể hiển thị các giá trị dương tuyệt đối. Kiểm tra dữ liệu trước khi bật tính năng này. Nếu các giá trị zero hoặc âm có ý nghĩa, giữ thang tuyến tính hoặc hiển thị chúng riêng biệt. Nếu việc loại bỏ các giá trị này phù hợp với phân tích, giải thích lý do loại bỏ. Không được thay thế chúng một cách âm thầm bằng các số dương nhỏ, vì điều này làm thay đổi ý nghĩa của dữ liệu. Bất kỳ giá trị tối thiểu hoặc tối đa nào được cấu hình thủ công cho trục logarit cũng phải là dương.
+
+## **CÂU HỎI THƯỜNG GẶP**
+
+**Làm sao để đặt giá trị mà một trục cắt qua trục còn lại (điểm giao trục)?**
+
+Sử dụng [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) để chọn hành vi giao trục. Để chỉ định một giá trị giao cắt số, sử dụng [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Các cài đặt này cho phép bạn di chuyển giao trục tới một mức cơ sở phù hợp.
+
+**Làm sao để định vị nhãn tick so với trục?**
+
+Gọi [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) bằng cách sử dụng [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, hoặc `None`. Để kiểm soát các dấu tick, sử dụng [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) hoặc [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); chúng độc lập với vị trí nhãn.

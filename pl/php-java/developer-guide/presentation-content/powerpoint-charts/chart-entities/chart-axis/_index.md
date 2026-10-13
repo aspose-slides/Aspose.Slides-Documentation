@@ -1,5 +1,5 @@
 ---
-title: Dostosowywanie osi wykresu w prezentacjach przy użyciu PHP
+title: Dostosuj osie wykresów w prezentacjach przy użyciu PHP
 linktitle: Oś wykresu
 type: docs
 url: /pl/php-java/chart-axis/
@@ -21,17 +21,17 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Odkryj, jak używać Aspose.Slides for PHP via Java do dostosowywania osi wykresów w prezentacjach PowerPoint dla raportów i wizualizacji."
+description: "Dowiedz się, jak używać Aspose.Slides dla PHP via Java do dostosowywania osi wykresów w prezentacjach PowerPoint przeznaczonych do raportów i wizualizacji."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak dostosować osie wykresu przy użyciu Aspose.Slides for PHP via Java. Omawia obliczone wartości osi, zamianę wierszy i kolumn wykresu, widoczność osi, interwały etykiet kategorii i znaczników podziałek, kategorie dat i formatowanie, obrót tytułu, położenie osi oraz jednostki wyświetlania.
+Ten artykuł wyjaśnia, jak dostosować osie wykresu w Aspose.Slides for PHP via Java. Omówiono wyliczane wartości osi, zamianę wierszy i kolumn wykresu, widoczność osi, interwały etykiet kategorii i znaczników podziałek, kategorie dat i formatowanie, obrót tytułu, pozycjonowanie osi, jednostki wyświetlania oraz skalowanie logarytmiczne.
 
-## **Pobierz maksymalne wartości na pionowej osi wykresów**
+## **Uzyskaj maksymalne wartości na pionowej osi wykresów**
 
-Utwórz [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) i dodaj wykres powierzchniowy z domyślnymi danymi. Wywołaj [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) przed odczytem obliczonych wartości osi, aby układ wykresu był aktualny.
+Utwórz [Prezentację](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) i dodaj wykres powierzchniowy z domyślnymi danymi. Wywołaj [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) przed odczytaniem wyliczonych wartości osi, aby układ wykresu był aktualny.
 
-Odczytaj [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) i [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) w celu uzyskania limitów osi oraz [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) i [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) w celu uzyskania interwałów podziałek. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) i [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) dostarczają skale jednostek czasu, co ma znaczenie dla osi dat. Przykład przechowuje te wartości w zmiennych lokalnych i zapisuje wykres.
+Odczytaj [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) i [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) dla granic osi oraz [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) i [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) dla interwałów podziałek. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) i [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) dostarczają skale jednostek czasu, które są istotne dla osi dat. Przykład zapisuje te wartości w zmiennych lokalnych i zapisuje wykres.
 
 ```php
 use aspose\slides\ChartType;
@@ -62,7 +62,7 @@ try {
 
 ## **Zamień dane między osiami**
 
-Użyj [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) aby zamienić role serii i kategorii w danych wykresu. Każda poprzednia kategoria staje się serią, a każda poprzednia seria staje się kategorią. Zmienia to sposób grupowania danych; nie zamienia to osi poziomej i pionowej. Przykład używa [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) , aby powiązać domyślne dane z `Sheet1!A1:D5`, włączając wiersz nagłówka i kolumnę kategorii, przed zamianą wierszy i kolumn. Zapisuje wykres z czterema seriami i trzema kategoriami.
+Użyj [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) aby wymienić role serii i kategorii w danych wykresu. Każda poprzednia kategoria staje się serią, a każda poprzednia seria staje się kategorią. Zmienia to sposób grupowania danych; nie wymienia to osi poziomej i pionowej. Przykład używa [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) aby powiązać domyślne dane z `Sheet1!A1:D5`, włączając wiersz nagłówka i kolumnę kategorii, przed zamianą wierszy i kolumn. Zapisuje wykres z czterema seriami i trzema kategoriami.
 
 ```php
 use aspose\slides\ChartType;
@@ -83,7 +83,7 @@ try {
 }
 ```
 
-## **Ukryj pionową oś wykresów liniowych**
+## **Ukryj pionową oś w wykresach liniowych**
 
 Wywołaj [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) z wartością `false` na pionowej osi, aby ją ukryć. Przykład tworzy wykres liniowy z domyślnymi danymi i zapisuje go z ukrytą pionową osią.
 
@@ -105,7 +105,7 @@ try {
 }
 ```
 
-## **Ukryj poziomą oś wykresów liniowych**
+## **Ukryj poziomą oś w wykresach liniowych**
 
 Wywołaj [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) z wartością `false` na poziomej osi, aby ją ukryć. Przykład tworzy wykres liniowy z domyślnymi danymi i zapisuje go z ukrytą poziomą osią.
 
@@ -129,7 +129,7 @@ try {
 
 ## **Zmień oś kategorii**
 
-Użyj [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) , aby wybrać oś kategorii daty lub tekstu. Ten przykład wymaga pliku `ExistingChart.pptx`, z wykresem jako pierwszym kształtem na pierwszym slajdzie i komórkami kategorii zawierającymi numeryczne wartości dat Excel. Zmienia on poziomą oś na oś daty. Wywołanie [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) z `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) z `1` oraz [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) z `TimeUnitType::Months` ustawia główne podziały w odstępach jednego miesiąca.
+Użyj [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) aby wybrać oś dat lub tekstową. Przykład wymaga pliku `ExistingChart.pptx`, w którym wykres jest pierwszym kształtem na pierwszym slajdzie, a komórki kategorii zawierają numeryczne wartości dat Excel. Zmienia poziomą oś na oś daty. Wywołanie [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) z wartością `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) z wartością `1` oraz [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) z `TimeUnitType::Months` ustawia główne podziały w odstępach jednego miesiąca.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -155,19 +155,19 @@ try {
 
 ## **Kontroluj interwały etykiet osi kategorii**
 
-Gdy wykres ma wiele kategorii, zmniejsz liczbę widocznych etykiet osi bez usuwania kategorii lub punktów danych. Wywołaj [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) z `false`, a następnie przekaż żądany interwał kategorii do [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Dla tekstowych kategorii w ich normalnym porządku liczenie zaczyna się od pierwszej kategorii:
+Gdy wykres ma wiele kategorii, zmniejsz liczbę widocznych etykiet osi bez usuwania kategorii lub punktów danych. Wywołaj [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) z wartością `false`, a następnie przekaż żądany interwał kategorii do [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Dla tekstowych kategorii w normalnym porządku licznik zaczyna się od pierwszej kategorii:
 
 | Interwał | Etykiety wyświetlane w przykładzie |
 | --- | --- |
-| `1` | Kategoria 1, Kategoria 2, Kategoria 3, ... Kategoria 24 |
-| `2` | Kategoria 1, Kategoria 3, Kategoria 5, ... Kategoria 23 |
-| `3` | Kategoria 1, Kategoria 4, Kategoria 7, ... Kategoria 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-Interwał `3` wyświetla co trzecią etykietę, ukrywając dwie etykiety pomiędzy wyświetlanymi. Nie usuwa to odpowiadających kolumn. Automatyczne rozmieszczanie wybiera interwał w zależności od dostępnego miejsca; niekoniecznie wyświetla każdą etykietę.
+Interwał `3` wyświetla co trzecią etykietę, pozostawiając dwie ukryte między wyświetlanymi. Nie usuwa to odpowiednich kolumn. Automatyczne rozmieszczenie wybiera interwał na podstawie dostępnej przestrzeni; niekoniecznie wyświetla każdą etykietę.
 
-Znaczniki podziałek mają osobne kontrolki. Wywołaj [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) z `false` i użyj [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) , aby ustawić ich interwał. Na przykład `1` pozostawia znacznik podziałki przy każdym interwale kategorii, podczas gdy etykiety pojawiają się tylko co trzecią kategorię. Użyj [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) z widocznym stylem, aby zobaczyć rezultat. Wywołanie dowolnego z automatycznych ustawień z `true` ponownie pozwala wykresowi wybrać ten interwał.
+Znaczniki podziałek mają oddzielne ustawienia. Wywołaj [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) z wartością `false` i użyj [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) aby ustawić ich interwał. Na przykład `1` utrzymuje znacznik podziałki przy każdym interwale kategorii, podczas gdy etykiety pojawiają się co trzecią kategorię. Użyj [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) z widocznym stylem, aby zobaczyć wynik. Ponowne ustawienie dowolnego z automatycznych setterów na `true` pozwala wykresowi ponownie wybrać ten interwał.
 
-Poniższy samodzielny przykład tworzy 24 kategorie i jedną serię, a następnie zapisuje trzy slajdy w pliku `CategoryAxisIntervals.pptx`: automatyczne rozmieszczanie, ręczne rozmieszczanie etykiet z niezależnymi znacznikami podziałek oraz przywrócone automatyczne rozmieszczanie. Dwie kopie zachowują oryginalne dane wykresu. Żadna prezentacja wejściowa nie jest wymagana. Poziomy tekst etykiety ułatwia zauważenie różnicy w gęstości.
+Poniższy samodzielny przykład tworzy 24 kategorie i jedną serię, a następnie zapisuje trzy slajdy w `CategoryAxisIntervals.pptx`: automatyczne rozmieszczenie, ręczne rozmieszczenie etykiet z niezależnymi znacznikami podziałek oraz przywrócone automatyczne rozmieszczenie. Dwie kopie zachowują oryginalne dane wykresu. Żadna prezentacja wejściowa nie jest wymagana. Tekst poziomej etykiety ułatwia zauważenie różnicy w gęstości.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -205,7 +205,7 @@ try {
     $axis->setAutomaticTickLabelSpacing(true);
     $axis->setAutomaticTickMarksSpacing(true);
 
-    // Slajd 2: pokaż każdą trzecią etykietę, ale zachowaj znacznik podziałki dla każdej kategorii.
+    // Slajd 2: pokaż co trzecią etykietę, ale zachowaj znacznik podziałki dla każdej kategorii.
     $manualSlide = $presentation->getSlides()->addClone($slide);
     $manualChart = $manualSlide->getShapes()->get_Item(0);
     $manualAxis = $manualChart->getAxes()->getHorizontalAxis();
@@ -226,23 +226,23 @@ try {
 }
 ```
 
-**Automatyczne rozmieszczanie (slajd 1):** W tym renderowaniu każda druga etykieta kategorii jest wyświetlana i łamie się na dwie linie. Automatyczny wynik może się różnić w zależności od rozmiaru wykresu, czcionek i renderera.
+**Automatyczne rozmieszczenie (slajd 1):** W tym renderowaniu co druga etykieta kategorii jest wyświetlana i rozkłada się na dwie linie. Automatyczny wynik może się różnić w zależności od rozmiaru wykresu, czcionek i renderera.
 
-![Automatyczne rozmieszczanie etykiet kategorii przy wszystkich 24 widocznych kolumnach](category-axis-automatic.png)
+![Automatyczne rozmieszczenie etykiet kategorii przy wszystkich 24 widocznych kolumnach](category-axis-automatic.png)
 
-**Ręczne rozmieszczanie (slajd 2):** Co trzecia etykieta jest wyświetlana w jednej linii, podczas gdy znaczniki podziałek pozostają przy każdym interwale kategorii. Wszystkie 24 kolumny, w tym te bez etykiet, pozostają widoczne z tymi samymi wartościami. Slajd 3 przywraca automatyczny wygląd przedstawiony powyżej.
+**Ręczne rozmieszczenie (slajd 2):** Co trzecia etykieta jest wyświetlana w jednej linii, podczas gdy znaczniki podziałek pozostają przy każdym interwale kategorii. Wszystkie 24 kolumny, w tym te bez etykiet, pozostają widoczne z tymi samymi wartościami. Slajd 3 przywraca automatyczny wygląd pokazany powyżej.
 
-![Ręczny interwał etykiet kategorii wynoszący trzy przy wszystkich 24 widocznych kolumnach](category-axis-manual.png)
+![Ręczny interwał etykiet kategorii równy trzem przy wszystkich 24 widocznych kolumnach](category-axis-manual.png)
 
 ### **Wybierz właściwą oś i interwał**
 
-Użyj tego interwału liczby kategorii dla tekstowej osi kategorii, takiej jak oś kategorii wykresu kolumnowego, liniowego, powierzchniowego lub słupkowego. W wykresie kolumnowym jest to oś pozioma. W wykresie słupkowym poziomym oś kategorii jest pionowa, więc zastosuj te ustawienia do osi zwróconej przez [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Rozmieszczanie znaczników podziałek dotyczy także osi serii w wykresach, które ją posiadają.
+Użyj tego interwału liczb kategorii dla tekstowej osi kategorii, takiej jak oś kategorii wykresu słupkowego, liniowego, powierzchniowego lub kolumnowego. W wykresie kolumnowym jest to oś pozioma. W wykresie poziomym słupków oś kategorii jest pionowa, więc zastosuj te ustawienia do osi zwróconej przez [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Rozstawienie znaczników podziałek ma też zastosowanie do osi serii w wykresach, które taką posiadają.
 
-Nie używaj rozmieszczania etykiet kategorii do ustawiania numerycznej skali osi wartości. Na osi wartości [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) określa różnicę w wartościach: na przykład jednostka główna `10` generuje podziały przy 0, 10, 20 itd., gdy oś zaczyna się od zera. Interwał etykiet kategorii `3` liczy natomiast pozycje kategorii, niezależnie od ich wartości danych. Wykresy punktowe i bąbelkowe używają osi wartości, a nie tekstowej osi kategorii. Dla osi dat użyj jednostek i skal opartych na czasie, jak opisano w [Change a Category Axis](#change-a-category-axis).
+Nie używaj rozmieszczania etykiet kategorii do ustawiania numerycznej skali osi wartości. Na osi wartości [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) określa różnicę w wartościach: na przykład główna jednostka `10` powoduje podziały przy 0, 10, 20 itd., gdy oś zaczyna się od zera. Interwał etykiet kategorii `3` liczy pozycje kategorii, niezależnie od ich wartości danych. Wykresy rozrzutu i bąbelkowe używają osi wartości, a nie tekstowej osi kategorii. Dla osi dat użyj jednostek i skal czasowych opisanych w sekcji [Zmień oś kategorii](#zmień-osi-kategorii).
 
 ## **Ustaw format daty dla wartości osi kategorii**
 
-Przykład zastępuje domyślne dane wykresu czterema rocznymi wartościami. Daty są przechowywane jako liczby seryjne OLE Automation w pierwszym arkuszu (indeks `0`), obliczane jako liczba dni od 30 grudnia 1899 dla tych dat. Użyj [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) z `CategoryAxisType::Date`, wywołaj [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) z `false` i przekaż `yyyy` do [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) , aby etykiety kategorii wyświetlały czterocyfrowe lata niezależnie od formatowania komórek.
+Przykład zastępuje domyślne dane wykresu czterema rocznymi wartościami. Daty są przechowywane jako liczby seryjne OLE Automation w pierwszym arkuszu (indeks `0`), obliczane jako liczba dni od 30 grudnia 1899. Użyj [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) z `CategoryAxisType::Date`, wywołaj [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) z `false` i przekaż `yyyy` do [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/), aby etykiety kategorii wyświetlały czterocyfrowe lata niezależnie od formatowania komórek.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -287,7 +287,7 @@ try {
 
 ## **Ustaw kąt obrotu tytułu osi wykresu**
 
-Wywołaj [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) z `true` na pionowej osi, podaj tekst tytułu i użyj [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) , aby obrócić tytuł. Kąt jest mierzony w stopniach; ten przykład zapisuje wykres kolumnowy z tytułem osi wartości obróconym o 90 stopni.
+Wywołaj [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) z wartością `true` na pionowej osi, podaj tekst tytułu i użyj [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) aby obrócić tytuł. Kąt podawany jest w stopniach; przykład zapisuje wykres kolumnowy z tytułem osi wartości obróconym o 90 stopni.
 
 ```php
 use aspose\slides\ChartType;
@@ -309,9 +309,9 @@ try {
 }
 ```
 
-## **Ustaw położenie osi na osi kategorii lub wartości**
+## **Ustaw pozycję osi na osi kategorii lub wartości**
 
-Użyj [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) , aby kontrolować, czy oś wartości przecina oś kategorii pomiędzy kategoriami, czy na znacznikach podziałek kategorii. To ustawienie dotyczy osi kategorii. Przykład ustawia je na `true` na poziomej osi kategorii wykresu kolumnowego i zapisuje wynik.
+Użyj [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) aby kontrolować, czy oś wartości przecina oś kategorii pomiędzy kategoriami czy na znacznikach podziałek kategorii. To ustawienie dotyczy osi kategorii. Przykład ustawia je na `true` na poziomej osi kategorii wykresu kolumnowego i zapisuje wynik.
 
 ```php
 use aspose\slides\ChartType;
@@ -333,7 +333,7 @@ try {
 
 ## **Ustaw jednostkę wyświetlania na osi wartości wykresu**
 
-Użyj [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) , aby skalować etykiety na osi wartości bez zmiany podstawowych danych. Gdy [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) jest ustawiony na `Millions`, wartość 60 000 000 jest wyświetlana jako 60. Przykład tworzy wykres kolumnowy i stosuje jednostkę wyświetlania w milionach do jego pionowej osi.
+Użyj [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) aby skalować etykiety na osi wartości bez zmiany danych źródłowych. Przy ustawieniu [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) na `Millions`, wartość 60 000 000 jest wyświetlana jako 60. Przykład tworzy wykres kolumnowy i stosuje jednostkę wyświetlania „miliony” do jego pionowej osi.
 
 ```php
 use aspose\slides\ChartType;
@@ -354,12 +354,83 @@ try {
 }
 ```
 
+## **Skonfiguruj logarytmiczną oś wartości**
+
+Logarytmiczna oś wartości jest przydatna, gdy dodatnie wartości rozciągają się na kilka rzędów wielkości. Na przykład usługa może otrzymywać 10, 100, 1 000, 10 000 i 100 000 żądań w pięciu okresach. Na skali liniowej mniejsze wartości są skupione blisko zera. Skala logarytmiczna ułatwia porównanie ich względnego wzrostu: równe odległości oznaczają równe stosunki, a nie równe różnice.
+
+Wywołaj [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) z wartością `true` na osi wartości i użyj [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) aby wybrać podstawę. Zmienia to sposób wyświetlania istniejących wartości; nie zmienia danych ani nie dodaje logarytmicznej linii trendu. Linia trendu reprezentuje dopasowaną zależność w danych i jest odrębną funkcją.
+
+### **Wybierz oś wartości i podstawę**
+
+Dla wykresu liniowego lub kolumnowego oś wartości zwracana jest przez [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Dla wykresu poziomego słupka jest to [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Wykresy rozrzutu i bąbelkowe mają dwie osie wartości, więc wybierz oś poziomą dla wartości X, pionową dla Y lub obie. Nie stosuj skalowania logarytmicznego do osi kategorii.
+
+Domyślna podstawa logarytmu to `10`. Dla wykresów PPTX można używać podstaw od `2` do `1000` włącznie; obsługiwane są także ułamkowe podstawy, takie jak `2.5`. Przy podstawie `10` kolejne potęgi (10, 100, 1 000, 10 000) są równomiernie rozmieszczone.
+
+### **Porównaj skalowanie liniowe i logarytmiczne**
+
+Poniższy samodzielny przykład tworzy wykres liniowy z pięcioma liczbami żądań na pierwszym slajdzie, a następnie klonuje ten slajd i włącza logarytmiczną oś wartości o podstawie 10 na drugim. Oba slajdy zachowują te same dane.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 30, 40, 660, 200);
+
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Line);
+    $values = [10, 100, 1000, 10000, 100000];
+
+    for ($i = 0; $i < count($values); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Period " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    }
+
+    // Utrzymaj pierwszy slajd jako liniowy i zmień tylko skalę osi wartości w kopii.
+    $logarithmicSlide = $presentation->getSlides()->addClone($slide);
+    $logarithmicChart = $logarithmicSlide->getShapes()->get_Item(0);
+    $valueAxis = $logarithmicChart->getAxes()->getVerticalAxis();
+    $valueAxis->setLogarithmic(true);
+    $valueAxis->setLogBase(10);
+
+    $presentation->save("LogarithmicAxis.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+**Skala liniowa (slajd 1):** Równe odległości pionowe reprezentują równe różnice w liczbie żądań. Największa wartość dominuje wykres, co utrudnia rozróżnienie mniejszych wartości.
+
+![Wykres liniowy w PowerPoint pokazujący pięć liczby żądań na osi wartości liniowej](value-axis-linear.png)
+
+**Skala logarytmiczna (slajd 2):** Równe odległości pionowe reprezentują równe stosunki. Każdy okres ma dziesięciokrotnie więcej żądań niż poprzedni, więc punkty tworzą prostą rosnącą linię na skali logarytmicznej o podstawie 10. Etykiety osi wciąż pokazują oryginalne liczby żądań.
+
+![Te same pięć liczby żądań w PowerPoint na logarytmicznej osi wartości o podstawie 10](value-axis-logarithmic.png)
+
+### **Obsługa zer i wartości ujemnych**
+
+Skala logarytmiczna może wyświetlać wyłącznie wartości ściśle dodatnie. Sprawdź dane przed jej włączeniem. Jeśli zero lub wartości ujemne mają znaczenie, zachowaj skalę liniową lub pokaż je oddzielnie. Jeśli ich wykluczenie jest uzasadnione, wyjaśnij pominięcie. Nie zastępuj ich cicho małymi dodatnimi liczbami, ponieważ zmienia to znaczenie danych. Każde ręcznie ustawione minimum lub maksimum dla logarytmicznej osi musi być także dodatnie.
+
 ## **FAQ**
 
 **Jak ustawić wartość, w której jedna oś przecina drugą (przecięcie osi)?**
 
-Użyj [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) , aby wybrać zachowanie przecięcia. Aby określić numeryczną wartość przecięcia, użyj [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/) . Te ustawienia pozwalają przenieść przecięcie osi do odpowiedniej linii bazowej.
+Użyj [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) aby wybrać zachowanie przecięcia. Aby określić numeryczną wartość przecięcia, użyj [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Te ustawienia pozwalają przesunąć przecięcie osi do odpowiedniej linii bazowej.
 
 **Jak mogę pozycjonować etykiety podziałek względem osi?**
 
-Wywołaj [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) , używając [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/) : `Low`, `High`, `NextTo` lub `None`. Aby kontrolować same znaczniki podziałek, użyj [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) lub [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/) ; są one oddzielne od pozycjonowania etykiet.
+Wywołaj [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) używając [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` lub `None`. Aby kontrolować same znaczniki podziałek, użyj [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) lub [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); są one oddzielne od pozycjonowania etykiet.

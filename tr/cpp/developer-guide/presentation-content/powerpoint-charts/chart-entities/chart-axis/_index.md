@@ -1,6 +1,6 @@
 ---
 title: C++ Kullanarak Sunumlarda Grafik Eksenlerini Özelleştirme
-linktitle: Grafik Ekseni
+linktitle: Grafik Eksenleri
 type: docs
 url: /tr/cpp/chart-axis/
 keywords:
@@ -11,8 +11,8 @@ keywords:
 - eksen manipülasyonu
 - eksen yönetimi
 - eksen özellikleri
-- maksimum değer
-- minimum değer
+- azami değer
+- asgari değer
 - eksen çizgisi
 - tarih biçimi
 - eksen başlığı
@@ -21,17 +21,17 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Raporlar ve görselleştirmeler için PowerPoint sunumlarında grafik eksenlerini özelleştirmek üzere Aspose.Slides for C++ kullanımını keşfedin."
+description: "Aspose.Slides for C++'ı kullanarak raporlar ve görselleştirmeler için PowerPoint sunumlarında grafik eksenlerini nasıl özelleştireceğinizi keşfedin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for C++ ile grafik eksenlerini nasıl özelleştireceğinizi açıklamaktadır. Hesaplanmış eksen değerleri, grafik satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve işaretçi aralıkları, tarih kategorileri ve biçimlendirme, başlık dönüşü, eksen konumlandırması ve görüntü birimlerini kapsar.
+Bu makale, Aspose.Slides for C++ ile grafik eksenlerini nasıl özelleştireceğinizi açıklar. Hesaplanmış eksen değerleri, grafik satır ve sütunlarını değiştirme, eksen görünürlüğü, kategori etiketi ve tik işareti aralıkları, tarih kategorileri ve biçimlendirme, başlık döndürme, eksen konumlandırma, görüntü birimleri ve logaritmik ölçeklendirme konularını kapsar.
 
-## **Grafiklerde Dikey Eksende Maksimum Değerleri Almak**
+## **Grafiklerde Dikey Eksenin Azami Değerlerini Almak**
 
-Bir [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) oluşturun ve varsayılan verilerle bir alan grafiği ekleyin. Hesaplanmış eksen değerlerini okumadan önce grafiğin düzeninin güncel olmasını sağlamak için [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) çağırın.
+Create a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) and add an area chart with default data. Call [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) before reading calculated axis values so that the chart layout is up to date.
 
-Axis limits için [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) ve [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) okuyun, işaret aralıkları için [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) ve [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) okuyun. [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) ve [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) tarih eksenleriyle ilgili zaman birimi ölçeklerini sağlar. Örnek bu değerleri yerel değişkenlerde saklar ve grafiği kaydeder.
+Read [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) and [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) for the axis limits, and [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) and [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) for the tick intervals. [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) and [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) provide time-unit scales, which are relevant to date axes. The example stores these values in local variables and saves the chart.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -67,7 +67,7 @@ presentation->Save(u"AxisValues_out.pptx", SaveFormat::Pptx);
 
 ## **Eksenler Arasındaki Verileri Değiştir**
 
-Grafik verilerinde seriler ve kategorilerin rollerini değiştirmek için [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) kullanın. Önceden kategori olan her şey seri, önceden seri olan her şey kategori olur. Bu, verilerin gruplandırma biçimini değiştirir; yatay ve dikey eksenleri değiştirmez. Örnek, satır ve sütunları değiştirmeden önce varsayılan verileri `Sheet1!A1:D5` adresine, başlık satırı ve kategori sütunu dahil olmak üzere bağlamak için [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) kullanır. Dört seri ve üç kategori içeren bir grafik kaydeder.
+Use [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) to exchange the roles of series and categories in chart data. Each former category becomes a series, and each former series becomes a category. This changes how the data is grouped; it does not exchange the horizontal and vertical axes. The example uses [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) to bind the default data to `Sheet1!A1:D5`, including the header row and category column, before switching rows and columns. It saves a chart with four series and three categories.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -95,9 +95,9 @@ chart->get_ChartData()->SwitchRowColumn();
 presentation->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Çizgi Grafiklerinde Dikey Ekseni Devre Dışı Bırak**
+## **Çizgi Grafiklerde Dikey Eksen'i Devre Dışı Bırak**
 
-Vertical eksen üzerinde `false` ile [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) kullanarak ekseni gizleyin. Örnek, varsayılan verilerle bir çizgi grafiği oluşturur ve dikey ekseni gizlenmiş olarak kaydeder.
+Use [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) with `false` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -122,9 +122,9 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 presentation->Save(u"HiddenVerticalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Çizgi Grafiklerinde Yatay Ekseni Devre Dışı Bırak**
+## **Çizgi Grafiklerde Yatay Eksen'i Devre Dışı Bırak**
 
-Horizontal eksen üzerinde `false` ile [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) kullanarak ekseni gizleyin. Örnek, varsayılan verilerle bir çizgi grafiği oluşturur ve yatay ekseni gizlenmiş olarak kaydeder.
+Use [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) with `false` on the horizontal axis to hide it. The example creates a line chart with default data and saves it with the horizontal axis hidden.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -149,9 +149,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 presentation->Save(u"HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Kategori Eksenini Değiştir**
+## **Kategorik Ekseni Değiştir**
 
-Date veya metin kategori ekseni seçmek için [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) kullanın. Bu örnek, ilk slayttaki ilk şekil olarak bir grafik ve kategori hücrelerinde sayısal Excel tarih değerleri bulunan `ExistingChart.pptx` dosyasını gerektirir. Yatay ekseni tarih ekseni olarak değiştirir. [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) `1` ve [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) `Months` ile çağırmak, büyük işaretçileri bir aylık aralıklarla yerleştirir.
+Use [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) with `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) with `1`, and [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) with months places major ticks at one-month intervals.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -182,21 +182,21 @@ chart->get_Axes()->get_HorizontalAxis()->set_MajorUnitScale(TimeUnitType::Months
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Kategori Ekseni Etiket Aralıklarını Kontrol Et**
+## **Kategorik Eksen Etiket Aralıklarını Kontrol Et**
 
-Bir grafik çok sayıda kategoriye sahip olduğunda, kategorileri veya veri noktalarını kaldırmadan görünür eksen etiketlerinin sayısını azaltın. [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) `false` ile kullanın, ardından istediğiniz kategori aralığıyla [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) kullanın. Normal sıradaki metin kategorileri için sayma ilk kategoriden başlar:
+When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Use [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) with `false`, then use [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) with the desired category interval. For text categories in their normal order, counting starts at the first category:
 
-| Aralık | Örnekte görüntülenen etiketler |
+| Aralık | Örnekte gösterilen etiketler |
 | --- | --- |
-| `1` | Kategori 1, Kategori 2, Kategori 3, ... Kategori 24 |
-| `2` | Kategori 1, Kategori 3, Kategori 5, ... Kategori 23 |
-| `3` | Kategori 1, Kategori 4, Kategori 7, ... Kategori 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-`3` aralığı her üçüncü etiketi gösterir, gösterilen etiketler arasında iki etiket gizli kalır. İlgili sütunları kaldırmaz. Otomatik aralık, mevcut alana göre bir aralık seçer; her etiketi göstermek zorunda değildir.
+An interval of `3` displays every third label, leaving two labels hidden between displayed labels. It does not remove the corresponding columns. Automatic spacing chooses an interval based on the available space; it does not necessarily display every label.
 
-İşaretçilerin ayrı kontrolleri vardır. [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) `false` ile kullanın ve aralıklarını ayarlamak için [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) kullanın. Örneğin, `1` her kategori aralığında bir işaretçi tutar, ancak etiketler sadece her üçüncü kategoride görünür. Sonucu görebilmek için [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) görünür bir stil ile kullanın. Otomatik aralık özelliği `true` olarak ayarlandığında grafik tekrar o aralığı seçer.
+Tick marks have separate controls. Use [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) with `false` and use [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) to set their interval. For example, `1` keeps a tick mark at every category interval while labels appear only every third category. Use [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) with a visible style so you can see the result. Setting either automatic-spacing property back to `true` lets the chart choose that interval again.
 
-Aşağıdaki bağımsız örnek 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız işaretçilerle manuel etiket aralığı ve geri yüklenmiş otomatik aralık. İki kopya orijinal grafik verilerini korur. Giriş sunumu gerekmez. Yatay etiket metni, yoğunluk farkını görmeyi kolaylaştırır.
+The following self-contained example creates 24 categories and one series, then saves three slides in `CategoryAxisIntervals.pptx`: automatic spacing, manual label spacing with independent tick marks, and restored automatic spacing. The two copies retain the original chart data. No input presentation is required. Horizontal label text makes the difference in density easy to see.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -256,7 +256,7 @@ axis->set_MajorTickMark(TickMarkType::Outside);
 axis->set_IsAutomaticTickLabelSpacing(true);
 axis->set_IsAutomaticTickMarksSpacing(true);
 
-// Slayt 2: her üçüncü etiketi göster, ancak her kategori için bir işaretçi tut.
+// Slayt 2: her üçüncü etiketi göster, ancak her kategori için bir tik işareti koru.
 auto manualSlide = presentation->get_Slides()->AddClone(slide);
 auto manualChart = System::ExplicitCast<IChart>(manualSlide->get_Shape(0));
 auto manualAxis = manualChart->get_Axes()->get_HorizontalAxis();
@@ -274,23 +274,23 @@ restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickMarksSpacing
 presentation->Save(u"CategoryAxisIntervals.pptx", SaveFormat::Pptx);
 ```
 
-**Otomatik aralık (slayt 1):** Bu renderda her ikinci kategori etiketi görüntülenir ve iki satıra kayar. Otomatik sonuç grafik boyutu, yazı tipleri ve renderlayıcıya göre değişebilir.
+**Automatic spacing (slide 1):** In this rendering, every second category label is displayed and wraps onto two lines. The automatic result can vary with chart size, fonts, and the renderer.
 
-![24 sütunun tümü görünürken otomatik kategori etiketi aralığı](category-axis-automatic.png)
+![Tüm 24 sütun görünürken otomatik kategori etiketi aralığı](category-axis-automatic.png)
 
-**Manuel aralık (slayt 2):** Her üçüncü etiket bir satırda görüntülenir, işaretçiler ise her kategori aralığında kalır. Etiketsiz olanlar dahil 24 sütun aynı değerlerle görünür. Slayt 3, yukarıdaki otomatik görünümü geri yükler.
+**Manual spacing (slide 2):** Every third label is displayed on one line, while tick marks remain at every category interval. All 24 columns, including those without labels, remain visible with the same values. Slide 3 restores the automatic appearance shown above.
 
-![Üçer aralıkla manuel kategori etiketi, 24 sütunun tümü görünür](category-axis-manual.png)
+![Manuel kategori etiketi aralığı üç ile tüm 24 sütun görünürken](category-axis-manual.png)
 
 ### **Doğru Eksen ve Aralığı Seç**
 
-Bu kategori sayısı aralığını, sütun, çizgi, alan veya çubuk grafiğinin kategori ekseni gibi bir metin kategori ekseni için kullanın. Sütun grafiğinde yatay eksendir. Yatay çubuk grafiğinde kategori ekseni düşey olduğu için bu ayarları [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/) üzerine uygulayın. İşaretçi aralığı, bir seri ekseni bulunan grafikleri de etkiler.
+Use this category-count interval for a text category axis, such as the category axis of a column, line, area, or bar chart. In a column chart, it is the horizontal axis. In a horizontal bar chart, the category axis is vertical, so apply these settings to [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Tick-mark spacing also applies to a series axis in charts that have one.
 
-Kategori etiketi aralığını bir değer ekseninin sayısal ölçeğini ayarlamak için kullanmayın. Değer ekseninde, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) değer farkını belirtir: örneğin, `10` bir büyük birim, eksen sıfırda başladığında 0, 10, 20 vb. işaretçiler üretir. `3` kategori etiketi aralığı ise veri değerlerinden bağımsız olarak kategori konumlarını sayar. Dağılım ve balon grafikler metin kategori ekseni yerine değer eksenleri kullanır. Tarih ekseni için, [Change a Category Axis](#change-a-category-axis) bölümünde açıklandığı gibi zaman tabanlı büyük birimler ve ölçekler kullanın.
+Do not use category label spacing to set the numeric scale of a value axis. On a value axis, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) specifies a difference in values: for example, a major unit of `10` produces ticks at 0, 10, 20, and so on when the axis starts at zero. A category label interval of `3` instead counts category positions, regardless of their data values. Scatter and bubble charts use value axes rather than a text category axis. For a date axis, use time-based major units and scales as described in [Kategorik Ekseni Değiştir](#change-a-category-axis).
 
-## **Kategori Eksen Değerleri İçin Tarih Biçimini Ayarla**
+## **Kategori Ekseni Değerleri için Tarih Biçimini Ayarla**
 
-Bu örnek, varsayılan grafik verilerini dört yıllık değerle değiştirir. Tarihler, ilk çalışma sayfasında (indeks `0`) OLE Automation seri numaraları olarak saklanır. Tarih ekseni seçmek için [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) kullanın, kaynakla bağlı biçimlendirmeyi [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/) ile devre dışı bırakın ve kategori etiketlerinin hücre biçimlendirmesinden bağımsız olarak dört haneli yıl görüntülemesi için `yyyy` değerini [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) ile atayın.
+The example replaces the default chart data with four annual values. Dates are stored as OLE Automation serial numbers in the first worksheet (index `0`). Use [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) to select a date axis, disable source-linked formatting with [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), and assign `yyyy` with [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) so the category labels display four-digit years independently of the cell formatting.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -345,9 +345,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_NumberFormat(u"yyyy");
 presentation->Save(u"DateAxisFormat.pptx", SaveFormat::Pptx);
 ```
 
-## **Grafik Eksen Başlığı İçin Döndürme Açısı Ayarla**
+## **Bir Grafik Eksen Başlığı İçin Döndürme Açısını Ayarla**
 
-[set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/) ile dikey eksen başlığını etkinleştirin, başlık metnini sağlayın ve başlığı döndürmek için [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/) kullanın. Açı derece cinsindendir; bu örnek, değer ekseni başlığı 90 derece döndürülmüş bir sütun grafiği kaydeder.
+Enable the vertical-axis title with [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), provide title text, and use [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/) to rotate the title. The angle is measured in degrees; this example saves a column chart with its value-axis title rotated by 90 degrees.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -377,9 +377,9 @@ chart->get_Axes()->get_VerticalAxis()->get_Title()->get_TextFormat()->get_TextBl
 presentation->Save(u"RotatedAxisTitle.pptx", SaveFormat::Pptx);
 ```
 
-## **Kategori veya Değer Ekseninde Eksen Konumunu Ayarla**
+## **Kategori veya Değer Ekseni Üzerinde Eksen Konumunu Ayarla**
 
-[set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) kullanarak değer ekseninin kategori eksenini kategoriler arasında mı yoksa kategori işaretçileri üzerinde mi kestiğini kontrol edin. Bu özellik kategori eksenlerine uygulanır. Örnek, bir sütun grafiğinin yatay kategori ekseninde bunu `true` olarak ayarlar ve sonucu kaydeder.
+Use [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) to control whether the value axis crosses the category axis between categories or at category tick marks. This property applies to category axes. The example sets it to `true` on the horizontal category axis of a column chart and saves the result.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -406,7 +406,7 @@ presentation->Save(u"AxisBetweenCategories.pptx", SaveFormat::Pptx);
 
 ## **Grafik Değer Ekseninde Görüntü Birimini Ayarla**
 
-[set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) kullanarak bir değer eksenindeki etiketleri veri değiştirmeden ölçeklendirin. [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) `Millions` (Milyon) olarak ayarlandığında 60.000.000 değeri 60 olarak gösterilir. Örnek bir sütun grafiği oluşturur ve düşey eksenine milyon gösterim birimini uygular.
+Use [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) to scale the labels on a value axis without changing the underlying data. With [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) set to `Millions`, a value of 60,000,000 is displayed as 60. The example creates a column chart and applies the millions display unit to its vertical axis.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -432,12 +432,100 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 presentation->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
+## **Logaritmik Değer Ekseni Yapılandır**
+
+A logarithmic value axis is useful when positive values span several orders of magnitude. For example, a service might receive 10, 100, 1,000, 10,000, and 100,000 requests over five periods. On a linear scale, the smaller values appear close together near zero. A logarithmic scale makes their relative growth easier to compare: equal distances represent equal ratios rather than equal differences.
+
+Call [set_IsLogarithmic](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_islogarithmic/) with `true` on the value axis and use [set_LogBase](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_logbase/) to choose the base. This changes how the existing values are displayed; it does not change the data or add a logarithmic trend line. A trend line represents a fitted relationship in the data and is a separate feature.
+
+### **Değer Eksenini ve Tabanı Seç**
+
+For a line or column chart, the value axis is [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). For a horizontal bar chart, it is [get_HorizontalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_horizontalaxis/). Scatter and bubble charts have two value axes, so choose the horizontal axis for X values, the vertical axis for Y values, or both. Do not apply logarithmic scaling to a category axis.
+
+The default logarithmic base is `10`. For PPTX charts, use a base from `2` through `1000`, inclusive; fractional bases such as `2.5` are also supported. With base `10`, successive powers such as 10, 100, 1,000, and 10,000 are equally spaced.
+
+### **Doğrusal ve Logaritmik Ölçeklendirmeyi Karşılaştır**
+
+The following self-contained example creates a line chart with the five request counts on the first slide, then clones that slide and enables a base-10 logarithmic value axis on the second. Both slides retain the same data.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 30, 40, 660, 200);
+
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Line);
+auto values = std::array<double, 5>{10, 100, 1000, 10000, 100000};
+
+for (auto i = 0; i < values.size(); i++)
+{
+    auto categoryName = System::String::Format(u"Period {0}", i + 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(categoryName));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
+}
+
+// İlk slaytı lineer tut ve yalnızca kopyanın değer ekseni ölçeğini değiştir.
+auto logarithmicSlide = presentation->get_Slides()->AddClone(slide);
+auto logarithmicChart = System::ExplicitCast<IChart>(logarithmicSlide->get_Shape(0));
+auto valueAxis = logarithmicChart->get_Axes()->get_VerticalAxis();
+valueAxis->set_IsLogarithmic(true);
+valueAxis->set_LogBase(10);
+
+presentation->Save(u"LogarithmicAxis.pptx", SaveFormat::Pptx);
+```
+
+**Linear scale (slide 1):** Equal vertical distances represent equal differences in request counts. The largest value dominates the chart, making the smaller values difficult to distinguish.
+
+![PowerPoint'te line chart showing five request counts on a linear value axis](value-axis-linear.png)
+
+**Logarithmic scale (slide 2):** Equal vertical distances represent equal ratios. Each period has ten times as many requests as the previous one, so the points form a straight rising line on the base-10 scale. The axis labels still show the original request counts.
+
+![PowerPoint'te the same five request counts on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+
+### **Sıfır ve Negatif Değerleri İşle**
+
+A logarithmic scale can display only strictly positive values. Check the data before enabling it. If zero or negative values are meaningful, keep a linear scale or show them separately. If excluding those values is appropriate for the analysis, explain the omission. Do not silently replace them with small positive numbers, as this changes the meaning of the data. Any manually configured minimum or maximum for a logarithmic axis must also be positive.
+
 ## **SSS**
 
-**Bir eksenin diğerini kestiği değeri (ekseni kesişim) nasıl ayarlarım?**
+**Bir eksenin diğerini kestiği değeri (eks kesişimi) nasıl ayarlarım?**
 
-Kesişme davranışını seçmek için [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) kullanın. Sayısal bir kesişim değeri belirtmek için [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/) kullanın; bu ayarlar eksen kesişimini uygun bir referans çizgisine taşımanızı sağlar.
+Use [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) to select the crossing behavior. To specify a numeric crossing value, use [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). These settings let you move the axis crossing to a suitable baseline.
 
-**İşaretçi etiketlerini eksene göre nasıl konumlandırabilirim?**
+**Tik etiketlerini eksene göre nasıl konumlandırabilirim?**
 
-[set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) ile [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/) değerlerinden birini kullanın: `Low`, `High`, `NextTo` veya `None`. İşaretçileri kendilerini kontrol etmek için [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) veya [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/) kullanın; bunlar etiket konumlandırmasından ayrı özelliklerdir.
+Use [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) with a value from [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo`, or `None`. To control the tick marks themselves, use [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) or [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); these are separate from label positioning.

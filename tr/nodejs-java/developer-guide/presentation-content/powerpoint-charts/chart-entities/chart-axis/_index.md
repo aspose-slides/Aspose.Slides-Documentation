@@ -1,5 +1,5 @@
 ---
-title: JavaScript Kullanarak Sunumlarda Grafik Eksenlerini Özelleştir
+title: JavaScript ile Sunumlarda Grafik Eksenlerini Özelleştirme
 linktitle: Grafik Ekseni
 type: docs
 url: /tr/nodejs-java/chart-axis/
@@ -7,14 +7,14 @@ keywords:
 - grafik ekseni
 - dikey eksen
 - yatay eksen
-- eksen özelleştir
-- eksen manipüle et
-- eksen yönet
+- eksen özelleştirme
+- eksen manipülasyonu
+- eksen yönetimi
 - eksen özellikleri
-- maksimum değer
-- minimum değer
+- azami değer
+- asgari değer
 - eksen çizgisi
-- tarih biçimi
+- tarih formatı
 - eksen başlığı
 - eksen konumu
 - PowerPoint
@@ -22,17 +22,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Java ile Node.js için Aspose.Slides kullanarak PowerPoint sunumlarında grafik eksenlerini raporlar ve görselleştirmeler için nasıl özelleştireceğinizi keşfedin."
+description: "Raporlar ve görselleştirmeler için PowerPoint sunumlarında grafik eksenlerini özelleştirmek amacıyla Java aracılığıyla Node.js için Aspose.Slides ile JavaScript kullanımını keşfedin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Node.js via Java ile grafik eksenlerini nasıl özelleştireceğinizi açıklar. Hesaplanan eksen değerleri, grafik satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve tik işareti aralıkları, tarih kategorileri ve biçimlendirme, başlık dönüşü, eksen konumlandırması ve görüntü birimleri ele alınır.
+Bu makale, Aspose.Slides for Node.js via Java kullanarak grafik eksenlerini nasıl özelleştireceğinizi açıklar. Hesaplanan eksen değerleri, grafik satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve tik işareti aralıkları, tarih kategorileri ve biçimlendirme, başlık döndürme, eksen konumlandırma, görüntü birimleri ve logaritmik ölçeklendirme konularını kapsar.
 
-## **Grafiklerde Dikey Eksende Maksimum Değerleri Al**
+## **Grafiklerde Dikey Eksende Azami Değerleri Al**
 
-Bir [Sunum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) oluşturun ve varsayılan verilerle bir alan grafik ekleyin. Hesaplanan eksen değerlerini okumadan önce grafik düzeninin güncel olmasını sağlamak için [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) çağırın.
+Bir [Sunum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) oluşturun ve varsayılan veriyle bir alan grafik ekleyin. Hesaplanan eksen değerlerini okumadan önce grafik düzeninin güncel olduğundan emin olmak için [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) çağırın.
 
-Eksen sınırları için [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) ve [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) okuyun, tik aralıkları için ise [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) ve [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) çağırın. Tarih eksenleriyle ilgili zaman birimi ölçeklerini sağlamak için [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) ve [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) kullanılır. Örnek bu değerleri yerel değişkenlerde saklar ve grafiği kaydeder.
+Eksen sınırları için [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) ve [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) okuyun, tik aralıkları için [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) ve [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) kullanın. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) ve [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) tarih eksenleriyle ilgili zaman birimi ölçeklerini sağlar. Örnek bu değerleri yerel değişkenlerde saklar ve grafiği kaydeder.
 
 ```javascript
 var aspose = aspose || {};
@@ -60,9 +60,9 @@ try {
 }
 ```
 
-## **Verileri Eksenler Arasında Değiştir**
+## **Eksenler Arasındaki Veriyi Değiştir**
 
-[switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) kullanarak grafik verilerindeki seriler ve kategoriler arasındaki rolleri değiştirin. Her önceki kategori bir seri, her önceki seri ise bir kategori olur. Bu, verilerin nasıl gruplanacağını değiştirir; yatay ve dikey eksenleri değiştirmez. Örnek, varsayılan verileri `Sheet1!A1:D5` adresine, başlık satırı ve kategori sütunu dahil olmak üzere bağlamak için [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) kullanır, ardından satır ve sütunları değiştirir. Dört seri ve üç kategori içeren bir grafik kaydeder.
+Grafik verilerinde seriler ve kategorilerin rollerini değiştirmek için [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) kullanın. Her eski kategori bir seri olur, her eski seri ise bir kategori olur. Bu, verinin nasıl gruplanacağını değiştirir; yatay ve dikey eksenleri değiştirmez. Örnek, satır ve sütunları değiştirmeden önce varsayılan veriyi `Sheet1!A1:D5` adresine, başlık satırı ve kategori sütununu da dahil ederek bağlamak için [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) kullanır. Dört seri ve üç kategori içeren bir grafik kaydeder.
 
 ```javascript
 var aspose = aspose || {};
@@ -82,9 +82,9 @@ try {
 }
 ```
 
-## **Çizgi Grafiklerde Dikey Ekseni Devre Dışı Bırak**
+## **Çizgi Grafiklerinde Dikey Ekseni Devre Dışı Bırak**
 
-Dikey eksende `false` ile [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) çağırarak ekseni gizleyin. Örnek, varsayılan verilerle bir çizgi grafik oluşturur ve dikey ekseni gizlenmiş olarak kaydeder.
+Dikey ekseni gizlemek için `false` ile [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) çağırın. Örnek, varsayılan veriyle bir çizgi grafik oluşturur ve dikey ekseni gizli olarak kaydeder.
 
 ```javascript
 var aspose = aspose || {};
@@ -103,9 +103,9 @@ try {
 }
 ```
 
-## **Çizgi Grafiklerde Yatay Ekseni Devre Dışı Bırak**
+## **Çizgi Grafiklerinde Yatay Ekseni Devre Dışı Bırak**
 
-Yatay eksende `false` ile [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) çağırarak ekseni gizleyin. Örnek, varsayılan verilerle bir çizgi grafik oluşturur ve yatay ekseni gizlenmiş olarak kaydeder.
+Yatay ekseni gizlemek için `false` ile [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) çağırın. Örnek, varsayılan veriyle bir çizgi grafik oluşturur ve yatay ekseni gizli olarak kaydeder.
 
 ```javascript
 var aspose = aspose || {};
@@ -124,9 +124,9 @@ try {
 }
 ```
 
-## **Bir Kategori Ekseni Değiştir**
+## **Bir Kategori Eksenini Değiştir**
 
-[setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) kullanarak tarih veya metin kategori ekseni seçin. Bu örnek `ExistingChart.pptx` dosyasını gerektirir; ilk slayttaki ilk şekil bir grafiktir ve kategori hücreleri sayısal Excel tarih değerleri içerir. Yatay ekseni tarih ekseni olarak değiştirir. [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) `1` ve [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) `TimeUnitType.Months` ile ana tikler bir‑ay aralıklarla yer alır.
+[setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) kullanarak tarih veya metin kategori ekseni seçin. Bu örnek, ilk slayttaki ilk şekil olarak bir grafik içeren ve kategori hücrelerinde sayısal Excel tarih değerleri bulunan `ExistingChart.pptx` dosyasını gerektirir. Yatay ekseni tarih ekseni haline getirir. [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) için `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) için `1` ve [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) için `TimeUnitType.Months` ayarlayarak büyük tikleri bir aylık aralıklarla yerleştirir.
 
 ```javascript
 var aspose = aspose || {};
@@ -150,19 +150,19 @@ try {
 
 ## **Kategori Ekseni Etiket Aralıklarını Kontrol Et**
 
-Grafikte çok sayıda kategori olduğunda, kategorileri veya veri noktalarını kaldırmadan görünür eksen etiketlerinin sayısını azaltın. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) `false` olarak ayarlayın, ardından istenen kategori aralığını [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/) ile gönderin. Metin kategorileri normal sıralarında iken sayım ilk kategoriden başlar:
+Bir grafik çok sayıda kategori içerdiğinde, kategorileri veya veri noktalarını kaldırmadan görünen eksen etiketlerinin sayısını azaltın. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) için `false` ayarlayın, ardından istenen kategori aralığını [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/) ile geçirin. Normal sıradaki metin kategorileri için sayma ilk kategoriden başlar:
 
-| Aralık | Örnekte görüntülenen etiketler |
+| Aralık | Örnekte Görüntülenen Etiketler |
 | --- | --- |
-| `1` | Kategori 1, Kategori 2, Kategori 3, … Kategori 24 |
-| `2` | Kategori 1, Kategori 3, Kategori 5, … Kategori 23 |
-| `3` | Kategori 1, Kategori 4, Kategori 7, … Kategori 22 |
+| `1` | Kategori 1, Kategori 2, Kategori 3, ... Kategori 24 |
+| `2` | Kategori 1, Kategori 3, Kategori 5, ... Kategori 23 |
+| `3` | Kategori 1, Kategori 4, Kategori 7, ... Kategori 22 |
 
-`3` aralığı her üçüncü etiketi gösterir, gösterilen etiketler arasında iki etiket gizlenir. İlgili sütunlar kaldırılmaz. Otomatik aralık, mevcut boşluğa göre bir aralık seçer; her etiketi mutlaka göstermez.
+`3` aralığı her üçüncü etiketi görüntüler ve görüntülenen etiketler arasında iki etiket gizli kalır. İlgili sütunlar kaldırılmaz. Otomatik aralık, mevcut boşluğa göre bir aralık seçer; her etiketi mutlaka göstermez.
 
-Tik işaretleri ayrı bir kontrol sahibidir. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) `false` yapın ve [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) ile aralıklarını ayarlayın. Örneğin, `1` her kategori aralığında bir tik işareti bırakırken etiketler yalnızca her üçüncü kategoride görünür. Görünür bir stil ile [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) kullanın, böylece sonucu görebilirsiniz. Otomatik‑aralık ayarlarından birini `true` yaparak grafiğin tekrar otomatik seçmesini sağlayabilirsiniz.
+Tik işaretlerinin ayrı kontrolleri vardır. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) için `false` ayarlayın ve aralıklarını belirlemek için [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) kullanın. Örneğin, `1` her kategori aralığında bir tik işareti bırakırken etiketler yalnızca her üçüncü kategoride görünür. Görünür bir stil ile [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) çağırarak sonucu görebilirsiniz. Otomatik‑aralık ayarını `true` yaparsanız grafik tekrar otomatik aralık seçer.
 
-Aşağıdaki bağımsız örnek 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız tik işaretleriyle manuel etiket aralığı ve otomatik aralığın geri yüklenmesi. İki kopya orijinal grafik verilerini korur. Giriş sunumu gerekmez. Yatay etiket metni, yoğunluk farkını görmek için yardımcı olur.
+Aşağıdaki bağımsız örnek 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız tik işaretleriyle manuel etiket aralığı ve geri getirilen otomatik aralık. İki kopya orijinal grafik verisini korur. Giriş sunumu gerekmez. Yatay etiket metni yoğunluğun farkını görmeyi kolaylaştırır.
 
 ```javascript
 var aspose = aspose || {};
@@ -218,23 +218,23 @@ try {
 }
 ```
 
-**Otomatik aralık (slayt 1):** Bu görüntüde her ikinci kategori etiketi gösterilir ve iki satıra bürünür. Otomatik sonuç grafik boyutu, yazı tipleri ve renderlayıcıya göre değişebilir.
+**Otomatik aralık (slayt 1):** Bu gösterimde her ikinci kategori etiketi görüntülenir ve iki satıra kaydırılır. Otomatik sonuç grafik boyutu, yazı tipleri ve işleyiciye göre değişebilir.
 
-![Tüm 24 sütun görünürken otomatik kategori etiketi aralığı](category-axis-automatic.png)
+![Otomatik kategori etiketi aralığı, 24 sütunun tümü görünür](category-axis-automatic.png)
 
-**Manuel aralık (slayt 2):** Her üçüncü etiket tek satırda gösterilir, tik işaretleri ise her kategori aralığında kalır. Etiketsiz olanlar dahil tüm 24 sütun aynı değerlerle görünür. Slayt 3, yukarıdaki otomatik görünümü geri yükler.
+**Manuel aralık (slayt 2):** Her üçüncü etiket tek satırda görüntülenirken tik işaretleri her kategori aralığında kalır. Etiketsiz olanlar dahil 24 sütun aynı değerlerle görünebilir. Slayt 3 otomatik görünümü geri yükler.
 
-![Tüm 24 sütun görünürken üçlü kategori etiketi aralığı (manuel)](category-axis-manual.png)
+![Manuel kategori etiketi aralığı üç, 24 sütunun tümü görünür](category-axis-manual.png)
 
-### **Doğru Ekseni ve Aralığı Seçin**
+### **Doğru Eksen ve Aralığı Seçin**
 
-Bir sütun, çizgi, alan veya çubuk grafiğinin metin kategori ekseni için bu kategori‑sayısı aralığını kullanın. Sütun grafiğinde yatay eksen buna karşılık gelir. Yatay çubuk grafiğinde kategori ekseni düşeydir; bu ayarları [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) tarafından döndürülen eksene uygulayın. Tik‑işareti aralığı, bir eksene sahip olan grafiklerde seri eksenine de uygulanabilir.
+Metin kategori ekseni için, örneğin bir sütun, çizgi, alan veya çubuk grafiğinin kategori ekseni gibi, bu kategori‑sayısı aralığını kullanın. Bir sütun grafiğinde yatay eksen budur. Yatay çubuk grafiğinde kategori ekseni dikeydir; bu yüzden ayarları [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) tarafından döndürülen eksene uygulayın. Tik işareti aralığı, bir eksen içeren grafiklerde seriler eksenine de uygulanabilir.
 
-Değer ekseninin sayısal ölçeğini ayarlamak için kategori etiketi aralığını kullanmayın. Değer ekseninde [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) bir değer farkını belirler: örneğin `10` ana birim, eksen sıfırdan başladığında 0, 10, 20 … gibi tikler üretir. `3` kategori etiketi aralığı ise veri değerlerinden bağımsız olarak kategori konumlarını sayar. Saçılım ve balon grafikler değer eksenleri kullanır, metin kategori ekseni değildir. Tarih ekseni için, [Change a Category Axis](#change-a-category-axis) bölümünde açıklandığı gibi zaman temelli ana birimler ve ölçekler kullanın.
+Değer ekseninin sayısal ölçeğini ayarlamak için kategori etiketi aralığını kullanmayın. Değer ekseninde [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) değer farkını belirtir: örneğin `10` bir birim, eksen sıfırdan başlıyorsa 0, 10, 20 vb. oluşturur. `3` kategori etiketi aralığı yalnızca kategori konumlarını sayar, veri değerlerinden bağımsızdır. Dağılım ve balon grafikler bir metin kategori ekseni yerine değer eksenleri kullanır. Tarih ekseni için, [Change a Category Axis](#change-a-category-axis) bölümünde açıklandığı gibi zaman‑tabanlı büyük birimler ve ölçekler kullanın.
 
-## **Kategori Ekseni Değerleri İçin Tarih Formatını Ayarla**
+## **Kategori Ekseni Değerleri İçin Tarih Biçimini Ayarla**
 
-Örnek, varsayılan grafik verilerini dört yıllık değerle değiştirir. Tarihler, ilk çalışma sayfasında (indeks `0`) OLE Automation seri sayıları olarak saklanır; bu sayılar 30 Aralık 1899’dan itibaren geçen gün sayısını temsil eder. JavaScript hesabı UTC zaman damgalarını kullanır ve farkı günde 86 400 000 milisaniyeye bölerek elde eder. [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) `CategoryAxisType.Date` ile ayarlayın, [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) `false` yapın ve [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) `yyyy` göndererek kategori etiketlerinin hücre biçiminden bağımsız olarak dört basamaklı yıl göstermesini sağlayın.
+Örnek, varsayılan grafik verisini dört yıllık değere değiştirir. Tarihler, ilk çalışma sayfasında (`0` dizini) OLE Automation seri numaraları olarak saklanır; bu numaralar 30 Aralık 1899 tarihinden itibaren geçen gün sayısıdır. JavaScript hesabı UTC zaman damgalarını kullanır ve farkı günde 86 400 000 ms’ye bölerek hesaplar. [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) ile `CategoryAxisType.Date`, [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) ile `false` ve `yyyy` değerini [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) metoduna geçirerek kategori etiketlerinin hücre biçiminden bağımsız dört haneli yıl olarak gösterilmesini sağlayın.
 
 ```javascript
 var aspose = aspose || {};
@@ -274,9 +274,9 @@ try {
 }
 ```
 
-## **Bir Grafik Ekseni Başlığı İçin Döndürme Açısını Ayarla**
+## **Bir Grafik Ekseni Başlığı İçin Döndürme Açısı Ayarla**
 
-Dikey eksende `true` ile [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) çağırın, başlık metnini sağlayın ve [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) ile başlığı döndürün. Açı derece cinsindendir; bu örnek, değer ekseni başlığını 90 derece döndürerek bir sütun grafiği kaydeder.
+Dikey eksende `true` ile [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) çağırın, başlık metnini sağlayın ve [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) ile başlığı döndürün. Açı derece cinsindendir; bu örnek, değer ekseni başlığını 90 derece döndürerek bir sütun grafik kaydeder.
 
 ```javascript
 var aspose = aspose || {};
@@ -297,9 +297,9 @@ try {
 }
 ```
 
-## **Kategori veya Değer Ekseni Üzerinde Ekseni Konumlandır**
+## **Kategori veya Değer Ekseni Üzerinde Eksen Konumunu Ayarla**
 
-[setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) kullanarak değer ekseninin kategori eksenini kategoriler arasında mı yoksa kategori tik işaretlerinde mi kesiştireceğini kontrol edin. Bu ayar kategori eksenlerine uygulanır. Örnek, bir sütun grafiğinin yatay kategori ekseninde `true` olarak ayarlar ve sonucu kaydeder.
+[setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) kullanarak değer ekseninin kategori eksenini kategori aralıkları arasında mı yoksa kategori tik işaretlerinde mi keseceğini kontrol edin. Bu ayar yalnızca kategori eksenleri için geçerlidir. Örnek, bir sütun grafiğinin yatay kategori ekseninde `true` ayarlar ve sonucu kaydeder.
 
 ```javascript
 var aspose = aspose || {};
@@ -320,7 +320,7 @@ try {
 
 ## **Bir Grafik Değer Ekseninde Görüntü Birimini Ayarla**
 
-[setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) kullanarak bir değer eksenindeki etiketleri temel veriyi değiştirmeden ölçeklendirin. [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) `Millions` olarak ayarlandığında 60 000 000 değeri 60 olarak gösterilir. Örnek, bir sütun grafik oluşturur ve dikey eksenine milyon görüntü birimini uygular.
+[setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) kullanarak değer eksenindeki etiketleri veri değiştirilmeden ölçeklendirin. [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) `Millions` olarak ayarlandığında 60 000 000 değeri 60 olarak gösterilir. Örnek, bir sütun grafik oluşturur ve dikey eksenine milyonlar birimini uygular.
 
 ```javascript
 var aspose = aspose || {};
@@ -339,12 +339,82 @@ try {
 }
 ```
 
+## **Logaritmik Değer Eksenini Yapılandır**
+
+Pozitif değerler birkaç mertebe farkı gösterdiğinde logaritmik değer ekseni faydalıdır. Örneğin bir hizmet beş dönemde 10, 100, 1 000, 10 000 ve 100 000 istek alabilir. Doğrusal ölçekte küçük değerler sıfıra yakın bir yerde toplanır. Logaritmik ölçek, eşit mesafelerin eşit oranları temsil etmesi sayesinde büyümenin karşılaştırılmasını kolaylaştırır; eşit mesafeler eşit farklar değil, eşit oranlar ifade eder.
+
+Değer ekseninde `true` ile [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) çağırın ve tabanı seçmek için [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) kullanın. Bu, mevcut değerlerin nasıl gösterileceğini değiştirir; veriyi değiştirmez ya da logaritmik bir trend çizgisi eklemez. Trend çizgisi, veriye uyarlanmış bir ilişkiyi temsil eder ve ayrı bir özelliktir.
+
+### **Değer Eksenini ve Tabanı Seç**
+
+Çizgi veya sütun grafiğinde değer ekseni [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) ile döner. Yatay çubuk grafiğinde [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/) döner. Dağılım ve balon grafiklerde iki değer ekseni vardır; X değerleri için yatay eksen, Y değerleri için dikey eksen ya da her ikisi kullanılabilir. Kategori eksenine logaritmik ölçek uygulamayın.
+
+Varsayılan logaritmik taban `10`dır. PPTX grafiklerinde taban `2` ile `1000` arasında bir sayı olabilir; kesirli tabanlar (ör. `2.5`) da desteklenir. Tabana `10` verildiğinde 10, 100, 1 000, 10 000 gibi ardışık katlar eşit aralıkta yer alır.
+
+### **Doğrusal ve Logaritmik Ölçekleri Karşılaştır**
+
+Aşağıdaki bağımsız örnek, beş istek sayısını ilk slaytta bir çizgi grafik olarak oluşturur, ardından bu slaytı kopyalar ve ikinci slaytta taban‑10 logaritmik değer ekseni etkinleştirir. İki slayt aynı veriyi tutar.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 30, 40, 660, 200);
+
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Line);
+    var values = [10, 100, 1000, 10000, 100000];
+
+    for (var i = 0; i < values.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, "Period " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
+    // İlk slaytı doğrusal tut ve yalnızca kopyanın değer ekseni ölçeğini değiştir.
+    var logarithmicSlide = presentation.getSlides().addClone(slide);
+    var logarithmicChart = logarithmicSlide.getShapes().get_Item(0);
+    var valueAxis = logarithmicChart.getAxes().getVerticalAxis();
+    valueAxis.setLogarithmic(true);
+    valueAxis.setLogBase(10);
+
+    presentation.save("LogarithmicAxis.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Doğrusal ölçek (slayt 1):** Eşit dikey mesafeler istek sayısındaki eşit farkları gösterir. En büyük değer grafiği domine eder, küçük değerler ayırt edilemez.
+
+![Doğrusal değer ekseninde beş istek sayısını gösteren çizgi grafik](value-axis-linear.png)
+
+**Logaritmik ölçek (slayt 2):** Eşit dikey mesafeler eşit oranları temsil eder. Her dönem bir önceki dönemden on kat fazla istek alır; noktalar taban‑10 ölçeğinde doğrusal bir yükselen çizgi oluşturur. Eksende etiketler hâlâ orijinal istek sayılarını gösterir.
+
+![Taban‑10 logaritmik değer ekseninde aynı beş istek sayısını gösteren grafik](value-axis-logarithmic.png)
+
+### **Sıfır ve Negatif Değerleri Ele Al**
+
+Logaritmik ölçek yalnızca kesin pozitif değerleri gösterir. Etkinleştirmeden önce veriyi kontrol edin. Sıfır veya negatif değerler anlamlıysa, doğrusal ölçek kullanın veya bunları ayrı olarak gösterin. Bu değerleri dışarıda bırakmak analiz için uygunsa, dışlama nedenini açıklayın. Küçük pozitif sayılara sessizce dönüşüm yapmayın; bu veri anlamını değiştirir. Logaritmik eksen için manuel olarak ayarlanan minimum veya maksimum da pozitif olmalıdır.
+
 ## **SSS**
 
-**Bir eksenin diğerini kestiği değeri (ekseni kesişme) nasıl ayarlarım?**
+**Bir eksenin diğerini kestiği değeri (eks kesişmesi) nasıl ayarlarım?**
 
-[setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) kullanarak kesişme davranışını seçin. Sayısal bir kesişme değeri belirtmek için [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) kullanın. Bu ayarlar eksen kesişimini uygun bir temel çizgiye taşımanıza olanak tanır.
+Kesme davranışını seçmek için [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) kullanın. Sayısal bir kesme değeri belirtmek için [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) kullanın. Bu ayarlar eksen kesişimini uygun bir baz çizgisine taşımanıza olanak tanır.
 
-**Tik etiketlerini eksene göre nasıl konumlandırabilirim?**
+**Tik etiketlerini eksene göre nasıl konumlandırırım?**
 
-[setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) metodunu [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/) `Low`, `High`, `NextTo` veya `None` değerleriyle çağırın. Tik işaretlerini kontrol etmek için [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) veya [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/) kullanın; bunlar etiket konumlandırmadan ayrı olarak ayarlanır.
+[TikLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/) `Low`, `High`, `NextTo` veya `None` değerleriyle [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) çağırın. Tik işaretlerini kontrol etmek için [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) veya [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/) kullanın; bunlar etiket konumlandırmadan bağımsızdır.

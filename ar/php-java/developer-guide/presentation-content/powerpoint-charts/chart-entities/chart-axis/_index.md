@@ -1,11 +1,11 @@
 ---
-title: "تخصيص محاور المخططات في العروض التقديمية باستخدام PHP"
+title: "تخصيص محاور المخطط في العروض التقديمية باستخدام PHP"
 linktitle: "محور المخطط"
 type: docs
 url: /ar/php-java/chart-axis/
 keywords:
 - "محور المخطط"
-- "المحور الرأسي"
+- "المحور العمودي"
 - "المحور الأفقي"
 - "تخصيص المحور"
 - "معالجة المحور"
@@ -17,21 +17,21 @@ keywords:
 - "تنسيق التاريخ"
 - "عنوان المحور"
 - "موضع المحور"
-- "PowerPoint"
+- PowerPoint
 - "عرض تقديمي"
-- "PHP"
-- "Aspose.Slides"
-description: "اكتشف كيفية استخدام Aspose.Slides for PHP عبر Java لتخصيص محاور المخططات في عروض PowerPoint التقديمية للتقارير والتصورات."
+- PHP
+- Aspose.Slides
+description: "اكتشف كيفية استخدام Aspose.Slides للـ PHP عبر Java لتخصيص محاور المخطط في عروض PowerPoint التقديمية للتقارير والتصورات."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية تخصيص محاور المخطط باستخدام Aspose.Slides for PHP عبر Java. تغطي قيم المحور المحسوبة، وتبديل صفوف وأعمدة المخطط، ورؤية المحور، وفواصل تسميات الفئات وعلامات التقطيع، وفئات التاريخ وتنسيقها، وتدوير العنوان، وتحديد موضع المحور، ووحدات العرض.
+توضح هذه المقالة كيفية تخصيص محاور المخطط باستخدام Aspose.Slides for PHP عبر Java. تغطي القيم المحسوبة للمحاور، وتبديل صفوف وأعمدة المخطط، وإظهار المحور، وفواصل تسميات الفئات وعلامات الفواصل، وفئات التاريخ وتنسيقها، وتدوير العنوان، وتموضع المحور، ووحدات العرض، والقياس اللوغاريتمي.
 
-## **احصل على القيم القصوى على المحور الرأسي في المخططات**
+## **الحصول على القيم القصوى على المحور العمودي في المخططات**
 
-Create a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) and add an area chart with default data. Call [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) before reading calculated axis values so that the chart layout is up to date.
+إنشاء [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) وإضافة مخطط مساحي بالبيانات الافتراضية. استدعِ [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) قبل قراءة القيم المحسوبة للمحاور لضمان تحديث تخطيط المخطط.
 
-Read [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) and [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) for the axis limits, and [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) and [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) for the tick intervals. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) and [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) provide time-unit scales, which are relevant to date axes. The example stores these values in local variables and saves the chart.
+اقرأ [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) و [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) للحصول على حدود المحور، و [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) و [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) لفواصل العلامات. توفر [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) و [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) مقاييس وحدة الوقت، والتي ذات صلة بمحاور التاريخ. يخزن المثال هذه القيم في متغيرات محلية ويحفظ المخطط.
 
 ```php
 use aspose\slides\ChartType;
@@ -62,7 +62,7 @@ try {
 
 ## **تبديل البيانات بين المحاور**
 
-Use [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) to exchange the roles of series and categories in chart data. Each former category becomes a series, and each former series becomes a category. This changes how the data is grouped; it does not exchange the horizontal and vertical axes. The example uses [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) to bind the default data to `Sheet1!A1:D5`, including the header row and category column, before switching rows and columns. It saves a chart with four series and three categories.
+استخدم [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) لتبادل أدوار السلاسل والفئات في بيانات المخطط. كل فئة سابقة تصبح سلسلة، وكل سلسلة سابقة تصبح فئة. يغيّر هذا طريقة تجميع البيانات؛ لا يتم تبادل المحاور الأفقية والعمودية. يستخدم المثال [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) لربط البيانات الافتراضية بـ `Sheet1!A1:D5`، بما في ذلك صف العنوان وعمود الفئة، قبل تبديل الصفوف والأعمدة. يحفظ مخططًا بأربع سلاسل وثلاث فئات.
 
 ```php
 use aspose\slides\ChartType;
@@ -83,9 +83,9 @@ try {
 }
 ```
 
-## **إلغاء تفعيل المحور الرأسي لمخططات الخط**
+## **تعطيل المحور العمودي لمخططات الخط**
 
-Call [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) with `false` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
+استدعِ [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) مع `false` على المحور العمودي لإخفائه. يُنشئ المثال مخطط خط بالبيانات الافتراضية ويحفظه مع إخفاء المحور العمودي.
 
 ```php
 use aspose\slides\ChartType;
@@ -105,9 +105,9 @@ try {
 }
 ```
 
-## **إلغاء تفعيل المحور الأفقي لمخططات الخط**
+## **تعطيل المحور الأفقي لمخططات الخط**
 
-Call [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) with `false` on the horizontal axis to hide it. The example creates a line chart with default data and saves it with the horizontal axis hidden.
+استدعِ [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) مع `false` على المحور الأفقي لإخفائه. يُنشئ المثال مخطط خط بالبيانات الافتراضية ويحفظه مع إخفاء المحور الأفقي.
 
 ```php
 use aspose\slides\ChartType;
@@ -129,7 +129,7 @@ try {
 
 ## **تغيير محور الفئة**
 
-Use [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) with `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) with `1`, and [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) with `TimeUnitType::Months` places major ticks at one-month intervals.
+استخدم [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) لاختيار محور فئة تاريخ أو نص. يتطلب هذا المثال `ExistingChart.pptx`، حيث يكون المخطط هو الشكل الأول في الشريحة الأولى وتحتوي خلايا الفئة على قيم تواريخ رقمية من Excel. يغيّر ذلك المحور الأفقي إلى محور تاريخ. استدعاء [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) مع `false`، و[setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) مع `1`، و[setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) مع `TimeUnitType::Months` يضع الفواصل الرئيسية على فواصل شهرية.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -155,7 +155,7 @@ try {
 
 ## **التحكم في فواصل تسميات محور الفئة**
 
-When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Call [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) with `false`, then pass the desired category interval to [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). For text categories in their normal order, counting starts at the first category:
+عند وجود عدد كبير من الفئات في المخطط، قلل عدد تسميات المحور الظاهرة دون حذف الفئات أو نقاط البيانات. استدعِ [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) مع `false`، ثم مرّر الفاصل الفئوي المطلوب إلى [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). بالنسبة للفئات النصية بترتيبها الطبيعي، يبدأ العد من الفئة الأولى:
 
 | الفاصل | التسميات المعروضة في المثال |
 | --- | --- |
@@ -163,11 +163,11 @@ When a chart has many categories, reduce the number of visible axis labels witho
 | `2` | الفئة 1، الفئة 3، الفئة 5، ... الفئة 23 |
 | `3` | الفئة 1، الفئة 4، الفئة 7، ... الفئة 22 |
 
-فاصل `3` يُظهر كل تسمية ثالثة، مع إخفاء تسميتين بين كل تسمية معروضة. لا يُزيل الأعمدة المقابلة. يختار التباعد التلقائي فاصلًا بناءً على المساحة المتاحة؛ ولا يضمن عرض كل تسمية.
+فاصل `3` يعرض كل تسمية ثالثة، مما يترك تسمتين مخفيتين بين كل تسميتين معروضة. لا يزيل هذا الأعمدة المقابلة. الاختيار التلقائي للفاصل يحدده بناءً على المساحة المتاحة؛ ولا يعني بالضرورة عرض كل تسمية.
 
-Tick marks have separate controls. Call [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) with `false` and use [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) to set their interval. For example, `1` keeps a tick mark at every category interval while labels appear only every third category. Use [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) with a visible style so you can see the result. Calling either automatic-spacing setter with `true` again lets the chart choose that interval again.
+علامات الفواصل لها تحكم منفصل. استدعِ [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) مع `false` واستخدم [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) لتحديد فاصلها. على سبيل المثال، `1` يحافظ على علامة فاصل عند كل فاصل فئوي بينما تظهر التسميات فقط كل فئة ثالثة. استخدم [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) بنمط مرئي لتتمكن من رؤية النتيجة. استدعاء أي من مُعدِّلات الفواصل التلقائية مع `true` مرة أخرى يسمح للمخطط باختيار ذلك الفاصل مجددًا.
 
-The following self-contained example creates 24 categories and one series, then saves three slides in `CategoryAxisIntervals.pptx`: automatic spacing, manual label spacing with independent tick marks, and restored automatic spacing. The two copies retain the original chart data. No input presentation is required. Horizontal label text makes the difference in density easy to see.
+المثال المستقل التالي ينشئ 24 فئة وسلسلة واحدة، ثم يحفظ ثلاثة شرائح في `CategoryAxisIntervals.pptx`: التباعد التلقائي، التباعد اليدوي مع علامات فواصل مستقلة، وإعادة التباعد التلقائي. النسختان تحتفظان ببيانات المخطط الأصلية. لا يلزم تقديم عرض تقديمي مسبق. يجعل نص التسمية الأفقي الفرق في الكثافة واضحًا للعيان.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -205,7 +205,7 @@ try {
     $axis->setAutomaticTickLabelSpacing(true);
     $axis->setAutomaticTickMarksSpacing(true);
 
-    // الشريحة 2: إظهار كل تسمية ثالثة، مع إبقاء علامة التقسيم لكل فئة.
+    // الشريحة 2: عرض كل تسمية ثالثة، مع الحفاظ على علامة فاصل لكل فئة.
     $manualSlide = $presentation->getSlides()->addClone($slide);
     $manualChart = $manualSlide->getShapes()->get_Item(0);
     $manualAxis = $manualChart->getAxes()->getHorizontalAxis();
@@ -226,23 +226,23 @@ try {
 }
 ```
 
-**التباعد التلقائي (الشريحة 1):** In this rendering, every second category label is displayed and wraps onto two lines. The automatic result can vary with chart size, fonts, and the renderer.
+**التباعد التلقائي (الشريحة 1):** في هذا العرض، تُعرض كل تسمية فئوية ثانية وتُحاوط إلى سطرين. قد يختلف النتيجة التلقائية حسب حجم المخطط، الخطوط، وواجهة العرض.
 
-![تباعد تسميات الفئة تلقائيًا مع ظهور جميع الأعمدة الـ24](category-axis-automatic.png)
+![تباعد تسميات الفئات التلقائي مع جميع الأعمدة الـ 24 مرئية](category-axis-automatic.png)
 
-**التباعد اليدوي (الشريحة 2):** Every third label is displayed on one line, while tick marks remain at every category interval. All 24 columns, including those without labels, remain visible with the same values. Slide 3 restores the automatic appearance shown above.
+**التباعد اليدوي (الشرائح 2):** تُعرض كل تسمية ثالثة على سطر واحد، بينما تظل علامات الفواصل عند كل فاصل فئوي. جميع الأعمدة الـ 24، بما في ذلك تلك بدون تسميات، تبقى مرئية بنفس القيم. الشريحة 3 تستعيد المظهر التلقائي المعروض أعلاه.
 
-![فاصل تسميات الفئة يدويًا بمقدار ثلاثة مع ظهور جميع الأعمدة الـ24](category-axis-manual.png)
+![فاصل تسميات الفئة يدويًا بثلاثة مع جميع الأعمدة الـ 24 مرئية](category-axis-manual.png)
 
 ### **اختر المحور والفاصل الصحيح**
 
-Use this category-count interval for a text category axis, such as the category axis of a column, line, area, or bar chart. In a column chart, it is the horizontal axis. In a horizontal bar chart, the category axis is vertical, so apply these settings to the axis returned by [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Tick-mark spacing also applies to a series axis in charts that have one.
+استخدم هذا الفاصل القائم على عدد الفئات لمحور فئة نصية، مثل محور فئة عمود، خط، مساحة، أو شريط. في مخطط العمود، يكون هو المحور الأفقي. في مخطط الشريط الأفقي، يكون محور الفئة عموديًا، لذا ضع هذه الإعدادات على المحور الذي تُرجعه [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). يطبق فاصل علامات الفواصل أيضًا على محور سلسلة في المخططات التي تحتوي على واحد.
 
-Do not use category label spacing to set the numeric scale of a value axis. On a value axis, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) specifies a difference in values: for example, a major unit of `10` produces ticks at 0, 10, 20, and so on when the axis starts at zero. A category label interval of `3` instead counts category positions, regardless of their data values. Scatter and bubble charts use value axes rather than a text category axis. For a date axis, use time-based major units and scales as described in [Change a Category Axis](#change-a-category-axis).
+لا تستخدم فاصل تسميات الفئة لتعيين مقياس رقمي لمحور القيمة. على محور القيمة، يحدد [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) فرق القيم: على سبيل المثال، وحدة رئيسية قيمتها `10` تنتج علامات عند 0، 10، 20، وهكذا عندما يبدأ المحور من الصفر. فاصل تسمية الفئة `3` بدلاً من ذلك يحسب مواضع الفئات بغض النظر عن قيم البيانات. تستخدم مخططات التشتت والفقاعات محاور قيمة بدلاً من محور فئة نصية. لمحور التاريخ، استخدم وحدات رئيسية ومقاييس زمنية كما هو موضح في [Change a Category Axis](#change-a-category-axis).
 
 ## **تعيين تنسيق التاريخ لقيم محور الفئة**
 
-The example replaces the default chart data with four annual values. Dates are stored as OLE Automation serial numbers in the first worksheet (index `0`), calculated as the number of days since December 30, 1899, for these dates. Use [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) with `CategoryAxisType::Date`, call [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) with `false`, and pass `yyyy` to [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) so the category labels display four-digit years independently of the cell formatting.
+يستبدل المثال البيانات الافتراضية للمخطط بأربع قيم سنوية. تُخزن التواريخ كأرقام سيريلية OLE Automation في الورقة الأولى (المؤشر `0`)، محسوبة كعدد أيام منذ 30 ديسمبر 1899. استخدم [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) مع `CategoryAxisType::Date`، استدعِ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) مع `false`، ومرّر `yyyy` إلى [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) لتظهر تسميات الفئة بالسنوات ذات الأربع أرقام بشكل مستقل عن تنسيق الخلية.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -287,7 +287,7 @@ try {
 
 ## **تعيين زاوية دوران لعنوان محور المخطط**
 
-Call [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) with `true` on the vertical axis, provide title text, and use [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) to rotate the title. The angle is measured in degrees; this example saves a column chart with its value-axis title rotated by 90 degrees.
+استدعِ [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) مع `true` على المحور العمودي، أعطِ نص العنوان، واستخدم [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) لتدوير العنوان. تُقاس الزاوية بالدرجات؛ يحفظ المثال مخطط عمود مع عنوان محور القيمة مدورًا بزاوية 90 درجة.
 
 ```php
 use aspose\slides\ChartType;
@@ -309,9 +309,9 @@ try {
 }
 ```
 
-## **تعيين موضع المحور على محور فئة أو قيمة**
+## **تعيين موضع المحور على محور الفئة أو القيمة**
 
-Use [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) to control whether the value axis crosses the category axis between categories or at category tick marks. This setting applies to category axes. The example sets it to `true` on the horizontal category axis of a column chart and saves the result.
+استخدم [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) للتحكم فيما إذا كان محور القيمة يعبر محور الفئة بين الفئات أو عند علامات الفئة. ينطبق هذا الإعداد على محاور الفئة. يضبط المثال القيمة إلى `true` على محور الفئة الأفقي في مخطط العمود ويحفظ النتيجة.
 
 ```php
 use aspose\slides\ChartType;
@@ -333,7 +333,7 @@ try {
 
 ## **تعيين وحدة العرض على محور قيمة المخطط**
 
-Use [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) to scale the labels on a value axis without changing the underlying data. With [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) set to `Millions`, a value of 60,000,000 is displayed as 60. The example creates a column chart and applies the millions display unit to its vertical axis.
+استخدم [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) لتقليل حجم تسميات محور القيمة دون تغيير البيانات الأساسية. مع تعيين [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) إلى `Millions`، تُعرض القيمة 60,000,000 كـ 60. ينشئ المثال مخطط عمود ويطبّق وحدة الملايين على محوره العمودي.
 
 ```php
 use aspose\slides\ChartType;
@@ -354,12 +354,83 @@ try {
 }
 ```
 
-## **الأسئلة المتكررة**
+## **تهيئة محور قيمة لوغاريتمي**
 
-**كيف أضبط القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحور)؟**
+محور قيمة لوغاريتمي مفيد عندما تمتد القيم الموجبة عبر عدة أوامر من الحجم. على سبيل المثال، قد يتلقى خدمة 10، 100، 1,000، 10,000، و100,000 طلبًا على مدار خمس فترات. على مقياس خطي، تظهر القيم الصغيرة متقاربة قرب الصفر. يجعل المقياس اللوغاريتمي نموها النسبي أسهل للمقارنة: المسافات المتساوية تمثل نسبًا متساوية بدلاً من فرقًا متساويًا.
 
-Use [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) to select the crossing behavior. To specify a numeric crossing value, use [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). These settings let you move the axis crossing to a suitable baseline.
+استدعِ [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) مع `true` على محور القيمة واستخدم [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) لاختيار القاعدة. يغيّر هذا طريقة عرض القيم الحالية؛ لا يغيّر البيانات ولا يضيف خط اتجاه لوغاريتمي. خط الاتجاه يمثل علاقة مثبتة في البيانات وهو ميزة منفصلة.
 
-**كيف يمكنني موضع تسميات العلامات بالنسبة إلى المحور؟**
+### **اختر محور القيمة والقاعدة**
 
-Call [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) using [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, or `None`. To control the tick marks themselves, use [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) or [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); these are separate from label positioning.
+للمخطط الخطي أو العمود، يُرجع محور القيمة من خلال [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). للمخطط الشريطي الأفقي، يُرجع من خلال [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). تحتوي مخططات التشتت والفقاعات على محورين للقيمة، لذا اختر المحور الأفقي لقيم X، والمحور العمودي لقيم Y، أو كليهما. لا تطبق القياس اللوغاريتمي على محور الفئة.
+
+القاعدة اللوغاريتمية الافتراضية هي `10`. لمخططات PPTX، استخدم قاعدة من `2` إلى `1000` شاملة؛ القواعد الكسرية مثل `2.5` مدعومة أيضًا. مع القاعدة `10`، تكون القويات المتتابعة مثل 10، 100، 1,000، و10,000 متساوية المسافة.
+
+### **قارن بين القياس الخطي واللوغاريتمي**
+
+المثال المستقل التالي ينشئ مخطط خط مع عدد الطلبات الخمسة في الشريحة الأولى، ثم يستنسخ تلك الشريحة ويفعل محور قيمة لوغاريتمي بالقاعدة 10 في الشريحة الثانية. كلا الشريحتين تحتفظان بنفس البيانات.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 30, 40, 660, 200);
+
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Line);
+    $values = [10, 100, 1000, 10000, 100000];
+
+    for ($i = 0; $i < count($values); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Period " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    }
+
+    // احتفظ بالشريحة الأولى خطية وقم بتغيير مقياس محور القيمة للنسخة فقط.
+    $logarithmicSlide = $presentation->getSlides()->addClone($slide);
+    $logarithmicChart = $logarithmicSlide->getShapes()->get_Item(0);
+    $valueAxis = $logarithmicChart->getAxes()->getVerticalAxis();
+    $valueAxis->setLogarithmic(true);
+    $valueAxis->setLogBase(10);
+
+    $presentation->save("LogarithmicAxis.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+**القياس الخطي (الشريحة 1):** تمثل المسافات الرأسية المتساوية فروقًا متساوية في عدد الطلبات. تهيمن القيمة الأكبر على المخطط، مما يصعب تمييز القيم الصغيرة.
+
+![مخطط خط في PowerPoint يوضح خمسة طلبات على محور قيمة خطي](value-axis-linear.png)
+
+**القياس اللوغاريتمي (الشريحة 2):** تمثل المسافات الرأسية المتساوية نسبًا متساوية. كل فترة لديها عشرة أضعاف الطلبات مقارنةً بالفترة السابقة، لذا تشكل النقاط خطًا صاعدًا مستقيماً على مقياس القاعدة 10. لا تزال تسميات المحور تُظهر عدد الطلبات الأصلي.
+
+![نفس الطلبات الخمسة في PowerPoint على محور قيمة لوغاريتمي بقاعدة 10](value-axis-logarithmic.png)
+
+### **معالجة القيم الصفرية والسالبة**
+
+يمكن للمقياس اللوغاريتمي عرض قيم موجبة صريحة فقط. تحقق من البيانات قبل تمكينه. إذا كانت القيم الصفرية أو السالبة ذات معنى، احتفظ بمقياس خطي أو اعرضها منفصلة. إذا كان استبعاد تلك القيم مناسبًا للتحليل، فسّر سبب الإغفال. لا تستبدلها صمتًا بأرقام إيجابية صغيرة، إذ يغيّر ذلك معنى البيانات. أي حد أدنى أو أقصى مُعَد يدويًا لمحور لوغاريتمي يجب أن يكون إيجابيًا أيضًا.
+
+## **الأسئلة الشائعة**
+
+**كيف أعيّن القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحاور)؟**
+
+استخدم [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) لتحديد سلوك التقاطع. لتحديد قيمة تقاطع رقمية، استخدم [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). تتيح لك هذه الإعدادات نقل تقاطع المحور إلى خط أساس مناسب.
+
+**كيف يمكنني موضع تسميات العلامات بالنسبة للمحور؟**
+
+استدعِ [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) باستخدام [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`، `High`، `NextTo`، أو `None`. للتحكم في علامات الفواصل نفسها، استخدم [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) أو [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); هذه منفصلة عن موضع التسميات.
