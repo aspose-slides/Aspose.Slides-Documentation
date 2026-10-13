@@ -15,7 +15,7 @@ keywords:
 - minvärde
 - axellinje
 - datumformat
-- axelrubrik
+- axeltitel
 - axelposition
 - PowerPoint
 - presentation
@@ -25,13 +25,13 @@ description: "Upptäck hur du använder Aspose.Slides för Python via Java för 
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du anpassar diagramaxlar med Aspose.Slides för Python via Java. Den täcker beräknade axelvärden, byte av diagramrader och -kolumner, axelns synlighet, intervall för kategorimärkning och tic‑märken, datumkategorier och formatering, titelrotation, axelpositionering och visningsenheter.
+Denna artikel förklarar hur man anpassar diagramaxlar med Aspose.Slides för Python via Java. Den täcker beräknade värden för axlar, byte av diagramrader och -kolumner, axelns synlighet, intervaller för kategorietiketter och staplar, datumkategorier och formatering, titelrotation, axelplacering, displayenheter och logaritmisk skalning.
 
 ## **Hämta de maximala värdena på diagrammets vertikala axel**
 
 Skapa en [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) och lägg till ett områdesdiagram med standarddata. Anropa [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) innan du läser beräknade axelvärden så att diagrammets layout är uppdaterad.
 
-Läs [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) och [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) för axelgränserna, samt [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) och [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) för tic‑intervallen. [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) och [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) ger tid‑enhetsskalor, vilket är relevant för datumaxlar. Exemplet lagrar dessa värden i lokala variabler och sparar diagrammet.
+Läs [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) och [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) för axelgränserna samt [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) och [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) för stapelintervallen. [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) och [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) tillhandahåller tidsenhetsskalor som är relevanta för datumaxlar. Exemplet lagrar dessa värden i lokala variabler och sparar diagrammet.
 
 ```python
 import jpype
@@ -63,9 +63,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Byt data mellan axlarna**
+## **Byt data mellan axlar**
 
-Använd [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) för att byta roller mellan serier och kategorier i diagramdata. Varje tidigare kategori blir en serie, och varje tidigare serie blir en kategori. Detta ändrar hur data grupperas; det byter inte ut de horisontella och vertikala axlarna. Exemplet använder [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) för att binda standarddata till `Sheet1!A1:D5`, inklusive rubrikraden och kategori‑kolumnen, innan rader och kolumner byts. Det sparar ett diagram med fyra serier och tre kategorier.
+Använd [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) för att byta rollerna mellan serier och kategorier i diagramdata. Varje tidigare kategori blir en serie och varje tidigare serie blir en kategori. Detta förändrar hur data grupperas; det byter inte de horisontella och vertikala axlarna. Exemplet använder [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) för att binda standarddata till `Sheet1!A1:D5`, inklusive rubrikraden och kategorikolumnen, innan rader och kolumner byts. Det sparar ett diagram med fyra serier och tre kategorier.
 
 ```python
 import jpype
@@ -141,7 +141,7 @@ finally:
 
 ## **Ändra en kategoriaxel**
 
-Använd [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) för att välja en datum‑ eller text‑kategoriaxel. Detta exempel kräver `ExistingChart.pptx`, med ett diagram som den första formen på den första bilden och kategori‑celler som innehåller numeriska Excel‑datumvärden. Det ändrar den horisontella axeln till en datumaxel. Anropa [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) med `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) med `1` och [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) med [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) för att placera huvudtic på intervaller om en månad.
+Använd [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) för att välja en datum- eller textkategoriaxel. Detta exempel kräver `ExistingChart.pptx`, med ett diagram som den första formen på den första bilden och kategoriceller som innehåller numeriska Excel-datumvärden. Det ändrar den horisontella axeln till en datumaxel. Genom att anropa [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) med `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) med `1` och [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) med [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) placeras huvudstaplar med en-månads intervall.
 
 ```python
 import jpype
@@ -167,9 +167,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Styr intervall för kategoriaxelns etiketter**
+## **Styr intervaller för kategorielsetiketter**
 
-När ett diagram har många kategorier, minska antalet synliga axel­etiketter utan att ta bort kategorier eller datapunkter. Anropa [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) med `False` och skicka sedan önskat kategoriintervall till [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing). För textkategorier i deras normala ordning börjar räknandet på den första kategorin:
+När ett diagram har många kategorier, minska antalet synliga axel‑etiketter utan att ta bort kategorier eller datapunkter. Anropa [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) med `False`, och skicka sedan det önskade kategorintervallet till [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing). För textkategorier i deras normala ordning startar räkningen med den första kategorin:
 
 | Intervall | Etiketter som visas i exemplet |
 | --- | --- |
@@ -177,11 +177,11 @@ När ett diagram har många kategorier, minska antalet synliga axel­etiketter u
 | `2` | Category 1, Category 3, Category 5, ... Category 23 |
 | `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-Ett intervall på `3` visar var tredje etikett och döljer två etiketter mellan de visade. Det tar inte bort motsvarande kolumner. Automatisk avståndsberäkning väljer ett intervall baserat på tillgängligt utrymme; det visar inte nödvändigtvis varje etikett.
+Ett intervall på `3` visar varje tredje etikett och döljer två etiketter mellan de visade. Det tar inte bort motsvarande kolumner. Automatisk avståndsval väljer ett intervall baserat på tillgängligt utrymme; det visar inte nödvändigtvis varje etikett.
 
-Tic‑märken har separata kontroller. Anropa [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) med `False` och använd [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) för att sätta deras intervall. Till exempel håller `1` ett tic‑märke vid varje kategoriintervall medan etiketter bara visas var tredje kategori. Använd [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) med en synlig stil så att du kan se resultatet. Att återigen sätta någon av de automatiska avstånds‑inställningarna till `True` låter diagrammet välja det intervallet igen.
+Streckmärken har separata kontroller. Anropa [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) med `False` och använd [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) för att sätta deras intervall. Till exempel behåller `1` ett streckmärke vid varje kategorintervall medan etiketter endast visas var tredje kategori. Använd [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) med en synlig stil så att du kan se resultatet. Att anropa någon av de automatiska avståndsinställarna med `True` igen låter diagrammet välja det intervallet igen.
 
-Följande självständiga exempel skapar 24 kategorier och en serie, och sparar sedan tre bilder i `CategoryAxisIntervals.pptx`: automatisk avstånd, manuell etikettavstånd med oberoende tic‑märken samt återställt automatiskt avstånd. De två kopiorna behåller den ursprungliga diagram‑datat. Ingen inmatningspresentation krävs. Horisontell etiketttext gör skillnaden i densitet lätt att se.
+Följande fristående exempel skapar 24 kategorier och en serie, sparar sedan tre bilder i `CategoryAxisIntervals.pptx`: automatisk avståndsval, manuell etikettavstånd med oberoende streckmärken och återställd automatisk avståndsval. De två kopiorna behåller diagrammets ursprungliga data. Ingen input‑presentation krävs. Horisontell etiketttext gör skillnaden i densitet lätt att se.
 
 ```python
 import jpype
@@ -220,7 +220,7 @@ try:
     axis.setAutomaticTickLabelSpacing(True)
     axis.setAutomaticTickMarksSpacing(True)
 
-    # Bild 2: visa var tredje etikett, men behåll ett tic-märke för varje kategori.
+    # Bild 2: visa var tredje etikett, men behåll ett stapelmärke för varje kategori.
     manual_slide = presentation.getSlides().addClone(slide)
     manual_chart = manual_slide.getShapes().get_Item(0)
     manual_axis = manual_chart.getAxes().getHorizontalAxis()
@@ -240,23 +240,23 @@ finally:
     presentation.dispose()
 ```
 
-**Automatiskt avstånd (bild 1):** I denna rendering visas varannan kategori‑etikett och radbryts på två rader. Det automatiska resultatet kan variera med diagramstorlek, typsnitt och renderare.
+**Automatiskt avstånd (bild 1):** I den här renderingen visas varannan kategorietikett och radbryts i två rader. Det automatiska resultatet kan variera med diagramstorlek, typsnitt och renderaren.
 
 ![Automatiskt avstånd för kategorietiketter med alla 24 kolumner synliga](category-axis-automatic.png)
 
-**Manuellt avstånd (bild 2):** Var tredje etikett visas på en rad, medan tic‑märken förblir vid varje kategoriintervall. Alla 24 kolumner, inklusive de utan etiketter, förblir synliga med samma värden. Bild 3 återställer det automatiska utseendet som visas ovan.
+**Manuellt avstånd (bild 2):** Varje tredje etikett visas på en rad, medan streckmärken förblir vid varje kategorintervall. Alla 24 kolumner, inklusive de utan etiketter, förblir synliga med samma värden. Bild 3 återställer det automatiska utseendet som visas ovan.
 
-![Manuellt kategorietikettintervall på tre med alla 24 kolumner synliga](category-axis-manual.png)
+![Manuellt intervall för kategorietiketter på tre med alla 24 kolumner synliga](category-axis-manual.png)
 
 ### **Välj rätt axel och intervall**
 
-Använd detta kategori‑räkningsintervall för en text‑kategoriaxel, exempelvis kategoriaxeln i ett stapel‑, linje‑, område‑ eller stapeldiagram. I ett stapeldiagram är den den horisontella axeln. I ett horisontellt stapeldiagram är kategoriaxeln vertikal, så tillämpa dessa inställningar på axeln som returneras av [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). Tic‑avstånd gäller även för en serie‑axel i diagram som har en sådan.
+Använd detta kategori‑räkningsintervall för en textkategoriaxel, såsom kategoriaxeln i ett stapel-, linje-, area- eller stapeldiagram. I ett stapeldiagram är det den horisontella axeln. I ett horisontellt stapeldiagram är kategoriaxeln vertikal, så tillämpa dessa inställningar på den axel som returneras av [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). Avståndet för streckmärken gäller också för en serieaxel i diagram som har en.
 
-Använd inte kategori‑etikettavstånd för att sätta den numeriska skalan på en värdeaxel. På en värdeaxel bestämmer [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) ett värdesskillnad, exempelvis ger en huvudenhet på `10` tics vid 0, 10, 20 osv. när axeln börjar vid noll. Ett kategori‑etikettintervall på `3` räknar istället kategori­positioner, oavsett deras datavärden. Spridnings‑ och bubbeldiagram använder värdeaxlar snarare än en text‑kategoriaxel. För en datumaxel, använd tidsbaserade huvud­enheter och skalor som beskrivs i [Ändra en kategoriaxel](#change-a-category-axis).
+Använd inte kategori‑etikettavstånd för att sätta den numeriska skalan på en värdeaxel. På en värdeaxel anger [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) en skillnad i värden: t.ex. ger en huvudenhet på `10` staplar vid 0, 10, 20 osv när axeln startar vid noll. Ett kategori‑etikettintervall på `3` räknar i stället kategori‑positioner, oberoende av deras datavärden. Spridnings‑ och bubbeldiagram använder värdeaxlar snarare än en textkategoriaxel. För en datumaxel, använd tidsbaserade huvudenheter och skalor som beskrivs i [Change a Category Axis](#change-a-category-axis).
 
-## **Ange datumformat för kategoriaxelvärden**
+## **Ställ in datumformat för kategoriaxelvärden**
 
-Exemplet ersätter diagrammets standarddata med fyra årliga värden. Datum lagras som OLE Automation‑serienummer i det första kalkylbladet (index `0`), beräknat som antalet dagar sedan 30 december 1899 för dessa datum. Använd [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) med [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date), anropa [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) med `False` och skicka `yyyy` till [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) så att kategori‑etiketterna visar fyrsiffriga år oberoende av cellformateringen.
+Exemplet ersätter standarddiagramdata med fyra årliga värden. Datum lagras som OLE Automation‑serienummer i det första arbetsbladet (index `0`), beräknat som antalet dagar sedan 30 december 1899 för dessa datum. Använd [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) med [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date), anropa [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) med `False` och skicka `yyyy` till [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) så att kategorietiketterna visar fyrsiffriga år oberoende av cellformateringen.
 
 ```python
 from datetime import date
@@ -302,9 +302,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ange en rotationsvinkel för ett diagramaxelrubrik**
+## **Ange en rotationsvinkel för diagramaxeltitel**
 
-Anropa [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) med `True` på den vertikala axeln, ange rubriktext och sätt rotationsvinkeln i rubrikens textblockformatering. Vinkeln mäts i grader; detta exempel sparar ett stapeldiagram med sin värdeaxelrubrik roterad 90 grader.
+Anropa [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) med `True` på den vertikala axeln, ange titeltext och sätt rotationsvinkeln i titelns textblockformatering. Vinkeln mäts i grader; detta exempel sparar ett stapeldiagram med värdeaxelns titel roterad 90 grader.
 
 ```python
 import jpype
@@ -329,9 +329,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ange axelns position på en kategori‑ eller värdeaxel**
+## **Ställ in axelposition på en kategori‑ eller värdeaxel**
 
-Använd [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) för att styra om värdeaxeln korsar kategoriaxeln mellan kategorier eller vid kategori‑tic‑märken. Denna inställning gäller kategoriaxlar. Exemplet sätter den till `True` på den horisontella kategoriaxeln i ett stapeldiagram och sparar resultatet.
+Använd [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) för att styra om värdeaxeln korsar kategoriaxeln mellan kategorier eller vid kategori‑staplar. Denna inställning gäller kategoriaxlar. Exemplet sätter den till `True` på den horisontella kategoriaxeln i ett stapeldiagram och sparar resultatet.
 
 ```python
 import jpype
@@ -354,9 +354,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ange visningsenhet på en diagramvärdeaxel**
+## **Ange displayenhet på diagrammets värdeaxel**
 
-Använd [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) för att skala etiketter på en värdeaxel utan att ändra den underliggande datan. Med [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) satt till `Millions` visas ett värde på 60 000 000 som 60. Exemplet skapar ett stapeldiagram och applicerar miljon‑visningsenheten på dess vertikala axel.
+Använd [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) för att skala etiketterna på en värdeaxel utan att ändra underliggande data. Med [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) inställt på `Millions` visas ett värde på 60 000 000 som 60. Exemplet skapar ett stapeldiagram och applicerar miljon‑displayenheten på dess vertikala axel.
 
 ```python
 import jpype
@@ -379,12 +379,85 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Konfigurera en logaritmisk värdeaxel**
+
+En logaritmisk värdeaxel är användbar när positiva värden sträcker sig över flera storleksordningar. Till exempel kan en tjänst ta emot 10, 100, 1 000, 10 000 och 100 000 förfrågningar över fem perioder. På en linjär skala framträder de mindre värdena nära varandra nära noll. En logaritmisk skala gör deras relativa tillväxt enklare att jämföra: lika avstånd representerar lika förhållanden snarare än lika skillnader.
+
+Anropa [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) med `True` på värdeaxeln och använd [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) för att välja basen. Detta förändrar hur befintliga värden visas; det ändrar inte data eller lägger till en logaritmisk trendlinje. En trendlinje representerar ett anpassat förhållande i data och är en separat funktion.
+
+### **Välj värdeaxel och bas**
+
+För ett linje- eller stapeldiagram returneras värdeaxeln av [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). För ett horisontellt stapeldiagram returneras den av [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis). Spridnings‑ och bubbeldiagram har två värdeaxlar, så välj den horisontella axeln för X‑värden, den vertikala för Y‑värden, eller båda. Applicera inte logaritmisk skalning på en kategoriaxel.
+
+Standardlogaritmisk bas är `10`. För PPTX‑diagram, använd en bas mellan `2` och `1000`, inklusive; bråkbaser som `2.5` stöds också. Med bas `10` är på varandra följande potenser som 10, 100, 1 000 och 10 000 lika avstånd.
+
+### **Jämför linjär och logaritmisk skalning**
+
+Följande fristående exempel skapar ett linjediagram med de fem förfrågningsantalena på den första bilden, klonar sedan den bilden och aktiverar en logaritmisk värdeaxel med bas 10 på den andra. Båda bilderna behåller samma data.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ChartType, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Line, 30, 40, 660, 200)
+
+    chart.setLegend(False)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series = chart.getChartData().getSeries().add(ChartType.Line)
+    values = [10, 100, 1000, 10000, 100000]
+
+    for i, value in enumerate(values):
+        category_cell = workbook.getCell(0, i + 1, 0, f"Period {i + 1}")
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, float(value))
+        series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    # Behåll den första bilden linjär och ändra endast kopians värdeaxelskala.
+    logarithmic_slide = presentation.getSlides().addClone(slide)
+    logarithmic_chart = logarithmic_slide.getShapes().get_Item(0)
+    value_axis = logarithmic_chart.getAxes().getVerticalAxis()
+    value_axis.setLogarithmic(True)
+    value_axis.setLogBase(10)
+
+    presentation.save("LogarithmicAxis.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+**Linjär skala (bild 1):** Lika vertikala avstånd representerar lika skillnader i förfrågningsantal. Det största värdet dominerar diagrammet, vilket gör de mindre värdena svåra att särskilja.
+
+![Linjediagram i PowerPoint som visar fem förfrågningsantal på en linjär värdeaxel](value-axis-linear.png)
+
+**Logaritmisk skala (bild 2):** Lika vertikala avstånd representerar lika förhållanden. Varje period har tio gånger så många förfrågningar som föregående, så punkterna bildar en rak stigande linje på bas‑10‑skalan. Axel‑etiketterna visar fortfarande de ursprungliga förfrågningsantalena.
+
+![Samma fem förfrågningsantal i PowerPoint på en logaritmisk värdeaxel med bas 10](value-axis-logarithmic.png)
+
+### **Hantera noll- och negativa värden**
+
+En logaritmisk skala kan endast visa strikt positiva värden. Kontrollera data innan du aktiverar den. Om noll‑ eller negativa värden är meningsfulla, behåll en linjär skala eller visa dem separat. Om exkludering av dessa värden är lämplig för analysen, förklara borttagandet. Ersätt dem inte tyst med små positiva tal, eftersom detta ändrar databetydelsen. Alla manuellt konfigurerade minimier eller maximier för en logaritmisk axel måste också vara positiva.
+
+## **Vanliga frågor**
 
 **Hur anger jag värdet där en axel korsar den andra (axelkorsning)?**
 
-Använd [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) för att välja korsningsbeteende. För att specificera ett numeriskt korsningsvärde, använd [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Dessa inställningar låter dig flytta axelkorsningen till en lämplig grundlinje.
+Använd [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) för att välja korsningsbeteende. För att ange ett numeriskt korsningsvärde, använd [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Dessa inställningar låter dig flytta axelkorsningen till en lämplig referenslinje.
 
-**Hur kan jag positionera tic‑etiketter relativt axeln?**
+**Hur kan jag placera tick‑etiketter relativt till axeln?**
 
-Anropa [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) med [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` eller `None`. För att styra själva tic‑märkena, använd [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) eller [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark); dessa är separata från etikettpositioneringen.
+Anropa [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) med [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` eller `None`. För att styra själva stapelmarkeringarna, använd [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) eller [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark); dessa är separata från etikettpositionering.

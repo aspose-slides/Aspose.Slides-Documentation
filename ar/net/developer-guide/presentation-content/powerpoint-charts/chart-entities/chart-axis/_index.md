@@ -8,7 +8,7 @@ keywords:
 - محور عمودي
 - محور أفقي
 - تخصيص المحور
-- تعديل المحور
+- التعامل مع المحور
 - إدارة المحور
 - خصائص المحور
 - القيمة القصوى
@@ -22,17 +22,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف كيفية استخدام Aspose.Slides for .NET لتخصيص محاور المخطط في عروض PowerPoint التقديمية للتقارير والتصورات."
+description: "اكتشف كيف تستخدم Aspose.Slides لـ .NET لتخصيص محاور المخطط في عروض PowerPoint التقديمية للتقارير والمرئيات."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تخصيص محاور المخطط باستخدام Aspose.Slides for .NET. تغطي القيم المحسوبة للمحاور، تبديل صفوف وأعمدة المخطط، رؤية المحور، فواصل تسميات الفئات وعلامات العقارب، الفئات التاريخية والتنسيق، تدوير العنوان، موضع المحور، ووحدات العرض.
+توضح هذه المقالة كيفية تخصيص محاور المخطط باستخدام Aspose.Slides for .NET. تغطي القيم المحسوبة للمحور، وتبديل صفوف وأعمدة المخطط، ورؤية المحور، وفواصل تسميات الفئات وعلامات التدريج، وفئات التاريخ وتنسيقها، وتدوير العنوان، وتحديد موضع المحور، ووحدات العرض، والقياس اللوغاريتمي.
 
-## **الحصول على القيم القصوى على المحور الرأسي في المخططات**
+## **احصل على القيم القصوى على المحور الرأسي في المخططات**
 
-أنشئ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) وأضف مخطط منطقة ببيانات افتراضية. استدعِ [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/validatechartlayout/) قبل قراءة القيم المحسوبة للمحاور لضمان تحديث تخطيط المخطط.
+قم بإنشاء [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) وإضافة مخطط مساحة ببيانات افتراضية. استدعِ [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/validatechartlayout/) قبل قراءة القيم المحسوبة للمحور لضمان أن تخطيط المخطط محدث.
 
-اقرأ [ActualMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmaxvalue/) و[ActualMinValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminvalue/) لحدود المحور، و[ActualMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunit/) و[ActualMinorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunit/) لفواصل العلامات. توفر [ActualMajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunitscale/) و[ActualMinorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunitscale/) مقاييس الزمن، وهي ذات صلة بالمحاور التاريخية. يخزن المثال هذه القيم في متغيرات محلية ويحفظ المخطط.
+اقرأ [ActualMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmaxvalue/) و[ActualMinValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminvalue/) للحصول على حدود المحور، و[ActualMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunit/) و[ActualMinorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunit/) لفواصل العلامات. توفر [ActualMajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunitscale/) و[ActualMinorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunitscale/) مقاييس الوحدات الزمنية، وهي ذات صلة بالمحاور التاريخية. يخزن المثال هذه القيم في متغيرات محلية ويحفظ المخطط.
 
 ```csharp
 using Aspose.Slides;
@@ -59,7 +59,7 @@ presentation.Save("AxisValues_out.pptx", SaveFormat.Pptx);
 
 ## **تبديل البيانات بين المحاور**
 
-استخدم [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) لتبادل أدوار السلاسل والفئات في بيانات المخطط. تصبح كل فئة سابقة سلسلة، وتصبح كل سلسلة سابقة فئة. هذا يغيّر طريقة تجميع البيانات؛ لا يبدل المحاور الأفقية والرأسية. يستخدم المثال [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setrange/) لربط البيانات الافتراضية بـ `Sheet1!A1:D5`، متضمنًا صف الرأس وعمود الفئة، قبل تبديل الصفوف والأعمدة. يحفظ مخططًا بأربع سلاسل وثلاث فئات.
+استخدم [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) لتبادل أدوار السلاسل والفئات في بيانات المخطط. كل فئة سابقة تصبح سلسلة، وكل سلسلة سابقة تصبح فئة. هذا يغيّر طريقة تجميع البيانات؛ ولا يبدّل المحاور الأفقية والرأسية. يستخدم المثال [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setrange/) لربط البيانات الافتراضية بـ `Sheet1!A1:D5`، بما في ذلك صف العنوان وعمود الفئة، قبل تبديل الصفوف والأعمدة. يحفظ المخطط بأربع سلاسل وثلاث فئات.
 
 ```csharp
 using Aspose.Slides;
@@ -77,9 +77,9 @@ chart.ChartData.SwitchRowColumn();
 presentation.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 ```
 
-## **إلغاء تفعيل المحور الرأسي لمخططات الخط**
+## **تعطيل المحور الرأسي للرسوم الخطية**
 
-عيّن [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) إلى `false` على المحور الرأسي لإخفائه. ينشئ المثال مخطط خط ببيانات افتراضية ويحفظه مع إخفاء المحور الرأسي.
+قم بتعيين [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) إلى `false` على المحور الرأسي لإخفائه. ينشئ المثال مخططًا خطيًا ببيانات افتراضية ويحفظه مع إخفاء المحور الرأسي.
 
 ```csharp
 using Aspose.Slides;
@@ -95,9 +95,9 @@ chart.Axes.VerticalAxis.IsVisible = false;
 presentation.Save("HiddenVerticalAxis.pptx", SaveFormat.Pptx);
 ```
 
-## **إلغاء تفعيل المحور الأفقي لمخططات الخط**
+## **تعطيل المحور الأفقي للرسوم الخطية**
 
-عيّن [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) إلى `false` على المحور الأفقي لإخفائه. ينشئ المثال مخطط خط ببيانات افتراضية ويحفظه مع إخفاء المحور الأفقي.
+قم بتعيين [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) إلى `false` على المحور الأفقي لإخفائه. ينشئ المثال مخططًا خطيًا ببيانات افتراضية ويحفظه مع إخفاء المحور الأفقي.
 
 ```csharp
 using Aspose.Slides;
@@ -115,7 +115,7 @@ presentation.Save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 
 ## **تغيير محور الفئة**
 
-عيّن [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) لاختيار محور فئة تاريخي أو نصي. يتطلب هذا المثال ملف `ExistingChart.pptx`، بحيث يكون المخطط هو الشكل الأول في الشريحة الأولى وتحتوي خلايا الفئة على قيم تاريخية رقمية من Excel. يغيّر ذلك المحور الأفقي إلى محور تاريخ. ضبط [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) إلى `false`، و[MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) إلى `1`، و[MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) إلى الأشهر يضع العلامات الرئيسية بفواصل شهرية.
+قم بتعيين [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) لاختيار محور فئة تاريخية أو نصية. يتطلب هذا المثال ملف `ExistingChart.pptx`، حيث يكون المخطط هو الشكل الأول في الشريحة الأولى وتحتوي خلايا الفئة على قيم تاريخية عددية من Excel. يغيّر المحور الأفقي إلى محور تاريخي. ضبط [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) إلى `false`، و[MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) إلى `1`، و[MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) إلى أشهر يضع العلامات الرئيسية على فواصل شهرية.
 
 ```csharp
 using System;
@@ -137,7 +137,7 @@ presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 
 ## **التحكم في فواصل تسميات محور الفئة**
 
-عند وجود مخطط يحتوي على عدد كبير من الفئات، قلل عدد التسميات المرئية للمحور دون إزالة الفئات أو نقاط البيانات. عيّن [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) إلى `false`، ثم عيّن [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) إلى الفاصل الزمني المطلوب للفئة. بالنسبة للفئات النصية بترتيبها الطبيعي، يبدأ العد من الفئة الأولى:
+عندما يحتوي المخطط على العديد من الفئات، قلل عدد تسميات المحور الظاهرة دون إزالة الفئات أو نقاط البيانات. اضبط [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) إلى `false`، ثم اضبط [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) إلى الفاصل الفئوي المطلوب. بالنسبة للفئات النصية بترتيبها الطبيعي، يبدأ العد من الفئة الأولى:
 
 | الفاصل | التسميات المعروضة في المثال |
 | --- | --- |
@@ -145,11 +145,11 @@ presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 | `2` | الفئة 1، الفئة 3، الفئة 5، ... الفئة 23 |
 | `3` | الفئة 1، الفئة 4، الفئة 7، ... الفئة 22 |
 
-الفاصل `3` يعرّض كل تسمية ثالثة، مع إخفاء تسميتين بين كل تسمية معروضة. لا يزيل ذلك الأعمدة المقابلة. يختار التباعد التلقائي فاصلًا بناءً على المساحة المتاحة؛ ولا يعرض بالضرورة كل تسمية.
+فاصل `3` يعرض كل تسمية ثالثة، بحيث يبقى بين كل تسميتين اثنتان مخفيتان. لا يتم حذف الأعمدة المقابلة. يختار التباعد التلقائي فاصلًا بناءً على المساحة المتاحة؛ ولا يضمن عرض كل تسمية.
 
-لعلامات العقرب تحكم منفصل. عيّن [IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomatictickmarksspacing/) إلى `false` واستخدم [TickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/tickmarksspacing/) لتحديد فاصلها. على سبيل المثال، `1` يحافظ على علامة عقرب عند كل فاصل فئة بينما تظهر التسميات فقط كل فئة ثالثة. عيّن [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majortickmark/) إلى نمط مرئي لتتمكن من رؤية النتيجة. إعادة تعيين أي من خصائص التباعد التلقائي إلى `true` يسمح للمخطط باختيار ذلك الفاصل مرة أخرى.
+علامات التدريج لها تحكم منفصل. اضبط [IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomatictickmarksspacing/) إلى `false` واستخدم [TickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/tickmarksspacing/) لتعيين فاصلها. على سبيل المثال، `1` يحافظ على علامة تدريج في كل فاصل فئة بينما تظهر التسميات فقط كل فئة ثالثة. اضبط [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majortickmark/) إلى نمط مرئي لتتمكن من رؤية النتيجة. إعادة تعيين أي من خصائص التباعد التلقائي إلى `true` يسمح للمخطط باختيار الفاصل مرة أخرى.
 
-المثال المستقل التالي يُنشئ 24 فئة وسلسلة واحدة، ثم يحفظ ثلاث شرائح في `CategoryAxisIntervals.pptx`: تباعد تلقائي، تباعد يدوي للتسمية مع علامات عقرب مستقلة، واستعادة التباعد التلقائي. النسختان تحتفظان ببيانات المخطط الأصلية. لا يلزم تقديم عرض تقديمي كمدخل. يجعل نص التسمية الأفقي الفرق في الكثافة واضحًا.
+المثال المستقل التالي ينشئ 24 فئة وسلسلة واحدة، ثم يحفظ ثلاث شرائح في ملف `CategoryAxisIntervals.pptx`: التباعد التلقائي، تباعد التسميات يدويًا مع علامات تدريج مستقلة، وإعادة التباعد التلقائي. النسختان تحافظان على بيانات المخطط الأصلية. لا يلزم عرض تقديمي مدخل. يجعل نص التسمية الأفقي الفرق في الكثافة واضحًا.
 
 ```csharp
 using Aspose.Slides;
@@ -185,7 +185,7 @@ axis.MajorTickMark = TickMarkType.Outside;
 axis.IsAutomaticTickLabelSpacing = true;
 axis.IsAutomaticTickMarksSpacing = true;
 
-// الشريحة 2: عرض كل تسمية ثالثة، مع الحفاظ على علامة عقرب لكل فئة.
+// الشريحة 2: إظهار كل تسمية ثالثة، ولكن الحفاظ على علامة تدريج لكل فئة.
 var manualSlide = presentation.Slides.AddClone(slide);
 var manualChart = (IChart)manualSlide.Shapes[0];
 var manualAxis = manualChart.Axes.HorizontalAxis;
@@ -194,7 +194,7 @@ manualAxis.TickLabelSpacing = 3;
 manualAxis.IsAutomaticTickMarksSpacing = false;
 manualAxis.TickMarksSpacing = 1;
 
-// الشريحة 3: السماح للمخطط باختيار الفواصل مرة أخرى.
+// الشريحة 3: السماح للمخطط باختيار كلا الفاصلين مرة أخرى.
 var restoredSlide = presentation.Slides.AddClone(manualSlide);
 var restoredChart = (IChart)restoredSlide.Shapes[0];
 restoredChart.Axes.HorizontalAxis.IsAutomaticTickLabelSpacing = true;
@@ -203,23 +203,23 @@ restoredChart.Axes.HorizontalAxis.IsAutomaticTickMarksSpacing = true;
 presentation.Save("CategoryAxisIntervals.pptx", SaveFormat.Pptx);
 ```
 
-**التباعد التلقائي (الشريحة 1):** في هذا العرض، تُعرض كل تسمية فئة ثانية وتلتف إلى سطرين. قد يختلف النتيجة التلقائية بحسب حجم المخطط، الخطوط، أو طريقة العرض.
+**التباعد التلقائي (الشريحة 1):** في هذا العرض، تُعرض كل تسمية فئة ثانية وتُكّسّ على سطرين. قد يختلف الناتج التلقائي حسب حجم المخطط، الخطوط، وعامل العرض.
 
-![تباعد تسميات الفئات التلقائي مع إظهار جميع الأعمدة الـ 24](category-axis-automatic.png)
+![تباعد تسميات الفئة تلقائيًا مع رؤية جميع الأعمدة الـ24](category-axis-automatic.png)
 
-**التباعد اليدوي (الشريحة 2):** تُعرض كل تسمية ثالثة في سطر واحد، بينما تظل علامات العقرب عند كل فاصل فئة. جميع الأعمدة الـ 24، بما فيها تلك بدون تسميات، تظل مرئية بنفس القيم. تستعيد الشريحة 3 المظهر التلقائي المعروض أعلاه.
+**التباعد اليدوي (الشريحة 2):** تُعرض كل تسمية ثالثة على سطر واحد، بينما تظل علامات التدريج في كل فاصل فئة. جميع 24 عمودًا، بما في ذلك تلك التي لا تحتوي على تسميات، تظل مرئية بنفس القيم. تستعيد الشريحة 3 المظهر التلقائي المعروض أعلاه.
 
-![فاصل تسميات الفئات اليدوي ثلاثة مع إظهار جميع الأعمدة الـ 24](category-axis-manual.png)
+![تباعد يدوي لتسميات الفئة بثلاثة مع رؤية جميع الأعمدة الـ24](category-axis-manual.png)
 
 ### **اختر المحور والفاصل الصحيح**
 
-استخدم هذا الفاصل للعدد الفئوي لمحور فئة نصية، مثل محور الفئة في مخطط عمودي، خط، منطقة أو شريطي. في مخطط عمودي، يكون هو المحور الأفقي. في مخطط شريطي أفقي، يكون محور الفئة عموديًا، لذا طبّق هذه الإعدادات على [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/). يطبق تباعد علامات العقرب أيضًا على محور سلسلة في المخططات التي تحتوي على واحد.
+استخدم هذا الفاصل القائم على عدد الفئات لمحور فئة نصية، مثل محور الفئة في مخطط عمودي، خطي، مساحي أو شريطي. في المخطط العمودي، يكون هو المحور الأفقي. في المخطط الشريطي الأفقي، يكون محور الفئة رأسيًا، لذا طبّق هذه الإعدادات على [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/). ينطبق تباعد علامات التدريج أيضًا على محور السلسلة في المخططات التي تحتوي على واحد.
 
-لا تستخدم تباعد تسميات الفئة لتعيين مقياس رقمي لمحور القيم. في محور القيم، يحدد [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorunit/) فرق القيم: على سبيل المثال، وحدة رئيسية بـ`10` تُنتج علامات عند 0، 10، 20، وهكذا عندما يبدأ المحور من الصفر. فاصل تسميات الفئة بـ`3` يُحصي مواضع الفئات بغض النظر عن قيمها. تستخدم مخططات التشتت والفقاعات محاور القيم بدلاً من محور فئة نصية. للمحور التاريخي، استخدم الوحدات الرئيسية الزمنية والمقاييس كما هو موضح في [Change a Category Axis](#change-a-category-axis).
+لا تستخدم تباعد تسميات الفئة لضبط المقياس الرقمي لمحور القيمة. على محور القيمة، يحدد [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorunit/) الفرق بين القيم: على سبيل المثال، وحدة رئيسية مقدارها `10` تنتج علامات عند 0، 10، 20، وهكذا عندما يبدأ المحور من الصفر. فاصل تسمية الفئة `3` يعد مواضع الفئات بدلًا من قيم البيانات. تستخدم مخططات التشتت والفقاعات محاور قيمة بدلاً من محور فئة نصية. لمحور التاريخ، استخدم الوحدات الرئيسية القائمة على الوقت والمقاييس كما هو موضح في [تغيير محور الفئة](#change-a-category-axis).
 
-## **ضبط تنسيق التاريخ لقيم محور الفئة**
+## **تعيين تنسيق التاريخ لقيم محور الفئة**
 
-يستبدل المثال بيانات المخطط الافتراضية بأربعة قيم سنوية. تُخزن التواريخ كأرقام تسلسلية OLE Automation في ورقة العمل الأولى (الفهرس `0`). عيّن [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) إلى محور تاريخ، عطل [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isnumberformatlinkedtosource/)، وعيّن `yyyy` إلى [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberformat/) لكي تُظهر تسميات الفئة السنوات بأربعة أرقام بغض النظر عن تنسيق الخلية.
+يستبدل المثال بيانات المخطط الافتراضية بأربع قيم سنوية. تُخزن التواريخ كأرقام مسلسل OLE Automation في ورقة العمل الأولى (الفهرس `0`). اضبط [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) إلى محور تاريخي، عطل [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isnumberformatlinkedtosource/)، وعين `yyyy` إلى [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberformat/) حتى تُظهر تسميات الفئة السنوات بأربعة أرقام بغض النظر عن تنسيق الخلية.
 
 ```csharp
 using System;
@@ -256,9 +256,9 @@ chart.Axes.HorizontalAxis.NumberFormat = "yyyy";
 presentation.Save("DateAxisFormat.pptx", SaveFormat.Pptx);
 ```
 
-## **تحديد زاوية تدوير لعنوان محور المخطط**
+## **تعيين زاوية دوران لعنوان محور المخطط**
 
-فعّل [HasTitle](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/hastitle/) على المحور الرأسي، قدِّم نص العنوان، وعيّن [RotationAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextblockformat/rotationangle/) لتدوير العنوان. تُقاس الزاوية بالدرجات؛ يحفظ هذا المثال مخططًا عموديًا مع تدوير عنوان محور القيم بزاوية 90 درجة.
+فعّل [HasTitle](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/hastitle/) على المحور الرأسي، وفر نصًا للعنوان، واضبط [RotationAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextblockformat/rotationangle/) لتدوير العنوان. تُقاس الزاوية بالدرجات؛ يحفظ المثال مخططًا عموديًا مع عنوان محور القيمة مدورًا بمقدار 90 درجة.
 
 ```csharp
 using Aspose.Slides;
@@ -276,9 +276,9 @@ chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
 presentation.Save("RotatedAxisTitle.pptx", SaveFormat.Pptx);
 ```
 
-## **تحديد موضع المحور على محور الفئة أو القيم**
+## **تعيين موضع المحور على محور الفئة أو القيمة**
 
-استخدم [AxisBetweenCategories](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/axisbetweencategories/) للتحكم فيما إذا كان محور القيمة يتقاطع مع محور الفئة بين الفئات أو عند علامات الفئة. تنطبق هذه الخاصية على محاور الفئة. يعيّن المثالها إلى `true` على محور الفئة الأفقي في مخطط عمودي ويحفظ النتيجة.
+استخدم [AxisBetweenCategories](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/axisbetweencategories/) للتحكم فيما إذا كان محور القيمة يعبر محور الفئة بين الفئات أو عند علامات الفئة. تُطبق هذه الخاصية على محاور الفئة. يضبط المثال هذه الخاصية إلى `true` على محور الفئة الأفقي لمخطط عمودي ويحفظ النتيجة.
 
 ```csharp
 using Aspose.Slides;
@@ -294,9 +294,9 @@ chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
 presentation.Save("AxisBetweenCategories.pptx", SaveFormat.Pptx);
 ```
 
-## **ضبط وحدة العرض على محور القيم في المخطط**
+## **تعيين وحدة العرض على محور قيمة المخطط**
 
-عيّن [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/displayunit/) لتقليص حجم التسميات على محور القيم دون تغيير البيانات الأساسية. عند ضبط [DisplayUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/displayunittype/) إلى `Millions`، يُعرض القيمة 60,000,000 كـ 60. ينشئ المثال مخططًا عموديًا ويطبق وحدة العرض بالملايين على محوره الرأسي.
+قم بتعيين [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/displayunit/) لتكبير تسميات محور القيمة دون تغيير البيانات الأساسية. عندما يكون [DisplayUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/displayunittype/) مُعيّنًا إلى `Millions`، يُعرض القيمة 60,000,000 كـ 60. ينشئ المثال مخططًا عموديًا ويطبق وحدة العرض بالملايين على محوره الرأسي.
 
 ```csharp
 using Aspose.Slides;
@@ -312,12 +312,80 @@ chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
 presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
+## **تكوين محور قيمة لوغاريتمي**
+
+محور قيمة لوغاريتمي مفيد عندما تمتد القيم الموجبة عبر عدة مرتبة من الحجم. على سبيل المثال، قد تتلقى خدمة 10، 100، 1,000، 10,000، و100,000 طلبًا على مدار خمس فترات. على مقياس خطي، تظهر القيم الأصغر متقاربة بالقرب من الصفر. يجعل المقياس اللوغاريتمي نموها النسبي أسهل للمقارنة: تمثل المسافات المتساوية نسبًا متساوية بدلًا من فروقًا متساوية.
+
+اضبط [IsLogarithmic](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/islogarithmic/) إلى `true` على محور القيمة واستخدم [LogBase](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/logbase/) لاختيار القاعدة. يغيّر هذا طريقة عرض القيم الحالية؛ ولا يغيّر البيانات أو يضيف خط اتجاه لوغاريتمي. يمثل خط الاتجاه علاقة مُناسبة في البيانات وهو ميزة منفصلة.
+
+### **اختر محور القيمة والقاعدة**
+
+في مخطط خطي أو عمودي، يكون محور القيمة هو [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/). في المخطط الشريطي الأفقي، يكون هو [HorizontalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/horizontalaxis/). للمخططات التشتتية والفقاعية محوران للقيمة، لذا اختر المحور الأفقي لقيم X، والمحور الرأسي لقيم Y، أو كليهما. لا تطبق القياس اللوغاريتمي على محور الفئة.
+
+القاعدة اللوغاريتمية الافتراضية هي `10`. للمخططات PPTX، استخدم قاعدة من `2` إلى `1000` شاملة؛ القواعد الكسرية مثل `2.5` مدعومة أيضًا. مع القاعدة `10`، تكون القوى المتتابعة مثل 10، 100، 1,000، و10,000 متساوية المسافات.
+
+### **قارن بين القياس الخطي واللوغاريتمي**
+
+ينشئ المثال المستقل التالي مخططًا خطيًا يحتوي على خمس عدادات طلب في الشريحة الأولى، ثم ينسخ تلك الشريحة ويفعل محور قيمة لوغاريتمي بقاعدة 10 في الشريحة الثانية. تحتفظ كلتا الشرحتين بنفس البيانات.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 30, 40, 660, 200);
+
+chart.HasLegend = false;
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Line);
+var values = new double[] { 10, 100, 1000, 10000, 100000 };
+
+for (var i = 0; i < values.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, $"Period {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+}
+
+// حافظ على الشريحة الأولى خطية وقم بتغيير مقياس محور القيمة للنسخة فقط.
+var logarithmicSlide = presentation.Slides.AddClone(slide);
+var logarithmicChart = (IChart)logarithmicSlide.Shapes[0];
+var valueAxis = logarithmicChart.Axes.VerticalAxis;
+valueAxis.IsLogarithmic = true;
+valueAxis.LogBase = 10;
+
+presentation.Save("LogarithmicAxis.pptx", SaveFormat.Pptx);
+```
+
+**المقياس الخطي (الشريحة 1):** تمثل المسافات العمودية المتساوية فروقًا متساوية في عدد الطلبات. هيمن القيمة الأكبر على المخطط، مما يصعب تمييز القيم الأصغر.
+
+![مخطط خطي في PowerPoint يُظهر خمس عدادات طلب على محور قيمة خطي](value-axis-linear.png)
+
+**المقياس اللوغاريتمي (الشريحة 2):** تمثل المسافات العمودية المتساوية نسبًا متساوية. كل فترة لديها عشرة أضعاف عدد الطلبات مقارنةً بالفترة السابقة، لذا تشكل النقاط خطًا مستقيمًا صاعدًا على المقياس القاعدي 10. لا تزال تسميات المحور تُظهر عدد الطلبات الأصلي.
+
+![نفس خمس عدادات الطلب في PowerPoint على محور قيمة لوغاريتمي بقاعدة 10](value-axis-logarithmic.png)
+
+### **التعامل مع القيم صفر والسالبة**
+
+يمكن للمقياس اللوغاريتمي عرض قيم موجبة فقط. تحقق من البيانات قبل تفعيله. إذا كانت القيم الصفرية أو السالبة ذات معنى، حافظ على مقياس خطي أو أظهرها بشكل منفصل. إذا كان استبعاد تلك القيم مناسبًا للتحليل، فسر السبب. لا تستبدلها صامتًا بأرقام صغيرة موجبة، لأن ذلك يغير معنى البيانات. يجب أن تكون أي حد أدنى أو أقصى يُضبط يدويًا لمحور لوغاريتمي إيجابيًا أيضًا.
+
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني تحديد القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحاور)؟**
+**كيف يمكنني تعيين القيمة التي يتقاطع عندها أحد المحاور مع الآخر (تقاطع المحور)؟**
 
-استخدم [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) لاختيار سلوك التقاطع. لتحديد قيمة تقاطع رقمية، عيّن [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/). تسمح لك هذه الإعدادات بنقل تقاطع المحور إلى خط أساس مناسب.
+استخدم [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) لاختيار سلوك التقاطع. لتحديد قيمة تقاطع عددية، اضبط [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/). تسمح لك هذه الإعدادات بنقل تقاطع المحور إلى خط أساس مناسب.
 
-**كيف يمكنني موضع تسميات العلامات بالنسبة للمحور؟**
+**كيف يمكنني وضع تسميات العلامات بالنسبة للمحور؟**
 
-عيّن [TickLabelPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/ticklabelposition/) باستخدام [TickLabelPositionType](https://reference.aspose.com/slides/net/aspose.slides.charts/ticklabelpositiontype/): `Low`، `High`، `NextTo` أو `None`. للتحكم في علامات العقرب نفسها، استخدم [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) أو [MinorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/minortickmark/); هذه منفصلة عن موضع التسميات.
+اضبط [TickLabelPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/ticklabelposition/) باستخدام [TickLabelPositionType](https://reference.aspose.com/slides/net/aspose.slides.charts/ticklabelpositiontype/): `Low`، `High`، `NextTo`، أو `None`. للتحكم في علامات التدريج نفسها، استخدم [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) أو [MinorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/minortickmark/); هذه منفصلة عن تحديد موضع التسميات.

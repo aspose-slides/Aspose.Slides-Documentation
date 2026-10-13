@@ -4,35 +4,35 @@ linktitle: Diagrammachse
 type: docs
 url: /de/nodejs-java/chart-axis/
 keywords:
-- diagrammachse
-- vertikale achse
-- horizontale achse
-- achse anpassen
-- achse manipulieren
-- achse verwalten
-- achseneigenschaften
-- maximalwert
-- minimalwert
-- achsenlinie
-- datumsformat
-- achsentitel
-- achsenposition
+- Diagrammachse
+- vertikale Achse
+- horizontale Achse
+- Achse anpassen
+- Achse manipulieren
+- Achse verwalten
+- Achseneigenschaften
+- maximaler Wert
+- minimaler Wert
+- Achsenlinie
+- Datumsformat
+- Achsentitel
+- Achsenposition
 - PowerPoint
-- präsentation
+- Präsentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie JavaScript mit Aspose.Slides für Node.js via Java nutzen, um Diagrammachsen in PowerPoint‑Präsentationen für Berichte und Visualisierungen anzupassen."
+description: "Erfahren Sie, wie Sie JavaScript mit Aspose.Slides für Node.js über Java verwenden, um Diagrammachsen in PowerPoint‑Präsentationen für Berichte und Visualisierungen anzupassen."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie Diagrammachsen mit Aspose.Slides für Node.js über Java angepasst werden können. Er behandelt berechnete Achsenwerte, das Vertauschen von Diagrammzeilen und -spalten, Achsensichtbarkeit, Kategorienbeschriftungs‑ und Markierungsabstände, Datumskategorien und -formatierung, Titelrotation, Achsenpositionierung sowie Anzeigeeinheiten.
+Dieser Artikel erklärt, wie Diagrammachsen mit Aspose.Slides für Node.js über Java angepasst werden können. Er behandelt berechnete Achsenwerte, das Tauschen von Diagrammreihen und -spalten, die Achsensichtbarkeit, Intervalle für Kategorienbeschriftungen und Teilstrichmarken, Datums‑Kategorien und -formatierung, Titeldrehung, Achsenpositionierung, Anzeigeeinheiten und logarithmische Skalierung.
 
-## **Maximale Werte auf der Vertikalachse bei Diagrammen ermitteln**
+## **Ermitteln der Maximalwerte auf der Vertikalachse von Diagrammen**
 
 Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) und fügen Sie ein Flächendiagramm mit Standarddaten hinzu. Rufen Sie [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) auf, bevor Sie berechnete Achsenwerte auslesen, damit das Diagrammlayout aktuell ist.
 
-Lesen Sie [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) und [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/), um die Achsengrenzen zu erhalten, sowie [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) und [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) für die Tick‑Abstände. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) und [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) stellen Zeiteinheiten‑Skalen bereit, die für Datumachsen relevant sind. Das Beispiel speichert diese Werte in lokalen Variablen und speichert das Diagramm.
+Lesen Sie [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) und [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) für die Achsengrenzwerte sowie [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) und [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) für die Teilstrich‑Intervalle. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) und [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) liefern Zeiteinheitsskalen, die für Datumsachsen relevant sind. Das Beispiel speichert diese Werte in lokalen Variablen und speichert das Diagramm.
 
 ```javascript
 var aspose = aspose || {};
@@ -62,7 +62,7 @@ try {
 
 ## **Daten zwischen Achsen austauschen**
 
-Verwenden Sie [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/), um die Rollen von Reihen und Kategorien in Diagrammdaten zu vertauschen. Jede ehemalige Kategorie wird zu einer Reihe und jede ehemalige Reihe zu einer Kategorie. Dies ändert die Gruppierung der Daten; die horizontalen und vertikalen Achsen werden nicht ausgetauscht. Das Beispiel verwendet [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) , um die Standarddaten an `Sheet1!A1:D5` zu binden, einschließlich der Kopfzeile und der Kategoriespalte, bevor Zeilen und Spalten vertauscht werden. Es speichert ein Diagramm mit vier Reihen und drei Kategorien.
+Verwenden Sie [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/), um die Rollen von Serien und Kategorien in Diagrammdaten zu vertauschen. Jede ehemalige Kategorie wird zu einer Serie und jede ehemalige Serie zu einer Kategorie. Dies ändert, wie die Daten gruppiert werden; es tauscht nicht die horizontale und vertikale Achse aus. Das Beispiel nutzt [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/), um die Standarddaten an `Sheet1!A1:D5` zu binden, einschließlich der Kopfzeile und der Kategorie‑Spalte, bevor Reihen und Spalten getauscht werden. Es speichert ein Diagramm mit vier Serien und drei Kategorien.
 
 ```javascript
 var aspose = aspose || {};
@@ -84,7 +84,7 @@ try {
 
 ## **Vertikale Achse für Liniendiagramme deaktivieren**
 
-Rufen Sie [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) mit `false` für die vertikale Achse auf, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter vertikaler Achse.
+Rufen Sie [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) mit `false` für die vertikale Achse auf, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit versteckter vertikaler Achse.
 
 ```javascript
 var aspose = aspose || {};
@@ -105,7 +105,7 @@ try {
 
 ## **Horizontale Achse für Liniendiagramme deaktivieren**
 
-Rufen Sie [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) mit `false` für die horizontale Achse auf, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter horizontaler Achse.
+Rufen Sie [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) mit `false` für die horizontale Achse auf, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit versteckter horizontaler Achse.
 
 ```javascript
 var aspose = aspose || {};
@@ -124,9 +124,9 @@ try {
 }
 ```
 
-## **Kategorienachse ändern**
+## **Eine Kategorienachse ändern**
 
-Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/), um eine Datums‑ oder Text‑Kategorienachse auszuwählen. Dieses Beispiel benötigt `ExistingChart.pptx`, wobei das Diagramm das erste Shape auf der ersten Folie ist und die Kategoriezellen numerische Excel‑Datumswerte enthalten. Es ändert die horizontale Achse zu einer Datumsachse. Durch Aufrufen von [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) mit `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) mit `1` und [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) mit `TimeUnitType.Months` werden Hauptticks im Abstand von einem Monat gesetzt.
+Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/), um eine Datums‑ oder Text‑Kategorienachse auszuwählen. Dieses Beispiel erfordert `ExistingChart.pptx`, wobei das Diagramm die erste Form auf der ersten Folie ist und die Kategorienzellen numerische Excel‑Datumswerte enthalten. Es ändert die horizontale Achse zu einer Datumsachse. Der Aufruf von [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) mit `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) mit `1` und [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) mit `TimeUnitType.Months` setzt die Hauptteilstriche auf 1‑Monats‑Intervalle.
 
 ```javascript
 var aspose = aspose || {};
@@ -148,9 +148,9 @@ try {
 }
 ```
 
-## **Abstände für Kategorienachsen‑Beschriftungen steuern**
+## **Intervall für Kategorienachsen‑Beschriftungen steuern**
 
-Wenn ein Diagramm viele Kategorien hat, können Sie die Anzahl sichtbarer Achsenbeschriftungen reduzieren, ohne Kategorien oder Datenpunkte zu entfernen. Rufen Sie [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) mit `false` auf und übergeben Sie dann das gewünschte Kategorienintervall an [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). Für Textkategorien in ihrer normalen Reihenfolge beginnt die Zählung bei der ersten Kategorie:
+Wenn ein Diagramm viele Kategorien enthält, reduzieren Sie die Anzahl sichtbarer Achsenbeschriftungen, ohne Kategorien oder Datenpunkte zu entfernen. Rufen Sie [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) mit `false` auf und übergeben Sie das gewünschte Kategorienintervall an [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). Für Textkategorien in ihrer normalen Reihenfolge beginnt die Zählung beim ersten Element:
 
 | Intervall | Im Beispiel angezeigte Beschriftungen |
 | --- | --- |
@@ -158,11 +158,11 @@ Wenn ein Diagramm viele Kategorien hat, können Sie die Anzahl sichtbarer Achsen
 | `2` | Kategorie 1, Kategorie 3, Kategorie 5, ... Kategorie 23 |
 | `3` | Kategorie 1, Kategorie 4, Kategorie 7, ... Kategorie 22 |
 
-Ein Intervall von `3` zeigt jede dritte Beschriftung an und lässt zwei Beschriftungen zwischen den angezeigten verborgen. Es werden nicht die entsprechenden Spalten entfernt. Das automatische Spacing wählt ein Intervall basierend auf dem verfügbaren Platz; es muss nicht jede Beschriftung anzeigen.
+Ein Intervall von `3` zeigt jede dritte Beschriftung an und lässt zwischen den angezeigten zwei Beschriftungen aus. Es entfernt nicht die entsprechenden Spalten. Automatischer Abstand wählt ein Intervall basierend auf dem verfügbaren Platz; er zeigt nicht zwingend jede Beschriftung an.
 
-Markierungen haben separate Steuerungen. Rufen Sie [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) mit `false` auf und verwenden Sie [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/), um ihr Intervall festzulegen. Beispielsweise sorgt `1` dafür, dass bei jedem Kategorienintervall eine Markierung bleibt, während Beschriftungen nur jede dritte Kategorie erscheinen. Verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) mit einem sichtbaren Stil, um das Ergebnis zu sehen. Wenn einer der automatischen Spacing‑Setter erneut mit `true` aufgerufen wird, lässt das Diagramm das Intervall wieder automatisch wählen.
+Teilstrich‑Markierungen haben eigene Einstellungen. Rufen Sie [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) mit `false` auf und verwenden Sie [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/), um ihr Intervall festzulegen. Beispiel: `1` lässt eine Teilstrich‑Markierung bei jedem Kategorienintervall erscheinen, während Beschriftungen nur bei jeder dritten Kategorie sichtbar sind. Verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) mit einem sichtbaren Stil, um das Ergebnis zu sehen. Das erneute Setzen eines automatischen Abstandes (`true`) lässt das Diagramm das Intervall wieder automatisch bestimmen.
 
-Das folgende eigenständige Beispiel erstellt 24 Kategorien und eine Reihe und speichert dann drei Folien in `CategoryAxisIntervals.pptx`: automatisches Spacing, manuelles Beschriftungs‑Spacing mit unabhängigen Markierungen und wiederhergestelltes automatisches Spacing. Die beiden Kopien behalten die ursprünglichen Diagrammdaten bei. Keine Eingabepräsentation ist erforderlich. Der horizontale Beschriftungstext macht den Unterschied in der Dichte leicht erkennbar.
+Das folgende eigenständige Beispiel erstellt 24 Kategorien und eine Serie und speichert drei Folien in `CategoryAxisIntervals.pptx`: automatischer Abstand, manueller Beschriftungsabstand mit unabhängigen Teilstrich‑Markierungen und wiederhergestellter automatischer Abstand. Die beiden Kopien behalten die ursprünglichen Diagrammdaten. Es wird keine Eingabe‑Präsentation benötigt. Der horizontale Beschriftungstext macht den Unterschied in der Dichte leicht erkennbar.
 
 ```javascript
 var aspose = aspose || {};
@@ -197,7 +197,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // Folie 2: jede dritte Beschriftung anzeigen, aber für jede Kategorie eine Markierung beibehalten.
+    // Folie 2: jede dritte Beschriftung anzeigen, aber für jede Kategorie einen Teilstrich beibehalten.
     var manualSlide = presentation.getSlides().addClone(slide);
     var manualChart = manualSlide.getShapes().get_Item(0);
     var manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -218,23 +218,23 @@ try {
 }
 ```
 
-**Automatisches Spacing (Folie 1):** In dieser Darstellung wird jede zweite Kategorienbeschriftung angezeigt und umbricht in zwei Zeilen. Das automatische Ergebnis kann je nach Diagrammgröße, Schriftarten und Renderer variieren.
+**Automatischer Abstand (Folie 1):** In dieser Darstellung wird jede zweite Kategorienbeschriftung angezeigt und umbrechen in zwei Zeilen. Das automatische Ergebnis kann je nach Diagrammgröße, Schriftarten und Renderer variieren.
 
-![Automatisches Kategorienbeschriftungs‑Spacing mit allen 24 Spalten sichtbar](category-axis-automatic.png)
+![Automatischer Kategorienbeschriftungsabstand mit allen 24 Spalten sichtbar](category-axis-automatic.png)
 
-**Manuelles Spacing (Folie 2):** Jede dritte Beschriftung wird in einer Zeile angezeigt, während Markierungen bei jedem Kategorienintervall bleiben. Alle 24 Spalten, einschließlich der ohne Beschriftungen, bleiben sichtbar mit denselben Werten. Folie 3 stellt das oben gezeigte automatische Aussehen wieder her.
+**Manueller Abstand (Folie 2):** Jede dritte Beschriftung wird in einer Zeile angezeigt, während Teilstrich‑Markierungen bei jedem Kategorienintervall bleiben. Alle 24 Spalten, auch die ohne Beschriftungen, bleiben sichtbar mit denselben Werten. Folie 3 stellt das oben gezeigte automatische Erscheinungsbild wieder her.
 
-![Manuelles Kategorienbeschriftungs‑Intervall von drei mit allen 24 Spalten sichtbar](category-axis-manual.png)
+![Manueller Kategorienbeschriftungsintervall von drei mit allen 24 Spalten sichtbar](category-axis-manual.png)
 
 ### **Den richtigen Achsen‑ und Intervalltyp wählen**
 
-Verwenden Sie dieses Kategorien‑Zähl‑Intervall für eine Text‑Kategorienachse, z. B. die Kategorienachse eines Säulen‑, Linien‑, Flächen‑ oder Balkendiagramms. In einem Säulendiagramm ist sie die horizontale Achse. In einem horizontalen Balkendiagramm ist die Kategorienachse vertikal, sodass Sie diese Einstellungen auf die von [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) zurückgegebene Achse anwenden. Das Markierungs‑Spacing gilt ebenfalls für eine Reihen‑Achse in Diagrammen, die eine solche besitzen.
+Verwenden Sie dieses Kategorien‑Zählintervall für eine Text‑Kategorienachse, z. B. die Kategorienachse eines Säulen‑, Linien‑, Flächen‑ oder Balkendiagramms. In einem Säulendiagramm ist es die horizontale Achse. In einem horizontalen Balkendiagramm ist die Kategorienachse vertikal, daher wenden Sie diese Einstellungen auf die Achse an, die von [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) zurückgegeben wird. Der Abstand für Teilstrich‑Markierungen gilt ebenfalls für eine Serienachse in Diagrammen, die eine besitzen.
 
-Verwenden Sie das Kategorien‑Beschriftungs‑Spacing nicht, um die numerische Skala einer Werteachse festzulegen. Auf einer Werteachse bestimmt [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) welcher Werteunterschied verwendet wird: Beispielsweise erzeugt ein Hauptintervall von `10` Tick‑Markierungen bei 0, 10, 20 usw., wenn die Achse bei Null beginnt. Ein Kategorien‑Beschriftungs‑Intervall von `3` zählt stattdessen die Positionen der Kategorien, unabhängig von deren Datenwerten. Streu‑ und Blasendiagramme verwenden Werteachsen anstelle einer Text‑Kategorienachse. Für eine Datumsachse verwenden Sie zeitbasierte Haupteinheiten und Skalen, wie in [Change a Category Axis](#change-a-category-axis) beschrieben.
+Verwenden Sie den Kategorien‑Beschriftungsabstand nicht, um die numerische Skala einer Werteachse zu setzen. Auf einer Werteachse gibt [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) einen Unterschied in den Werten an: Ein Hauptintervall von `10` erzeugt Teilstriche bei 0, 10, 20 usw., wenn die Achse bei Null beginnt. Ein Kategorien‑Beschriftungsintervall von `3` zählt dagegen Kategorienpositionen, unabhängig von ihren Datenwerten. Streu‑ und Blasendiagramme verwenden Werteachsen statt einer Text‑Kategorienachse. Für eine Datumsachse verwenden Sie zeitbasierte Haupteinheiten und Skalen wie in [Eine Kategorienachse ändern](#change-a-category-axis) beschrieben.
 
-## **Datumsformat für Kategorienachsen‑Werte festlegen**
+## **Datumsformat für Kategorienachs Werte festlegen**
 
-Das Beispiel ersetzt die Standarddiagrammdaten durch vier Jahreswerte. Daten werden als OLE‑Automation‑Seriennummern im ersten Arbeitsblatt (Index `0`) gespeichert, berechnet als Anzahl der Tage seit dem 30. Dezember 1899 für diese Daten. Die JavaScript‑Berechnung verwendet UTC‑Zeitstempel und teilt die Differenz durch 86 400 000 Millisekunden pro Tag. Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) mit `CategoryAxisType.Date`, rufen Sie [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) mit `false` auf und übergeben Sie `yyyy` an [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/), sodass die Kategorienbeschriftungen vierstellige Jahreszahlen unabhängig von der Zellformatierung anzeigen.
+Das Beispiel ersetzt die Standarddiagrammdaten durch vier Jahreswerte. Daten werden als OLE‑Automation‑Seriennummern im ersten Arbeitsblatt (Index `0`) gespeichert, berechnet als die Anzahl der Tage seit dem 30. Dezember 1899 für diese Daten. Die JavaScript‑Berechnung nutzt UTC‑Zeitstempel und teilt die Differenz durch 86 400 000 Millisekunden pro Tag. Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) mit `CategoryAxisType.Date`, rufen Sie [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) mit `false` auf und übergeben Sie `yyyy` an [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/), damit die Kategorienbeschriftungen vierstellige Jahreszahlen unabhängig von der Zellformatierung anzeigen.
 
 ```javascript
 var aspose = aspose || {};
@@ -274,9 +274,9 @@ try {
 }
 ```
 
-## **Drehwinkel für Diagrammachsentitel festlegen**
+## **Rotationswinkel für Diagrammachsentitel festlegen**
 
-Rufen Sie [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) mit `true` für die vertikale Achse auf, geben Sie den Titeltext an und verwenden Sie [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/), um den Titel zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel speichert ein Säulendiagramm mit um 90 Grad gedrehtem Werteachsentitel.
+Rufen Sie [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) mit `true` für die vertikale Achse auf, geben Sie den Titeltext an und verwenden Sie [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/), um den Titel zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel speichert ein Säulendiagramm, dessen Werteachsen‑Titel um 90 Grad gedreht ist.
 
 ```javascript
 var aspose = aspose || {};
@@ -299,7 +299,7 @@ try {
 
 ## **Achsenposition auf einer Kategorien‑ oder Werteachse festlegen**
 
-Verwenden Sie [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/), um zu steuern, ob die Werteachse die Kategorienachse zwischen Kategorien oder an den Kategorien‑Markierungen schneidet. Diese Einstellung gilt für Kategorienachsen. Das Beispiel setzt sie auf `true` für die horizontale Kategorienachse eines Säulendiagramms und speichert das Ergebnis.
+Verwenden Sie [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/), um zu steuern, ob die Werteachse die Kategorienachse zwischen den Kategorien oder an den Kategorien‑Teilstrich‑Markierungen schneidet. Diese Einstellung gilt für Kategorienachsen. Das Beispiel setzt sie auf `true` für die horizontale Kategorienachse eines Säulendiagramms und speichert das Ergebnis.
 
 ```javascript
 var aspose = aspose || {};
@@ -320,7 +320,7 @@ try {
 
 ## **Anzeigeeinheit auf einer Diagramm‑Werteachse festlegen**
 
-Verwenden Sie [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/), um die Beschriftungen einer Werteachse zu skalieren, ohne die zugrunde liegenden Daten zu ändern. Mit [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) auf `Millions` eingestellt wird ein Wert von 60 000 000 als 60 angezeigt. Das Beispiel erstellt ein Säulendiagramm und wendet die Millionen‑Anzeigeeinheit auf dessen vertikale Achse an.
+Verwenden Sie [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/), um die Beschriftungen einer Werteachse zu skalieren, ohne die zugrunde liegenden Daten zu ändern. Mit [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) auf `Millions` wird ein Wert von 60 000 000 als 60 angezeigt. Das Beispiel erstellt ein Säulendiagramm und wendet die Millionen‑Anzeigeeinheit auf die vertikale Achse an.
 
 ```javascript
 var aspose = aspose || {};
@@ -339,12 +339,82 @@ try {
 }
 ```
 
+## **Logarithmische Werteachse konfigurieren**
+
+Eine logarithmische Werteachse ist nützlich, wenn positive Werte mehrere Größenordnungen umfassen. Beispiel: Ein Dienst erhält über fünf Zeiträume 10, 100, 1 000, 10 000 und 100 000 Anfragen. Bei einer linearen Skala liegen die kleineren Werte dicht beieinander nahe Null. Eine logarithmische Skala macht ihr relatives Wachstum leichter vergleichbar: Gleiche Abstände repräsentieren gleiche Verhältnisse statt gleicher Differenzen.
+
+Rufen Sie [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) mit `true` für die Werteachse auf und verwenden Sie [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/), um die Basis zu wählen. Dies ändert, wie die bestehenden Werte angezeigt werden; es ändert nicht die Daten und fügt keine logarithmische Trendlinie hinzu. Eine Trendlinie stellt eine angepasste Beziehung in den Daten dar und ist ein separates Feature.
+
+### **Werteachse und Basis wählen**
+
+Für ein Linien‑ oder Säulendiagramm wird die Werteachse von [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) zurückgegeben. Für ein horizontales Balkendiagramm von [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/). Streu‑ und Blasendiagramme besitzen zwei Werteachsen, sodass Sie die horizontale Achse für X‑Werte, die vertikale Achse für Y‑Werte oder beide wählen können. Wenden Sie die logarithmische Skalierung nicht auf eine Kategorienachse an.
+
+Die Standard‑Logarithmus‑Basis ist `10`. Für PPTX‑Diagramme kann eine Basis von `2` bis `1000` verwendet werden; Bruchbasen wie `2.5` werden ebenfalls unterstützt. Bei Basis `10` sind aufeinanderfolgende Potenzen wie 10, 100, 1 000 und 10 000 gleichmäßig verteilt.
+
+### **Lineare und logarithmische Skalierung vergleichen**
+
+Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit den fünf Anfragesummen auf Folie 1, klont diese Folie und aktiviert auf Folie 2 eine logarithmische Werteachse zur Basis 10. Beide Folien behalten dieselben Daten.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 30, 40, 660, 200);
+
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Line);
+    var values = [10, 100, 1000, 10000, 100000];
+
+    for (var i = 0; i < values.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, "Period " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
+    // Behalte die erste Folie linear und ändere nur die Wertachsen-Skala der Kopie.
+    var logarithmicSlide = presentation.getSlides().addClone(slide);
+    var logarithmicChart = logarithmicSlide.getShapes().get_Item(0);
+    var valueAxis = logarithmicChart.getAxes().getVerticalAxis();
+    valueAxis.setLogarithmic(true);
+    valueAxis.setLogBase(10);
+
+    presentation.save("LogarithmicAxis.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Lineare Skala (Folie 1):** Gleiche vertikale Abstände repräsentieren gleiche Unterschiede in den Anfragesummen. Der größte Wert dominiert das Diagramm, sodass die kleineren Werte nur schwer zu unterscheiden sind.
+
+![Liniendiagramm in PowerPoint, das fünf Anfragesummen auf einer linearen Werteachse zeigt](value-axis-linear.png)
+
+**Logarithmische Skala (Folie 2):** Gleiche vertikale Abstände repräsentieren gleiche Verhältnisse. Jeder Zeitraum hat zehnmal so viele Anfragen wie der vorherige, sodass die Punkte auf einer Basis‑10‑Skala eine gerade nach oben steigende Linie bilden. Die Achsenbeschriftungen zeigen weiterhin die ursprünglichen Anfragesummen.
+
+![Die gleichen fünf Anfragesummen in PowerPoint auf einer logarithmischen Werteachse zur Basis 10](value-axis-logarithmic.png)
+
+### **Umgang mit Null- und Negativwerten**
+
+Eine logarithmische Skala kann nur streng positive Werte darstellen. Überprüfen Sie die Daten, bevor Sie sie aktivieren. Wenn Null‑ oder Negative Werte sinnvoll sind, behalten Sie eine lineare Skala bei oder zeigen Sie sie separat. Wenn das Ausschließen dieser Werte für die Analyse sinnvoll ist, erklären Sie den Ausschluss. Ersetzen Sie sie nicht stillschweigend durch kleine positive Zahlen, da dies die Bedeutung der Daten ändert. Jeder manuell konfigurierte Minimal‑ oder Maximalwert für eine logarithmische Achse muss ebenfalls positiv sein.
+
 ## **FAQ**
 
 **Wie lege ich den Wert fest, an dem eine Achse die andere schneidet (Achsenkreuzung)?**
 
-Verwenden Sie [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/), um das Kreuzungs‑Verhalten auszuwählen. Um einen numerischen Kreuzungswert festzulegen, verwenden Sie [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Diese Einstellungen ermöglichen es, die Achsenkreuzung auf eine geeignete Basislinie zu verschieben.
+Verwenden Sie [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/), um das Kreuzungsverhalten auszuwählen. Um einen numerischen Kreuzungswert anzugeben, verwenden Sie [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Diese Einstellungen ermöglichen es, die Achsenkreuzung an eine geeignete Basislinie zu verschieben.
 
-**Wie kann ich Tick‑Beschriftungen relativ zur Achse positionieren?**
+**Wie kann ich Teilstrich‑Beschriftungen relativ zur Achse positionieren?**
 
-Rufen Sie [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) mit [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` oder `None` auf. Um die Markierungen selbst zu steuern, verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) oder [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); diese sind von der Beschriftungspositionierung getrennt.
+Rufen Sie [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) mit einem Wert aus [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/) auf: `Low`, `High`, `NextTo` oder `None`. Um die Teilstrich‑Markierungen selbst zu steuern, verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) oder [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); diese sind unabhängig von der Beschriftungsposition.

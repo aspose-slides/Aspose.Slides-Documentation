@@ -1,5 +1,5 @@
 ---
-title: تخصيص محاور المخططات في العروض التقديمية باستخدام JavaScript
+title: تخصيص محاور المخطط في العروض التقديمية باستخدام JavaScript
 linktitle: محور المخطط
 type: docs
 url: /ar/nodejs-java/chart-axis/
@@ -8,10 +8,10 @@ keywords:
 - المحور العمودي
 - المحور الأفقي
 - تخصيص المحور
-- معالجة المحور
+- تعديل المحور
 - إدارة المحور
 - خصائص المحور
-- القيمة العظمى
+- القيمة القصوى
 - القيمة الصغرى
 - خط المحور
 - تنسيق التاريخ
@@ -22,17 +22,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "اكتشف كيفية استخدام JavaScript مع Aspose.Slides لـ Node.js عبر Java لتخصيص محاور المخططات في عروض PowerPoint التقديمية للتقارير والتصوير البصري."
+description: "اكتشف كيفية استخدام JavaScript مع Aspose.Slides لـ Node.js عبر Java لتخصيص محاور المخطط في عروض PowerPoint التقديمية للتقارير والتصوير البصري."
 ---
 ## **نظرة عامة**
 
-يشرح هذا المقال كيفية تخصيص محاور المخطط باستخدام Aspose.Slides for Node.js عبر Java. يغطي القيم المحسوبة للمحور، تبديل صفوف وأعمدة المخطط، إظهار المحور، فواصل تسميات الفئات وعلامات التحديد، فئات التاريخ وتنسيقها، تدوير العنوان، موضع المحور، ووحدات العرض.
+هذا المقال يشرح كيفية تخصيص محاور المخطط باستخدام Aspose.Slides for Node.js عبر Java. يغطي القيم المحسوبة للمحاور، تبديل صفوف وأعمدة المخطط، إظهار المحور، فترات تسميات الفئات وعلامات التقسيم، الفئات والتنسيق الزمني، دوران العنوان، موضع المحور، وحدات العرض، والتدرج اللوغاريتمي.
 
-## **الحصول على القيم القصوى على المحور العمودي في المخططات**
+## **الحصول على القيم العظمى على المحور العمودي في المخططات**
 
-أنشئ [العرض](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) وأضف مخطط مساحة ببيانات افتراضية. استدعِ [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) قبل قراءة قيم المحور المحسوبة لضمان تحديث تخطيط المخطط.
+إنشاء [العرض التقديمي](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) وإضافة مخطط مساحة ببيانات افتراضية. استدعِ [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) قبل قراءة القيم المحسوبة للمحور لضمان تحديث تخطيط المخطط.
 
-اقرأ [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) و[ getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) لحدود المحور، و[getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) و[getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) لفواصل العلامات. يوفر [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) و[getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) مقاييس الزمن للوحدات، وهو ما يهم محاور التاريخ. يُخزن المثال هذه القيم في متغيرات محلية ثم يحفظ المخطط.
+قراءة [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) و[getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) لحدود المحور، و[getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) و[getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) لفواصل العلامات. توفر [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) و[getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) مقاييس الوحدات الزمنية، وهي ذات صلة بمحاور التاريخ. يخزن المثال هذه القيم في متغيرات محلية ويحفظ المخطط.
 
 ```javascript
 var aspose = aspose || {};
@@ -62,7 +62,7 @@ try {
 
 ## **تبديل البيانات بين المحاور**
 
-استخدم [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) لتبادل أدوار السلاسل والفئات في بيانات المخطط. كل فئة سابقة تصبح سلسلة، وكل سلسلة سابقة تصبح فئة. هذا يغيّر طريقة تجميع البيانات؛ ولا يبدّل المحاور الأفقية والعمودية. يستخدم المثال [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) لربط البيانات الافتراضية بـ `Sheet1!A1:D5`، بما في ذلك صف الرأس وعمود الفئة، قبل تبديل الصفوف والأعمدة. ثم يحفظ مخططًا بأربع سلاسل وثلاث فئات.
+استخدم [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) لتبادل أدوار السلاسل والفئات في بيانات المخطط. كل فئة سابقة تصبح سلسلة، وكل سلسلة سابقة تصبح فئة. هذا يغير طريقة تجميع البيانات؛ لا يبدل المحاور الأفقية والعمودية. يستخدم المثال [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) لربط البيانات الافتراضية بـ `Sheet1!A1:D5`، بما في ذلك صف الرأس وعمود الفئة، قبل تبديل الصفوف والأعمدة. يحفظ مخططًا بأربع سلاسل وثلاث فئات.
 
 ```javascript
 var aspose = aspose || {};
@@ -82,9 +82,9 @@ try {
 }
 ```
 
-## **إلغاء إظهار المحور العمودي للمخططات الخطية**
+## **إلغاء إظهار المحور العمودي لمخططات الخطوط**
 
-استدعِ [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) مع `false` على المحور العمودي لإخفائه. ينشئ المثال مخططًا خطيًا ببيانات افتراضية ويحفظه مع إخفاء المحور العمودي.
+استدعِ [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) مع `false` على المحور العمودي لإخفائه. ينشئ المثال مخطط خط ببيانات افتراضية ويحفظه مع إخفاء المحور العمودي.
 
 ```javascript
 var aspose = aspose || {};
@@ -103,9 +103,9 @@ try {
 }
 ```
 
-## **إلغاء إظهار المحور الأفقي للمخططات الخطية**
+## **إلغاء إظهار المحور الأفقي لمخططات الخطوط**
 
-استدعِ [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) مع `false` على المحور الأفقي لإخفائه. ينشئ المثال مخططًا خطيًا ببيانات افتراضية ويحفظه مع إخفاء المحور الأفقي.
+استدعِ [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) مع `false` على المحور الأفقي لإخفائه. ينشئ المثال مخطط خط ببيانات افتراضية ويحفظه مع إخفاء المحور الأفقي.
 
 ```javascript
 var aspose = aspose || {};
@@ -126,7 +126,7 @@ try {
 
 ## **تغيير محور الفئة**
 
-استخدم [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) لاختيار محور فئة تاريخ أو نص. يتطلب هذا المثال ملف `ExistingChart.pptx`، حيث يكون المخطط هو الشكل الأول في الشريحة الأولى وتحتوي خلايا الفئات على قيم تاريخ Excel رقمية. يغيّر المحور الأفقي إلى محور تاريخ. يستدعي [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) مع `false`، ثم [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) مع `1`، و[setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) مع `TimeUnitType.Months` لتعيين العلامات الرئيسية بفواصل شهرية.
+استخدم [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) لاختيار محور فئة تاريخ أو نص. يتطلب هذا المثال ملف `ExistingChart.pptx`، حيث يكون المخطط هو الشكل الأول في الشريحة الأولى وتحتوي خلايا الفئة على قيم تاريخ Excel رقمية. يغيّر المحور الأفقي إلى محور تاريخ. استدعِ [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) مع `false`، ثم [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) مع `1`، و[setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) مع `TimeUnitType.Months` لوضع علامات رئيسية بفواصل شهرية.
 
 ```javascript
 var aspose = aspose || {};
@@ -150,7 +150,7 @@ try {
 
 ## **التحكم في فواصل تسميات محور الفئة**
 
-عند وجود عدد كبير من الفئات في المخطط، قلل عدد تسميات المحور الظاهرة دون حذف الفئات أو نقاط البيانات. استدعِ [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) مع `false`، ثم مرّر الفاصل المطلوب إلى [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). بالنسبة للفئات النصية بترتيبها الطبيعي، يبدأ العد من الفئة الأولى:
+عند وجود عدد كبير من الفئات، قلل عدد تسميات المحور الظاهرة دون حذف الفئات أو نقاط البيانات. استدعِ [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) مع `false`، ثم مرّر الفاصل الفئوي المطلوب إلى [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). بالنسبة للفئات النصية بترتيبها الطبيعي، يبدأ العد من الفئة الأولى:
 
 | الفاصل | التسميات المعروضة في المثال |
 | --- | --- |
@@ -158,11 +158,11 @@ try {
 | `2` | الفئة 1، الفئة 3، الفئة 5، … الفئة 23 |
 | `3` | الفئة 1، الفئة 4، الفئة 7، … الفئة 22 |
 
-فاصل `3` يعرض كل تسمية ثالثة، ويترك علامتين مخفيتين بين كل تسمية ظاهرة. لا يزيل الأعمدة المقابلة. يختار الفاصل التلقائي بناءً على المساحة المتاحة؛ ولا يعني بالضرورة عرض كل تسمية.
+فاصل `3` يعرض كل تسمية ثالثة، مع إخفاء تسميتين بين كل تسمية ظاهرة. لا يزيل الأعمدة المقابلة. يختار التباعد التلقائي الفاصل بناءً على المساحة المتاحة؛ لا يعرض بالضرورة كل تسمية.
 
-لعلامات التحديد هناك ضوابط منفصلة. استدعِ [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) مع `false` واستخدم [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) لتعيين فاصلها. على سبيل المثال، `1` يحافظ على علامة تحديد في كل فاصل فئة بينما تظهر التسميات كل فئة ثالثة فقط. استخدم [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) بأسلوب مرئي لتتمكن من رؤية النتيجة. إعادة استدعاء أي من محددات الفاصل التلقائي مع `true` تسمح للمخطط باختيار الفاصل مرة أخرى.
+لعلامات التقسيم توجد ضوابط منفصلة. استدعِ [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) مع `false` واستخدم [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) لتعيين فاصلها. على سبيل المثال، يبقي `1` علامة تقسيم عند كل فاصل فئة بينما تظهر التسميات كل فئة ثالثة فقط. استخدم [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) بنمط ظاهر لتتمكن من رؤية النتيجة. إعادة استدعاء أي من معدّلات التباعد التلقائي مع `true` يسمح للمخطط باختيار الفاصل مرة أخرى.
 
-المثال التالي المستقل يخلق 24 فئة وسلسلة واحدة، ثم يحفظ ثلاث شرائح في `CategoryAxisIntervals.pptx`: الفاصل التلقائي، الفاصل اليدوي للتسميات مع علامات تحديد مستقلة، واستعادة الفاصل التلقائي. النسختان تحتفظان ببيانات المخطط الأصلية. لا يلزم عرض تقديمي إدخالي. يجعل النص الأفقي للتسمية الفرق في الكثافة واضحًا.
+المثال المستقل التالي ينشئ 24 فئة وسلسلة واحدة، ثم يحفظ ثلاث شرائح في `CategoryAxisIntervals.pptx`: التباعد التلقائي، تباعد يدوي للتسميات مع علامات تقسيم مستقلة، وإعادة التباعد التلقائي. النسختان تحتفظان ببيانات المخطط الأصلية. لا يلزم عرض تقديمي إدخالي. يجعل نص التسمية الأفقي الاختلاف في الكثافة واضحًا.
 
 ```javascript
 var aspose = aspose || {};
@@ -197,7 +197,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // الشريحة 2: اعرض كل تسمية ثالثة، ولكن احتفظ بعلامة تحديد لكل فئة.
+    // الشريحة 2: إظهار كل تسمية ثالثة، مع الحفاظ على علامة تقسيم لكل فئة.
     var manualSlide = presentation.getSlides().addClone(slide);
     var manualChart = manualSlide.getShapes().get_Item(0);
     var manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -206,7 +206,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // الشريحة 3: دع المخطط يختار كلا الفاصلين مرة أخرى.
+    // الشريحة 3: السماح للمخطط باختيار كلا الفاصلين مرة أخرى.
     var restoredSlide = presentation.getSlides().addClone(manualSlide);
     var restoredChart = restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -218,23 +218,23 @@ try {
 }
 ```
 
-**الفاصل التلقائي (الشريحة 1):** في هذا العرض، تُعرض كل تسمية فئة ثانية وتلتف إلى سطرين. قد يختلف الناتج التلقائي حسب حجم المخطط، الخطوط، وأداة العرض.
+**التباعد التلقائي (الشريحة 1):** في هذا العرض، تُعرض كل تسمية فئة ثانية وتلتف على سطرين. قد تختلف النتيجة التلقائية حسب حجم المخطط، الخطوط، وعامل العرض.
 
-![تباعد تلقائي لتسمية الفئات مع إظهار جميع الأعمدة الـ 24](category-axis-automatic.png)
+![التباعد التلقائي لتسميات الفئات مع عرض جميع الأعمدة الـ24](category-axis-automatic.png)
 
-**الفاصل اليدوي (الشريحة 2):** تُعرض كل تسمية ثالثة على سطر واحد، بينما تبقى علامات التحديد في كل فاصل فئة. جميع الأعمدة الـ 24، بما فيها التي لا تحمل تسميات، تظل مرئية بنفس القيم. تستعيد الشريحة 3 المظهر التلقائي المعروض أعلاه.
+**التباعد اليدوي (الشريحة 2):** تُعرض كل تسمية ثالثة على سطر واحد، بينما تبقى علامات التقسيم عند كل فاصل فئة. تظل جميع الأعمدة الـ24، بما فيها تلك بدون تسميات، مرئية بنفس القيم. تستعيد الشريحة 3 المظهر التلقائي المعروض أعلاه.
 
-![فاصل يدوي لتسمية الفئات بمقدار ثلاثة مع إظهار جميع الأعمدة الـ 24](category-axis-manual.png)
+![فاصل تسميات الفئة اليدوي لثلاثة مع عرض جميع الأعمدة الـ24](category-axis-manual.png)
 
-### **اختر المحور والفاصل الصحيح**
+### **اختر المحور والفاصل الصحيحين**
 
-استخدم هذا الفاصل عدد الفئات لمحور فئة نصية، مثل محور الفئة في مخطط عمودي، خطي، مساحة أو شريطي. في المخطط العمودي يكون هو المحور الأفقي. في المخطط الشريطي الأفقي يكون محور الفئة عموديًا، لذا طبّق هذه الإعدادات على المحور الذي تُعيده [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). يطبق فاصل علامة التحديد أيضًا على محور السلاسل في المخططات التي تحتوي على واحد.
+استخدم هذا الفاصل لعدد الفئات لمحور فئة نصية، مثل محور الفئة في مخطط عمودي، خطي، مساحة أو شريطي. في المخطط العمودي، يكون المحور الأفقي. في المخطط الشريطي الأفقي، يكون محور الفئة عموديًا، لذا طبّق هذه الإعدادات على المحور العائد من [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). ينطبق تباعد علامات التقسيم أيضًا على محور السلسلة في المخططات التي تمتلك واحدًا.
 
-لا تستخدم فاصل تسميات الفئة لتحديد مقياس رقمي لمحور القيمة. على محور القيمة، يحدد [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) الفرق في القيم: على سبيل المثال، وحدة رئيسية `10` تنتج علامات عند 0، 10، 20، وهكذا عندما يبدأ المحور من الصفر. فاصل تسمية الفئة `3` يعد مواقع الفئات بغض النظر عن قيم البيانات. تستخدم مخططات التشتت والفقاعات محاور قيمة بدلاً من محور فئة نصية. بالنسبة لمحور التاريخ، استخدم الوحدات الرئيسية القائمة على الوقت والمقاييس كما هو موضح في [تغيير محور الفئة](#change-a-category-axis).
+لا تستخدم تباعد تسميات الفئة لتعيين المقياس الرقمي لمحور القيمة. على محور القيمة، يحدد [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) فرق القيم: على سبيل المثال، وحدة رئيسية بـ`10` تنتج علامات عند 0، 10، 20، وهكذا عندما يبدأ المحور من الصفر. فاصل تسمية الفئة بـ`3` يعد مواضع الفئات بغض النظر عن قيم البيانات. تستخدم مخططات التبعثر والفقاعات محاور قيمة بدلاً من محور فئة نصية. للمحور التاريخي، استخدم وحدات زمنية رئيسية ومقاييس كما هو موضح في [تغيير محور الفئة](#change-a-category-axis).
 
 ## **تعيين تنسيق التاريخ لقيم محور الفئة**
 
-يستبدل المثال بيانات المخطط الافتراضية بأربع قيم سنوية. تُخزن التواريخ كأرقام تسلسلية OLE Automation في ورقة العمل الأولى (الفهرس `0`)، محسوبة كعدد الأيام منذ 30 ديسمبر 1899. يستخدم حساب JavaScript طوابع زمنية UTC ويقسم الفرق على 86 400 000 ملي ثانية لكل يوم. استخدم [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) مع `CategoryAxisType.Date`، واستدعِ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) مع `false`، ومرّر `yyyy` إلى [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) لتظهر تسميات الفئات سنوات رباعية الأرقام بشكل مستقل عن تنسيق الخلية.
+يستبدل المثال البيانات الافتراضية للمخطط بأربع قيم سنوية. تُخزن التواريخ كأرقام تسلسلية لـ OLE Automation في ورقة العمل الأولى (الفهرس `0`)، محسوبة كعدد الأيام منذ 30 ديسمبر 1899. يستخدم حساب JavaScript طوابع UTC ويقسم الفرق على 86 400 000 ملليثانية لكل يوم. استخدم [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) مع `CategoryAxisType.Date`، استدعِ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) مع `false`، ومرّر `yyyy` إلى [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) لكي تعرض تسميات الفئة سنوات بأربعة أرقام بغض النظر عن تنسيق الخلية.
 
 ```javascript
 var aspose = aspose || {};
@@ -274,9 +274,9 @@ try {
 }
 ```
 
-## **ضبط زاوية الدوران لعنوان محور المخطط**
+## **تعيين زاوية الدوران لعنوان محور المخطط**
 
-استدعِ [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) مع `true` على المحور العمودي، قدّم نص العنوان، واستخدم [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) لتدوير العنوان. تُقاس الزاوية بالدرجات؛ يحفظ هذا المثال مخططًا عموديًا مع تدوير عنوان محور القيمة بزاوية 90 درجة.
+استدعِ [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) مع `true` على المحور العمودي، قدِّم نص العنوان، واستخدم [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) لتدوير العنوان. تُقاس الزاوية بالدرجات؛ يحفظ المثال مخططًا عموديًا مع عنوان محور القيمة مائلًا بزاوية 90 درجة.
 
 ```javascript
 var aspose = aspose || {};
@@ -297,9 +297,9 @@ try {
 }
 ```
 
-## **ضبط موضع المحور على محور الفئة أو القيمة**
+## **تعيين موضع المحور على محور الفئة أو القيمة**
 
-استخدم [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) للتحكم فيما إذا كان محور القيمة يعبر محور الفئة بين الفئات أو عند علامات الفئة. ينطبق هذا الإعداد على محاور الفئات. يضبط المثال القيمة إلى `true` على محور الفئة الأفقي في مخطط عمودي ويحفظ النتيجة.
+استخدم [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) للتحكم فيما إذا كان محور القيمة يقطع محور الفئة بين الفئات أو عند علامات الفئة. ينطبق هذا الإعداد على محاور الفئات. يضبط المثال القيمة إلى `true` على محور الفئة الأفقي في مخطط عمودي ويحفظ النتيجة.
 
 ```javascript
 var aspose = aspose || {};
@@ -318,9 +318,9 @@ try {
 }
 ```
 
-## **ضبط وحدة العرض على محور قيمة المخطط**
+## **تعيين وحدة العرض على محور قيمة المخطط**
 
-استخدم [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) لتقليص تسميات محور القيمة دون تغيير البيانات الأساسية. مع [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) مضبوطًا على `Millions`، تُعرض القيمة 60 000 000 كـ 60. يُنشئ المثال مخططًا عموديًا ويطبق وحدة العرض بالملايين على محوره العمودي.
+استخدم [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) لتكبير التسميات على محور القيمة دون تغيير البيانات الأساسية. مع ضبط [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) إلى `Millions`، يُعرض القيمة 60 000 000 كـ 60. ينشئ المثال مخططًا عموديًا ويطبق وحدة العرض بالملايين على محوره العمودي.
 
 ```javascript
 var aspose = aspose || {};
@@ -339,12 +339,82 @@ try {
 }
 ```
 
+## **تهيئة محور قيمة لوغاريتمي**
+
+محور قيمة لوغاريتمي مفيد عندما تمتد القيم الموجبة عبر عدة أوامر من الحجم. على سبيل المثال، قد يتلقى خدمة 10، 100، 1 000، 10 000، و100 000 طلبًا عبر خمس فترات. على مقياس خطي، تظهر القيم الصغيرة متقاربة بالقرب من الصفر. يسهّل المقياس اللوغاريتمي مقارنة النمو النسبي: تمثل المسافات المتساوية نسبًا متساوية بدلًا من فروق متساوية.
+
+استدعِ [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) مع `true` على محور القيمة واستخدم [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) لاختيار القاعدة. يغيّر هذا طريقة عرض القيم الحالية؛ لا يغيّر البيانات ولا يضيف خط اتجاه لوغاريتمي. خط الاتجاه يمثل علاقة مُناسبة في البيانات وهو ميزة منفصلة.
+
+### **اختر محور القيمة والقاعدة**
+
+للمخطط الخطي أو العمودي، يُسترجع محور القيمة من [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). للمخطط الشريطي الأفقي، يُسترجع من [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/). لمخططات التبعثر والفقاعات يوجد محورا قيمة، لذا اختر المحور الأفقي لقيم X، والمحور العمودي لقيم Y، أو كلاهما. لا تطبق التدرج اللوغاريتمي على محور الفئة.
+
+القاعدة اللوغاريتمية الافتراضية هي `10`. لمخططات PPTX، استخدم قاعدة بين `2` و`1000` شاملًا؛ وتدعم القواعد الكسرية مثل `2.5`. مع القاعدة `10`، تكون القوى المتتالية مثل 10، 100، 1 000، و10 000 متباعدة بالتساوي.
+
+### **قارن بين التدرج الخطي واللوغاريتمي**
+
+المثال المستقل التالي ينشئ مخططًا خطيًا مع خمس قيم طلب في الشريحة الأولى، ثم ينسخ تلك الشريحة ويفعل محور قيمة لوغاريتمي بقاعدة 10 في الشريحة الثانية. تحتفظ الشريحتان بنفس البيانات.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 30, 40, 660, 200);
+
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Line);
+    var values = [10, 100, 1000, 10000, 100000];
+
+    for (var i = 0; i < values.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, "Period " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
+    // احتفظ بالشريحة الأولى خطية وغيّر فقط مقياس محور القيمة للنسخة.
+    var logarithmicSlide = presentation.getSlides().addClone(slide);
+    var logarithmicChart = logarithmicSlide.getShapes().get_Item(0);
+    var valueAxis = logarithmicChart.getAxes().getVerticalAxis();
+    valueAxis.setLogarithmic(true);
+    valueAxis.setLogBase(10);
+
+    presentation.save("LogarithmicAxis.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**التدرج الخطي (الشريحة 1):** تمثل المسافات الرأسية المتساوية اختلافات متساوية في عدد الطلبات. تهيمن القيمة الأكبر على المخطط، ما يجعل القيم الصغيرة صعبة التمييز.
+
+![مخطط خطي في PowerPoint يوضح خمس طلبات على محور قيمة خطي](value-axis-linear.png)
+
+**التدرج اللوغاريتمي (الشريحة 2):** تمثل المسافات الرأسية المتساوية نسبًا متساوية. كل فترة تحتوي على عشر مرات الطلبات مقارنة بالفترة السابقة، لذا تُشكِّل النقاط خطًا مستقيمًا صاعدًا على مقياس قاعدة 10. لا يزال محور التسميات يُظهر أعداد الطلبات الأصلية.
+
+![نفس خمس الطلبات في PowerPoint على محور قيمة لوغاريتمي بقاعدة 10](value-axis-logarithmic.png)
+
+### **معالجة القيم الصفرية والسالبة**
+
+يمكن للمقياس اللوغاريتمي عرض قيم موجبة فقط. تحقق من البيانات قبل تفعيله. إذا كانت القيم الصفرية أو السالبة ذات معنى، احتفظ بالتدرج الخطي أو اعرضها بشكل منفصل. إذا كان استبعاد تلك القيم مناسبًا للتحليل، فسر الاستبعاد. لا تستبدلها صمتًا بأرقام موجبة صغيرة، لأن ذلك يغير معنى البيانات. يجب أن تكون أي حدود دنيا أو قصوى مُعَدَّة يدويًا لمحور لوغاريتمي أيضًا موجبة.
+
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني تعيين القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحاور)؟**
+**كيف يمكنني تعيين القيمة التي يتقاطع عندها أحد المحاور مع الآخر (تقاطع المحاور)؟**
 
-استخدم [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) لتحديد سلوك التقاطع. لتحديد قيمة تقاطع رقمية، استخدم [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). تسمح لك هذه الإعدادات بنقل تقاطع المحور إلى خط أساس مناسب.
+استخدم [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) لتحديد سلوك التقاطع. لتحديد قيمة تقاطع رقمية، استخدم [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). تتيح لك هذه الإعدادات نقل تقاطع المحور إلى خط أساس مناسب.
 
-**كيف يمكنني موضع تسميات العلامات نسبة إلى المحور؟**
+**كيف يمكنني وضع تسميات العلامات بالنسبة للمحور؟**
 
-استدعِ [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) باستخدام [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`، `High`، `NextTo` أو `None`. للتحكم في علامات التحديد نفسها، استخدم [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) أو [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); هذه مستقلة عن موضع التسميات.
+استدعِ [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) باستخدام [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`، `High`، `NextTo` أو `None`. للتحكم في علامات التقسيم نفسها، استخدم [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) أو [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); هذه مستقلة عن وضعية التسميات.

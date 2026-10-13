@@ -21,17 +21,17 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Ανακαλύψτε πώς να χρησιμοποιήσετε το Aspose.Slides για C++ για να προσαρμόσετε τους άξονες διαγράμματος σε παρουσιάσεις PowerPoint για αναφορές και οπτικοποιήσεις."
+description: "Ανακαλύψτε πώς να χρησιμοποιήσετε το Aspose.Slides για C++ ώστε να προσαρμόσετε τους άξονες διαγραμμάτων σε παρουσιάσεις PowerPoint για αναφορές και οπτικοποιήσεις."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε τους άξονες διαγραμμάτων με το Aspose.Slides for C++. Καλύπτει τις υπολογιζόμενες τιμές άξονα, την εναλλαγή γραμμών και στηλών διαγράμματος, την ορατότητα του άξονα, τα διαστήματα ετικετών κατηγορίας και δρομέων, τις ημερομηνίες κατηγοριών και τη μορφοποίηση, την περιστροφή τίτλου, την τοποθέτηση άξονα και τις μονάδες εμφάνισης.
+Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε τους άξονες των διαγραμμάτων με το Aspose.Slides για C++. Καλύπτει τις υπολογισμένες τιμές των αξόνων, την εναλλαγή σειρών και στηλών του διαγράμματος, την ορατότητα του άξονα, τα διαστήματα ετικετών κατηγορίας και σημείων σκαριναρίσματος, τις ημερομηνίες κατηγοριών και τη μορφοποίηση, την περιστροφή του τίτλου, την τοποθέτηση του άξονα, τις μονάδες εμφάνισης και την λογαριθμική κλιμάκωση.
 
 ## **Λήψη των Μέγιστων Τιμών στον Κατακόρυφο Άξονα στα Διαγράμματα**
 
-Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) και προσθέστε ένα διάγραμμα περιοχής με προεπιλεγμένα δεδομένα. Καλέστε το [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) πριν διαβάσετε τις υπολογιζόμενες τιμές άξονα, ώστε η διάταξη του διαγράμματος να είναι ενημερωμένη.
+Δημιουργήστε ένα [Παρουσίαση](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) και προσθέστε ένα διάγραμμα περιοχής με προεπιλεγμένα δεδομένα. Καλέστε το [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) πριν διαβάσετε τις υπολογισμένες τιμές του άξονα, ώστε η διάταξη του διαγράμματος να είναι ενημερωμένη.
 
-Ανάγνωση των [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) και [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) για τα όρια του άξονα, καθώς και των [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) και [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) για τα διαστήματα δρομέων. Τα [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) και [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) παρέχουν κλίμακες μονάδας χρόνου, που σχετίζονται με άξονες ημερομηνίας. Το παράδειγμα αποθηκεύει αυτές τις τιμές σε τοπικές μεταβλητές και αποθηκεύει το διάγραμμα.
+Διαβάστε τα [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) και [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) για τα όρια του άξονα, και τα [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) και [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) για τα διαστήματα των σημείων σκαριναρίσματος. Τα [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) και [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) παρέχουν κλίμακες μονάδων χρόνου, οι οποίες είναι σχετικές με άξονες ημερομηνιών. Το παράδειγμα αποθηκεύει αυτές τις τιμές σε τοπικές μεταβλητές και αποθηκεύει το διάγραμμα.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -65,9 +65,9 @@ auto minorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnit
 presentation->Save(u"AxisValues_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ανταλλαγή Δεδομένων μεταξύ Άξονων**
+## **Ανταλλαγή των Δεδομένων μεταξύ των Αξόνων**
 
-Χρησιμοποιήστε το [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) για να ανταλλάξετε τους ρόλους των σειρών και των κατηγοριών στα δεδομένα του διαγράμματος. Κάθε προηγούμενη κατηγορία γίνεται σειρά, και κάθε προηγούμενη σειρά γίνεται κατηγορία. Αυτό αλλάζει τον τρόπο ομαδοποίησης των δεδομένων· δεν ανταλλάσσει τους οριζόντιους και κατακόρυφους άξονες. Το παράδειγμα χρησιμοποιεί το [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) για να δεσμεύσει τα προεπιλεγμένα δεδομένα στη διεύθυνση `Sheet1!A1:D5`, συμπεριλαμβανομένης της γραμμής κεφαλίδας και της στήλης κατηγορίας, πριν την εναλλαγή γραμμών και στηλών. Αποθηκεύει ένα διάγραμμα με τέσσερις σειρές και τρεις κατηγορίες.
+Χρησιμοποιήστε το [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) για να ανταλλάξετε τους ρόλους των σειρών και των κατηγοριών στα δεδομένα του διαγράμματος. Κάθε προηγούμενη κατηγορία γίνεται σειρά, και κάθε προηγούμενη σειρά γίνεται κατηγορία. Αυτό αλλάζει τον τρόπο ομαδοποίησης των δεδομένων· δεν ανταλλάσσει τους οριζόντιους και κατακόρυφους άξονες. Το παράδειγμα χρησιμοποιεί το [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) για να συνδέσει τα προεπιλεγμένα δεδομένα με `Sheet1!A1:D5`, συμπεριλαμβανομένου της γραμμής κεφαλίδας και της στήλης κατηγορίας, πριν ανταλλάξει σειρές και στήλες. Αποθηκεύει ένα διάγραμμα με τέσσερις σειρές και τρεις κατηγορίες.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -95,9 +95,9 @@ chart->get_ChartData()->SwitchRowColumn();
 presentation->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Απενεργοποίηση του Κατακόρυφου Άξονα για Γραμμικά Διαγράμματα**
+## **Απενεργοποίηση του Κατακόρυφου Άξονα για Διαγράμματα Γραμμής**
 
-Χρησιμοποιήστε το [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) με `false` στον κατακόρυφο άξονα για να τον κρύψετε. Το παράδειγμα δημιουργεί ένα γραμμικό διάγραμμα με προεπιλεγμένα δεδομένα και το αποθηκεύει με τον κατακόρυφο άξονα κρυφό.
+Χρησιμοποιήστε το [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) με `false` στον κατακόρυφο άξονα για να τον κρύψετε. Το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με προεπιλεγμένα δεδομένα και το αποθηκεύει με τον κατακόρυφο άξονα κρυφό.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -122,9 +122,9 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 presentation->Save(u"HiddenVerticalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Απενεργοποίηση του Οριζοντίου Άξονα για Γραμμικά Διαγράμματα**
+## **Απενεργοποίηση του Οριζόντιου Άξονα για Διαγράμματα Γραμμής**
 
-Χρησιμοποιήστε το [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) με `false` στον οριζόντιο άξονα για να τον κρύψετε. Το παράδειγμα δημιουργεί ένα γραμμικό διάγραμμα με προεπιλεγμένα δεδομένα και το αποθηκεύει με τον οριζόντιο άξονα κρυφό.
+Χρησιμοποιήστε το [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) με `false` στον οριζόντιο άξονα για να τον κρύψετε. Το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με προεπιλεγμένα δεδομένα και το αποθηκεύει με τον οριζόντιο άξονα κρυφό.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -151,7 +151,7 @@ presentation->Save(u"HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
 
 ## **Αλλαγή Άξονα Κατηγορίας**
 
-Χρησιμοποιήστε το [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) για να επιλέξετε έναν άξονα κατηγορίας ημερομηνίας ή κειμένου. Αυτό το παράδειγμα απαιτεί το `ExistingChart.pptx`, με ένα διάγραμμα ως το πρώτο σχήμα στην πρώτη διαφάνεια και κελιά κατηγορίας που περιέχουν αριθμητικές τιμές ημερομηνίας του Excel. Αλλάζει τον οριζόντιο άξονα σε άξονα ημερομηνίας. Καλώντας το [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) με `false`, το [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) με `1` και το [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) με μήνες τοποθετούνται οι κύριοι δρομοί σε διαστήματα ενός μήνα.
+Χρησιμοποιήστε το [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) για να επιλέξετε άξονα ημερομηνίας ή κειμένου. Αυτό το παράδειγμα απαιτεί το `ExistingChart.pptx`, με ένα διάγραμμα ως το πρώτο σχήμα στην πρώτη διαφάνεια και κελιά κατηγορίας που περιέχουν αριθμητικές τιμές ημερομηνίας του Excel. Αλλάζει τον οριζόντιο άξονα σε άξονα ημερομηνίας. Καλώντας το [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) με `false`, το [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) με `1` και το [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) με μήνες τοποθετεί τις κύριες σημάνσεις σε διαστήματα ενός μήνα.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -184,19 +184,17 @@ presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 
 ## **Έλεγχος Διαστημάτων Ετικετών Άξονα Κατηγορίας**
 
-Όταν ένα διάγραμμα έχει πολλές κατηγορίες, μειώστε τον αριθμό των ορατών ετικετών άξονα χωρίς να αφαιρέσετε κατηγορίες ή σημεία δεδομένων. Χρησιμοποιήστε το [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) με `false`, στη συνέχεια το [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) με το επιθυμητό διάστημα κατηγορίας. Για κατηγορίες κειμένου στη φυσική τους σειρά, η μέτρηση ξεκινά από την πρώτη κατηγορία:
+Όταν ένα διάγραμμα έχει πολλές κατηγορίες, μειώστε τον αριθμό των ορατών ετικετών άξονα χωρίς να αφαιρέσετε κατηγορίες ή σημεία δεδομένων. Χρησιμοποιήστε το [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) με `false`, μετά χρησιμοποιήστε το [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) με το επιθυμητό διάστημα κατηγορίας. Για κατηγορίες κειμένου στη φυσική τους σειρά, η αρίθμηση ξεκινά από την πρώτη κατηγορία:
 
 | Διάστημα | Ετικέτες που εμφανίζονται στο παράδειγμα |
 | --- | --- |
-| `1` | Κατηγορία 1, Κατηγορία 2, Κατηγορία 3, ... Κατηγορία 24 |
-| `2` | Κατηγορία 1, Κατηγορία 3, Κατηγορία 5, ... Κατηγορία 23 |
-| `3` | Κατηγορία 1, Κατηγορία 4, Κατηγορία 7, ... Κατηγορία 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-Ένα διάστημα `3` εμφανίζει κάθε τρίτη ετικέτα, αφήνοντας δύο ετικέτες κρυφές μεταξύ των εμφανιζόμενων ετικετών. Δεν αφαιρεί τις αντίστοιχες στήλες. Η αυτόματη διάταξη επιλέγει ένα διάστημα με βάση το διαθέσιμο χώρο· δεν εμφανίζει απαραίτητα κάθε ετικέτα.
+Διάστημα `3` εμφανίζει κάθε τρίτη ετικέτα, αφήνοντας δύο ετικέτες κρυφές μεταξύ των εμφανιζόμενων. Δεν αφαιρεί τις αντίστοιχες στήλες. Η αυτόματη τοποθέτηση επιλέγει διάστημα βάσει του διαθέσιμου χώρου· δεν εμφανίζει απαραίτητα κάθε ετικέτα.
 
-Οι δρομοί έχουν ξεχωριστούς ελέγχους. Χρησιμοποιήστε το [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) με `false` και το [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) για να ορίσετε το διάστημά τους. Για παράδειγμα, το `1` διατηρεί έναν δρομέα σε κάθε διάστημα κατηγορίας ενώ οι ετικέτες εμφανίζονται μόνο κάθε τρίτη κατηγορία. Χρησιμοποιήστε το [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) με ορατό στυλ ώστε να δείτε το αποτέλεσμα. Η επαναφορά οποιασδήποτε ιδιότητας αυτόματης διάταξης σε `true` επιτρέπει στο διάγραμμα να επιλέξει ξανά αυτό το διάστημα.
-
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί 24 κατηγορίες και μία σειρά, στη συνέχεια αποθηκεύει τρία διαφάνειες στο `CategoryAxisIntervals.pptx`: αυτόματη διάταξη, χειροκίνητη διάταξη ετικετών με ανεξάρτητους δρομούς και επαναφορά της αυτόματης διάταξης. Τα δύο αντίγραφα διατηρούν τα αρχικά δεδομένα του διαγράμματος. Δεν απαιτείται εισαγωγική παρουσίαση. Το οριζόντιο κείμενο ετικετών καθιστά την διαφορά στην πυκνότητα εύκολα ορατή.
+Τα σημεία σκαριναρίσματος έχουν ξεχωριστό έλεγχο. Χρησιμοποιήστε το [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) με `false` και το [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) για να ορίσετε το διάστημά τους. Για παράδειγμα, το `1` διατηρεί σημείωση σκαριναρίσματος σε κάθε διάστημα κατηγορίας ενώ οι ετικέτες εμφανίζονται μόνο κάθε τρίτη κατηγορία. Χρησιμοποιήστε το [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) με ορατό στυλ ώστε να δείτε το αποτέλεσμα. Η επαναφορά των ιδιοτήτων αυτόματης τοποθέτησης σε `true` αφήνει το διάγραμμα να επιλέξει πάλι το διάστημα.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -256,7 +254,7 @@ axis->set_MajorTickMark(TickMarkType::Outside);
 axis->set_IsAutomaticTickLabelSpacing(true);
 axis->set_IsAutomaticTickMarksSpacing(true);
 
-// Διαφάνεια 2: εμφάνιση κάθε τρίτης ετικέτας, αλλά διατήρηση δρομέα για κάθε κατηγορία.
+// Slide 2: εμφάνιση κάθε τρίτης ετικέτας, αλλά διατήρηση σημείου σκαριναρίσματος για κάθε κατηγορία.
 auto manualSlide = presentation->get_Slides()->AddClone(slide);
 auto manualChart = System::ExplicitCast<IChart>(manualSlide->get_Shape(0));
 auto manualAxis = manualChart->get_Axes()->get_HorizontalAxis();
@@ -265,7 +263,7 @@ manualAxis->set_TickLabelSpacing(3);
 manualAxis->set_IsAutomaticTickMarksSpacing(false);
 manualAxis->set_TickMarksSpacing(1);
 
-// Διαφάνεια 3: άφησε το διάγραμμα να επιλέξει ξανά και τα δύο διαστήματα.
+// Slide 3: αφήστε το διάγραμμα να επιλέξει ξανά και τα δύο διαστήματα.
 auto restoredSlide = presentation->get_Slides()->AddClone(manualSlide);
 auto restoredChart = System::ExplicitCast<IChart>(restoredSlide->get_Shape(0));
 restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickLabelSpacing(true);
@@ -274,23 +272,23 @@ restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickMarksSpacing
 presentation->Save(u"CategoryAxisIntervals.pptx", SaveFormat::Pptx);
 ```
 
-**Αυτόματη διάταξη (διαφάνεια 1):** Σε αυτή την απόδοση, εμφανίζεται κάθε δεύτερη ετικέτα κατηγορίας και αναδιπλώνεται σε δύο γραμμές. Το αυτόματο αποτέλεσμα μπορεί να διαφέρει ανάλογα με το μέγεθος του διαγράμματος, τις γραμματοσειρές και τον μηχανισμό απόδοσης.
+**Αυτόματη τοποθέτηση (διαφάνεια 1):** Σε αυτήν την απόδοση, εμφανίζεται κάθε δεύτερη ετικέτα κατηγορίας και τυλίγεται σε δύο γραμμές. Το αυτόματο αποτέλεσμα μπορεί να διαφέρει ανάλογα με το μέγεθος του διαγράμματος, τις γραμματοσειρές και το πρόγραμμα απόδοσης.
 
-![Αυτόματη διάταξη ετικετών κατηγορίας με όλες τις 24 στήλες ορατές](category-axis-automatic.png)
+![Αυτόματη τοποθέτηση ετικετών κατηγορίας με όλες τις 24 στήλες ορατές](category-axis-automatic.png)
 
-**Χειροκίνητη διάταξη (διαφάνεια 2):** Κάθε τρίτη ετικέτα εμφανίζεται σε μία γραμμή, ενώ οι δρομοί παραμένουν σε κάθε διάστημα κατηγορίας. Όλες οι 24 στήλες, συμπεριλαμβανομένων εκείνων χωρίς ετικέτες, παραμένουν ορατές με τις ίδιες τιμές. Η διαφάνεια 3 επαναφέρει την αυτόματη εμφάνιση που φαίνεται παραπάνω.
+**Χειροκίνητη τοποθέτηση (διαφάνεια 2):** Κάθε τρίτη ετικέτα εμφανίζεται σε μια γραμμή, ενώ τα σημεία σκαριναρίσματος παραμένουν σε κάθε διάστημα κατηγορίας. Όλες οι 24 στήλες, συμπεριλαμβανομένων εκείνων χωρίς ετικέτες, παραμένουν ορατές με τις ίδιες τιμές. Η διαφάνεια 3 επαναφέρει την αυτόματη εμφάνιση που φαίνεται παραπάνω.
 
 ![Χειροκίνητο διάστημα ετικετών κατηγορίας τριών με όλες τις 24 στήλες ορατές](category-axis-manual.png)
 
 ### **Επιλογή του Σωστού Άξονα και Διαστήματος**
 
-Χρησιμοποιήστε αυτό το διάστημα καταμέτρησης κατηγοριών για έναν άξονα κειμένου, όπως ο άξονας κατηγορίας ενός διαγράμματος στήλης, γραμμής, περιοχής ή ράβδου. Σε διάγραμμα στήλης, είναι ο οριζόντιος άξονας. Σε ένα οριζόντιο διάγραμμα ράβδου, ο άξονας κατηγορίας είναι κατακόρυφος, οπότε εφαρμόστε αυτές τις ρυθμίσεις στο [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Η διάταξη δρομέων ισχύει επίσης για άξονα σειράς σε διαγράμματα που τον διαθέτουν.
+Χρησιμοποιήστε αυτό το διάστημα αριθμού κατηγοριών για άξονα κειμένου κατηγορίας, όπως ο άξονας κατηγορίας ενός στήριχου, γραμμικού, περιοχής ή ραβδου διαγράμματος. Σε στήριχο διάγραμμα, είναι ο οριζόντιος άξονας. Σε οριζόντιο ραβδόγραμμα, ο άξονας κατηγορίας είναι κατακόρυφος, επομένως εφαρμόστε αυτές τις ρυθμίσεις στο [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Η τοποθέτηση σημείων σκαριναρίσματος ισχύει επίσης για άξονα σειράς σε διαγράμματα που τον έχουν.
 
-Μην χρησιμοποιείτε την απόσταση ετικετών κατηγορίας για να ορίσετε την αριθμητική κλίμακα ενός άξονα τιμών. Σε άξονα τιμών, το [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) καθορίζει μια διαφορά τιμών: για παράδειγμα, μονάδα μεγάλου `10` παράγει δρομους στα 0, 10, 20 κ.λπ. όταν ο άξονας ξεκινά από το μηδέν. Ένα διάστημα ετικέτας κατηγορίας `3` μετράει θέσεις κατηγορίας, ανεξάρτητα από τις τιμές δεδομένων. Τα διαγράμματα διασποράς και φούσκας χρησιμοποιούν άξονες τιμών αντί για άξονα κειμένου κατηγορίας. Για άξονα ημερομηνίας, χρησιμοποιήστε μονάδες χρόνου και κλίμακες όπως περιγράφεται στην [Αλλαγή Άξονα Κατηγορίας](#change-a-category-axis).
+Μην χρησιμοποιείτε την τοποθέτηση ετικετών κατηγορίας για να ορίσετε την αριθμητική κλίμακα ενός άξονα τιμής. Σε άξονα τιμής, το [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) καθορίζει διαφορά τιμών: π.χ., μια κύρια μονάδα `10` δημιουργεί σημάνσεις στα 0, 10, 20 κ.λπ. όταν ο άξονας αρχίζει από το μηδέν. Διάστημα ετικέτας κατηγορίας `3` μετρά θέσεις κατηγορίας ανεξάρτητα από τις τιμές δεδομένων. Διαγράμματα διασποράς και φυσαλίδων χρησιμοποιούν άξονες τιμής αντί για άξονα κειμένου κατηγορίας. Για άξονα ημερομηνίας, χρησιμοποιήστε μονάδες χρόνου όπως περιγράφεται στην ενότητα [Αλλαγή Άξονα Κατηγορίας](#αλλαγή-άξονα-κατηγορίας).
 
 ## **Ορισμός Μορφής Ημερομηνίας για Τιμές Άξονα Κατηγορίας**
 
-Το παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα του διαγράμματος με τέσσερις ετήσιες τιμές. Οι ημερομηνίες αποθηκεύονται ως σειριακοί αριθμοί OLE Automation στο πρώτο φύλλο εργασίας (ευρετήριο `0`). Χρησιμοποιήστε το [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) για να επιλέξετε άξονα ημερομηνίας, απενεργοποιήστε τη μορφοποίηση συνδεδεμένη με την πηγή με το [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), και ορίστε `yyyy` με το [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) ώστε οι ετικέτες κατηγορίας να εμφανίζουν έτη τετραψήφια ανεξάρτητα από τη μορφοποίηση των κελιών.
+Το παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα του διαγράμματος με τέσσερις ετήσιες τιμές. Οι ημερομηνίες αποθηκεύονται ως σειριακοί αριθμοί OLE Automation στο πρώτο φύλλο εργασίας (δείκτης `0`). Χρησιμοποιήστε το [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) για να επιλέξετε άξονα ημερομηνίας, απενεργοποιήστε τη μορφοποίηση που συνδέεται με την πηγή με το [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), και ορίστε `yyyy` με το [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) ώστε οι ετικέτες κατηγορίας να εμφανίζουν τέσσερα ψηφία έτους ανεξάρτητα από τη μορφοποίηση των κελιών.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -347,7 +345,7 @@ presentation->Save(u"DateAxisFormat.pptx", SaveFormat::Pptx);
 
 ## **Ορισμός Γωνίας Περιστροφής για Τίτλο Άξονα Διαγράμματος**
 
-Ενεργοποιήστε τον τίτλο του κατακόρυφου άξονα με το [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), δώστε κείμενο τίτλου, και χρησιμοποιήστε το [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/) για να περιστρέψετε τον τίτλο. Η γωνία μετράται σε μοίρες· αυτό το παράδειγμα αποθηκεύει ένα διάγραμμα στήλης με τον τίτλο του άξονα τιμών περιστραμμένο κατά 90 μοίρες.
+Ενεργοποιήστε τον τίτλο του κατακόρυφου άξονα με το [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), δώστε κείμενο τίτλου και χρησιμοποιήστε το [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/) για να περιστρέψετε τον τίτλο. Η γωνία μετριέται σε μοίρες· αυτό το παράδειγμα αποθηκεύει ένα στήριχο διάγραμμα με τον τίτλο του άξονα τιμής του περιστραμμένο κατά 90 μοίρες.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -379,7 +377,7 @@ presentation->Save(u"RotatedAxisTitle.pptx", SaveFormat::Pptx);
 
 ## **Ορισμός Θέσης Άξονα σε Άξονα Κατηγορίας ή Τιμής**
 
-Χρησιμοποιήστε το [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) για να ελέγξετε αν ο άξονας τιμών διασχίζει τον άξονα κατηγορίας μεταξύ των κατηγοριών ή στις γραμμές του άξονα κατηγορίας. Η ιδιότητα αυτή ισχύει για άξονες κατηγορίας. Το παράδειγμα το ορίζει σε `true` στον οριζόντιο άξονα κατηγορίας ενός διαγράμματος στήλης και αποθηκεύει το αποτέλεσμα.
+Χρησιμοποιήστε το [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) για να ελέγξετε αν ο άξονας τιμής διασχίζει τον άξονα κατηγορίας μεταξύ των κατηγοριών ή στα σημεία σκαριναρίσματος κατηγορίας. Αυτή η ιδιότητα ισχύει για άξονες κατηγορίας. Το παράδειγμα τη θέτει σε `true` στον οριζόντιο άξονα κατηγορίας ενός στήριχου διαγράμματος και αποθηκεύει το αποτέλεσμα.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -404,9 +402,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 presentation->Save(u"AxisBetweenCategories.pptx", SaveFormat::Pptx);
 ```
 
-## **Ορισμός Μονάδας Εμφάνισης σε Άξονα Τιμής Διαγράμματος**
+## **Ορισμός Μονάδας Εμφανίσεως σε Άξονα Τιμής Διαγράμματος**
 
-Χρησιμοποιήστε το [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) για να κλιμακώσετε τις ετικέτες σε άξονα τιμής χωρίς να αλλάξετε τα υποκείμενα δεδομένα. Με το [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) ορισμένο σε `Millions`, μια τιμή των 60.000.000 εμφανίζεται ως 60. Το παράδειγμα δημιουργεί ένα διάγραμμα στήλης και εφαρμόζει τη μονάδα εμφάνισης εκατομμυρίων στον κατακόρυφο άξονά του.
+Χρησιμοποιήστε το [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) για να κλιμακώσετε τις ετικέτες σε άξονα τιμής χωρίς αλλαγή των υποκείμενων δεδομένων. Με την [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) ορισμένη σε `Millions`, μια τιμή των 60 000 000 εμφανίζεται ως 60. Το παράδειγμα δημιουργεί ένα στήριχο διάγραμμα και εφαρμόζει τη μονάδα εκθέτη σε δισεκατομμύρια στον κατακόρυφο άξονα.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -432,12 +430,100 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 presentation->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
+## **Διαμόρφωση Λογαριθμικού Άξονα Τιμής**
+
+Ένας λογαριθμικός άξονας τιμής είναι χρήσιμος όταν θετικές τιμές εκτείνονται σε πολλές τάξεις μεγέθους. Για παράδειγμα, μια υπηρεσία μπορεί να λάβει 10, 100, 1 000, 10 000 και 100 000 αιτήματα σε πέντε περιόδους. Σε γραμμική κλίμακα, οι μικρότερες τιμές φαίνονται συγκροτημένες κοντά στο μηδέν. Μια λογαριθμική κλίμακα καθιστά την σχετική τους αύξηση πιο συγκρίσιμη: ίσες αποστάσεις αντιπροσωπεύουν ίσους λόγους αντί για ίσες διαφορές.
+
+Καλέστε το [set_IsLogarithmic](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_islogarithmic/) με `true` στον άξονα τιμής και χρησιμοποιήστε το [set_LogBase](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_logbase/) για να επιλέξετε τη βάση. Αυτό αλλάζει τον τρόπο εμφάνισης των υπαρχόντων τιμών· δεν αλλάζει τα δεδομένα ή προσθέτει λογαριθμική γραμμή τάσης. Μια γραμμή τάσης αντιπροσωπεύει μια προσαρμοσμένη σχέση στα δεδομένα και είναι ξεχωριστό χαρακτηριστικό.
+
+### **Επιλογή του Άξονα Τιμής και της Βάσης**
+
+Για ένα διάγραμμα γραμμής ή στήριχο, ο άξονας τιμής είναι το [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Για ένα οριζόντιο ραβδόγραμμα, είναι το [get_HorizontalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_horizontalaxis/). Τα διαγράμματα διασποράς και φυσαλίδων έχουν δύο άξονες τιμής, οπότε επιλέξτε τον οριζόντιο άξονα για τιμές X, τον κατακόρυφο για τιμές Y ή και τους δύο. Μην εφαρμόζετε λογαριθμική κλιμάκωση σε άξονα κατηγορίας.
+
+Η προεπιλεγμένη λογαριθμική βάση είναι `10`. Για PPTX διαγράμματα, χρησιμοποιήστε μια βάση από `2` έως `1000`, συμπεριλαμβανομένων· υποστηρίζονται και κλασματικές βάσεις όπως `2.5`. Με βάση `10`, οι διαδοχικές δυνάμεις όπως 10, 100, 1 000 και 10 000 είναι εξίσου διατεταγμένες.
+
+### **Σύγκριση Γραμμικής και Λογαριθμικής Κλιμάκωσης**
+
+Το ακόλουθο αυτοδύναμο παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με τις πέντε μετρήσεις αιτημάτων στην πρώτη διαφάνεια, στη συνέχεια κλωνοποιεί αυτή τη διαφάνεια και ενεργοποιεί έναν λογαριθμικό άξονα τιμής βάσης‑10 στη δεύτερη. Και οι δύο διαφάνειες διατηρούν τα ίδια δεδομένα.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 30, 40, 660, 200);
+
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Line);
+auto values = std::array<double, 5>{10, 100, 1000, 10000, 100000};
+
+for (auto i = 0; i < values.size(); i++)
+{
+    auto categoryName = System::String::Format(u"Period {0}", i + 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(categoryName));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
+}
+
+// Κρατήστε την πρώτη διαφάνεια γραμμική και αλλάξτε μόνο τη κλίμακα του άξονα τιμής του αντιγράφου.
+auto logarithmicSlide = presentation->get_Slides()->AddClone(slide);
+auto logarithmicChart = System::ExplicitCast<IChart>(logarithmicSlide->get_Shape(0));
+auto valueAxis = logarithmicChart->get_Axes()->get_VerticalAxis();
+valueAxis->set_IsLogarithmic(true);
+valueAxis->set_LogBase(10);
+
+presentation->Save(u"LogarithmicAxis.pptx", SaveFormat::Pptx);
+```
+
+**Γραμμική κλίμακα (διαφάνεια 1):** Ίσες κάθετες αποστάσεις αντιπροσωπεύουν ίσες διαφορές στα πλήθη αιτημάτων. Η μεγαλύτερη τιμή κυριαρχεί στο διάγραμμα, καθιστώντας τις μικρότερες τιμές δύσκολο να διακριθούν.
+
+![Διάγραμμα γραμμής στο PowerPoint που δείχνει πέντε μετρήσεις αιτημάτων σε γραμμική κλίμακα τιμής](value-axis-linear.png)
+
+**Λογαριθμική κλίμακα (διαφάνεια 2):** Ίσες κάθετες αποστάσεις αντιπροσωπεύουν ίσους λόγους. Κάθε περίοδος έχει δέκα φορές περισσότερα αιτήματα από την προηγούμενη, έτσι τα σημεία σχηματίζουν μια ευθεία ανερχόμενη γραμμή στην κλίμακα βάσης‑10. Οι ετικέτες του άξονα παραμένουν με τις αρχικές μετρήσεις αιτημάτων.
+
+![Το ίδιο σύνολο πέντε αιτημάτων στο PowerPoint σε λογαριθμικό άξονα τιμής βάσης‑10](value-axis-logarithmic.png)
+
+### **Διαχείριση Μηδενικών και Αρνητικών Τιμών**
+
+Μια λογαριθμική κλίμακα μπορεί να εμφανίσει μόνο αυστηρά θετικές τιμές. Ελέγξτε τα δεδομένα πριν την ενεργοποιήσετε. Εάν μηδενικές ή αρνητικές τιμές είναι σημαντικές, διατηρήστε μια γραμμική κλίμακα ή δείξτε τες ξεχωριστά. Εάν η εξαίρεση αυτών των τιμών είναι κατάλληλη για την ανάλυση, εξηγήστε την παράλειψη. Μην τις αντικαθιστάτε σιωπηρά με μικρές θετικές τιμές, διότι αυτό αλλάζει το νόημα των δεδομένων. Οποιαδήποτε χειροκίνητη ρύθμιση ελάχιστου ή μέγιστου για λογαριθμικό άξονα πρέπει επίσης να είναι θετική.
+
 ## **Συχνές Ερωτήσεις**
 
 **Πώς ορίζω την τιμή στην οποία ένας άξονας διασχίζει τον άλλο (διασταύρωση άξονα);**
 
-Χρησιμοποιήστε το [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) για να επιλέξετε τη συμπεριφορά διασταύρωσης. Για να ορίσετε μια αριθμητική τιμή διασταύρωσης, χρησιμοποιήστε το [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Αυτές οι ρυθμίσεις σας επιτρέπουν να μετακινήσετε τη διασταύρωση του άξονα σε μια κατάλληλη βάση.
+Χρησιμοποιήστε το [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) για να επιλέξετε τη συμπεριφορά διασταύρωσης. Για να ορίσετε αριθμητική τιμή διασταύρωσης, χρησιμοποιήστε το [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Αυτές οι ρυθμίσεις σας επιτρέπουν να μετακινήσετε το σημείο διασταύρωσης σε μια κατάλληλη βάση.
 
-**Πώς μπορώ να τοποθετήσω τις ετικέτες δρομέων σε σχέση με τον άξονα;**
+**Πώς μπορώ να τοποθετήσω τις ετικέτες σημείων σκαριναρίσματος σε σχέση με τον άξονα;**
 
-Χρησιμοποιήστε το [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) με μία τιμή από το [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` ή `None`. Για να ελέγξετε τους ίδιους τους δρομούς, χρησιμοποιήστε το [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) ή το [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); αυτά είναι ξεχωριστά από τη θέση των ετικετών.
+Χρησιμοποιήστε το [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) με μια τιμή από το [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` ή `None`. Για να ελέγξετε τα ίδια τα σημεία σκαριναρίσματος, χρησιμοποιήστε το [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) ή το [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); αυτές είναι ξεχωριστές από τη θέση των ετικετών.
