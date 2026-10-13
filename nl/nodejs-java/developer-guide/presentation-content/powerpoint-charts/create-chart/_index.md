@@ -1,58 +1,62 @@
 ---
-title: Grafieken in PowerPoint-presentaties maken of bijwerken met JavaScript
-linktitle: Grafieken maken of bijwerken
+title: Maak of werk PowerPoint‑presentatiegrafieken bij in JavaScript
+linktitle: Maak of werk grafieken bij
 type: docs
 weight: 10
 url: /nl/nodejs-java/create-chart/
 keywords:
-  - grafiek toevoegen
-  - grafiek maken
-  - grafiek bewerken
-  - grafiek wijzigen
-  - grafiek bijwerken
-  - verspreide grafiek
-  - taartgrafiek
-  - lijngrafiek
-  - boomkaartgrafiek
-  - aandelengrafiek
-  - doos-en-snorhuidgrafiek
-  - trechtergrafiek
-  - zonnestralgrafiek
-  - histogramgrafiek
-  - radargrafiek
-  - meercategoriëlgrafiek
-  - PowerPoint
-  - presentatie
-  - Node.js
-  - JavaScript
-  - Aspose.Slides
-description: "Maak en pas grafieken aan in PowerPoint-presentaties met Aspose.Slides voor Node.js via Java. Voeg grafieken toe, formatteer en bewerk ze met praktische code-voorbeelden in JavaScript."
+- grafiek toevoegen
+- grafiek maken
+- grafiek bewerken
+- grafiek wijzigen
+- grafiek bijwerken
+- spreidingsgrafiek
+- cirkeldiagram
+- lijngrafiek
+- boomkaartgrafiek
+- aandelen‑grafiek
+- box‑en‑whisker‑grafiek
+- trechter‑grafiek
+- zon‑en‑straal‑grafiek
+- histogramgrafiek
+- radargrafiek
+- multi‑categorie‑grafiek
+- PowerPoint
+- presentatie
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Maak en pas grafieken aan in PowerPoint‑presentaties met behulp van Aspose.Slides voor Node.js via Java. Voeg grafieken toe, formatteer en bewerk ze met praktische code‑voorbeelden in JavaScript."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide gids over hoe u diagrammen kunt maken en aanpassen met Aspose.Slides voor Node.js via Java. U leert hoe u programmatiche een diagram aan een dia kunt toevoegen, deze kunt vullen met gegevens, en verschillende opmaakopties kunt toepassen om te voldoen aan uw specifieke ontwerpvereisten. Gedurende het artikel illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en diagramobject tot het configureren van series, assen en legenda's. Door deze gids te volgen, krijgt u een grondig begrip van hoe u dynamische diagramgeneratie kunt integreren in uw Node.js‑toepassingen, waardoor het proces van het maken van data‑gedreven presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreide gids over hoe je grafieken kunt maken en aanpassen met Aspose.Slides voor Node.js via Java. Je leert hoe je programmatically een grafiek aan een dia toevoegt, deze vult met gegevens en diverse opmaakopties toepast om te voldoen aan je specifieke ontwerpvereisten. Gedurende het artikel illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en het grafiekobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische grafiekgeneratie kunt integreren in je Node.js‑toepassingen, waardoor het maken van gegevensgedreven presentaties wordt gestroomlijnd.
 
 ## **Maak een grafiek**
 
-Grafieken helpen mensen om snel gegevens te visualiseren en inzichten te verkrijgen die mogelijk niet onmiddellijk duidelijk zijn vanuit een tabel of spreadsheet.
+Grafieken helpen mensen snel gegevens te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
 
 **Waarom grafieken maken?**
 
-* groeperen, samenvatten of condenseren van grote hoeveelheden gegevens op één dia in een presentatie;
+Met grafieken kun je:
+
+* grote hoeveelheden gegevens op één dia in een presentatie aggregeren, comprimeren of samenvatten;
 * patronen en trends in gegevens blootleggen;
-* de richting en momentum van gegevens over tijd of ten opzichte van een specifieke meeteenheid afleiden;
-* uitbijters, afwijkingen, afwijkende waarden, fouten en onsamenhangende gegevens opsporen;
+* de richting en momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitschieters, afwijkingen, fouten en onzinnige gegevens opsporen;
 * complexe gegevens communiceren of presenteren.
 
-In PowerPoint kunt u grafieken maken via de *Invoegen*-functie, die sjablonen biedt voor het ontwerpen van vele soorten grafieken. Met Aspose.Slides kunt u zowel gewone grafieken (gebaseerd op populaire grafiektype­s) als aangepaste grafieken maken.
+In PowerPoint kun je grafieken maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van vele soorten grafieken. Met Aspose.Slides kun je zowel reguliere grafieken (gebaseerd op populaire grafiektype­n) als aangepaste grafieken maken.
 
 {{% alert color="info" title="Note" %}}
-Gebruik de [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) enumeratie in de [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) module. De waarden in deze enumeratie komen overeen met verschillende grafiektype­s.
+
+Gebruik de [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) enumeratie in de [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) module. De waarden in deze enumeratie komen overeen met verschillende grafiektype­n.
+
 {{% /alert %}}
 
 ### **Maak gegroepeerde kolomgrafieken**
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een gegroepeerde kolomgrafiek te maken die twee series vergelijkt over drie categorieën. De series gebruiken rode en groene vullingen, en individuele labels tonen categorienamen, serienamen en waarden. Werkbladindex 0 verwijst naar het eerste blad in de ingebedde grafiek‑werkmap.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een gegroepeerde kolomgrafiek te maken die twee series vergelijkt over drie categorieën. De series gebruiken rood en groen opvullingen, en individuele labels tonen categorienaam, serienaam en waarden. Werkblad‑index 0 verwijst naar het eerste blad in het ingebedde grafiek‑werkboek.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -137,16 +141,16 @@ Het resultaat:
 
 ### **Maak spreidingsgrafieken**
 
-Spreidingsgrafieken (ook wel spreidingsplots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen te demonstreren.
+Spreidingsgrafieken (ook bekend als scatter plots of x‑y‑grafieken) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen aan te tonen.
 
 Gebruik een spreidingsgrafiek wanneer:
 
-* U beschikt over gekoppelde numerieke gegevens.
-* U hebt twee variabelen die goed bij elkaar passen.
-* U wilt bepalen of de twee variabelen gerelateerd zijn.
-* U hebt een onafhankelijke variabele die meerdere waarden heeft voor een afhankelijke variabele.
+* je gepaarde numerieke gegevens hebt;
+* je twee variabelen hebt die goed bij elkaar passen;
+* je wilt bepalen of de twee variabelen met elkaar verband houden;
+* je een onafhankelijke variabele hebt met meerdere waarden voor een afhankelijke variabele.
 
-Dit voorbeeld plot twee sets x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markers, terwijl de tweede vloeiende lijnen met cirkel‑markers gebruikt; beide gebruiken een marker‑grootte van 10, geconfigureerd met [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). De [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) methode bepaalt de vorm van de marker.
+Dit voorbeeld plot twee sets x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markeringen, terwijl de tweede gladde lijnen met cirkel‑markeringen gebruikt; beide gebruiken een marker‑grootte van 10, geconfigureerd met [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). De [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) methode bepaalt de vorm van de markering.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -216,11 +220,11 @@ Het resultaat:
 
 ![De spreidingsgrafiek](scatter_chart.png)
 
-### **Maak cirkeldiagrammen**
+### **Maak cirkelgrafieken**
 
-Cirkeldiagrammen worden het best gebruikt om de deel‑tot‑geheel relatie in gegevens te laten zien, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Echter, als uw gegevens veel delen of labels bevatten, kunt u overwegen een staafdiagram te gebruiken.
+Cirkeldiagrammen worden het best gebruikt om de deel‑tot‑geheel‑relatie in gegevens te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafgrafiek gebruiken.
 
-Dit voorbeeld maakt een cirkeldiagram met drie kwartaalwaarden. Elke sector heeft een aangepaste vulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en serie‑informatie. De [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) methode stelt de eerste sector in op een starthoek van 180 graden.
+Dit voorbeeld maakt een cirkelgrafiek met drie kwartaalwaarden. Elke part heeft een aangepaste opvulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en seriinformatie. De [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) methode zet de eerste part op 180 graden.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -321,13 +325,13 @@ finally
 
 Het resultaat:
 
-![Het cirkeldiagram](pie_chart.png)
+![De cirkelgrafiek](pie_chart.png)
 
 ### **Maak lijngrafieken**
 
-Lijngrafieken (ook wel lijndiagrammen genoemd) zijn het best geschikt voor situaties waarin u veranderingen in waarde over tijd wilt demonstreren. Met een lijngrafiek kunt u veel gegevens tegelijk vergelijken, veranderingen en trends over tijd volgen, afwijkingen in dataseries benadrukken, enz.
+Lijngrafieken (ook bekend als lijndiagrammen) worden het best gebruikt wanneer je wijzigingen in waarden over de tijd wilt aantonen. Met een lijngrafiek kun je veel gegevens tegelijk vergelijken, wijzigingen en trends in de loop der tijd volgen, anomalieën in dataseries benadrukken en meer.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een lijngrafiek te maken met de standaard series en categorieën, en slaat vervolgens de presentatie op als PPTX.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een lijngrafiek te maken met de standaard series en categorieën, en slaat de presentatie op als PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -347,7 +351,7 @@ finally
 }
 ```
 
-Standaard worden punten op een lijngrafiek verbonden door rechte doorlopende lijnen. Als u wilt dat de punten in plaats daarvan met stippellijnen worden verbonden, roep dan [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
+Standaard worden punten op een lijngrafiek verbonden door rechte, doorlopende lijnen. Als je wilt dat de punten in plaats daarvan worden verbonden door stippellijnen, roep je [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -378,9 +382,9 @@ Het resultaat:
 
 ### **Maak boomkaartgrafieken**
 
-Boomkaartgrafieken worden het best gebruikt voor verkoopgegevens wanneer u de relatieve grootte van gegevenscategorieën wilt tonen en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
+Boomkaartgrafieken (tree map) worden het best gebruikt voor verkoopgegevens wanneer je de relatieve grootte van datacategorieën wilt tonen en snel aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
 
-Dit voorbeeld maakt een boomkaart met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) methode kent stammen toe op groepeerniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoekgroottes, terwijl categorielabels en overlappende ouderlabels de hiërarchie identificeren.
+Dit voorbeeld maakt een boomkaart met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoekgrootte, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie identificeren.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -463,22 +467,24 @@ Het resultaat:
 
 ![De boomkaartgrafiek](treemap_chart.png)
 
-### **Maak watervaldiagrammen**
+### **Maak watervalgrafieken**
 
-Een watervaldiagram toont hoe positieve en negatieve wijzigingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winstopdeling kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderingskolommen zweven tussen de vorige en nieuwe voortschrijdende waarden, terwijl totalenkolommen zich uitbreiden van nul tot de geaccumuleerde waarde.
+Een watervalgrafiek toont hoe positieve en negatieve wijzigingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winst‑overzicht kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderingskolommen zweven tussen de vorige en de nieuwe lopende waarden, terwijl totale kolommen zich uitstrekken van nul tot de geaccumuleerde waarde.
 
-| Categorie | Werkbladwaarde | Kolomtype |
+Het volgende voorbeeld gebruikt bedragen in duizenden Amerikaanse dollars:
+
+| Categorie | Werkboekwaarde | Kolomtype |
 | --- | ---: | --- |
-| Omzet | 1000 | Stijging |
-| Kosten van verkoop | -400 | Daling |
+| Omzet | 1000 | Toename |
+| Kosten van verkoop | -400 | Afneming |
 | Brutowinst | 600 | Tussentotaal |
-| Bedrijfskosten | -200 | Daling |
-| Overige inkomsten | 50 | Stijging |
+| Operationele kosten | -200 | Afneming |
+| Overige inkomsten | 50 | Toename |
 | Nettowinst | 450 | Eindtotaal |
 
-Om een punt te markeren als een tussentotaal of eindtotaal, roep de [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) methode aan met `true`. Geef het daadwerkelijke geaccumuleerde bedrag op in de werkbladcel van dat punt: `600` voor brutowinst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De methode markeert de kolom als een totaal; hij berekent of vult de celwaarde niet. Gebruik geen nul als tijdelijke aanduiding of een andere wijziging voor een totaalpunt. Een totaalkolom toont de geaccumuleerde waarde zonder deze opnieuw bij de voortschrijdende waarde op te tellen.
+Om een punt te markeren als een tussentotaal of eindtotaal, roep je zijn [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) methode aan met `true`. Lever het werkelijk geaccumuleerde bedrag in die werkboekcel: `600` voor brutowinst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De methode markeert de kolom als een totaal; hij berekent of vult de celwaarde niet. Gebruik geen nul als tijdelijke aanduiding of voeg geen andere wijziging toe voor een totaalpunt. Een totaalkolom toont de geaccumuleerde waarde zonder deze opnieuw op te tellen bij de lopende waarde.
 
-Dit volledige JavaScript‑voorbeeld maakt een grafiek met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), wist de standaardgegevens en vult de ingebedde werkmap. Werkbladindex `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). De nul‑gebaseerde punt‑indices `2` en `5` identificeren respectievelijk het tussentotaal en het eindtotaal. Het aanroepen van [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) met `true` toont de bedragen op de kolommen. Er is geen invoerpresentatie of werkmap vereist.
+Dit volledige JavaScript‑voorbeeld maakt een grafiek met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), wist de standaardgegevens en vult het ingebedde werkboek. Werkblad‑index `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). De nul‑gebaseerde puntindices `2` en `5` identificeren respectievelijk het tussentotaal en het eindtotaal. Het aanroepen van [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) met `true` toont de bedragen op de kolommen. Er is geen invoer‑presentatie of werkboek nodig.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -530,17 +536,17 @@ finally
 }
 ```
 
-Roep de [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) methode op serieniveau aan met `true` om lijnen te tonen die opeenvolgende kolommen verbinden en de voortschrijdende waarde gemakkelijker te volgen. Om deze lijnen te verbergen, vervang de methode‑aanroep in het voorbeeld door `series.setShowConnectorLines(false);` vóór het opslaan. Dit wijzigt alleen de zichtbaarheid van de lijnen, niet de gegevens of totalen.
+Roep de series‑niveau [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) methode aan met `true` om verbindingslijnen tussen opeenvolgende kolommen weer te geven en de lopende waarde makkelijker te volgen. Om deze lijnen te verbergen, vervang je de methode‑aanroep in het voorbeeld door `series.setShowConnectorLines(false);` vóór het opslaan. Dit verandert alleen de zichtbaarheid van de lijnen, niet de data of totalen.
 
 De opgeslagen presentatie toont een brutowinst van 600 en een nettowinst van 450, met beide totalen getekend vanaf nul:
 
-![Watervaldiagram met omzet, kosten, brutowinst van 600 en nettowinst van 450, met waardelabels en verbindingslijnen](waterfall_chart.png)
+![Watervalgrafiek die omzet, kosten, brutowinst van 600 en nettowinst van 450 weergeeft, met waardelabels en verbindingslijnen](waterfall_chart.png)
 
-### **Maak aandelengrafieken**
+### **Maak aandelen‑grafieken**
 
-Aandelengrafieken worden gebruikt om financiële gegevens zoals openings-, hoog-, laag- en slotkoersen weer te geven, waardoor markttendensen en volatiliteit kunnen worden geanalyseerd. Ze bieden essentiële inzichten in aandelenprestaties, die beleggers en analisten helpen weloverwogen beslissingen te nemen.
+Aandelen‑grafieken worden gebruikt om financiële gegevens zoals openings‑, hoog‑, laag‑ en slotkoersen weer te geven, waardoor markttendenzen en volatiliteit geanalyseerd kunnen worden. Ze geven essentiële inzichten in aandelenprestaties en helpen investeerders en analisten weloverwogen beslissingen te nemen.
 
-Dit voorbeeld maakt een Open‑High‑Low‑Close‑grafiek met vier series in die volgorde en drie categorieën. De [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) methode schakelt up/down‑balken in, en [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) regelt de hoog‑laag‑lijnen die de prijsklassen tonen, terwijl de individuele serielijnen en kleinere horizontale rasterlijnen verborgen blijven.
+Dit voorbeeld maakt een open‑high‑low‑close‑grafiek met vier series in die volgorde en drie categorieën. De [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) methode zet up/down‑balken aan, en [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) regelt de hoog‑laag‑lijnen die de prijsklassen tonen, terwijl de individuele series‑lijnen en kleine horizontale rasterlijnen verborgen blijven.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -624,13 +630,13 @@ finally
 
 Het resultaat:
 
-![De aandelengrafiek](stock_chart.png)
+![De aandelen‑grafiek](stock_chart.png)
 
-### **Maak doos‑en‑snorhuidgrafieken**
+### **Maak box‑en‑whisker‑grafieken**
 
-Doos‑en‑snorhuidgrafieken worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitbijters. Ze zijn bijzonder nuttig bij verkennende data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
+Box‑en‑whisker‑grafieken worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten te samenvatten, zoals de mediaan, kwartielen en mogelijke uitschieters. Ze zijn bijzonder nuttig bij verkennende data‑analyse en statistische studies om snel variabiliteit te begrijpen en eventuele anomalieën te identificeren.
 
-Dit voorbeeld maakt een doos‑en‑snorhuidgrafiek van zes waarden. De [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) methode selecteert de exclusieve kwartielberekening. Het voorbeeld schakelt ook gemiddelde‑lijnen, gemiddelde‑markers, inner‑points en uitbijter‑points in.
+Dit voorbeeld maakt een box‑en‑whisker‑grafiek van zes waarden. De [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) methode selecteert de exclusieve kwartiel‑berekening. Het voorbeeld zet ook gemiddeldelijnen, gemiddelde‑markeringen, interne punten en uitschieter‑punten aan.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -690,11 +696,11 @@ finally
 }
 ```
 
-### **Maak trechtergrafieken**
+### **Maak trechter‑grafieken**
 
-Trechtergrafieken worden gebruikt om processen te visualiseren die opeenvolgende fasen omvatten, waarbij het volume aan gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral nuttig voor het analyseren van conversieratio's, knelpunten identificeren en de efficiëntie van verkoop‑ of marketingprocessen volgen.
+Trechter‑grafieken worden gebruikt om processen te visualiseren die opeenvolgende fasen omvatten, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn bijzonder behulpzaam bij het analyseren van conversieratio’s, het identificeren van knelpunten, en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een trechtergrafiek toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaardgegevens door zes categorieën en waarden variërend van 50 tot 500, en slaat vervolgens de bijgewerkte presentatie op. De invoerpresentatie moet minimaal één dia bevatten.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een trechter‑grafiek toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaarddata door zes categorieën en waarden variërend van 50 tot 500, en slaat vervolgens de bijgewerkte presentatie op. De invoer‑presentatie moet minimaal één dia bevatten.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -750,13 +756,13 @@ finally
 
 Het resultaat:
 
-![De trechtergrafiek](funnel_chart.png)
+![De trechter‑grafiek](funnel_chart.png)
 
-### **Maak zonnestralgrafieken**
+### **Maak zon‑en‑straal‑grafieken**
 
-Zonnestralgrafieken worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus worden weergegeven als concentrische ringen. Ze helpen deel‑tot‑geheel relaties illustreren en zijn ideaal om geneste categorieën en subcategorieën duidelijk en compact weer te geven.
+Zon‑en‑straal‑grafieken (sunburst) worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus worden weergegeven als concentrische ringen. Ze illustreren deel‑tot‑geheel‑relaties en zijn ideaal voor het helder en compact weergeven van geneste categorieën en sub‑categorieën.
 
-Dit voorbeeld maakt een zonnestralgrafiek met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) methode kent stammen toe op groepeerniveau 1 en takken op niveau 2. Categorie‑labels identificeren de segmenten, en de waarden bepalen hun relatieve groottes.
+Dit voorbeeld maakt een zon‑en‑straal‑grafiek met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Categorielabels identificeren de segmenten, en de waarden bepalen hun relatieve groottes.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -835,13 +841,17 @@ finally
 
 Het resultaat:
 
-![De zonnestralgrafiek](sunburst_chart.png)
+![De zon‑en‑straal‑grafiek](sunburst_chart.png)
 
-### **Maak histogramgrafieken**
+### **Maak histogram‑grafieken**
 
-Histogramgrafieken worden gebruikt om de verdeling van numerieke gegevens weer te geven door waarden in bereik‑ of bin‑groepen te plaatsen. Ze zijn bijzonder nuttig om gegevenspatronen zoals frequentie, scheefheid en spreiding te identificeren, en om uitbijters in een dataset te detecteren.
+Histogrammen tonen hoe numerieke waarden verdeeld zijn over intervallen (bakken). Voor maandelijkse rapporten over doorlooptijden van orders, gebruik je dezelfde breedte voor de bakken en dezelfde drempels om intervallen consistent te houden en verdelingen makkelijker te vergelijken.
 
-Dit voorbeeld maakt een histogram van zes numerieke waarden, inclusief negatieve waarden. Het aanroepen van [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) met de automatische aggregatietype laat de grafiek de te gebruiken bins bepalen om de verdeling weer te geven.
+Roep [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) aan op de horizontale as met een modus uit [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setBinWidth) geldt alleen voor `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberOfBins) geldt alleen voor `ByNumberOfBins`. Gebruik `Automatic` om de grafiek de bakken zelf te laten kiezen.
+
+#### **Gebruik een vaste bakbreedte**
+
+Dit voorbeeld groepeert doorlooptijden in intervallen van 10 minuten, met aparte bakken voor tijden ≤ 10 minuten en > 40 minuten. Activeer deze bakken met [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) en [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin). Wanneer je expliciete drempels via [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) en [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin) opgeeft, roep je [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticUnderflowBin) en [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticOverflowBin) aan met `false`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -851,7 +861,10 @@ try
 {
     let slide = presentation.getSlides().get_Item(0);
 
-    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 500, 300);
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -860,22 +873,24 @@ try
     workbook.clear(0);
 
     let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
-    let valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", aspose.slides.SaveFormat.Pptx);
 }
 finally
 {
@@ -883,15 +898,62 @@ finally
 }
 ```
 
-Het resultaat:
+De presentatie die in PowerPoint wordt weergegeven, toont het aantal items in de bakken **3, 4, 4, 4 en 2**. De onder‑bak omvat `5, 10, 10`, dus de drempel is inclusief. De over‑bak omvat alleen `41, 50`, dus de drempel is exclusief; beide waarden gelijk aan `40` blijven in de vorige interval. De tussenliggende bakken bevatten waarden groter dan hun ondergrens en kleiner dan of gelijk aan hun bovengrens.
 
-![Het histogram](histogram_chart.png)
+![Histogram met 10‑minuten bakken en expliciete onder‑ en over‑drempels](histogram_bin_width.png)
+
+#### **Specificeer het aantal bakken**
+
+Voor een vaste detail­niveau in plaats van vaste intervallen, vraag je vijf bakken aan voor dezelfde gegevens. Dit voorbeeld laat de onder‑ en over‑bakken uitgeschakeld. De grafiek bepaalt de breedte uit het gegevensbereik, dus de grenzen kunnen per rapport verschillen.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+De vijf bakken hebben aantallen **4, 4, 4, 4 en 1**. Vergelijk deze verdeling met het resultaat van vaste breedte hierboven: de invoerwaarden zijn identiek, maar de grenzen verschillen.
+
+![Histogram met vijf bakken berekend uit dezelfde gegevens](histogram_bin_count.png)
 
 ### **Maak radargrafieken**
 
-Radargrafieken worden gebruikt om multivariate gegevens weer te geven in een tweedimensionaal formaat, waardoor meerdere variabelen tegelijk gemakkelijk vergelijkbaar zijn. Ze zijn bijzonder nuttig om patronen, sterktes en zwaktes over meerdere prestatie‑metrieken of attributen te identificeren.
+Radargrafieken worden gebruikt om multivariate gegevens in een tweedimensionaal format weer te geven, waardoor meerdere variabelen tegelijk gemakkelijk kunnen worden vergeleken. Ze zijn bijzonder nuttig om patronen, sterktes en zwaktes over meerdere prestatiestatistieken of attributen te identificeren.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een radargrafiek te maken met de standaard series en categorieën, en slaat vervolgens de presentatie op als PPTX.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een radargrafiek te maken met de standaard series en categorieën, en slaat de presentatie op als PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -915,11 +977,11 @@ Het resultaat:
 
 ![De radargrafiek](radar_chart.png)
 
-### **Maak meercategoriëlgrafieken**
+### **Maak multi‑categorie‑grafieken**
 
-Meercategoriëlgrafieken worden gebruikt om gegevens weer te geven die meer dan één categorische groepering omvatten, waardoor u waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder handig wanneer u trends en relaties binnen complexe, meerlagige datasets moet analyseren.
+Multi‑categorie‑grafieken worden gebruikt om gegevens te tonen die meer dan één categorische groepering bevatten, zodat je waardes over meerdere dimensies tegelijk kunt vergelijken. Ze zijn vooral handig wanneer je trends en relaties binnen complexe, meerlagige datasets moet analyseren.
 
-Dit voorbeeld maakt een gegroepeerde kolomgrafiek met acht categorieën verdeeld over vier paren. De [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) methode geeft elk paar een gezamenlijke label op groepeerniveau 1, waardoor een categori­as‑as ontstaat met zowel individuele als groepslabels.
+Dit voorbeeld maakt een gegroepeerde kolomgrafiek met acht categorieën, gerangschikt in vier paren. De [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) methode geeft elk paar een gedeeld label op groeperingsniveau 1, waardoor een categorie‑as ontstaat met zowel individuele als groepslabels.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -993,13 +1055,13 @@ finally
 
 Het resultaat:
 
-![De meercategoriëlgrafiek](multi_category_chart.png)
+![De multi‑categorie‑grafiek](multi_category_chart.png)
 
-### **Maak kaartgrafieken**
+### **Maak kaart‑grafieken**
 
-Kaartgrafieken worden gebruikt om geografische gegevens te visualiseren door informatie te koppelen aan specifieke locaties zoals landen, staten of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke verdelingen op een duidelijke, visueel aantrekkelijke manier.
+Kaart‑grafieken worden gebruikt om geografische gegevens te visualiseren door informatie toe te wijzen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische data en ruimtelijke verdelingen in een duidelijk en visueel aantrekkelijk formaat.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een kaartgrafiek te maken met de standaard geografische gegevens en slaat deze op voor weergave in PowerPoint.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een kaart‑grafiek te maken met de standaard geografische gegevens en slaat deze op voor weergave in PowerPoint.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1021,17 +1083,21 @@ finally
 
 Het resultaat:
 
-![De kaartgrafiek](map_chart.png)
+![De kaart‑grafiek](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft de kaartgrafiek en de bijbehorende gegevens correct, maar tekent zelf geen kaartgrafieken: wanneer een dia die er één bevat wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het grafiekgebied leeg. Andere vormen op dezelfde dia blijven onaangetast.
+
+De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft de kaart‑grafiek en zijn gegevens correct, maar tekent zelf geen kaart‑grafieken: wanneer een dia die er één bevat wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het grafiekgebied leeg. Andere vormen op dezelfde dia blijven onaangetast.
+
 {{% /alert %}}
 
 ### **Maak combinatiegrafieken**
 
+Een combinatiegrafiek (of combo‑grafiek) combineert twee of meer grafiektype­n in één diagram. Deze grafiek laat je verschillen tussen twee of meer datasets benadrukken, vergelijken of onderzoeken, waardoor relaties tussen hen duidelijker worden.
+
 ![De combinatiegrafiek](combination_chart.png)
 
-Dit voorbeeld combineert twee gegroepeerde kolomseries met een lijngrafiek over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) de lijn op een secundaire verticale as aan de rechterkant plaatst. De hulpfuncties configureren de titel, legenda, as‑labels en rasterlijnen.
+Dit voorbeeld combineert twee gegroepeerde kolomseries met een lijngrafiek over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) de lijn op een secundaire verticale as rechts plaatst. Hulp‑functies configureren de titel, legenda, as‑labels en rasterlijnen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1198,9 +1264,9 @@ createComboChart();
 
 ## **Grafieken bijwerken**
 
-Aspose.Slides for Node.js via Java maakt het mogelijk om PowerPoint‑grafieken bij te werken door grafiekgegevens, opmaak en styling te wijzigen. Deze functionaliteit vereenvoudigt het proces van het actueel houden van presentaties met dynamische inhoud en zorgt ervoor dat grafieken nauwkeurig de huidige gegevens en visuele normen weergeven.
+Aspose.Slides voor Node.js via Java stelt je in staat PowerPoint‑grafieken bij te werken door grafiekgegevens, opmaak en styling te wijzigen. Deze functionaliteit vereenvoudigt het bijwerken van presentaties met dynamische inhoud en zorgt ervoor dat grafieken nauwkeurig de huidige data en visuele standaarden weerspiegelen.
 
-Dit voorbeeld werkt de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie bij. Het vereist twee kolomseries met elk drie gegevenspunten, waarbij categorielabels in kolom A staan en serienamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) om werkbladcellen te wijzigen, werkt seriewaarden bij, voegt een derde serie toe, en verandert de grafiek naar gegroepeerde cilinders via [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType).
+Dit voorbeeld werkt de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie bij. Het vereist twee kolom‑series met elk drie datapunten, met categorielabels in kolom A en serienamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) om werkboekcellen te wijzigen, werkt series‑waarden bij, voegt een derde serie toe en verandert de grafiek in gegroepeerde cilinders via [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1262,13 +1328,13 @@ finally
 }
 ```
 
-## **Gegevensbereik instellen voor een grafiek**
+## **Gegevensbereik voor een grafiek instellen**
 
-Om het al gebruikte bereik van een bestaande grafiek te bekijken, zie [Retrieve a Chart's Data Range](/slides/nl/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
+Om het bereik dat al door een bestaande grafiek wordt gebruikt te bekijken, zie [Retrieve a Chart's Data Range](/slides/nl/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Node.js via Java biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad te definiëren als bron voor de gegevens van uw grafiek. Dit betekent dat u rechtstreeks een gedeelte van uw werkblad kunt koppelen aan de grafiek, zodat u controle heeft over welke cellen bijdragen aan de series en categorieën van de grafiek. Als gevolg hiervan kunt u uw grafieken eenvoudig bijwerken en synchroniseren met de laatste wijzigingen in uw werkblad, waardoor uw PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
+Aspose.Slides voor Node.js via Java biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad te definiëren als bron voor de gegevens van je grafiek. Dit betekent dat je rechtstreeks een gedeelte van je werkblad op de grafiek kunt afbeelden, waardoor je kunt bepalen welke cellen bijdragen aan de series en categorieën van de grafiek. Als gevolg hiervan kun je je grafieken eenvoudig updaten en synchroniseren met de nieuwste gegevenswijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en accurate informatie weergeven.
 
-Dit voorbeeld gebruikt [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) om de gegevensbron van de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. Het grafiek‑werkboek moet dat werkblad bevatten en een ingevuld bereik hebben met een seriekop in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
+Dit voorbeeld gebruikt [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) om de gegevensbron van de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. Het grafiek‑werkboek moet dat werkblad bevatten en een ingevuld bereik met een seriekop in de eerste rij, categorielabels in kolom A en drie waardes in kolom B.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1299,11 +1365,11 @@ finally
 }
 ```
 
-## **Standaardmarkers gebruiken in grafieken**
+## **Standaardmarkeringen in grafieken gebruiken**
 
-Wanneer u standaardmarkers in grafieken gebruikt, krijgt elke grafiekserie automatisch een verschillend standaard markersymbool.
+Wanneer je standaardmarkeringen in grafieken gebruikt, krijgt elke grafiekserie automatisch een ander standaardmarkering‑symbool toegewezen.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een grafiek te maken met twee lijngrafiek‑series en een legenda. De marker‑instellingen toegankelijk via [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) behouden de automatisch toegewezen markersymbolen. De eerste serie bevat een negatieve waarde en een ontbrekende waarde, weergegeven als `null`, terwijl de tweede een waarde heeft voor elke categorie.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) om een grafiek met twee lijngrafiek‑series en een legenda te maken. De marker‑instellingen die via [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) worden opgehaald, behouden de automatisch toegewezen markersymbolen. De eerste serie bevat een negatieve waarde en een ontbrekende waarde, weergegeven door `null`, terwijl de tweede een waarde heeft voor elke categorie.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1368,18 +1434,18 @@ finally
 
 ## **FAQ**
 
-**Welke grafiektype­s worden ondersteund door Aspose.Slides for Node.js via Java?**
+**Welke grafiektype­n worden ondersteund door Aspose.Slides voor Node.js via Java?**
 
-Aspose.Slides for Node.js via Java ondersteunt een breed scala aan grafiektype­s, waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt u in staat om het meest geschikte grafiektype te kiezen voor uw datavisualisatie‑behoeften.
+Aspose.Slides voor Node.js via Java ondersteunt een breed scala aan grafiektype­n, waaronder staaf, lijn, cirkel, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt je in staat het meest geschikte grafiektype voor je datavisualisatie‑behoeften te kiezen.
 
 **Hoe voeg ik een nieuwe grafiek toe aan een dia?**
 
-Om een grafiek toe te voegen, maakt u eerst een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑klasse, haalt u de gewenste dia op via de index, en roept u vervolgens de methode aan om een grafiek toe te voegen, waarbij u het grafiektype en de initiële gegevens opgeeft. Deze werkwijze integreert de grafiek direct in uw presentatie.
+Om een grafiek toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse, haal je de gewenste dia op via zijn index, en roep je vervolgens de methode aan om een grafiek toe te voegen, waarbij je het grafiektype en de initiële gegevens opgeeft. Dit proces integreert de grafiek direct in je presentatie.
 
-**Hoe kan ik de weergegeven gegevens in een grafiek bijwerken?**
+**Hoe kan ik de gegevens in een grafiek bijwerken?**
 
-U kunt de gegevens van een grafiek bijwerken door toegang te krijgen tot de dat Werkmap ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), eventuele standaard series en categorieën te wissen, en vervolgens uw eigen gegevens toe te voegen. Hiermee kunt u de grafiek programmatically vernieuwen zodat deze de laatste gegevens weergeeft.
+Je kunt de gegevens van een grafiek bijwerken door toegang te krijgen tot het gegevens‑werkboek ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), eventuele standaard series en categorieën te wissen, en vervolgens je eigen gegevens toe te voegen. Hiermee kun je programmatically de grafiek vernieuwen zodat deze de nieuwste gegevens weergeeft.
 
-**Is het mogelijk om het uiterlijk van de grafiek aan te passen?**
+**Is het mogelijk het uiterlijk van de grafiek aan te passen?**
 
-Ja, Aspose.Slides for Node.js via Java biedt uitgebreide aanpassingsmogelijkheden. U kunt kleuren, lettertypen, labels, legendes en andere opmaakelementen wijzigen om het uiterlijk van de grafiek af te stemmen op uw specifieke ontwerpvereisten.
+Ja, Aspose.Slides voor Node.js via Java biedt uitgebreide aanpassingsmogelijkheden. Je kunt kleuren, lettertypen, labels, legenda’s en andere opmaak‑elementen wijzigen om het uiterlijk van de grafiek af te stemmen op je specifieke ontwerpvereisten.

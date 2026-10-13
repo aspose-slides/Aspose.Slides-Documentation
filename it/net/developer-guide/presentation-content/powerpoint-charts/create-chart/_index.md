@@ -1,60 +1,62 @@
 ---
-title: Crea o aggiorna diagrammi PowerPoint nelle presentazioni .NET
-linktitle: Crea o aggiorna diagrammi
+title: Creare o aggiornare grafici di presentazioni PowerPoint in .NET
+linktitle: Creare o aggiornare grafici
 type: docs
 weight: 10
 url: /it/net/create-chart/
 keywords:
-- aggiungi diagramma
-- crea diagramma
-- modifica diagramma
-- cambia diagramma
-- aggiorna diagramma
-- diagramma a dispersione
-- diagramma a torta
-- diagramma a linee
-- diagramma a mappa ad albero
-- diagramma stock
-- diagramma a scatola e baffi
-- diagramma a imbuto
-- diagramma a raggi
-- diagramma a istogramma
-- diagramma radar
-- diagramma multicategoria
+- aggiungere grafico
+- creare grafico
+- modificare grafico
+- cambiare grafico
+- aggiornare grafico
+- grafico a dispersione
+- grafico a torta
+- grafico a linee
+- grafico a mappa ad albero
+- grafico azionario
+- grafico a scatola e baffi
+- grafico a imbuto
+- grafico a raggi
+- grafico a istogramma
+- grafico radar
+- grafico multi-categoria
 - PowerPoint
 - presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Crea e personalizza diagrammi nelle presentazioni PowerPoint utilizzando Aspose.Slides per .NET. Aggiungi, formatta e modifica i diagrammi con esempi pratici di codice in C#."
+description: "Creare e personalizzare grafici nelle presentazioni PowerPoint utilizzando Aspose.Slides per .NET. Aggiungere, formattare e modificare i grafici con esempi pratici di codice in C#."
 ---
 ## **Panoramica**
 
-Questo articolo fornisce una guida completa su come creare e personalizzare diagrammi utilizzando Aspose.Slides per .NET. Imparerai come aggiungere programmaticamente un diagramma a una diapositiva, popolarlo con dati e applicare varie opzioni di formattazione per soddisfare i requisiti di design specifici. Durante l'articolo, esempi di codice dettagliati illustrano ogni passaggio, dall'inizializzazione della presentazione e dell'oggetto diagramma alla configurazione di serie, assi e legende. Seguendo questa guida, acquisirai una solida comprensione di come integrare la generazione dinamica di diagrammi nelle tue applicazioni .NET, semplificando il processo di creazione di presentazioni basate sui dati.
+Questo articolo fornisce una guida completa su come creare e personalizzare i grafici utilizzando Aspose.Slides per .NET. Imparerai a aggiungere programmaticamente un grafico a una diapositiva, popolarlo con i dati e applicare varie opzioni di formattazione per soddisfare i tuoi requisiti di design specifici. In tutto l’articolo, esempi di codice dettagliati illustrano ogni passaggio, dall’inizializzazione della presentazione e dell’oggetto grafico alla configurazione di serie, assi e legende. Seguendo questa guida, otterrai una solida comprensione di come integrare la generazione dinamica di grafici nelle tue applicazioni .NET, semplificando il processo di creazione di presentazioni basate sui dati.
 
-## **Creare un diagramma**
+## **Creare un grafico**
 
-I diagrammi aiutano le persone a visualizzare rapidamente i dati e a ottenere intuizioni che potrebbero non essere immediatamente evidenti da una tabella o da un foglio di calcolo.
+I grafici aiutano le persone a visualizzare rapidamente i dati e a ottenere intuizioni che potrebbero non essere immediatamente evidenti da una tabella o un foglio di calcolo.
 
-**Perché creare diagrammi?**
+**Perché creare grafici?**
 
-Utilizzando i diagrammi, è possibile:
+Utilizzando i grafici, è possibile:
 
-* aggregare, condensare o riassumere grandi quantità di dati su una singola diapositiva di una presentazione;
-* evidenziare modelli e tendenze nei dati;
-* dedurre la direzione e la velocità dei dati nel tempo o rispetto a un'unità di misura specifica;
-* individuare valori anomali, aberrazioni, deviazioni, errori e dati senza senso;
+* aggregare, condensare o riassumere grandi quantità di dati in una singola diapositiva di una presentazione;
+* evidenziare pattern e tendenze nei dati;
+* dedurre la direzione e lo slancio dei dati nel tempo o rispetto a una specifica unità di misura;
+* individuare valori anomali, aberrazioni, deviazioni, errori e dati privi di senso;
 * comunicare o presentare dati complessi.
 
-In PowerPoint, è possibile creare diagrammi tramite la funzione *Insert*, che fornisce modelli per la progettazione di molti tipi di diagrammi. Con Aspose.Slides, è possibile creare sia diagrammi regolari (basati su tipi di diagrammi popolari) sia diagrammi personalizzati.
+In PowerPoint, è possibile creare grafici tramite la funzione *Insert*, che fornisce modelli per progettare molti tipi di grafico. Utilizzando Aspose.Slides, è possibile creare sia grafici regolari (basati su tipi di grafico popolari) sia grafici personalizzati.
 
 {{% alert color="info" title="Note" %}}
-Utilizza l'enumerazione [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) nello spazio dei nomi [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). I valori di questa enumerazione corrispondono a diversi tipi di diagrammi.
+
+Usa l’enumerazione [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) nello spazio dei nomi [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). I valori di questa enumerazione corrispondono a diversi tipi di grafico.
+
 {{% /alert %}}
 
-### **Creare diagrammi a colonne raggruppate**
+### **Creare grafici a colonne raggruppate**
 
-Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per creare un diagramma a colonne raggruppate che confronta due serie su tre categorie. Le serie usano riempimenti rosso e verde, e le etichette individuali mostrano i nomi delle categorie, i nomi delle serie e i valori. L'indice del foglio di lavoro 0 si riferisce al primo foglio nella cartella di lavoro incorporata del diagramma.
+Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per creare un grafico a colonne raggruppate che confronta due serie su tre categorie. Le serie usano riempimenti rosso e verde, e le etichette dimostrano i nomi delle categorie, i nomi delle serie e i valori. L’indice del foglio di lavoro 0 si riferisce al primo foglio nella cartella di lavoro incorporata del grafico.
 
 ```csharp
 using System.Drawing;
@@ -130,20 +132,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![Il grafico a colonne raggruppate](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Creare diagrammi a dispersione**
+### **Creare grafici a dispersione**
 
-I diagrammi a dispersione (conosciuti anche come scatter plot o grafici x‑y) sono spesso usati per verificare la presenza di pattern o per dimostrare correlazioni tra due variabili.
+I grafici a dispersione (noti anche come scatter plot o grafici x‑y) sono spesso usati per verificare pattern o dimostrare correlazioni tra due variabili.
 
-Usa un diagramma a dispersione quando:
+Usa un grafico a dispersione quando:
 
 * Hai dati numerici accoppiati.
-* Hai due variabili che si abbinano bene tra loro.
+* Hai due variabili che si abbinano bene.
 * Vuoi determinare se le due variabili sono correlate.
-* Hai una variabile indipendente che presenta più valori per una variabile dipendente.
+* Hai una variabile indipendente che ha più valori per una variabile dipendente.
 
-Questo esempio traccia due serie di valori x‑y. La prima serie utilizza linee dritte con marcatori a stella, mentre la seconda utilizza linee fluide con marcatori a cerchio; entrambe usano una [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) di 10. La proprietà [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) controlla la forma del marcatore.
+Questo esempio traccia due serie di valori x‑y. La prima serie usa linee rette con marcatori a stella, mentre la seconda utilizza linee lisce con marcatori a cerchio; entrambe usano una [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) di 10. La proprietà [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) controlla la forma del marcatore.
 
 ```csharp
 using Aspose.Slides;
@@ -206,13 +208,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![Il grafico a dispersione](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Creare diagrammi a torta**
+### **Creare grafici a torta**
 
-I diagrammi a torta sono più adatti per mostrare la relazione parte‑totale nei dati, soprattutto quando i dati contengono etichette categoriche con valori numerici. Tuttavia, se i dati contengono molte parti o etichette, potresti considerare l'uso di un diagramma a barre.
+I grafici a torta sono ideali per mostrare la relazione parte‑intero nei dati, specialmente quando i dati contengono etichette categoriali con valori numerici. Tuttavia, se i tuoi dati contengono molte parti o etichette, potresti considerare l’uso di un grafico a barre.
 
-Questo esempio crea un diagramma a torta con tre valori trimestrali. Ogni fetta ha un riempimento e un bordo personalizzati, e le etichette mostrano combinazioni diverse di valori, percentuali e informazioni sulla serie. La proprietà [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) imposta la prima fetta a partire da 180 gradi.
+Questo esempio crea un grafico a torta con tre valori trimestrali. Ogni fetta ha un riempimento e un bordo personalizzati, e le etichette mostrano combinazioni diverse di valori, percentuali e informazioni sulla serie. La proprietà [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) imposta la prima fetta a partire da 180 gradi.
 
 ```csharp
 using System.Drawing;
@@ -308,13 +310,13 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![Il grafico a torta](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **Creare diagrammi a linee**
+### **Creare grafici a linee**
 
-I diagrammi a linee (conosciuti anche come line graph) sono più adatti in situazioni in cui si desidera mostrare variazioni di valore nel tempo. Utilizzando un diagramma a linee, è possibile confrontare una grande quantità di dati contemporaneamente, monitorare cambiamenti e tendenze nel tempo, evidenziare anomalie nelle serie di dati e altro ancora.
+I grafici a linee (noti anche come line graphs) sono più adatti quando vuoi dimostrare variazioni di valore nel tempo. Con un grafico a linee, puoi confrontare una grande quantità di dati contemporaneamente, tracciare cambiamenti e tendenze nel tempo, evidenziare anomalie nelle serie di dati e altro ancora.
 
-Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per creare un diagramma a linee con le serie e le categorie predefinite, quindi salva la presentazione come PPTX.
+Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per creare un grafico a linee con serie e categorie predefinite, quindi salva la presentazione come PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -329,7 +331,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-Per impostazione predefinita, i punti di un diagramma a linee sono collegati da linee continue dritte. Se desideri che i punti siano collegati da linee tratteggiate, imposta [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) su un valore di [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+Per impostazione predefinita, i punti in un grafico a linee sono collegati da linee continue dritte. Se vuoi che i punti siano collegati da linee tratteggiate, imposta [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) a un valore di [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
 
 ```csharp
 using Aspose.Slides;
@@ -348,13 +350,13 @@ foreach (var series in lineChart.ChartData.Series)
 
 Il risultato:
 
-![Il grafico a linee](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Creare diagrammi a mappa ad albero**
+### **Creare grafici ad albero**
 
-I diagrammi a mappa ad albero sono più adatti per dati di vendita quando si vuole mostrare la dimensione relativa delle categorie di dati e attirare rapidamente l'attenzione sugli elementi che contribuiscono maggiormente all'interno di ogni categoria.
+I grafici ad albero sono ideali per i dati di vendita quando vuoi mostrare la dimensione relativa delle categorie di dati e attirare rapidamente l’attenzione sugli elementi che contribuiscono maggiormente all’interno di ciascuna categoria.
 
-Questo esempio crea una mappa ad albero con otto foglie raggruppate in quattro rami e due ramificazioni. Il metodo [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) assegna i rami al livello di raggruppamento 1 e le ramificazioni al livello 2. I valori determinano le dimensioni relative dei rettangoli, mentre le etichette di categoria e le etichette genitore sovrapposte identificano la gerarchia.
+Questo esempio crea un albero con otto foglie raggruppate in quattro tronchi e due rami. Il metodo [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) assegna i tronchi al livello di raggruppamento 1 e i rami al livello 2. I valori determinano le dimensioni relative dei rettangoli, mentre le etichette di categoria e le etichette genitore sovrapposte identificano la gerarchia.
 
 ```csharp
 using Aspose.Slides;
@@ -430,26 +432,26 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![Il grafico a mappa ad albero](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Creare diagrammi a cascata**
+### **Creare grafici a cascata**
 
-Un diagramma a cascata mostra come le variazioni positive e negative contribuiscano a un valore finale. Ad esempio, una ripartizione dei profitti può iniziare dal fatturato, sottrarre i costi e aggiungere altri ricavi. Le colonne di variazione fluttuano tra il valore corrente precedente e quello nuovo, mentre le colonne totali si estendono dallo zero al valore accumulato.
+Un grafico a cascata mostra come le variazioni positive e negative contribuiscono a un valore finale. Per esempio, una ripartizione del profitto può partire dal fatturato, sottrarre i costi e aggiungere altri ricavi. Le colonne di variazione fluttuano tra il valore corrente precedente e quello nuovo, mentre le colonne totali si estendono da zero al valore accumulato.
 
-L'esempio seguente utilizza importi in migliaia di dollari USA:
+L’esempio seguente utilizza importi in migliaia di dollari statunitensi:
 
 | Categoria | Valore cartella di lavoro | Tipo colonna |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| Ricavi | 1000 | Aumento |
+| Costo di vendita | -400 | Diminuzione |
+| Utile lordo | 600 | Totale intermedio |
+| Spese operative | -200 | Diminuzione |
+| Altri ricavi | 50 | Aumento |
+| Utile netto | 450 | Totale finale |
 
-Per contrassegnare un punto come totale intermedio o finale, imposta la sua proprietà [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) su `true`. Fornisci l'importo effettivo accumulato nella cella corrispondente del foglio di lavoro: `600` per il profitto lordo (`1000 - 400`) e `450` per il profitto netto (`600 - 200 + 50`). La proprietà segna la colonna come totale; non calcola né popola il valore della cella. Non usare lo zero come segnaposto né fornire un'altra variazione per un punto totale. Una colonna totale visualizza il valore accumulato senza aggiungerlo nuovamente al valore corrente.
+Per contrassegnare un punto come totale intermedio o finale, imposta la sua proprietà [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) su `true`. Fornisci l’importo effettivamente accumulato nella cella della cartella di lavoro di quel punto: `600` per l’utile lordo (`1000 - 400`) e `450` per l’utile netto (`600 - 200 + 50`). La proprietà segna la colonna come totale; non calcola né popola il valore della cella. Non usare zero come segnaposto né fornire un’altra variazione per un punto totale. Una colonna totale visualizza il valore accumulato senza aggiungerlo nuovamente al valore corrente.
 
-Questo esempio completo in C# crea un diagramma usando il membro `Waterfall` di [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), cancella i dati predefiniti e riempie la cartella di lavoro incorporata. L'indice del foglio di lavoro `0` seleziona il primo foglio; la colonna A contiene i nomi delle categorie e la colonna B contiene i valori. Ogni cella di valore viene aggiunta con [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Gli indici dei punti basati su zero `2` e `5` identificano rispettivamente i totali intermedi e finali. Abilitando [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) vengono visualizzati gli importi sulle colonne. Non è necessaria alcuna presentazione o cartella di lavoro di input.
+Questo esempio completo in C# crea un grafico usando il membro `Waterfall` di [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), pulisce i dati predefiniti e riempie la cartella di lavoro incorporata. L’indice del foglio di lavoro `0` seleziona il primo foglio; la colonna A contiene i nomi delle categorie e la colonna B contiene i valori. Ogni cella di valore è aggiunta con [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Gli indici zero‑based `2` e `5` identificano rispettivamente i totali intermedi e finali. Abilitando [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) vengono mostrati gli importi sulle colonne. Non è necessaria alcuna presentazione o cartella di lavoro di input.
 
 ```csharp
 using Aspose.Slides;
@@ -496,17 +498,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Imposta la proprietà a livello di serie [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) su `true` per mostrare le linee che collegano le colonne consecutive e rendere più facile seguire il valore corrente. Per nascondere queste linee, sostituisci l'assegnazione nell'esempio con `series.ShowConnectorLines = false;` prima del salvataggio. Questa modifica influenza solo la visibilità delle linee, non i dati o i totali.
+Imposta la proprietà a livello di serie [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) su `true` per visualizzare le linee che collegano le colonne consecutive e rendere più chiaro il valore corrente. Per nascondere queste linee, sostituisci l’assegnazione nell’esempio con `series.ShowConnectorLines = false;` prima di salvare. Questo modifica solo la visibilità delle linee, non i dati o i totali.
 
-La presentazione salvata mostra un profitto lordo di 600 e un profitto netto di 450, entrambi partendo dallo zero:
+La presentazione salvata mostra un utile lordo di 600 e un utile netto di 450, entrambi i totali calcolati da zero:
 
-![Diagramma a cascata che mostra fatturato, costi, profitto lordo di 600 e profitto netto di 450, con etichette valore e linee di collegamento](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **Creare diagrammi di tipo stock**
+### **Creare grafici per titoli**
 
-I diagrammi di tipo stock visualizzano dati finanziari come prezzi di apertura, massimo, minimo e chiusura, aiutando ad analizzare tendenze di mercato e volatilità. Offrono approfondimenti essenziali sulle performance azionarie, supportando investitori e analisti nelle decisioni informate.
+I grafici per titoli sono usati per visualizzare dati finanziari come prezzi di apertura, massimo, minimo e chiusura, aiutando ad analizzare tendenze di mercato e volatilità. Offrono informazioni essenziali sulle performance azionarie, supportando investitori e analisti nelle decisioni informate.
 
-Questo esempio crea un diagramma open‑high‑low‑close con quattro serie in quest'ordine e tre categorie. La proprietà [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) abilita le barre su/giù, e [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) controlla le linee alto‑basso che mostrano le fasce di prezzo, mentre le linee delle singole serie e le linee di griglia orizzontali minori sono nascoste.
+Questo esempio crea un grafico open‑high‑low‑close con quattro serie in tale ordine e tre categorie. La proprietà [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) abilita le barre up/down, e [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) controlla le linee alto‑basso che mostrano gli intervalli di prezzo, mentre le linee delle singole serie e le linee di griglia orizzontali minori sono nascoste.
 
 ```csharp
 using Aspose.Slides;
@@ -583,13 +585,13 @@ presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![Il diagramma stock](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Creare diagrammi a scatola e baffi**
+### **Creare grafici a scatola e baffi**
 
-I diagrammi a scatola e baffi mostrano la distribuzione dei dati riassumendo misure statistiche chiave, come mediana, quartili e potenziali outlier. Sono particolarmente utili nell'analisi esplorativa dei dati e negli studi statistici per comprendere rapidamente la variabilità dei dati e identificare eventuali anomalie.
+I grafici a scatola e baffi sono usati per visualizzare la distribuzione dei dati riassumendo misure statistiche chiave, come mediana, quartili e potenziali outlier. Sono particolarmente utili in analisi esplorative e studi statistici per comprendere rapidamente la variabilità dei dati e identificare eventuali anomalie.
 
-Questo esempio crea un diagramma a scatola e baffi da sei valori. La proprietà [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) seleziona il calcolo dei quartili esclusivo. L'esempio abilita inoltre linee della media, marcatori della media, punti interni e punti outlier.
+Questo esempio crea un grafico a scatola e baffi da sei valori. La proprietà [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) seleziona il calcolo dei quartili esclusivo. L’esempio abilita inoltre linee di media, marcatori di media, punti interni e punti outlier.
 
 ```csharp
 using Aspose.Slides;
@@ -644,11 +646,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Creare diagrammi a imbuto**
+### **Creare grafici a imbuto**
 
-I diagrammi a imbuto visualizzano processi composti da fasi sequenziali, dove il volume dei dati diminuisce man mano che avanza da un passaggio al successivo. Sono particolarmente utili per analizzare i tassi di conversione, identificare colli di bottiglia e monitorare l'efficienza di processi di vendita o marketing.
+I grafici a imbuto sono usati per visualizzare processi composti da fasi sequenziali, dove il volume dei dati diminuisce man mano che si procede da un passaggio al successivo. Sono particolarmente utili per analizzare i tassi di conversione, identificare colli di bottiglia e monitorare l’efficienza dei processi di vendita o marketing.
 
-Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per aggiungere un diagramma a imbuto alla prima diapositiva di una presentazione esistente. Sostituisce i dati predefiniti con sei categorie e valori compresi tra 50 e 500, quindi salva la presentazione aggiornata. La presentazione di input deve contenere almeno una diapositiva.
+Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per aggiungere un grafico a imbuto alla prima diapositiva di una presentazione esistente. Sostituisce i dati predefiniti con sei categorie e valori da 50 a 500, quindi salva la presentazione aggiornata. La presentazione di input deve contenere almeno una diapositiva.
 
 ```csharp
 using Aspose.Slides;
@@ -699,13 +701,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![Il diagramma a imbuto](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Creare diagrammi a raggi (Sunburst)**
+### **Creare grafici a raggi**
 
-I diagrammi a raggi sono usati per visualizzare dati gerarchici, mostrando i livelli come anelli concentrici. Aiutano a illustrare le relazioni parte‑totale e sono ideali per rappresentare categorie e sottocategorie nidificate in modo chiaro e compatto.
+I grafici a raggi sono usati per visualizzare dati gerarchici, mostrando i livelli come anelli concentrici. Aiutano a illustrare le relazioni parte‑intero e sono ideali per rappresentare categorie e sotto‑categorie nidificate in un formato chiaro e compatto.
 
-Questo esempio crea un diagramma a raggi con otto foglie raggruppate in quattro rami e due ramificazioni. Il metodo [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) assegna i rami al livello di raggruppamento 1 e le ramificazioni al livello 2. Le etichette di categoria identificano i segmenti e i valori determinano le dimensioni relative.
+Questo esempio crea un grafico a raggi con otto foglie raggruppate in quattro tronchi e due rami. Il metodo [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) assegna i tronchi al livello di raggruppamento 1 e i rami al livello 2. Le etichette di categoria identificano i segmenti e i valori determinano le loro dimensioni relative.
 
 ```csharp
 using Aspose.Slides;
@@ -779,13 +781,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![Il diagramma a raggi](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Creare diagrammi a istogramma**
+### **Creare istogrammi**
 
-Gli istogrammi rappresentano la distribuzione di dati numerici raggruppando i valori in intervalli o "bin". Sono particolarmente utili per identificare pattern nei dati come frequenza, asimmetria e dispersione, e per rilevare outlier in un set di dati.
+Gli istogrammi mostrano come i valori numerici siano distribuiti su intervalli (bin). Per i report mensili sui tempi di elaborazione degli ordini, utilizza la stessa larghezza di bin e le stesse soglie per mantenere gli intervalli coerenti e facilitare il confronto delle distribuzioni.
 
-Questo esempio crea un istogramma da sei valori numerici, inclusi valori negativi. Impostando [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/aggregationtype/) su automatic, il diagramma determina autonomamente gli intervalli da utilizzare per visualizzare la distribuzione.
+Imposta l’asse orizzontale [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) su una modalità di [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) si applica solo a `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) si applica solo a `ByNumberOfBins`. Usa `Automatic` per consentire al grafico di scegliere i bin.
+
+#### **Utilizzare una larghezza di bin fissa**
+
+Questo esempio raggruppa i tempi di elaborazione in intervalli di 10 minuti, con bin separati per i tempi ≤ 10 minuti e > 40 minuti. Abilita questi bin con [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) e [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). Quando fornisci soglie esplicite per [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) e [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/), imposta [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) e [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) su `false`.
 
 ```csharp
 using Aspose.Slides;
@@ -795,7 +801,10 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
 
 chart.ChartData.Categories.Clear();
 chart.ChartData.Series.Clear();
@@ -804,33 +813,77 @@ var workbook = chart.ChartData.ChartDataWorkbook;
 workbook.Clear(0);
 
 var series = chart.ChartData.Series.Add(ChartType.Histogram);
-var valueCell = workbook.GetCell(0, "A1", 15);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A2", -41);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A3", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A4", 10);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A5", -23);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A6", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
 
-chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByBinWidth;
+axis.BinWidth = 10;
+axis.IsUnderflowBin = true;
+axis.IsAutomaticUnderflowBin = false;
+axis.UnderflowBin = 10;
+axis.IsOverflowBin = true;
+axis.IsAutomaticOverflowBin = false;
+axis.OverflowBin = 40;
 
-presentation.Save("Histogram.pptx", SaveFormat.Pptx);
+presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-Il risultato:
+La presentazione mostrata in PowerPoint indica conteggi dei bin di **3, 4, 4, 4 e 2**. Il bin di sottoflusso include `5, 10, 10`, quindi la sua soglia è inclusiva. Il bin di sovraccarico include solo `41, 50`, quindi la sua soglia è esclusiva; entrambi i valori uguali a `40` rimangono nell’intervallo precedente. I bin interni contengono valori superiori al limite inferiore e minori o uguali al limite superiore.
 
-![Il diagramma a istogramma](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-### **Creare diagrammi radar**
+#### **Specificare il numero di bin**
 
-I diagrammi radar visualizzano dati multivariati in un formato bidimensionale, consentendo un confronto facile di più variabili simultaneamente. Sono particolarmente utili per identificare pattern, punti di forza e debolezze su più metriche di performance o attributi.
+Per un livello fisso di dettaglio anziché intervalli fissi, richiedi cinque bin per gli stessi dati. Questo esempio lascia i bin di sottoflusso e sovraccarico disabilitati. Il grafico determina la larghezza dal range dei dati, quindi i confini possono variare tra i report.
 
-Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per creare un diagramma radar con le serie e le categorie predefinite, quindi salva la presentazione come PPTX.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Histogram);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
+
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByNumberOfBins;
+axis.NumberOfBins = 5;
+
+presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+```
+
+I cinque bin hanno conteggi di **4, 4, 4, 4 e 1**. Confronta questa distribuzione con il risultato a larghezza fissa sopra: i valori di ingresso sono identici, ma i confini differiscono.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+
+### **Creare grafici radar**
+
+I grafici radar sono usati per visualizzare dati multivariati in un formato bidimensionale, consentendo un confronto facile di diverse variabili contemporaneamente. Sono particolarmente utili per identificare pattern, punti di forza e debolezze attraverso molte metriche o attributi di performance.
+
+Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per creare un grafico radar con le serie e le categorie predefinite, quindi salva la presentazione come PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -847,13 +900,13 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![Il diagramma radar](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Creare diagrammi multicatgoria**
+### **Creare grafici multi-categoria**
 
-I diagrammi multicatgoria visualizzano dati che coinvolgono più raggruppamenti categorici, consentendo di confrontare valori su più dimensioni simultaneamente. Sono particolarmente utili quando è necessario analizzare tendenze e relazioni all'interno di set di dati complessi e multilivello.
+I grafici multi-categoria sono usati per visualizzare dati che coinvolgono più raggruppamenti categoriali, consentendo di confrontare valori su più dimensioni simultaneamente. Sono particolarmente utili quando è necessario analizzare tendenze e relazioni all’interno di set di dati complessi e multilivello.
 
-Questo esempio crea un diagramma a colonne raggruppate con otto categorie disposte in quattro coppie. Il metodo [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) assegna a ciascuna coppia un'etichetta condivisa al livello di raggruppamento 1, producendo un asse delle categorie con etichette sia individuali che di gruppo.
+Questo esempio crea un grafico a colonne raggruppate con otto categorie disposte in quattro coppie. Il metodo [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) assegna a ciascuna coppia un’etichetta condivisa al livello di raggruppamento 1, producendo un asse di categoria con etichette sia individuali sia di gruppo.
 
 ```csharp
 using Aspose.Slides;
@@ -922,13 +975,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![Il diagramma multicatgoria](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Creare diagrammi di tipo mappa**
+### **Creare grafici cartografici**
 
-I diagrammi di tipo mappa visualizzano dati geografici mappando informazioni su posizioni specifiche come paesi, stati o città. Sono particolarmente utili per analizzare tendenze regionali, dati demografici e distribuzioni spaziali in modo chiaro e visivamente coinvolgente.
+I grafici cartografici sono usati per visualizzare dati geografici mappando informazioni su luoghi specifici come paesi, regioni o città. Sono particolarmente utili per analizzare tendenze regionali, dati demografici e distribuzioni spaziali in modo chiaro e visualmente coinvolgente.
 
-Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per creare un diagramma di tipo mappa con i dati geografici predefiniti e lo salva per la visualizzazione in PowerPoint.
+Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per creare un grafico cartografico con i dati geografici predefiniti e lo salva per la visualizzazione in PowerPoint.
 
 ```csharp
 using Aspose.Slides;
@@ -945,19 +998,21 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 
 Il risultato:
 
-![Il diagramma di tipo mappa](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-L'immagine sopra mostra la presentazione salvata aperta in PowerPoint. Aspose.Slides scrive correttamente il diagramma di tipo mappa e i relativi dati, ma non disegna i diagrammi di tipo mappa da solo: quando una diapositiva che ne contiene viene renderizzata in un'immagine o convertita in PDF o SVG, l'area del diagramma risulta vuota. Altre forme sulla stessa diapositiva non sono interessate.
+
+L’immagine sopra mostra la presentazione salvata aperta in PowerPoint. Aspose.Slides scrive correttamente il grafico cartografico e i suoi dati, ma non lo disegna direttamente: quando una diapositiva che lo contiene viene renderizzata in immagine o convertita in PDF o SVG, l’area del grafico risulta vuota. Le altre forme nella stessa diapositiva non sono influenzate.
+
 {{% /alert %}}
 
-### **Creare diagrammi combinati**
+### **Creare grafici combinati**
 
-Un diagramma combinato (o combo chart) combina due o più tipi di diagrammi in un unico grafico. Questo diagramma consente di evidenziare, confrontare o esaminare differenze tra due o più insiemi di dati, aiutando a identificare le relazioni tra di essi.
+Un grafico combinato (o combo chart) combina due o più tipi di grafico in un unico diagramma. Questo grafico ti consente di evidenziare, confrontare o esaminare le differenze tra due o più set di dati, facilitando l’individuazione di relazioni tra essi.
 
-![Il diagramma combinato](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Questo esempio combina due serie a colonne raggruppate con una serie a linee su quattro categorie. Le colonne usano l'asse verticale primario, mentre [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) posiziona la linea su un asse verticale secondario a destra. Le funzioni di supporto configurano titolo, legenda, etichette degli assi e linee di griglia.
+Questo esempio combina due serie a colonne raggruppate con una serie a linee su quattro categorie. Le colonne usano l’asse verticale primario, mentre [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) posiziona la linea su un asse verticale secondario a destra. Le funzioni di supporto configurano titolo, legenda, etichette degli assi e linee di griglia.
 
 ```csharp
 using System.Drawing;
@@ -1117,11 +1172,11 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 }
 ```
 
-## **Aggiornare i diagrammi**
+## **Aggiornare i grafici**
 
-Aspose.Slides per .NET consente di aggiornare i diagrammi PowerPoint modificando dati, formattazione e stile. Questa funzionalità semplifica il mantenimento delle presentazioni aggiornate con contenuti dinamici e garantisce che i diagrammi riflettano accuratamente i dati attuali e gli standard visivi.
+Aspose.Slides per .NET ti consente di aggiornare i grafici PowerPoint modificando dati, formattazione e stile del grafico. Questa funzionalità semplifica il mantenimento delle presentazioni aggiornate con contenuti dinamici e garantisce che i grafici riflettano accuratamente i dati correnti e gli standard visivi.
 
-Questo esempio aggiorna il diagramma denominato "My chart" sulla prima diapositiva di una presentazione esistente. Richiede due serie di colonne con tre punti dati ciascuna, con etichette di categoria nella colonna A e nomi di serie nella prima riga del primo foglio di lavoro. L'esempio utilizza [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) per modificare le celle del workbook, aggiorna i valori delle serie, aggiunge una terza serie e cambia il tipo di diagramma in cilindri raggruppati tramite [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
+Questo esempio aggiorna il grafico denominato "My chart" nella prima diapositiva di una presentazione esistente. Richiede due serie di colonne con tre punti dati ciascuna, con etichette di categoria nella colonna A e nomi delle serie nella prima riga del primo foglio di lavoro. L’esempio utilizza [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) per modificare le celle del workbook, aggiorna i valori delle serie, aggiunge una terza serie e cambia il grafico in cilindri raggruppati tramite [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
 ```csharp
 using Aspose.Slides;
@@ -1175,13 +1230,13 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **Impostare l'intervallo dati per un diagramma**
+## **Impostare l’intervallo di dati per un grafico**
 
-Per controllare l'intervallo già utilizzato da un diagramma esistente, consulta [Retrieve a Chart's Data Range](/slides/it/net/chart-workbook/#retrieve-a-charts-data-range).
+Per ispezionare l’intervallo già utilizzato da un grafico esistente, vedi [Retrieve a Chart's Data Range](/slides/it/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides per .NET offre la flessibilità di definire un intervallo dati specifico da un foglio di lavoro come origine per i dati del diagramma. Ciò significa che puoi mappare direttamente una porzione del foglio di lavoro al diagramma, controllando quali celle contribuiscono alle serie e alle categorie del diagramma. Come risultato, puoi aggiornare e sincronizzare facilmente i diagrammi con le ultime modifiche dei dati nel foglio di lavoro, assicurando che le presentazioni PowerPoint riflettano informazioni attuali e accurate.
+Aspose.Slides per .NET offre la flessibilità di definire un intervallo di dati specifico da un foglio di lavoro come origine per i dati del tuo grafico. Questo significa che puoi mappare direttamente una parte del foglio di lavoro al grafico, controllando quali celle contribuiscono alle serie e alle categorie del grafico. Di conseguenza, puoi facilmente aggiornare e sincronizzare i tuoi grafici con le ultime modifiche dei dati nel foglio di lavoro, garantendo che le presentazioni PowerPoint riflettano informazioni correnti e accurate.
 
-Questo esempio utilizza [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) per impostare l'origine dati del diagramma denominato "My chart" sulla prima diapositiva di una presentazione esistente su `Sheet1!A1:B4`. Il workbook del diagramma deve contenere quel foglio e un intervallo popolato con un'intestazione di serie nella prima riga, etichette di categoria nella colonna A e tre valori nella colonna B.
+Questo esempio utilizza [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) per impostare la fonte dati del grafico denominato "My chart" nella prima diapositiva di una presentazione esistente su `Sheet1!A1:B4`. Il workbook del grafico deve contenere quel foglio e un intervallo popolato con un’intestazione di serie nella prima riga, etichette di categoria nella colonna A e tre valori nella colonna B.
 
 ```csharp
 using Aspose.Slides;
@@ -1204,11 +1259,11 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 ```
 
-## **Utilizzare marcatori predefiniti nei diagrammi**
+## **Utilizzare marcatori predefiniti nei grafici**
 
-Quando utilizzi marcatori predefiniti nei diagrammi, ogni serie del diagramma ottiene automaticamente un simbolo di marcatore predefinito diverso.
+Quando utilizzi i marcatori predefiniti nei grafici, ogni serie ottiene automaticamente un simbolo di marcatore predefinito diverso.
 
-Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per creare un diagramma con due serie a linee e una legenda. Le impostazioni di [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) mantengono i simboli di marcatore assegnati automaticamente. La prima serie include un valore negativo e un valore mancante, rappresentato da `null`, mentre la seconda ha un valore per ogni categoria.
+Questo esempio utilizza [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) per creare un grafico con due serie a linee e una legenda. Le impostazioni [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) conservano i simboli di marcatore assegnati automaticamente. La prima serie include un valore negativo e un valore mancante, rappresentato da `null`, mentre la seconda ha un valore per ogni categoria.
 
 ```csharp
 using Aspose.Slides;
@@ -1268,18 +1323,18 @@ presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Quali tipi di diagrammi sono supportati da Aspose.Slides per .NET?**
+**Quali tipi di grafico sono supportati da Aspose.Slides per .NET?**
 
-Aspose.Slides per .NET supporta un'ampia gamma di tipi di diagrammi, tra cui barre, linee, torte, aree, dispersione, istogrammi, radar e molti altri. Questa flessibilità consente di scegliere il tipo di diagramma più adatto alle proprie esigenze di visualizzazione dei dati.
+Aspose.Slides per .NET supporta un’ampia gamma di tipi di grafico, tra cui barre, linee, torta, area, dispersione, istogramma, radar e molti altri. Questa flessibilità ti consente di scegliere il tipo di grafico più appropriato per le tue esigenze di visualizzazione dei dati.
 
-**Come aggiungo un nuovo diagramma a una diapositiva?**
+**Come aggiungo un nuovo grafico a una diapositiva?**
 
-Per aggiungere un diagramma, crei prima un'istanza della classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), recuperi la diapositiva desiderata tramite il suo indice e quindi chiami il metodo per aggiungere un diagramma, specificando il tipo di diagramma e i dati iniziali. Questo processo integra il diagramma direttamente nella presentazione.
+Per aggiungere un grafico, prima crei un’istanza della classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), recuperi la diapositiva desiderata usando il suo indice, quindi chiami il metodo per aggiungere un grafico, specificando il tipo di grafico e i dati iniziali. Questo processo integra il grafico direttamente nella tua presentazione.
 
-**Come posso aggiornare i dati visualizzati in un diagramma?**
+**Come posso aggiornare i dati visualizzati in un grafico?**
 
-Puoi aggiornare i dati di un diagramma accedendo al suo workbook dei dati ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), cancellando eventuali serie e categorie predefinite, e aggiungendo i dati personalizzati. Questo ti permette di aggiornare programmaticamente il diagramma per riflettere gli ultimi dati.
+Puoi aggiornare i dati di un grafico accedendo al suo workbook dei dati ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), cancellando eventuali serie e categorie predefinite, e quindi aggiungendo i tuoi dati personalizzati. Questo ti consente di aggiornare programmaticamente il grafico per riflettere gli ultimi dati.
 
-**È possibile personalizzare l'aspetto del diagramma?**
+**È possibile personalizzare l’aspetto del grafico?**
 
-Sì, Aspose.Slides per .NET offre ampie opzioni di personalizzazione. Puoi modificare colori, caratteri, etichette, legende e altri elementi di formattazione per adattare l'aspetto del diagramma alle tue esigenze di design specifiche.
+Sì, Aspose.Slides per .NET fornisce ampie opzioni di personalizzazione. Puoi modificare colori, caratteri, etichette, legende e altri elementi di formattazione per adattare l’aspetto del grafico ai requisiti di design specifici.

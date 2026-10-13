@@ -1,6 +1,6 @@
 ---
-title: ایجاد یا بروزرسانی نمودارهای ارائهٔ پاورپوینت در .NET
-linktitle: ایجاد یا بروزرسانی نمودارها
+title: ایجاد یا به‌روزرسانی نمودارهای ارائه PowerPoint در .NET
+linktitle: ایجاد یا به‌روزرسانی نمودارها
 type: docs
 weight: 10
 url: /fa/net/create-chart/
@@ -13,48 +13,48 @@ keywords:
 - نمودار پراکنده
 - نمودار دایره‌ای
 - نمودار خطی
-- نمودار درخت‌نقشه‌ای
+- نمودار درخت‌نقشه
 - نمودار سهام
-- نمودار جعبه‌ای و چنگالی
-- نمودار قیف
+- نمودار جعبه‌ای و ویسکر
+- نمودار قیفی
 - نمودار خورشیدی
 - نمودار هیستوگرام
 - نمودار رادار
 - نمودار چنددسته‌ای
-- PowerPoint
+- پاورپوینت
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "ایجاد و سفارشی‌سازی نمودارها در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای .NET. افزودن، قالب‌بندی و ویرایش نمودارها با مثال‌های کد عملی در C#."
+description: "نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای .NET ایجاد و سفارشی‌سازی کنید. نمودارها را با مثال‌های کد عملی در C# اضافه، قالب‌بندی و ویرایش کنید."
 ---
 ## **بررسی کلی**
 
-این مقاله راهنمای کاملی برای ایجاد و سفارشی‌سازی نمودارها با استفاده از Aspose.Slides برای .NET ارائه می‌دهد. شما می‌آموزید که چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، داده‌ها را به‌آن وارد کنید و گزینه‌های قالب‌بندی مختلف را برای تطبیق با نیازهای طراحی خود اعمال کنید. در طول مقاله، مثال‌های کد دقیق هر گام را نشان می‌دهند، از مقداردهی اولیهٔ شی Presentation و نمودار تا پیکربندی سری‌ها، محورها و لگندها. با دنبال کردن این راهنما، درک جامعی از ادغام تولید دینامیک نمودار در برنامه‌های .NET خود به‌دست می‌آورید و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کنید.
+این مقاله راهنمای جامعی برای ایجاد و سفارشی‌سازی نمودارها با Aspose.Slides برای .NET ارائه می‌دهد. شما می‌توانید نحوه افزودن برنامه‌نویسی یک نمودار به اسلاید، پر کردن آن با داده‌ها، و اعمال گزینه‌های مختلف قالب‌بندی برای مطابقت با نیازهای طراحی خاص خود را بیاموزید. در سرتاسر مقاله، مثال‌های کد تفصیلی هر گام را نشان می‌دهند، از مقداردهی اولیهٔ ارائه و شیء نمودار تا پیکربندی سری‌ها، محورها و افسانه‌ها. با پیروی از این راهنما، درک محکمی از نحوهٔ ترکیب تولید پویا نمودارها در برنامه‌های .NET خود به‌دست می‌آورید و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کنید.
 
 ## **ایجاد نمودار**
 
-نمودارها به افراد کمک می‌کنند تا داده‌ها را به‌سرعت بصری‌سازی کرده و بینش‌هایی را که ممکن است از یک جدول یا صفحه‌گسترده واضح نباشد، به‌دست آورند.
+نمودارها به افراد کمک می‌کنند تا به سرعت داده‌ها را به‌صورت تصویری ببینند و بینش‌هایی کسب کنند که ممکن است از یک جدول یا صفحه‌گسترده به‌وضوح مشخص نباشد.
 
-**چرا نمودارها ایجاد کنیم؟**
+**چرا نمودار ایجاد کنیم؟**
 
 با استفاده از نمودارها می‌توانید:
 
-* حجم بزرگی از داده‌ها را در یک اسلاید به‌صورت تجمیعی، فشرده یا خلاصه‌شده نمایش دهید؛
-* الگوها و روندهای داده‌ها را آشکار کنید؛
-* جهت و شتاب داده‌ها را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص تشخیص دهید؛
-* ناهنجاری‌ها، انحرافات، خطاها و داده‌های نامعقول را شناسایی کنید؛
-* داده‌های پیچیده را به‌صورت موثر ارتباطی یا ارائه‌ای منتقل کنید.
+* مقادیر زیاد داده را در یک اسلاید جمع‌بندی، فشرده یا خلاصه کنید؛
+* الگوها و روندهای داده را نشان دهید؛
+* جهت و سرعت تغییر داده‌ها را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص تشخیص دهید؛
+* ناهنجاری‌ها، انحراف‌ها، خطاها و داده‌های بی‌معنی را شناسایی کنید؛
+* داده‌های پیچیده را ارتباطی یا ارائه کنید.
 
-در PowerPoint می‌توانید از عملکرد *Insert* برای ایجاد نمودار استفاده کنید که قالب‌های متنوعی برای طراحی انواع نمودارها فراهم می‌کند. با Aspose.Slides می‌توانید هم نمودارهای معمولی (براساس انواع رایج) و هم نمودارهای سفارشی ایجاد کنید.
+در PowerPoint می‌توانید از عملکرد *Insert* برای ایجاد نمودارها استفاده کنید که قالب‌های متعددی برای طراحی انواع نمودارها فراهم می‌کند. با Aspose.Slides می‌توانید هر دو نوع نمودارهای معمول (بر پایهٔ انواع نمودارهای محبوب) و نمودارهای سفارشی ایجاد کنید.
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration under the [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
+از شمارش‌گر [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) در فضای‌نامی [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) استفاده کنید. مقادیر این شمارش‌گر به انواع مختلف نمودارها مربوط می‌شوند.
 {{% /alert %}}
 
-### **ایجاد نمودارهای ستون خوشه‌ای**
+### **ایجاد نمودارهای ستونی خوشه‌ای**
 
-این مثال از [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار ستون خوشه‌ای استفاده می‌کند که دو سری را در سه دسته مقایسه می‌کند. سری‌ها از پرکردن‌های قرمز و سبز استفاده می‌کنند و برچسب‌های جداگانه نام دسته، نام سری و مقادیر را نشان می‌دهند. شمارهٔ کاربرگ ۰ به اولین شیت در کتاب‌کار ترکیبی نمودار اشاره دارد.
+این مثال از [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار ستونی خوشه‌ای استفاده می‌کند که دو سری را در سه دسته مقایسه می‌کند. سری‌ها از پرکنش‌های قرمز و سبز استفاده می‌کنند و برچسب‌های جداگانهٔ نام دسته، نام سری و مقادیر را نشان می‌دهند. ایندکس ورق کاری ۰ به اولین صفحهٔ کاربرگ نمودار توکار اشاره دارد.
 
 ```csharp
 using System.Drawing;
@@ -130,20 +130,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 نتیجه:
 
-![نمودار ستون خوشه‌ای](clustered_column_chart.png)
+![نمودار ستونی خوشه‌ای](clustered_column_chart.png)
 
-### **ایجاد نمودارهای پراکنده**
+### **ایجاد نمودارهای پراکندگی**
 
-نمودارهای پراکنده (که به‌عنوان scatter plots یا نمودارهای x‑y نیز شناخته می‌شوند) معمولاً برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
+نمودارهای پراکندگی (که به‌عنوان scatter plots یا نمودارهای x‑y نیز شناخته می‌شوند) معمولاً برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
 
-از نمودار پراکنده زمانی استفاده کنید که:
+از نمودار پراکندگی زمانی استفاده کنید که:
 
-* داده‌های عددی جفت‌قابل‌جفت داشته باشید؛
-* دو متغیر داشته باشید که با هم خوب جفت می‌شوند؛
-* بخواهید ارتباط بین دو متغیر را تعیین کنید؛
-* یک متغیر مستقل داشته باشید که برای یک متغیر وابسته مقادیر متعددی داشته باشد.
+* داده‌های عددی جفت‌سازی‌شده داشته باشید؛
+* دو متغیر داشته باشید که به‌خوبی با یکدیگر جفت می‌شوند؛
+* بخواهید تعیین کنید آیا این دو متغیر مرتبط هستند یا نه؛
+* یک متغیر مستقل داشته باشید که برای یک متغیر وابسته مقادیر متعدد داشته باشد.
 
-این مثال دو مجموعه مقادیر x‑y را ترسیم می‌کند. سری اول از خطوط مستقیم با نشانگرهای ستاره استفاده می‌کند، در حالی که سری دوم از خطوط صاف با نشانگرهای دایره؛ هر دو دارای [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) برابر ۱۰ هستند. خصوصیت [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) شکل نشانگر را کنترل می‌کند.
+این مثال دو مجموعه مقادیر x‑y را رسم می‌کند. سری اول از خطوط مستقیم با نشانگرهای ستاره‌ای استفاده می‌کند، در حالی که سری دوم از خطوط صاف با نشانگرهای دایره‌ای؛ هر دو از [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) برابر 10 استفاده می‌کنند. ویژگی [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) شکل نشانگر را کنترل می‌کند.
 
 ```csharp
 using Aspose.Slides;
@@ -206,13 +206,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 نتیجه:
 
-![نمودار پراکنده](scatter_chart.png)
+![نمودار پراکندگی](scatter_chart.png)
 
 ### **ایجاد نمودارهای دایره‌ای**
 
-نمودارهای دایره‌ای بهترین استفاده را برای نشان دادن رابطهٔ بخش‑به‑کل در داده‌ها دارند، به‌ویژه وقتی داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. اما اگر داده‌های شما شامل بخش‌ها یا برچسب‌های بسیاری باشد، ممکن است بهتر باشد از نمودار ستونی استفاده کنید.
+نمودارهای دایره‌ای بهترین استفاده برای نشان دادن رابطهٔ بخش‑به‑کل در داده‌ها هستند، به‌ویژه زمانی که داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. اما اگر داده‌های شما شامل بخش‌ها یا برچسب‌های زیادی باشد، ممکن است بهتر باشد به جای آن از نمودار میله‌ای استفاده کنید.
 
-این مثال یک نمودار دایره‌ای با سه مقدار فصلی ایجاد می‌کند. هر برش دارای پرکردن و حاشیهٔ سفارشی است و برچسب‌ها ترکیبی متفاوتی از مقادیر، درصدها و اطلاعات سری را نمایش می‌دهند. خصوصیت [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) اولین برش را در زاویهٔ ۱۸۰ درجه شروع می‌کند.
+این مثال یک نمودار دایره‌ای با سه مقدار فصلی ایجاد می‌کند. هر برش دارای پرکنش و حاشیهٔ سفارشی است و برچسب‌ها ترکیبی‌های مختلفی از مقادیر، درصدها و اطلاعات سری را نشان می‌دهند. ویژگی [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) اولین برش را در ۱۸۰ درجه آغاز می‌کند.
 
 ```csharp
 using System.Drawing;
@@ -312,9 +312,9 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 ### **ایجاد نمودارهای خطی**
 
-نمودارهای خطی (که به‌عنوان line graphs نیز شناخته می‌شوند) بهترین کاربرد را در مواقعی دارند که بخواهید تغییرات مقدار را در طول زمان نشان دهید. با استفاده از یک نمودار خطی می‌توانید حجم زیادی از داده‌ها را به‌صورت همزمان مقایسه کنید، تغییرات و روندها را در طول زمان ردیابی کنید، ناهنجاری‌ها را در سری داده‌ها برجسته کنید و غیره.
+نمودارهای خطی (که به‌عنوان line graphs نیز شناخته می‌شوند) بهترین استفاده را در مواقعی دارند که بخواهید تغییرات مقدار را در طول زمان نشان دهید. با یک نمودار خطی می‌توانید مقدار زیادی داده را یک‌باره مقایسه کنید، تغییرات و روندها را در طول زمان دنبال کنید، ناهنجاری‌ها را در سری داده‌ها برجسته کنید و غیره.
 
-این مثال از [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار خطی با سری‌ها و دسته‌های پیش‌فرض استفاده می‌کند، سپس ارائه را به‌صورت PPTX ذخیره می‌کند.
+این مثال از [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار خطی با سری‌ها و دسته‌های پیش‌فرض استفاده می‌کند و سپس ارائه را به‌صورت PPTX ذخیره می‌کند.
 
 ```csharp
 using Aspose.Slides;
@@ -329,7 +329,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-به‌طور پیش‌فرض، نقاط یک نمودار خطی با خطوط مستقیم پیوسته به‌یکدیگر وصل می‌شوند. اگر می‌خواهید به‌جای خطوط پیوسته از خط‌های نقطه‌چین استفاده کنید، [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) را به مقدار مناسب از [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) تنظیم کنید:
+به‌طور پیش‌فرض، نقاط یک نمودار خطی با خطوط مستقیم پیوسته به‌هم متصل می‌شوند. اگر می‌خواهید به‌جای آن نقاط با خط‌های نقطه‌خطی متصل شوند، ویژگی [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) را به مقدار از [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) تنظیم کنید:
 
 ```csharp
 using Aspose.Slides;
@@ -350,11 +350,11 @@ foreach (var series in lineChart.ChartData.Series)
 
 ![نمودار خطی](line_chart.png)
 
-### **ایجاد نمودارهای درخت‌نقشه‌ای**
+### **ایجاد نمودارهای درخت‌نقشه**
 
-نمودارهای درخت‌نقشه‌ای بهترین استفاده را برای داده‌های فروش دارند زمانی که بخواهید اندازهٔ نسبی دسته‌های داده را نشان دهید و به‌سرعت توجه را به آیتم‌های بزرگ‌مساهم در هر دسته جلب کنید.
+نمودارهای درخت‌نقشه بهترین استفاده برای داده‌های فروش هستند که می‌خواهید اندازهٔ نسبی دسته‌های داده را نشان دهید و به‌سرعت توجه را به آیتم‌های بزرگ‌عامل در هر دسته جلب کنید.
 
-این مثال یک درخت‌نقشه‌ای با هشت برگ گروه‌بندی‌شده در چهار ساقه و دو شاخه ایجاد می‌کند. روش [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ساقه‌ها را در سطح گروه‌بندی ۱ و شاخه‌ها را در سطح ۲ اختصاص می‌دهد. مقادیر اندازهٔ نسبت‌مند مستطیل‌ها را تعیین می‌کند، در حالی که برچسب‌های دسته و برچسب‌های والد همپوشان سلسله‌مراتب را شناسایی می‌کنند.
+این مثال یک درخت‌نقشه با هشت برگ که در چهار ساقه و دو شاخه گروه‌بندی شده‌اند، ایجاد می‌کند. متد [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ساقه‌ها را در سطح گروه‌بندی ۱ و شاخه‌ها را در سطح ۲ اختصاص می‌دهد. مقادیر اندازهٔ نسبی مستطیل‌ها را تعیین می‌کنند، در حالی که برچسب‌های دسته و برچسب‌های والدِ هم‌پوشانی‌شده سلسله مراتب را شناسایی می‌کنند.
 
 ```csharp
 using Aspose.Slides;
@@ -430,15 +430,15 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 نتیجه:
 
-![نمودار درخت‌نقشه‌ای](treemap_chart.png)
+![نمودار درخت‌نقشه](treemap_chart.png)
 
 ### **ایجاد نمودارهای آبشاری**
 
-نمودار آبشاری نشان می‌دهد که تغییرات مثبت و منفی چگونه به مقدار نهایی منجر می‌شوند. برای مثال، تجزیه و تحلیل سود می‌تواند با درآمد شروع شود، هزینه‌ها را کم کند و درآمدهای دیگر را افزوده شود. ستون‌های تغییر بین مقادیر قبلی و جدید شناور می‌شوند، در حالی که ستون‌های کل از صفر تا مقدار انباشت‌شده گسترش می‌یابند.
+نمودار آبشاری نشان می‌دهد که تغییرات مثبت و منفی چگونه به مقدار نهایی کمک می‌کنند. برای مثال، یک تحلیل سود می‌تواند با درآمد شروع شود، هزینه‌ها را کم کند و درآمدهای دیگر را اضافه کند. ستون‌های تغییر بین مقدار قبلی و مقدار جدید شناور می‌شوند، در حالی که ستون‌های مجموع از صفر تا مقدار انبارش‌شده گسترش می‌یابند.
 
-مثال زیر از مقادیر به‌هزار دلار آمریکا استفاده می‌کند:
+مثال زیر از مقادیر به‌صورت هزار دلار آمریکا استفاده می‌کند:
 
-| دسته | مقدار کتاب کار | نوع ستون |
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
 | Revenue | 1000 | Increase |
 | Cost of sales | -400 | Decrease |
@@ -447,9 +447,9 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-برای علامت‌گذاری یک نقطه به‌عنوان کل میانی یا نهایی، خصوصیت [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) آن را به `true` تنظیم کنید. مقدار انباشتهٔ واقعی را در سلول Workbook آن نقطه قرار دهید: `600` برای سود ناخالص (`1000 - 400`) و `450` برای سود خالص (`600 - 200 + 50`). این خصوصیت فقط ستون را به‌عنوان کل علامت‌گذاری می‌کند؛ محاسبه یا مقداردهی سلول را انجام نمی‌دهد. از صفر به‌عنوان مکان‌نگهدار استفاده نکنید یا مقدار دیگری برای نقطهٔ کل تعیین نکنید. یک ستون کل مقدار انباشته را بدون افزودن دوباره به مقدار جاری نشان می‌دهد.
+برای علامت‌گذاری یک نقطه به‌عنوان مجموع میانی یا نهایی، ویژگی [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) آن را به `true` تنظیم کنید. مقدار انبارش‌شدهٔ واقعی را در سلول کاربرگ آن نقطه وارد کنید: `600` برای سود ناخالص (`1000 - 400`) و `450` برای سود خالص (`600 - 200 + 50`). این ویژگی ستون را به‌عنوان مجموع علامت‌گذاری می‌کند؛ محاسبه یا پر کردن مقدار سلول را انجام نمی‌دهد. از صفر به‌عنوان جای‌دار استفاده نکنید یا مقدار دیگری برای نقطهٔ مجموع تعیین نکنید. یک ستون مجموع مقدار انبارش‌شده را بدون افزودن دوباره به مقدار جاری نشان می‌دهد.
 
-این مثال کامل C# یک نمودار ایجاد می‌کند که از عضو `Waterfall` در [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) استفاده می‌کند، داده‌های پیش‌فرض را پاک می‌کند و کتاب‌کار توکار را پر می‌کند. شمارهٔ کاربرگ `0` اولین برگه را انتخاب می‌کند؛ ستون A شامل نام‌های دسته و ستون B شامل مقادیر است. هر سلول مقدار با [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) افزوده می‌شود. ایندکس‌های نقطهٔ صفر‑مبتنی `2` و `5` کل‌های میانی و نهایی را شناسایی می‌کنند. فعال‌سازی [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) مقادیر را روی ستون‌ها نمایش می‌دهد. هیچ ارائهٔ ورودی یا کتاب‌کاری مورد نیاز نیست.
+این مثال کامل C# یک نمودار با عضو `Waterfall` از [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) ایجاد می‌کند، داده‌های پیش‌فرض را پاک می‌کند و کاربرگ توکار را پر می‌کند. ایندکس ورق کاری `0` اولین ورق کاری را انتخاب می‌کند؛ ستون A شامل نام‌های دسته و ستون B شامل مقادیر است. هر سلول مقدار با [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) اضافه می‌شود. ایندکس‌های نقطه‌ای صفر‑پایه `2` و `5` مجموع میانی و نهایی را شناسایی می‌کنند. فعال‌سازی [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) مقادیر را روی ستون‌ها نمایش می‌دهد. هیچ ارائه یا کاربرگ ورودی لازم نیست.
 
 ```csharp
 using Aspose.Slides;
@@ -487,7 +487,7 @@ for (var i = 0; i < categories.Length; i++)
     series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
 
-// نقاط سوم و ششم مقادیر کل هستند، نه تغییرات اضافی.
+// نقطه‌های سوم و ششم نشانگر مجموع هستند، نه تغییرات اضافی.
 series.DataPoints[2].SetAsTotal = true;
 series.DataPoints[5].SetAsTotal = true;
 series.ShowConnectorLines = true;
@@ -496,17 +496,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-خصوصیت سطح‑سری [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) را به `true` تنظیم کنید تا خطوطی که ستون‌های متوالی را به‌هم وصل می‌کنند نشان داده شوند و مقدار جاری راحت‌تر دنبال شود. برای مخفی کردن این خطوط، تخصیص در مثال را به `series.ShowConnectorLines = false;` قبل از ذخیره‌سازی تغییر دهید. این فقط نمایش خط را تغییر می‌دهد، نه داده یا مقادیر کل.
+ویژگی سطح‑سری [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) را به `true` تنظیم کنید تا خطوطی که ستون‌های متوالی را به‌هم وصل می‌کنند نشان داده شوند و مقدار جاری راحت‌تر دنبال شود. برای پنهان‌سازی این خطوط، انتساب را در مثال به `series.ShowConnectorLines = false;` تغییر دهید قبل از ذخیره. این فقط نمایش خط را تغییر می‌دهد، نه داده یا مجموع‌ها.
 
-ارائهٔ ذخیره‌شده سود ناخالص ۶۰۰ و سود خالص ۴۵۰ را نشان می‌دهد که هر دو از صفر شروع شده‌اند:
+ارائهٔ ذخیره‑شده نشان‌دهندهٔ سود ناخالص ۶۰۰ و سود خالص ۴۵۰ است، که هر دو مجموع از صفر رسم شده‌اند:
 
-![نمودار آبشاری نشان‌دهندهٔ درآمد، هزینه‌ها، سود ناخالص ۶۰۰ و سود خالص ۴۵۰، با برچسب‌های مقدار و خطوط وصل‌کننده](waterfall_chart.png)
+![نمودار آبشاری نشان‑دهندهٔ درآمد، هزینه‌ها، سود ناخالص ۶۰۰ و سود خالص ۴۵۰ با برچسب‌های مقدار و خطوط اتصال](waterfall_chart.png)
 
 ### **ایجاد نمودارهای سهام**
 
-نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تحلیل روندهای بازار و نوسان‌پذیری کمک می‌کنند. این نمودارها بینش‌های حیاتی دربارهٔ عملکرد سهام فراهم می‌کنند و به سرمایه‌گذاران و تحلیل‌گران در تصمیم‌گیری‌های آگاهانه یاری می‌رسانند.
+نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تحلیل روندهای بازار و نوسان‌ها کمک می‌کنند. این نمودارها بینش‌های مهمی دربارهٔ عملکرد سهام فراهم می‌کنند و به سرمایه‌گذاران و تحلیل‌گران در اتخاذ تصمیمات آگاهانه کمک می‌نمایند.
 
-این مثال یک نمودار open‑high‑low‑close با چهار سری به همان ترتیب و سه دسته ایجاد می‌کند. خصوصیت [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) نوارهای بالا/پایین را فعال می‌کند و [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) خطوط بالا‑پایین را که دامنهٔ قیمت‌ها را نشان می‌دهند، کنترل می‌کند؛ در حالی که خطوط سری‌های منفرد و خطوط شبکهٔ افقی جزئی مخفی هستند.
+این مثال یک نمودار open‑high‑low‑close با چهار سری به این ترتیب و سه دسته ایجاد می‌کند. ویژگی [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) نوارهای بالا/پایین را فعال می‌کند و [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) خطوط بالا‑پایین را که بازهٔ قیمتی را نشان می‌دهند، کنترل می‌کند، در حالی که خطوط سری‌های منفرد و خطوط توری افقی جزئی مخفی هستند.
 
 ```csharp
 using Aspose.Slides;
@@ -585,11 +585,11 @@ presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 
 ![نمودار سهام](stock_chart.png)
 
-### **ایجاد نمودارهای جعبه‌ای و چنگالی**
+### **ایجاد نمودارهای جعبه‌ای و ویسکر**
 
-نمودارهای جعبه‌ای و چنگالی برای نمایش توزیع داده‌ها با خلاصه‌سازی معیارهای آماری کلیدی مانند میانه، چارک‌ها و نقاط پرت استفاده می‌شوند. این نمودارها در تحلیل‌های اکتشافی داده و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناهنجاری‌ها بسیار مفید هستند.
+نمودارهای جعبه‌ای و ویسکر برای نمایش توزیع داده‌ها با خلاصه کردن معیارهای آماری کلیدی مانند میانه، چارک‌ها و نقاط دور افتاده استفاده می‌شوند. این نمودارها به‌ویژه در تحلیل اکتشافی داده‌ها و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناهنجاری‌ها مفید هستند.
 
-این مثال یک نمودار جعبه‌ای و چنگالی از شش مقدار ایجاد می‌کند. خصوصیت [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) محاسبهٔ چارک‌های انحصاری را انتخاب می‌کند. همچنین خطوط میانگین، نشانگرهای میانگین، نقاط داخلی و نقاط پرت فعال می‌شوند.
+این مثال یک نمودار جعبه‌ای و ویسکر از شش مقدار ایجاد می‌کند. ویژگی [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) محاسبهٔ چارک انحصاری را انتخاب می‌کند. مثال همچنین خطوط میانگین، نشانگرهای میانگین، نقاط داخلی و نقاط دور افتاده را فعال می‌کند.
 
 ```csharp
 using Aspose.Slides;
@@ -644,11 +644,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **ایجاد نمودارهای قیف**
+### **ایجاد نمودارهای قیفی**
 
-نمودارهای قیف برای تصویربرداری فرآیندهایی که در مراحل متوالی پیش می‌روند و حجم داده‌ها با پیشرفت از یک گام به گام دیگر کاهش می‌یابد، استفاده می‌شوند. این نمودارها به‌ویژه برای تجزیه و تحلیل نرخ تبدیل، شناسایی گلوگاه‌ها و ردیابی کارایی فرآیندهای فروش یا بازاریابی مفید‌اند.
+نمودارهای قیفی برای به‌تصویر کشیدن فرآیندهایی که شامل مراحل متوالی هستند استفاده می‌شوند، به‌طوری که حجم داده‌ها با پیشرفت از یک گام به گام بعدی کاهش می‌یابد. این نمودارها برای تحلیل نرخ تبدیل، شناسایی گره‌های تنگ و پیگیری کارایی فرآیندهای فروش یا بازاریابی بسیار مفیدند.
 
-این مثال از [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) برای افزودن یک نمودار قیف به اولین اسلاید یک ارائهٔ موجود استفاده می‌کند. داده‌های پیش‌فرض را با شش دسته و مقادیری بین ۵۰ تا ۵۰۰ جایگزین می‌کند و سپس ارائهٔ به‌روزشده را ذخیره می‌کند. ارائهٔ ورودی باید حداقل یک اسلاید داشته باشد.
+این مثال از [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) برای افزودن یک نمودار قیفی به اولین اسلاید یک ارائهٔ موجود استفاده می‌کند. داده‌های پیش‌فرض را با شش دسته و مقادیر بین ۵۰ تا ۵۰۰ جایگزین می‌کند و سپس ارائه به‌روز‌شده را ذخیره می‌کند. ارائه ورودی باید حداقل یک اسلاید داشته باشد.
 
 ```csharp
 using Aspose.Slides;
@@ -699,13 +699,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 نتیجه:
 
-![نمودار قیف](funnel_chart.png)
+![نمودار قیفی](funnel_chart.png)
 
 ### **ایجاد نمودارهای خورشیدی**
 
-نمودارهای خورشیدی برای تصویربرداری داده‌های سلسله‌مراتبی استفاده می‌شوند و سطوح را به‌صورت حلقه‌های متحدالمرکز نمایش می‌دهند. این نمودارها رابطهٔ بخش‑به‑کل را نشان می‌دهند و برای نمایش دسته‌ها و زیردسته‌های تو در تو به‌صورت واضح و فشرده مناسب‌اند.
+نمودارهای خورشیدی برای به‌تصویر کشیدن داده‌های سلسله‌مراتبی استفاده می‌شوند که سطوح را به‌صورت حلقه‌های متحدمرکز نشان می‌دهند. این نمودارها رابطهٔ بخش‑به‑کل را روشن می‌کنند و برای نمایش دسته‌ها و زیر‌دسته‌های تو در تو به‌صورت واضح و فشرده مناسب‌اند.
 
-این مثال یک نمودار خورشیدی با هشت برگ گروه‌بندی‌شده در چهار ساقه و دو شاخه ایجاد می‌کند. روش [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ساقه‌ها را در سطح گروه‌بندی ۱ و شاخه‌ها را در سطح ۲ اختصاص می‌دهد. برچسب‌های دسته بخش‌ها را شناسایی می‌کند و مقادیر اندازهٔ نسبی آن‌ها را تعیین می‌کند.
+این مثال یک نمودار خورشیدی با هشت برگ که در چهار ساقه و دو شاخه گروه‌بندی شده‌اند، ایجاد می‌کند. متد [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ساقه‌ها را در سطح گروه‌بندی ۱ و شاخه‌ها را در سطح ۲ اختصاص می‌دهد. برچسب‌های دسته‌بندی بخش‌ها را شناسایی می‌کنند و مقادیر اندازهٔ نسبی آنها را تعیین می‌کنند.
 
 ```csharp
 using Aspose.Slides;
@@ -783,9 +783,13 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 ### **ایجاد نمودارهای هیستوگرام**
 
-نمودارهای هیستوگرام برای نمایش توزیع داده‌های عددی با گروه‌بندی مقادیر در بازه‌ها یا سطل‌ها استفاده می‌شوند. این نمودارها به‌ویژه برای شناسایی الگوهای داده مانند فراوانی، کج‌بودن و پراکندگی و برای کشف نقاط پرت در یک مجموعه داده مفید‌اند.
+نمودارهای هیستوگرام نشان می‌دهند که مقادیر عددی چگونه در بازه‌های (سطل‌ها) مختلف توزیع می‌شوند. برای گزارش‌های ماهانهٔ زمان پردازش سفارش، از همان عرض سطل و آستانه‌ها استفاده کنید تا بازه‌ها ثابت بمانند و توزیع‌ها راحت‌تر مقایسه شوند.
 
-این مثال یک هیستوگرام از شش مقدار عددی، شامل مقادیر منفی، ایجاد می‌کند. تنظیم [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/aggregationtype/) به حالت خودکار به نمودار اجازه می‌دهد تا سطل‌های مناسب برای نمایش توزیع را تعیین کند.
+محور افقی را با [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) به حالت از [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/) تنظیم کنید. [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) فقط برای `ByBinWidth` اعمال می‌شود؛ [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) فقط برای `ByNumberOfBins` اعمال می‌شود. برای اجازه دادن به نمودار جهت انتخاب سطل‌ها، `Automatic` را به کار ببرید.
+
+#### **استفاده از عرض سطل ثابت**
+
+این مثال زمان‌های پردازش را به بازه‌های ۱۰ دقیقه‌ای گروه‌بندی می‌کند، با سطل‌های جداگانه برای زمان‌های برابر یا کمتر از ۱۰ دقیقه و بیش از ۴۰ دقیقه. این سطل‌ها را با [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) و [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/) فعال کنید. هنگام ارائهٔ سطوح صریح برای [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) و [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/)، ویژگی‌های [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) و [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) را به `false` تنظیم کنید.
 
 ```csharp
 using Aspose.Slides;
@@ -795,7 +799,10 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
 
 chart.ChartData.Categories.Clear();
 chart.ChartData.Series.Clear();
@@ -804,31 +811,75 @@ var workbook = chart.ChartData.ChartDataWorkbook;
 workbook.Clear(0);
 
 var series = chart.ChartData.Series.Add(ChartType.Histogram);
-var valueCell = workbook.GetCell(0, "A1", 15);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A2", -41);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A3", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A4", 10);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A5", -23);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A6", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
 
-chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByBinWidth;
+axis.BinWidth = 10;
+axis.IsUnderflowBin = true;
+axis.IsAutomaticUnderflowBin = false;
+axis.UnderflowBin = 10;
+axis.IsOverflowBin = true;
+axis.IsAutomaticOverflowBin = false;
+axis.OverflowBin = 40;
 
-presentation.Save("Histogram.pptx", SaveFormat.Pptx);
+presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-نتیجه:
+ارائه در PowerPoint نشان می‌دهد که سطل‌ها به‌ ترتیب دارای شمارش‌های **3، 4، 4، 4 و 2** هستند. سطل زیرجریان شامل `5، 10، 10` است، بنابراین آستانه‌اش شامل‌کننده است. سطل بالاجریان تنها `41، 50` را شامل می‌شود، بنابراین آستانه‌اش مستثنی است؛ هر دو مقدار برابر با `40` در بازهٔ قبلی باقی می‌مانند. سطل‌های داخلی شامل مقادیر بزرگ‌تر از مرز پایین و کوچکتر یا مساوی مرز بالا هستند.
 
-![نمودار هیستوگرام](histogram_chart.png)
+![هیستوگرام با سطل‌های ۱۰‑دقیقه‌ای و آستانه‌های زیرجریان و بالاجریان صریح](histogram_bin_width.png)
+
+#### **مشخص کردن تعداد سطل‌ها**
+
+برای سطح ثابت جزئیات به‌جای بازه‌های ثابت، پنج سطل برای همان داده درخواست کنید. این مثال سطل‌های زیرجریان و بالاجریان را غیرفعال می‌کند. نمودار عرض را از دامنه داده تعیین می‌کند، بنابراین مرزها می‌توانند بین گزارش‌ها تغییر کنند.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Histogram);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
+
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByNumberOfBins;
+axis.NumberOfBins = 5;
+
+presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+```
+
+پنج سطل دارای شمارش‌های **4، 4، 4، 4 و 1** هستند. این توزیع را با نتیجهٔ عرض ثابت بالا مقایسه کنید: مقادیر ورودی یکسان‌اند، اما مرزها متفاوت‌اند.
+
+![هیستوگرام با پنج سطل محاسبه‌شده از همان داده‌ها](histogram_bin_count.png)
 
 ### **ایجاد نمودارهای رادار**
 
-نمودارهای رادار برای نمایش داده‌های چندمتغیره در قالب دو‑بعدی استفاده می‌شوند و امکان مقایسهٔ همزمان چند متغیر را به‌صورت آسان فراهم می‌کنند. این نمودارها برای شناسایی الگوها، نقاط قوت و ضعف در میان چند معیار عملکرد یا ویژگی بسیار مفیدند.
+نمودارهای رادار برای نمایش داده‌های چندمتغیره در قالب دو‑بعدی استفاده می‌شوند و امکان مقایسهٔ آسان چند متغیر به‌صورت همزمان را فراهم می‌کنند. این نمودارها به‌ویژه برای شناسایی الگوها، نقاط قوت و ضعف در میان معیارهای عملکردی یا ویژگی‌های مختلف مفیدند.
 
 این مثال از [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار رادار با سری‌ها و دسته‌های پیش‌فرض استفاده می‌کند و سپس ارائه را به‌صورت PPTX ذخیره می‌کند.
 
@@ -851,9 +902,9 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 ### **ایجاد نمودارهای چنددسته‌ای**
 
-نمودارهای چنددسته‌ای برای نمایش داده‌هایی که شامل بیش از یک گروه‌بندی دسته‌ای هستند استفاده می‌شوند و به شما امکان می‌دهند مقادیر را در چندین بُعد به‌صورت همزمان مقایسه کنید. این نمودارها به‌ویژه هنگام تجزیه و تحلیل روندها و رابطه‌ها در مجموعه داده‌های چندلایهٔ پیچیده مفیدند.
+نمودارهای چنددسته‌ای برای نمایش داده‌هایی استفاده می‌شوند که شامل بیش از یک گروه‌بندی دسته‌ای هستند و به شما اجازه می‌دهند مقادیر را در چند بُعد به‌طور همزمان مقایسه کنید. این نمودارها به‌ویژه زمانی که نیاز به تحلیل روندها و روابط در مجموعه داده‌های چندلایه پیچیده دارید، مفیدند.
 
-این مثال یک نمودار ستون خوشه‌ای با هشت دسته که در چهار جفت مرتب شده‌اند ایجاد می‌کند. روش [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) به هر جفت برچسب مشترکی در سطح گروه‌بندی ۱ می‌دهد و محور دسته‌ای شامل برچسب‌های فردی و گروهی می‌شود.
+این مثال یک نمودار ستونی خوشه‌ای با هشت دسته که در چهار جفت ترتیب داده شده‌اند، ایجاد می‌کند. متد [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) به هر جفت یک برچسب مشترک در سطح گروه‌بندی ۱ می‌دهد و محور دسته‌ای شامل برچسب‌های فردی و گروهی می‌شود.
 
 ```csharp
 using Aspose.Slides;
@@ -926,7 +977,7 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 ### **ایجاد نمودارهای نقشه‌ای**
 
-نمودارهای نقشه‌ای برای تصویربرداری داده‌های جغرافیایی با ارتباط اطلاعات به مکان‌های خاصی مانند کشورها، ایالت‌ها یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیتی و توزیع‌های فضایی به‌صورت واضح و بصری مفیدند.
+نمودارهای نقشه‌ای برای به‌تصویر کشیدن داده‌های جغرافیایی با نسبت دادن اطلاعات به مکان‌های خاص مانند کشورها، ایالت‌ها یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیتی و توزیع‌های فضایی به‌صورت واضح و جذاب بصری بسیار کاربردی‌اند.
 
 این مثال از [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار نقشه‌ای با داده‌های جغرافیایی پیش‌فرض استفاده می‌کند و آن را برای مشاهده در PowerPoint ذخیره می‌کند.
 
@@ -948,16 +999,16 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 ![نمودار نقشه‌ای](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+تصویر بالا نشان می‌دهد که ارائهٔ ذخیره‑شده در PowerPoint باز شده است. Aspose.Slides نمودار نقشه‌ای و داده‌های آن را به‑درستی می‌نویسد، اما خود نمودارهای نقشه‌ای را رندر نمی‌کند: وقتی اسلایدی که شامل چنین نموداری است به تصویر تبدیل یا به PDF یا SVG تبدیل می‌شود، ناحیهٔ نمودار خالی می‌ماند. سایر اشکال در همان اسلاید تحت تأثیر قرار نمی‌گیرند.
 {{% /alert %}}
 
 ### **ایجاد نمودارهای ترکیبی**
 
-یک نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا شباهت‌های بین دو یا چند مجموعهٔ داده را برجسته، مقایسه یا بررسی کنید و روابط بین آن‌ها را شناسایی کنید.
+نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا مقایسه‌های بین دو یا چند مجموعه داده را برجسته کنید و روابط بین آن‌ها را شناسایی کنید.
 
 ![نمودار ترکیبی](combination_chart.png)
 
-این مثال دو سری ستون خوشه‌ای را با یک سری خطی در چهار دسته ترکیب می‌کند. ستون‌ها از محور عمودی اصلی استفاده می‌کنند، در حالی که [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) خط را بر روی یک محور عمودی ثانوی در سمت راست قرار می‌دهد. توابع کمکی عنوان، لگند، برچسب‌های محور و خطوط شبکه را پیکربندی می‌کنند.
+این مثال دو سری ستونی خوشه‌ای را با یک سری خطی در چهار دسته ترکیب می‌کند. ستون‌ها از محور عمودی اولیه استفاده می‌کنند، در حالی که [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) خط را بر روی محور عمودی ثانویهٔ سمت راست قرار می‌دهد. توابع کمکی عنوان، افسانه، برچسب‌های محور و خطوط شبکه را پیکربندی می‌کنند.
 
 ```csharp
 using System.Drawing;
@@ -1117,11 +1168,11 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 }
 ```
 
-## **بروزرسانی نمودارها**
+## **به‌روزرسانی نمودارها**
 
-Aspose.Slides برای .NET امکان بروزرسانی نمودارهای PowerPoint را با تغییر داده‌های نمودار، قالب‌بندی و استایل فراهم می‌کند. این قابلیت فرآیند حفظ به‌روز بودن ارائه‌ها با محتوای دینامیک را ساده می‌کند و اطمینان می‌دهد که نمودارها به‌درستی داده‌ها و استانداردهای بصری فعلی را منعکس می‌کنند.
+Aspose.Slides برای .NET به شما امکان می‌دهد تا نمودارهای PowerPoint را با اصلاح داده‌های نمودار، قالب‌بندی و استایل به‌روزرسانی کنید. این قابلیت فرآیند نگه‌داری به‌روز ارائه‌ها با محتویات پویا را ساده می‌کند و اطمینان می‌دهد که نمودارها به‌دقت داده‌ها و استانداردهای بصری جاری را بازتاب می‌دهند.
 
-این مثال نمودار با نام **My chart** را در اولین اسلاید یک ارائهٔ موجود بروزرسانی می‌کند. دو سری ستونی با سه نقطه دادهٔ هر کدام، برچسب‌های دسته در ستون A و نام‌های سری در ردیف اول اولین کاربرگ مورد نیاز است. مثال از [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) برای تغییر سلول‌های workbook استفاده می‌کند، مقادیر سری‌ها را بروز می‌دهد، سری سوم را اضافه می‌کند و نوع نمودار را به **clustered cylinders** از طریق [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) تغییر می‌دهد.
+این مثال نمودار با نام "My chart" در اولین اسلاید یک ارائهٔ موجود را به‌روزرسانی می‌کند. این مثال به دو سری ستونی با سه نقطه داده در هر سری نیاز دارد که برچسب‌های دسته در ستون A و نام‌های سری در اولین ردیف اولین ورق کاری قرار دارند. مثال از [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) برای تغییر سلول‌های کاربرگ استفاده می‌کند، مقادیر سری‌ها را به‌روزرسانی می‌کند، یک سری سوم اضافه می‌کند و نمودار را به استوانه‌های خوشه‌ای از طریق [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) تغییر می‌دهد.
 
 ```csharp
 using Aspose.Slides;
@@ -1175,13 +1226,13 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **تنظیم بازه داده برای یک نمودار**
+## **تنظیم محدودهٔ داده برای یک نمودار**
 
-برای بررسی بازه‌ای که قبلاً توسط یک نمودار موجود استفاده می‌شود، به [Retrieve a Chart's Data Range](/slides/fa/net/chart-workbook/#retrieve-a-charts-data-range) مراجعه کنید.
+برای بررسی محدوده‌ای که قبلاً توسط یک نمودار موجود استفاده شده است، به [Retrieve a Chart's Data Range](/slides/fa/net/chart-workbook/#retrieve-a-charts-data-range) مراجعه کنید.
 
-Aspose.Slides برای .NET انعطاف‌پذیری تعیین بازهٔ داده خاصی از یک کاربرگ را به‌عنوان منبع دادهٔ نمودار فراهم می‌کند. این بدین معناست که می‌توانید بخش خاصی از کاربرگ خود را مستقیم به نمودار نگاشت کنید و کنترل کنید که کدام سلول‌ها در سری‌ها و دسته‌های نمودار مشارکت دارند. در نتیجه، می‌توانید نمودارهای خود را به‌راحتی با آخرین تغییرات داده‌ها در کاربرگ همگام‌سازی کنید و اطمینان حاصل کنید که ارائه‌های PowerPoint شما اطلاعات به‌روز و دقیقی را نشان می‌دهند.
+Aspose.Slides برای .NET انعطاف‌پذیری تعریف یک محدودهٔ دادهٔ خاص از یک ورق کاری به‌عنوان منبع برای داده‌های نمودار شما را فراهم می‌کند. این به این معنی است که می‌توانید به‌طور مستقیم بخشی از ورق کاری خود را به نمودار نگاشت کنید و کنترل کنید کدام سلول‌ها به سری‌ها و دسته‌های نمودار کمک می‌کنند. در نتیجه می‌توانید نمودارهای خود را به‌راحتی با آخرین تغییرات داده در ورق کاری هماهنگ و به‌روز کنید و اطمینان حاصل کنید که ارائه‌های PowerPoint شما اطلاعات جاری و دقیق را منعکس می‌کنند.
 
-این مثال از [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) برای تنظیم منبع دادهٔ نمودار با نام **My chart** در اولین اسلاید یک ارائهٔ موجود به `Sheet1!A1:B4` استفاده می‌کند. کتاب‌کار نمودار باید آن کاربرگ و بازهٔ پر شده‌ای با سرعنوان سری در ردیف اول، برچسب‌های دسته در ستون A و سه مقدار در ستون B داشته باشد.
+این مثال از [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) برای تنظیم منبع دادهٔ نمودار با نام "My chart" در اولین اسلاید یک ارائهٔ موجود به `Sheet1!A1:B4` استفاده می‌کند. کاربرگ نمودار باید دارای آن ورق کاری باشد و یک محدودهٔ پر شده با سرآیند سری در ردیف اول، برچسب‌های دسته در ستون A و سه مقدار در ستون B داشته باشد.
 
 ```csharp
 using Aspose.Slides;
@@ -1206,9 +1257,9 @@ presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 
 ## **استفاده از نشانگرهای پیش‌فرض در نمودارها**
 
-زمانی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌صورت خودکار یک نماد نشانگر متفاوت دریافت می‌کند.
+وقتی از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌طور خودکار نماد نشانگر پیش‌فرض متفاوتی دریافت می‌کند.
 
-این مثال از [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار با دو سری خطی و یک لگند استفاده می‌کند. تنظیمات [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) نمادهای نشانگر اختصاص یافته خودکار را حفظ می‌کند. سری اول شامل یک مقدار منفی و یک مقدار گمشده (`null`) است، در حالی که سری دوم برای هر دسته مقدار دارد.
+این مثال از [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار با دو سری خطی و یک افسانه استفاده می‌کند. تنظیمات [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) نمادهای نشانگر اختصاص داده‌شدهٔ خودکار را حفظ می‌کند. سری اول شامل یک مقدار منفی و یک مقدار گمشده (null) است، در حالی که سری دوم برای هر دسته یک مقدار دارد.
 
 ```csharp
 using Aspose.Slides;
@@ -1266,20 +1317,20 @@ chart.Legend.Overlay = false;
 presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
-## **سوالات متداول**
+## **سوالات متدوال**
 
 **کدام انواع نمودارها توسط Aspose.Slides برای .NET پشتیبانی می‌شوند؟**
 
-Aspose.Slides برای .NET انواع گسترده‌ای از نمودارها مانند بار، خط، دایره‌ای، ناحیه، پراکنده، هیستوگرام، رادار و بسیاری دیگر را پشتیبانی می‌کند. این انعطاف‌پذیری به شما امکان می‌دهد مناسب‌ترین نوع نمودار را برای نیازهای تصویربرداری داده‌تان انتخاب کنید.
+Aspose.Slides برای .NET انواع گسترده‌ای از نمودارها از جمله نوار، خط، دایره، نواحی، پراکندگی، هیستوگرام، رادار و بسیاری موارد دیگر را پشتیبانی می‌کند. این انعطاف‌پذیری به شما اجازه می‌دهد مناسب‌ترین نوع نمودار را برای نیازهای تصویری دادهٔ خود انتخاب کنید.
 
 **چگونه یک نمودار جدید به اسلاید اضافه کنم؟**
 
-برای اضافه کردن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) ایجاد می‌کنید، اسلاید مورد نظر را با استفاده از ایندکس آن دریافت می‌کنید و سپس متد افزودن نمودار را صدا می‌زنید و نوع نمودار و داده‌های اولیه را مشخص می‌کنید. این فرآیند نمودار را مستقیم به ارائهٔ شما ادغام می‌کند.
+برای افزودن یک نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) ایجاد کنید، اسلاید مورد نظر را با ایندکس آن دریافت کنید و سپس متدی برای افزودن نمودار فراخوانی کنید، نوع نمودار و داده‌های اولیه را مشخص کنید. این فرآیند نمودار را مستقیماً در ارائهٔ شما ادغام می‌کند.
 
-**چگونه می‌توان داده‌های نمایش‌داده‌شده در یک نمودار را بروز کرد؟**
+**چگونه می‌توان داده‌های نمایش‑داده‌شده در یک نمودار را به‌روزرسانی کرد؟**
 
-می‌توانید دادهٔ یک نمودار را با دسترسی به کتاب‌کار دادهٔ آن ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/))، حذف سری‌ها و دسته‌های پیش‌فرض، و سپس افزودن داده‌های سفارشی خود بروز کنید. این امکان به‌صورت برنامه‌نویسی نمودار را برای انعکاس آخرین داده‌ها تازه می‌کند.
+می‌توانید داده‌های یک نمودار را با دسترسی به کاربرگ دادهٔ آن ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/))، پاک کردن هر سری و دستهٔ پیش‌فرض، و سپس افزودن داده‌های سفارشی خود به‌روزرسانی کنید. این امکان را به شما می‌دهد تا برنامه‌نویسی نمودار را طوری تازه کنید که آخرین داده‌ها را منعکس کند.
 
 **آیا امکان سفارشی‌سازی ظاهر نمودار وجود دارد؟**
 
-بله، Aspose.Slides برای .NET گزینه‌های سفارشی‌سازی گسترده‌ای ارائه می‌دهد. می‌توانید رنگ‌ها، فونت‌ها، برچسب‌ها، لگندها و دیگر عناصر قالب‌بندی را برای تطبیق ظاهر نمودار با الزامات طراحی خاص خود تغییر دهید.
+بله، Aspose.Slides برای .NET گزینه‌های گسترده‌ای برای سفارشی‌سازی فراهم می‌کند. می‌توانید رنگ‌ها، فونت‌ها، برچسب‌ها، افسانه‌ها و سایر عناصر قالب‌بندی را تغییر دهید تا ظاهر نمودار را مطابق نیازهای طراحی خاص خود تنظیم کنید.

@@ -1,5 +1,5 @@
 ---
-title: Diagramok létrehozása vagy frissítése PowerPoint prezentációkban Java-ban
+title: PowerPoint-prezentációk diagramjainak létrehozása vagy frissítése Java-ban
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -14,10 +14,10 @@ keywords:
 - kördiagram
 - vonaldiagram
 - fa térkép diagram
-- részvénydiagram
-- doboz és bajusz diagram
+- részvény diagram
+- doboz- és szárny diagram
 - tölcsér diagram
-- napkitörés diagram
+- napfény diagram
 - hisztogram diagram
 - radar diagram
 - többkategóriás diagram
@@ -25,35 +25,37 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for Java segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati Java kódrészletekkel."
+description: "Diagramok létrehozása és testreszabása PowerPoint-prezentációkban az Aspose.Slides for Java segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati Java-kódrészletekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót kínál a diagramok létrehozásához és testreszabásához az Aspose.Slides for Java használatával. Megtanulja, hogyan lehet programozottan diagramot hozzáadni egy diára, adatokat betölteni, és különféle formázási beállításokat alkalmazni a specifikus tervezési követelményeknek megfelelően. A cikk során részletes kódrészletek mutatják be az egyes lépéseket, a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Ennek az útmutatónak a követésével szilárd megértést szerez a dinamikus diagramgenerálás Java‑alkalmazásokba történő integrálásáról, leegyszerűsítve az adatvezérelt prezentációk létrehozásának folyamatát.
+Ez a cikk átfogó útmutatót nyújt arról, hogyan hozhatók létre és testreszabhatók diagramok az Aspose.Slides for Java segítségével. Megtanulja, hogyan adhat programozottan diagramot egy diára, hogyan töltheti fel adatokal, és hogyan alkalmazhat különféle formázási beállításokat a speciális tervezési követelményeknek megfelelően. A cikkben részletes kódrészletek illusztrálják az egyes lépéseket, az előadás és a diagramobjektum inicializálásától a sorozatok, tengelyek és legendák konfigurálásáig. Az útmutató követésével alapos megértést szerez a dinamikus diagramgenerálás integrálásáról Java‑alkalmazásaiba, megkönnyítve az adat‑vezérelt prezentációk elkészítését.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek az embereknek gyorsan vizualizálni az adatokat és olyan betekintéseket nyerni, amelyek egy táblázatból vagy számolótáblázatból nem lennének azonnal nyilvánvalóak.
+A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat és olyan felismeréseket hozni, amelyek egy táblázatból vagy munkafüzetből nem lennének azonnal nyilvánvalóak.
 
-**Miért hozzunk létre diagramokat?**
+**Miért érdemes diagramokat készíteni?**
 
-Diagramok használatával:
+A diagramok segítségével:
 
-* nagy mennyiségű adatot aggregálni, tömöríteni vagy összefoglalni egyetlen dián egy prezentációban;
-* az adatokban mintákat és trendeket feltárni;
-* az adatok irányát és lendületét idővel vagy egy meghatározott mértékegységhez viszonyítva meghatározni;
-* kiugró értékeket, eltéréseket, hibákat és értelmetlen adatokat felismerni;
-* összetett adatokat közvetíteni vagy bemutatni.
+* nagy mennyiségű adatot összegyűjthet, tömöríthet vagy összefoglalhat egyetlen dián egy prezentációban;
+* mintákat és trendeket tárhat fel az adatokban;
+* meghatározhatja az adat időbeli vagy egy adott mérőegység szerinti irányát és lendületét;
+* ki tudja emelni az eltéréseket, rendellenességeket, hibákat és értelmetlen adatokat;
+* összetett adatokat közvetíthet vagy bemutathat.
 
-A PowerPointban a diagramokat az *Insert* (Beszúrás) funkción keresztül hozhatja létre, amely sablonokat biztosít számos diagramtípus tervezéséhez. Az Aspose.Slides használatával szabályos diagramokat (népszerű diagramtípusokon alapulókat) és egyedi diagramokat is létrehozhat.
+PowerPointban a *Insert* funkcióval hozhat létre diagramokat, amely számos diagramtípus sablonját kínálja. Az Aspose.Slides segítségével mind szabványos diagramokat (népszerű típusok alapján), mind egyedi diagramokat hozhat létre.
 
 {{% alert color="info" title="Note" %}}
-Használja a [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) felsorolást a [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) csomagban. Ennek a felsorolásnak az értékei különböző diagramtípusoknak felelnek meg.
+
+Használja a [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) felsorolást a [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) csomagban. Ennek az enumerációnak az értékei a különböző diagramtípusoknak felelnek meg.
+
 {{% /alert %}}
 
-### **Csoportosított oszlopdiagramok létrehozása**
+### **Halmozott oszlopdiagramok létrehozása**
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódust használja egy csoportosított oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltést használnak, és az egyedi címkék a kategória neveket, a sorozat neveket és az értékeket mutatják. A 0 indexű munkalap az beágyazott diagram munkafüzet első lapjára hivatkozik.
+Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódust használja egy halmozott oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltést kapnak, és az egyes címkék a kategória nevét, sorozat nevét és az értékeket mutatják. A 0‑s munkalap‑index az beágyazott diagramkönyvtár első lapjára hivatkozik.
 
 ```java
 import com.aspose.slides.*;
@@ -134,20 +136,20 @@ finally
 
 Az eredmény:
 
-![A csoportosított oszlopdiagram](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Szórásdiagramok létrehozása**
+### **Pontdiagramok létrehozása**
 
-A szórásdiagramok (más néven szóráspontdiagramok vagy xy‑grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korrelációk bemutatására.
+A pontdiagramok (más néven szórási diagramok vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közti korreláció bemutatására.
 
-Használja a szórásdiagramot, ha:
+Használjon pontdiagramot, ha:
 
-* párosított numerikus adatokat tart.
-* két jól együttpárosítható változóval rendelkezik.
-* meg szeretné határozni, hogy a két változó kapcsolódik‑e egymáshoz.
-* van egy független változója, amelynek több értéke van egy függő változóra vonatkozóan.
+* párosított numerikus adatokat tartalmaz;
+* két változó jól párosítható egymással;
+* meg szeretné határozni, hogy a két változó összefügg-e;
+* van egy független változó, amely több értéket tartalmaz egy függő változóhoz képest.
 
-Ez a példa két x‑y értékkészletet ábrázol. Az első sorozat egyenes vonalakat csillag‑jelölőkkel használ, míg a második simított vonalakat kör‑jelölőkkel; mindkettő 10-es jelölőmérettel rendelkezik, amely a [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) metódussal van beállítva. A [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) metódus a jelölő alakját szabályozza.
+Ez a példa két x‑y értéksorozatot ábrázol. Az első sorozat egyenes vonalakkal és csillag jelölőkkel jelenik meg, a második sima vonalakkal és kör jelölőkkel; mindkettő 10-es jelölőmérettel rendelkezik, amelyet a [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) metódussal állítunk be. A [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) metódus a jelölő alakját szabályozza.
 
 ```java
 import com.aspose.slides.*;
@@ -215,13 +217,13 @@ finally
 
 Az eredmény:
 
-![A szórásdiagram](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Kördiagramok létrehozása**
 
-A kördiagramok leginkább a rész‑egész kapcsolat megjelenítésére alkalmasak, különösen akkor, ha az adatok kategóriákat tartalmazó címkékkel és numerikus értékekkel rendelkeznek. Ha azonban az adatok sok részre vagy címkére oszlanak, érdemes inkább oszlopdiagramot használni.
+A kördiagramok leginkább arra alkalmasak, hogy megmutassák a rész‑a‑teljes egész arányát, különösen akkor, ha a adatok kategóriákat tartalmaznak numerikus értékekkel. Ha azonban sok rész vagy címke van, érdemesebb oszlopdiagramot használni.
 
-Ez a példa három negyedéves értékkel rendelkező kördiagramot hoz létre. Minden szelet egyedi kitöltéssel és szegéllyel rendelkezik, a címkék pedig különböző kombinációban jelenítik meg az értékeket, százalékokat és sorozatinformációkat. A [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) metódus az első szeletet 180 foknál kezdődik beállítja.
+Ez a példa három negyedéves értékkel ellátott kördiagramot hoz létre. Minden szelet egyéni kitöltést és szegélyt kap, a címkék pedig különböző kombinációkban mutatják az értékeket, százalékot és sorozatinformációt. A [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) metódus az első szeletet 180 fokban kezdi.
 
 ```java
 import com.aspose.slides.*;
@@ -320,13 +322,15 @@ finally
 }
 ```
 
-![A kördiagram](pie_chart.png)
+Az eredmény:
+
+![The Pie chart](pie_chart.png)
 
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább akkor alkalmasak, amikor az értékek időbeli változását szeretné bemutatni. Vonaldiagram segítségével egyszerre nagymennyiségű adatot hasonlíthat össze, nyomon követheti az időbeli változásokat és trendeket, kiemelheti a sorozat anomáliáit, és így tovább.
+A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használandók, amikor az értékek időbeli változását szeretné bemutatni. Egy vonaldiagram segítségével egyszerre összehasonlíthat nagy mennyiségű adatot, nyomon követheti a változásokat és trendeket, kiemelheti az adatsorok anomáliáit, és még sok mást.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódust használja egy alapértelmezett sorozatot és kategóriákat tartalmazó vonaldiagram létrehozásához, majd PPTX‑ként menti a prezentációt.
+Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódussal hoz létre egy vonaldiagramot alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```java
 import com.aspose.slides.*;
@@ -346,7 +350,7 @@ finally
 }
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjait egyenes folyamatos vonalak kötik össze. Ha a pontokat szaggatott vonalakkal szeretné összekötni, hívja a [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) metódust a [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) egyik értékével:
+Alapértelmezés szerint a vonaldiagram pontjait egyenes, folytonos vonalak kötik össze. Ha a pontok helyett szaggatott vonalat szeretne, hívja meg a [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) metódust a [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) egyik értékével:
 
 ```java
 import com.aspose.slides.*;
@@ -369,13 +373,15 @@ finally
 }
 ```
 
-![A vonaldiagram](line_chart.png)
+Az eredmény:
 
-### **Fa térképes diagramok létrehozása**
+![The Line chart](line_chart.png)
 
-A fa térképes diagramok a leginkább értékesítési adatokhoz használható, amikor a relatív méreteket szeretné megjeleníteni, és gyorsan felhívni a figyelmet a kategórián belüli nagy hozzájáruló elemekre.
+### **Fa térkép diagramok létrehozása**
 
-Ez a példa nyolc lapot (leaf) tartalmazó fa térképet hoz létre, amely négy szárra (stem) és két ágra (branch) van csoportosítva. A [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) metódus az 1‑es szintre a szárakat, a 2‑es szintre az ágakat rendeli. A kategória címkék az egyes szegmenseket jelölik, az értékek pedig a relatív méreteket határozzák meg.
+A fa térkép diagramok leginkább értékesítési adatok esetén alkalmasak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet a nagy hozzájárulású elemekre minden egyes kategórián belül.
+
+Ez a példa nyolc levélből álló fa térképet hoz létre, amely négy szárra és két ágra van csoportosítva. A [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) metódus a 1‑es csoportosítási szinten a szárakat, a 2‑es szinten pedig az ágakat rendeli hozzá. Az értékek határozzák meg a relatív téglalapméreteket, míg a kategóriacímkék és a átfedő szülőcímkék jelölik a hierarchiát.
 
 ```java
 import com.aspose.slides.*;
@@ -454,24 +460,28 @@ finally
 }
 ```
 
-![A fa térkép diagram](treemap_chart.png)
+Az eredmény:
 
-### **Vízáfallsor diagramok létrehozása**
+![The Treemap chart](treemap_chart.png)
 
-A vízáfallsor diagramok a bevételt, költségeket, 600 bruttó nyereséget és 450 nettó nyereséget mutatják, értékcímkékkel és összekötő vonalakkal
+### **Vízszintes vízesés diagramok létrehozása**
 
-| Kategória | Munkafüzet érték | Oszlop típusa |
+A vízesés diagram megmutatja, hogyan járulnak hozzá a pozitív és negatív változások a végső értékhez. Például egy nyereség‑bontás elindul a bevétellel, majd levonja a költségeket, és hozzáadja a többi jövedelmet. A változási oszlopok a korábbi és az új értékek között lebegnek, míg a teljes oszlopok a nullától a felhalmozott értékig terjednek.
+
+Az alábbi példa ezer dolláros összegeket használ:
+
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| Bevétel | 1000 | Növekedés |
-| Értékesítési költség | -400 | Csökkenés |
-| Bruttó nyereség | 600 | Közbenső összeg |
-| Működési költségek | -200 | Csökkenés |
-| Egyéb bevétel | 50 | Növekedés |
-| Nettó nyereség | 450 | Végső összeg |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-Hogy egy pontot közbenső vagy végső összegként jelölje, hívja meg a [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) metódust a `true` értékkel. Adja meg a tényleges felhalmozott összeget a pont munkafüzetcellájában: `600` a bruttó nyereséghez (`1000 - 400`) és `450` a nettó nyereséghez (`600 - 200 + 50`). A metódus az oszlopot összegként jelöli; nem számítja ki vagy tölti fel a cella értékét. Ne használjon nullát helykitöltőként, és ne adjon meg más változást egy összeg ponthoz. Az összeg oszlop a felhalmozott értéket jeleníti meg anélkül, hogy újra hozzáadná a futó értékhez.
+Egy pont közbenső vagy végső összegként történő megjelöléséhez hívja meg a [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) metódust `true` értékkel. A pont munkafüzet‑cellájába helyezze a tényleges felhalmozott összeget: `600` a bruttó nyereséghez (`1000 - 400`) és `450` a nettó nyereséghez (`600 - 200 + 50`). A metódus megjelöli az oszlopot összegnek; nem számítja ki vagy tölti fel a cella értékét. Ne használjon nullát helykitöltőként, és ne adjon meg más változást egy összeg‑ponthoz. Egy összeg‑oszlop a felhalmozott értéket mutatja anélkül, hogy újra hozzáadná a futó értékhez.
 
-Ez a teljes Java példa a `Waterfall` tagot használja a [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑ból egy diagram létrehozásához, törli az alapértelmezett adatokat, és feltölti a beágyazott munkafüzetet. A `0` indexű munkalap az első munkalapot választja; az A oszlop a kategória neveket, a B oszlop az értékeket tartalmazza. Minden értékcellát a [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) metódussal adunk hozzá. A nulla‑alapú pontindexek `2` és `5` a közbenső és végső összegeket azonosítják. A [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) `true`‑val hívása megjeleníti az összegeket az oszlopokon. Bemeneti prezentáció vagy munkafüzet nem szükséges.
+Ez a teljes Java‑példa a `Waterfall` tagot használja a [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑ból, törli az alapértelmezett adatot, és feltölti a beágyazott munkafüzetet. A 0‑s munkalap‑index az első munkalapot választja; az A oszlop tartalmazza a kategória‑neveket, a B oszlop az értékeket. Minden értékcellát a [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) metódussal ad hozzá. A 0‑alapú pont‑indexek `2` és `5` az közbenső és a végső összeg‑pontot jelölik. A [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) `true` értékkel mutatja az összegeket az oszlopokon. Nem szükséges bemeneti prezentáció vagy munkafüzet.
 
 ```java
 import com.aspose.slides.*;
@@ -509,7 +519,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // A harmadik és hatodik pont összegként jelenik meg, nem további változásként.
+    // A harmadik és a hatodik pont összegként jelenik meg, nem további változásként.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -523,15 +533,17 @@ finally
 }
 ```
 
-Illessze be a sorozat‑szintű [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) metódust `true`‑val, hogy megjelenítse az egymást követő oszlopokat összekötő vonalakat, és egyszerűbbé tegye a futó érték nyomon követését. A vonalak elrejtéséhez cserélje ki a példában a metódushívást `series.setShowConnectorLines(false);`-re a mentés előtt. Ez csak a vonalak láthatóságát módosítja, az adatokat vagy összegeket nem érinti.
+A sorozatszintű [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) `true` értékkel megjeleníti a egymást követő oszlopokat összekötő vonalakat, így könnyebben követhető a futó érték. Ezeknek a vonalaknak a elrejtéséhez cserélje ki a példa hívását `series.setShowConnectorLines(false);`‑re a mentés előtt. Ez csak a vonalak láthatóságát módosítja, az adatot vagy az összegeket nem.
 
-![Vízáfallsor diagram, amely a bevételt, költségeket, 600 bruttó nyereséget és 450 nettó nyereséget mutatja, értékcímkékkel és összekötő vonalakkal](waterfall_chart.png)
+A mentett prezentáció a 600-as bruttó nyereséget és a 450-es nettó nyereséget mutatja, mindkét összeg nulláról indul:
 
-### **Részvénydiagramok létrehozása**
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-A részvénydiagramok pénzügyi adatokat jelenítenek meg, mint a nyitó, magas, alacsony és záró árak, segítve a piaci trendek és a volatilitás elemzését. Alapvető betekintést nyújtanak a részvény teljesítményébe, támogatva a befektetőket és elemzőket a tájékozott döntések meghozatalában.
+### **Részvény diagramok létrehozása**
 
-Ez a példa egy nyitó‑magas‑alacsony‑záró (OHLC) diagramot hoz létre négy sorozattal ebben a sorrendben és három kategóriával. A [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) metódus engedélyezi a fel/lef bar‑okat, és a [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) szabályozza a magas‑alacsony vonalakat, amelyek az árfolyam tartományt mutatják, míg az egyedi sorozatvonalak és a kisebb vízszintes rácsvonalak rejtve vannak.
+A részvény diagramok pénzügyi adatokat, például nyitó, magas, alacsony és záró árakat jelenítenek meg, segítve a piac‑trendek és volatilitás elemzését. Alapvető betekintést nyújtanak a részvény‑teljesítménybe, segítve a befektetőket és elemzőket a megalapozott döntéshozatalban.
+
+Ez a példa négy sorozatot tartalmazó nyitó‑magas‑alacsony‑záró diagramot hoz létre ebben a sorrendben, három kategóriával. A [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) metódus engedélyezi a fel‑/le‑oszlopokat, a [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) szabályozza a magas‑alacsony vonalakat, míg az egyes sorozat‑vonalak és a kisebb vízszintes rácsvonalak rejtve maradnak.
 
 ```java
 import com.aspose.slides.*;
@@ -596,11 +608,13 @@ try
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
+    // Ág 1
     for (IChartSeries stockSeries : chart.getChartData().getSeries())
     {
         stockSeries.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     }
 
+    // Ág 2
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     presentation.save("Stock-chart.pptx", SaveFormat.Pptx);
@@ -611,13 +625,15 @@ finally
 }
 ```
 
-![A részvénydiagram](stock_chart.png)
+Az eredmény:
 
-### **Doboz‑ és bajusz diagramok létrehozása**
+![The Stock chart](stock_chart.png)
 
-A doboz‑ és bajusz diagramok az adateloszlást jelenítik meg a kulcsfontosságú statisztikai mutatók, például a medián, kvartilisek és lehetséges kiugró értékek összefoglalásával. Különösen hasznosak felfedező adat‑elemzésben és statisztikai tanulmányokban, hogy gyorsan megértsék az adatvariabilitást és az anomáliákat.
+### **Doboz‑ és szárnydiagramok létrehozása**
 
-Ez a példa hat értékből hoz létre egy doboz‑ és bajusz diagramot. A [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) metódus az exkluzív kvartilis számítást választja. A példa továbbá engedélyezi a középérték vonalakat, középérték jelölőket, belső pontokat és kiugró pontokat.
+A doboz‑ és szárnydiagramok az adateloszlást jelenítik meg, összefoglalva kulcsfontosságú statisztikai mérőszámokat, például a mediánt, kvartiliseket és lehetséges kiugró értékeket. Különösen hasznosak felderítő adat‑analízisekben és statisztikai tanulmányokban a variabilitás gyors megértéséhez és az anomáliák azonosításához.
+
+Ez a példa hat értékkel hoz létre egy doboz‑ és szárnydiagramot. A [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) metódus az exkluzív kvartilis‑számítást választja. A példa engedélyezi az átlag‑vonalakat, átlag‑jelölőket, belső pontokat és kiugró pontokat.
 
 ```java
 import com.aspose.slides.*;
@@ -679,9 +695,9 @@ finally
 
 ### **Tölcsér diagramok létrehozása**
 
-A tölcsér diagramok a szekvenciális lépéseket tartalmazó folyamatok vizualizálására szolgálnak, ahol az adatmennyiség csökken a lépésről lépésre haladva. Különösen hasznosak a konverziós arányok elemzésében, a szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
+A tölcsér diagramok a folyamatok szekvenciális szakaszait jelenítik meg, ahol az adat‑mennyiség csökken a lépésről lépésre. Különösen hasznosak a konverziós arányok elemzésében, a szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódust használja egy tölcsér diagram hozzáadásához egy meglévő prezentáció első diájához. Lecseréli az alapértelmezett adatokat hat kategóriára és 50‑tól 500‑ig terjedő értékekre, majd elmenti a frissített prezentációt. A bemeneti prezentációnak legalább egy diát kell tartalmaznia.
+Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódust használja egy tölcsér diagram hozzáadásához egy létező prezentáció első diájához. Lecseréli az alapértelmezett adatot hat kategóriára és 50‑től 500‑ig terjedő értékekre, majd menti a frissített prezentációt. A bemeneti prezentációnak legalább egy diát kell tartalmaznia.
 
 ```java
 import com.aspose.slides.*;
@@ -735,13 +751,15 @@ finally
 }
 ```
 
-![A tölcsér diagram](funnel_chart.png)
+Az eredmény:
 
-### **Sunburst diagramok létrehozása**
+![The Funnel chart](funnel_chart.png)
 
-A Sunburst diagramok a hierarchikus adatokat vizualizálják, a szinteket koncentrikus gyűrűként ábrázolva. Segítenek bemutatni a rész‑egész kapcsolatokat, és ideálisak a beágyazott kategóriák és alkategóriák tiszta, kompakt formában történő ábrázolásához.
+### **Napfény diagramok létrehozása**
 
-Ez a példa egy nyolc lapot tartalmazó Sunburst diagramot hoz létre, amely négy szárra és két ágra van csoportosítva. A [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) metódus az 1‑es csoportosítási szintre a szárakat, a 2‑es szintre az ágakat rendeli. A kategória címkék az egyes szegmenseket jelölik, az értékek pedig a relatív méreteket határozzák meg.
+A napfény diagramok hierarchikus adatokat jelenítenek meg, a szinteket koncentrikus gyűrűkként ábrázolva. Segítségükkel a rész‑a‑teljes‑egész kapcsolatokat illusztrálhatjuk, és ideálisak beágyazott kategóriák és alkategóriák tömör, áttekinthető megjelenítésére.
+
+Ez a példa nyolc levélből álló napfény diagramot hoz létre, amely négy szárra és két ágra van csoportosítva. A [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) metódus a 1‑es szintre a szárakat, a 2‑es szintre az ágakat rendeli. A kategória‑címkék a szegmenseket jelölik, az értékek pedig meghatározzák relatív méretüket.
 
 ```java
 import com.aspose.slides.*;
@@ -759,7 +777,7 @@ try
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // 1. ág
+    // Ág 1
     IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
     IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
@@ -775,7 +793,7 @@ try
     categoryCell = workbook.getCell(0, "C4", "Leaf4");
     chart.getChartData().getCategories().add(categoryCell);
 
-    // 2. ág
+    // Ág 2
     categoryCell = workbook.getCell(0, "C5", "Leaf5");
     leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
@@ -818,13 +836,19 @@ finally
 }
 ```
 
-![A Sunburst diagram](sunburst_chart.png)
+Az eredmény:
+
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Hisztogram diagramok létrehozása**
 
-A hisztogram diagramok a numerikus adatok eloszlását ábrázolják, az értékeket tartományokra vagy bin‑ekre csoportosítva. Különösen hasznosak az adatok mintázatainak, például gyakoriság, ferdeség és szórás azonosításában, valamint az anomáliák felderítésében egy adathalmazban.
+A hisztogram diagramok azt mutatják, hogy a numerikus értékek hogyan oszlanak el intervallumok (bin-ek) között. Havi jelentések esetén a megrendelés‑feldolgozási idők esetén használjon azonos bin‑szélességet és küszöbértékeket, hogy az intervallumok konzisztensnek maradjanak, és a eloszlások könnyebben összehasonlíthatók legyenek.
 
-Ez a példa hat numerikus értékből hoz létre egy hisztogramot, beleértve a negatív értékeket is. A [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) automatikus aggregációs típussal való meghívása lehetővé teszi a diagram számára, hogy meghatározza a megjelenített eloszlás binjeit.
+A [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) metódus a horizontális tengelyen a [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/) egyik módját állítja be. A [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) csak a `ByBinWidth` esetén érvényes, a [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) csak a `ByNumberOfBins` esetén. Az `Automatic` lehetővé teszi a diagram számára, hogy maga válassza ki a bin‑eket.
+
+#### **Fix bin‑szélesség használata**
+
+Ez a példa a feldolgozási időket 10‑perces intervallumokra csoportosítja, külön bin‑ekkel a 10 perc vagy annál kevesebb, illetve a 40 perc fölötti időkre. Engedélyezze ezeket a bin‑eket a [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) és a [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-) metódusokkal. Ha explicit küszöböket ad meg a [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) és a [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-) segítségével, hívja a [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) és a [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) metódusokat `false` értékkel.
 
 ```java
 import com.aspose.slides.*;
@@ -834,7 +858,10 @@ try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300);
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -843,22 +870,24 @@ try
     workbook.clear(0);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
-    IChartDataCell valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 }
 finally
 {
@@ -866,13 +895,62 @@ finally
 }
 ```
 
-![A hisztogram diagram](histogram_chart.png)
+A PowerPoint‑ban megjelenített prezentáció **3, 4, 4, 4 és 2** db‑ot mutat a bin‑ekben. Az alul‑bin tartalmazza a `5, 10, 10` értékeket, ezért a küszöb inkluzív. A felül‑bin csak a `41, 50` értékeket tartalmazza, ezért a küszöb exkluzív; a `40` értékek az előző intervallumban maradnak. A belső bin‑ek a határérték alatti értékeket szigorúan nagyobb, a felső határértéket pedig kisebb vagy egyenlő értékkel tartalmazzák.
+
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **Bin‑szám meghatározása**
+
+Fix részletességi szint helyett, ha a bin‑számot szeretné meghatározni, kérjen öt bin‑t ugyanarra az adatra. Ez a példa az alul‑ és felül‑bin‑eket letiltja. A diagram a szélességet az adat‑tartományból számítja, ezért a határok a jelentések között változhatnak.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Az öt bin‑ben **4, 4, 4, 4 és 1** érték szerepel. Hasonlítsa össze ezt az eloszlást a fenti fix‑szélesség eredménnyel: a bemeneti értékek azonosak, a határok azonban eltérnek.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Radar diagramok létrehozása**
 
-A radar diagramok többváltozós adatokat jelenítenek meg kétdimenziós formában, lehetővé téve több változó egyszerre történő összehasonlítását. Különösen hasznosak a minták, erősségek és gyengeségek több teljesítménymutató vagy attribútum között való azonosításában.
+A radar diagramok többváltozós adatokat jelenítenek meg kétdimenziós formában, lehetővé téve több változó egyszerre történő könnyű összehasonlítását. Különösen hasznosak minták, erősségek és gyengeségek azonosításához több teljesítménymutató vagy attribútum esetén.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódust használja egy alapértelmezett sorozatot és kategóriákat tartalmazó radar diagram létrehozásához, majd PPTX‑ként menti a prezentációt.
+Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódussal hoz létre egy radar diagramot alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```java
 import com.aspose.slides.*;
@@ -892,13 +970,15 @@ finally
 }
 ```
 
-![A radar diagram](radar_chart.png)
+Az eredmény:
+
+![The Radar chart](radar_chart.png)
 
 ### **Többkategóriás diagramok létrehozása**
 
-A többkategóriás diagramok olyan adatokat jelenítenek meg, amelyek több kategóriacsoportosítást tartalmaznak, lehetővé téve az értékek egyszerre több dimenzióban történő összehasonlítását.
+A többkategóriás diagramok olyan adatok megjelenítésére szolgálnak, amelyek több kategóriacsoportot is tartalmaznak, lehetővé téve az értékek több dimenzióban történő egyszerre történő összehasonlítását. Különösen hasznosak, ha összetett, több rétegű adathalmazok trendjeit és kapcsolatait kívánja elemezni.
 
-Ez a példa egy csoportosított oszlopdiagramot hoz létre nyolc kategóriával, amelyek négy párosra rendeződnek. A [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) metódus minden párnak közös címkét ad az 1‑es csoportosítási szinten, így a kategória tengely mind egyedi, mind csoportcímkéket tartalmaz.
+Ez a példa egy halmozott oszlopdiagramot hoz létre nyolc kategóriával, négy páros csoportban rendezve. A [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) metódus minden párhoz egy közös címkét ad az 1‑es csoportosítási szinten, így a kategóriatengely mind egyedi, mind csoportcímkéket tartalmaz.
 
 ```java
 import com.aspose.slides.*;
@@ -970,13 +1050,15 @@ finally
 }
 ```
 
-![A többkategóriás diagram](multi_category_chart.png)
+Az eredmény:
+
+![The multi category chart](multi_category_chart.png)
 
 ### **Térkép diagramok létrehozása**
 
-A térkép diagramok a földrajzi adatokat ábrázolják, információkat konkrét helyekhez, például országokhoz, államokhoz vagy városokhoz rendelve.
+A térkép diagramok földrajzi adatok vizualizálására szolgálnak, információkat rendelnek konkrét helyekhez, például országokhoz, államokhoz vagy városokhoz. Különösen hasznosak régió‑trendek, demográfiai adatok és térbeli eloszlások elemzésére egyértelmű, vizuálisan vonzó módon.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódust használja egy alapértelmezett földrajzi adatokkal rendelkező térkép diagram létrehozásához, és a PowerPointban történő megtekintéshez elmenti.
+Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódussal hoz létre egy térkép diagramot alapértelmezett földrajzi adatokkal, és elmenti a megtekintéshez PowerPointban.
 
 ```java
 import com.aspose.slides.*;
@@ -996,19 +1078,23 @@ finally
 }
 ```
 
-![A térkép diagram](map_chart.png)
+Az eredmény:
+
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-A fenti kép a mentett prezentációt mutatja PowerPointban megnyitva. Az Aspose.Slides helyesen írja a térkép diagramot és az adatokat, de maga a diagramot nem rajzolja: amikor egy ilyen diát képpé renderelnek vagy PDF‑ vagy SVG‑formátumba konvertálnak, a diagram terület üres marad. Az ugyanazon dián lévő egyéb alakzatok érintetlenek maradnak.
+
+A fenti kép a mentett prezentációt mutatja PowerPointban megnyitva. Az Aspose.Slides helyesen írja a térkép diagramot és annak adatait, de maga a diagram nem kerül megrajzolásra: ha egy diát, amely tartalmaz egyet, képre renderel, PDF‑re vagy SVG‑re konvertál, a diagramterület üres lesz. A többi alakzat a dián változatlan marad.
+
 {{% /alert %}}
 
-### **Kombinált diagramok létrehozása**
+### **Kombinációs diagramok létrehozása**
 
-A kombinált diagram (vagy combo diagram) két vagy több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a két vagy több adathalmaz közötti különbségeket, segítve ezzel a köztük lévő kapcsolatok azonosítását.
+A kombinációs (vagy combo) diagram több diagramtípust egyesít egyetlen grafikonba. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a két vagy több adatkészlet közti különbségeket, segítve a köztük lévő összefüggések felismerését.
 
-![A kombinált diagram](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Ez a példa két csoportosított oszlop sorozatot és egy vonal sorozatot kombinál négy kategóriában. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) a vonalat a jobb oldali másodlagos függőleges tengelyre helyezi. A segédfüggvények beállítják a címet, a jelmagyarázatot, a tengelycímkéket és a rácsvonalakat.
+Ez a példa két halmozott oszlop‑sorozatot kombinál egy vonal‑sorozattal négy kategóriában. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) a vonalat egy jobb oldali másodlagos függőleges tengelyre helyezi. A segédfüggvények konfigurálják a címet, legendát, tengelycímkéket és rácsvonalakat.
 
 ```java
 import com.aspose.slides.*;
@@ -1179,9 +1265,9 @@ example.createComboChart();
 
 ## **Diagramok frissítése**
 
-Az Aspose.Slides for Java lehetővé teszi a PowerPoint diagramok frissítését a diagramadatok, formázás és stílus módosításával. Ez a funkció leegyszerűsíti a prezentációk dinamikus tartalommal való naprakészen tartását, és biztosítja, hogy a diagramok pontosan tükrözzék a jelenlegi adatokat és vizuális szabványokat.
+Az Aspose.Slides for Java lehetővé teszi PowerPoint‑diagramok frissítését a diagramadatok, formázás és stílus módosításával. Ez a funkció egyszerűsíti a prezentációk naprakészen tartását dinamikus tartalommal, és biztosítja, hogy a diagramok pontosan tükrözzék a jelenlegi adatokat és vizuális szabványokat.
 
-Ez a példa frissíti a meglévő prezentáció első diáján a "My chart" nevű diagramot. Két oszlopos sorozatra van szükség, mindegyik három adatponttal, a kategória címkék az A oszlopban, a sorozat nevek az első munkalap első sorában vannak. A példa a [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) metódussal módosítja a munkafüzet cellákat, frissíti a sorozat értékeket, egy harmadik sorozatot ad hozzá, és a diagramot csoportosított hengeres típusra változtatja a [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) segítségével.
+Ez a példa frissíti a „My chart” nevű diagramot az első dián egy meglévő prezentációban. Két oszlop‑sorozatot igényel, mindegyik három adatponttal, a kategória‑címkékkel az A oszlopban és a sorozat‑nevekkel az első munkalap első sorában. A példa a [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) metódust használja a munkafüzet‑cellák módosításához, frissíti a sorozat‑értékeket, hozzáad egy harmadik sorozatot, és a diagramot halmozott hengerekké változtatja a [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) segítségével.
 
 ```java
 import com.aspose.slides.*;
@@ -1241,13 +1327,13 @@ finally
 }
 ```
 
-## **Diagram adat tartomány beállítása**
+## **Adattartomány beállítása egy diagramhoz**
 
-A meglévő diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/java/chart-workbook/#retrieve-a-charts-data-range) oldalt.
+A már létező diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/java/chart-workbook/#retrieve-a-charts-data-range) szakaszt.
 
-Az Aspose.Slides for Java rugalmasságot biztosít egy adott munkalap adat tartományának a diagram adatforrásaként való meghatározásához. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap részletét a diagramra, lehetővé téve, hogy szabályozza, mely cellák járulnak hozzá a diagram sorozataihoz és kategóriáihoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja diagramjait a munkalap legújabb adatváltozásaival, biztosítva, hogy a PowerPoint prezentációk a jelenlegi és pontos információkat tükrözzék.
+Az Aspose.Slides for Java rugalmasságot biztosít a munkalap egy adott adattartományának diagramadat‑forrásként történő meghatározásához. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap‑részletet a diagramra, így szabályozva, mely cellák járulnak hozzá a diagram sorozataihoz és kategóriáihoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja a diagramokat a munkalap legújabb adatváltozásaival, biztosítva, hogy a PowerPoint‑prezentációk naprakész és pontos információkat tükrözzenek.
 
-Ez a példa a [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) metódust használja a "My chart" nevű diagram adatforrásának beállításához egy meglévő prezentáció első diáján, a `Sheet1!A1:B4` tartományra. A diagram munkafüzetének tartalmaznia kell azt a munkalapot és egy kitöltött tartományt, ahol az első sorban a sorozatfejléc, az A oszlopban a kategória címkék, a B oszlopban három érték található.
+Ez a példa a [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) metódust használja, hogy a „My chart” nevű diagram adatforrását az első dián egy meglévő prezentációban a `Sheet1!A1:B4` tartományra állítsa. A diagram munkafüzetének tartalmaznia kell azt a munkalapot és egy feltöltött tartományt, amely első sorban sorozat‑címet, az A oszlopban kategória‑címkéket és a B oszlopban három értéket tartalmaz.
 
 ```java
 import com.aspose.slides.*;
@@ -1278,9 +1364,9 @@ finally
 
 ## **Alapértelmezett jelölők használata diagramokban**
 
-Alapértelmezett jelölők diagramokban történő használata esetén minden diagram sorozat automatikusan más alapértelmezett jelölő szimbólumot kap.
+Alapértelmezett jelölők használatakor minden diagram‑sorozat automatikusan különböző alapértelmezett jelölőszimbólumot kap.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódust használja egy diagram létrehozásához, amely két vonal sorozatot és egy jelmagyarázatot tartalmaz. A [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) által elérhető jelölő beállítások megtartják a automatikusan hozzárendelt jelölő szimbólumokat. Az első sorozat negatív értéket és egy hiányzó értéket (`null`) tartalmaz, míg a második minden kategóriához értéket ad.
+Ez a példa a [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódussal hoz létre egy diagramot két vonal‑sorozattal és egy legendával. A [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) segítségével elérhető jelölőbeállítások megtartják a automatikusan hozzárendelt jelölőszimbólumokat. Az első sorozat egy negatív és egy hiányzó értéket (null) tartalmaz, míg a második minden kategóriához értéket ad.
 
 ```java
 import com.aspose.slides.*;
@@ -1345,18 +1431,18 @@ finally
 
 ## **GYIK**
 
-**Milyen diagramtípusokat támogat az Aspose.Slides for Java?**
+**Milyen diagramtípusok támogatottak az Aspose.Slides for Java‑ban?**
 
-Az Aspose.Slides for Java széles körű diagramtípusokat támogat, többek között oszlop, vonal, kör, terület, szórás, hisztogram, radar és sok más típus. Ez a rugalmasság lehetővé teszi, hogy az adatvizualizációs igényeihez leginkább megfelelő diagramtípust válassza.
+Az Aspose.Slides for Java számos diagramtípust támogat, többek között oszlop, vonal, kör, terület, pont, hisztogram, radar és még sok más. Ez a rugalmasság lehetővé teszi a legmegfelelőbb diagramtípus kiválasztását az adatvizualizációs igényekhez.
 
-**Hogyan adhatok új diagramot egy diához?**
+**Hogyan adhatok új diagramot egy diára?**
 
-Diagram hozzáadásához először létre kell hozni egy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) osztály példányát, lekérni a kívánt diát az indexe alapján, majd meghívni a diagramot hozzáadó metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat közvetlenül beilleszti a diagramot a prezentációba.
+Új diagram hozzáadásához először hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) osztályból, szerezze be a kívánt diát indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat közvetlenül a prezentációba integrálja a diagramot.
 
-**Hogyan frissíthetem egy diagramon megjelenített adatokat?**
+**Hogyan frissíthetem egy diagram megjelenített adatait?**
 
-A diagram adatait a diagram adatmunkaügykönyvéhez ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)) való hozzáféréssel, az alapértelmezett sorozatok és kategóriák törlésével, majd saját adatainak hozzáadásával frissítheti. Ez lehetővé teszi, hogy programozottan frissítse a diagramot a legújabb adatok tükrözéséhez.
+A diagram adatait a [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) elérésével frissítheti, törölheti az alapértelmezett sorozatokat és kategóriákat, majd hozzáadhatja a saját egyedi adatait. Ez lehetővé teszi, hogy programozottan frissítse a diagramot a legújabb adatok szerint.
 
-**Lehetőség van a diagram megjelenésének testreszabására?**
+**Lehet-e testreszabni a diagram megjelenését?**
 
-Igen, az Aspose.Slides for Java kiterjedt testreszabási lehetőségeket kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatot és egyéb formázási elemeket, hogy a diagram megjelenését az Ön specifikus tervezési követelményeihez igazítsa.
+Igen, az Aspose.Slides for Java kiterjedt testreszabási lehetőségeket biztosít. Módosíthatja a színeket, betűtípusokat, címkéket, legendákat és egyéb formázási elemeket, hogy a diagram megjelenését az adott tervezési követelményekhez igazítsa.

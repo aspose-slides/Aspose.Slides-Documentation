@@ -1,6 +1,6 @@
 ---
-title: Tworzenie lub aktualizacja wykresów prezentacji PowerPoint w C++
-linktitle: Tworzenie lub aktualizacja wykresów
+title: Utwórz lub zaktualizuj wykresy prezentacji PowerPoint w C++
+linktitle: Utwórz lub zaktualizuj wykresy
 type: docs
 weight: 10
 url: /pl/cpp/create-chart/
@@ -11,13 +11,13 @@ keywords:
 - utwórz wykres
 - edytuj wykres
 - zmień wykres
-- aktualizuj wykres
-- wykres punktowy
+- zaktualizuj wykres
+- wykres rozproszony
 - wykres kołowy
 - wykres liniowy
 - wykres mapy drzewa
 - wykres giełdowy
-- wykres pudełkowo-wąsowy
+- wykres pudełkowy i wąsowy
 - wykres lejkowy
 - wykres promieniowy
 - wykres histogramu
@@ -27,35 +27,37 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++. Dodawaj, formatuj i edytuj wykresy przy użyciu praktycznych przykładów kodu w C++."
+description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++. Dodawaj, formatować i edytuj wykresy z praktycznymi przykładami kodu w C++."
 ---
 ## **Przegląd**
 
-Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides dla C++. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić konkretne wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok – od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę, jak integrować dynamiczne generowanie wykresów w aplikacjach C++, usprawniając proces tworzenia prezentacji opartych na danych.
+Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides dla C++. Nauczysz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić konkretne wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach C++, usprawniając proces tworzenia prezentacji opartych na danych.
 
-## **Tworzenie wykresu**
+## **Utwórz wykres**
 
-Wykresy pomagają ludziom szybko wizualizować dane i uzyskiwać wnioski, które nie są od razu oczywiste w tabeli lub arkuszu kalkulacyjnym.
+Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które mogą nie być od razu widoczne w tabeli lub arkuszu kalkulacyjnym.
 
 **Dlaczego tworzyć wykresy?**
 
-Korzystając z wykresów, możesz:
+Używając wykresów, możesz:
 
 * agregować, kondensować lub podsumowywać duże ilości danych na jednym slajdzie prezentacji;
 * ujawniać wzorce i trendy w danych;
 * wywnioskować kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary;
-* wykrywać wartości odstające, aberracje, odchylenia, błędy i dane bezsensowne;
+* wykrywać wartości odstające, aberracje, odchylenia, błędy i nonsensowne dane;
 * komunikować lub prezentować złożone dane.
 
-W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji *Wstaw*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
+W PowerPoint możesz tworzyć wykresy za pomocą funkcji *Insert*, która oferuje szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach wykresów), jak i wykresy niestandardowe.
 
 {{% alert color="info" title="Note" %}}
-Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) w przestrzeni nazw [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
+
+Use the [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) enumeration under the [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
+
 {{% /alert %}}
 
-### **Tworzenie wykresów kolumnowych skumulowanych**
+### **Utwórz wykresy słupkowe grupowane**
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do utworzenia wykresu kolumnowego skumulowanego, który porównuje dwie serie w trzech kategoriach. Serie są wypełnione odpowiednio czerwonym i zielonym kolorem, a indywidualne etykiety pokazują nazwy kategorii, nazwy serii i wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu słupkowego grupowanego, który porównuje dwie serie w trzech kategoriach. Serie używają wypełnień na czerwono i zielono, a indywidualne etykiety pokazują nazwy kategorii, nazwy serii i wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -165,20 +167,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Wynik:
 
-![Wykres kolumnowy skumulowany](clustered_column_chart.png)
+![Wykres słupkowy grupowany](clustered_column_chart.png)
 
-### **Tworzenie wykresów punktowych**
+### **Utwórz wykresy rozrzutu**
 
-Wykresy punktowe (znane także jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub demonstrowania korelacji między dwoma zmiennymi.
+Wykresy rozrzutu (znane również jako wykresy punktowe lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwiema zmiennymi.
 
-Używaj wykresu punktowego, gdy:
+Użyj wykresu rozrzutu, gdy:
 
 * Masz sparowane dane liczbowe.
-* Masz dwie zmienne, które dobrze ze sobą współgrają.
-* Chcesz określić, czy dwie zmienne są ze sobą powiązane.
+* Masz dwie zmienne, które ze sobą dobrze współgrają.
+* Chcesz określić, czy dwie zmienne są powiązane.
 * Masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej.
 
-Ten przykład rysuje dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii z markerami‑gwiazdkami, druga – wygładzonych linii z markerami‑kółkami; oba zestawy mają rozmiar markera 10, ustawiony metodą [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Kształt markera kontroluje metoda [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/).
+Ten przykład wykreśla dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii z markerami‑gwiazdkami, druga używa wygładzonych linii z markerami‑kółkami; obie używają rozmiaru markera 10, ustawionego za pomocą [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Metoda [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) kontroluje kształt markera.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -268,13 +270,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Wynik:
 
-![Wykres punktowy](scatter_chart.png)
+![Wykres rozrzutu](scatter_chart.png)
 
-### **Tworzenie wykresów kołowych**
+### **Utwórz wykresy kołowe**
 
-Wykresy kołowe są najlepsze do prezentacji relacji część‑całość w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jeśli jednak Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
+Wykresy kołowe najlepiej nadają się do przedstawiania relacji część‑całość w danych, szczególnie gdy dane zawierają etykiety kategorialne z wartościami liczbowymi. Jednak jeśli Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
 
-Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy wycinek ma niestandardowe wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Metoda [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) ustawia pierwszy wycinek na 180 stopni.
+Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy wycinek ma własne wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Metoda [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) ustawia pierwszy wycinek, aby zaczynał się pod kątem 180 stopni.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -413,11 +415,11 @@ Wynik:
 
 ![Wykres kołowy](pie_chart.png)
 
-### **Tworzenie wykresów liniowych**
+### **Utwórz wykresy liniowe**
 
-Wykresy liniowe (znane także jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
+Wykresy liniowe (znane również jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Korzystając z wykresu liniowego, możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i wiele więcej.
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do utworzenia wykresu liniowego z domyślnymi seriami i kategoriami, po czym zapisuje prezentację jako PPTX.
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu liniowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -449,7 +451,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Domyślnie punkty na wykresie liniowym są łączone prostymi, ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, wywołaj [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) z wartością z [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
+Domyślnie punkty na wykresie liniowym są połączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były połączone kreskami, wywołaj [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) z wartością z [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -488,11 +490,11 @@ Wynik:
 
 ![Wykres liniowy](line_chart.png)
 
-### **Tworzenie wykresów mapy drzewa**
+### **Utwórz wykresy mapy drzewa**
 
-Wykresy mapy drzewa są najlepsze do danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które są dużymi wkładami w każdej kategorii.
+Wykresy mapy drzewa są najlepsze w przypadku danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które są dużymi wkładaczami w każdej kategorii.
 
-Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, a etykiety kategorii i nakładające się etykiety rodziców identyfikują hierarchię.
+Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, natomiast etykiety kategorii i nakładające się etykiety nadrzędne identyfikują hierarchię.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -600,24 +602,24 @@ Wynik:
 
 ![Wykres mapy drzewa](treemap_chart.png)
 
-### **Tworzenie wykresów wodospadowych**
+### **Utwórz wykresy wodospadowe**
 
-Wykres wodospadowy pokazuje, jak zmiany dodatnie i ujemne przyczyniają się do wartości końcowej. Na przykład rozbiórka zysku może zaczynać się od przychodu, odjąć koszty i dodać inne przychody. Kolumny zmian „pływają” między poprzednią a nową wartością bieżącą, a kolumny sumaryczne rozciągają się od zera do wartości skumulowanej.
+Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do wartości końcowej. Na przykład rozbicie zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny zmian „pływają” pomiędzy poprzednią a nową wartością bieżącą, podczas gdy kolumny sumy rozciągają się od zera do wartości skumulowanej.
 
 Poniższy przykład używa kwot w tysiącach dolarów amerykańskich:
 
-| Kategoria | Wartość w skoroszycie | Typ kolumny |
+| Kategoria | Wartość skoroszytu | Typ kolumny |
 | --- | ---: | --- |
-| Przychód | 1000 | Wzrost |
+| Przychody | 1000 | Wzrost |
 | Koszt sprzedaży | -400 | Spadek |
 | Zysk brutto | 600 | Suma pośrednia |
 | Koszty operacyjne | -200 | Spadek |
-| Inne przychody | 50 | Wzrost |
+| Inny przychód | 50 | Wzrost |
 | Zysk netto | 450 | Suma końcowa |
 
-Aby oznaczyć punkt jako sumę pośrednią lub końcową, wywołaj jego metodę [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) z wartością `true`. Podaj rzeczywistą skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Metoda oznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako symbolu zastępczego ani nie podawaj innej zmiany dla punktu sumy. Kolumna sumy wyświetla skumulowaną wartość bez ponownego dodawania jej do wartości bieżącej.
+Aby oznaczyć punkt jako sumę pośrednią lub końcową, wywołaj jego metodę [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) z wartością `true`. Podaj faktyczną skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Metoda oznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako symbolu zastępczego ani nie podawaj innej zmiany dla punktu sumy. Kolumna sumy wyświetla skumulowaną wartość bez ponownego dodawania jej do wartości bieżącej.
 
-Ten kompletny przykład C++ tworzy wykres przy użyciu członka `Waterfall` wyliczenia [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B – wartości. Każda komórka wartości jest dodawana metodą [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indeksy punktów zero‑based `2` i `5` identyfikują sumy pośrednie i końcowe. Przekazanie `true` do [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) wyświetla kwoty na kolumnach. Nie wymaga się żadnej prezentacji ani skoroszytu wejściowego.
+Ten kompletny przykład C++ tworzy wykres przy użyciu członka `Waterfall` z [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B wartości. Każda komórka wartości jest dodawana za pomocą [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indeksy punktów zerobazowe `2` i `5` identyfikują sumy pośrednie i końcowe. Przekazanie `true` do [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) wyświetla kwoty na kolumnach. Nie wymaga żadnej prezentacji ani skoroszytu wejściowego.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -700,17 +702,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-Wywołaj metodę na poziomie serii [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) z wartością `true`, aby pokazać linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień przypisanie w przykładzie na `series->set_ShowConnectorLines(false);` przed zapisaniem. Zmienia to tylko widoczność linii, nie dane ani sumy.
+Wywołaj metodę na poziomie serii [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) z wartością `true`, aby pokazać linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień przypisanie w przykładzie na `series->set_ShowConnectorLines(false);` przed zapisem. Zmienia to tylko widoczność linii, nie dane ani sumy.
 
-Zapisana prezentacja pokazuje zysk brutto 600 i zysk netto 450, przy czym obie sumy rozpoczynają się od zera:
+Zapisana prezentacja pokazuje zysk brutto 600 i zysk netto 450, przy czym obie sumy są rysowane od zera:
 
-![Wykres wodospadowy przedstawiający przychód, koszty, zysk brutto 600 i zysk netto 450, z etykietami wartości i liniami łączącymi](waterfall_chart.png)
+![Wykres wodospadowy pokazujący przychody, koszty, zysk brutto 600 i zysk netto 450, z etykietami wartości i liniami łączącymi](waterfall_chart.png)
 
-### **Tworzenie wykresów giełdowych**
+### **Utwórz wykresy giełdowe**
 
 Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksymalne, minimalne i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych informacji o wydajności akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
 
-Ten przykład tworzy wykres OHLC (open‑high‑low‑close) z czterema seriami w tej kolejności i trzema kategoriami. Metoda [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) włącza słupki góra/dół, a [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) kontroluje linie wysokich‑niskich, które pokazują zakresy cen, podczas gdy linie serii i drobne linie siatki poziome są ukryte.
+Ten przykład tworzy wykres otwarcia‑wysokość‑niskość‑zamknięcia z czterema seriami w tej kolejności oraz trzema kategoriami. Metoda [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) włącza słupki w górę/dół, a [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) kontroluje linie wysokich‑niskich pokazujące zakresy cen, podczas gdy pojedyncze linie serii i drobne linie siatki poziome są ukryte.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -820,11 +822,11 @@ Wynik:
 
 ![Wykres giełdowy](stock_chart.png)
 
-### **Tworzenie wykresów pudełkowo‑wąsowych**
+### **Utwórz wykresy pudełkowe i wąsowe**
 
-Wykresy pudełkowo‑wąsowe służą do wyświetlania rozkładu danych przez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w analizie eksploracyjnej i badaniach statystycznych, umożliwiając szybkie zrozumienie zmienności danych i identyfikację anomalii.
+Wykresy pudełkowe i wąsowe służą do przedstawiania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w eksploracyjnej analizie danych i badaniach statystycznych, aby szybko zrozumieć zmienność danych i zidentyfikować anomalie.
 
-Ten przykład tworzy wykres pudełkowo‑wąsowy z sześciu wartości. Metoda [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) wybiera wyłączne wyliczanie kwartylów. Przykład włącza także linie średniej, markery średniej, wewnętrzne punkty i punkty odstające.
+Ten przykład tworzy wykres pudełkowy i wąsowy z sześciu wartości. Metoda [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) wybiera wyłączny sposób obliczania kwartylów. Przykład włącza także linie średniej, znaczniki średniej, wewnętrzne punkty i punkty odstające.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -905,11 +907,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **Tworzenie wykresów lejkowych**
+### **Utwórz wykresy lejkowe**
 
-Wykresy lejkowe służą do wizualizacji procesów, które obejmują kolejne etapy, przy czym objętość danych maleje w miarę przechodzenia z jednego kroku do następnego. Są szczególnie pomocne przy analizie współczynników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
+Wykresy lejkowe służą do wizualizacji procesów, które obejmują kolejne etapy, gdzie objętość danych maleje w miarę przechodzenia z jednego kroku do następnego. Są szczególnie pomocne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do dodania wykresu lejkowego na pierwszym slajdzie istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, po czym zapisuje zaktualizowaną prezentację. Prezentacja wejściowa musi zawierać co najmniej jeden slajd.
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do dodania wykresu lejkowego do pierwszego slajdu istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, a następnie zapisuje zaktualizowaną prezentację. Prezentacja wejściowa musi zawierać co najmniej jeden slajd.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -986,11 +988,11 @@ Wynik:
 
 ![Wykres lejkowy](funnel_chart.png)
 
-### **Tworzenie wykresów promieniowych (Sunburst)**
+### **Utwórz wykresy promieniowe**
 
-Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają ilustrować relacje część‑całość i są idealne do reprezentacji zagnieżdżonych kategorii i podkategorii w przejrzystym, skompaktowanym formacie.
+Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają ilustrować relacje część‑całość i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzystym, skompaktowanym formacie.
 
-Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) przydziela pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
+Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1095,13 +1097,18 @@ Wynik:
 
 ![Wykres promieniowy](sunburst_chart.png)
 
-### **Tworzenie wykresów histogramów**
+### **Utwórz wykresy histogramu**
 
-Histogramy służą do przedstawiania rozkładu danych liczbowych przez grupowanie wartości w przedziały (kosze). Są szczególnie przydatne do identyfikacji wzorców danych, takich jak częstość, skośność i rozproszenie, oraz do wykrywania wartości odstających w zbiorze danych.
+Wykresy histogramu pokazują, jak wartości liczbowe są rozłożone w przedziałach (koszach). Dla comiesięcznych raportów czasu przetwarzania zamówień używaj tej samej szerokości kosza i progów, aby utrzymać spójność przedziałów i ułatwić porównania rozkładów.
 
-Ten przykład tworzy histogram z sześciu wartości liczbowych, w tym wartości ujemnych. Wywołanie [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) z automatyczną wartością pozwala wykresowi określić użyte kosze do wyświetlenia rozkładu.
+Wywołaj metodę osi poziomej [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) z trybem z [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) ma zastosowanie tylko do `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) ma zastosowanie tylko do `ByNumberOfBins`. Użyj `Automatic`, aby pozwolić wykresowi wybrać kosze.
+
+#### **Użyj stałej szerokości kosza**
+
+Ten przykład grupuje czasy przetwarzania w przedziały 10‑minutowe, z osobnymi koszami dla czasów ≤ 10 min i > 40 min. Włącz te kosze za pomocą [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) i [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). Podając wyraźne progi przez [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) i [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), wywołaj [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) oraz [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) z wartością `false`.
 
 ```cpp
+#include <system/array.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/string.h>
@@ -1136,7 +1143,10 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 500, 300);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
 
 chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
@@ -1145,33 +1155,105 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
-auto valueCell = workbook->GetCell(0, u"A1", ObjectExt::Box(15));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A2", ObjectExt::Box(-41));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A3", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A4", ObjectExt::Box(10));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A5", ObjectExt::Box(-23));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A6", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
 
-chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(AxisAggregationType::Automatic);
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByBinWidth);
+axis->set_BinWidth(10);
+axis->set_IsUnderflowBin(true);
+axis->set_IsAutomaticUnderflowBin(false);
+axis->set_UnderflowBin(10);
+axis->set_IsOverflowBin(true);
+axis->set_IsAutomaticOverflowBin(false);
+axis->set_OverflowBin(40);
 
-presentation->Save(u"Histogram.pptx", SaveFormat::Pptx);
+presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-Wynik:
+Prezentacja wyświetlana w PowerPoint pokazuje liczbę elementów w koszach **3, 4, 4, 4 i 2**. Kosz podprzepływu zawiera `5, 10, 10`, więc jego próg jest inkluzywny. Kosz przepełnienia zawiera tylko `41, 50`, więc jego próg jest ekskluzywny; obie wartości równe `40` pozostają w poprzednim przedziale. Kosze wewnętrzne zawierają wartości większe niż ich dolna granica i mniejsze lub równe ich górnej granicy.
 
-![Histogram](histogram_chart.png)
+![Histogram z koszami 10‑minutowymi i wyraźnymi progami podprzepływu i przepełnienia](histogram_bin_width.png)
 
-### **Tworzenie wykresów radarowych**
+#### **Określ liczbę koszy**
 
-Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównywanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w wielu miarach wydajności lub atrybutach.
+Aby uzyskać stały poziom szczegółowości zamiast stałych przedziałów, poproś o pięć koszy dla tych samych danych. Ten przykład wyłącza kosze podprzepływu i przepełnienia. Wykres określa szerokość na podstawie zakresu danych, więc granice mogą się zmieniać między raportami.
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do utworzenia wykresu radarowego z domyślnymi seriami i kategoriami, po czym zapisuje prezentację jako PPTX.
+```cpp
+#include <system/array.h>
+#include <system/shared_ptr.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByNumberOfBins);
+axis->set_NumberOfBins(5);
+
+presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
+```
+
+Pięć koszy ma liczbę elementów **4, 4, 4, 4 i 1**. Porównaj ten rozkład z wynikiem stałej szerokości powyżej: wartości wejściowe są identyczne, ale granice się różnią.
+
+![Histogram z pięcioma koszami obliczonymi na podstawie tych samych danych](histogram_bin_count.png)
+
+### **Utwórz wykresy radarowe**
+
+Wykresy radarowe służą do wyświetlania danych wielowymiarowych w formacie dwuwymiarowym, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w różnych miarach wydajności lub atrybutach.
+
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu radarowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1207,11 +1289,11 @@ Wynik:
 
 ![Wykres radarowy](radar_chart.png)
 
-### **Tworzenie wykresów wielokategorii**
+### **Utwórz wykresy wielokategorii**
 
-Wykresy wielokategorii służą do wyświetlania danych, które obejmują więcej niż jedną grupę kategoryczną, umożliwiając porównywanie wartości w wielu wymiarach jednocześnie. Są szczególnie przydatne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
+Wykresy wielokategorii służą do wyświetlania danych, które obejmują więcej niż jedną grupę kategorialną, umożliwiając porównywanie wartości w wielu wymiarach jednocześnie. Są szczególnie pomocne, gdy musisz analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
 
-Ten przykład tworzy wykres kolumnowy skumulowany z ośmioma kategoriami ułożonymi w cztery pary. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z etykietami zarówno indywidualnymi, jak i grupowymi.
+Ten przykład tworzy wykres słupkowy grupowany z ośmioma kategoriami rozmieszczonymi w czterech parach. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z zarówno indywidualnymi, jak i grupowymi etykietami.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1308,11 +1390,11 @@ Wynik:
 
 ![Wykres wielokategorii](multi_category_chart.png)
 
-### **Tworzenie wykresów mapowych**
+### **Utwórz wykresy map**
 
-Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany czy miasta. Są szczególnie przydatne do analizowania trendów regionalnych, danych demograficznych i rozkładów przestrzennych w klarowny i wizualnie atrakcyjny sposób.
+Wykresy map służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany lub miasta. Są szczególnie przydatne do analizy trendów regionalnych, danych demograficznych i rozmieszczenia przestrzennego w przejrzysty, wizualnie atrakcyjny sposób.
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do utworzenia wykresu mapowego z domyślnymi danymi geograficznymi i zapisuje go do przeglądania w programie PowerPoint.
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu mapy z domyślnymi danymi geograficznymi i zapisuje go do wyświetlenia w PowerPoint.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1346,19 +1428,21 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 Wynik:
 
-![Wykres mapowy](map_chart.png)
+![Wykres mapy](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Powyższy obrazek przedstawia zapisany plik prezentacji otwarty w programie PowerPoint. Aspose.Slides zapisuje wykres mapowy i jego dane poprawnie, ale nie rysuje samych wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany do PDF albo SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
+
+Obraz powyżej pokazuje zapisany plik prezentacji otwarty w PowerPoint. Aspose.Slides zapisuje wykres mapy i jego dane prawidłowo, ale nie renderuje samych wykresów mapy: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany na PDF lub SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
+
 {{% /alert %}}
 
-### **Tworzenie wykresów kombinowanych**
+### **Utwórz wykresy kombinowane**
 
-Wykres kombinowany (lub combo) łączy dwa lub więcej typów wykresów w jednej grafice. Umożliwia podkreślenie, porównanie lub zbadanie różnic między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności pomiędzy nimi.
+Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym wykresie. Ten wykres pozwala podkreślić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
 
 ![Wykres kombinowany](combination_chart.png)
 
-Ten przykład łączy dwie serie kolumn skumulowanych z serią liniową w czterech kategoriach. Kolumny używają głównej osi pionowej, podczas gdy [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) umieszcza linię na drugorzędnej osi pionowej po prawej stronie. Funkcje pomocnicze konfigurowane są w celu ustawienia tytułu, legendy, etykiet osi i linii siatki.
+Ten przykład łączy dwie serie słupkowe grupowane z serią liniową w czterech kategoriach. Słupki używają podstawowej pionowej osi, podczas gdy [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) umieszcza linię na dodatkowej pionowej osi po prawej stronie. Funkcje pomocnicze konfigurują tytuł, legendę, etykiety osi i linie siatki.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1567,11 +1651,11 @@ struct ComboChartExample
 ComboChartExample::CreateComboChart();
 ```
 
-## **Aktualizacja wykresów**
+## **Aktualizuj wykresy**
 
-Aspose.Slides dla C++ umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Funkcjonalność ta upraszcza proces utrzymywania prezentacji na bieżąco z dynamiczną treścią i zapewnia, że wykresy wiernie odzwierciedlają aktualne dane oraz standardy wizualne.
+Aspose.Slides dla C++ umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Funkcjonalność ta upraszcza proces utrzymywania prezentacji aktualnych z dynamiczną zawartością i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane i standardy wizualne.
 
-Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, z etykietami kategorii w kolumnie A i nazwami serii w pierwszym wierszu pierwszego arkusza. Przykład używa [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię oraz zmienia wykres na skumulowane walce poprzez [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
+Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, z etykietami kategorii w kolumnie A oraz nazwami serii w pierwszym wierszu pierwszego arkusza. Przykład używa [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię i zmienia wykres na cylindry grupowane poprzez [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1656,9 +1740,9 @@ presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 
 Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Retrieve a Chart's Data Range](/slides/pl/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides dla C++ zapewnia elastyczność definiowania określonego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować fragment arkusza na wykres, kontrolując które komórki przyczyniają się do serii i kategorii wykresu. Dzięki temu łatwo aktualizujesz i synchronizujesz wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
+Aspose.Slides dla C++ zapewnia elastyczność definiowania konkretnego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować fragment swojego arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. W rezultacie możesz łatwo aktualizować i synchronizować wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że Twoje prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
 
-Ten przykład używa [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) do ustawienia źródła danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz oraz wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A i trzema wartościami w kolumnie B.
+Ten przykład używa [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) do ustawienia źródła danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać taki arkusz i wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A i trzema wartościami w kolumnie B.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1700,11 +1784,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **Użyj domyślnych markerów w wykresach**
+## **Używaj domyślnych znaczników w wykresach**
 
-Kiedy używasz domyślnych markerów w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol markera.
+Gdy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do utworzenia wykresu z dwoma seriami liniowymi i legendą. Ustawienia [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) zachowują automatycznie przypisane symbole markerów. Pierwsza seria zawiera wartość ujemną i brakującą wartość, reprezentowaną przez `nullptr`, natomiast druga ma wartość dla każdej kategorii.
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu z dwiema seriami liniowymi i legendą. Ustawienia [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) zachowują automatycznie przypisane symbole znaczników. Pierwsza seria zawiera wartość ujemną i brakującą wartość, reprezentowaną przez `nullptr`, podczas gdy druga ma wartość dla każdej kategorii.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1794,15 +1878,15 @@ presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 **Jakie typy wykresów są obsługiwane przez Aspose.Slides dla C++?**
 
-Aspose.Slides dla C++ obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides dla C++ obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, rozrzutu, histogram, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), pobierasz żądany slajd za pomocą jego indeksu, a następnie wywołujesz metodę dodającą wykres, podając typ wykresu i początkowe dane. Ten proces integruje wykres bezpośrednio w twojej prezentacji.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio w twojej prezentacji.
 
-**Jak mogę zaktualizować dane wyświetlane na wykresie?**
+**Jak mogę zaktualizować dane wyświetlane w wykresie?**
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), czyszcząc domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programowe odświeżenie wykresu w celu odzwierciedlenia najnowszych danych.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), czyszcząc domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programatyczne odświeżenie wykresu, aby odzwierciedlał najnowsze dane.
 
 **Czy można dostosować wygląd wykresu?**
 

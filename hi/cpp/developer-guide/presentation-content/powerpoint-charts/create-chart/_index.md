@@ -1,61 +1,59 @@
 ---
-title: "C++ में PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें"
-linktitle: "चार्ट बनाएं या अपडेट करें"
+title: C++ में PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें
+linktitle: चार्ट बनाएं या अपडेट करें
 type: docs
 weight: 10
 url: /hi/cpp/create-chart/
 aliases:
   - /cpp/update-chart/
 keywords:
-- "चार्ट जोड़ें"
-- "चार्ट बनाएं"
-- "चार्ट संपादित करें"
-- "चार्ट बदलें"
-- "चार्ट अपडेट करें"
-- "स्कैटर चार्ट"
-- "पाई चार्ट"
-- "लाइन चार्ट"
-- "ट्री मैप चार्ट"
-- "स्टॉक चार्ट"
-- "बॉक्स एंड विस्कर चार्ट"
-- "फनल चार्ट"
-- "सनबर्स्ट चार्ट"
-- "हिस्टोग्राम चार्ट"
-- "रेडार चार्ट"
-- "मल्टीकैटगरी चार्ट"
-- "PowerPoint"
-- "प्रेजेंटेशन"
-- "C++"
-- "Aspose.Slides"
-description: "Aspose.Slides for C++ का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और कस्टमाइज़ करें। C++ में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फॉर्मेट करें और संपादित करें।"
+- चार्ट जोड़ें
+- चार्ट बनाएं
+- चार्ट संपादित करें
+- चार्ट बदलें
+- चार्ट अपडेट करें
+- स्कैटर चार्ट
+- पाई चार्ट
+- लाइन चार्ट
+- ट्री मैप चार्ट
+- स्टॉक चार्ट
+- बॉक्स और व्हिस्कर चार्ट
+- फ़नल चार्ट
+- सनबर्स्ट चार्ट
+- हिस्टोग्राम चार्ट
+- रेडार चार्ट
+- मल्टीकैटेगरी चार्ट
+- PowerPoint
+- प्रेजेंटेशन
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। C++ में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मेट करें और संपादित करें।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides for C++ का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक गाइड प्रदान करता है। आप सीखेंगे कि कैसे प्रोग्रामेटिक रूप से स्लाइड में चार्ट जोड़ें, डेटा से भरें, और आपके विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार विभिन्न फ़ॉर्मेटिंग विकल्प लागू करें। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करने से लेकर सीरीज़, एक्सिस और लेजेंड कॉन्फ़िगर करने तक। इस गाइड का पालन करके, आप अपने C++ एप्लिकेशन में डायनैमिक चार्ट जनरेशन को आसानी से एकीकृत कर सकेंगे, जिससे डेटा‑ड्रिवेन प्रेजेंटेशन बनाना सरल हो जाएगा।
+यह लेख Aspose.Slides for C++ का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक गाइड प्रदान करता है। आप सीखेंगे कि प्रोग्रामmatically एक स्लाइड में चार्ट कैसे जोड़ें, उसे डेटा से भरें, और आपके विशिष्ट डिज़ाइन आवश्यकताओं को पूरा करने के लिए विभिन्न फ़ॉर्मेटिंग विकल्प कैसे लागू करें। पूरे लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को स्पष्ट करते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को आरंभ करने से लेकर सीरीज़, एक्सिस, और लेजेंड को कॉन्फ़िगर करने तक। इस गाइड का पालन करके आप अपने C++ एप्लिकेशन में डायनेमिक चार्ट जेनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑ड्रिवन प्रस्तुतियों का निर्माण सरल हो जाएगा।
 
 ## **चार्ट बनाएं**
 
-चार्ट लोगों को डेटा को जल्दी से visualize करने और ऐसे insights प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
+चार्ट लोगों को डेटा को तेज़ी से विज़ुअलाइज़ करने और उन अंतर्दृष्टियों को प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
 
-**चार्ट क्यों बनाएं?**
+**क्यों चार्ट बनाएं?**
 
-चार्ट का उपयोग करके आप:
+* प्रस्तुति में एक स्लाइड पर बड़े मात्रा में डेटा को एकत्रित, सघन या सारांशित करना;
+* डेटा में पैटर्न और रुझानों को उजागर करना;
+* समय के साथ या विशिष्ट माप इकाई के संबंध में डेटा की दिशा और गति का अनुमान लगाना;
+* असामान्य मान, विकृति, विचलन, त्रुटियों और अव्यवस्थित डेटा को पहचानना;
+* जटिल डेटा को संप्रेषित या प्रस्तुत करना।
 
-* प्रस्तुति में एक ही स्लाइड पर बड़ी मात्रा में डेटा को aggregate, condense, या summarize कर सकते हैं;
-* डेटा में patterns और trends प्रदर्शित कर सकते हैं;
-* समय के साथ या किसी विशिष्ट measurement unit के सापेक्ष डेटा की दिशा और गति निर्धारित कर सकते हैं;
-* outliers, aberrations, deviations, errors, तथा nonsensical डेटा की पहचान कर सकते हैं;
-* जटिल डेटा को communicate या present कर सकते हैं।
-
-PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से कई प्रकार के चार्ट टेम्पलेट चुनकर चार्ट बना सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) तथा कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से चार्ट बना सकते हैं, जो कई प्रकार के चार्ट डिज़ाइन करने के लिए टेम्प्लेट प्रदान करता है। Aspose.Slides का उपयोग करके आप नियमित चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
 {{% alert color="info" title="Note" %}}
-[ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) enumeration का उपयोग [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) namespace में करें। इस enumeration के मान विभिन्न चार्ट प्रकारों से मेल खाते हैं।
+[ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) enumeration को [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) नामस्थान के तहत उपयोग करें। इस enumeration में मान विभिन्न चार्ट प्रकारों से मेल खाते हैं।
 {{% /alert %}}
 
-### **Clustered Column चार्ट बनाएं**
+### **क्लस्टर्ड कॉलम चार्ट बनाएं**
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करके एक clustered column चार्ट बनाता है जो दो series को तीन categories में तुलना करता है। series को लाल और हरे fill दिया गया है, तथा व्यक्तिगत लेबल्स category नाम, series नाम और मान दिखाते हैं। Worksheet index 0 embedded chart workbook की पहली शीट को दर्शाता है।
+यह उदाहरण दो सीरीज़ को तीन श्रेणियों में तुलना करने वाला क्लस्टर्ड कॉलम चार्ट बनाता है, जिसके लिए आप [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करते हैं। सीरीज़ लाल और हरे रंग से भरते हैं, और व्यक्तिगत लेबल श्रेणी नाम, सीरीज़ नाम, और मान दर्शाते हैं। वर्कशीट इंडेक्स 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को संदर्भित करता है।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -165,20 +163,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 परिणाम:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![क्लस्टर्ड कॉलम चार्ट](clustered_column_chart.png)
 
-### **Scatter चार्ट बनाएं**
+### **स्कैटर चार्ट बनाएं**
 
-Scatter चार्ट (जिसे scatter plot या x‑y graph भी कहा जाता है) अक्सर दो variables के बीच patterns या correlations जांचने के लिए उपयोग होते हैं।
+स्कैटर चार्ट (जिन्हें स्कैटर प्लॉट या X‑Y ग्राफ़ भी कहा जाता है) अक्सर दो चर के बीच पैटर्न या सहसम्बंध जांचने के लिए उपयोग किए जाते हैं।
 
-Scatter चार्ट का उपयोग तब करें जब:
+स्कैटर चार्ट तब उपयोग करें जब:
 
-* आपके पास paired numerical डेटा हो;
-* दो variables आपस में अच्छी तरह से जुड़े हों;
-* आप यह निर्धारित करना चाहते हों कि दो variables संबंधित हैं या नहीं;
-* आपके पास एक independent variable हो जिसके कई values एक dependent variable के लिए हों।
+* आपके पास युग्मित संख्यात्मक डेटा है।
+* आपके पास दो चर हैं जो एक साथ अच्छी तरह से जुड़े होते हैं।
+* आप यह निर्धारित करना चाहते हैं कि दो चर संबंधित हैं या नहीं।
+* आपके पास एक स्वतंत्र चर है जिसका कई मान आश्रित चर के लिए हैं।
 
-यह उदाहरण दो सेट x‑y values प्लॉट करता है। पहली series में straight lines के साथ star markers हैं, जबकि दूसरी में smooth lines के साथ circle markers; दोनों में marker size 10 है, जिसे [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/) से सेट किया गया है। [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) मेथड marker shape नियंत्रित करता है।
+यह उदाहरण दो सेट के X‑Y मान प्लॉट करता है। पहली सीरीज़ तारांकन मार्कर वाले सीधी रेखाओं का उपयोग करती है, जबकि दूसरी स्मूथ रेखाओं के साथ वृत्ताकार मार्कर का; दोनों में मार्कर आकार 10 है, जिसे आप [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/) से सेट करते हैं। [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) विधि मार्कर आकार नियंत्रित करती है।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -268,13 +266,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 परिणाम:
 
-![The Scatter chart](scatter_chart.png)
+![स्कैटर चार्ट](scatter_chart.png)
 
-### **Pie चार्ट बनाएं**
+### **पाई चार्ट बनाएं**
 
-Pie चार्ट डेटा में भाग‑से‑पूरे संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेष रूप से जब डेटा में categorical लेबल्स के साथ numeric मान हों। हालांकि, यदि आपके डेटा में बहुत सारे भाग या लेबल हों, तो बार चार्ट का उपयोग करने पर विचार करें।
+पाई चार्ट डेटा में भाग‑से‑संपूर्ण संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणी लेबल के साथ संख्यात्मक मान होते हैं। हालांकि, यदि आपके डेटा में कई भाग या लेबल हैं, तो आप बार चार्ट का उपयोग करने पर विचार कर सकते हैं।
 
-यह उदाहरण तीन quarterly मानों के साथ एक pie chart बनाता है। प्रत्येक slice को कस्टम fill और border दिया गया है, और लेबल्स में मान, प्रतिशत और series जानकारी के विभिन्न संयोजन दिखाए गए हैं। [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) मेथड पहले slice को 180 डिग्री से शुरू करता है।
+यह उदाहरण तीन त्रैमासिक मानों के साथ एक पाई चार्ट बनाता है। प्रत्येक स्लाइस का कस्टम भराव और बॉर्डर है, और लेबल विभिन्न संयोजनों में मान, प्रतिशत, और सीरीज़ जानकारी दिखाते हैं। [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) विधि पहला स्लाइस 180 डिग्री पर शुरू करती है।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -411,13 +409,13 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 परिणाम:
 
-![The Pie chart](pie_chart.png)
+![पाई चार्ट](pie_chart.png)
 
-### **Line चार्ट बनाएं**
+### **लाइन चार्ट बनाएं**
 
-Line चार्ट (जिसे line graph भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मानों में परिवर्तन दर्शाना चाहते हैं। लाइन चार्ट के माध्यम से आप एक साथ बड़ी मात्रा में डेटा की तुलना, परिवर्तन और trends को ट्रैक, और series में anomalies को हाइलाइट कर सकते हैं।
+लाइन चार्ट (जिन्हें लाइन ग्राफ़ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मानों में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप एक साथ बड़ी मात्रा में डेटा की तुलना कर सकते हैं, समय के साथ परिवर्तन और रुझानों को ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं, आदि।
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट series और categories के साथ एक line chart बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+यह उदाहरण डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक लाइन चार्ट बनाता है, जिसके लिए आप [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करते हैं, फिर प्रस्तुति को PPTX के रूप में सहेजते हैं।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -449,7 +447,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-डिफ़ॉल्ट रूप से, line chart में बिंदुओं को continuous straight lines से जोड़ा जाता है। यदि आप बिंदुओं को dash‑style से जोड़ना चाहते हैं, तो [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) को [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) के मान के साथ कॉल करें:
+डिफ़ॉल्ट रूप से, लाइन चार्ट के बिंदु सीधे निरंतर रेखाओं से जुड़े होते हैं। यदि आप बिंदुओं को डैश द्वारा जोड़ना चाहते हैं, तो आप [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) को [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) के किसी मान के साथ कॉल करें:
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -486,13 +484,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 परिणाम:
 
-![The Line chart](line_chart.png)
+![लाइन चार्ट](line_chart.png)
 
-### **Tree Map चार्ट बनाएं**
+### **ट्री मैप चार्ट बनाएं**
 
-Tree map चार्ट बिक्री डेटा के लिए उपयोगी होते हैं जब आप डेटा categories के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक category में बड़े contributors पर जल्दी ध्यान आकर्षित करना चाहते हैं।
+ट्री मैप चार्ट बिक्री डेटा के लिए उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक श्रेणी में बड़े योगदानकर्ता आइटम पर जल्दी ध्यान आकर्षित करना चाहते हैं।
 
-यह उदाहरण आठ leaves को चार stems और दो branches में समूहित करके एक tree map बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) मेथड stems को grouping level 1 और branches को level 2 पर असाइन करता है। values relative rectangle आकार निर्धारित करती हैं, जबकि category लेबल और overlapping parent लेबल hierarchy को दर्शाते हैं।
+यह उदाहरण आठ पत्तियों को चार स्तंभों और दो शाखाओं में समूहित करके एक ट्री मैप बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) विधि स्तर 1 पर स्तंभ और स्तर 2 पर शाखाएँ निर्धारित करती है। मान सापेक्ष आयत आकार निर्धारित करते हैं, जबकि श्रेणी लेबल और ओवरलैपिंग पैरेंट लेबल पदानुक्रम पहचानते हैं।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -598,26 +596,26 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 परिणाम:
 
-![The Treemap chart](treemap_chart.png)
+![ट्रीमैप चार्ट](treemap_chart.png)
 
-### **Waterfall चार्ट बनाएं**
+### **वॉटरफ़ॉल चार्ट बनाएं**
 
-Waterfall चार्ट दिखाता है कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, एक profit breakdown revenue से शुरू हो सकता है, लागत घटा सकता है, और अन्य आय जोड़ सकता है। परिवर्तन columns पिछले और नए running values के बीच तैरते हैं, जबकि total columns शून्य से संचित मान तक विस्तारित होते हैं।
+वॉटरफ़ॉल चार्ट यह दिखाता है कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, लाभ विभाजन राजस्व से शुरू हो सकता है, लागत घटाने, और अन्य आय जोड़ने से। परिवर्तन कॉलम पिछले और नए चल रहे मान के बीच फ़्लोट करते हैं, जबकि कुल कॉलम शून्य से संचयी मान तक विस्तारित होते हैं।
 
-नीचे दिया गया उदाहरण हजारों US डॉलर में राशियों का उपयोग करता है:
+निम्न उदाहरण में हजारों अमेरिकी डॉलर की राशियों का उपयोग किया गया है:
 
-| Category | Workbook value | Column type |
+| श्रेणी | वर्कबुक मान | कॉलम प्रकार |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| राजस्व | 1000 | वृद्धि |
+| बिक्री की लागत | -400 | कमी |
+| सकल लाभ | 600 | मध्यवर्ती कुल |
+| परिचालन खर्च | -200 | कमी |
+| अन्य आय | 50 | वृद्धि |
+| शुद्ध लाभ | 450 | अंतिम कुल |
 
-किसी बिंदु को intermediate या final total के रूप में पहचानने के लिए, उसकी [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) मेथड को `true` से कॉल करें। उस बिंदु की workbook cell में वास्तविक संचित राशि दें: `600` gross profit (`1000 - 400`) के लिए और `450` net profit (`600 - 200 + 50`) के लिए। यह मेथड column को total के रूप में चिह्नित करता है; यह cell मान की गणना नहीं करता। शून्य को placeholder के रूप में न उपयोग करें और total बिंदु के लिए कोई अन्य परिवर्तन न दें। एक total column संचित मान दिखाता है बिना उसे फिर से running value में जोड़ें।
+किसी बिंदु को मध्यवर्ती या अंतिम कुल के रूप में चिह्नित करने के लिए, आप उसके [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) को `true` के साथ कॉल करते हैं। उस बिंदु के वर्कबुक सेल में वास्तविक संचयी राशि प्रदान करें: सकल लाभ के लिए `600` (1000 - 400) और शुद्ध लाभ के लिए `450` (600 - 200 + 50)। विधि कॉलम को कुल के रूप में चिह्नित करती है; यह सेल मान की गणना या भराव नहीं करती। शून्य को प्लेसहोल्डर के रूप में उपयोग न करें या कुल बिंदु के लिए कोई अन्य परिवर्तन न दें। कुल कॉलम संचयी मान दिखाता है बिना उसे फिर से चल रहे मान में जोड़ते।
 
-यह पूर्ण C++ उदाहरण `Waterfall` member of [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) का उपयोग करके एक chart बनाता है, डिफ़ॉल्ट डेटा साफ़ करता है, और embedded workbook को भरता है। Worksheet index `0` पहली worksheet चुनता है; column A में category नाम और column B में मान होते हैं। प्रत्येक मान cell को [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) से जोड़ा जाता है। शून्य‑आधारित point indices `2` और `5` क्रमशः intermediate और final totals की पहचान करते हैं। [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) को `true` करने से मान columns पर दिखते हैं। कोई input presentation या workbook आवश्यक नहीं है।
+यह पूर्ण C++ उदाहरण [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) के `Waterfall` सदस्य का उपयोग करके एक चार्ट बनाता है, डिफ़ॉल्ट डेटा साफ़ करता है, और एम्बेडेड वर्कबुक को भरता है। वर्कशीट इंडेक्स `0` पहली वर्कशीट को चुनता है; कॉलम A श्रेणी नाम रखती है और कॉलम B मान। प्रत्येक मान सेल को आप [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) से जोड़ते हैं। शून्य‑आधारित बिंदु इंडेक्स `2` और `5` क्रमशः मध्यवर्ती और अंतिम कुल को पहचानते हैं। [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) को `true` देकर आप कॉलम पर राशि दिखा सकते हैं। इनपुट प्रस्तुति या वर्कबुक आवश्यक नहीं है।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -691,7 +689,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// तीसरा और छठा बिंदु कुल मान दर्शाते हैं, अतिरिक्त बदलाव नहीं।
+// तीसरा और छठा बिंदु कुल को दर्शाते हैं, अतिरिक्त बदलाव नहीं.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -700,17 +698,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-Series‑level पर [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) को `true` सेट करके लगातार columns को जोड़ने वाली लाइनों को दिखाएं और running value को आसानी से समझें। इन लाइनों को छिपाने के लिए, उदाहरण में असाइनमेंट को `series->set_ShowConnectorLines(false);` से बदलें और फिर सहेजें। इससे केवल लाइनों की visibility बदलती है, डेटा या totals नहीं।
+सीरीज़‑लेवल पर आप [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) को `true` करके क्रमागत कॉलमों को जोड़ने वाली रेखाएँ दिखा सकते हैं, जिससे चल रही राशि को फॉलो करना आसान हो जाता है। इन रेखाओं को छिपाने के लिए, उदाहरण में असाइनमेंट को `series->set_ShowConnectorLines(false);` में बदलें और फिर सहेजें। यह केवल रेखा की दृश्यता बदलता है, डेटा या कुल को नहीं।
 
-सहेजी गई प्रस्तुति में gross profit 600 और net profit 450 दिखाया गया है, दोनों totals शून्य से शुरू होते हैं:
+परिणाम:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![वॉटरफ़ॉल चार्ट जिसमें राजस्व, लागत, 600 का सकल लाभ और 450 का शुद्ध लाभ दिखाया गया है, मान लेबल और कनेक्टर लाइनों के साथ](waterfall_chart.png)
 
-### **Stock चार्ट बनाएं**
+### **स्टॉक चार्ट बनाएं**
 
-Stock चार्ट open, high, low, और close कीमतों जैसे वित्तीय डेटा को प्रदर्शित करने के लिए उपयोग होते हैं, जिससे बाजार trends और volatility का विश्लेषण संभव हो जाता है। ये स्टॉक प्रदर्शन पर महत्वपूर्ण insights प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
+स्टॉक चार्ट खुले, उच्च, निम्न, और बंद कीमतों जैसे वित्तीय डेटा को प्रदर्शित करने के लिए उपयोग किए जाते हैं, जिससे बाजार रुझान और अस्थिरता का विश्लेषण किया जा सके। ये स्टॉक प्रदर्शन पर महत्त्वपूर्ण अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में सहायता मिलती है।
 
-यह उदाहरण चार series के साथ एक open‑high‑low‑close chart बनाता है और तीन categories जोड़ता है। [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) मेथड up/down bars को सक्षम करता है, और [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) हाई‑लो लाइनों को नियंत्रित करता है जो मूल्य रेंज दिखाते हैं; व्यक्तिगत series लाइनों और minor horizontal gridlines को छिपाया गया है।
+यह उदाहरण चार श्रृंखलाओं के साथ एक ओपन‑हाई‑लो‑क्लोज़ चार्ट बनाता है और तीन श्रेणियों को परिभाषित करता है। [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) विधि अप/डाउन बार को सक्षम करती है, और [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) उच्च‑निम्न रेखाओं को नियंत्रित करती है जो मूल्य रेंज दिखाती हैं, जबकि व्यक्तिगत श्रृंखला रेखाएँ और छोटे क्षैतिज ग्रिडलाइन छिपी रहती हैं।
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -818,13 +816,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 परिणाम:
 
-![The Stock chart](stock_chart.png)
+![स्टॉक चार्ट](stock_chart.png)
 
-### **Box and Whisker चार्ट बनाएं**
+### **बॉक्स और व्हिस्कर चार्ट बनाएं**
 
-Box and whisker चार्ट डेटा के वितरण को प्रमुख सांख्यिकीय मापदंडों—जैसे median, quartiles, और संभावित outliers—को summarise करके दर्शाते हैं। ये exploratory data analysis और सांख्यिकीय अध्ययनों में डेटा की variability को जल्दी समझने और anomalies की पहचान करने में सहायक होते हैं।
+बॉक्स और व्हिस्कर चार्ट डेटा के वितरण को दिखाने के लिए उपयोग किए जाते हैं, जिसमें मध्यक, चतुर्थांश, और संभावित अपवाद शामिल होते हैं। ये अन्वेषणात्मक डेटा विश्लेषण और सांख्यिकीय अध्ययनों में डेटा परिवर्तनशीलता को तेजी से समझने और किसी भी विसंगति की पहचान करने में सहायक होते हैं।
 
-यह उदाहरण छह मानों से एक box and whisker chart बनाता है। [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) मेथड exclusive quartile calculation चुनता है। उदाहरण में mean lines, mean markers, inner points, और outlier points भी सक्षम किए गए हैं।
+यह उदाहरण छह मानों से एक बॉक्स और व्हिस्कर चार्ट बनाता है। [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) विधि विशेष चतुर्थांश गणना का चयन करती है। उदाहरण में औसत रेखाएँ, औसत मार्कर, आंतरिक बिंदु, और अपवाद बिंदु भी सक्षम किए गए हैं।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -905,11 +903,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **Funnel चार्ट बनाएं**
+### **फ़नल चार्ट बनाएं**
 
-Funnel चार्ट प्रक्रियाओं को visualize करने के लिए उपयोग होते हैं जहाँ डेटा की मात्रा क्रमिक चरणों में घटती है। ये conversion rates का विश्लेषण, bottlenecks की पहचान और बिक्री या marketing प्रक्रियाओं की दक्षता को ट्रैक करने में विशेष रूप से मददगार होते हैं।
+फ़नल चार्ट उन प्रक्रियाओं को दृश्य रूप देने के लिए उपयोग किए जाते हैं जिनमें क्रमिक चरण होते हैं, जहाँ डेटा की मात्रा प्रत्येक चरण के साथ घटती जाती है। ये रूपांतरण दरों का विश्लेषण करने, बाधाएँ पहचानने, और बिक्री या मार्केटिंग प्रक्रिया की दक्षता को ट्रैक करने में विशेष रूप से उपयोगी होते हैं।
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड में एक funnel chart जोड़ता है। यह डिफ़ॉल्ट डेटा को छह categories और 50‑500 के मानों से बदलता है, फिर अद्यतन प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में एक फ़नल चार्ट जोड़ने के लिए [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50 से 500 तक के मानों से बदलता है, फिर अद्यतन प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -984,13 +982,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 परिणाम:
 
-![The Funnel chart](funnel_chart.png)
+![फ़नल चार्ट](funnel_chart.png)
 
-### **Sunburst चार्ट बनाएं**
+### **सनबर्स्ट चार्ट बनाएं**
 
-Sunburst चार्ट hierarchical डेटा को concentric rings के रूप में visualizes करते हैं। ये part‑to‑whole संबंधों को स्पष्ट, कॉम्पैक्ट फॉर्मेट में दर्शाते हैं और nested categories एवं sub‑categories को प्रस्तुत करने के लिए आदर्श हैं।
+सनबर्स्ट चार्ट पद‑से‑पुत्र संबंधों को सम्मिलित रिंग्स के रूप में दर्शाकर श्रेणीबद्ध डेटा को दृश्य रूप देते हैं। ये भाग‑से‑संपूर्ण संबंधों को स्पष्ट रूप से दिखाते हैं और नेस्टेड श्रेणियों और उप‑श्रेणियों को कॉम्पैक्ट फ़ॉर्मेट में प्रदर्शित करने के लिए आदर्श होते हैं।
 
-यह उदाहरण आठ leaves को चार stems और दो branches में समूहित करके एक sunburst chart बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) मेथड stems को grouping level 1 और branches को level 2 पर असाइन करता है। Category लेबल segments की पहचान करते हैं, और values उनके सापेक्ष आकार निर्धारित करती हैं।
+यह उदाहरण आठ पत्तियों को चार स्तंभों और दो शाखाओं में समूहित करके एक सनबर्स्ट चार्ट बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) विधि स्तर 1 पर स्तंभ और स्तर 2 पर शाखाएँ निर्धारित करती है। श्रेणी लेबल खंडों की पहचान करते हैं, और मान उनके सापेक्ष आकार निर्धारित करते हैं।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1093,15 +1091,20 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 परिणाम:
 
-![The Sunburst chart](sunburst_chart.png)
+![सनबर्स्ट चार्ट](sunburst_chart.png)
 
-### **Histogram चार्ट बनाएं**
+### **हिस्टोग्राम चार्ट बनाएं**
 
-Histogram चार्ट संख्यात्मक डेटा के वितरण को विभिन्न रेंज या bins में समूहित करके दर्शाते हैं। ये frequency, skewness, और spread जैसे पैटर्न की पहचान तथा डेटासेट में outliers का पता लगाने में विशेष रूप से उपयोगी होते हैं।
+हिस्टोग्राम चार्ट यह दिखाते हैं कि संख्यात्मक मान अंतराल (bins) में कैसे वितरित होते हैं। मासिक रिपोर्ट में ऑर्डर प्रोसेसिंग समय के लिए एक समान बिन चौड़ाई और थ्रेशोल्ड का उपयोग करें ताकि अंतराल स्थिर रहें और वितरण की तुलना आसान हो।
 
-यह उदाहरण छह संख्यात्मक मानों (नकारात्मक मान सहित) से एक histogram बनाता है। [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) को automatic मान से कॉल करने पर चार्ट स्वयं बिन निर्धारित करता है जिससे वितरण प्रदर्शित हो सके।
+हॉरिज़ॉन्टल एक्सिस पर आप [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) को [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/) के किसी मोड के साथ सेट कर सकते हैं। [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) केवल `ByBinWidth` के लिए लागू होता है; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) केवल `ByNumberOfBins` के लिए। `Automatic` का उपयोग करके चार्ट को बिन चुनने दें।
+
+#### **स्थिर बिन चौड़ाई का उपयोग करें**
+
+यह उदाहरण प्रोसेसिंग समय को 10‑मिनट अंतराल में समूहित करता है, जहाँ 10 मिनट या उससे कम और 40 मिनट से अधिक समय के लिए अलग बिन होते हैं। आप इन बिनों को [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) और [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/) से सक्षम कर सकते हैं। जब आप स्पष्ट थ्रेशोल्ड को [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) और [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/) से प्रदान करते हैं, तो आप [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) और [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) को `false` कर दें।
 
 ```cpp
+#include <system/array.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/string.h>
@@ -1136,7 +1139,10 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 500, 300);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
 
 chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
@@ -1145,33 +1151,105 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
-auto valueCell = workbook->GetCell(0, u"A1", ObjectExt::Box(15));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A2", ObjectExt::Box(-41));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A3", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A4", ObjectExt::Box(10));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A5", ObjectExt::Box(-23));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A6", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
 
-chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(AxisAggregationType::Automatic);
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByBinWidth);
+axis->set_BinWidth(10);
+axis->set_IsUnderflowBin(true);
+axis->set_IsAutomaticUnderflowBin(false);
+axis->set_UnderflowBin(10);
+axis->set_IsOverflowBin(true);
+axis->set_IsAutomaticOverflowBin(false);
+axis->set_OverflowBin(40);
 
-presentation->Save(u"Histogram.pptx", SaveFormat::Pptx);
+presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-परिणाम:
+PowerPoint में प्रदर्शित प्रस्तुति बिन गिनती **3, 4, 4, 4, और 2** दिखाती है। अंडरफ़्लो बिन में `5, 10, 10` शामिल हैं, इसलिए इसका थ्रेशोल्ड समावेशी है। ओवरफ़्लो बिन में केवल `41, 50` शामिल हैं, इसलिए इसका थ्रेशोल्ड बहिष्करणीय है; दोनों मान `40` पूर्ववर्ती अंतराल में रहते हैं। आंतरिक बिन केवल अपने नीचे की सीमा से बड़े और ऊपर की सीमा से कम या बराबर मान रखती हैं।
 
-![The Histogram chart](histogram_chart.png)
+![10‑मिनट बिन और स्पष्ट अंडरफ़्लो और ओवरफ़्लो थ्रेशोल्ड के साथ हिस्टोग्राम](histogram_bin_width.png)
 
-### **Radar चार्ट बनाएं**
+#### **बिन की संख्या निर्दिष्ट करें**
 
-Radar चार्ट multivariate डेटा को दो‑आयामी फ़ॉर्मेट में प्रदर्शित करते हैं, जिससे कई variables की एक साथ तुलना आसान हो जाती है। ये कई performance metrics या attributes के बीच patterns, strengths, और weaknesses की पहचान में सहायक होते हैं।
+स्थिर अंतराल के बजाय स्थिर विवरण स्तर चाहते हैं, तो उसी डेटा के लिए पाँच बिन अनुरोध करें। यह उदाहरण अंडरफ़्लो और ओवरफ़्लो बिन को निष्क्रिय छोड़ता है। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए सीमाएँ रिपोर्टों के बीच बदल सकती हैं।
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट series और categories के साथ एक radar chart बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+```cpp
+#include <system/array.h>
+#include <system/shared_ptr.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByNumberOfBins);
+axis->set_NumberOfBins(5);
+
+presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
+```
+
+पाँच बिन की गिनती **4, 4, 4, 4, और 1** है। ऊपर के स्थिर‑चौड़ाई परिणाम से इस वितरण की तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ अलग हैं।
+
+![एक ही डेटा से गणना किए गए पाँच बिन के साथ हिस्टोग्राम](histogram_bin_count.png)
+
+### **रेडार चार्ट बनाएं**
+
+रेडार चार्ट बहु‑चर डेटा को दो‑आयामी फ़ॉर्मेट में दिखाते हैं, जिससे कई चरों की एक साथ आसान तुलना संभव होती है। ये कई प्रदर्शन मेट्रिक्स या गुणों में पैटर्न, ताकत, और कमजोरियों की पहचान करने में विशेष रूप से उपयोगी होते हैं।
+
+यह उदाहरण डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक रेडार चार्ट बनाता है, जिसके लिए आप [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करते हैं, फिर प्रस्तुति को PPTX के रूप में सहेजते हैं।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1205,13 +1283,13 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 परिणाम:
 
-![The Radar chart](radar_chart.png)
+![रेडार चार्ट](radar_chart.png)
 
-### **Multi‑Category चार्ट बनाएं**
+### **मल्टी‑कैटेगरी चार्ट बनाएं**
 
-Multi‑category चार्ट उन डेटा को दर्शाने के लिए उपयोग होते हैं जहाँ एक से अधिक categorical grouping शामिल होती है, जिससे आप कई dimensions में मानों की एक साथ तुलना कर सकते हैं। ये जटिल, multi‑layered डेटासेट में trends और relationships का विश्लेषण करने में विशेष रूप से मददगार होते हैं।
+मल्टी‑कैटेगरी चार्ट उन डेटा को प्रदर्शित करने के लिए उपयोग किए जाते हैं जिनमें एक से अधिक श्रेणी समूह होते हैं, जिससे आप कई आयामों में मानों की तुलना एक साथ कर सकते हैं। ये जटिल, बहु‑स्तरीय डेटा सेट में रुझानों और रिश्तों का विश्लेषण करने में विशेष रूप से सहायक होते हैं।
 
-यह उदाहरण आठ categories को चार जोड़ों में व्यवस्थित करके एक clustered column chart बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) मेथड प्रत्येक जोड़े को grouping level 1 पर साझा लेबल प्रदान करता है, जिससे category axis में व्यक्तिगत और समूह दोनों लेबल दिखते हैं।
+यह उदाहरण चार जोड़े में व्यवस्थित आठ श्रेणियों के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) विधि प्रत्येक जोड़े को स्तर 1 पर साझा लेबल देती है, जिससे व्यक्तिगत और समूह लेबल दोनों वाली एक श्रेणी एक्सिस बनती है।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1306,13 +1384,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 परिणाम:
 
-![The multi category chart](multi_category_chart.png)
+![मल्टी कैटेगरी चार्ट](multi_category_chart.png)
 
-### **Map चार्ट बनाएं**
+### **मैप चार्ट बनाएं**
 
-Map चार्ट भौगोलिक डेटा को देशों, राज्यों या शहरों जैसी विशिष्ट स्थलों पर मैप करके visualize करते हैं। ये regional trends, जनसांख्यिकीय डेटा, और spatial वितरण का विश्लेषण स्पष्ट और दृश्यात्मक आकर्षक रूप में करने में मददगार होते हैं।
+मैप चार्ट भौगोलिक डेटा को विशिष्ट स्थानों जैसे देशों, राज्यों, या शहरों पर मानचित्रित करके विज़ुअलाइज़ करने के लिए उपयोग किए जाते हैं। ये क्षेत्रीय रुझानों, जनसांख्यिकीय डेटा, और स्थानिक वितरण का स्पष्ट, दृश्य आकर्षक तरीके से विश्लेषण करने में मदद करते हैं।
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट geographical डेटा के साथ एक map chart बनाता है और PowerPoint में देखने के लिए सहेजता है।
+यह उदाहरण [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट भौगोलिक डेटा के साथ एक मैप चार्ट बनाता है और इसे PowerPoint में देखने के लिए सहेजता है।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1346,19 +1424,19 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 परिणाम:
 
-![The Map chart](map_chart.png)
+![मैप चार्ट](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-ऊपर की तस्वीर PowerPoint में खुली हुई सेव्ड प्रस्तुति को दिखाती है। Aspose.Slides map chart और उसका डेटा सही ढंग से लिखता है, लेकिन स्वयं map chart नहीं बनाता: जब किसी स्लाइड को इमेज में रेंडर किया जाता है या PDF/SVG में परिवर्तित किया जाता है, तो chart area खाली दिखता है। उसी स्लाइड के अन्य shapes प्रभावित नहीं होते।
+ऊपर की तस्वीर में सहेजे गए प्रस्तुति को PowerPoint में खोला गया दिखाया गया है। Aspose.Slides मानचित्र चार्ट और उसका डेटा सही तरीके से लिखता है, लेकिन स्वयं मानचित्र चार्ट नहीं बनाता: जब किसी स्लाइड को जिसमें मानचित्र चार्ट हो, छवि में रेंडर किया जाता है या PDF या SVG में परिवर्तित किया जाता है, तो चार्ट क्षेत्र खाली निकलता है। उसी स्लाइड के अन्य आकार अप्रभावित रहते हैं।
 {{% /alert %}}
 
-### **Combination चार्ट बनाएं**
+### **कंबिनेशन चार्ट बनाएं**
 
-Combination chart (या combo chart) में दो या अधिक chart प्रकार एक ही ग्राफ में मिलते हैं। यह आपको दो या अधिक डेटा सेटों के बीच अंतर को हाइलाइट, तुलना या जांचने की अनुमति देता है, जिससे उनके बीच के संबंधों की पहचान आसानी से होती है।
+कंबिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को जोड़ता है। यह चार्ट कई डेटा सेटों के बीच अंतर को उजागर, तुलना, या परीक्षण करने में मदद करता है, जिससे उनके बीच संबंधों की पहचान आसान हो जाती है।
 
-![The combination chart](combination_chart.png)
+![कंबिनेशन चार्ट](combination_chart.png)
 
-यह उदाहरण चार categories में दो clustered column series को एक line series के साथ संयोजित करता है। columns प्राथमिक vertical axis का उपयोग करते हैं, जबकि [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) लाइन को दाईं ओर स्थित secondary vertical axis पर रखता है। सहायक फ़ंक्शन शीर्षक, लेजेंड, axis लेबल और gridlines को कॉन्फ़िगर करते हैं।
+यह उदाहरण चार श्रेणियों में दो क्लस्टर्ड कॉलम सीरीज़ को एक लाइन सीरीज़ के साथ जोड़ता है। कॉलम प्राथमिक वर्टिकल एक्सिस का उपयोग करते हैं, जबकि [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) लाइन को दाईं ओर एक द्वितीयक वर्टिकल एक्सिस पर रखता है। हेल्पर फंक्शन शीर्षक, लेजेंड, एक्सिस लेबल, और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1569,9 +1647,9 @@ ComboChartExample::CreateComboChart();
 
 ## **चार्ट अपडेट करें**
 
-Aspose.Slides for C++ आपको PowerPoint चार्ट को डेटा, फ़ॉर्मेटिंग और स्टाइलिंग बदल कर अपडेट करने की सुविधा देता है। यह कार्यक्षमता प्रस्तुतियों को गतिशील सामग्री के साथ अद्यतन रखना आसान बनाती है और यह सुनिश्चित करती है कि चार्ट वर्तमान डेटा और विज़ुअल मानकों को सही तरीके से प्रतिबिंबित करें।
+Aspose.Slides for C++ आपको चार्ट डेटा, फ़ॉर्मेटिंग, और स्टाइलिंग को संशोधित करके PowerPoint चार्ट अपडेट करने में सक्षम बनाता है। यह कार्यक्षमता गतिशील सामग्री के साथ प्रस्तुतियों को अद्यतन रखने की प्रक्रिया को सरल बनाती है और यह सुनिश्चित करती है कि चार्ट वर्तमान डेटा और दृश्य मानकों को सटीक रूप से दर्शाएँ।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट को अपडेट करता है। यह प्रत्येक series में तीन data points के साथ दो column series की आवश्यकता रखता है, जहाँ category लेबल column A में और series नाम पहली पंक्ति में होते हैं। उदाहरण [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) का उपयोग करके workbook cells को बदलता है, series मान अपडेट करता है, तीसरी series जोड़ता है, और [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/) के माध्यम से chart को clustered cylinders में बदलता है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट को अपडेट करता है। इसमें प्रत्येक में तीन डेटा पॉइंट वाली दो कॉलम सीरीज़ की आवश्यकता होती है, जहाँ श्रेणी लेबल कॉलम A में होते हैं और श्रृंखला नाम पहले शीट की पहली पंक्ति में होते हैं। उदाहरण [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) का उपयोग करके वर्कबुक सेल को बदलता है, सीरीज़ मान अपडेट करता है, तीसरी सीरीज़ जोड़ता है, और [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/) के माध्यम से चार्ट को क्लस्टर्ड सिलिंडर में बदलता है।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1652,13 +1730,13 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 ```
 
-## **चार्ट के लिए Data Range सेट करें**
+## **चार्ट के लिए डेटा रेंज सेट करें**
 
-किसी मौजूदा चार्ट द्वारा पहले से उपयोग किए गए रेंज को जांचने के लिए, देखें [Retrieve a Chart's Data Range](/slides/hi/cpp/chart-workbook/#retrieve-a-charts-data-range)।
+मौजूदा चार्ट द्वारा उपयोग किए गए रेंज को देखने के लिए देखें [एक चार्ट की डेटा रेंज पुनः प्राप्त करें](/slides/hi/cpp/chart-workbook/#retrieve-a-charts-data-range)।
 
-Aspose.Slides for C++ आपको worksheet से विशिष्ट डेटा रेंज को चार्ट के डेटा स्रोत के रूप में निर्दिष्ट करने की लचीलापन देता है। इसका अर्थ है कि आप worksheet के किसी हिस्से को सीधे चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि कौन‑से cells series और categories में योगदान देंगे। परिणामस्वरूप, आप अपने worksheet में नवीनतम डेटा परिवर्तन के साथ अपने चार्ट को आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपकी PowerPoint प्रस्तुतियां वर्तमान और सटीक जानकारी दर्शाती रहें।
+Aspose.Slides for C++ आपको वर्कशीट से एक विशिष्ट डेटा रेंज को चार्ट के डेटा स्रोत के रूप में परिभाषित करने की लचीलापन देता है। इसका अर्थ है कि आप सीधे अपनी वर्कशीट के एक भाग को चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि कौन‑से सेल्स चार्ट की सीरीज़ और श्रेणियों में योगदान देते हैं। परिणामस्वरूप, आप अपनी शीट में नवीनतम डेटा परिवर्तन के साथ अपने चार्ट को आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपकी PowerPoint प्रस्तुतियाँ वर्तमान और सटीक जानकारी दर्शाएँ।
 
-यह उदाहरण [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` निर्धारित करता है। chart workbook में वह worksheet और एक populated रेंज होना चाहिए जहाँ प्रथम पंक्ति में series heading, column A में category लेबल, और column B में तीन मान हों।
+यह उदाहरण [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` पर सेट करता है। चार्ट वर्कबुक में वह शीट और एक भरपूर रेंज होना आवश्यक है, जहाँ पहली पंक्ति में सीरीज़ हेडिंग, कॉलम A में श्रेणी लेबल, और कॉलम B में तीन मान हों।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1700,11 +1778,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **चार्ट में डिफ़ॉल्ट मार्कर्स का उपयोग करें**
+## **चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करें**
 
-जब आप चार्ट में डिफ़ॉल्ट मार्कर्स का उपयोग करते हैं, तो प्रत्येक chart series को स्वचालित रूप से विभिन्न डिफ़ॉल्ट मार्कर प्रतीक मिलते हैं।
+जब आप चार्ट में डिफ़ॉल्ट मार्कर का प्रयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग डिफ़ॉल्ट मार्कर प्रतीक मिलता है।
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करके दो line series और एक legend के साथ एक chart बनाता है। [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) सेटिंग्स स्वचालित रूप से असाइन किए गए मार्कर प्रतीकों को बरकरार रखती हैं। पहली series में एक नकारात्मक मान और एक missing मान (`nullptr`) है, जबकि दूसरी में प्रत्येक category के लिए मान है।
+यह उदाहरण दो लाइन सीरीज़ और एक लेजेंड के साथ एक चार्ट बनाता है, जिसके लिए आप [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) का उपयोग करते हैं। [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) सेटिंग्स स्वचालित रूप से असाइन किए गए मार्कर प्रतीकों को बरकरार रखती हैं। पहली सीरीज़ में एक नकारात्मक मान और एक लापता मान (`nullptr`) है, जबकि दूसरी में प्रत्येक श्रेणी के लिए मान है।
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1792,18 +1870,18 @@ presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Aspose.Slides for C++ द्वारा कौन‑से chart प्रकार समर्थित हैं?**
+**Aspose.Slides for C++ द्वारा कौन‑से चार्ट प्रकार समर्थित हैं?**
 
-Aspose.Slides for C++ बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य सहित विस्तृत chart प्रकारों का समर्थन करता है। यह लचीलापन आपको अपनी डेटा visualization आवश्यकताओं के अनुसार सबसे उपयुक्त chart प्रकार चुनने की अनुमति देता है।
+Aspose.Slides for C++ विभिन्न प्रकार के चार्ट को समर्थन देता है, जिसमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार, और कई अन्य शामिल हैं। यह लचीलापन आपको डेटा विज़ुअलाइज़ेशन की आवश्यकताओं के अनुसार सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
-**मैं किसी स्लाइड में नया chart कैसे जोड़ूँ?**
+**मैं स्लाइड में नया चार्ट कैसे जोड़ूँ?**
 
-एक chart जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) क्लास का instance बनाते हैं, इच्छित स्लाइड को उसके index से प्राप्त करते हैं, और फिर chart जोड़ने वाली मेथड को कॉल करते हैं, जिसमें chart type और प्रारंभिक डेटा निर्दिष्ट होते हैं। यह प्रक्रिया chart को सीधे आपकी प्रस्तुति में एकीकृत करती है।
+चार्ट जोड़ने के लिए, आप पहले [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) क्लास की एक instance बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने के मेथड को कॉल करके चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट करते हैं। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में एकीकृत करती है।
 
-**मैं chart में प्रदर्शित डेटा को कैसे अपडेट करूँ?**
+**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट करूँ?**
 
-आप chart के डेटा workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)) तक पहुँच कर, किसी भी डिफ़ॉल्ट series और categories को साफ़ करके, और अपनी कस्टम डेटा जोड़कर chart के डेटा को अपडेट कर सकते हैं। इससे आप programmatically chart को नवीनतम डेटा के अनुसार रीफ़्रेश कर सकते हैं।
+आप चार्ट के डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)) को एक्सेस करके, किसी भी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और अपनी कस्टम डेटा जोड़कर चार्ट का डेटा अपडेट कर सकते हैं। यह आपको प्रोग्रामmatically चार्ट को नवीनतम डेटा के अनुसार रीफ़्रेश करने की अनुमति देता है।
 
-**क्या chart की उपस्थिति को अनुकूलित करना संभव है?**
+**क्या चार्ट की उपस्थिति को अनुकूलित करना संभव है?**
 
-हाँ, Aspose.Slides for C++ व्यापक customization विकल्प प्रदान करता है। आप colors, fonts, labels, legends और अन्य फ़ॉर्मेटिंग तत्वों को संशोधित करके chart की उपस्थिति को अपनी विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार बना सकते हैं।
+हाँ, Aspose.Slides for C++ विस्तृत अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड, और अन्य फ़ॉर्मेटिंग तत्वों को संशोधित करके चार्ट की उपस्थिति को अपने विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार ढाल सकते हैं।

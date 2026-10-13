@@ -1,6 +1,6 @@
 ---
-title: ایجاد یا بروزرسانی نمودارهای ارائه PowerPoint در Java
-linktitle: ایجاد یا بروزرسانی نمودارها
+title: ایجاد یا به‌روزرسانی نمودارهای ارائه PowerPoint در جاوا
+linktitle: ایجاد یا به‌روزرسانی نمودارها
 type: docs
 weight: 10
 url: /fa/java/create-chart/
@@ -9,13 +9,13 @@ keywords:
 - ایجاد نمودار
 - ویرایش نمودار
 - تغییر نمودار
-- بروزرسانی نمودار
+- به‌روزرسانی نمودار
 - نمودار پراکنده
 - نمودار دایره‌ای
 - نمودار خطی
-- نمودار درخت‌نقشه
-- نمودار سهام
-- نمودار جعبه‌ای و چوب‌دار
+- نمودار درخت‑نقشه
+- نمودار سهامی
+- نمودار جعبه‌ای و ویسکر
 - نمودار قیفی
 - نمودار خورشیدگرد
 - نمودار هیستوگرام
@@ -23,37 +23,37 @@ keywords:
 - نمودار چنددسته‌ای
 - PowerPoint
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
-description: "نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای Java ایجاد و سفارشی‌سازی کنید. نمودارها را با نمونه‌های کد عملی در Java اضافه، قالب‌بندی و ویرایش کنید."
+description: "ایجاد و سفارشی‌سازی نمودارها در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای جاوا. افزودن، قالب‌بندی و ویرایش نمودارها با مثال‌های کد عملی در جاوا."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله راهنمای جامعی برای ایجاد و سفارشی‌سازی نمودارها با استفاده از Aspose.Slides for Java ارائه می‌دهد. شما یاد می‌گیرید چگونه به صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلف را اعمال کنید تا با الزامات طراحی خاص شما مطابقت داشته باشد. در طول مقاله، مثال‌های کد detallated هر قدم را نشان می‌دهند، از مقداردهی اولیهٔ ارائه و شی نمودار تا پیکربندی س series، محورها و افسانه‌ها. با دنبال کردن این راهنما، درک جامعی از ادغام تولید دینامیک نمودار در برنامه‌های Java خود به دست می‌آورید و فرآیند ساخت ارائه‌های مبتنی بر داده را ساده می‌کنید.
+این مقاله راهنمای جامعی برای ایجاد و سفارشی‌سازی نمودارها با استفاده از Aspose.Slides for Java ارائه می‑دهد. شما یاد می‌گیرید چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلف را برای تطبیق با نیازهای طراحی خود اعمال کنید. در طول مقاله، مثال‌های کد جزئیات هر گام را از مقداردهی اولیهٔ ارائه و شیء نمودار تا پیکربندی سری‌ها، محورها و افسانه‌ها نشان می‌دهند. با دنبال کردن این راهنما، درک عمیقی از چگونگی ادغام تولید پویا نمودارها در برنامه‌های Java خود به دست می‌آورید و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کنید.
 
-## **Create a Chart**
+## **ایجاد نمودار**
 
-نمودارها به افراد کمک می‌کنند تا به سرعت داده‌ها را بصری‌سازی کنند و بینش‌هایی به دست آورند که ممکن است از جدول یا صفحه‌گسترده به‌وضوح نمایان نشوند.
+نمودارها به افراد کمک می‌کنند تا به‌سرعت داده‌ها را بصری‌سازی کنند و بینش‌هایی به‌دست آورند که ممکن است از یک جدول یا صفحه‌گسترده به‌ظاهر واضح نباشند.
 
-**چرا نمودارها ایجاد کنیم؟**
+**چرا نمودار ایجاد کنیم؟**
 
 با استفاده از نمودارها می‌توانید:
 
-* مقادیر زیادی از داده را در یک اسلاید خلاصه، فشرده یا تجمیع کنید؛
-* الگوها و روندهای داده را آشکار کنید؛
-* جهت و شتاب داده‌ها را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص استنتاج کنید؛
-* مقادیر دور افتاده، انحرافات، خطاها و داده‌های نامعقول را شناسایی کنید؛
-* داده‌های پیچیده را ارتباط برقرار یا ارائه کنید.
+* داده‌های بزرگ را در یک اسلاید خلاصه یا فشرده کنید؛
+* الگوها و روندهای موجود در داده‌ها را آشکار کنید؛
+* جهت و سرعت تغییرات داده را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص تشخیص دهید؛
+* مقادیر نابه‌جا، خطاها و داده‌های نامعقول را شناسایی کنید؛
+* داده‌های پیچیده را به‌صورت مؤثر انتقال دهید.
 
-در PowerPoint می‌توانید نمودارها را از طریق عملکرد *Insert* ایجاد کنید که قالب‌های متنوعی برای طراحی انواع مختلف نمودارها فراهم می‌کند. با Aspose.Slides می‌توانید هر دو نوع نمودارهای معمولی (مبتنی بر انواع محبوب نمودار) و نمودارهای سفارشی ایجاد کنید.
+در PowerPoint می‌توانید از عملکرد *Insert* برای ایجاد نمودارها استفاده کنید که قالب‌های مختلفی برای طراحی انواع نمودارها ارائه می‌دهد. با Aspose.Slides می‌توانید هم نمودارهای معمولی (بر پایهٔ انواع محبوب نمودار) و هم نمودارهای سفارشی ایجاد کنید.
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) enumeration in the [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) package. The values in this enumeration correspond to different chart types.
+از شمارش [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) در بستهٔ [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) استفاده کنید. مقادیر این شمارش به انواع مختلف نمودارها مربوط می‌شوند.
 {{% /alert %}}
 
-### **Create Clustered Column Charts**
+### **ایجاد نمودارهای ستونی خوشه‌ای**
 
-این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای ایجاد یک نمودار ستونی خوشه‌ای استفاده می‌کند که دو سری را در سه دسته مقایسه می‌کند. س series با پرکننده‌های قرمز و سبز هستند و برچسب‌های فردی نام دسته‌ها، نام س series و مقادیر را نشان می‌دهند. شاخص کاربرگ 0 به اولین شیت در کتاب‌کار نمودار جاسازی‌شده اشاره دارد.
+این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای ایجاد یک نمودار ستونی خوشه‌ای که دو سری را در سه دسته مقایسه می‌کند، استفاده می‌کند. سری‌ها از رنگ‌های قرمز و سبز استفاده می‌کنند و برچسب‌های جداگانه نام‌های دسته، نام‌های سری و مقادیر را نشان می‌دهند. اندیس صفحه‌کاری 0 به اولین شیت در کتاب‌کار جاسازی‌شدهٔ نمودار اشاره دارد.
 
 ```java
 import com.aspose.slides.*;
@@ -134,20 +134,20 @@ finally
 
 نتیجه:
 
-![نمودار ستونی خوشه‌ای](clustered_column_chart.png)
+![نمودار ستون خوشه‌ای](clustered_column_chart.png)
 
-### **Create Scatter Charts**
+### **ایجاد نمودارهای پراکند (Scatter)**
 
-نمودارهای پراکنش (که به عنوان نمودارهای scatter یا نمودارهای x‑y نیز شناخته می‌شوند) اغلب برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
+نمودارهای پراکند (که به‌عنوان نمودارهای پخش یا گراف‌های x‑y نیز شناخته می‌شوند) اغلب برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
 
-از نمودار پراکنش زمانی استفاده کنید که:
+از نمودار پراکند زمانی استفاده کنید که:
 
-* داده‌های عددی جفت‌ شده داشته باشید؛
-* دو متغیر داشته باشید که به‌خوبی با هم جفت می‌شوند؛
-* بخواهید تعیین کنید آیا دو متغیر مرتبط هستند یا نه؛
-* متغیر مستقلی داشته باشید که برای یک متغیر وابسته مقادیر متعددی داشته باشد.
+* داده‌های عددی جفت‌گذاری‌شده دارید؛
+* دو متغیر به‌خوبی با یکدیگر جفت می‌شوند؛
+* می‌خواهید رابطهٔ بین دو متغیر را بررسی کنید؛
+* یک متغیر مستقل دارای مقادیر متعددی برای یک متغیر وابسته است.
 
-این مثال دو مجموعه مقادیر x‑y را رسم می‌کند. سری اول از خطوط مستقیم با نشانگرهای ستاره‌ای استفاده می‌کند، در حالی که سری دوم از خطوط صاف با نشانگرهای دایره‌ای استفاده می‌کند؛ هر دو از اندازه نشانگر 10 استفاده می‌کنند که با [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) تنظیم شده است. روش [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) شکل نشانگر را کنترل می‌کند.
+این مثال دو مجموعه مقادیر x‑y را رسم می‌کند. سری اول از خطوط مستقیم با علامت‌گرهای ستاره‌ای استفاده می‌کند، در حالی که سری دوم از خطوط صاف با علامت‌گرهای دایره‌ای استفاده می‌کند؛ هر دو اندازهٔ علامت‌گر 10 دارند که با [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) تنظیم می‌شود. متد [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) شکل علامت‌گر را کنترل می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -215,13 +215,13 @@ finally
 
 نتیجه:
 
-![نمودار پراکنش](scatter_chart.png)
+![نمودار پراکند](scatter_chart.png)
 
-### **Create Pie Charts**
+### **ایجاد نمودارهای دایره‌ای (Pie)**
 
-نمودارهای دایره‌ای بهترین استفاده را برای نمایش رابطهٔ بخش‑به‑کل در داده‌ها دارند، به‌ویژه زمانی که داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. با این حال، اگر داده‌های شما شامل بخش‌ها یا برچسب‌های زیادی باشد، ممکن است بهتر باشد به جای آن از نمودار میله‌ای استفاده کنید.
+نمودارهای دایره‌ای بهترین استفاده را برای نمایش نسبت بخشی به کل در داده‌ها دارند، به‌ویژه زمانی که داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. با این حال، اگر داده‌های شما شامل بخش‌ها یا برچسب‌های زیاد باشد، ممکن است بهتر باشد به‌جای آن از نمودار میله‌ای استفاده کنید.
 
-این مثال یک نمودار دایره‌ای با سه مقدار فصلی ایجاد می‌کند. هر برش دارای پرکننده و حاشیهٔ سفارشی است و برچسب‌ها ترکیبی‌های مختلفی از مقادیر، درصدها و اطلاعات س series را نشان می‌دهند. روش [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) اولین برش را در 180 درجه شروع می‌کند.
+این مثال یک نمودار دایره‌ای با سه مقدار فصلی ایجاد می‌کند. هر بخش دارای پرکننده و حاشیهٔ سفارشی است و برچسب‌ها ترکیبی‌های مختلفی از مقادیر، درصدها و اطلاعات سری را نشان می‌دهند. متد [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) اولین برش را در زاویهٔ 180 درجه شروع می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -324,11 +324,11 @@ finally
 
 ![نمودار دایره‌ای](pie_chart.png)
 
-### **Create Line Charts**
+### **ایجاد نمودارهای خطی (Line)**
 
-نمودارهای خطی (که به عنوان نمودارهای line نیز شناخته می‌شوند) بهترین استفاده را در مواقعی دارند که بخواهید تغییرات مقدار را در طول زمان نشان دهید. با استفاده از نمودار خطی می‌توانید حجم زیادی از داده‌ها را همزمان مقایسه کنید، تغییرات و روندها را در طول زمان پیگیری کنید، ناهنجاری‌های س series را برجسته کنید و غیره.
+نمودارهای خطی (که به‌عنوان گراف‌های خطی نیز شناخته می‌شوند) بهترین استفاده را در شرایطی دارند که بخواهید تغییرات مقدار را در طول زمان نشان دهید. با استفاده از نمودار خطی می‌توانید مقدار زیادی داده را به‌هم‌زمان مقایسه کنید، تغییرات و روندها را در طول زمان دنبال کنید، ناهنجاری‌های سری داده را برجسته کنید و غیره.
 
-این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای ایجاد یک نمودار خطی با س series و دسته‌های پیش‌فرض استفاده می‌کند، سپس ارائه را به صورت PPTX ذخیره می‌کند.
+این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای ایجاد یک نمودار خطی با سری‌ها و دسته‌های پیش‌فرض استفاده می‌کند و سپس ارائه را به صورت PPTX ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -348,7 +348,7 @@ finally
 }
 ```
 
-به‌طور پیش‌فرض، نقاط در یک نمودار خطی توسط خطوط مستقیم متصل می‌شوند. اگر می‌خواهید نقاط به‌جای خطوط مستقیم با خط‌کش متصل شوند، با [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) و مقداری از [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) فراخوانی کنید:
+به‌طور پیش‌فرض نقاط در یک نمودار خطی با خطوط مستقیم پیوسته به‌هم وصل می‌شوند. اگر می‌خواهید نقاط به‌جای خطوط مستقیم با خط تیره متصل شوند، متد [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) را با مقدار از [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) فراخوانی کنید:
 
 ```java
 import com.aspose.slides.*;
@@ -375,11 +375,11 @@ finally
 
 ![نمودار خطی](line_chart.png)
 
-### **Create Tree Map Charts**
+### **ایجاد نمودارهای درخت‑نقشه (Tree Map)**
 
-نمودارهای درخت‌نقشه بهترین استفاده را برای داده‌های فروش دارند زمانی که بخواهید اندازهٔ نسبی دسته‌های داده را نشان دهید و به سرعت توجه را به مواردی که مشارکت‌کنندگان بزرگ در هر دسته هستند جلب کنید.
+نمودارهای درخت‑نقشه بهترین استفاده را برای داده‌های فروش دارند زمانی که بخواهید اندازهٔ نسبی دسته‌های داده را نشان دهید و به‌سرعت توجه را به مواردی که سهم بزرگ‌تری در هر دسته دارند جلب کنید.
 
-این مثال یک درخت‌نقشه با هشت برگ که در چهار ساقه و دو شاخه گروه‌بندی شده‌اند ایجاد می‌کند. روش [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) ساقه‌ها را در سطح گروه‌بندی 1 و شاخه‌ها را در سطح 2 تخصیص می‌دهد. مقادیر اندازه مستطیل‌های نسبی را تعیین می‌کنند، در حالی که برچسب‌های دسته و برچسب‌های والد همپوشانی‌دار سلسله مراتب را شناسایی می‌کنند.
+این مثال یک درخت‑نقشه با هشت برگ که در چهار شاخه و دو شعبه گروه‌بندی شده‌اند، ایجاد می‌کند. متد [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) شاخه‌ها را در سطح گروه‌بندی 1 و شعبه‌ها را در سطح 2 اختصاص می‌دهد. مقادیر اندازهٔ نسبتیک مربع‌ها را تعیین می‌کنند، در حالی که برچسب‌های دسته و برچسب‌های والد پوششی سلسله‌مراتب را نشان می‌دهند.
 
 ```java
 import com.aspose.slides.*;
@@ -460,13 +460,13 @@ finally
 
 نتیجه:
 
-![نمودار درخت‌نقشه](treemap_chart.png)
+![نمودار درخت‑نقشه](treemap_chart.png)
 
-### **Create Waterfall Charts**
+### **ایجاد نمودارهای آبشاری (Waterfall)**
 
-نمودار آبشاری نشان می‌دهد که چگونه تغییرات مثبت و منفی به یک مقدار نهایی کمک می‌کنند. برای مثال، تجزیه و تحلیل سود می‌تواند با درآمد آغاز شود، هزینه‌ها را کم کند و سایر درآمدها را اضافه کند. ستون‌های تغییر بین مقدار قبلی و مقدار جدید متراکم می‌شوند، در حالی که ستون‌های کل از صفر تا مقدار انباشته‌شده گسترش می‌یابند.
+نمودار آبشاری نشان می‌دهد که چطور تغییرات مثبت و منفی به مقدار نهایی کمک می‌کنند. برای مثال، یک تجزیهٔ سود می‌تواند با درآمد شروع شود، هزینه‌ها را کم کند و سپس سایر درآمدها را اضافه کند. ستون‌های تغییر بین مقدار قبلی و مقدار جدید شناور می‌شوند، در حالی که ستون‌های کل از صفر تا مقدار جمع‌شده ادامه پیدا می‌کنند.
 
-مثال زیر از مقادیر هزار دلار آمریکا استفاده می‌کند:
+مثال زیر از مقادیر به‌صورت هزار دلار آمریکا استفاده می‌کند:
 
 | Category | Workbook value | Column type |
 | --- | ---: | --- |
@@ -477,9 +477,9 @@ finally
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-برای علامت‌گذاری یک نقطه به‌عنوان مجموع میانی یا نهایی، متد [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) را با `true` فراخوانی کنید. مقدار انباشتهٔ واقعی را در سلول کاربرگ آن نقطه قرار دهید: `600` برای سود ناخالص (`1000 - 400`) و `450` برای سود خالص (`600 - 200 + 50`). این متد ستون را به‌عنوان مجموع علامت‌گذاری می‌کند؛ مقدار سلول را محاسبه یا پر نمی‌کند. از صفر به‌عنوان جایگزین استفاده نکنید و مقدار دیگری برای نقطهٔ مجموع فراهم نکنید. یک ستون مجموع مقدار انباشته را بدون افزودن دوباره به مقدار جاری نمایش می‌دهد.
+برای علامت‌گذاری یک نقطه به‌عنوان مجموع میانی یا نهایی، متد [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) آن را با `true` فراخوانی کنید. مقدار واقعی جمع‌شده را در سلول کتاب‌کار آن نقطه وارد کنید: `600` برای سود ناخالص (`1000 - 400`) و `450` برای سود خالص (`600 - 200 + 50`). این متد ستون را به‌عنوان مجموع علامت‌گذاری می‌کند؛ مقدار سلول را محاسبه یا پر نمی‌کند. از صفر به‌عنوان جایگزین استفاده نکنید و مقدار دیگری برای نقطهٔ مجموع فراهم نکنید. یک ستون مجموع مقدار جمع‌شده را بدون اضافه کردن دوباره به مقدار جاری نشان می‌دهد.
 
-این مثال کامل Java یک نمودار را با عضو `Waterfall` از [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) ایجاد می‌کند، داده‌های پیش‌فرض را پاک می‌کند و کتاب‌کار جاسازی‌شده را پر می‌کند. شاخص کاربرگ `0` اولین کاربرگ را انتخاب می‌کند؛ ستون A شامل نام‌های دسته و ستون B شامل مقادیر است. هر سلول مقدار با [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) اضافه می‌شود. شاخص‌های نقطهٔ صفر‑مبنا `2` و `5` مجموع میانی و نهایی را شناسایی می‌کنند. فراخوانی [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) با `true` مقادیر را روی ستون‌ها نمایش می‌دهد. ارائهٔ ورودی یا کتاب‌کار لازم نیست.
+این مثال کامل Java یک نمودار را با عضو `Waterfall` از [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) ایجاد می‌کند، داده‌های پیش‌فرض را پاک می‌کند و کتاب‌کار جاسازی‌شده را پر می‌کند. اندیس صفحه‌کاری `0` اولین کاربرگ را انتخاب می‌کند؛ ستون A نام‌های دسته و ستون B مقادیر را دارد. هر سلول مقدار با استفاده از [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) اضافه می‌شود. اندیس‌های نقطه‌ای صفر‑مبنا `2` و `5` مجموع میانی و نهایی را شناسایی می‌کنند. فراخوانی [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) با `true` مقادیر را روی ستون‌ها نمایش می‌دهد. ارائهٔ ورودی یا کتاب‌کار نیازی نیست.
 
 ```java
 import com.aspose.slides.*;
@@ -517,7 +517,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // نقطه‌های سوم و ششم نشان‌دهنده مجموع‌ها هستند، نه تغییرات اضافی.
+    // نقطه‌های سوم و ششم نمایانگر مجموع‌ها هستند، نه تغییرات اضافی.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -531,17 +531,17 @@ finally
 }
 ```
 
-متد س series‑level [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) را با `true` فراخوانی کنید تا خطوطی که ستون‌های متوالی را به‌هم وصل می‌کنند نشان داده شود و مقدار جاری راحت‌تر دنبال شود. برای مخفی کردن این خطوط، فراخوانی متد را در مثال با `series.setShowConnectorLines(false);` قبل از ذخیره‌سازی جایگزین کنید. این تنها نمایان بودن خط را تغییر می‌دهد، نه داده یا مجموع‌ها.
+متد سطح سری [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) را با `true` فراخوانی کنید تا خطوطی که ستون‌های متوالی را به‌هم وصل می‌کنند نشان داده شوند و مقدار جاری را دنبال کردن آسان‌تر شود. برای مخفی کردن این خطوط، فراخوانی متد را در مثال به `series.setShowConnectorLines(false);` تغییر دهید قبل از ذخیره. این فقط قابل دیدن خطوط را تغییر می‌دهد، نه داده یا مجموع‌ها.
 
-ارائهٔ ذخیره‌شده سود ناخالص 600 و سود خالص 450 را نشان می‌دهد، به‌همین‌منصور که هر دو مجموع از صفر رسم شده‌اند:
+ارائهٔ ذخیره‌شده سود ناخالص 600 و سود خالص 450 را نشان می‌دهد، که هر دو مجموع از صفر رسم شده‌اند:
 
-![نمودار آبشاری که درآمد، هزینه‌ها، سود ناخالص 600 و سود خالص 450 را با برچسب‌های مقدار و خطوط اتصال نشان می‌دهد](waterfall_chart.png)
+![نمودار آبشاری نشان‌دهندهٔ درآمد، هزینه‌ها، سود ناخالص 600 و سود خالص 450، با برچسب‌های مقدار و خطوط اتصال](waterfall_chart.png)
 
-### **Create Stock Charts**
+### **ایجاد نمودارهای سهامی (Stock)**
 
-نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تحلیل روندهای بازار و نوسان کمک می‌کنند. این نمودارها بینش‌های مهمی دربارهٔ عملکرد سهام فراهم می‌آورند و به سرمایه‌گذاران و تحلیلگران در اتخاذ تصمیمات آگاهانه کمک می‌کنند.
+نمودارهای سهامی برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تحلیل روندهای بازار و نوسان‌پذیری کمک می‌کنند. این نمودارها بینش‌های ضروری دربارهٔ عملکرد سهام فراهم می‌آورند و به سرمایه‌گذاران و تحلیل‌گران در اتخاذ تصمیمات آگاهانه کمک می‌کنند.
 
-این مثال یک نمودار open‑high‑low‑close با چهار س series به ترتیب آن و سه دسته ایجاد می‌کند. متد [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) نوارهای بالا/پایین را فعال می‌کند و [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) خطوط high‑low را که بازهٔ قیمتی را نشان می‌دهند، کنترل می‌کند، در حالی که خطوط س series منفرد و خطوط شبکه افقی جزئی مخفی می‌شوند.
+این مثال یک نمودار open‑high‑low‑close با چهار سری به ترتیب آن و سه دسته ایجاد می‌کند. متد [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) میله‌های بالا/پایین را فعال می‌کند و متد [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) خطوط بالا‑پایین را کنترل می‌کند که بازهٔ قیمتی را نشان می‌دهند؛ در حالی که خطوط سری‌های جداگانه و خطوط شبکه افقی جزئی مخفی هستند.
 
 ```java
 import com.aspose.slides.*;
@@ -623,13 +623,13 @@ finally
 
 نتیجه:
 
-![نمودار سهام](stock_chart.png)
+![نمودار سهامی](stock_chart.png)
 
-### **Create Box and Whisker Charts**
+### **ایجاد نمودارهای جعبه‌ای و ویسکر (Box and Whisker)**
 
-نمودارهای جعبه‌ای و چوب‌دار برای نمایش توزیع داده‌ها با خلاصه‌ کردن معیارهای آماری کلیدی مانند میانه، چارک‌ها و مقادیر دور افتاده استفاده می‌شوند. این نمودارها در تحلیل اکتشافی داده‌ها و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناسازگاری‌ها بسیار مفید هستند.
+نمودارهای جعبه‌ای و ویسکر برای نمایش توزیع داده‌ها با خلاصه‌کردن معیارهای آماری کلیدی مانند میانه، چارک‌ها و نقاط دورافتاده استفاده می‌شوند. این نمودارها به‌ویژه در تحلیل اکتشافی داده‌ها و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناهنجاری‌ها مفید هستند.
 
-این مثال یک نمودار جعبه‌ای و چوب‌دار از شش مقدار ایجاد می‌کند. متد [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) محاسبهٔ چارک انحصاری را انتخاب می‌کند. مثال همچنین خطوط میانگین، نشانگرهای میانگین، نقاط داخلی و نقاط دور افتاده را فعال می‌کند.
+این مثال یک نمودار جعبه‌ای و ویسکر از شش مقدار ایجاد می‌کند. متد [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) روش محاسبهٔ چارک‌های انحصاری را انتخاب می‌کند. مثال همچنین خطوط میانگین، علامت‌گرهای میانگین، نقاط درونی و نقاط دورافتاده را فعال می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -689,11 +689,11 @@ finally
 }
 ```
 
-### **Create Funnel Charts**
+### **ایجاد نمودارهای قیفی (Funnel)**
 
-نمودارهای قیفی برای تجسم فرآیندهایی که شامل مراحل متوالی هستند استفاده می‌شوند، به‌طوری که حجم داده‌ها با پیشرفت از یک گام به گام بعدی کاهش می‌یابد. این نمودارها به‌ویژه برای تحلیل نرخ تبدیل، شناسایی گره‌های تنگنا و پیگیری کارایی فرآیندهای فروش یا بازاریابی مفیدند.
+نمودارهای قیفی برای بصری‌سازی فرآیندهایی که شامل مراحل متوالی هستند استفاده می‌شوند، به‌طوری که حجم داده‌ها به‌همین ترتیب از یک گام به گام دیگر کاهش می‌یابد. این نمودارها برای تحلیل نرخ تبدیل، شناسایی گلوگاه‌ها و پیگیری کارایی فرآیندهای فروش یا بازاریابی بسیار مفیدند.
 
-این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای افزودن یک نمودار قیفی به اولین اسلاید یک ارائهٔ موجود استفاده می‌کند. داده‌های پیش‌فرض را با شش دسته و مقادیری بین 50 تا 500 جایگزین می‌کند و سپس ارائهٔ به‌روز شده را ذخیره می‌کند. ارائهٔ ورودی باید حداقل یک اسلاید داشته باشد.
+این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای افزودن یک نمودار قیفی به اولین اسلاید یک ارائهٔ موجود استفاده می‌کند. داده‌های پیش‌فرض را با شش دسته و مقادیر از 50 تا 500 جایگزین می‌کند و سپس ارائهٔ به‌روزرسانی‌شده را ذخیره می‌کند. ارائهٔ ورودی باید حداقل یک اسلاید داشته باشد.
 
 ```java
 import com.aspose.slides.*;
@@ -751,11 +751,11 @@ finally
 
 ![نمودار قیفی](funnel_chart.png)
 
-### **Create Sunburst Charts**
+### **ایجاد نمودارهای خورشیدگرد (Sunburst)**
 
-نمودارهای خورشیدگرد برای تجسم داده‌های سلسله‌مراتبی استفاده می‌شوند و سطوح را به‌صورت حلقه‌های متحد-مرکز نمایش می‌دهند. این نمودارها رابطهٔ بخش‑به‑کل را روشن می‌کنند و برای نمایش دسته‌ها و زیرمجموعه‌های تو در تو به‌صورت واضح و فشرده ایده‌آل هستند.
+نمودارهای خورشیدگرد برای بصری‌سازی داده‌های سلسله‌مراتبی استفاده می‌شوند و سطوح را به‌صورت حلقه‌های هم‌مرکز نمایش می‌دهند. این نمودارها به نشان دادن روابط بخشی به کل کمک می‌کنند و برای نمایش دسته‌ها و زیردسته‌های تو در تو به‌صورت واضح و فشرده ایده‌آل‌اند.
 
-این مثال یک نمودار خورشیدگرد با هشت برگ که در چهار ساقه و دو شاخه گروه‌بندی شده‌اند ایجاد می‌کند. متد [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) ساقه‌ها را در سطح گروه‌بندی 1 و شاخه‌ها را در سطح 2 تخصیص می‌دهد. برچسب‌های دسته‌بندی بخش‌ها را شناسایی می‌کنند و مقادیر اندازهٔ نسبی آن‌ها را تعیین می‌کنند.
+این مثال یک نمودار خورشیدگرد با هشت برگ که در چهار شاخه و دو شعبه گروه‌بندی شده‌اند، ایجاد می‌کند. متد [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) شاخه‌ها را در سطح گروه‌بندی 1 و شعبه‌ها را در سطح 2 اختصاص می‌دهد. برچسب‌های دسته بخش‌ها را شناسایی می‌کنند و مقادیر اندازهٔ نسبی آن‌ها را تعیین می‌کنند.
 
 ```java
 import com.aspose.slides.*;
@@ -836,11 +836,15 @@ finally
 
 ![نمودار خورشیدگرد](sunburst_chart.png)
 
-### **Create Histogram Charts**
+### **ایجاد نمودارهای هیستوگرام (Histogram)**
 
-نمودارهای هیستوگرام برای نمایش توزیع داده‌های عددی با گروه‌بندی مقادیر در بازه‌ها یا سطل‌ها استفاده می‌شوند. این نمودارها برای شناسایی الگوهای داده مانند فراوانی، کج‌نمایی و پراکندگی و برای کشف مقادیر دور افتاده در یک مجموعه داده بسیار مفیدند.
+نمودارهای هیستوگرام نشان می‌دهند که مقادیر عددی چگونه در بازه‌ها (bins) توزیع شده‌اند. برای گزارش‌های ماهانه دربارهٔ زمان‌های پردازش سفارش، از عرض بینه ثابت و آستانه‌های یکسان استفاده کنید تا بازه‌ها سازگار بمانند و مقایسه توزیع‌ها آسان‌تر شود.
 
-این مثال یک هیستوگرام از شش مقدار عددی، شامل مقادیر منفی، ایجاد می‌کند. فراخوانی [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) با نوع تجمیع خودکار به نمودار اجازه می‌دهد تا سطل‌های مناسب برای نمایش توزیع را تعیین کند.
+متد [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) را بر روی محور افقی با حالت از [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/) فراخوانی کنید. [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) فقط برای `ByBinWidth` اعمال می‌شود؛ [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) فقط برای `ByNumberOfBins` اعمال می‌شود. از `Automatic` استفاده کنید تا نمودار خود بینه‌ها را انتخاب کند.
+
+#### **استفاده از عرض بینه ثابت**
+
+این مثال زمان‌های پردازش را به بازه‌های 10‑دقیقه‌ای گروه‌بندی می‌کند، با بینه‌های جداگانه برای زمان‌های ≤10 دقیقه و >40 دقیقه. این بینه‌ها را با [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) و [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-) فعال کنید. هنگام فراهم کردن آستانه‌های صریح از طریق [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) و [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-)، متدهای [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) و [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) را با `false` فراخوانی کنید.
 
 ```java
 import com.aspose.slides.*;
@@ -850,7 +854,10 @@ try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300);
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -859,22 +866,24 @@ try
     workbook.clear(0);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
-    IChartDataCell valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 }
 finally
 {
@@ -882,15 +891,62 @@ finally
 }
 ```
 
-نتیجه:
+ارائه‌ای که در PowerPoint نشان داده می‌شود، تعداد بینه‌های **3, 4, 4, 4, و 2** را دارد. بینهٔ زیر جریان شامل `5, 10, 10` است، بنابراین آستانهٔ آن شامل است. بینهٔ فوق جریان فقط شامل `41, 50` است، بنابراین آستانهٔ آن مستثنی است؛ هر دو مقدار برابر با `40` در بازهٔ قبلی باقی می‌مانند. بینه‌های داخلی شامل مقادیری بزرگ‌تر از مرز پایینی و کمتر یا مساوی مرز بالایی هستند.
 
-![نمودار هیستوگرام](histogram_chart.png)
+![هیستوگرام با بینه‌های 10‑دقیقه‌ای و آستانه‌های صریح زیر و فوق جریان](histogram_bin_width.png)
 
-### **Create Radar Charts**
+#### **مشخص‌کردن تعداد بینه‌ها**
 
-نمودارهای رادار برای نمایش داده‌های چندمتغیره در قالب دو‑بعدی استفاده می‌شوند و امکان مقایسهٔ همزمان چند متغیر را به‌راحتی فراهم می‌کنند. این نمودارها برای شناسایی الگوها، قوت‌ها و ضعف‌ها در بین چند معیار عملکرد یا ویژگی بسیار مفیدند.
+برای سطح جزئیات ثابت به‌جای بازه‌های ثابت، پنج بینه برای همان داده درخواست کنید. این مثال بینه‌های زیر و فوق جریان را غیرفعال می‌گذارد. نمودار عرض را از بازهٔ داده تعیین می‌کند، بنابراین مرزها می‌توانند بین گزارش‌ها تغییر کنند.
 
-این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای ایجاد یک نمودار رادار با س series و دسته‌های پیش‌فرض استفاده می‌کند، سپس ارائه را به صورت PPTX ذخیره می‌کند.
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+پنج بینه دارای تعداد **4, 4, 4, 4, و 1** هستند. این توزیع را با نتیجهٔ عرض ثابت بالا مقایسه کنید: مقادیر ورودی یکسان هستند، اما مرزها متفاوتند.
+
+![هیستوگرام با پنج بینه محاسبه‌شده از همان داده‌ها](histogram_bin_count.png)
+
+### **ایجاد نمودارهای رادار (Radar)**
+
+نمودارهای رادار برای نمایش داده‌های چندمتغیره در قالب دو‑بعدی استفاده می‌شوند و امکان مقایسهٔ همزمان چندین متغیر را به‌صورت آسان فراهم می‌کنند. این نمودارها به‌ویژه برای شناسایی الگوها، قوت‌ها و ضعف‌ها در میان معیارهای عملکردی یا ویژگی‌های متعدد مفیدند.
+
+این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای ایجاد یک نمودار رادار با سری‌ها و دسته‌های پیش‌فرض استفاده می‌کند و سپس ارائه را به صورت PPTX ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -914,11 +970,11 @@ finally
 
 ![نمودار رادار](radar_chart.png)
 
-### **Create Multi-Category Charts**
+### **ایجاد نمودارهای چنددسته‌ای (Multi-Category)**
 
-نمودارهای چنددسته‌ای برای نمایش داده‌هایی استفاده می‌شوند که شامل بیش از یک گروه‌بندی دسته‌ای هستند و به شما اجازه می‌دهند مقادیر را در ابعاد متعدد به‌هم‌زمان مقایسه کنید. این نمودارها به‌ویژه زمانی که نیاز به تحلیل روندها و روابط در مجموعه داده‌های پیچیده و چندلایه دارید مفیدند.
+نمودارهای چنددسته‌ای برای نمایش داده‌هایی استفاده می‌شوند که شامل بیش از یک گروه‌بندی دسته‌ای هستند و به شما امکان می‌دهند مقادیر را در ابعاد متعدد به‌صورت همزمان مقایسه کنید. این نمودارها به‌ویژه هنگام نیاز به تحلیل روندها و روابط در مجموعه‌داده‌های چندلایهٔ پیچیده مفیدند.
 
-این مثال یک نمودار ستونی خوشه‌ای با هشت دسته که در چهار جفت مرتب شده‌اند ایجاد می‌کند. متد [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) برای هر جفت یک برچسب مشترک در سطح گروه‌بندی 1 اختصاص می‌دهد و یک محور دسته‌ای با برچسب‌های فردی و گروهی تولید می‌کند.
+این مثال یک نمودار ستونی خوشه‌ای با هشت دسته که در چهار جفت ترتیب داده شده‌اند، ایجاد می‌کند. متد [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) به هر جفت یک برچسب مشترک در سطح گروه‌بندی 1 می‌دهد و محور دسته با برچسب‌های فردی و گروهی همزمان تولید می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -994,11 +1050,11 @@ finally
 
 ![نمودار چنددسته‌ای](multi_category_chart.png)
 
-### **Create Map Charts**
+### **ایجاد نمودارهای نقشه (Map)**
 
-نمودارهای نقشه برای تجسم داده‌های جغرافیایی با نگاشت اطلاعات به مکان‌های خاص مانند کشورها، ایالات یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیتی و توزیع‌های مکانی به‌صورت واضح و جذاب بصری بسیار مناسبند.
+نمودارهای نقشه برای بصری‌سازی داده‌های جغرافیایی با نگاشت اطلاعات به مکان‌های خاصی مانند کشورهای، ایالت‌ها یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیتی و توزیع‌های فضایی به‌صورت واضح و جذاب مفیدند.
 
-این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای ایجاد یک نمودار نقشه با داده‌های جغرافیایی پیش‌فرض استفاده می‌کند و آن را برای مشاهده‌ در PowerPoint ذخیره می‌کند.
+این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای ایجاد یک نمودار نقشه با داده‌های جغرافیایی پیش‌فرض استفاده می‌کند و آن را برای مشاهده در PowerPoint ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -1023,16 +1079,16 @@ finally
 ![نمودار نقشه](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-تصویر بالا نشان می‌دهد که ارائهٔ ذخیره‌شده در PowerPoint باز شده است. Aspose.Slides نمودار نقشه و داده‌های آن را به‌درستی می‌نویسد، اما خود نمودارهای نقشه را رسم نمی‌کند: هنگامی که اسلایدی که شامل آن است به تصویر تبدیل یا به PDF یا SVG تبدیل می‌شود، ناحیهٔ نمودار خالی می‌ماند. شکل‌های دیگر موجود در همان اسلاید تحت تأثیر قرار نمی‌گیرند.
+تصویر بالا نشان‌دهندهٔ ارائهٔ ذخیره‌شده است که در PowerPoint باز شده است. Aspose.Slides نمودار نقشه و داده‌های آن را به‌درستی می‌نویسد، اما خود نمودارهای نقشه را رسم نمی‌کند: وقتی اسلایدی که شامل یکی از آن‌هاست به تصویر تبدیل یا به PDF یا SVG تبدیل می‌شود، ناحیهٔ نمودار خالی می‌ماند. سایر اشکال روی همان اسلاید تحت‌تأثیر قرار نمی‌گیرند.
 {{% /alert %}}
 
-### **Create Combination Charts**
+### **ایجاد نمودارهای ترکیبی (Combination)**
 
-نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما اجازه می‌دهد تا تفاوت‌ها یا مقایسه‌های بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید و روابط بین آن‌ها را شناسایی کنید.
+نمودار ترکیبی (یا combo) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا مقایسهٔ بین دو یا چند مجموعه داده را برجسته کنید و روابط بین آن‌ها را شناسایی کنید.
 
 ![نمودار ترکیبی](combination_chart.png)
 
-این مثال دو س series ستونی خوشه‌ای را با یک س series خطی در چهار دسته ترکیب می‌کند. ستون‌ها از محور عمودی اصلی استفاده می‌کنند، در حالی که [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) خط را بر روی محور عمودی ثانویهٔ سمت راست قرار می‌دهد. توابع کمکی عنوان، افسانه، برچسب‌های محور و خطوط شبکه را پیکربندی می‌کنند.
+این مثال دو سری ستونی خوشه‌ای را با یک سری خطی در چهار دسته ترکیب می‌کند. ستون‌ها از محور عمودی اصلی استفاده می‌کنند، در حالی که [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) خط را بر روی محور عمودی ثانویهٔ سمت راست قرار می‌دهد. توابع کمکی عنوان، افسانه، برچسب‌های محور و خطوط شبکه را پیکربندی می‌کنند.
 
 ```java
 import com.aspose.slides.*;
@@ -1201,11 +1257,11 @@ ComboChartExample example = new ComboChartExample();
 example.createComboChart();
 ```
 
-## **Update Charts**
+## **به‌روزرسانی نمودارها**
 
-Aspose.Slides for Java به شما امکان می‌دهد تا نمودارهای PowerPoint را با اصلاح داده‌های نمودار، قالب‌بندی و استایل به‌روزرسانی کنید. این قابلیت فرآیند نگه‌داری ارائه‌ها را با محتوای دینامیک ساده می‌کند و اطمینان می‌دهد که نمودارها به‌درستی داده‌ها و استانداردهای بصری فعلی را منعکس می‌کنند.
+Aspose.Slides for Java به شما امکان می‌دهد تا نمودارهای PowerPoint را با تغییر داده‌های نمودار، قالب‌بندی و استایل به‌روزرسانی کنید. این قابلیت فرآیند نگه‌داشتن ارائه‌ها را با محتوای پویا ساده می‌کند و اطمینان می‌دهد که نمودارها به‌دقت داده‌ها و استانداردهای بصری فعلی را منعکس می‌کنند.
 
-این مثال نمودار با نام «My chart» را در اولین اسلاید یک ارائهٔ موجود به‌روزرسانی می‌کند. این مثال به دو س series ستونی با هر سه نقطه داده‌ای نیاز دارد، به‌طوری که برچسب‌های دسته در ستون A و نام‌های س series در ردیف اول اولین کاربرگ قرار دارند. مثال با استفاده از [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) سلول‌های کاربرگ را تغییر می‌دهد، مقادیر س series را به‌روزرسانی می‌کند، س series سوم را اضافه می‌کند و نمودار را به سیلندری‌های خوشه‌ای از طریق [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) تغییر می‌دهد.
+این مثال نمودار به نام “My chart” را در اولین اسلاید یک ارائهٔ موجود به‌روزرسانی می‌کند. این مثال به دو سری ستونی با هر کدام سه نقطه داده نیاز دارد که برچسب‌های دسته در ستون A و نام‌های سری در ردیف اول اولین کاربرگ قرار دارند. مثال از [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) برای تغییر سلول‌های کتاب‌کار استفاده می‌کند، مقادیر سری‌ها را به‌روزرسانی می‌کند، سری سوم را اضافه می‌کند و نوع نمودار را به استوانه‌ای خوشه‌ای با استفاده از [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) تغییر می‌دهد.
 
 ```java
 import com.aspose.slides.*;
@@ -1265,13 +1321,13 @@ finally
 }
 ```
 
-## **Set Data Range for a Chart**
+## **تنظیم محدودهٔ داده برای یک نمودار**
 
-برای بررسی بازه‌ای که قبلاً توسط یک نمودار موجود استفاده شده است، به [Retrieve a Chart's Data Range](/slides/fa/java/chart-workbook/#retrieve-a-charts-data-range) مراجعه کنید.
+برای بررسی محدوده‌ای که قبلاً توسط یک نمودار موجود استفاده شده است، به [Retrieve a Chart's Data Range](/slides/fa/java/chart-workbook/#retrieve-a-charts-data-range) مراجعه کنید.
 
-Aspose.Slides for Java انعطاف‌پذیری تعریف یک بازه دادهٔ خاص از یک کاربرگ را به‌عنوان منبع دادهٔ نمودار شما فراهم می‌کند. این به این معنی است که می‌توانید به‌صورت مستقیم بخشی از کاربرگ خود را به نمودار نگاشته و کنترل کنید که کدام سلول‌ها به س series و دسته‌های نمودار کمک می‌کنند. در نتیجه می‌توانید نمودارهای خود را به‌راحتی با جدیدترین تغییرات داده در کاربرگ همگام‌سازی و به‌روزرسانی کنید تا ارائه‌های PowerPoint شما اطلاعات دقیق و به‌روز را منعکس کنند.
+Aspose.Slides for Java انعطاف‌پذیری تعیین یک محدودهٔ دادهٔ خاص از یک کاربرگ به‌عنوان منبع دادهٔ نمودار را فراهم می‌آورد. این به این معناست که می‌توانید به‌صورت مستقیم بخشی از کاربرگ خود را به نمودار نگاشت کنید و کنترل کنید که کدام سلول‌ها به سری‌ها و دسته‌های نمودار کمک می‌کنند. در نتیجه می‌توانید به‌راحتی نمودارها را به‌روز کنید و همگام با آخرین تغییرات داده در کاربرگ خود نگه دارید و اطمینان حاصل کنید که ارائه‌های PowerPoint شما اطلاعات جاری و دقیقی را منعکس می‌کند.
 
-این مثال از [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) برای تنظیم منبع دادهٔ نمودار با نام «My chart» در اولین اسلاید یک ارائهٔ موجود به `Sheet1!A1:B4` استفاده می‌کند. کتاب‌کار نمودار باید آن کاربرگ و یک بازهٔ پر شده شامل سرصفحهٔ س series در ردیف اول، برچسب‌های دسته در ستون A و سه مقدار در ستون B را داشته باشد.
+این مثال از [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) برای تنظیم منبع دادهٔ نمودار به نام “My chart” در اولین اسلاید یک ارائهٔ موجود به `Sheet1!A1:B4` استفاده می‌کند. کتاب‌کار نمودار باید آن کاربرگ و یک محدوده پر شده با عنوان سری در ردیف اول، برچسب‌های دسته در ستون A و سه مقدار در ستون B را داشته باشد.
 
 ```java
 import com.aspose.slides.*;
@@ -1300,11 +1356,11 @@ finally
 }
 ```
 
-## **Use Default Markers in Charts**
+## **استفاده از علامت‌گرهای پیش‌فرض در نمودارها**
 
-هنگامی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر س series نمودار به‌طور خودکار یک نماد نشانگر پیش‌فرض متفاوت دریافت می‌کند.
+وقتی از علامت‌گرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌صورت خودکار یک نماد علامت‌گر پیش‌فرض متفاوت دریافت می‌کند.
 
-این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای ایجاد یک نمودار با دو س series خطی و یک افسانه استفاده می‌کند. تنظیمات نشانگر که از طریق [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) دسترسی پیدا می‌شود، نمادهای نشانگر اختصاص‌یافته خودکار را حفظ می‌کند. س series اول شامل یک مقدار منفی و یک مقدار گمشده (نمایش داده شده به‌صورت `null`) است، در حالی که س series دوم مقدار برای هر دسته دارد.
+این مثال از [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) برای ایجاد یک نمودار با دو سری خطی و یک افسانه استفاده می‌کند. تنظیمات علامت‌گر که از طریق [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) دسترسی پیدا می‌شود، نمادهای علامت‌گر اختصاص یافته به‌صورت خودکار را حفظ می‌کند. سری اول شامل یک مقدار منفی و یک مقدار گمشده (نمایش داده‌شده به‌صورت `null`) است، در حالی که سری دوم برای هر دسته مقدار دارد.
 
 ```java
 import com.aspose.slides.*;
@@ -1367,20 +1423,20 @@ finally
 }
 ```
 
-## **FAQ**
+## **سوالات متداول**
 
-**What chart types are supported by Aspose.Slides for Java?**
+**کدام انواع نمودارها توسط Aspose.Slides for Java پشتیبانی می‌شوند؟**
 
-Aspose.Slides for Java انواع گسترده‌ای از نمودارها را پشتیبانی می‌کند، از جمله ستون، خط، دایره‌ای، ناحیه، پراکنش، هیستوگرام، رادار و بسیاری موارد دیگر. این انعطاف‌پذیری به شما اجازه می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای تجسم دادهٔ خود انتخاب کنید.
+Aspose.Slides for Java انواع متنوعی از نمودارها شامل میله‌ای, خطی, دایره‌ای, مساحتی, پراکند, هیستوگرام, رادار و بسیاری دیگر را پشتیبانی می‌کند. این انعطاف‌پذیری به شما امکان می‌دهد مناسب‌ترین نوع نمودار را برای نیازهای بصری‌سازی دادهٔ خود انتخاب کنید.
 
-**How do I add a new chart to a slide?**
+**چگونه یک نمودار جدید به اسلاید اضافه کنم؟**
 
-برای افزودن یک نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ایجاد می‌کنید، اسلاید موردنظر را با استفاده از ایندکس آن دریافت می‌کنید و سپس متد افزودن نمودار را فراخوانی می‌کنید، نوع نمودار و داده‌های اولیه را مشخص می‌کنید. این فرآیند نمودار را مستقیماً در ارائهٔ شما ادغام می‌کند.
+برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ایجاد کنید، اسلاید مورد نظر را با اندیس آن بازیابی کنید و سپس متد افزودن نمودار را صدا بزنید، نوع نمودار و داده‌های اولیه را مشخص کنید. این فرآیند نمودار را به‌طور مستقیم در ارائهٔ شما ادغام می‌کند.
 
-**How can I update the data displayed in a chart?**
+**چگونه می‌توانم داده‌های نشان داده‌شده در یک نمودار را به‌روزرسانی کنم؟**
 
-می‌توانید داده‌های یک نمودار را با دسترسی به کتاب‌کار دادهٔ آن ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/))، پاک‌سازی س series و دسته‌های پیش‌فرض، و سپس افزودن داده‌های سفارشی خود به‌روزرسانی کنید. این امکان را می‌دهد تا برنامه‌نویسی نمودار را طوری تازه کنید که آخرین داده‌ها را منعکس کند.
+می‌توانید با دسترسی به کتاب‌کار دادهٔ نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/))، سری‌ها و دسته‌های پیش‌فرض را پاک کنید و سپس داده‌های سفارشی خود را اضافه کنید. این امکان را می‌دهد تا برنامه‌نویسی نمودار را برای بازتاب داده‌های جدید به‌روز کنید.
 
-**Is it possible to customize the appearance of the chart?**
+**آیا می‌توان ظاهر نمودار را سفارشی کرد؟**
 
-بله، Aspose.Slides for Java گزینه‌های سفارشی‌سازی گسترده‌ای فراهم می‌کند. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، افسانه‌ها و سایر عناصر قالب‌بندی را تغییر دهید تا ظاهر نمودار را بر حسب نیازهای طراحی خاص شما تنظیم کنید.
+بله، Aspose.Slides for Java گزینه‌های سفارشی‌سازی گسترده‌ای فراهم می‌کند. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، افسانه‌ها و سایر عناصر قالب‌بندی را تغییر دهید تا ظاهر نمودار را مطابق با نیازهای طراحی خاص خود تنظیم کنید.

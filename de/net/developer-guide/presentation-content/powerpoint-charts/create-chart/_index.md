@@ -1,5 +1,5 @@
 ---
-title: Diagramme in PowerPoint-Präsentationen in .NET erstellen oder aktualisieren
+title: Diagramme in PowerPoint-Präsentationen mit .NET erstellen oder aktualisieren
 linktitle: Diagramme erstellen oder aktualisieren
 type: docs
 weight: 10
@@ -13,46 +13,50 @@ keywords:
 - Streudiagramm
 - Kreisdiagramm
 - Liniendiagramm
-- Baumdiagramm
-- Börsendiagramm
-- Box‑ und Whisker‑Diagramm
+- Tree-Map-Diagramm
+- Aktienkursdiagramm
+- Box-Whisker-Diagramm
 - Trichterdiagramm
-- Sunburst‑Diagramm
-- Histogramm‑Diagramm
-- Radar‑Diagramm
-- Mehrkategorie‑Diagramm
+- Sunburst-Diagramm
+- Histogramm
+- Radar-Diagramm
+- Mehrkategorien-Diagramm
 - PowerPoint
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Diagramme in PowerPoint‑Präsentationen mit Aspose.Slides für .NET erstellen und anpassen. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Code‑Beispielen in C#."
+description: "Erstellen und Anpassen von Diagrammen in PowerPoint-Präsentationen mit Aspose.Slides für .NET. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Codebeispielen in C#."
 ---
 ## **Übersicht**
 
-Dieser Artikel bietet eine umfassende Anleitung, wie man Diagramme mit Aspose.Slides für .NET erstellt und anpasst. Sie lernen, wie man programmgesteuert ein Diagramm zu einer Folie hinzufügt, es mit Daten füllt und verschiedene Formatierungsoptionen anwendet, um Ihre spezifischen Designanforderungen zu erfüllen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis zur Konfiguration von Reihen, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre .NET-Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen optimieren.
+Dieser Artikel bietet eine umfassende Anleitung, wie Sie Diagramme mit Aspose.Slides für .NET erstellen und anpassen. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, vom Initialisieren der Präsentation und des Diagrammobjekts bis hin zur Konfiguration von Reihen, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre .NET‑Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen optimieren.
 
 ## **Diagramm erstellen**
 
-Diagramme helfen dabei, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Tabellenblatt nicht sofort ersichtlich sind.
+Diagramme helfen Menschen, Daten schnell zu visualisieren und Einsichten zu gewinnen, die aus einer Tabelle oder einem Arbeitsblatt nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
-* große Datenmengen auf einer einzelnen Folie einer Präsentation aggregieren, komprimieren oder zusammenfassen;
-* Muster und Trends in den Daten aufzeigen;
-* die Richtung und das Momentum der Daten im Zeitverlauf oder in Bezug auf eine bestimmte Maßeinheit ableiten;
-* Ausreißer, Aberrationen, Abweichungen, Fehler und unsinnige Daten erkennen;
-* komplexe Daten kommunizieren oder darstellen.
+Mit Diagrammen können Sie:
 
-In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung verschiedener Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
+* große Datenmengen auf einer einzelnen Folie in einer Präsentation aggregieren, verdichten oder zusammenfassen;
+* Muster und Trends in Daten aufdecken;
+* die Richtung und das Momentum von Daten im Zeitverlauf oder in Bezug auf eine bestimmte Messeeinheit ableiten;
+* Ausreißer, Aberationen, Abweichungen, Fehler und unsinnige Daten erkennen;
+* komplexe Daten kommunizieren oder präsentieren.
+
+In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für viele Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
 
 {{% alert color="info" title="Note" %}}
-Verwenden Sie die [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) Aufzählung im Namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Die Werte in dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
+
+Verwenden Sie die [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)‑Aufzählung im [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/)-Namensraum. Die Werte dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
+
 {{% /alert %}}
 
-### **Erstellen gruppierter Säulendiagramme**
+### **Gruppierte Säulendiagramme erstellen**
 
-Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein gruppiertes Säulendiagramm zu erstellen, das zwei Reihen über drei Kategorien hinweg vergleicht. Die Reihen verwenden rote bzw. grüne Füllungen, und einzelne Beschriftungen zeigen Kategorienamen, Reihennamen und Werte an. Arbeitsblatt‑Index 0 bezieht sich auf das erste Blatt im eingebetteten Diagramm‑Workbook.
+Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein gruppiertes Säulendiagramm zu erstellen, das zwei Reihen über drei Kategorien vergleicht. Die Reihen verwenden rote bzw. grüne Füllungen, und einzelne Beschriftungen zeigen Kategorienamen, Reihennamen und Werte. Der Arbeitsblatt‑Index 0 bezieht sich auf das erste Blatt der eingebetteten Diagrammarbeitsmappe.
 
 ```csharp
 using System.Drawing;
@@ -130,18 +134,18 @@ Das Ergebnis:
 
 ![Das gruppierte Säulendiagramm](clustered_column_chart.png)
 
-### **Streudiagramme erstellen**
+### **Punktdiagramme erstellen**
 
-Streudiagramme (auch bekannt als Scatter‑Plots oder X‑Y‑Grafiken) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu demonstrieren.
+Punktdiagramme (auch Streudiagramme oder X‑Y‑Diagramme genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu demonstrieren.
 
-Verwenden Sie ein Streudiagramm, wenn:
+Verwenden Sie ein Punktdiagramm, wenn:
 
 * Sie gepaarte numerische Daten haben.
-* Sie zwei Variablen haben, die gut zusammenpassen.
-* Sie bestimmen wollen, ob die beiden Variablen miteinander verbunden sind.
-* Sie eine unabhängige Variable haben, die mehrere Werte für eine abhängige Variable besitzt.
+* Sie zwei Variablen haben, die gut zueinander passen.
+* Sie bestimmen möchten, ob die beiden Variablen miteinander verbunden sind.
+* Sie eine unabhängige Variable besitzen, die für eine abhängige Variable mehrere Werte hat.
 
-Dieses Beispiel zeichnet zwei Sätze von X‑Y‑Werten. Die erste Reihe verwendet durchgezogene Linien mit Stern‑Markern, während die zweite glatte Linien mit Kreis‑Markern nutzt; beide verwenden eine [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) von 10. Die [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/)‑Eigenschaft steuert die Markerform.
+Dieses Beispiel zeichnet zwei Sätze von X‑Y‑Werten. Die erste Reihe verwendet gerade Linien mit Stern‑Markern, während die zweite glatte Linien mit Kreis‑Markern nutzt; beide verwenden eine [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) von 10. Die [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/)-Eigenschaft steuert die Markerform.
 
 ```csharp
 using Aspose.Slides;
@@ -204,13 +208,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Das Ergebnis:
 
-![Das Streudiagramm](scatter_chart.png)
+![Das Punktdiagramm](scatter_chart.png)
 
 ### **Kreisdiagramme erstellen**
 
-Kreisdiagramme eignen sich am besten, um das Teil‑zu‑Ganz‑Verhältnis in Daten zu zeigen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Daten jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
+Kreisdiagramme eignen sich am besten, um das Verhältnis eines Teils zum Ganzen darzustellen, insbesondere wenn die Daten kategoriale Bezeichnungen mit numerischen Werten enthalten. Wenn Ihre Daten jedoch viele Teile oder Beschriftungen enthalten, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
 
-Dieses Beispiel erstellt ein Kreisdiagramm mit drei Quartalswerten. Jeder Sektor hat eine individuelle Füllung und Kontur, und die Beschriftungen zeigen verschiedene Kombinationen aus Wert, Prozentsatz und Reiheninformationen. Die [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/)‑Eigenschaft legt den ersten Sektor auf 180 Grad fest.
+Dieses Beispiel erstellt ein Kreisdiagramm mit drei Quartalswerten. Jeder Abschnitt hat eine benutzerdefinierte Füllung und Kontur, und die Beschriftungen zeigen verschiedene Kombinationen von Werten, Prozentwerten und Reiheninformationen. Die [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/)-Eigenschaft legt den ersten Abschnitt auf 180 Grad fest.
 
 ```csharp
 using System.Drawing;
@@ -310,9 +314,9 @@ Das Ergebnis:
 
 ### **Liniendiagramme erstellen**
 
-Liniendiagramme (auch als Liniendiagramme bekannt) eignen sich am besten, wenn Sie Änderungen von Werten im Zeitverlauf darstellen wollen. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und mehr.
+Liniendiagramme (auch Liniendiagramme genannt) eignen sich am besten, wenn Sie Änderungen von Werten im Zeitverlauf demonstrieren möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und vieles mehr.
 
-Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein Liniendiagramm mit den Standard‑Reihen und -Kategorien zu erstellen, und speichert die Präsentation als PPTX.
+Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein Liniendiagramm mit den Standardreihen und -kategorien zu erstellen und speichert die Präsentation als PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -327,7 +331,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-Standardmäßig werden Punkte in einem Liniendiagramm durch gerade durchgehende Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, setzen Sie [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) auf einen Wert aus [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade, kontinuierliche Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, setzen Sie [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) auf einen Wert von [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
 
 ```csharp
 using Aspose.Slides;
@@ -348,11 +352,11 @@ Das Ergebnis:
 
 ![Das Liniendiagramm](line_chart.png)
 
-### **Baumdiagramme erstellen**
+### **Tree‑Map‑Diagramme erstellen**
 
-Baumdiagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell die großen Beitragsleister innerhalb jeder Kategorie hervorheben wollen.
+Tree‑Map‑Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell die Elemente hervorheben möchten, die innerhalb jeder Kategorie große Beiträge leisten.
 
-Dieses Beispiel erstellt ein Baumdiagramm mit acht Blättern, gruppiert in vier Stämmen und zwei Zweigen. Die [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑Methode weist Stämme auf Gruppierungsebene 1 und Zweige auf Ebene 2 zu. Werte bestimmen die relative Rechteckgröße, während Kategorien‑ und überlappende Eltern‑Beschriftungen die Hierarchie identifizieren.
+Dieses Beispiel erstellt eine Tree‑Map mit acht Blättern, die in vier Stämme und zwei Zweige gruppiert sind. Die Methode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) weist Stämme der Gruppierungsebene 1 und Zweige Ebene 2 zu. Werte bestimmen die relativen Rechteckgrößen, während Kategorielabels und überlappende Eltern‑Labels die Hierarchie identifizieren.
 
 ```csharp
 using Aspose.Slides;
@@ -428,26 +432,26 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 Das Ergebnis:
 
-![Das Baumdiagramm](treemap_chart.png)
+![Das Tree‑Map‑Diagramm](treemap_chart.png)
 
 ### **Wasserfalldiagramme erstellen**
 
-Ein Wasserfalldiagramm zeigt, wie positive und negative Änderungen zu einem Endwert beitragen. Zum Beispiel kann eine Gewinnaufgliederung mit Umsatz beginnen, Kosten abziehen und andere Einnahmen hinzufügen. Änderungs‑Spalten „schweben“ zwischen dem vorherigen und dem neuen Laufwert, während Gesamtsäulen von Null bis zum akkumulierten Wert reichen.
+Ein Wasserfalldiagramm zeigt, wie positive und negative Änderungen zu einem Endwert beitragen. Zum Beispiel kann eine Gewinnaufstellung mit Umsatz beginnen, Kosten abziehen und andere Erträge hinzufügen. Änderungsspalten schweben zwischen dem vorherigen und dem neuen Laufwert, während Gesamtsäulen von 0 bis zum akkumulierten Wert reichen.
 
 Das folgende Beispiel verwendet Beträge in Tausend US‑Dollar:
 
-| Kategorie | Arbeitsblattwert | Spaltentyp |
+| Kategorie | Arbeitsmappenwert | Spaltentyp |
 | --- | ---: | --- |
 | Umsatz | 1000 | Zunahme |
-| Kosten der Verkäufe | -400 | Abnahme |
+| Herstellungskosten | -400 | Abnahme |
 | Bruttogewinn | 600 | Zwischensumme |
 | Betriebskosten | -200 | Abnahme |
-| Sonstige Einnahmen | 50 | Zunahme |
+| Sonstige Erträge | 50 | Zunahme |
 | Nettogewinn | 450 | Endsumme |
 
-Um einen Punkt als Zwischensumme oder Endsumme zu kennzeichnen, setzen Sie seine [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/)‑Eigenschaft auf `true`. Geben Sie den tatsächlich akkumulierten Betrag in der zugehörigen Arbeitsblatt‑Zelle an: `600` für Bruttogewinn (`1000 - 400`) und `450` für Nettogewinn (`600 - 200 + 50`). Die Eigenschaft markiert die Spalte als Gesamtsumme; sie berechnet oder füllt den Zellenwert nicht. Verwenden Sie nicht Null als Platzhalter und geben Sie keinen anderen Änderungswert für einen Gesamtsumme‑Punkt an. Eine Gesamtsäule zeigt den akkumulierten Wert, ohne ihn erneut zum Laufwert hinzuzufügen.
+Um einen Punkt als Zwischen‑ oder Endsumme zu kennzeichnen, setzen Sie dessen [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/)‑Eigenschaft auf `true`. Geben Sie den tatsächlichen akkumulierten Betrag in der Arbeitsmappen‑Zelle dieses Punktes an: `600` für den Bruttogewinn (`1000 - 400`) und `450` für den Nettogewinn (`600 - 200 + 50`). Die Eigenschaft markiert die Spalte als Summe; sie berechnet den Zellenwert nicht. Verwenden Sie nicht 0 als Platzhalter und geben Sie keinen anderen Änderungswert für einen Summenpunkt an. Eine Summenspalte zeigt den akkumulierten Wert, ohne ihn erneut zum Laufwert hinzuzufügen.
 
-Dieses komplette C#‑Beispiel erstellt ein Diagramm mit dem `Waterfall`‑Mitglied von [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), löscht die Standarddaten und füllt das eingebettete Workbook. Arbeitsblatt‑Index `0` wählt das erste Arbeitsblatt; Spalte A enthält Kategorienamen und Spalte B die Werte. Jeder Wert wird mit [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) hinzugefügt. Die null‑basierten Punkt‑Indizes `2` und `5` identifizieren die Zwischensumme bzw. die Endsumme. Durch Aktivieren von [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) werden die Beträge auf den Spalten angezeigt. Keine Eingabe‑Präsentation oder Workbook ist erforderlich.
+Dieses vollständige C#‑Beispiel erstellt ein Diagramm mit dem `Waterfall`‑Mitglied von [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), löscht die Standarddaten und füllt die eingebettete Arbeitsmappe. Der Arbeitsblatt‑Index `0` wählt das erste Arbeitsblatt; Spalte A enthält Kategorienamen und Spalte B Werte. Jede Wertzelle wird mit [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) hinzugefügt. Die nullbasierten Punktindizes `2` und `5` identifizieren die Zwischen‑ bzw. Endsummen. Das Setzen von [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) auf `true` zeigt die Beträge an den Spalten. Eine Eingabepäsentation oder Arbeitsmappe ist nicht erforderlich.
 
 ```csharp
 using Aspose.Slides;
@@ -485,7 +489,7 @@ for (var i = 0; i < categories.Length; i++)
     series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
 
-// Der dritte und der sechste Punkt stellen Summen dar, nicht zusätzliche Änderungen.
+// Der dritte und sechste Punkt stellen Summen dar, nicht zusätzliche Änderungen.
 series.DataPoints[2].SetAsTotal = true;
 series.DataPoints[5].SetAsTotal = true;
 series.ShowConnectorLines = true;
@@ -494,17 +498,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Setzen Sie die Reihen‑Ebene‑[ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/)‑Eigenschaft auf `true`, um Linien zu zeigen, die aufeinanderfolgende Spalten verbinden und den Laufwert leichter nachvollziehbar machen. Um diese Linien zu verbergen, ersetzen Sie die Zuweisung im Beispiel durch `series.ShowConnectorLines = false;` vor dem Speichern. Dies ändert nur die Sichtbarkeit der Linien, nicht die Daten oder Summen.
+Setzen Sie die reihen‑bezogene [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/)‑Eigenschaft auf `true`, um Linien zwischen aufeinanderfolgenden Spalten anzuzeigen und den Laufwert leichter nachvollziehbar zu machen. Um diese Linien auszublenden, ersetzen Sie die Zuweisung im Beispiel durch `series.ShowConnectorLines = false;` vor dem Speichern. Dadurch wird nur die Sichtbarkeit der Linie geändert, nicht die Daten oder Summen.
 
-Das gespeicherte Ergebnis zeigt einen Bruttogewinn von 600 und einen Nettogewinn von 450, wobei beide Summen von 0 aus beginnen:
+Die gespeicherte Präsentation zeigt einen Bruttogewinn von 600 und einen Nettogewinn von 450, wobei beide Summen von 0 aus beginnen:
 
-![Wasserfalldiagramm, das Umsatz, Kosten, Bruttogewinn von 600 und Nettogewinn von 450 mit Wertebeschriftungen und Verbindungslinien zeigt](waterfall_chart.png)
+![Wasserfalldiagramm, das Umsatz, Kosten, Bruttogewinn von 600 und Nettogewinn von 450 mit Wertbeschriftungen und Verbindungslinien zeigt](waterfall_chart.png)
 
-### **Börsendiagramme erstellen**
+### **Aktienkurvendiagramme erstellen**
 
-Börsendiagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Hoch‑, Tief‑ und Schlusskurse darzustellen und Markttrends sowie Volatilität zu analysieren. Sie liefern wesentliche Einblicke in die Kursentwicklung und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
+Aktienkurvendiagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Hoch‑, Tief‑ und Schlusskurse darzustellen und helfen so, Markttrends und Volatilität zu analysieren. Sie bieten wesentliche Einblicke in die Aktienperformance und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
 
-Dieses Beispiel erstellt ein Open‑High‑Low‑Close‑Diagramm mit vier Reihen in dieser Reihenfolge und drei Kategorien. Die [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/)‑Eigenschaft aktiviert Auf‑/Ab‑Balken, und [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) steuert die Hoch‑Tief‑Linien, die Preisbereiche anzeigen, während die einzelnen Reihen‑Linien und die feinen horizontalen Gitternetzlinien ausgeblendet sind.
+Dieses Beispiel erstellt ein OHLC‑Diagramm (Open‑High‑Low‑Close) mit vier Reihen in dieser Reihenfolge und drei Kategorien. Die Eigenschaft [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) aktiviert Auf‑/Ab‑Balken, und [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) steuert die Hoch‑Tief‑Linien, die die Preisspannen zeigen, während die einzelnen Reihen‑Linien und kleinere horizontale Gitternetzlinien ausgeblendet werden.
 
 ```csharp
 using Aspose.Slides;
@@ -581,13 +585,13 @@ presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 
 Das Ergebnis:
 
-![Das Börsendiagramm](stock_chart.png)
+![Das Aktienkurvendiagramm](stock_chart.png)
 
-### **Box‑ und Whisker‑Diagramme erstellen**
+### **Box‑Plot‑Diagramme erstellen**
 
-Box‑ und Whisker‑Diagramme werden verwendet, um die Verteilung von Daten darzustellen, indem zentrale statistische Kennzahlen wie Median, Quartile und mögliche Ausreißer zusammengefasst werden. Sie sind besonders nützlich in der explorativen Datenanalyse und in statistischen Studien, um die Variabilität schnell zu erfassen und Anomalien zu erkennen.
+Box‑Plot‑Diagramme werden verwendet, um die Verteilung von Daten darzustellen, indem wichtige statistische Kennzahlen wie Median, Quartile und mögliche Ausreißer zusammengefasst werden. Sie sind besonders nützlich in der explorativen Datenanalyse und bei statistischen Studien, um die Datenvariabilität schnell zu verstehen und Anomalien zu erkennen.
 
-Dieses Beispiel erstellt ein Box‑ und Whisker‑Diagramm aus sechs Werten. Die [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/)‑Eigenschaft wählt die exklusive Quartilsberechnung. Das Beispiel aktiviert zudem Mittelwert‑Linien, Mittelwert‑Marker, innere Punkte und Ausreißer‑Punkte.
+Dieses Beispiel erstellt ein Box‑Plot‑Diagramm aus sechs Werten. Die [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/)‑Eigenschaft wählt die exklusive Quartilsberechnung. Das Beispiel aktiviert außerdem Mittelwertlinien, Mittelwert‑Marker, innere Punkte und Ausreißer‑Punkte.
 
 ```csharp
 using Aspose.Slides;
@@ -642,11 +646,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Trichterdiagramme erstellen**
+### **Trichter‑Diagramme erstellen**
 
-Trichterdiagramme werden verwendet, um Prozesse zu visualisieren, die sequenzielle Phasen umfassen, wobei das Datenvolumen von Schritt zu Schritt abnimmt. Sie sind besonders hilfreich, um Konversionsraten zu analysieren, Engpässe zu identifizieren und die Effizienz von Vertriebs‑ oder Marketingprozessen zu verfolgen.
+Trichter‑Diagramme werden verwendet, um Prozesse mit sequenziellen Phasen zu visualisieren, bei denen das Datenvolumen von einem Schritt zum nächsten abnimmt. Sie sind besonders hilfreich zur Analyse von Konversionsraten, zur Identifizierung von Engpässen und zur Verfolgung der Effizienz von Vertriebs‑ oder Marketingprozessen.
 
-Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein Trichterdiagramm zur ersten Folie einer bestehenden Präsentation hinzuzufügen. Es ersetzt die Standarddaten durch sechs Kategorien und Werte von 50 bis 500 und speichert dann die aktualisierte Präsentation. Die Eingabe‑Präsentation muss mindestens eine Folie enthalten.
+Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um einem bestehenden Präsentations‑Slide ein Trichter‑Diagramm hinzuzufügen. Es ersetzt die Standarddaten durch sechs Kategorien mit Werten von 50 bis 500 und speichert anschließend die aktualisierte Präsentation. Die Eingabepäsentation muss mindestens eine Folie enthalten.
 
 ```csharp
 using Aspose.Slides;
@@ -697,13 +701,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 Das Ergebnis:
 
-![Das Trichterdiagramm](funnel_chart.png)
+![Das Trichter‑Diagramm](funnel_chart.png)
 
 ### **Sunburst‑Diagramme erstellen**
 
-Sunburst‑Diagramme werden verwendet, um hierarchische Daten zu visualisieren, wobei Ebenen als konzentrische Ringe dargestellt werden. Sie veranschaulichen Teil‑zu‑Ganz‑Beziehungen und eignen sich ideal, um verschachtelte Kategorien und Unterkategorien kompakt darzustellen.
+Sunburst‑Diagramme werden verwendet, um hierarchische Daten darzustellen, wobei Ebenen als konzentrische Ringe angezeigt werden. Sie helfen, Teil‑zu‑Ganz‑Beziehungen zu veranschaulichen und eignen sich ideal zur Darstellung verschachtelter Kategorien und Unterkategorien in einem klaren, kompakten Format.
 
-Dieses Beispiel erstellt ein Sunburst‑Diagramm mit acht Blättern, gruppiert in vier Stämmen und zwei Zweigen. Die [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑Methode weist Stämme auf Gruppierungsebene 1 und Zweige auf Ebene 2 zu. Kategorien‑Beschriftungen identifizieren die Segmente, und die Werte bestimmen ihre relative Größe.
+Dieses Beispiel erstellt ein Sunburst‑Diagramm mit acht Blättern, die in vier Stämme und zwei Zweige gruppiert sind. Die Methode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) weist Stämme der Gruppierungsebene 1 und Zweige Ebene 2 zu. Kategorielabels identifizieren die Segmente, und die Werte bestimmen ihre relativen Größen.
 
 ```csharp
 using Aspose.Slides;
@@ -781,9 +785,13 @@ Das Ergebnis:
 
 ### **Histogramm‑Diagramme erstellen**
 
-Histogramm‑Diagramme werden verwendet, um die Verteilung numerischer Daten darzustellen, indem Werte in Bereiche oder Klassen gruppiert werden. Sie sind besonders nützlich, um Muster wie Häufigkeit, Schiefe und Streuung zu erkennen und Ausreißer in einem Datensatz zu entdecken.
+Histogramm‑Diagramme zeigen, wie numerische Werte über Intervalle (Bins) verteilt sind. Für Monatsberichte über Auftragsbearbeitungszeiten verwenden Sie dieselbe Bin‑Breite und dieselben Schwellenwerte, um die Intervalle konsistent zu halten und Vergleiche zu erleichtern.
 
-Dieses Beispiel erstellt ein Histogramm aus sechs numerischen Werten, einschließlich negativer Werte. Das Setzen von [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/aggregationtype/) auf automatisch lässt das Diagramm die für die Anzeige der Verteilung verwendeten Klassen selbst bestimmen.
+Setzen Sie den Horizontalachsen‑[AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) auf einen Modus von [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) gilt nur für `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) gilt nur für `ByNumberOfBins`. Verwenden Sie `Automatic`, damit das Diagramm die Bins selbst wählt.
+
+#### **Feste Bin‑Breite verwenden**
+
+Dieses Beispiel gruppiert Bearbeitungszeiten in 10‑Minute‑Intervalle, mit separaten Bins für Zeiten ≤ 10 Minuten und > 40 Minuten. Aktivieren Sie diese Bins mit [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) und [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). Wenn Sie explizite Schwellenwerte für [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) und [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) angeben, setzen Sie [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) und [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) auf `false`.
 
 ```csharp
 using Aspose.Slides;
@@ -793,7 +801,10 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
 
 chart.ChartData.Categories.Clear();
 chart.ChartData.Series.Clear();
@@ -802,33 +813,77 @@ var workbook = chart.ChartData.ChartDataWorkbook;
 workbook.Clear(0);
 
 var series = chart.ChartData.Series.Add(ChartType.Histogram);
-var valueCell = workbook.GetCell(0, "A1", 15);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A2", -41);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A3", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A4", 10);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A5", -23);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A6", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
 
-chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByBinWidth;
+axis.BinWidth = 10;
+axis.IsUnderflowBin = true;
+axis.IsAutomaticUnderflowBin = false;
+axis.UnderflowBin = 10;
+axis.IsOverflowBin = true;
+axis.IsAutomaticOverflowBin = false;
+axis.OverflowBin = 40;
 
-presentation.Save("Histogram.pptx", SaveFormat.Pptx);
+presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-Das Ergebnis:
+Die in PowerPoint angezeigte Präsentation zeigt Bin‑Zahlen von **3, 4, 4, 4 und 2**. Der Unter‑Bin beinhaltet `5, 10, 10`, daher ist seine Schwelle inklusiv. Der Über‑Bin enthält nur `41, 50`, daher ist seine Schwelle exklusiv; beide Werte gleich `40` verbleiben im vorhergehenden Intervall. Die Innen‑Bins enthalten Werte, die größer als ihre untere Grenze und kleiner oder gleich ihrer oberen Grenze sind.
 
-![Das Histogramm‑Diagramm](histogram_chart.png)
+![Histogramm mit 10‑Minute‑Bins und expliziten Unter‑ und Über‑Schwellenwerten](histogram_bin_width.png)
+
+#### **Anzahl der Bins angeben**
+
+Für ein festes Detailniveau anstelle fester Intervalle geben Sie fünf Bins für dieselben Daten an. Dieses Beispiel lässt Unter‑ und Über‑Bins deaktiviert. Das Diagramm ermittelt die Breite aus dem Datenbereich, sodass Grenzen zwischen Berichten variieren können.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Histogram);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
+
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByNumberOfBins;
+axis.NumberOfBins = 5;
+
+presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+```
+
+Die fünf Bins haben Werte von **4, 4, 4, 4 und 1**. Vergleichen Sie diese Verteilung mit dem Ergebnis der festen Breite oben: die Eingabewerte sind identisch, aber die Grenzen unterscheiden sich.
+
+![Histogramm mit fünf Bins, berechnet aus denselben Daten](histogram_bin_count.png)
 
 ### **Radar‑Diagramme erstellen**
 
-Radar‑Diagramme werden verwendet, um multivariate Daten in einem zweidimensionalen Format darzustellen, wodurch mehrere Variablen gleichzeitig leicht verglichen werden können. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungsmetriken oder Attribute hinweg zu identifizieren.
+Radar‑Diagramme werden verwendet, um multivariate Daten in einem zweidimensionalen Format darzustellen, sodass mehrere Variablen gleichzeitig leicht verglichen werden können. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungskennzahlen oder Attribute hinweg zu identifizieren.
 
-Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein Radar‑Diagramm mit den Standard‑Reihen und -Kategorien zu erstellen, und speichert die Präsentation als PPTX.
+Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein Radar‑Diagramm mit den Standardreihen und -kategorien zu erstellen und speichert die Präsentation als PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -847,11 +902,11 @@ Das Ergebnis:
 
 ![Das Radar‑Diagramm](radar_chart.png)
 
-### **Mehrkategorie‑Diagramme erstellen**
+### **Mehrkategorien‑Diagramme erstellen**
 
-Mehrkategorie‑Diagramme werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung enthalten, sodass Sie Werte über mehrere Dimensionen gleichzeitig vergleichen können. Sie sind besonders hilfreich, wenn Sie Trends und Zusammenhänge in komplexen, mehrschichtigen Datensätzen analysieren müssen.
+Mehrkategorien‑Diagramme werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung enthalten, sodass Sie Werte über mehrere Dimensionen hinweg vergleichen können. Sie sind besonders hilfreich, wenn Sie Trends und Beziehungen in komplexen, mehrschichtigen Datensätzen analysieren müssen.
 
-Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit acht Kategorien, angeordnet in vier Paaren. Die [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑Methode gibt jedem Paar eine gemeinsame Beschriftung auf Gruppierungsebene 1, wodurch eine Kategorien‑Achse mit sowohl einzelnen als auch Gruppen‑Beschriftungen entsteht.
+Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit acht Kategorien, die in vier Paare angeordnet sind. Die Methode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gibt jedem Paar ein gemeinsames Label auf Gruppierungsebene 1, wodurch eine Kategorienachse mit sowohl einzelnen als auch Gruppen‑Labels entsteht.
 
 ```csharp
 using Aspose.Slides;
@@ -920,13 +975,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Das Ergebnis:
 
-![Das Mehrkategorie‑Diagramm](multi_category_chart.png)
+![Das Mehrkategorien‑Diagramm](multi_category_chart.png)
 
 ### **Karten‑Diagramme erstellen**
 
-Karten‑Diagramme werden verwendet, um geografische Daten zu visualisieren, indem Informationen bestimmten Orten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
+Karten‑Diagramme werden verwendet, um geografische Daten zu visualisieren, indem Informationen bestimmten Standorten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
 
-Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein Karten‑Diagramm mit den Standard‑Geodaten zu erstellen und speichert es zur Ansicht in PowerPoint.
+Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein Karten‑Diagramm mit den Standardgeodaten zu erstellen und speichert es zur Ansicht in PowerPoint.
 
 ```csharp
 using Aspose.Slides;
@@ -946,16 +1001,18 @@ Das Ergebnis:
 ![Das Karten‑Diagramm](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Das obige Bild zeigt die gespeicherte Präsentation, die in PowerPoint geöffnet ist. Aspose.Slides schreibt das Karten‑Diagramm und seine Daten korrekt, zeichnet jedoch selbst keine Karten‑Diagramme: Wenn eine Folie, die ein solches Diagramm enthält, zu einem Bild gerendert oder in PDF bzw. SVG konvertiert wird, erscheint der Diagrammbereich leer. Andere Formen auf derselben Folie bleiben unverändert.
+
+Das obige Bild zeigt die gespeicherte Präsentation, die in PowerPoint geöffnet wurde. Aspose.Slides schreibt das Karten‑Diagramm und seine Daten korrekt, zeichnet jedoch keine Karten‑Diagramme selbst: Wird eine Folie mit einem solchen Diagramm in ein Bild umgewandelt oder in PDF bzw. SVG konvertiert, erscheint der Diagrammbereich leer. Andere Formen auf derselben Folie bleiben unverändert.
+
 {{% /alert %}}
 
 ### **Kombinations‑Diagramme erstellen**
 
-Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einer einzigen Grafik. Dieses Diagramm ermöglicht es, Unterschiede zwischen mehreren Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen, um deren Beziehungen zu erkennen.
+Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
 
 ![Das Kombinations‑Diagramm](combination_chart.png)
 
-Dieses Beispiel kombiniert zwei gruppierte Säulenreihen mit einer Linienreihe über vier Kategorien. Die Säulen verwenden die primäre vertikale Achse, während [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) die Linie auf eine sekundäre vertikale Achse rechts platziert. Hilfsfunktionen konfigurieren Titel, Legende, Achsenbeschriftungen und Gitternetzlinien.
+Dieses Beispiel kombiniert zwei gruppierte Säulenreihen mit einer Linienreihe über vier Kategorien. Die Säulen verwenden die primäre vertikale Achse, während [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) die Linie auf einer sekundären vertikalen Achse rechts platziert. Hilfsfunktionen konfigurieren Titel, Legende, Achsenbeschriftungen und Gitterlinien.
 
 ```csharp
 using System.Drawing;
@@ -1117,9 +1174,9 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Diagramme aktualisieren**
 
-Aspose.Slides für .NET ermöglicht es Ihnen, PowerPoint‑Diagramme zu aktualisieren, indem Sie Diagrammdaten, Formatierungen und Stil ändern. Diese Funktionalität vereinfacht das Aktualisieren von Präsentationen mit dynamischem Inhalt und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards exakt wiedergeben.
+Aspose.Slides für .NET ermöglicht es Ihnen, PowerPoint‑Diagramme zu aktualisieren, indem Sie Diagrammdaten, Formatierung und Stil ändern. Diese Funktion vereinfacht das Aktualisieren von Präsentationen mit dynamischen Inhalten und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards genau wiedergeben.
 
-Dieses Beispiel aktualisiert das Diagramm mit dem Namen „My chart“ auf der ersten Folie einer bestehenden Präsentation. Es benötigt zwei Spaltenreihen mit jeweils drei Datenpunkten, wobei Kategorienamen in Spalte A und Reihennamen in der ersten Zeile des ersten Arbeitsblatts stehen. Das Beispiel verwendet [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/), um Arbeitsblattzellen zu ändern, aktualisiert Reihenwerte, fügt eine dritte Reihe hinzu und ändert das Diagramm zu gruppierten Zylindern über [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
+Dieses Beispiel aktualisiert das Diagramm mit dem Namen "My chart" auf der ersten Folie einer bestehenden Präsentation. Es erfordert zwei Spaltenreihen mit jeweils drei Datenpunkten, wobei Kategorielabels in Spalte A und Reihen­namen in der ersten Zeile des ersten Arbeitsblatts stehen. Das Beispiel verwendet [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/), um Arbeitsmappen‑Zellen zu ändern, aktualisiert Reihenwerte, fügt eine dritte Reihe hinzu und ändert das Diagramm über [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) zu gruppierten Zylindern.
 
 ```csharp
 using Aspose.Slides;
@@ -1175,11 +1232,11 @@ presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 
 ## **Datenbereich für ein Diagramm festlegen**
 
-Um den bereits von einem vorhandenen Diagramm verwendeten Bereich zu prüfen, siehe [Datenbereich eines Diagramms abrufen](/slides/de/net/chart-workbook/#retrieve-a-charts-data-range).
+Um den bereits von einem bestehenden Diagramm verwendeten Bereich zu prüfen, siehe [Retrieve a Chart's Data Range](/slides/de/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides für .NET bietet die Flexibilität, einen spezifischen Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten festzulegen. Das bedeutet, dass Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen können, um zu steuern, welche Zellen zu den Reihen und Kategorien des Diagramms beitragen. So können Sie Ihre Diagramme problemlos aktualisieren und mit den neuesten Änderungen im Arbeitsblatt synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und genaue Informationen widerspiegeln.
+Aspose.Slides für .NET bietet die Flexibilität, einen bestimmten Datenbereich aus einer Arbeitsmappe als Quelle für die Diagrammdaten zu definieren. Das bedeutet, dass Sie einen Teil Ihrer Arbeitsmappe direkt auf das Diagramm abbilden können, um zu steuern, welche Zellen zu den Reihen und Kategorien des Diagramms beitragen. Dadurch können Sie Ihre Diagramme leicht aktualisieren und mit den neuesten Datenänderungen in Ihrer Arbeitsmappe synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und genaue Informationen widerspiegeln.
 
-Dieses Beispiel verwendet [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/), um die Datenquelle des Diagramms mit dem Namen „My chart“ auf der ersten Folie einer bestehenden Präsentation auf `Sheet1!A1:B4` zu setzen. Das Diagramm‑Workbook muss dieses Arbeitsblatt und einen befüllten Bereich mit einer Reihen‑Überschrift in der ersten Zeile, Kategorienamen in Spalte A und drei Werten in Spalte B enthalten.
+Dieses Beispiel verwendet [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/), um die Datenquelle des Diagramms mit dem Namen "My chart" auf der ersten Folie einer bestehenden Präsentation auf `Sheet1!A1:B4` zu setzen. Die Diagrammarbeitsmappe muss dieses Arbeitsblatt und einen ausgefüllten Bereich mit einer Reihen‑Überschrift in der ersten Zeile, Kategorielabels in Spalte A und drei Werten in Spalte B enthalten.
 
 ```csharp
 using Aspose.Slides;
@@ -1206,7 +1263,7 @@ presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 
 Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammreihe automatisch ein unterschiedliches Standard‑Marker‑Symbol.
 
-Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein Diagramm mit zwei Linienreihen und einer Legende zu erstellen. Die [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/)‑Einstellungen behalten die automatisch zugewiesenen Marker‑Symbole bei. Die erste Reihe enthält einen negativen Wert und einen fehlenden Wert, dargestellt durch `null`, während die zweite für jede Kategorie einen Wert hat.
+Dieses Beispiel verwendet [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um ein Diagramm mit zwei Linienreihen und einer Legende zu erstellen. Die [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/)-Einstellungen behalten die automatisch zugewiesenen Marker‑Symbole bei. Die erste Reihe enthält einen negativen Wert und einen fehlenden Wert, dargestellt durch `null`, während die zweite für jede Kategorie einen Wert hat.
 
 ```csharp
 using Aspose.Slides;
@@ -1268,16 +1325,16 @@ presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 
 **Welche Diagrammtypen werden von Aspose.Slides für .NET unterstützt?**
 
-Aspose.Slides für .NET unterstützt eine breite Palette von Diagrammtypen, darunter Balken, Linien, Kreis, Flächen, Streu, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierungsanforderungen zu wählen.
+Aspose.Slides für .NET unterstützt eine breite Palette von Diagrammtypen, darunter Balken, Linien, Kreis, Flächen, Streu, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierungs‑Bedürfnisse zu wählen.
 
 **Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
 
-Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse, rufen die gewünschte Folie über ihren Index ab und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang fügt das Diagramm direkt in Ihre Präsentation ein.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse, rufen die gewünschte Folie über deren Index ab und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
 **Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-Sie können die Daten eines Diagramms aktualisieren, indem Sie auf sein Daten‑Workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zugreifen, vorhandene Standard‑Reihen und -Kategorien löschen und dann Ihre eigenen Daten hinzufügen. So können Sie das Diagramm programmgesteuert auffrischen, um die neuesten Daten widerzuspiegeln.
+Sie können die Daten eines Diagramms aktualisieren, indem Sie auf dessen Daten‑Arbeitsmappe ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zugreifen, alle Standardreihen und -kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. So können Sie das Diagramm programmgesteuert aktualisieren, um die neuesten Daten widerzuspiegeln.
 
 **Ist es möglich, das Aussehen des Diagramms anzupassen?**
 
-Ja, Aspose.Slides für .NET bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriften, Beschriftungen, Legenden und andere Formatierungselemente ändern, um das Aussehen des Diagramms an Ihre spezifischen Designanforderungen anzupassen.
+Ja, Aspose.Slides für .NET bietet umfassende Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere Formatierungselemente ändern, um das Erscheinungsbild des Diagramms an Ihre spezifischen Designanforderungen anzupassen.

@@ -10,51 +10,49 @@ keywords:
 - تحرير مخطط
 - تغيير مخطط
 - تحديث مخطط
-- مخطط مبعثرة
+- مخطط مبعثر
 - مخطط دائري
 - مخطط خطي
 - مخطط شجرة
 - مخطط أسهم
-- مخطط صندوق وشارب
+- مخطط صندوق وشوارب
 - مخطط قمع
 - مخطط شمسي
-- مخطط هيستوجرام
-- مخطط رادار
+- مخطط مدرج تكراري
+- مخطط راداري
 - مخطط متعدد الفئات
 - PowerPoint
-- عرض تقديمي
+- presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides لـ .NET. إضافة، تنسيق، وتحرير المخططات مع أمثلة شفرة عملية في C#."
+description: "إنشاء وتخصيص مخططات في عروض PowerPoint باستخدام Aspose.Slides لـ .NET. إضافة وتنسيق وتحرير المخططات مع أمثلة شفرة عملية بلغة C#."
 ---
 ## **نظرة عامة**
 
-توفر هذه المقالة دليلًا شاملاً حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides لـ .NET. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، ملئه بالبيانات، وتطبيق خيارات تنسيق مختلفة لتلبية متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة التعليمات البرمجية المفصلة كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والأساطير. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقات .NET الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية تعتمد على البيانات.
+توفر هذه المقالة دليلًا شاملًا حول كيفية إنشاء وتخصيص المخططات باستخدام Aspose.Slides لـ .NET. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، وتعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم المحددة الخاصة بك. طوال المقالة، توضح أمثلة شفرة مفصلة كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل، والمحاور، والأساطير. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقات .NET الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية تعتمد على البيانات.
 
 ## **إنشاء مخطط**
 
-تساعد المخططات الأشخاص على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة فورًا من جدول أو ورقة عمل.
+المخططات تساعد الأشخاص على تصور البيانات بسرعة واكتساب رؤى قد لا تكون واضحة مباشرةً من جدول أو ورقة عمل.
 
 **لماذا إنشاء المخططات؟**
 
-باستخدام المخططات، يمكنك:
+* تجميع أو تلخيص أو تضييق كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛
+* إظهار الأنماط والاتجاهات في البيانات؛
+* استنتاج اتجاه وزخم البيانات عبر الزمن أو بالنسبة لوحدة قياس معينة؛
+* اكتشاف القيم المتطرفة، الانحرافات، الأخطاء، والبيانات غير المنطقية؛
+* نقل أو عرض البيانات المعقدة.
 
-* تجميع أو تلخيص أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛
-* كشف الأنماط والاتجاهات في البيانات؛
-* استنتاج الاتجاه والزخم للبيانات عبر الزمن أو بالنسبة لوحدة قياس محددة؛
-* اكتشاف القيم الشاذة، الانحرافات، الأخطاء، والبيانات غير المنطقية؛
-* التواصل أو عرض البيانات المعقدة.
-
-في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *Insert* التي توفر قوالب لتصميم العديد من أنواع المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (استنادًا إلى الأنواع الشائعة) ومخططات مخصصة.
+في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *إدراج*، التي توفر قوالب لتصميم العديد من أنواع المخططات. باستخدام Aspose.Slides، يمكنك إنشاء كل من المخططات العادية (المستندة إلى أنواع المخططات الشائعة) والمخططات المخصصة.
 
 {{% alert color="info" title="Note" %}}
-استخدم تعداد [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) ضمن مساحة الاسم [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). القيم في هذا التعداد تتطابق مع أنواع المخططات المختلفة.
+استخدم تعداد [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) تحت مساحة الأسماء [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). القيم في هذا التعداد تت对应 إلى أنواع مختلفة من المخططات.
 {{% /alert %}}
 
-### **إنشاء مخططات عمودية مجمّعة**
+### **إنشاء مخططات عمودية مجموعة**
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط عمود مجمّع يقارن سلسلتين عبر ثلاث فئات. تستخدم السلسلة ألوان تعبئة حمراء وخضراء، وتوضح التسميات الفردية أسماء الفئات، أسماء السلاسل، والقيم. يشير فهرس ورقة العمل 0 إلى الورقة الأولى في مصنف المخطط المضمن.
+هذا المثال يستخدم [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط عمودي مجموعة يقارن سلسلتين عبر ثلاث فئات. السلسلة تستخدم تعبئة حمراء وخضراء، وتوضح الملصقات الفردية أسماء الفئات، أسماء السلاسل، والقيم. رقم ورقة العمل 0 يشير إلى الورقة الأولى في دفتر عمل المخطط المدمج.
 
 ```csharp
 using System.Drawing;
@@ -134,16 +132,16 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 ### **إنشاء مخططات مبعثرة**
 
-تُستخدم مخططات التبعثر (المعروفة أيضًا بمخططات النقاط أو الرسوم البيانية x‑y) عادةً للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
+المخططات المبعثرة (المعروفة أيضًا بمخططات التبعثر أو الرسوم البيانية س-ص) تُستخدم غالبًا للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
 
-استخدم مخطط تبعثر عندما:
+استخدم مخططًا مبعثراً عندما:
 
 * لديك بيانات رقمية مزدوجة.
-* لديك متغيران يرتبطان جيدًا معًا.
+* لديك متغيران يتكاملان معًا جيدًا.
 * تريد تحديد ما إذا كان المتغيران مرتبطين.
 * لديك متغير مستقل له قيم متعددة بالنسبة لمتغير تابع.
 
-يعرض هذا المثال مجموعتين من قيم x‑y. تستخدم السلسلة الأولى خطوطًا مستقيمة مع علامات نجمة، بينما تستخدم السلسلة الثانية خطوطًا ناعمة مع علامات دائرة؛ كلاهما يستخدم [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) بقيمة 10. تتحكم خاصية [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) في شكل العلامة.
+هذا المثال يرسم مجموعتين من قيم س-ص. السلسلة الأولى تستخدم خطوطًا مستقيمة مع علامات نجمة، بينما الثانية تستخدم خطوطًا ناعمة مع علامات دائرة؛ كلاهما يستخدم [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) بـ 10. الخاصية [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) تتحكم في شكل العلامة.
 
 ```csharp
 using Aspose.Slides;
@@ -206,13 +204,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![مخطط التبعثر](scatter_chart.png)
+![مخطط مبعثر](scatter_chart.png)
 
 ### **إنشاء مخططات دائرية**
 
-تُستخدم المخططات الدائرية لإظهار علاقة الجزء إلى الكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات فئوية مع قيم عددية. ومع ذلك، إذا احتوت بياناتك على العديد من الأجزاء أو التسميات، قد ترغب في التفكير في استخدام مخطط شريطي بدلاً من ذلك.
+المخططات الدائرية تُستخدم لإظهار علاقة الجزء بالكل في البيانات، خاصة عندما تحتوي البيانات على تسميات فئوية مع قيم رقمية. ومع ذلك، إذا كانت بياناتك تحتوي على العديد من الأجزاء أو التسميات، فقد ترغب في اعتبار مخطط شريطي بدلاً من ذلك.
 
-ينشئ هذا المثال مخططًا دائريًا بثلاث قيم ربع سنوية. لكل شريحة تعبئة وحدود مخصصة، وتظهر التسميات تركيبات مختلفة من القيم والنسب المئوية ومعلومات السلسلة. تحدد خاصية [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) بدء الشريحة الأولى عند 180 درجة.
+هذا المثال ينشئ مخططًا دائريًا بثلاث قيم ربع سنوية. كل شريحة لها تعبئة وحدود مخصصة، وتعرض الملصقات تركيبات مختلفة من القيم والنسب ومعلومات السلسلة. الخاصية [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) تحدد بدء الشريحة الأولى عند 180 درجة.
 
 ```csharp
 using System.Drawing;
@@ -308,13 +306,13 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![المخطط الدائري](pie_chart.png)
+![مخطط دائري](pie_chart.png)
 
 ### **إنشاء مخططات خطية**
 
-تُستخدم المخططات الخطية (المعروفة أيضًا بالرسوم البيانية الخطية) في الحالات التي تريد فيها توضيح التغيّر في القيمة بمرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات مرة واحدة، تتبع التغيّرات والاتجاهات بمرور الوقت، تسليط الضوء على الشذوذ في سلاسل البيانات، وأكثر من ذلك.
+المخططات الخطية (المعروفة أيضًا بالرسوم البيانية الخطية) تُستخدم في الحالات التي تريد فيها إظهار التغيّر في القيمة عبر الزمن. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات دفعة واحدة، تتبع التغيّر والاتجاهات عبر الوقت، إبراز الشذوذ في سلاسل البيانات، وأكثر.
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط خطي بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
+هذا المثال يستخدم [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط خطي بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -329,7 +327,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-بشكل افتراضي، تُربط النقاط في المخطط الخطي بخطوط مستمرة مستقيمة. إذا أردت ربط النقاط بخطوط متقطعة، اضبط [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) إلى قيمة من [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+افتراضيًا، يتم ربط النقاط على المخطط الخطي بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بخطوط متقطعة، اضبط [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) إلى قيمة من [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
 
 ```csharp
 using Aspose.Slides;
@@ -348,13 +346,13 @@ foreach (var series in lineChart.ChartData.Series)
 
 النتيجة:
 
-![المخطط الخطي](line_chart.png)
+![مخطط خطي](line_chart.png)
 
-### **إنشاء مخططات شجرية (Tree Map)**
+### **إنشاء مخططات خريطة شجرية**
 
-تُستخدم مخططات الشجرة (Tree Map) لبيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تشكل مساهمات كبيرة داخل كل فئة.
+مخططات خريطة شجرية تُستخدم لعرض بيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر الكبيرة المساهمة داخل كل فئة.
 
-ينشئ هذا المثال شجرةً تحتوي على ثمانية أوراق مُجَمّعة في أربعة سيقان وفرعين. تُعيّن الطريقة [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) السيقان على مستوى التجميع 1 والفروع على المستوى 2. تحدد القيم أحجام المستطيلات النسبية، بينما تُعرّف تسميات الفئات والتسميات المتداخلة للأبوين الهرمية.
+هذا المثال ينشئ خريطة شجرية بثمانية أوراق موزعة على أربعة جذوع وفرعين. الطريقة [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) تُعيّن الجذوع في مستوى التجميع 1 والفروع في المستوى 2. القيم تحدد أحجام المستطيلات النسبية، بينما تسميات الفئات وتسميات الأبوين المتداخلة تحدد الهرمية.
 
 ```csharp
 using Aspose.Slides;
@@ -430,26 +428,26 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![مخطط الشجرة](treemap_chart.png)
+![مخطط خريطة شجرية](treemap_chart.png)
 
-### **إنشاء مخططات شلال (Waterfall)**
+### **إنشاء مخططات شلالية**
 
-يظهر مخطط الشلال كيف تُساهم التغيّرات الإيجابية والسلبية في القيمة النهائية. على سبيل المثال، يمكن أن يبدأ تحليل الربح بالإيرادات، ثم يُخصم التكلفة، ويُضاف دخل آخر. تطفو أعمدة التغيّر بين القيمة السابقة والجديدة، بينما تمتد الأعمدة الإجمالية من الصفر إلى القيمة المتراكمة.
+مخطط شلالي يوضح كيف تُساهم التغيّرات الإيجابية والسلبية في القيمة النهائية. على سبيل المثال، يمكن أن يبدأ تحليل الربح بالإيرادات، ثم يُخصم التكاليف، ويُضاف الدخل الآخر. الأعمدة المتغيّرة تعوم بين القيمة السابقة والجديدة، بينما الأعمدة الكلية تمتد من الصفر إلى القيمة المتراكمة.
 
-المثال التالي يستخدم مبالغ بالآلاف من الدولارات الأمريكية:
+المثال التالي يستخدم مبالغ بآلاف الدولارات الأمريكية:
 
-| الفئة | قيمة المصنف | نوع العمود |
+| الفئة | قيمة دفتر العمل | نوع العمود |
 | --- | ---: | --- |
 | الإيرادات | 1000 | زيادة |
-| تكلفة المبيعات | -400 | نقصان |
-| الربح الإجمالي | 600 | إجمالي متوسط |
-| المصاريف التشغيلية | -200 | نقصان |
+| تكلفة المبيعات | -400 | انخفاض |
+| الربح الإجمالي | 600 | مجموع وسيط |
+| المصاريف التشغيلية | -200 | انخفاض |
 | دخل آخر | 50 | زيادة |
-| صافي الربح | 450 | إجمالي نهائي |
+| صافي الربح | 450 | مجموع نهائي |
 
-لتمييز نقطة كإجمالي متوسط أو نهائي، اضبط خاصية [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) الخاصة بها إلى `true`. زوّد الخلية في مصنف المصنف بالمبلغ المتراكم الفعلي: `600` للربح الإجمالي (`1000 - 400`) و`450` لصافي الربح (`600 - 200 + 50`). تُعلِم الخاصية العمود بأنه إجمالي؛ ولا تحسب أو تُملئ قيمة الخلية. لا تستخدم الصفر كعنصر نائب ولا تزود تغيّرًا آخر لنقطة إجمالية. يظهر العمود الإجمالي القيمة المتراكمة دون إضافتها مرة أخرى إلى القيمة الجارية.
+لتمييز نقطة كمجموع وسيط أو نهائي، اضبط خاصية [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) إلى `true`. ضع المبلغ المتراكم الفعلي في خلية دفتر العمل لتلك النقطة: `600` للربح الإجمالي (`1000 - 400`) و`450` لصافي الربح (`600 - 200 + 50`). الخاصية تُعلّم العمود كإجمالي؛ لا تقوم بحساب أو تعبئة قيمة الخلية. لا تستخدم الصفر كعنصر نائب ولا تُدخل تغييرًا آخر لنقطة إجمالية. يُظهر العمود الكلي القيمة المتراكمة دون إضافتها مرة أخرى إلى القيمة الجارية.
 
-هذا المثال الكامل بلغة C# يُنشئ مخططًا باستخدام العنصر `Waterfall` من تعداد [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)، يمسح البيانات الافتراضية، ويملأ مصنف العمل المضمّن. يُحدّد فهرس ورقة العمل `0` الورقة الأولى؛ العمود A يحتوي على أسماء الفئات والعمود B على القيم. تُضاف كل خلية قيمة باستخدام [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). تُحدّد الفهارس الصفرية للنقاط `2` و`5` الإجماليات المتوسطة والنهائية. يُظهر تمكين [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) القيم على الأعمدة. لا يلزم عرض تقديمي أو مصنف عمل كمدخل.
+هذا المثال الكامل بلغة C# ينشئ مخططًا باستخدام عضو `Waterfall` من [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)، يُنظّف البيانات الافتراضية، ويملأ دفتر العمل المدمج. رقم ورقة العمل `0` يختار الورقة الأولى؛ العمود A يحتوي على أسماء الفئات والعمود B يحتوي على القيم. تُضاف كل خلية قيمة عبر [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). مؤشرات النقاط الصفرية `2` و`5` تُحدّد المجموعين الوسيط والنهائي. تمكين [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) يُظهر المبالغ على الأعمدة. لا يلزم عرض تقديمي أو دفتر عمل مدخل.
 
 ```csharp
 using Aspose.Slides;
@@ -496,17 +494,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-اضبط خاصية مستوى السلسلة [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) إلى `true` لإظهار خطوط ربط الأعمدة المتتالية وتسهيل تتبع القيمة الجارية. لإخفاء هذه الخطوط، استبدل التعيين في المثال بـ `series.ShowConnectorLines = false;` قبل الحفظ. يغيّر هذا فقط رؤية الخطوط، وليس البيانات أو الإجماليات.
+اضبط خاصية [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) على مستوى السلسلة إلى `true` لإظهار خطوط ربط الأعمدة المتتابعة وجعل القيمة الجارية أسهل للمتابعة. لإخفاء هذه الخطوط، استبدل التعيين في المثال بـ `series.ShowConnectorLines = false;` قبل الحفظ. هذا يغيّر رؤية الخط فقط، لا البيانات أو المجاميع.
 
-العرض المحفوظ يُظهر الربح الإجمالي 600 وصافي الربح 450، مع رسم كل إجمالي من الصفر:
+العرض المحفوظ يُظهر الربح الإجمالي 600 وصافي الربح 450، مع رسم كل مجموعة من الصفر:
 
-![مخطط شلال يُظهر الإيرادات، التكلفة، الربح الإجمالي 600، وصافي الربح 450، مع تسميات القيم وخطوط الوصل](waterfall_chart.png)
+![مخطط شلالي يظهر الإيرادات، التكاليف، الربح الإجمالي 600، وصافي الربح 450، مع ملصقات القيم وخطوط ربط](waterfall_chart.png)
 
-### **إنشاء مخططات الأسهم (Stock)**
+### **إنشاء مخططات أسهم**
 
-تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح، الأعلى، الأدنى، والإغلاق، مما يساعد على تحليل اتجاهات السوق وتقلباته. توفر هذه المخططات رؤى أساسية حول أداء السهم، وتساعد المستثمرين والمحللين على اتخاذ قرارات مستنيرة.
+مخططات الأسهم تُستخدم لعرض البيانات المالية مثل أسعار الفتح، الأعلى، الأدنى، والإغلاق، مما يساعد على تحليل اتجاهات السوق وتقلباته. توفر رؤى أساسية حول أداء السهم، وتساعد المستثمرين والمحللين على اتخاذ قرارات مستنيرة.
 
-ينشئ هذا المثال مخططًا من نوع فتح‑ارتفاع‑انخفاض‑إغلاق مع أربع سلاسل بهذا الترتيب وثلاث فئات. تمكّن خاصية [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) من عرض أشرطة الصعود/الهبوط، وتتحكم [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) في خطوط الارتفاع‑الانخفاض التي تُظهر نطاقات الأسعار، بينما تُخفى خطوط السلاسل الفردية والشبكات الأفقية الصغيرة.
+هذا المثال ينشئ مخططًا للفتح-الأعلى-الأدنى-الإغلاق بأربع سلاسل بهذا الترتيب وثلاث فئات. الخاصية [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) تُفعّل أشرطة الصعود/هبوط، و[HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) تتحكم في الخطوط العالية-المنخفضة التي تُظهر نطاق الأسعار، بينما تُخفى خطوط السلاسل الفردية والشبكات الأفقية الصغرى.
 
 ```csharp
 using Aspose.Slides;
@@ -585,11 +583,11 @@ presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 
 ![مخطط الأسهم](stock_chart.png)
 
-### **إنشاء مخططات الصندوق والشارب (Box and Whisker)**
+### **إنشاء مخططات الصندوق والشوارب**
 
-تُستخدم مخططات الصندوق والشارب لعرض توزيع البيانات من خلال تلخيص المقاييس الإحصائية الرئيسية مثل الوسيط، الأرباع، والنقاط الشاذة المحتملة. وهي مفيدة بشكل خاص في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
+مخططات الصندوق والشوارب تُستخدم لعرض توزيع البيانات من خلال تلخيص مقاييس إحصائية رئيسية مثل الوسيط، الأرباع، والقيم المتطرفة المحتملة. هي مفيدة جدًا في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
 
-ينشئ هذا المثال مخطط صندوق وشارب من ستة قيم. تختار خاصية [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) طريقة حساب الأرباع الحصرية. كما يُفعّل المثال خطوط المتوسط، علامات المتوسط، النقاط الداخلية، ونقاط القيم الشاذة.
+هذا المثال يُنشئ مخطط صندوق وشوارب من ست قيم. الخاصية [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) تُحدد حساب الربع الحصري. المثال يُفعّل أيضًا خطوط المتوسط، علامات المتوسط، النقاط الداخلية، ونقاط القيم المتطرفة.
 
 ```csharp
 using Aspose.Slides;
@@ -644,11 +642,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **إنشاء مخططات قمع (Funnel)**
+### **إنشاء مخططات قمع**
 
-تُستخدم مخططات القمع لتصور عمليات تتضمن مراحل متسلسلة، حيث ينخفض حجم البيانات كلما تقدمت من خطوة إلى أخرى. وهي مفيدة خصوصًا لتحليل معدلات التحويل، تحديد الاختناقات، ومتابعة كفاءة عمليات البيع أو التسويق.
+مخططات القمع تُستخدم لتصور العمليات التي تتضمن مراحل متسلسلة، حيث يقل حجم البيانات كلما تقدمت من خطوة إلى التالية. هي مفيدة بشكل خاص في تحليل معدلات التحويل، تحديد عنق الزجاجة، وتتبع كفاءة عمليات المبيعات أو التسويق.
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإضافة مخطط قمع إلى الشريحة الأولى من عرض تقديمي موجود. يستبدل البيانات الافتراضية بست فئات وقيم تتراوح من 50 إلى 500، ثم يحفظ العرض المحدث. يجب أن يحتوي العرض المدخل على شريحة واحدة على الأقل.
+هذا المثال يستخدم [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإضافة مخطط قمع إلى الشريحة الأولى من عرض تقديمي موجود. يستبدل البيانات الافتراضية بست فئات وقيم تتراوح بين 50 و500، ثم يحفظ العرض المحدث. يجب أن يحتوي العرض المدخل على شريحة واحدة على الأقل.
 
 ```csharp
 using Aspose.Slides;
@@ -701,11 +699,11 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 ![مخطط القمع](funnel_chart.png)
 
-### **إنشاء مخططات شمسية (Sunburst)**
+### **إنشاء مخططات شمسية**
 
-تُستخدم المخططات الشمسية لتصور البيانات الهرمية، حيث تُظهر المستويات كحلقات متحدة المركز. تساعد على إظهار علاقات الجزء إلى الكل وتُعد مثالية لتمثيل الفئات المتداخلة والفروع الفرعية بطريقة واضحة ومضغوطة.
+مخططات شمسية تُستخدم لتصور البيانات الهرمية، حيث تُعرض المستويات كحلقات متحدة المركز. تساعد في توضيح علاقات الجزء بالكل وتناسب تمثيل الفئات المتداخلة والفرعية بشكل واضح ومكثف.
 
-ينشئ هذا المثال مخططًا شمسيًا يضم ثمانية أوراق مُجمّعة في أربعة سيقان وفرعين. تُعيّن الطريقة [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) السيقان على مستوى التجميع 1 والفروع على المستوى 2. تُعرّف تسميات الفئات القطاعات، وتحدّد القيم أحجامها النسبية.
+هذا المثال يُنشئ مخططًا شمسيًا بثمانية أوراق موزعة على أربعة جذوع وفرعين. الطريقة [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) تُعطي الجذوع في مستوى التجميع 1 والفروع في المستوى 2. تسميات الفئات تحدد المقاطع، والقيم تحدد أحجامها النسبية.
 
 ```csharp
 using Aspose.Slides;
@@ -779,13 +777,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![المخطط الشمسي](sunburst_chart.png)
+![مخطط شمسي](sunburst_chart.png)
 
-### **إنشاء مخططات هيستوجرام (Histogram)**
+### **إنشاء مخططات مدرج تكراري**
 
-تُستخدم مخططات الهيستوجرام لتمثيل توزيع البيانات العددية من خلال تجميع القيم في نطاقات أو صناديق. وهي مفيدة بشكل خاص لتحديد أنماط البيانات مثل التردد، الانحياز، والانتشار، وللكشف عن القيم الشاذة في مجموعة البيانات.
+مخططات المدرج التكراري تُظهر كيفية توزيع القيم العددية عبر فواصل (صناديق). لتقارير شهرية عن أوقات معالجة الطلبات، استخدم نفس عرض الصندوق والحدود للحفاظ على الاتساق وجعل المقارنات بين التوزيعات أسهل.
 
-ينشئ هذا المثال هيستوجرامًا من ست قيم عددية، بما في ذلك قيم سلبية. ضبط [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/aggregationtype/) على وضع تلقائي يسمح للمخطط بتحديد الصناديق المستخدمة لعرض التوزيع.
+اضبط محور الأفقي [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) إلى وضع من [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) يُطبّق فقط عندما يكون `ByBinWidth`؛ [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) يُطبّق فقط عندما يكون `ByNumberOfBins`. استخدم `Automatic` لترك المخطط يختار الصناديق.
+
+#### **استخدام عرض فاصل ثابت**
+
+هذا المثال يجمع أوقات المعالجة إلى فواصل ذات 10 دقائق، مع صناديق منفصلة للأوقات التي لا تتجاوز 10 دقائق وتلك التي تزيد عن 40 دقيقة. فعّل هذه الصناديق باستخدام [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) و[IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). عند تقديم عتبات صريحة لكل من [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) و[OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/)، اضبط [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) و[IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) إلى `false`.
 
 ```csharp
 using Aspose.Slides;
@@ -795,7 +797,10 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
 
 chart.ChartData.Categories.Clear();
 chart.ChartData.Series.Clear();
@@ -804,33 +809,77 @@ var workbook = chart.ChartData.ChartDataWorkbook;
 workbook.Clear(0);
 
 var series = chart.ChartData.Series.Add(ChartType.Histogram);
-var valueCell = workbook.GetCell(0, "A1", 15);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A2", -41);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A3", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A4", 10);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A5", -23);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A6", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
 
-chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByBinWidth;
+axis.BinWidth = 10;
+axis.IsUnderflowBin = true;
+axis.IsAutomaticUnderflowBin = false;
+axis.UnderflowBin = 10;
+axis.IsOverflowBin = true;
+axis.IsAutomaticOverflowBin = false;
+axis.OverflowBin = 40;
 
-presentation.Save("Histogram.pptx", SaveFormat.Pptx);
+presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-النتيجة:
+العرض في PowerPoint يُظهر عدد الصناديق **3, 4, 4, 4, و2**. الصندوق تحت الحد يشمل `5, 10, 10`، لذا عتّابه شامل. الصندوق فوق الحد يشمل فقط `41, 50`، لذا عتّابه حصري؛ القيم التي تساوي `40` تبقى في الفاصل السابق. الصناديق الداخلية تحتوي قيمًا أكبر من حدها الأدنى وأقل من أو تساوي حدها الأعلى.
 
-![الهيستوجرام](histogram_chart.png)
+![مدرج تكراري بفواصل 10 دقائق وعتبات تحت/فوق صريحة](histogram_bin_width.png)
 
-### **إنشاء مخططات رادار (Radar)**
+#### **تحديد عدد الصناديق**
 
-تُستخدم مخططات الرادار لعرض البيانات المتعددة المتغيرات في تنسيق ثنائي الأبعاد، مما يتيح مقارنة سهلة لعدة متغيرات في آنٍ واحد. وهي مفيدة لتحديد الأنماط، القويات، والضعفيات عبر مجموعة من مؤشرات الأداء أو السمات.
+للحصول على مستوى تفصيل ثابت بدلاً من فواصل ثابتة، اطلب خمسة صناديق لنفس البيانات. هذا المثال يترك صناديق تحت/فوق الحد معطلة. يحدد المخطط العرض بناءً على نطاق البيانات، لذا قد تتغير الحدود بين التقارير.
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط رادار بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Histogram);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
+
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByNumberOfBins;
+axis.NumberOfBins = 5;
+
+presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+```
+
+الصناديق الخمسة لديها عدد **4, 4, 4, 4, و1**. قارن هذا التوزيع مع نتيجة العرض الثابت أعلاه: القيم المدخلة هي نفسها، لكن الحدود مختلفة.
+
+![مدرج بخمسة صناديق محسوبة من نفس البيانات](histogram_bin_count.png)
+
+### **إنشاء مخططات رادارية**
+
+مخططات رادارية تُستخدم لعرض بيانات متعددة المتغيرات في تنسيق ثنائي الأبعاد، مما يسمح بالمقارنة السهلة بين عدة متغيرات في آن واحد. هي مفيدة لتحديد الأنماط، القوّة، والضعف عبر مقاييس أداء أو سمات متعددة.
+
+هذا المثال يستخدم [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط راداري بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -847,13 +896,13 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![مخطط الرادار](radar_chart.png)
+![مخطط راداري](radar_chart.png)
 
-### **إنشاء مخططات متعددة الفئات (Multi-Category)**
+### **إنشاء مخططات متعددة الفئات**
 
-تُستخدم المخططات متعددة الفئات لعرض بيانات تتضمن أكثر من تجميع فئوي واحد، مما يتيح مقارنة القيم عبر أبعاد متعددة في آنٍ واحد. وهي مفيدة عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة ومتعددة الطبقات.
+مخططات متعددة الفئات تُستخدم لعرض بيانات تشمل أكثر من تجميع فئوي واحد، مما يتيح مقارنة القيم عبر أبعاد متعددة في آن واحد. هي مفيدة عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة متعددة الطبقات.
 
-ينشئ هذا المثال مخطط عمود مجمّع بثماني فئات مرتبة في أربع أزواج. تُعطي الطريقة [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) لكل زوج تسمية مشتركة على مستوى التجميع 1، ما ينتج محور فئات يحمل كلًا من التسميات الفردية والتجميعية.
+هذا المثال يُنشئ مخطط عمودي مجموعة بثمانى فئات مرتبة في أربعة أزواج. الطريقة [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) تعطي كل زوج تسمية مشتركة في مستوى التجميع 1، مما ينتج محور فئوي به كل من التسميات الفردية والمجموعة.
 
 ```csharp
 using Aspose.Slides;
@@ -922,13 +971,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![المخطط متعدد الفئات](multi_category_chart.png)
+![مخطط متعدد الفئات](multi_category_chart.png)
 
-### **إنشاء مخططات خريطة (Map)**
+### **إنشاء مخططات خريطة**
 
-تُستخدم مخططات الخريطة لتصور البيانات الجغرافية عن طريق ربط المعلومات بمواقع محددة مثل دول، ولايات، أو مدن. وهي مفيدة لتحليل الاتجاهات الإقليمية، البيانات الديموغرافية، والتوزيعات المكانية بطريقة واضحة وجذابة بصريًا.
+مخططات الخريطة تُستخدم لتصور البيانات الجغرافية عبر ربط المعلومات بمواقع محددة مثل دول أو ولايات أو مدن. هي مفيدة جدًا لتحليل الاتجاهات الإقليمية، البيانات الديموغرافية، والتوزيعات المكانية بطريقة واضحة وجذابة بصريًا.
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط خريطة بالبيانات الجغرافية الافتراضية ويحفظه للعرض في PowerPoint.
+هذا المثال يستخدم [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط خريطة بالبيانات الجغرافية الافتراضية ويحفظه للعرض في PowerPoint.
 
 ```csharp
 using Aspose.Slides;
@@ -945,19 +994,19 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![مخطط الخريطة](map_chart.png)
+![مخطط خريطة](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-الصورة أعلاه تُظهر العرض المحفوظ المفتوح في PowerPoint. يكتب Aspose.Slides مخطط الخريطة وبياناته بشكل صحيح، لكنه لا يرسم مخططات الخريطة بنفسه: عند تحويل شريحة تحوي مخطط خريطة إلى صورة أو تحويلها إلى PDF أو SVG، يصبح مساحة المخطط فارغة. الأشكال الأخرى في نفس الشريحة لا تتأثر.
+الصورة أعلاه تُظهر العرض المحفوظ المفتوح في PowerPoint. Aspose.Slides يكتب مخطط الخريطة وبياناته بشكل صحيح، لكنه لا يرسم مخططات الخريطة بنفسه: عند تحويل شريحة تحتوي على مخطط خريطة إلى صورة أو تحويلها إلى PDF أو SVG، تصبح منطقة المخطط فارغة. الأشكال الأخرى على نفس الشريحة لا تتأثر.
 {{% /alert %}}
 
-### **إنشاء مخططات مركبة (Combination)**
+### **إنشاء مخططات مركبة**
 
-المخطط المركب (أو مخطط المزيج) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز، مقارنة، أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
+المخطط المركب (أو مخطط الجمع) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز أو مقارنة أو فحص الاختلافات بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
 
-![المخطط المركب](combination_chart.png)
+![مخطط مركب](combination_chart.png)
 
-يجمع هذا المثال سلسلتين من الأعمدة المجمّعة مع سلسلة خطية عبر أربع فئات. تستخدم الأعمدة المحور العمودي الأساسي، بينما يضع [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) الخط على محور عمودي ثانوي على اليمين. تقوم الدوال المساعدة بتكوين العنوان، والأسطورة، وعناوين المحاور، وخطوط الشبكة.
+هذا المثال يجمع سلسلتين عموديتين مجموعة مع سلسلة خطية عبر أربع فئات. تستخدم الأعمدة المحور الرأسي الأساسي، بينما تُضع الخاصية [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) الخط على محور رأسي ثانوي على اليمين. الدوال المساعدة تُكوّن العنوان، الأساطير، تسميات المحاور، وخطوط الشبكة.
 
 ```csharp
 using System.Drawing;
@@ -1119,9 +1168,9 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **تحديث المخططات**
 
-تمكّن Aspose.Slides لـ .NET من تحديث مخططات PowerPoint عبر تعديل بيانات المخطط، تنسيقه، وتنسيقه. تُبسّط هذه الوظيفة عملية الحفاظ على عروض تقديمية محدثة بالمحتوى الديناميكي وتضمن أن المخططات تعكس بدقة البيانات الحالية والمعايير البصرية.
+Aspose.Slides لـ .NET يتيح لك تحديث مخططات PowerPoint عن طريق تعديل بيانات المخطط، التنسيق، والأنماط. تُبسّط هذه العملية الحفاظ على العروض التقديمية محدثة بالمحتوى الديناميكي وتضمن أن المخططات تعكس بدقة البيانات الحالية والمعايير البصرية.
 
-يُحدّث هذا المثال المخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود. يتطلب وجود سلسلتين عموديتين مع ثلاث نقاط بيانات لكل منهما، مع تسميات الفئات في العمود A وأسماء السلاسل في الصف الأول من ورقة العمل الأولى. يستخدم المثال [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) لتغيير خلايا المصنف، يحدّث قيم السلاسل، يضيف سلسلة ثالثة، ويغيّر المخطط إلى أسطوانات مجمّعة عبر [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
+هذا المثال يحدث المخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود. يتطلب وجود سلسلتين عموديتين مع ثلاث نقاط بيانات لكل منهما، مع تسميات الفئات في العمود A وأسماء السلاسل في الصف الأول من ورقة العمل الأولى. يستخدم المثال [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) لتغيير خلايا دفتر العمل، يُحدّث قيم السلاسل، يضيف سلسلة ثالثة، ويغيّر المخطط إلى أسطوانات مُجمّعة عبر [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
 ```csharp
 using Aspose.Slides;
@@ -1177,11 +1226,11 @@ presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 
 ## **تعيين نطاق البيانات لمخطط**
 
-للتفحص النطاق المستخدم بالفعل من قبل مخطط موجود، راجع [Retrieve a Chart's Data Range](/slides/ar/net/chart-workbook/#retrieve-a-charts-data-range).
+للتفحص النطاق المستخدم بالفعل من قبل مخطط موجود، انظر إلى [استرداد نطاق بيانات المخطط](/slides/ar/net/chart-workbook/#retrieve-a-charts-data-range).
 
-توفر Aspose.Slides لـ .NET مرونة تعريف نطاق بيانات محدد من ورقة عمل كمصدر لبيانات المخطط. يعني هذا أنه يمكنك ربط جزء من ورقة العمل مباشرةً بالمخطط، مما يسمح لك بالتحكم في الخلايا التي تساهم في سلاسل المخطط وفئاته. وبالتالي، يمكنك بسهولة تحديث وتزامن المخططات مع أحدث تغييرات البيانات في ورقة العمل، لضمان أن عروض PowerPoint تعكس معلومات دقيقة ومحدّثة.
+Aspose.Slides لـ .NET يوفر مرونة لتحديد نطاق بيانات محدد من ورقة عمل كمصدر لبيانات مخططك. يعني ذلك أنه يمكنك ربط جزء من ورقة العمل مباشرةً بالمخطط، مما يسمح لك بالتحكم في الخلايا التي تُساهم في سلاسل ومُصنّفات المخطط. كنتيجة لذلك، يمكنك بسهولة تحديث ومزامنة مخططاتك مع أحدث تغييرات البيانات في ورقة العمل، مما يضمن أن عروض PowerPoint تعكس معلومات حالية ودقيقة.
 
-يستخدم هذا المثال [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) لتعيين مصدر البيانات للمخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي مصنف المخطط على تلك الورقة ونطاقًا مملوءًا يحتوي على عنوان سلسلة في الصف الأول، تسميات الفئات في العمود A، وثلاث قيم في العمود B.
+هذا المثال يستخدم [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) لتعيين مصدر بيانات المخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي دفتر عمل المخطط على تلك الورقة ونطاق مُعبّأ مع عنوان سلسلة في الصف الأول، تسميات فئات في العمود A، وثلاث قيم في العمود B.
 
 ```csharp
 using Aspose.Slides;
@@ -1208,7 +1257,7 @@ presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 
 عند استخدام العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط باثنتين من سلاسل الخطوط وأسطر توضيحية. تحافظ إعدادات [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) على رموز العلامات المعينة تلقائيًا. تشمل السلسلة الأولى قيمة سلبية وقيمة مفقودة ممثلة بـ `null`، بينما تحتوي السلسلة الثانية على قيمة لكل فئة.
+هذا المثال يستخدم [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط مع سلسلتين خطيتين وأسطر توضيحية. الإعدادات في [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) تحتفظ بالرموز المُعينة تلقائيًا. تتضمن السلسلة الأولى قيمة سلبية وقيمة مفقودة ممثلة بـ `null`، بينما تحتوي الثانية على قيمة لكل فئة.
 
 ```csharp
 using Aspose.Slides;
@@ -1268,18 +1317,18 @@ presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 
 ## **الأسئلة المتكررة**
 
-**ما هي أنواع المخططات التي تدعمها Aspose.Slides لـ .NET؟**
+**ما هي أنواع المخططات التي يدعمها Aspose.Slides لـ .NET؟**
 
-تدعم Aspose.Slides لـ .NET مجموعة واسعة من أنواع المخططات، بما في ذلك الأعمدة، الخطوط، الدوائر، المناطق، التبعثر، الهيستوجرام، الرادار، والعديد غيرها. تتيح لك هذه المرونة اختيار النوع الأنسب لاحتياجاتك في تصور البيانات.
+Aspose.Slides لـ .NET يدعم مجموعة واسعة من أنواع المخططات، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المساحية، المبعثرة، المدرج التكراري، الرادارية، والعديد غيرها. هذه المرونة تتيح لك اختيار الأنسب لاحتياجاتك في تصور البيانات.
 
 **كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
 
-لإضافة مخطط، أولاً تنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)، تسترجع الشريحة المطلوبة باستخدام فهرسها، ثم تستدعي الطريقة لإضافة مخطط محددًا نوعه والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في عرضك التقديمي.
+لإضافة مخطط، تقوم أولاً بإنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)، تستخرج الشريحة المطلوبة باستخدام رقمها، ثم تستدعي الطريقة لإضافة مخطط، محددًا نوع المخطط والبيانات الأولية. هذه العملية تدمج المخطط مباشرةً في عرضك التقديمي.
 
-**كيف يمكنني تحديث البيانات المعروضة في المخطط؟**
+**كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
 
-يمكنك تحديث بيانات المخطط بالوصول إلى مصنف بياناته ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تجديد المخطط برمجيًا لعرض أحدث البيانات.
+يمكنك تحديث بيانات المخطط عن طريق الوصول إلى دفتر بياناته ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تجديد المخطط برمجيًا لتعكس أحدث البيانات.
 
 **هل يمكن تخصيص مظهر المخطط؟**
 
-نعم، توفر Aspose.Slides لـ .NET خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الأساطير، وعناصر التنسيق الأخرى لتكييف مظهر المخطط مع متطلبات التصميم الخاصة بك.
+نعم، Aspose.Slides لـ .NET يوفر خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، الملصقات، الأساطير، وعناصر التنسيق الأخرى لتكييف مظهر المخطط وفقًا لمتطلبات التصميم الخاصة بك.

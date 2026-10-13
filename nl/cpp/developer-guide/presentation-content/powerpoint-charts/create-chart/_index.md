@@ -1,61 +1,63 @@
 ---
-title: Diagrammen in PowerPoint‑presentatie maken of bijwerken in C++
-linktitle: Diagrammen maken of bijwerken
+title: Grafieken in PowerPoint‑presentaties maken of bijwerken in C++
+linktitle: Grafieken maken of bijwerken
 type: docs
 weight: 10
 url: /nl/cpp/create-chart/
 aliases:
   - /cpp/update-chart/
 keywords:
-- diagram toevoegen
-- diagram maken
-- diagram bewerken
-- diagram wijzigen
-- diagram bijwerken
-- spreidingsdiagram
-- taartdiagram
-- lijndiagram
-- boomkaartdiagram
-- aandelengrafiek
-- box‑and‑whisker‑grafiek
+- grafiek toevoegen
+- grafiek maken
+- grafiek bewerken
+- grafiek wijzigen
+- grafiek bijwerken
+- spreidingsgrafiek
+- taartgrafiek
+- lijngrafiek
+- boomkaartgrafiek
+- aandelen­grafiek
+- box‑en‑whisker‑grafiek
 - trechtergrafiek
 - sunburst‑grafiek
-- histogramgrafiek
+- histogram­grafiek
 - radargrafiek
-- multi‑categorie‑grafiek
+- multicategorie‑grafiek
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Maak en pas diagrammen aan in PowerPoint‑presentaties met Aspose.Slides voor C++. Voeg diagrammen toe, formatteer en bewerk ze met praktische code‑voorbeelden in C++."
+description: "Grafieken maken en aanpassen in PowerPoint‑presentaties met Aspose.Slides voor C++. Grafieken toevoegen, opmaken en bewerken met praktische codevoorbeelden in C++."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide gids over hoe u diagrammen kunt maken en aanpassen met Aspose.Slides voor C++. U leert hoe u programmatisch een diagram aan een dia toevoegt, deze met gegevens vult en diverse opmaakopties toepast om aan uw specifieke ontwerpeisen te voldoen. Gedurende het artikel illustreren gedetailleerde codevoorbeelden elke stap, van het initialiseren van de presentatie en diagramobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen krijgt u een solide begrip van hoe u dynamische diagramgeneratie in uw C++‑toepassingen kunt integreren, waardoor het maken van datagestuurde presentaties wordt vereenvoudigd.
+Dit artikel biedt een volledige handleiding voor het maken en aanpassen van grafieken met Aspose.Slides voor C++. Je leert hoe je programmatisch een grafiek aan een dia toevoegt, deze met gegevens vult en verschillende opmaakopties toepast om aan je specifieke ontwerpeisen te voldoen. Gedurende het artikel illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en het grafiekobject tot het configureren van series, assen en legenden. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische grafiekgeneratie in je C++‑applicaties kunt integreren, waardoor het proces van het maken van dataspecifieke presentaties wordt gestroomlijnd.
 
-## **Grafiek maken**
+## **Een grafiek maken**
 
-Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
+Grafieken helpen mensen snel gegevens te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
 
-**Waarom diagrammen maken?**
+**Waarom grafieken maken?**
 
-Met diagrammen kunt u:
+Met grafieken kun je:
 
-* grote hoeveelheden gegevens op één dia samenvatten, condenseren of aggregeren;
+* grote hoeveelheden gegevens op één dia van een presentatie samenvatten, comprimeren of aggregeren;
 * patronen en trends in gegevens blootleggen;
-* de richting en dynamiek van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
-* uitschieters, afwijkingen, fouten en onsamenhangende gegevens opsporen;
+* de richting en het momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitschieters, afwijkingen, fouten en onzinnige gegevens opsporen;
 * complexe gegevens communiceren of presenteren.
 
-In PowerPoint kunt u diagrammen maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende diagramtypen. Met Aspose.Slides kunt u zowel reguliere diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
+In PowerPoint kun je grafieken maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van veel soorten grafieken. Met Aspose.Slides kun je zowel gewone grafieken (gebaseerd op populaire grafiektype­n) als aangepaste grafieken maken.
 
 {{% alert color="info" title="Note" %}}
-Gebruik de [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/)‑enumeratie onder de namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). De waarden in deze enumeratie komen overeen met verschillende diagramtypen.
+
+Gebruik de [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/)‑enumeratie onder de [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/)‑namespace. De waarden in deze enumeratie komen overeen met verschillende grafiektype­n.
+
 {{% /alert %}}
 
-### **Geclusterde kolomgrafieken maken**
+### **Clustered Column‑grafieken maken**
 
-Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een geclusterde kolomgrafiek te maken die twee series over drie categorieën vergelijkt. De series gebruiken respectievelijk rode en groene vullingen, en individuele labels tonen categorienamen, serienamen en waarden. Werkblad‑index 0 verwijst naar het eerste blad in de ingebedde diagram‑werkmap.
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een clustered column‑grafiek te maken die twee series over drie categorieën vergelijkt. De series gebruiken rode en groene vullingen, en individuele labels tonen categorienamen, serienamen en waarden. Werkblad‑index 0 verwijst naar het eerste blad in de ingebedde grafiek‑werkmap.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -165,20 +167,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Het resultaat:
 
-![Geclusterde kolomgrafiek](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Spreidingsgrafieken maken**
+### **Scatter‑grafieken maken**
 
-Spreidingsgrafieken (ook wel scatter plots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te controleren of om correlaties tussen twee variabelen aan te tonen.
+Scatter‑grafieken (ook bekend als spreidingsdiagrammen of x‑y‑grafieken) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen aan te tonen.
 
-Gebruik een spreidingsgrafiek wanneer:
+Gebruik een scatter‑grafiek wanneer:
 
-* u gekoppelde numerieke gegevens heeft;
-* u twee variabelen heeft die goed bij elkaar passen;
-* u wilt bepalen of de twee variabelen met elkaar verband houden;
-* u een onafhankelijke variabele heeft die meerdere waarden heeft voor een afhankelijke variabele.
+* je gepaarde numerieke gegevens hebt;
+* je twee variabelen hebt die goed bij elkaar passen;
+* je wilt bepalen of de twee variabelen gerelateerd zijn;
+* je een onafhankelijke variabele hebt die meerdere waarden heeft voor een afhankelijke variabele.
 
-Dit voorbeeld plot twee sets x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markeringen, terwijl de tweede vloeiende lijnen met cirkel‑markeringen gebruikt; beide gebruiken een markergrootte van 10, ingesteld met [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). De [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/)‑methode bepaalt de markervorm.
+Dit voorbeeld plot twee sets x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markers, terwijl de tweede gladde lijnen met cirkel‑markers gebruikt; beide gebruiken een marker‑grootte van 10, ingesteld met [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). De [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/)‑methode bepaalt de marker‑vorm.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -268,13 +270,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Het resultaat:
 
-![Spreidingsgrafiek](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Taartgrafieken maken**
 
-Taartgrafieken zijn het meest geschikt om de verhouding deel‑tot‑geheel in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als uw gegevens echter veel delen of labels bevatten, kunt u beter een staafgrafiek gebruiken.
+Taartgrafieken worden het best gebruikt om de deel‑tot‑geheel‑relatie in gegevens te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafgrafiek gebruiken.
 
-Dit voorbeeld maakt een taartgrafiek met drie kwartaalwaarden. Elke slice heeft een aangepaste vulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en serie‑informatie. De [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/)‑methode stelt de eerste slice in op een starthoek van 180 graden.
+Dit voorbeeld maakt een taartgrafiek met drie kwartaalwaarden. Elke part heeft een aangepaste vulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en seriesinformatie. De [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/)‑methode stelt de eerste part in op 180 graden.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -411,13 +413,13 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 Het resultaat:
 
-![Taartgrafiek](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
 ### **Lijngrafieken maken**
 
-Lijngrafieken (ook wel line graphs genoemd) worden het best gebruikt wanneer u veranderingen in een waarde over de tijd wilt demonstreren. Met een lijngrafiek kunt u een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends in de tijd volgen, anomalieën in dataseries benadrukken, en meer.
+Lijngrafieken (ook bekend als lijndiagrammen) worden het best gebruikt wanneer je veranderingen in waarde in de tijd wilt aantonen. Met een lijngrafiek kun je een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends in de tijd volgen, anomalieën in series benadrukken, en meer.
 
-Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een lijngrafiek te maken met de standaard series en categorieën, en slaat vervolgens de presentatie op als PPTX.
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een lijngrafiek te maken met de standaard series en categorieën, en slaat de presentatie vervolgens op als PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -449,7 +451,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Standaard worden punten in een lijngrafiek verbonden door rechte doorlopende lijnen. Als u de punten liever door streepjes wilt laten verbinden, roept u [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
+Standaard worden punten in een lijngrafiek verbonden door rechte continue lijnen. Als je liever stippellijnen wilt, roep je [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -486,13 +488,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 Het resultaat:
 
-![Lijngrafiek](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Boomkaartgrafieken maken**
+### **Tree‑map‑grafieken maken**
 
-Boomkaartgrafieken worden het best gebruikt voor verkoopgegevens wanneer u de relatieve grootte van datacategorieën wilt tonen en snel aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
+Tree‑map‑grafieken worden het best gebruikt voor verkoopgegevens wanneer je de relatieve grootte van gegevenscategorieën wilt tonen en snel aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
 
-Dit voorbeeld maakt een boomkaart met acht bladeren gegroepeerd in vier stammen en twee vertakkingen. De [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑methode wijst stammen toe op groeperingsniveau 1 en vertakkingen op niveau 2. Waarden bepalen de relatieve rechthoekgrootten, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie identificeren.
+Dit voorbeeld maakt een tree‑map met acht bladeren gegroepeerd in vier stammen en twee takken. De [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑methode kent stammen toe op groepeerniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoek‑groottes, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie identificeren.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -596,29 +598,28 @@ series->set_ParentLabelLayout(ParentLabelLayoutType::Overlapping);
 presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 ```
 
-
 Het resultaat:
 
-![Boomkaartgrafiek](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Watervalgrafieken maken**
+### **Waterval‑grafieken maken**
 
-Een watervalgrafiek laat zien hoe positieve en negatieve wijzigingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winst‑opsplitting kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderingskolommen zweven tussen de vorige en nieuwe lopende waarden, terwijl totalekolommen lopen van nul tot de geaccumuleerde waarde.
+Een waterval‑grafiek laat zien hoe positieve en negatieve veranderingen bijdragen aan een eindwaarde. Bijvoorbeeld: een winst­opbouw kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderingskolommen zweven tussen de vorige en de nieuwe lopende waarden, terwijl totaalkolommen van nul tot de geaccumuleerde waarde reiken.
 
 Het volgende voorbeeld gebruikt bedragen in duizenden Amerikaanse dollars:
 
-| Categorie | Werkmapwaarde | Kolomtype |
+| Categorie | Werkbladwaarde | Kolomtype |
 | --- | ---: | --- |
 | Omzet | 1000 | Toename |
-| Kosten van verkoop | -400 | Afneming |
-| Brutowinst | 600 | Tussentotaal |
-| Operationele kosten | -200 | Afneming |
-| Andere inkomsten | 50 | Toename |
-| Nettowinst | 450 | Eindtotaal |
+| Kostprijs van de verkoop | -400 | Afneming |
+| Brutowinst | 600 | Tussen‑totaal |
+| Bedrijfskosten | -200 | Afneming |
+| Overige inkomsten | 50 | Toename |
+| Nettowinst | 450 | Eind‑totaal |
 
-Om een punt te markeren als tussentotaal of eindtotaal, roept u de [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/)‑methode aan met `true`. Geef het werkelijk geaccumuleerde bedrag op in de werkmapcel van dat punt: `600` voor brutowinst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De methode markeert de kolom als een totaal; hij berekent of vult de celwaarde niet. Gebruik geen nul als tijdelijke aanduiding of geef geen andere wijziging op voor een totaalpunt. Een totaal‑kolom toont de geaccumuleerde waarde zonder deze opnieuw bij de lopende waarde op te tellen.
+Om een punt te markeren als tussen‑ of eindtotaal, roep je [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) aan met `true`. Geef het daadwerkelijke geaccumuleerde bedrag op in de werkbladcel van dat punt: `600` voor brutowinst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De methode markeert de kolom als totaal; hij berekent of vult de celwaarde niet automatisch in. Gebruik geen nul als tijdelijke aanduiding of een andere wijziging voor een totaalpunt. Een totaal‑kolom toont de geaccumuleerde waarde zonder deze opnieuw bij te tellen aan de lopende waarde.
 
-Dit volledige C++‑voorbeeld maakt een diagram met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), wist de standaardgegevens en vult de ingebedde werkmap. Werkblad‑index `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). De nul‑gebaseerde punt‑indices `2` en `5` identificeren respectievelijk het tussentotaal en het eindtotaal. Het doorgeven van `true` aan [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) toont de bedragen op de kolommen. Er is geen invoer‑presentatie of werkmap vereist.
+Dit volledige C++‑voorbeeld maakt een grafiek met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), wist de standaardgegevens en vult de ingebedde werkmap. Werkblad‑index `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). De nul‑gebaseerde punt‑indices `2` en `5` identificeren respectievelijk het tussen‑ en eindtotaal. Door `true` door te geven aan [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) worden de bedragen op de kolommen getoond. Geen invoer‑presentatie of werkmap is vereist.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -692,7 +693,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// De derde en zesde punten vertegenwoordigen totalen, niet extra wijzigingen.
+// De derde en zesde punten vertegenwoordigen totalen, niet aanvullende wijzigingen.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -701,18 +702,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
+Roep de series‑niveau‑methode [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) aan met `true` om verbindingslijnen tussen opeenvolgende kolommen te tonen en de lopende waarde beter te volgen. Om deze lijnen te verbergen, vervang je de toewijzing in het voorbeeld door `series->set_ShowConnectorLines(false);` vóór het opslaan. Dit verandert alleen de zichtbaarheid van de lijnen, niet de gegevens of totalen.
 
-Roep de series‑niveau‑methode [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) aan met `true` om verbindingslijnen tussen opeenvolgende kolommen weer te geven en de lopende waarde beter te volgen. Om deze lijnen te verbergen, vervangt u de toewijzing in het voorbeeld door `series->set_ShowConnectorLines(false);` vóór het opslaan. Dit wijzigt alleen de zichtbaarheid van de lijnen, niet de gegevens of totalen.
+De opgeslagen presentatie toont een brutowinst van 600 en een nettowinst van 450, waarbij beide totalen van nul beginnen:
 
-De opgeslagen presentatie toont een brutowinst van 600 en een nettowinst van 450, waarbij beide totalen vanaf nul worden getekend:
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-![Watervalgrafiek die omzet, kosten, brutowinst van 600 en nettowinst van 450 toont, met waardelabels en verbindingslijnen](waterfall_chart.png)
+### **Aandelen‑grafieken maken**
 
-### **Aandelengrafieken maken**
+Aandelen‑grafieken worden gebruikt om financiële gegevens zoals openings‑, hoogste‑, laagste‑ en slotkoersen weer te geven, zodat markttrends en volatiliteit geanalyseerd kunnen worden. Ze leveren essentiële inzichten in de aandelenprestaties en helpen investeerders en analisten bij het nemen van weloverwogen beslissingen.
 
-Aandelengrafieken worden gebruikt om financiële gegevens zoals open‑, hoog‑, laag‑ en sluitingsprijzen weer te geven, waarmee markttrends en volatiliteit geanalyseerd kunnen worden. Ze bieden essentiële inzichten in de aandelenprestaties, wat beleggers en analisten helpt bij het nemen van weloverwogen beslissingen.
-
-Dit voorbeeld maakt een open‑high‑low‑close‑grafiek met vier series in die volgorde en drie categorieën. De [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/)‑methode activeert up/down‑bars, en [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) regelt de hoog‑laag‑lijnen die de prijsreeksen tonen, terwijl de individuele series‑lijnen en kleine horizontale rasterlijnen verborgen zijn.
+Dit voorbeeld maakt een open‑high‑low‑close‑grafiek met vier series in die volgorde en drie categorieën. De [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/)‑methode activeert op‑/neer‑staven, en [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) regelt de hoog‑laag‑lijnen die prijsklassen tonen, terwijl de individuele serielijnen en kleine horizontale rasterlijnen verborgen blijven.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -820,13 +820,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 Het resultaat:
 
-![Aandelengrafiek](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Box‑and‑whisker grafieken maken**
+### **Box‑and‑Whisker‑grafieken maken**
 
-Box‑and‑whisker‑grafieken worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitschieters. Ze zijn bijzonder nuttig in verkennende data‑analyse en statistische onderzoeken om snel variabiliteit te begrijpen en anomalieën te identificeren.
+Box‑and‑Whisker‑grafieken worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitschieters. Ze zijn bijzonder nuttig bij verkennende data‑analyse en statistische onderzoeken om snel variabiliteit te begrijpen en anomalieën te identificeren.
 
-Dit voorbeeld maakt een box‑and‑whisker‑grafiek van zes waarden. De [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/)‑methode selecteert de exclusieve kwartielberekening. Het voorbeeld zet bovendien gemiddelde‑lijnen, gemiddelde‑markeringen, interne punten en uitschieter‑punten aan.
+Dit voorbeeld maakt een box‑and‑whisker‑grafiek van zes waarden. De [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/)‑methode selecteert de exclusieve kwartielberekening. Het voorbeeld activeert ook gemiddelde‑lijnen, gemiddelde‑markers, interne punten en uitschieter‑punten.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -907,11 +907,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **Trechtergrafieken maken**
+### **Trechter‑grafieken maken**
 
-Trechtergrafieken worden gebruikt om processen te visualiseren die opeenvolgende fasen doorlopen, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn bijzonder nuttig voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
+Trechter‑grafieken worden gebruikt om processen met opeenvolgende fasen te visualiseren, waarbij het gegevensvolume afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral handig bij het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
 
-Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een trechtergrafiek toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaardgegevens door zes categorieën en waarden variërend van 50 tot 500, en slaat vervolgens de bijgewerkte presentatie op. De invoer‑presentatie moet minimaal één dia bevatten.
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een trechter‑grafiek toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaardgegevens door zes categorieën en waarden variërend van 50 tot 500, en slaat vervolgens de bijgewerkte presentatie op. De invoer‑presentatie moet minstens één dia bevatten.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -929,7 +929,7 @@ Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose
 #include <DOM/Chart/IFormat.h>
 #include <DOM/IChart.h>
 #include <DOM/IColorFormat.h>
-#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormat>
 #include <DOM/ILineFillFormat.h>
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
@@ -955,44 +955,38 @@ workbook->Clear(0);
 
 auto categoryCell = workbook->GetCell(0, u"A1", ObjectExt::Box(String(u"Category 1")));
 chart->get_ChartData()->get_Categories()->Add(categoryCell);
-categoryCell = workbook->GetCell(0, u"A2", ObjectExt::Box(String(u"Category 2")));
+categoryCell = workbook->GetCell(0, u"A2, u"Category 2"));
 chart->get_ChartData()->get_Categories()->Add(categoryCell);
-categoryCell = workbook->GetCell(0, u"A3", ObjectExt::Box(String(u"Category 3")));
+categoryCell = workbook->GetCell(0, u"A3, u"Category 3"));
 chart->get_ChartData()->get_Categories()->Add(categoryCell);
-categoryCell = workbook->GetCell(0, u"A4", ObjectExt::Box(String(u"Category 4")));
+categoryCell = workbook->GetCell(0, u"A4, u"Category 4"));
 chart->get_ChartData()->get_Categories()->Add(categoryCell);
-categoryCell = workbook->GetCell(0, u"A5", ObjectExt::Box(String(u"Category 5")));
+categoryCell = workbook->GetCell(0, u"A5, u"Category 5"));
 chart->get_ChartData()->get_Categories()->Add(categoryCell);
-categoryCell = workbook->GetCell(0, u"A6", ObjectExt::Box(String(u"Category 6")));
+categoryCell = workbook->GetCell(0, u"A6, u"Category 6"));
 chart->get_ChartData()->get_Categories()->Add(categoryCell);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Funnel);
 
-auto valueCell = workbook->GetCell(0, u"B1", ObjectExt::Box(50));
+auto valueCell = workbook->GetCell(0, u"B1, u"50"));
 series->get_DataPoints()->AddDataPointForFunnelSeries(valueCell);
-valueCell = workbook->GetCell(0, u"B2", ObjectExt::Box(100));
+valueCell = workbook->GetCell(0, u"B2, u"100"));
 series->get_DataPoints()->AddDataPointForFunnelSeries(valueCell);
-valueCell = workbook->GetCell(0, u"B3", ObjectExt::Box(200));
+valueCell = workbook->GetCell(0, u"B3, u"200"));
 series->get_DataPoints()->AddDataPointForFunnelSeries(valueCell);
-valueCell = workbook->GetCell(0, u"B4", ObjectExt::Box(300));
-series->get_DataPoints()->AddDataPointForFunnelSeries(valueCell);
-valueCell = workbook->GetCell(0, u"B5", ObjectExt::Box(400));
-series->get_DataPoints()->AddDataPointForFunnelSeries(valueCell);
-valueCell = workbook->GetCell(0, u"B6", ObjectExt::Box(500));
-series->get_DataPoints()->AddDataPointForFunnelSeries(valueCell);
-
-presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
+valueCell = workbook->GetCell(0, u"B4, u"300"));
+...
 ```
 
 Het resultaat:
 
-![Trechtergrafiek](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
 ### **Sunburst‑grafieken maken**
 
-Sunburst‑grafieken worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus als concentrische ringen worden weergegeven. Ze helpen de deel‑tot‑geheel‑relaties te illustreren en zijn ideaal voor het weergeven van geneste categorieën en subcategorieën in een duidelijk, compact formaat.
+Sunburst‑grafieken worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus als concentrische ringen worden weergegeven. Ze helpen deel‑tot‑geheel‑relaties te illustreren en zijn ideaal voor het weergeven van geneste categorieën en subcategorieën op een duidelijke, compacte manier.
 
-Dit voorbeeld maakt een sunburst‑grafiek met acht bladeren gegroepeerd in vier stammen en twee vertakkingen. De [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑methode wijst stammen toe op groeperingsniveau 1 en vertakkingen op niveau 2. Categorie‑labels identificeren de segmenten, en de waarden bepalen hun relatieve grootte.
+Dit voorbeeld maakt een sunburst‑grafiek met acht bladeren gegroepeerd in vier stammen en twee takken. De [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑methode kent stammen toe op groepeerniveau 1 en takken op niveau 2. Categorie‑labels identificeren de segmenten, en de waarden bepalen hun relatieve groottes.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1095,15 +1089,20 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 Het resultaat:
 
-![Sunburst‑grafiek](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Histogramgrafieken maken**
+### **Histogram‑grafieken maken**
 
-Histogramgrafieken worden gebruikt om de verdeling van numerieke gegevens weer te geven door waarden in bereiken of “bins” te groeperen. Ze zijn bijzonder nuttig om patronen zoals frequentie, scheefheid en spreiding te identificeren, en om uitschieters in een dataset te detecteren.
+Histogram‑grafieken tonen hoe numerieke waarden verdeeld zijn over intervallen (bins). Voor maandelijkse rapporten over verwerkingstijden van orders kun je dezelfde bin‑breedte en drempels gebruiken om intervallen consistent te houden en verdelingen makkelijker te vergelijken.
 
-Dit voorbeeld maakt een histogram van zes numerieke waarden, inclusief negatieve waarden. Het aanroepen van [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) met de automatische waarde laat het diagram de gebruikte “bins” bepalen voor de weergave van de verdeling.
+Roep de horizontale as‑methode [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) aan met een modus uit [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) geldt alleen voor `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) geldt alleen voor `ByNumberOfBins`. Gebruik `Automatic` om de grafiek de bins zelf te laten bepalen.
+
+#### **Een vaste bin‑breedte gebruiken**
+
+Dit voorbeeld groepeert verwerkingstijden in intervallen van 10 minuten, met aparte bins voor tijden ≤ 10 minuten en > 40 minuten. Schakel deze bins in met [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) en [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). Bij het opgeven van expliciete drempels via [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) en [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), roep je [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) en [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) aan met `false`.
 
 ```cpp
+#include <system/array.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/string.h>
@@ -1138,7 +1137,10 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 500, 300);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
 
 chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
@@ -1147,33 +1149,105 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
-auto valueCell = workbook->GetCell(0, u"A1", ObjectExt::Box(15));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A2", ObjectExt::Box(-41));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A3", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A4", ObjectExt::Box(10));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A5", ObjectExt::Box(-23));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A6", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
 
-chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(AxisAggregationType::Automatic);
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByBinWidth);
+axis->set_BinWidth(10);
+axis->set_IsUnderflowBin(true);
+axis->set_IsAutomaticUnderflowBin(false);
+axis->set_UnderflowBin(10);
+axis->set_IsOverflowBin(true);
+axis->set_IsAutomaticOverflowBin(false);
+axis->set_OverflowBin(40);
 
-presentation->Save(u"Histogram.pptx", SaveFormat::Pptx);
+presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-Het resultaat:
+De presentatie in PowerPoint toont bin‑aantallen van **3, 4, 4, 4, en 2**. De underflow‑bin omvat `5, 10, 10`, dus de drempel is inclusief. De overflow‑bin omvat alleen `41, 50`, dus de drempel is exclusief; beide waarden gelijk aan `40` blijven in het voorafgaande interval. De binnenste bins bevatten waarden groter dan hun ondergrens en kleiner dan of gelijk aan hun bovengrens.
 
-![Histogramgrafiek](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-### **Radargrafieken maken**
+#### **Het aantal bins specificeren**
 
-Radargrafieken worden gebruikt om multivariate gegevens in een tweedimensionaal formaat weer te geven, waardoor een gemakkelijke vergelijking van meerdere variabelen tegelijk mogelijk is. Ze zijn bijzonder nuttig om patronen, sterktes en zwaktes over meerdere prestatie‑ of attribuutmetriekken te identificeren.
+Voor een vaste detailniveau in plaats van vaste intervallen, vraag je vijf bins aan voor dezelfde data. Dit voorbeeld laat underflow‑ en overflow‑bins uitgeschakeld. De grafiek bepaalt de breedte op basis van het gegevensbereik, zodat grenzen kunnen variëren tussen rapporten.
 
-Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een radargrafiek te maken met de standaard series en categorieën, en slaat vervolgens de presentatie op als PPTX.
+```cpp
+#include <system/array.h>
+#include <system/shared_ptr.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByNumberOfBins);
+axis->set_NumberOfBins(5);
+
+presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
+```
+
+De vijf bins hebben aantallen van **4, 4, 4, 4, en 1**. Vergelijk deze verdeling met het resultaat van vaste breedte hierboven: de invoerwaarden zijn identiek, maar de grenzen verschillen.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+
+### **Radar‑grafieken maken**
+
+Radar‑grafieken worden gebruikt om multivariate gegevens in een tweedimensionaal formaat weer te geven, waardoor meerdere variabelen tegelijk makkelijk te vergelijken zijn. Ze zijn bijzonder nuttig om patronen, sterke en zwakke punten te identificeren over meerdere prestatie‑indicatoren of attributen.
+
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een radar‑grafiek met de standaard series en categorieën te maken, en slaat de presentatie vervolgens op als PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1207,13 +1281,13 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 Het resultaat:
 
-![Radargrafiek](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Multi‑categorie grafieken maken**
+### **Multi‑category‑grafieken maken**
 
-Multi‑categorie diagrammen worden gebruikt om gegevens weer te geven die meer dan één categorische groepering bevatten, waardoor u waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder behulpzaam wanneer u trends en relaties binnen complexe, gelaagde datasets moet analyseren.
+Multi‑category‑grafieken worden gebruikt om gegevens te tonen die meer dan één categorische groepering bevatten, zodat je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder handig bij het analyseren van trends en relaties binnen complexe, meerlagige datasets.
 
-Dit voorbeeld maakt een gegroepeerde kolomgrafiek met acht categorieën verdeeld over vier paren. De [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑methode geeft elk paar een gedeeld label op groeperingsniveau 1, waardoor een categorie‑as ontstaat met zowel individuele als groepslabels.
+Dit voorbeeld maakt een clustered column‑grafiek met acht categorieën verdeeld over vier paren. De [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑methode geeft elk paar een gedeeld label op groepeerniveau 1, waardoor een categorische as ontstaat met zowel individuele als groepslabels.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1308,40 +1382,61 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Het resultaat:
 
-![Multi‑categorie grafiek](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Kaartgrafieken maken**
+### **Kaart‑grafieken maken**
 
-Kaartgrafieken worden gebruikt om geografische gegevens te visualiseren door informatie te koppelen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische data en ruimtelijke verdelingen op een duidelijke, visueel aantrekkelijke manier.
+Kaart‑grafieken worden gebruikt om geografische gegevens te visualiseren door informatie toe te wijzen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke verdelingen op een duidelijke, visueel aantrekkelijke manier.
 
-Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een kaartgrafiek te maken met de standaard geografische gegevens en slaat deze op voor weergave in PowerPoint.
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een kaart‑grafiek met de standaard geografische gegevens te maken en slaat deze op voor weergave in PowerPoint.
 
 ```cpp
 #include <system/shared_ptr.h>
-#include <DOM/Chart/ChartType> 
+#include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartCategoryCollection.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IFormat.h>
 #include <DOM/IChart.h>
-#include <DOM/IColor< 
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 20, 20, 500, 300);
+
+presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
 Het resultaat:
 
-![Kaartgrafiek](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft de kaartgrafiek en de bijbehorende gegevens correct, maar tekent zelf geen kaartgrafieken: wanneer een dia die er één bevat wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het grafiekgebied leeg. Andere vormen op dezelfde dia blijven onaangetast.
+
+De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft de kaart‑grafiek en de bijbehorende gegevens correct weg, maar tekent zelf geen kaart‑grafieken: wanneer een dia met een kaart‑grafiek wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het grafiekgebied leeg. Andere vormen op dezelfde dia worden niet beïnvloed.
+
 {{% /alert %}}
 
-### **Combinatiegrafieken maken**
+### **Combinatie‑grafieken maken**
 
-Een combinatiegrafiek (of combo‑grafiek) combineert twee of meer diagramtypen in één grafiek. Dit diagram laat u toe om verschillen tussen twee of meer datasets te markeren, vergelijken of onderzoeken, waardoor u relaties tussen hen kunt identificeren.
+Een combinatie‑grafiek (of combo‑grafiek) combineert twee of meer grafiektype­n in één diagram. Deze grafiek laat je verschillende datasets naast elkaar highlighten, vergelijken of analyseren, waardoor relaties tussen de datasets zichtbaar worden.
 
-![Combinatiegrafiek](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Dit voorbeeld combineert twee gegroepeerde kolomseries met een lijngrafiek over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) de lijn op een secundaire verticale as rechts plaatst. De hulpfuncties configureren de titel, legenda, as‑labels en rasterlijnen.
+Dit voorbeeld combineert twee clustered column‑series met een lijn‑serie over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) de lijn op een secundaire verticale as aan de rechterkant plaatst. Hulp‑functies configureren titel, legende, as‑labels en rasterlijnen.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1552,9 +1647,9 @@ ComboChartExample::CreateComboChart();
 
 ## **Grafieken bijwerken**
 
-Aspose.Slides voor C++ stelt u in staat PowerPoint‑diagrammen bij te werken door diagramgegevens, opmaak en styling aan te passen. Deze functionaliteit vereenvoudigt het up‑daten van presentaties met dynamische inhoud en zorgt ervoor dat diagrammen nauwkeurig de huidige gegevens en visuele standaarden weergeven.
+Aspose.Slides voor C++ stelt je in staat PowerPoint‑grafieken bij te werken door grafiek‑data, opmaak en styling te wijzigen. Deze functionaliteit vereenvoudigt het up‑to‑date houden van presentaties met dynamische inhoud en zorgt ervoor dat grafieken nauwkeurig huidige data en visuele standaarden weergeven.
 
-Dit voorbeeld werkt het diagram met de naam “My chart” op de eerste dia van een bestaande presentatie bij. Het vereist twee kolomseries met elk drie datapunten, met categorielabels in kolom A en serienamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) om werkbladcellen te wijzigen, werkt seriewaarden bij, voegt een derde serie toe en verandert het diagram naar gegroepeerde cilinders via [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
+Dit voorbeeld werkt de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie bij. Het vereist twee kolom‑series met elk drie datapunten, met categorielabels in kolom A en serienaam in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) om werkbladcellen te wijzigen, werkt series‑waarden bij, voegt een derde series toe en verandert de grafiek naar clustered cylinders via [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1637,11 +1732,11 @@ presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 
 ## **Gegevensbereik voor een grafiek instellen**
 
-Om het bereik dat al door een bestaand diagram wordt gebruikt te inspecteren, zie [Retrieve a Chart's Data Range](/slides/nl/cpp/chart-workbook/#retrieve-a-charts-data-range).
+Om het bereik te inspecteren dat al door een bestaande grafiek wordt gebruikt, zie [Retrieve a Chart's Data Range](/slides/nl/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides voor C++ biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad te definiëren als bron voor de diagramgegevens. Dit betekent dat u rechtstreeks een deel van uw werkblad aan het diagram kunt koppelen, waardoor u kunt bepalen welke cellen bijdragen aan de series en categorieën van het diagram. Als resultaat kunt u uw diagrammen eenvoudig bijwerken en synchroniseren met de nieuwste gegevenswijzigingen in uw werkblad, zodat uw PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
+Aspose.Slides voor C++ biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor de gegevens van je grafiek te definiëren. Dit betekent dat je direct een gedeelte van je werkblad aan de grafiek kunt koppelen, waardoor je kunt bepalen welke cellen bijdragen aan de series en categorieën van de grafiek. Als resultaat kun je je grafieken eenvoudig bijwerken en synchroniseren met de laatste gegevenswijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en accurate informatie weergeven.
 
-Dit voorbeeld gebruikt [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) om de gegevensbron van het diagram met de naam “My chart” op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. De diagram‑werkmap moet dat werkblad bevatten en een gevuld bereik met een seriekop in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
+Dit voorbeeld gebruikt [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) om de gegevensbron van de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. De grafiek‑werkmap moet dat werkblad en een ingevuld bereik bevatten met een seriekoptekst in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1683,11 +1778,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **Standaard markeringen in grafieken gebruiken**
+## **Standaard‑markers in grafieken gebruiken**
 
-Wanneer u standaard markeringen in diagrammen gebruikt, krijgt elke diagramserie automatisch een verschillend standaard markeersymbool.
+Wanneer je standaard‑markers in grafieken gebruikt, krijgt elke grafiek‑serie automatisch een verschillend standaard‑markersymbool toegewezen.
 
-Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een diagram te maken met twee lijngrafiek‑series en een legenda. De [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/)‑instellingen behouden de automatisch toegewezen markeersymbolen. De eerste serie bevat een negatieve waarde en een missende waarde, weergegeven door `nullptr`, terwijl de tweede voor elke categorie een waarde heeft.
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) om een grafiek met twee lijn‑series en een legende te maken. De [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/)‑instellingen behouden de automatisch toegewezen markersymbolen. De eerste serie bevat een negatieve waarde en een ontbrekende waarde, weergegeven door `nullptr`, terwijl de tweede voor elke categorie een waarde heeft.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1775,18 +1870,18 @@ presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Welke diagramtypen worden ondersteund door Aspose.Slides voor C++?**
+**Welke grafiektype­n worden ondersteund door Aspose.Slides voor C++?**
 
-Aspose.Slides voor C++ ondersteunt een breed scala aan diagramtypen, waaronder staaf‑, lijngrafiek‑, taart‑, gebieds‑, spreidings‑, histogram‑, radar‑, en vele andere. Deze flexibiliteit stelt u in staat het meest geschikte diagramtype voor uw visualisaties te kiezen.
+Aspose.Slides voor C++ ondersteunt een breed scala aan grafiektype­n, waaronder staaf-, lijn-, taart-, gebieds-, scatter-, histogram‑, radar‑ en vele andere. Deze flexibiliteit stelt je in staat het meest geschikte grafiektype voor je datavisualisatie‑behoeften te kiezen.
 
-**Hoe voeg ik een nieuwe diagram toe aan een dia?**
+**Hoe voeg ik een nieuwe grafiek toe aan een dia?**
 
-Om een diagram toe te voegen, maakt u eerst een instantie van de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation)‑klasse, haalt u de gewenste dia op via de index en roept u vervolgens de methode aan om een diagram toe te voegen, waarbij u het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in uw presentatie.
+Om een grafiek toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation)‑klasse, haal je de gewenste dia op met zijn index, en roep je vervolgens de methode aan om een grafiek toe te voegen, waarbij je het grafiektype en de initiële gegevens specificeert. Dit proces integreert de grafiek direct in je presentatie.
 
-**Hoe kan ik de weergegeven gegevens in een diagram bijwerken?**
+**Hoe kan ik de gegevens in een grafiek bijwerken?**
 
-U kunt de gegevens van een diagram bijwerken door toegang te krijgen tot de gegevens‑werkmap ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), eventuele standaard series en categorieën te wissen en vervolgens uw eigen gegevens toe te voegen. Hiermee kunt u het diagram programmatisch vernieuwen zodat het de nieuwste gegevens weergeeft.
+Je kunt de gegevens van een grafiek bijwerken door toegang te krijgen tot de gegevens‑werkmap ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), eventuele standaard‑series en -categorieën te wissen, en vervolgens je eigen gegevens toe te voegen. Hiermee kun je programmatically de grafiek vernieuwen zodat deze de nieuwste data weergeeft.
 
-**Is het mogelijk het uiterlijk van het diagram aan te passen?**
+**Is het mogelijk het uiterlijk van de grafiek aan te passen?**
 
-Ja, Aspose.Slides voor C++ biedt uitgebreide aanpassingsopties. U kunt kleuren, lettertypen, labels, legenda’s en andere opmaak‑elementen wijzigen om het diagram af te stemmen op uw specifieke ontwerp‑eisen.
+Ja, Aspose.Slides voor C++ biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legenden en andere opmaakelementen wijzigen om het uiterlijk van de grafiek af te stemmen op je specifieke ontwerpeisen.

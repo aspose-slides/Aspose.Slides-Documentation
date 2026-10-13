@@ -13,12 +13,12 @@ keywords:
 - biểu đồ phân tán
 - biểu đồ tròn
 - biểu đồ đường
-- biểu đồ cây
-- biểu đồ cổ phiếu
+- biểu đồ cây bản đồ
+- biểu đồ chứng khoán
 - biểu đồ hộp và râu
 - biểu đồ phễu
-- biểu đồ Sunburst
-- biểu đồ histogram
+- biểu đồ nón
+- biểu đồ tần suất
 - biểu đồ radar
 - biểu đồ đa danh mục
 - PowerPoint
@@ -26,33 +26,37 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tạo và tùy chỉnh biểu đồ trong bản trình bày PowerPoint bằng Aspose.Slides cho Node.js qua Java. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong JavaScript."
+description: "Tạo và tùy chỉnh biểu đồ trong các bản trình bày PowerPoint bằng Aspose.Slides cho Node.js qua Java. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong JavaScript."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides cho Node.js qua Java. Bạn sẽ học cách thêm biểu đồ vào một slide một cách lập trình, điền dữ liệu vào nó, và áp dụng các tùy chọn định dạng khác nhau để phù hợp với yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo bản trình bày và đối tượng biểu đồ đến cấu hình chuỗi, trục và chú giải. Khi làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào các ứng dụng Node.js của mình, giúp đơn giản hoá quá trình tạo các bản trình chiếu dựa trên dữ liệu.
+Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides cho Node.js qua Java. Bạn sẽ học cách lập trình để thêm biểu đồ vào một slide, điền dữ liệu vào và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của mình. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo đối tượng Presentation và Chart cho đến cấu hình series, trục và legend. Khi làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào các ứng dụng Node.js, giúp đơn giản hoá quá trình tạo các bản trình bày dựa trên dữ liệu.
 
 ## **Tạo biểu đồ**
 
-Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và thu được những hiểu biết có thể không hiển nhiên từ một bảng hoặc bảng tính.
+Biểu đồ giúp mọi người nhanh chóng trực quan hoá dữ liệu và rút ra những hiểu biết có thể không ngay lập tức hiển thị trong bảng hoặc bảng tính.
 
 **Tại sao nên tạo biểu đồ?**
 
-* tổng hợp, rút gọn, hoặc tóm tắt một lượng lớn dữ liệu trên một slide duy nhất trong bản trình bày;
+Sử dụng biểu đồ, bạn có thể:
+
+* tổng hợp, thu gọn hoặc tóm tắt một lượng lớn dữ liệu trên một slide trong bản trình bày;
 * phát hiện các mẫu và xu hướng trong dữ liệu;
-* suy ra hướng và xu hướng của dữ liệu theo thời gian hoặc so với một đơn vị đo lường cụ thể;
-* phát hiện các giá trị ngoại lệ, sai lệch, lỗi và dữ liệu phi logic;
+* suy ra hướng và động lực của dữ liệu theo thời gian hoặc so với một đơn vị đo lường cụ thể;
+* phát hiện các ngoại lệ, sai lệch, lỗi và dữ liệu vô nghĩa;
 * truyền đạt hoặc trình bày dữ liệu phức tạp.
 
-Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng *Chèn*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
+Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
 
-{{% alert color="info" title="Note" %}}
-Sử dụng enumeration [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) trong module [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/). Các giá trị trong enumeration này tương ứng với các loại biểu đồ khác nhau.
+{{% alert color="info" title="Lưu ý" %}}
+
+Sử dụng enum [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) trong mô-đun [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/). Các giá trị trong enum này tương ứng với các loại biểu đồ khác nhau.
+
 {{% /alert %}}
 
 ### **Tạo biểu đồ Cột Nhóm**
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ cột nhóm so sánh hai chuỗi qua ba danh mục. Các chuỗi sử dụng màu đỏ và xanh lá, và các nhãn riêng lẻ hiển thị tên danh mục, tên chuỗi và giá trị. Chỉ mục worksheet 0 đề cập đến bảng tính đầu tiên trong workbook biểu đồ được nhúng.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ cột nhóm so sánh hai series qua ba danh mục. Các series sử dụng màu nền đỏ và xanh lá, và các nhãn riêng lẻ hiển thị tên danh mục, tên series và giá trị. Chỉ mục worksheet 0 đề cập đến trang tính đầu tiên trong workbook biểu đồ nhúng.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -135,18 +139,18 @@ Kết quả:
 
 ![Biểu đồ Cột Nhóm](clustered_column_chart.png)
 
-### **Tạo biểu đồ Phân tán**
+### **Tạo biểu đồ Scatter**
 
-Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x-y) thường được dùng để kiểm tra các mẫu hoặc minh họa mối tương quan giữa hai biến.
+Biểu đồ scatter (còn gọi là scatter plot hoặc đồ thị x‑y) thường được sử dụng để kiểm tra các mẫu hoặc chứng minh mối tương quan giữa hai biến.
 
-Sử dụng biểu đồ phân tán khi:
+Sử dụng biểu đồ scatter khi:
 
 * Bạn có dữ liệu số cặp đôi.
-* Bạn có hai biến phù hợp với nhau.
+* Bạn có hai biến có quan hệ chặt chẽ với nhau.
 * Bạn muốn xác định liệu hai biến có liên quan hay không.
 * Bạn có một biến độc lập có nhiều giá trị cho một biến phụ thuộc.
 
-Ví dụ này vẽ hai tập giá trị x‑y. Chuỗi đầu tiên sử dụng đường thẳng với dấu sao, trong khi chuỗi thứ hai sử dụng đường mượt với dấu vòng; cả hai đều có kích thước dấu chấm 10, được cấu hình bằng [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). Phương thức [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) điều khiển hình dạng dấu chấm.
+Ví dụ này vẽ hai tập giá trị x‑y. Series đầu tiên sử dụng đường thẳng với dấu sao, trong khi series thứ hai sử dụng đường mềm với dấu vòng; cả hai đều có kích thước dấu hiệu 10, được cấu hình bằng [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). Phương thức [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) kiểm soát hình dạng dấu hiệu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -214,11 +218,13 @@ finally
 
 Kết quả:
 
-![Biểu đồ Phân tán](scatter_chart.png)
+![Biểu đồ Scatter](scatter_chart.png)
 
-### **Tạo biểu đồ Tròn**
+### **Tạo biểu đồ Pie**
 
-Ví dụ này tạo một biểu đồ tròn với ba giá trị quý. Mỗi miếng bánh có màu nền và viền tùy chỉnh, và các nhãn hiển thị các tổ hợp khác nhau của giá trị, phần trăm và thông tin chuỗi. Phương thức [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) đặt miếng bánh đầu tiên bắt đầu ở góc 180 độ.
+Biểu đồ tròn thích hợp nhất để hiển thị mối quan hệ phần‑với‑toàn trong dữ liệu, đặc biệt khi dữ liệu chứa các nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
+
+Ví dụ này tạo một biểu đồ tròn với ba giá trị theo quý. Mỗi miếng bánh có màu nền và viền tùy chỉnh, và các nhãn hiển thị các kết hợp khác nhau của giá trị, phần trăm và thông tin series. Phương thức [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) đặt góc bắt đầu của miếng đầu tiên ở 180 độ.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -284,7 +290,7 @@ try
     secondSlice.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
 
     let thirdSlice = series.getDataPoints().get_Item(2);
-    thirdSlice.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlice.getFormat().setFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     thirdSlice.getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 127, 80));
 
     thirdSlice.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -319,13 +325,13 @@ finally
 
 Kết quả:
 
-![Biểu đồ Tròn](pie_chart.png)
+![Biểu đồ Pie](pie_chart.png)
 
-### **Tạo biểu đồ Đường**
+### **Tạo biểu đồ Line**
 
-Biểu đồ đường (còn gọi là line graph) thích hợp khi bạn muốn minh họa sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu đồng thời, theo dõi các thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong chuỗi dữ liệu, và nhiều hơn nữa.
+Biểu đồ đường (còn gọi là line graph) thích hợp nhất trong các trường hợp bạn muốn minh họa sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu cùng lúc, theo dõi các thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series, và hơn thế nữa.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ đường với chuỗi và danh mục mặc định, rồi lưu bản trình bày dưới dạng PPTX.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ đường với series và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -345,7 +351,7 @@ finally
 }
 ```
 
-Mặc định, các điểm trên biểu đồ đường được nối bằng các đoạn thẳng liên tục. Nếu bạn muốn các điểm được nối bằng các dấu gạch nối, gọi [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) với một giá trị từ [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
+Mặc định, các điểm trên biểu đồ đường được nối bằng các đoạn thẳng liên tục. Nếu bạn muốn các điểm được nối bằng nét gạch, hãy gọi [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) với giá trị từ [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -372,13 +378,13 @@ finally
 
 Kết quả:
 
-![Biểu đồ Đường](line_chart.png)
+![Biểu đồ Line](line_chart.png)
 
-### **Tạo biểu đồ Cây**
+### **Tạo biểu đồ Tree Map**
 
-Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý tới các mục đóng góp lớn trong mỗi danh mục.
+Biểu đồ tree map thích hợp nhất cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý đến các mục đóng góp lớn trong mỗi danh mục.
 
-Ví dụ này tạo một biểu đồ cây với tám lá được nhóm thành bốn thân và hai nhánh. Phương thức [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) gán các thân ở mức nhóm 1 và các nhánh ở mức 2. Các giá trị xác định kích thước hình chữ nhật tương đối, trong khi các nhãn danh mục và nhãn cha chồng lấn xác định phân cấp.
+Ví dụ này tạo một tree map với tám lá được nhóm thành bốn nhánh và hai nhánh phụ. Phương thức [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) gán các nhánh ở mức nhóm 1 và các nhánh phụ ở mức 2. Các giá trị xác định kích thước hình chữ nhật tương đối, trong khi nhãn danh mục và nhãn cha chồng lên nhau xác định thứ bậc.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -459,15 +465,15 @@ finally
 
 Kết quả:
 
-![Biểu đồ Cây](treemap_chart.png)
+![Biểu đồ Treemap](treemap_chart.png)
 
-### **Tạo biểu đồ Thác nước**
+### **Tạo biểu đồ Waterfall**
 
-Biểu đồ thác nước hiển thị cách các biến động dương và âm đóng góp vào giá trị cuối cùng. Ví dụ, một bảng phân tích lợi nhuận có thể bắt đầu bằng doanh thu, trừ chi phí, và cộng thu nhập khác. Các cột biến đổi trôi giữa các giá trị chạy trước và sau, trong khi các cột tổng mở rộng từ 0 tới giá trị tích lũy.
+Biểu đồ waterfall hiển thị cách các thay đổi dương và âm đóng góp vào giá trị cuối cùng. Ví dụ, một bản phân tích lợi nhuận có thể bắt đầu bằng doanh thu, trừ chi phí và cộng thu nhập khác. Các cột thay đổi nổi giữa giá trị chạy trước và giá trị mới, trong khi các cột tổng mở rộng từ zero tới giá trị tích lũy.
 
-Bảng dưới đây sử dụng các khoản tiền tính bằng nghìn đô la Mỹ:
+Ví dụ dưới đây sử dụng các khoản tiền tính bằng nghìn đô la Mỹ:
 
-| Danh mục | Giá trị workbook | Kiểu cột |
+| Danh mục | Giá trị Workbook | Loại cột |
 | --- | ---: | --- |
 | Doanh thu | 1000 | Tăng |
 | Chi phí bán hàng | -400 | Giảm |
@@ -476,9 +482,9 @@ Bảng dưới đây sử dụng các khoản tiền tính bằng nghìn đô la
 | Thu nhập khác | 50 | Tăng |
 | Lợi nhuận ròng | 450 | Tổng cuối cùng |
 
-Để đánh dấu một điểm là tổng trung gian hoặc tổng cuối cùng, gọi phương thức [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) của nó với `true`. Cung cấp số tiền tích lũy thực tế trong ô workbook của điểm đó: `600` cho lợi nhuận gộp (`1000 - 400`) và `450` cho lợi nhuận ròng (`600 - 200 + 50`). Phương thức chỉ đánh dấu cột là tổng; nó không tính toán hay điền giá trị ô. Không dùng 0 làm chỗ giữ chỗ hoặc cung cấp thay đổi khác cho điểm tổng. Một cột tổng hiển thị giá trị tích lũy mà không cộng lại vào giá trị chạy.
+Để đánh dấu một điểm là tổng trung gian hoặc tổng cuối cùng, gọi phương thức [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) của nó với `true`. Cung cấp số tiền tích lũy thực tế trong ô workbook của điểm đó: `600` cho lợi nhuận gộp (`1000 - 400`) và `450` cho lợi nhuận ròng (`600 - 200 + 50`). Phương thức này chỉ đánh dấu cột là tổng; nó không tính toán hay điền giá trị ô. Không sử dụng zero làm chỗ trống hoặc cung cấp thay đổi khác cho một điểm tổng. Một cột tổng hiển thị giá trị tích lũy mà không cộng lại vào giá trị chạy.
 
-Ví dụ JavaScript đầy đủ này tạo một biểu đồ bằng thành viên `Waterfall` của [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), xóa dữ liệu mặc định, và điền workbook được nhúng. Chỉ mục worksheet `0` chọn bảng tính đầu tiên; cột A chứa tên danh mục và cột B chứa các giá trị. Mỗi ô giá trị được thêm bằng [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Các chỉ mục điểm không dựa trên 0 là `2` và `5` xác định các tổng trung gian và cuối cùng. Gọi [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) với `true` hiển thị số tiền trên các cột. Không cần bản trình bày hoặc workbook đầu vào.
+Ví dụ JavaScript đầy đủ này tạo một biểu đồ bằng thành phần `Waterfall` của [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), xóa dữ liệu mặc định và điền workbook nhúng. Chỉ mục worksheet `0` chọn worksheet đầu tiên; cột A chứa tên danh mục và cột B chứa giá trị. Mỗi ô giá trị được thêm bằng [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Các chỉ mục điểm không dựa trên zero `2` và `5` xác định tổng trung gian và tổng cuối cùng. Gọi [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) với `true` hiển thị số tiền trên các cột. Không cần bản trình bày hoặc workbook đầu vào.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -516,7 +522,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // Các điểm thứ ba và thứ sáu đại diện cho tổng, không phải các thay đổi bổ sung.
+    // Điểm thứ ba và thứ sáu đại diện cho tổng, không phải các thay đổi bổ sung.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -530,17 +536,17 @@ finally
 }
 ```
 
-Gọi phương thức [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) ở mức chuỗi với `true` để hiển thị các đường nối giữa các cột liền kề và làm cho giá trị chạy dễ theo dõi hơn. Để ẩn các đường này, thay thế lời gọi phương thức trong ví dụ bằng `series.setShowConnectorLines(false);` trước khi lưu. Thay đổi này chỉ ảnh hưởng đến việc hiển thị đường, không thay đổi dữ liệu hay tổng.
+Gọi phương thức cấp series [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) với `true` để hiển thị các đường nối giữa các cột liên tiếp và làm cho giá trị chạy dễ theo dõi hơn. Để ẩn các đường này, thay thế lời gọi phương thức trong ví dụ bằng `series.setShowConnectorLines(false);` trước khi lưu. Thay đổi này chỉ ảnh hưởng tới hiển thị đường, không thay đổi dữ liệu hay tổng.
 
-Bản trình bày đã lưu hiển thị lợi nhuận gộp 600 và lợi nhuận ròng 450, với cả hai tổng bắt đầu từ 0:
+Bản trình bày đã lưu hiển thị lợi nhuận gộp 600 và lợi nhuận ròng 450, cả hai tổng đều bắt đầu từ zero:
 
-![Biểu đồ Thác nước hiển thị doanh thu, chi phí, lợi nhuận gộp 600 và lợi nhuận ròng 450, kèm nhãn giá trị và đường nối](waterfall_chart.png)
+![Biểu đồ Waterfall hiển thị doanh thu, chi phí, lợi nhuận gộp 600 và lợi nhuận ròng 450, kèm nhãn giá trị và đường nối](waterfall_chart.png)
 
-### **Tạo biểu đồ Cổ phiếu**
+### **Tạo biểu đồ Stock**
 
-Biểu đồ cổ phiếu được dùng để hiển thị dữ liệu tài chính như giá mở cửa, cao nhất, thấp nhất và đóng cửa, giúp phân tích xu hướng thị trường và biến động. Chúng cung cấp những hiểu biết quan trọng về hiệu suất cổ phiếu, hỗ trợ nhà đầu tư và nhà phân tích đưa ra quyết định có cân nhắc.
+Biểu đồ stock được dùng để hiển thị dữ liệu tài chính như giá mở cửa, cao nhất, thấp nhất và đóng cửa, hỗ trợ phân tích xu hướng thị trường và biến động. Chúng cung cấp những hiểu biết quan trọng về hiệu suất cổ phiếu, giúp nhà đầu tư và nhà phân tích đưa ra quyết định thông minh.
 
-Ví dụ này tạo một biểu đồ mở‑cao‑thấp‑đóng với bốn chuỗi theo thứ tự đó và ba danh mục. Phương thức [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) bật các thanh lên/xuống, và [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) điều khiển các đường cao‑thấp hiển thị phạm vi giá, trong khi các đường chuỗi riêng lẻ và lưới ngang phụ được ẩn.
+Ví dụ này tạo một biểu đồ Open‑High‑Low‑Close với bốn series theo thứ tự đó và ba danh mục. Phương thức [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) bật các thanh lên/xuống, và [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) điều khiển các đường cao‑thấp hiển thị phạm vi giá, trong khi các đường series riêng lẻ và các đường lưới ngang phụ được ẩn.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -624,13 +630,13 @@ finally
 
 Kết quả:
 
-![Biểu đồ Cổ phiếu](stock_chart.png)
+![Biểu đồ Stock](stock_chart.png)
 
-### **Tạo biểu đồ Hộp và Râu**
+### **Tạo biểu đồ Box và Whisker**
 
-Biểu đồ hộp và râu được dùng để hiển thị phân bố dữ liệu bằng cách tóm tắt các chỉ số thống kê chính, như trung vị, các phần tư và các ngoại lệ tiềm năng. Chúng đặc biệt hữu ích trong phân tích dữ liệu khám phá và các nghiên cứu thống kê để nhanh chóng hiểu biến thiên dữ liệu và xác định bất thường.
+Biểu đồ box và whisker được dùng để hiển thị phân bố dữ liệu bằng cách tóm tắt các chỉ số thống kê chính như trung vị, các phần tư và các ngoại lệ tiềm năng. Chúng đặc biệt hữu ích trong phân tích dữ liệu thăm dò và các nghiên cứu thống kê để nhanh chóng hiểu biến động dữ liệu và xác định bất thường.
 
-Ví dụ này tạo một biểu đồ hộp và râu từ sáu giá trị. Phương thức [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) chọn cách tính phần tư loại trừ. Ví dụ cũng bật các dòng trung bình, dấu chấm trung bình, các điểm nội bộ và các điểm ngoại lệ.
+Ví dụ này tạo một biểu đồ box và whisker từ sáu giá trị. Phương thức [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) chọn phương pháp tính phần tư độc lập. Ví dụ cũng bật các đường trung bình, dấu hiệu trung bình, các điểm nội bộ và các điểm ngoại lệ.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -690,11 +696,11 @@ finally
 }
 ```
 
-### **Tạo biểu đồ Phễu**
+### **Tạo biểu đồ Funnel**
 
-Biểu đồ phễu được dùng để hình dung các quy trình có các giai đoạn tuần tự, trong đó khối lượng dữ liệu giảm dần khi tiến từ bước này sang bước tiếp theo. Chúng đặc biệt hữu ích để phân tích tỷ lệ chuyển đổi, xác định các nút thắt, và theo dõi hiệu quả của quy trình bán hàng hoặc tiếp thị.
+Biểu đồ funnel được dùng để trực quan hoá các quy trình có các giai đoạn tuần tự, trong đó khối lượng dữ liệu giảm dần khi tiến từ bước này sang bước tiếp theo. Chúng đặc biệt hữu ích để phân tích tỷ lệ chuyển đổi, xác định các nút thắt và theo dõi hiệu quả của quy trình bán hàng hoặc tiếp thị.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để thêm một biểu đồ phễu vào slide đầu tiên của một bản trình bày hiện có. Nó thay thế dữ liệu mặc định bằng sáu danh mục và các giá trị từ 50 đến 500, rồi lưu bản trình bày đã cập nhật. Bản trình bày đầu vào phải có ít nhất một slide.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để thêm một biểu đồ funnel vào slide đầu tiên của một bản trình bày hiện có. Nó thay thế dữ liệu mặc định bằng sáu danh mục và các giá trị từ 50 đến 500, sau đó lưu bản trình bày đã cập nhật. Bản trình bày đầu vào phải chứa ít nhất một slide.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -750,13 +756,13 @@ finally
 
 Kết quả:
 
-![Biểu đồ Phễu](funnel_chart.png)
+![Biểu đồ Funnel](funnel_chart.png)
 
 ### **Tạo biểu đồ Sunburst**
 
-Biểu đồ Sunburst được dùng để hình dung dữ liệu phân cấp, hiển thị các mức dưới dạng các vòng đồng tâm. Chúng giúp minh họa các quan hệ phần‑to‑toàn và rất thích hợp cho việc biểu diễn các danh mục và danh mục con lồng nhau một cách rõ ràng, gọn gàng.
+Biểu đồ sunburst được dùng để trực quan hoá dữ liệu phân cấp, hiển thị các cấp độ dưới dạng các vòng đồng tâm. Chúng giúp minh hoạ mối quan hệ phần‑với‑toàn và là lựa chọn lý tưởng để biểu diễn các danh mục và danh mục con lồng nhau một cách rõ ràng, gọn gàng.
 
-Ví dụ này tạo một biểu đồ Sunburst với tám lá được nhóm thành bốn thân và hai nhánh. Phương thức [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) gán các thân ở mức nhóm 1 và các nhánh ở mức 2. Các nhãn danh mục xác định các phân đoạn, và các giá trị quyết định kích thước tương đối của chúng.
+Ví dụ này tạo một biểu đồ sunburst với tám lá được nhóm thành bốn nhánh và hai nhánh phụ. Phương thức [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) gán các nhánh ở mức nhóm 1 và các nhánh phụ ở mức 2. Các nhãn danh mục xác định các phân đoạn, và các giá trị quyết định kích thước tương đối của chúng.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -839,9 +845,13 @@ Kết quả:
 
 ### **Tạo biểu đồ Histogram**
 
-Biểu đồ histogram được dùng để biểu diễn phân bố dữ liệu số bằng cách nhóm các giá trị vào các khoảng hoặc khung. Chúng đặc biệt hữu ích để nhận dạng các mẫu dữ liệu như tần suất, độ lệch và độ phân tán, và để phát hiện các ngoại lệ trong một tập dữ liệu.
+Biểu đồ histogram hiển thị cách các giá trị số được phân bố qua các khoảng (bins). Đối với báo cáo hàng tháng về thời gian xử lý đơn hàng, hãy sử dụng cùng một độ rộng bin và các ngưỡng để giữ các khoảng nhất quán và dễ so sánh phân bố.
 
-Ví dụ này tạo một histogram từ sáu giá trị số, bao gồm cả giá trị âm. Gọi [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) với loại tổng hợp tự động cho phép biểu đồ tự xác định các khung hiển thị phân bố.
+Gọi [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) trên trục ngang với một chế độ từ [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setBinWidth) chỉ áp dụng cho `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberOfBins) chỉ áp dụng cho `ByNumberOfBins`. Sử dụng `Automatic` để để biểu đồ tự chọn các bin.
+
+#### **Sử dụng Độ Rộng Bin Cố Định**
+
+Ví dụ này nhóm thời gian xử lý thành các khoảng 10 phút, với các bin riêng cho thời gian ≤ 10 phút và > 40 phút. Kích hoạt các bin này bằng [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) và [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin). Khi cung cấp các ngưỡng cụ thể qua [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) và [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin), gọi [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticUnderflowBin) và [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticOverflowBin) với `false`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -851,7 +861,10 @@ try
 {
     let slide = presentation.getSlides().get_Item(0);
 
-    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 500, 300);
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -860,22 +873,24 @@ try
     workbook.clear(0);
 
     let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
-    let valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", aspose.slides.SaveFormat.Pptx);
 }
 finally
 {
@@ -883,15 +898,62 @@ finally
 }
 ```
 
-Kết quả:
+Bản trình bày trong PowerPoint hiển thị số lượng bin **3, 4, 4, 4 và 2**. Bin dưới (underflow) bao gồm `5, 10, 10`, vì vậy ngưỡng của nó là bao hàm. Bin trên (overflow) chỉ bao gồm `41, 50`, vì vậy ngưỡng của nó là loại trừ; cả hai giá trị bằng `40` vẫn nằm trong khoảng trước. Các bin nội bộ chứa các giá trị lớn hơn ranh giới dưới và nhỏ hơn hoặc bằng ranh giới trên.
 
-![Biểu đồ Histogram](histogram_chart.png)
+![Histogram với các bin 10‑phút và ngưỡng underflow, overflow rõ ràng](histogram_bin_width.png)
+
+#### **Xác Định Số Lượng Bin**
+
+Đối với mức chi tiết cố định thay vì các khoảng cố định, yêu cầu năm bin cho cùng một dữ liệu. Ví dụ này để bin underflow và overflow bị tắt. Biểu đồ tính độ rộng dựa trên phạm vi dữ liệu, vì vậy các ranh giới có thể thay đổi giữa các báo cáo.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Năm bin có số lượng **4, 4, 4, 4 và 1**. So sánh phân bố này với kết quả độ rộng cố định ở trên: các giá trị đầu vào giống nhau, nhưng các ranh giới khác nhau.
+
+![Histogram với năm bin tính từ cùng một dữ liệu](histogram_bin_count.png)
 
 ### **Tạo biểu đồ Radar**
 
-Biểu đồ radar được dùng để hiển thị dữ liệu đa biến trong định dạng hai chiều, cho phép so sánh dễ dàng nhiều biến cùng lúc. Chúng đặc biệt hữu ích để nhận dạng các mẫu, điểm mạnh và điểm yếu trên nhiều chỉ số hiệu suất hoặc thuộc tính.
+Biểu đồ radar được dùng để hiển thị dữ liệu đa biến trong một định dạng hai chiều, cho phép so sánh dễ dàng nhiều biến cùng lúc. Chúng đặc biệt hữu ích để phát hiện các mẫu, điểm mạnh và điểm yếu trên nhiều chỉ số hoặc thuộc tính hiệu suất.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ radar với chuỗi và danh mục mặc định, rồi lưu bản trình bày dưới dạng PPTX.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ radar với series và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -915,11 +977,11 @@ Kết quả:
 
 ![Biểu đồ Radar](radar_chart.png)
 
-### **Tạo biểu đồ Đa danh mục**
+### **Tạo biểu đồ Nhiều Danh Mục**
 
-Biểu đồ đa danh mục được dùng để hiển thị dữ liệu liên quan đến hơn một nhóm danh mục, cho phép bạn so sánh các giá trị qua nhiều chiều đồng thời. Chúng đặc biệt hữu ích khi bạn cần phân tích xu hướng và mối quan hệ trong các bộ dữ liệu phức tạp, đa lớp.
+Biểu đồ đa danh mục được dùng để hiển thị dữ liệu có hơn một nhóm phân loại, cho phép bạn so sánh các giá trị qua nhiều chiều đồng thời. Chúng đặc biệt hữu ích khi bạn cần phân tích xu hướng và mối quan hệ trong các bộ dữ liệu phức tạp, đa lớp.
 
-Ví dụ này tạo một biểu đồ cột nhóm với tám danh mục được sắp xếp thành bốn cặp. Phương thức [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) cung cấp cho mỗi cặp một nhãn chung ở mức nhóm 1, tạo ra một trục danh mục có cả nhãn riêng lẻ và nhãn nhóm.
+Ví dụ này tạo một biểu đồ cột nhóm với tám danh mục được sắp xếp thành bốn cặp. Phương thức [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) gán mỗi cặp một nhãn chung ở mức nhóm 1, tạo ra trục danh mục có cả nhãn cá nhân và nhãn nhóm.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -993,13 +1055,13 @@ finally
 
 Kết quả:
 
-![Biểu đồ Đa danh mục](multi_category_chart.png)
+![Biểu đồ đa danh mục](multi_category_chart.png)
 
-### **Tạo biểu đồ Bản đồ**
+### **Tạo biểu đồ Map**
 
-Biểu đồ bản đồ được dùng để hình dung dữ liệu địa lý bằng cách gán thông tin tới các vị trí cụ thể như quốc gia, tiểu bang hoặc thành phố. Chúng rất hữu ích để phân tích xu hướng khu vực, dữ liệu nhân khẩu học, và phân bố không gian một cách rõ ràng, hấp dẫn về mặt hình ảnh.
+Biểu đồ map được dùng để trực quan hoá dữ liệu địa lý bằng cách gắn thông tin vào các vị trí cụ thể như quốc gia, bang hoặc thành phố. Chúng đặc biệt hữu ích để phân tích xu hướng khu vực, dữ liệu dân số và phân bố không gian một cách rõ ràng, hấp dẫn.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ bản đồ với dữ liệu địa lý mặc định và lưu nó để xem trong PowerPoint.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ map với dữ liệu địa lý mặc định và lưu nó để xem trong PowerPoint.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1021,19 +1083,21 @@ finally
 
 Kết quả:
 
-![Biểu đồ Bản đồ](map_chart.png)
+![Biểu đồ Map](map_chart.png)
 
-{{% alert color="info" title="Note" %}}
-Hình ảnh trên hiển thị bản trình bày đã lưu mở trong PowerPoint. Aspose.Slides ghi đúng biểu đồ bản đồ và dữ liệu của nó, nhưng không tự vẽ biểu đồ bản đồ: khi một slide chứa biểu đồ này được render thành ảnh hoặc chuyển đổi sang PDF hoặc SVG, khu vực biểu đồ sẽ trống. Các hình dạng khác trên cùng slide không bị ảnh hưởng.
+{{% alert color="info" title="Lưu ý" %}}
+
+Hình trên cho thấy bản trình bày đã lưu được mở trong PowerPoint. Aspose.Slides ghi đúng biểu đồ map và dữ liệu của nó, nhưng không tự vẽ biểu đồ map: khi một slide chứa biểu đồ này được render thành hình ảnh hoặc chuyển đổi sang PDF hoặc SVG, vùng biểu đồ sẽ trống. Các hình dạng khác trên cùng slide không bị ảnh hưởng.
+
 {{% /alert %}}
 
-### **Tạo biểu đồ Kết hợp**
+### **Tạo biểu đồ Kết Hợp**
 
 Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác nhau giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
 
-![Biểu đồ Kết hợp](combination_chart.png)
+![Biểu đồ kết hợp](combination_chart.png)
 
-Ví dụ này kết hợp hai chuỗi cột nhóm với một chuỗi đường qua bốn danh mục. Các cột sử dụng trục dọc chính, trong khi [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) đặt đường trên trục dọc phụ ở bên phải. Các hàm trợ giúp cấu hình tiêu đề, chú giải, nhãn trục và lưới.
+Ví dụ này kết hợp hai series cột nhóm với một series đường qua bốn danh mục. Các cột sử dụng trục dọc chính, trong khi [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) đặt đường trên trục dọc phụ ở phía bên phải. Các hàm trợ giúp cấu hình tiêu đề, legend, nhãn trục và lưới.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1200,9 +1264,9 @@ createComboChart();
 
 ## **Cập nhật biểu đồ**
 
-Aspose.Slides cho Node.js qua Java cho phép bạn cập nhật các biểu đồ PowerPoint bằng cách sửa đổi dữ liệu, định dạng và kiểu dáng của biểu đồ. Tính năng này đơn giản hoá quá trình giữ cho bản trình bày luôn cập nhật với nội dung động và đảm bảo biểu đồ phản ánh chính xác dữ liệu hiện tại và tiêu chuẩn hình ảnh.
+Aspose.Slides cho Node.js qua Java cho phép bạn cập nhật các biểu đồ PowerPoint bằng cách sửa đổi dữ liệu, định dạng và kiểu dáng biểu đồ. Tính năng này đơn giản hoá quá trình duy trì bản trình bày luôn cập nhật với nội dung động và đảm bảo biểu đồ phản ánh chính xác dữ liệu và tiêu chuẩn hình ảnh hiện tại.
 
-Ví dụ này cập nhật biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có. Nó yêu cầu hai chuỗi cột, mỗi chuỗi có ba điểm dữ liệu, với nhãn danh mục trong cột A và tên chuỗi trong hàng đầu của worksheet đầu tiên. Ví dụ sử dụng [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) để thay đổi các ô workbook, cập nhật giá trị chuỗi, thêm chuỗi thứ ba, và đổi loại biểu đồ thành hình trụ nhóm bằng [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType).
+Ví dụ này cập nhật biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có. Nó yêu cầu hai series cột với ba điểm dữ liệu mỗi series, với nhãn danh mục trong cột A và tên series trong hàng đầu tiên của worksheet đầu tiên. Ví dụ sử dụng [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) để thay đổi các ô workbook, cập nhật giá trị series, thêm series thứ ba, và thay đổi kiểu biểu đồ thành hình trụ nhóm thông qua [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1266,11 +1330,11 @@ finally
 
 ## **Đặt phạm vi dữ liệu cho biểu đồ**
 
-Để kiểm tra phạm vi đã được sử dụng bởi một biểu đồ hiện có, xem [Lấy phạm vi dữ liệu của biểu đồ](/slides/vi/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
+Để kiểm tra phạm vi đã được biểu đồ hiện có sử dụng, xem [Retrieve a Chart's Data Range](/slides/vi/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides cho Node.js qua Java cung cấp tính linh hoạt để xác định một phạm vi dữ liệu cụ thể từ worksheet làm nguồn cho dữ liệu biểu đồ của bạn. Điều này cho phép bạn ánh xạ trực tiếp một phần của worksheet vào biểu đồ, kiểm soát các ô nào đóng góp vào chuỗi và danh mục của biểu đồ. Kết quả là, bạn có thể dễ dàng cập nhật và đồng bộ biểu đồ với các thay đổi dữ liệu mới nhất trong worksheet, đảm bảo bản PowerPoint của bạn luôn phản ánh thông tin hiện tại và chính xác.
+Aspose.Slides cho Node.js qua Java cung cấp tính linh hoạt để xác định một phạm vi dữ liệu cụ thể từ worksheet làm nguồn cho dữ liệu biểu đồ của bạn. Điều này có nghĩa là bạn có thể trực tiếp ánh xạ một phần của worksheet tới biểu đồ, cho phép kiểm soát các ô nào đóng góp vào series và danh mục của biểu đồ. Kết quả là bạn có thể dễ dàng cập nhật và đồng bộ hóa biểu đồ với các thay đổi dữ liệu mới nhất trong worksheet, đảm bảo bản trình bày PowerPoint của bạn phản ánh thông tin hiện tại và chính xác.
 
-Ví dụ này sử dụng [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) để đặt nguồn dữ liệu của biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có thành `Sheet1!A1:B4`. Workbook biểu đồ phải chứa worksheet đó và một phạm vi đã được điền với tiêu đề chuỗi ở hàng đầu, nhãn danh mục ở cột A và ba giá trị ở cột B.
+Ví dụ này sử dụng [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) để đặt nguồn dữ liệu của biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có thành `Sheet1!A1:B4`. Workbook của biểu đồ phải chứa worksheet đó và một phạm vi đã được điền với tiêu đề series ở hàng đầu, nhãn danh mục ở cột A và ba giá trị ở cột B.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1301,11 +1365,11 @@ finally
 }
 ```
 
-## **Sử dụng các dấu chấm mặc định trong biểu đồ**
+## **Sử dụng dấu hiệu mặc định trong biểu đồ**
 
-Khi bạn sử dụng các dấu chấm mặc định trong biểu đồ, mỗi chuỗi biểu đồ sẽ tự động nhận một ký hiệu dấu chấm mặc định khác nhau.
+Khi bạn sử dụng dấu hiệu mặc định trong biểu đồ, mỗi series biểu đồ sẽ tự động nhận một ký hiệu dấu hiệu mặc định khác nhau.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ với hai chuỗi đường và một chú giải. Các thiết lập dấu chấm được truy cập qua [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) giữ lại các ký hiệu dấu chấm được gán tự động. Chuỗi đầu tiên bao gồm một giá trị âm và một giá trị thiếu, được biểu thị bằng `null`, trong khi chuỗi thứ hai có giá trị cho mọi danh mục.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ với hai series đường và một legend. Cài đặt dấu hiệu truy cập qua [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) giữ nguyên các ký hiệu dấu hiệu được gán tự động. Series đầu tiên bao gồm một giá trị âm và một giá trị thiếu, được biểu diễn bằng `null`, trong khi series thứ hai có giá trị cho mỗi danh mục.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1368,20 +1432,20 @@ finally
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
 **Các loại biểu đồ nào được Aspose.Slides cho Node.js qua Java hỗ trợ?**
 
-Aspose.Slides cho Node.js qua Java hỗ trợ nhiều loại biểu đồ, bao gồm thanh, đường, tròn, khu vực, phân tán, histogram, radar và nhiều loại khác. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan dữ liệu của mình.
+Aspose.Slides cho Node.js qua Java hỗ trợ một loạt các loại biểu đồ, bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều loại khác. Tính linh hoạt này cho phép bạn lựa chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
 
-**Làm thế nào để thêm một biểu đồ mới vào slide?**
+**Làm sao để thêm biểu đồ mới vào một slide?**
 
-Để thêm một biểu đồ, trước hết bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), lấy slide mong muốn bằng chỉ mục của nó, sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu khởi tạo. Quy trình này tích hợp biểu đồ trực tiếp vào bản trình bày của bạn.
+Để thêm biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), lấy slide mong muốn bằng chỉ mục của nó, và sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quy trình này tích hợp biểu đồ trực tiếp vào bản trình bày của bạn.
 
-**Làm sao tôi có thể cập nhật dữ liệu hiển thị trong biểu đồ?**
+**Làm sao tôi có thể cập nhật dữ liệu hiển thị trong một biểu đồ?**
 
-Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), xóa bất kỳ chuỗi và danh mục mặc định nào, và sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ một cách lập trình để phản ánh dữ liệu mới nhất.
+Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), xóa các series và danh mục mặc định, và sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ một cách lập trình để phản ánh dữ liệu mới nhất.
 
 **Có thể tùy chỉnh giao diện của biểu đồ không?**
 
-Có, Aspose.Slides cho Node.js qua Java cung cấp nhiều tùy chọn tùy chỉnh. Bạn có thể sửa đổi màu sắc, phông chữ, nhãn, chú giải và các yếu tố định dạng khác để phù hợp với yêu cầu thiết kế cụ thể của mình.
+Có, Aspose.Slides cho Node.js qua Java cung cấp các tùy chọn tùy chỉnh phong phú. Bạn có thể sửa đổi màu sắc, phông chữ, nhãn, legend và các yếu tố định dạng khác để điều chỉnh giao diện biểu đồ theo yêu cầu thiết kế cụ thể của bạn.

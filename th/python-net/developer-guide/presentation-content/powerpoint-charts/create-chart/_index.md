@@ -8,52 +8,54 @@ keywords:
 - เพิ่มแผนภูมิ
 - สร้างแผนภูมิ
 - แก้ไขแผนภูมิ
-- เปลี่ยนแปลงแผนภูมิ
+- เปลี่ยนแผนภูมิ
 - อัปเดตแผนภูมิ
 - แผนภูมิกระจาย
 - แผนภูมิวงกลม
 - แผนภูมิเส้น
-- แผนภูมิเพาท์แมพ
-- แผนภูมิตลาดหุ้น
-- แผนภูมิกล่องและเส้นขีด
-- แผนภูมิกระบอก
-- แผนภูมิดวงอาทิตย์
-- แผนภูมิเฮิสโตแกรม
-- แผนภูมิโรเตอร์
+- แผนภูมิโทรแมป
+- แผนภูมิหุ้น
+- แผนภูมิกล่องและวิกเกอร์
+- แผนภูมุกระบอก
+- แผนภูมิ Sunburst
+- แผนภูมิฮิสโตแกรม
+- แผนภูมิเรดาห์
 - แผนภูมิหลายหมวดหมู่
 - PowerPoint
 - การนำเสนอ
 - Python
 - Aspose.Slides
-description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides for Python via .NET เพิ่ม จัดรูปแบบ และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้ใน Python."
+description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides for Python via .NET. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้จริงใน Python."
 ---
 ## **ภาพรวม**
 
-บทความนี้ให้คำแนะนำอย่างครอบคลุมเกี่ยวกับการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for Python via .NET คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิเข้าสไลด์โดยโปรแกรม, เติมข้อมูลลงในแผนภูมิ, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการออกแบบของคุณ ตลอดบทความ ตัวอย่างโค้ดโดยละเอียดจะแสดงแต่ละขั้นตอน ตั้งแต่การกำหนดค่า Presentation และวัตถุแผนภูมิ ไปจนถึงการกำหนดซีรีส์, แกน, และคำอธิบายโดยต legends การทำตามคำแนะนำนี้จะช่วยให้คุณเข้าใจการผสานสร้างแผนภูมิดีย์นามิกเข้ากับแอปพลิเคชัน Python ของคุณอย่างมั่นคง ทำให้กระบวนการสร้างงานนำเสนอที่อิงข้อมูลเป็นเรื่องง่ายขึ้น
+บทความนี้ให้คู่มือที่ครอบคลุมเกี่ยวกับวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for Python via .NET คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิลงในสไลด์อย่างโปรแกรมมิ่ง เติมข้อมูลลงในแผนภูมิ และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการการออกแบบของคุณ ในบทความนี้มีตัวอย่างโค้ดที่ละเอียดอธิบายแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และอ็อบเจกต์แผนภูมิ ไปจนถึงการกำหนด Series, Axis และ Legend หากทำตามคู่มือนี้ คุณจะได้ความเข้าใจที่มั่นคงเกี่ยวกับการผสานการสร้างแผนภูมิแบบไดนามิกเข้ากับแอปพลิเคชัน Python ของคุณ ทำให้การสร้างงานนำเสนอที่ขับเคลื่อนด้วยข้อมูลเป็นเรื่องง่ายขึ้น
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้ผู้ใช้สามารถมองเห็นข้อมูลได้อย่างรวดเร็วและได้ข้อสรุปที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
+แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและค้นพบแนวคิดที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
 
-**ทำไมต้องสร้างแผนภูมิ?**
+**ทำไมจึงต้องสร้างแผนภูมิ?**
 
 โดยใช้แผนภูมิ คุณสามารถ:
 
-* รวม, บีบอัด หรือสรุปข้อมูลจำนวนมากลงในสไลด์เดียวของการนำเสนอ;
-* เผยแพร่รูปแบบและแนวโน้มในข้อมูล;
-* สรุปทิศทางและความเคลื่อนที่ของข้อมูลตามเวลา หรือเทียบกับหน่วยการวัดที่เจาะจง;
-* ระบุค่าที่ผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด และข้อมูลที่ไม่มีความหมาย;
-* สื่อสารหรือแสดงข้อมูลที่ซับซ้อน.
+* รวบรวม, ย่อ, หรือสรุปข้อมูลจำนวนมากบนสไลด์เดียวในงานนำเสนอ;
+* เปิดเผยรูปแบบและแนวโน้มของข้อมูล;
+* สรุปทิศทางและโมเมนตัมของข้อมูลตามช่วงเวลา หรือเทียบกับหน่วยวัดที่กำหนด;
+* ตรวจจับค่าเบี่ยงเบน, ความผิดปกติ, ข้อผิดพลาด, และข้อมูลที่ไม่มีความหมาย;
+* สื่อสารหรือแสดงข้อมูลที่ซับซ้อน
 
-ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งมีแม่แบบสำหรับออกแบบแผนภูมิต่าง ๆ มากมาย โดยใช้ Aspose.Slides คุณสามารถสร้างทั้งแผนภูมิปกติ (อิงตามประเภทแผนภูมียอดนิยม) และแผนภูมิที่กำหนดเอง
+ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งให้แม่แบบสำหรับการออกแบบแผนภูมิต่าง ๆ โดยใช้ Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (ตามประเภทแผนภูมิที่นิยม) และแผนภูมิที่กำหนดเองได้
 
 {{% alert color="info" title="Note" %}}
-ใช้ enumeration [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) ใต้โมดูล [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิที่แตกต่างกัน
+
+ใช้การระบุประเภท [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) ภายใต้โมดูล [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) ค่าต่าง ๆ ในการระบุประเภทนี้สอดคล้องกับประเภทแผนภูมิที่แตกต่างกัน
+
 {{% /alert %}}
 
-### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม**
+### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม (Clustered Column)**
 
-ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิคอลัมน์แบบกลุ่มที่เปรียบเทียบสองซีรีส์ในสามหมวดหมู่ ซีรีส์ใช้การเติมสีแดงและสีเขียว และป้ายชื่อแต่ละรายการแสดงชื่อหมวดหมู่, ชื่อซีรีส์, และค่าต่าง ๆ ดัชนี Worksheet 0 หมายถึงชีตแรกในเวิร์กบุ๊กแผนภูมิที่ฝังอยู่
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิคอลัมน์แบบกลุ่มที่เปรียบเทียบสอง Series ในสามประเภท Series มีการเติมสีแดงและสีเขียว และป้ายกำกับแสดงชื่อประเภท, ชื่อ Series, และค่า ดัชนี Worksheet 0 หมายถึงแผ่นแรกในเวิร์กบุ๊กแผนภูมิที่ฝังอยู่
 
 ```python
 import aspose.pydrawing as draw
@@ -130,18 +132,18 @@ with slides.Presentation() as presentation:
 
 ![แผนภูมิคอลัมน์แบบกลุ่ม](clustered_column_chart.png)
 
-### **สร้างแผนภูมิกระจาย**
+### **สร้างแผนภูมิแบบกระจาย (Scatter)**
 
-แผนภูมิกระจาย (หรือที่เรียกว่ากราฟกระจายหรือกราฟ x‑y) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
+แผนภูมิแบบกระจาย (หรือ Scatter Plot, X‑Y Graph) มักใช้เพื่อค้นหารูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
 
-ใช้แผนภูมิกระจายเมื่อ:
+ใช้แผนภูมิแบบกระจายเมื่อ:
 
-* คุณมีข้อมูลตัวเลขเป็นคู่.
-* คุณมีตัวแปรสองตัวที่จับคู่กันได้ดี.
-* คุณต้องการกำหนดว่าตัวแปรสองตัวสัมพันธ์กันหรือไม่.
-* คุณมีตัวแปรอิสระที่มีค่าหลายค่าสำหรับตัวแปรตาม.
+* คุณมีข้อมูลตัวเลขที่จับคู่กัน
+* คุณมีสองตัวแปรที่สัมพันธ์กันดี
+* คุณต้องการตรวจสอบว่าตัวแปรสองตัวมีความสัมพันธ์หรือไม่
+* คุณมีตัวแปรอิสระที่มีค่าหลายค่าเพื่อกำหนดค่าตัวแปรตาม
 
-ตัวอย่างนี้พล็อตค่าคู่ x‑y สองชุด ซีรีส์แรกใช้เส้นตรงกับเครื่องหมายดาว, ส่วนซีรีส์ที่สองใช้เส้นโค้งกับเครื่องหมายวงกลม; ทั้งคู่ใช้ [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) ขนาด 10 คุณสมบัติ [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) ควบคุมรูปทรงเครื่องหมาย
+ตัวอย่างนี้พล็อตสองชุดของค่า X‑Y ชุดแรกใช้เส้นตรงกับเครื่องหมายดาว, ชุดที่สองใช้เส้นโค้งกับเครื่องหมายวงกลม; ทั้งสองใช้ [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) ขนาด 10 คุณสมบัติ [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) ควบคุมรูปแบบเครื่องหมาย
 
 ```python
 import aspose.slides as slides
@@ -203,13 +205,13 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิกระจาย](scatter_chart.png)
+![แผนภูมิแบบกระจาย](scatter_chart.png)
 
-### **สร้างแผนภูมิวงกลม**
+### **สร้างแผนภูมิวงกลม (Pie)**
 
-แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนทั้งหมดของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายชื่อหมวดหมู่ที่มีค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือป้ายชื่อจำนวนมาก คุณอาจพิจารณาใช้แผนภูมิแท่งแทน
+แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนรวมของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายกำกับแบบหมวดหมู่พร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือป้ายกำกับจำนวนมาก คุณอาจพิจารณาใช้แผนภูมิบาร์แทน
 
-ตัวอย่างนี้สร้างแผนภูมิวงกลมที่มีค่าตามไตรมาสสามค่า แต่ละส่วนมีการเติมสีและเส้นขอบแบบกำหนดเอง, และป้ายชื่อแสดงการรวมค่าต่าง ๆ, เปอร์เซ็นต์, และข้อมูลซีรีส์ คุณสมบัติ [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) ตั้งให้ส่วนแรกเริ่มที่ 180 องศา
+ตัวอย่างนี้สร้างแผนภูมวงกลมที่มีค่าประจำไตรมาสสามค่า แต่ละส่วนมีการเติมสีและขอบกำหนดเอง, ป้ายกำกับแสดงการผสมค่าต่าง ๆ, ร้อยละ, และข้อมูล Series; คุณสมบัติ [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) ตั้งให้ส่วนแรกเริ่มที่ 180 องศา
 
 ```python
 import aspose.pydrawing as draw
@@ -304,13 +306,13 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิวงกลม](pie_chart.png)
+![แผนภูมววงกลม](pie_chart.png)
 
-### **สร้างแผนภูมิเส้น**
+### **สร้างแผนภูมิเส้น (Line)**
 
-แผนภูมิเส้น (หรือที่เรียกว่ากราฟเส้น) เหมาะสำหรับแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาเปลี่ยนไป โดยใช้แผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, ไฮไลท์ความผิดปกติในซีรีส์ และอื่น ๆ
+แผนภูมิเส้น (หรือ Line Graph) เหมาะที่สุดเมื่อคุณต้องการแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป โดยใช้แผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากในครั้งเดียว, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นความผิดปกติใน Series ฯลฯ
 
-ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิเส้นด้วยซีรีส์และหมวดหมู่เริ่มต้น, จากนั้นบันทึกการนำเสนอเป็น PPTX
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิเส้นด้วย Series และ Category เริ่มต้น, แล้วบันทึกเป็นไฟล์ PPTX
 
 ```python
 import aspose.slides as slides
@@ -324,7 +326,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นขด, ตั้งค่า [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) ให้เป็นค่าจาก [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
+โดยค่าเริ่มต้นจุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมด้วยเส้นประ ให้ตั้งค่า [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) จาก [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
 
 ```python
 import aspose.slides as slides
@@ -343,11 +345,11 @@ with slides.Presentation() as presentation:
 
 ![แผนภูมิเส้น](line_chart.png)
 
-### **สร้างแผนภูมิเพาท์แมพ**
+### **สร้างแผนภูมิโทรแมป (Tree Map)**
 
-แผนภูมิเพาท์แมพเหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่เป็นผู้สนับสนุนหลักในแต่ละหมวดหมู่
+แผนภูมิโทรแมปเหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่มีส่วนร่วมสูงในแต่ละหมวดหมู่
 
-ตัวอย่างนี้สร้างแผนภูมิเพาท์แมพที่มีใบไม้แปดใบจัดเป็นสี่ก้านและสองสาขา วิธีการ [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) กำหนดก้านที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ค่าใช้เป็นขนาดสี่เหลี่ยมสัมพัทธ์, ป้ายชื่อหมวดหมู่และป้ายชื่อพาเรนท์ที่ซ้อนทับระบุลำดับชั้น
+ตัวอย่างนี้สร้าง Tree Map ที่มีใบแปดใบจัดเป็นสแตกสี่และกิ่งสอง โดยใช้เมธอด [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) เพื่อกำหนดสแตกระดับ 1 และกิ่งระดับ 2 ค่าใช้กำหนดขนาดสี่เหลี่ยมสัมพัทธ์, ป้ายกำกับประเภทและป้ายพาเรนท์ที่ซ้อนกันบ่งบอกลำดับชั้น
 
 ```python
 import aspose.slides as slides
@@ -422,26 +424,26 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิเพาท์แมพ](treemap_chart.png)
+![แผนภูมิ Tree Map](treemap_chart.png)
 
-### **สร้างแผนภูมิน้ำตก**
+### **สร้างแผนภูมิ Waterfall**
 
-แผนภูมน้ำตกแสดงว่าการเปลี่ยนแปลงบวกและลบมีส่วนทำให้ค่าสุดท้ายเป็นเท่าใด ตัวอย่างเช่น การสรุปกำไรอาจเริ่มจากรายได้, ลบต้นทุน, แล้วบวกรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยระหว่างค่ารันก่อนหน้าและค่ารันใหม่, ส่วนคอลัมน์รวมจะขยายจากศูนย์ถึงค่าที่สะสม
+แผนภูมิ Waterfall แสดงการเปลี่ยนแปลงบวกและลบที่ส่งผลต่อค่าต้นสุด ตัวอย่างเช่น การสรุปกำไรอาจเริ่มจากรายได้, ลบต้นทุน, แล้วบวกรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยระหว่างค่าก่อนหน้าและค่าปัจจุบัน, ส่วนคอลัมน์รวมจะเริ่มจากศูนย์ไปจนถึงค่าที่สะสม
 
-ตัวอย่างต่อไปใช้จำนวนเป็นพันดอลลาร์สหรัฐ:
+ตัวอย่างต่อไปนี้ใช้จำนวนเงินเป็นพันดอลลาร์สหรัฐ:
 
-| หมวดหมู่ | ค่าเวิร์กบุ๊ก | ชนิดคอลัมน์ |
+| หมวดหมู่ | ค่าจากเวิร์กบุ๊ก | ประเภทคอลัมน์ |
 | --- | ---: | --- |
-| รายได้ | 1000 | เพิ่ม |
-| ต้นทุนการขาย | -400 | ลด |
-| กำไรขั้นต้น | 600 | รวมระดับกลาง |
-| ค่าใช้จ่ายดำเนินงาน | -200 | ลด |
-| รายได้อื่น | 50 | เพิ่ม |
-| กำไรสุทธิ | 450 | รวมสุดท้าย |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-เพื่อทำเครื่องหมายจุดเป็นรวมระดับกลางหรือสุดท้าย ตั้งคุณสมบัติ [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) ของจุดนั้นเป็น `True` แล้วใส่จำนวนที่สะสมจริงในเซลล์เวิร์กบุ๊กของจุดนั้น: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`) คุณสมบัตินี้ทำเครื่องหมายคอลัมน์เป็นรวม; มันไม่คำนวณหรือเติมค่าในเซลล์ อย่าใช้ศูนย์เป็นตัวแทนหรือใส่การเปลี่ยนแปลงอื่นสำหรับจุดรวม คอลัมน์รวมจะแสดงค่าที่สะสมโดยไม่เพิ่มอีกครั้งในค่ารัน
+เพื่อทำเครื่องหมายจุดเป็นค่ากลางหรือค่าต้นสุด ให้ตั้งค่า [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) ของจุดนั้นเป็น `True` แล้วใส่จำนวนที่สะสมจริงในเซลล์เวิร์กบุ๊กของจุดนั้น: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`) คุณสมบัตินี้ทำเครื่องหมายคอลัมน์ว่าเป็นค่าต้นสุด; ไม่ได้คำนวณหรือเติมค่าในเซลล์ อย่าใช้ศูนย์เป็นตัวแทนหรือใส่ค่าการเปลี่ยนแปลงอื่นสำหรับจุดค่าต้นสุด คอลัมน์ค่าต้นสุดจะแสดงค่าที่สะสมโดยไม่บวกอีกครั้งกับค่าที่รันอยู่
 
-ตัวอย่าง C# เต็มรูปแบบนี้สร้างแผนภูมิโดยใช้สมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), ล้างข้อมูลเริ่มต้น, และเติมเวิร์กบุ๊กที่ฝังอยู่ ดัชนี Worksheet `0` เลือกชีตแรก; คอลัมน์ A มีชื่อหมวดหมู่, คอลัมน์ B มีค่า แต่ละเซลล์ค่าถูกเพิ่มด้วย [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). ดัชนีจุดที่เริ่มจากศูนย์ `2` และ `5` ระบุรวมระดับกลางและสุดท้าย. การเปิดใช้งาน [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) แสดงจำนวนบนคอลัมน์ ไม่ต้องมีการนำเสนอหรือเวิร์กบุ๊กเข้า
+ตัวอย่าง C# นี้สร้างแผนภูมิโดยใช้สมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), ล้างข้อมูลเริ่มต้น, แล้วเติมเวิร์กบุ๊กที่ฝังอยู่ ดัชนี Worksheet `0` เลือกแผ่นแรก; คอลัมน์ A มีชื่อประเภท, คอลัมน์ B มีค่า แต่ละเซลล์ค่าถูกเพิ่มด้วย [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/) ดัชนีจุดฐาน 0‑indexed `2` และ `5` ระบุค่ากลางและค่าต้นสุด การเปิดใช้งาน [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) แสดงจำนวนบนคอลัมน์ ไม่ต้องมี Presentation หรือเวิร์กบุ๊กเข้า
 
 ```python
 import aspose.slides as slides
@@ -476,7 +478,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
         series.data_points.add_data_point_for_waterfall_series(value_cell)
 
-    # จุดที่สามและหกเป็นยอดรวม, ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
+    # จุดที่สามและหกเป็นยอดรวม ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
     series.data_points[2].set_as_total = True
     series.data_points[5].set_as_total = True
     series.show_connector_lines = True
@@ -485,17 +487,17 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ตั้งคุณสมบัติระดับซีรีส์ [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) ให้เป็น `True` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่องและทำให้ค่ารันตามง่ายขึ้น หากต้องการซ่อนเส้นเหล่านี้ ให้แทนที่การกำหนดค่าในตัวอย่างด้วย `series.show_connector_lines = False` ก่อนบันทึก การเปลี่ยนแปลงนี้จะมีผลต่อการมองเห็นเส้นเท่านั้น, ไม่กระทบต่อข้อมูลหรือยอดรวม
+ตั้งค่า Series‑level [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) เป็น `True` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่อง ทำให้ค่าไหลตามง่ายขึ้น หากต้องการซ่อนเส้นเหล่านี้ ให้เปลี่ยนการกำหนดเป็น `series.show_connector_lines = False` ก่อนบันทึก ซึ่งจะเปลี่ยนแค่การมองเห็นเส้น ไม่กระทบข้อมูลหรือค่าต้นสุด
 
-การนำเสนอที่บันทึกแสดงกำไรขั้นต้น 600 และกำไรสุทธิ 450, ทั้งสองยอดรวมถูกวาดจากศูนย์:
+Presentation ที่บันทึกแสดงกำไรขั้นต้น 600 และกำไรสุทธิ 450, ทั้งสองค่าต้นสุดเริ่มจากศูนย์:
 
-![แผนภูมิน้ำตกแสดงรายได้, ค่าใช้จ่าย, กำไรขั้นต้น 600, และกำไรสุทธิ 450, พร้อมป้ายค่าและเส้นเชื่อม](waterfall_chart.png)
+![แผนภูมิ Waterfall แสดงรายได้, ต้นทุน, กำไรขั้นต้น 600, กำไรสุทธิ 450 พร้อมป้ายค่าและเส้นเชื่อมต่อ](waterfall_chart.png)
 
-### **สร้างแผนภูมิหุ้น**
+### **สร้างแผนภูมิหุ้น (Stock)**
 
-แผนภูมิหุ้นใช้เพื่อแสดงข้อมูลการเงิน เช่น ราคาเปิด, สูง, ต่ำ, ปิด, ช่วยวิเคราะห์แนวโน้มตลาดและความผันผวน ให้ข้อมูลเชิงลึกสำคัญต่อการดำเนินงานของหุ้น, สนับสนุนการตัดสินใจของนักลงทุนและนักวิเคราะห์
+แผนภูมิหุ้นใช้แสดงข้อมูลการเงินเช่น ราคาเปิด, สูง, ต่ำ, และปิด เพื่อช่วยวิเคราะห์แนวโน้มและความผันผวนของตลาด ให้ข้อมูลเชิงลึกสำคัญเกี่ยวกับประสิทธิภาพหุ้น ช่วยนักลงทุนและนักวิเคราะห์ตัดสินใจอย่างมีข้อมูล
 
-ตัวอย่างนี้สร้างแผนภูมิเปิด‑สูง‑ต่ำ‑ปิดด้วยสี่ซีรีส์ตามลำดับและสามหมวดหมู่ คุณสมบัติ [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) เปิดใช้งานแถบขึ้น/ลง, และ [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) ควบคุมเส้นสูง‑ต่ำที่แสดงช่วงราคา, ส่วนเส้นของซีรีส์แต่ละอันและเส้นกริดแนวนอนเล็กน้อยถูกซ่อน
+ตัวอย่างนี้สร้างแผนภูมิ Open‑High‑Low‑Close ที่มีสี่ Series ตามลำดับและสาม Category คุณสมบัติ [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) เปิดใช้งานแถบขึ้น/ลง, และ [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) ควบคุมเส้นสูง‑ต่ำที่แสดงช่วงราคา; เส้น Series แต่ละตัวและเส้นกริดแนวนอนย่อยถูกซ่อน
 
 ```python
 import aspose.slides as slides
@@ -571,11 +573,11 @@ with slides.Presentation() as presentation:
 
 ![แผนภูมิหุ้น](stock_chart.png)
 
-### **สร้างแผนภูมิกล่องและเส้นขีด**
+### **สร้างแผนภูมิ Box and Whisker**
 
-แผนภูมิกล่องและเส้นขีดใช้เพื่อแสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น มัธยฐาน, ควอไทล์, และค่าผิดปกติ เหมาะกับการวิเคราะห์ข้อมูลสำรวจและการศึกษาเชิงสถิติ เพื่อเข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติอย่างรวดเร็ว
+แผนภูมิ Box and Whisker แสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น มิดเดียน, ควอร์ไทล์, และค่าขอบเขตที่อาจเป็น outlier เหมาะสำหรับการวิเคราะห์สำรวจข้อมูลและการศึกษาเชิงสถิติ เพื่อทำความเข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติอย่างรวดเร็ว
 
-ตัวอย่างนี้สร้างแผนภูมิกล่องและเส้นขีดจากหกค่า คุณสมบัติ [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) เลือกการคำนวนควอไทล์แบบ exclusive ตัวอย่างยังเปิดใช้งานเส้นค่าเฉลี่ย, เครื่องหมายค่าเฉลี่ย, จุดภายใน และจุดค่าผิดปกติ
+ตัวอย่างนี้สร้างแผนภูมิ Box and Whisker จากหกค่า คุณสมบัติ [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) เลือกการคำนวณควอร์ไทล์แบบ exclusive ตัวอย่างยังเปิดใช้เส้นค่าเฉลี่ย, ตัวทำเครื่องหมายค่าเฉลี่ย, จุดภายใน, และจุด outlier
 
 ```python
 import aspose.slides as slides
@@ -629,11 +631,11 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhisker.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **สร้างแผนภูมิกรวย**
+### **สร้างแผนภูมิ Funnel**
 
-แผนภูมิกรวยใช้เพื่อแสดงกระบวนการที่มีขั้นตอนต่อเนื่อง, โดยปริมาณข้อมูลจะลดลงเมื่อดำเนินการจากขั้นตอนหนึ่งไปยังขั้นตอนถัดไป เหมาะกับการวิเคราะห์อัตรา Conversion, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
+แผนภูมิ Funnel ใช้เพื่อภาพรวมกระบวนการที่มีขั้นตอนต่อเนื่อง ซึ่งปริมาณข้อมูลจะลดลงเมื่อดำเนินการจากขั้นตอนหนึ่งไปยังขั้นตอนถัดไป เหมาะกับการวิเคราะห์อัตราการแปลง, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
 
-ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อเพิ่มแผนภูมิกรวยบนสไลด์แรกของการนำเสนอที่มีอยู่, แทนที่ข้อมูลเริ่มต้นด้วยหกหมวดหมู่และค่าตั้งแต่ 50 ถึง 500, แล้วบันทึกการนำเสนอที่อัปเดต การนำเข้าต้องมีสไลด์อย่างน้อยหนึ่งสไลด์
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อเพิ่มแผนภูมิ Funnel ไปยังสไลด์แรกของ Presentation ที่มีอยู่ ใส่ข้อมูลเริ่มต้นที่มีหกประเภทและค่าตั้งแต่ 50 ถึง 500 แล้วบันทึก Presentation ที่อัปเดต Presentation ต้องมีสไลด์อย่างน้อยหนึ่งสไลด์
 
 ```python
 import aspose.slides as slides
@@ -683,13 +685,13 @@ with slides.Presentation("test.pptx") as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิกรวย](funnel_chart.png)
+![แผนภูมิ Funnel](funnel_chart.png)
 
-### **สร้างแผนภูมิแสงอาทิตย์**
+### **สร้างแผนภูมิ Sunburst**
 
-แผนภูมิแสงอาทิตย์ใช้เพื่อแสดงข้อมูลเชิงลำดับชั้น, แสดงระดับเป็นวงกลมรอบศูนย์ ช่วยอธิบายความสัมพันธ์ส่วนต่อส่วนทั้งหมดและเหมาะกับการแสดงหมวดหมู่และหมวดหมู่ย่อยที่ซ้อนกันในรูปแบบที่กระชับและชัดเจน
+แผนภูมิ Sunburst ใช้เพื่อภาพรวมข้อมูลเชิงลำดับชั้น โดยแสดงระดับต่าง ๆ เป็นวงแ кольดรอบศูนย์ ช่วยแสดงความสัมพันธ์ส่วนต่อส่วนรวมและเหมาะกับการแสดงหมวดหมู่และหมวดย่อยที่ซ้อนกันในรูปแบบกระชับและชัดเจน
 
-ตัวอย่างนี้สร้างแผนภูมิแสงอาทิตย์ที่มีใบไม้แปดใบจัดเป็นสี่ก้านและสองสาขา วิธีการ [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) กำหนดก้านที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ป้ายชื่อหมวดหมู่ระบุส่วนต่าง ๆ, ค่าตัดสินขนาดสัมพัทธ์
+ตัวอย่างนี้สร้างแผนภูมิ Sunburst ที่มีใบแปดใบจัดเป็นสแตกสี่และกิ่งสอง ใช้เมธอด [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) เพื่อกำหนดสแตกระดับ 1 และกิ่งระดับ 2 ป้ายกำกับประเภทบ่งบอกส่วนต่าง ๆ ค่าใช้กำหนดขนาดสัมพัทธ์ของแต่ละส่วน
 
 ```python
 import aspose.slides as slides
@@ -762,13 +764,17 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิแสงอาทิตย์](sunburst_chart.png)
+![แผนภูมิ Sunburst](sunburst_chart.png)
 
-### **สร้างแผนภูมิฮิสโตแกรม**
+### **สร้างแผนภูมิ Histogram**
 
-แผนภูมิฮิสโตแกรมใช้เพื่อแสดงการกระจายของข้อมูลตัวเลขโดยจัดกลุ่มค่าเป็นช่วงหรือบิ๊กส์ เหมาะกับการระบุรูปแบบข้อมูลเช่น ความถี่, ความเอน, การกระจาย, และการตรวจจับค่าผิดปกติในชุดข้อมูล
+แผนภูมิ Histogram แสดงการกระจายของค่าตัวเลขในช่วง (bins) สำหรับรายงานประจำเดือนของเวลาประมวลผลคำสั่งซื้อ ให้ใช้ความกว้าง bin คงที่และเกณฑ์เดียวกันเพื่อให้ช่วงสม่ำเสมอและเปรียบเทียบการกระจายได้ง่ายขึ้น
 
-ตัวอย่างนี้สร้างฮิสโตแกรมจากหกค่าตัวเลขรวมถึงค่าติดลบ การตั้งค่า [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) เป็นอัตโนมัติทำให้แผนภูมาตัดสินใจเลือกบิ๊กส์ที่ใช้แสดงการกระจาย
+ตั้งค่าแกนแนวนอน [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) ให้เป็นโหมดจาก [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/) [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) ใช้ได้เฉพาะกับ `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) ใช้ได้เฉพาะกับ `BY_NUMBER_OF_BINS` ใช้ `AUTOMATIC` ให้แผนภูมิตัดสินใจเลือก bin เอง
+
+#### **ใช้ความกว้าง Bin คงที่**
+
+ตัวอย่างนี้จัดกลุ่มเวลาประมวลผลเป็นช่วง 10 นาที, มี bin แยกสำหรับเวลาต่ำกว่าหรือเท่ากับ 10 นาทีและเวลามากกว่า 40 นาที เปิดใช้ bin เหล่านี้ด้วย [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) และ [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/) เมื่อกำหนดเกณฑ์ [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) และ [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) อย่างชัดเจน ต้องตั้งค่า [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) และ [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) เป็น `False`
 
 ```python
 import aspose.slides as slides
@@ -777,7 +783,10 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 500, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 680, 200)
+
+    chart.has_legend = False
+    chart.has_title = False
 
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
@@ -786,33 +795,72 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
-    value_cell = workbook.get_cell(0, "A1", 15)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A2", -41)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A3", 16)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A4", 10)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A5", -23)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A6", 16)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.get_cell(0, i, 0, value)
+        series.data_points.add_data_point_for_histogram_series(value_cell)
 
-    chart.axes.horizontal_axis.aggregation_type = charts.AxisAggregationType.AUTOMATIC
+    axis = chart.axes.horizontal_axis
+    axis.aggregation_type = charts.AxisAggregationType.BY_BIN_WIDTH
+    axis.bin_width = 10
+    axis.is_underflow_bin = True
+    axis.is_automatic_underflow_bin = False
+    axis.underflow_bin = 10
+    axis.is_overflow_bin = True
+    axis.is_automatic_overflow_bin = False
+    axis.overflow_bin = 40
 
-    presentation.save("Histogram.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ผลลัพธ์:
+Presentation ที่แสดงใน PowerPoint มีจำนวน bin **3, 4, 4, 4, และ 2** Bin ต่ำรวม `5, 10, 10` จึงเป็น inclusive; Bin สูงรวมเฉพาะ `41, 50` จึงเป็น exclusive; ค่าที่เท่ากับ `40` อยู่ในช่วงก่อนหน้า Bin ภายในมีค่าที่มากกว่าขอบล่างและไม่เกินขอบบน
 
-![แผนภูมิฮิสโตแกรม](histogram_chart.png)
+![Histogram ที่มี bin 10‑นาทีและเกณฑ์ underflow/overflow ชัดเจน](histogram_bin_width.png)
 
-### **สร้างแผนภูมิโรเตอร์**
+#### **กำหนดจำนวน Bin**
 
-แผนภูมิโรเตอร์ใช้เพื่อแสดงข้อมูลหลายมิติในรูปแบบสองมิติ, ทำให้เปรียบเทียบหลายตัวแปรพร้อมกันได้ง่าย เหมาะกับการระบุรูปแบบ, จุดแข็ง, และจุดอ่อนในหลายเมตริกหรือแอตทริบิวต์
+หากต้องการระดับความละเอียดคงที่แทนช่วงคงที่ ให้กำหนด 5 bin สำหรับข้อมูลเดียวกัน ตัวอย่างนี้ปิดการใช้ bin ต่ำและสูง แผนภูมิคำนวณความกว้างจากช่วงข้อมูล ดังนั้นขอบเขตอาจเปลี่ยนระหว่างรายงาน
 
-ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิโรเตอร์ด้วยซีรีส์และหมวดหมู่เริ่มต้น, จากนั้นบันทึกการนำเสนอเป็น PPTX
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 680, 200)
+
+    chart.has_legend = False
+    chart.has_title = False
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.get_cell(0, i, 0, value)
+        series.data_points.add_data_point_for_histogram_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.aggregation_type = charts.AxisAggregationType.BY_NUMBER_OF_BINS
+    axis.number_of_bins = 5
+
+    presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
+```
+
+ห้า bin มีจำนวน **4, 4, 4, 4, และ 1** เปรียบเทียบการกระจายนี้กับผลลัพธ์ความกว้างคงที่ด้านบน: ค่าต้นทางเดียวกันแต่ขอบเขตต่างกัน
+
+![Histogram ที่คำนวณจาก 5 binเดียวกัน](histogram_bin_count.png)
+
+### **สร้างแผนภูมิ Radar**
+
+แผนภูมิ Radar ใช้เพื่อแสดงข้อมูลหลายมิติในรูปแบบสองมิติ ทำให้เปรียบเทียบตัวแปรหลายตัวพร้อมกันได้ง่าย เหมาะสำหรับการระบุรูปแบบ, จุดแข็ง, จุดอ่อนในเมตริกหรือคุณลักษณะต่าง ๆ
+
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิ Radar ด้วย Series และ Category เริ่มต้น แล้วบันทึกเป็นไฟล์ PPTX
 
 ```python
 import aspose.slides as slides
@@ -828,13 +876,13 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิโรเตอร์](radar_chart.png)
+![แผนภูมิ Radar](radar_chart.png)
 
-### **สร้างแผนภูมิหลายหมวดหมู่**
+### **สร้างแผนภูมิหลายประเภท (Multi‑Category)**
 
-แผนภูมิหลายหมวดหมู่ใช้เพื่อแสดงข้อมูลที่มีการจัดกลุ่มหมวดหมู่มากกว่าหนึ่ง, ให้คุณเปรียบเทียบค่าในหลายมิติพร้อมกัน เหมาะกับการวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลหลายชั้น
+แผนภูมิหลายประเภทใช้เพื่อแสดงข้อมูลที่มีการจัดกลุ่มแบบหมวดหมู่หลายระดับ ให้คุณเปรียบเทียบค่าในหลายมิติพร้อมกัน เหมาะเมื่อจำเป็นต้องวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลหลายชั้น
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีแปດหมวดหมู่จัดเป็นสี่คู่ วิธีการ [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) ให้แต่ละคู่มีป้ายร่วมที่ระดับการจัดกลุ่ม 1, ทำให้แกนหมวดหมู่แสดงทั้งป้ายส่วนบุคคลและป้ายกลุ่ม
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีแปดประเภทจัดเป็นสี่คู่ เมธอด [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) ให้แต่ละคู่มีป้ายกำกับร่วมที่ระดับการจัดกลุ่ม 1 ทำให้แกนประเภทมีป้ายกำกับส่วนบุคคลและกลุ่มพร้อมกัน
 
 ```python
 import aspose.slides as slides
@@ -902,13 +950,13 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![แผนภูมิหลายหมวดหมู่](multi_category_chart.png)
+![แผนภูมิหลายประเภท](multi_category_chart.png)
 
-### **สร้างแผนภูมิแผนที่**
+### **สร้างแผนภูมิแผนที่ (Map)**
 
-แผนภูมิแผนที่ใช้เพื่อแสดงข้อมูลเชิงภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเฉพาะเช่น ประเทศ, รัฐ, หรือเมือง เหมาะกับการวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและดึงดูดสายตา
+แผนภูมิแผนที่ใช้เพื่อแสดงข้อมูลทางภูมิศาสตร์โดยแมพข้อมูลไปยังตำแหน่งเฉพาะเช่น ประเทศ, รัฐ, หรือเมือง เหมาะสำหรับวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ ด้วยการแสดงผลที่ชัดเจนและน่าสนใจ
 
-ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิแผนที่ด้วยข้อมูลเชิงภูมิศาสตร์เริ่มต้นและบันทึกเพื่อดูใน PowerPoint
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิแผนที่ด้วยข้อมูลภูมิศาสตร์เริ่มต้นและบันทึกเพื่อดูใน PowerPoint
 
 ```python
 import aspose.slides as slides
@@ -927,16 +975,18 @@ with slides.Presentation() as presentation:
 ![แผนภูมิแผนที่](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-ภาพด้านบนแสดงการเปิดการนำเสนอที่บันทึกใน PowerPoint Aspose.Slides เขียนแผนภูมิแผนที่และข้อมูลของมันอย่างถูกต้อง, แต่ไม่วาดแผนภูมิแผนที่เอง: เมื่อสไลด์ที่มีแผนภูมินั้นเรนเดอร์เป็นรูปภาพหรือแปลงเป็น PDF หรือ SVG, พื้นที่แผนภูมิจะออกมาเป็นสีว่าง รูปร่างอื่น ๆ บนสไลด์เดียวกันไม่มีผลกระทบ
+
+รูปภาพด้านบนแสดง Presentation ที่บันทึกแล้วเปิดใน PowerPoint Aspose.Slides เขียนแผนภูมิแผนที่และข้อมูลได้ถูกต้อง แต่ตัว Aspose.Slides ไม่ได้วาดแผนภูมิแผนที่เอง: เมื่อสไลด์ที่มีแผนภูมินั้นถูกแปลงเป็นภาพหรือ PDF หรือ SVG พื้นที่แผนภูมิจะเป็นสีว่าง รูปร่างอื่น ๆ บนสไลด์เดียวกันไม่เสียหาย
+
 {{% /alert %}}
 
-### **สร้างแผนภูมิผสม**
+### **สร้างแผนภูมิผสม (Combination)**
 
-แผนภูมิผสม (หรือ combo chart) รวมสองประเภทแผนภูมิหรือมากกว่าลงในกราฟเดียว แผนภูมินี้ช่วยให้คุณไฮไลท์, เปรียบเทียบ, หรือพิจารณาความแตกต่างระหว่างชุดข้อมูลสองชุดหรือมากกว่า, ช่วยระบุความสัมพันธ์ระหว่างข้อมูลเหล่านั้น
+แผนภูมิผสม (หรือ Combo Chart) ผสานสองหรือมากกว่าประเภทแผนภูมิในกราฟเดียว ช่วยให้คุณไฮไลท์, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุด เพื่อระบุความสัมพันธ์ระหว่างข้อมูล
 
-![แผนภูมิกลุ่มผสม](combination_chart.png)
+![แผนภูมิผสม](combination_chart.png)
 
-ตัวอย่างนี้รวมสองซีรีส์คอลัมน์แบบกลุ่มกับซีรีส์เส้นในสี่หมวดหมู่ คอลัมน์ใช้แกนแนวตั้งหลัก, ส่วน [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) วางเส้นบนแกนแนวตั้งรองที่ด้านขวา ฟังก์ชันช่วยตั้งค่าชื่อเรื่อง, คำอธิบาย, ป้ายแกน, และเส้นกริด
+ตัวอย่างนี้ผสาน Series คอลัมน์แบบกลุ่มสองชุดกับ Series เส้นหนึ่งชุดในสี่ Category คอลัมน์ใช้แกนแนวตั้งหลัก, ในขณะที่ [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) วางเส้นบนแกนแนวตั้งรองด้านขวา ฟังก์ชันช่วยกำหนดหัวเรื่อง, เลเจนด์, ป้ายแกน, และเส้นกริด
 
 ```python
 import aspose.pydrawing as draw
@@ -1084,9 +1134,9 @@ create_combo_chart()
 
 ## **อัปเดตแผนภูมิ**
 
-Aspose.Slides for Python via .NET ช่วยให้คุณอัปเดตแผนภูมิ PowerPoint โดยแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ คุณสมบัตินี้ทำให้การรักษาการนำเสนอให้เป็นปัจจุบันด้วยเนื้อหาไดนามิกง่ายขึ้นและทำให้แผนภูมิสะท้อนข้อมูลและมาตรฐานการแสดงผลที่เป็นปัจจุบันอย่างแม่นยำ
+Aspose.Slides for Python via .NET ช่วยให้คุณอัปเดตแผนภูมิ PowerPoint ได้โดยการแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ ความสามารถนี้ทำให้การรักษา Presentation ให้เป็นปัจจุบันด้วยเนื้อหาแบบไดนามิกง่ายขึ้นและทำให้แผนภูมิสอดคล้องกับข้อมูลและมาตรฐานการแสดงผลล่าสุด
 
-ตัวอย่างนี้อัปเดตแผนภูมิชื่อ "My chart" บนสไลด์แรกของการนำเสนอที่มีอยู่ ต้องการสองซีรีส์คอลัมน์ที่แต่ละซีรีส์มีจุดข้อมูลสามจุด, โดยมีป้ายหมวดหมู่อยู่ในคอลัมน์ A และชื่อซีรีส์อยู่ในแถวแรกของเวิร์กชีตแรก ตัวอย่างใช้ [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) เพื่อเปลี่ยนเซลล์เวิร์กบุ๊ก, อัปเดตค่าซีรีส์, เพิ่มซีรีส์ที่สาม, และเปลี่ยนแผนภูมิเป็นทรงกระบอกแบบกลุ่มโดยใช้ [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/)
+ตัวอย่างนี้อัปเดตแผนภูมิชื่อ “My chart” บนสไลด์แรกของ Presentation ที่มีอยู่ ต้องมีสอง Series คอลัมน์ที่มีจุดข้อมูลสามจุดแต่ละชุด, ป้ายประเภทในคอลัมน์ A และชื่อ Series ในแถวแรกของ Worksheet แรก ตัวอย่างใช้ [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) เพื่อเปลี่ยนค่าในเซลล์เวิร์กบุ๊ก, อัปเดตค่าของ Series, เพิ่ม Series ที่สาม, และเปลี่ยนประเภทแผนภูมิเป็น Cylinders แบบกลุ่มผ่าน [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/)
 
 ```python
 import aspose.slides as slides
@@ -1136,13 +1186,13 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("AsposeChartModified.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **กำหนดช่วงข้อมูลสำหรับแผนภูมิ**
+## **ตั้งค่าช่วงข้อมูลสำหรับแผนภูมิ**
 
-เพื่อดูช่วงที่ใช้อยู่โดยแผนภูมิที่มีอยู่แล้ว, ดู [Retrieve a Chart's Data Range](/slides/th/python-net/chart-workbook/#retrieve-a-charts-data-range)
+เพื่อดูช่วงที่แผนภูมิใช้แล้วใน Presentation ที่มีอยู่ ดูที่ [Retrieve a Chart's Data Range](/slides/th/python-net/chart-workbook/#retrieve-a-charts-data-range)
 
-Aspose.Slides for Python via .NET ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจากเวิร์กชีตเป็นแหล่งข้อมูลสำหรับแผนภูมิของคุณ หมายความว่าคุณสามารถแมปส่วนของเวิร์กชีตโดยตรงไปยังแผนภูมิ, ควบคุมเซลล์ใดบ้างที่มีส่วนร่วมในซีรีส์และหมวดหมู่ของแผนภูมิ ด้วยวิธีนี้คุณสามารถอัปเดตและซิงโครไนซ์แผนภูมิของคุณกับการเปลี่ยนแปลงข้อมูลล่าสุดในเวิร์กชีตได้อย่างง่ายดาย ทำให้การนำเสนอ PowerPoint ของคุณสะท้อนข้อมูลที่ทันสมัยและแม่นยำ
+Aspose.Slides for Python via .NET ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจาก Worksheet เป็นแหล่งข้อมูลสำหรับแผนภูมิของคุณ หมายความว่าคุณสามารถแมพส่วนของ Worksheet ไปยังแผนภูมิโดยตรง ควบคุมว่าเซลล์ใดบ้างที่ส่งผลต่อ Series และ Category ของแผนภูมิ ผลก็คือคุณสามารถอัปเดตและซิงโครไนซ์แผนภูมิของคุณกับการเปลี่ยนแปลงข้อมูลล่าสุดใน Worksheet ได้อย่างง่ายดาย ทำให้ Presentation ของคุณสะท้อนข้อมูลที่ถูกต้องและทันสมัย
 
-ตัวอย่างนี้ใช้ [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) เพื่อตั้งแหล่งข้อมูลของแผนภูมิชื่อ "My chart" บนสไลด์แรกของการนำเสนอที่มีอยู่เป็น `Sheet1!A1:B4`. เวิร์กบุ๊กแผนภูมิต้องมีชีตนั้นและช่วงที่เต็มด้วยหัวเรื่องซีรีส์ในแถวแรก, ป้ายหมวดหมู่ในคอลัมน์ A, และค่าสามค่าในคอลัมน์ B
+ตัวอย่างนี้ใช้ [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) เพื่อตั้งแหล่งข้อมูลของแผนภูมิชื่อ “My chart” บนสไลด์แรกของ Presentation ที่มีอยู่เป็น `Sheet1!A1:B4` Worksheet ต้องมีแผ่นดังกล่าวและช่วงที่เติมข้อมูลโดยมีหัวเรื่อง Series ในแถวแรก, ป้ายประเภทในคอลัมน์ A, และค่าที่สามในคอลัมน์ B
 
 ```python
 import aspose.slides as slides
@@ -1161,11 +1211,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("SetDataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ใช้ตัวทำเครื่องหมายเริ่มต้นในแผนภูมิ**
+## **ใช้ Marker เริ่มต้นในแผนภูมิ**
 
-เมื่อคุณใช้ตัวทำเครื่องหมายเริ่มต้นในแผนภูมิ, แต่ละซีรีส์ของแผนภูมิจะได้รับสัญลักษณ์เครื่องหมายเริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
+เมื่อใช้ Marker เริ่มต้นในแผนภูมิแต่ละ Series จะได้รับสัญลักษณ์ Marker เริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
 
-ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิที่มีสองซีรีส์เส้นและคำอธิบาย คุณสมบัติ [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) รักษาสัญลักษณ์เครื่องหมายที่กำหนดอัตโนมัติ ซีรีส์แรกมีค่าติดลบและค่าที่หายไป, แทนด้วย `None`, ส่วนซีรีส์ที่สองมีค่าทุกหมวดหมู่
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิที่มีสอง Series เส้นและ Legend การตั้งค่า [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) รักษาสัญลักษณ์ Marker ที่ระบบกำหนดอัตโนมัติ Series แรกมีค่าลบและค่าที่ขาดหาย (แทนด้วย `None`) ส่วน Series ที่สองมีค่าทุกประเภท
 
 ```python
 import aspose.slides as slides
@@ -1222,20 +1272,20 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**What chart types are supported by Aspose.Slides for Python via .NET?**
+**แผนภูมิประเภทใดบ้างที่ Aspose.Slides for Python via .NET รองรับ?**
 
-Aspose.Slides for Python via .NET รองรับประเภทแผนภูมิจำนวนมาก รวมถึงแผนภูมิแท่ง, เส้น, วงกลม, พื้นที่, กระจาย, ฮิสโตแกรม, โรเตอร์, และอื่น ๆ อีกมาก ความยืดหยุ่นนี้ช่วยให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับความต้องการการแสดงผลข้อมูลของคุณ
+Aspose.Slides for Python via .NET รองรับแผนภูมิหลายประเภท รวมถึง bar, line, pie, area, scatter, histogram, radar และอื่น ๆ อีกมากมาย ความยืดหยุ่นนี้ทำให้คุณเลือกประเภทแผนภูมิที่เหมาะกับการแสดงข้อมูลของคุณได้
 
-**How do I add a new chart to a slide?**
+**ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์อย่างไร?**
 
-เพื่อเพิ่มแผนภูมิ, คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), ดึงสไลด์ที่ต้องการโดยใช้ดัชนี, แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ, ระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะรวมแผนภูมิเข้ากับการนำเสนอของคุณโดยตรง
+เพื่อเพิ่มแผนภูมิ ก่อนแรกคุณสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) ดึงสไลด์ที่ต้องการโดยใช้ดัชนี แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ โดยระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะฝังแผนภูมิโดยตรงเข้าใน Presentation ของคุณ
 
-**How can I update the data displayed in a chart?**
+**ฉันสามารถอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุ๊กข้อมูลของมัน ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), ล้างซีรีส์และหมวดหมู่เริ่มต้น, จากนั้นเพิ่มข้อมูลที่กำหนดเอง สิ่งนี้ทำให้คุณรีเฟรชแผนภูมิโปรแกรมmatically เพื่อสะท้อนข้อมูลล่าสุด
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), ล้าง Series และ Category เริ่มต้น, แล้วเพิ่มข้อมูลของคุณเอง สิ่งนี้ทำให้คุณรีเฟรชแผนภูมิด้วยข้อมูลล่าสุดผ่านโปรแกรม
 
-**Is it possible to customize the appearance of the chart?**
+**สามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?**
 
-ใช่, Aspose.Slides for Python via .NET มีตัวเลือกการปรับแต่งอย่างกว้างขวาง คุณสามารถแก้ไขสี, ฟอนต์, ป้าย, คำอธิบาย, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงกับความต้องการออกแบบเฉพาะของคุณ
+ใช่, Aspose.Slides for Python via .NET มีตัวเลือกการปรับแต่งมากมาย คุณสามารถแก้ไขสี, ฟอนท์, ป้าย, เลเจนด์, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงกับความต้องการการออกแบบของคุณ

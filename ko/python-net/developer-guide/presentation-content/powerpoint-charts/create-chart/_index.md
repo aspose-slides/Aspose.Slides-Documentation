@@ -1,59 +1,57 @@
 ---
-title: Python에서 PowerPoint 프레젠테이션 차트 만들기 또는 업데이트
+title: Python을 사용하여 PowerPoint 프레젠테이션 차트 만들기 및 업데이트
 linktitle: 차트 만들기 또는 업데이트
 type: docs
 weight: 10
 url: /ko/python-net/create-chart/
 keywords:
 - 차트 추가
-- 차트 생성
+- 차트 만들기
 - 차트 편집
 - 차트 변경
 - 차트 업데이트
 - 산점도 차트
 - 원형 차트
-- 꺾은선 차트
+- 선 차트
 - 트리맵 차트
 - 주식 차트
-- 박스와 위스커 차트
+- 상자·수염 차트
 - 퍼널 차트
 - 선버스트 차트
 - 히스토그램 차트
-- 레이더 차트
+- 레이다 차트
 - 다중 카테고리 차트
 - PowerPoint
 - 프레젠테이션
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET를 사용하여 PowerPoint 프레젠테이션에서 차트를 만들고 맞춤화합니다. Python의 실용적인 코드 예제를 통해 차트를 추가, 서식 지정 및 편집합니다."
+description: "Aspose.Slides for Python via .NET를 사용하여 PowerPoint 프레젠테이션에서 차트를 만들고 사용자 지정합니다. Python 실용 코드 예제로 차트를 추가, 서식 지정 및 편집합니다."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides for Python via .NET을 사용하여 차트를 만들고 사용자 지정하는 방법에 대한 포괄적인 가이드를 제공합니다. 슬라이드에 차트를 프로그래밍 방식으로 추가하고 데이터를 채우며, 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배웁니다. 문서 전반에 걸쳐 프레젠테이션 및 차트 객체 초기화부터 시리즈, 축, 범례 구성에 이르기까지 각 단계를 보여주는 상세한 코드 예제가 포함되어 있습니다. 이 가이드를 따라 하면 동적 차트 생성을 Python 애플리케이션에 통합하는 방법을 확실히 이해하게 되며, 데이터 기반 프레젠테이션을 효율적으로 작성할 수 있습니다.
+이 문서는 Aspose.Slides for Python via .NET을 사용하여 차트를 만들고 사용자 지정하는 방법에 대한 포괄적인 가이드를 제공합니다. 슬라이드에 차트를 프로그래밍 방식으로 추가하고 데이터를 채우며 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배우게 됩니다. 기사 전반에 걸쳐 자세한 코드 예제가 프레젠테이션 및 차트 객체 초기화부터 시리즈, 축, 범례 구성에 이르는 각 단계를 설명합니다. 이 가이드를 따라하면 Python 애플리케이션에 동적 차트 생성을 통합하는 방법을 확실히 이해하게 되어 데이터 기반 프레젠테이션을 만드는 과정을 간소화할 수 있습니다.
 
 ## **차트 만들기**
 
-차트는 데이터를 빠르게 시각화하고 표나 스프레드시트에서 바로 파악하기 어려운 인사이트를 얻는 데 도움을 줍니다.
+차트는 사용자가 데이터를 빠르게 시각화하고 표나 스프레드시트에서 바로 드러나지 않을 수 있는 인사이트를 얻도록 도와줍니다.
 
-**왜 차트를 만들어야 할까요?**
+**왜 차트를 만들까요?**
 
-차트를 사용하면:
+* 프레젠테이션의 한 슬라이드에 대량 데이터를 집계, 압축 또는 요약합니다;
+* 데이터의 패턴과 추세를 드러냅니다;
+* 시간 경과에 따른 데이터의 방향과 모멘텀을, 혹은 특정 측정 단위와 관련하여 추론합니다;
+* 이상치, 변칙, 편차, 오류 및 비합리적인 데이터를 식별합니다;
+* 복잡한 데이터를 전달하거나 제시합니다;
 
-* 프레젠테이션의 단일 슬라이드에 대량 데이터를 집계·축소·요약할 수 있습니다;
-* 데이터의 패턴 및 추세를 드러낼 수 있습니다;
-* 시간 경과 또는 특정 측정 단위에 따른 데이터의 방향과 모멘텀을 추론할 수 있습니다;
-* 이상치, 변칙, 편차, 오류 및 비논리적인 데이터를 식별할 수 있습니다;
-* 복잡한 데이터를 전달하거나 프레젠테이션할 수 있습니다.
+PowerPoint에서는 *Insert* 기능을 통해 차트를 만들 수 있으며, 다양한 차트 유형을 설계하기 위한 템플릿을 제공합니다. Aspose.Slides를 사용하면 일반 차트(인기 차트 유형 기반)와 사용자 지정 차트를 모두 만들 수 있습니다.
 
-PowerPoint에서는 *삽입* 기능을 통해 다양한 차트 템플릿을 사용해 차트를 만들 수 있습니다. Aspose.Slides를 사용하면 일반 차트(대중적인 차트 유형 기반)와 사용자 정의 차트를 모두 만들 수 있습니다.
-
-{{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) enumeration under the [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) module. The values in this enumeration correspond to different chart types.
+{{% alert color="info" title="참고" %}}
+다음 모듈인 [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) 아래의 [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 열거형을 사용합니다. 이 열거형의 값은 다양한 차트 유형에 해당합니다.
 {{% /alert %}}
 
 ### **군집형 열 차트 만들기**
 
-다음 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용해 두 개의 시리즈를 세 개 카테고리와 비교하는 군집형 열 차트를 생성합니다. 시리즈는 빨간색과 초록색 채우기를 사용하고, 개별 레이블에 카테고리 이름, 시리즈 이름 및 값이 표시됩니다. 워크시트 인덱스 0은 포함된 차트 워크북의 첫 번째 시트를 나타냅니다.
+이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용하여 세 범주에 걸쳐 두 시리즈를 비교하는 군집형 열 차트를 생성합니다. 시리즈는 빨간색 및 초록색 채우기를 사용하며, 개별 레이블은 범주 이름, 시리즈 이름 및 값을 표시합니다. 워크시트 인덱스 0은 삽입된 차트 워크북의 첫 번째 시트를 나타냅니다.
 
 ```python
 import aspose.pydrawing as draw
@@ -128,20 +126,20 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![클러스터형 열 차트](clustered_column_chart.png)
+![군집형 열 차트](clustered_column_chart.png)
 
 ### **산점도 차트 만들기**
 
-산점도 차트(산점도 플롯 또는 x‑y 그래프라고도 함)는 두 변수 간의 패턴을 확인하거나 상관관계를 보여주는 데 자주 사용됩니다.
+산점도 차트(산점도 플롯 또는 x‑y 그래프라고도 함)는 종종 두 변수 간의 패턴을 확인하거나 상관관계를 보여주는 데 사용됩니다.
 
-다음 경우에 산점도 차트를 사용하십시오:
+다음과 같은 경우 산점도 차트를 사용합니다:
 
-* 쌍을 이루는 숫자 데이터가 있는 경우;
-* 두 변수가 서로 잘 어울리는 경우;
-* 두 변수가 연관되어 있는지 판단하려는 경우;
-* 종속 변수에 대해 여러 값이 있는 독립 변수가 있는 경우.
+* 쌍으로 된 수치 데이터가 있습니다.
+* 두 변수가 잘 짝을 이룹니다.
+* 두 변수 간의 관련성을 판단하고자 합니다.
+* 독립 변수가 종속 변수에 대해 여러 값을 갖습니다.
 
-이 예제는 두 세트의 x‑y 값을 플롯합니다. 첫 번째 시리즈는 별 표식이 있는 직선, 두 번째 시리즈는 원형 표식이 있는 곡선을 사용하며, 두 시리즈 모두 크기 10([size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/))을 갖습니다. 표식 모양은 [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) 속성으로 제어합니다.
+이 예제는 두 개의 x‑y 값 세트를 플롯합니다. 첫 번째 시리즈는 별 마커와 직선을 사용하고, 두 번째는 원 마커와 곡선을 사용합니다; 두 경우 모두 [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) 값을 10으로 지정합니다. [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) 속성은 마커 모양을 제어합니다.
 
 ```python
 import aspose.slides as slides
@@ -207,9 +205,9 @@ with slides.Presentation() as presentation:
 
 ### **원형 차트 만들기**
 
-원형 차트는 특히 범주형 레이블에 숫자 값이 있는 경우 데이터의 부분‑전체 관계를 보여주는 데 가장 적합합니다. 그러나 데이터에 많은 부분이나 레이블이 포함된 경우 막대 차트를 고려하는 것이 좋습니다.
+원형 차트는 특히 데이터에 범주형 레이블과 숫자 값이 포함된 경우, 부분과 전체의 관계를 보여줄 때 가장 적합합니다. 그러나 데이터에 많은 부분이나 레이블이 포함되어 있다면 대신 막대 차트를 고려할 수 있습니다.
 
-이 예제는 세 개의 분기값을 가진 원형 차트를 생성합니다. 각 조각은 사용자 지정 채우기와 테두리를 가지고 있으며, 레이블은 값, 백분율 및 시리즈 정보를 다양한 조합으로 표시합니다. [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) 속성은 첫 조각이 180도에서 시작하도록 설정합니다.
+이 예제는 3개의 분기값으로 원형 차트를 생성합니다. 각 조각은 사용자 지정 채우기와 테두리를 가지고 있으며, 레이블은 값, 백분율 및 시리즈 정보를 다양한 조합으로 표시합니다. [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) 속성은 첫 번째 조각을 180도에서 시작하도록 설정합니다.
 
 ```python
 import aspose.pydrawing as draw
@@ -306,11 +304,11 @@ with slides.Presentation() as presentation:
 
 ![원형 차트](pie_chart.png)
 
-### **꺾은선 차트 만들기**
+### **선 차트 만들기**
 
-꺾은선 차트(선 그래프라고도 함)는 시간에 따른 값 변화를 보여주고자 할 때 가장 적합합니다. 꺾은선 차트를 사용하면 대량 데이터를 한 번에 비교하고, 시간에 따른 변화와 추세를 추적하며, 데이터 시리즈의 이상치를 강조하는 등 다양한 작업이 가능합니다.
+선 차트(선 그래프라고도 함)는 시간에 따른 값 변화를 보여주고자 할 때 가장 적합합니다. 선 차트를 사용하면 한 번에 대량 데이터를 비교하고, 시간에 따른 변화와 추세를 추적하며, 데이터 시리즈의 이상치를 강조하는 등 다양한 작업을 수행할 수 있습니다.
 
-이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용해 기본 시리즈와 카테고리를 가진 꺾은선 차트를 만든 뒤 프레젠테이션을 PPTX 파일로 저장합니다.
+이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용하여 기본 시리즈와 범주를 가진 선 차트를 만든 뒤, 프레젠테이션을 PPTX 형식으로 저장합니다.
 
 ```python
 import aspose.slides as slides
@@ -324,7 +322,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-기본적으로 꺾은선 차트의 포인트는 직선으로 연결됩니다. 점을 대시(점선)로 연결하려면 [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/)을 [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/)의 값으로 설정합니다.
+기본적으로 선 차트의 포인트는 직선으로 연결됩니다. 포인트를 점선으로 연결하고 싶다면 [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/)을 [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/)의 값으로 설정합니다.
 
 ```python
 import aspose.slides as slides
@@ -341,13 +339,13 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![꺾은선 차트](line_chart.png)
+![선 차트](line_chart.png)
 
 ### **트리맵 차트 만들기**
 
-트리맵 차트는 각 카테고리 내에서 큰 기여 항목에 주의를 끌면서 데이터 카테고리의 상대적 크기를 보여줄 때 적합합니다.
+트리맵 차트는 데이터 카테고리의 상대적인 크기를 표시하고 각 카테고리 내에서 큰 기여를 하는 항목에 빠르게 주목하고자 할 때, 특히 판매 데이터에 적합합니다.
 
-이 예제는 8개의 잎을 4개의 줄기와 2개의 가지로 그룹화한 트리맵을 생성합니다. [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 메서드는 줄기를 그룹 수준 1에, 가지를 수준 2에 할당합니다. 값은 사각형의 상대 크기를 결정하고, 카테고리 레이블 및 겹치는 상위 레이블이 계층 구조를 식별합니다.
+이 예제는 8개의 잎을 4개의 줄기와 2개의 가지로 그룹화한 트리맵을 생성합니다. [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 메서드는 그룹 레벨 1에 줄기를, 레벨 2에 가지를 할당합니다. 값은 사각형의 상대 크기를 결정하고, 카테고리 레이블과 겹치는 상위 레이블이 계층 구조를 식별합니다.
 
 ```python
 import aspose.slides as slides
@@ -364,7 +362,7 @@ with slides.Presentation() as presentation:
     workbook = chart.chart_data.chart_data_workbook
     workbook.clear(0)
 
-    # 분기 1
+    # 브랜치 1
     category_cell = workbook.get_cell(0, "C1", "Leaf1")
     leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem1")
@@ -380,7 +378,7 @@ with slides.Presentation() as presentation:
     category_cell = workbook.get_cell(0, "C4", "Leaf4")
     chart.chart_data.categories.add(category_cell)
 
-    # 분기 2
+    # 브랜치 2
     category_cell = workbook.get_cell(0, "C5", "Leaf5")
     leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem3")
@@ -426,22 +424,20 @@ with slides.Presentation() as presentation:
 
 ### **워터폴 차트 만들기**
 
-워터폴 차트는 양의 변화와 음의 변화가 최종 값에 어떻게 기여하는지를 보여줍니다. 예를 들어, 매출에서 시작해 비용을 차감하고 기타 수익을 더하는 방식으로 이익을 분해할 수 있습니다. 변화 열은 이전 값과 새로운 누적 값 사이에 떠 있으며, 총계 열은 0부터 누적 값까지 확장됩니다.
-
-다음 예제는 천 달러 단위의 금액을 사용합니다:
+워터폴 차트는 양의 변화와 음의 변화가 최종 값에 어떻게 기여하는지를 보여줍니다. 예를 들어, 이익 분류는 매출에서 시작해 비용을 차감하고 기타 수입을 추가하는 방식으로 표시됩니다. 변동 열은 이전 실행값과 새로운 실행값 사이에 위치하고, 총합 열은 0에서 누적 값까지 확장됩니다.
 
 | 카테고리 | 워크북 값 | 열 유형 |
 | --- | ---: | --- |
-| 매출 | 1000 | Increase |
-| 매출원가 | -400 | Decrease |
-| 총이익 | 600 | Intermediate total |
-| 영업비용 | -200 | Decrease |
-| 기타수익 | 50 | Increase |
-| 순이익 | 450 | Final total |
+| 매출 | 1000 | 증가 |
+| 매출원가 | -400 | 감소 |
+| 총이익 | 600 | 중간 합계 |
+| 영업비용 | -200 | 감소 |
+| 기타 수입 | 50 | 증가 |
+| 순이익 | 450 | 최종 합계 |
 
-포인트를 중간 총계 또는 최종 총계로 표시하려면 해당 포인트의 [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) 속성을 `True` 로 설정합니다. 워크북 셀에 실제 누적 금액을 제공하십시오: 총이익은 `600` (`1000 - 400`), 순이익은 `450` (`600 - 200 + 50`). 이 속성은 열을 총계로 표시하지만 셀 값을 계산하거나 채우지는 않습니다. 자리채우기로 0을 사용하거나 총계 포인트에 다른 변화를 제공하지 마십시오. 총계 열은 누적 값을 다시 더하지 않고 표시합니다.
+포인트를 중간 합계 또는 최종 합계로 표시하려면 해당 포인트의 [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) 속성을 `True`로 설정합니다. 해당 포인트의 워크북 셀에 실제 누적 금액을 제공하십시오: 총이익은 `600`(`1000 - 400`), 순이익은 `450`(`600 - 200 + 50`)입니다. 이 속성은 열을 합계로 표시하지만 셀 값을 계산하거나 채우지는 않습니다. 제로를 자리 표시자로 사용하거나 합계 포인트에 다른 변동을 제공하지 마십시오. 합계 열은 실행값에 다시 더하지 않고 누적 값을 표시합니다.
 
-이 전체 C# 예제는 [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)의 `Waterfall` 멤버를 사용해 차트를 만든 뒤 기본 데이터를 지우고 포함된 워크북을 채웁니다. 워크시트 인덱스 `0` 은 첫 번째 워크시트를 선택하며, A 열에 카테고리 이름, B 열에 값을 넣습니다. 각 값 셀은 [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/) 로 추가됩니다. 0 기반 포인트 인덱스 `2` 와 `5` 가 중간 및 최종 총계를 식별합니다. [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) 를 활성화하면 금액이 열에 라벨로 표시됩니다. 입력 프레젠테이션이나 워크북이 필요하지 않습니다.
+이 완전한 C# 예제는 [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)의 `Waterfall` 멤버를 사용하여 차트를 만든 뒤, 기본 데이터를 지우고 삽입된 워크북을 채웁니다. 워크시트 인덱스 `0`은 첫 번째 워크시트를 선택합니다; 열 A는 카테고리 이름을, 열 B는 값을 포함합니다. 각 값 셀은 [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/)를 사용하여 추가됩니다. 0 기반 포인트 인덱스 `2`와 `5`는 중간 합계와 최종 합계를 식별합니다. [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/)를 활성화하면 열에 금액이 표시됩니다. 입력 프레젠테이션이나 워크북은 필요하지 않습니다.
 
 ```python
 import aspose.slides as slides
@@ -476,7 +472,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
         series.data_points.add_data_point_for_waterfall_series(value_cell)
 
-    # 세 번째와 여섯 번째 포인트는 추가 변동이 아니라 총계입니다.
+    # 세 번째와 여섯 번째 포인트는 추가 변동이 아니라 합계입니다.
     series.data_points[2].set_as_total = True
     series.data_points[5].set_as_total = True
     series.show_connector_lines = True
@@ -485,17 +481,17 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-시리즈 수준에서 [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) 속성을 `True` 로 설정하면 연속 열을 연결하는 선이 표시되어 누적 값을 따라가기가 쉬워집니다. 이 선을 숨기려면 예제에서 할당을 `series.show_connector_lines = False` 로 바꾸고 저장하기 전에 적용합니다. 이는 선의 가시성만 변경하며 데이터나 총계에는 영향을 주지 않습니다.
+시리즈 수준의 [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) 속성을 `True`로 설정하면 연속된 열을 연결하는 선이 표시되어 실행값을 따라가기 쉬워집니다. 이러한 선을 숨기려면 저장하기 전에 예제의 할당을 `series.show_connector_lines = False`로 바꾸세요. 이는 선의 가시성만 변경하고 데이터나 합계에는 영향을 주지 않습니다.
 
-저장된 프레젠테이션은 600의 총이익과 450의 순이익을 0에서 시작하는 두 총계로 보여줍니다:
+저장된 프레젠테이션은 총이익 600과 순이익 450을 보여주며, 두 합계 모두 0에서 시작합니다:
 
-![워터폴 차트(매출, 비용, 총이익 600, 순이익 450, 값 라벨 및 연결선 포함)](waterfall_chart.png)
+![워터폴 차트(매출, 비용, 총이익 600, 순이익 450, 값 레이블 및 연결선 포함)](waterfall_chart.png)
 
 ### **주식 차트 만들기**
 
-주식 차트는 시가, 고가, 저가, 종가와 같은 금융 데이터를 표시하여 시장 동향 및 변동성을 분석하는 데 도움을 줍니다. 투자자와 분석가가 정보를 기반으로 결정을 내리는 데 필수적인 통찰을 제공합니다.
+주식 차트는 시가, 고가, 저가, 종가와 같은 금융 데이터를 표시하여 시장 추세와 변동성을 분석하는 데 도움을 줍니다. 이러한 차트는 주식 성과에 대한 핵심 인사이트를 제공하여 투자자와 분석가가 정보에 입각한 결정을 내릴 수 있도록 합니다.
 
-이 예제는 개방‑고가‑저가‑종가 차트를 네 개의 시리즈와 세 개 카테고리 순으로 생성합니다. [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) 속성은 상승/하락 막대를 활성화하고, [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) 은 가격 구간을 나타내는 고‑저 선을 제어합니다. 개별 시리즈 선과 보조 수평 격선은 숨겨져 있습니다.
+이 예제는 순서대로 네 개의 시리즈와 세 개의 범주를 가진 시가-고가-저가-종가 차트를 생성합니다. [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) 속성은 상승/하락 바를 활성화하고, [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/)은 가격 범위를 표시하는 고-저 선을 제어하며, 개별 시리즈 선과 작은 수평 격자는 숨겨집니다.
 
 ```python
 import aspose.slides as slides
@@ -571,11 +567,11 @@ with slides.Presentation() as presentation:
 
 ![주식 차트](stock_chart.png)
 
-### **박스‑위스커 차트 만들기**
+### **상자 수염 차트 만들기**
 
-박스‑위스커 차트는 중앙값, 사분위수 및 잠재적 이상치를 요약하여 데이터 분포를 표시합니다. 탐색적 데이터 분석 및 통계 연구에서 데이터 변동성을 빠르게 파악하고 이상치를 식별하는 데 특히 유용합니다.
+상자·수염 차트는 중위수, 사분위수 및 잠재적 이상치와 같은 핵심 통계 측정값을 요약하여 데이터 분포를 표시하는 데 사용됩니다. 이는 탐색적 데이터 분석 및 통계 연구에서 데이터 변동성을 빠르게 이해하고 이상치를 식별하는 데 특히 유용합니다.
 
-이 예제는 여섯 개 값으로 박스‑위스커 차트를 생성합니다. [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) 속성은 배타적 사분위수 계산을 선택합니다. 또한 평균선, 평균 표식, 내부 포인트 및 이상치 포인트를 활성화합니다.
+이 예제는 여섯 개의 값으로 상자·수염 차트를 생성합니다. [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) 속성은 배타적 사분위수 계산을 선택합니다. 예제는 평균선, 평균 마커, 내부 포인트 및 이상치 포인트도 활성화합니다.
 
 ```python
 import aspose.slides as slides
@@ -631,9 +627,9 @@ with slides.Presentation() as presentation:
 
 ### **퍼널 차트 만들기**
 
-퍼널 차트는 단계별로 진행될수록 데이터 양이 감소하는 프로세스를 시각화하는 데 사용됩니다. 전환율 분석, 병목 현상 파악, 영업 또는 마케팅 프로세스 효율성 추적 등에 특히 유용합니다.
+퍼널 차트는 순차적인 단계가 있는 프로세스를 시각화하며, 데이터 양이 단계별로 감소합니다. 이는 전환율을 분석하고, 병목 현상을 식별하며, 영업 또는 마케팅 프로세스의 효율성을 추적하는 데 특히 유용합니다.
 
-이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용해 기존 프레젠테이션의 첫 번째 슬라이드에 퍼널 차트를 추가합니다. 기본 데이터를 6개 카테고리와 50~500 범위의 값으로 교체한 뒤 업데이트된 프레젠테이션을 저장합니다. 입력 프레젠테이션에는 최소 한 개의 슬라이드가 있어야 합니다.
+이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용하여 기존 프레젠테이션의 첫 번째 슬라이드에 퍼널 차트를 추가합니다. 기본 데이터를 6개의 카테고리와 50에서 500까지의 값으로 교체한 뒤, 업데이트된 프레젠테이션을 저장합니다. 입력 프레젠테이션에는 최소 하나의 슬라이드가 있어야 합니다.
 
 ```python
 import aspose.slides as slides
@@ -687,9 +683,9 @@ with slides.Presentation("test.pptx") as presentation:
 
 ### **선버스트 차트 만들기**
 
-선버스트 차트는 계층형 데이터를 동심원 형태로 시각화하여 부분‑전체 관계를 보여줍니다. 중첩된 카테고리와 하위 카테고리를 명확하고 컴팩트하게 표현하는 데 이상적입니다.
+선버스트 차트는 계층적 데이터를 시각화하며, 레벨을 동심원 형태로 표시합니다. 이는 부분과 전체 관계를 보여주며, 중첩된 카테고리와 하위 카테고리를 명확하고 컴팩트하게 표현하는 데 이상적입니다.
 
-이 예제는 8개의 잎을 4개의 줄기와 2개의 가지로 그룹화한 선버스트 차트를 생성합니다. [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 메서드는 줄기를 그룹 레벨 1에, 가지를 레벨 2에 할당합니다. 카테고리 레이블이 섹션을 식별하고, 값이 상대 크기를 결정합니다.
+이 예제는 8개의 잎을 4개의 줄기와 2개의 가지로 그룹화한 선버스트 차트를 생성합니다. [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 메서드는 그룹 레벨 1에 줄기를, 레벨 2에 가지를 할당합니다. 카테고리 레이블은 세그먼트를 식별하고, 값은 상대적인 크기를 결정합니다.
 
 ```python
 import aspose.slides as slides
@@ -706,7 +702,7 @@ with slides.Presentation() as presentation:
     workbook = chart.chart_data.chart_data_workbook
     workbook.clear(0)
 
-    # 분기 1
+    # 브랜치 1
     category_cell = workbook.get_cell(0, "C1", "Leaf1")
     leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem1")
@@ -722,7 +718,7 @@ with slides.Presentation() as presentation:
     category_cell = workbook.get_cell(0, "C4", "Leaf4")
     chart.chart_data.categories.add(category_cell)
 
-    # 분기 2
+    # 브랜치 2
     category_cell = workbook.get_cell(0, "C5", "Leaf5")
     leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem3")
@@ -766,9 +762,13 @@ with slides.Presentation() as presentation:
 
 ### **히스토그램 차트 만들기**
 
-히스토그램 차트는 값을 구간(빈)으로 그룹화하여 숫자 데이터의 분포를 나타냅니다. 빈도, 왜도, 분산 등 데이터 패턴을 식별하고 데이터 세트에서 이상치를 감지하는 데 특히 유용합니다.
+히스토그램 차트는 수치값이 구간(빈)별로 어떻게 분포되는지를 보여줍니다. 주문 처리 시간에 대한 월간 보고서에서는 구간 너비와 임계값을 동일하게 유지하여 구간을 일관되게 하고 분포를 비교하기 쉽게 만듭니다.
 
-이 예제는 음수 값을 포함한 여섯 개 숫자 값을 사용해 히스토그램을 생성합니다. [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/)을 자동으로 설정하면 차트가 분포를 표시할 빈을 자동으로 결정합니다.
+가로 축의 [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/)을 [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/) 중 하나로 설정합니다. `BY_BIN_WIDTH`인 경우에만 [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/)가 적용되고, `BY_NUMBER_OF_BINS`인 경우에만 [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/)가 적용됩니다. `AUTOMATIC`을 사용하면 차트가 자동으로 구간을 선택합니다.
+
+#### **고정 구간 너비 사용**
+
+이 예제는 처리 시간을 10분 구간으로 그룹화하고, 10분 이하와 40분 초과에 대해 별도 구간을 제공합니다. 이러한 구간은 [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) 및 [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/)을 사용하여 활성화합니다. 명시적인 [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) 및 [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) 임계값을 제공할 경우, [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/)와 [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/)을 `False`로 설정합니다.
 
 ```python
 import aspose.slides as slides
@@ -777,7 +777,10 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 500, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 680, 200)
+
+    chart.has_legend = False
+    chart.has_title = False
 
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
@@ -786,33 +789,72 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
-    value_cell = workbook.get_cell(0, "A1", 15)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A2", -41)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A3", 16)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A4", 10)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A5", -23)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A6", 16)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.get_cell(0, i, 0, value)
+        series.data_points.add_data_point_for_histogram_series(value_cell)
 
-    chart.axes.horizontal_axis.aggregation_type = charts.AxisAggregationType.AUTOMATIC
+    axis = chart.axes.horizontal_axis
+    axis.aggregation_type = charts.AxisAggregationType.BY_BIN_WIDTH
+    axis.bin_width = 10
+    axis.is_underflow_bin = True
+    axis.is_automatic_underflow_bin = False
+    axis.underflow_bin = 10
+    axis.is_overflow_bin = True
+    axis.is_automatic_overflow_bin = False
+    axis.overflow_bin = 40
 
-    presentation.save("Histogram.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-결과:
+PowerPoint에서 표시된 프레젠테이션은 구간별 개수가 **3, 4, 4, 4, 2**임을 보여줍니다. 언더플로우 구간은 `5, 10, 10`을 포함하므로 임계값이 포함됩니다. 오버플로우 구간은 `41, 50`만 포함하므로 임계값이 제외됩니다; `40`과 같은 값은 이전 구간에 남습니다. 내부 구간은 하한보다 크고 상한보다 작거나 같은 값을 포함합니다.
 
-![히스토그램 차트](histogram_chart.png)
+![10분 구간 및 명시적 언더플로우·오버플로우 임계값이 적용된 히스토그램](histogram_bin_width.png)
 
-### **레이더 차트 만들기**
+#### **구간 개수 지정**
 
-레이더 차트는 다변량 데이터를 2차원 형태로 표시해 여러 변수를 동시에 비교할 수 있게 합니다. 여러 성능 지표나 속성에 대한 패턴, 강점, 약점을 파악하는 데 특히 유용합니다.
+고정된 세부 수준을 원하고 구간을 고정하지 않으려면 동일한 데이터에 대해 5개의 구간을 요청합니다. 이 예제는 언더플로우 및 오버플로우 구간을 비활성화합니다. 차트는 데이터 범위에서 너비를 계산하므로 구간 경계가 보고서마다 달라질 수 있습니다.
 
-이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용해 기본 시리즈와 카테고리를 가진 레이더 차트를 만든 뒤 프레젠테이션을 PPTX 파일로 저장합니다.
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 680, 200)
+
+    chart.has_legend = False
+    chart.has_title = False
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.get_cell(0, i, 0, value)
+        series.data_points.add_data_point_for_histogram_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.aggregation_type = charts.AxisAggregationType.BY_NUMBER_OF_BINS
+    axis.number_of_bins = 5
+
+    presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
+```
+
+다섯 개의 구간은 **4, 4, 4, 4, 1**개의 개수를 가집니다. 위의 고정 너비 결과와 이 분포를 비교하면 입력 값은 동일하지만 경계가 다릅니다.
+
+![동일 데이터에서 계산된 5개 구간 히스토그램](histogram_bin_count.png)
+
+### **레이다 차트 만들기**
+
+레이다 차트는 다변량 데이터를 2차원 형식으로 표시하여 여러 변수를 동시에 쉽게 비교할 수 있게 합니다. 이는 여러 성능 지표나 속성에 대한 패턴, 강점, 약점을 식별하는 데 특히 유용합니다.
+
+이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용하여 기본 시리즈와 범주를 가진 레이다 차트를 만든 뒤, 프레젠테이션을 PPTX 형식으로 저장합니다.
 
 ```python
 import aspose.slides as slides
@@ -828,13 +870,13 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![레이더 차트](radar_chart.png)
+![레이다 차트](radar_chart.png)
 
 ### **다중 카테고리 차트 만들기**
 
-다중 카테고리 차트는 하나 이상의 범주 그룹이 포함된 데이터를 표시하여 여러 차원에서 값을 동시에 비교할 수 있게 합니다. 복합적인 다계층 데이터 세트에서 추세와 관계를 분석해야 할 때 특히 유용합니다.
+다중 카테고리 차트는 하나 이상의 범주형 그룹을 포함하는 데이터를 표시하여 여러 차원에 걸친 값을 동시에 비교할 수 있게 합니다.
 
-이 예제는 4개의 쌍으로 구성된 8개 카테고리를 가진 군집형 열 차트를 생성합니다. [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 메서드는 각 쌍에 그룹 레벨 1에서 공유 레이블을 할당해 개별 레이블과 그룹 레이블이 동시에 표시되는 카테고리 축을 만듭니다.
+이 예제는 8개의 카테고리를 네 쌍으로 배열한 군집형 열 차트를 생성합니다. [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 메서드는 각 쌍에 그룹 레벨 1에서 공유 레이블을 부여하여 개별 레이블과 그룹 레이블이 모두 있는 범주 축을 만듭니다.
 
 ```python
 import aspose.slides as slides
@@ -906,9 +948,9 @@ with slides.Presentation() as presentation:
 
 ### **지도 차트 만들기**
 
-지도 차트는 국가, 주, 도시 등 특정 위치에 정보를 매핑해 지리 데이터를 시각화합니다. 지역별 추세, 인구통계 데이터 및 공간 분포를 명확하고 시각적으로 매력적인 방식으로 분석하는 데 특히 유용합니다.
+지도 차트는 국가, 주, 도시와 같은 특정 위치에 정보를 매핑하여 지리 데이터를 시각화하는 데 사용됩니다. 이는 지역 추세, 인구 통계 데이터 및 공간 분포를 명확하고 시각적으로 매력적인 방식으로 분석하는 데 특히 유용합니다.
 
-이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용해 기본 지리 데이터를 가진 지도 차트를 만든 뒤 PowerPoint에서 볼 수 있도록 저장합니다.
+이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용하여 기본 지리 데이터를 가진 지도 차트를 만든 뒤, PowerPoint에서 볼 수 있도록 저장합니다.
 
 ```python
 import aspose.slides as slides
@@ -926,17 +968,17 @@ with slides.Presentation() as presentation:
 
 ![지도 차트](map_chart.png)
 
-{{% alert color="info" title="Note" %}}
-위 그림은 PowerPoint에서 연 파일을 열었을 때의 모습입니다. Aspose.Slides는 지도 차트와 데이터를 올바르게 기록하지만, 자체적으로 지도 차트를 렌더링하지는 않습니다. 슬라이드에 포함된 지도 차트를 이미지로 렌더링하거나 PDF·SVG로 변환하면 차트 영역이 빈칸으로 표시됩니다. 동일 슬라이드의 다른 도형은 영향을 받지 않습니다.
+{{% alert color="info" title="참고" %}}
+위의 그림은 저장된 프레젠테이션을 PowerPoint에서 연 모습을 보여줍니다. Aspose.Slides는 지도 차트와 데이터를 올바르게 기록하지만, 자체적으로 지도 차트를 그리지 않습니다. 슬라이드에 포함된 지도 차트를 이미지로 렌더링하거나 PDF·SVG로 변환하면 차트 영역이 비어 있게 됩니다. 같은 슬라이드의 다른 도형에는 영향을 주지 않습니다.
 {{% /alert %}}
 
 ### **복합 차트 만들기**
 
-복합 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이를 통해 두 개 이상의 데이터 세트를 강조·비교·분석하여 서로 간의 관계를 파악할 수 있습니다.
+복합 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이 차트를 사용하면 두 개 이상의 데이터 집합 간의 차이를 강조, 비교 또는 검토하여 그들 간의 관계를 식별할 수 있습니다.
 
 ![복합 차트](combination_chart.png)
 
-이 예제는 네 개 카테고리에서 두 개의 군집형 열 시리즈와 하나의 꺾은선 시리즈를 결합합니다. 열은 기본 세로축을 사용하고, [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) 은 선을 오른쪽 보조 세로축에 배치합니다. 도우미 함수가 제목, 범례, 축 레이블 및 격선을 구성합니다.
+이 예제는 네 개의 범주에 대해 두 개의 군집형 열 시리즈와 선 시리즈를 결합합니다. 열은 기본 수직 축을 사용하고, [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/)는 선을 오른쪽의 보조 수직 축에 놓습니다. 보조 함수들은 제목, 범례, 축 레이블 및 격자를 구성합니다.
 
 ```python
 import aspose.pydrawing as draw
@@ -1084,9 +1126,9 @@ create_combo_chart()
 
 ## **차트 업데이트**
 
-Aspose.Slides for Python via .NET을 사용하면 차트 데이터를 수정하고 서식 및 스타일을 변경하여 PowerPoint 차트를 업데이트할 수 있습니다. 이 기능을 통해 프레젠테이션을 동적 콘텐츠와 동기화하고 차트가 최신 데이터와 시각적 표준을 정확히 반영하도록 할 수 있습니다.
+Aspose.Slides for Python via .NET을 사용하면 차트 데이터, 서식 및 스타일을 수정하여 PowerPoint 차트를 업데이트할 수 있습니다. 이 기능은 프레젠테이션을 동적 컨텐츠와 함께 최신 상태로 유지하고 차트가 현재 데이터와 시각적 표준을 정확히 반영하도록 하는 과정을 단순화합니다.
 
-이 예제는 기존 프레젠테이션 첫 번째 슬라이드에 있는 "My chart" 라는 차트를 업데이트합니다. 각 시리즈에 세 개의 데이터 포인트가 있는 두 개의 컬럼 시리즈가 필요하며, 카테고리 레이블은 A 열에, 시리즈 이름은 첫 번째 워크시트 첫 번째 행에 있습니다. 예제는 [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) 를 사용해 워크북 셀을 변경하고, 시리즈 값을 업데이트하며, 세 번째 시리즈를 추가하고, [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/) 을 통해 차트를 군집형 원통형으로 전환합니다.
+이 예제는 기존 프레젠테이션의 첫 번째 슬라이드에 있는 "My chart"라는 차트를 업데이트합니다. 각 시리즈에 세 개의 데이터 포인트가 있는 두 개의 열 시리즈가 필요하며, 카테고리 레이블은 A 열에, 시리즈 이름은 첫 번째 워크시트의 첫 번째 행에 있습니다. 예제는 [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/)을 사용해 워크북 셀을 변경하고, 시리즈 값을 업데이트하며, 세 번째 시리즈를 추가하고, 차트를 [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/)을 통해 군집형 실린더로 변경합니다.
 
 ```python
 import aspose.slides as slides
@@ -1136,13 +1178,13 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("AsposeChartModified.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **차트 데이터 범위 지정**
+## **차트 데이터 범위 설정**
 
-이미 존재하는 차트가 사용 중인 범위를 확인하려면 [Retrieve a Chart's Data Range](/slides/ko/python-net/chart-workbook/#retrieve-a-charts-data-range) 를 참고하십시오.
+기존 차트가 사용하고 있는 범위를 확인하려면 [Retrieve a Chart's Data Range](/slides/ko/python-net/chart-workbook/#retrieve-a-charts-data-range)를 참조하십시오.
 
-Aspose.Slides for Python via .NET은 워크시트의 특정 범위를 차트 데이터의 소스로 정의할 수 있는 유연성을 제공합니다. 이를 통해 워크시트의 일부 영역을 차트에 직접 매핑하여 어떤 셀이 시리즈와 카테고리에 기여하는지를 제어할 수 있습니다. 결과적으로 워크시트 데이터가 변경될 때 차트를 쉽게 업데이트하고 동기화하여 최신 정보를 프레젠테이션에 반영할 수 있습니다.
+Aspose.Slides for Python via .NET은 워크시트의 특정 데이터 범위를 차트 데이터의 소스로 정의할 수 있는 유연성을 제공합니다. 이를 통해 워크시트의 일부를 차트에 직접 매핑하여 어떤 셀이 차트의 시리즈와 카테고리에 기여할지 제어할 수 있습니다. 결과적으로 워크시트의 최신 데이터 변경 사항에 차트를 쉽게 업데이트하고 동기화하여 PowerPoint 프레젠테이션이 현재 정확한 정보를 반영하도록 할 수 있습니다.
 
-이 예제는 [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) 을 사용해 기존 프레젠테이션 첫 번째 슬라이드에 있는 "My chart" 차트의 데이터 소스를 `Sheet1!A1:B4` 로 지정합니다. 차트 워크북에 해당 워크시트와 첫 행에 시리즈 헤더, A 열에 카테고리 레이블, B 열에 세 개 값이 포함된 범위가 있어야 합니다.
+이 예제는 [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/)을 사용하여 기존 프레젠테이션의 첫 번째 슬라이드에 있는 "My chart" 차트의 데이터 소스를 `Sheet1!A1:B4`로 설정합니다. 차트 워크북에는 해당 워크시트와 첫 번째 행에 시리즈 헤딩, A 열에 카테고리 레이블, B 열에 세 개의 값이 포함된 채워진 범위가 있어야 합니다.
 
 ```python
 import aspose.slides as slides
@@ -1161,11 +1203,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("SetDataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **차트 기본 표식 사용**
+## **차트에서 기본 마커 사용**
 
-차트에서 기본 표식을 사용하면 각 시리즈에 자동으로 서로 다른 표식 기호가 할당됩니다.
+차트에서 기본 마커를 사용하면 각 차트 시리즈에 자동으로 서로 다른 기본 마커 기호가 제공됩니다.
 
-이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 을 사용해 두 개의 꺾은선 시리즈와 범례가 있는 차트를 만들고, [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) 설정이 자동 할당된 표식 기호를 유지하도록 합니다. 첫 번째 시리즈에는 `None` 로 표시된 음수값과 누락값이 포함되고, 두 번째 시리즈는 모든 카테고리마다 값을 가집니다.
+이 예제는 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/)을 사용하여 두 개의 선 시리즈와 범례가 있는 차트를 만든 뒤, [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) 설정을 통해 자동 할당된 마커 기호를 유지합니다. 첫 번째 시리즈는 음수 값과 `None`으로 표시된 결측 값을 포함하고, 두 번째 시리즈는 모든 카테고리에 값을 가집니다.
 
 ```python
 import aspose.slides as slides
@@ -1226,16 +1268,16 @@ with slides.Presentation() as presentation:
 
 **Aspose.Slides for Python via .NET에서 지원하는 차트 유형은 무엇입니까?**
 
-Aspose.Slides for Python via .NET은 막대, 꺾은선, 원형, 영역, 산점도, 히스토그램, 레이더 등 다양한 차트 유형을 지원합니다. 이 유연성을 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 선택할 수 있습니다.
+Aspose.Slides for Python via .NET은 막대, 선, 원형, 영역, 산점도, 히스토그램, 레이다 등 다양한 차트 유형을 지원합니다. 이러한 유연성을 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 선택할 수 있습니다.
 
 **슬라이드에 새 차트를 추가하려면 어떻게 해야 하나요?**
 
-차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 클래스 인스턴스를 만든 뒤 인덱스로 원하는 슬라이드를 가져오고, 차트 유형 및 초기 데이터를 지정해 차트를 추가하는 메서드를 호출합니다. 이렇게 하면 차트가 직접 프레젠테이션에 삽입됩니다.
+차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성하고, 인덱스로 원하는 슬라이드를 가져온 다음, 차트 유형과 초기 데이터를 지정하여 차트를 추가하는 메서드를 호출합니다. 이 과정을 통해 차트가 프레젠테이션에 직접 통합됩니다.
 
-**차트에 표시되는 데이터를 어떻게 업데이트할 수 있나요?**
+**차트에 표시된 데이터를 어떻게 업데이트할 수 있나요?**
 
-차트의 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))에 접근해 기본 시리즈와 카테고리를 삭제하고, 사용자 지정 데이터를 추가하면 차트 데이터를 업데이트할 수 있습니다. 이를 통해 최신 데이터를 반영하도록 차트를 프로그래밍 방식으로 새로 고칠 수 있습니다.
+차트의 데이터를 업데이트하려면 차트 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))에 접근하여 기본 시리즈와 범주를 삭제한 뒤 사용자 지정 데이터를 추가하면 됩니다. 이를 통해 차트를 프로그래밍 방식으로 최신 데이터에 맞게 새로 고칠 수 있습니다.
 
-**차트 외관을 사용자 정의할 수 있나요?**
+**차트의 외관을 사용자 지정할 수 있나요?**
 
-예, Aspose.Slides for Python via .NET은 색상, 글꼴, 레이블, 범례 및 기타 서식 요소를 수정해 차트 외관을 특정 디자인 요구 사항에 맞게 맞춤 설정할 수 있는 광범위한 옵션을 제공합니다.
+예, Aspose.Slides for Python via .NET은 풍부한 사용자 지정 옵션을 제공합니다. 색상, 글꼴, 레이블, 범례 및 기타 서식 요소를 수정하여 차트의 외관을 특정 디자인 요구 사항에 맞게 조정할 수 있습니다.

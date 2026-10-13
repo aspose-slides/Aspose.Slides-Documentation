@@ -1,6 +1,6 @@
 ---
-title: إنشاء أو تعديل مخططات عروض PowerPoint على Android
-linktitle: إنشاء أو تعديل المخططات
+title: "إنشاء أو تحديث مخططات عرض PowerPoint على Android"
+linktitle: "إنشاء أو تحديث المخططات"
 type: docs
 weight: 10
 url: /ar/androidjava/create-chart/
@@ -9,52 +9,52 @@ keywords:
 - إنشاء مخطط
 - تحرير مخطط
 - تغيير مخطط
-- تحديث مخطط
+- تحديث المخطط
 - مخطط مبعثر
-- مخطط دائري
+- مخطط فطيرة
 - مخطط خطي
-- مخطط شجرة خريطة
+- مخطط خريطة شجرية
 - مخطط أسهم
-- مخطط صندوقي ووصلية
-- مخطط قمعي
-- مخطط شمسي
-- مخطط تكراري
-- مخطط راداري
+- مخطط صندوق وشارب
+- مخطط قمع
+- مخطط شمسية
+- مخطط هيستوجرام
+- مخطط رادار
 - مخطط متعدد الفئات
 - PowerPoint
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides for Android عبر Java. إضافة، تنسيق، وتعديل المخططات مع أمثلة شفرة عملية في Java."
+description: "إنشاء وتخصيص المخططات في عروض PowerPoint التقديمية باستخدام Aspose.Slides للأندرويد عبر جافا. إضافة، تنسيق، وتحرير المخططات مع أمثلة عملية على الكود بلغة جافا."
 ---
 ## **نظرة عامة**
 
-توفر هذه المقالة دليلًا شاملًا حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides for Android عبر Java. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، وتعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة الشيفرة المفصلة كل خطوة، من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والوسائط. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء مخططات ديناميكية في تطبيقات Android الخاصة بك، مما يسهل عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
+هذا المقال يقدم دليلًا شاملًا حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides للأندرويد عبر جافا. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، ملئه بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم الخاصة بك. طوال المقال، تُظهر أمثلة الشيفرة التفصيلية كل خطوة، بدءًا من تهيئة العرض والكائن المخطط إلى تكوين السلاسل والمحاور والأساطير. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء مخططات ديناميكية في تطبيقات الأندرويد الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
 
 ## **إنشاء مخطط**
 
 تساعد المخططات الأشخاص على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة فورًا من جدول أو ورقة عمل.
 
-**لماذا إنشاء مخططات؟**
+**لماذا ننشئ مخططات؟**
 
 باستخدام المخططات، يمكنك:
 
-* تجميع أو تلخيص أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛
-* كشف الأنماط والاتجاهات في البيانات؛
-* استنتاج الاتجاه والزخم للبيانات بمرور الوقت أو بالنسبة لوحدة قياس معينة؛
-* اكتشاف القيم المتطرفة أو الشذوذ أو الانحرافات أو الأخطاء أو البيانات غير المنطقية؛
+* تجميع أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛
+* إظهار الأنماط والاتجاهات في البيانات؛
+* استنتاج اتجاه وزخم البيانات مع مرور الوقت أو بالنسبة وحدة قياس معينة؛
+* اكتشاف القيم الشاذة، الانحرافات، الأخطاء، والبيانات غير المنطقية؛
 * التواصل أو عرض البيانات المعقدة.
 
-في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *Insert* التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء كلٍ من المخططات العادية (المستندة إلى أنواع المخططات الشائعة) والمخططات المخصصة.
+في PowerPoint، يمكنك إنشاء مخططات عبر وظيفة *Insert* التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (مستندة إلى أنواع المخططات الشائعة) ومخططات مخصصة.
 
 {{% alert color="info" title="Note" %}}
-استخدم تعداد [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) في حزمة [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). القيم في هذا التعداد تتطابق مع أنواع مخططات مختلفة.
+استخدم تعداد [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) في حزمة [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). القيم في هذا التعداد تتوافق مع أنواع مخططات مختلفة.
 {{% /alert %}}
 
-### **إنشاء مخططات عمود مجمّعة**
+### **إنشاء مخططات أعمدة مجمعة**
 
-يستخدم هذا المثال [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإنشاء مخطط عمود مجمّع يقارن سلسلتين عبر ثلاث فئات. تستخدم السلسلة ملءً بالأحمر والأخضر، وتظهر التسميات الفردية أسماء الفئات، وأسماء السلاسل، والقيم. يشير فهرس ورقة العمل 0 إلى الورقة الأولى في مصنف المخطط المضمّن.
+هذا المثال يستخدم الدالة [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإنشاء مخطط أعمدة مجمعة يقارن سلسلتين عبر ثلاث فئات. السلسلتان تستخدمان تعبئة باللون الأحمر والأخضر، وتظهر التسميات الفردية أسماء الفئات، أسماء السلاسل، والقيم. الفهرس 0 للورقة يشير إلى أول ورقة في دفتر العمل المضمن للمخطط.
 
 ```java
 import com.aspose.slides.*;
@@ -139,16 +139,16 @@ finally
 
 ### **إنشاء مخططات مبعثرة**
 
-المخططات المبعثرة (المعروفة أيضًا باسم مخططات التشتت أو الرسوم البيانية x‑y) تُستخدم غالبًا للتحقق من الأنماط أو إظهار الترابط بين متغيرين.
+المخططات المبعثرة (المعروفة أيضًا باسم scatter plots أو مخططات x-y) تُستخدم غالبًا للتحقق من الأنماط أو إظهار الترابط بين متغيرين.
 
-استخدم مخططًا مبعثراً عندما:
+استخدم مخططًا منتشرًا عندما:
 
-* لديك بيانات عددية مزدوجة.
-* لديك متغيران يتمايزان معًا.
+* لديك بيانات عددية مقترنة.
+* لديك متغيران يتجانسان معًا.
 * تريد تحديد ما إذا كان المتغيران مرتبطين.
-* لديك متغير مستقل له عدة قيم للمتغير التابع.
+* لديك متغير مستقل له قيم متعددة للمتغير التابع.
 
-يُظهر هذا المثال مجموعتين من قيم x‑y. تستخدم السلسلة الأولى خطوطًا مستقيمة مع علامات نجمة، بينما تستخدم السلسلة الثانية خطوطًا ناعمة مع علامات دائرة؛ كلاهما يستخدم حجم علامة 10، مُكوّنًا عبر [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). تتحكم طريقة [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) في شكل العلامة.
+هذا المثال يرسم مجموعتين من قيم x-y. السلسلة الأولى تستخدم خطوطًا مستقيمة مع علامات نجمة، بينما الثانية تستخدم خطوطًا ملساء مع علامات دائرة؛ كلاهما يستخدم حجم علامة 10، مُكوّنًا بواسطة الدالة [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). الدالة [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) تتحكم في شكل العلامة.
 
 ```java
 import com.aspose.slides.*;
@@ -216,13 +216,13 @@ finally
 
 النتيجة:
 
-![مخطط التشتت](scatter_chart.png)
+![مخطط مبعثر](scatter_chart.png)
 
-### **إنشاء مخططات دائريّة**
+### **إنشاء مخططات فطيرة**
 
-تُعد المخططات الدائريّة الأنسب لإظهار علاقة الجزء إلى الكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات فئوية مع قيم رقمية. ومع ذلك، إذا احتوت بياناتك على العديد من الأجزاء أو التسميات، قد ترغب في التفكير باستخدام مخطط شريطي بدلاً من ذلك.
+تُستخدم مخططات الفطيرة لإظهار علاقة الجزء إلى الكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات فئوية مع قيم رقمية. ومع ذلك، إذا كانت بياناتك تحتوي على many parts أو many labels، قد ترغب في استخدام مخطط شريطي بدلاً منها.
 
-يُنشئ هذا المثال مخططًا دائريًا بثلاث قيم ربع سنوية. لكل شريحة تعبئة وإطار مخصصين، وتعرض التسميات تركيبات مختلفة من القيم والنسب المئوية ومعلومات السلسلة. تُحدِّد طريقة [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) الزاوية الأولى لتبدأ عند 180 درجة.
+هذا المثال ينشئ مخطط فطيرة بثلاث قيم ربع سنوية. كل شريحة لها تعبئة وإطار مخصص، وتعرض التسميات تركيبات مختلفة من القيم، النسب المئوية، ومعلومات السلسلة. الدالة [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) تحدد أن تبدأ الشريحة الأولى عند 180 درجة.
 
 ```java
 import com.aspose.slides.*;
@@ -323,13 +323,13 @@ finally
 
 النتيجة:
 
-![المخطط الدائري](pie_chart.png)
+![مخطط الفطيرة](pie_chart.png)
 
-### **إنشاء مخططات خطّيّة**
+### **إنشاء مخططات خطية**
 
-تُستخدم المخططات الخطّيّة (المعروفة أيضًا بالرسوم البيانية الخطية) في الحالات التي تريد فيها إظهار تغير القيم مع مرور الوقت. باستخدام مخطط خطّي، يمكنك مقارنة كمية كبيرة من البيانات مرة واحدة، تتبع التغيرات والاتجاهات عبر الزمن، وإبراز الشذوذ في سلاسل البيانات، وأكثر من ذلك.
+تُستخدم المخططات الخطية (المعروفة أيضًا باسم line graphs) في الحالات التي تريد فيها إظهار تغيّر القيم مع مرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات في آن واحد، تتبع التغيّر والاتجاهات عبر الزمن، إبراز الشذوذ في سلاسل البيانات، والمزيد.
 
-يستخدم هذا المثال [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإنشاء مخطط خطّي بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
+هذا المثال يستخدم الدالة [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإنشاء مخطط خطي بالسلسلة والفئات الافتراضية، ثم يحفظ العرض بصيغة PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +349,7 @@ finally
 }
 ```
 
-بشكل افتراضي، تُربط النقاط على المخطط الخطي بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بخطوط متقطعة، استدعِ [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) بقيمة من [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
+افتراضيًا، تُربط النقاط في المخطط الخطي بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بخطوط متقطعة، استدعِ الدالة [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) مع قيمة من [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -374,13 +374,13 @@ finally
 
 النتيجة:
 
-![المخطط الخطي](line_chart.png)
+![مخطط خطي](line_chart.png)
 
-### **إنشاء مخططات شجرة خريطة**
+### **إنشاء مخططات شجرية (Tree Map)**
 
-تُستخدم مخططات شجرة الخريطة للبيانات البيعية عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تُساهم بشكل كبير داخل كل فئة.
+تُستخدم مخططات الشجرية لبيانات المبيعات عندما ترغب في إظهار الحجم النسبي لفئات البيانات وجذب الانتباه سريعًا إلى العناصر التي تساهم بحجم كبير داخل كل فئة.
 
-يُنشئ هذا المثال شجرة خريطة ذات ثمانية أوراق مُجمّعة في أربعة سيقان وفرعين. تُعيّن طريقة [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) السيقان في مستوى التجميع 1 والفروع في المستوى 2. تُحدِّد القيم أحجام المستطيلات النسبية، بينما تُعرّف تسميات الفئات والتسميات المتداخلة للآباء التسلسل الهرمي.
+هذا المثال ينشئ شجرة خريطة تحتوي على ثمانية أوراق مُجمّعة في أربعة سيقان وفرعين. الدالة [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) تُعيّن السيقان في مستوى التجميع 1 والفروع في المستوى 2. القيم تحدد أحجام المستطيلات النسبية، بينما تسميات الفئات وتسميات الأبوين المتداخلة تُعرّف الهرمية.
 
 ```java
 import com.aspose.slides.*;
@@ -461,26 +461,26 @@ finally
 
 النتيجة:
 
-![مخطط شجرة الخريطة](treemap_chart.png)
+![مخطط الشجرة](treemap_chart.png)
 
-### **إنشاء مخططات شلالية**
+### **إنشاء مخططات شلال (Waterfall)**
 
-يُظهر المخطط الشلالي كيف تُساهم التغييرات الإيجابية والسلبية في القيمة النهائية. على سبيل المثال، يمكن أن يبدأ تحليل الربح بالإيرادات، يتم طرح التكاليف، ثم يضاف الدخل الآخر. تطفو أعمدة التغيير بين القيم الجارية السابقة والجديدة، بينما تمتد أعمدة الإجمالي من الصفر إلى القيمة المتراكمة.
+مخطط الشلال يُظهر كيف تُساهم التغييرات الموجبة والسالبة في القيمة النهائية. على سبيل المثال، يمكن لتفصيل الأرباح أن يبدأ بالإيراد، يطرح التكاليف، ثم يضيف إيرادات أخرى. أعمدة التغيّر تُطفو بين القيم السابقة والجديدة، بينما تُظهر أعمدة الإجمالي القيمة المتراكمة من الصفر.
 
-المثال التالي يستخدم مبالغ بالآلاف من الدولار الأمريكي:
+المثال التالي يستخدم مبالغ بآلاف الدولار الأمريكي:
 
-| الفئة | قيمة المصنف | نوع العمود |
+| الفئة | قيمة دفتر العمل | نوع العمود |
 | --- | ---: | --- |
-| الإيرادات | 1000 | Increase |
-| تكلفة المبيعات | -400 | Decrease |
-| الربح الإجمالي | 600 | Intermediate total |
-| المصروفات التشغيلية | -200 | Decrease |
-| دخل آخر | 50 | Increase |
-| صافي الربح | 450 | Final total |
+| الإيراد | 1000 | زيادة |
+| تكلفة المبيعات | -400 | نقصان |
+| الربح الإجمالي | 600 | إجمالي متوسط |
+| المصاريف التشغيلية | -200 | نقصان |
+| إيرادات أخرى | 50 | زيادة |
+| صافي الربح | 450 | إجمالي نهائي |
 
-لتمييز نقطة كإجمالي وسيط أو نهائي، استدعِ طريقة [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) الخاصة بها مع `true`. قدِّم المبلغ المتراكم الفعلي في خلية المصنف لتلك النقطة: `600` للربح الإجمالي (`1000 - 400`) و`450` لصافي الربح (`600 - 200 + 50`). تُعلِّم الطريقة العمود كإجمالي؛ لا تحسب أو تعبئ قيمة الخلية. لا تستخدم الصفر كعنصر نائب ولا تُقدِّم تغييرًا آخر لنقطة إجمالية. يُظهر العمود الإجمالي القيمة المتراكمة دون إضافتها مرة أخرى إلى القيمة الجارية.
+لتمييز نقطة باعتبارها إجمالي متوسط أو نهائي، استدعِ الدالة [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) مع `true`. قدِّم القيمة المتراكمة الفعلية في خلية دفتر العمل الخاصة بتلك النقطة: `600` للربح الإجمالي (`1000 - 400`) و`450` لصافي الربح (`600 - 200 + 50`). تُعلِّم الطريقة العمود بأنه إجمالي؛ لا تُحسب أو تُملأ قيمة الخلية. لا تستخدم الصفر كعنصر نائب أو تُضيف تغييرًا آخر لنقطة إجمالي. عمود الإجمالي يُظهر القيمة المتراكمة دون إضافتها مرة أخرى إلى القيمة الجارية.
 
-ينشئ هذا المثال الكامل بلغة Java مخططًا باستخدام عنصر `Waterfall` من تعداد [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/)، يمسح البيانات الافتراضية، ويملأ المصنف المضمّن. يختار فهرس ورقة العمل `0` الورقة الأولى؛ يحتوي العمود A على أسماء الفئات والعمود B على القيم. تُضاف كل خلية قيمة عبر [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). تُحدِّد المؤشرات الصفرية للنقطة `2` و`5` الإجماليات الوسيطة والنهائية. استدعاء [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) مع `true` يعرض المبالغ على الأعمدة. لا يلزم وجود عرض تقديمي أو مصنف إدخال.
+هذا المثال الكامل في جافا ينشئ مخططًا باستخدام العنصر `Waterfall` من تعداد [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/)، يمسح البيانات الافتراضية، ويملأ دفتر العمل المضمن. الفهرس 0 للورقة يختار أول ورقة؛ العمود A يحتوي على أسماء الفئات والعمود B يحتوي على القيم. تُضاف كل خلية قيمة عبر الدالة [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). المؤشرات المستندة إلى الصفر `2` و`5` تحدد الإجماليات المتوسطة والنهائية. استدعاء الدالة [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) مع `true` يعرض المبالغ على الأعمدة. لا يلزم وجود عرض تقديمي أو دفتر عمل كمدخل.
 
 ```java
 import com.aspose.slides.*;
@@ -518,7 +518,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // النقطة الثالثة والنقطة السادسة تمثل إجماليات، وليست تغييرات إضافية.
+    // النقطة الثالثة والسادسة تمثل إجماليات، ليست تغييرات إضافية.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -532,17 +532,17 @@ finally
 }
 ```
 
-استدعِ طريقة المستوى السلسلي [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) مع `true` لإظهار خطوط الربط بين الأعمدة المتتالية وتسهيل متابعة القيمة الجارية. لإخفاء هذه الخطوط، استبدل استدعاء الطريقة في المثال بـ `series.setShowConnectorLines(false);` قبل الحفظ. يُغيّر هذا فقط ظهور الخطوط، لا البيانات أو الإجماليات.
+استدعِ الدالة [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) على مستوى السلسلة مع `true` لإظهار خطوط ربط الأعمدة المتتالية وجعل القيمة الجارية أسهل في المتابعة. لإخفاء هذه الخطوط، استبدل استدعاء الدالة في المثال بـ `series.setShowConnectorLines(false);` قبل الحفظ. سيؤثر ذلك فقط على رؤية الخطوط، وليس على البيانات أو الإجماليات.
 
-يُظهر العرض المحفوظ ربحًا إجماليًا قدره 600 وصافي ربح قدره 450، مع رسم كل من الإجماليين من الصفر:
+العرض المحفوظ يُظهر ربحًا إجماليًا قدره 600 وصافي ربح 450، مع رسم كل إجمالي من الصفر:
 
-![مخطط شلالي يظهر الإيرادات، التكاليف، الربح الإجمالي 600، وصافي الربح 450، مع تسميات القيم وخطوط الربط](waterfall_chart.png)
+![مخطط شلال يُظهر الإيراد، التكاليف، الربح الإجمالي 600، وصافي الربح 450، مع تسميات قيم وخطوط ربط](waterfall_chart.png)
 
-### **إنشاء مخططات أسهم**
+### **إنشاء مخططات أسهم (Stock)**
 
-تُستخدم مخططات الأسهم لعرض بيانات مالية مثل الأسعار الافتتاحية، العليا، الدنيا، والإغلاق، مما يساعد على تحليل اتجاهات السوق وتقلباته. توفر رؤى أساسية حول أداء السهم، مما يساعد المستثمرين والمحللين في اتخاذ قرارات مستنيرة.
+تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح، الأعلى، الأدنى، والإغلاق، مما يساعد على تحليل اتجاهات السوق وتقلباته. توفر رؤية أساسية لأداء السهم، وتساعد المستثمرين والمحللين على اتخاذ قرارات مستنيرة.
 
-يُنشئ هذا المثال مخططًا من نوع فتح‑ارتفاع‑انخفاض‑إغلاق بأربع سلاسل بهذا الترتيب وثلاث فئات. تُفعِّل طريقة [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) أشرطة الصعود/الهبوط، وتتحكم [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) في خطوط الارتفاع‑الانخفاض التي تُظهر نطاق الأسعار، بينما تُخفى خطوط السلسلة الفردية وخطوط الشبكة الأفقية الصغرى.
+هذا المثال ينشئ مخططًا من نوع open-high-low-close بأربع سلاسل بهذا الترتيب وثلاث فئات. الدالة [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) تُفعّل أشرطة الصعود/الهبوط، و[ getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) تتحكم في خطوط الأعلى-الأدنى التي تُظهر نطاق الأسعار، بينما تُخفى خطوط السلسلة الفردية وخطوط الشبكة الأفقية الصغرى.
 
 ```java
 import com.aspose.slides.*;
@@ -626,11 +626,11 @@ finally
 
 ![مخطط الأسهم](stock_chart.png)
 
-### **إنشاء مخططات صندوقية ووصلية**
+### **إنشاء مخططات صندوق وشارب (Box and Whisker)**
 
-تُستخدم المخططات الصندوقية والوصلية لعرض توزيع البيانات من خلال تلخيص مقاييس إحصائية رئيسية مثل الوسيط، الربيعات، والنقاط المتطرفة المحتملة. تُعد مفيدة جدًا في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
+تُستخدم مخططات الصندوق والشارب لعرض توزيع البيانات عبر تلخيص مقاييس إحصائية رئيسية، مثل الوسيط، الرباعيات، والنقاط الشاذة المحتملة. إنها مفيدة بشكل خاص في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
 
-يُنشئ هذا المثال مخططًا صندوقيًا ووصليًا من ست قيم. تُحدِّد طريقة [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) طريقة حساب الربيعات الحصرية. كما يُفعِّل المثال خطوط المتوسط، علامات المتوسط، النقاط الداخلية، ونقاط المتطرفة.
+هذا المثال ينشئ مخطط صندوق وشارب من ست قيم. الدالة [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) تُحدّد طريقة حساب الرباعيات الحصرية. المثال يُفعّل أيضًا خطوط المتوسط، علامات المتوسط، النقاط الداخلية، ونقاط الشواذ.
 
 ```java
 import com.aspose.slides.*;
@@ -690,11 +690,11 @@ finally
 }
 ```
 
-### **إنشاء مخططات قمعية**
+### **إنشاء مخططات قمع (Funnel)**
 
-تُستخدم المخططات القمعية لتصور العمليات التي تتضمن مراحل متسلسلة، حيث يقل حجم البيانات كلما تقدمنا من خطوة إلى أخرى. هي مفيدة خاصةً لتحليل معدلات التحويل، تحديد عنق الزجاجة، ومتابعة كفاءة عمليات البيع أو التسويق.
+تُستخدم مخططات القمع لتصوير العمليات التي تشمل مراحل متتابعة، حيث يتناقص حجم البيانات كلما تقدم إلى الخطوة التالية. هي مفيدة لتحليل معدلات التحويل، تحديد عنق الزجاجة، وتتبع كفاءة عمليات المبيعات أو التسويق.
 
-يستخدم هذا المثال [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإضافة مخطط قمع إلى الشريحة الأولى من عرض تقديمي موجود. يستبدل البيانات الافتراضية بست فئات وقيم تتراوح من 50 إلى 500، ثم يحفظ العرض المحدث. يجب أن يحتوي العرض الإدخالي على شريحة واحدة على الأقل.
+هذا المثال يستخدم الدالة [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإضافة مخطط قمع إلى الشريحة الأولى من عرض تقديمي موجود. يستبدل البيانات الافتراضية بست فئات وقيم تتراوح من 50 إلى 500، ثم يحفظ العرض المحدث. يجب أن يحتوي عرض الإدخال على شريحة واحدة على الأقل.
 
 ```java
 import com.aspose.slides.*;
@@ -750,13 +750,13 @@ finally
 
 النتيجة:
 
-![المخطط القمعي](funnel_chart.png)
+![مخطط القمع](funnel_chart.png)
 
-### **إنشاء مخططات شمسية**
+### **إنشاء مخططات شمسية (Sunburst)**
 
-تُستخدم المخططات الشمسية لتصوير البيانات الهرمية، حيث تُعرض المستويات كحلقة متحدة المركز. تساعد على توضيح علاقات الجزء إلى الكل وتُعد مثالية لتمثيل الفئات المتداخلة والفرعية بطريقة واضحة ومُدمجة.
+تُستخدم المخططات الشمسية لتصوير البيانات الهرمية، حيث تُعرض المستويات كحلقات متراكبة. تساعد على توضيح علاقة الجزء إلى الكل وتعد مثالية لتمثيل الفئات المتداخلة والفرعية بطريقة واضحة ومُدمجة.
 
-يُنشئ هذا المثال مخططًا شمسيًا بثمانية أوراق مُجمّعة في أربعة سيقان وفرعين. تُعيّن طريقة [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) السيقان في مستوى التجميع 1 والفروع في المستوى 2. تُعرِّف تسميات الفئات القطاعات، وتحدِّد القيم أحجامها النسبية.
+هذا المثال ينشئ مخطط شمسية بثمانية أوراق مُجمّعة في أربعة سيقان وفرعين. الدالة [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) تُعيّن السيقان في مستوى التجميع 1 والفروع في المستوى 2. تسميات الفئات تُعرّف القطاعات، وتُحدّد القيم أحجامها النسبية.
 
 ```java
 import com.aspose.slides.*;
@@ -835,13 +835,17 @@ finally
 
 النتيجة:
 
-![المخطط الشمسي](sunburst_chart.png)
+![مخطط شمسية](sunburst_chart.png)
 
-### **إنشاء مخططات تكرارية**
+### **إنشاء مخططات هيستوجرام (Histogram)**
 
-تُستخدم المخططات التكرارية لتمثيل توزيع البيانات الرقمية من خلال تجميع القيم في فترات أو صناديق. هي مفيدة خصوصًا لتحديد أنماط البيانات مثل التكرار، الانحراف، والانتشار، وللكشف عن القيم المتطرفة في مجموعة البيانات.
+تُظهر مخططات الهيستوجرام كيفية توزع القيم العددية عبر فواصل (bins). لتقارير شهرية عن أوقات معالجة الطلبات، استخدم عرض bin ثابت وعواقب ثابتة للحفاظ على تماسك الفواصل وجعل المقارنات أسهل.
 
-يُنشئ هذا المثال مخططًا تكراريًا من ست قيم رقمية، بما في ذلك القيم السالبة. يُحدِّد استدعاء [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) نوع التجميع التلقائي لتسمح للمخطط بتحديد الصناديق المستخدمة لعرض التوزيع.
+استدعِ الدالة [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) على المحور الأفقي مع وضع من [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) يُطبق فقط على `ByBinWidth`؛ [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) يُطبق فقط على `ByNumberOfBins`. استخدم `Automatic` لترك المخطط يحدد الـ bins تلقائيًا.
+
+#### **استخدام عرض bin ثابت**
+
+هذا المثال يجمع أوقات المعالجة في فواصل زمنية مدتها 10 دقائق، مع bins منفصلة للوقت ≤10 دقائق والوقت >40 دقيقة. فعّل هذه bins عبر الدالتين [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) و[setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). عند تحديد عتبات صريحة عبر [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) و[setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-)، استدعِ [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) و[setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) مع `false`.
 
 ```java
 import com.aspose.slides.*;
@@ -851,7 +855,10 @@ try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300);
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -860,22 +867,24 @@ try
     workbook.clear(0);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
-    IChartDataCell valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 }
 finally
 {
@@ -883,15 +892,62 @@ finally
 }
 ```
 
-النتيجة:
+العرض المعروض في PowerPoint يُظهر عدد العناصر في الـ bins: **3, 4, 4, 4, و2**. الـ underflow bin يحتوي على `5, 10, 10`، لذا حدوده شاملة. الـ overflow bin يحتوي فقط على `41, 50`، لذا حدوده حصرية؛ القيم المتساوية مع `40` تبقى في الفاصل السابق. الـ bins الداخلية تحتوي على قيم أكبر من الحد الأدنى وأقل أو تساوي الحد الأعلى.
 
-![المخطط التكراري](histogram_chart.png)
+![هيستوجرام بفواصل 10 دقائق وعتبات underflow وoverflow صريحة](histogram_bin_width.png)
 
-### **إنشاء مخططات رادارية**
+#### **تحديد عدد الـ bins**
 
-تُستخدم المخططات الرادارية لعرض بيانات متعددة المتغيرات في صيغة ثنائية الأبعاد، مما يسمح بمقارنة عدة متغيرات في الوقت نفسه بسهولة. هي مفيدة لتحديد الأنماط، القوّة، والضعف عبر مجموعة من مقاييس الأداء أو الخصائص.
+للحصول على مستوى ثابت من التفاصيل بدلاً من فواصل ثابتة، اطلب خمس bins لنفس البيانات. هذا المثال يترك bins الـ underflow والـ overflow معطَّلة. يُحدد المخطط العرض بناءً على نطاق البيانات، لذا قد تتغير الحدود بين التقارير.
 
-يستخدم هذا المثال [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإنشاء مخطط راداري بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+الخمس bins لها عدد العناصر **4, 4, 4, 4, و1**. قارن هذا التوزيع مع نتيجة العرض ذو العرض الثابت أعلاه: القيم المدخلة متطابقة، لكن الحدود مختلفة.
+
+![هيستوجرام بخمس bins محسوبة من نفس البيانات](histogram_bin_count.png)
+
+### **إنشاء مخططات رادار (Radar)**
+
+تُستخدم مخططات الرادار لعرض بيانات متعددة المتغيرات في صيغة ثنائية الأبعاد، مما يُسهل مقارنة عدة متغيرات في آن واحد. هي مفيدة بشكل خاص لتحديد الأنماط، النقاط القوية، والضعف عبر عدة مؤشرات أداء أو سمات.
+
+هذا المثال يستخدم الدالة [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإنشاء مخطط رادار بالسلسلة والفئات الافتراضية، ثم يحفظ العرض بصيغة PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -913,13 +969,13 @@ finally
 
 النتيجة:
 
-![المخطط الراداري](radar_chart.png)
+![مخطط رادار](radar_chart.png)
 
-### **إنشاء مخططات متعددة الفئات**
+### **إنشاء مخططات متعددة الفئات (Multi-Category)**
 
-تُستخدم المخططات متعددة الفئات لعرض بيانات تشمل أكثر من تجميع فئوي واحد، مما يتيح مقارنة القيم عبر أبعاد متعددة في آنٍ واحد. هي مفيدة عند الحاجة إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة ومتعددة الطبقات.
+تُستخدم المخططات متعددة الفئات لعرض بيانات تتضمن أكثر من تجميع فئوي واحد، مما يتيح مقارنة القيم عبر أبعاد متعددة في آن واحد. هي مفيدة عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات متعددة الطبقات.
 
-يُنشئ هذا المثال مخطط عمود مجمّع بثماني فئات مرتبة في أربع أزواج. تُعطي طريقة [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) كل زوج تسمية مشتركة على مستوى التجميع 1، مما ينتج محور فئات يحتوي على تسميات فردية ومجموعة معًا.
+هذا المثال ينشئ مخطط أعمدة مجمّعة بثماني فئات مرتبة في أربع أزواج. الدالة [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) تُعطي كل زوج تسمية مشتركة على مستوى التجميع 1، ما يُنتج محور فئات يحتوي على تسميات فردية وتسمية مجموعة.
 
 ```java
 import com.aspose.slides.*;
@@ -993,13 +1049,13 @@ finally
 
 النتيجة:
 
-![المخطط متعدد الفئات](multi_category_chart.png)
+![مخطط متعدد الفئات](multi_category_chart.png)
 
-### **إنشاء مخططات خريطة**
+### **إنشاء مخططات خريطة (Map)**
 
-تُستخدم مخططات الخريطة لتصوير البيانات الجغرافية عن طريق ربط المعلومات بمواقع محددة مثل الدول أو الولايات أو المدن. هي مفيدة لتحليل الاتجاهات الإقليمية، البيانات الديموغرافية، والتوزيعات المكانية بطريقة واضحة وجذابة بصريًا.
+تُستخدم مخططات الخريطة لتصوير البيانات الجغرافية بربط المعلومات بمواقع محددة مثل دول أو ولايات أو مدن. هي مفيدة لتحليل الاتجاهات الإقليمية، البيانات الديموغرافية، وتوزيعات المكان بطريقة واضحة وجذابة بصريًا.
 
-يستخدم هذا المثال [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإنشاء مخطط خريطة بالبيانات الجغرافية الافتراضية ويحفظه للعرض في PowerPoint.
+هذا المثال يستخدم الدالة [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإنشاء مخطط خريطة بالبيانات الجغرافية الافتراضية ويحفظه للعرض في PowerPoint.
 
 ```java
 import com.aspose.slides.*;
@@ -1021,19 +1077,19 @@ finally
 
 النتيجة:
 
-![المخطط الخريطي](map_chart.png)
+![مخطط خريطة](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-الصورة أعلاه تُظهر العرض المحفوظ المفتوح في PowerPoint. يكتب Aspose.Slides مخطط الخريطة وبياناته بشكل صحيح، لكنه لا يرسم مخططات الخريطة بنفسه: عند تحويل شريحة تحتوي على أحدها إلى صورة أو تحويلها إلى PDF أو SVG، يصبح منطقة المخطط فارغة. لا تتأثر الأشكال الأخرى على نفس الشريحة.
+الصورة أعلاه تُظهر العرض المحفوظ مفتوحًا في PowerPoint. Aspose.Slides يكتب مخطط الخريطة وبياناته بشكل صحيح، لكنه لا يرسم مخططات الخريطة بنفسه: عندما يُحوَّل شريحة تحتوي على مخطط خريطة إلى صورة أو يُحول إلى PDF أو SVG، يصبح مساحة المخطط فارغة. الأشكال الأخرى على الشريحة تظل دون تأثير.
 {{% /alert %}}
 
-### **إنشاء مخططات مركبة**
+### **إنشاء مخططات مركبة (Combination)**
 
-المخطط المركب (أو مخطط الجمع) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز، مقارنة، أو فحص الفروقات بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
+المخطط المركب (أو combo chart) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز، مقارنة، أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
 
 ![المخطط المركب](combination_chart.png)
 
-يجمع هذا المثال سلسلتين من الأعمدة المجمّعة مع سلسلة خطية عبر أربع فئات. تستخدم الأعمدة المحور العمودي الأساسي، بينما تُضعّ طريقة [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) الخط على محور عمودي ثانوي على اليمين. تُكوّن الدوال المساعدة العنوان، الوسيلة، تسميات المحاور، وخطوط الشبكة.
+هذا المثال يجمع سلسلتين من الأعمدة المجمّعة مع سلسلة خطية عبر أربع فئات. الأعمدة تستخدم المحور الرأسي الأساسي، بينما تُضع الدالة [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) الخط على محور رأسي ثانوي على اليمين. الدوال المساعدة تُكوّن العنوان، الأسطورة، تسميات المحاور، وخطوط الشبكة.
 
 ```java
 import com.aspose.slides.*;
@@ -1204,9 +1260,9 @@ example.createComboChart();
 
 ## **تحديث المخططات**
 
-يُمكّن Aspose.Slides for Android عبر Java من تحديث مخططات PowerPoint عبر تعديل بيانات المخطط، تنسيقه، وتنسيقه. تُبسّط هذه العملية الحفاظ على العروض التقديمية محدثة بمحتوى ديناميكي وتضمن أن المخططات تعكس بدقة البيانات الحالية والمعايير البصرية.
+يُتيح Aspose.Slides للأندرويد عبر جافا تحديث مخططات PowerPoint عن طريق تعديل بيانات المخطط، التنسيق، والأنماط. تُبسّط هذه الوظيفة عملية إبقاء العروض محدثة بمحتوى ديناميكي وتضمن أن المخططات تعكس بدقة البيانات الحالية والمعايير البصرية.
 
-يُحدِّث هذا المثال المخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود. يتطلب سلسلتين من الأعمدة مع ثلاث نقاط بيانات لكل منهما، مع تسميات الفئات في العمود A وأسماء السلاسل في الصف الأول من الورقة الأولى. يستخدم المثال [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) لتغيير خلايا المصنف، يحدّث قيم السلاسل، يضيف سلسلة ثالثة، ويغيّر المخطط إلى أسطوانات مجمّعة عبر [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
+هذا المثال يُحدّث المخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود. يتطلّب وجود سلسلتين عموديتين بثلاث نقاط بيانات لكلٍ منها، مع تسميات الفئات في العمود A وأسماء السلاسل في الصف الأول من الورقة الأولى. يستخدم المثال الدالة [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) لتغيير خلايا دفتر العمل، يحدّث قيم السلاسل، يضيف سلسلة ثالثة، ويغيّر نوع المخطط إلى أسطوانات مجمّعة عبر الدالة [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1268,11 +1324,11 @@ finally
 
 ## **تحديد نطاق البيانات لمخطط**
 
-لتفحص النطاق المستخدم بالفعل من قبل مخطط موجود، راجع [Retrieve a Chart's Data Range](/slides/ar/androidjava/chart-workbook/#retrieve-a-charts-data-range).
+للتفقد النطاق المستخدم بالفعل بواسطة مخطط موجود، راجع [Retrieve a Chart's Data Range](/slides/ar/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-يُقدّم Aspose.Slides for Android عبر Java مرونة تحديد نطاق بيانات محدد من ورقة عمل كمصدر لبيانات المخطط. يعني هذا أنك تستطيع ربط جزء من ورقة عملك مباشرةً بالمخطط، مما يتيح لك التحكم في الخلايا التي تُساهم في سلاسل المخطط وفئاتَه. ونتيجة لذلك، يمكنك تحديث ومزامنة مخططاتك بسهولة مع أحدث تغييرات البيانات في ورقة العمل، مما يضمن أن عروض PowerPoint تعكس معلومات دقيقة ومُحدَّثة.
+يوفر Aspose.Slides للأندرويد عبر جافا مرونة تعريف نطاق بيانات محدد من ورقة عمل كمصدر لبيانات المخطط. يعني ذلك أنه يمكنك ربط جزء من ورقة العمل مباشرةً بالمخطط، مما يسمح لك بالتحكم في الخلايا التي تُساهم في سلاسل ومصنّفات المخطط. وبالتالي، يمكنك بسهولة تحديث ومزامنة المخططات مع أحدث تغيّر في بيانات ورقة العمل، لضمان أن عروض PowerPoint تعكس معلومات حديثة ودقيقة.
 
-يستخدم هذا المثال طريقة [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) لتعيين مصدر البيانات للمخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي مصنف المخطط على تلك الورقة ونطاق مُعبَّأ برأس سلسلة في الصف الأول، وتسميات فئات في العمود A، وثلاث قيم في العمود B.
+هذا المثال يستخدم الدالة [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) لتعيين مصدر بيانات المخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي دفتر عمل المخطط على تلك الورقة ونطاق مُعبأ برأس سلسلة في الصف الأول، تسميات فئات في العمود A، وثلاث قيم في العمود B.
 
 ```java
 import com.aspose.slides.*;
@@ -1305,7 +1361,7 @@ finally
 
 عند استخدام العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
 
-يستخدم هذا المثال [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإنشاء مخطط بسلسلتين خطّيتين ووسيلة إيضاح. تحتفظ إعدادات العلامة التي تُستخرج عبر [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) بالرموز المعينة تلقائيًا. تتضمن السلسلة الأولى قيمة سلبية وقيمة مفقودة، ممثلة بـ `null`، بينما تحتوي السلسلة الثانية على قيمة لكل فئة.
+هذا المثال يستخدم الدالة [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) لإنشاء مخطط بسلسلتين خطيتين وأساطير. إعدادات العلامة التي تُستخرج عبر الدالة [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) تحتفظ بالرموز المخصصة تلقائيًا. السلسلة الأولى تشمل قيمة سالبة وقيمة مفقودة ممثلة بـ `null`، بينما الثانية تحتوي على قيمة لكل فئة.
 
 ```java
 import com.aspose.slides.*;
@@ -1368,20 +1424,20 @@ finally
 }
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة المتكررّة**
 
-**ما هي أنواع المخططات التي يدعمها Aspose.Slides for Android عبر Java؟**
+**ما هي أنواع المخططات التي يدعمها Aspose.Slides للأندرويد عبر جافا؟**
 
-يدعم Aspose.Slides for Android عبر Java مجموعة واسعة من أنواع المخططات، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المساحية، المبعثرة، التكرارية، الرادارية، والعديد غيرها. تمنحك هذه المرونة اختيار النوع الأنسب لاحتياجات تصوير البيانات لديك.
+يدعم Aspose.Slides للأندرويد عبر جافا مجموعة واسعة من أنواع المخططات، بما في ذلك شريطية، خطية، فطيرة، مساحية، مبعثرة، هيستوجرام، رادار، والعديد غيرها. تتيح لك هذه المرونة اختيار النوع الأنسب لاحتياجات تصور البيانات الخاصة بك.
 
 **كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
 
-لإضافة مخطط، تُنشئ أولاً مثالًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)، تسترجع الشريحة المطلوبة باستخدام فهرسها، ثم تستدعي الطريقة لإضافة مخطط، مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في العرض التقديمي.
+لإضافة مخطط، أنشئ أولاً مثيلًا للفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)، استخرج الشريحة المطلوبة باستخدام فهرسها، ثم استدعِ الطريقة لإضافة مخطط مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في عرضك التقديمي.
 
 **كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
 
-يمكنك تحديث بيانات المخطط عبر الوصول إلى مصنف البيانات الخاص به ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصَّصة. يتيح لك ذلك تجديد المخطط برمجيًا ليعكس أحدث البيانات.
+يمكنك تحديث بيانات المخطط بالوصول إلى دفتر بياناته ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة البيانات المخصصة الخاصة بك. يتيح لك ذلك تحديث المخطط برمجيًا ليتطابق مع أحدث البيانات.
 
 **هل يمكن تخصيص مظهر المخطط؟**
 
-نعم، يُوفر Aspose.Slides for Android عبر Java خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الوسائل، وعناصر التنسيق الأخرى لتكييف مظهر المخطط مع متطلبات التصميم الخاصة بك.
+نعم، يوفر Aspose.Slides للأندرويد عبر جافا خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الأساطير، وعناصر تنسيق أخرى لتكييف مظهر المخطط مع متطلبات التصميم الخاصة بك.

@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar gráficos de apresentação PowerPoint em Python
-linktitle: Criar ou atualizar gráficos
+title: Criar ou Atualizar Gráficos de Apresentação PowerPoint em Python
+linktitle: Criar ou Atualizar Gráficos
 type: docs
 weight: 10
 url: /pt/python-java/create-chart/
@@ -12,10 +12,10 @@ keywords:
 - atualizar gráfico
 - gráfico disperso
 - gráfico de pizza
-- gráfico de linhas
+- gráfico de linha
 - gráfico de mapa de árvore
 - gráfico de ações
-- gráfico de caixa e bigode
+- gráfico de caixa e bigodes
 - gráfico de funil
 - gráfico de explosão
 - gráfico de histograma
@@ -26,37 +26,37 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Criar e personalizar gráficos em apresentações PowerPoint usando Aspose.Slides para Python via Java. Adicionar, formatar e editar gráficos com exemplos de código práticos em Python."
+description: "Criar e personalizar gráficos em apresentações PowerPoint usando Aspose.Slides for Python via Java. Adicionar, formatar e editar gráficos com exemplos de código práticos em Python."
 ---
 ## **Visão geral**
 
-Este artigo fornece um guia abrangente sobre como criar e personalizar gráficos usando Aspose.Slides para Python via Java. Você aprenderá como adicionar programaticamente um gráfico a um slide, preenchê‑lo com dados e aplicar várias opções de formatação para corresponder aos requisitos de design específicos. Ao longo do artigo, exemplos de código detalhados ilustram cada etapa, desde a inicialização da apresentação e do objeto de gráfico até a configuração de séries, eixos e legendas. Seguindo este guia, você obterá um entendimento sólido de como integrar a geração dinâmica de gráficos em suas aplicações Python, simplificando o processo de criação de apresentações orientadas a dados.
+Este artigo fornece um guia abrangente sobre como criar e personalizar gráficos usando Aspose.Slides for Python via Java. Você aprenderá a adicionar programaticamente um gráfico a um slide, preenchê‑lo com dados e aplicar várias opções de formatação para atender aos requisitos de design específicos. Ao longo do artigo, exemplos de código detalhados ilustram cada etapa, desde a inicialização da apresentação e do objeto gráfico até a configuração de séries, eixos e legendas. Seguindo este guia, você obterá uma compreensão sólida de como integrar a geração dinâmica de gráficos em suas aplicações Python, simplificando o processo de criação de apresentações orientadas a dados.
 
 ## **Criar um gráfico**
 
-Gráficos ajudam as pessoas a visualizar rapidamente os dados e obter insights que podem não ser imediatamente óbvios em uma tabela ou planilha.
+Os gráficos ajudam as pessoas a visualizar rapidamente os dados e a obter insights que podem não ser imediatamente óbvios em uma tabela ou planilha.
 
 **Por que criar gráficos?**
 
 Usando gráficos, você pode:
 
 * agregar, condensar ou resumir grandes quantidades de dados em um único slide de uma apresentação;
-* expor padrões e tendências nos dados;
+* revelar padrões e tendências nos dados;
 * deduzir a direção e o impulso dos dados ao longo do tempo ou em relação a uma unidade de medida específica;
 * identificar valores atípicos, aberrações, desvios, erros e dados sem sentido;
 * comunicar ou apresentar dados complexos.
 
-No PowerPoint, você pode criar gráficos através da função *Insert*, que fornece modelos para projetar diversos tipos de gráficos. Usando Aspose.Slides, você pode criar tanto gráficos regulares (baseados em tipos de gráficos populares) quanto gráficos personalizados.
+No PowerPoint, você pode criar gráficos através da função *Inserir*, que oferece modelos para projetar diversos tipos de gráficos. Usando Aspose.Slides, você pode criar tanto gráficos regulares (baseados em tipos de gráficos populares) quanto gráficos personalizados.
 
 {{% alert color="info" title="Note" %}}
 
-Use a enumeração [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) no pacote [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/). Os valores nesta enumeração correspondem a diferentes tipos de gráficos.
+Use a enumeração [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) no pacote [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/). Os valores dessa enumeração correspondem a diferentes tipos de gráficos.
 
 {{% /alert %}}
 
 ### **Criar gráficos de colunas agrupadas**
 
-Este exemplo usa [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para criar um gráfico de colunas agrupadas que compara duas séries em três categorias. As séries utilizam preenchimentos vermelho e verde, e rótulos individuais demonstram nomes de categorias, nomes de séries e valores. O índice da planilha 0 refere‑se à primeira planilha na pasta de trabalho incorporada ao gráfico.
+Este exemplo usa [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para criar um gráfico de colunas agrupadas que compara duas séries em três categorias. As séries usam preenchimentos vermelho e verde, e rótulos individuais demonstram nomes de categorias, nomes de séries e valores. O índice da planilha 0 refere‑se à primeira planilha na pasta de trabalho do gráfico incorporado.
 
 ```python
 import jpype
@@ -149,12 +149,12 @@ Gráficos de dispersão (também conhecidos como scatter plots ou gráficos x‑
 
 Use um gráfico de dispersão quando:
 
-* Você tem dados numéricos pareados.
-* Você tem duas variáveis que combinam bem juntas.
+* Você possui dados numéricos pareados.
+* Você tem duas variáveis que se combinam bem.
 * Você deseja determinar se as duas variáveis estão relacionadas.
 * Você tem uma variável independente que possui múltiplos valores para uma variável dependente.
 
-Este exemplo traça dois conjuntos de valores x‑y. A primeira série usa linhas retas com marcadores em forma de estrela, enquanto a segunda usa linhas suaves com marcadores circulares; ambas usam tamanho de marcador 10, configurado com [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). O método [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) controla a forma do marcador.
+Este exemplo traça dois conjuntos de valores x‑y. A primeira série usa linhas retas com marcadores de estrela, enquanto a segunda usa linhas suaves com marcadores de círculo; ambas usam tamanho de marcador 10, configurado com [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). O método [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) controla a forma do marcador.
 
 ```python
 import jpype
@@ -230,7 +230,7 @@ O resultado:
 
 Gráficos de pizza são mais adequados para mostrar a relação parte‑para‑todo nos dados, especialmente quando os dados contêm rótulos categóricos com valores numéricos. No entanto, se seus dados contiverem muitas partes ou rótulos, talvez seja melhor usar um gráfico de barras.
 
-Este exemplo cria um gráfico de pizza com três valores trimestrais. Cada fatia tem um preenchimento e borda personalizados, e os rótulos exibem diferentes combinações de valores, porcentagens e informações de série. O método [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) define que a primeira fatia começa em 180 graus.
+Este exemplo cria um gráfico de pizza com três valores trimestrais. Cada fatia tem um preenchimento e borda personalizados, e os rótulos exibem diferentes combinações de valores, porcentagens e informações de série. O método [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) define a primeira fatia para começar em 180 graus.
 
 ```python
 import jpype
@@ -340,7 +340,7 @@ O resultado:
 
 ### **Criar gráficos de linhas**
 
-Gráficos de linhas (também conhecidos como line graphs) são mais adequados em situações onde você deseja demonstrar mudanças de valor ao longo do tempo. Usando um gráfico de linhas, você pode comparar uma grande quantidade de dados de uma só vez, acompanhar mudanças e tendências ao longo do tempo, destacar anomalias em séries de dados, e muito mais.
+Gráficos de linhas (também conhecidos como line graphs) são mais adequados quando você deseja demonstrar mudanças de valor ao longo do tempo. Usando um gráfico de linhas, você pode comparar uma grande quantidade de dados de uma só vez, rastrear mudanças e tendências ao longo do tempo, destacar anomalias em séries de dados e muito mais.
 
 Este exemplo usa [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para criar um gráfico de linhas com as séries e categorias padrão, depois salva a apresentação como PPTX.
 
@@ -391,11 +391,11 @@ O resultado:
 
 ![The Line chart](line_chart.png)
 
-### **Criar gráficos de árvore**
+### **Criar gráficos de mapa de árvore**
 
-Gráficos de mapa de árvore são mais adequados para dados de vendas quando você deseja mostrar o tamanho relativo das categorias de dados e chamar rapidamente a atenção para itens que são grandes contribuidores dentro de cada categoria.
+Gráficos de mapa de árvore são mais adequados para dados de vendas quando você deseja mostrar o tamanho relativo das categorias de dados e chamar rapidamente a atenção para os itens que são grandes contribuidores dentro de cada categoria.
 
-Este exemplo cria um mapa de árvore com oito folhas agrupadas em quatro troncos e dois ramos. O método [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) atribui troncos ao nível de agrupar 1 e ramos ao nível 2. Os valores determinam os tamanhos relativos dos retângulos, enquanto os rótulos de categoria e os rótulos de pais sobrepostos identificam a hierarquia.
+Este exemplo cria um mapa de árvore com oito folhas agrupadas em quatro troncos e dois ramos. O método [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) atribui troncos ao nível de agrupamento 1 e ramos ao nível 2. Os valores determinam os tamanhos relativos dos retângulos, enquanto os rótulos de categoria e os rótulos de pais sobrepostos identificam a hierarquia.
 
 ```python
 import jpype
@@ -482,18 +482,18 @@ O resultado:
 
 ### **Criar gráficos de cascata**
 
-Um gráfico de cascata mostra como mudanças positivas e negativas contribuem para um valor final. Por exemplo, a decomposição de lucro pode começar com receita, subtrair custos e adicionar outras receitas. As colunas de mudança flutuam entre os valores acumulados anteriores e novos, enquanto as colunas totais se estendem de zero ao valor acumulado.
+Um gráfico de cascata mostra como mudanças positivas e negativas contribuem para um valor final. Por exemplo, uma análise de lucro pode começar com a receita, subtrair custos e adicionar outras receitas. As colunas de mudança flutuam entre o valor corrente anterior e o novo, enquanto as colunas totais se estendem de zero ao valor acumulado.
 
 O exemplo a seguir usa valores em milhares de dólares americanos:
 
-| Category | Workbook value | Column type |
+| Categoria | Valor da Pasta de Trabalho | Tipo de Coluna |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| Receita | 1000 | Incremento |
+| Custo de vendas | -400 | Decréscimo |
+| Lucro bruto | 600 | Total intermediário |
+| Despesas operacionais | -200 | Decréscimo |
+| Outras receitas | 50 | Incremento |
+| Lucro líquido | 450 | Total final |
 
 Para marcar um ponto como total intermediário ou final, chame seu método [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) com `True`. Forneça o valor acumulado real na célula da pasta de trabalho desse ponto: `600` para lucro bruto (`1000 - 400`) e `450` para lucro líquido (`600 - 200 + 50`). O método marca a coluna como total; ele não calcula nem preenche o valor da célula. Não use zero como placeholder nem forneça outra mudança para um ponto total. Uma coluna total exibe o valor acumulado sem adicioná‑lo novamente ao valor corrente.
 
@@ -504,7 +504,7 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpate.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
@@ -538,7 +538,7 @@ try:
         value_cell = workbook.getCell(worksheet_index, i + 1, 1, values[i])
         series.getDataPoints().addDataPointForWaterfallSeries(value_cell)
 
-    # O terceiro e o sexto pontos representam totais, não mudanças adicionais.
+    # O terceiro e o sexto pontos representam totais, não alterações adicionais.
     series.getDataPoints().get_Item(2).setSetAsTotal(True)
     series.getDataPoints().get_Item(5).setSetAsTotal(True)
     series.setShowConnectorLines(True)
@@ -549,7 +549,7 @@ finally:
     presentation.dispose()
 ```
 
-Chame o método de nível de série [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) com `True` para mostrar linhas que ligam colunas consecutivas e tornar o valor corrente mais fácil de acompanhar. Para ocultar essas linhas, substitua a chamada ao método no exemplo por `series.setShowConnectorLines(False)` antes de salvar. Isso altera apenas a visibilidade da linha, não os dados ou totais.
+Chame o método de nível de série [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) com `True` para mostrar linhas que ligam colunas consecutivas e facilitar o acompanhamento do valor corrente. Para ocultar essas linhas, substitua a chamada de método no exemplo por `series.setShowConnectorLines(False)` antes de salvar. Isso altera apenas a visibilidade das linhas, não os dados ou totais.
 
 A apresentação salva mostra lucro bruto de 600 e lucro líquido de 450, com ambos os totais desenhados a partir de zero:
 
@@ -557,9 +557,9 @@ A apresentação salva mostra lucro bruto de 600 e lucro líquido de 450, com am
 
 ### **Criar gráficos de ações**
 
-Gráficos de ações são usados para exibir dados financeiros como preços de abertura, máxima, mínima e fechamento, ajudando a analisar tendências de mercado e volatilidade. Eles oferecem insights essenciais sobre o desempenho de ações, auxiliando investidores e analistas a tomar decisões informadas.
+Gráficos de ações são usados para exibir dados financeiros como preços de abertura, alta, baixa e fechamento, ajudando a analisar tendências de mercado e volatilidade. Eles fornecem insights essenciais sobre o desempenho das ações, auxiliando investidores e analistas a tomar decisões informadas.
 
-Este exemplo cria um gráfico de abertura‑máxima‑mínima‑fechamento com quatro séries nessa ordem e três categorias. O método [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) habilita barras de alta/baixa, e [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) controla as linhas alta‑baixa que mostram os intervalos de preço, enquanto as linhas das séries individuais e as linhas de grade horizontais menores são ocultas.
+Este exemplo cria um gráfico OHLC (open‑high‑low‑close) com quatro séries nessa ordem e três categorias. O método [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) habilita barras de alta/baixa, e [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) controla as linhas alta‑baixa que mostram os intervalos de preço, enquanto as linhas das séries individuais e as linhas de grade horizontais menores são ocultas.
 
 ```python
 import jpype
@@ -643,11 +643,11 @@ O resultado:
 
 ![The Stock chart](stock_chart.png)
 
-### **Criar gráficos de caixa e bigode**
+### **Criar gráficos de caixa e bigodes**
 
-Gráficos de caixa e bigode são usados para exibir a distribuição de dados resumindo medidas estatísticas chave, como a mediana, quartis e possíveis valores atípicos. Eles são particularmente úteis em análises exploratórias de dados e estudos estatísticos para entender rapidamente a variabilidade dos dados e identificar anomalias.
+Gráficos de caixa e bigodes são usados para exibir a distribuição de dados resumindo medidas estatísticas chave, como mediana, quartis e possíveis valores atípicos. São particularmente úteis em análises exploratórias de dados e estudos estatísticos para compreender rapidamente a variabilidade dos dados e identificar anomalias.
 
-Este exemplo cria um gráfico de caixa e bigode a partir de seis valores. O método [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) seleciona o cálculo de quartil exclusivo. O exemplo também habilita linhas de média, marcadores de média, pontos internos e pontos atípicos.
+Este exemplo cria um gráfico de caixa e bigodes a partir de seis valores. O método [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) seleciona o cálculo exclusivo de quartis. O exemplo também habilita linhas de média, marcadores de média, pontos internos e pontos atípicos.
 
 ```python
 import jpype
@@ -711,9 +711,9 @@ finally:
 
 ### **Criar gráficos de funil**
 
-Gráficos de funil são usados para visualizar processos que envolvem estágios sequenciais, onde o volume de dados diminui à medida que avança de uma etapa para a próxima. Eles são especialmente úteis para analisar taxas de conversão, identificar gargalos e monitorar a eficiência de processos de vendas ou marketing.
+Gráficos de funil são usados para visualizar processos que envolvem estágios sequenciais, onde o volume de dados diminui à medida que avança de uma etapa para a próxima. Eles são especialmente úteis para analisar taxas de conversão, identificar gargalos e acompanhar a eficiência de processos de vendas ou marketing.
 
-Este exemplo usa [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para adicionar um gráfico de funil ao primeiro slide de uma apresentação existente. Ele substitui os dados padrão por seis categorias e valores que variam de 50 a 500, depois salva a apresentação atualizada. A apresentação de entrada deve conter ao menos um slide.
+Este exemplo usa [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para adicionar um gráfico de funil ao primeiro slide de uma apresentação existente. Ele substitui os dados padrão por seis categorias e valores variando de 50 a 500, depois salva a apresentação atualizada. A apresentação de entrada deve conter ao menos um slide.
 
 ```python
 import jpype
@@ -773,11 +773,11 @@ O resultado:
 
 ![The Funnel chart](funnel_chart.png)
 
-### **Criar gráficos de explosão**
+### **Criar gráficos de explosão (Sunburst)**
 
 Gráficos de explosão são usados para visualizar dados hierárquicos, exibindo níveis como anéis concêntricos. Eles ajudam a ilustrar relações parte‑para‑todo e são ideais para representar categorias e subcategorias aninhadas de forma clara e compacta.
 
-Este exemplo cria um gráfico de explosão com oito folhas agrupadas em quatro troncos e dois ramos. O método [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) atribui troncos ao nível de agrupar 1 e ramos ao nível 2. Os rótulos de categoria identificam os segmentos, e os valores determinam seus tamanhos relativos.
+Este exemplo cria um gráfico de explosão com oito folhas agrupadas em quatro troncos e dois ramos. O método [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) atribui troncos ao nível de agrupamento 1 e ramos ao nível 2. Os rótulos de categoria identificam os segmentos, e os valores determinam seus tamanhos relativos.
 
 ```python
 import jpype
@@ -862,9 +862,13 @@ O resultado:
 
 ### **Criar gráficos de histograma**
 
-Gráficos de histograma são usados para representar a distribuição de dados numéricos agrupando valores em intervalos ou “bins”. Eles são particularmente úteis para identificar padrões nos dados, como frequência, assimetria e dispersão, e para detectar valores atípicos em um conjunto de dados.
+Gráficos de histograma mostram como valores numéricos são distribuídos em intervalos (bins). Para relatórios mensais de tempos de processamento de pedidos, use a mesma largura de bin e limites para manter intervalos consistentes e facilitar a comparação das distribuições.
 
-Este exemplo cria um histograma a partir de seis valores numéricos, incluindo valores negativos. Chamando [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) com o tipo de agregação automática permite que o gráfico determine os bins usados para exibir a distribuição.
+Chame [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) no eixo horizontal com um modo de [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) se aplica somente a `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) se aplica somente a `ByNumberOfBins`. Use `Automatic` para deixar o gráfico escolher os bins.
+
+#### **Usar largura de bin fixa**
+
+Este exemplo agrupa tempos de processamento em intervalos de 10 minutos, com bins separados para tempos ≤ 10 minutos e > 40 minutos. Habilite esses bins com [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) e [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin). Ao fornecer limites explícitos através de [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) e [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin), chame [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) e [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) com `False`.
 
 ```python
 import jpype
@@ -879,7 +883,10 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300)
+    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200)
+
+    chart.setLegend(False)
+    chart.setTitle(False)
 
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
@@ -888,33 +895,80 @@ try:
     workbook.clear(0)
 
     series = chart.getChartData().getSeries().add(ChartType.Histogram)
-    value_cell = workbook.getCell(0, "A1", 15)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A2", -41)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A3", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A4", 10)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A5", -23)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A6", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.getCell(0, i, 0, float(value))
+        series.getDataPoints().addDataPointForHistogramSeries(value_cell)
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic)
+    axis = chart.getAxes().getHorizontalAxis()
+    axis.setAggregationType(AxisAggregationType.ByBinWidth)
+    axis.setBinWidth(10.0)
+    axis.setUnderflowBin(True)
+    axis.setAutomaticUnderflowBin(False)
+    axis.setUnderflowBin(10.0)
+    axis.setOverflowBin(True)
+    axis.setAutomaticOverflowBin(False)
+    axis.setOverflowBin(40.0)
 
-    presentation.save("Histogram.pptx", SaveFormat.Pptx)
+    presentation.save("Histogram-bin-width.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-O resultado:
+A apresentação exibida no PowerPoint mostra contagens de bins **3, 4, 4, 4 e 2**. O bin de underflow inclui `5, 10, 10`, portanto seu limite é inclusivo. O bin de overflow inclui apenas `41, 50`, sendo seu limite exclusivo; ambos os valores iguais a `40` permanecem no intervalo anterior. Os bins internos contêm valores maiores que seu limite inferior e menores ou iguais ao limite superior.
 
-![The Histogram chart](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **Especificar o número de bins**
+
+Para um nível fixo de detalhe em vez de intervalos fixos, solicite cinco bins para os mesmos dados. Este exemplo deixa os bins de underflow e overflow desativados. O gráfico determina a largura a partir do intervalo de dados, de modo que os limites podem mudar entre relatórios.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AxisAggregationType, ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200)
+
+    chart.setLegend(False)
+    chart.setTitle(False)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series = chart.getChartData().getSeries().add(ChartType.Histogram)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.getCell(0, i, 0, float(value))
+        series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+
+    axis = chart.getAxes().getHorizontalAxis()
+    axis.setAggregationType(AxisAggregationType.ByNumberOfBins)
+    axis.setNumberOfBins(5)
+
+    presentation.save("Histogram-bin-count.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Os cinco bins têm contagens **4, 4, 4, 4 e 1**. Compare essa distribuição com o resultado de largura fixa acima: os valores de entrada são idênticos, mas os limites diferem.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Criar gráficos de radar**
 
-Gráficos de radar são usados para exibir dados multivariados em um formato bidimensional, permitindo a comparação fácil de várias variáveis simultaneamente. Eles são particularmente úteis para identificar padrões, pontos fortes e fracos em múltiplas métricas de desempenho ou atributos.
+Gráficos de radar são usados para exibir dados multivariados em um formato bidimensional, permitindo comparar facilmente várias variáveis simultaneamente. São particularmente úteis para identificar padrões, pontos fortes e fracos em múltiplas métricas ou atributos de desempenho.
 
 Este exemplo usa [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para criar um gráfico de radar com as séries e categorias padrão, depois salva a apresentação como PPTX.
 
@@ -942,11 +996,11 @@ O resultado:
 
 ![The Radar chart](radar_chart.png)
 
-### **Criar gráficos multilaterais**
+### **Criar gráficos de múltiplas categorias**
 
-Gráficos multilaterais são usados para exibir dados que envolvem mais de um agrupamento categórico, permitindo comparar valores em várias dimensões simultaneamente. Eles são particularmente úteis quando você precisa analisar tendências e relações dentro de conjuntos de dados complexos e multilayer.
+Gráficos de múltiplas categorias são usados para exibir dados que envolvem mais de um agrupamento categórico, permitindo comparar valores em várias dimensões simultaneamente. São particularmente úteis quando você precisa analisar tendências e relacionamentos dentro de conjuntos de dados complexos e multi‑camada.
 
-Este exemplo cria um gráfico de colunas agrupadas com oito categorias organizadas em quatro pares. O método [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) dá a cada par um rótulo compartilhado no nível de agrupamento 1, produzindo um eixo de categoria com rótulos individuais e de grupo.
+Este exemplo cria um gráfico de colunas agrupadas com oito categorias organizadas em quatro pares. O método [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) fornece a cada par um rótulo compartilhado no nível de agrupamento 1, produzindo um eixo de categoria com rótulos individuais e de grupo.
 
 ```python
 import jpype
@@ -1026,9 +1080,9 @@ O resultado:
 
 ### **Criar gráficos de mapa**
 
-Gráficos de mapa são usados para visualizar dados geográficos ao mapear informações para locais específicos como países, estados ou cidades. Eles são particularmente úteis para analisar tendências regionais, dados demográficos e distribuições espaciais de forma clara e visualmente atraente.
+Gráficos de mapa são usados para visualizar dados geográficos mapeando informações para locais específicos como países, estados ou cidades. São particularmente úteis para analisar tendências regionais, dados demográficos e distribuições espaciais de forma clara e visualmente atraente.
 
-Este exemplo usa [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para criar um gráfico de mapa com os dados geográficos padrão e salva‑lo para visualização no PowerPoint.
+Este exemplo usa [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para criar um gráfico de mapa com os dados geográficos padrão e o salva para visualização no PowerPoint.
 
 ```python
 import jpype
@@ -1056,17 +1110,17 @@ O resultado:
 
 {{% alert color="info" title="Note" %}}
 
-A imagem acima mostra a apresentação salva aberta no PowerPoint. Aspose.Slides grava o gráfico de mapa e seus dados corretamente, mas não desenha gráficos de mapa por conta própria: quando um slide que contém um é renderizado para imagem ou convertido em PDF ou SVG, a área do gráfico fica vazia. Outras formas no mesmo slide não são afetadas.
+A imagem acima mostra a apresentação salva aberta no PowerPoint. Aspose.Slides grava o gráfico de mapa e seus dados corretamente, mas não desenha gráficos de mapa por si só: quando um slide que contém um deles é renderizado para imagem ou convertido em PDF ou SVG, a área do gráfico fica em branco. Outras formas no mesmo slide não são afetadas.
 
 {{% /alert %}}
 
 ### **Criar gráficos combinados**
 
-Um gráfico combinado (ou combo chart) combina dois ou mais tipos de gráficos em um único gráfico. Este gráfico permite que você destaque, compare ou examine diferenças entre dois ou mais conjuntos de dados, ajudando a identificar relacionamentos entre eles.
+Um gráfico combinado (ou combo) combina dois ou mais tipos de gráficos em um único gráfico. Esse gráfico permite que você destaque, compare ou examine diferenças entre dois ou mais conjuntos de dados, ajudando a identificar relações entre eles.
 
 ![The combination chart](combination_chart.png)
 
-Este exemplo combina duas séries de colunas agrupadas com uma série de linha em quatro categorias. As colunas usam o eixo vertical principal, enquanto [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) coloca a linha em um eixo vertical secundário à direita. As funções auxiliares configuram o título, legenda, rótulos dos eixos e linhas de grade.
+Este exemplo combina duas séries de colunas agrupadas com uma série de linhas em quatro categorias. As colunas usam o eixo vertical primário, enquanto [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) posiciona a linha em um eixo vertical secundário à direita. As funções auxiliares configuram o título, a legenda, os rótulos dos eixos e as linhas de grade.
 
 ```python
 import jpype
@@ -1236,9 +1290,9 @@ create_combo_chart()
 
 ## **Atualizar gráficos**
 
-Aspose.Slides para Python via Java permite que você atualize gráficos do PowerPoint modificando dados, formatação e estilo do gráfico. Essa funcionalidade simplifica o processo de manter apresentações atualizadas com conteúdo dinâmico e garante que os gráficos reflitam com precisão os dados atuais e os padrões visuais.
+Aspose.Slides for Python via Java permite atualizar gráficos do PowerPoint modificando dados, formatação e estilo do gráfico. Essa funcionalidade simplifica o processo de manter as apresentações atualizadas com conteúdo dinâmico e garante que os gráficos reflitam com precisão os dados atuais e os padrões visuais.
 
-Este exemplo atualiza o gráfico chamado "My chart" no primeiro slide de uma apresentação existente. Ele requer duas séries de colunas com três pontos de dados cada, com rótulos de categoria na coluna A e nomes de série na primeira linha da primeira planilha. O exemplo usa [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) para alterar células da pasta de trabalho, atualiza valores das séries, adiciona uma terceira série e altera o gráfico para cilindros agrupados através de [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
+Este exemplo atualiza o gráfico chamado “My chart” no primeiro slide de uma apresentação existente. Ele requer duas séries de colunas com três pontos de dados cada, com rótulos de categoria na coluna A e nomes de séries na primeira linha da primeira planilha. O exemplo usa [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) para alterar células da pasta de trabalho, atualiza valores das séries, adiciona uma terceira série e altera o tipo do gráfico para cilindros agrupados por meio de [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
 
 ```python
 import jpype
@@ -1298,11 +1352,11 @@ finally:
 
 ## **Definir intervalo de dados para um gráfico**
 
-Para inspecionar o intervalo já usado por um gráfico existente, veja [Retrieve a Chart's Data Range](/slides/pt/python-java/chart-workbook/#retrieve-a-charts-data-range).
+Para inspecionar o intervalo já usado por um gráfico existente, consulte [Retrieve a Chart's Data Range](/slides/pt/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides para Python via Java fornece a flexibilidade de definir um intervalo de dados específico de uma planilha como fonte para os dados do seu gráfico. Isso significa que você pode mapear diretamente uma parte da sua planilha para o gráfico, permitindo controlar quais células contribuem para as séries e categorias do gráfico. Como resultado, você pode atualizar e sincronizar facilmente seus gráficos com as alterações de dados mais recentes na planilha, garantindo que suas apresentações PowerPoint reflitam informações atuais e precisas.
+Aspose.Slides for Python via Java oferece flexibilidade para definir um intervalo de dados específico de uma planilha como fonte para os dados do seu gráfico. Isso significa que você pode mapear diretamente uma parte da sua planilha ao gráfico, controlando quais células contribuem para as séries e categorias do gráfico. Como resultado, você pode atualizar e sincronizar facilmente seus gráficos com as alterações mais recentes nos dados da planilha, garantindo que suas apresentações PowerPoint reflitam informações atuais e precisas.
 
-Este exemplo usa [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) para definir a fonte de dados do gráfico chamado "My chart" no primeiro slide de uma apresentação existente para `Sheet1!A1:B4`. A pasta de trabalho do gráfico deve conter essa planilha e um intervalo preenchido com um cabeçalho de série na primeira linha, rótulos de categoria na coluna A e três valores na coluna B.
+Este exemplo usa [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) para definir a fonte de dados do gráfico chamado “My chart” no primeiro slide de uma apresentação existente para `Sheet1!A1:B4`. A pasta de trabalho do gráfico deve conter essa planilha e um intervalo preenchido com um cabeçalho de série na primeira linha, rótulos de categoria na coluna A e três valores na coluna B.
 
 ```python
 import jpype
@@ -1333,7 +1387,7 @@ finally:
 
 Quando você usa marcadores padrão em gráficos, cada série de gráfico recebe automaticamente um símbolo de marcador padrão diferente.
 
-Este exemplo usa [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para criar um gráfico com duas séries de linha e uma legenda. As configurações de marcador acessadas através de [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) mantêm os símbolos de marcador atribuídos automaticamente. A primeira série inclui um valor negativo e um valor ausente, representado por `None`, enquanto a segunda tem um valor para cada categoria.
+Este exemplo usa [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para criar um gráfico com duas séries de linhas e uma legenda. As configurações de marcador acessadas por [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) mantêm os símbolos de marcador atribuídos automaticamente. A primeira série inclui um valor negativo e um valor ausente, representado por `None`, enquanto a segunda tem um valor para cada categoria.
 
 ```python
 import jpype
@@ -1400,18 +1454,18 @@ finally:
 
 ## **FAQ**
 
-**Quais tipos de gráficos são suportados pelo Aspose.Slides para Python via Java?**
+**Quais tipos de gráfico são suportados pelo Aspose.Slides for Python via Java?**
 
-Aspose.Slides para Python via Java suporta uma ampla variedade de tipos de gráficos, incluindo barra, linha, pizza, área, dispersão, histograma, radar e muitos mais. Essa flexibilidade permite escolher o tipo de gráfico mais adequado para suas necessidades de visualização de dados.
+Aspose.Slides for Python via Java oferece suporte a uma ampla variedade de tipos de gráfico, incluindo barra, linha, pizza, área, dispersão, histograma, radar e muitos outros. Essa flexibilidade permite escolher o tipo de gráfico mais adequado às suas necessidades de visualização de dados.
 
 **Como adiciono um novo gráfico a um slide?**
 
-Para adicionar um gráfico, primeiro crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), recupere o slide desejado usando seu índice e, em seguida, chame o método para adicionar um gráfico, especificando o tipo de gráfico e os dados iniciais. Esse processo integra o gráfico diretamente à sua apresentação.
+Para adicionar um gráfico, primeiro crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), recupere o slide desejado usando seu índice e então chame o método para adicionar um gráfico, especificando o tipo de gráfico e os dados iniciais. Esse processo integra o gráfico diretamente à sua apresentação.
 
 **Como posso atualizar os dados exibidos em um gráfico?**
 
-Você pode atualizar os dados de um gráfico acessando sua pasta de trabalho de dados ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), limpando quaisquer séries e categorias padrão e, então, adicionando seus dados personalizados. Isso permite atualizar programaticamente o gráfico para refletir os dados mais recentes.
+Você pode atualizar os dados de um gráfico acessando sua pasta de trabalho de dados ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), limpando quaisquer séries e categorias padrão e, em seguida, adicionando seus dados personalizados. Isso permite atualizar programaticamente o gráfico para refletir os dados mais recentes.
 
 **É possível personalizar a aparência do gráfico?**
 
-Sim, Aspose.Slides para Python via Java oferece opções extensas de personalização. Você pode modificar cores, fontes, rótulos, legendas e outros elementos de formatação para adaptar a aparência do gráfico aos requisitos de design específicos.
+Sim, Aspose.Slides for Python via Java fornece amplas opções de personalização. Você pode modificar cores, fontes, rótulos, legendas e outros elementos de formatação para adaptar a aparência do gráfico aos requisitos de design específicos.

@@ -1,5 +1,5 @@
 ---
-title: Java ile PowerPoint Sunum Grafiklerini Oluşturma veya Güncelleme
+title: Java'da PowerPoint Sunumu Grafiklerini Oluşturma veya Güncelleme
 linktitle: Grafik Oluşturma veya Güncelleme
 type: docs
 weight: 10
@@ -10,12 +10,12 @@ keywords:
 - grafik düzenle
 - grafik değiştir
 - grafik güncelle
-- dağılım grafiği
+- saçılım grafiği
 - pasta grafiği
 - çizgi grafiği
 - ağaç haritası grafiği
 - hisse senedi grafiği
-- kutu ve bıçak grafiği
+- kutu ve bıyık grafiği
 - huni grafiği
 - güneş patlaması grafiği
 - histogram grafiği
@@ -29,31 +29,29 @@ description: "Aspose.Slides for Java kullanarak PowerPoint sunumlarında grafik 
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Java kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir slayda programlı olarak grafik eklemeyi, verilerle doldurmayı ve belirli tasarım gereksinimlerinize uyan çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmadan serileri, eksenleri ve lejandları yapılandırmaya kadar her adımı ayrıntılı kod örnekleriyle gösterir. Bu rehberi izleyerek, Java uygulamalarınıza dinamik grafik üretimini entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
+Bu makale, Aspose.Slides for Java kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir slayta programlı olarak grafik eklemeyi, verilerle doldurmayı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmadan serileri, eksenleri ve açıklamaları (legend) yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunmaktadır. Bu rehberi izleyerek, dinamik grafik üretimini Java uygulamalarınıza entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunum oluşturma sürecini hızlandıracaksınız.
 
 ## **Grafik Oluşturma**
 
-Grafikler, insanlara verileri hızlı bir şekilde görselleştirmede ve bir tablo ya da elektronik tablodan hemen fark edilmemiş olabilecek içgörüler elde etmede yardımcı olur.
+Grafikler, insanların verileri hızlıca görselleştirmesine ve bir tablo ya da elektronik tablodan hemen anlaşılmayabilecek içgörüler elde etmesine yardımcı olur.
 
-**Grafikler Neden Oluşturulmalı?**
+**Grafik Neden Oluşturulur?**
 
-Grafikleri kullanarak şunları yapabilirsiniz:
+* büyük miktarda veriyi tek bir slaytta toplamak, sıkıştırmak veya özetlemek;
+* veri içindeki desenleri ve eğilimleri ortaya çıkarmak;
+* verinin zaman içindeki yönünü ve ivmesini ya da belirli bir ölçü birimiyle ilişkisini çıkarmak;
+* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit etmek;
+* karmaşık verileri iletmek veya sunmak.
 
-* Büyük miktarda veriyi tek bir slaytta toplamak, özetlemek veya kısaltmak;
-* Verideki desenleri ve eğilimleri ortaya çıkarmak;
-* Verinin zaman içindeki yönünü ve ivmesini ya da belirli bir ölçü birimine göre çıkarmak;
-* Uç değerleri, sapmaları, hataları ve mantıksız verileri tespit etmek;
-* Karmaşık verileri iletişim kurmak veya sunmak.
-
-PowerPoint'te, birçok grafik tipi tasarlamak için şablonlar sunan *Ekle* işlevi aracılığıyla grafik oluşturabilirsiniz. Aspose.Slides kullanarak, popüler grafik tiplerine dayanan normal grafiklerin yanı sıra özel grafikler de oluşturabilirsiniz.
+PowerPoint'te, *Insert* işlevi aracılığıyla birçok grafik türü tasarlamak için şablonlar sunan grafikler oluşturabilirsiniz. Aspose.Slides kullanarak, hem yaygın grafik türlerine dayanan normal grafikler hem de özel grafikler oluşturabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) enumeration in the [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) package. The values in this enumeration correspond to different chart types.
+[ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) sınıflandırmasını [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) paketinde kullanın. Bu sınıflandırmadaki değerler farklı grafik tiplerine karşılık gelir.
 {{% /alert %}}
 
-### **Kümelenmiş Sütun Grafikleri Oluşturma**
+### **Kümeleyen Sütun Grafikleri Oluşturma**
 
-Bu örnek, iki seriyi üç kategori boyunca karşılaştıran bir kümelenmiş sütun grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) yöntemini kullanır. Seriler kırmızı ve yeşil dolgu renkleri kullanır ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfayı ifade eder.
+Bu örnek, iki seriyi üç kategori boyunca karşılaştıran bir kümeleyen sütun grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) kullanır. Seriler kırmızı ve yeşil dolgu renkleri kullanır ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfayı ifade eder.
 
 ```java
 import com.aspose.slides.*;
@@ -134,20 +132,20 @@ finally
 
 Sonuç:
 
-![Kümelenmiş Sütun Grafiği](clustered_column_chart.png)
+![Kümeleyen Sütun grafiği](clustered_column_chart.png)
 
-### **Dağılım Grafiklerini Oluşturma**
+### **Saçılım Grafiklerini Oluşturma**
 
-Dağılım grafikleri (dağılım grafiği veya x-y grafiği olarak da bilinir) genellikle iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için kullanılır.
+Saçılım grafikleri (saçılım diyagramları veya x-y grafikleri olarak da bilinir) genellikle iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için kullanılır.
 
-Dağılım grafiği kullanmanız gereken durumlar:
+Aşağıdaki durumlarda bir saçılım grafiği kullanın:
 
-* İkili sayısal verileriniz var.
-* Birlikte iyi eşleşen iki değişkeniniz var.
-* İki değişkenin ilişkili olup olmadığını belirlemek istiyorsunuz.
-* Bağımlı bir değişken için birden çok değere sahip bağımsız bir değişkeniniz var.
+* Eşleştirilmiş sayısal verileriniz vardır.
+* Birlikte iyi eşleşen iki değişkeniniz vardır.
+* İki değişkenin ilişkili olup olmadığını belirlemek istersiniz.
+* Bağımlı bir değişken için birden çok değere sahip bağımsız bir değişkeniniz vardır.
 
-Bu örnek iki set x-y değerini çizer. İlk seri, yıldız işaretçileriyle düz çizgiler kullanırken, ikinci seri dairesel işaretçileriyle yumuşak çizgiler kullanır; her ikisi de [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) yöntemiyle 10 boyutunda işaretçi boyutu kullanır. [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) yöntemi işaretçi şekli kontrol eder.
+Bu örnek, iki set x-y değerini çizer. İlk seri yıldız işaretçili düz çizgiler kullanırken, ikinci seri daire işaretçili yumuşak çizgiler kullanır; her ikisi de [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) ile yapılandırılmış 10 ölçüsünde işaretçiye sahiptir. [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) yöntemi işaretçi şeklini kontrol eder.
 
 ```java
 import com.aspose.slides.*;
@@ -215,13 +213,13 @@ finally
 
 Sonuç:
 
-![Dağılım Grafiği](scatter_chart.png)
+![Saçılım grafiği](scatter_chart.png)
 
 ### **Pasta Grafiklerini Oluşturma**
 
-Pasta grafikler, özellikle veriler kategorik etiketler ve sayısal değerler içerdiğinde, veri içindeki bütün‑parça ilişkisinin gösterilmesi için en iyisidir. Ancak veriniz çok sayıda parça ya da etiket içeriyorsa, çubuk grafik kullanmayı düşünebilirsiniz.
+Pasta grafikler, özellikle veriler kategorik etiketlerle sayısal değerler içerdiğinde, parça‑bütün ilişkisini göstermek için en uygunudur. Ancak, verileriniz birçok parça ya da etiket içeriyorsa, bunun yerine çubuk grafik kullanmayı düşünebilirsiniz.
 
-Bu örnek, üç çeyrek değeri içeren bir pasta grafiği oluşturur. Her dilim, özel bir dolgu ve kenarlık ile tasarlanmıştır ve etiketler değer, yüzde ve seri bilgilerini farklı kombinasyonlarda gösterir. [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) yöntemi, ilk dilimin 180 derece başlamasını sağlar.
+Bu örnek, üç çeyrek değer içeren bir pasta grafiği oluşturur. Her dilim özel bir dolgu ve kenarlığa sahiptir ve etiketler değer, yüzde ve seri bilgilerini farklı kombinasyonlarda gösterir. [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) yöntemi ilk dilimin 180 derece konumundan başlamasını ayarlar.
 
 ```java
 import com.aspose.slides.*;
@@ -322,13 +320,13 @@ finally
 
 Sonuç:
 
-![Pasta Grafiği](pie_chart.png)
+![Pasta grafiği](pie_chart.png)
 
 ### **Çizgi Grafiklerini Oluşturma**
 
-Çizgi grafikler (diğer adıyla çizgi diyagramları), zaman içinde değer değişimlerini göstermek istediğiniz durumlarda en iyisidir. Çizgi grafiği kullanarak büyük miktarda veriyi bir kerede karşılaştırabilir, zaman içindeki değişimleri ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+Çizgi grafikler (çizgi diyagramları olarak da bilinir) değerlerin zaman içindeki değişimini göstermek istediğiniz durumlar için en uygundur. Çizgi grafiği kullanarak, büyük miktarda veriyi bir kerede karşılaştırabilir, zaman içinde değişim ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilir ve daha fazlasını yapabilirsiniz.
 
-Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) yöntemini kullanır ve sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) kullanır ve ardından sunumu PPTX olarak kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -348,7 +346,7 @@ finally
 }
 ```
 
-Varsayılan olarak, bir çizgi grafiğindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaların yerine kesikli çizgiler kullanılmasını istiyorsanız, [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) yöntemini [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) değerlerinden biriyle çağırın:
+Varsayılan olarak, bir çizgi grafiğindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaların kesik çizgilerle birleştirilmesini isterseniz, [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) metodunu [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) içinden bir değerle çağırın:
 
 ```java
 import com.aspose.slides.*;
@@ -373,13 +371,13 @@ finally
 
 Sonuç:
 
-![Çizgi Grafiği](line_chart.png)
+![Çizgi grafiği](line_chart.png)
 
 ### **Ağaç Haritası Grafiklerini Oluşturma**
 
-Ağaç haritası grafikler, satış verilerini, veri kategorilerinin göreceli boyutlarını göstermek ve her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek için en iyisidir.
+Ağaç haritası grafikleri, satış verileri için, veri kategorilerinin göreli boyutunu göstermek ve her kategori içinde büyük katkıda bulunan öğelere hızlıca dikkat çekmek istediğinizde en uygundur.
 
-Bu örnek, dört gövde ve iki dal üzerine gruplanmış sekiz yaprak içeren bir ağaç haritası oluşturur. [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi, 1. seviye gruplaşmada gövdeleri, 2. seviyede dalları atar. Değerler, göreceli dikdörtgen boyutlarını belirlerken, kategori etiketleri ve üst üste binen ebeveyn etiketleri hiyerarşiyi tanımlar.
+Bu örnek, sekiz yaprak, dört gövde ve iki dal içeren bir ağaç haritası oluşturur. [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi, grup seviyesinde 1 gövdeleri ve seviyede 2 dalları atar. Kategori etiketleri bölümleri tanımlar, değerler ise göreli boyutları belirler.
 
 ```java
 import com.aspose.slides.*;
@@ -460,26 +458,24 @@ finally
 
 Sonuç:
 
-![Ağaç Haritası Grafiği](treemap_chart.png)
+![Ağaç haritası grafiği](treemap_chart.png)
 
 ### **Şelale Grafiklerini Oluşturma**
 
-Şelale grafiği, pozitif ve negatif değişimlerin nihai bir değere nasıl katkıda bulunduğunu gösterir. Örneğin, kar dağılımı gelirden başlayıp maliyetleri çıkararak ve diğer gelirleri ekleyerek hesaplanabilir. Değişim sütunları önceki ve yeni çalışan değerler arasında süzülürken, toplam sütunlar sıfırdan birikmiş değere kadar uzanır.
+Bir şelale grafiği, pozitif ve negatif değişimlerin nihai değere nasıl katkıda bulunduğunu gösterir. Örneğin, kar dağılımı, gelirle başlayıp maliyetleri çıkarıp diğer gelirleri ekleyebilir. Değişim sütunları önceki ve yeni yürütülen değerler arasında yüzer, toplam sütunlar sıfırdan birikmiş değere uzanır.
 
-Aşağıdaki örnek bin ABD doları cinsinden tutarları kullanır:
-
-| Kategori | Çalışma kitabı değeri | Sütun tipi |
+| Kategori | Çalışma kitabı değeri | Sütun türü |
 | --- | ---: | --- |
 | Gelir | 1000 | Artış |
 | Satış Maliyeti | -400 | Azalış |
-| Brüt Kar | 600 | Ara Toplam |
-| İşletme Giderleri | -200 | Azalış |
+| Brüt Kar | 600 | Ara toplam |
+| Faaliyet Giderleri | -200 | Azalış |
 | Diğer Gelir | 50 | Artış |
-| Net Kar | 450 | Son Toplam |
+| Net Kar | 450 | Son toplam |
 
-Bir noktayı ara veya son toplam olarak işaretlemek için, `true` ile [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) metodunu çağırın. O noktadaki çalışma kitabı hücresine gerçek birikmiş tutarı girin: brüt kar için `600` (`1000 - 400`) ve net kar için `450` (`600 - 200 + 50`). Metod sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın veya toplam noktası için başka bir değişim eklemeyin. Toplam sütun, birikmiş değeri gösterir, tekrar eklemez.
+Bir noktayı ara toplam veya son toplam olarak işaretlemek için, [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) yöntemini `true` ile çağırın. Gerçek birikmiş miktarı o noktanın çalışma kitabı hücresine sağlayın: brüt kar için `600` (`1000 - 400`) ve net kar için `450` (`600 - 200 + 50`). Bu yöntem sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın veya toplam nokta için başka bir değişim sağlamayın. Bir toplam sütun birikmiş değeri gösterir, ancak bu değeri tekrar yürütülen değere eklemez.
 
-Bu tam Java örneği, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) içindeki `Waterfall` üyesiyle bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk sayfayı seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) ile eklenir. Sıfır‑tabanlı nokta indeksleri `2` ve `5` ara ve son toplamları belirler. [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) `true` ile değerler sütunlarda gösterilir. Giriş sunumu veya çalışma kitabı gerekli değildir.
+Bu tam Java örneği, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) içindeki `Waterfall` üyesini kullanarak bir şelale grafiği oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk çalışma sayfasını seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) ile eklenir. Sıfır tabanlı nokta indisleri `2` ve `5` ara ve son toplamları belirler. [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) `true` ile çağrıldığında, miktarlar sütunlarda gösterilir. Giriş sunumu veya çalışma kitabı gerekmez.
 
 ```java
 import com.aspose.slides.*;
@@ -531,17 +527,17 @@ finally
 }
 ```
 
-Seri‑seviyesindeki [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) metodunu `true` yaparak ardışık sütunları birbirine bağlayan çizgileri görüntüleyebilir ve çalıştırma değerini daha kolay takip edebilirsiniz. Bu çizgileri gizlemek için örnekteki çağrıyı `series.setShowConnectorLines(false);` ile değiştirin ve ardından kaydedin. Bu sadece çizgi görünürlüğünü değiştirir, veri veya toplamları etkilemez.
+Seri düzeyindeki [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) yöntemini `true` ile çağırarak, ardışık sütunları bağlayan çizgileri gösterir ve yürütülen değerin takibini kolaylaştırırsınız. Bu çizgileri gizlemek için, örnekteki metod çağrısını `series.setShowConnectorLines(false);` ile değiştirin ve kaydedin. Bu değişiklik yalnızca çizgi görünürlüğünü etkiler, veri veya toplamları etkilemez.
 
-Kaydedilen sunum, sıfırdan başlayan 600 brüt kar ve 450 net karı gösterir:
+Kaydedilen sunum, brüt karı 600 ve net karı 450 olarak gösterir, her iki toplam da sıfırdan çizilir:
 
-![Şelale Grafiği](waterfall_chart.png)
+![Şelale grafiği, geliri, maliyetleri, 600 brüt karı ve 450 net karı, değer etiketleri ve bağlayıcı çizgilerle gösterir](waterfall_chart.png)
 
 ### **Hisse Senedi Grafiklerini Oluşturma**
 
-Hisse senedi grafikleri, açık, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstermek için kullanılır; piyasa trendlerini ve volatiliteyi analiz etmeye yardımcı olur. Bu grafikler, hisse performansı hakkında kritik bilgiler sunarak yatırımcı ve analistlerin bilinçli kararlar almasını sağlar.
+Stok grafikler, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstermek için kullanılır; piyasa trendlerini ve volatiliteyi analiz etmeye yardımcı olur.
 
-Bu örnek, dört seriyi sırasıyla açık‑yüksek‑düşük‑kapanış şeklinde ve üç kategoriyle bir OHLC grafiği oluşturur. [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) metodu up/down çubuklarını etkinleştirir ve [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) yüksek-düşük çizgilerini kontrol eder; bireysel seri çizgileri ve küçük yatay ızgara çizgileri gizlenir.
+Bu örnek, dört seriyi bu sırayla ve üç kategori içeren bir open‑high‑low‑close grafiği oluşturur. [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) yöntemi yukarı/aşağı çubukları etkinleştirir ve [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) yüksek-düşük çizgileri kontrol eder; bireysel seri çizgileri ve ince yatay ızgaralar gizlenir.
 
 ```java
 import com.aspose.slides.*;
@@ -623,13 +619,13 @@ finally
 
 Sonuç:
 
-![Hisse Senedi Grafiği](stock_chart.png)
+![Stok grafiği](stock_chart.png)
 
-### **Kutu ve Bıçak Grafiklerini Oluşturma**
+### **Kutu ve Bıyık Grafiklerini Oluşturma**
 
-Kutu ve bıçak grafikleri, medyan, çeyrek değerler ve olası uç değerler gibi temel istatistiksel ölçümleri özetleyerek verinin dağılımını gösterir. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve anormallikleri belirlemek açısından oldukça yararlıdır.
+Kutu ve bıyık grafikler, verinin dağılımını göstermek için, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçüleri özetleyerek kullanılır. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve anormallikleri tanımlamakta özellikle faydalıdır.
 
-Bu örnek, altı değerden bir kutu ve bıçak grafiği oluşturur. [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) metodu, dışsal çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç noktalar ve uç değer noktalarını etkinleştirir.
+Bu örnek, altı değerden bir kutu ve bıyık grafiği oluşturur. [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) yöntemi ayrıç çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç noktaları ve aykırı nokta göstergelerini etkinleştirir.
 
 ```java
 import com.aspose.slides.*;
@@ -691,9 +687,9 @@ finally
 
 ### **Huni Grafiklerini Oluşturma**
 
-Huni grafikler, verinin bir adımdan bir sonraki adıma ilerledikçe azaldığı süreçleri görselleştirmek için kullanılır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle faydalıdır.
+Huni grafikler, bir sürecin ardışık aşamalarını görselleştirmek için kullanılır; verinin hacmi bir adımdan diğerine ilerlerken azalır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle faydalıdır.
 
-Bu örnek, mevcut bir sunumun ilk slaytına bir huni grafik eklemek için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) yöntemini kullanır. Varsayılan veriyi altı kategori ve 50‑500 arasında değişen değerlerle değiştirir, ardından güncellenmiş sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
+Bu örnek, mevcut bir sunumun ilk slaytına bir huni grafiği eklemek için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) kullanır. Varsayılan veriyi altı kategori ve 50‑500 arası değerlerle değiştirir, ardından güncellenmiş sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
 
 ```java
 import com.aspose.slides.*;
@@ -749,13 +745,13 @@ finally
 
 Sonuç:
 
-![Huni Grafiği](funnel_chart.png)
+![Huni grafiği](funnel_chart.png)
 
 ### **Güneş Patlaması Grafiklerini Oluşturma**
 
-Güneş patlaması grafikleri, hiyerarşik verileri dairesel halkalar şeklinde görselleştirir. Parça‑bütün ilişkilerini göstermek ve iç içe kategorileri net ve kompakt bir biçimde temsil etmek için idealdir.
+Güneş patlaması grafikler, hiyerarşik verileri görselleştirmek için kullanılır; seviyeler konsantrik halkalar olarak gösterilir. Parça‑bütün ilişkilerini göstermek ve iç içe kategorileri net, kompakt bir biçimde temsil etmek için idealdir.
 
-Bu örnek, dört gövde ve iki dal üzerine gruplanmış sekiz yaprak içeren bir güneş patlaması grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi, 1. seviye gruplaşmada gövdeleri, 2. seviyede dalları atar. Kategori etiketleri segmentleri tanımlar, değerler ise göreceli boyutlarını belirler.
+Bu örnek, sekiz yaprak, dört gövde ve iki dal içeren bir güneş patlaması grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi grup seviyesinde 1 gövdeleri ve seviyede 2 dalları atar. Kategori etiketleri bölümleri tanımlar, değerler ise göreli boyutları belirler.
 
 ```java
 import com.aspose.slides.*;
@@ -834,13 +830,19 @@ finally
 
 Sonuç:
 
-![Güneş Patlaması Grafiği](sunburst_chart.png)
+![Güneş patlaması grafiği](sunburst_chart.png)
 
 ### **Histogram Grafiklerini Oluşturma**
 
-Histogram grafikler, sayısal verilerin dağılımını değer aralıkları veya kutular halinde gruplayarak gösterir. Veri frekansı, çarpıklık ve yayılım gibi kalıpları tanımlamak ve veri kümesindeki uç değerleri tespit etmek için özellikle kullanışlıdır.
+Histogram grafikler, sayısal değerlerin aralıklar (kova) içinde nasıl dağıldığını gösterir.
 
-Bu örnek, negatif değerler dahil altı sayısal değerden bir histogram oluşturur. Otomatik toplama türüyle [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) çağrısı, grafiğin dağılımı göstermek için kullanılacak kutuları belirlemesine olanak tanır.
+Aylık sipariş işleme süresi raporları için aynı kova genişliğini ve eşik değerlerini kullanın; böylece aralıklar tutarlı kalır ve dağılımlar daha kolay karşılaştırılır.
+
+[setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) metodunu yatay eksende [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/) içinden bir modla çağırın. [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) yalnızca `ByBinWidth` için uygulanır; [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) yalnızca `ByNumberOfBins` için uygulanır. `Automatic` kullanarak grafiğin kova sayısını kendisinin belirlemesine izin verin.
+
+#### **Sabit Kova Genişliği Kullanma**
+
+Bu örnek, işleme sürelerini 10 dakikalık aralıklara gruplar; 10 dakikaya eşit veya daha az ve 40 dakikadan fazla süreler için ayrı kova oluşturur. Bu kovaları [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) ve [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-) ile etkinleştirin. [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) ve [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-) aracılığıyla açık eşik değerleri sağlandığında, [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) ve [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) `false` ile çağırın.
 
 ```java
 import com.aspose.slides.*;
@@ -850,7 +852,10 @@ try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300);
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -859,22 +864,24 @@ try
     workbook.clear(0);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
-    IChartDataCell valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 }
 finally
 {
@@ -882,15 +889,62 @@ finally
 }
 ```
 
-Sonuç:
+PowerPoint'te gösterilen sunum, **3, 4, 4, 4 ve 2** kova sayısını gösterir. Alt kova `5, 10, 10` değerlerini içerdiği için eşik değeri dahil edicidir. Üst kova yalnızca `41, 50` değerlerini içerdiğinden eşik değeri hariçtir; `40` değerleri önceki aralıkta kalır. İç kova değerleri alt sınırdan büyük ve üst sınırdan küçük veya eşit olacak şekilde içerir.
 
-![Histogram Grafiği](histogram_chart.png)
+![10 dakikalık kovalar ve açık alt ve üst eşik değerleriyle histogram](histogram_bin_width.png)
+
+#### **Kova Sayısını Belirtme**
+
+Detaydaki sabit bir seviye yerine sabit aralıklar istemiyorsanız, aynı veri için beş kova isteyin. Bu örnek alt ve üst kova kapalı. Grafik, veri aralığından genişliği belirler, bu yüzden sınırlar raporlar arasında değişebilir.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Beş kova **4, 4, 4, 4 ve 1** sayısına sahiptir. Bu dağılımı yukarıdaki sabit‑genişlik sonucuyla karşılaştırın: giriş değerleri aynı, ancak sınırlar farklı.
+
+![Aynı veriden hesaplanan beş kova ile histogram](histogram_bin_count.png)
 
 ### **Radar Grafiklerini Oluşturma**
 
-Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birkaç değişkeni aynı anda kolayca karşılaştırmayı sağlar. Performans metrikleri veya özellikler arasında desenler, güçlü ve zayıf yönler belirlemek için özellikle yararlıdır.
+Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta gösterir; böylece birden fazla değişkeni aynı anda kolayca karşılaştırabilirsiniz. Özellikle birden çok performans metriği veya özelliği arasındaki desenleri, güçlü yönleri ve zayıf yönleri belirlemede faydalıdır.
 
-Bu örnek, varsayılan seriler ve kategorilerle bir radar grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) yöntemini kullanır ve sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir radar grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) kullanır ve ardından sunumu PPTX olarak kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -912,13 +966,13 @@ finally
 
 Sonuç:
 
-![Radar Grafiği](radar_chart.png)
+![Radar grafiği](radar_chart.png)
 
 ### **Çok Kategorili Grafikler Oluşturma**
 
-Çok‑kategorili grafikler, birden fazla kategorik gruplamayı içeren verileri göstermek için kullanılır; bu sayede değerleri aynı anda birden çok boyutta karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri kümelerinde trendleri ve ilişkileri analiz etmek için özellikle faydalıdır.
+Çok kategorili grafikler, birden fazla kategori grubu içeren verileri göstermek için kullanılır; böylece değerleri aynı anda birden fazla boyutta karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri kümelerinde trendleri ve ilişkileri analiz etmeniz gerektiğinde özellikle faydalıdır.
 
-Bu örnek, dört çift halinde düzenlenmiş sekiz kategoriyle bir kümelenmiş sütun grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi, her çifti 1. grup seviyesinde ortak bir etiketle atar; böylece kategori ekseni hem bireysel hem grup etiketlerini gösterir.
+Bu örnek, dört çift halinde düzenlenmiş sekiz kategoriyle bir kümeleyen sütun grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi, her çifte grup seviyesinde 1 ortak bir etiket verir; bu da hem bireysel hem grup etiketli bir kategori ekseni üretir.
 
 ```java
 import com.aspose.slides.*;
@@ -992,13 +1046,13 @@ finally
 
 Sonuç:
 
-![Çok Kategorili Grafik](multi_category_chart.png)
+![Çok kategorili grafik](multi_category_chart.png)
 
 ### **Harita Grafiklerini Oluşturma**
 
-Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgi eşleştirerek coğrafi verileri görselleştirir. Bölgesel trendleri, demografik verileri ve mekânsal dağılımları net ve görsel olarak çekici bir biçimde analiz etmek için oldukça kullanışlıdır.
+Harita grafikler, coğrafi verileri ülkeler, eyaletler veya şehirler gibi belirli konumlarla eşleştirerek görselleştirmek için kullanılır. Bölgesel trendleri, demografik verileri ve mekansal dağılımları net ve görsel açıdan çekici bir biçimde analiz etmekte özellikle faydalıdır.
 
-Bu örnek, varsayılan coğrafi verilerle bir harita grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metodunu kullanır ve PowerPoint’te görüntülenmek üzere kaydeder.
+Bu örnek, varsayılan coğrafi verilerle bir harita grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) kullanır ve PowerPoint'te görüntülenmek üzere kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -1020,19 +1074,19 @@ finally
 
 Sonuç:
 
-![Harita Grafiği](map_chart.png)
+![Harita grafiği](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Yukarıdaki resim, kaydedilen sunumun PowerPoint'te açık olduğunu gösterir. Aspose.Slides, harita grafiğini ve verilerini doğru bir şekilde yazar, ancak harita grafiklerini kendisi çizmez: bir slayt içinde harita grafiği bir görüntüye render edildiğinde veya PDF ya da SVG'ye dönüştürüldüğünde, grafik alanı boş çıkmaktadır. Aynı slayttaki diğer şekiller etkilenmez.
+Yukarıdaki resim, kaydedilen sunumun PowerPoint'te açılmış halini gösterir. Aspose.Slides harita grafiğini ve verilerini doğru yazar, ancak harita grafiklerini kendisi çizmeyebilir: bir slayt üzerindeki harita grafiği bir görüntüye render edildiğinde veya PDF ya da SVG'ye dönüştürüldüğünde, grafik alanı boş çıkar. Aynı slayttaki diğer şekiller etkilenmez.
 {{% /alert %}}
 
 ### **Kombinasyon Grafiklerini Oluşturma**
 
-Kombinasyon grafiği (veya combo grafiği), tek bir diyagramda iki ya da daha fazla grafik tipini birleştirir. Bu grafik, iki ya da daha fazla veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır; böylece ilişkileri tanımlamanıza yardımcı olur.
+Kombinasyon grafiği (veya combo grafiği), tek bir grafikte iki veya daha fazla grafik tipini birleştirir. Bu grafik, iki veya daha fazla veri seti arasındaki farkları vurgulamanızı, karşılaştırmanızı veya incelemenizi sağlar ve aralarındaki ilişkileri belirlemenize yardımcı olur.
 
-![Kombinasyon Grafiği](combination_chart.png)
+![Kombinasyon grafiği](combination_chart.png)
 
-Bu örnek, dört kategori boyunca iki kümelenmiş sütun serisi ile bir çizgi serisini birleştirir. Sütunlar birincil dikey ekseni, çizgi ise sağdaki ikincil dikey ekseni kullanır; çizgi, [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) yöntemiyle ikinci eksene yerleştirilir. Yardımcı işlevler başlığı, lejandı, eksen etiketlerini ve ızgara çizgilerini yapılandırır.
+Bu örnek, dört kategori içinde iki kümeleyen sütun serisini bir çizgi serisiyle birleştirir. Sütunlar birincil dikey ekseni, [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) ise çizgi serisini sağdaki ikincil dikey eksene yerleştirir. Yardımcı işlevler başlığı, açıklamayı, eksen etiketlerini ve ızgaraları yapılandırır.
 
 ```java
 import com.aspose.slides.*;
@@ -1203,9 +1257,9 @@ example.createComboChart();
 
 ## **Grafikleri Güncelleme**
 
-Aspose.Slides for Java, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu özellik, sunumların dinamik içerikle güncel kalmasını kolaylaştırır ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını sağlar.
+Aspose.Slides for Java, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu işlevsellik, sunumları dinamik içerikle güncel tutma sürecini basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını temin eder.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiği günceller. Her birinde üç veri noktasına sahip iki sütun serisine ihtiyaç duyar; kategori etiketleri A sütununda, seri adları ise ilk çalışma sayfasının ilk satırında bulunur. Örnek, [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) ile çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) ile kümelenmiş silindir biçimine çevirir.
+Bu örnek, mevcut bir sunumun ilk slaydındaki "My chart" adlı grafiği günceller. Her birinin üç veri noktasına sahip iki sütun serisi gerektirir; kategori etiketleri A sütununda, seri adları ilk çalışma sayfasının ilk satırında bulunur. Örnek, [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) kullanarak çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) ile kümeleyen silindir grafiklerine dönüştürür.
 
 ```java
 import com.aspose.slides.*;
@@ -1265,13 +1319,13 @@ finally
 }
 ```
 
-## **Bir Grafiğin Veri Aralığını Ayarlama**
+## **Grafik İçin Veri Aralığını Ayarlama**
 
-[Bir Grafiğin Veri Aralığını Al](/slides/tr/java/chart-workbook/#retrieve-a-charts-data-range) sayfasında mevcut bir grafiğin kullandığı aralığı inceleyebilirsiniz.
+Mevcut bir grafiğin zaten kullandığı aralığı incelemek için, [Retrieve a Chart's Data Range](/slides/tr/java/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
 
-Aspose.Slides for Java, grafik verilerinizin kaynağı olarak bir çalışma sayfasındaki belirli bir veri aralığını tanımlama esnekliği sağlar. Bu sayede, çalışma sayfanızın yalnızca bir bölümünü grafiğe eşleyebilir, hangi hücrelerin seri ve kategorilere katkıda bulunduğunu kontrol edebilirsiniz. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilirsiniz; böylece PowerPoint sunumlarınız güncel ve doğru bilgiler içerir.
+Aspose.Slides for Java, grafik verileriniz için çalışma sayfasından belirli bir veri aralığını kaynak olarak tanımlama esnekliği sunar. Bu sayede, çalışma sayfasının bir bölümünü doğrudan grafikle eşleştirerek, hangi hücrelerin seri ve kategorilere katkıda bulunduğunu kontrol edebilirsiniz. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilirsiniz; böylece PowerPoint sunumlarınız güncel ve doğru bilgileri yansıtır.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlamak için [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) yöntemini kullanır. Grafik çalışma kitabının bu çalışma sayfasını ve birinci satırda bir seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren bir aralık bulundurması gerekir.
+Bu örnek, [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) metodunu kullanarak, mevcut bir sunumun ilk slaydındaki "My chart" adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlar. Grafik çalışma kitabının bu çalışma sayfasını ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren bir aralık içermesi gerekir.
 
 ```java
 import com.aspose.slides.*;
@@ -1302,9 +1356,9 @@ finally
 
 ## **Grafiklerde Varsayılan İşaretçileri Kullanma**
 
-Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir varsayılan işaretçi sembolü alır.
+Grafiklerde varsayılan işaretçiler kullanıldığında, her grafik serisi otomatik olarak farklı bir varsayılan işaretçi sembolü alır.
 
-Bu örnek, iki çizgi serisi ve bir lejand içeren bir grafik oluşturmak için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) yöntemini kullanır. [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) aracılığıyla erişilen işaretçi ayarları, otomatik olarak atanmış işaretçi sembollerini korur. İlk seri, `null` ile temsil edilen bir negatif değer ve eksik bir değer içerirken, ikinci seri her kategori için bir değer içerir.
+Bu örnek, iki çizgi serisi ve bir açıklama içeren bir grafik oluşturmak için [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) kullanır. [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) aracılığıyla erişilen işaretçi ayarları, otomatik atanmış işaretçi sembollerini korur. İlk seri bir negatif değer ve `null` ile temsil edilen eksik bir değer içerirken, ikincisi her kategori için bir değer içerir.
 
 ```java
 import com.aspose.slides.*;
@@ -1369,18 +1423,18 @@ finally
 
 ## **SSS**
 
-**Aspose.Slides for Java tarafından hangi grafik tipleri destekleniyor?**
+**Aspose.Slides for Java tarafından hangi grafik tipleri desteklenir?**
 
-Aspose.Slides for Java, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha pek çok grafik tipini destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik tipini seçmenizi sağlar.
+Aspose.Slides for Java, çubuk, çizgi, pasta, alan, saçılım, histogram, radar ve daha birçok grafik tipi dahil olmak üzere geniş bir yelpazeyi destekler. Bu esneklik, veri görselleştirmenize en uygun grafik tipini seçmenize olanak tanır.
 
-**Yeni bir grafiği slayta nasıl eklerim?**
+**Bir slayta yeni bir grafik nasıl eklenir?**
 
-Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istediğiniz slaytı indeksine göre alır ve ardından grafik tipini ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
+Yeni bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istenen slaytı indeksine göre alır ve ardından grafik türü ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu süreç, grafiği doğrudan sunuma entegre eder.
 
-**Bir grafikte gösterilen verileri nasıl güncellerim?**
+**Bir grafikte gösterilen veriler nasıl güncellenir?**
 
-Bir grafiğin verilerini, veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip kendi verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenizi sağlar.
+Bir grafiğin verilerini, veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip, kendi verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenize olanak tanır.
 
-**Grafiğin görünümünü özelleştirmek mümkün mü?**
+**Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides for Java kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejandları ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre uyarlayabilirsiniz.
+Evet, Aspose.Slides for Java kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, açıklamaları ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre ayarlayabilirsiniz.

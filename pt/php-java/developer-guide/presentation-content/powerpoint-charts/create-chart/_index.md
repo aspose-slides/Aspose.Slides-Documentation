@@ -15,11 +15,11 @@ keywords:
 - gráfico de linha
 - gráfico de mapa de árvore
 - gráfico de ações
-- gráfico de caixa e bigodes
+- gráfico caixa e bigodes
 - gráfico funil
 - gráfico sunburst
 - gráfico de histograma
-- gráfico de radar
+- gráfico radar
 - gráfico multicategoria
 - PowerPoint
 - apresentação
@@ -29,31 +29,33 @@ description: "Criar e personalizar gráficos em apresentações PowerPoint usand
 ---
 ## **Visão geral**
 
-Este artigo fornece um guia abrangente sobre como criar e personalizar gráficos usando Aspose.Slides para PHP via Java. Você aprenderá a adicionar programaticamente um gráfico a um slide, preenchê‑lo com dados e aplicar várias opções de formatação para atender aos requisitos de design específicos. Ao longo do artigo, exemplos de código detalhados ilustram cada etapa, desde a inicialização da apresentação e do objeto de gráfico até a configuração de séries, eixos e legendas. Seguindo este guia, você obterá uma compreensão sólida de como integrar a geração dinâmica de gráficos em suas aplicações PHP, simplificando o processo de criação de apresentações orientadas a dados.
+Este artigo fornece um guia abrangente sobre como criar e personalizar gráficos usando Aspose.Slides para PHP via Java. Você aprenderá como adicionar programaticamente um gráfico a um slide, preenchê‑lo com dados e aplicar várias opções de formatação para atender aos requisitos de design específicos. Ao longo do artigo, exemplos de código detalhados ilustram cada etapa, desde a inicialização da apresentação e do objeto de gráfico até a configuração de séries, eixos e legendas. Seguindo este guia, você obterá uma compreensão sólida de como integrar a geração dinâmica de gráficos em suas aplicações PHP, simplificando o processo de criação de apresentações orientadas a dados.
 
 ## **Criar um Gráfico**
 
-Os gráficos ajudam as pessoas a visualizar rapidamente os dados e obter insights que podem não ser imediatamente óbvios em uma tabela ou planilha.
+Os gráficos ajudam as pessoas a visualizar rapidamente os dados e obter insights que podem não ser óbvios em uma tabela ou planilha.
 
 **Por que criar gráficos?**
 
-Com os gráficos, você pode:
+Usando gráficos, você pode:
 
 * agregar, condensar ou resumir grandes quantidades de dados em um único slide de uma apresentação;
-* revelar padrões e tendências nos dados;
+* expor padrões e tendências nos dados;
 * deduzir a direção e o impulso dos dados ao longo do tempo ou em relação a uma unidade de medida específica;
-* identificar valores atípicos, aberrações, desvios, erros e dados sem sentido;
+* identificar outliers, aberrações, desvios, erros e dados sem sentido;
 * comunicar ou apresentar dados complexos.
 
-No PowerPoint, você pode criar gráficos através da função *Inserir*, que oferece modelos para projetar diversos tipos de gráficos. Usando Aspose.Slides, você pode criar tanto gráficos padrão (baseados em tipos de gráfico populares) quanto gráficos personalizados.
+No PowerPoint, você pode criar gráficos através da função *Inserir*, que fornece modelos para projetar diversos tipos de gráficos. Usando Aspose.Slides, você pode criar tanto gráficos regulares (baseados em tipos de gráfico populares) quanto gráficos personalizados.
 
 {{% alert color="info" title="Note" %}}
-Use a enumeração [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) no namespace [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/). Os valores dessa enumeração correspondem a diferentes tipos de gráfico.
+
+Use a enumeração [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) no namespace [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/). Os valores nesta enumeração correspondem a diferentes tipos de gráfico.
+
 {{% /alert %}}
 
-### **Criar gráficos de Coluna Agrupada**
+### **Criar Gráficos de Colunas Agrupadas**
 
-Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para criar um gráfico de coluna agrupada que compara duas séries em três categorias. As séries usam preenchimentos vermelho e verde, e os rótulos individuais demonstram nomes de categoria, nomes de série e valores. O índice da planilha 0 refere‑se à primeira planilha no workbook integrado do gráfico.
+Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para criar um gráfico de colunas agrupadas que compara duas séries em três categorias. As séries usam preenchimentos vermelho e verde, e rótulos individuais demonstram os nomes das categorias, nomes das séries e valores. O índice da planilha 0 refere‑se à primeira planilha na pasta de trabalho incorporada ao gráfico.
 
 ```php
 use aspose\slides\ChartType;
@@ -139,7 +141,7 @@ finally
 
 O resultado:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Gráfico de colunas agrupadas](clustered_column_chart.png)
 
 ### **Criar Gráficos de Dispersão**
 
@@ -147,12 +149,12 @@ Gráficos de dispersão (também conhecidos como scatter plots ou gráficos x‑
 
 Use um gráfico de dispersão quando:
 
-* Você tem dados numéricos emparelhados.
-* Você tem duas variáveis que se combinam bem.
+* Você possui dados numéricos emparelhados.
+* Você tem duas variáveis que se relacionam bem.
 * Você deseja determinar se as duas variáveis estão relacionadas.
 * Você tem uma variável independente que possui múltiplos valores para uma variável dependente.
 
-Este exemplo traça dois conjuntos de valores x‑y. A primeira série usa linhas retas com marcadores de estrela, enquanto a segunda usa linhas suaves com marcadores de círculo; ambas utilizam tamanho de marcador 10, configurado com [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). O método [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) controla a forma do marcador.
+Este exemplo traça dois conjuntos de valores x‑y. A primeira série usa linhas retas com marcadores em forma de estrela, enquanto a segunda usa linhas suaves com marcadores circulares; ambas usam tamanho de marcador 10, configurado com [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). O método [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) controla a forma do marcador.
 
 ```php
 use aspose\slides\ChartType;
@@ -223,13 +225,13 @@ finally
 
 O resultado:
 
-![The Scatter chart](scatter_chart.png)
+![Gráfico de dispersão](scatter_chart.png)
 
 ### **Criar Gráficos de Pizza**
 
-Gráficos de pizza são mais adequados para mostrar a relação parte‑para‑todo nos dados, especialmente quando os dados contêm rótulos categóricos com valores numéricos. Contudo, se seus dados contiverem muitas partes ou rótulos, considere usar um gráfico de barras.
+Gráficos de pizza são mais adequados para mostrar a relação parte‑para‑todo nos dados, especialmente quando os dados contêm rótulos categóricos com valores numéricos. No entanto, se seus dados contiverem muitas partes ou rótulos, considere usar um gráfico de barras.
 
-Este exemplo cria um gráfico de pizza com três valores trimestrais. Cada fatia tem um preenchimento e borda personalizados, e os rótulos exibem diferentes combinações de valores, porcentagens e informações de série. O método [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) define a primeira fatia para iniciar em 180 graus.
+Este exemplo cria um gráfico de pizza com três valores trimestrais. Cada fatia tem um preenchimento e borda personalizados, e os rótulos exibem diferentes combinações de valores, porcentagens e informações da série. O método [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) define a primeira fatia para iniciar em 180 graus.
 
 ```php
 use aspose\slides\ChartType;
@@ -341,13 +343,13 @@ finally
 
 O resultado:
 
-![The Pie chart](pie_chart.png)
+![Gráfico de pizza](pie_chart.png)
 
 ### **Criar Gráficos de Linha**
 
-Gráficos de linha (também conhecidos como line graphs) são mais adequados em situações onde você deseja demonstrar mudanças de valor ao longo do tempo. Usando um gráfico de linha, você pode comparar uma grande quantidade de dados de uma só vez, rastrear mudanças e tendências ao longo do tempo, destacar anomalias nas séries de dados e muito mais.
+Gráficos de linha (também conhecidos como line graphs) são mais adequados em situações onde você deseja demonstrar mudanças de valor ao longo do tempo. Usando um gráfico de linha, você pode comparar uma grande quantidade de dados de uma vez, acompanhar mudanças e tendências ao longo do tempo, destacar anomalias nas séries de dados e muito mais.
 
-Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para criar um gráfico de linha com séries e categorias padrão, então salva a apresentação como PPTX.
+Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para criar um gráfico de linha com as séries e categorias padrão, depois salva a apresentação como PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -369,7 +371,7 @@ finally
 }
 ```
 
-Por padrão, os pontos em um gráfico de linha são ligados por linhas retas contínuas. Se desejar que os pontos sejam ligados por traços, chame [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) com um valor de [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
+Por padrão, os pontos em um gráfico de linha são unidos por linhas retas contínuas. Se você quiser que os pontos sejam unidos por traços, chame [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) com um valor de [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
 
 ```php
 use aspose\slides\ChartType;
@@ -397,13 +399,13 @@ finally
 
 O resultado:
 
-![The Line chart](line_chart.png)
+![Gráfico de linha](line_chart.png)
 
-### **Criar Gráficos de Mapa de Árvore**
+### **Criar Gráficos de Árvore (Tree Map)**
 
-Gráficos de mapa de árvore são mais adequados para dados de vendas quando você deseja mostrar o tamanho relativo das categorias de dados e chamar rapidamente a atenção para itens que são grandes contribuidores dentro de cada categoria.
+Gráficos de árvore são mais adequados para dados de vendas quando você deseja mostrar o tamanho relativo das categorias de dados e chamar rapidamente a atenção para itens que são grandes contribuidores dentro de cada categoria.
 
-Este exemplo cria um mapa de árvore com oito folhas agrupadas em quatro troncos e dois ramos. O método [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) atribui troncos no nível de agrupamento 1 e ramos no nível 2. Os valores determinam os tamanhos relativos dos retângulos, enquanto os rótulos de categoria e os rótulos de pais sobrepostos identificam a hierarquia.
+Este exemplo cria um tree map com oito folhas agrupadas em quatro troncos e dois ramos. O método [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) atribui troncos ao nível de agrupamento 1 e ramos ao nível 2. Os valores determinam os tamanhos relativos dos retângulos, enquanto os rótulos de categoria e os rótulos de pais sobrepostos identificam a hierarquia.
 
 ```php
 use aspose\slides\ChartType;
@@ -487,26 +489,26 @@ finally
 
 O resultado:
 
-![The Treemap chart](treemap_chart.png)
+![Gráfico de tree map](treemap_chart.png)
 
-### **Criar Gráficos Cascata**
+### **Criar Gráficos de Cascata (Waterfall)**
 
-Um gráfico cascata mostra como mudanças positivas e negativas contribuem para um valor final. Por exemplo, uma decomposição de lucro pode começar com a receita, subtrair custos e acrescentar outras receitas. As colunas de mudança flutuam entre os valores acumulados anteriores e novos, enquanto as colunas totais se estendem de zero ao valor acumulado.
+Um gráfico de cascata mostra como alterações positivas e negativas contribuem para um valor final. Por exemplo, uma divisão de lucro pode começar com receita, subtrair custos e adicionar outra renda. As colunas de mudança flutuam entre os valores acumulados anteriores e novos, enquanto as colunas totais se estendem de zero ao valor acumulado.
 
 O exemplo a seguir usa valores em milhares de dólares americanos:
 
-| Category | Workbook value | Column type |
+| Categoria | Valor da planilha | Tipo de coluna |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| Receita | 1000 | Aumento |
+| Custo de vendas | -400 | Diminuição |
+| Lucro bruto | 600 | Total intermediário |
+| Despesas operacionais | -200 | Diminuição |
+| Outra receita | 50 | Aumento |
+| Lucro líquido | 450 | Total final |
 
-Para marcar um ponto como total intermediário ou final, chame seu método [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) com `true`. Forneça a quantidade realmente acumulada na célula de workbook desse ponto: `600` para lucro bruto (`1000 - 400`) e `450` para lucro líquido (`600 - 200 + 50`). O método marca a coluna como total; ele não calcula nem preenche o valor da célula. Não use zero como placeholder nem forneça outra mudança para um ponto total. Uma coluna total exibe o valor acumulado sem adicioná‑lo novamente ao valor corrente.
+Para marcar um ponto como total intermediário ou final, chame seu método [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) com `true`. Forneça o valor acumulado real na célula da planilha desse ponto: `600` para lucro bruto (`1000 - 400`) e `450` para lucro líquido (`600 - 200 + 50`). O método marca a coluna como total; ele não calcula nem preenche o valor da célula. Não use zero como placeholder nem forneça outra alteração para um ponto total. Uma coluna total exibe o valor acumulado sem adicioná‑lo novamente ao valor corrente.
 
-Este exemplo PHP completo cria um gráfico usando o membro `Waterfall` de [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), limpa os dados padrão e preenche o workbook incorporado. O índice da planilha `0` seleciona a primeira planilha; a coluna A contém nomes de categorias e a coluna B contém valores. Cada célula de valor é adicionada com [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Os índices de ponto baseados em zero `2` e `5` identificam, respectivamente, os totais intermediários e finais. Chamar [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) com `true` exibe os valores nas colunas. Nenhuma apresentação ou workbook de entrada é necessário.
+Este exemplo PHP completo cria um gráfico usando o membro `Waterfall` de [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), limpa os dados padrão e preenche a pasta de trabalho incorporada. O índice da planilha `0` seleciona a primeira planilha; a coluna A contém nomes de categorias e a coluna B contém valores. Cada célula de valor é adicionada com [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Os índices de ponto baseados em zero `2` e `5` identificam os totais intermediário e final. Chamando [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) com `true` exibe os valores nas colunas. Nenhuma apresentação ou pasta de trabalho de entrada é necessária.
 
 ```php
 use aspose\slides\ChartType;
@@ -560,17 +562,17 @@ finally
 }
 ```
 
-Chame o método de nível de série [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) com `true` para mostrar linhas que ligam colunas consecutivas e facilitar o acompanhamento do valor corrente. Para ocultar essas linhas, substitua a chamada de método no exemplo por `$series->setShowConnectorLines(false);` antes de salvar. Isso altera apenas a visibilidade da linha, não os dados ou totais.
+Chame o método de nível de série [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) com `true` para mostrar linhas que ligam colunas consecutivas e facilitar o acompanhamento do valor corrente. Para ocultar essas linhas, substitua a chamada do método no exemplo por `$series->setShowConnectorLines(false);` antes de salvar. Isso altera apenas a visibilidade da linha, não os dados ou os totais.
 
-A apresentação salva mostra lucro bruto de 600 e lucro líquido de 450, com ambos os totais desenhados a partir de zero:
+A apresentação salva mostra lucro bruto de 600 e lucro líquido de 450, com ambos os totais partindo de zero:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![Gráfico de cascata mostrando receita, custos, lucro bruto de 600 e lucro líquido de 450, com rótulos de valor e linhas de conexão](waterfall_chart.png)
 
-### **Criar Gráficos de Ações**
+### **Criar Gráficos de Ações (Stock)**
 
-Gráficos de ações são usados para exibir dados financeiros como preços de abertura, alta, baixa e fechamento, auxiliando na análise de tendências de mercado e volatilidade. Eles oferecem insights essenciais sobre o desempenho das ações, ajudando investidores e analistas a tomar decisões informadas.
+Gráficos de ações são usados para exibir dados financeiros como preços de abertura, alta, baixa e fechamento, ajudando a analisar tendências de mercado e volatilidade. Eles oferecem insights essenciais sobre o desempenho de ações, auxiliando investidores e analistas a tomar decisões informadas.
 
-Este exemplo cria um gráfico aberto‑alta‑baixa‑fechamento com quatro séries nessa ordem e três categorias. O método [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) habilita barras de alta/baixa, e [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) controla as linhas alta‑baixa que mostram as faixas de preço, enquanto as linhas das séries individuais e as linhas de grade horizontais menores são ocultas.
+Este exemplo cria um gráfico OHLC (open‑high‑low‑close) com quatro séries nessa ordem e três categorias. O método [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) habilita barras de alta/baixa, e [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) controla as linhas alta‑baixa que mostram os intervalos de preço, enquanto as linhas das séries individuais e as linhas de grade horizontais menores são ocultas.
 
 ```php
 use aspose\slides\ChartType;
@@ -656,13 +658,13 @@ finally
 
 O resultado:
 
-![The Stock chart](stock_chart.png)
+![Gráfico de ações](stock_chart.png)
 
-### **Criar Gráficos de Caixa e Bigodes**
+### **Criar Gráficos Caixa e Bigodes (Box and Whisker)**
 
-Gráficos de caixa e bigodes são usados para exibir a distribuição de dados resumindo medidas estatísticas-chave, como mediana, quartis e possíveis valores atípicos. Eles são particularmente úteis em análises exploratórias de dados e estudos estatísticos para compreender rapidamente a variabilidade dos dados e identificar anomalias.
+Gráficos de caixa e bigodes são usados para exibir a distribuição de dados resumindo medidas estatísticas-chave, como mediana, quartis e possíveis outliers. Eles são particularmente úteis em análises exploratórias de dados e estudos estatísticos para entender rapidamente a variabilidade dos dados e identificar anomalias.
 
-Este exemplo cria um gráfico de caixa e bigodes a partir de seis valores. O método [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) seleciona o cálculo de quartil exclusivo. O exemplo também habilita linhas de média, marcadores de média, pontos internos e pontos de valores atípicos.
+Este exemplo cria um gráfico de caixa e bigodes a partir de seis valores. O método [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) seleciona o cálculo exclusivo de quartis. O exemplo também habilita linhas de média, marcadores de média, pontos internos e pontos de outlier.
 
 ```php
 use aspose\slides\ChartType;
@@ -725,9 +727,9 @@ finally
 }
 ```
 
-### **Criar Gráficos Funil**
+### **Criar Gráficos Funil (Funnel)**
 
-Gráficos funil são usados para visualizar processos que envolvem etapas sequenciais, onde o volume de dados diminui à medida que avança de uma etapa para a próxima. Eles são especialmente úteis para analisar taxas de conversão, identificar gargalos e monitorar a eficiência de processos de vendas ou marketing.
+Gráficos funil são usados para visualizar processos que envolvem estágios sequenciais, onde o volume de dados diminui à medida que avança de uma etapa para a próxima. Eles são especialmente úteis para analisar taxas de conversão, identificar gargalos e acompanhar a eficiência de processos de vendas ou marketing.
 
 Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para adicionar um gráfico funil ao primeiro slide de uma apresentação existente. Ele substitui os dados padrão por seis categorias e valores que variam de 50 a 500, depois salva a apresentação atualizada. A apresentação de entrada deve conter ao menos um slide.
 
@@ -787,13 +789,13 @@ finally
 
 O resultado:
 
-![The Funnel chart](funnel_chart.png)
+![Gráfico funil](funnel_chart.png)
 
-### **Criar Gráficos Sunburst**
+### **Criar Gráficos Radiais (Sunburst)**
 
-Gráficos sunburst são usados para visualizar dados hierárquicos, exibindo níveis como anéis concêntricos. Eles ajudam a ilustrar relações parte‑para‑todo e são ideais para representar categorias e subcategorias aninhadas de forma clara e compacta.
+Gráficos radiais são usados para visualizar dados hierárquicos, exibindo níveis como anéis concêntricos. Eles ajudam a ilustrar relações parte‑para‑todo e são ideais para representar categorias e subcategorias aninhadas de forma clara e compacta.
 
-Este exemplo cria um gráfico sunburst com oito folhas agrupadas em quatro troncos e dois ramos. O método [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) atribui troncos no nível de agrupamento 1 e ramos no nível 2. Os rótulos de categoria identificam os segmentos, e os valores determinam seus tamanhos relativos.
+Este exemplo cria um gráfico sunburst com oito folhas agrupadas em quatro troncos e dois ramos. O método [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) atribui troncos ao nível de agrupamento 1 e ramos ao nível 2. Os rótulos de categoria identificam os segmentos, e os valores determinam seus tamanhos relativos.
 
 ```php
 use aspose\slides\ChartType;
@@ -874,13 +876,17 @@ finally
 
 O resultado:
 
-![The Sunburst chart](sunburst_chart.png)
+![Gráfico sunburst](sunburst_chart.png)
 
 ### **Criar Gráficos de Histograma**
 
-Gráficos de histograma são usados para representar a distribuição de dados numéricos agrupando valores em intervalos ou “bins”. Eles são particularmente úteis para identificar padrões de dados como frequência, assimetria e dispersão, além de detectar valores atípicos em um conjunto de dados.
+Gráficos de histograma mostram como valores numéricos são distribuídos em intervalos (bins). Para relatórios mensais sobre tempos de processamento de pedidos, use a mesma largura de bin e limites para manter intervalos consistentes e facilitar a comparação das distribuições.
 
-Este exemplo cria um histograma a partir de seis valores numéricos, incluindo valores negativos. Chamar [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) com o tipo de agregação automática permite que o gráfico determine os bins usados para exibir a distribuição.
+Chame [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) no eixo horizontal com um modo de [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) aplica‑se apenas a `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) aplica‑se apenas a `ByNumberOfBins`. Use `Automatic` para deixar o gráfico escolher os bins.
+
+#### **Usar Largura de Bin Fixa**
+
+Este exemplo agrupa tempos de processamento em intervalos de 10 minutos, com bins separados para tempos ≤ 10 minutos e > 40 minutos. Habilite esses bins com [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) e [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). Ao fornecer limites explícitos através de [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) e [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/), chame [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) e [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) com `false`.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -893,7 +899,10 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 500, 300);
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 680, 200);
+
+    $chart->setLegend(false);
+    $chart->setTitle(false);
 
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
@@ -902,22 +911,24 @@ try
     $workbook->clear(0);
 
     $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
-    $valueCell = $workbook->getCell(0, "A1", 15);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A2", -41);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A3", 16);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A4", 10);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A5", -23);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A6", 16);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for ($i = 0; $i < count($values); $i++)
+    {
+        $valueCell = $workbook->getCell(0, $i, 0, $values[$i]);
+        $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    }
 
-    $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setAggregationType(AxisAggregationType::ByBinWidth);
+    $axis->setBinWidth(10);
+    $axis->setUnderflowBin(true);
+    $axis->setAutomaticUnderflowBin(false);
+    $axis->setUnderflowBin(10);
+    $axis->setOverflowBin(true);
+    $axis->setAutomaticOverflowBin(false);
+    $axis->setOverflowBin(40);
 
-    $presentation->save("Histogram.pptx", SaveFormat::Pptx);
+    $presentation->save("Histogram-bin-width.pptx", SaveFormat::Pptx);
 }
 finally
 {
@@ -925,15 +936,65 @@ finally
 }
 ```
 
-O resultado:
+A apresentação exibida no PowerPoint mostra contagens de bin **3, 4, 4, 4 e 2**. O bin de underflow inclui `5, 10, 10`, portanto seu limite é inclusivo. O bin de overflow inclui apenas `41, 50`, portanto seu limite é exclusivo; ambos os valores iguais a `40` permanecem no intervalo precedente. Os bins internos contêm valores maiores que seu limite inferior e menores ou iguais ao seu limite superior.
 
-![The Histogram chart](histogram_chart.png)
+![Histograma com bins de 10 minutos e limites de underflow e overflow explícitos](histogram_bin_width.png)
 
-### **Criar Gráficos de Radar**
+#### **Especificar o Número de Bins**
 
-Gráficos de radar são usados para exibir dados multivariados em um formato bidimensional, permitindo a comparação fácil de várias variáveis simultaneamente. Eles são particularmente úteis para identificar padrões, pontos fortes e fracos em múltiplas métricas de desempenho ou atributos.
+Para um nível fixo de detalhe em vez de intervalos fixos, solicite cinco bins para os mesmos dados. Este exemplo deixa os bins de underflow e overflow desativados. O gráfico determina a largura a partir do intervalo de dados, portanto os limites podem mudar entre relatórios.
 
-Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para criar um gráfico de radar com séries e categorias padrão, depois salva a apresentação como PPTX.
+```php
+use aspose\slides\AxisAggregationType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 680, 200);
+
+    $chart->setLegend(false);
+    $chart->setTitle(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
+    $values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for ($i = 0; $i < count($values); $i++)
+    {
+        $valueCell = $workbook->getCell(0, $i, 0, $values[$i]);
+        $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    }
+
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setAggregationType(AxisAggregationType::ByNumberOfBins);
+    $axis->setNumberOfBins(5);
+
+    $presentation->save("Histogram-bin-count.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Os cinco bins têm contagens de **4, 4, 4, 4 e 1**. Compare esta distribuição com o resultado de largura fixa acima: os valores de entrada são idênticos, mas os limites diferem.
+
+![Histograma com cinco bins calculados a partir dos mesmos dados](histogram_bin_count.png)
+
+### **Criar Gráficos Radar**
+
+Gráficos radar são usados para exibir dados multivariados em um formato bidimensional, permitindo a comparação fácil de várias variáveis simultaneamente. Eles são particularmente úteis para identificar padrões, pontos fortes e fracos em múltiplas métricas de desempenho ou atributos.
+
+Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para criar um gráfico radar com as séries e categorias padrão, depois salva a apresentação como PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -957,13 +1018,13 @@ finally
 
 O resultado:
 
-![The Radar chart](radar_chart.png)
+![Gráfico radar](radar_chart.png)
 
 ### **Criar Gráficos Multi‑Categoria**
 
-Gráficos multi‑categoria são usados para exibir dados que envolvem mais de um agrupamento categórico, permitindo comparar valores em várias dimensões simultaneamente. Eles são particularmente úteis quando você precisa analisar tendências e relacionamentos dentro de conjuntos de dados complexos e de múltiplas camadas.
+Gráficos multi‑categoria são usados para exibir dados que envolvem mais de um agrupamento categórico, permitindo comparar valores em várias dimensões simultaneamente. Eles são particularmente úteis quando é necessário analisar tendências e relacionamentos dentro de conjuntos de dados complexos e multilayer.
 
-Este exemplo cria um gráfico de coluna agrupada com oito categorias organizadas em quatro pares. O método [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) fornece a cada par um rótulo compartilhado no nível de agrupamento 1, produzindo um eixo de categoria com rótulos individuais e de grupo.
+Este exemplo cria um gráfico de colunas agrupadas com oito categorias organizadas em quatro pares. O método [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) fornece a cada par um rótulo compartilhado no nível de agrupamento 1, produzindo um eixo de categoria com rótulos individuais e de grupo.
 
 ```php
 use aspose\slides\ChartType;
@@ -1039,13 +1100,13 @@ finally
 
 O resultado:
 
-![The multi category chart](multi_category_chart.png)
+![Gráfico multi‑categoria](multi_category_chart.png)
 
 ### **Criar Gráficos de Mapa**
 
 Gráficos de mapa são usados para visualizar dados geográficos mapeando informações para locais específicos, como países, estados ou cidades. Eles são particularmente úteis para analisar tendências regionais, dados demográficos e distribuições espaciais de forma clara e visualmente atraente.
 
-Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para criar um gráfico de mapa com os dados geográficos padrão e salva-o para visualização no PowerPoint.
+Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para criar um gráfico de mapa com os dados geográficos padrão e o salva para visualização no PowerPoint.
 
 ```php
 use aspose\slides\ChartType;
@@ -1069,19 +1130,21 @@ finally
 
 O resultado:
 
-![The Map chart](map_chart.png)
+![Gráfico de mapa](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-A imagem acima mostra a apresentação salva aberta no PowerPoint. Aspose.Slides grava o gráfico de mapa e seus dados corretamente, mas não desenha gráficos de mapa por conta própria: quando um slide que contém um gráfico de mapa é renderizado para imagem ou convertido em PDF ou SVG, a área do gráfico aparece em branco. Outras formas no mesmo slide não são afetadas.
+
+A imagem acima mostra a apresentação salva aberta no PowerPoint. Aspose.Slides grava o gráfico de mapa e seus dados corretamente, mas não desenha gráficos de mapa por si só: quando um slide que contém um gráfico de mapa é renderizado como imagem ou convertido para PDF ou SVG, a área do gráfico aparece vazia. Outras formas no mesmo slide não são afetadas.
+
 {{% /alert %}}
 
 ### **Criar Gráficos de Combinação**
 
-Um gráfico de combinação (ou combo) combina dois ou mais tipos de gráfico em um único gráfico. Este gráfico permite que você destaque, compare ou examine diferenças entre dois ou mais conjuntos de dados, ajudando a identificar relações entre eles.
+Um gráfico de combinação (ou combo) combina dois ou mais tipos de gráfico em um único gráfico. Este gráfico permite destacar, comparar ou examinar diferenças entre dois ou mais conjuntos de dados, ajudando a identificar relações entre eles.
 
-![The combination chart](combination_chart.png)
+![Gráfico de combinação](combination_chart.png)
 
-Este exemplo combina duas séries de coluna agrupada com uma série de linha em quatro categorias. As colunas usam o eixo vertical principal, enquanto [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) coloca a linha em um eixo vertical secundário à direita. As funções auxiliares configuram o título, a legenda, os rótulos dos eixos e as linhas de grade.
+Este exemplo combina duas séries de colunas agrupadas com uma série de linha em quatro categorias. As colunas usam o eixo vertical primário, enquanto [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) coloca a linha em um eixo vertical secundário à direita. As funções auxiliares configuram o título, a legenda, os rótulos dos eixos e as linhas de grade.
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1255,9 +1318,9 @@ createComboChart();
 
 ## **Atualizar Gráficos**
 
-Aspose.Slides para PHP via Java permite que você atualize gráficos do PowerPoint modificando dados, formatação e estilo do gráfico. Essa funcionalidade simplifica o processo de manter apresentações atualizadas com conteúdo dinâmico e garante que os gráficos reflitam com precisão os dados atuais e os padrões visuais.
+Aspose.Slides para PHP via Java permite atualizar gráficos do PowerPoint modificando dados, formatação e estilo do gráfico. Essa funcionalidade simplifica o processo de manter apresentações atualizadas com conteúdo dinâmico e garante que os gráficos reflitam com precisão os dados atuais e os padrões visuais.
 
-Este exemplo atualiza o gráfico chamado "My chart" no primeiro slide de uma apresentação existente. Ele requer duas séries de coluna com três pontos de dados cada, com rótulos de categoria na coluna A e nomes de série na primeira linha da primeira planilha. O exemplo usa [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) para alterar células do workbook, atualiza valores das séries, adiciona uma terceira série e altera o tipo do gráfico para cilindros agrupados através de [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
+Este exemplo atualiza o gráfico chamado "My chart" no primeiro slide de uma apresentação existente. Ele requer duas séries de coluna com três pontos de dados cada, com rótulos de categoria na coluna A e nomes das séries na primeira linha da primeira planilha. O exemplo usa [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) para alterar células da pasta de trabalho, atualiza valores das séries, adiciona uma terceira série e altera o tipo do gráfico para cilindros agrupados através de [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
 
 ```php
 use aspose\slides\ChartType;
@@ -1325,9 +1388,9 @@ finally
 
 Para inspecionar o intervalo já usado por um gráfico existente, veja [Retrieve a Chart's Data Range](/slides/pt/php-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides para PHP via Java oferece flexibilidade para definir um intervalo de dados específico de uma planilha como fonte para os dados do seu gráfico. Isso significa que você pode mapear diretamente uma parte da sua planilha para o gráfico, controlando quais células contribuem para as séries e categorias do gráfico. Como resultado, você pode atualizar e sincronizar facilmente seus gráficos com as alterações mais recentes nos dados da planilha, garantindo que suas apresentações PowerPoint reflitam informações atuais e precisas.
+Aspose.Slides para PHP via Java oferece a flexibilidade de definir um intervalo de dados específico de uma planilha como fonte para os dados do seu gráfico. Isso significa que você pode mapear diretamente uma parte da sua planilha ao gráfico, controlando quais células contribuem para as séries e categorias do gráfico. Como resultado, você pode atualizar e sincronizar facilmente seus gráficos com as alterações de dados mais recentes na planilha, garantindo que suas apresentações PowerPoint reflitam informações atuais e precisas.
 
-Este exemplo usa [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) para definir a fonte de dados do gráfico chamado "My chart" no primeiro slide de uma apresentação existente como `Sheet1!A1:B4`. O workbook do gráfico deve conter essa planilha e um intervalo preenchido com um cabeçalho de série na primeira linha, rótulos de categoria na coluna A e três valores na coluna B.
+Este exemplo usa [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) para definir a fonte de dados do gráfico chamado "My chart" no primeiro slide de uma apresentação existente para `Sheet1!A1:B4`. A pasta de trabalho do gráfico deve conter essa planilha e um intervalo preenchido com um cabeçalho de série na primeira linha, rótulos de categoria na coluna A e três valores na coluna B.
 
 ```php
 use aspose\slides\Presentation;
@@ -1361,9 +1424,9 @@ finally
 
 ## **Usar Marcadores Padrão em Gráficos**
 
-Quando você usa marcadores padrão em gráficos, cada série de gráfico recebe automaticamente um símbolo de marcador padrão diferente.
+Ao usar marcadores padrão em gráficos, cada série de gráfico recebe automaticamente um símbolo de marcador padrão diferente.
 
-Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para criar um gráfico com duas séries de linha e uma legenda. As configurações de marcador acessadas por meio de [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) mantêm os símbolos de marcador atribuídos automaticamente. A primeira série inclui um valor negativo e um valor ausente, representado por `null`, enquanto a segunda tem um valor para cada categoria.
+Este exemplo usa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) para criar um gráfico com duas séries de linha e uma legenda. As configurações de marcador acessadas através de [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) mantêm os símbolos de marcador atribuídos automaticamente. A primeira série inclui um valor negativo e um valor ausente, representado por `null`, enquanto a segunda possui um valor para cada categoria.
 
 ```php
 use aspose\slides\ChartType;
@@ -1432,16 +1495,16 @@ finally
 
 **Quais tipos de gráfico são suportados pelo Aspose.Slides para PHP via Java?**
 
-Aspose.Slides para PHP via Java suporta uma ampla variedade de tipos de gráfico, incluindo barra, linha, pizza, área, dispersão, histograma, radar e muitos mais. Essa flexibilidade permite escolher o tipo de gráfico mais adequado para suas necessidades de visualização de dados.
+Aspose.Slides para PHP via Java suporta uma ampla variedade de tipos de gráfico, incluindo barra, linha, pizza, área, dispersão, histograma, radar e muitos outros. Essa flexibilidade permite escolher o tipo de gráfico mais adequado às necessidades de visualização de dados.
 
 **Como adiciono um novo gráfico a um slide?**
 
-Para adicionar um gráfico, primeiro crie uma instância da classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), recupere o slide desejado usando seu índice e, em seguida, chame o método para adicionar um gráfico, especificando o tipo de gráfico e os dados iniciais. Esse processo integra o gráfico diretamente em sua apresentação.
+Para adicionar um gráfico, primeiro crie uma instância da classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), recupere o slide desejado usando seu índice e, em seguida, chame o método para adicionar um gráfico, especificando o tipo de gráfico e os dados iniciais. Esse processo integra o gráfico diretamente à sua apresentação.
 
 **Como posso atualizar os dados exibidos em um gráfico?**
 
-Você pode atualizar os dados de um gráfico acessando seu workbook de dados ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), limpando quaisquer séries e categorias padrão e, em seguida, adicionando seus dados personalizados. Isso permite atualizar programaticamente o gráfico para refletir os dados mais recentes.
+Você pode atualizar os dados de um gráfico acessando sua pasta de trabalho de dados ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), limpando quaisquer séries e categorias padrão e, em seguida, adicionando seus dados personalizados. Isso permite atualizar programaticamente o gráfico para refletir os dados mais recentes.
 
 **É possível personalizar a aparência do gráfico?**
 
-Sim, Aspose.Slides para PHP via Java fornece extensas opções de personalização. Você pode modificar cores, fontes, rótulos, legendas e outros elementos de formatação para adaptar a aparência do gráfico aos requisitos de design específicos.
+Sim, Aspose.Slides para PHP via Java oferece extensas opções de personalização. Você pode modificar cores, fontes, rótulos, legendas e outros elementos de formatação para adaptar a aparência do gráfico aos requisitos de design específicos.

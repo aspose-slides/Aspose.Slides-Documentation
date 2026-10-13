@@ -1,5 +1,5 @@
 ---
-title: C++에서 PowerPoint 프레젠테이션 차트 만들기 또는 업데이트
+title: C++에서 PowerPoint 프레젠테이션 차트 만들기 및 업데이트
 linktitle: 차트 만들기 또는 업데이트
 type: docs
 weight: 10
@@ -7,55 +7,55 @@ url: /ko/cpp/create-chart/
 aliases:
   - /cpp/update-chart/
 keywords:
-  - 차트 추가
-  - 차트 생성
-  - 차트 편집
-  - 차트 변경
-  - 차트 업데이트
-  - 산점도 차트
-  - 원형 차트
-  - 라인 차트
-  - 트리맵 차트
-  - 주식 차트
-  - 박스·위스커 차트
-  - 퍼널 차트
-  - 선버스트 차트
-  - 히스토그램 차트
-  - 레이더 차트
-  - 다중 카테고리 차트
-  - PowerPoint
-  - 프레젠테이션
-  - C++
-  - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 PowerPoint 프레젠테이션에서 차트를 만들고 사용자 정의합니다. C++ 실용 코드 예제로 차트를 추가, 서식 지정 및 편집합니다."
+- 차트 추가
+- 차트 생성
+- 차트 편집
+- 차트 변경
+- 차트 업데이트
+- 산점도 차트
+- 원형 차트
+- 꺾은선 차트
+- 트리맵 차트
+- 주식 차트
+- 상자 수염 차트
+- 펀넬 차트
+- 선버스트 차트
+- 히스토그램 차트
+- 레이더 차트
+- 다중 카테고리 차트
+- PowerPoint
+- 프레젠테이션
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++를 사용하여 PowerPoint 프레젠테이션에서 차트를 만들고 사용자 지정합니다. 실용적인 C++ 코드 예제로 차트를 추가, 서식 지정 및 편집합니다."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides for C++를 사용하여 차트를 만들고 사용자 정의하는 방법에 대한 포괄적인 가이드를 제공합니다. 프로그래밍 방식으로 슬라이드에 차트를 추가하고 데이터를 채우며 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배우게 됩니다. 문서 전체에 걸쳐 자세한 코드 예제가 프레젠테이션 및 차트 개체 초기화부터 시리즈, 축, 레전드 구성에 이르는 각 단계를 설명합니다. 이 가이드를 따라 하면 C++ 애플리케이션에 동적 차트 생성을 통합하는 방법을 확실히 이해하게 되어 데이터 중심 프레젠테이션을 만드는 과정을 간소화할 수 있습니다.
+이 문서는 Aspose.Slides for C++를 사용하여 차트를 만들고 사용자 지정하는 방법에 대한 포괄적인 가이드를 제공합니다. 차트를 슬라이드에 프로그래밍 방식으로 추가하고, 데이터를 채우며, 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배우게 됩니다. 기사 전체에 걸쳐 자세한 코드 예제가 각 단계를 보여줍니다. 프레젠테이션 및 차트 개체를 초기화하고, 시리즈, 축 및 범례를 구성하는 과정까지 포함됩니다. 이 가이드를 따르면 C++ 애플리케이션에 동적 차트 생성을 통합하는 방법을 확실히 이해하게 되어 데이터 기반 프레젠테이션을 손쉽게 만들 수 있습니다.
 
 ## **차트 만들기**
 
-차트는 사람들이 데이터를 빠르게 시각화하고 표나 스프레드시트에서 즉시 확인하기 어려운 통찰을 얻도록 도와줍니다.
+차트는 사람들에게 데이터를 빠르게 시각화하고 표나 스프레드시트에서 즉시 드러나지 않을 수 있는 인사이트를 제공하는 데 도움을 줍니다.
 
 **차트를 만드는 이유**
 
-차트를 사용하면:
+차트를 사용하면 다음을 수행할 수 있습니다.
 
-* 프레젠테이션의 한 슬라이드에 대량의 데이터를 집계, 압축 또는 요약합니다.
-* 데이터의 패턴 및 추세를 드러냅니다.
-* 시간에 따라 또는 특정 측정 단위에 대한 데이터의 방향과 추세를 추론합니다.
-* 이상값, 편차, 오류 및 비정상적인 데이터를 찾아냅니다.
-* 복잡한 데이터를 전달하거나 제시합니다.
+* 하나의 슬라이드에 많은 데이터를 집계, 압축 또는 요약할 수 있습니다.
+* 데이터의 패턴과 추세를 드러낼 수 있습니다.
+* 시간 경과에 따른 또는 특정 측정 단위에 대한 데이터의 방향과 모멘텀을 추론할 수 있습니다.
+* 이상치, 오류 및 비논리적인 데이터를 식별할 수 있습니다.
+* 복잡한 데이터를 전달하거나 프레젠테이션할 수 있습니다.
 
-PowerPoint에서는 *Insert* 기능을 통해 차트를 만들 수 있으며, 다양한 차트 템플릿을 제공합니다. Aspose.Slides를 사용하면 일반 차트(인기 차트 유형 기반)와 사용자 정의 차트를 모두 만들 수 있습니다.
+PowerPoint에서는 *Insert* 기능을 통해 다양한 차트 템플릿을 사용해 차트를 만들 수 있습니다. Aspose.Slides를 사용하면 일반 차트(대중적인 차트 유형 기반)와 사용자 정의 차트를 모두 만들 수 있습니다.
 
 {{% alert color="info" title="Note" %}}
-다음 [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) 열거형을 [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) 네임스페이스 아래에서 사용하십시오. 이 열거형의 값은 다양한 차트 유형에 해당합니다.
+다음 [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) 열거형을 [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) 네임스페이스에서 사용하십시오. 이 열거형의 값은 서로 다른 차트 유형에 해당합니다.
 {{% /alert %}}
 
-### **군집 열 차트 만들기**
+### **군집 세로 막대 차트 만들기**
 
-이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용하여 두 시리즈를 세 범주에 걸쳐 비교하는 군집 열 차트를 생성합니다. 시리즈는 빨간색과 초록색 채우기를 사용하고, 개별 레이블은 카테고리 이름, 시리즈 이름 및 값을 표시합니다. 워크시트 인덱스 0은 포함된 차트 워크북의 첫 번째 시트를 가리킵니다.
+이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용하여 3개 범주에 대해 두 시리즈를 비교하는 군집 세로 막대 차트를 생성합니다. 시리즈는 빨간색 및 초록색 채우기를 사용하고, 개별 레이블은 범주 이름, 시리즈 이름 및 값을 보여줍니다. 워크시트 인덱스 0은 포함된 차트 워크북의 첫 번째 시트를 나타냅니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -165,20 +165,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 결과:
 
-![군집 열 차트](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **산점도 차트 만들기**
 
-산점도 차트(산점도 플롯 또는 x‑y 그래프라고도 함)는 두 변수 간의 패턴을 확인하거나 상관관계를 보여주는 데 자주 사용됩니다.
+산점도 차트(또는 x‑y 그래프)는 두 변수 간의 패턴을 확인하거나 상관 관계를 보여줄 때 자주 사용됩니다.
 
-다음과 같은 경우 산점도 차트를 사용합니다:
+산점도 차트를 사용해야 할 경우:
 
-* 쌍으로 된 숫자 데이터가 있습니다.
-* 두 변수가 잘 짝을 이룹니다.
-* 두 변수의 연관성을 확인하고 싶습니다.
-* 종속 변수에 대해 여러 값을 갖는 독립 변수가 있습니다.
+* 짝을 이룬 수치 데이터가 있는 경우.
+* 서로 잘 짝을 이루는 두 변수가 있는 경우.
+* 두 변수가 관련이 있는지 확인하고 싶은 경우.
+* 종속 변수에 대한 독립 변수 값이 여러 개인 경우.
 
-이 예제는 두 세트의 x‑y 값을 플롯합니다. 첫 번째 시리즈는 별 마커가 있는 직선, 두 번째는 원 마커가 있는 부드러운 선을 사용하며, 두 시리즈 모두 [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/)로 지정한 마커 크기 10을 사용합니다. [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) 메서드는 마커 모양을 제어합니다.
+이 예제는 두 세트의 x‑y 값을 플롯합니다. 첫 번째 시리즈는 별 마커가 있는 직선, 두 번째 시리즈는 원 마커가 있는 부드러운 곡선을 사용합니다; 두 시리즈 모두 마커 크기 10을 [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/)으로 설정합니다. 마커 모양은 [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) 메서드로 제어합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -268,13 +268,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 결과:
 
-![산점도 차트](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **원형 차트 만들기**
 
-원형 차트는 특히 데이터에 숫자 값이 포함된 범주형 레이블이 있을 때 전체 대비 부분 관계를 보여주는 데 가장 적합합니다. 그러나 데이터에 많은 부분이나 레이블이 포함된 경우 막대 차트를 고려하는 것이 좋습니다.
+원형 차트는 특히 범주형 레이블에 숫자 값이 있는 경우, 데이터의 전체 대비 부분 관계를 보여줄 때 가장 적합합니다. 그러나 많은 부분이나 레이블이 있는 경우 대신 막대 차트를 고려하는 것이 좋습니다.
 
-이 예제는 세 개의 분기값을 가진 원형 차트를 생성합니다. 각 슬라이스는 사용자 지정 채우기와 테두리를 가지고 있으며, 레이블은 값, 백분율 및 시리즈 정보를 다양한 조합으로 표시합니다. [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) 메서드는 첫 슬라이스를 180도에서 시작하도록 설정합니다.
+이 예제는 3개의 분기값으로 원형 차트를 생성합니다. 각 슬라이스는 사용자 정의 채우기와 테두리를 가지고 있으며, 레이블은 값, 백분율 및 시리즈 정보를 다양한 조합으로 표시합니다. [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) 메서드는 첫 슬라이스가 180도에서 시작하도록 지정합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -411,13 +411,13 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 결과:
 
-![원형 차트](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **라인 차트 만들기**
+### **꺾은선 차트 만들기**
 
-라인 차트(라인 그래프라고도 함)는 값이 시간에 따라 변하는 것을 보여주고자 할 때 가장 적합합니다. 라인 차트를 사용하면 많은 데이터를 한 번에 비교하고, 시간에 따른 변화와 추세를 추적하며, 데이터 시리즈의 이상치를 강조하는 등 다양한 작업을 수행할 수 있습니다.
+꺾은선 차트(또는 선 그래프)는 시간에 따른 값 변화를 보여줄 때 가장 적합합니다. 꺾은선 차트를 사용하면 많은 데이터를 한 번에 비교하고, 시간에 따른 변화와 추세를 추적하며, 데이터 시리즈의 이상 현상을 강조 표시할 수 있습니다.
 
-이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용하여 기본 시리즈와 카테고리를 가진 라인 차트를 만든 뒤 프레젠테이션을 PPTX 형식으로 저장합니다.
+이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용하여 기본 시리즈와 범주가 포함된 꺾은선 차트를 만든 뒤 PPTX로 저장합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -449,7 +449,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-기본적으로 라인 차트의 포인트는 직선으로 연결됩니다. 대신 대시 선으로 연결하고 싶다면 [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/)에 [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/)의 값을 전달하십시오:
+기본적으로 꺾은선 차트의 점은 직선으로 연결됩니다. 점을 대시선으로 연결하려면 [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/)에 [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/)의 값을 전달하십시오.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -486,13 +486,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 결과:
 
-![라인 차트](line_chart.png)
+![The Line chart](line_chart.png)
 
 ### **트리맵 차트 만들기**
 
-트리맵 차트는 매출 데이터와 같이 데이터 카테고리의 상대적인 크기를 보여주고 각 카테고리 내에서 큰 기여자를 빠르게 강조하고자 할 때 가장 적합합니다.
+트리맵 차트는 각 범주의 데이터 크기를 상대적으로 보여주고, 각 범주 내에서 큰 기여자를 빠르게 강조하고 싶을 때 가장 적합합니다.
 
-이 예제는 네 개의 줄기와 두 개의 분기로 구성된 여덟 개의 잎을 가진 트리맵을 생성합니다. [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 메서드는 1단계에서 줄기를, 2단계에서 분기를 지정합니다. 값은 사각형의 상대적 크기를 결정하고, 카테고리 레이블과 겹치는 상위 레이블이 계층 구조를 식별합니다.
+이 예제는 8개의 리프를 4개의 스템과 2개의 브랜치로 그룹화한 트리맵을 생성합니다. [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 메서드는 레벨 1에 스템을, 레벨 2에 브랜치를 할당합니다. 값은 사각형 크기의 상대적 비율을 결정하고, 카테고리 레이블과 겹치는 상위 레이블이 계층 구조를 나타냅니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -598,24 +598,26 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 결과:
 
-![트리맵 차트](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
 ### **워터폴 차트 만들기**
 
-워터폴 차트는 양의 변화와 음의 변화가 최종 값에 어떻게 기여하는지를 보여줍니다. 예를 들어, 이익 분석은 매출에서 시작해 비용을 차감하고 기타 수입을 추가하는 방식으로 진행됩니다. 변화 컬럼은 이전 값과 새로운 누적 값 사이를 떠다니며, 총합 컬럼은 0에서 누적 값까지 확장됩니다.
+워터폴 차트는 양수 및 음수 변화가 최종 값에 어떻게 기여하는지를 보여줍니다. 예를 들어 수익에서 비용을 차감하고 기타 수익을 추가하는 방식으로 이익을 구분할 수 있습니다. 변화 열은 이전 값과 새로운 누적 값 사이에 떠 있으며, 총합 열은 0에서 누적 값까지 확장됩니다.
+
+다음 예제는 천 달러 단위의 금액을 사용합니다:
 
 | 카테고리 | 워크북 값 | 열 유형 |
 | --- | ---: | --- |
-| 수익 | 1000 | 증가 |
-| 판매 비용 | -400 | 감소 |
-| 총 이익 | 600 | 중간 합계 |
-| 운영 비용 | -200 | 감소 |
-| 기타 수입 | 50 | 증가 |
-| 순이익 | 450 | 최종 합계 |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-중간 또는 최종 합계로 표시하려면 해당 포인트의 [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) 메서드를 `true`로 호출하십시오. 해당 포인트의 워크북 셀에 실제 누적 금액을 입력합니다: 총 이익은 `600`(`1000 - 400`), 순이익은 `450`(`600 - 200 + 50`). 이 메서드는 컬럼을 합계로 표시하지만 셀 값을 계산하거나 채우지는 않습니다. 자리 표시로 0을 사용하거나 다른 변화를 제공하지 마십시오. 합계 컬럼은 누적 값을 다시 더하지 않고 표시합니다.
+포인트를 중간 합계 또는 최종 합계로 표시하려면 해당 포인트의 [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) 메서드에 `true`를 전달하십시오. 그 포인트의 워크북 셀에 실제 누적 금액을 입력합니다: `600`은 총이익(`1000 - 400`), `450`는 순이익(`600 - 200 + 50`)을 의미합니다. 이 메서드는 열을 합계로 표시하지만 셀 값을 계산하거나 채우지는 않습니다. 제로 값을 자리표시자로 사용하거나 합계 포인트에 다른 변화를 제공하지 마십시오. 합계 열은 누적 값을 표시하지만 실행 값에 다시 추가하지는 않습니다.
 
-이 전체 C++ 예제는 `Waterfall` 멤버([ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/))를 사용해 차트를 만들고 기본 데이터를 지운 뒤 포함된 워크북을 채웁니다. 워크시트 인덱스 `0`은 첫 번째 워크시트를 선택하고, A 열에 카테고리 이름, B 열에 값을 배치합니다. 각 값 셀은 [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/)로 추가됩니다. 0 기반 포인트 인덱스 `2`와 `5`가 각각 중간 및 최종 합계를 식별합니다. `true`를 [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/)에 전달하면 컬럼에 금액이 표시됩니다. 입력 프레젠테이션이나 워크북이 없어도 됩니다.
+이 전체 C++ 예제는 [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/)의 `Waterfall` 멤버를 사용해 차트를 만들고, 기본 데이터를 지운 뒤 포함된 워크북에 채웁니다. 워크시트 인덱스 `0`은 첫 번째 워크시트를 선택합니다; A 열에는 카테고리 이름이, B 열에는 값이 들어갑니다. 각 값 셀은 [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/)로 추가됩니다. 0 기반 포인트 인덱스 `2`와 `5`는 각각 중간 합계와 최종 합계를 식별합니다. [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/)에 `true`를 전달하면 값이 열에 표시됩니다. 입력 프레젠테이션이나 워크북은 필요하지 않습니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -689,7 +691,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// 세 번째와 여섯 번째 포인트는 추가 변동이 아닌 합계입니다.
+// 세 번째와 여섯 번째 점은 추가 변동이 아니라 합계입니다.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -698,15 +700,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-시리즈 수준의 [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) 메서드를 `true`로 호출하면 연속 컬럼을 연결하는 선이 표시되어 누적 값을 추적하기 쉬워집니다. 이 선을 숨기려면 예제에서 `series->set_ShowConnectorLines(false);` 로 교체한 뒤 저장하십시오. 이는 선의 가시성만 변경하고 데이터나 합계에는 영향을 주지 않습니다.
+시리즈 수준의 [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) 메서드에 `true`를 전달하면 연속 열을 연결하는 선이 표시되어 실행 값을 따라가기가 쉬워집니다. 이 선을 숨기려면 예제에서 `series->set_ShowConnectorLines(false);`로 교체한 뒤 저장하십시오. 이는 선 가시성만 변경하며 데이터나 합계에는 영향을 주지 않습니다.
 
-![수익, 비용, 600의 총 이익 및 450의 순이익을 보여주는 워터폴 차트(값 레이블 및 연결 선 포함)](waterfall_chart.png)
+저장된 프레젠테이션은 600의 총이익과 450의 순이익을 0에서 시작하는 두 합계로 표시합니다:
+
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
 ### **주식 차트 만들기**
 
-주식 차트는 시가, 고가, 저가, 종가와 같은 금융 데이터를 표시하여 시장 추세와 변동성을 분석하는 데 도움을 줍니다. 주식 실적에 대한 핵심 인사이트를 제공하므로 투자자와 분석가가 정보에 입각한 결정을 내리는 데 유용합니다.
+주식 차트는 시가, 고가, 저가 및 종가와 같은 금융 데이터를 표시하여 시장 추세와 변동성을 분석하는 데 사용됩니다. 이는 투자자와 분석가가 정보에 입각한 결정을 내리는 데 필수적인 인사이트를 제공합니다.
 
-이 예제는 순서대로 네 개의 시리즈와 세 개의 카테고리를 가진 OHLC 차트를 생성합니다. [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) 메서드가 상하 바를 활성화하고, [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/)이 가격 범위를 나타내는 고저선을 제어합니다. 개별 시리즈 라인과 작은 가로 격선은 숨겨집니다.
+이 예제는 4개의 시리즈가 순서대로 배치된 OHLC 차트를 만들고, 3개의 범주를 사용합니다. [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) 메서드는 상승/하락 바를 활성화하고, [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/)은 가격 범위를 나타내는 고‑저 선을 제어합니다. 개별 시리즈 선과 작은 수평 격자는 숨겨집니다.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -814,13 +818,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 결과:
 
-![주식 차트](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **박스·위스커 차트 만들기**
+### **상자 수염 차트 만들기**
 
-박스·위스커 차트는 중앙값, 사분위수 및 잠재적인 이상값과 같은 주요 통계 측정을 요약하여 데이터 분포를 표시하는 데 사용됩니다. 탐색적 데이터 분석 및 통계 연구에서 데이터 변동성을 빠르게 파악하고 이상치를 식별하는 데 특히 유용합니다.
+상자 수염 차트는 중앙값, 사분위수 및 잠재적 이상치를 요약하여 데이터 분포를 표시하는 데 사용됩니다. 탐색적 데이터 분석 및 통계 연구에서 데이터 변동성을 빠르게 이해하고 이상치를 식별하는 데 특히 유용합니다.
 
-이 예제는 여섯 개 값을 사용해 박스·위스커 차트를 생성합니다. [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) 메서드는 배타적 사분위 계산을 선택합니다. 예제는 평균선, 평균 마커, 내부 포인트 및 이상값 포인트도 활성화합니다.
+이 예제는 6개의 값을 사용해 상자 수염 차트를 생성합니다. [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) 메서드는 배타적 사분위 계산을 선택합니다. 또한 평균선, 평균 마커, 내부 포인트 및 이상치 포인트를 활성화합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -901,11 +905,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **퍼널 차트 만들기**
+### **펀넬 차트 만들기**
 
-퍼널 차트는 단계별로 진행하면서 데이터 양이 감소하는 과정을 시각화하는 데 사용됩니다. 전환율 분석, 병목 현상 파악, 판매 또는 마케팅 프로세스 효율성 추적에 특히 도움이 됩니다.
+펀넬 차트는 단계별로 데이터 양이 감소하는 과정을 시각화하는 데 사용됩니다. 전환율 분석, 병목 현상 식별 및 영업·마케팅 프로세스 효율성 추적에 특히 도움이 됩니다.
 
-이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용해 기존 프레젠테이션의 첫 번째 슬라이드에 퍼널 차트를 추가합니다. 기본 데이터를 여섯 개 카테고리와 50에서 500 사이의 값으로 교체한 뒤 업데이트된 프레젠테이션을 저장합니다. 입력 프레젠테이션에는 최소 한 개 이상의 슬라이드가 있어야 합니다.
+이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용해 기존 프레젠테이션의 첫 번째 슬라이드에 펀넬 차트를 추가합니다. 기본 데이터를 6개의 카테고리와 50에서 500까지의 값으로 교체한 뒤 업데이트된 프레젠테이션을 저장합니다. 입력 프레젠테이션에는 최소 하나의 슬라이드가 있어야 합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -980,13 +984,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 결과:
 
-![퍼널 차트](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
 ### **선버스트 차트 만들기**
 
-선버스트 차트는 계층 데이터를 동심원 형태로 시각화하여 전체 대비 부분 관계를 보여줍니다. 중첩된 카테고리와 하위 카테고리를 명확하고 압축된 형태로 표현하는 데 이상적입니다.
+선버스트 차트는 계층적 데이터를 시각화하며, 레벨을 동심원 형태의 링으로 표시합니다. 전체 대비 부분 관계를 보여주고, 중첩된 카테고리와 하위 카테고리를 명확하고 간결하게 나타내는 데 이상적입니다.
 
-이 예제는 네 개의 줄기와 두 개의 분기로 구성된 여덟 개의 잎을 가진 선버스트 차트를 생성합니다. [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 메서드는 1단계에서 줄기를, 2단계에서 분기를 지정합니다. 카테고리 레이블이 구역을 식별하고 값이 상대적 크기를 결정합니다.
+이 예제는 8개의 리프를 4개의 스템과 2개의 브랜치로 그룹화한 선버스트 차트를 생성합니다. [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 메서드는 레벨 1에 스템을, 레벨 2에 브랜치를 할당합니다. 카테고리 레이블이 세그먼트를 식별하고, 값이 상대적 크기를 결정합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1089,15 +1093,20 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 결과:
 
-![선버스트 차트](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **히스토그램 차트 만들기**
 
-히스토그램 차트는 값을 구간(빈)으로 그룹화하여 수치 데이터의 분포를 나타냅니다. 빈도, 왜도, 분산 패턴을 식별하고 데이터 집합 내 이상치를 감지하는 데 특히 유용합니다.
+히스토그램 차트는 숫자 값을 구간(빈)별로 어떻게 분포하는지 보여줍니다. 주문 처리 시간과 같은 월별 보고서에서는 동일한 빈 너비와 임계값을 사용해 구간을 일관되게 유지하고 분포를 쉽게 비교할 수 있습니다.
 
-이 예제는 음수 값을 포함한 여섯 개의 수치를 사용해 히스토그램을 생성합니다. [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/)에 자동 값을 전달하면 차트가 적절한 빈을 자동으로 결정합니다.
+수평 축에 [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) 메서드와 [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/) 중 하나의 모드를 지정하십시오. `ByBinWidth`의 경우 [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/)를, `ByNumberOfBins`의 경우 [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/)을 사용합니다. `Automatic`을 사용하면 차트가 자동으로 빈을 결정합니다.
+
+#### **고정 빈 너비 사용**
+
+이 예제는 처리 시간을 10분 구간으로 그룹화하고, 10분 이하와 40분 초과에 별도의 빈을 만듭니다. [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) 및 [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/)으로 이러한 빈을 활성화합니다. 명시적 임계값을 제공하려면 [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) 및 [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/)을 사용하고, [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/)와 [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/)에 `false`를 전달하십시오.
 
 ```cpp
+#include <system/array.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/string.h>
@@ -1132,7 +1141,10 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 500, 300);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
 
 chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
@@ -1141,33 +1153,105 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
-auto valueCell = workbook->GetCell(0, u"A1", ObjectExt::Box(15));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A2", ObjectExt::Box(-41));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A3", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A4", ObjectExt::Box(10));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A5", ObjectExt::Box(-23));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A6", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
 
-chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(AxisAggregationType::Automatic);
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByBinWidth);
+axis->set_BinWidth(10);
+axis->set_IsUnderflowBin(true);
+axis->set_IsAutomaticUnderflowBin(false);
+axis->set_UnderflowBin(10);
+axis->set_IsOverflowBin(true);
+axis->set_IsAutomaticOverflowBin(false);
+axis->set_OverflowBin(40);
 
-presentation->Save(u"Histogram.pptx", SaveFormat::Pptx);
+presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-결과:
+PowerPoint에서 표시된 프레젠테이션은 **3, 4, 4, 4, 2**개의 빈 카운트를 보여줍니다. 언더플로우 빈은 `5, 10, 10`을 포함하므로 임계값은 포함됩니다. 오버플로우 빈은 `41, 50`만 포함하므로 임계값은 제외됩니다; 값 `40`은 앞선 구간에 남습니다. 내부 빈은 하한보다 크고 상한보다 작거나 같은 값을 포함합니다.
 
-![히스토그램 차트](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **빈 개수 지정**
+
+고정 구간 대신 고정 상세 수준을 원한다면 동일한 데이터에 대해 5개의 빈을 요청합니다. 이 예제는 언더플로우 및 오버플로우 빈을 비활성화합니다. 차트는 데이터 범위에서 너비를 계산하므로 보고서마다 경계가 달라질 수 있습니다.
+
+```cpp
+#include <system/array.h>
+#include <system/shared_ptr.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByNumberOfBins);
+axis->set_NumberOfBins(5);
+
+presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
+```
+
+다섯 개의 빈은 **4, 4, 4, 4, 1**의 카운트를 가집니다. 위의 고정 너비 결과와 분포를 비교하면 입력 값은 동일하지만 경계가 다름을 확인할 수 있습니다.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **레이더 차트 만들기**
 
-레ーダ 차트는 다변량 데이터를 2차원 형태로 표시하여 여러 변수를 동시에 비교할 수 있게 합니다. 여러 성능 지표나 속성 간의 패턴, 강점, 약점을 식별하는 데 특히 유용합니다.
+레이더 차트는 다변량 데이터를 2차원 형식으로 표시하여 여러 변수를 동시에 비교할 수 있게 합니다. 여러 성능 메트릭이나 속성 간의 패턴, 강점 및 약점을 식별하는 데 특히 유용합니다.
 
-이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용해 기본 시리즈와 카테고리를 가진 레이더 차트를 만든 뒤 PPTX 형식으로 저장합니다.
+이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용해 기본 시리즈와 범주가 포함된 레이더 차트를 만든 뒤 PPTX로 저장합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1201,13 +1285,13 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 결과:
 
-![레이더 차트](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
 ### **다중 카테고리 차트 만들기**
 
-다중 카테고리 차트는 하나 이상의 카테고리 그룹을 포함하는 데이터를 표시하여 여러 차원에서 값을 동시에 비교할 수 있게 합니다. 복잡하고 다층적인 데이터 집합에서 추세와 관계를 분석할 때 특히 유용합니다.
+다중 카테고리 차트는 하나 이상의 카테고리 그룹을 포함하는 데이터를 표시하여 여러 차원에서 값을 비교할 수 있게 합니다. 복합적이고 다층적인 데이터 세트를 분석하고 추세와 관계를 파악할 때 특히 도움이 됩니다.
 
-이 예제는 네 쌍으로 배열된 여덟 개 카테고리를 가진 군집 열 차트를 생성합니다. [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 메서드는 각 쌍에 1단계 공유 레이블을 부여해 개별 레이블과 그룹 레이블이 모두 표시되는 카테고리 축을 만듭니다.
+이 예제는 4개의 쌍으로 구성된 8개의 카테고리를 갖는 군집 세로 막대 차트를 생성합니다. [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 메서드는 각 쌍에 레벨 1에서 공유 레이블을 부여해 개별 레이블과 그룹 레이블이 모두 표시되는 카테고리 축을 제공합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1302,13 +1386,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 결과:
 
-![다중 카테고리 차트](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **지도 차트 만들기**
 
-지도 차트는 국가, 주, 도시와 같은 특정 위치에 정보를 매핑하여 지리 데이터를 시각화합니다. 지역별 추세, 인구 통계 및 공간 분포를 명확하고 시각적으로 매력적인 형태로 분석하는 데 특히 유용합니다.
+지도 차트는 국가, 주 또는 도시와 같은 특정 위치에 정보를 매핑하여 지리 데이터를 시각화합니다. 지역별 트렌드, 인구 통계 및 공간 분포를 명확하고 시각적으로 매력적인 방식으로 분석하는 데 특히 유용합니다.
 
-이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용해 기본 지리 데이터를 가진 지도 차트를 만든 뒤 PowerPoint에서 확인할 수 있도록 저장합니다.
+이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용해 기본 지리 데이터를 포함한 지도 차트를 만든 뒤 PowerPoint에서 확인할 수 있도록 저장합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1342,19 +1426,19 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 결과:
 
-![지도 차트](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-위 그림은 PowerPoint에서 열어본 저장된 프레젠테이션을 보여줍니다. Aspose.Slides는 지도 차트와 데이터를 올바르게 기록하지만 자체적으로 지도 차트를 그리지는 않습니다. 슬라이드가 이미지로 렌더링되거나 PDF·SVG로 변환될 때 차트 영역이 빈 채로 나타납니다. 동일 슬라이드의 다른 도형은 영향을 받지 않습니다.
+위 그림은 PowerPoint에서 연 파일을 연 모습을 보여줍니다. Aspose.Slides는 지도 차트와 데이터를 올바르게 기록하지만, 자체적으로 지도 차트를 그리지는 않습니다. 슬라이드가 이미지로 렌더링되거나 PDF·SVG로 변환될 때 차트 영역은 빈 상태로 표시됩니다. 같은 슬라이드의 다른 도형은 영향을 받지 않습니다.
 {{% /alert %}}
 
-### **조합 차트 만들기**
+### **복합 차트 만들기**
 
-조합 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이 차트를 사용하면 두 개 이상의 데이터 세트 간의 차이를 강조하거나 비교·분석하여 관계를 파악할 수 있습니다.
+복합 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이 차트를 사용하면 여러 데이터 세트를 강조, 비교 또는 차이를 조사하여 관계를 식별할 수 있습니다.
 
-![조합 차트](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-이 예제는 네 개 카테고리에서 두 개의 군집 열 시리즈와 하나의 라인 시리즈를 결합합니다. 컬럼은 기본 수직 축을 사용하고, [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/)가 라인을 오른쪽의 보조 수직 축에 배치합니다. 보조 함수들은 제목, 레전드, 축 레이블 및 격선을 구성합니다.
+이 예제는 네 개의 카테고리에 걸쳐 두 개의 군집 세로 막대 시리즈와 한 개의 선 시리즈를 결합합니다. 막대는 기본 수직 축을 사용하고, [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/)는 선을 오른쪽에 있는 보조 수직 축에 배치합니다. 도우미 함수는 제목, 범례, 축 레이블 및 격자를 구성합니다.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1438,8 +1522,8 @@ struct ComboChartExample
         chart->get_Legend()->set_Position(LegendPositionType::Bottom);
         chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0f);
 
-        chart->get_ChartData()->get_Series()->Clear();
-        chart->get_ChartData()->get_Categories()->Clear();
+        chart->get_ChartData()->get_Series()->clear();
+        chart->get_ChartData()->get_Categories()->clear();
 
         auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
         auto worksheetIndex = 0;
@@ -1524,8 +1608,6 @@ struct ComboChartExample
         verticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0f);
         verticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-        SetAxisTitle(verticalAxis, u"Y Axis 1");
-
         auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
         majorGridLinesFormat->set_FillType(FillType::Solid);
         majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
@@ -1565,9 +1647,9 @@ ComboChartExample::CreateComboChart();
 
 ## **차트 업데이트**
 
-Aspose.Slides for C++는 차트 데이터를 수정하고 서식 및 스타일을 변경하여 PowerPoint 차트를 업데이트할 수 있게 해줍니다. 이 기능을 사용하면 프레젠테이션을 동적 콘텐츠와 동기화하고 차트가 현재 데이터와 시각적 기준을 정확히 반영하도록 할 수 있습니다.
+Aspose.Slides for C++를 사용하면 차트 데이터를 수정하고 서식 및 스타일을 변경하여 PowerPoint 차트를 업데이트할 수 있습니다. 이 기능을 통해 프레젠테이션을 동적인 콘텐츠와 동기화하고 차트가 최신 데이터와 시각적 표준을 정확히 반영하도록 할 수 있습니다.
 
-이 예제는 기존 프레젠테이션의 첫 번째 슬라이드에 있는 "My chart"라는 차트를 업데이트합니다. 각 시리즈에 세 개의 데이터 포인트를 가진 두 개의 열 시리즈가 필요하며, 카테고리 레이블은 A 열에, 시리즈 이름은 첫 번째 워크시트의 첫 행에 있습니다. 예제는 [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/)을 사용해 워크북 셀을 변경하고, 시리즈 값을 업데이트하며, 세 번째 시리즈를 추가하고, [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/)을 통해 차트를 군집 원통형으로 변경합니다.
+이 예제는 기존 프레젠테이션 첫 번째 슬라이드에 있는 "My chart"라는 차트를 업데이트합니다. 각 시리즈에 세 개의 데이터 포인트가 있는 두 개의 열 시리즈가 필요하며, 카테고리 레이블은 A 열에, 시리즈 이름은 첫 번째 워크시트 첫 행에 있습니다. 예제는 [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/)을 사용해 워크북 셀을 변경하고, 시리즈 값을 업데이트하며, 세 번째 시리즈를 추가하고, [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/)을 통해 차트를 군집 원통형으로 바꿉니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1650,11 +1732,11 @@ presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 
 ## **차트 데이터 범위 설정**
 
-[차트 데이터 범위 가져오기](/slides/ko/cpp/chart-workbook/#retrieve-a-charts-data-range) 를 확인하면 기존 차트에서 이미 사용 중인 범위를 확인할 수 있습니다.
+기존 차트가 사용 중인 범위를 확인하려면 [Retrieve a Chart's Data Range](/slides/ko/cpp/chart-workbook/#retrieve-a-charts-data-range)를 참고하십시오.
 
-Aspose.Slides for C++는 워크시트의 특정 데이터 범위를 차트 데이터의 소스로 정의할 수 있는 유연성을 제공합니다. 이를 통해 워크시트의 일부 영역을 차트에 직접 매핑하여 어느 셀이 시리즈와 카테고리에 기여하는지를 제어할 수 있습니다. 결과적으로 워크시트의 최신 데이터 변경 사항과 차트를 쉽게 업데이트·동기화하여 PowerPoint 프레젠테이션이 현재 정확한 정보를 반영하도록 할 수 있습니다.
+Aspose.Slides for C++는 워크시트의 특정 데이터 범위를 차트 데이터 원본으로 정의하는 유연성을 제공합니다. 이를 통해 워크시트의 일부 셀만 차트에 매핑하여 시리즈와 카테고리의 기여 셀을 제어할 수 있습니다. 결과적으로 워크시트에서 최신 데이터 변경 사항을 차트에 쉽게 반영하고 동기화할 수 있어 PowerPoint 프레젠테이션이 최신 정보를 정확히 반영하도록 할 수 있습니다.
 
-이 예제는 [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/)을 사용해 기존 프레젠테이션의 첫 번째 슬라이드에 있는 "My chart" 차트의 데이터 소스를 `Sheet1!A1:B4` 로 설정합니다. 차트 워크북에 해당 워크시트가 존재하고, 첫 행에 시리즈 헤더, A 열에 카테고리 레이블, B 열에 세 개 값이 채워진 범위가 있어야 합니다.
+이 예제는 [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/)을 사용해 기존 프레젠테이션 첫 번째 슬라이드에 있는 "My chart" 차트의 데이터 원본을 `Sheet1!A1:B4`로 설정합니다. 차트 워크북에 해당 워크시트가 존재하고, 첫 행에 시리즈 헤딩, A 열에 카테고리 레이블, B 열에 세 개의 값이 채워진 범위가 있어야 합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1696,11 +1778,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **차트 기본 마커 사용**
+## **차트에서 기본 마커 사용**
 
-차트에서 기본 마커를 사용하면 각 시리즈에 자동으로 서로 다른 기본 마커 기호가 할당됩니다.
+차트에 기본 마커를 사용하면 각 차트 시리즈에 자동으로 서로 다른 기본 마커 기호가 할당됩니다.
 
-이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용해 두 개 라인 시리즈와 레전드가 포함된 차트를 만들고, [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) 설정이 자동 할당된 마커 기호를 유지하도록 합니다. 첫 번째 시리즈는 `nullptr` 로 표시된 음수 값과 누락 값을 포함하고, 두 번째 시리즈는 모든 카테고리에 값을 가지고 있습니다.
+이 예제는 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/)을 사용해 두 개의 선 시리즈와 범례가 포함된 차트를 만들고, [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) 설정을 통해 자동 할당된 마커 기호를 유지합니다. 첫 번째 시리즈는 음수 값과 `nullptr`으로 표시된 누락 값을 포함하고, 두 번째 시리즈는 모든 카테고리에 값을 가지고 있습니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1786,20 +1868,20 @@ chart->get_Legend()->set_Overlay(false);
 presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-## **자주 묻는 질문**
+## **FAQ**
 
-**Aspose.Slides for C++에서 지원하는 차트 유형은 무엇입니까?**
+**Aspose.Slides for C++에서 지원되는 차트 유형은 무엇입니까?**
 
 Aspose.Slides for C++는 막대, 선, 원형, 영역, 산점도, 히스토그램, 레이더 등 다양한 차트 유형을 지원합니다. 이를 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 선택할 수 있습니다.
 
-**슬라이드에 새 차트를 추가하려면 어떻게 해야 하나요?**
+**슬라이드에 새 차트를 어떻게 추가합니까?**
 
-차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) 클래스를 인스턴스화하고, 인덱스로 원하는 슬라이드를 가져온 다음 차트 유형과 초기 데이터를 지정하여 차트를 추가하는 메서드를 호출합니다. 이렇게 하면 차트가 프레젠테이션에 직접 삽입됩니다.
+차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) 클래스의 인스턴스를 만들고, 인덱스로 원하는 슬라이드를 가져온 뒤 차트 유형과 초기 데이터를 지정해 차트를 추가하는 메서드를 호출하면 됩니다. 이 과정은 차트를 프레젠테이션에 직접 삽입합니다.
 
-**차트에 표시되는 데이터를 어떻게 업데이트할 수 있나요?**
+**차트에 표시되는 데이터를 어떻게 업데이트할 수 있습니까?**
 
-차트의 데이터를 업데이트하려면 차트 데이터 워크북([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/))에 접근해 기본 시리즈와 카테고리를 지우고 사용자 정의 데이터를 추가하면 됩니다. 이를 통해 최신 데이터를 반영하도록 차트를 프로그래matically 새로 고칠 수 있습니다.
+차트의 데이터를 업데이트하려면 차트 데이터 워크북([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/))에 접근해 기본 시리즈와 범주를 삭제한 뒤 사용자 정의 데이터를 추가하면 됩니다. 이를 통해 최신 데이터를 반영하도록 차트를 프로그래밍 방식으로 새로 고칠 수 있습니다.
 
-**차트의 모양을 사용자 정의할 수 있나요?**
+**차트 모양을 사용자 정의할 수 있습니까?**
 
-예, Aspose.Slides for C++는 광범위한 사용자 정의 옵션을 제공합니다. 색상, 글꼴, 레이블, 레전드 및 기타 서식 요소를 수정하여 차트의 외观을 특정 디자인 요구에 맞게 조정할 수 있습니다.
+예, Aspose.Slides for C++는 광범위한 사용자 정의 옵션을 제공합니다. 색상, 글꼴, 레이블, 범례 및 기타 서식 요소를 수정해 차트를 특정 디자인 요구 사항에 맞게 조정할 수 있습니다.

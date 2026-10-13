@@ -1,6 +1,6 @@
 ---
-title: Vytvořit nebo aktualizovat grafy v PowerPoint prezentacích na Androidu
-linktitle: Vytvořit nebo aktualizovat grafy
+title: Vytvoření nebo aktualizace grafů v prezentacích PowerPoint na Androidu
+linktitle: Vytvoření nebo aktualizace grafů
 type: docs
 weight: 10
 url: /cs/androidjava/create-chart/
@@ -10,15 +10,15 @@ keywords:
 - upravit graf
 - změnit graf
 - aktualizovat graf
-- rozptýlený graf
-- výsečový graf
+- rozptylový graf
+- koláčový graf
 - čárový graf
 - stromová mapa
 - akciový graf
-- krabicový a vousatý graf
+- krabicový a vousový graf
 - trychtýřový graf
-- sluneční paprskový graf
-- histogramový graf
+- sunburst graf
+- histogram
 - radarový graf
 - vícekategoriový graf
 - PowerPoint
@@ -26,27 +26,25 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro Android prostřednictvím Javy. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu v Javě.
+description: "Vytvářejte a přizpůsobujte grafy v prezentacích PowerPoint pomocí Aspose.Slides pro Android via Java. Přidávejte, formátujte a upravujte grafy s praktickými příklady kódu v jazyce Java."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides pro Android prostřednictvím Javy. Naučíte se, jak programově přidat graf na snímek, naplnit ho daty a použít různá formátovací nastavení tak, aby odpovídala vašim konkrétním návrhovým požadavkům. V průběhu celého článku podrobné ukázky kódu ilustrují jednotlivé kroky, od inicializace prezentace a objektu grafu až po konfiguraci řad, os a legend. Po přečtení tohoto průvodce získáte pevné porozumění tomu, jak integrovat dynamické generování grafů do vašich Android aplikací a zjednodušit proces tvorby datově řízených prezentací.
+Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides for Android via Java. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a použít různé možnosti formátování, aby odpovídaly vašim konkrétním požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu až po konfiguraci sérií, os a legend. Dodržením tohoto průvodce získáte pevné pochopení toho, jak integrovat dynamické generování grafů do vašich Android aplikací, což zjednoduší proces vytváření prezentací založených na datech.
 
 ## **Vytvoření grafu**
 
-Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být hned patrné z tabulky nebo tabulkového listu.
+Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě patrné z tabulky nebo tabulkového kalkulátoru.
 
 **Proč vytvářet grafy?**
 
-Pomocí grafů můžete:
-
-* agregovat, zhušťovat nebo shrnovat velké objemy dat na jediném snímku prezentace;
-* odhalovat vzory a trendy v datech;
-* odhadnout směr a momenta dat v čase nebo vzhledem k určité jednotce měření;
+* agregovat, zhutnit nebo shrnout velké množství dat na jednom snímku v prezentaci;
+* odhalit vzorce a trendy v datech;
+* odvodit směr a dynamiku dat v čase nebo vzhledem k konkrétní měrné jednotce;
 * identifikovat odlehlé hodnoty, anomálie, odchylky, chyby a nesmyslná data;
 * komunikovat nebo prezentovat složitá data.
 
-V PowerPointu můžete grafy vytvářet pomocí funkce *Insert*, která poskytuje šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech grafů), tak i vlastní grafy.
+V PowerPointu můžete grafy vytvořit pomocí funkce *Insert*, která poskytuje šablony pro návrh mnoha typů grafů. S Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech grafů), tak i vlastní grafy.
 
 {{% alert color="info" title="Note" %}}
 Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) v balíčku [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
@@ -54,7 +52,7 @@ Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/android
 
 ### **Vytvoření seskupených sloupcových grafů**
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k vytvoření seskupeného sloupcového grafu, který porovnává dvě řady napříč třemi kategoriemi. Řady používají červené a zelené výplně a jednotlivé popisky ukazují názvy kategorií, názvy řad a hodnoty. Index listu 0 odkazuje na první list v vložené sešitu grafu.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k vytvoření seskupeného sloupcového grafu, který porovnává dvě série ve třech kategoriích. Série používají červené a zelené výplně a jednotlivé popisky zobrazují názvy kategorií, názvy sérií a hodnoty. Index listu 0 odkazuje na první list v vloženém sešitu grafu.
 
 ```java
 import com.aspose.slides.*;
@@ -133,22 +131,20 @@ finally
 }
 ```
 
-Výsledek:
-
 ![Graf seskupených sloupců](clustered_column_chart.png)
 
 ### **Vytvoření rozptylových grafů**
 
-Rozptylové grafy (také známé jako scatter ploty nebo x‑y grafy) se často používají k ověření vzorů nebo demonstraci korelací mezi dvěma proměnnými.
+Rozptylové grafy (známé také jako scatter ploty nebo x‑y grafy) se často používají k ověření vzorců nebo demonstraci korelací mezi dvěma proměnnými.
 
 Použijte rozptylový graf, když:
 
 * máte spárovaná číselná data;
 * máte dvě proměnné, které spolu dobře souvisí;
-* chcete určit, zda jsou dvě proměnné navzájem propojené;
-* máte nezávislou proměnnou s více hodnotami pro závislou proměnnou.
+* chcete zjistit, zda jsou tyto dvě proměnné navzájem související;
+* máte nezávislou proměnnou, která má pro závislou proměnnou více hodnot.
 
-Tento příklad vykresluje dvě sady x‑y hodnot. První řada používá přímé čáry s hvězdicovými značkami, zatímco druhá používá hladké čáry s kruhovými značkami; obě používají velikost značky 10, nastavenou pomocí [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). Metoda [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) řídí tvar značky.
+Tento příklad vykresluje dva soubory x‑y hodnot. První série používá přímé čáry s hvězdicovými značkami, zatímco druhá používá plynulé čáry s kruhovými značkami; obě používají velikost značky 10, nastavenu pomocí [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). Metoda [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) určuje tvar značky.
 
 ```java
 import com.aspose.slides.*;
@@ -214,15 +210,13 @@ finally
 }
 ```
 
-Výsledek:
-
 ![Rozptylový graf](scatter_chart.png)
 
-### **Vytvoření výsečových grafů**
+### **Vytvoření koláčových grafů**
 
-Výsečové grafy jsou nejvhodnější pro zobrazení poměru část‑k‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, měli byste zvážit místo toho sloupcový graf.
+Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však data obsahují mnoho částí nebo štítků, můžete zvážit místo toho sloupcový graf.
 
-Tento příklad vytváří výsečový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a popisky zobrazují různé kombinace hodnot, procent a informací o řadě. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) nastavuje první výsek tak, aby začínal ve 180 stupních.
+Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a popisky zobrazují různé kombinace hodnot, procent a informací o sérii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) nastavuje první výsek tak, aby začínal při 180 stupních.
 
 ```java
 import com.aspose.slides.*;
@@ -321,15 +315,13 @@ finally
 }
 ```
 
-Výsledek:
-
-![Výsečový graf](pie_chart.png)
+![Koláčový graf](pie_chart.png)
 
 ### **Vytvoření čárových grafů**
 
-Čárové grafy (také známé jako line grafy) jsou nejvhodnější v situacích, kdy chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v průběhu času, zvýraznit anomálie v řadách a další.
+Čárové grafy (známé také jako line grafy) jsou nejvhodnější v situacích, kdy chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v sériích a podobně.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k vytvoření čárového grafu s výchozími řadami a kategoriemi, následně uloží prezentaci jako PPTX.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k vytvoření čárového grafu s výchozími sériemi a kategoriemi, poté ukládá prezentaci jako PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +341,7 @@ finally
 }
 ```
 
-Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny pomlčkovanými čarami, zavolejte [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) s hodnotou z [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
+Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny čárkami, zavolejte [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) s hodnotou z [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -372,15 +364,13 @@ finally
 }
 ```
 
-Výsledek:
-
 ![Čárový graf](line_chart.png)
 
-### **Vytvoření grafů stromové mapy**
+### **Vytvoření stromových mapových grafů**
 
-Grafy stromové mapy jsou nejvhodnější pro prodejní data, kdy chcete zobrazit relativní velikost datových kategorií a rychle upoutat pozornost na položky, které představují velké příspěvky v rámci každé kategorie.
+Stromové mapové grafy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost datových kategorií a rychle upozornit na položky, které jsou v rámci každé kategorie velkými přispěvateli.
 
-Tento příklad vytváří stromovou mapu se osmi listy seskupenými do čtyř kmenů a dvou větví. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) přiřazuje kmeny na úrovni seskupování 1 a větve na úrovni 2. Hodnoty určují relativní velikosti obdélníků, zatímco štítky kategorií a překrývající se nadřazené štítky identifikují hierarchii.
+Tento příklad vytváří stromovou mapu s osmi listy seskupenými do čtyř kořenů a dvou větví. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) přiřazuje kořeny na úrovni skupiny 1 a větve na úrovni 2. Hodnoty určují poměrné velikosti obdélníků, zatímco popisky kategorií a překrývající se nadřazené popisky identifikují hierarchii.
 
 ```java
 import com.aspose.slides.*;
@@ -459,28 +449,24 @@ finally
 }
 ```
 
-Výsledek:
-
-![Graf stromové mapy](treemap_chart.png)
+![Stromový mapový graf](treemap_chart.png)
 
 ### **Vytvoření vodopádových grafů**
 
-Vodopádový graf ukazuje, jak pozitivní a negativní změny přispívají k finální hodnotě. Například rozpad zisku může začínat tržbami, odečíst náklady a přičíst jiné příjmy. Sloupce změn „plavou“ mezi předchozí a novou hodnotou, zatímco celkové sloupce se rozšiřují od nuly k akumulované hodnotě.
+Vodopádový graf ukazuje, jak kladné a záporné změny přispívají k finální hodnotě. Například rozpis zisku může začínat tržbami, odečíst náklady a přidat další příjmy. Sloupce změn „plavou“ mezi předchozí a novou průběžnou hodnotou, zatímco součtové sloupce sahají od nuly k akumulované hodnotě.
 
-Následující příklad používá částky v tisících amerických dolarů:
-
-| Kategorie | Hodnota v sešitu | Typ sloupce |
+| Kategorie | Hodnota sešitu | Typ sloupce |
 | --- | ---: | --- |
-| Tržby | 1000 | Nárůst |
-| Náklady na prodej | -400 | Pokles |
-| Hrubý zisk | 600 | Mezičíslo |
-| Provozní náklady | -200 | Pokles |
-| Ostatní příjmy | 50 | Nárůst |
-| Čistý zisk | 450 | Konečný součet |
+| Tržby | 1000 | Zvýšení |
+| Náklady prodeje | -400 | Snížení |
+| Hrubý zisk | 600 | Mezivýsledek |
+| Provozní náklady | -200 | Snížení |
+| Ostatní příjmy | 50 | Zvýšení |
+| Čistý zisk | 450 | Konečný výsledek |
 
-Pro označení bodu jako mezičísla nebo konečného součtu zavolejte jeho metodu [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) s hodnotou `true`. Do odpovídající buňky sešitu zadejte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Metoda označí sloupec jako součet; neprovádí výpočet ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupný znak ani nezadávejte jinou změnu pro bod součtu. Sloupec s celkem zobrazuje akumulovanou hodnotu, aniž by ji znovu přičítal k běžné hodnotě.
+Pro označení bodu jako mezivýsledku nebo konečného výsledku zavolejte jeho metodu [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) s hodnotou `true`. Do buňky sešitu v tomto bodě vložte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Metoda označí sloupec jako součet; nepočítá ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupnou hodnotu ani neposkytujte jinou změnu pro součtový bod. Součtový sloupec zobrazuje akumulovanou hodnotu bez jejího opětovného přičtení k průběžné hodnotě.
 
-Tento kompletní Java příklad vytváří graf pomocí členu `Waterfall` výčtu [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), vymaže výchozí data a naplní vložený sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B obsahuje hodnoty. Každá buňka s hodnotou je přidána pomocí [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Indexy bodů od nuly `2` a `5` určují mezičíslo a konečný součet. Zavoláním [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) s `true` zobrazíte částky na sloupcích. Vstupní prezentace ani sešit nejsou vyžadovány.
+Tento úplný Java příklad vytváří graf pomocí členu `Waterfall` výčtu [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), vymaže výchozí data a naplní vložený sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B obsahuje hodnoty. Každá buňka s hodnotou je přidána pomocí [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Indexy bodů založené na nule `2` a `5` identifikují mezivýsledek a konečný výsledek. Voláním [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) s hodnotou `true` zobrazíte částky na sloupcích. Vstupní prezentace ani sešit nejsou vyžadovány.
 
 ```java
 import com.aspose.slides.*;
@@ -532,17 +518,17 @@ finally
 }
 ```
 
-Zavolejte metodou řady [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) s `true`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování běžné hodnoty. Pro skrytí těchto čar nahraďte volání metody ve vzorku kódu `series.setShowConnectorLines(false);` před uložením. Tím se změní pouze viditelnost čáry, ne data ani součty.
+Na úrovni sérií zavolejte metodu [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) s hodnotou `true`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování průběžné hodnoty. Pro skrytí těchto čar nahraďte volání metody v příkladu výrazem `series.setShowConnectorLines(false);` před uložením. Tím se změní pouze viditelnost čar, ne data ani součty.
 
-Uložená prezentace ukazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty jsou vykresleny od nuly:
+Uložená prezentace zobrazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty jsou počítány od nuly:
 
-![Vodopádový graf zobrazující tržby, náklady, hrubý zisk 600 a čistý zisk 450, s popisky hodnot a čarami spojnicemi](waterfall_chart.png)
+![Vodopádový graf zobrazující tržby, náklady, hrubý zisk 600 a čistý zisk 450 s popisky hodnot a spojovacími čarami](waterfall_chart.png)
 
-### **Vytvoření akciových (stock) grafů**
+### **Vytvoření akciových grafů**
 
-Akciové grafy se používají k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a zavírací ceny, což pomáhá analyzovat tržní trendy a volatilitu. Poskytují zásadní přehled o výkonnosti akcií a pomáhají investorům i analytikům činit informovaná rozhodnutí.
+Akciové grafy se používají k zobrazení finančních údajů, jako jsou otevírací, nejvyšší, nejnižší a závěrečné ceny, což pomáhá analyzovat tržní trendy a volatilitu. Nabízejí základní vhled do výkonnosti akcií a pomáhají investorům a analytikům činit informovaná rozhodnutí.
 
-Tento příklad vytváří open‑high‑low‑close graf se čtyřmi řadami v tomto pořadí a třemi kategoriemi. Metoda [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) zapíná „up/down“ pruhy a [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) řídí čáry high‑low, které zobrazují cenové rozpětí, zatímco jednotlivé řady a menší vodorovné mřížky jsou skryté.
+Tento příklad vytváří graf otevření‑vysoká‑nízká‑zavření se čtyřmi sériemi v tomto pořadí a třemi kategoriemi. Metoda [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) aktivuje sloupce nahoru/dolu a [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) řídí čáry vysoká‑nízká, které ukazují cenové rozpětí, zatímco jednotlivé čáry sérií a menší vodorovné mřížky jsou skryty.
 
 ```java
 import com.aspose.slides.*;
@@ -622,15 +608,13 @@ finally
 }
 ```
 
-Výsledek:
+![Graf akcií](stock_chart.png)
 
-![Akciový graf](stock_chart.png)
+### **Vytvoření krabicových a vousových grafů**
 
-### **Vytvoření krabicových a vousatých grafů**
+Krabicové a vousové grafy slouží k zobrazení rozdělení dat shrnutím klíčových statistických měr, jako je medián, kvartily a případné odlehlé hodnoty. Jsou zvláště užitečné při průzkumné analýze a statistických studiích pro rychlé pochopení variability dat a identifikaci anomálií.
 
-Krabicové a vousaté grafy slouží k zobrazení rozdělení dat shrnutím klíčových statistických měřítek, jako jsou medián, kvartily a potenciální odlehlé hodnoty. Jsou zvláště užitečné při průzkumné analýze dat a statistických studiích pro rychlé pochopení variability dat a identifikaci anomálií.
-
-Tento příklad vytváří krabicový a vousatý graf ze šesti hodnot. Metoda [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) volí exkluzivní výpočet kvartilů. Příklad také zapíná čáry střední hodnoty, značky střední hodnoty, vnitřní body a body odlehlých hodnot.
+Tento příklad vytváří krabicový a vousový graf ze šesti hodnot. Metoda [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) vybírá exkluzivní výpočet kvartilů. Příklad také aktivuje čáry průměru, značky průměru, vnitřní body a body odlehlých hodnot.
 
 ```java
 import com.aspose.slides.*;
@@ -692,9 +676,9 @@ finally
 
 ### **Vytvoření trychtýřových grafů**
 
-Trychtýřové grafy slouží k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s postupem od jednoho kroku k dalšímu. Jsou zvláště užitečné při analýze konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních či marketingových procesů.
+Trychtýřové grafy se používají k vizualizaci procesů, které zahrnují sekvenční fáze, kde se objem dat snižuje při přechodu z jednoho kroku na další. Jsou zvláště užitečné při analýze konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních nebo marketingových procesů.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k přidání trychtýřového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami v rozsahu 50 až 500 a poté uloží aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k přidání trychtýřového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami v rozmezí od 50 do 500, poté ukládá aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
 
 ```java
 import com.aspose.slides.*;
@@ -748,15 +732,13 @@ finally
 }
 ```
 
-Výsledek:
-
 ![Trychtýřový graf](funnel_chart.png)
 
-### **Vytvoření slunečních paprskových grafů**
+### **Vytvoření Sunburst grafů**
 
-Sluneční paprskové grafy slouží k vizualizaci hierarchických dat, přičemž úrovně jsou zobrazeny jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑k‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
+Sunburst grafy se používají k vizualizaci hierarchických dat, zobrazujících úrovně jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
 
-Tento příklad vytváří sluneční paprskový graf se osmi listy seskupenými do čtyř kmenů a dvou větví. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) přiřazuje kmeny na úrovni seskupování 1 a větve na úrovni 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
+Tento příklad vytváří Sunburst graf s osmi listy seskupenými do čtyř kořenů a dvou větví. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) přiřazuje kořeny na úrovni skupiny 1 a větve na úrovni 2. Popisky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
 
 ```java
 import com.aspose.slides.*;
@@ -833,15 +815,17 @@ finally
 }
 ```
 
-Výsledek:
-
-![Sluneční paprskový graf](sunburst_chart.png)
+![Sunburst graf](sunburst_chart.png)
 
 ### **Vytvoření histogramových grafů**
 
-Histogramové grafy slouží k zobrazení rozdělení číselných dat seskupením hodnot do intervalů nebo „binů“. Jsou zvláště užitečné pro identifikaci datových vzorů, jako jsou četnost, zkosení a rozptyl, a pro detekci odlehlých hodnot v datovém souboru.
+Histogramové grafy ukazují, jak jsou číselné hodnoty rozloženy do intervalů (binů). Pro měsíční zprávy o časech zpracování objednávek používejte stejnou šířku binu a prahy, aby byly intervaly konzistentní a usnadnily porovnání rozdělení.
 
-Tento příklad vytváří histogram ze šesti číselných hodnot, včetně záporných hodnot. Zavoláním [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) s automatickým typem agregace umožníte grafu určit intervaly použité k zobrazení rozdělení.
+Zavolejte [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) na vodorovné ose s režimem z [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) se použije jen pro `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) se použije jen pro `ByNumberOfBins`. Použijte `Automatic`, aby graf sám rozhodl o bitech.
+
+#### **Použití pevné šířky binu**
+
+Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými biny pro časy ≤ 10 min a > 40 min. Aktivujte tyto biny pomocí [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) a [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Při zadání explicitních prahů přes [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) a [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), zavolejte [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) a [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) s hodnotou `false`.
 
 ```java
 import com.aspose.slides.*;
@@ -851,7 +835,10 @@ try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300);
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -860,22 +847,24 @@ try
     workbook.clear(0);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
-    IChartDataCell valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 }
 finally
 {
@@ -883,15 +872,62 @@ finally
 }
 ```
 
-Výsledek:
+Prezentace v PowerPointu ukazuje počty binů **3, 4, 4, 4 a 2**. Bin podtečení zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Bin přetečení zahrnuje jen `41, 50`, takže jeho práh je exkluzivní; oba hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní biny obsahují hodnoty větší než jejich dolní hranice a menší nebo rovné jejich horní hranici.
 
-![Histogramový graf](histogram_chart.png)
+![Histogram s 10‑minutovými biny a explicitními prahy podtečení a přetečení](histogram_bin_width.png)
+
+#### **Určení počtu binů**
+
+Pro pevnou úroveň detailu místo pevných intervalů požádejte o pět binů pro stejná data. Tento příklad má vypnuté biny podtečení a přetečení. Graf určuje šířku z rozsahu dat, takže hranice se mohou mezi zprávami měnit.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Pět binů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou identické, ale hranice se liší.
+
+![Histogram s pěti biny vypočtenými ze stejných dat](histogram_bin_count.png)
 
 ### **Vytvoření radarových grafů**
 
-Radarové grafy slouží k zobrazení multivariátních dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných současně. Jsou zvláště užitečné pro identifikaci vzorů, silných a slabých stránek napříč více výkonnostními metrikami nebo atributy.
+Radarové grafy slouží k zobrazení multivariačních dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných najednou. Jsou zvláště užitečné pro identifikaci vzorců, silných a slabých stránek napříč různými výkonnostními metrikami nebo atributy.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k vytvoření radarového grafu s výchozími řadami a kategoriemi a následně uloží prezentaci jako PPTX.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k vytvoření radarového grafu s výchozími sériemi a kategoriemi, poté ukládá prezentaci jako PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -911,15 +947,13 @@ finally
 }
 ```
 
-Výsledek:
-
 ![Radarový graf](radar_chart.png)
 
-### **Vytvoření vícekategorie (multi‑category) grafů**
+### **Vytvoření vícekategoriových grafů**
 
-Vícekategoriové grafy slouží k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což vám umožní porovnávat hodnoty napříč několika rozměry současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, vícevrstvých datových souborech.
+Vícekategoriové grafy slouží k zobrazení dat, která zahrnují více než jedno kategorizující seskupení, což vám umožní porovnat hodnoty napříč několika rozměry najednou. Jsou obzvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních vícestupňových datových sadách.
 
-Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými do čtyř párů. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) dává každému páru sdílený štítek na úrovni seskupování 1, čímž vznikne osa kategorií s jednotlivými i skupinovými štítky.
+Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech párech. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) dává každému páru sdílený popisek na úrovni skupiny 1, čímž vznikne osa kategorií s individuálními i skupinovými popisky.
 
 ```java
 import com.aspose.slides.*;
@@ -991,15 +1025,13 @@ finally
 }
 ```
 
-Výsledek:
-
 ![Vícekategoriový graf](multi_category_chart.png)
 
 ### **Vytvoření mapových grafů**
 
-Mapové grafy slouží k vizualizaci geografických dat mapováním informací na konkrétní místa, jako jsou země, státy nebo města. Jsou zvláště užitečné pro analýzu regionálních trendů, demografických dat a prostorových rozdělení v přehledném, vizuálně atraktivním formátu.
+Mapové grafy se používají k vizualizaci geografických dat při mapování informací na konkrétní lokace, jako jsou země, státy nebo města. Jsou zvláště užitečné pro analýzu regionálních trendů, demografických údajů a prostorových rozdělení jasným a vizuálně poutavým způsobem.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k vytvoření mapového grafu s výchozími geografickými daty a uloží jej pro zobrazení v PowerPointu.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k vytvoření mapového grafu s výchozími geografickými daty a ukládá jej pro prohlížení v PowerPointu.
 
 ```java
 import com.aspose.slides.*;
@@ -1019,21 +1051,17 @@ finally
 }
 ```
 
-Výsledek:
-
 ![Mapový graf](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Obrázek výše ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale samotný mapový graf nevykresluje: když je snímek s takovým grafem vykreslen do obrázku nebo převeden do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
+Obrázek výše ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale samotný mapový graf nevykresluje: když je snímek obsahující mapový graf převeden na obrázek nebo konvertován do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
 {{% /alert %}}
 
 ### **Vytvoření kombinovaných grafů**
 
-Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom grafu. Tento graf vám umožní zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma nebo více datovými sadami, čímž pomáhá identifikovat jejich vzájemné vztahy.
-
 ![Kombinovaný graf](combination_chart.png)
 
-Tento příklad kombinuje dvě seskupené sloupcové řady s čárovou řadou napříč čtyřmi kategoriemi. Sloupce používají primární vertikální osu, zatímco [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) umisťuje čáru na sekundární vertikální osu vpravo. Pomocné funkce konfigurují titulek, legendu, popisky os a mřížky.
+Tento příklad kombinuje dvě seskupené sloupcové série s jednou čárovou sérií napříč čtyřmi kategoriemi. Sloupce používají primární svislou osu, zatímco [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) umisťuje čáru na sekundární svislou osu vpravo. Pomocné funkce nastavují název, legendu, popisky os a mřížky.
 
 ```java
 import com.aspose.slides.*;
@@ -1204,9 +1232,9 @@ example.createComboChart();
 
 ## **Aktualizace grafů**
 
-Aspose.Slides pro Android prostřednictvím Javy umožňuje aktualizovat PowerPoint grafy úpravou dat grafu, formátování a stylování. Tato funkce zjednodušuje proces udržování prezentací aktuálních s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí současná data a vizuální standardy.
+Aspose.Slides for Android via Java vám umožňuje aktualizovat PowerPoint grafy úpravou dat grafu, formátování a stylování. Tato funkčnost zjednodušuje proces udržování prezentací aktuálními s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí aktuální data a vizuální standardy.
 
-Tento příklad aktualizuje graf s názvem „My chart“ na prvním snímku existující prezentace. Vyžaduje dva sloupcové řady s třemi datovými body v každé, přičemž štítky kategorií jsou ve sloupci A a názvy řad v prvním řádku prvního listu. Příklad používá [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) ke změně buněk sešitu, aktualizuje hodnoty řad, přidá třetí řadu a změní typ grafu na seskupené válcové pomocí [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
+Tento příklad aktualizuje graf pojmenovaný „My chart“ na prvním snímku existující prezentace. Vyžaduje dvě sloupcové série s třemi datovými body v každé, přičemž názvy kategorií jsou ve sloupci A a názvy sérií v prvním řádku prvního listu. Příklad používá [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) ke změně buněk sešitu, aktualizuje hodnoty sérií, přidá třetí sérii a změní typ grafu na seskupené válcové pomocí [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1266,13 +1294,13 @@ finally
 }
 ```
 
-## **Nastavení datového rozsahu pro graf**
+## **Nastavení rozsahu dat pro graf**
 
-Chcete-li zjistit rozsah již použitý existujícím grafem, viz [Retrieve a Chart's Data Range](/slides/cs/androidjava/chart-workbook/#retrieve-a-charts-data-range).
+Chcete‑li prozkoumat rozsah již použitého existujícím grafem, podívejte se na [Získání rozsahu dat grafu](/slides/cs/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides pro Android prostřednictvím Javy poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část listu na graf, což vám umožní kontrolovat, které buňky přispívají k řadám a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace grafů s posledními změnami v datech listu, aby vaše PowerPoint prezentace vždy odrážely aktuální a přesné informace.
+Aspose.Slides for Android via Java poskytuje flexibilitu definovat konkrétní rozsah dat z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část listu na graf, což vám umožní kontrolovat, které buňky přispívají k sériím a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace grafů s nejnovějšími změnami v listu, aby vaše PowerPoint prezentace odrážely aktuální a přesné informace.
 
-Tento příklad používá [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) k nastavení datového zdroje grafu s názvem „My chart“ na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a vyplněný rozsah s nadpisem řady v prvním řádku, štítky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
+Tento příklad používá [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) k nastavení datového zdroje grafu pojmenovaného „My chart“ na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a naplněný rozsah s názvem série v prvním řádku, štítky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
 
 ```java
 import com.aspose.slides.*;
@@ -1303,9 +1331,9 @@ finally
 
 ## **Použití výchozích značek v grafech**
 
-Když použijete výchozí značky v grafech, každá řada grafu automaticky získá jiný výchozí symbol značky.
+Když použijete výchozí značky v grafech, každá série grafu automaticky získá jiný výchozí symbol značky.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k vytvoření grafu se dvěma čárovými řadami a legendou. Nastavení značek přístupných přes [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) zachovává automaticky přiřazené symboly značek. První řada obsahuje zápornou hodnotu a chybějící hodnotu reprezentovanou `null`, zatímco druhá má hodnotu pro každou kategorii.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) k vytvoření grafu se dvěma čárovými sériemi a legendou. Nastavení značky přístupná přes [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) zachovává automaticky přiřazené symboly značek. První série obsahuje zápornou hodnotu a chybějící hodnotu, reprezentovanou `null`, zatímco druhá má hodnotu pro každou kategorii.
 
 ```java
 import com.aspose.slides.*;
@@ -1370,18 +1398,18 @@ finally
 
 ## **Často kladené otázky**
 
-**Jaké typy grafů jsou podporovány Aspose.Slides pro Android prostřednictvím Javy?**
+**Jaké typy grafů jsou podporovány v Aspose.Slides pro Android via Java?**
 
-Aspose.Slides pro Android prostřednictvím Javy podporuje širokou škálu typů grafů, včetně sloupcových, čárových, výsečových, plošných, rozptylových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro potřeby vizualizace vašich dat.
+Aspose.Slides for Android via Java podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, plošných, rozptylových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
 
 **Jak přidám nový graf na snímek?**
 
-Chcete-li přidat graf, nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), získáte požadovaný snímek podle jeho indexu a poté zavoláte metodu pro přidání grafu, specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), získáte požadovaný snímek pomocí jeho indexu a poté zavoláte metodu pro přidání grafu, přičemž specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
 **Jak mohu aktualizovat data zobrazovaná v grafu?**
 
-Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), vymazáním výchozích řad a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), vymazáním výchozích sérií a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides pro Android prostřednictvím Javy poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky tak, aby vzhled grafu odpovídal vašim konkrétním návrhovým požadavkům.
+Ano, Aspose.Slides for Android via Java poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky tak, aby vzhled grafu odpovídal vašim konkrétním požadavkům na design.

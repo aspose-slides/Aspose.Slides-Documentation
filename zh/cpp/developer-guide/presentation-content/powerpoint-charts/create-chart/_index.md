@@ -15,11 +15,11 @@ keywords:
 - 散点图
 - 饼图
 - 折线图
-- 树形图
-- 股票图表
+- 树状图
+- 股票图
 - 箱线图
 - 漏斗图
-- 旭状图
+- 旭辉图
 - 直方图
 - 雷达图
 - 多类别图表
@@ -31,31 +31,31 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 ---
 ## **概述**
 
-本文提供了使用 Aspose.Slides for C++ 创建和自定义图表的完整指南。您将学习如何以编程方式向幻灯片添加图表、填充数据，并应用各种格式选项以满足特定的设计需求。文章中提供了详细的代码示例，演示了从初始化演示文稿和图表对象到配置系列、坐标轴和图例的每一步。通过遵循本指南，您将深入了解如何在 C++ 应用程序中集成动态图表生成，从而简化创建数据驱动演示文稿的过程。
+本文提供了使用 Aspose.Slides for C++ 创建和自定义图表的完整指南。您将学习如何以编程方式向幻灯片添加图表、填充数据，并应用各种格式设置以满足特定的设计需求。文章中提供了详细的代码示例，演示了从初始化演示文稿和图表对象到配置系列、坐标轴和图例的每一步。通过本指南，您将掌握在 C++ 应用程序中集成动态图表的技巧，从而简化数据驱动演示文稿的创建过程。
 
 ## **创建图表**
 
-图表帮助人们快速可视化数据并获得从表格或电子表格中不易直接看出的洞察。
+图表帮助人们快速可视化数据，并发现表格或电子表格中不易察觉的洞察。
 
-**为什么创建图表？**
+**为什么要创建图表？**
 
 使用图表，您可以：
 
-* 在单个幻灯片上聚合、压缩或汇总大量数据；
-* 揭示数据中的模式和趋势；
-* 推断随时间或特定计量单位变化的数据方向和动量；
-* 发现异常值、偏差、错误和不合理的数据；
+* 在单张幻灯片上聚合、压缩或汇总大量数据；
+* 展示数据中的模式和趋势；
+* 推断数据随时间或相对于特定计量单位的方向和动量；
+* 发现异常值、偏差、错误和无意义的数据；
 * 传达或展示复杂数据。
 
-在 PowerPoint 中，您可以通过 *Insert* 功能创建图表，该功能提供了许多图表类型的模板。使用 Aspose.Slides，您可以创建常规图表（基于流行的图表类型）和自定义图表。
+在 PowerPoint 中，您可以通过 *Insert* 功能创建图表，该功能提供了多种图表模板。使用 Aspose.Slides，您既可以创建常规图表（基于常用图表类型），也可以创建自定义图表。
 
 {{% alert color="info" title="Note" %}}
-使用位于 [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) 命名空间下的 [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) 枚举。此枚举中的值对应不同的图表类型。
+使用位于 [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) 命名空间下的 [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) 枚举。该枚举的值对应不同的图表类型。
 {{% /alert %}}
 
 ### **创建簇状柱形图**
 
-本示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 创建一个簇状柱形图，用于比较三个类别中的两个系列。系列使用红色和绿色填充，单独的标签展示类别名称、系列名称和数值。工作表索引 0 指的是嵌入式图表工作簿中的第一张表。
+此示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 创建一个簇状柱形图，该图对比了两个系列在三个类别上的数据。系列使用红色和绿色填充，单独的标签展示了类别名称、系列名称和数值。工作表索引 0 指嵌入式图表工作簿中的第一张工作表。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -169,16 +169,16 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 ### **创建散点图**
 
-散点图（也称为散点图或 x‑y 图）常用于检查模式或演示两个变量之间的相关性。
+散点图（也称为散点图或 x‑y 图）常用于检查模式或展示两个变量之间的相关性。
 
-使用散点图的情形：
+在以下情况下使用散点图：
 
 * 您拥有配对的数值数据；
-* 您有两个配对良好的变量；
+* 两个变量之间具有良好的配对关系；
 * 您想确定这两个变量是否相关；
-* 您有一个独立变量对应多个因变量的取值。
+* 您有一个自变量对应多个因变量的取值。
 
-本示例绘制两组 x‑y 值。第一系列使用带星形标记的直线，第二系列使用带圆形标记的平滑线；两者的标记大小均为 10，使用 [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/) 设置。[set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) 方法控制标记形状。
+此示例绘制了两组 x‑y 值。第一系列使用带星形标记的直线，第二系列使用带圆形标记的平滑线；两者的标记大小均为 10，通过 [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/) 设置。[set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) 方法控制标记形状。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -272,9 +272,9 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 ### **创建饼图**
 
-饼图最适用于展示数据的部分与整体的关系，尤其是在数据包含带数值的分类标签时。然而，如果数据包含大量部分或标签，您可能需要考虑使用条形图。
+饼图最适合展示数据的部分与整体关系，尤其是数据包含带数值的分类标签时。不过，如果数据包含的部分或标签很多，建议使用条形图。
 
-本示例创建了一个包含三个季度值的饼图。每个切片都有自定义填充和边框，标签显示不同组合的数值、百分比和系列信息。[set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) 方法将第一切片的起始角度设为 180 度。
+此示例创建了一个包含三个季度值的饼图。每个扇区都有自定义填充和边框，标签显示值、百分比和系列信息的不同组合。[set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) 方法将第一扇区的起始角度设置为 180 度。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -415,9 +415,9 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 ### **创建折线图**
 
-折线图（也称为折线图）最适用于展示随时间变化的数值。使用折线图，您可以一次比较大量数据，跟踪随时间的变化和趋势，突出数据系列中的异常等。
+折线图（也称为折线图）最适合用于展示随时间变化的数值。使用折线图，您可以一次性比较大量数据，跟踪随时间的变化和趋势，突出显示数据系列中的异常等。
 
-本示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 创建一个默认系列和类别的折线图，然后将演示文稿保存为 PPTX。
+此示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 创建一个默认系列和类别的折线图，然后将演示文稿另存为 PPTX。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -449,7 +449,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-默认情况下，折线图上的点由直线连续相连。如果希望点之间使用虚线，请调用带有 [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) 中某个值的 [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/)：
+默认情况下，折线图上的点由连续的直线相连。如果希望点之间使用虚线，请调用带有 [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) 中某个值的 [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/)：
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -488,11 +488,11 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 ![折线图](line_chart.png)
 
-### **创建树形图**
+### **创建树状图**
 
-树形图最适用于销售数据，能够展示数据类别的相对大小，并快速将注意力吸引到每个类别中贡献最大的项目上。
+树状图最适合用于销售数据，能够显示数据类别的相对大小，并快速关注每个类别中贡献最大的项目。
 
-本示例创建了一个包含八个叶子、分为四个干和两个枝的树形图。[SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 上分配干，在级别 2 上分配枝。值决定矩形的相对大小，类别标签和重叠的父标签标识层次结构。
+此示例创建了一个包含八个叶子、四个干和两个分支的树状图。[SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 上分配干，在级别 2 上分配分支。值决定矩形的相对大小，类别标签和重叠的父标签标识层级结构。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -598,26 +598,26 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 结果：
 
-![树形图](treemap_chart.png)
+![树状图](treemap_chart.png)
 
 ### **创建瀑布图**
 
-瀑布图展示正向和负向变化如何共同构成最终值。例如，利润拆分可以从收入开始，减去成本，再加上其他收入。变化列在前后运行值之间浮动，而总计列则从零延伸到累计值。
+瀑布图展示正负变化如何累计到最终值。例如，利润分解可以从收入开始，减去成本，再加上其他收入。变化列在前一个累计值和新累计值之间浮动，而总计列则从零延伸到累计值。
 
-以下示例使用以千美元计的金额：
+以下示例使用千美元为单位的金额：
 
-| 类别 | 工作簿值 | 列类型 |
+| 类别 | 工作簿数值 | 列类型 |
 | --- | ---: | --- |
-| Revenue | 1000 | 增加 |
-| Cost of sales | -400 | 减少 |
-| Gross profit | 600 | 中间合计 |
-| Operating expenses | -200 | 减少 |
-| Other income | 50 | 增加 |
-| Net profit | 450 | 最终合计 |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-要将某一点标记为中间或最终合计，请调用其 [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) 方法并传入 `true`。在该点的工作簿单元格中提供实际累计金额：`600` 用于毛利润（`1000 - 400`），`450` 用于净利润（`600 - 200 + 50`）。该方法仅标记列为合计，不会计算或填充单元格值。请勿使用零作为占位符或为合计点提供其他变化。合计列会显示累计值，但不会再次将其加入运行值。
+要将某一点标记为中间或最终总计，请对其调用 [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) 并传入 `true`。在该点的工作簿单元格中提供实际累计数值：毛利润为 `600`（`1000 - 400`），净利润为 `450`（`600 - 200 + 50`）。该方法仅标记列为总计，不会计算或填充单元格数值。请勿使用零作为占位符，也不要为总计点提供其他变化。总计列显示累计值，但不会再次将其加入运行值。
 
-此完整的 C++ 示例使用 [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) 的 `Waterfall` 成员创建图表，清除默认数据，并填充嵌入工作簿。工作表索引 `0` 选择第一张工作表；A 列包含类别名称，B 列包含数值。每个数值单元格通过 [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) 添加。基于零的点索引 `2` 和 `5` 标识中间合计和最终合计。将 `true` 传递给 [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) 可在列上显示数额。此过程不需要输入演示文稿或工作簿。
+完整的 C++ 示例使用 [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) 的 `Waterfall` 成员创建图表，清除默认数据，并填充嵌入式工作簿。工作表索引 `0` 选取第一张工作表；列 A 包含类别名称，列 B 包含数值。每个数值单元格通过 [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) 添加。基于零的点索引 `2` 和 `5` 标识中间总计和最终总计。将 `true` 传入 [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) 可在列上显示数额。此示例不需要输入演示文稿或工作簿。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -691,7 +691,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// 第三点和第六点表示合计，而不是额外的变化。
+// 第三和第六个点代表总计，而不是额外的变化。
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -700,17 +700,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-调用系列级别的 [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) 方法并传入 `true` 可以显示连接连续列的线，使运行值更易跟踪。若要隐藏这些线，只需在示例中将赋值替换为 `series->set_ShowConnectorLines(false);` 并在保存前执行。此更改仅影响线的可见性，不会改变数据或合计。
+在系列层面调用 [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) 并传入 `true`，可显示连接相邻列的线，使运行值更易于跟踪。若要隐藏这些线，请在保存前将示例中的赋值替换为 `series->set_ShowConnectorLines(false);`。此修改只影响线的可见性，不会改变数据或总计。
 
-保存后的演示文稿显示毛利润 600 和净利润 450，两个合计均从零开始绘制：
+保存后的演示文稿显示毛利润 600 和净利润 450，两者的总计均从零开始绘制：
 
-![瀑布图](waterfall_chart.png)
+![显示收入、成本、毛利润 600 以及净利润 450，带数值标签和连接线的瀑布图](waterfall_chart.png)
 
-### **创建股票图表**
+### **创建股票图**
 
-股票图表用于显示开盘价、最高价、最低价和收盘价等金融数据，有助于分析市场趋势和波动性。它们提供关键的股票表现洞察，帮助投资者和分析师做出明智决策。
+股票图用于展示开盘价、最高价、最低价和收盘价等金融数据，帮助分析市场趋势和波动性。它们提供有关股票表现的关键洞察，帮助投资者和分析师作出明智决策。
 
-本示例创建了一个包含四个系列（顺序为开‑高‑低‑收）的股票图表，并包含三个类别。[set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) 方法启用上下柱，[get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) 控制显示价格区间的高低线，而单独的系列线和次要水平网格线被隐藏。
+此示例创建了一个包含四个系列（顺序为开‑高‑低‑收）的股票图，并包含三个类别。[set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) 方法启用上/下柱，[get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) 控制显示价格区间的高低线，而各系列线和次要水平网格线被隐藏。
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -822,9 +822,9 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 ### **创建箱线图**
 
-箱线图用于通过汇总关键统计度量（如中位数、四分位数和潜在异常值）来显示数据的分布情况。它们在探索性数据分析和统计研究中尤其有用，能够快速了解数据变异性并识别异常。
+箱线图用于通过汇总关键统计量（如中位数、四分位数和潜在异常值）来展示数据分布。它们在探索性数据分析和统计研究中非常有用，能够快速了解数据的变异性并识别异常。
 
-本示例基于六个数值创建箱线图。[set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) 方法选择排他式四分位计算。示例还启用了均值线、均值标记、内部点和异常点。
+此示例使用六个数值创建箱线图。[set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) 方法选用排他式四分位计算。示例同时启用了均值线、均值标记、内部点和异常点。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -907,9 +907,9 @@ presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 
 ### **创建漏斗图**
 
-漏斗图用于可视化包含顺序阶段的流程，数据量会随步骤的推进而递减。它们特别有助于分析转化率、识别瓶颈以及跟踪销售或营销过程的效率。
+漏斗图用于可视化包含连续阶段的流程，数据量随步骤推进而递减。它们在分析转化率、识别瓶颈以及跟踪销售或营销过程效率方面尤为有用。
 
-本示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 将漏斗图添加到现有演示文稿的第一页。它将默认数据替换为六个类别，数值范围从 50 到 500，然后保存更新后的演示文稿。输入演示文稿必须至少包含一张幻灯片。
+此示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 将漏斗图添加到现有演示文稿的第一张幻灯片。它用六个类别和从 50 到 500 的数值替换默认数据，然后保存更新后的演示文稿。输入演示文稿必须至少包含一张幻灯片。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -986,11 +986,11 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 ![漏斗图](funnel_chart.png)
 
-### **创建旭状图**
+### **创建旭辉图**
 
-旭状图用于可视化层级数据，以同心环的形式展示各层级。它们有助于说明部分与整体的关系，特别适合以紧凑、清晰的方式呈现嵌套的类别和子类别。
+旭辉图用于可视化层级数据，以同心环的形式显示各级别。它们有助于展示部分与整体的关系，特别适合以紧凑清晰的方式表示嵌套的类别和子类别。
 
-本示例创建了一个包含八个叶子、分为四个干和两个枝的旭状图。[SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 上分配干，在级别 2 上分配枝。类别标签标识各段，数值决定相对大小。
+此示例创建了一个包含八个叶子、四个干和两个分支的旭辉图。[SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 上分配干，在级别 2 上分配分支。类别标签标识各段，数值决定相对大小。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1093,15 +1093,20 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 结果：
 
-![旭状图](sunburst_chart.png)
+![旭辉图](sunburst_chart.png)
 
 ### **创建直方图**
 
-直方图用于通过将数值分组为区间或箱来表示数值数据的分布。它们特别适用于识别频率、偏斜和离散程度等数据模式，并用于检测数据集中的异常值。
+直方图展示数值在区间（箱）上的分布情况。对于订单处理时间的月度报告，使用相同的箱宽和阈值可保持区间一致，便于比较分布。
 
-本示例使用六个数值（包括负值）创建直方图。调用 [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) 并传入自动值，可让图表自行决定用于显示分布的箱数。
+对水平坐标轴调用 [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) 并传入 [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/) 中的模式。`ByBinWidth` 模式下使用 [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/)，`ByNumberOfBins` 模式下使用 [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/)。使用 `Automatic` 让图表自行决定箱的划分。
+
+#### **使用固定箱宽**
+
+此示例将处理时间分组为 10 分钟间隔，并为 ≤10 分钟和 >40 分钟的时间分别设置单独的箱。通过 [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) 和 [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/) 启用这些箱。若通过 [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) 和 [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/) 明确阈值，还需将 [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) 和 [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) 设为 `false`。
 
 ```cpp
+#include <system/array.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/string.h>
@@ -1110,38 +1115,143 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 #include <DOM/Chart/IAxesManager.h>
 #include <DOM/Chart/IAxis.h>
 #include <DOM/Chart/IChartCategoryCollection.h>
-#include <DOM/Chart/IChartData> 
+#include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataCell.h>
 #include <DOM/Chart/IChartDataPoint.h>
 #include <DOM/Chart/IChartDataPointCollection.h>
 #include <DOM/Chart/IChartDataWorkbook.h>
-#include <DOM/Chart/IChartSeries> 
-#include <DOM/Chart/IChartSeriesCollection> 
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IFormat.h>
-#include <DOM/IChart>
-#include <DOM/IColorFormat>
-#include <DOM/IFillFormat>
-#include <DOM/ILineFillFormat>
-#include <DOM/ILineFormat>
-#include <DOM/IShapeCollection>
-#include <DOM/ISlide>
-#include <DOM/Presentation>
-#include <Export/SaveFormat>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
 using namespace System;
-using namespace Aspo​se::Slides 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
 }
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByBinWidth);
+axis->set_BinWidth(10);
+axis->set_IsUnderflowBin(true);
+axis->set_IsAutomaticUnderflowBin(false);
+axis->set_UnderflowBin(10);
+axis->set_IsOverflowBin(true);
+axis->set_IsAutomaticOverflowBin(false);
+axis->set_OverflowBin(40);
+
+presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-结果：
+PowerPoint 中展示的演示文稿显示箱计数为 **3、4、4、4、2**。下溢箱包含 `5、10、10`，因此阈值为闭区间；上溢箱仅包含 `41、50`，阈值为开区间，数值 `40` 仍属于前一个区间。内部箱包含大于下界且小于等于上界的值。
 
-![直方图](histogram_chart.png)
+![使用 10 分钟箱宽和显式下溢/上溢阈值的直方图](histogram_bin_width.png)
+
+#### **指定箱的数量**
+
+若希望固定细节层级而非固定间隔，可请求五个箱来表示相同数据。此示例禁用了下溢和上溢箱。图表根据数据范围计算箱宽，因而边界可能随报告而变。
+
+```cpp
+#include <system/array.h>
+#include <system/shared_ptr.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByNumberOfBins);
+axis->set_NumberOfBins(5);
+
+presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
+```
+
+这五个箱的计数分别为 **4、4、4、4、1**。将此分布与上述固定宽度结果进行比较：输入值相同，但边界不同。
+
+![基于相同数据计算的五箱直方图](histogram_bin_count.png)
 
 ### **创建雷达图**
 
-雷达图用于在二维平面上显示多变量数据，便于同时比较多个变量。它们特别适用于识别多个性能指标或属性之间的模式、优势和劣势。
+雷达图用于在二维平面上展示多变量数据，便于同时比较多个变量。它们特别适合识别多项绩效指标或属性之间的模式、优势和劣势。
 
-本示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 创建一个默认系列和类别的雷达图，然后将演示文稿保存为 PPTX。
+此示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 创建一个默认系列和类别的雷达图，然后将演示文稿另存为 PPTX。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1179,9 +1289,9 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 ### **创建多类别图表**
 
-多类别图表用于展示涉及多个分类分组的数据，允许您在多个维度上同时比较数值。当需要分析复杂、多层次数据集中的趋势和关系时，它们特别有用。
+多类别图表用于展示涉及多个分类分组的数据，帮助您在多个维度上同时比较数值。它们在分析复杂多层数据集的趋势和关系时尤为有用。
 
-本示例创建了一个簇状柱形图，其中八个类别以四对形式排列。[SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 为每对提供共享标签，从而生成既有单独标签又有分组标签的类别轴。
+此示例创建了一个簇状柱形图，其中八个类别按四对排列。[SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 为每对分配共享标签，从而在类别轴上同时显示单独标签和分组标签。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1276,13 +1386,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 结果：
 
-![多类别图](multi_category_chart.png)
+![多类别图表](multi_category_chart.png)
 
 ### **创建地图图表**
 
-地图图表用于通过将信息映射到特定地点（如国家、州或城市）来可视化地理数据。它们在分析区域趋势、人口统计数据和空间分布时尤为有价值，能够以直观且视觉上引人入胜的方式呈现。
+地图图表用于通过将信息映射到特定位置（如国家、州或城市）来可视化地理数据。它们在分析区域趋势、人口统计数据和空间分布时非常有用，能够以直观、生动的方式呈现。
 
-本示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 创建一个默认地理数据的地图图表，并将其保存，以便在 PowerPoint 中查看。
+此示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 创建一个默认地理数据的地图图表，并将其保存以便在 PowerPoint 中查看。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1296,7 +1406,7 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 #include <DOM/IFillFormat.h>
 #include <DOM/ILineFillFormat.h>
 #include <DOM/ILineFormat.h>
-#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeCollection>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
@@ -1316,19 +1426,19 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 结果：
 
-![地图图](map_chart.png)
+![地图图表](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-上图显示的是在 PowerPoint 中打开的已保存演示文稿。Aspose.Slides 能正确写入地图图表及其数据，但它本身并不绘制地图图表：当包含地图图表的幻灯片被渲染为图像或转换为 PDF、SVG 时，图表区域会呈现为空白。同一幻灯片上的其他形状不受影响。
+上图展示了在 PowerPoint 中打开的已保存演示文稿。Aspose.Slides 正确写入了地图图表及其数据，但自身并不绘制地图图表：当包含地图图表的幻灯片渲染为图像或转换为 PDF、SVG 时，图表区域会为空白。同一幻灯片上的其他形状不受影响。
 {{% /alert %}}
 
 ### **创建组合图表**
 
-组合图（或称为 combo 图）在同一图形中合并两种或更多图表类型。此图表可帮助您突出、比较或检查两个或多个数据集之间的差异，从而识别它们之间的关系。
+组合图表（或 Combo 图表）在同一坐标系中融合两种或更多图表类型。该图表可帮助您突出、比较或检查多个数据集之间的差异，从而识别它们之间的关联。
 
-![组合图](combination_chart.png)
+![组合图表](combination_chart.png)
 
-本示例将两个簇状柱形系列与一条折线系列结合在四个类别上。柱形使用主垂直轴，而 [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) 将折线放置在右侧的次要垂直轴上。辅助函数配置标题、图例、坐标轴标签和网格线。
+此示例将两个簇状柱形系列与一个折线系列在四个类别上进行组合。柱形使用主垂直坐标轴，而 [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) 将折线放置在右侧的次坐标轴上。辅助函数负责配置标题、图例、坐标轴标签和网格线。
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1539,9 +1649,9 @@ ComboChartExample::CreateComboChart();
 
 ## **更新图表**
 
-Aspose.Slides for C++ 使您能够通过修改图表数据、格式和样式来更新 PowerPoint 图表。此功能简化了保持演示文稿与动态内容同步的过程，并确保图表准确反映当前数据和视觉标准。
+Aspose.Slides for C++ 使您能够通过修改图表数据、格式和样式来更新 PowerPoint 图表。此功能简化了保持演示文稿与动态内容同步的过程，确保图表准确反映当前数据和视觉标准。
 
-本示例更新了现有演示文稿第一张幻灯片上名为 “My chart” 的图表。它需要两个包含各三数据点的列系列，类别标签位于 A 列，系列名称位于第一张工作表的第一行。示例使用 [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) 更改工作簿单元格，更新系列值，添加第三个系列，并通过 [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/) 将图表更改为簇状圆柱体。
+此示例更新现有演示文稿第一张幻灯片中名为 “My chart” 的图表。它需要两个系列、每个系列三个数据点，类别标签位于列 A，系列名称位于工作表第一行。示例使用 [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) 更改工作簿单元格，更新系列值，添加第三个系列，并通过 [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/) 将图表类型改为簇状圆柱体。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1624,11 +1734,11 @@ presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 
 ## **为图表设置数据范围**
 
-要检查现有图表已使用的范围，请参阅 [检索图表的数据范围](/slides/zh/cpp/chart-workbook/#retrieve-a-charts-data-range)。
+要查看现有图表已使用的范围，请参阅 [Retrieve a Chart's Data Range](/slides/zh/cpp/chart-workbook/#retrieve-a-charts-data-range)。
 
-Aspose.Slides for C++ 提供灵活性，可从工作表中定义特定的数据范围作为图表数据的来源。这意味着您可以直接映射工作表的部分区域到图表，从而控制哪些单元格贡献给图表的系列和类别。因此，您可以轻松更新并同步图表与工作表中的最新数据更改，确保 PowerPoint 演示文稿反映当前且准确的信息。
+Aspose.Slides for C++ 提供将工作表中指定数据范围设为图表数据源的灵活性。这意味着您可以直接映射工作表的某一部分到图表，从而控制哪些单元格贡献给图表的系列和类别。这样，您可以轻松更新并同步图表与工作表中的最新数据，更好地保证演示文稿信息的时效性和准确性。
 
-本示例使用 [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) 将现有演示文稿第一张幻灯片上名为 “My chart” 的图表的数据源设置为 `Sheet1!A1:B4`。图表工作簿必须包含该工作表并拥有已填充的范围，首行是系列标题，A 列为类别标签，B 列为三个数值。
+此示例使用 [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) 将现有演示文稿第一张幻灯片中名为 “My chart” 的图表的数据源设置为 `Sheet1!A1:B4`。图表工作簿必须包含该工作表，并且该范围需包含第一行的系列标题、列 A 的类别标签以及列 B 的三个数值。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1643,7 +1753,7 @@ Aspose.Slides for C++ 提供灵活性，可从工作表中定义特定的数据�
 #include <DOM/ILineFillFormat.h>
 #include <DOM/ILineFormat.h>
 #include <DOM/IShape.h>
-#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeCollection>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
@@ -1655,10 +1765,10 @@ using namespace Aspose::Slides::Export;
 
 const String chartName = u"My chart";
 
-auto presentation = MakeObject<Presentation>(u"ExistingChart.pptx");
-auto slide = presentation->get_Slide(0);
+auto  presentation  = MakeObject<Presentation>(u"ExistingChart.pptx");
+auto  slide  = presentation->get_Slide(0);
 
-for (auto shape : slide->get_Shapes())
+for  (auto shape : slide->get_Shapes())
 {
     auto chart = System::DynamicCast<IChart>(shape);
     if (chart != nullptr && chart->get_Name() == chartName)
@@ -1667,14 +1777,14 @@ for (auto shape : slide->get_Shapes())
     }
 }
 
-presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
+presentation->Save(u"SetDataRange.pptx", Save Format :: Ppt x  );
 ```
 
 ## **在图表中使用默认标记**
 
-当您在图表中使用默认标记时，每个图表系列会自动获得不同的默认标记符号。
+在图表中使用默认标记时，每个系列会自动分配不同的默认标记符号。
 
-本示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 创建一个包含两条折线系列和图例的图表。[get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) 设置保留了自动分配的标记符号。第一系列包含一个负值和一个缺失值（用 `nullptr` 表示），第二系列在每个类别上都有值。
+此示例使用 [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) 创建一个包含两条折线系列和图例的图表。[get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) 设置保留了自动分配的标记符号。第一系列包含一个负值和一个缺失值（用 `nullptr` 表示），第二系列则为每个类别提供了数值。
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1760,20 +1870,20 @@ chart->get_Legend()->set_Overlay(false);
 presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-## **常见问题**
+## **常见问答**
 
 **Aspose.Slides for C++ 支持哪些图表类型？**
 
-Aspose.Slides for C++ 支持广泛的图表类型，包括柱形图、折线图、饼图、面积图、散点图、直方图、雷达图以及更多。这种灵活性让您能够根据数据可视化需求选择最合适的图表类型。
+Aspose.Slides for C++ 支持包括柱形图、折线图、饼图、面积图、散点图、直方图、雷达图等在内的多种图表类型。此灵活性让您能够根据数据可视化需求选择最合适的图表。
 
-**如何在幻灯片中添加新图表？**
+**如何向幻灯片添加新图表？**
 
-要添加图表，首先创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) 实例，使用其索引检索目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程可将图表直接集成到演示文稿中。
+要添加图表，首先实例化 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) 类，使用索引获取目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程可将图表直接嵌入演示文稿。
 
 **如何更新图表中显示的数据？**
 
-您可以通过访问图表的数据工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/))，清除任何默认的系列和类别，然后添加自定义数据来更新图表的数据。这使您能够以编程方式刷新图表，以反映最新数据。
+您可以通过访问图表的数据工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/))，清除默认的系列和类别，然后添加自定义数据，以程序化方式刷新图表，反映最新数据。
 
 **是否可以自定义图表的外观？**
 
-可以，Aspose.Slides for C++ 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例以及其他格式元素，以将图表的外观调整为符合特定设计需求。
+可以，Aspose.Slides for C++ 提供丰富的自定义选项。您可以修改颜色、字体、标签、图例以及其他格式元素，以满足特定的设计需求。
