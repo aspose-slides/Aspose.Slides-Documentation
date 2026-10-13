@@ -1,5 +1,5 @@
 ---
-title: สร้างหรืออัปเดตแผนภูมิการนำเสนอ PowerPoint ใน Python
+title: สร้างหรืออัปเดตแผนภูมิการนำเสนอ PowerPoint ด้วย Python
 linktitle: สร้างหรืออัปเดตแผนภูมิ
 type: docs
 weight: 10
@@ -13,139 +13,117 @@ keywords:
 - แผนภูมิกระจาย
 - แผนภูมิวงกลม
 - แผนภูมิเส้น
-- แผนภูมิต้นไม้แผนที่
+- แผนภูมิเพาท์แมพ
 - แผนภูมิตลาดหุ้น
-- แผนภูมิกล่องและหนวดยาว
-- แผนภูมิกรวย
-- แผนภูมิดาว
-- แผนภูมิฮิสโตแกรม
-- แผนภูมิเรดาร์
-- แผนภูมิหลายหมวด
-- การนำเสนอ PowerPoint
+- แผนภูมิกล่องและเส้นขีด
+- แผนภูมิกระบอก
+- แผนภูมิดวงอาทิตย์
+- แผนภูมิเฮิสโตแกรม
+- แผนภูมิโรเตอร์
+- แผนภูมิหลายหมวดหมู่
+- PowerPoint
+- การนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides for Python via .NET. พื้นที่ครอบคลุมการเพิ่ม, การจัดรูปแบบ, และการแก้ไขแผนภูมิในงานนำเสนอพร้อมตัวอย่างโค้ดที่ใช้งานจริงใน Python."
+description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides for Python via .NET เพิ่ม จัดรูปแบบ และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้ใน Python."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for Python via .NET คุณจะได้เรียนรู้วิธีเพิ่มแผนภูมิในสไลด์, เติมข้อมูลให้แผนภูมิ, และจัดรูปแบบให้ตรงกับความต้องการออกแบบของคุณ ตัวอย่างโค้ดครอบคลุมการสร้างงานนำเสนอและแผนภูมิ, การกำหนดค่า series, แกน, และ legend, รวมถึงการผสานการสร้างแผนภูมิกับแอปพลิเคชันของคุณ
+บทความนี้ให้คำแนะนำอย่างครอบคลุมเกี่ยวกับการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for Python via .NET คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิเข้าสไลด์โดยโปรแกรม, เติมข้อมูลลงในแผนภูมิ, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการออกแบบของคุณ ตลอดบทความ ตัวอย่างโค้ดโดยละเอียดจะแสดงแต่ละขั้นตอน ตั้งแต่การกำหนดค่า Presentation และวัตถุแผนภูมิ ไปจนถึงการกำหนดซีรีส์, แกน, และคำอธิบายโดยต legends การทำตามคำแนะนำนี้จะช่วยให้คุณเข้าใจการผสานสร้างแผนภูมิดีย์นามิกเข้ากับแอปพลิเคชัน Python ของคุณอย่างมั่นคง ทำให้กระบวนการสร้างงานนำเสนอที่อิงข้อมูลเป็นเรื่องง่ายขึ้น
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและสังเกตข้อมูลเชิงลึกที่อาจไม่เห็นได้จากตารางหรือสเปรดชีต
+แผนภูมิช่วยให้ผู้ใช้สามารถมองเห็นข้อมูลได้อย่างรวดเร็วและได้ข้อสรุปที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-เมื่อใช้แผนภูมิคุณสามารถ:
+โดยใช้แผนภูมิ คุณสามารถ:
 
-* รวม, ย่อ, หรือสรุปข้อมูลจำนวนมากในสไลด์เดียวของงานนำเสนอ
-* แสดงรูปแบบและแนวโน้มของข้อมูล
-* สรุปทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือเทียบกับหน่วยวัดเฉพาะ
-* พบค่าผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด, และข้อมูลที่ไม่มีความหมาย
-* สื่อสารหรือแสดงข้อมูลที่ซับซ้อนได้
+* รวม, บีบอัด หรือสรุปข้อมูลจำนวนมากลงในสไลด์เดียวของการนำเสนอ;
+* เผยแพร่รูปแบบและแนวโน้มในข้อมูล;
+* สรุปทิศทางและความเคลื่อนที่ของข้อมูลตามเวลา หรือเทียบกับหน่วยการวัดที่เจาะจง;
+* ระบุค่าที่ผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด และข้อมูลที่ไม่มีความหมาย;
+* สื่อสารหรือแสดงข้อมูลที่ซับซ้อน.
 
-ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งมีแม่แบบสำหรับออกแบบแผนภูมิต่าง ๆ ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (จากประเภทแผนภูมิที่นิยม) และแผนภูกำหนดเองได้
+ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งมีแม่แบบสำหรับออกแบบแผนภูมิต่าง ๆ มากมาย โดยใช้ Aspose.Slides คุณสามารถสร้างทั้งแผนภูมิปกติ (อิงตามประเภทแผนภูมียอดนิยม) และแผนภูมิที่กำหนดเอง
 
 {{% alert color="info" title="Note" %}}
-ใช้ enumeration [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) ภายในเนมสเปซ [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิแต่ละแบบ
+ใช้ enumeration [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) ใต้โมดูล [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิที่แตกต่างกัน
 {{% /alert %}}
 
 ### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม**
 
-ส่วนนี้อธิบายวิธีสร้างแผนภูมิคอลัมน์แบบกลุ่มด้วย Aspose.Slides for Python via .NET คุณจะเรียนรู้การเริ่มต้นงานนำเสนอ, เพิ่มแผนภูมิ, และปรับแต่งองค์ประกอบต่าง ๆ เช่น ชื่อเรื่อง, ข้อมูล, series, หมวดหมู่, และสไตล์ ทำตามขั้นตอนด้านล่างเพื่อดูว่าการสร้างแผนภูมิคอลัมน์แบบกลุ่มมาตรฐานทำอย่างไร:
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิคอลัมน์แบบกลุ่มที่เปรียบเทียบสองซีรีส์ในสามหมวดหมู่ ซีรีส์ใช้การเติมสีแดงและสีเขียว และป้ายชื่อแต่ละรายการแสดงชื่อหมวดหมู่, ชื่อซีรีส์, และค่าต่าง ๆ ดัชนี Worksheet 0 หมายถึงชีตแรกในเวิร์กบุ๊กแผนภูมิที่ฝังอยู่
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภท `ChartType.CLUSTERED_COLUMN`
-4. เพิ่มชื่อเรื่องให้แผนภูมิ
-5. เข้าถึง worksheet ของข้อมูลแผนภูมิ
-6. ลบ series และ category เริ่มต้นทั้งหมด
-7. เพิ่ม series และ category ใหม่
-8. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
-9. กำหนดสีเติมให้ series ของแผนภูมิ
-10. เพิ่มป้ายกำกับให้ series ของแผนภูมิ
-11. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิคอลัมน์แบบกลุ่ม:
-
-```py
-import aspose.slides.charts as charts
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
 with slides.Presentation() as presentation:
-
-    # เข้าถึงสไลด์แรก
     slide = presentation.slides[0]
 
-    # เพิ่มแผนภูมิคอลัมน์แบบกลุ่มพร้อมข้อมูลเริ่มต้น
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-    # ตั้งค่าชื่อเรื่องของแผนภูมิ
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ
+    workbook = chart.chart_data.chart_data_workbook
     worksheet_index = 0
 
-    # ดึง workbook ของข้อมูลแผนภูมิ
-    workbook = chart.chart_data.chart_data_workbook
-
-    # ลบ series และ category ที่สร้างโดยอัตโนมัติ
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # เพิ่ม series ใหม่
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
+    chart.chart_data.series.add(series_name_cell, chart.type)
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 2, "Series 2")
+    chart.chart_data.series.add(series_name_cell, chart.type)
 
-    # เพิ่ม category ใหม่
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
+    category_cell = workbook.get_cell(worksheet_index, 1, 0, "Category 1")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(worksheet_index, 2, 0, "Category 2")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(worksheet_index, 3, 0, "Category 3")
+    chart.chart_data.categories.add(category_cell)
 
-    # ดึง series แผนภูมิแรก
     series = chart.chart_data.series[0]
 
-    # เติมข้อมูลให้ series
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
+    value_cell = workbook.get_cell(worksheet_index, 1, 1, 20)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 1, 50)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 1, 30)
+    series.data_points.add_data_point_for_bar_series(value_cell)
 
-    # ตั้งค่าสีเติมสำหรับ series
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
-    # ดึง series แผนภูมิที่สอง
     series = chart.chart_data.series[1]
 
-    # เติมข้อมูลให้ series
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
+    value_cell = workbook.get_cell(worksheet_index, 1, 2, 30)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 2, 10)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 2, 60)
+    series.data_points.add_data_point_for_bar_series(value_cell)
 
-    # ตั้งค่าสีเติมสำหรับ series
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # ตั้งค่าป้ายแรกให้แสดงชื่อ category
     label = series.data_points[0].label
     label.data_label_format.show_category_name = True
 
     label = series.data_points[1].label
     label.data_label_format.show_series_name = True
 
-    # ตั้งค่า series ให้แสดงค่าในป้ายที่สาม
     label = series.data_points[2].label
     label.data_label_format.show_value = True
     label.data_label_format.show_series_name = True
     label.data_label_format.separator = "/"
-                
-    # บันทึกการนำเสนอลงดิสก์เป็นไฟล์ PPTX
-    presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
@@ -154,272 +132,232 @@ with slides.Presentation() as presentation:
 
 ### **สร้างแผนภูมิกระจาย**
 
-แผนภูมิกระจาย (หรือ scatter plot, x‑y graph) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
+แผนภูมิกระจาย (หรือที่เรียกว่ากราฟกระจายหรือกราฟ x‑y) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
 
 ใช้แผนภูมิกระจายเมื่อ:
 
-* มีข้อมูลเชิงตัวเลขเป็นคู่
-* มีสองตัวแปรที่สัมพันธ์กันดี
-* ต้องการตรวจสอบว่าตัวแปรสองตัวนั้นเกี่ยวข้องกันหรือไม่
-* มีตัวแปรอิสระที่มีค่าหลายค่าเป็นตัวแปรตาม
+* คุณมีข้อมูลตัวเลขเป็นคู่.
+* คุณมีตัวแปรสองตัวที่จับคู่กันได้ดี.
+* คุณต้องการกำหนดว่าตัวแปรสองตัวสัมพันธ์กันหรือไม่.
+* คุณมีตัวแปรอิสระที่มีค่าหลายค่าสำหรับตัวแปรตาม.
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิกระจายโดยใช้เครื่องหมายแบบต่าง ๆ สำหรับแต่ละ series:
+ตัวอย่างนี้พล็อตค่าคู่ x‑y สองชุด ซีรีส์แรกใช้เส้นตรงกับเครื่องหมายดาว, ส่วนซีรีส์ที่สองใช้เส้นโค้งกับเครื่องหมายวงกลม; ทั้งคู่ใช้ [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) ขนาด 10 คุณสมบัติ [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) ควบคุมรูปทรงเครื่องหมาย
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# สร้างอินสแตนซ์ของคลาส Presentation.
 with slides.Presentation() as presentation:
-
-    # เข้าถึงสไลด์แรก.
     slide = presentation.slides[0]
 
-    # สร้างแผนภูมิ scatter เริ่มต้น.
     chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 20, 20, 500, 300)
 
-    # ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ.
+    workbook = chart.chart_data.chart_data_workbook
     worksheet_index = 0
 
-    # ดึง workbook ของข้อมูลแผนภูมิ.
-    workbook = chart.chart_data.chart_data_workbook
-
-    # ลบ series เริ่มต้น.
     chart.chart_data.series.clear()
 
-    # เพิ่ม series ใหม่.
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 1, "Series 1"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 3, "Series 2"), chart.type)
+    series_name_cell = workbook.get_cell(worksheet_index, 1, 1, "Series 1")
+    chart.chart_data.series.add(series_name_cell, chart.type)
+    series_name_cell = workbook.get_cell(worksheet_index, 1, 3, "Series 2")
+    chart.chart_data.series.add(series_name_cell, chart.type)
 
-    # ดึง series แผนภูมิแรก.
     series = chart.chart_data.series[0]
 
-    # เพิ่มจุดใหม่ (1:3) ให้ series.
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
+    x_value_cell = workbook.get_cell(worksheet_index, 2, 1, 1)
+    y_value_cell = workbook.get_cell(worksheet_index, 2, 2, 3)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # เพิ่มจุดใหม่ (2:10).
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
+    x_value_cell = workbook.get_cell(worksheet_index, 3, 1, 2)
+    y_value_cell = workbook.get_cell(worksheet_index, 3, 2, 10)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # เปลี่ยนประเภทของ series.
     series.type = charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS
 
-    # เปลี่ยนเครื่องหมายของ series ในแผนภูมิ.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.STAR
 
-    # ดึง series แผนภูมิที่สอง.
     series = chart.chart_data.series[1]
 
-    # เพิ่มจุดใหม่ (5:2) ให้ series ของแผนภูมิ.
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
+    x_value_cell = workbook.get_cell(worksheet_index, 2, 3, 5)
+    y_value_cell = workbook.get_cell(worksheet_index, 2, 4, 2)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # เพิ่มจุดใหม่ (3:1).
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 3, 3), workbook.get_cell(worksheet_index, 3, 4, 1))
+    x_value_cell = workbook.get_cell(worksheet_index, 3, 3, 3)
+    y_value_cell = workbook.get_cell(worksheet_index, 3, 4, 1)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # เพิ่มจุดใหม่ (2:2).
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 4, 3, 2), workbook.get_cell(worksheet_index, 4, 4, 2))
+    x_value_cell = workbook.get_cell(worksheet_index, 4, 3, 2)
+    y_value_cell = workbook.get_cell(worksheet_index, 4, 4, 2)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # เพิ่มจุดใหม่ (5:1).
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
+    x_value_cell = workbook.get_cell(worksheet_index, 5, 3, 5)
+    y_value_cell = workbook.get_cell(worksheet_index, 5, 4, 1)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # เปลี่ยนเครื่องหมายของ series ในแผนภูมิ.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.CIRCLE
 
-    presentation.save("ScatterChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
 ![แผนภูมิกระจาย](scatter_chart.png)
 
-### **สร้างแผนภูมิพิซซ่า**
+### **สร้างแผนภูมิวงกลม**
 
-แผนภูมิเพียน (pie chart) เหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายชื่อแบบหมวดหมู่พร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือป้ายชื่อจำนวนมาก คุณอาจพิจารณาใช้แผนภูมิแท่งแทน
+แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนทั้งหมดของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายชื่อหมวดหมู่ที่มีค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือป้ายชื่อจำนวนมาก คุณอาจพิจารณาใช้แผนภูมิแท่งแทน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.PIE`
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
-5. ลบ series และ category เริ่มต้น
-6. เพิ่ม series และ category ใหม่
-7. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
-8. เพิ่มจุดใหม่ให้แผนภูมิและกำหนดสีแบบกำหนดเองให้กับส่วนของแผนภูมิพิซซ่า
-9. ตั้งค่าป้ายกำกับสำหรับ series
-10. เปิดใช้งาน leader lines สำหรับป้ายกำกับของ series
-11. กำหนดมุมการหมุนของแผนภูมิพิซซ่า
-12. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างนี้สร้างแผนภูมิวงกลมที่มีค่าตามไตรมาสสามค่า แต่ละส่วนมีการเติมสีและเส้นขอบแบบกำหนดเอง, และป้ายชื่อแสดงการรวมค่าต่าง ๆ, เปอร์เซ็นต์, และข้อมูลซีรีส์ คุณสมบัติ [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) ตั้งให้ส่วนแรกเริ่มที่ 180 องศา
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิพิซซ่า:
-
-```py
-import aspose.slides.charts as charts
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX.
 with slides.Presentation() as presentation:
-
-    # เข้าถึงสไลด์แรก.
     slide = presentation.slides[0]
 
-    # เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น.
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 20, 20, 500, 300)
 
-    # ตั้งค่าชื่อเรื่องของแผนภูมิ.
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ.
+    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
+
+    workbook = chart.chart_data.chart_data_workbook
     worksheet_index = 0
 
-    # ดึง workbook ของข้อมูลแผนภูมิ.
-    workbook = chart.chart_data.chart_data_workbook
-
-    # ลบ series และ category ที่สร้างโดยอัตโนมัติ.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # เพิ่ม category ใหม่.
-    chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "First Qtr"))
-    chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "2nd Qtr"))
-    chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "3rd Qtr"))
+    category_cell = workbook.get_cell(0, 1, 0, "1st Qtr")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, 2, 0, "2nd Qtr")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, 3, 0, "3rd Qtr")
+    chart.chart_data.categories.add(category_cell)
 
-    # เพิ่ม series ใหม่.
-    series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
+    series_name_cell = workbook.get_cell(0, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-    # เติมข้อมูลให้ series.
-    series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 1, 1, 20))
-    series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
-    series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
+    value_cell = workbook.get_cell(worksheet_index, 1, 1, 20)
+    series.data_points.add_data_point_for_pie_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 1, 50)
+    series.data_points.add_data_point_for_pie_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 1, 30)
+    series.data_points.add_data_point_for_pie_series(value_cell)
 
-    # ตั้งค่าสีของส่วน.
     chart.chart_data.series_groups[0].is_color_varied = True
 
-    point = series.data_points[0]
-    point.format.fill.fill_type = slides.FillType.SOLID
-    point.format.fill.solid_fill_color.color = draw.Color.cyan
+    first_slice = series.data_points[0]
+    first_slice.format.fill.fill_type = slides.FillType.SOLID
+    first_slice.format.fill.solid_fill_color.color = draw.Color.cyan
 
-    # ตั้งค่าขอบของส่วน.
-    point.format.line.fill_format.fill_type = slides.FillType.SOLID
-    point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
-    point.format.line.width = 3.0
-    point.format.line.style = slides.LineStyle.THIN_THICK
-    point.format.line.dash_style = slides.LineDashStyle.DASH_DOT
+    first_slice.format.line.fill_format.fill_type = slides.FillType.SOLID
+    first_slice.format.line.fill_format.solid_fill_color.color = draw.Color.gray
+    first_slice.format.line.width = 3.0
+    first_slice.format.line.style = slides.LineStyle.THIN_THICK
+    first_slice.format.line.dash_style = slides.LineDashStyle.LARGE_DASH
 
-    point1 = series.data_points[1]
-    point1.format.fill.fill_type = slides.FillType.SOLID
-    point1.format.fill.solid_fill_color.color = draw.Color.brown
+    second_slice = series.data_points[1]
+    second_slice.format.fill.fill_type = slides.FillType.SOLID
+    second_slice.format.fill.solid_fill_color.color = draw.Color.brown
 
-    # ตั้งค่าขอบของส่วน.
-    point1.format.line.fill_format.fill_type = slides.FillType.SOLID
-    point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
-    point1.format.line.width = 3.0
-    point1.format.line.style = slides.LineStyle.SINGLE
-    point1.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT
+    second_slice.format.line.fill_format.fill_type = slides.FillType.SOLID
+    second_slice.format.line.fill_format.solid_fill_color.color = draw.Color.blue
+    second_slice.format.line.width = 3.0
+    second_slice.format.line.style = slides.LineStyle.SINGLE
+    second_slice.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT
 
-    point2 = series.data_points[2]
-    point2.format.fill.fill_type = slides.FillType.SOLID
-    point2.format.fill.solid_fill_color.color = draw.Color.coral
+    third_slice = series.data_points[2]
+    third_slice.format.fill.fill_type = slides.FillType.SOLID
+    third_slice.format.fill.solid_fill_color.color = draw.Color.coral
 
-    # ตั้งค่าขอบของส่วน.
-    point2.format.line.fill_format.fill_type = slides.FillType.SOLID
-    point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
-    point2.format.line.width = 2.0
-    point2.format.line.style = slides.LineStyle.THIN_THIN
-    point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
+    third_slice.format.line.fill_format.fill_type = slides.FillType.SOLID
+    third_slice.format.line.fill_format.solid_fill_color.color = draw.Color.red
+    third_slice.format.line.width = 2.0
+    third_slice.format.line.style = slides.LineStyle.THIN_THIN
+    third_slice.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-    # สร้างป้ายกำกับแบบกำหนดเองสำหรับแต่ละ category ใน series ใหม่.
-    label1 = series.data_points[0].label
+    first_label = series.data_points[0].label
+    first_label.data_label_format.show_value = True
 
-    label1.data_label_format.show_value = True
+    second_label = series.data_points[1].label
+    second_label.data_label_format.show_value = True
+    second_label.data_label_format.show_legend_key = True
+    second_label.data_label_format.show_percentage = True
 
-    label2 = series.data_points[1].label
-    label2.data_label_format.show_value = True
-    label2.data_label_format.show_legend_key = True
-    label2.data_label_format.show_percentage = True
+    third_label = series.data_points[2].label
+    third_label.data_label_format.show_series_name = True
+    third_label.data_label_format.show_percentage = True
 
-    label3 = series.data_points[2].label
-    label3.data_label_format.show_series_name = True
-    label3.data_label_format.show_percentage = True
-
-    # ตั้งค่า series ให้แสดงเส้นนำสำหรับแผนภูมิ.
     series.labels.default_data_label_format.show_leader_lines = True
 
-    # ตั้งค่ามุมการหมุนของส่วนแผนภูมิพาย.
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
-    # บันทึกการนำเสนอลงดิสก์เป็นไฟล์ PPTX.
     presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
-![แผนภูมิพิซซ่า](pie_chart.png)
+![แผนภูมิวงกลม](pie_chart.png)
 
 ### **สร้างแผนภูมิเส้น**
 
-แผนภูมิเส้น (หรือ line graph) เหมาะสำหรับแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ด้วยแผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นความผิดปกติใน series ของข้อมูล, และอื่น ๆ
+แผนภูมิเส้น (หรือที่เรียกว่ากราฟเส้น) เหมาะสำหรับแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาเปลี่ยนไป โดยใช้แผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, ไฮไลท์ความผิดปกติในซีรีส์ และอื่น ๆ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.LINE`
-4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิเส้น:
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิเส้นด้วยซีรีส์และหมวดหมู่เริ่มต้น, จากนั้นบันทึกการนำเสนอเป็น PPTX
 
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 20, 20, 500, 300)
-    
-    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
+    slide = presentation.slides[0]
+
+    line_chart = slide.shapes.add_chart(charts.ChartType.LINE, 20, 20, 500, 300)
+
+    presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นประ สามารถระบุรูปแบบ dash ที่ต้องการได้ดังนี้:
+โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นขด, ตั้งค่า [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) ให้เป็นค่าจาก [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
 
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+    slide = presentation.slides[0]
+
+    line_chart = slide.shapes.add_chart(charts.ChartType.LINE, 20, 20, 500, 300)
 
     for series in line_chart.chart_data.series:
         series.format.line.dash_style = slides.LineDashStyle.DASH
-
-    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
 ![แผนภูมิเส้น](line_chart.png)
 
-### **สร้างแผนภูมิต้นไม้แผนที่ (Tree Map)**
+### **สร้างแผนภูมิเพาท์แมพ**
 
-แผนภูมิต้นไม้แผนที่เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่มีส่วนร่วมสูงในแต่ละหมวดหมู่
+แผนภูมิเพาท์แมพเหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่เป็นผู้สนับสนุนหลักในแต่ละหมวดหมู่
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.TREEMAP`
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
-5. ลบ series และ category เริ่มต้น
-6. เพิ่ม series และ category ใหม่
-7. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
-8. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างนี้สร้างแผนภูมิเพาท์แมพที่มีใบไม้แปดใบจัดเป็นสี่ก้านและสองสาขา วิธีการ [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) กำหนดก้านที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ค่าใช้เป็นขนาดสี่เหลี่ยมสัมพัทธ์, ป้ายชื่อหมวดหมู่และป้ายชื่อพาเรนท์ที่ซ้อนทับระบุลำดับชั้น
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิต้นไม้แผนที่:
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.TREEMAP, 20, 20, 500, 300)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.TREEMAP, 20, 20, 500, 300)
+
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
@@ -427,155 +365,245 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     # สาขา 1
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C1", "Leaf1"))
+    category_cell = workbook.get_cell(0, "C1", "Leaf1")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem1")
     leaf.grouping_levels.set_grouping_item(2, "Branch1")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C2", "Leaf2"))
+    category_cell = workbook.get_cell(0, "C2", "Leaf2")
+    chart.chart_data.categories.add(category_cell)
 
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C3", "Leaf3"))
+    category_cell = workbook.get_cell(0, "C3", "Leaf3")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem2")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C4", "Leaf4"))
+    category_cell = workbook.get_cell(0, "C4", "Leaf4")
+    chart.chart_data.categories.add(category_cell)
 
     # สาขา 2
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C5", "Leaf5"))
+    category_cell = workbook.get_cell(0, "C5", "Leaf5")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem3")
     leaf.grouping_levels.set_grouping_item(2, "Branch2")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C6", "Leaf6"))
+    category_cell = workbook.get_cell(0, "C6", "Leaf6")
+    chart.chart_data.categories.add(category_cell)
 
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C7", "Leaf7"))
+    category_cell = workbook.get_cell(0, "C7", "Leaf7")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem4")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C8", "Leaf8"))
+    category_cell = workbook.get_cell(0, "C8", "Leaf8")
+    chart.chart_data.categories.add(category_cell)
 
     series = chart.chart_data.series.add(charts.ChartType.TREEMAP)
     series.labels.default_data_label_format.show_category_name = True
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D1", 4))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D2", 5))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D3", 3))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D4", 6))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D5", 9))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D6", 9))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D7", 4))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D8", 3))
+    value_cell = workbook.get_cell(0, "D1", 4)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D2", 5)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D3", 3)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D4", 6)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D5", 9)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D6", 9)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D7", 4)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D8", 3)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
 
     series.parent_label_layout = charts.ParentLabelLayoutType.OVERLAPPING
 
-    presentation.save("TreeMap.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Treemap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
-![แผนภูมิต้นไม้แผนที่](treemap_chart.png)
+![แผนภูมิเพาท์แมพ](treemap_chart.png)
 
-### **สร้างแผนภูมิหุ้น (Stock Chart)**
+### **สร้างแผนภูมิน้ำตก**
 
-แผนภูมิหุ้นใช้แสดงข้อมูลการเงินเช่น ราคาที่เปิด, สูงสุด, ต่ำสุด, และปิด ช่วยวิเคราะห์แนวโน้มและความผันผวนของตลาด ให้ข้อมูลเชิงลึกสำคัญเกี่ยวกับประสิทธิภาพของหุ้นสำหรับนักลงทุนและนักวิเคราะห์
+แผนภูมน้ำตกแสดงว่าการเปลี่ยนแปลงบวกและลบมีส่วนทำให้ค่าสุดท้ายเป็นเท่าใด ตัวอย่างเช่น การสรุปกำไรอาจเริ่มจากรายได้, ลบต้นทุน, แล้วบวกรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยระหว่างค่ารันก่อนหน้าและค่ารันใหม่, ส่วนคอลัมน์รวมจะขยายจากศูนย์ถึงค่าที่สะสม
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.OPEN_HIGH_LOW_CLOSE`
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
-5. ลบ series และ category เริ่มต้น
-6. เพิ่ม series และ category ใหม่
-7. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
-8. กำหนดรูปแบบของเส้น high‑low
-9. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างต่อไปใช้จำนวนเป็นพันดอลลาร์สหรัฐ:
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิหุ้น:
+| หมวดหมู่ | ค่าเวิร์กบุ๊ก | ชนิดคอลัมน์ |
+| --- | ---: | --- |
+| รายได้ | 1000 | เพิ่ม |
+| ต้นทุนการขาย | -400 | ลด |
+| กำไรขั้นต้น | 600 | รวมระดับกลาง |
+| ค่าใช้จ่ายดำเนินงาน | -200 | ลด |
+| รายได้อื่น | 50 | เพิ่ม |
+| กำไรสุทธิ | 450 | รวมสุดท้าย |
 
-```py
-import aspose.slides.charts as charts
+เพื่อทำเครื่องหมายจุดเป็นรวมระดับกลางหรือสุดท้าย ตั้งคุณสมบัติ [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) ของจุดนั้นเป็น `True` แล้วใส่จำนวนที่สะสมจริงในเซลล์เวิร์กบุ๊กของจุดนั้น: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`) คุณสมบัตินี้ทำเครื่องหมายคอลัมน์เป็นรวม; มันไม่คำนวณหรือเติมค่าในเซลล์ อย่าใช้ศูนย์เป็นตัวแทนหรือใส่การเปลี่ยนแปลงอื่นสำหรับจุดรวม คอลัมน์รวมจะแสดงค่าที่สะสมโดยไม่เพิ่มอีกครั้งในค่ารัน
+
+ตัวอย่าง C# เต็มรูปแบบนี้สร้างแผนภูมิโดยใช้สมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), ล้างข้อมูลเริ่มต้น, และเติมเวิร์กบุ๊กที่ฝังอยู่ ดัชนี Worksheet `0` เลือกชีตแรก; คอลัมน์ A มีชื่อหมวดหมู่, คอลัมน์ B มีค่า แต่ละเซลล์ค่าถูกเพิ่มด้วย [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). ดัชนีจุดที่เริ่มจากศูนย์ `2` และ `5` ระบุรวมระดับกลางและสุดท้าย. การเปิดใช้งาน [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) แสดงจำนวนบนคอลัมน์ ไม่ต้องมีการนำเสนอหรือเวิร์กบุ๊กเข้า
+
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 300, False)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.WATERFALL, 20, 20, 680, 200)
+
+    chart.has_title = True
+    chart.chart_title.add_text_frame_for_overriding("Profit breakdown (USD thousands)")
+    chart.chart_title.overlay = False
+    chart.has_legend = False
 
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
     workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
 
-    chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "A"))
-    chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "B"))
-    chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "C"))
+    workbook.clear(worksheet_index)
 
-    chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Open"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "High"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(0, 0, 3, "Low"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(0, 0, 4, "Close"), chart.type)
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Profit")
+    series = chart.chart_data.series.add(series_name_cell, charts.ChartType.WATERFALL)
+    categories = ["Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit"]
+    values = [1000, -400, 600, -200, 50, 450]
+
+    for i in range(len(categories)):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, categories[i])
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_waterfall_series(value_cell)
+
+    # จุดที่สามและหกเป็นยอดรวม, ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
+    series.data_points[2].set_as_total = True
+    series.data_points[5].set_as_total = True
+    series.show_connector_lines = True
+    series.labels.default_data_label_format.show_value = True
+
+    presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
+```
+
+ตั้งคุณสมบัติระดับซีรีส์ [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) ให้เป็น `True` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่องและทำให้ค่ารันตามง่ายขึ้น หากต้องการซ่อนเส้นเหล่านี้ ให้แทนที่การกำหนดค่าในตัวอย่างด้วย `series.show_connector_lines = False` ก่อนบันทึก การเปลี่ยนแปลงนี้จะมีผลต่อการมองเห็นเส้นเท่านั้น, ไม่กระทบต่อข้อมูลหรือยอดรวม
+
+การนำเสนอที่บันทึกแสดงกำไรขั้นต้น 600 และกำไรสุทธิ 450, ทั้งสองยอดรวมถูกวาดจากศูนย์:
+
+![แผนภูมิน้ำตกแสดงรายได้, ค่าใช้จ่าย, กำไรขั้นต้น 600, และกำไรสุทธิ 450, พร้อมป้ายค่าและเส้นเชื่อม](waterfall_chart.png)
+
+### **สร้างแผนภูมิหุ้น**
+
+แผนภูมิหุ้นใช้เพื่อแสดงข้อมูลการเงิน เช่น ราคาเปิด, สูง, ต่ำ, ปิด, ช่วยวิเคราะห์แนวโน้มตลาดและความผันผวน ให้ข้อมูลเชิงลึกสำคัญต่อการดำเนินงานของหุ้น, สนับสนุนการตัดสินใจของนักลงทุนและนักวิเคราะห์
+
+ตัวอย่างนี้สร้างแผนภูมิเปิด‑สูง‑ต่ำ‑ปิดด้วยสี่ซีรีส์ตามลำดับและสามหมวดหมู่ คุณสมบัติ [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) เปิดใช้งานแถบขึ้น/ลง, และ [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) ควบคุมเส้นสูง‑ต่ำที่แสดงช่วงราคา, ส่วนเส้นของซีรีส์แต่ละอันและเส้นกริดแนวนอนเล็กน้อยถูกซ่อน
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 300, False)
+
+    workbook = chart.chart_data.chart_data_workbook
+
+    category_cell = workbook.get_cell(0, 1, 0, "A")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, 2, 0, "B")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, 3, 0, "C")
+    chart.chart_data.categories.add(category_cell)
+
+    series_name_cell = workbook.get_cell(0, 0, 1, "Open")
+    chart.chart_data.series.add(series_name_cell, charts.ChartType.OPEN_HIGH_LOW_CLOSE)
+    series_name_cell = workbook.get_cell(0, 0, 2, "High")
+    chart.chart_data.series.add(series_name_cell, charts.ChartType.OPEN_HIGH_LOW_CLOSE)
+    series_name_cell = workbook.get_cell(0, 0, 3, "Low")
+    chart.chart_data.series.add(series_name_cell, charts.ChartType.OPEN_HIGH_LOW_CLOSE)
+    series_name_cell = workbook.get_cell(0, 0, 4, "Close")
+    chart.chart_data.series.add(series_name_cell, charts.ChartType.OPEN_HIGH_LOW_CLOSE)
 
     series = chart.chart_data.series[0]
-
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 1, 72))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 1, 25))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 1, 38))
+    value_cell = workbook.get_cell(0, 1, 1, 72)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 2, 1, 25)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 3, 1, 38)
+    series.data_points.add_data_point_for_stock_series(value_cell)
 
     series = chart.chart_data.series[1]
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 2, 172))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 2, 57))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 2, 57))
+    value_cell = workbook.get_cell(0, 1, 2, 172)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 2, 2, 57)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 3, 2, 57)
+    series.data_points.add_data_point_for_stock_series(value_cell)
 
     series = chart.chart_data.series[2]
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 3, 12))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 3, 12))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 3, 13))
+    value_cell = workbook.get_cell(0, 1, 3, 12)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 2, 3, 12)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 3, 3, 13)
+    series.data_points.add_data_point_for_stock_series(value_cell)
 
     series = chart.chart_data.series[3]
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 4, 25))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 4, 38))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 4, 50))
+    value_cell = workbook.get_cell(0, 1, 4, 25)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 2, 4, 38)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 3, 4, 50)
+    series.data_points.add_data_point_for_stock_series(value_cell)
 
     chart.chart_data.series_groups[0].up_down_bars.has_up_down_bars = True
     chart.chart_data.series_groups[0].hi_low_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
 
-    for ser in chart.chart_data.series:
-        ser.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+    for stock_series in chart.chart_data.series:
+        stock_series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    presentation.save("StockChart.pptx", slides.export.SaveFormat.PPTX)
+    chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+
+    presentation.save("Stock-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
 ![แผนภูมิหุ้น](stock_chart.png)
 
-### **สร้างแผนภูมิกล่องและหนวดยาว (Box and Whisker)**
+### **สร้างแผนภูมิกล่องและเส้นขีด**
 
-แผนภูมิกล่องและหนวดยาวใช้แสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น ค่ามัธยฐาน, ควอร์ไทล์, และค่า outlier เป็นเครื่องมือที่มีประโยชน์ในงานวิเคราะห์ข้อมูลสำรวจและการศึกษาเชิงสถิติ
+แผนภูมิกล่องและเส้นขีดใช้เพื่อแสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น มัธยฐาน, ควอไทล์, และค่าผิดปกติ เหมาะกับการวิเคราะห์ข้อมูลสำรวจและการศึกษาเชิงสถิติ เพื่อเข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติอย่างรวดเร็ว
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.BOX_AND_WHISKER`
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
-5. ลบ series และ category เริ่มต้น
-6. เพิ่ม series และ category ใหม่
-7. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
-8. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างนี้สร้างแผนภูมิกล่องและเส้นขีดจากหกค่า คุณสมบัติ [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) เลือกการคำนวนควอไทล์แบบ exclusive ตัวอย่างยังเปิดใช้งานเส้นค่าเฉลี่ย, เครื่องหมายค่าเฉลี่ย, จุดภายใน และจุดค่าผิดปกติ
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิกล่องและหนวดยาว:
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.BOX_AND_WHISKER, 20, 20, 500, 300)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.BOX_AND_WHISKER, 20, 20, 500, 300)
+
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
     workbook = chart.chart_data.chart_data_workbook
     workbook.clear(0)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "A1", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A2", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A3", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A4", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A5", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A6", "Category 1"))
+    category_cell = workbook.get_cell(0, "A1", "Category 1")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A2", "Category 2")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A3", "Category 3")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A4", "Category 4")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A5", "Category 5")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A6", "Category 6")
+    chart.chart_data.categories.add(category_cell)
 
     series = chart.chart_data.series.add(charts.ChartType.BOX_AND_WHISKER)
 
@@ -585,81 +613,93 @@ with slides.Presentation() as presentation:
     series.show_inner_points = True
     series.show_outlier_points = True
 
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B1", 15))
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B2", 41))
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B3", 16))
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B4", 10))
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B5", 23))
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B6", 16))
+    value_cell = workbook.get_cell(0, "B1", 15)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
+    value_cell = workbook.get_cell(0, "B2", 41)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
+    value_cell = workbook.get_cell(0, "B3", 16)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
+    value_cell = workbook.get_cell(0, "B4", 10)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
+    value_cell = workbook.get_cell(0, "B5", 23)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
+    value_cell = workbook.get_cell(0, "B6", 16)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
 
-    presentation.save("BoxAndWhiskerChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("BoxAndWhisker.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **สร้างแผนภูมิกรวย (Funnel Chart)**
+### **สร้างแผนภูมิกรวย**
 
-แผนภูมิกรวยใช้เพื่อแสดงกระบวนการที่มีขั้นตอนต่อเนื่อง โดยปริมาณข้อมูลจะลดลงเมื่อเคลื่อนผ่านจากขั้นตอนหนึ่งไปยังขั้นตอนต่อไป เหมาะสำหรับวิเคราะห์อัตราการแปลง, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
+แผนภูมิกรวยใช้เพื่อแสดงกระบวนการที่มีขั้นตอนต่อเนื่อง, โดยปริมาณข้อมูลจะลดลงเมื่อดำเนินการจากขั้นตอนหนึ่งไปยังขั้นตอนถัดไป เหมาะกับการวิเคราะห์อัตรา Conversion, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.FUNNEL`
-4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อเพิ่มแผนภูมิกรวยบนสไลด์แรกของการนำเสนอที่มีอยู่, แทนที่ข้อมูลเริ่มต้นด้วยหกหมวดหมู่และค่าตั้งแต่ 50 ถึง 500, แล้วบันทึกการนำเสนอที่อัปเดต การนำเข้าต้องมีสไลด์อย่างน้อยหนึ่งสไลด์
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิกรวย:
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.FUNNEL, 50, 50, 500, 400)
+with slides.Presentation("test.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.FUNNEL, 50, 50, 500, 400)
+
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
     workbook = chart.chart_data.chart_data_workbook
     workbook.clear(0)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "A1", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A2", "Category 2"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A3", "Category 3"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A4", "Category 4"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A5", "Category 5"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A6", "Category 6"))
+    category_cell = workbook.get_cell(0, "A1", "Category 1")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A2", "Category 2")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A3", "Category 3")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A4", "Category 4")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A5", "Category 5")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A6", "Category 6")
+    chart.chart_data.categories.add(category_cell)
 
     series = chart.chart_data.series.add(charts.ChartType.FUNNEL)
 
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B1", 50))
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B2", 100))
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B3", 200))
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B4", 300))
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B5", 400))
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B6", 500))
+    value_cell = workbook.get_cell(0, "B1", 50)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
+    value_cell = workbook.get_cell(0, "B2", 100)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
+    value_cell = workbook.get_cell(0, "B3", 200)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
+    value_cell = workbook.get_cell(0, "B4", 300)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
+    value_cell = workbook.get_cell(0, "B5", 400)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
+    value_cell = workbook.get_cell(0, "B6", 500)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
 
-    presentation.save("FunnelChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Funnel.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
 ![แผนภูมิกรวย](funnel_chart.png)
 
-### **สร้างแผนภูมิดาว (Sunburst Chart)**
+### **สร้างแผนภูมิแสงอาทิตย์**
 
-แผนภูมิดาวใช้เพื่อแสดงข้อมูลเชิงลำดับชั้น โดยแสดงระดับต่าง ๆ เป็นวงแหวนชั้นใน ช่วยอธิบายความสัมพันธ์ส่วนต่อส่วนและเหมาะสำหรับแสดงหมวดหมู่และหมวดย่อยที่ซ้อนกันในรูปแบบที่กระชับ
+แผนภูมิแสงอาทิตย์ใช้เพื่อแสดงข้อมูลเชิงลำดับชั้น, แสดงระดับเป็นวงกลมรอบศูนย์ ช่วยอธิบายความสัมพันธ์ส่วนต่อส่วนทั้งหมดและเหมาะกับการแสดงหมวดหมู่และหมวดหมู่ย่อยที่ซ้อนกันในรูปแบบที่กระชับและชัดเจน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.SUNBURST`
-4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างนี้สร้างแผนภูมิแสงอาทิตย์ที่มีใบไม้แปดใบจัดเป็นสี่ก้านและสองสาขา วิธีการ [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) กำหนดก้านที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ป้ายชื่อหมวดหมู่ระบุส่วนต่าง ๆ, ค่าตัดสินขนาดสัมพัทธ์
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิดาว:
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.SUNBURST, 20, 20, 500, 300)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 20, 20, 500, 300)
+
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
@@ -667,68 +707,78 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     # สาขา 1
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C1", "Leaf1"))
+    category_cell = workbook.get_cell(0, "C1", "Leaf1")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem1")
     leaf.grouping_levels.set_grouping_item(2, "Branch1")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C2", "Leaf2"))
+    category_cell = workbook.get_cell(0, "C2", "Leaf2")
+    chart.chart_data.categories.add(category_cell)
 
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C3", "Leaf3"))
+    category_cell = workbook.get_cell(0, "C3", "Leaf3")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem2")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C4", "Leaf4"))
+    category_cell = workbook.get_cell(0, "C4", "Leaf4")
+    chart.chart_data.categories.add(category_cell)
 
     # สาขา 2
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C5", "Leaf5"))
+    category_cell = workbook.get_cell(0, "C5", "Leaf5")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem3")
     leaf.grouping_levels.set_grouping_item(2, "Branch2")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C6", "Leaf6"))
+    category_cell = workbook.get_cell(0, "C6", "Leaf6")
+    chart.chart_data.categories.add(category_cell)
 
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C7", "Leaf7"))
+    category_cell = workbook.get_cell(0, "C7", "Leaf7")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem4")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C8", "Leaf8"))
+    category_cell = workbook.get_cell(0, "C8", "Leaf8")
+    chart.chart_data.categories.add(category_cell)
 
     series = chart.chart_data.series.add(charts.ChartType.SUNBURST)
     series.labels.default_data_label_format.show_category_name = True
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D1", 4))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D2", 5))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D3", 3))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D4", 6))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D5", 9))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D6", 9))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D7", 4))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D8", 3))
+    value_cell = workbook.get_cell(0, "D1", 4)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D2", 5)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D3", 3)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D4", 6)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D5", 9)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D6", 9)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D7", 4)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D8", 3)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
 
-    presentation.save("SunburstChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Sunburst.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
-![แผนภูมิดาว](sunburst_chart.png)
+![แผนภูมิแสงอาทิตย์](sunburst_chart.png)
 
-### **สร้างแผนภูมิฮิสโตแกรม (Histogram Chart)**
+### **สร้างแผนภูมิฮิสโตแกรม**
 
-แผนภูมิฮิสโตแกรมใช้แสดงการกระจายของข้อมูลเชิงตัวเลขโดยจัดกลุ่มค่าเป็นช่วงหรือ bin ซึ่งช่วยระบุรูปแบบเช่น ความถี่, ความเอียง, การแพร่กระจาย, และการตรวจจับค่า outlier
+แผนภูมิฮิสโตแกรมใช้เพื่อแสดงการกระจายของข้อมูลตัวเลขโดยจัดกลุ่มค่าเป็นช่วงหรือบิ๊กส์ เหมาะกับการระบุรูปแบบข้อมูลเช่น ความถี่, ความเอน, การกระจาย, และการตรวจจับค่าผิดปกติในชุดข้อมูล
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภท `ChartType.HISTOGRAM`
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
-5. ลบ series และ category เริ่มต้น
-6. เพิ่ม series ใหม่และเติมข้อมูลจุดต่าง ๆ (ฮิสโตแกรมไม่มี category; bin ถูกคำนวณจากค่า)
-7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างนี้สร้างฮิสโตแกรมจากหกค่าตัวเลขรวมถึงค่าติดลบ การตั้งค่า [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) เป็นอัตโนมัติทำให้แผนภูมาตัดสินใจเลือกบิ๊กส์ที่ใช้แสดงการกระจาย
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิฮิสโตแกรม:
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 500, 300)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 500, 300)
+
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
@@ -736,69 +786,65 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A1", 15))
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A2", -41))
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A3", 16))
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A4", 10))
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A5", -23))
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A6", 16))
+    value_cell = workbook.get_cell(0, "A1", 15)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
+    value_cell = workbook.get_cell(0, "A2", -41)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
+    value_cell = workbook.get_cell(0, "A3", 16)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
+    value_cell = workbook.get_cell(0, "A4", 10)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
+    value_cell = workbook.get_cell(0, "A5", -23)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
+    value_cell = workbook.get_cell(0, "A6", 16)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
 
     chart.axes.horizontal_axis.aggregation_type = charts.AxisAggregationType.AUTOMATIC
 
-    presentation.save("HistogramChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Histogram.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
 ![แผนภูมิฮิสโตแกรม](histogram_chart.png)
 
-### **สร้างแผนภูมาราดาร์ (Radar Chart)**
+### **สร้างแผนภูมิโรเตอร์**
 
-แผนภูมาราดาร์ใช้แสดงข้อมูลหลายตัวแปรในรูปแบบสองมิติ ทำให้เปรียบเทียบตัวแปรหลาย ๆ ตัวพร้อมกันได้ง่าย เป็นประโยชน์ในการระบุรูปแบบ, จุดแข็ง, และจุดอ่อนของเมตริกหรือคุณลักษณะหลายตัว
+แผนภูมิโรเตอร์ใช้เพื่อแสดงข้อมูลหลายมิติในรูปแบบสองมิติ, ทำให้เปรียบเทียบหลายตัวแปรพร้อมกันได้ง่าย เหมาะกับการระบุรูปแบบ, จุดแข็ง, และจุดอ่อนในหลายเมตริกหรือแอตทริบิวต์
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภท `ChartType.RADAR`
-4. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมาราดาร์:
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิโรเตอร์ด้วยซีรีส์และหมวดหมู่เริ่มต้น, จากนั้นบันทึกการนำเสนอเป็น PPTX
 
 ```python
 import aspose.slides as slides
-
-with slides.Presentation() as presentation:
-    presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
-    presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
-```
-
-ผลลัพธ์:
-
-![แผนภูมาราดาร์](radar_chart.png)
-
-### **สร้างแผนภูมิหลายหมวด (Multi‑Category Chart)**
-
-แผนภูมิหลายหมวดใช้แสดงข้อมูลที่มีการจัดกลุ่มตามหมวดหมู่หลายระดับพร้อมกัน ช่วยให้เปรียบเทียบค่าตามหลายมิติเพื่อวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลที่ซับซ้อน
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.CLUSTERED_COLUMN`
-4. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))
-5. ลบ series และ category เริ่มต้น
-6. เพิ่ม series และ category ใหม่
-7. เพิ่มข้อมูลใหม่ให้ series ของแผนภูมิ
-8. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมิหลายหมวด:
-
-```py
 import aspose.slides.charts as charts
-import aspose.slides as slides
-import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    slide.shapes.add_chart(charts.ChartType.RADAR, 20, 20, 500, 300)
+
+    presentation.save("Radar-chart.pptx", slides.export.SaveFormat.PPTX)
+```
+
+ผลลัพธ์:
+
+![แผนภูมิโรเตอร์](radar_chart.png)
+
+### **สร้างแผนภูมิหลายหมวดหมู่**
+
+แผนภูมิหลายหมวดหมู่ใช้เพื่อแสดงข้อมูลที่มีการจัดกลุ่มหมวดหมู่มากกว่าหนึ่ง, ให้คุณเปรียบเทียบค่าในหลายมิติพร้อมกัน เหมาะกับการวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลหลายชั้น
+
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีแปດหมวดหมู่จัดเป็นสี่คู่ วิธีการ [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) ให้แต่ละคู่มีป้ายร่วมที่ระดับการจัดกลุ่ม 1, ทำให้แกนหมวดหมู่แสดงทั้งป้ายส่วนบุคคลและป้ายกลุ่ม
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
@@ -807,72 +853,95 @@ with slides.Presentation() as presentation:
 
     worksheet_index = 0
 
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c2", "A"))
+    category_cell = workbook.get_cell(0, "c2", "A")
+    category = chart.chart_data.categories.add(category_cell)
     category.grouping_levels.set_grouping_item(1, "Group1")
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c3", "B"))
+    category_cell = workbook.get_cell(0, "c3", "B")
+    category = chart.chart_data.categories.add(category_cell)
 
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c4", "C"))
+    category_cell = workbook.get_cell(0, "c4", "C")
+    category = chart.chart_data.categories.add(category_cell)
     category.grouping_levels.set_grouping_item(1, "Group2")
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c5", "D"))
+    category_cell = workbook.get_cell(0, "c5", "D")
+    category = chart.chart_data.categories.add(category_cell)
 
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c6", "E"))
+    category_cell = workbook.get_cell(0, "c6", "E")
+    category = chart.chart_data.categories.add(category_cell)
     category.grouping_levels.set_grouping_item(1, "Group3")
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c7", "F"))
+    category_cell = workbook.get_cell(0, "c7", "F")
+    category = chart.chart_data.categories.add(category_cell)
 
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c8", "G"))
+    category_cell = workbook.get_cell(0, "c8", "G")
+    category = chart.chart_data.categories.add(category_cell)
     category.grouping_levels.set_grouping_item(1, "Group4")
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c9", "H"))
+    category_cell = workbook.get_cell(0, "c9", "H")
+    category = chart.chart_data.categories.add(category_cell)
 
-    # เพิ่ม series.
-    series = chart.chart_data.series.add(workbook.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
+    series_name_cell = workbook.get_cell(0, "D1", "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, charts.ChartType.CLUSTERED_COLUMN)
 
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D2", 10))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D3", 20))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D4", 30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D5", 40))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D6", 50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D7", 60))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D8", 70))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D9", 80))
+    value_cell = workbook.get_cell(worksheet_index, "D2", 10)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D3", 20)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D4", 30)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D5", 40)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D6", 50)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D7", 60)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D8", 70)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D9", 80)
+    series.data_points.add_data_point_for_bar_series(value_cell)
 
-    # บันทึกการนำเสนอพร้อมแผนภูมิ.
-    presentation.save("MultiCategoryChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
-![แผนภูมิหลายหมวด](multi_category_chart.png)
+![แผนภูมิหลายหมวดหมู่](multi_category_chart.png)
 
-### **สร้างแผนภูมาผัง (Map Chart)**
+### **สร้างแผนภูมิแผนที่**
 
-แผนภูมาผังใช้เพื่อแสดงข้อมูลทางภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเฉพาะ เช่น ประเทศ, รัฐ, หรือเมือง มีประโยชน์สำหรับวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและน่าสนใจ
+แผนภูมิแผนที่ใช้เพื่อแสดงข้อมูลเชิงภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเฉพาะเช่น ประเทศ, รัฐ, หรือเมือง เหมาะกับการวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและดึงดูดสายตา
 
-โค้ด Python นี้แสดงวิธีสร้างแผนภูมาผัง:
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิแผนที่ด้วยข้อมูลเชิงภูมิศาสตร์เริ่มต้นและบันทึกเพื่อดูใน PowerPoint
 
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.MAP, 20, 20, 500, 300)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.MAP, 20, 20, 500, 300)
+
     presentation.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
-![แผนภูมาผัง](map_chart.png)
+![แผนภูมิแผนที่](map_chart.png)
 
-### **สร้างแผนภูมาผสม (Combination Chart)**
+{{% alert color="info" title="Note" %}}
+ภาพด้านบนแสดงการเปิดการนำเสนอที่บันทึกใน PowerPoint Aspose.Slides เขียนแผนภูมิแผนที่และข้อมูลของมันอย่างถูกต้อง, แต่ไม่วาดแผนภูมิแผนที่เอง: เมื่อสไลด์ที่มีแผนภูมินั้นเรนเดอร์เป็นรูปภาพหรือแปลงเป็น PDF หรือ SVG, พื้นที่แผนภูมิจะออกมาเป็นสีว่าง รูปร่างอื่น ๆ บนสไลด์เดียวกันไม่มีผลกระทบ
+{{% /alert %}}
 
-แผนภูมผสม (หรือ combo chart) ผสานประเภทแผนภูมิสองประเภทขึ้นไปในกราฟเดียว ช่วยให้คุณเน้น, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุดได้ง่ายขึ้น
+### **สร้างแผนภูมิผสม**
 
-![แผนภูมาผสม](combination_chart.png)
+แผนภูมิผสม (หรือ combo chart) รวมสองประเภทแผนภูมิหรือมากกว่าลงในกราฟเดียว แผนภูมินี้ช่วยให้คุณไฮไลท์, เปรียบเทียบ, หรือพิจารณาความแตกต่างระหว่างชุดข้อมูลสองชุดหรือมากกว่า, ช่วยระบุความสัมพันธ์ระหว่างข้อมูลเหล่านั้น
 
-โค้ด Python ต่อไปนี้แสดงวิธีสร้างแผนภูมผสมที่แสดงด้านบนในงานนำเสนอ PowerPoint:
+![แผนภูมิกลุ่มผสม](combination_chart.png)
+
+ตัวอย่างนี้รวมสองซีรีส์คอลัมน์แบบกลุ่มกับซีรีส์เส้นในสี่หมวดหมู่ คอลัมน์ใช้แกนแนวตั้งหลัก, ส่วน [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) วางเส้นบนแกนแนวตั้งรองที่ด้านขวา ฟังก์ชันช่วยตั้งค่าชื่อเรื่อง, คำอธิบาย, ป้ายแกน, และเส้นกริด
 
 ```python
-import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 def create_combo_chart():
     with slides.Presentation() as presentation:
@@ -886,51 +955,50 @@ def create_combo_chart():
 
         presentation.save("combo-chart.pptx", slides.export.SaveFormat.PPTX)
 
-
 def create_chart_with_first_series(slide):
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
 
-    # ตั้งค่าชื่อเรื่องของแผนภูมิ.
     chart.has_title = True
     chart.chart_title.add_text_frame_for_overriding("Chart Title")
     chart.chart_title.overlay = False
-    title_paragraph = chart.chart_title.text_frame_for_overriding.paragraphs[0]
-    title_format = title_paragraph.paragraph_format.default_portion_format
+    portion_format = chart.chart_title.text_frame_for_overriding.paragraphs[0].paragraph_format.default_portion_format
+    portion_format.font_bold = slides.NullableBool.FALSE
+    portion_format.font_height = 18
 
-    title_format.font_bold = slides.NullableBool.FALSE
-    title_format.font_height = 18
-
-    # ตั้งค่าตำแหน่ง legend ของแผนภูมิ.
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
-    # ลบ series และ category ที่สร้างโดยอัตโนมัติ.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    worksheet_index = 0
     workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
 
-    # เพิ่ม category ใหม่.
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 4, 0, "Category 4"))
+    category_cell = workbook.get_cell(worksheet_index, 1, 0, "Category 1")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(worksheet_index, 2, 0, "Category 2")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(worksheet_index, 3, 0, "Category 3")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(worksheet_index, 4, 0, "Category 4")
+    chart.chart_data.categories.add(category_cell)
 
-    # เพิ่ม series แรก.
     series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
     series = chart.chart_data.series.add(series_name_cell, chart.type)
 
     series.parent_series_group.overlap = -25
     series.parent_series_group.gap_width = 220
 
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 4.3))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 2.5))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 3.5))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 1, 4.5))
+    value_cell = workbook.get_cell(worksheet_index, 1, 1, 4.3)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 1, 2.5)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 1, 3.5)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 4, 1, 4.5)
+    series.data_points.add_data_point_for_bar_series(value_cell)
 
     return chart
-
 
 def add_second_series_to_chart(chart):
     workbook = chart.chart_data.chart_data_workbook
@@ -942,11 +1010,14 @@ def add_second_series_to_chart(chart):
     series.parent_series_group.overlap = -25
     series.parent_series_group.gap_width = 220
 
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 2.4))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 4.4))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 1.8))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 2, 2.8))
-
+    value_cell = workbook.get_cell(worksheet_index, 1, 2, 2.4)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 2, 4.4)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 2, 1.8)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 4, 2, 2.8)
+    series.data_points.add_data_point_for_bar_series(value_cell)
 
 def add_third_series_to_chart(chart):
     workbook = chart.chart_data.chart_data_workbook
@@ -955,37 +1026,35 @@ def add_third_series_to_chart(chart):
     series_name_cell = workbook.get_cell(worksheet_index, 0, 3, "Series 3")
     series = chart.chart_data.series.add(series_name_cell, charts.ChartType.LINE)
 
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 1, 3, 2.0))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 2, 3, 2.0))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 3, 3, 3.0))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 4, 3, 5.0))
+    value_cell = workbook.get_cell(worksheet_index, 1, 3, 2.0)
+    series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 3, 2.0)
+    series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 3, 3.0)
+    series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 4, 3, 5.0)
+    series.data_points.add_data_point_for_line_series(value_cell)
 
     series.plot_on_second_axis = True
 
-
 def set_primary_axes_format(chart):
-    # ตั้งค่าแกนแนวนอน.
     horizontal_axis = chart.axes.horizontal_axis
-    horizontal_axis.text_format.portion_format.font_height = 12.0
+    horizontal_axis.text_format.portion_format.font_height = 12
     horizontal_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # ตั้งค่าแกนแนวตั้ง.
     vertical_axis = chart.axes.vertical_axis
-    vertical_axis.text_format.portion_format.font_height = 12.0
+    vertical_axis.text_format.portion_format.font_height = 12
     vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # ตั้งค่าสีเส้นกริดหลักของแกนแนวตั้ง.
     major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
     major_grid_lines_format.fill_type = slides.FillType.SOLID
     major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
 
-
 def set_secondary_axes_format(chart):
-    # ตั้งค่าแกนนอนรอง.
     secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
     secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
     secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
@@ -993,123 +1062,95 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # ตั้งค่าแกนตั้งรอง.
     secondary_vertical_axis = chart.axes.secondary_vertical_axis
     secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
-    secondary_vertical_axis.text_format.portion_format.font_height = 12.0
+    secondary_vertical_axis.text_format.portion_format.font_height = 12
     secondary_vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(secondary_vertical_axis, "Y Axis 2")
 
-
 def set_axis_title(axis, axis_title):
     axis.has_title = True
     axis.title.overlay = False
     title_portion_format = axis.title.add_text_frame_for_overriding(axis_title).paragraphs[0].paragraph_format.default_portion_format
     title_portion_format.font_bold = slides.NullableBool.FALSE
-    title_portion_format.font_height = 12.0
+    title_portion_format.font_height = 12
+
+
+create_combo_chart()
 ```
 
 ## **อัปเดตแผนภูมิ**
 
-Aspose.Slides for Python via .NET ให้คุณอัปเดตข้อมูล, การจัดรูปแบบ, และสไตล์ของแผนภูมิ เพื่อให้งานนำเสนอ PowerPoint ของคุณเป็นปัจจุบัน
+Aspose.Slides for Python via .NET ช่วยให้คุณอัปเดตแผนภูมิ PowerPoint โดยแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ คุณสมบัตินี้ทำให้การรักษาการนำเสนอให้เป็นปัจจุบันด้วยเนื้อหาไดนามิกง่ายขึ้นและทำให้แผนภูมิสะท้อนข้อมูลและมาตรฐานการแสดงผลที่เป็นปัจจุบันอย่างแม่นยำ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) เพื่อเปิดงานนำเสนอที่มีแผนภูมิ
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เดินทางผ่าน shape ทั้งหมดเพื่อค้นหาแผนภูมิ
-4. เข้าถึง worksheet ของข้อมูลแผนภูมิ
-5. แก้ไข series ของข้อมูลแผนภูมิโดยเปลี่ยนค่า series
-6. เพิ่ม series ใหม่และเติมข้อมูลของมัน
-7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างนี้อัปเดตแผนภูมิชื่อ "My chart" บนสไลด์แรกของการนำเสนอที่มีอยู่ ต้องการสองซีรีส์คอลัมน์ที่แต่ละซีรีส์มีจุดข้อมูลสามจุด, โดยมีป้ายหมวดหมู่อยู่ในคอลัมน์ A และชื่อซีรีส์อยู่ในแถวแรกของเวิร์กชีตแรก ตัวอย่างใช้ [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) เพื่อเปลี่ยนเซลล์เวิร์กบุ๊ก, อัปเดตค่าซีรีส์, เพิ่มซีรีส์ที่สาม, และเปลี่ยนแผนภูมิเป็นทรงกระบอกแบบกลุ่มโดยใช้ [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/)
 
-โค้ด Python นี้แสดงวิธีอัปเดตแผนภูมิ:
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 chart_name = "My chart"
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX.
 with slides.Presentation("ExistingChart.pptx") as presentation:
-
-    # เข้าถึงสไลด์แรก.
     slide = presentation.slides[0]
 
     for shape in slide.shapes:
         if isinstance(shape, charts.Chart) and shape.name == chart_name:
             chart = shape
-
-            # ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ.
             worksheet_index = 0
 
-            # ดึง workbook ของข้อมูลแผนภูมิ.
             workbook = chart.chart_data.chart_data_workbook
 
-            # เปลี่ยนชื่อ category ของแผนภูมิ.
             workbook.get_cell(worksheet_index, 1, 0, "Modified Category 1")
             workbook.get_cell(worksheet_index, 2, 0, "Modified Category 2")
 
-            # ดึง series แผนภูมิแรก.
             series = chart.chart_data.series[0]
 
-            # อัปเดตข้อมูลของ series.
-            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # กำลังแก้ไขชื่อ series.
+            workbook.get_cell(worksheet_index, 0, 1, "New_Series 1")
             series.data_points[0].value.data = 90
             series.data_points[1].value.data = 123
             series.data_points[2].value.data = 44
 
-            # ดึง series แผนภูมิที่สอง.
             series = chart.chart_data.series[1]
 
-            # อัปเดตข้อมูลของ series.
-            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # กำลังแก้ไขชื่อ series.
+            workbook.get_cell(worksheet_index, 0, 2, "New_Series 2")
             series.data_points[0].value.data = 23
             series.data_points[1].value.data = 67
             series.data_points[2].value.data = 99
 
-            # เพิ่ม series ใหม่.
-            series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), chart.type)
+            series_name_cell = workbook.get_cell(worksheet_index, 0, 3, "Series 3")
+            series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-            # เติมข้อมูลให้ series.
-            series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 3, 20))
-            series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 3, 50))
-            series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 3, 30))
+            value_cell = workbook.get_cell(worksheet_index, 1, 3, 20)
+            series.data_points.add_data_point_for_bar_series(value_cell)
+            value_cell = workbook.get_cell(worksheet_index, 2, 3, 50)
+            series.data_points.add_data_point_for_bar_series(value_cell)
+            value_cell = workbook.get_cell(worksheet_index, 3, 3, 30)
+            series.data_points.add_data_point_for_bar_series(value_cell)
 
             chart.type = charts.ChartType.CLUSTERED_CYLINDER
 
-            # บันทึกการนำเสนอพร้อมแผนภูมิ.
-            presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AsposeChartModified.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **กำหนดช่วงข้อมูลสำหรับแผนภูมิ**
 
-เพื่อดูช่วงข้อมูลที่แผนภูมิที่มีอยู่ใช้แล้ว ให้ดูที่ [Retrieve a Chart's Data Range](/slides/th/python-net/chart-workbook/#retrieve-a-charts-data-range)
+เพื่อดูช่วงที่ใช้อยู่โดยแผนภูมิที่มีอยู่แล้ว, ดู [Retrieve a Chart's Data Range](/slides/th/python-net/chart-workbook/#retrieve-a-charts-data-range)
 
-Aspose.Slides for Python via .NET ให้คุณใช้ช่วง worksheet เฉพาะเป็นแหล่งข้อมูลสำหรับแผนภูมิ ซึ่งกำหนดว่าช่องใดจะเป็น series และ category ของแผนภูมิและช่วยให้คุณอัปเดตแผนภูมิเพื่อสะท้อนการเปลี่ยนแปลงใน worksheet
+Aspose.Slides for Python via .NET ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจากเวิร์กชีตเป็นแหล่งข้อมูลสำหรับแผนภูมิของคุณ หมายความว่าคุณสามารถแมปส่วนของเวิร์กชีตโดยตรงไปยังแผนภูมิ, ควบคุมเซลล์ใดบ้างที่มีส่วนร่วมในซีรีส์และหมวดหมู่ของแผนภูมิ ด้วยวิธีนี้คุณสามารถอัปเดตและซิงโครไนซ์แผนภูมิของคุณกับการเปลี่ยนแปลงข้อมูลล่าสุดในเวิร์กชีตได้อย่างง่ายดาย ทำให้การนำเสนอ PowerPoint ของคุณสะท้อนข้อมูลที่ทันสมัยและแม่นยำ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) เพื่อเปิดงานนำเสนอที่มีแผนภูมิ
-2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของสไลด์
-3. เดินทางผ่าน shape ทั้งหมดเพื่อค้นหาแผนภูมิ
-4. เข้าถึงข้อมูลแผนภูมิและกำหนดช่วง
-5. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างนี้ใช้ [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) เพื่อตั้งแหล่งข้อมูลของแผนภูมิชื่อ "My chart" บนสไลด์แรกของการนำเสนอที่มีอยู่เป็น `Sheet1!A1:B4`. เวิร์กบุ๊กแผนภูมิต้องมีชีตนั้นและช่วงที่เต็มด้วยหัวเรื่องซีรีส์ในแถวแรก, ป้ายหมวดหมู่ในคอลัมน์ A, และค่าสามค่าในคอลัมน์ B
 
-โค้ด Python นี้แสดงวิธีกำหนดช่วงข้อมูลสำหรับแผนภูมิ:
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 chart_name = "My chart"
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX.
 with slides.Presentation("ExistingChart.pptx") as presentation:
-
-    # เข้าถึงสไลด์แรก.
     slide = presentation.slides[0]
 
     for shape in slide.shapes:
@@ -1117,22 +1158,22 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             chart = shape
             chart.chart_data.set_range("Sheet1!A1:B4")
 
-    presentation.save("DataRange.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("SetDataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **ใช้ตัวทำเครื่องหมายเริ่มต้นในแผนภูมิ**
 
-เมื่อใช้ตัวทำเครื่องหมายเริ่มต้นในแผนภูมิแต่ละ series จะได้รับสัญลักษณ์ตัวทำเครื่องหมายที่แตกต่างโดยอัตโนมัติ
+เมื่อคุณใช้ตัวทำเครื่องหมายเริ่มต้นในแผนภูมิ, แต่ละซีรีส์ของแผนภูมิจะได้รับสัญลักษณ์เครื่องหมายเริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
 
-โค้ด Python นี้แสดงวิธีตั้งค่าตัวทำเครื่องหมายของ series ในแผนภูมิโดยอัตโนมัติ:
+ตัวอย่างนี้ใช้ [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) เพื่อสร้างแผนภูมิที่มีสองซีรีส์เส้นและคำอธิบาย คุณสมบัติ [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) รักษาสัญลักษณ์เครื่องหมายที่กำหนดอัตโนมัติ ซีรีส์แรกมีค่าติดลบและค่าที่หายไป, แทนด้วย `None`, ส่วนซีรีส์ที่สองมีค่าทุกหมวดหมู่
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 10, 10, 400, 400)
 
     chart.chart_data.series.clear()
@@ -1140,27 +1181,40 @@ with slides.Presentation() as presentation:
 
     workbook = chart.chart_data.chart_data_workbook
 
-    series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
+    series_name_cell = workbook.get_cell(0, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "C1"))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 1, 24))
+    category_cell = workbook.get_cell(0, 1, 0, "C1")
+    chart.chart_data.categories.add(category_cell)
+    value_cell = workbook.get_cell(0, 1, 1, 24)
+    series.data_points.add_data_point_for_line_series(value_cell)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "C2"))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 1, 23))
+    category_cell = workbook.get_cell(0, 2, 0, "C2")
+    chart.chart_data.categories.add(category_cell)
+    value_cell = workbook.get_cell(0, 2, 1, 23)
+    series.data_points.add_data_point_for_line_series(value_cell)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "C3"))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 1, -10))
+    category_cell = workbook.get_cell(0, 3, 0, "C3")
+    chart.chart_data.categories.add(category_cell)
+    value_cell = workbook.get_cell(0, 3, 1, -10)
+    series.data_points.add_data_point_for_line_series(value_cell)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, 4, 0, "C4"))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 4, 1, None))
+    category_cell = workbook.get_cell(0, 4, 0, "C4")
+    chart.chart_data.categories.add(category_cell)
+    value_cell = workbook.get_cell(0, 4, 1, None)
+    series.data_points.add_data_point_for_line_series(value_cell)
 
-    series2 = chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "Series 2"), chart.type)
+    series_name_cell = workbook.get_cell(0, 0, 2, "Series 2")
+    second_series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-    # เติมข้อมูลให้ series.
-    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 2, 30))
-    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 2, 10))
-    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 2, 60))
-    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 4, 2, 40))
+    value_cell = workbook.get_cell(0, 1, 2, 30)
+    second_series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(0, 2, 2, 10)
+    second_series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(0, 3, 2, 60)
+    second_series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(0, 4, 2, 40)
+    second_series.data_points.add_data_point_for_line_series(value_cell)
 
     chart.has_legend = True
     chart.legend.overlay = False
@@ -1168,20 +1222,20 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**แผนภูมิประเภทใดบ้างที่ Aspose.Slides for Python via .NET รองรับ?**
+**What chart types are supported by Aspose.Slides for Python via .NET?**
 
-Aspose.Slides for Python via .NET รองรับแผนภูมิมากมาย รวมถึง bar, line, pie, area, scatter, histogram, radar และอื่น ๆ ซึ่งทำให้คุณสามารถเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงข้อมูลของคุณได้
+Aspose.Slides for Python via .NET รองรับประเภทแผนภูมิจำนวนมาก รวมถึงแผนภูมิแท่ง, เส้น, วงกลม, พื้นที่, กระจาย, ฮิสโตแกรม, โรเตอร์, และอื่น ๆ อีกมาก ความยืดหยุ่นนี้ช่วยให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับความต้องการการแสดงผลข้อมูลของคุณ
 
-**ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์ได้อย่างไร?**
+**How do I add a new chart to a slide?**
 
-เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) แล้วดึงสไลด์ที่ต้องการโดยใช้ดัชนี จากนั้นเรียกเมธอดเพื่อเพิ่มแผนภูมิโดยระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะฝังแผนภูมิเข้าไปในงานนำเสนอของคุณโดยตรง
+เพื่อเพิ่มแผนภูมิ, คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), ดึงสไลด์ที่ต้องการโดยใช้ดัชนี, แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ, ระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะรวมแผนภูมิเข้ากับการนำเสนอของคุณโดยตรง
 
-**ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิอย่างไร?**
+**How can I update the data displayed in a chart?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) ลบ series และ category เริ่มต้น แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ วิธีนี้ทำให้คุณรีเฟรชแผนภูมิโดยโปรแกรมเมติกให้แสดงข้อมูลล่าสุด
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุ๊กข้อมูลของมัน ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), ล้างซีรีส์และหมวดหมู่เริ่มต้น, จากนั้นเพิ่มข้อมูลที่กำหนดเอง สิ่งนี้ทำให้คุณรีเฟรชแผนภูมิโปรแกรมmatically เพื่อสะท้อนข้อมูลล่าสุด
 
-**สามารถปรับแต่งรูปลักษณ์ของแผนภูมิได้หรือไม่?**
+**Is it possible to customize the appearance of the chart?**
 
-ได้, Aspose.Slides for Python via .NET มีตัวเลือกการปรับแต่งมากมาย คุณสามารถแก้ไขสี, ฟอนต์, ป้ายกำกับ, legend, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงกับความต้องการด้านการออกแบบของคุณ
+ใช่, Aspose.Slides for Python via .NET มีตัวเลือกการปรับแต่งอย่างกว้างขวาง คุณสามารถแก้ไขสี, ฟอนต์, ป้าย, คำอธิบาย, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงกับความต้องการออกแบบเฉพาะของคุณ

@@ -1,6 +1,6 @@
 ---
-title: PowerPoint Sunum Grafiklerini .NET'te Oluşturma veya Güncelleme
-linktitle: Grafikleri Oluşturma veya Güncelleme
+title: .NET'te PowerPoint Sunum Grafiklerini Oluşturma veya Güncelleme
+linktitle: Grafik Oluşturma veya Güncelleme
 type: docs
 weight: 10
 url: /tr/net/create-chart/
@@ -10,409 +10,339 @@ keywords:
 - grafik düzenle
 - grafik değiştir
 - grafik güncelle
-- dağılım grafiği
-- pasta grafiği
-- çizgi grafiği
-- ağaç haritası grafiği
-- hisse grafiği
-- kutu ve çubuk grafiği
-- huni grafiği
-- güneş patlaması grafiği
-- histogram grafiği
-- radar grafiği
+- dağılım grafik
+- pasta grafik
+- çizgi grafik
+- ağaç haritası grafik
+- stok grafik
+- kutu ve bıyık grafik
+- huni grafik
+- sunburst grafik
+- histogram grafik
+- radar grafik
 - çok kategorili grafik
 - PowerPoint
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak PowerPoint sunumlarında grafik oluşturun ve özelleştirin. Grafikleri ekleyin, biçimlendirin ve C#'ta pratik kod örnekleriyle düzenleyin."
+description: "Aspose.Slides for .NET kullanarak PowerPoint sunumlarında grafikler oluşturun ve özelleştirin. Grafikleri ekleyin, biçimlendirin ve C# ile pratik kod örnekleriyle düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for .NET kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir grafiği slayta programlı olarak nasıl ekleyeceğinizi, verileri nasıl dolduracağınızı ve belirli tasarım gereksinimlerinize uygun biçimlendirme seçeneklerini nasıl uygulayacağınızı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmadan seriler, eksenler ve lejandları yapılandırmaya kadar her adımı ayrıntılı kod örnekleriyle gösterilmektedir. Bu rehberi izleyerek, .NET uygulamalarınıza dinamik grafik oluşturmayı entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
+Bu makale, Aspose.Slides for .NET kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir kılavuz sunar. Bir slayda programlı olarak nasıl grafik ekleyeceğinizi, verilerle nasıl dolduracağınızı ve belirli tasarım gereksinimlerinize uyması için çeşitli biçimlendirme seçeneklerini nasıl uygulayacağınızı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan seriler, eksenler ve lejandları yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu kılavuzu takip ederek, .NET uygulamalarınıza dinamik grafik oluşturmayı entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
 
 ## **Grafik Oluşturma**
 
-Grafikler, verileri hızlı bir şekilde görselleştirerek bir tablo veya elektronik tablodan hemen anlaşılmayabilecek içgörüler elde edilmesini sağlar.
+Grafikler, insanların verileri hızlı bir şekilde görselleştirip tablo ya da elektronik tablodan hemen fark edilemeyen içgörüler elde etmelerine yardımcı olur.
 
-**Grafik Oluşturmanın Nedenleri?**
+**Grafikler Neden Oluşturulur?**
 
-Grafikler sayesinde:
+Grafikleri kullanarak şunları yapabilirsiniz:
 
-* büyük miktarda veriyi tek bir slaytta özetleyebilir ve yoğunlaştırabilirsiniz;
-* veri içinde örüntü ve eğilimleri ortaya çıkarabilirsiniz;
-* zaman içindeki ya da belirli bir ölçü birimine göre verinin yönünü ve ivmesini tahmin edebilirsiniz;
-* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit edebilirsiniz;
-* karmaşık verileri etkili bir şekilde iletişim kurabilir veya sunabilirsiniz.
+* büyük miktarda veriyi tek bir slaytta toplama, sıkıştırma veya özetleme;
+* veri içindeki desen ve eğilimleri ortaya çıkarma;
+* zaman içinde veya belirli bir ölçü birimiyle verinin yönünü ve ivmesini çıkarma;
+* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit etme;
+* karmaşık verileri iletişim kurma veya sunma.
 
-PowerPoint’te grafikler, *Ekle* işlevi aracılığıyla oluşturulur ve birçok grafik türü için şablonlar sağlar. Aspose.Slides kullanarak hem popüler grafik türlerine dayanan normal grafikler hem de özel grafikler oluşturabilirsiniz.
+PowerPoint’te, birçok grafik tipi tasarlamak için şablonlar sağlayan *Insert* işlevi aracılığıyla grafikler oluşturabilirsiniz. Aspose.Slides kullanarak hem popüler grafik tiplerine dayanan normal grafikler hem de özel grafikler yaratabilirsiniz.
 
-{{% alert color="info" %}} 
-[ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) sayı yöntemini, [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) ad alanı içinde kullanın. Bu sayıda yer alan değerler farklı grafik türlerine karşılık gelir.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Use the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration under the [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
+{{% /alert %}}
 
-### **Kümelenmiş Sütun Grafiği Oluşturma**
+### **Kümelenmiş Sütun Grafikleri Oluşturma**
 
-Bu bölüm, Aspose.Slides for .NET ile kümelenmiş sütun grafiği oluşturmayı açıklar. Bir sunumu başlatmayı, bir grafik eklemeyi ve başlık, veri, seriler, kategoriler ve stil gibi öğeleri özelleştirmeyi öğreneceksiniz. Aşağıdaki adımları izleyerek standart bir kümelenmiş sütun grafiğinin nasıl üretildiğini görebilirsiniz:
+Bu örnek, iki seriyi üç kategori boyunca karşılaştıran bir kümelenmiş sütun grafiği oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) yöntemini kullanır. Seriler kırmızı ve yeşil dolgu renkleri kullanır ve bireysel etiketler kategori adlarını, seri adlarını ve değerlerini gösterir. Çalışma sayfası dizini 0, gömülü grafik çalışma kitabındaki ilk sayfayı ifade eder.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Bazı veri içeren bir grafik ekleyin ve `ChartType.ClusteredColumn` türünü belirtin.  
-1. Grafiğe bir başlık ekleyin.  
-1. Grafiğin veri çalışma sayfasına erişin.  
-1. Varsayılan tüm serileri ve kategorileri temizleyin.  
-1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni veri ekleyin.  
-1. Grafik serilerine dolgu rengi uygulayın.  
-1. Grafik serilerine etiketler ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
-
-Bu C# kodu, kümelenmiş bir sütun grafiğinin nasıl oluşturulacağını gösterir:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Presentation sınıfını örnekleyin.
-using (Presentation presentation = new Presentation())
-{
-    // İlk slayta erişin.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Varsayılan verileriyle bir kümelenmiş sütun grafiği ekleyin.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // Grafik başlığını ayarlayın.
-    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-    chart.ChartTitle.Height = 20;
-    chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
 
-    // Grafik veri sayfasının indeksini ayarlayın.
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-    // Grafik veri çalışma kitabını alın.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    // Varsayılan oluşturulan serileri ve kategorileri silin.
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+seriesNameCell = workbook.GetCell(worksheetIndex, 0, 2, "Series 2");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    // Yeni seriler ekleyin.
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
+var categoryCell = workbook.GetCell(worksheetIndex, 1, 0, "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(worksheetIndex, 2, 0, "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(worksheetIndex, 3, 0, "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
 
-    // Yeni kategoriler ekleyin.
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
+var series = chart.ChartData.Series[0];
 
-    // İlk grafik serisini alın.
-    IChartSeries series = chart.ChartData.Series[0];
+var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 20);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 1, 50);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 1, 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-    // Serinin verilerini doldurun.
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // Serinin dolgu rengini ayarlayın.
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = Color.Red;
+series = chart.ChartData.Series[1];
 
-    // İkinci grafik serisini alın.
-    series = chart.ChartData.Series[1];
+valueCell = workbook.GetCell(worksheetIndex, 1, 2, 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 2, 10);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 2, 60);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-    // Serinin verilerini doldurun.
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // Serinin dolgu rengini ayarlayın.
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = Color.Green;
+var label = series.DataPoints[0].Label;
+label.DataLabelFormat.ShowCategoryName = true;
 
-    // İlk etiketi kategori adını gösterecek şekilde ayarlayın.
-    IDataLabel label = series.DataPoints[0].Label;
-    label.DataLabelFormat.ShowCategoryName = true;
+label = series.DataPoints[1].Label;
+label.DataLabelFormat.ShowSeriesName = true;
 
-    label = series.DataPoints[1].Label;
-    label.DataLabelFormat.ShowSeriesName = true;
+label = series.DataPoints[2].Label;
+label.DataLabelFormat.ShowValue = true;
+label.DataLabelFormat.ShowSeriesName = true;
+label.DataLabelFormat.Separator = "/";
 
-    // Seriyi üçüncü etiket için değeri gösterecek şekilde ayarlayın.
-    label = series.DataPoints[2].Label;
-    label.DataLabelFormat.ShowValue = true;
-    label.DataLabelFormat.ShowSeriesName = true;
-    label.DataLabelFormat.Separator = "/";
-
-    // Sunumu bir PPTX dosyası olarak diske kaydedin.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
 ![Kümelenmiş Sütun Grafiği](clustered_column_chart.png)
 
-### **Dağılım (Scatter) Grafiği Oluşturma**
+### **Dağılım Grafiklerini Oluşturma**
 
-Dağılım grafikleri (scatter plot ya da x‑y grafiği olarak da bilinir) genellikle iki değişken arasındaki örüntüleri veya korelasyonları kontrol etmek için kullanılır.
+Dağılım grafikleri (diğer adıyla dağılım diyagramları veya x‑y grafikleri), iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için sıklıkla kullanılır.
 
-Dağılım grafiği şu durumlarda tercih edilmelidir:
+Dağılım grafiği şu durumlarda kullanılır:
 
-* Eşleştirilmiş sayısal veriniz varsa.  
-* Birbirine iyi eşleşen iki değişkeniniz varsa.  
-* İki değişkenin ilişkili olup olmadığını belirlemek istiyorsanız.  
-* Bağımsız bir değişkenin, bağımlı değişken için birden çok değeri varsa.
+* Eşleştirilmiş sayısal verileriniz varsa.
+* Birlikte iyi eşleşen iki değişkeniniz varsa.
+* İki değişkenin ilişkili olup olmadığını belirlemek istiyorsanız.
+* Bağımlı bir değişken için birden çok değer içeren bağımsız bir değişkeniniz varsa.
 
-Bu C# kodu, farklı işaretleyici serileriyle bir dağılım grafiği oluşturmayı gösterir:
+Bu örnek iki set x‑y değeri çizer. İlk seri yıldız işaretçili düz çizgiler kullanırken, ikincisi daire işaretçili yumuşak çizgiler kullanır; her iki seri de 10 büyüklüğünde bir [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) kullanır. [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) özelliği işaretçi şeklini kontrol eder.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Presentation sınıfını örnekleyin.
-using (Presentation presentation = new Presentation())
-{
-    // İlk slayta erişin.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Varsayılan dağılım grafiğini oluşturun.
-    IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Grafik veri sayfasının indeksini ayarlayın.
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-    // Grafik veri çalışma kitabını alın.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
 
-    // Varsayılan seriyi silin.
-    chart.ChartData.Series.Clear();
+var seriesNameCell = workbook.GetCell(worksheetIndex, 1, 1, "Series 1");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+seriesNameCell = workbook.GetCell(worksheetIndex, 1, 3, "Series 2");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    // Yeni seriler ekleyin.
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
+var series = chart.ChartData.Series[0];
 
-    // İlk grafik serisini alın.
-    IChartSeries series = chart.ChartData.Series[0];
+var xValueCell = workbook.GetCell(worksheetIndex, 2, 1, 1);
+var yValueCell = workbook.GetCell(worksheetIndex, 2, 2, 3);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Seriye yeni bir nokta (1:3) ekleyin.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
+xValueCell = workbook.GetCell(worksheetIndex, 3, 1, 2);
+yValueCell = workbook.GetCell(worksheetIndex, 3, 2, 10);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Yeni bir nokta (2:10) ekleyin.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
+series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // Seri tipini değiştirin.
-    series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
+series.Marker.Size = 10;
+series.Marker.Symbol = MarkerStyleType.Star;
 
-    // Grafik serisi işaretçisini değiştirin.
-    series.Marker.Size = 10;
-    series.Marker.Symbol = MarkerStyleType.Star;
+series = chart.ChartData.Series[1];
 
-    // İkinci grafik serisini alın.
-    series = chart.ChartData.Series[1];
+xValueCell = workbook.GetCell(worksheetIndex, 2, 3, 5);
+yValueCell = workbook.GetCell(worksheetIndex, 2, 4, 2);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Grafik serisine yeni bir nokta (5:2) ekleyin.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
+xValueCell = workbook.GetCell(worksheetIndex, 3, 3, 3);
+yValueCell = workbook.GetCell(worksheetIndex, 3, 4, 1);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Yeni bir nokta (3:1) ekleyin.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
+xValueCell = workbook.GetCell(worksheetIndex, 4, 3, 2);
+yValueCell = workbook.GetCell(worksheetIndex, 4, 4, 2);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Yeni bir nokta (2:2) ekleyin.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
+xValueCell = workbook.GetCell(worksheetIndex, 5, 3, 5);
+yValueCell = workbook.GetCell(worksheetIndex, 5, 4, 1);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Yeni bir nokta (5:1) ekleyin.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
+series.Marker.Size = 10;
+series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Grafik serisi işaretçisini değiştirin.
-    series.Marker.Size = 10;
-    series.Marker.Symbol = MarkerStyleType.Circle;
-
-    // Sunumu bir PPTX dosyası olarak diske kaydedin.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
 ![Dağılım Grafiği](scatter_chart.png)
 
-### **Pasta (Pie) Grafiği Oluşturma**
+### **Pasta Grafiklerini Oluşturma**
 
-Pasta grafikleri, özellikle veride kategorik etiketler ve sayısal değerler olduğunda, parçanın bütün içindeki oranını göstermek için en uygunudur. Ancak veri çok fazla parçaya ya da etikete sahipse, bir çubuk grafik kullanmanız daha mantıklı olabilir.
+Pasta grafikler, özellikle veri sayısal değerlerle birlikte kategorik etiketler içerdiğinde, verinin bölüm‑bütün ilişkisini göstermek için en iyi seçenektir. Ancak veri çok fazla bölüm ya da etiket içeriyorsa, çubuk grafik kullanmayı düşünebilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Varsayılan veri içeren bir grafik ekleyin ve `ChartType.Pie` türünü belirtin.  
-1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
-1. Varsayılan serileri ve kategorileri temizleyin.  
-1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni veri ekleyin.  
-1. Pasta grafiğinin dilimlerine özel renkler uygulayın.  
-1. Seriler için etiketler ayarlayın.  
-1. Etiketler için lider çizgilerini etkinleştirin.  
-1. Pasta grafiğinin dönüş açısını belirleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, üç çeyrek değeri olan bir pasta grafiği oluşturur. Her dilim özel bir dolgu ve kenarlık ile tasarlanmıştır ve etiketler değer, yüzde ve seri bilgilerini farklı kombinasyonlarda gösterir. [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) özelliği ilk dilimin 180 derecede başlamasını ayarlar.
 
-Bu C# kodu, bir pasta grafiğinin nasıl oluşturulacağını gösterir:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Presentation sınıfını örnekleyin.
-using (Presentation presentation = new Presentation())
-{
-    // İlk slayta erişin.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Varsayılan verileriyle bir grafik ekleyin.
-    IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    // Grafik başlığını ayarlayın.
-    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-    chart.ChartTitle.Height = 20;
-    chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
 
-    // İlk serinin değerleri gösterecek şekilde ayarlayın.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // Grafik veri sayfasının indeksini ayarlayın.
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-    // Grafik veri çalışma kitabını alın.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    // Varsayılan oluşturulan serileri ve kategorileri silin.
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var categoryCell = workbook.GetCell(0, 1, 0, "1st Qtr");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 2, 0, "2nd Qtr");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 3, 0, "3rd Qtr");
+chart.ChartData.Categories.Add(categoryCell);
 
-    // Yeni kategoriler ekleyin.
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    // Yeni seriler ekleyin.
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 20);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 1, 50);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 1, 30);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
 
-    // Seri verilerini doldurun.
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
-    // Sektör rengini ayarlayın.
-    chart.ChartData.SeriesGroups[0].IsColorVaried = true;
+var firstSlice = series.DataPoints[0];
+firstSlice.Format.Fill.FillType = FillType.Solid;
+firstSlice.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    IChartDataPoint point = series.DataPoints[0];
-    point.Format.Fill.FillType = FillType.Solid;
-    point.Format.Fill.SolidFillColor.Color = Color.Cyan;
+firstSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+firstSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
+firstSlice.Format.Line.Width = 3.0;
+firstSlice.Format.Line.Style = LineStyle.ThinThick;
+firstSlice.Format.Line.DashStyle = LineDashStyle.LargeDash;
 
-    // Sektör kenarlığını ayarlayın.
-    point.Format.Line.FillFormat.FillType = FillType.Solid;
-    point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
-    point.Format.Line.Width = 3.0;
-    point.Format.Line.Style = LineStyle.ThinThick;
-    point.Format.Line.DashStyle = LineDashStyle.LargeDash;
+var secondSlice = series.DataPoints[1];
+secondSlice.Format.Fill.FillType = FillType.Solid;
+secondSlice.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    IChartDataPoint point1 = series.DataPoints[1];
-    point1.Format.Fill.FillType = FillType.Solid;
-    point1.Format.Fill.SolidFillColor.Color = Color.Brown;
+secondSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+secondSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
+secondSlice.Format.Line.Width = 3.0;
+secondSlice.Format.Line.Style = LineStyle.Single;
+secondSlice.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
 
-    // Sektör kenarlığını ayarlayın.
-    point1.Format.Line.FillFormat.FillType = FillType.Solid;
-    point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
-    point1.Format.Line.Width = 3.0;
-    point1.Format.Line.Style = LineStyle.Single;
-    point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
+var thirdSlice = series.DataPoints[2];
+thirdSlice.Format.Fill.FillType = FillType.Solid;
+thirdSlice.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    IChartDataPoint point2 = series.DataPoints[2];
-    point2.Format.Fill.FillType = FillType.Solid;
-    point2.Format.Fill.SolidFillColor.Color = Color.Coral;
+thirdSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+thirdSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+thirdSlice.Format.Line.Width = 2.0;
+thirdSlice.Format.Line.Style = LineStyle.ThinThin;
+thirdSlice.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // Sektör kenarlığını ayarlayın.
-    point2.Format.Line.FillFormat.FillType = FillType.Solid;
-    point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
-    point2.Format.Line.Width = 2.0;
-    point2.Format.Line.Style = LineStyle.ThinThin;
-    point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
+var firstLabel = series.DataPoints[0].Label;
+firstLabel.DataLabelFormat.ShowValue = true;
 
-    // Yeni serideki her kategori için özel etiketler oluşturun.
-    IDataLabel label1 = series.DataPoints[0].Label;
+var secondLabel = series.DataPoints[1].Label;
+secondLabel.DataLabelFormat.ShowValue = true;
+secondLabel.DataLabelFormat.ShowLegendKey = true;
+secondLabel.DataLabelFormat.ShowPercentage = true;
 
-    label1.DataLabelFormat.ShowValue = true;
+var thirdLabel = series.DataPoints[2].Label;
+thirdLabel.DataLabelFormat.ShowSeriesName = true;
+thirdLabel.DataLabelFormat.ShowPercentage = true;
 
-    IDataLabel label2 = series.DataPoints[1].Label;
-    label2.DataLabelFormat.ShowValue = true;
-    label2.DataLabelFormat.ShowLegendKey = true;
-    label2.DataLabelFormat.ShowPercentage = true;
+series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    IDataLabel label3 = series.DataPoints[2].Label;
-    label3.DataLabelFormat.ShowSeriesName = true;
-    label3.DataLabelFormat.ShowPercentage = true;
+chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // Serinin grafik için lider çizgileri göstermesini ayarlayın.
-    series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
-
-    // Pasta grafiği dilimlerinin dönüş açısını ayarlayın.
-    chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
-
-    // Sunumu bir PPTX dosyası olarak diske kaydedin.
-    presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
 ![Pasta Grafiği](pie_chart.png)
 
-### **Çizgi (Line) Grafiği Oluşturma**
+### **Çizgi Grafiklerini Oluşturma**
 
-Çizgi grafikleri (line graph) değerlerin zaman içinde nasıl değiştiğini göstermek istediğiniz durumlarda en uygunudur. Çizgi grafiği kullanarak büyük miktarda veriyi aynı anda karşılaştırabilir, zaman içindeki değişim ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+Çizgi grafikler (diğer adıyla çizgi diyagramları), değer değişimlerini zaman içinde göstermek istediğiniz durumlarda en iyi tercihtir. Çizgi grafik kullanarak büyük miktarda veriyi aynı anda karşılaştırabilir, zaman içindeki değişiklik ve eğilimleri izleyebilir, veri serilerindeki anomalileri vurgulayabilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Varsayılan veri içeren bir grafik ekleyin ve `ChartType.Line` türünü belirtin.  
-1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
-1. Varsayılan serileri ve kategorileri temizleyin.  
-1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni veri ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafiği oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) metodunu kullanır ve sunumu PPTX olarak kaydeder.
 
-Bu C# kodu, bir çizgi grafiğinin nasıl oluşturulacağını gösterir:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    presentation.Save("lineChart.pptx", SaveFormat.Pptx);
-}
+var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-Varsayılan olarak, çizgi grafiğindeki noktalar düz, kesintisiz çizgilerle birleştirilir. Noktaları kesikli bir çizgiyle birleştirmek isterseniz, tercih ettiğiniz tire tipini aşağıdaki gibi belirtebilirsiniz:
+Varsayılan olarak, bir çizgi grafiğindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaların kesikli çizgilerle birleştirilmesini istiyorsanız, [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) özelliğini [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) içindeki bir değere ayarlayın:
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    foreach (IChartSeries series in lineChart.ChartData.Series)
-    {
-        series.Format.Line.DashStyle = LineDashStyle.Dash;
-    }
+var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+foreach (var series in lineChart.ChartData.Series)
+{
+    series.Format.Line.DashStyle = LineDashStyle.Dash;
 }
 ```
 
@@ -420,637 +350,754 @@ Sonuç:
 
 ![Çizgi Grafiği](line_chart.png)
 
-### **Ağaç Haritası (Tree Map) Grafiği Oluşturma**
+### **Ağaç Haritası Grafiklerini Oluşturma**
 
-Ağaç haritası grafikleri, satış verilerini her kategori içinde büyük katkı sağlayan öğeleri hızlıca vurgulamak ve veri kategorilerinin göreceli boyutlarını göstermek istediğinizde en uygundur.
+Ağaç haritası grafikler, satış verilerini, kategori boyutlarını göstermek ve her kategori içinde büyük katkıda bulunan öğelere hızlıca dikkat çekmek istediğinizde en iyi şekilde kullanılır.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Varsayılan veri içeren bir grafik ekleyin ve `ChartType.Treemap` türünü belirtin.  
-1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
-1. Varsayılan serileri ve kategorileri temizleyin.  
-1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni veri ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, dört dal ve iki kol içinde gruplanmış sekiz yapraktan oluşan bir ağaç haritası oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi, 1. grup seviyesinde dalları, 2. grup seviyesinde kolları atar. Değerler, dikdörtgenlerin göreli boyutlarını belirlerken, kategori etiketleri ve üst üste binen ebeveyn etiketleri hiyerarşiyi gösterir.
 
-Bu C# kodu, bir ağaç haritası grafiğinin nasıl oluşturulacağını gösterir:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
 
-    // Şube 1
-    IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C2", "Leaf2"));
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C3", "Leaf3"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+// Şube 1
+var categoryCell = workbook.GetCell(0, "C1", "Leaf1");
+var leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
+categoryCell = workbook.GetCell(0, "C2", "Leaf2");
+chart.ChartData.Categories.Add(categoryCell);
 
-    // Şube 2
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
+categoryCell = workbook.GetCell(0, "C3", "Leaf3");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C6", "Leaf6"));
+categoryCell = workbook.GetCell(0, "C4", "Leaf4");
+chart.ChartData.Categories.Add(categoryCell);
 
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C7", "Leaf7"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
+// Şube 2
+categoryCell = workbook.GetCell(0, "C5", "Leaf5");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C8", "Leaf8"));
+categoryCell = workbook.GetCell(0, "C6", "Leaf6");
+chart.ChartData.Categories.Add(categoryCell);
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Treemap);
-    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D1", 4));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D2", 5));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D3", 3));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D4", 6));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D5", 9));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D6", 9));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D7", 4));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D8", 3));
+categoryCell = workbook.GetCell(0, "C7", "Leaf7");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
 
-    series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+categoryCell = workbook.GetCell(0, "C8", "Leaf8");
+chart.ChartData.Categories.Add(categoryCell);
 
-    presentation.Save("Treemap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series.Add(ChartType.Treemap);
+series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+var valueCell = workbook.GetCell(0, "D1", 4);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D2", 5);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D3", 3);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D4", 6);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D5", 9);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D6", 9);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D7", 4);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D8", 3);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+
+series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+
+presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
 ![Ağaç Haritası Grafiği](treemap_chart.png)
 
-### **Hisse (Stock) Grafiği Oluşturma**
+### **Şelale Grafiklerini Oluşturma**
 
-Hisse grafikleri, açılış, en yüksek, en düşük ve kapanış fiyatları gibi finansal verileri göstermek, piyasa trendlerini ve volatiliteyi analiz etmek için kullanılır. Bu grafikler, hisse performansına dair temel içgörüler sunarak yatırımcılara ve analistlere daha bilinçli kararlar almada yardımcı olur.
+Şelale grafiği, pozitif ve negatif değişikliklerin nihai bir değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kar dağılımı gelirden başlar, maliyetleri düşer ve diğer gelirler eklenir. Değişim sütunları önceki ve yeni koşul değerleri arasında süzülürken, toplam sütunlar sıfırdan birikimli değere kadar uzanır.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Varsayılan veri içeren bir grafik ekleyin ve `ChartType.OpenHighLowClose` türünü belirtin.  
-1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
-1. Varsayılan serileri ve kategorileri temizleyin.  
-1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni veri ekleyin.  
-1. HiLowLines biçimini belirtin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Aşağıdaki örnek bin ABD Doları cinsinden tutarları kullanır:
 
-Bu C# kodu, bir hisse grafiğinin nasıl oluşturulacağını gösterir:
+| Kategori | Defter değeri | Sütun tipi |
+| --- | ---: | --- |
+| Gelir | 1000 | Artış |
+| Satış maliyeti | -400 | Azalış |
+| Brüt kar | 600 | Ara toplam |
+| İşletme giderleri | -200 | Azalış |
+| Diğer gelir | 50 | Artış |
+| Net kar | 450 | Nihai toplam |
 
-```c#
+Ara veya nihai toplam olarak işaretlemek için, ilgili noktanın [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) özelliğini `true` yapın. O noktanın çalışma kitabı hücresine birikimli miktarı girin: brüt kar için `600` (`1000 - 400`), net kar için `450` (`600 - 200 + 50`). Bu özellik sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın ya da toplam noktasına başka bir değişim eklemeyin. Toplam sütun, koşul değerine tekrar eklemeden birikimli değeri gösterir.
+
+Bu tam C# örneği, [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) üyesi `Waterfall` kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk çalışma sayfasını seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) ile eklenir. Sıfır‑tabanlı nokta indeksleri `2` ve `5` ara ve nihai toplamları tanımlar. [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) etkinleştirildiğinde, miktarlar sütunlar üzerinde gösterilir. Giriş sunumu veya çalışma kitabı gerekir.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Waterfall, 20, 20, 680, 200);
+
+chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Profit breakdown (USD thousands)");
+chart.ChartTitle.Overlay = false;
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+
+workbook.Clear(worksheetIndex);
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Profit");
+var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.Waterfall);
+var categories = new[] { "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" };
+var values = new double[] { 1000, -400, 600, -200, 50, 450 };
+
+for (var i = 0; i < categories.Length; i++)
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
-
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "A"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "B"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "C"));
-
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Open"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "High"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 3, "Low"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 4, "Close"), chart.Type);
-
-    IChartSeries series = chart.ChartData.Series[0];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 1, 72));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 1, 25));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 1, 38));
-
-    series = chart.ChartData.Series[1];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 2, 172));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 2, 57));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 2, 57));
-
-    series = chart.ChartData.Series[2];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 3, 12));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 3, 12));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 3, 13));
-
-    series = chart.ChartData.Series[3];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 4, 25));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 4, 38));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 4, 50));
-
-    chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
-    chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
-
-    foreach (IChartSeries ser in chart.ChartData.Series)
-    {
-        ser.Format.Line.FillFormat.FillType = FillType.NoFill;
-    }
-
-    chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
-
-    presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categories[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
+
+// Üçüncü ve altıncı noktalar toplamları temsil eder, ek değişiklikler değildir.
+series.DataPoints[2].SetAsTotal = true;
+series.DataPoints[5].SetAsTotal = true;
+series.ShowConnectorLines = true;
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
+```
+
+Seri düzeyinde [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) özelliğini `true` yaparak ardışık sütunları bağlayan çizgileri gösterebilir ve koşul değerinin izlenmesini kolaylaştırabilirsiniz. Bu çizgileri gizlemek için örnekteki atamayı `series.ShowConnectorLines = false;` ile değiştirip kaydedin. Bu değişiklik yalnızca çizgi görünürlüğünü etkiler, veriyi veya toplamları değiştirmez.
+
+Kaydedilen sunum, 600 brüt kar ve 450 net karı, her iki toplamı da sıfırdan çizer:
+
+![Şelale grafiği, gelir, maliyet, 600 brüt kar ve 450 net kar, değer etiketleri ve bağlayıcı çizgilerle](waterfall_chart.png)
+
+### **Stok Grafiklerini Oluşturma**
+
+Stok grafikler, açılış, en yüksek, en düşük ve kapanış fiyatları gibi finansal verileri göstererek piyasa trendleri ve dalgalanmaları analiz etmeye yardımcı olur. Bu grafikler, hisse performansına dair temel içgörüler sağlar ve yatırımcıların ve analistlerin bilinçli kararlar almasını destekler.
+
+Bu örnek, dört seriyi (açılış‑yüksek‑düşük‑kapanış) bu sırayla ve üç kategoriyle bir stok grafiği oluşturur. [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) özelliği yükseliş/alış düşüş/çıkış çubuklarını etkinleştirir ve [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) fiyat aralıklarını gösteren yüksek‑düşük çizgileri kontrol eder; bireysel seri çizgileri ve ince yatay ızgara çizgileri gizlenir.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+var categoryCell = workbook.GetCell(0, 1, 0, "A");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 2, 0, "B");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 3, 0, "C");
+chart.ChartData.Categories.Add(categoryCell);
+
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Open");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 2, "High");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 3, "Low");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 4, "Close");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+
+var series = chart.ChartData.Series[0];
+var valueCell = workbook.GetCell(0, 1, 1, 72);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 1, 25);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 1, 38);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[1];
+valueCell = workbook.GetCell(0, 1, 2, 172);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 2, 57);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 2, 57);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[2];
+valueCell = workbook.GetCell(0, 1, 3, 12);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 3, 12);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 3, 13);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[3];
+valueCell = workbook.GetCell(0, 1, 4, 25);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 4, 38);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 4, 50);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
+chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
+
+foreach (var stockSeries in chart.ChartData.Series)
+{
+    stockSeries.Format.Line.FillFormat.FillType = FillType.NoFill;
+}
+
+chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+
+presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
-![Hisse Grafiği](stock_chart.png)
+![Stok Grafiği](stock_chart.png)
 
-### **Kutu ve Çubuk (Box and Whisker) Grafiği Oluşturma**
+### **Kutu ve Bıyık Grafiklerini Oluşturma**
 
-Kutu ve çubuk grafikleri, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek veri dağılımını gösterir. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve anormallikleri tespit etmek açısından özellikle faydalıdır.
+Kutu ve bıyık grafikler, ortanca, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek veri dağılımını göstermek için kullanılır. Bu grafikler, keşifsel veri analizi ve istatistiksel çalışmalarta veri değişkenliğini hızlıca anlamak ve anormallikleri tanımlamak için özellikle faydalıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Varsayılan veri içeren bir grafik ekleyin ve `ChartType.BoxAndWhisker` türünü belirtin.  
-1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
-1. Varsayılan serileri ve kategorileri temizleyin.  
-1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni veri ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, altı değerden bir kutu ve bıyık grafiği oluşturur. [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) özelliği ayrıç (exclusive) çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç nokta ve aykırı nokta görüntülemeyi etkinleştirir.
 
-Bu C# kodu, bir kutu ve çubuk grafiğinin nasıl oluşturulacağını gösterir:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    series.QuartileMethod = QuartileMethodType.Exclusive;
-    series.ShowMeanLine = true;
-    series.ShowMeanMarkers = true;
-    series.ShowInnerPoints = true;
-    series.ShowOutlierPoints = true;
+var categoryCell = workbook.GetCell(0, "A1", "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A2", "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A3", "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A4", "Category 4");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A5", "Category 5");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A6", "Category 6");
+chart.ChartData.Categories.Add(categoryCell);
 
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B1", 15));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B2", 41));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B3", 16));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B4", 10));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B5", 23));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B6", 16));
+var series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
 
-    presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
-}
+series.QuartileMethod = QuartileMethodType.Exclusive;
+series.ShowMeanLine = true;
+series.ShowMeanMarkers = true;
+series.ShowInnerPoints = true;
+series.ShowOutlierPoints = true;
+
+var valueCell = workbook.GetCell(0, "B1", 15);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B2", 41);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B3", 16);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B4", 10);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B5", 23);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B6", 16);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+
+presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Huni (Funnel) Grafiği Oluşturma**
+### **Huni Grafiklerini Oluşturma**
 
-Huni grafikleri, veri hacminin bir adımdan diğerine geçerken azaldığı sıralı süreçleri görselleştirmek için kullanılır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek açısından özellikle faydalıdır.
+Huni grafikler, bir sürecin ardışık aşamalarını görselleştirerek her adımda veri hacminin azaldığı durumları göstermek için kullanılır. Dönüşüm oranlarını analiz etmek, darboğazları tespit etmek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle yararlıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Varsayılan veri içeren bir grafik ekleyin ve `ChartType.Funnel` türünü belirtin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, mevcut bir sunumun ilk slaytına bir huni grafik eklemek için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır. Varsayılan verileri altı kategori ve 50‑500 arasında değerler ile değiştirir, ardından güncellenen sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
 
-Bu C# kodu, bir huni grafiğinin nasıl oluşturulacağını gösterir:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("test.pptx"))
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation("test.pptx");
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Funnel);
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B1", 50));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B2", 100));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B3", 200));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B4", 300));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B5", 400));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B6", 500));
+var categoryCell = workbook.GetCell(0, "A1", "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A2", "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A3", "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A4", "Category 4");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A5", "Category 5");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A6", "Category 6");
+chart.ChartData.Categories.Add(categoryCell);
 
-    presentation.Save("Funnel.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series.Add(ChartType.Funnel);
+
+var valueCell = workbook.GetCell(0, "B1", 50);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B2", 100);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B3", 200);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B4", 300);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B5", 400);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B6", 500);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+
+presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
 ![Huni Grafiği](funnel_chart.png)
 
-### **Güneş Patlaması (Sunburst) Grafiği Oluşturma**
+### **Sunburst Grafiklerini Oluşturma**
 
-Güneş patlaması grafikleri, hiyerarşik verileri konsantrik halkalar halinde göstererek parça‑bütün ilişkilerini açıkça ortaya koyar. Katmanlı kategorileri ve alt‑kategorileri net ve kompakt bir biçimde temsil etmek için idealdir.
+Sunburst grafikler, hiyerarşik verileri konsantrik halkalar halinde göstererek bölüm‑bütün ilişkilerini ortaya koyar. İç içe kategorileri ve alt‑kategorileri net ve kompakt bir formatta temsil etmek için idealdir.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Varsayılan veri içeren bir grafik ekleyin ve `ChartType.Sunburst` türünü belirtin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, dört dal ve iki kol içinde gruplanmış sekiz yapraktan oluşan bir sunburst grafik oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi, 1. grup seviyesinde dalları, 2. grup seviyesinde kolları atar. Kategori etiketleri bölümleri tanımlar, değerler ise göreli boyutlarını belirler.
 
-Bu C# kodu, bir güneş patlaması grafiğinin nasıl oluşturulacağını gösterir:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
 
-    // Şube 1
-    IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C2", "Leaf2"));
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C3", "Leaf3"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+// Şube 1
+var categoryCell = workbook.GetCell(0, "C1", "Leaf1");
+var leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
+categoryCell = workbook.GetCell(0, "C2", "Leaf2");
+chart.ChartData.Categories.Add(categoryCell);
 
-    // Şube 2
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
+categoryCell = workbook.GetCell(0, "C3", "Leaf3");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C6", "Leaf6"));
+categoryCell = workbook.GetCell(0, "C4", "Leaf4");
+chart.ChartData.Categories.Add(categoryCell);
 
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C7", "Leaf7"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
+// Şube 2
+categoryCell = workbook.GetCell(0, "C5", "Leaf5");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C8", "Leaf8"));
+categoryCell = workbook.GetCell(0, "C6", "Leaf6");
+chart.ChartData.Categories.Add(categoryCell);
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Sunburst);
-    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D1", 4));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D2", 5));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D3", 3));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D4", 6));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D5", 9));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D6", 9));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D7", 4));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D8", 3));
+categoryCell = workbook.GetCell(0, "C7", "Leaf7");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
 
-    presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
-}
+categoryCell = workbook.GetCell(0, "C8", "Leaf8");
+chart.ChartData.Categories.Add(categoryCell);
+
+var series = chart.ChartData.Series.Add(ChartType.Sunburst);
+series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+var valueCell = workbook.GetCell(0, "D1", 4);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D2", 5);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D3", 3);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D4", 6);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D5", 9);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D6", 9);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D7", 4);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D8", 3);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+
+presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
-![Güneş Patlaması Grafiği](sunburst_chart.png)
+![Sunburst Grafiği](sunburst_chart.png)
 
-### **Histogram Grafiği Oluşturma**
+### **Histogram Grafiklerini Oluşturma**
 
-Histogram grafikleri, sayısal verileri aralıklar (bin) halinde gruplayarak dağılımını gösterir. Veri frekansı, çarpıklık, yayılım gibi örüntüleri tanımlamak ve aykırı değerleri tespit etmek için oldukça yararlıdır.
+Histogram grafikler, sayısal verilerin dağılımını aralıklar ya da kutular halinde gruplandırarak temsil eder. Veri frekansı, çarpıklık ve yayılım gibi desenleri tanımlamak ve veri kümesindeki aykırı değerleri tespit etmek için özellikle faydalıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Bazı veri içeren bir grafik ekleyin ve `ChartType.Histogram` türünü belirtin.  
-1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
-1. Varsayılan serileri ve kategorileri temizleyin.  
-1. Yeni seriler ve kategoriler ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, negatif değerler dahil olmak üzere altı sayısal değerden bir histogram oluşturur. [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/aggregationtype/) özelliğini otomatik olarak ayarlamak, grafiğin dağılımı göstermek için kullanılacak kutuları otomatik belirlemesini sağlar.
 
-Bu C# kodu, bir histogram grafiğinin nasıl oluşturulacağını gösterir:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Histogram);
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A1", 15));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A2", -41));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A3", 16));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A4", 10));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A5", -23));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A6", 16));
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    presentation.Save("Histogram.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series.Add(ChartType.Histogram);
+var valueCell = workbook.GetCell(0, "A1", 15);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A2", -41);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A3", 16);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A4", 10);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A5", -23);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A6", 16);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+
+chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+
+presentation.Save("Histogram.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
 ![Histogram Grafiği](histogram_chart.png)
 
-### **Radar Grafiği Oluşturma**
+### **Radar Grafiklerini Oluşturma**
 
-Radar grafikleri, çok değişkenli verileri iki boyutlu bir formatta göstererek birden çok değişkeni aynı anda karşılaştırmayı kolaylaştırır. Performans ölçütleri ya da özellikler arasında örüntü, güçlü ve zayıf yönleri ortaya çıkarmada etkilidir.
+Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birden fazla değişkeni aynı anda karşılaştırmayı kolaylaştırır. Performans ölçütleri veya özellikler arasında desen, güçlü ve zayıf yönleri tanımlamak için özellikle kullanışlıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Bazı veri içeren bir grafik ekleyin ve `ChartType.Radar` türünü belirtin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, varsayılan seriler ve kategorilerle bir radar grafiği oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) yöntemini kullanır ve sunumu PPTX olarak kaydeder.
 
-Bu C# kodu, bir radar grafiğinin nasıl oluşturulacağını gösterir:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
-    presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
+
+presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
 ![Radar Grafiği](radar_chart.png)
 
-### **Çok Kategorili Grafik Oluşturma**
+### **Çok Kategorili Grafikler Oluşturma**
 
-Çok kategorili grafikler, birden fazla kategorik gruplamayı aynı anda göstermek ve değerleri çok boyutlu olarak karşılaştırmak için kullanılır. Karmaşık, çok katmanlı veri kümelerinde trend ve ilişkileri analiz ederken özellikle faydalıdır.
+Çok kategorili grafikler, birden fazla kategorik gruplamayı içeren verileri göstermek için kullanılır; böylece değerleri aynı anda birden çok boyutta karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri setlerinde eğilim ve ilişkileri analiz etmeniz gerektiğinde özellikle yardımcıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfından bir örnek oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Varsayılan veri içeren bir grafik ekleyin ve `ChartType.ClusteredColumn` türünü belirtin.  
-1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
-1. Varsayılan serileri ve kategorileri temizleyin.  
-1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni veri ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, dört çift halinde düzenlenmiş sekiz kategoriye sahip bir kümelenmiş sütun grafiği oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi, her çifti grup seviyesi 1'de ortak bir etiketle işaretleyerek, bireysel ve grup etiketlerini içeren bir kategori ekseni üretir.
 
-Bu C# kodu, çok kategorili bir grafiğin nasıl oluşturulacağını gösterir:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    IChartCategory category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c2", "A"));
-    category.GroupingLevels.SetGroupingItem(1, "Group1");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c3", "B"));
+var worksheetIndex = 0;
 
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c4", "C"));
-    category.GroupingLevels.SetGroupingItem(1, "Group2");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c5", "D"));
+var categoryCell = workbook.GetCell(0, "c2", "A");
+var category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group1");
+categoryCell = workbook.GetCell(0, "c3", "B");
+category = chart.ChartData.Categories.Add(categoryCell);
 
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c6", "E"));
-    category.GroupingLevels.SetGroupingItem(1, "Group3");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c7", "F"));
+categoryCell = workbook.GetCell(0, "c4", "C");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group2");
+categoryCell = workbook.GetCell(0, "c5", "D");
+category = chart.ChartData.Categories.Add(categoryCell);
 
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c8", "G"));
-    category.GroupingLevels.SetGroupingItem(1, "Group4");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
+categoryCell = workbook.GetCell(0, "c6", "E");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group3");
+categoryCell = workbook.GetCell(0, "c7", "F");
+category = chart.ChartData.Categories.Add(categoryCell);
 
-    // Bir seri ekleyin.
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
+categoryCell = workbook.GetCell(0, "c8", "G");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group4");
+categoryCell = workbook.GetCell(0, "c9", "H");
+category = chart.ChartData.Categories.Add(categoryCell);
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D3", 20));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D4", 30));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D5", 40));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D6", 50));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D7", 60));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
+var seriesNameCell = workbook.GetCell(0, "D1", "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.ClusteredColumn);
 
-    // Grafikli sunumu kaydedin.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+var valueCell = workbook.GetCell(worksheetIndex, "D2", 10);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D3", 20);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D4", 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D5", 40);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D6", 50);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D7", 60);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D8", 70);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D9", 80);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
 ![Çok Kategorili Grafik](multi_category_chart.png)
 
-### **Harita (Map) Grafiği Oluşturma**
+### **Harita Grafiklerini Oluşturma**
 
-Harita grafikleri, ülkeler, eyaletler veya şehirler gibi belirli konumlarla bilgiyi eşleştirerek coğrafi verileri görselleştirir. Bölgesel trendleri, demografik verileri ve mekânsal dağılımları net ve etkileyici bir biçimde analiz etmenizi sağlar.
+Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgiyi eşleyerek coğrafi verileri görselleştirmek için kullanılır. Bölgesel eğilimleri, demografik verileri ve mekânsal dağılımları net ve görsel olarak etkileyici bir biçimde analiz etmek için özellikle yararlıdır.
 
-Bu C# kodu, bir harita grafiğinin nasıl oluşturulacağını gösterir:
+Bu örnek, varsayılan coğrafi verileri kullanarak bir harita grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) yöntemini kullanır ve PowerPoint’te görüntülenmek üzere kaydeder.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
-    presentation.Save("mapChart.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
+
+presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
 ![Harita Grafiği](map_chart.png)
 
-{{% alert color="info" %}} 
-Yukarıdaki resim, kaydedilen sunumun PowerPoint’te açılmış hâlini gösterir. Aspose.Slides harita grafiğini ve verilerini doğru şekilde yazar, ancak harita grafiğini kendisi oluşturmaz: bir slayt görüntüye dönüştürüldüğünde, PDF veya SVG’ye çevrildiğinde grafik alanı boş kalır. Aynı slayd üzerindeki diğer şekiller etkilenmez.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Yukarıdaki resim, kaydedilen sunumun PowerPoint’te açılmış halini gösterir. Aspose.Slides harita grafiğini ve verilerini doğru bir şekilde yazar, ancak kendisi harita grafiği çizmez: bir slayt, bir görüntüye render edildiğinde veya PDF/SVG’ye dönüştürüldüğünde grafik alanı boş kalır. Aynı slayttaki diğer şekiller etkilenmez.
+{{% /alert %}}
 
-### **Kombinasyon (Combination) Grafiği Oluşturma**
+### **Kombinasyon Grafiklerini Oluşturma**
 
-Kombinasyon grafiği (veya combo grafiği), tek bir grafikte iki ya da daha fazla grafik türünü birleştirir. Bu grafik, iki ya da daha fazla veri seti arasındaki farklılıkları vurgulamanıza, karşılaştırmanıza ya da incelemenize olanak tanıyarak aralarındaki ilişkileri ortaya çıkarmaya yardımcı olur.
+Kombinasyon grafiği (veya combo grafiği), tek bir grafikte iki veya daha fazla grafik tipini birleştirir. Bu grafik, iki ya da daha fazla veri seti arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve ilişkileri ortaya çıkarmanıza yardımcı olur.
 
 ![Kombinasyon Grafiği](combination_chart.png)
 
-Aşağıdaki C# kodu, yukarıda gösterilen kombinasyon grafiğinin bir PowerPoint sunumunda nasıl oluşturulacağını gösterir:
+Bu örnek, dört kategori boyunca iki kümelenmiş sütun serisini bir çizgi serisiyle birleştirir. Sütunlar birincil dikey ekseni, çizgi ise [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) kullanılarak sağ taraftaki ikincil dikey eksene yerleştirilir. Yardımcı işlevler başlık, lejand, eksen etiketleri ve ızgara çizgilerini yapılandırır.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-private static void CreateComboChart()
+CreateComboChart();
+
+static void CreateComboChart()
 {
-    using (Presentation presentation = new Presentation())
-    {
-        IChart chart = CreateChartWithFirstSeries(presentation.Slides[0]);
+    using var presentation = new Presentation();
+    var chart = CreateChartWithFirstSeries(presentation.Slides[0]);
 
-        AddSecondSeriesToChart(chart);
-        AddThirdSeriesToChart(chart);
+    AddSecondSeriesToChart(chart);
+    AddThirdSeriesToChart(chart);
 
-        SetPrimaryAxesFormat(chart);
-        SetSecondaryAxesFormat(chart);
+    SetPrimaryAxesFormat(chart);
+    SetSecondaryAxesFormat(chart);
 
-        presentation.Save("combo-chart.pptx", SaveFormat.Pptx);
-    }
+    presentation.Save("combo-chart.pptx", SaveFormat.Pptx);
 }
 
-private static IChart CreateChartWithFirstSeries(ISlide slide)
+static IChart CreateChartWithFirstSeries(ISlide slide)
 {
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Grafik Başlığını Ayarlar
     chart.HasTitle = true;
     chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
     chart.ChartTitle.Overlay = false;
-    IPortionFormat portionFormat = 
-       chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    var portionFormat = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // Grafik Lejandını Ayarlar
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // Varsayılan oluşturulan serileri ve kategorileri siler
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    int worksheetIndex = 0;
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
+    var worksheetIndex = 0;
 
-    // Yeni kategoriler ekler
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
+    var categoryCell = workbook.GetCell(worksheetIndex, 1, 0, "Category 1");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 2, 0, "Category 2");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 3, 0, "Category 3");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 4, 0, "Category 4");
+    chart.ChartData.Categories.Add(categoryCell);
 
-    // İlk seriyi ekle
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+    var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
     series.ParentSeriesGroup.Overlap = -25;
     series.ParentSeriesGroup.GapWidth = 220;
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 4.3));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2.5));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 3.5));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 4.5));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 4.3);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 1, 2.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 1, 3.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 1, 4.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 
     return chart;
 }
 
-private static void AddSecondSeriesToChart(IChart chart)
+static void AddSecondSeriesToChart(IChart chart)
 {
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
     const int worksheetIndex = 0;
 
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), ChartType.ClusteredColumn);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 2, "Series 2");
+    var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.ClusteredColumn);
 
     series.ParentSeriesGroup.Overlap = -25;
     series.ParentSeriesGroup.GapWidth = 220;
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 2.4));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 4.4));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 1.8));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 2, 2.8));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 2, 2.4);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 2, 4.4);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 2, 1.8);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 2, 2.8);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
 
-private static void AddThirdSeriesToChart(IChart chart)
+static void AddThirdSeriesToChart(IChart chart)
 {
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
     const int worksheetIndex = 0;
 
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), ChartType.Line);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Series 3");
+    var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.Line);
 
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 1, 3, 2.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 2, 3, 2.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 3, 3, 3.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 4, 3, 5.0));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 3, 2.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 3, 2.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 3, 3.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 3, 5.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
 
     series.PlotOnSecondAxis = true;
 }
 
-private static void SetPrimaryAxesFormat(IChart chart)
+static void SetPrimaryAxesFormat(IChart chart)
 {
-    // Yatay ekseni ayarlar
-    IAxis horizontalAxis = chart.Axes.HorizontalAxis;
+    var horizontalAxis = chart.Axes.HorizontalAxis;
     horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // Dikey ekseni ayarlar
-    IAxis verticalAxis = chart.Axes.VerticalAxis;
+    var verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Dikey ana ızgara çizgilerinin rengini ayarlar
-    ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
+    var majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
 }
 
-private static void SetSecondaryAxesFormat(IChart chart)
+static void SetSecondaryAxesFormat(IChart chart)
 {
-    // İkincil yatay ekseni ayarlar
-    IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
+    var secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
     secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
     secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
     secondaryHorizontalAxis.IsVisible = false;
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // İkincil dikey ekseni ayarlar
-    IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
+    var secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     secondaryVerticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
@@ -1060,12 +1107,11 @@ private static void SetSecondaryAxesFormat(IChart chart)
     SetAxisTitle(secondaryVerticalAxis, "Y Axis 2");
 }
 
-private static void SetAxisTitle(IAxis axis, string axisTitle)
+static void SetAxisTitle(IAxis axis, string axisTitle)
 {
     axis.HasTitle = true;
     axis.Title.Overlay = false;
-    IPortionFormat titlePortionFormat =
-        axis.Title.AddTextFrameForOverriding(axisTitle).Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    var titlePortionFormat = axis.Title.AddTextFrameForOverriding(axisTitle).Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
     titlePortionFormat.FontBold = NullableBool.False;
     titlePortionFormat.FontHeight = 12f;
 }
@@ -1073,183 +1119,167 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Grafikleri Güncelleme**
 
-Aspose.Slides for .NET, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu özellik, sunumların dinamik içerikle güncel kalmasını basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını temin eder.
+Aspose.Slides for .NET, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu işlevsellik, dinamik içerikle sunumları güncel tutma sürecini basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını sağlar.
 
-1. Grafik içeren sunumu temsil eden [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Tüm şekilleri dolaşarak grafiği bulun.  
-1. Grafiğin veri çalışma sayfasına erişin.  
-1. Seri değerlerini değiştirerek grafik veri serilerini güncelleyin.  
-1. Yeni bir seri ekleyin ve verilerini doldurun.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, var olan bir sunumun ilk slaydındaki “My chart” adlı grafiği günceller. Her birinde üç veri noktası olan iki sütun serisine ihtiyaç duyar; kategori etiketleri A sütununda, seri adları ise ilk çalışma sayfasının ilk satırında bulunur. Örnek, [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) kullanarak çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) aracılığıyla kümelenmiş silindirler hâline getirir.
 
-Bu C# kodu, bir grafiğin nasıl güncelleneceğini gösterir:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
+using var presentation = new Presentation("ExistingChart.pptx");
+var slide = presentation.Slides[0];
+
+foreach (IShape shape in slide.Shapes)
 {
-    // İlk slayta erişin.
-    ISlide slide = presentation.Slides[0];
-
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IChart chart && chart.Name == chartName)
     {
-        if (shape is IChart chart && chart.Name == chartName)
-        {
-            // Grafik veri sayfasının indeksini ayarlayın.
-            int worksheetIndex = 0;
+        var worksheetIndex = 0;
 
-            // Grafik veri çalışma kitabını alın.
-            IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+        var workbook = chart.ChartData.ChartDataWorkbook;
 
-            // Grafik kategori adlarını değiştirin.
-            workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
-            workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
+        workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
+        workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-            // İlk grafik serisini alın.
-            IChartSeries series = chart.ChartData.Series[0];
+        var series = chart.ChartData.Series[0];
 
-            // Seri verilerini güncelleyin.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Seri adını değiştiriyor.
-            series.DataPoints[0].Value.Data = 90;
-            series.DataPoints[1].Value.Data = 123;
-            series.DataPoints[2].Value.Data = 44;
+        workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1");
+        series.DataPoints[0].Value.Data = 90;
+        series.DataPoints[1].Value.Data = 123;
+        series.DataPoints[2].Value.Data = 44;
 
-            // İkinci grafik serisini alın.
-            series = chart.ChartData.Series[1];
+        series = chart.ChartData.Series[1];
 
-            // Seri verilerini güncelleyin.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Seri adını değiştiriyor.
-            series.DataPoints[0].Value.Data = 23;
-            series.DataPoints[1].Value.Data = 67;
-            series.DataPoints[2].Value.Data = 99;
+        workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2");
+        series.DataPoints[0].Value.Data = 23;
+        series.DataPoints[1].Value.Data = 67;
+        series.DataPoints[2].Value.Data = 99;
 
-            // Yeni bir seri ekleyin.
-            series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
+        var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Series 3");
+        series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-            // Seri verilerini doldurun.
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
+        var valueCell = workbook.GetCell(worksheetIndex, 1, 3, 20);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+        valueCell = workbook.GetCell(worksheetIndex, 2, 3, 50);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+        valueCell = workbook.GetCell(worksheetIndex, 3, 3, 30);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-            chart.Type = ChartType.ClusteredCylinder;
-        }
+        chart.Type = ChartType.ClusteredCylinder;
     }
-
-    // Grafiği içeren sunumu kaydedin.
-    presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
 ## **Bir Grafik İçin Veri Aralığını Ayarlama**
 
-Mevcut bir grafiğin kullandığı aralığı incelemek için [Retrieve a Chart's Data Range](/slides/tr/net/chart-workbook/#retrieve-a-charts-data-range) sayfasına bakın.
+Mevcut bir grafiğin kullandığı aralığı incelemek için [Retrieve a Chart's Data Range](/slides/tr/net/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
 
-Aspose.Slides for .NET, bir çalışma sayfasındaki belirli bir veri aralığını grafiğinizin veri kaynağı olarak tanımlamanıza olanak tanır. Bu sayede çalışma sayfanızın hangi hücrelerinin grafik serilerine ve kategorilerine katkı sağladığını doğrudan kontrol edebilir, veri değişikliklerini kolayca güncelleyip senkronize edebilirsiniz; böylece PowerPoint sunumlarınız güncel ve doğru bilgi içerir.
+Aspose.Slides for .NET, grafik verilerinizin kaynağı olarak bir çalışma sayfasındaki belirli bir veri aralığını tanımlama esnekliği sağlar. Bu, çalışma sayfanızın bir kısmını doğrudan grafikle eşlemenize ve hangi hücrelerin serilere ve kategorilere katkıda bulunduğunu kontrol etmenize olanak tanır. Sonuç olarak, grafiğinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilir, PowerPoint sunumlarınızın güncel ve doğru bilgi yansıtmasını sağlayabilirsiniz.
 
-1. Grafik içeren sunumu temsil eden [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-1. İndeksiyle bir slayta referans alın.  
-1. Tüm şekilleri dolaşarak grafiği bulun.  
-1. Grafik verilerine erişin ve aralığı ayarlayın.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Bu örnek, [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) kullanarak var olan bir sunumun ilk slaydındaki “My chart” adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlar. Grafik çalışma kitabının bu çalışma sayfasını ve birincil satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren bir aralık barındırması gerekir.
 
-Bu C# kodu, bir grafik için veri aralığının nasıl ayarlanacağını gösterir:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
+using var presentation = new Presentation("ExistingChart.pptx");
+var slide = presentation.Slides[0];
+
+foreach (IShape shape in slide.Shapes)
 {
-    // İlk slayta erişin.
-    ISlide slide = presentation.Slides[0];
-
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IChart chart && chart.Name == chartName)
     {
-        if (shape is IChart chart && chart.Name == chartName)
-        {
-            chart.ChartData.SetRange("Sheet1!A1:B4");
-        }
+        chart.ChartData.SetRange("Sheet1!A1:B4");
     }
-
-    presentation.Save("SetDataRange_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 ```
 
 ## **Grafiklerde Varsayılan İşaretçileri Kullanma**
 
-Grafiklerde varsayılan işaretçiler kullanıldığında, her grafik serisine otomatik olarak farklı bir işaretçi simgesi atanır.
+Grafiklerde varsayılan işaretçiler kullanıldığında, her grafik serisi otomatik olarak farklı bir varsayılan işaretçi simgesi alır.
 
-Bu C# kodu, bir grafik serisinin işaretçisini otomatik olarak nasıl ayarlayacağınızı gösterir:
+Bu örnek, iki çizgi serisi ve bir lejand içeren bir grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) yöntemini kullanır. [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) ayarları, otomatik atanmış işaretçi sembollerini korur. İlk seri, `null` ile temsil edilen bir negatif değer ve eksik bir değer içerirken, ikinci seri her kategori için bir değer içerir.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+var workbook = chart.ChartData.ChartDataWorkbook;
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "C1"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 1, 24));
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "C2"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 1, 23));
+var categoryCell = workbook.GetCell(0, 1, 0, "C1");
+chart.ChartData.Categories.Add(categoryCell);
+var valueCell = workbook.GetCell(0, 1, 1, 24);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "C3"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 1, -10));
+categoryCell = workbook.GetCell(0, 2, 0, "C2");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 2, 1, 23);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 4, 0, "C4"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 4, 1, null));
+categoryCell = workbook.GetCell(0, 3, 0, "C3");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 3, 1, -10);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
+categoryCell = workbook.GetCell(0, 4, 0, "C4");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 4, 1, null);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    // Seri verilerini doldurun.
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 4, 2, 40));
+seriesNameCell = workbook.GetCell(0, 0, 2, "Series 2");
+var secondSeries = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    chart.HasLegend = true;
-    chart.Legend.Overlay = false;
+valueCell = workbook.GetCell(0, 1, 2, 30);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 2, 10);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 2, 60);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 4, 2, 40);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
-}
+chart.HasLegend = true;
+chart.Legend.Overlay = false;
+
+presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
 ## **SSS**
 
-**Aspose.Slides for .NET hangi grafik türlerini destekliyor?**
+**Aspose.Slides for .NET hangi grafik türlerini destekler?**
 
-Aspose.Slides for .NET, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenizi sağlar.
+Aspose.Slides for .NET, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha pek çok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik tipini seçmenizi sağlar.
 
-**Bir slayda yeni bir grafik nasıl eklenir?**
+**Bir slayta yeni bir grafik nasıl eklenir?**
 
-Yeni bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfının bir örneğini oluşturur, istenen slaytı indeksine göre alır ve ardından grafik ekleme metodunu çağırarak grafik türünü ve başlangıç verilerini belirtirsiniz. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
+Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfının bir örneğini oluşturur, istediğiniz slaytı indeksine göre alır ve ardından grafik tipini ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
 
 **Grafikte gösterilen veriler nasıl güncellenir?**
 
-Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip özel verilerinizi ekleyebilirsiniz. Böylece grafiği programlı olarak en son verileri yansıtacak şekilde yenileyebilirsiniz.
+Bir grafiğin verilerini, veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişerek, varsayılan seri ve kategorileri temizleyip kendi verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği en son verileri yansıtacak şekilde programlı olarak yenilemeyi sağlar.
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides for .NET kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejandları ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü tasarım gereksinimlerinize uygun şekilde özelleştirebilirsiniz.
+Evet, Aspose.Slides for .NET kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, lejandlar ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü özel tasarım gereksinimlerinize göre şekillendirebilirsiniz.

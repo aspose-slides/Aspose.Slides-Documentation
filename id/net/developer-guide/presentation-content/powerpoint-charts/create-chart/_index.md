@@ -7,20 +7,20 @@ url: /id/net/create-chart/
 keywords:
 - tambahkan diagram
 - buat diagram
-- edit diagram
+- sunting diagram
 - ubah diagram
 - perbarui diagram
-- diagram sebar
+- diagram tersebar
 - diagram lingkaran
 - diagram garis
 - diagram peta pohon
 - diagram saham
-- diagram box and whisker
+- diagram kotak‑garpu
 - diagram corong
-- diagram sunburst
+- diagram matahari
 - diagram histogram
 - diagram radar
-- diagram multi-kategori
+- diagram multi‑kategori
 - PowerPoint
 - presentasi
 - .NET
@@ -30,999 +30,1074 @@ description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan
 ---
 ## **Gambaran Umum**
 
-Artikel ini menyediakan panduan lengkap tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk .NET. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisinya dengan data, dan menerapkan berbagai opsi format untuk mencocokkan persyaratan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari inisialisasi presentasi dan objek diagram hingga konfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi .NET Anda, mempermudah proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan lengkap tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk .NET. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan agar sesuai dengan kebutuhan desain Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi objek presentasi dan diagram hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi .NET Anda, mempermudah proses pembuatan presentasi berbasis data.
 
-## **Buat Diagram**
+## **Membuat Diagram**
 
 Diagram membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
 
 **Mengapa Membuat Diagram?**
 
-* menggabungkan, memadatkan, atau merangkum sejumlah besar data pada satu slide dalam presentasi;
+Dengan diagram, Anda dapat:
+
+* menggabungkan, memadatkan, atau merangkum banyak data dalam satu slide presentasi;
 * menampilkan pola dan tren dalam data;
-* menyimpulkan arah dan momentum data seiring waktu atau terhadap unit pengukuran tertentu;
-* mendeteksi nilai outlier, penyimpangan, deviasi, kesalahan, dan data yang tidak masuk akal;
-* mengkomunikasikan atau menyajikan data kompleks.
+* menilai arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu;
+* menemukan nilai yang menyimpang, anomali, deviasi, kesalahan, dan data yang tidak masuk akal;
+* menyampaikan atau mempresentasikan data yang kompleks.
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan jenis diagram populer) maupun diagram khusus.
+Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang banyak jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram standar (berdasarkan jenis diagram populer) maupun diagram khusus.
 
-{{% alert color="info" %}} 
-Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) di bawah namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Nilai-nilai dalam enumerasi ini sesuai dengan berbagai jenis diagram.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) di dalam namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Nilai‑nilai dalam enumerasi ini mewakili tipe diagram yang berbeda.
+{{% /alert %}}
 
-### **Buat Diagram Kolom Berkelompok**
+### **Membuat Diagram Kolom Terklaster**
 
-Bagian ini menjelaskan cara membuat diagram kolom berkelompok menggunakan Aspose.Slides untuk .NET. Anda akan belajar menginisialisasi presentasi, menambahkan diagram, dan menyesuaikan elemennya seperti judul, data, seri, kategori, dan gaya. Ikuti langkah-langkah di bawah ini untuk melihat bagaimana diagram kolom berkelompok standar dihasilkan:
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat diagram kolom terklaster yang membandingkan dua seri pada tiga kategori. Seri menggunakan isian merah dan hijau, dan label individu menampilkan nama kategori, nama seri, serta nilai. Indeks lembar kerja 0 mengacu pada lembar pertama dalam buku kerja diagram yang disematkan.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType.ClusteredColumn`.
-1. Tambahkan judul ke diagram.
-1. Akses lembar kerja data diagram.
-1. Hapus semua seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Tambahkan data diagram baru untuk seri diagram.
-1. Terapkan warna isi ke seri diagram.
-1. Tambahkan label ke seri diagram.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Instansiasi kelas Presentation.
-using (Presentation presentation = new Presentation())
-{
-    // Akses slide pertama.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Tambahkan diagram kolom berkelompok dengan data defaultnya.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // Atur judul diagram.
-    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-    chart.ChartTitle.Height = 20;
-    chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
 
-    // Atur indeks lembar data diagram.
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-    // Dapatkan buku kerja data diagram.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    // Hapus seri dan kategori default yang dihasilkan.
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+seriesNameCell = workbook.GetCell(worksheetIndex, 0, 2, "Series 2");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    // Tambahkan seri baru.
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
+var categoryCell = workbook.GetCell(worksheetIndex, 1, 0, "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(worksheetIndex, 2, 0, "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(worksheetIndex, 3, 0, "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
 
-    // Tambahkan kategori baru.
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
+var series = chart.ChartData.Series[0];
 
-    // Dapatkan seri diagram pertama.
-    IChartSeries series = chart.ChartData.Series[0];
+var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 20);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 1, 50);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 1, 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-    // Isi data seri.
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // Atur warna isi untuk seri.
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = Color.Red;
+series = chart.ChartData.Series[1];
 
-    // Dapatkan seri diagram kedua.
-    series = chart.ChartData.Series[1];
+valueCell = workbook.GetCell(worksheetIndex, 1, 2, 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 2, 10);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 2, 60);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-    // Isi data seri.
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // Atur warna isi untuk seri.
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = Color.Green;
+var label = series.DataPoints[0].Label;
+label.DataLabelFormat.ShowCategoryName = true;
 
-    // Atur label pertama untuk menampilkan nama kategori.
-    IDataLabel label = series.DataPoints[0].Label;
-    label.DataLabelFormat.ShowCategoryName = true;
+label = series.DataPoints[1].Label;
+label.DataLabelFormat.ShowSeriesName = true;
 
-    label = series.DataPoints[1].Label;
-    label.DataLabelFormat.ShowSeriesName = true;
+label = series.DataPoints[2].Label;
+label.DataLabelFormat.ShowValue = true;
+label.DataLabelFormat.ShowSeriesName = true;
+label.DataLabelFormat.Separator = "/";
 
-    // Atur seri untuk menampilkan nilai pada label ketiga.
-    label = series.DataPoints[2].Label;
-    label.DataLabelFormat.ShowValue = true;
-    label.DataLabelFormat.ShowSeriesName = true;
-    label.DataLabelFormat.Separator = "/";
-
-    // Simpan presentasi ke disk sebagai file PPTX.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Kolom Berkelompok](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Buat Diagram Sebar**
+### **Membuat Diagram Sebar**
 
-Diagram sebar (juga dikenal sebagai scatter plot atau grafik x-y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
 Gunakan diagram sebar ketika:
 
 * Anda memiliki data numerik berpasangan.
-* Anda memiliki dua variabel yang cocok bersama.
-* Anda ingin menentukan apakah dua variabel tersebut saling terkait.
+* Anda memiliki dua variabel yang saling berhubungan.
+* Anda ingin menentukan apakah dua variabel tersebut terkait.
 * Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen.
 
-```c#
+Contoh ini memplot dua set nilai x‑y. Seri pertama menggunakan garis lurus dengan penanda bintang, sedangkan seri kedua menggunakan garis halus dengan penanda lingkaran; keduanya memakai [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) 10. Properti [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) mengendalikan bentuk penanda.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Instansiasi kelas Presentation.
-using (Presentation presentation = new Presentation())
-{
-    // Akses slide pertama.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Buat diagram sebar default.
-    IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Atur indeks lembar data diagram.
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-    // Dapatkan buku kerja data diagram.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
 
-    // Hapus seri default.
-    chart.ChartData.Series.Clear();
+var seriesNameCell = workbook.GetCell(worksheetIndex, 1, 1, "Series 1");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+seriesNameCell = workbook.GetCell(worksheetIndex, 1, 3, "Series 2");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    // Tambahkan seri baru.
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
+var series = chart.ChartData.Series[0];
 
-    // Dapatkan seri diagram pertama.
-    IChartSeries series = chart.ChartData.Series[0];
+var xValueCell = workbook.GetCell(worksheetIndex, 2, 1, 1);
+var yValueCell = workbook.GetCell(worksheetIndex, 2, 2, 3);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Tambahkan titik baru (1:3) ke seri.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
+xValueCell = workbook.GetCell(worksheetIndex, 3, 1, 2);
+yValueCell = workbook.GetCell(worksheetIndex, 3, 2, 10);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Tambahkan titik baru (2:10).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
+series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // Ubah tipe seri.
-    series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
+series.Marker.Size = 10;
+series.Marker.Symbol = MarkerStyleType.Star;
 
-    // Ubah penanda seri diagram.
-    series.Marker.Size = 10;
-    series.Marker.Symbol = MarkerStyleType.Star;
+series = chart.ChartData.Series[1];
 
-    // Dapatkan seri diagram kedua.
-    series = chart.ChartData.Series[1];
+xValueCell = workbook.GetCell(worksheetIndex, 2, 3, 5);
+yValueCell = workbook.GetCell(worksheetIndex, 2, 4, 2);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Tambahkan titik baru (5:2) ke seri diagram.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
+xValueCell = workbook.GetCell(worksheetIndex, 3, 3, 3);
+yValueCell = workbook.GetCell(worksheetIndex, 3, 4, 1);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Tambahkan titik baru (3:1).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
+xValueCell = workbook.GetCell(worksheetIndex, 4, 3, 2);
+yValueCell = workbook.GetCell(worksheetIndex, 4, 4, 2);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Tambahkan titik baru (2:2).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
+xValueCell = workbook.GetCell(worksheetIndex, 5, 3, 5);
+yValueCell = workbook.GetCell(worksheetIndex, 5, 4, 1);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Tambahkan titik baru (5:1).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
+series.Marker.Size = 10;
+series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Ubah penanda seri diagram.
-    series.Marker.Size = 10;
-    series.Marker.Symbol = MarkerStyleType.Circle;
-
-    // Simpan presentasi ke disk sebagai file PPTX.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Sebar](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Buat Diagram Lingkaran**
+### **Membuat Diagram Lingkaran**
 
-Diagram lingkaran paling cocok untuk menunjukkan hubungan bagian terhadap keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan diagram batang sebagai gantinya.
+Diagram lingkaran paling cocok untuk menunjukkan hubungan bagian‑dengan‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, pertimbangkan menggunakan diagram batang sebagai gantinya.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.Pie`.
-1. Akses buku kerja data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Hapus seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Tambahkan data diagram baru untuk seri diagram.
-1. Tambahkan titik baru untuk diagram dan terapkan warna khusus pada sektor diagram lingkaran.
-1. Atur label untuk seri.
-1. Aktifkan garis penunjuk untuk label seri.
-1. Atur sudut rotasi untuk diagram lingkaran.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Contoh ini membuat diagram lingkaran dengan tiga nilai kuartalan. Setiap irisan memiliki isian dan batas khusus, dan label menampilkan kombinasi nilai, persentase, serta informasi seri. Properti [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) mengatur irisan pertama mulai pada 180 derajat.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Instansiasi kelas Presentation.
-using (Presentation presentation = new Presentation())
-{
-    // Akses slide pertama.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Tambahkan diagram dengan data defaultnya.
-    IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    // Atur judul diagram.
-    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-    chart.ChartTitle.Height = 20;
-    chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
 
-    // Atur seri pertama untuk menampilkan nilai.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // Atur indeks lembar data diagram.
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-    // Dapatkan buku kerja data diagram.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    // Hapus seri dan kategori default yang dihasilkan.
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var categoryCell = workbook.GetCell(0, 1, 0, "1st Qtr");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 2, 0, "2nd Qtr");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 3, 0, "3rd Qtr");
+chart.ChartData.Categories.Add(categoryCell);
 
-    // Tambahkan kategori baru.
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    // Tambahkan seri baru.
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 20);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 1, 50);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 1, 30);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
 
-    // Isi data seri.
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
-    // Atur warna sektor.
-    chart.ChartData.SeriesGroups[0].IsColorVaried = true;
+var firstSlice = series.DataPoints[0];
+firstSlice.Format.Fill.FillType = FillType.Solid;
+firstSlice.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    IChartDataPoint point = series.DataPoints[0];
-    point.Format.Fill.FillType = FillType.Solid;
-    point.Format.Fill.SolidFillColor.Color = Color.Cyan;
+firstSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+firstSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
+firstSlice.Format.Line.Width = 3.0;
+firstSlice.Format.Line.Style = LineStyle.ThinThick;
+firstSlice.Format.Line.DashStyle = LineDashStyle.LargeDash;
 
-    // Atur batas sektor.
-    point.Format.Line.FillFormat.FillType = FillType.Solid;
-    point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
-    point.Format.Line.Width = 3.0;
-    point.Format.Line.Style = LineStyle.ThinThick;
-    point.Format.Line.DashStyle = LineDashStyle.LargeDash;
+var secondSlice = series.DataPoints[1];
+secondSlice.Format.Fill.FillType = FillType.Solid;
+secondSlice.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    IChartDataPoint point1 = series.DataPoints[1];
-    point1.Format.Fill.FillType = FillType.Solid;
-    point1.Format.Fill.SolidFillColor.Color = Color.Brown;
+secondSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+secondSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
+secondSlice.Format.Line.Width = 3.0;
+secondSlice.Format.Line.Style = LineStyle.Single;
+secondSlice.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
 
-    // Atur batas sektor.
-    point1.Format.Line.FillFormat.FillType = FillType.Solid;
-    point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
-    point1.Format.Line.Width = 3.0;
-    point1.Format.Line.Style = LineStyle.Single;
-    point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
+var thirdSlice = series.DataPoints[2];
+thirdSlice.Format.Fill.FillType = FillType.Solid;
+thirdSlice.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    IChartDataPoint point2 = series.DataPoints[2];
-    point2.Format.Fill.FillType = FillType.Solid;
-    point2.Format.Fill.SolidFillColor.Color = Color.Coral;
+thirdSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+thirdSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+thirdSlice.Format.Line.Width = 2.0;
+thirdSlice.Format.Line.Style = LineStyle.ThinThin;
+thirdSlice.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // Atur batas sektor.
-    point2.Format.Line.FillFormat.FillType = FillType.Solid;
-    point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
-    point2.Format.Line.Width = 2.0;
-    point2.Format.Line.Style = LineStyle.ThinThin;
-    point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
+var firstLabel = series.DataPoints[0].Label;
+firstLabel.DataLabelFormat.ShowValue = true;
 
-    // Buat label khusus untuk setiap kategori dalam seri baru.
-    IDataLabel label1 = series.DataPoints[0].Label;
+var secondLabel = series.DataPoints[1].Label;
+secondLabel.DataLabelFormat.ShowValue = true;
+secondLabel.DataLabelFormat.ShowLegendKey = true;
+secondLabel.DataLabelFormat.ShowPercentage = true;
 
-    label1.DataLabelFormat.ShowValue = true;
+var thirdLabel = series.DataPoints[2].Label;
+thirdLabel.DataLabelFormat.ShowSeriesName = true;
+thirdLabel.DataLabelFormat.ShowPercentage = true;
 
-    IDataLabel label2 = series.DataPoints[1].Label;
-    label2.DataLabelFormat.ShowValue = true;
-    label2.DataLabelFormat.ShowLegendKey = true;
-    label2.DataLabelFormat.ShowPercentage = true;
+series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    IDataLabel label3 = series.DataPoints[2].Label;
-    label3.DataLabelFormat.ShowSeriesName = true;
-    label3.DataLabelFormat.ShowPercentage = true;
+chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // Atur seri untuk menampilkan garis pemimpin pada diagram.
-    series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
-
-    // Atur sudut rotasi untuk sektor diagram lingkaran.
-    chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
-
-    // Simpan presentasi ke disk sebagai file PPTX.
-    presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Lingkaran](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **Buat Diagram Garis**
+### **Membuat Diagram Garis**
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lainnya.
+Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren dari waktu ke waktu, menyoroti anomali dalam seri data, dan lain‑lain.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.Line`.
-1. Akses buku kerja data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Hapus seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Tambahkan data diagram baru untuk seri diagram.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat diagram garis dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    presentation.Save("lineChart.pptx", SaveFormat.Pptx);
-}
+var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik dihubungkan oleh garis putus-putus, Anda dapat menentukan jenis dash yang diinginkan sebagai berikut:
+Secara default, titik‑titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda menginginkan titik‑titik dihubungkan dengan garis putus‑putus, atur [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) ke nilai dari [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    foreach (IChartSeries series in lineChart.ChartData.Series)
-    {
-        series.Format.Line.DashStyle = LineDashStyle.Dash;
-    }
+var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+foreach (var series in lineChart.ChartData.Series)
+{
+    series.Format.Line.DashStyle = LineDashStyle.Dash;
 }
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Garis](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Buat Diagram Peta Pohon**
+### **Membuat Diagram Peta Pohon**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang menjadi kontributor besar dalam setiap kategori.
+Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang menjadi kontributor besar dalam tiap kategori.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.Treemap`.
-1. Akses buku kerja data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Hapus seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Tambahkan data diagram baru untuk seri diagram.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Contoh ini membuat peta pohon dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada tingkat pengelompokan 1 dan cabang pada tingkat 2. Nilai menentukan ukuran relatif persegi panjang, sedangkan label kategori dan label induk yang tumpang tindih mengidentifikasi hierarki.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
 
-    // Cabang 1
-    IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C2", "Leaf2"));
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C3", "Leaf3"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+// Cabang 1
+var categoryCell = workbook.GetCell(0, "C1", "Leaf1");
+var leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
+categoryCell = workbook.GetCell(0, "C2", "Leaf2");
+chart.ChartData.Categories.Add(categoryCell);
 
-    // Cabang 2
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
+categoryCell = workbook.GetCell(0, "C3", "Leaf3");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C6", "Leaf6"));
+categoryCell = workbook.GetCell(0, "C4", "Leaf4");
+chart.ChartData.Categories.Add(categoryCell);
 
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C7", "Leaf7"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
+// Cabang 2
+categoryCell = workbook.GetCell(0, "C5", "Leaf5");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C8", "Leaf8"));
+categoryCell = workbook.GetCell(0, "C6", "Leaf6");
+chart.ChartData.Categories.Add(categoryCell);
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Treemap);
-    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D1", 4));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D2", 5));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D3", 3));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D4", 6));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D5", 9));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D6", 9));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D7", 4));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D8", 3));
+categoryCell = workbook.GetCell(0, "C7", "Leaf7");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
 
-    series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+categoryCell = workbook.GetCell(0, "C8", "Leaf8");
+chart.ChartData.Categories.Add(categoryCell);
 
-    presentation.Save("Treemap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series.Add(ChartType.Treemap);
+series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+var valueCell = workbook.GetCell(0, "D1", 4);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D2", 5);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D3", 3);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D4", 6);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D5", 9);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D6", 9);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D7", 4);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D8", 3);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+
+series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+
+presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Peta Pohon](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Buat Diagram Saham**
+### **Membuat Diagram Air Terjun**
 
-Diagram saham digunakan untuk menampilkan data keuangan seperti harga pembukaan, tertinggi, terendah, dan penutupan, membantu menganalisis tren pasar dan volatilitas. Mereka memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
+Diagram air terjun menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian laba dapat dimulai dengan pendapatan, mengurangi biaya, dan menambahkan pendapatan lain. Kolom perubahan mengambang antara nilai berjalan sebelumnya dan nilai baru, sementara kolom total memperluas dari nol ke nilai terakumulasi.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.OpenHighLowClose`.
-1. Akses buku kerja data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Hapus seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Tambahkan data diagram baru untuk seri diagram.
-1. Tentukan format HiLowLines.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Contoh berikut menggunakan jumlah dalam ribuan dolar AS:
 
-```c#
+| Kategori | Nilai Buku Kerja | Tipe Kolom |
+| --- | ---: | --- |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
+
+Untuk menandai suatu titik sebagai total menengah atau akhir, atur properti [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) menjadi `true`. Isi sel buku kerja titik tersebut dengan jumlah terakumulasi yang sebenarnya: `600` untuk laba kotor (`1000 - 400`) dan `450` untuk laba bersih (`600 - 200 + 50`). Properti ini menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau memasukkan perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
+
+Contoh C# lengkap ini membuat diagram menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), menghapus data default, dan mengisi buku kerja yang disematkan. Indeks lembar kerja `0` memilih lembar pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total menengah dan akhir. Mengaktifkan [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau buku kerja input.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Waterfall, 20, 20, 680, 200);
+
+chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Profit breakdown (USD thousands)");
+chart.ChartTitle.Overlay = false;
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+
+workbook.Clear(worksheetIndex);
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Profit");
+var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.Waterfall);
+var categories = new[] { "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" };
+var values = new double[] { 1000, -400, 600, -200, 50, 450 };
+
+for (var i = 0; i < categories.Length; i++)
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
-
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "A"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "B"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "C"));
-
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Open"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "High"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 3, "Low"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 4, "Close"), chart.Type);
-
-    IChartSeries series = chart.ChartData.Series[0];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 1, 72));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 1, 25));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 1, 38));
-
-    series = chart.ChartData.Series[1];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 2, 172));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 2, 57));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 2, 57));
-
-    series = chart.ChartData.Series[2];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 3, 12));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 3, 12));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 3, 13));
-
-    series = chart.ChartData.Series[3];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 4, 25));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 4, 38));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 4, 50));
-
-    chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
-    chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
-
-    foreach (IChartSeries ser in chart.ChartData.Series)
-    {
-        ser.Format.Line.FillFormat.FillType = FillType.NoFill;
-    }
-
-    chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
-
-    presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categories[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
+
+// Poin ketiga dan keenam mewakili total, bukan perubahan tambahan.
+series.DataPoints[2].SetAsTotal = true;
+series.DataPoints[5].SetAsTotal = true;
+series.ShowConnectorLines = true;
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+Atur properti [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) pada tingkat seri menjadi `true` untuk menampilkan garis yang menghubungkan kolom berurutan dan memudahkan pelacakan nilai berjalan. Untuk menyembunyikan garis tersebut, ganti penetapan di contoh dengan `series.ShowConnectorLines = false;` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
 
-![Diagram Saham](stock_chart.png)
+Presentasi yang disimpan menampilkan laba kotor 600 dan laba bersih 450, dengan kedua total dimulai dari nol:
 
-### **Buat Diagram Box dan Whisker**
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-Diagram Box dan Whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan potensi outlier. Mereka sangat berguna dalam analisis data eksploratori dan studi statistik untuk cepat memahami variabilitas data dan mengidentifikasi anomali.
+### **Membuat Diagram Saham**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.BoxAndWhisker`.
-1. Akses buku kerja data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Hapus seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Tambahkan data diagram baru untuk seri diagram.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Diagram saham digunakan untuk menampilkan data keuangan seperti harga buka, tinggi, rendah, dan tutup, membantu menganalisis tren pasar serta volatilitas. Diagram ini memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
 
-```c#
+Contoh ini membuat diagram OHLC (open‑high‑low‑close) dengan empat seri dalam urutan tersebut dan tiga kategori. Properti [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) mengaktifkan batang naik/turun, dan [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) mengatur garis tinggi‑rendah yang menunjukkan rentang harga, sementara garis seri individu dan garis kisi horizontal minor disembunyikan.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+var categoryCell = workbook.GetCell(0, 1, 0, "A");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 2, 0, "B");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 3, 0, "C");
+chart.ChartData.Categories.Add(categoryCell);
+
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Open");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 2, "High");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 3, "Low");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 4, "Close");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+
+var series = chart.ChartData.Series[0];
+var valueCell = workbook.GetCell(0, 1, 1, 72);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 1, 25);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 1, 38);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[1];
+valueCell = workbook.GetCell(0, 1, 2, 172);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 2, 57);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 2, 57);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[2];
+valueCell = workbook.GetCell(0, 1, 3, 12);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 3, 12);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 3, 13);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[3];
+valueCell = workbook.GetCell(0, 1, 4, 25);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 4, 38);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 4, 50);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
+chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
+
+foreach (var stockSeries in chart.ChartData.Series)
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
-
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
-
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
-
-    series.QuartileMethod = QuartileMethodType.Exclusive;
-    series.ShowMeanLine = true;
-    series.ShowMeanMarkers = true;
-    series.ShowInnerPoints = true;
-    series.ShowOutlierPoints = true;
-
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B1", 15));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B2", 41));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B3", 16));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B4", 10));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B5", 23));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B6", 16));
-
-    presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
+    stockSeries.Format.Line.FillFormat.FillType = FillType.NoFill;
 }
+
+chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+
+presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 ```
 
-### **Buat Diagram Corong**
+Hasilnya:
 
-Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahap berurutan, di mana volume data berkurang saat bergerak dari satu langkah ke langkah berikutnya. Mereka sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi hambatan, dan melacak efisiensi proses penjualan atau pemasaran.
+![The Stock chart](stock_chart.png)
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.Funnel`.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+### **Membuat Diagram Kotak‑Garpu**
 
-```c#
+Diagram kotak‑garpu digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan kemungkinan outlier. Diagram ini sangat berguna dalam analisis data eksploratori dan studi statistik untuk dengan cepat memahami variabilitas data serta mengidentifikasi anomali.
+
+Contoh ini membuat diagram kotak‑garpu dari enam nilai. Properti [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) memilih perhitungan kuartil eksklusif. Contoh juga mengaktifkan garis rata‑rata, penanda rata‑rata, titik internal, dan titik outlier.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("test.pptx"))
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Funnel);
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B1", 50));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B2", 100));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B3", 200));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B4", 300));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B5", 400));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B6", 500));
+var categoryCell = workbook.GetCell(0, "A1", "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A2", "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A3", "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A4", "Category 4");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A5", "Category 5");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A6", "Category 6");
+chart.ChartData.Categories.Add(categoryCell);
 
-    presentation.Save("Funnel.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
+
+series.QuartileMethod = QuartileMethodType.Exclusive;
+series.ShowMeanLine = true;
+series.ShowMeanMarkers = true;
+series.ShowInnerPoints = true;
+series.ShowOutlierPoints = true;
+
+var valueCell = workbook.GetCell(0, "B1", 15);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B2", 41);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B3", 16);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B4", 10);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B5", 23);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B6", 16);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+
+presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+### **Membuat Diagram Corong**
 
-![Diagram Corong](funnel_chart.png)
+Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, di mana volume data menurun seiring langkah bergerak ke tahap berikutnya. Diagram ini sangat membantu untuk menganalisis rasio konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
 
-### **Buat Diagram Sunburst**
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk menambahkan diagram corong ke slide pertama presentasi yang ada. Ia menggantikan data default dengan enam kategori dan nilai mulai dari 50 hingga 500, lalu menyimpan presentasi yang telah diperbarui. Presentasi input harus memiliki setidaknya satu slide.
 
-Diagram Sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkatan sebagai cincin konsentris. Mereka membantu menggambarkan hubungan bagian terhadap keseluruhan dan ideal untuk merepresentasikan kategori dan subkategori bersarang dalam format yang jelas dan kompak.
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.Sunburst`.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation("test.pptx");
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
 
-    // Cabang 1
-    IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C2", "Leaf2"));
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C3", "Leaf3"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+var categoryCell = workbook.GetCell(0, "A1", "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A2", "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A3", "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A4", "Category 4");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A5", "Category 5");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A6", "Category 6");
+chart.ChartData.Categories.Add(categoryCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
+var series = chart.ChartData.Series.Add(ChartType.Funnel);
 
-    // Cabang 2
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
+var valueCell = workbook.GetCell(0, "B1", 50);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B2", 100);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B3", 200);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B4", 300);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B5", 400);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B6", 500);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C6", "Leaf6"));
-
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C7", "Leaf7"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C8", "Leaf8"));
-
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Sunburst);
-    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D1", 4));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D2", 5));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D3", 3));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D4", 6));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D5", 9));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D6", 9));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D7", 4));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D8", 3));
-
-    presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
-}
+presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Sunburst](sunburst_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Buat Diagram Histogram**
+### **Membuat Diagram Matahari**
 
-Diagram histogram digunakan untuk merepresentasikan distribusi data numerik dengan mengelompokkan nilai ke dalam rentang atau bin. Mereka sangat berguna untuk mengidentifikasi pola data seperti frekuensi, skewness, dan penyebaran, serta mendeteksi outlier dalam dataset.
+Diagram matahari (sunburst) digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkatan sebagai cincin konsentris. Diagram ini membantu menggambarkan hubungan bagian‑dengan‑keseluruhan dan ideal untuk mewakili kategori bertingkat serta subkategori dalam format yang jelas dan kompak.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType.Histogram`.
-1. Akses buku kerja data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Hapus seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Contoh ini membuat diagram matahari dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada tingkat pengelompokan 1 dan cabang pada tingkat 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Histogram);
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A1", 15));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A2", -41));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A3", 16));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A4", 10));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A5", -23));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A6", 16));
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    presentation.Save("Histogram.pptx", SaveFormat.Pptx);
-}
+// Cabang 1
+var categoryCell = workbook.GetCell(0, "C1", "Leaf1");
+var leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
+
+categoryCell = workbook.GetCell(0, "C2", "Leaf2");
+chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "C3", "Leaf3");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+
+categoryCell = workbook.GetCell(0, "C4", "Leaf4");
+chart.ChartData.Categories.Add(categoryCell);
+
+// Cabang 2
+categoryCell = workbook.GetCell(0, "C5", "Leaf5");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
+
+categoryCell = workbook.GetCell(0, "C6", "Leaf6");
+chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "C7", "Leaf7");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
+
+categoryCell = workbook.GetCell(0, "C8", "Leaf8");
+chart.ChartData.Categories.Add(categoryCell);
+
+var series = chart.ChartData.Series.Add(ChartType.Sunburst);
+series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+var valueCell = workbook.GetCell(0, "D1", 4);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D2", 5);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D3", 3);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D4", 6);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D5", 9);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D6", 9);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D7", 4);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D8", 3);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+
+presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Histogram](histogram_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Buat Diagram Radar**
+### **Membuat Diagram Histogram**
 
-Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara bersamaan. Mereka sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di seluruh beberapa metrik kinerja atau atribut.
+Diagram histogram digunakan untuk merepresentasikan distribusi data numerik dengan mengelompokkan nilai ke dalam rentang atau bin. Diagram ini sangat berguna untuk mengidentifikasi pola data seperti frekuensi, kemencengan, dan penyebaran, serta mendeteksi outlier dalam sekumpulan data.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType.Radar`.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Contoh ini membuat histogram dari enam nilai numerik, termasuk nilai negatif. Mengatur [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/aggregationtype/) ke otomatis membiarkan diagram menentukan bin yang digunakan untuk menampilkan distribusi.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
-    presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Histogram);
+var valueCell = workbook.GetCell(0, "A1", 15);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A2", -41);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A3", 16);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A4", 10);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A5", -23);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A6", 16);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+
+chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+
+presentation.Save("Histogram.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Radar](radar_chart.png)
+![The Histogram chart](histogram_chart.png)
 
-### **Buat Diagram Multi-Kategori**
+### **Membuat Diagram Radar**
 
-Diagram Multi Kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di beberapa dimensi secara bersamaan. Mereka sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam dataset yang kompleks dan berlapis.
+Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara bersamaan. Diagram ini sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di antara beberapa metrik atau atribut kinerja.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.ClusteredColumn`.
-1. Akses buku kerja data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Hapus seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Tambahkan data diagram baru untuk seri diagram.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat diagram radar dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+slide.Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
-
-    int worksheetIndex = 0;
-
-    IChartCategory category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c2", "A"));
-    category.GroupingLevels.SetGroupingItem(1, "Group1");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c3", "B"));
-
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c4", "C"));
-    category.GroupingLevels.SetGroupingItem(1, "Group2");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c5", "D"));
-
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c6", "E"));
-    category.GroupingLevels.SetGroupingItem(1, "Group3");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c7", "F"));
-
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c8", "G"));
-    category.GroupingLevels.SetGroupingItem(1, "Group4");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
-
-    // Tambahkan seri.
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
-
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D3", 20));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D4", 30));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D5", 40));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D6", 50));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D7", 60));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
-
-    // Simpan presentasi dengan diagram.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Multi Kategori](multi_category_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Buat Diagram Peta**
+### **Membuat Diagram Multi‑Kategori**
 
-Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi spesifik seperti negara, provinsi, atau kota. Mereka sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial secara jelas dan menarik secara visual.
+Diagram multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di beberapa dimensi secara bersamaan. Diagram ini sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam kumpulan data yang kompleks dan berlapis.
 
-```c#
+Contoh ini membuat diagram kolom terklaster dengan delapan kategori yang disusun menjadi empat pasang. Metode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) memberikan setiap pasang label bersama pada tingkat pengelompokan 1, menghasilkan sumbu kategori dengan label individual dan grup.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
-    presentation.Save("mapChart.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var worksheetIndex = 0;
+
+var categoryCell = workbook.GetCell(0, "c2", "A");
+var category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group1");
+categoryCell = workbook.GetCell(0, "c3", "B");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "c4", "C");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group2");
+categoryCell = workbook.GetCell(0, "c5", "D");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "c6", "E");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group3");
+categoryCell = workbook.GetCell(0, "c7", "F");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "c8", "G");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group4");
+categoryCell = workbook.GetCell(0, "c9", "H");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+var seriesNameCell = workbook.GetCell(0, "D1", "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.ClusteredColumn);
+
+var valueCell = workbook.GetCell(worksheetIndex, "D2", 10);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D3", 20);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D4", 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D5", 40);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D6", 50);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D7", 60);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D8", 70);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D9", 80);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Peta](map_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-{{% alert color="info" %}} 
-Gambar di atas menunjukkan presentasi yang disimpan dibuka di PowerPoint. Aspose.Slides menulis diagram peta dan datanya dengan benar, tetapi tidak menggambar diagram peta sendiri: ketika slide yang berisi diagram tersebut dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram menjadi kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
-{{% /alert %}} 
+### **Membuat Diagram Peta**
 
-### **Buat Diagram Kombinasi**
+Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi tertentu seperti negara, provinsi, atau kota. Diagram ini sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial secara jelas dan menarik secara visual.
 
-Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih jenis diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antara mereka.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat diagram peta dengan data geografis default dan menyimpannya untuk dilihat di PowerPoint.
 
-![Diagram Kombinasi](combination_chart.png)
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-Kode C# berikut menunjukkan cara membuat diagram kombinasi yang ditampilkan di atas dalam presentasi PowerPoint:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
+var chart = slide.Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
+
+presentation.Save("mapChart.pptx", SaveFormat.Pptx);
+```
+
+Hasilnya:
+
+![The Map chart](map_chart.png)
+
+{{% alert color="info" title="Note" %}}
+Gambar di atas memperlihatkan presentasi yang disimpan dibuka di PowerPoint. Aspose.Slides menulis diagram peta dan datanya dengan benar, tetapi tidak menggambar diagram peta secara langsung: ketika slide yang memuatnya dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram muncul kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
+{{% /alert %}}
+
+### **Membuat Diagram Kombinasi**
+
+Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
+
+![The combination chart](combination_chart.png)
+
+Contoh ini menggabungkan dua seri kolom terklaster dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) menempatkan garis pada sumbu vertikal sekunder di kanan. Fungsi bantuan mengonfigurasi judul, legenda, label sumbu, dan garis kisi.
+
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-private static void CreateComboChart()
+CreateComboChart();
+
+static void CreateComboChart()
 {
-    using (Presentation presentation = new Presentation())
-    {
-        IChart chart = CreateChartWithFirstSeries(presentation.Slides[0]);
+    using var presentation = new Presentation();
+    var chart = CreateChartWithFirstSeries(presentation.Slides[0]);
 
-        AddSecondSeriesToChart(chart);
-        AddThirdSeriesToChart(chart);
+    AddSecondSeriesToChart(chart);
+    AddThirdSeriesToChart(chart);
 
-        SetPrimaryAxesFormat(chart);
-        SetSecondaryAxesFormat(chart);
+    SetPrimaryAxesFormat(chart);
+    SetSecondaryAxesFormat(chart);
 
-        presentation.Save("combo-chart.pptx", SaveFormat.Pptx);
-    }
+    presentation.Save("combo-chart.pptx", SaveFormat.Pptx);
 }
 
-private static IChart CreateChartWithFirstSeries(ISlide slide)
+static IChart CreateChartWithFirstSeries(ISlide slide)
 {
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Mengatur Judul diagram
     chart.HasTitle = true;
     chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
     chart.ChartTitle.Overlay = false;
-    IPortionFormat portionFormat = 
-       chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    var portionFormat = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // Mengatur Legenda diagram
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // Menghapus seri dan kategori default yang dihasilkan
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    int worksheetIndex = 0;
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
+    var worksheetIndex = 0;
 
-    // Menambahkan kategori baru
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
+    var categoryCell = workbook.GetCell(worksheetIndex, 1, 0, "Category 1");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 2, 0, "Category 2");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 3, 0, "Category 3");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 4, 0, "Category 4");
+    chart.ChartData.Categories.Add(categoryCell);
 
-    // Menambahkan seri pertama
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+    var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
     series.ParentSeriesGroup.Overlap = -25;
     series.ParentSeriesGroup.GapWidth = 220;
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 4.3));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2.5));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 3.5));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 4.5));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 4.3);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 1, 2.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 1, 3.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 1, 4.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 
     return chart;
 }
 
-private static void AddSecondSeriesToChart(IChart chart)
+static void AddSecondSeriesToChart(IChart chart)
 {
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
     const int worksheetIndex = 0;
 
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), ChartType.ClusteredColumn);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 2, "Series 2");
+    var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.ClusteredColumn);
 
     series.ParentSeriesGroup.Overlap = -25;
     series.ParentSeriesGroup.GapWidth = 220;
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 2.4));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 4.4));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 1.8));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 2, 2.8));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 2, 2.4);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 2, 4.4);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 2, 1.8);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 2, 2.8);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
 
-private static void AddThirdSeriesToChart(IChart chart)
+static void AddThirdSeriesToChart(IChart chart)
 {
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
     const int worksheetIndex = 0;
 
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), ChartType.Line);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Series 3");
+    var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.Line);
 
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 1, 3, 2.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 2, 3, 2.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 3, 3, 3.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 4, 3, 5.0));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 3, 2.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 3, 2.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 3, 3.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 3, 5.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
 
     series.PlotOnSecondAxis = true;
 }
 
-private static void SetPrimaryAxesFormat(IChart chart)
+static void SetPrimaryAxesFormat(IChart chart)
 {
-    // Mengatur sumbu horizontal
-    IAxis horizontalAxis = chart.Axes.HorizontalAxis;
+    var horizontalAxis = chart.Axes.HorizontalAxis;
     horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // Mengatur sumbu vertikal
-    IAxis verticalAxis = chart.Axes.VerticalAxis;
+    var verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Mengatur warna garis kisi utama vertikal
-    ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
+    var majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
 }
 
-private static void SetSecondaryAxesFormat(IChart chart)
+static void SetSecondaryAxesFormat(IChart chart)
 {
-    // Mengatur sumbu horizontal sekunder
-    IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
+    var secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
     secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
     secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
     secondaryHorizontalAxis.IsVisible = false;
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // Mengatur sumbu vertikal sekunder
-    IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
+    var secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     secondaryVerticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
@@ -1032,190 +1107,179 @@ private static void SetSecondaryAxesFormat(IChart chart)
     SetAxisTitle(secondaryVerticalAxis, "Y Axis 2");
 }
 
-private static void SetAxisTitle(IAxis axis, string axisTitle)
+static void SetAxisTitle(IAxis axis, string axisTitle)
 {
     axis.HasTitle = true;
     axis.Title.Overlay = false;
-    IPortionFormat titlePortionFormat =
-        axis.Title.AddTextFrameForOverriding(axisTitle).Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    var titlePortionFormat = axis.Title.AddTextFrameForOverriding(axisTitle).Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
     titlePortionFormat.FontBold = NullableBool.False;
     titlePortionFormat.FontHeight = 12f;
 }
 ```
 
-## **Perbarui Diagram**
+## **Memperbarui Diagram**
 
-Aspose.Slides untuk .NET memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, format, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap mutakhir dengan konten dinamis dan memastikan diagram secara akurat mencerminkan data dan standar visual terkini.
+Aspose.Slides untuk .NET memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, pemformatan, dan gaya. Fungsionalitas ini mempermudah proses menjaga presentasi tetap mutakhir dengan konten dinamis dan memastikan diagram secara akurat mencerminkan data serta standar visual saat ini.
 
-1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) yang mewakili presentasi yang berisi diagram.
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Jelajahi semua bentuk untuk menemukan diagram.
-1. Akses lembar kerja data diagram.
-1. Modifikasi seri data diagram dengan mengubah nilai seri.
-1. Tambahkan seri baru dan isi datanya.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Contoh ini memperbarui diagram bernama "My chart" pada slide pertama presentasi yang ada. Ia memerlukan dua seri kolom dengan tiga titik data masing‑masing, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh menggunakan [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) untuk mengubah sel buku kerja, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah diagram menjadi silinder terklaster melalui [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// Instansiasi kelas Presentation yang mewakili file PPTX.
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
+using var presentation = new Presentation("ExistingChart.pptx");
+var slide = presentation.Slides[0];
+
+foreach (IShape shape in slide.Shapes)
 {
-    // Akses slide pertama.
-    ISlide slide = presentation.Slides[0];
-
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IChart chart && chart.Name == chartName)
     {
-        if (shape is IChart chart && chart.Name == chartName)
-        {
-            // Atur indeks lembar data diagram.
-            int worksheetIndex = 0;
+        var worksheetIndex = 0;
 
-            // Dapatkan buku kerja data diagram.
-            IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+        var workbook = chart.ChartData.ChartDataWorkbook;
 
-            // Ubah nama kategori diagram.
-            workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
-            workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
+        workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
+        workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-            // Dapatkan seri diagram pertama.
-            IChartSeries series = chart.ChartData.Series[0];
+        var series = chart.ChartData.Series[0];
 
-            // Perbarui data seri.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Mengubah nama seri.
-            series.DataPoints[0].Value.Data = 90;
-            series.DataPoints[1].Value.Data = 123;
-            series.DataPoints[2].Value.Data = 44;
+        workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1");
+        series.DataPoints[0].Value.Data = 90;
+        series.DataPoints[1].Value.Data = 123;
+        series.DataPoints[2].Value.Data = 44;
 
-            // Dapatkan seri diagram kedua.
-            series = chart.ChartData.Series[1];
+        series = chart.ChartData.Series[1];
 
-            // Perbarui data seri.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Mengubah nama seri.
-            series.DataPoints[0].Value.Data = 23;
-            series.DataPoints[1].Value.Data = 67;
-            series.DataPoints[2].Value.Data = 99;
+        workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2");
+        series.DataPoints[0].Value.Data = 23;
+        series.DataPoints[1].Value.Data = 67;
+        series.DataPoints[2].Value.Data = 99;
 
-            // Tambahkan seri baru.
-            series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
+        var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Series 3");
+        series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-            // Isi data seri.
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
+        var valueCell = workbook.GetCell(worksheetIndex, 1, 3, 20);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+        valueCell = workbook.GetCell(worksheetIndex, 2, 3, 50);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+        valueCell = workbook.GetCell(worksheetIndex, 3, 3, 30);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-            chart.Type = ChartType.ClusteredCylinder;
-        }
+        chart.Type = ChartType.ClusteredCylinder;
     }
-
-    // Simpan presentasi dengan diagram.
-    presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **Atur Jangkauan Data untuk Diagram**
+## **Menetapkan Rentang Data untuk Diagram**
 
-Untuk memeriksa jangkauan yang sudah digunakan oleh diagram yang ada, lihat [Mengambil Jangkauan Data Diagram](/slides/id/net/chart-workbook/#retrieve-a-charts-data-range).
+Untuk melihat rentang yang sudah digunakan oleh diagram yang ada, lihat [Retrieve a Chart's Data Range](/slides/id/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides untuk .NET menyediakan fleksibilitas untuk menentukan jangkauan data spesifik dari lembar kerja sebagai sumber data untuk diagram Anda. Ini berarti Anda dapat memetakan secara langsung bagian lembar kerja ke diagram, memungkinkan Anda mengontrol sel mana yang berkontribusi pada seri dan kategori diagram. Sebagai hasilnya, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram Anda dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang terkini dan akurat.
+Aspose.Slides untuk .NET memberikan fleksibilitas untuk mendefinisikan rentang data tertentu dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat memetakan bagian lembar kerja secara langsung ke diagram, sehingga mengontrol sel‑sel mana yang berkontribusi pada seri dan kategori diagram. Sebagai hasilnya, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan terkini.
 
-1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) yang mewakili presentasi yang berisi diagram.
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Jelajahi semua bentuk untuk menemukan diagram.
-1. Akses data diagram dan atur jangkauannya.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Contoh ini menggunakan [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) untuk menetapkan sumber data diagram bernama "My chart" pada slide pertama presentasi yang ada ke `Sheet1!A1:B4`. Buku kerja diagram harus berisi lembar kerja tersebut serta rentang terisi dengan judul seri di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// Instansiasi kelas Presentation yang mewakili file PPTX.
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
+using var presentation = new Presentation("ExistingChart.pptx");
+var slide = presentation.Slides[0];
+
+foreach (IShape shape in slide.Shapes)
 {
-    // Akses slide pertama.
-    ISlide slide = presentation.Slides[0];
-
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IChart chart && chart.Name == chartName)
     {
-        if (shape is IChart chart && chart.Name == chartName)
-        {
-            chart.ChartData.SetRange("Sheet1!A1:B4");
-        }
+        chart.ChartData.SetRange("Sheet1!A1:B4");
     }
-
-    presentation.Save("SetDataRange_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 ```
 
-## **Gunakan Penanda Default dalam Diagram**
+## **Menggunakan Penanda Bawaan dalam Diagram**
 
-Saat Anda menggunakan penanda default dalam diagram, setiap seri diagram mendapatkan simbol penanda default yang berbeda secara otomatis.
+Ketika Anda menggunakan penanda bawaan dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda bawaan yang berbeda.
 
-```c#
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat diagram dengan dua seri garis dan sebuah legenda. Pengaturan [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai yang hilang, yang diwakili oleh `null`, sementara seri kedua memiliki nilai untuk setiap kategori.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+var workbook = chart.ChartData.ChartDataWorkbook;
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "C1"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 1, 24));
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "C2"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 1, 23));
+var categoryCell = workbook.GetCell(0, 1, 0, "C1");
+chart.ChartData.Categories.Add(categoryCell);
+var valueCell = workbook.GetCell(0, 1, 1, 24);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "C3"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 1, -10));
+categoryCell = workbook.GetCell(0, 2, 0, "C2");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 2, 1, 23);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 4, 0, "C4"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 4, 1, null));
+categoryCell = workbook.GetCell(0, 3, 0, "C3");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 3, 1, -10);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
+categoryCell = workbook.GetCell(0, 4, 0, "C4");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 4, 1, null);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    // Isi data seri.
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 4, 2, 40));
+seriesNameCell = workbook.GetCell(0, 0, 2, "Series 2");
+var secondSeries = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    chart.HasLegend = true;
-    chart.Legend.Overlay = false;
+valueCell = workbook.GetCell(0, 1, 2, 30);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 2, 10);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 2, 60);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 4, 2, 40);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
-}
+chart.HasLegend = true;
+chart.Legend.Overlay = false;
+
+presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
 **Jenis diagram apa yang didukung oleh Aspose.Slides untuk .NET?**
 
-Aspose.Slides untuk .NET mendukung beragam jenis diagram, termasuk batang, garis, lingkaran, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih jenis diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
+Aspose.Slides untuk .NET mendukung berbagai jenis diagram, termasuk batang, garis, lingkaran, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
 
 **Bagaimana cara menambahkan diagram baru ke slide?**
 
-Untuk menambahkan diagram, pertama-tama buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), ambil slide yang diinginkan menggunakan indeksnya, kemudian panggil metode untuk menambahkan diagram, dengan menentukan jenis diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
 
-**Bagaimana saya dapat memperbarui data yang ditampilkan dalam diagram?**
+**Bagaimana cara memperbarui data yang ditampilkan dalam diagram?**
 
-Anda dapat memperbarui data diagram dengan mengakses buku kerja datanya ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), menghapus seri dan kategori default, kemudian menambahkan data kustom Anda. Ini memungkinkan Anda memperbarui diagram secara programatis agar mencerminkan data terbaru.
+Anda dapat memperbarui data diagram dengan mengakses buku data diagramnya ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), menghapus semua seri dan kategori default, lalu menambahkan data khusus Anda. Cara ini memungkinkan Anda menyegarkan diagram secara programatis agar mencerminkan data terkini.
 
-**Apakah memungkinkan untuk menyesuaikan tampilan diagram?**
+**Apakah memungkinkan menyesuaikan tampilan diagram?**
 
-Ya, Aspose.Slides untuk .NET menyediakan opsi kustomisasi yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen format lainnya untuk menyesuaikan tampilan diagram sesuai dengan kebutuhan desain Anda.
+Ya, Aspose.Slides untuk .NET menyediakan opsi kustomisasi yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram sesuai dengan kebutuhan desain spesifik Anda.

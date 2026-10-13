@@ -1,76 +1,58 @@
 ---
-title: Diagrammen in PowerPoint‑presentaties maken of bijwerken in Python
-linktitle: Diagrammen maken of bijwerken
+title: Maak of werk PowerPoint-presentatiediagrammen bij in Python
+linktitle: Grafieken maken of bijwerken
 type: docs
 weight: 10
 url: /nl/python-java/create-chart/
 keywords:
-- diagram toevoegen
-- diagram maken
-- diagram bewerken
-- diagram wijzigen
-- diagram bijwerken
-- spreidingsdiagram
-- taartdiagram
-- lijndiagram
-- boomkaartdiagram
-- beursdiagram
-- box‑en‑whisker‑diagram
-- trechterdiagram
-- sunburst‑diagram
-- histogramdiagram
+- grafiek toevoegen
+- grafiek maken
+- grafiek bewerken
+- grafiek wijzigen
+- grafiek bijwerken
+- spreidingsgrafiek
+- taartgrafiek
+- lijngrafiek
+- boomkaartgrafiek
+- aandelengrafiek
+- box-en-whisker-grafiek
+- trechtergrafiek
+- sunburst-grafiek
+- histogramgrafiek
 - radardiagram
-- multicategoriediagram
+- diagram met meerdere categorieën
 - PowerPoint
 - presentatie
 - Python
 - Java
 - Aspose.Slides
-description: Diagrammen maken en aanpassen in PowerPoint‑presentaties met Aspose.Slides voor Python via Java. Voeg diagrammen toe, formatteer en bewerk ze met praktische code‑voorbeelden in Python.
+description: "Maak en pas grafieken aan in PowerPoint-presentaties met Aspose.Slides voor Python via Java. Voeg grafieken toe, formatteer en bewerk ze met praktische codevoorbeelden in Python."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide gids over hoe je diagrammen maakt en aanpast met Aspose.Slides. Je leert hoe je programmatica een diagram aan een dia toevoegt, het vult met gegevens, en verschillende opmaakopties toepast om te voldoen aan je specifieke ontwerpvereisten. Door het hele artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en het diagramobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijg je een stevig begrip van hoe je dynamische diagramgeneratie in je applicaties integreert, waardoor het proces van het maken van datagestuurde presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreide gids over hoe u diagrammen kunt maken en aanpassen met Aspose.Slides voor Python via Java. U leert hoe u programmatically een diagram aan een dia toevoegt, deze met gegevens vult, en verschillende opmaakopties toepast om te voldoen aan uw specifieke ontwerpeisen. Gedurende het artikel illustreren gedetailleerde codevoorbeelden elke stap, van het initialiseren van de presentatie en het diagramobject tot het configureren van series, assen en legenden. Door deze gids te volgen, krijgt u een solide begrip van hoe u dynamische diagramgeneratie kunt integreren in uw Python‑toepassingen, waardoor het proces van het maken van datagestuurde presentaties wordt gestroomlijnd.
 
-## **Een diagram maken**
+## **Maak een diagram**
 
-Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te krijgen die niet meteen duidelijk zijn uit een tabel of rekenblad.
+Diagrammen helpen mensen snel gegevens visualiseren en inzichten verkrijgen die niet meteen duidelijk zijn vanuit een tabel of rekenblad.
 
 **Waarom diagrammen maken?**
 
-Met diagrammen kun je:
+* grote hoeveelheden gegevens samenvoegen, condenseren of samenvatten op één dia in een presentatie;
+* patronen en trends in gegevens blootleggen;
+* de richting en het momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitbijters, afwijkingen, fouten en onlogische gegevens opsporen;
+* complexe gegevens communiceren of presenteren.
 
-* grote hoeveelheden gegevens samenvatten op één dia in een presentatie
-* patronen en trends in gegevens blootleggen
-* de richting en impuls van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden
-* uitschieters, afwijkingen, fouten, onzinnige gegevens, enz. opsporen
-* complexe gegevens communiceren of presenteren
-
-In PowerPoint kun je diagrammen maken via de *Invoegen*-functie, die sjablonen biedt voor het ontwerpen van vele soorten diagrammen. Met Aspose.Slides kun je zowel reguliere diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
+In PowerPoint kunt u diagrammen maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van vele soorten diagrammen. Met Aspose.Slides kunt u zowel reguliere diagrammen (gebaseerd op populaire diagramtypes) als aangepaste diagrammen maken.
 
 {{% alert color="info" title="Note" %}}
-
-Om diagrammen te maken, gebruik je de [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/)‑klasse. De velden in deze klasse komen overeen met verschillende diagramtypen.
-
+Gebruik de [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) enumeratie in het [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/) pakket. De waarden in deze enumeratie komen overeen met verschillende diagramtypes.
 {{% /alert %}}
 
-### **Clustered Column‑diagrammen maken**
+### **Maak gegroepeerde kolomdiagrammen**
 
-Deze sectie legt uit hoe je clustered column‑diagrammen maakt met Aspose.Slides. Je leert een presentatie te initialiseren, een diagram toe te voegen en de elementen zoals titel, gegevens, series, categorieën en styling aan te passen. Volg de onderstaande stappen om te zien hoe een standaard clustered column‑diagram wordt gegenereerd:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation)‑klasse.
-1. Verkrijg een verwijzing naar een dia op basis van de index.
-1. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.ClusteredColumn`.
-1. Voeg een titel toe aan het diagram.
-1. Open het gegevenswerkblad van het diagram.
-1. Verwijder alle standaardseries en -categorieën.
-1. Voeg nieuwe series en categorieën toe.
-1. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-1. Pas een opvulkleur toe op de diagramseries.
-1. Voeg labels toe aan de diagramseries.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-Deze C#‑code toont hoe je een clustered column‑diagram maakt:
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) om een gegroepeerd kolomdiagram te maken dat twee reeksen vergelijkt over drie categorieën. De reeksen gebruiken rode en groene opvullingen, en individuele etiketten tonen categorienamen, reeksnamen en waarden. Werkbladindex 0 verwijst naar het eerste blad in de ingesloten diagramwerkmap.
 
 ```python
 import jpype
@@ -83,115 +65,91 @@ from asposeslides.api import ChartType, FillType, NullableBool, Presentation, Sa
 
 Color = jpype.JClass("java.awt.Color")
 
-# Instantieert een presentatie‑klasse die een PPTX‑bestand voorstelt.
 presentation = Presentation()
 try:
-    # Benadert de eerste dia
     slide = presentation.getSlides().get_Item(0)
 
-    # Voegt een diagram toe met de standaardgegevens
-    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
 
-    # Stelt de diagram‑titel in
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Stelt de index in voor het gegevensblad van het diagram
-    default_worksheet_index = 0
-
-    # Haalt het werkblad met diagramgegevens op
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
 
-    # Verwijdert de standaard gegenereerde series en categorieën
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
-    # Voegt nieuwe series toe
-    cell = workbook.getCell(default_worksheet_index, 0, 1, "Series 1")
-    chart.getChartData().getSeries().add(cell,chart.getType())
-    cell = workbook.getCell(default_worksheet_index, 0, 2, "Series 2")
-    chart.getChartData().getSeries().add(cell,chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 0, 2, "Series 2")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Voegt nieuwe categorieën toe
-    cell = workbook.getCell(default_worksheet_index, 1, 0, "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 0, "Category 2")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 0, "Category 3")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(worksheet_index, 1, 0, "Category 1")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(worksheet_index, 2, 0, "Category 2")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(worksheet_index, 3, 0, "Category 3")
+    chart.getChartData().getCategories().add(category_cell)
 
-    # Pakt de eerste diagramserie
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Vult nu de seriedata in
-    cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, 1, 1, 20)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 2, 1, 50)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 3, 1, 30)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Stelt de opvulkleur in voor de serie
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
 
-    # Pakt de tweede diagramserie
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Vult seriedata in
-    cell = workbook.getCell(default_worksheet_index, 1, 2, 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 2, 10)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 2, 60)
-    series.getDataPoints().addDataPointForBarSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, 1, 2, 30)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 2, 2, 10)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 3, 2, 60)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Stelt de opvulkleur in voor de serie
     series.getFormat().getFill().setFillType(FillType.Solid)
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN)
+    color = Color(0, 128, 0)
+    series.getFormat().getFill().getSolidFillColor().setColor(color)
 
-    #Create custom labels for each categories for the new series
-    # Stelt het eerste label in om de categorienaam weer te geven
     label = series.getDataPoints().get_Item(0).getLabel()
     label.getDataLabelFormat().setShowCategoryName(True)
 
     label = series.getDataPoints().get_Item(1).getLabel()
     label.getDataLabelFormat().setShowSeriesName(True)
 
-    # Toont de waarde voor het derde label
     label = series.getDataPoints().get_Item(2).getLabel()
     label.getDataLabelFormat().setShowValue(True)
     label.getDataLabelFormat().setShowSeriesName(True)
     label.getDataLabelFormat().setSeparator("/")
 
-    # Slaat de presentatie met diagram op
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Scatter‑diagrammen maken**
+Het resultaat:
 
-Scatter‑diagrammen (ook bekend als spreidingsdiagrammen of x‑y‑grafieken) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen aan te tonen.
+![Het gegroepeerde kolomdiagram](clustered_column_chart.png)
 
-Gebruik een scatter‑diagram wanneer:
+### **Maak spreidingsdiagrammen**
 
-* je gepaarde numerieke gegevens hebt
-* je twee variabelen hebt die goed bij elkaar passen
-* je wil bepalen of twee variabelen met elkaar verband houden
-* je een onafhankelijke variabele hebt met meerdere waarden voor een afhankelijke variabele
+Spreidingsdiagrammen (ook wel scatterplots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te controleren of correlaties tussen twee variabelen aan te tonen.
 
-1. Volg de stappen in [Create Clustered Column Charts](#create-clustered-column-charts).
-2. Voeg voor de derde stap een diagram toe met enkele gegevens en specificeer jouw diagramtype als een van de volgende:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Stelt een scatter‑diagram voor._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stelt een scatter‑diagram voor dat door gebogen lijnen verbonden is, met datamarkers._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Stelt een scatter‑diagram voor dat door gebogen lijnen verbonden is, zonder datamarkers._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stelt een scatter‑diagram voor dat door rechte lijnen verbonden is, met datamarkers._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Stelt een scatter‑diagram voor dat door rechte lijnen verbonden is, zonder datamarkers._
+Gebruik een spreidingsdiagram wanneer:
+* U heeft gekoppelde numerieke gegevens.
+* U heeft twee variabelen die goed samen passen.
+* U wilt bepalen of de twee variabelen gerelateerd zijn.
+* U heeft een onafhankelijke variabele die meerdere waarden heeft voor een afhankelijke variabele.
 
-Deze Python‑code laat zien hoe je een scatter‑diagram maakt met verschillende markers voor elke serie:
+Dit voorbeeld plot twee sets x‑y‑waarden. De eerste reeks gebruikt rechte lijnen met stermarkeringen, terwijl de tweede vloeiende lijnen met cirkelmarkeringen gebruikt; beide gebruiken een marker grootte van 10, ingesteld met [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). De [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) methode bepaalt de marker vorm.
 
 ```python
 import jpype
@@ -202,196 +160,155 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, MarkerStyleType, Presentation, SaveFormat
 
-# Instantieert een presentatie‑klasse die een PPTX‑bestand voorstelt.
 presentation = Presentation()
 try:
-    # Benadert de eerste dia
     slide = presentation.getSlides().get_Item(0)
 
-    # Maakt het standaard‑diagram
-    chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400)
+    chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300)
 
-    # Haalt de index van het standaardgegevensblad van het diagram op
-    default_worksheet_index = 0
-
-    # Haalt het gegevensblad van het diagram op
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
 
-    # Verwijdert de voorbeeld‑series
     chart.getChartData().getSeries().clear()
 
-    # Voegt nieuwe series toe
-    cell = workbook.getCell(default_worksheet_index, 1, 1, "Series 1")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(default_worksheet_index, 1, 3, "Series 2")
-    chart.getChartData().getSeries().add(cell, chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 1, 1, "Series 1")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 1, 3, "Series 2")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Pakt de eerste diagramserie
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Voegt een nieuw punt (1:3) toe aan de serie
-    x_cell = workbook.getCell(default_worksheet_index, 2, 1, 1)
-    y_cell = workbook.getCell(default_worksheet_index, 2, 2, 3)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 2, 1, 1)
+    y_value_cell = workbook.getCell(worksheet_index, 2, 2, 3)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Voegt een nieuw punt (2:10) toe
-    x_cell = workbook.getCell(default_worksheet_index, 3, 1, 2)
-    y_cell = workbook.getCell(default_worksheet_index, 3, 2, 10)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 3, 1, 2)
+    y_value_cell = workbook.getCell(worksheet_index, 3, 2, 10)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Wijzigt het serietype
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers)
 
-    # Wijzigt de marker van de diagramserie
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Star)
 
-    # Pakt de tweede diagramserie
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Voegt daar een nieuw punt (5:2) toe
-    x_cell = workbook.getCell(default_worksheet_index, 2, 3, 5)
-    y_cell = workbook.getCell(default_worksheet_index, 2, 4, 2)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 2, 3, 5)
+    y_value_cell = workbook.getCell(worksheet_index, 2, 4, 2)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Voegt een nieuw punt (3:1) toe
-    x_cell = workbook.getCell(default_worksheet_index, 3, 3, 3)
-    y_cell = workbook.getCell(default_worksheet_index, 3, 4, 1)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 3, 3, 3)
+    y_value_cell = workbook.getCell(worksheet_index, 3, 4, 1)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Voegt een nieuw punt (2:2) toe
-    x_cell = workbook.getCell(default_worksheet_index, 4, 3, 2)
-    y_cell = workbook.getCell(default_worksheet_index, 4, 4, 2)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 4, 3, 2)
+    y_value_cell = workbook.getCell(worksheet_index, 4, 4, 2)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Voegt een nieuw punt (5:1) toe
-    x_cell = workbook.getCell(default_worksheet_index, 5, 3, 5)
-    y_cell = workbook.getCell(default_worksheet_index, 5, 4, 1)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 5, 3, 5)
+    y_value_cell = workbook.getCell(worksheet_index, 5, 4, 1)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Wijzigt de marker van de diagramserie
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Circle)
 
-    presentation.save("AsposeChart_out.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Taart‑diagrammen maken**
+Het resultaat:
 
-Taart‑diagrammen worden het best gebruikt om de verhouding deel‑tot‑geheel te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafdiagram gebruiken.
+![Het spreidingsdiagram](scatter_chart.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Pie](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Pie).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Verwijder de standaardseries en -categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Voeg nieuwe punten toe voor het diagram en pas aangepaste kleuren toe voor de sectoren van het taart‑diagram.
-9. Stel labels in voor de series.
-10. Schakel leidinglijnen in voor de serielabels.
-11. Stel de rotatiehoek in voor de taart‑sectoren.
-12. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+### **Maak taartdiagrammen**
 
-Deze Python‑code toont hoe je een taart‑diagram maakt:
+Taartdiagrammen worden het best gebruikt om de deel‑tot‑geheelrelatie in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Echter, als uw gegevens veel delen of labels bevatten, kunt u overwegen een staafdiagram te gebruiken.
+
+Dit voorbeeld maakt een taartdiagram met drie kwartaalwaarden. Elke part heeft een aangepaste opvulling en rand, en de etiketten tonen verschillende combinaties van waarden, percentages en reeksinformatie. De [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) methode stelt de eerste part in op een start van 180 graden.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpide.startJVM()
 
 from asposeslides.api import ChartType, FillType, LineDashStyle, LineStyle, NullableBool, Presentation, SaveFormat
 
 Color = jpype.JClass("java.awt.Color")
 
-# Instantieert een presentatie‑klasse die een PPTX‑bestand voorstelt.
 presentation = Presentation()
 try:
-    # Benadert de eerste dia
     slide = presentation.getSlides().get_Item(0)
 
-    # Voegt een diagram toe met standaardgegevens
-    chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+    chart = slide.getShapes().addChart(ChartType.Pie, 20, 20, 500, 300)
 
-    # Stelt de diagram‑titel in
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Stelt de index in voor het gegevensblad van het diagram
-    default_worksheet_index = 0
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
-    # Haalt het gegevensblad van het diagram op
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
 
-    # Verwijdert de standaard gegenereerde series en categorieën
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
-    # Voegt nieuwe categorieën toe
-    cell = workbook.getCell(0, 1, 0, "First Qtr")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 2, 0, "2nd Qtr")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 3, 0, "3rd Qtr")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, 1, 0, "1st Qtr")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 2, 0, "2nd Qtr")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 3, 0, "3rd Qtr")
+    chart.getChartData().getCategories().add(category_cell)
 
-    # Voegt nieuwe series toe
-    cell = workbook.getCell(0, 0, 1, "Series 1")
-    series = chart.getChartData().getSeries().add(cell, chart.getType())
+    series_name_cell = workbook.getCell(0, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    #Vult de seriedata in
-    cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
-    series.getDataPoints().addDataPointForPieSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
-    series.getDataPoints().addDataPointForPieSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
-    series.getDataPoints().addDataPointForPieSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, 1, 1, 20)
+    series.getDataPoints().addDataPointForPieSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 2, 1, 50)
+    series.getDataPoints().addDataPointForPieSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 3, 1, 30)
+    series.getDataPoints().addDataPointForPieSeries(value_cell)
 
-    # Voegt nieuwe punten toe en stelt de sectorkleur in
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(True)
 
-    point = series.getDataPoints().get_Item(0)
-    point.getFormat().getFill().setFillType(FillType.Solid)
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN)
+    first_slice = series.getDataPoints().get_Item(0)
+    first_slice.getFormat().getFill().setFillType(FillType.Solid)
+    first_slice.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN)
 
-    # Stelt de sectorrand in
-    point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
-    point.getFormat().getLine().setWidth(3.0)
-    point.getFormat().getLine().setStyle(LineStyle.ThinThick)
-    point.getFormat().getLine().setDashStyle(LineDashStyle.DashDot)
+    first_slice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    first_slice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
+    first_slice.getFormat().getLine().setWidth(3.0)
+    first_slice.getFormat().getLine().setStyle(LineStyle.ThinThick)
+    first_slice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDash)
 
-    second_point = series.getDataPoints().get_Item(1)
-    second_point.getFormat().getFill().setFillType(FillType.Solid)
-    second_point.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    second_slice = series.getDataPoints().get_Item(1)
+    second_slice.getFormat().getFill().setFillType(FillType.Solid)
+    color = Color(165, 42, 42)
+    second_slice.getFormat().getFill().getSolidFillColor().setColor(color)
 
-    # Stelt de sectorrand in
-    second_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    second_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
-    second_point.getFormat().getLine().setWidth(3.0)
-    second_point.getFormat().getLine().setStyle(LineStyle.Single)
-    second_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot)
+    second_slice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    second_slice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
+    second_slice.getFormat().getLine().setWidth(3.0)
+    second_slice.getFormat().getLine().setStyle(LineStyle.Single)
+    second_slice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot)
 
-    third_point = series.getDataPoints().get_Item(2)
-    third_point.getFormat().getFill().setFillType(FillType.Solid)
-    third_point.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW)
+    third_slice = series.getDataPoints().get_Item(2)
+    third_slice.getFormat().getFill().setFillType(FillType.Solid)
+    color = Color(255, 127, 80)
+    third_slice.getFormat().getFill().getSolidFillColor().setColor(color)
 
-    # Stelt de sectorrand in
-    third_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    third_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
-    third_point.getFormat().getLine().setWidth(2.0)
-    third_point.getFormat().getLine().setStyle(LineStyle.ThinThin)
-    third_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot)
+    third_slice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    third_slice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    third_slice.getFormat().getLine().setWidth(2.0)
+    third_slice.getFormat().getLine().setStyle(LineStyle.ThinThin)
+    third_slice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot)
 
-    # Maakt aangepaste labels voor elke categorie voor de nieuwe series
     first_label = series.getDataPoints().get_Item(0).getLabel()
-
     first_label.getDataLabelFormat().setShowValue(True)
 
     second_label = series.getDataPoints().get_Item(1).getLabel()
@@ -403,28 +320,24 @@ try:
     third_label.getDataLabelFormat().setShowSeriesName(True)
     third_label.getDataLabelFormat().setShowPercentage(True)
 
-    # Toont leiderlijnen voor het diagram
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(True)
 
-    # Stelt de rotatiehoek in voor de taartdiagram‑sectoren
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180)
 
-    # Slaat de presentatie met een diagram op
-    presentation.save("PieChart_out.pptx", SaveFormat.Pptx)
+    presentation.save("PieChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Lijn‑diagrammen maken**
+Het resultaat:
 
-Lijn‑diagrammen (ook bekend als lijngrafieken) worden het best gebruikt wanneer je veranderingen in een waarde over tijd wilt laten zien. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends over tijd volgen, afwijkingen in dataseries benadrukken, en meer.
+![Het taartdiagram](pie_chart.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse.
-1. Verkrijg een verwijzing naar een dia op basis van de index.
-1. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Line](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Line).
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+### **Maak lijndiagrammen**
 
-Deze Python‑code toont hoe je een lijn‑diagram maakt:
+Lijndiagrammen (ook wel lijngrafieken genoemd) worden het best gebruikt wanneer u veranderingen in waarde over tijd wilt demonstreren. Met een lijndiagram kunt u een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends in de tijd volgen, anomalieën in datreeksen benadrukken, enzovoort.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) om een lijndiagram te maken met de standaard reeksen en categorieën, en slaat vervolgens de presentatie op als PPTX.
 
 ```python
 import jpype
@@ -437,14 +350,16 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    line_chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350)
+    slide = presentation.getSlides().get_Item(0)
+
+    line_chart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300)
 
     presentation.save("line_chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Standaard worden punten op een lijndiagram verbonden door rechte doorlopende lijnen. Als je wilt dat de punten met streepjes worden verbonden, kun je het gewenste streeptype als volgt opgeven:
+Standaard worden punten in een lijndiagram verbonden door rechte, doorlopende lijnen. Als u wilt dat de punten met stippellijnen worden verbonden, roep dan [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/):
 
 ```python
 import jpype
@@ -453,34 +368,29 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, LineDashStyle, Presentation, SaveFormat
+from asposeslides.api import ChartType, LineDashStyle, Presentation
 
 presentation = Presentation()
 try:
-    line_chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350)
+    slide = presentation.getSlides().get_Item(0)
+
+    line_chart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300)
 
     for series in line_chart.getChartData().getSeries():
         series.getFormat().getLine().setDashStyle(LineDashStyle.Dash)
-
-    presentation.save("line_chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Tree‑Map‑diagrammen maken**
+Het resultaat:
 
-Tree‑Map‑diagrammen worden het best gebruikt voor verkoopgegevens wanneer je de relatieve grootte van datacategorieën wilt tonen en snel de grote bijdragers binnen elke categorie wilt belichten.
+![Het lijndiagram](line_chart.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Treemap](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Treemap).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Verwijder de standaardseries en -categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+### **Maak boomkaartdiagrammen**
 
-Deze Python‑code toont hoe je een tree‑map‑diagram maakt:
+Boomkaartdiagrammen worden het best gebruikt voor verkoopgegevens wanneer u de relatieve grootte van datacategorieën wilt tonen en snel aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
+
+Dit voorbeeld maakt een boomkaart met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) methode kent stammen toe op groeperingsniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoekgroottes, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie aangeven.
 
 ```python
 import jpype
@@ -493,63 +403,66 @@ from asposeslides.api import ChartType, ParentLabelLayoutType, Presentation, Sav
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Treemap, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    #tak 1
-    cell = workbook.getCell(0, "C1", "Leaf1")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Tak 1
+    category_cell = workbook.getCell(0, "C1", "Leaf1")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1")
 
-    cell = workbook.getCell(0, "C2", "Leaf2")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C2", "Leaf2")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C3", "Leaf3")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C3", "Leaf3")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2")
 
-    cell = workbook.getCell(0, "C4", "Leaf4")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C4", "Leaf4")
+    chart.getChartData().getCategories().add(category_cell)
 
-    #tak 2
-    cell = workbook.getCell(0, "C5", "Leaf5")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Tak 2
+    category_cell = workbook.getCell(0, "C5", "Leaf5")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2")
 
-    cell = workbook.getCell(0, "C6", "Leaf6")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C6", "Leaf6")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C7", "Leaf7")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C7", "Leaf7")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4")
 
-    cell = workbook.getCell(0, "C8", "Leaf8")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C8", "Leaf8")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.Treemap)
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(True)
-    cell = workbook.getCell(0, "D1", 4)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D2", 5)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D3", 3)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D4", 6)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D5", 9)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D6", 9)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D7", 4)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D8", 3)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
+    value_cell = workbook.getCell(0, "D1", 4)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D2", 5)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D3", 3)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D4", 6)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D5", 9)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D6", 9)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D7", 4)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D8", 3)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
 
     series.setParentLabelLayout(ParentLabelLayoutType.Overlapping)
 
@@ -558,19 +471,86 @@ finally:
     presentation.dispose()
 ```
 
-### **Beurs‑diagrammen (Stock) maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#OpenHighLowClose).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Verwijder de standaardseries en -categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Specificeer het formaat van de high‑low‑lijnen.
-9. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het boomkaartdiagram](treemap_chart.png)
 
-Deze Python‑code toont hoe je een beurs‑diagram maakt:
+### **Maak watervaldiagrammen**
+
+Een watervaldiagram toont hoe positieve en negatieve veranderingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winstopdeling kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderingskolommen zweven tussen de vorige en nieuwe tussenliggende waarden, terwijl totale kolommen zich uitstrekken van nul tot de opgetelde waarde.
+
+| Categorie | Werkbladwaarde | Kolomtype |
+| --- | ---: | --- |
+| Omzet | 1000 | Stijging |
+| Kostprijs van de omzet | -400 | Daling |
+| Brutowinst | 600 | Tussentotale |
+| Bedrijfskosten | -200 | Daling |
+| Overige inkomsten | 50 | Stijging |
+| Nettowinst | 450 | Eindtotaal |
+
+Om een punt als een tussentotale of eindtotaal te markeren, roept u de [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) methode aan met `True`. Geef het werkelijke opgetelde bedrag op in de werkbladcel van dat punt: `600` voor brutowinst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De methode markeert de kolom als een totaal; hij berekent of vult de celwaarde niet automatisch in. Gebruik geen nul als tijdelijke aanduiding of voeg geen andere wijziging toe voor een totaalpunt. Een totaalkolom toont de opgetelde waarde zonder deze opnieuw bij de lopende waarde op te tellen.
+
+Dit volledige Python‑voorbeeld maakt een diagram met behulp van het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), wist de standaardgegevens en vult de ingesloten werkmap. Werkbladindex `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). De nul‑gebaseerde punthindices `2` en `5` identificeren de tussentotale en eindtotaal. Het aanroepen van [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) met `True` toont de bedragen op de kolommen. Er is geen invoerpresentatie of werkmap vereist.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Waterfall, 20, 20, 680, 200)
+
+    chart.setTitle(True)
+    chart.getChartTitle().addTextFrameForOverriding("Profit breakdown (USD thousands)")
+    chart.getChartTitle().setOverlay(False)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
+
+    workbook.clear(worksheet_index)
+
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Profit")
+    series = chart.getChartData().getSeries().add(series_name_cell, ChartType.Waterfall)
+    categories = ["Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit"]
+    values = [1000, -400, 600, -200, 50, 450]
+
+    for i in range(len(categories)):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, categories[i])
+        chart.getChartData().getCategories().add(category_cell)
+        value_cell = workbook.getCell(worksheet_index, i + 1, 1, values[i])
+        series.getDataPoints().addDataPointForWaterfallSeries(value_cell)
+
+    # De derde en zesde punten vertegenwoordigen totalen, niet bijkomende wijzigingen.
+    series.getDataPoints().get_Item(2).setSetAsTotal(True)
+    series.getDataPoints().get_Item(5).setSetAsTotal(True)
+    series.setShowConnectorLines(True)
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+
+    presentation.save("WaterfallChart.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Roep de reeks‑niveau [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) methode aan met `True` om lijnen weer te geven die opeenvolgende kolommen verbinden en de tussenwaarde makkelijker volgbaar te maken. Om deze lijnen te verbergen, vervang de methodaanroep in het voorbeeld door `series.setShowConnectorLines(False)` vóór het opslaan. Dit wijzigt alleen de zichtbaarheid van de lijnen, niet de gegevens of totalen.
+
+![Watervaldiagram dat omzet, kosten, brutowinst van 600 en nettowinst van 450 toont, met waardelabels en verbindingslijnen](waterfall_chart.png)
+
+### **Maak aandelen‑diagrammen**
+
+Aandelen‑diagrammen worden gebruikt om financiële gegevens zoals openings-, hoog-, laag- en slotkoersen weer te geven, waardoor men markttrends en volatiliteit kan analyseren. Ze geven essentiële inzichten in de aandelenprestaties en helpen beleggers en analisten bij het nemen van onderbouwde beslissingen.
+
+Dit voorbeeld maakt een open‑high‑low‑close‑diagram met vier reeksen in die volgorde en drie categorieën. De [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) methode activeert op‑/neer‑balken, en [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) regelt de hoog‑laag‑lijnen die de prijsvrebereiken tonen, terwijl de individuele reekslijnen en kleine horizontale rasterlijnen verborgen blijven.
 
 ```python
 import jpype
@@ -583,85 +563,82 @@ from asposeslides.api import ChartType, FillType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, False)
+    slide = presentation.getSlides().get_Item(0)
 
-    chart.getChartData().getSeries().clear()
-    chart.getChartData().getCategories().clear()
+    chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, False)
 
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    cell = workbook.getCell(0, 1, 0, "A")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 2, 0, "B")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 3, 0, "C")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, 1, 0, "A")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 2, 0, "B")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 3, 0, "C")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, 0, 1, "Open")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(0, 0, 2, "High")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(0, 0, 3, "Low")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(0, 0, 4, "Close")
-    chart.getChartData().getSeries().add(cell, chart.getType())
+    series_name_cell = workbook.getCell(0, 0, 1, "Open")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
+    series_name_cell = workbook.getCell(0, 0, 2, "High")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
+    series_name_cell = workbook.getCell(0, 0, 3, "Low")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
+    series_name_cell = workbook.getCell(0, 0, 4, "Close")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
 
     series = chart.getChartData().getSeries().get_Item(0)
-
-    cell = workbook.getCell(0, 1, 1, 72)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 1, 25)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 1, 38)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 1, 72)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 1, 25)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 1, 38)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     series = chart.getChartData().getSeries().get_Item(1)
-    cell = workbook.getCell(0, 1, 2, 172)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 2, 57)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 2, 57)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 2, 172)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 2, 57)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 2, 57)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     series = chart.getChartData().getSeries().get_Item(2)
-    cell = workbook.getCell(0, 1, 3, 12)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 3, 12)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 3, 13)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 3, 12)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 3, 12)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 3, 13)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     series = chart.getChartData().getSeries().get_Item(3)
-    cell = workbook.getCell(0, 1, 4, 25)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 4, 38)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 4, 50)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 4, 25)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 4, 38)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 4, 50)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(True)
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
 
-    for series in chart.getChartData().getSeries():
-        series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+    for stock_series in chart.getChartData().getSeries():
+        stock_series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+
+    presentation.save("Stock-chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Box‑and‑Whisker‑diagrammen maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#BoxAndWhisker).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Verwijder de standaardseries en -categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het aandelen‑diagram](stock_chart.png)
 
-Deze Python‑code toont hoe je een box‑and‑whisker‑diagram maakt:
+### **Maak box‑en‑whisker‑diagrammen**
+
+Box‑en‑whisker‑diagrammen worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten zoals de mediaan, kwartielen en mogelijke uitbijters samen te vatten. Ze zijn bijzonder nuttig bij verkennende data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
+
+Dit voorbeeld maakt een box‑en‑whisker‑diagram van zes waarden. De [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) methode kiest de exclusieve kwartiel‑berekening. Het voorbeeld activeert ook gemiddelde‑lijnen, gemiddelde‑markeringen, binnen‑punten en uitbijter‑punten.
 
 ```python
 import jpype
@@ -674,25 +651,28 @@ from asposeslides.api import ChartType, Presentation, QuartileMethodType, SaveFo
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.BoxAndWhisker, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    cell = workbook.getCell(0, "A1", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A2", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A3", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A4", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A5", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A6", "Category 1")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "A1", "Category 1")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A2", "Category 2")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A3", "Category 3")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A4", "Category 4")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A5", "Category 5")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A6", "Category 6")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.BoxAndWhisker)
 
@@ -702,32 +682,29 @@ try:
     series.setShowInnerPoints(True)
     series.setShowOutlierPoints(True)
 
-    cell = workbook.getCell(0, "B1", 15)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B2", 41)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B3", 16)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B4", 10)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B5", 23)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B6", 16)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
+    value_cell = workbook.getCell(0, "B1", 15)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B2", 41)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B3", 16)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B4", 10)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B5", 23)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B6", 16)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
 
     presentation.save("BoxAndWhisker.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Funnel‑diagrammen maken**
+### **Maak trechterdiagrammen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Funnel](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Funnel).
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Trechterdiagrammen worden gebruikt om processen te visualiseren die opeenvolgende fasen omvatten, waarbij het volume aan gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral nuttig voor het analyseren van conversieratio's, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
 
-Deze Python‑code toont hoe je een funnel‑diagram maakt:
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) om een trechterdiagram toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaardgegevens door zes categorieën en waarden variërend van 50 tot 500, en slaat vervolgens de bijgewerkte presentatie op. De invoerpresentatie moet minstens één dia bevatten.
 
 ```python
 import jpype
@@ -738,57 +715,60 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("test.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
-
     workbook.clear(0)
 
-    cell = workbook.getCell(0, "A1", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A2", "Category 2")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A3", "Category 3")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A4", "Category 4")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A5", "Category 5")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A6", "Category 6")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "A1", "Category 1")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A2", "Category 2")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A3", "Category 3")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A4", "Category 4")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A5", "Category 5")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A6", "Category 6")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.Funnel)
 
-    cell = workbook.getCell(0, "B1", 50)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B2", 100)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B3", 200)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B4", 300)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B5", 400)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B6", 500)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
+    value_cell = workbook.getCell(0, "B1", 50)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B2", 100)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B3", 200)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B4", 300)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B5", 400)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B6", 500)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
 
     presentation.save("Funnel.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Sunburst‑diagrammen maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Sunburst](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Sunburst).
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het trechterdiagram](funnel_chart.png)
 
-Deze Python‑code toont hoe je een sunburst‑diagram maakt:
+### **Maak Sunburst‑diagrammen**
+
+Sunburst‑diagrammen worden gebruikt om hierarchische gegevens te visualiseren, waarbij niveaus worden weergegeven als concentrische ringen. Ze helpen deel‑tot‑geheelrelaties te illustreren en zijn ideaal om geneste categorieën en subcategorieën duidelijk en compact weer te geven.
+
+Dit voorbeeld maakt een Sunburst‑diagram met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Categorielabels identificeren de segmenten en de waarden bepalen hun relatieve groottes.
 
 ```python
 import jpype
@@ -801,80 +781,81 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Sunburst, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    #tak 1
-    cell = workbook.getCell(0, "C1", "Leaf1")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Tak 1
+    category_cell = workbook.getCell(0, "C1", "Leaf1")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1")
 
-    cell = workbook.getCell(0, "C2", "Leaf2")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C2", "Leaf2")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C3", "Leaf3")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C3", "Leaf3")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2")
 
-    cell = workbook.getCell(0, "C4", "Leaf4")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C4", "Leaf4")
+    chart.getChartData().getCategories().add(category_cell)
 
-    #tak 2
-    cell = workbook.getCell(0, "C5", "Leaf5")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Tak 2
+    category_cell = workbook.getCell(0, "C5", "Leaf5")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2")
 
-    cell = workbook.getCell(0, "C6", "Leaf6")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C6", "Leaf6")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C7", "Leaf7")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C7", "Leaf7")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4")
 
-    cell = workbook.getCell(0, "C8", "Leaf8")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C8", "Leaf8")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.Sunburst)
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(True)
-    cell = workbook.getCell(0, "D1", 4)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D2", 5)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D3", 3)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D4", 6)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D5", 9)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D6", 9)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D7", 4)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D8", 3)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
+    value_cell = workbook.getCell(0, "D1", 4)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D2", 5)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D3", 3)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D4", 6)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D5", 9)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D6", 9)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D7", 4)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D8", 3)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
 
     presentation.save("Sunburst.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Histogram‑diagrammen maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.Histogram](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Histogram).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Verwijder de standaardseries en -categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het Sunburst‑diagram](sunburst_chart.png)
 
-Deze Python‑code toont hoe je een histogram‑diagram maakt:
+### **Maak histogram‑diagrammen**
+
+Histogram‑diagrammen worden gebruikt om de verdeling van numerieke gegevens weer te geven door waarden te groeperen in bereiken of bakken. Ze zijn vooral nuttig voor het identificeren van datapatronen zoals frequentie, scheefheid en spreiding, en voor het detecteren van uitbijters in een dataset.
+
+Dit voorbeeld maakt een histogram van zes numerieke waarden, inclusief negatieve waarden. Het aanroepen van [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) met het automatische aggregatietype laat het diagram de bakken bepalen die gebruikt worden om de verdeling weer te geven.
 
 ```python
 import jpype
@@ -887,7 +868,10 @@ from asposeslides.api import AxisAggregationType, ChartType, Presentation, SaveF
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
@@ -895,18 +879,18 @@ try:
     workbook.clear(0)
 
     series = chart.getChartData().getSeries().add(ChartType.Histogram)
-    cell = workbook.getCell(0, "A1", 15)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A2", -41)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A3", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A4", 10)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A5", -23)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A6", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
+    value_cell = workbook.getCell(0, "A1", 15)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A2", -41)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A3", 16)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A4", 10)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A5", -23)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A6", 16)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
 
     chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic)
 
@@ -915,14 +899,15 @@ finally:
     presentation.dispose()
 ```
 
-### **Radar‑diagrammen maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Voeg een diagram toe met enkele gegevens en specificeer jouw gewenste diagramtype ([ChartType.Radar](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Radar) in dit geval).
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het histogram‑diagram](histogram_chart.png)
 
-Deze Python‑code toont hoe je een radar‑diagram maakt:
+### **Maak radardiagrammen**
+
+Radardiagrammen worden gebruikt om multivariate gegevens in een tweedimensionaal formaat weer te geven, waardoor eenvoudige vergelijking van meerdere variabelen tegelijk mogelijk is. Ze zijn vooral nuttig voor het identificeren van patronen, sterktes en zwaktes over verschillende prestatie‑metriek of attributen.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) om een radardiagram te maken met de standaard reeksen en categorieën, en slaat vervolgens de presentatie op als PPTX.
 
 ```python
 import jpype
@@ -935,24 +920,24 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300)
+    slide = presentation.getSlides().get_Item(0)
+
+    slide.getShapes().addChart(ChartType.Radar, 20, 20, 500, 300)
+
     presentation.save("Radar-chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Multi‑Category‑diagrammen maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType.ClusteredColumn](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ClusteredColumn).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Verwijder de standaardseries en -categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het radardiagram](radar_chart.png)
 
-Deze Python‑code toont hoe je een multicategorie‑diagram maakt:
+### **Maak diagrammen met meerdere categorieën**
+
+Diagrammen met meerdere categorieën worden gebruikt om gegevens weer te geven die meer dan één categorische groepering bevatten, waardoor u waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn vooral nuttig wanneer u trends en relaties binnen complexe, meerlagige datasets moet analyseren.
+
+Dit voorbeeld maakt een gegroepeerd kolomdiagram met acht categorieën verdeeld over vier paren. De [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) methode geeft elk paar een gedeeld label op groeperingsniveau 1, waardoor een categorie‑as ontstaat met zowel individuele als groepslabels.
 
 ```python
 import jpype
@@ -965,70 +950,76 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
+
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
-    default_worksheet_index = 0
 
-    cell = workbook.getCell(0, "c2", "A")
-    category = chart.getChartData().getCategories().add(cell)
+    worksheet_index = 0
+
+    category_cell = workbook.getCell(0, "c2", "A")
+    category = chart.getChartData().getCategories().add(category_cell)
     category.getGroupingLevels().setGroupingItem(1, "Group1")
-    cell = workbook.getCell(0, "c3", "B")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c3", "B")
+    category = chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "c4", "C")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c4", "C")
+    category = chart.getChartData().getCategories().add(category_cell)
     category.getGroupingLevels().setGroupingItem(1, "Group2")
-    cell = workbook.getCell(0, "c5", "D")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c5", "D")
+    category = chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "c6", "E")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c6", "E")
+    category = chart.getChartData().getCategories().add(category_cell)
     category.getGroupingLevels().setGroupingItem(1, "Group3")
-    cell = workbook.getCell(0, "c7", "F")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c7", "F")
+    category = chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "c8", "G")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c8", "G")
+    category = chart.getChartData().getCategories().add(category_cell)
     category.getGroupingLevels().setGroupingItem(1, "Group4")
-    cell = workbook.getCell(0, "c9", "H")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c9", "H")
+    category = chart.getChartData().getCategories().add(category_cell)
 
-    # Series toevoegen
-    cell = workbook.getCell(0, "D1", "Series 1")
-    series = chart.getChartData().getSeries().add(cell, ChartType.ClusteredColumn)
+    series_name_cell = workbook.getCell(0, "D1", "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, ChartType.ClusteredColumn)
 
-    cell = workbook.getCell(default_worksheet_index, "D2", 10)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D3", 20)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D4", 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D5", 40)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D6", 50)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D7", 60)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D8", 70)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D9", 80)
-    series.getDataPoints().addDataPointForBarSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, "D2", 10)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D3", 20)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D4", 30)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D5", 40)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D6", 50)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D7", 60)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D8", 70)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D9", 80)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Presentatie opslaan met diagram
-    presentation.save("AsposeChart_out.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Kaart‑diagrammen maken**
+Het resultaat:
 
-Kaart‑diagrammen visualiseren geografische gegevens en helpen waarden tussen regio’s te vergelijken.
+![Het diagram met meerdere categorieën](multi_category_chart.png)
 
-Deze Python‑code toont hoe je een kaart‑diagram maakt:
+### **Maak kaart‑diagrammen**
+
+Kaart‑diagrammen worden gebruikt om geografische gegevens te visualiseren door informatie te koppelen aan specifieke locaties zoals landen, provincies of steden. Ze zijn vooral nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke verdelingen op een duidelijke, visueel aantrekkelijke manier.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) om een kaart‑diagram te maken met de standaard geografische gegevens en slaat het op voor weergave in PowerPoint.
 
 ```python
 import jpype
@@ -1041,19 +1032,30 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 500, 300)
+
     presentation.save("mapChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Combinatie‑diagrammen maken**
+Het resultaat:
 
-Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram stelt je in staat om verschillen tussen twee of meer datasets te benadrukken, te vergelijken of te onderzoeken, zodat je de onderlinge relaties kunt identificeren.
+![Het kaart‑diagram](map_chart.png)
 
-![The combination chart](combination_chart.png)
+{{% alert color="info" title="Note" %}}
+De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft het kaart‑diagram en de bijbehorende gegevens correct weg, maar tekent zelf geen kaart‑diagrammen: wanneer een dia die er een bevat wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, wordt het diagramgebied leeg weergegeven. Andere vormen op dezelfde dia blijven onaangetast.
+{{% /alert %}}
 
-De volgende Python‑code laat zien hoe je het bovenstaande combinatie‑diagram in een PowerPoint‑presentatie maakt:
+### **Maak combinatie‑diagrammen**
+
+Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypes in één grafiek. Dit diagram stelt u in staat om verschillen tussen twee of meer datasets te benadrukken, vergelijken of onderzoeken, waardoor u relaties tussen hen kunt identificeren.
+
+![Het combinatie‑diagram](combination_chart.png)
+
+Dit voorbeeld combineert twee gegroepeerde kolomreeksen met een lijngrafiek over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) de lijn op een secundaire verticale as rechts plaatst. De hulpfuncties configureren de titel, legende, as‑labels en rasterlijnen.
 
 ```python
 import jpype
@@ -1098,7 +1100,7 @@ def create_chart_with_first_series(slide):
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # Verwijder de standaard gegenereerde series en categorieën.
+    # Verwijder de standaard gegenereerde reeksen en categorieën.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
@@ -1115,7 +1117,7 @@ def create_chart_with_first_series(slide):
     cell = workbook.getCell(worksheet_index, 4, 0, "Category 4")
     chart.getChartData().getCategories().add(cell)
 
-    # Voeg de eerste serie toe.
+    # Voeg de eerste reeks toe.
     series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
@@ -1185,7 +1187,7 @@ def set_primary_axes_format(chart):
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Stel de kleur van de verticale hoofdgridlijnen in.
+    # Stel de kleur van de verticale hoofdroosterlijnen in.
     major_grid_lines_format = vertical_axis.getMajorGridLinesFormat().getLine().getFillFormat()
     major_grid_lines_format.setFillType(FillType.Solid)
     color = Color(217, 217, 217)
@@ -1223,15 +1225,9 @@ create_combo_chart()
 
 ## **Diagrammen bijwerken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse die de presentatie bevat met het diagram dat je wilt bijwerken.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Doorloop alle shapes om het gewenste diagram te vinden.
-4. Open het gegevenswerkblad van het diagram.
-5. Pas de diagramseries aan door de waarden van de series te wijzigen.
-6. Voeg een nieuwe serie toe en vul de gegevens in.
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Aspose.Slides voor Python via Java stelt u in staat PowerPoint‑diagrammen bij te werken door diagramgegevens, opmaak en styling aan te passen. Deze functionaliteit vereenvoudigt het proces om presentaties up‑to‑date te houden met dynamische inhoud en zorgt ervoor dat diagrammen nauwkeurig de huidige gegevens en visuele standaarden weergeven.
 
-Deze Python‑code toont hoe je een diagram bijwerkt:
+Dit voorbeeld werkt het diagram met de naam “My chart” bij op de eerste dia van een bestaande presentatie. Het vereist twee kolomreeksen met elk drie gegevenspunten, met categorielabels in kolom A en reeksnamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) om werkbladcellen te wijzigen, werkt reeksenwaarden bij, voegt een derde reeks toe, en verandert het diagram naar gegroepeerde cilinders via [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
 
 ```python
 import jpype
@@ -1240,109 +1236,93 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, Presentation, SaveFormat
+from asposeslides.api import Chart, ChartType, Presentation, SaveFormat
 
-# Opent de presentatie die het diagram bevat om bij te werken
+chart_name = "My chart"
+
 presentation = Presentation("ExistingChart.pptx")
 try:
-    # Benadert de eerste dia
     slide = presentation.getSlides().get_Item(0)
 
-    # Haalt het diagram van de dia op
-    chart = slide.getShapes().get_Item(0)
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart) and chart_name == shape.getName():
+            chart = shape
+            worksheet_index = 0
 
-    # Stelt de index van het gegevensblad van het diagram in
-    default_worksheet_index = 0
+            workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Haalt het gegevenswerkblad van het diagram op
-    workbook = chart.getChartData().getChartDataWorkbook()
+            workbook.getCell(worksheet_index, 1, 0, "Modified Category 1")
+            workbook.getCell(worksheet_index, 2, 0, "Modified Category 2")
 
-    # Wijzigt de categorienaam van het diagram
-    workbook.getCell(default_worksheet_index, 1, 0, "Modified Category 1")
-    workbook.getCell(default_worksheet_index, 2, 0, "Modified Category 2")
+            series = chart.getChartData().getSeries().get_Item(0)
 
-    # Pakt de eerste diagramserie
-    series = chart.getChartData().getSeries().get_Item(0)
+            workbook.getCell(worksheet_index, 0, 1, "New_Series 1")
+            series.getDataPoints().get_Item(0).getValue().setData(90)
+            series.getDataPoints().get_Item(1).getValue().setData(123)
+            series.getDataPoints().get_Item(2).getValue().setData(44)
 
-    # Werkt nu de seriedata bij
-    workbook.getCell(default_worksheet_index, 0, 1, "New_Series1")# Wijzigt de serienaam
-    series.getDataPoints().get_Item(0).getValue().setData(90)
-    series.getDataPoints().get_Item(1).getValue().setData(123)
-    series.getDataPoints().get_Item(2).getValue().setData(44)
+            series = chart.getChartData().getSeries().get_Item(1)
 
-    # Pakt de tweede diagramserie
-    series = chart.getChartData().getSeries().get_Item(1)
+            workbook.getCell(worksheet_index, 0, 2, "New_Series 2")
+            series.getDataPoints().get_Item(0).getValue().setData(23)
+            series.getDataPoints().get_Item(1).getValue().setData(67)
+            series.getDataPoints().get_Item(2).getValue().setData(99)
 
-    # Werkt nu de seriedata bij
-    workbook.getCell(default_worksheet_index, 0, 2, "New_Series2")# Wijzigt de serienaam
-    series.getDataPoints().get_Item(0).getValue().setData(23)
-    series.getDataPoints().get_Item(1).getValue().setData(67)
-    series.getDataPoints().get_Item(2).getValue().setData(99)
+            series_name_cell = workbook.getCell(worksheet_index, 0, 3, "Series 3")
+            series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Voegt nu een nieuwe serie toe
-    cell = workbook.getCell(default_worksheet_index, 0, 3, "Series 3")
-    chart.getChartData().getSeries().add(cell, chart.getType())
+            value_cell = workbook.getCell(worksheet_index, 1, 3, 20)
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+            value_cell = workbook.getCell(worksheet_index, 2, 3, 50)
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+            value_cell = workbook.getCell(worksheet_index, 3, 3, 30)
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Pakt de derde diagramserie
-    series = chart.getChartData().getSeries().get_Item(2)
+            chart.setType(ChartType.ClusteredCylinder)
 
-    # Vult nu de seriedata
-    cell = workbook.getCell(default_worksheet_index, 1, 3, 20)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 3, 50)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 3, 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-
-    chart.setType(ChartType.ClusteredCylinder)
-
-    # Slaat de presentatie met diagram op
-    presentation.save("AsposeChartModified_out.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChartModified.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Gegevensbereik voor een diagram instellen**
+## **Gegevensbereik instellen voor een diagram**
 
-Om het bereik dat al door een bestaand diagram wordt gebruikt te bekijken, zie [Retrieve a Chart's Data Range](/slides/nl/python-java/chart-workbook/#retrieve-a-charts-data-range).
+Om het bereik dat al door een bestaand diagram wordt gebruikt te inspecteren, zie [Ophalen van een diagramgegevensbereik](/slides/nl/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Om het gegevensbereik voor een diagram in te stellen, doe je het volgende:
+Aspose.Slides voor Python via Java biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor de diagramgegevens te definiëren. Dit betekent dat u direct een gedeelte van uw werkblad kunt koppelen aan het diagram, waardoor u kunt bepalen welke cellen bijdragen aan de reeksen en categorieën van het diagram. Als gevolg hiervan kunt u uw diagrammen eenvoudig bijwerken en synchroniseren met de laatste gegevenswijzigingen in uw werkblad, zodat uw PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse die de presentatie met het diagram bevat.
-2. Verkrijg een verwijzing naar een dia op basis van de index.
-3. Doorloop alle shapes om het gewenste diagram te vinden.
-4. Open de diagramgegevens en stel het bereik in.
-5. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-Deze Python‑code toont hoe je het gegevensbereik voor een diagram instelt:
+Dit voorbeeld gebruikt [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) om de gegevensbron van het diagram met de naam “My chart” op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. De diagramwerkmap moet dat werkblad bevatten en een gevuld bereik met een reekskop in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
 
 ```python
-import jpype
+import jpime
 import asposeslides
 
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat
+from asposeslides.api import Chart, Presentation, SaveFormat
 
-# Opent de presentatie die het diagram bevat
+chart_name = "My chart"
+
 presentation = Presentation("ExistingChart.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    chart = slide.getShapes().get_Item(0)
 
-    chart.getChartData().setRange("Sheet1!A1:B4")
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart) and chart_name == shape.getName():
+            chart = shape
+            chart.getChartData().setRange("Sheet1!A1:B4")
 
-    presentation.save("SetDataRange_out.pptx", SaveFormat.Pptx)
+    presentation.save("SetDataRange.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Standaard‑markers in diagrammen gebruiken**
+## **Standaard‑markeringen gebruiken in diagrammen**
 
-Wanneer je standaard‑markers in diagrammen gebruikt, krijgt elke diagramserie automatisch een ander marker‑symbool.
+Wanneer u standaard‑markeringen in diagrammen gebruikt, krijgt elke diagramreeks automatisch een verschillend standaard‑markeer‑symbool.
 
-Deze Python‑code toont hoe je automatisch een marker voor een diagramserie instelt:
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) om een diagram te maken met twee lijngereeksen en een legende. De markeerinstellingen die via [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) worden benaderd behouden de automatisch toegewezen markeersymbolen. De eerste reeks bevat een negatieve waarde en een ontbrekende waarde, weergegeven als `None`, terwijl de tweede voor elke categorie een waarde heeft.
 
 ```python
 import jpype
@@ -1356,47 +1336,48 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 10, 10, 400, 400)
 
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
-    cell = workbook.getCell(0, 0, 1, "Series 1")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    series = chart.getChartData().getSeries().get_Item(0)
 
-    cell = workbook.getCell(0, 1, 0, "C1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 1, 1, 24)
-    series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 2, 0, "C2")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 2, 1, 23)
-    series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 3, 0, "C3")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 3, 1, -10)
-    series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 4, 0, "C4")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 4, 1, None)
-    series.getDataPoints().addDataPointForLineSeries(cell)
+    series_name_cell = workbook.getCell(0, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    cell = workbook.getCell(0, 0, 2, "Series 2")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    # Neem tweede diagramserie
-    second_series = chart.getChartData().getSeries().get_Item(1)
+    category_cell = workbook.getCell(0, 1, 0, "C1")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 1, 1, 24)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # Nu seriedata vullen
-    cell = workbook.getCell(0, 1, 2, 30)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 2, 2, 10)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 3, 2, 60)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 4, 2, 40)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
+    category_cell = workbook.getCell(0, 2, 0, "C2")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 2, 1, 23)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    category_cell = workbook.getCell(0, 3, 0, "C3")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 3, 1, -10)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    category_cell = workbook.getCell(0, 4, 0, "C4")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 4, 1, None)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    series_name_cell = workbook.getCell(0, 0, 2, "Series 2")
+    second_series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+
+    value_cell = workbook.getCell(0, 1, 2, 30)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 2, 10)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 2, 60)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
+    value_cell = workbook.getCell(0, 4, 2, 40)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
 
     chart.setLegend(True)
     chart.getLegend().setOverlay(False)
@@ -1408,18 +1389,18 @@ finally:
 
 ## **FAQ**
 
-**Welke diagramtypen worden ondersteund door Aspose.Slides?**
+**Welke diagramtypen worden ondersteund door Aspose.Slides voor Python via Java?**
 
-Aspose.Slides ondersteunt een breed scala aan [chart types](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt je in staat om het meest geschikte diagramtype voor je visualisatiebehoeften te kiezen.
+Aspose.Slides voor Python via Java ondersteunt een breed scala aan diagramtypen, waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt u in staat het meest geschikte diagramtype te kiezen voor uw behoeften aan datavisualisatie.
 
 **Hoe voeg ik een nieuw diagram toe aan een dia?**
 
-Om een diagram toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse, haal je de gewenste dia op via de index, en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in je presentatie.
+Om een diagram toe te voegen, maakt u eerst een instantie van de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) klasse, haalt u de gewenste dia op via zijn index, en roept u vervolgens de methode aan om een diagram toe te voegen, waarbij u het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in uw presentatie.
 
-**Hoe kan ik de gegevens die in een diagram worden weergegeven bijwerken?**
+**Hoe kan ik de weergegeven gegevens in een diagram bijwerken?**
 
-Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), de standaardseries en -categorieën te verwijderen, en vervolgens je eigen gegevens toe te voegen. Hiermee kun je het diagram vernieuwen zodat het de nieuwste gegevens weergeeft.
+U kunt de gegevens van een diagram bijwerken door toegang te krijgen tot de gegevenswerkmap ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), alle standaardreeksen en -categorieën te wissen, en vervolgens uw aangepaste gegevens toe te voegen. Hiermee kunt u het diagram programmatic matig vernieuwen zodat het de nieuwste gegevens weergeeft.
 
-**Is het mogelijk om het uiterlijk van het diagram aan te passen?**
+**Is het mogelijk het uiterlijk van het diagram aan te passen?**
 
-Ja, Aspose.Slides biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legenda’s en andere [formatting elements](/slides/nl/python-java/chart-entities/) wijzigen om het diagram aan te passen aan je specifieke ontwerpvereisten.
+Ja, Aspose.Slides voor Python via Java biedt uitgebreide aanpassingsopties. U kunt kleuren, lettertypen, etiketten, legendes en andere opmaakelementen wijzigen om het uiterlijk van het diagram af te stemmen op uw specifieke ontwerpeisen.
