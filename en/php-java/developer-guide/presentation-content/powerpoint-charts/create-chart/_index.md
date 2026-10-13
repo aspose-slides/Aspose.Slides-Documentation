@@ -881,9 +881,13 @@ The result:
 
 ### **Create Histogram Charts**
 
-Histogram charts are used to represent the distribution of numerical data by grouping values into ranges or bins. They are particularly useful for identifying data patterns such as frequency, skewness, and spread, and for detecting outliers in a dataset.
+Histogram charts show how numerical values are distributed across intervals (bins). For monthly reports on order processing times, use the same bin width and thresholds to keep intervals consistent and make distributions easier to compare.
 
-This example creates a histogram from six numerical values, including negative values. Calling [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) with the automatic aggregation type lets the chart determine the bins used to display the distribution.
+Call [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) on the horizontal axis with a mode from [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) applies only to `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) applies only to `ByNumberOfBins`. Use `Automatic` to let the chart choose the bins.
+
+#### **Use a Fixed Bin Width**
+
+This example groups processing times into 10-minute intervals, with separate bins for times at or below 10 minutes and above 40 minutes. Enable these bins with [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) and [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). When supplying explicit thresholds through [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) and [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/), call [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) and [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) with `false`.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -896,7 +900,10 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 500, 300);
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 680, 200);
+
+    $chart->setLegend(false);
+    $chart->setTitle(false);
 
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
@@ -905,22 +912,24 @@ try
     $workbook->clear(0);
 
     $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
-    $valueCell = $workbook->getCell(0, "A1", 15);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A2", -41);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A3", 16);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A4", 10);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A5", -23);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A6", 16);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for ($i = 0; $i < count($values); $i++)
+    {
+        $valueCell = $workbook->getCell(0, $i, 0, $values[$i]);
+        $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    }
 
-    $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setAggregationType(AxisAggregationType::ByBinWidth);
+    $axis->setBinWidth(10);
+    $axis->setUnderflowBin(true);
+    $axis->setAutomaticUnderflowBin(false);
+    $axis->setUnderflowBin(10);
+    $axis->setOverflowBin(true);
+    $axis->setAutomaticOverflowBin(false);
+    $axis->setOverflowBin(40);
 
-    $presentation->save("Histogram.pptx", SaveFormat::Pptx);
+    $presentation->save("Histogram-bin-width.pptx", SaveFormat::Pptx);
 }
 finally
 {
@@ -928,9 +937,59 @@ finally
 }
 ```
 
-The result:
+The presentation displayed in PowerPoint shows bin counts of **3, 4, 4, 4, and 2**. The underflow bin includes `5, 10, 10`, so its threshold is inclusive. The overflow bin includes only `41, 50`, so its threshold is exclusive; both values equal to `40` remain in the preceding interval. The interior bins contain values greater than their lower boundary and less than or equal to their upper boundary.
 
-![The Histogram chart](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **Specify the Number of Bins**
+
+For a fixed level of detail instead of fixed intervals, request five bins for the same data. This example leaves underflow and overflow bins disabled. The chart determines the width from the data range, so boundaries can change between reports.
+
+```php
+use aspose\slides\AxisAggregationType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 680, 200);
+
+    $chart->setLegend(false);
+    $chart->setTitle(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
+    $values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for ($i = 0; $i < count($values); $i++)
+    {
+        $valueCell = $workbook->getCell(0, $i, 0, $values[$i]);
+        $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    }
+
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setAggregationType(AxisAggregationType::ByNumberOfBins);
+    $axis->setNumberOfBins(5);
+
+    $presentation->save("Histogram-bin-count.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+The five bins have counts of **4, 4, 4, 4, and 1**. Compare this distribution with the fixed-width result above: the input values are identical, but the boundaries differ.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Create Radar Charts**
 

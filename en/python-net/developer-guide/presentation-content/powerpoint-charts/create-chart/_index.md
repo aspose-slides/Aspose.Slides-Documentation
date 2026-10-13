@@ -769,9 +769,13 @@ The result:
 
 ### **Create Histogram Charts**
 
-Histogram charts are used to represent the distribution of numerical data by grouping values into ranges or bins. They are particularly useful for identifying data patterns such as frequency, skewness, and spread, and for detecting outliers in a dataset.
+Histogram charts show how numerical values are distributed across intervals (bins). For monthly reports on order processing times, use the same bin width and thresholds to keep intervals consistent and make distributions easier to compare.
 
-This example creates a histogram from six numerical values, including negative values. Setting [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) to automatic lets the chart determine the bins used to display the distribution.
+Set the horizontal axis [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) to a mode from [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) applies only to `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) applies only to `BY_NUMBER_OF_BINS`. Use `AUTOMATIC` to let the chart choose the bins.
+
+#### **Use a Fixed Bin Width**
+
+This example groups processing times into 10-minute intervals, with separate bins for times at or below 10 minutes and above 40 minutes. Enable these bins with [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) and [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). When supplying explicit [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) and [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) thresholds, set [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) and [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) to `False`.
 
 ```python
 import aspose.slides as slides
@@ -780,7 +784,10 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 500, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 680, 200)
+
+    chart.has_legend = False
+    chart.has_title = False
 
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
@@ -789,27 +796,66 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
-    value_cell = workbook.get_cell(0, "A1", 15)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A2", -41)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A3", 16)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A4", 10)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A5", -23)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A6", 16)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.get_cell(0, i, 0, value)
+        series.data_points.add_data_point_for_histogram_series(value_cell)
 
-    chart.axes.horizontal_axis.aggregation_type = charts.AxisAggregationType.AUTOMATIC
+    axis = chart.axes.horizontal_axis
+    axis.aggregation_type = charts.AxisAggregationType.BY_BIN_WIDTH
+    axis.bin_width = 10
+    axis.is_underflow_bin = True
+    axis.is_automatic_underflow_bin = False
+    axis.underflow_bin = 10
+    axis.is_overflow_bin = True
+    axis.is_automatic_overflow_bin = False
+    axis.overflow_bin = 40
 
-    presentation.save("Histogram.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-The result:
+The presentation displayed in PowerPoint shows bin counts of **3, 4, 4, 4, and 2**. The underflow bin includes `5, 10, 10`, so its threshold is inclusive. The overflow bin includes only `41, 50`, so its threshold is exclusive; both values equal to `40` remain in the preceding interval. The interior bins contain values greater than their lower boundary and less than or equal to their upper boundary.
 
-![The Histogram chart](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **Specify the Number of Bins**
+
+For a fixed level of detail instead of fixed intervals, request five bins for the same data. This example leaves underflow and overflow bins disabled. The chart determines the width from the data range, so boundaries can change between reports.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 680, 200)
+
+    chart.has_legend = False
+    chart.has_title = False
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.get_cell(0, i, 0, value)
+        series.data_points.add_data_point_for_histogram_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.aggregation_type = charts.AxisAggregationType.BY_NUMBER_OF_BINS
+    axis.number_of_bins = 5
+
+    presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The five bins have counts of **4, 4, 4, 4, and 1**. Compare this distribution with the fixed-width result above: the input values are identical, but the boundaries differ.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Create Radar Charts**
 
