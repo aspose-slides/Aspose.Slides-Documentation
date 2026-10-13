@@ -26,7 +26,7 @@ description: "Discover how to use Aspose.Slides for PHP via Java to customize ch
 
 ## **Overview**
 
-This article explains how to customize chart axes with Aspose.Slides for PHP via Java. It covers calculated axis values, switching chart rows and columns, axis visibility, category label and tick-mark intervals, date categories and formatting, title rotation, axis positioning, and display units.
+This article explains how to customize chart axes with Aspose.Slides for PHP via Java. It covers calculated axis values, switching chart rows and columns, axis visibility, category label and tick-mark intervals, date categories and formatting, title rotation, axis positioning, display units, and logarithmic scaling.
 
 ## **Get the Max Values on the Vertical Axis on Charts**
 
@@ -354,6 +354,77 @@ try {
     $presentation->dispose();
 }
 ```
+
+## **Configure a Logarithmic Value Axis**
+
+A logarithmic value axis is useful when positive values span several orders of magnitude. For example, a service might receive 10, 100, 1,000, 10,000, and 100,000 requests over five periods. On a linear scale, the smaller values appear close together near zero. A logarithmic scale makes their relative growth easier to compare: equal distances represent equal ratios rather than equal differences.
+
+Call [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) with `true` on the value axis and use [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) to choose the base. This changes how the existing values are displayed; it does not change the data or add a logarithmic trend line. A trend line represents a fitted relationship in the data and is a separate feature.
+
+### **Choose the Value Axis and Base**
+
+For a line or column chart, the value axis is returned by [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). For a horizontal bar chart, it is returned by [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Scatter and bubble charts have two value axes, so choose the horizontal axis for X values, the vertical axis for Y values, or both. Do not apply logarithmic scaling to a category axis.
+
+The default logarithmic base is `10`. For PPTX charts, use a base from `2` through `1000`, inclusive; fractional bases such as `2.5` are also supported. With base `10`, successive powers such as 10, 100, 1,000, and 10,000 are equally spaced.
+
+### **Compare Linear and Logarithmic Scaling**
+
+The following self-contained example creates a line chart with the five request counts on the first slide, then clones that slide and enables a base-10 logarithmic value axis on the second. Both slides retain the same data.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 30, 40, 660, 200);
+
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Line);
+    $values = [10, 100, 1000, 10000, 100000];
+
+    for ($i = 0; $i < count($values); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Period " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    }
+
+    // Keep the first slide linear and change only the copy's value-axis scale.
+    $logarithmicSlide = $presentation->getSlides()->addClone($slide);
+    $logarithmicChart = $logarithmicSlide->getShapes()->get_Item(0);
+    $valueAxis = $logarithmicChart->getAxes()->getVerticalAxis();
+    $valueAxis->setLogarithmic(true);
+    $valueAxis->setLogBase(10);
+
+    $presentation->save("LogarithmicAxis.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+**Linear scale (slide 1):** Equal vertical distances represent equal differences in request counts. The largest value dominates the chart, making the smaller values difficult to distinguish.
+
+![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
+
+**Logarithmic scale (slide 2):** Equal vertical distances represent equal ratios. Each period has ten times as many requests as the previous one, so the points form a straight rising line on the base-10 scale. The axis labels still show the original request counts.
+
+![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+
+### **Handle Zero and Negative Values**
+
+A logarithmic scale can display only strictly positive values. Check the data before enabling it. If zero or negative values are meaningful, keep a linear scale or show them separately. If excluding those values is appropriate for the analysis, explain the omission. Do not silently replace them with small positive numbers, as this changes the meaning of the data. Any manually configured minimum or maximum for a logarithmic axis must also be positive.
 
 ## **FAQ**
 

@@ -27,7 +27,7 @@ description: "Discover how to use Aspose.Slides for .NET to customize chart axes
 
 ## **Overview**
 
-This article explains how to customize chart axes with Aspose.Slides for .NET. It covers calculated axis values, switching chart rows and columns, axis visibility, category label and tick-mark intervals, date categories and formatting, title rotation, axis positioning, and display units.
+This article explains how to customize chart axes with Aspose.Slides for .NET. It covers calculated axis values, switching chart rows and columns, axis visibility, category label and tick-mark intervals, date categories and formatting, title rotation, axis positioning, display units, and logarithmic scaling.
 
 ## **Get the Max Values on the Vertical Axis on Charts**
 
@@ -312,6 +312,74 @@ chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
 
 presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
+
+## **Configure a Logarithmic Value Axis**
+
+A logarithmic value axis is useful when positive values span several orders of magnitude. For example, a service might receive 10, 100, 1,000, 10,000, and 100,000 requests over five periods. On a linear scale, the smaller values appear close together near zero. A logarithmic scale makes their relative growth easier to compare: equal distances represent equal ratios rather than equal differences.
+
+Set [IsLogarithmic](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/islogarithmic/) to `true` on the value axis and use [LogBase](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/logbase/) to choose the base. This changes how the existing values are displayed; it does not change the data or add a logarithmic trend line. A trend line represents a fitted relationship in the data and is a separate feature.
+
+### **Choose the Value Axis and Base**
+
+For a line or column chart, the value axis is [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/). For a horizontal bar chart, it is [HorizontalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/horizontalaxis/). Scatter and bubble charts have two value axes, so choose the horizontal axis for X values, the vertical axis for Y values, or both. Do not apply logarithmic scaling to a category axis.
+
+The default logarithmic base is `10`. For PPTX charts, use a base from `2` through `1000`, inclusive; fractional bases such as `2.5` are also supported. With base `10`, successive powers such as 10, 100, 1,000, and 10,000 are equally spaced. 
+
+### **Compare Linear and Logarithmic Scaling**
+
+The following self-contained example creates a line chart with the five request counts on the first slide, then clones that slide and enables a base-10 logarithmic value axis on the second. Both slides retain the same data.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 30, 40, 660, 200);
+
+chart.HasLegend = false;
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Line);
+var values = new double[] { 10, 100, 1000, 10000, 100000 };
+
+for (var i = 0; i < values.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, $"Period {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+}
+
+// Keep the first slide linear and change only the copy's value-axis scale.
+var logarithmicSlide = presentation.Slides.AddClone(slide);
+var logarithmicChart = (IChart)logarithmicSlide.Shapes[0];
+var valueAxis = logarithmicChart.Axes.VerticalAxis;
+valueAxis.IsLogarithmic = true;
+valueAxis.LogBase = 10;
+
+presentation.Save("LogarithmicAxis.pptx", SaveFormat.Pptx);
+```
+
+**Linear scale (slide 1):** Equal vertical distances represent equal differences in request counts. The largest value dominates the chart, making the smaller values difficult to distinguish.
+
+![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
+
+**Logarithmic scale (slide 2):** Equal vertical distances represent equal ratios. Each period has ten times as many requests as the previous one, so the points form a straight rising line on the base-10 scale. The axis labels still show the original request counts.
+
+![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+
+### **Handle Zero and Negative Values**
+
+A logarithmic scale can display only strictly positive values. Check the data before enabling it. If zero or negative values are meaningful, keep a linear scale or show them separately. If excluding those values is appropriate for the analysis, explain the omission. Do not silently replace them with small positive numbers, as this changes the meaning of the data. Any manually configured minimum or maximum for a logarithmic axis must also be positive.
 
 ## **FAQ**
 

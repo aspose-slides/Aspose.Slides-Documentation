@@ -26,7 +26,7 @@ description: "Discover how to use Aspose.Slides for C++ to customize chart axes 
 
 ## **Overview**
 
-This article explains how to customize chart axes with Aspose.Slides for C++. It covers calculated axis values, switching chart rows and columns, axis visibility, category label and tick-mark intervals, date categories and formatting, title rotation, axis positioning, and display units.
+This article explains how to customize chart axes with Aspose.Slides for C++. It covers calculated axis values, switching chart rows and columns, axis visibility, category label and tick-mark intervals, date categories and formatting, title rotation, axis positioning, display units, and logarithmic scaling.
 
 ## **Get the Max Values on the Vertical Axis on Charts**
 
@@ -432,6 +432,94 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 
 presentation->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
+
+## **Configure a Logarithmic Value Axis**
+
+A logarithmic value axis is useful when positive values span several orders of magnitude. For example, a service might receive 10, 100, 1,000, 10,000, and 100,000 requests over five periods. On a linear scale, the smaller values appear close together near zero. A logarithmic scale makes their relative growth easier to compare: equal distances represent equal ratios rather than equal differences.
+
+Call [set_IsLogarithmic](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_islogarithmic/) with `true` on the value axis and use [set_LogBase](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_logbase/) to choose the base. This changes how the existing values are displayed; it does not change the data or add a logarithmic trend line. A trend line represents a fitted relationship in the data and is a separate feature.
+
+### **Choose the Value Axis and Base**
+
+For a line or column chart, the value axis is [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). For a horizontal bar chart, it is [get_HorizontalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_horizontalaxis/). Scatter and bubble charts have two value axes, so choose the horizontal axis for X values, the vertical axis for Y values, or both. Do not apply logarithmic scaling to a category axis.
+
+The default logarithmic base is `10`. For PPTX charts, use a base from `2` through `1000`, inclusive; fractional bases such as `2.5` are also supported. With base `10`, successive powers such as 10, 100, 1,000, and 10,000 are equally spaced.
+
+### **Compare Linear and Logarithmic Scaling**
+
+The following self-contained example creates a line chart with the five request counts on the first slide, then clones that slide and enables a base-10 logarithmic value axis on the second. Both slides retain the same data.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 30, 40, 660, 200);
+
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Line);
+auto values = std::array<double, 5>{10, 100, 1000, 10000, 100000};
+
+for (auto i = 0; i < values.size(); i++)
+{
+    auto categoryName = System::String::Format(u"Period {0}", i + 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(categoryName));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
+}
+
+// Keep the first slide linear and change only the copy's value-axis scale.
+auto logarithmicSlide = presentation->get_Slides()->AddClone(slide);
+auto logarithmicChart = System::ExplicitCast<IChart>(logarithmicSlide->get_Shape(0));
+auto valueAxis = logarithmicChart->get_Axes()->get_VerticalAxis();
+valueAxis->set_IsLogarithmic(true);
+valueAxis->set_LogBase(10);
+
+presentation->Save(u"LogarithmicAxis.pptx", SaveFormat::Pptx);
+```
+
+**Linear scale (slide 1):** Equal vertical distances represent equal differences in request counts. The largest value dominates the chart, making the smaller values difficult to distinguish.
+
+![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
+
+**Logarithmic scale (slide 2):** Equal vertical distances represent equal ratios. Each period has ten times as many requests as the previous one, so the points form a straight rising line on the base-10 scale. The axis labels still show the original request counts.
+
+![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+
+### **Handle Zero and Negative Values**
+
+A logarithmic scale can display only strictly positive values. Check the data before enabling it. If zero or negative values are meaningful, keep a linear scale or show them separately. If excluding those values is appropriate for the analysis, explain the omission. Do not silently replace them with small positive numbers, as this changes the meaning of the data. Any manually configured minimum or maximum for a logarithmic axis must also be positive.
 
 ## **FAQ**
 
