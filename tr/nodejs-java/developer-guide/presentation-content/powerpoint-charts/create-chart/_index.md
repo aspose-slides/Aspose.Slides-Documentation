@@ -1,5 +1,5 @@
 ---
-title: JavaScript ile PowerPoint Sunum Grafiklerini Oluşturma ve Güncelleme
+title: JavaScript ile PowerPoint Sunum Grafiklerini Oluşturma veya Güncelleme
 linktitle: Grafik Oluşturma veya Güncelleme
 type: docs
 weight: 10
@@ -10,51 +10,49 @@ keywords:
 - grafik düzenle
 - grafik değiştir
 - grafik güncelle
-- dağılım grafiği
-- pasta grafiği
-- çizgi grafiği
-- ağaç haritası grafiği
-- stok grafiği
-- kutu ve bıyık grafiği
-- huni grafiği
-- güneş patlaması grafiği
-- histogram grafiği
-- radar grafiği
+- dağınık grafik
+- pasta grafik
+- çizgi grafik
+- ağaç haritası grafik
+- hisse senedi grafik
+- kutu ve bıyık grafik
+- huni grafik
+- güneş patlaması grafik
+- histogram grafik
+- radar grafik
 - çok kategorili grafik
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java kullanarak PowerPoint sunumlarında grafikler oluşturun ve özelleştirin. JavaScript'te pratik kod örnekleriyle grafikleri ekleyin, biçimlendirin ve düzenleyin."
+description: "Aspose.Slides for Node.js via Java kullanarak PowerPoint sunumlarında grafik oluşturun ve özelleştirin. JavaScript'te pratik kod örnekleriyle grafik ekleyin, biçimlendirin ve düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Node.js via Java kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir slayta programlı olarak nasıl grafik ekleyeceğinizi, verilerle dolduracağınızı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini nasıl uygulayacağınızı öğreneceksiniz. Makale boyunca, sunum ve grafik nesnesinin başlatılmasından serilerin, eksenlerin ve lejandların yapılandırılmasına kadar her adımı ayrıntılı kod örnekleriyle gösterir. Bu rehberi izleyerek, dinamik grafik oluşturmayı Node.js uygulamalarınıza nasıl entegre edeceğinizi güçlü bir şekilde kavrayacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
+Bu makale, Aspose.Slides for Node.js via Java kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir grafiği programlı olarak bir slayta eklemeyi, veri ile doldurmayı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmadan serileri, eksenleri ve açıklamaları yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu rehberi izleyerek, dinamik grafik oluşturmayı Node.js uygulamalarınıza entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
 
 ## **Grafik Oluşturma**
 
-Grafikler, verileri hızlı bir şekilde görselleştirerek bir tablo ya da elektronik tablodan hemen fark edilmeyen içgörülerin elde edilmesini sağlar.
+Grafikler, insanların verileri hızlıca görselleştirmesine ve bir tablo ya da elektronik tablodan hemen fark edilemeyebilecek içgörüler elde etmesine yardımcı olur.
 
 **Grafik Neden Oluşturulur?**
 
-Grafikler kullanarak:
+* büyük miktarda veriyi tek bir slayt içinde birleştirme, sıkıştırma veya özetleme;
+* verideki desen ve eğilimleri ortaya çıkarma;
+* verinin zaman içindeki yönünü ve ivmesini ya da belirli bir ölçü birimine göre belirleme;
+* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit etme;
+* karmaşık verileri iletişim kurma ya da sunma.
 
-* bir sunumdaki tek bir slaytta büyük miktarda veriyi toplulaştırabilir, sıkıştırabilir veya özetleyebilirsiniz;
-* verideki desenleri ve eğilimleri ortaya çıkarabilirsiniz;
-* zaman içinde veya belirli bir ölçü birimine göre verinin yönünü ve ivmesini belirleyebilirsiniz;
-* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit edebilirsiniz;
-* karmaşık verileri iletişim kurabilir veya sunabilirsiniz.
-
-PowerPoint’te, *Insert* işlevi aracılığıyla birçok grafik şablonu sunan **Ekle** fonksiyonu ile grafikler oluşturabilirsiniz. Aspose.Slides kullanarak hem popüler grafik türlerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
+PowerPoint’te, *Insert* işlevi aracılığıyla grafikler oluşturabilirsiniz; bu işlev, birçok grafik türü tasarlamak için şablonlar sunar. Aspose.Slides kullanarak, hem yaygın grafik türlerine dayalı düzenli grafikler hem de özel grafikler oluşturabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
-[ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) sınıflandırmasını [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) modülünde kullanın. Bu sınıflandırmadaki değerler farklı grafik türlerine karşılık gelir.
+Bu modülde [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) içinde [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) dizinini kullanın. Bu dizindeki değerler farklı grafik türlerine karşılık gelir.
 {{% /alert %}}
 
-### **Kümelenmiş Sütun Grafikleri Oluşturma**
+### **Küme Sütun Grafikleri Oluşturma**
 
-Bu örnek, iki seriyi üç kategori üzerinde karşılaştıran bir kümelenmiş sütun grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metodunu kullanır. Seriler kırmızı ve yeşil dolgu renkleriyle gösterilir ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfayı ifade eder.
+Bu örnek, iki seriyi üç kategori üzerinde karşılaştıran bir küme sütun grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) kullanır. Seriler kırmızı ve yeşil doldurmalar kullanır ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfaya işaret eder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -135,20 +133,20 @@ finally
 
 Sonuç:
 
-![Kümelenmiş Sütun grafiği](clustered_column_chart.png)
+![Küme Sütun Grafiği](clustered_column_chart.png)
 
-### **Dağılım (Scatter) Grafikleri Oluşturma**
+### **Saçılım Grafikler Oluşturma**
 
-Dağılım grafikleri (scatter plot ya da x‑y grafikleri olarak da bilinir) genellikle iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için kullanılır.
+Saçılım grafikler (dağılım grafikleri veya x-y grafikleri olarak da bilinir) genellikle iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için kullanılır.
 
-Bir dağılım grafiği kullanın:
+Saçılım grafiği şu durumlarda kullanılır:
 
-* Eşleşmiş sayısal verileriniz olduğunda.
-* Birbirine iyi eşleşen iki değişkeniniz olduğunda.
-* İki değişkenin ilişkili olup olmadığını belirlemek istediğinizde.
-* Bağımlı bir değişken için birden çok değere sahip bağımsız bir değişkeniniz olduğunda.
+* Eşleştirilmiş sayısal verileriniz var.
+* Birlikte iyi eşleşen iki değişkeniniz var.
+* İki değişkenin ilişkili olup olmadığını belirlemek istiyorsunuz.
+* Bağımlı bir değişken için birden çok değere sahip bağımsız bir değişkeniniz var.
 
-Bu örnek iki küme x‑y değeri çizer. İlk seri, yıldız işaretçili düz çizgiler kullanırken, ikinci seri yuvarlak işaretçili yumuşak çizgiler kullanır; her iki seri de [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize) ile 10 boyutunda işaretçiye sahiptir. İşaretçi şekli [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) yöntemiyle kontrol edilir.
+Bu örnek iki set x-y değeri çizer. İlk seri, yıldız işaretçileriyle düz çizgiler kullanırken, ikinci seri dairesel işaretçileriyle yumuşak çizgiler kullanır; her ikisi de [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize) ile 10 boyutunda işaretçi boyutu ayarlanmıştır. [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) yöntemi işaretçi şekli kontrol eder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -216,13 +214,13 @@ finally
 
 Sonuç:
 
-![Dağılım grafiği](scatter_chart.png)
+![Saçılım Grafiği](scatter_chart.png)
 
-### **Pasta (Pie) Grafikleri Oluşturma**
+### **Pasta Grafikler Oluşturma**
 
-Pasta grafikler, özellikle sayısal değerlerle kategorik etiketler içeren verilerde, parçanın bütünle ilişkisini göstermek için en uygunudur. Ancak, veriniz birçok parça veya etiket içeriyorsa, bunun yerine çubuk grafik kullanmayı düşünebilirsiniz.
+Pasta grafikler, özellikle veriler bölümlere ayrılmış kategorik etiketler ve sayısal değerler içerdiğinde, parçanın bütünle ilişkisini göstermek için en uygunudur. Ancak, veriniz birçok parça veya etiket içeriyorsa, çubuk grafik kullanmayı düşünebilirsiniz.
 
-Bu örnek, üç çeyrek değeriyle bir pasta grafiği oluşturur. Her dilim özel bir dolgu ve kenarlığa sahiptir ve etiketler değer, yüzde ve seri bilgilerini farklı kombinasyonlarda gösterir. [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) yöntemi ilk dilimin 180 derece başlamasını sağlar.
+Bu örnek, üç çeyrek değer içeren bir pasta grafik oluşturur. Her dilim özel dolgu ve kenarlığa sahiptir ve etiketler değer, yüzde ve seriye ilişkin farklı kombinasyonları gösterir. [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) yöntemi, ilk dilimin 180 derecede başlamasını ayarlar.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -323,13 +321,13 @@ finally
 
 Sonuç:
 
-![Pasta grafiği](pie_chart.png)
+![Pasta Grafiği](pie_chart.png)
 
-### **Çizgi (Line) Grafikleri Oluşturma**
+### **Çizgi Grafikler Oluşturma**
 
-Çizgi grafikler (line graphs olarak da bilinir) zaman içinde değer değişimlerini göstermek istediğiniz durumlarda en iyi seçenektir. Bir çizgi grafikle aynı anda büyük miktarda veri karşılaştırabilir, zaman içinde değişim ve trendleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilir ve daha fazlasını yapabilirsiniz.
+Çizgi grafikler (çizgi diyagramları olarak da bilinir), değerin zaman içinde nasıl değiştiğini göstermek istediğiniz durumlarda en uygundur. Çizgi grafik kullanarak, büyük miktarda veriyi aynı anda karşılaştırabilir, zaman içindeki değişiklik ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilir ve daha fazlasını yapabilirsiniz.
 
-Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafik oluşturmak için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metodunu kullanır ve sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafik oluşturmak için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) kullanır ve sunumu PPTX olarak kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -349,7 +347,7 @@ finally
 }
 ```
 
-Varsayılan olarak, bir çizgi grafiğindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaların kesikli çizgilerle birleştirilmesini istiyorsanız, [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) içindeki bir değerle [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) metodunu çağırın:
+Varsayılan olarak, bir çizgi grafiğindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaları tireli çizgilerle birleştirmek isterseniz, [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) metodunu [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) değerlerinden biriyle çağırın:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -376,13 +374,13 @@ finally
 
 Sonuç:
 
-![Çizgi grafiği](line_chart.png)
+![Çizgi Grafiği](line_chart.png)
 
-### **Ağaç Haritası (Tree Map) Grafikleri Oluşturma**
+### **Ağaç Haritası Grafikleri Oluşturma**
 
-Ağaç haritası grafikler, satış verileri gibi her kategori içinde büyük katkıda bulunan öğelere hızlıca dikkat çekmek istediğinizde en uygunudur.
+Ağaç haritası grafikleri, satış verileri için, veri kategorilerinin göreceli boyutunu göstermek ve her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğinizde en uygundur.
 
-Bu örnek, dört gövde ve iki dal içinde gruplanmış sekiz yaprak içeren bir ağaç haritası oluşturur. [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi, birinci grup seviyesindeki gövdeleri ve ikinci seviyedeki dalları atar. Değerler, dikdörtgenlerin göreli boyutlarını belirlerken, kategori etiketleri ve üst üste binen ebeveyn etiketleri hiyerarşiyi tanımlar.
+Bu örnek, dört dal ve iki dalcık halinde gruplanmış sekiz yaprak içeren bir ağaç haritası oluşturur. [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi, grup düzeyi 1'de dalları ve düzey 2'de dalcıkları atar. Değerler göreceli dikdörtgen boyutlarını belirler, kategori etiketleri ve üst üste gelen ebeveyn etiketleri hiyerarşiyi tanımlar.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -463,26 +461,24 @@ finally
 
 Sonuç:
 
-![Ağaç haritası grafiği](treemap_chart.png)
+![Ağaç Haritası Grafiği](treemap_chart.png)
 
-### **Şelale (Waterfall) Grafikleri Oluşturma**
+### **Şelale Grafikleri Oluşturma**
 
-Şelale grafiği, pozitif ve negatif değişikliklerin nihai bir değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kar dökümü gelirle başlayıp maliyetleri çıkarır ve diğer gelirleri ekler. Değişim sütunları önceki ve yeni akış değerleri arasında süzülürken, toplam sütunlar sıfırdan birikmiş değere kadar uzanır.
+Şelale grafiği, pozitif ve negatif değişikliklerin nihai değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kar kırılımı gelirle başlayıp maliyetleri çıkararak ve diğer gelirleri ekleyerek ilerleyebilir. Değişim sütunları önceki ve yeni yürüyen değerler arasında süzülür, toplam sütunlar ise sıfırdan birikmiş değere uzanır.
 
-Aşağıdaki örnek, ABD doları bin cinsinden tutarları kullanır:
-
-| Kategori | Çalışma kitabı değeri | Sütun türü |
+| Kategori | Çalışma kitabı değeri | Sütun tipi |
 | --- | ---: | --- |
 | Gelir | 1000 | Artış |
-| Satış Maliyeti | -400 | Azalış |
+| Satış maliyeti | -400 | Azalış |
 | Brüt kar | 600 | Ara toplam |
 | Faaliyet giderleri | -200 | Azalış |
 | Diğer gelir | 50 | Artış |
 | Net kar | 450 | Son toplam |
 
-Bir noktayı ara toplam ya da son toplam olarak işaretlemek için, `true` değerini kullanarak [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) metodunu çağırın. O noktanın çalışma kitabı hücresine gerçek birikmiş miktarı girin: brüt kar için `600` (`1000 - 400`) ve net kar için `450` (`600 - 200 + 50`). Metod sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın ve bir toplam noktası için başka bir değişim eklemeyin. Toplam sütun, birikmiş değeri tekrar eklemeden gösterir.
+Bir noktayı ara veya son toplam olarak işaretlemek için, onun [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) yöntemini `true` ile çağırın. O noktanın çalışma kitabı hücresine gerçek birikmiş tutarı girin: Brüt kar için `600` (`1000 - 400`) ve Net kar için `450` (`600 - 200 + 50`). Yöntem sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın veya toplam noktası için başka bir değişim sağlamayın. Toplam sütun, birikmiş değeri tekrar eklemeden gösterir.
 
-Bu tam JavaScript örneği, [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) üyesi `Waterfall` kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk çalışma sayfasını seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) ile eklenir. Sıfır tabanlı nokta indeksleri `2` ve `5` ara ve son toplamları tanımlar. `true` ile [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) çağrısı, tutarları sütunlarda gösterir. Giriş sunumu veya çalışma kitabı gerekmemektedir.
+Bu tam JavaScript örneği, [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) `Waterfall` üyesini kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk çalışma sayfasını seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) ile eklenir. Sıfır‑tabanlı nokta indeksleri `2` ve `5` ara ve son toplamları belirler. [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) yöntemini `true` ile çağırmak, miktarları sütunlarda gösterir. Giriş sunumu veya çalışma kitabı gerekmez.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -520,7 +516,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // Üçüncü ve altıncı noktalar ek değişiklikler değil, toplamları temsil eder.
+    // Üçüncü ve altıncı noktalar toplamları temsil eder, ek değişiklikler değildir.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -534,17 +530,17 @@ finally
 }
 ```
 
-Seri seviyesindeki [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) metodunu `true` ile çağırarak ardışık sütunları bağlayan çizgileri gösterin ve akış değerini daha kolay takip edin. Bu çizgileri gizlemek için, örnekteki metod çağrısını `series.setShowConnectorLines(false);` ile değiştirip kaydedin. Bu sadece çizgi görünürlüğünü değiştirir, veri ya da toplamları etkilemez.
+Seri seviyesindeki [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) yöntemini `true` ile çağırarak ardışık sütunları bağlayan çizgileri gösterir ve yürüyen değeri takip etmeyi kolaylaştırırsınız. Bu çizgileri gizlemek için, örnekteki yöntem çağrısını kaydetmeden önce `series.setShowConnectorLines(false);` ile değiştirin. Bu yalnızca çizgi görünürlüğünü değiştirir, veri veya toplamları etkilemez.
 
-Kaydedilen sunum, sıfırdan çizilen 600 brüt kar ve 450 net kar toplamlarını gösterir:
+Kaydedilen sunum, 600 brüt kar ve 450 net kar gösterir; her iki toplam da sıfırdan çizilir:
 
-![Şelale grafiği, gelir, maliyet, 600 brüt kar ve 450 net kar, değer etiketleri ve bağlayıcı çizgilerle](waterfall_chart.png)
+![Gelir, maliyetler, 600 brüt kar ve 450 net kar gösteren şelale grafiği](waterfall_chart.png)
 
-### **Stok (Stock) Grafikleri Oluşturma**
+### **Hisse Senedi Grafikleri Oluşturma**
 
-Stok grafikler, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstererek piyasa trendlerini ve volatiliteyi analiz etmeye yardımcı olur. Yatırımcı ve analistlerin bilinçli kararlar almasına olanak tanıyan kritik içgörüler sağlar.
+Hisse senedi grafikleri, açık, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstererek piyasa trendlerini ve oynaklığı analiz etmeye yardımcı olur. Bu grafikler, hisse performansı hakkında kritik içgörüler sunar ve yatırımcıların ve analistlerin bilinçli kararlar almasını destekler.
 
-Bu örnek, dört seriyi bu sırayla ve üç kategoriyle bir açık‑yüksek‑düşük‑kapanış (OHLC) grafiği oluşturur. [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) yöntemi up/down çubukları etkinleştirir ve [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) yüksek‑düşük çizgileri kontrol eder; bireysel seri çizgileri ve küçük yatay ızgaralar gizlenir.
+Bu örnek, dört seri sırasıyla açık‑yüksek‑düşük‑kapanış (OHLC) grafiği ve üç kategori oluşturur. [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) yöntemi up/down çubuklarını etkinleştirir ve [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) yüksek‑düşük çizgilerini kontrol eder; bireysel seri çizgileri ve ince yatay ızgaralar gizlenir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -628,13 +624,13 @@ finally
 
 Sonuç:
 
-![Stok grafiği](stock_chart.png)
+![Hisse Senedi Grafiği](stock_chart.png)
 
-### **Kutu ve Bıyık (Box and Whisker) Grafikleri Oluşturma**
+### **Kutu ve Bıyık Grafikleri Oluşturma**
 
-Kutu ve bıyık grafikler, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçütleri özetleyerek veri dağılımını gösterir. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve anormallikleri tanımlamak açısından özellikle yararlıdır.
+Kutu ve bıyık grafikleri, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek veri dağılımını göstermek için kullanılır. Keşifsel veri analizi ve istatistiksel çalışmalarta, veri değişkenliğini hızlıca anlamak ve anormallikleri tanımlamak için özellikle faydalıdır.
 
-Bu örnek, altı değerden bir kutu ve bıyık grafiği oluşturur. [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) yöntemi dışlayıcı çeyrek hesabını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç noktalar ve aykırı noktalara izin verir.
+Bu örnek, altı değerden bir kutu ve bıyık grafik oluşturur. [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) yöntemi, dışlamalı çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç noktalar ve aykırı nokta örneklerini etkinleştirir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -694,11 +690,11 @@ finally
 }
 ```
 
-### **Huni (Funnel) Grafikleri Oluşturma**
+### **Huni Grafikler Oluşturma**
 
-Huni grafikler, bir sürecin ardışık aşamalarını görselleştirir; veri hacmi bir adımdan diğerine geçtikçe azalır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle faydalıdır.
+Huni grafikler, verinin bir adımdan diğerine ilerlerken hacminin azaldığı süreçleri görselleştirmek için kullanılır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle yararlıdır.
 
-Bu örnek, mevcut bir sunumun ilk slaytına bir huni grafik eklemek için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metodunu kullanır. Varsayılan verileri altı kategori ve 50‑500 arasında değerlerle değiştirir, ardından güncellenmiş sunumu kaydeder. Girdi sunumu en az bir slayt içermelidir.
+Bu örnek, mevcut bir sunumun ilk slaytına [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) kullanarak bir huni grafik ekler. Varsayılan verileri 50 ile 500 arasında değişen altı kategori ve değerle değiştirir, ardından güncellenmiş sunumu kaydeder. Girdi sunumu en az bir slayt içermelidir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -754,13 +750,13 @@ finally
 
 Sonuç:
 
-![Huni grafiği](funnel_chart.png)
+![Huni Grafiği](funnel_chart.png)
 
-### **Güneş Patlaması (Sunburst) Grafikleri Oluşturma**
+### **Güneş Patlaması Grafikler Oluşturma**
 
-Güneş patlaması grafikler, hiyerarşik verileri dairesel halkalar halinde gösterir. Parçanın bütünle ilişkisini ortaya koyar ve iç içe geçmiş kategorileri ve alt kategorileri net, kompakt bir biçimde temsil etmek için idealdir.
+Güneş patlaması grafikler, hiyerarşik verileri görselleştirmek için katmanlı halkalar halinde seviyeleri gösterir. Parçadan bütün ilişkilerini göstermek ve iç içe geçmiş kategorileri net ve kompakt bir formatta temsil etmek için idealdir.
 
-Bu örnek, dört gövde ve iki dal içinde gruplanmış sekiz yaprak içeren bir güneş patlaması grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi, birinci grup seviyesindeki gövdeleri ve ikinci seviyedeki dalları atar. Kategori etiketleri segmentleri tanımlarken, değerler göreli boyutlarını belirler.
+Bu örnek, dört dal ve iki dalcık halinde gruplanmış sekiz yaprakla bir güneş patlaması grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi, grup düzeyi 1'de dalları ve düzey 2'de dalcıkları atar. Kategori etiketleri segmentleri tanımlar ve değerler göreceli boyutlarını belirler.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -839,13 +835,15 @@ finally
 
 Sonuç:
 
-![Güneş patlaması grafiği](sunburst_chart.png)
+![Güneş Patlaması Grafiği](sunburst_chart.png)
 
-### **Histogram Grafikleri Oluşturma**
+### **Histogram Grafikler Oluşturma**
 
-Histogram grafikler, sayısal verilerin dağılımını değer aralıkları ya da kutular halinde gruplandırarak gösterir. Frekans, çarpıklık ve yayılım gibi veri kalıplarını tanımlamak ve bir veri kümesindeki aykırı değerleri tespit etmek için özellikle yararlıdır.
+Histogram grafikler, sayısal değerlerin aralıklar (kova) içinde nasıl dağıldığını gösterir. Aylık sipariş işleme süresi raporları için, aralıkları tutarlı tutmak ve dağılımları karşılaştırmayı kolaylaştırmak amacıyla aynı kova genişliğini ve eşik değerlerini kullanın. Yatay eksende, [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) metodunu [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/) değerlerinden biriyle çağırın. [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setBinWidth) yalnızca `ByBinWidth` için uygulanır; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberOfBins) yalnızca `ByNumberOfBins` için geçerlidir. `Automatic` kullanarak grafiğin kovaları kendisinin seçmesine izin verin.
 
-Bu örnek, negatif değerler dahil altı sayısal değerden bir histogram oluşturur. [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) metodunu otomatik toplama türüyle çağırmak, grafiğin dağılımı göstermek için kullanılacak kutuları belirlemesini sağlar.
+#### **Sabit Kova Genişliği Kullanma**
+
+Bu örnek, işlem sürelerini 10 dakikalık aralıklara gruplar; 10 dakikaya eşit veya daha az ve 40 dakikadan fazla süreler için ayrı kovalar oluşturur. Bu kovaları [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) ve [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin) ile etkinleştirin. Açık eşik değerleri sağlandığında, [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) ve [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin) kullanıldıktan sonra [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticUnderflowBin) ve [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticOverflowBin) metodlarını `false` ile çağırın.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -855,7 +853,10 @@ try
 {
     let slide = presentation.getSlides().get_Item(0);
 
-    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 500, 300);
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -864,22 +865,24 @@ try
     workbook.clear(0);
 
     let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
-    let valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", aspose.slides.SaveFormat.Pptx);
 }
 finally
 {
@@ -887,15 +890,62 @@ finally
 }
 ```
 
-Sonuç:
+PowerPoint'ta gösterilen sunum, kova sayımlarını **3, 4, 4, 4 ve 2** olarak gösterir. Alt kova `5, 10, 10` değerlerini içerir, bu yüzden eşik değeri kapsayıcıdır. Üst kova yalnızca `41, 50` değerlerini içerir, bu yüzden eşik değeri dışlayıcıdır; `40` değerine eşit olan iki değer bir önceki aralıkta kalır. İç kovalarda, alt sınırdan büyük ve üst sınırdan küçük veya eşit değerler bulunur.
 
-![Histogram grafiği](histogram_chart.png)
+![10 dakikalık kovalar ve açık alt ve üst eşik değerleriyle histogram](histogram_bin_width.png)
 
-### **Radar Grafikleri Oluşturma**
+#### **Kova Sayısını Belirleme**
 
-Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birkaç değişkeni aynı anda karşılaştırmayı kolaylaştırır. Performans ölçütleri ya da özellikler gibi birden çok metriği değerlendirirken desenleri, güçlü yönleri ve zayıf yönleri tanımlamak için özellikle faydalıdır.
+Sabit aralıklar yerine sabit detay düzeyi isteniyorsa, aynı veri için beş kova talep edin. Bu örnek, alt ve üst kovalara izin vermez. Grafik, veri aralığından genişliği belirler; bu nedenle sınırlar raporlar arasında değişebilir.
 
-Bu örnek, varsayılan seriler ve kategorilerle bir radar grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metodunu kullanır ve sunumu PPTX olarak kaydeder.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Beş kova, **4, 4, 4, 4 ve 1** sayımına sahiptir. Bu dağılımı yukarıdaki sabit genişlikli sonuçla karşılaştırın: girdi değerleri aynı, ancak sınırlar farklıdır.
+
+![Aynı veriden hesaplanan beş kova ile histogram](histogram_bin_count.png)
+
+### **Radar Grafikler Oluşturma**
+
+Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek çeşitli değişkenlerin aynı anda kolayca karşılaştırılmasını sağlar. Çoklu performans ölçütleri veya özellikler arasındaki desen, güçlü ve zayıf yönleri belirlemede özellikle faydalıdır.
+
+Bu örnek, varsayılan seriler ve kategorilerle bir radar grafik oluşturmak için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) kullanır ve sunumu PPTX olarak kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -919,11 +969,11 @@ Sonuç:
 
 ![Radar grafiği](radar_chart.png)
 
-### **Çok Kategorili (Multi-Category) Grafikler Oluşturma**
+### **Çok Kategorili Grafikler Oluşturma**
 
-Çok kategorili grafikler, birden fazla kategorik gruplama içeren verileri göstermek için kullanılır; böylece değerleri aynı anda birden çok boyutta karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri kümelerinde trend ve ilişkileri analiz ederken özellikle yardımcıdır.
+Çok kategorili grafikler, birden fazla kategorik gruplama içeren verileri göstermek için kullanılır; bu sayede değerleri birden çok boyutta aynı anda karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri setlerinde eğilim ve ilişkileri analiz ederken özellikle yararlıdır.
 
-Bu örnek, dört çift halinde sekiz kategoriyle bir kümelenmiş sütun grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi, her çifte grup seviyesi 1’de ortak bir etiket atar; bu, bireysel ve grup etiketlerini içeren bir kategori ekseni üretir.
+Bu örnek, sekiz kategori dört çift halinde düzenlenmiş bir küme sütun grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi, her çifte grup düzeyi 1'de ortak bir etiket atar ve bireysel ve grup etiketlerinin bulunduğu bir kategori ekseni üretir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -999,11 +1049,11 @@ Sonuç:
 
 ![Çok kategorili grafik](multi_category_chart.png)
 
-### **Harita (Map) Grafikler Oluşturma**
+### **Harita Grafikler Oluşturma**
 
-Harita grafikler, ülkeler, eyaletler ya da şehirler gibi belirli konumlara bilgi eşleştirerek coğrafi verileri görselleştirir. Bölgesel trendleri, demografik verileri ve mekânsal dağılımları açık ve görsel açıdan çekici bir biçimde analiz etmek için özellikle yararlıdır.
+Harita grafikler, verileri ülkeler, eyaletler veya şehirler gibi belirli konumlara eşleyerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve mekânsal dağılımları net ve görsel olarak çekici bir şekilde analiz etmek için özellikle yararlıdır.
 
-Bu örnek, varsayılan coğrafi verilerle bir harita grafiği oluşturmak ve PowerPoint’te görüntülemek için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metodunu kullanır.
+Bu örnek, varsayılan coğrafi verilerle bir harita grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) kullanır ve PowerPoint'te görüntülenmek üzere kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1025,19 +1075,19 @@ finally
 
 Sonuç:
 
-![Harita grafiği](map_chart.png)
+![Harita Grafiği](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Yukarıdaki resim, PowerPoint’te açılan kaydedilmiş sunumu gösterir. Aspose.Slides harita grafiğini ve verilerini doğru şekilde yazar, ancak harita grafiklerini kendisi çizmez: bir slayt bir görüntüye render edildiğinde, PDF ya da SVG’ye dönüştürüldüğünde grafik alanı boş kalır. Aynı slayttaki diğer şekiller etkilenmez.
+Yukarıdaki resim, kaydedilen sunumun PowerPoint'te açılmış halini gösterir. Aspose.Slides, harita grafiğini ve verilerini doğru bir şekilde yazar, ancak harita grafiklerini kendisi çizmeyebilir: bir slayt içinde harita grafiği varsa, bu slayt bir görüntüye render edildiğinde veya PDF ya da SVG'ye dönüştürüldüğünde grafik alanı boş çıkabilir. Aynı slayttaki diğer şekiller etkilenmez.
 {{% /alert %}}
 
-### **Kombinasyon (Combination) Grafikler Oluşturma**
+### **Kombinasyon Grafikler Oluşturma**
 
-Kombinasyon grafiği (veya combo grafiği), tek bir grafik içinde iki ya da daha fazla grafik tipini birleştirir. Bu grafik, iki ya da daha fazla veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza ya da incelemenize olanak tanır.
+Kombinasyon grafiği (veya combo grafiği), iki veya daha fazla grafik tipini tek bir grafikte birleştirir. Bu grafik, iki veya daha fazla veri kümesi arasındaki farkları vurgulamak, karşılaştırmak veya incelemek için kullanılır; böylece aralarındaki ilişkileri tanımlamaya yardımcı olur.
 
-![Kombinasyon grafiği](combination_chart.png)
+![Kombinasyon Grafiği](combination_chart.png)
 
-Bu örnek, dört kategori boyunca iki kümelenmiş sütun serisini bir çizgi serisi ile birleştirir. Sütunlar birincil dikey ekseni, çizgi ise [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) ile sağda ikinci bir dikey eksene yerleştirilir. Yardımcı işlevler başlık, lejand, eksen etiketleri ve ızgaraları yapılandırır.
+Bu örnek, dört kategori boyunca iki küme sütun serisini bir çizgi serisi ile birleştirir. Sütunlar birincil dikey ekseni kullanırken, [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) çizgiyi sağ tarafta ikincil bir dikey eksene yerleştirir. Yardımcı işlevler başlığı, açıklamayı, eksen etiketlerini ve ızgaraları yapılandırır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1204,9 +1254,9 @@ createComboChart();
 
 ## **Grafikleri Güncelleme**
 
-Aspose.Slides for Node.js via Java, PowerPoint grafiklerini veri, biçimlendirme ve stil değiştirerek güncellemenizi sağlar. Bu özellik, sunumların dinamik içerikle güncel kalmasını kolaylaştırır ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını sağlar.
+Aspose.Slides for Node.js via Java, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu özellik, sunumları dinamik içerikle güncel tutmayı ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını basitleştirir.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiği günceller. Her biri üç veri noktasına sahip iki sütun serisi gerektirir; kategori etiketleri A sütununda, seri adları ise ilk çalışma sayfasının birinci satırında bulunur. Örnek, [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) ile çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType) ile kümelenmiş silindirlere dönüştürür.
+Bu örnek, mevcut bir sunumun ilk slaydındaki "My chart" adlı grafiği günceller. Her birinde üç veri noktasına sahip iki sütun serisi gerektirir; kategori etiketleri A sütununda ve seri adları ilk çalışma sayfasının ilk satırında bulunur. Örnek, [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) metodunu kullanarak çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType) ile küme silindirlerine dönüştürür.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1270,11 +1320,11 @@ finally
 
 ## **Bir Grafik İçin Veri Aralığını Ayarlama**
 
-Mevcut bir grafik tarafından zaten kullanılan aralığı incelemek için, [Retrieve a Chart's Data Range](/slides/tr/nodejs-java/chart-workbook/#retrieve-a-charts-data-range) sayfasına bakın.
+Mevcut bir grafik tarafından kullanılan aralığı incelemek için, [Retrieve a Chart's Data Range](/slides/tr/nodejs-java/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
 
-Aspose.Slides for Node.js via Java, bir çalışma sayfasındaki belirli bir veri aralığını grafiğinizin veri kaynağı olarak tanımlama esnekliği sunar. Bu, çalışma sayfanızın bir bölümünü doğrudan grafiğe eşlemenizi sağlar; böylece hangi hücrelerin seri ve kategori verilerine katkıda bulunduğunu kontrol edebilirsiniz. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilirsiniz; böylece PowerPoint sunumlarınız güncel ve doğru bilgi yansıtır.
+Aspose.Slides for Node.js via Java, grafik verileriniz için çalışma sayfasından belirli bir veri aralığını kaynak olarak tanımlama esnekliği sunar. Bu sayede, çalışma sayfanızın bir bölümünü doğrudan grafiğe eşleyebilir, hangi hücrelerin seri ve kategorilere katkıda bulunacağını kontrol edebilirsiniz. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilirsiniz; böylece PowerPoint sunumlarınız güncel ve doğru bilgi yansıtır.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlamak için [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) metodunu kullanır. Grafik çalışma kitabının bu çalışma sayfasını ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren bir aralık içerdiğinden emin olun.
+Bu örnek, mevcut bir sunumun ilk slaydındaki "My chart" adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlamak için [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) metodunu kullanır. Grafik çalışma kitabının bu çalışma sayfasını ve birinci satırda bir seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren bir veri aralığını bulundurması gerekir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1307,9 +1357,9 @@ finally
 
 ## **Grafiklerde Varsayılan İşaretçileri Kullanma**
 
-Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisine otomatik olarak farklı bir varsayılan işaretçi sembolü atanır.
+Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir varsayılan işaretçi simgesi alır.
 
-Bu örnek, iki çizgi serisi ve bir lejand içeren bir grafik oluşturmak için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metodunu kullanır. [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) aracılığıyla erişilen işaretçi ayarları, otomatik olarak atanmış işaretçi sembollerini korur. İlk seri, `null` ile temsil edilen bir negatif değer ve eksik bir değer içerirken, ikinci seri her kategori için bir değer içerir.
+Bu örnek, iki çizgi serisi ve bir açıklama içeren bir grafik oluşturmak için [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) kullanır. [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) aracılığıyla erişilen işaretçi ayarları, otomatik olarak atanmış işaretçi sembollerini korur. İlk seri, negatif bir değer ve `null` ile temsil edilen eksik bir değer içerirken, ikinci seri her kategori için bir değere sahiptir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1376,16 +1426,16 @@ finally
 
 **Aspose.Slides for Node.js via Java hangi grafik türlerini destekliyor?**
 
-Aspose.Slides for Node.js via Java, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenizi sağlar.
+Aspose.Slides for Node.js via Java, çubuk, çizgi, pasta, alan, saçılım, histogram, radar ve daha birçok grafik türünü destekleyen geniş bir yelpazeye sahiptir. Bu esneklik, veri görselleştirme ihtiyaçlarınız için en uygun grafik türünü seçmenizi sağlar.
 
 **Bir slayta yeni bir grafik nasıl eklenir?**
 
-Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istediğiniz slaytı indeksine göre alır ve ardından grafik tipini ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem grafiği doğrudan sunumunuza entegre eder.
+Yeni bir grafik eklemek için, önce [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istediğiniz slaytı indeksine göre alır ve ardından grafik tipini ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
 
-**Grafikte gösterilen veriler nasıl güncellenir?**
+**Bir grafikte gösterilen veriler nasıl güncellenir?**
 
-Grafiğin verisini, veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) erişerek, varsayılan seri ve kategorileri temizleyip kendi verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenizi sağlar.
+Bir grafiğin verilerini, [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) üzerinden erişerek, varsayılan serileri ve kategorileri temizleyip, kendi verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenizi sağlar.
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides for Node.js via Java kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, lejandlar ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü tasarım gereksinimlerinize göre şekillendirebilirsiniz.
+Evet, Aspose.Slides for Node.js via Java, renkler, yazı tipleri, etiketler, açıklamalar ve diğer biçimlendirme unsurlarını değiştirerek grafiğin görünümünü tasarım gereksinimlerinize göre özelleştirmenize olanak tanır.

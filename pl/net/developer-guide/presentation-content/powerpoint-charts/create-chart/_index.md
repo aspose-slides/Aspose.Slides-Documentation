@@ -1,6 +1,6 @@
 ---
-title: Utworzenie lub aktualizacja wykresów w prezentacjach PowerPoint w .NET
-linktitle: Utworzenie lub aktualizacja wykresów
+title: Tworzenie lub aktualizacja wykresów w prezentacjach PowerPoint w .NET
+linktitle: Utwórz lub zaktualizuj wykresy
 type: docs
 weight: 10
 url: /pl/net/create-chart/
@@ -18,45 +18,43 @@ keywords:
 - wykres pudełkowy i wąsowy
 - wykres lejkowy
 - wykres promieniowy
-- histogram
+- wykres histogramu
 - wykres radarowy
-- wykres wielokategorii
+- wykres wielokategorialny
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Tworzenie i dostosowywanie wykresów w prezentacjach PowerPoint przy użyciu Aspose.Slides dla .NET. Dodawanie, formatowanie i edycja wykresów z praktycznymi przykładami kodu w C#."
+description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla .NET. Dodawaj, formatuj i edytuj wykresy za pomocą praktycznych przykładów kodu w C#."
 ---
 ## **Przegląd**
 
-Ten artykuł zawiera kompleksowy przewodnik dotyczący tworzenia i dostosowywania wykresów przy użyciu Aspose.Slides dla .NET. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić określone wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok – od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach .NET, usprawniając proces tworzenia prezentacji opartych na danych.
+Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides dla .NET. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić określone wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach .NET, upraszczając tworzenie prezentacji opartych na danych.
 
-## **Utworzenie wykresu**
+## **Tworzenie wykresu**
 
-Wykresy pomagają szybko wizualizować dane i wyciągać wnioski, które mogą nie być od razu oczywiste w tabeli lub arkuszu kalkulacyjnym.
+Wykresy pomagają szybko zwizualizować dane i uzyskać wnioski, które nie są od razu oczywiste w tabeli lub arkuszu kalkulacyjnym.
 
 **Dlaczego tworzyć wykresy?**
 
 Korzystając z wykresów, możesz:
 
-* agregować, kondensować lub podsumowywać duże ilości danych na jednym slajdzie prezentacji;
-* ujawniać wzorce i trendy w danych;
-* określać kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary;
-* wykrywać wartości odstające, aberracje, odchylenia, błędy i bezużyteczne dane;
-* komunikować lub prezentować złożone dane.
+* zagregować, skondensować lub podsumować duże ilości danych na jednym slajdzie prezentacji;
+* uwidocznić wzorce i trendy w danych;
+* wywnioskować kierunek i dynamikę danych w czasie lub względem określonej jednostki miary;
+* wykryć wartości odstające, aberracje, odchylenia, błędy i nielogiczne dane;
+* przekazać lub przedstawić złożone dane.
 
-W programie PowerPoint wykresy tworzy się za pomocą funkcji *Wstawianie*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
+W programie PowerPoint wykresy można tworzyć za pomocą funkcji *Insert*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
 
 {{% alert color="info" title="Note" %}}
-
-Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) z przestrzeni nazw [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
-
+Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) w przestrzeni nazw [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
 {{% /alert %}}
 
-### **Utworzenie grupowanego wykresu słupkowego**
+### **Tworzenie wykresów kolumnowych grupowanych**
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do stworzenia grupowanego wykresu słupkowego, który porównuje dwie serie w trzech kategoriach. Serie używają wypełnień na czerwono i zielono, a indywidualne etykiety wyświetlają nazwy kategorii, nazwy serii i wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu kolumnowego grupowanego, który porównuje dwie serie w trzech kategoriach. Serie używają wypełnień na czerwono i zielono, a indywidualne etykiety pokazują nazwy kategorii, nazwy serii oraz wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
 
 ```csharp
 using System.Drawing;
@@ -132,20 +130,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Wykres kolumnowy grupowany](clustered_column_chart.png)
 
-### **Utworzenie wykresów punktowych**
+### **Tworzenie wykresów punktowych**
 
-Wykresy punktowe (znane także jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwoma zmiennymi.
+Wykresy punktowe (znane także jako wykresy rozproszenia lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji pomiędzy dwoma zmiennymi.
 
 Użyj wykresu punktowego, gdy:
 
 * masz sparowane dane liczbowe;
-* dwie zmienne dobrze ze sobą współgrają;
+* masz dwie zmienne, które dobrze ze sobą współgrają;
 * chcesz określić, czy zmienne są ze sobą powiązane;
-* masz zmienną niezależną posiadającą wiele wartości dla zmiennej zależnej.
+* masz zmienną niezależną, dla której istnieje wiele wartości zmiennej zależnej.
 
-Ten przykład rysuje dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii ze znacznikiem‑gwiazdką, a druga – wygładzonych linii ze znacznikiem‑koło; obie używają [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) równego 10. Właściwość [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) steruje kształtem znacznika.
+Ten przykład wykreśla dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii z markerami‑gwiazdkami, druga – gładkich linii z markerami‑kołami; obie używają [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) = 10. Właściwość [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) określa kształt markera.
 
 ```csharp
 using Aspose.Slides;
@@ -208,13 +206,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The Scatter chart](scatter_chart.png)
+![Wykres punktowy](scatter_chart.png)
 
-### **Utworzenie wykresów kołowych**
+### **Tworzenie wykresów kołowych**
 
-Wykresy kołowe najlepiej służą do przedstawiania relacji część‑całość w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jeśli jednak Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
+Wykresy kołowe najlepiej służą do pokazania zależności części‑do‑całości w danych, zwłaszcza gdy dane zawierają etykiety kategorialne z wartościami liczbowymi. Jeśli jednak Twoje dane mają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
 
-Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy wycinek ma własne wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Właściwość [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) ustawia początek pierwszego wycinka pod kątem 180 stopni.
+Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy kawałek ma własne wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Właściwość [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) ustawia pierwszy kawałek na 180 stopni.
 
 ```csharp
 using System.Drawing;
@@ -310,13 +308,13 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The Pie chart](pie_chart.png)
+![Wykres kołowy](pie_chart.png)
 
-### **Utworzenie wykresów liniowych**
+### **Tworzenie wykresów liniowych**
 
-Wykresy liniowe (znane także jako wykresy liniowe) są najodpowiedniejsze, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i wiele więcej.
+Wykresy liniowe (znane także jako wykresy liniowe) są najodpowiedniejsze, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu liniowego z domyślnymi seriami i kategoriami, po czym zapisuje prezentację w formacie PPTX.
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu liniowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -331,7 +329,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-Domyślnie punkty na wykresie liniowym są łączone prostymi ciągłymi liniami. Aby połączyć je kreskami przerywanymi, ustaw [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) na jedną z wartości z [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+Domyślnie punkty na wykresie liniowym łączone są prostymi, ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, ustaw [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) na wartość z [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
 
 ```csharp
 using Aspose.Slides;
@@ -350,13 +348,13 @@ foreach (var series in lineChart.ChartData.Series)
 
 Wynik:
 
-![The Line chart](line_chart.png)
+![Wykres liniowy](line_chart.png)
 
-### **Utworzenie wykresów mapy drzewa**
+### **Tworzenie wykresów mapy drzewa**
 
-Wykresy mapy drzewa są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które wnoszą największy wkład w każdej kategorii.
+Wykresy mapy drzewa najlepiej sprawdzają się w danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które są dużymi contributorami w każdej kategorii.
 
-Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, a etykiety kategorii oraz nakładające się etykiety nadrzędne identyfikują hierarchię.
+Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, a etykiety kategorii i nakładające się etykiety nadrzędne identyfikują hierarchię.
 
 ```csharp
 using Aspose.Slides;
@@ -432,15 +430,15 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The Treemap chart](treemap_chart.png)
+![Wykres mapy drzewa](treemap_chart.png)
 
-### **Utworzenie wykresów wodospadowych**
+### **Tworzenie wykresów wodospadowych**
 
-Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do wartości końcowej. Na przykład rozbicie zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny zmian „pływają” między poprzednią a nową wartością bieżącą, a kolumny sumy rozciągają się od zera do wartości skumulowanej.
+Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do wartości końcowej. Na przykład podział zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny ze zmianami „pływają” pomiędzy poprzednią a nową wartością bieżącą, a kolumny sumaryczne rozciągają się od zera do wartości skumulowanej.
 
 Poniższy przykład używa kwot w tysiącach dolarów amerykańskich:
 
-| Category | Workbook value | Column type |
+| Kategoria | Wartość skoroszytu | Typ kolumny |
 | --- | ---: | --- |
 | Revenue | 1000 | Increase |
 | Cost of sales | -400 | Decrease |
@@ -449,9 +447,9 @@ Poniższy przykład używa kwot w tysiącach dolarów amerykańskich:
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-Aby oznaczyć punkt jako sumę pośrednią lub końcową, ustaw jego właściwość [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) na `true`. Podaj rzeczywistą skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Właściwość oznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako zastępnika ani nie podawaj innej zmiany dla punktu sumy. Kolumna sumy wyświetla skumulowaną wartość bez ponownego dodawania jej do wartości bieżącej.
+Aby oznaczyć punkt jako pośredni lub końcowy total, ustaw jego właściwość [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) na `true`. Podaj rzeczywistą skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Właściwość oznacza kolumnę jako total; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako symbolu zastępczego ani nie podawaj innej zmiany dla punktu totalnego. Kolumna totalna wyświetla skumulowaną wartość bez dodatkowego dodawania jej do wartości bieżącej.
 
-Ten kompletny przykład w C# tworzy wykres przy użyciu członu `Waterfall` z [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), usuwa domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B – wartości. Każda komórka wartości jest dodawana metodą [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indeksy punktów zerobazowe `2` i `5` identyfikują sumy pośrednie i końcowe. Włączenie [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) wyświetla kwoty na kolumnach. Nie wymaga żadnej wejściowej prezentacji ani skoroszytu.
+Pełny przykład w C# tworzy wykres przy użyciu członka `Waterfall` z [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), usuwa domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B – wartości. Każda komórka wartości jest dodawana metodą [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indeksy punktów bazujące na zerze `2` i `5` określają odpowiednio pośredni i końcowy total. Włączenie [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) wyświetla kwoty na kolumnach. Nie jest wymagana żadna prezentacja ani skoroszyt wejściowy.
 
 ```csharp
 using Aspose.Slides;
@@ -498,17 +496,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Ustaw właściwość [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) na poziomie serii na `true`, aby wyświetlić linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień w przykładzie przypisanie na `series.ShowConnectorLines = false;` przed zapisem. Zmienia to tylko widoczność linii, nie dane ani sumy.
+Ustaw właściwość [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) serii na `true`, aby pokazać linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień przypisanie w przykładzie na `series.ShowConnectorLines = false;` przed zapisem. Zmieni to jedynie widoczność linii, a nie dane ani totalne wartości.
 
-Zapisana prezentacja pokazuje zysk brutto 600 oraz zysk netto 450, przy czym obie sumy są rysowane od zera:
+Zapisana prezentacja pokazuje zysk brutto 600 i zysk netto 450, przy czym oba totalne są rysowane od zera:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![Wykres wodospadowy przedstawiający przychód, koszty, zysk brutto 600 i zysk netto 450, z etykietami wartości i liniami łączącymi](waterfall_chart.png)
 
-### **Utworzenie wykresów giełdowych**
+### **Tworzenie wykresów giełdowych**
 
-Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak otwarcie, maksimum, minimum i zamknięcie, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
+Wykresy giełdowe służą do prezentacji danych finansowych, takich jak otwarcie, maksimum, minimum i zamknięcie, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
 
-Ten przykład tworzy wykres OHLC (open‑high‑low‑close) z czterema seriami w tej kolejności oraz trzema kategoriami. Właściwość [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) włącza słupki up/down, a [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) steruje liniami high‑low, które pokazują zakresy cen, przy czym linie serii i drobne linie siatki poziome są ukryte.
+Ten przykład tworzy wykres OHLC (open‑high‑low‑close) z czterema seriami w tej kolejności i trzema kategoriami. Właściwość [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) włącza słupki wzrostu/spadku, a [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) kontroluje linie wysokiego‑niskiego, które pokazują zakresy cen, przy czym indywidualne linie serii i drobne linie siatki poziome są ukryte.
 
 ```csharp
 using Aspose.Slides;
@@ -585,13 +583,13 @@ presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The Stock chart](stock_chart.png)
+![Wykres giełdowy](stock_chart.png)
 
-### **Utworzenie wykresów pudełkowych (box‑and‑whisker)**
+### **Tworzenie wykresów pudełkowych i wąsów**
 
-Wykresy pudełkowe służą do przedstawiania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w analizie eksploracyjnej i badaniach statystycznych, aby szybko zrozumieć zmienność danych i zidentyfikować anomalie.
+Wykresy pudełkowe i wąsów służą do prezentacji rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w analizie eksploracyjnej i badaniach statystycznych, umożliwiając szybkie zrozumienie zmienności danych i identyfikację anomalii.
 
-Ten przykład tworzy wykres pudełkowy z sześciu wartości. Właściwość [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) wybiera wykluczający sposób obliczania kwartylów. Przykład dodatkowo włącza linie średniej, znaczniki średniej, wewnętrzne punkty i punkty odstające.
+Ten przykład tworzy wykres pudełkowy i wąsowy z sześciu wartości. Właściwość [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) wybiera wyłączny sposób obliczania kwartylów. Przykład włącza także linie średniej, markery średniej, wewnętrzne punkty oraz punkty odstające.
 
 ```csharp
 using Aspose.Slides;
@@ -646,11 +644,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Utworzenie wykresów lejkowych**
+### **Tworzenie wykresów lejkowych**
 
-Wykresy lejkowe służą do wizualizacji procesów składających się z kolejnych etapów, w których wolumen danych maleje wraz z postępem od jednego kroku do następnego. Są szczególnie pomocne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
+Wykresy lejkowe służą do wizualizacji procesów składających się z kolejnych etapów, w których wolumen danych maleje w miarę przechodzenia z jednego kroku do następnego. Są szczególnie pomocne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do dodania wykresu lejkowego do pierwszego slajdu istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, a następnie zapisuje zaktualizowaną prezentację. Wejściowa prezentacja musi zawierać co najmniej jeden slajd.
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do dodania wykresu lejkowego na pierwszym slajdzie istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, a następnie zapisuje zaktualizowaną prezentację. Prezentacja wejściowa musi zawierać przynajmniej jeden slajd.
 
 ```csharp
 using Aspose.Slides;
@@ -701,13 +699,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The Funnel chart](funnel_chart.png)
+![Wykres lejkowy](funnel_chart.png)
 
-### **Utworzenie wykresów promieniowych (sunburst)**
+### **Tworzenie wykresów promieniowych**
 
-Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając kolejne poziomy jako koncentryczne pierścienie. Pomagają zilustrować relacje część‑całość i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzystym, zwartym formacie.
+Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają zilustrować zależności części‑do‑całości i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzysty, kompaktowy sposób.
 
-Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
+Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) przypisuje pędy na poziomie grupowania 1 i gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
 
 ```csharp
 using Aspose.Slides;
@@ -781,13 +779,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The Sunburst chart](sunburst_chart.png)
+![Wykres promieniowy](sunburst_chart.png)
 
-### **Utworzenie histogramów**
+### **Tworzenie wykresów histogramu**
 
-Histogramy służą do przedstawiania rozkładu danych liczbowych poprzez grupowanie wartości w przedziały (kosze). Są szczególnie przydatne do identyfikacji wzorców danych, takich jak częstotliwość, skośność i rozproszenie, oraz do wykrywania wartości odstających w zestawie danych.
+Histogramy pokazują, jak wartości liczbowe rozkładają się w przedziałach (koszach). W raportach miesięcznych dotyczących czasu przetwarzania zamówień użyj takiej samej szerokości kosza i progów, aby utrzymać spójność przedziałów i ułatwić porównania rozkładów.
 
-Ten przykład tworzy histogram z sześciu wartości liczbowych, w tym wartości ujemnych. Ustawienie [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/aggregationtype/) na automatyczne pozwala wykresowi określić liczbę koszy używanych do wyświetlenia rozkładu.
+Ustaw poziomą oś [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) na tryb z [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) ma zastosowanie tylko przy `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) – tylko przy `ByNumberOfBins`. Użyj `Automatic`, aby wykres sam wybrał kosze.
+
+#### **Użycie stałej szerokości kosza**
+
+Ten przykład grupuje czasy przetwarzania w przedziały 10‑minutowe, z osobnymi koszami dla czasów ≤ 10 min i > 40 min. Włącz te kosze za pomocą [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) i [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). Podając wyraźne progi [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) i [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/), ustaw [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) i [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) na `false`.
 
 ```csharp
 using Aspose.Slides;
@@ -797,7 +799,10 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
 
 chart.ChartData.Categories.Clear();
 chart.ChartData.Series.Clear();
@@ -806,33 +811,77 @@ var workbook = chart.ChartData.ChartDataWorkbook;
 workbook.Clear(0);
 
 var series = chart.ChartData.Series.Add(ChartType.Histogram);
-var valueCell = workbook.GetCell(0, "A1", 15);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A2", -41);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A3", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A4", 10);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A5", -23);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A6", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
 
-chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByBinWidth;
+axis.BinWidth = 10;
+axis.IsUnderflowBin = true;
+axis.IsAutomaticUnderflowBin = false;
+axis.UnderflowBin = 10;
+axis.IsOverflowBin = true;
+axis.IsAutomaticOverflowBin = false;
+axis.OverflowBin = 40;
 
-presentation.Save("Histogram.pptx", SaveFormat.Pptx);
+presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-Wynik:
+Prezentacja wyświetlana w PowerPoint pokazuje liczbę elementów w koszach **3, 4, 4, 4, i 2**. Kosz podprzepływu zawiera `5, 10, 10`, więc jego próg jest inkluzywny. Kosz przepływu zawiera tylko `41, 50`, więc jego próg jest ekskluzywny; wartości równe `40` pozostają w poprzednim przedziale. Kosze wewnętrzne zawierają wartości większe od dolnej granicy i mniejsze lub równe górnej granicy.
 
-![The Histogram chart](histogram_chart.png)
+![Histogram z koszami 10‑minutowymi i wyraźnymi progami podprzepływu i przepływu](histogram_bin_width.png)
 
-### **Utworzenie wykresów radarowych**
+#### **Określenie liczby koszy**
 
-Wykresy radarowe służą do prezentacji danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w różnych miarach wydajności lub atrybutach.
+Aby uzyskać stały poziom szczegółowości zamiast stałych przedziałów, poproś o pięć koszy dla tych samych danych. Ten przykład pozostawia wyłączone kosze podprzepływu i przepływu. Wykres wyznacza szerokość na podstawie zakresu danych, więc granice mogą się zmieniać między raportami.
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu radarowego z domyślnymi seriami i kategoriami, po czym zapisuje prezentację w formacie PPTX.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Histogram);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
+
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByNumberOfBins;
+axis.NumberOfBins = 5;
+
+presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+```
+
+Pięć koszy ma liczbę elementów **4, 4, 4, 4, i 1**. Porównaj ten rozkład z wynikiem przy stałej szerokości powyżej: wartości wejściowe są identyczne, ale granice się różnią.
+
+![Histogram z pięcioma koszami wyliczonymi na podstawie tych samych danych](histogram_bin_count.png)
+
+### **Tworzenie wykresów radarowych**
+
+Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w wielu metrykach wydajności lub atrybutach.
+
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu radarowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -849,13 +898,13 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The Radar chart](radar_chart.png)
+![Wykres radarowy](radar_chart.png)
 
-### **Utworzenie wykresów wielokategorii**
+### **Tworzenie wykresów wielokategorialnych**
 
-Wykresy wielokategorii służą do prezentacji danych, które obejmują więcej niż jedną grupę kategorii, umożliwiając porównywanie wartości w wielu wymiarach jednocześnie. Są szczególnie przydatne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
+Wykresy wielokategorialne służą do wyświetlania danych, które obejmują więcej niż jedną grupę kategorialną, umożliwiając jednoczesne porównywanie wartości w wielu wymiarach. Są szczególnie przydatne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
 
-Ten przykład tworzy grupowany wykres słupkowy z ośmioma kategoriami ułożonymi w cztery pary. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z zarówno indywidualnymi, jak i grupowymi etykietami.
+Ten przykład tworzy wykres kolumnowy grupowany z ośmioma kategoriami ułożonymi w cztery pary. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z indywidualnymi i grupowymi etykietami.
 
 ```csharp
 using Aspose.Slides;
@@ -924,13 +973,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The multi category chart](multi_category_chart.png)
+![Wykres wielokategorialny](multi_category_chart.png)
 
-### **Utworzenie wykresów mapowych**
+### **Tworzenie wykresów mapowych**
 
-Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany czy miasta. Są szczególnie przydatne do analizy trendów regionalnych, danych demograficznych i rozkładów przestrzennych w przejrzysty i atrakcyjny wizualnie sposób.
+Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany lub miasta. Są szczególnie przydatne do analizy trendów regionalnych, danych demograficznych i rozkładów przestrzennych w przejrzysty, atrakcyjny wizualnie sposób.
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu mapowego z domyślnymi danymi geograficznymi i zapisuje go do przeglądania w programie PowerPoint.
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu mapowego z domyślnymi danymi geograficznymi i zapisuje go do podglądu w PowerPoint.
 
 ```csharp
 using Aspose.Slides;
@@ -947,21 +996,19 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The Map chart](map_chart.png)
+![Wykres mapowy](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-
-Powyższy obrazek przedstawia zapisany plik prezentacji otwarty w programie PowerPoint. Aspose.Slides prawidłowo zapisuje wykres mapowy i jego dane, ale nie rysuje samych map: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany na PDF albo SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
-
+Powyższy obraz przedstawia zapisany plik prezentacji otwarty w PowerPoint. Aspose.Slides zapisuje wykres mapowy i jego dane poprawnie, ale nie rysuje samych wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany na PDF lub SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
 {{% /alert %}}
 
-### **Utworzenie wykresów kombinowanych**
+### **Tworzenie wykresów kombinowanych**
 
-Wykres kombinowany (lub combo) łączy dwa lub więcej typów wykresów w jednym grafiku. Takie połączenie umożliwia podkreślenie, porównanie lub zbadanie różnic między dwoma lub więcej zestawami danych, pomagając zidentyfikować ich wzajemne zależności.
+Wykres kombinowany (lub combo) łączy dwa lub więcej typów wykresów w jednym grafie. Pozwala podkreślić, porównać lub zbadać różnice pomiędzy dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
 
-![The combination chart](combination_chart.png)
+![Wykres kombinowany](combination_chart.png)
 
-Ten przykład łączy dwie grupowane serie słupkowe z serią liniową w czterech kategoriach. Słupki korzystają z głównej (pierwszej) osi pionowej, podczas gdy [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) umieszcza linię na drugiej (prawostronnej) osi pionowej. Funkcje pomocnicze konfigurowane są tak, aby ustawić tytuł, legendę, etykiety osi i linie siatki.
+Ten przykład łączy dwie serie kolumn grupowanych z serią liniową w czterech kategoriach. Kolumny używają pierwszej (pierwotnej) osi pionowej, natomiast [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) umieszcza linię na drugorzędnej osi pionowej po prawej. Funkcje pomocnicze konfigurują tytuł, legendę, etykiety osi i linie siatki.
 
 ```csharp
 using System.Drawing;
@@ -1123,9 +1170,9 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Aktualizacja wykresów**
 
-Aspose.Slides dla .NET umożliwia aktualizowanie wykresów PowerPointa poprzez modyfikację danych wykresu, formatowania i stylu. Ta funkcjonalność upraszcza proces utrzymywania prezentacji w aktualnym stanie przy dynamicznej treści i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane oraz wymagania wizualne.
+Aspose.Slides dla .NET umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylu. Funkcjonalność ta upraszcza utrzymywanie prezentacji w aktualnym stanie przy użyciu dynamicznej treści i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane oraz standardy wizualne.
 
-Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych, z trzema punktami danych w każdej, przy czym etykiety kategorii znajdują się w kolumnie A, a nazwy serii w pierwszym wierszu pierwszego arkusza. Przykład używa [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię oraz zmienia typ wykresu na grupowane cylindry poprzez [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
+Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, z etykietami kategorii w kolumnie A i nazwami serii w pierwszym wierszu pierwszego arkusza. Przykład używa [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię i zmienia wykres na kolumny cylinderowe poprzez [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
 ```csharp
 using Aspose.Slides;
@@ -1183,9 +1230,9 @@ presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 
 Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Retrieve a Chart's Data Range](/slides/pl/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides dla .NET zapewnia elastyczność definiowania określonego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować część arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. Dzięki temu łatwo aktualizujesz i synchronizujesz wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że Twoje prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
+Aspose.Slides dla .NET zapewnia elastyczność definiowania konkretnego zakresu danych z arkusza jako źródła dla danych wykresu. Oznacza to, że możesz bezpośrednio mapować fragment swojego arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. Dzięki temu możesz łatwo aktualizować i synchronizować wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że Twoje prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
 
-Ten przykład używa [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) do ustawienia źródła danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać taki arkusz oraz wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A i trzema wartościami w kolumnie B.
+Ten przykład używa [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) do ustawienia źródła danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz oraz wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A i trzema wartościami w kolumnie B.
 
 ```csharp
 using Aspose.Slides;
@@ -1208,11 +1255,11 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 ```
 
-## **Użycie domyślnych znaczników w wykresach**
+## **Użycie domyślnych markerów w wykresach**
 
-Gdy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
+Gdy używasz domyślnych markerów w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol markera.
 
-Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu z dwoma seriami liniowymi i legendą. Ustawienia [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) zachowują automatycznie przypisane symbole znaczników. Pierwsza seria zawiera wartość ujemną oraz brakującą (`null`), natomiast druga ma wartość dla każdej kategorii.
+Ten przykład używa [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) do stworzenia wykresu z dwiema seriami liniowymi i legendą. Ustawienia [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) zachowują automatycznie przypisane symbole markerów. Pierwsza seria zawiera wartość ujemną i brakującą wartość, reprezentowaną przez `null`, natomiast druga ma wartość dla każdej kategorii.
 
 ```csharp
 using Aspose.Slides;
@@ -1274,16 +1321,16 @@ presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 
 **Jakie typy wykresów są obsługiwane przez Aspose.Slides dla .NET?**
 
-Aspose.Slides dla .NET obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najodpowiedniejszy typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides dla .NET obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, punktowe, histogramy, radarowe i wiele innych. Elastyczność ta pozwala wybrać najodpowiedniejszy typ wykresu do potrzeb wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu oraz początkowe dane. Proces ten integruje wykres bezpośrednio w prezentacji.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), pobierasz żądany slajd według jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio w Twojej prezentacji.
 
-**Jak mogę zaktualizować dane wyświetlane na wykresie?**
+**W jaki sposób mogę zaktualizować dane wyświetlane na wykresie?**
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), czyszcząc domyślne serie i kategorie, a następnie dodając własne dane. Pozwala to programowo odświeżyć wykres, aby odzwierciedlał najnowsze informacje.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programowe odświeżenie wykresu, aby odzwierciedlał najnowsze dane.
 
 **Czy można dostosować wygląd wykresu?**
 
-Tak, Aspose.Slides dla .NET oferuje rozbudowane opcje personalizacji. Możesz modyfikować kolory, czcionki, etykiety, legendy oraz inne elementy formatowania, aby dostosować wygląd wykresu do konkretnych wymagań projektowych.
+Tak, Aspose.Slides dla .NET oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dostosować wygląd wykresu do konkretnych wymagań projektowych.

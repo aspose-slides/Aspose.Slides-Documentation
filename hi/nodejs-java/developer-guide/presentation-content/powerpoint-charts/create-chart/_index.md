@@ -1,5 +1,5 @@
 ---
-title: जावास्क्रिप्ट में PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें
+title: JavaScript में PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें
 linktitle: चार्ट बनाएं या अपडेट करें
 type: docs
 weight: 10
@@ -15,7 +15,7 @@ keywords:
 - लाइन चार्ट
 - ट्री मैप चार्ट
 - स्टॉक चार्ट
-- बॉक्स एंड व्हिस्कर चार्ट
+- बॉक्स और विस्कर चार्ट
 - फ़नल चार्ट
 - सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
@@ -26,35 +26,35 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और कस्टमाइज़ करें। जावास्क्रिप्ट में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मेट करें और संपादित करें।"
+description: "Aspose.Slides for Node.js via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। JavaScript में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, स्वरूपित करें और संपादित करें।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides for Node.js via Java का उपयोग करके चार्ट बनाना और अनुकूलित करना सीखने के लिए एक व्यापक मार्गदर्शिका प्रदान करता है। आप प्रोग्रामmatically स्लाइड में चार्ट जोड़ना, उसे डेटा से भरना, और आपके विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार विभिन्न फ़ॉर्मेटिंग विकल्प लागू करना सीखेंगे। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, जैसे प्रस्तुति और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करना, सीरीज़, अक्ष और लेजेंड को कॉन्फ़िगर करना। इस मार्गदर्शिका का पालन करके आप डायनामिक चार्ट जेनरेशन को अपने Node.js अनुप्रयोगों में एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑ड्रिवन प्रस्तुतियों का निर्माण सरल हो जाएगा।
+यह लेख Aspose.Slides for Node.js via Java का उपयोग करके चार्ट बनाने और अनुकूलित करने पर एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि कैसे प्रोग्रामेटिक रूप से स्लाइड में चार्ट जोड़ें, उसे डेटा से भरें, और अपने विशिष्ट डिज़ाइन आवश्यकताओं को पूरा करने के लिए विभिन्न फ़ॉर्मेटिंग विकल्प लागू करें। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करने से लेकर सीरीज़, एक्सिस और लेजेंड को कॉन्फ़िगर करने तक। इस गाइड का पालन करके आप अपने Node.js एप्लिकेशन में डायनेमिक चार्ट जेनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑ड्रिवन प्रस्तुतियों को बनाना सरल हो जाएगा।
 
-## **चार्ट बनाएं**
+## **Create a Chart**
 
-चार्ट लोगों को डेटा जल्दी से विज़ुअलाइज़ करने और उन अंतर्दृष्टियों को प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
+चार्ट लोगों को डेटा को जल्दी से विज़ुअलाइज़ करने और ऐसे अंतर्दृष्टियों को प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
 
 **चार्ट क्यों बनाएं?**
 
 चार्ट का उपयोग करके आप:
 
-* बड़े डेटा सेट को एक ही स्लाइड में समेट सकते हैं;
-* डेटा में पैटर्न और रुझान उजागर कर सकते हैं;
-* समय के साथ या किसी विशिष्ट इकाई के संदर्भ में डेटा की दिशा और गति निर्धारित कर सकते हैं;
-* आउट्लायर, विचलन, त्रुटि और असंगत डेटा को पहचान सकते हैं;
-* जटिल डेटा को संप्रेषित या प्रस्तुत कर सकते हैं।
+* एक ही स्लाइड में बड़ी मात्रा में डेटा को एकत्रित, संक्षिप्त या सारांशित कर सकते हैं;
+* डेटा में पैटर्न और ट्रेंड को उजागर कर सकते हैं;
+* समय के साथ या किसी विशिष्ट माप इकाई के संदर्भ में डेटा की दिशा और गति निर्धारित कर सकते हैं;
+* अपवाद, विचलन, त्रुटियां और असंगत डेटा को पहचान सकते हैं;
+* जटिल डेटा को प्रभावी ढंग से संप्रेषित या प्रस्तुत कर सकते हैं।
 
-PowerPoint में आप *Insert* फ़ंक्शन के माध्यम से कई प्रकार के टेम्पलेट का उपयोग करके चार्ट बना सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से कई प्रकार के चार्ट टेम्पलेट चुनकर चार्ट बना सकते हैं। Aspose.Slides का उपयोग करके आप नियमित चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
 {{% alert color="info" title="Note" %}}
-[ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) enumeration को [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) मॉड्यूल में उपयोग करें। इस enumeration के मान विभिन्न चार्ट प्रकारों से मेल खाते हैं।
+Use the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) enumeration in the [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) module. The values in this enumeration correspond to different chart types.
 {{% /alert %}}
 
-### **क्लस्टर्ड कॉलम चार्ट बनाएं**
+### **Create Clustered Column Charts**
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके एक क्लस्टर्ड कॉलम चार्ट बनाता है जो तीन श्रेणियों में दो सीरीज़ की तुलना करता है। सीरीज़ लाल और हरे रंग से भरते हैं, और व्यक्तिगत लेबल श्रेणी नाम, सीरीज़ नाम और मान दिखाते हैं। वर्कशीट इंडेक्स 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को दर्शाता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके एक clustered column chart बनाता है जो तीन श्रेणियों में दो सीरीज़ की तुलना करता है। सीरीज़ लाल और हरे फ़िल्स का उपयोग करती हैं, और व्यक्तिगत लेबल श्रेणी नाम, सीरीज़ नाम और मान प्रदर्शित करते हैं। वर्कशीट इंडेक्स 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को संदर्भित करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -135,20 +135,20 @@ finally
 
 परिणाम:
 
-![क्लस्टर्ड कॉलम चार्ट](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **स्कैटर चार्ट बनाएं**
+### **Create Scatter Charts**
 
-स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x‑y ग्राफ भी कहा जाता है) अक्सर दो वेरिएबल्स के बीच पैटर्न या सहसंबंध जांचने के लिए उपयोग किए जाते हैं।
+Scatter charts (जिसे scatter plots या x‑y graphs भी कहा जाता है) अक्सर दो वैरिएबल्स के बीच पैटर्न या सहसंबंध जाँचने के लिए उपयोग किए जाते हैं।
 
-एक स्कैटर चार्ट उपयोग करें जब:
+Scatter chart का उपयोग करें जब:
 
-* आपके पास युग्मित संख्यात्मक डेटा हो;
-* दो वेरिएबल्स एक साथ अच्छी तरह मेल खाते हों;
-* आप यह निर्धारित करना चाहते हों कि दो वेरिएबल्स संबंधित हैं या नहीं;
-* आपके पास एक स्वतंत्र वेरिएबल हो जिसके लिए निर्भर वेरिएबल के कई मान हों।
+* आपके पास युग्मित संख्यात्मक डेटा हो।
+* दो वैरिएबल्स एक साथ अच्छी तरह से मेल खाते हों।
+* आप यह निर्धारित करना चाहते हों कि दोनों वैरिएबल्स संबंधित हैं या नहीं।
+* आपके पास एक स्वतंत्र वैरिएबल हो जिसके कई मान निर्भर वैरिएबल के लिये हों।
 
-यह उदाहरण दो सेट x‑y मानों को प्लॉट करता है। पहली सीरीज़ सिधे रेखाओं के साथ स्टार मार्कर का उपयोग करती है, जबकि दूसरी स्मूद रेखाओं के साथ सर्कल मार्कर; दोनों का मार्कर आकार 10 है, जिसे [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize) से कॉन्फ़िगर किया गया है। [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) मेथड मार्कर आकार नियंत्रित करता है।
+यह उदाहरण दो सेट के x‑y मानों को प्लॉट करता है। पहली सीरीज़ स्टार मार्कर के साथ सीधी लाइनें उपयोग करती है, जबकि दूसरी सीरीज़ सर्कल मार्कर के साथ स्मूथ लाइन्स उपयोग करती है; दोनों का मार्कर आकार 10 है, जिसे [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize) से कॉन्फ़िगर किया गया है। [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) मेथड मार्कर के आकार को नियंत्रित करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -216,13 +216,13 @@ finally
 
 परिणाम:
 
-![स्कैटर चार्ट](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **पाई चार्ट बनाएं**
+### **Create Pie Charts**
 
-पाई चार्ट डेटा के भाग‑से‑पूरी संबंध को दिखाने के लिए सबसे उपयुक्त होते हैं, विशेष रूप से जब डेटा में श्रेणीबद्ध लेबल और संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो बार चार्ट का उपयोग करने पर विचार करें।
+Pie charts डेटा में भाग‑से‑सम्पूर्ण संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेष रूप से जब डेटा में श्रेणी‑लेबल्स के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में बहुत अधिक भाग या लेबल हों, तो आप बार चार्ट का उपयोग करने पर विचार कर सकते हैं।
 
-यह उदाहरण तीन तिमाही मानों के साथ एक पाई चार्ट बनाता है। प्रत्येक स्लाइस में कस्टम फ़िल और बॉर्डर है, और लेबल विभिन्न मान, प्रतिशत और सीरीज़ जानकारी का संयोजन दिखाते हैं। [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) मेथड पहली स्लाइस को 180 डिग्री से शुरू करता है।
+यह उदाहरण तीन त्रैमासिक मानों वाले एक pie chart को बनाता है। प्रत्येक स्लाइस का कस्टम फ़िल और बॉर्डर है, और लेबल विभिन्न संयोजनों में मान, प्रतिशत और सीरीज़ जानकारी प्रदर्शित करते हैं। [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) मेथड पहले स्लाइस को 180 डिग्री पर शुरू होने के लिए सेट करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -323,13 +323,13 @@ finally
 
 परिणाम:
 
-![पाई चार्ट](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **लाइन चार्ट बनाएं**
+### **Create Line Charts**
 
-लाइन चार्ट (जिसे लाइन ग्राफ भी कहा जाता है) का उपयोग तब सबसे अच्छा होता है जब आप समय के साथ मान में परिवर्तन दिखाना चाहते हों। लाइन चार्ट के माध्यम से आप बड़ी मात्रा में डेटा की तुलना, रुझानों को ट्रैक, डेटा सीरीज़ में अनियमितताओं को उजागर आदि कर सकते हैं।
+Line charts (जिसे line graphs भी कहा जाता है) तब सबसे उपयुक्त होते हैं जब आप समय के साथ मानों में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट के साथ आप एक ही बार में बड़ी मात्रा में डेटा की तुलना, परिवर्तन और रुझान को ट्रैक, और डेटा सीरीज़ में अपवादों को उजागर कर सकते हैं।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक लाइन चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक line chart बनाता है, फिर प्रस्तुति को PPTX के रूप में सेव करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -349,7 +349,7 @@ finally
 }
 ```
 
-डिफ़ॉल्ट रूप से, लाइन चार्ट पर बिंदु सीधे सतत रेखाओं से जुड़े होते हैं। यदि आप बिंदुओं को डैश द्वारा जोड़ना चाहते हैं, तो [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) को [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) के मान के साथ कॉल करें:
+डिफ़ॉल्ट रूप से, लाइन चार्ट में बिंदु सीधे सतत लाइनों से जुड़े होते हैं। यदि आप बिंदुओं को डैश से जोड़ना चाहते हैं, तो [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) को [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) से कोई मान देकर कॉल करें:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -376,13 +376,13 @@ finally
 
 परिणाम:
 
-![लाइन चार्ट](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **ट्री मैप चार्ट बनाएं**
+### **Create Tree Map Charts**
 
-ट्री मैप चार्ट बिक्री डेटा के लिए आदर्श होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हों और प्रत्येक श्रेणी में बड़े योगदान देने वाले आइटम्स पर जल्दी से ध्यान आकर्षित करना चाहते हों।
+Tree map charts बिक्री डेटा में उन श्रेणियों के सापेक्ष आकार दिखाने और प्रत्येक वर्ग में बड़े योगदानकर्ताओं पर जल्दी से ध्यान आकर्षित करने के लिए सबसे उपयुक्त होते हैं।
 
-यह उदाहरण आठ पत्तियों को चार स्तंभों और दो शाखाओं में समूहित करके एक ट्री मैप बनाता है। [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) मेथड समूह स्तर 1 पर स्तंभ और स्तर 2 पर शाखाएँ निर्धारित करता है। मान सापेक्ष आयत आकार तय करते हैं, जबकि श्रेणी लेबल और ओवरलैपिंग पैरेंट लेबल पदानुक्रम दर्शाते हैं।
+यह उदाहरण आठ लीव्स को चार स्टेम्स और दो ब्रांचेज़ में समूहित करके एक tree map बनाता है। [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) मेथड स्तर 1 पर स्टेम्स और स्तर 2 पर ब्रांचेज़ असाइन करता है। मान रेक्टैंगल के सापेक्ष आकार निर्धारित करते हैं, जबकि श्रेणी लेबल और ओवरलैपिंग पेरेंट लेबल पदानुक्रम को दिखाते हैं।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -463,15 +463,15 @@ finally
 
 परिणाम:
 
-![ट्रीमैप चार्ट](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **वॉटरफॉल चार्ट बनाएं**
+### **Create Waterfall Charts**
 
-वॉटरफॉल चार्ट सकारात्मक और नकारात्मक परिवर्तनों को अंतिम मान में योगदान देते हुए दिखाते हैं। उदाहरण के तौर पर, एक लाभ विश्लेषण राजस्व से शुरू हो सकता है, लागत घटाई जा सकती है, और अन्य आय जोड़ी जा सकती है। परिवर्तन कॉलम पिछले और नई चलती मूल्यों के बीच तैरते हैं, जबकि कुल कॉलम शून्य से संचित मूल्य तक विस्तारित होते हैं।
+Waterfall chart दिखाता है कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिये, लाभ विभाजन राजस्व से शुरू हो सकता है, लागत घटा सकता है, और अन्य आय जोड़ सकता है। परिवर्तन कॉलम पिछले और नए चल रहे मान के बीच तैरते हैं, जबकि कुल कॉलम शून्य से संचयी मान तक विस्तारित होते हैं।
 
-निम्नलिखित उदाहरण हजारों अमेरिकी डॉलर में राशियों का उपयोग करता है:
+निम्नलिखित उदाहरण में राशि हजारों US डॉलर में दी गई हैं:
 
-| श्रेणी | वर्कबुक मान | कॉलम प्रकार |
+| श्रेणी | Workbook value | कॉलम प्रकार |
 | --- | ---: | --- |
 | Revenue | 1000 | Increase |
 | Cost of sales | -400 | Decrease |
@@ -480,9 +480,9 @@ finally
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-किसी बिंदु को मध्यवर्ती या अंतिम कुल के रूप में चिह्नित करने के लिए, उसके [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) मेथड को `true` के साथ कॉल करें। उस बिंदु की वर्कबुक सेल में वास्तविक संचित राशि प्रदान करें: ग्रॉस प्रॉफिट के लिये `600` (`1000 - 400`) और नेट प्रॉफिट के लिये `450` (`600 - 200 + 50`)। यह मेथड कॉलम को कुल के रूप में चिन्हित करता है; यह सेल मान की गणना या भराव नहीं करता। शून्य को प्लेसहोल्डर के रूप में उपयोग न करें या कुल बिंदु के लिये कोई अन्य परिवर्तन न दें। एक कुल कॉलम संचित मूल्य को बिना दोबारा जोड़ने के दिखाता है।
+किसी बिंदु को इंटरमीडिएट या फाइनल टोटल के रूप में चिह्नित करने के लिये, उसके [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) मेथड को `true` के साथ कॉल करें। उस बिंदु की वर्कबुक सेल में वास्तविक संचयी राशि प्रदान करें: `600` ग्रॉस प्रॉफिट (`1000 - 400`) के लिये और `450` नेट प्रॉफिट (`600 - 200 + 50`) के लिये। यह मेथड कॉलम को टोटल के रूप में चिह्नित करता है; यह सेल मान की गणना या भराव नहीं करता। शून्य को प्लेसहोल्डर के रूप में उपयोग न करें या टोटल पॉइंट के लिये कोई अन्य परिवर्तन न जोड़ें। टोटल कॉलम मौजूदा मान को दोबारा जोड़े बिना संचयी मान दिखाता है।
 
-यह पूर्ण JavaScript उदाहरण [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) के `Waterfall` सदस्य का उपयोग करके चार्ट बनाता है, डिफ़ॉल्ट डेटा साफ़ करता है, और एम्बेडेड वर्कबुक को भरता है। वर्कशीट इंडेक्स `0` पहली शीट चुनता है; कॉलम A में श्रेणी नाम होते हैं और कॉलम B में मान। प्रत्येक मान सेल को [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) के साथ जोड़ा जाता है। शून्य‑आधारित बिंदु इंडेक्स `2` और `5` क्रमशः मध्यवर्ती और अंतिम कुल को दर्शाते हैं। [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) को `true` के साथ कॉल करने से मान कॉलम पर दिखते हैं। कोई इनपुट प्रस्तुति या वर्कबुक आवश्यक नहीं है।
+यह पूरा JavaScript उदाहरण [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) के `Waterfall` सदस्य का उपयोग करके चार्ट बनाता है, डिफ़ॉल्ट डेटा को साफ़ करता है, और एम्बेडेड वर्कबुक को भरता है। वर्कशीट इंडेक्स `0` पहली शीट चुनता है; कॉलम A में श्रेणी नाम और कॉलम B में मान होते हैं। प्रत्येक मान सेल को [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) से जोड़ा जाता है। शून्य‑आधारित पॉइंट इंडेक्स `2` और `5` क्रमशः इंटरमीडिएट और फाइनल टोटल को दर्शाते हैं। `true` के साथ [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) कॉल करने से कॉलम पर राशि दिखती है। कोई इनपुट प्रस्तुति या वर्कबुक आवश्यक नहीं है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -534,17 +534,17 @@ finally
 }
 ```
 
-सीरीज़‑स्तर के [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) मेथड को `true` करने से क्रमिक कॉलम को जोड़ने वाली रेखाएँ दिखती हैं और चलती मूल्य का अनुसरण आसान हो जाता है। इन रेखाओं को छिपाने के लिये, उदाहरण में मेथड कॉल को `series.setShowConnectorLines(false);` से बदलें और फिर सहेजें। यह केवल रेखा दृश्यता बदलता है, डेटा या कुल को नहीं।
+सीरीज़‑लेवल पर [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) को `true` सेट करने से क्रमागत कॉलम को जोड़ने वाली लाइन्स दिखती हैं और चल रहा मान आसानी से अनुसरण किया जा सकता है। इन लाइन्स को छिपाने के लिये, उदाहरण में मेथड कॉल को `series.setShowConnectorLines(false);` से बदलें और फिर सेव करें। यह केवल लाइन्स की दृश्यता बदलता है, डेटा या टोटल को नहीं।
 
-सहेजी गई प्रस्तुति में 600 का ग्रॉस प्रॉफिट और 450 का नेट प्रॉफिट दिखता है, दोनों कुल शून्य से शुरू होते हैं:
+सेव किए गए प्रस्तुति में ग्रॉस प्रॉफिट 600 और नेट प्रॉफिट 450 दिखती हैं, दोनों टोटल शून्य से शुरू होते हैं:
 
-![वॉटरफॉल चार्ट जिसमें राजस्व, लागत, 600 का ग्रॉस प्रॉफिट और 450 का नेट प्रॉफिट, मान लेबल और कनेक्टर लाइनों के साथ दिखाए गए हैं](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **स्टॉक चार्ट बनाएं**
+### **Create Stock Charts**
 
-स्टॉक चार्ट खुले, उच्च, निम्न और बंद मूल्य जैसी वित्तीय जानकारी प्रदर्शित करने के लिये उपयोग होते हैं, जो बाजार रुझानों और अस्थिरता का विश्लेषण करने में मदद करते हैं। वे स्टॉक प्रदर्शन पर महत्वपूर्ण अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में सहायता मिलती है।
+Stock charts का उपयोग ओपन, हाई, लो और क्लोज कीमतों जैसे वित्तीय डेटा को प्रदर्शित करने के लिये किया जाता है, जिससे बाजार रुझान और अस्थिरता का विश्लेषण आसान होता है। ये स्टॉक प्रदर्शन पर महत्वपूर्ण अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
 
-यह उदाहरण चार क्रम में चार सीरीज़ और तीन श्रेणियों के साथ एक ओपन‑हाई‑लो‑क्लोज़ चार्ट बनाता है। [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) मेथड अप/डाउन बार सक्षम करता है, और [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) उच्च‑निम्न रेखाओं को नियंत्रित करता है जो मूल्य सीमा दिखाते हैं, जबकि व्यक्तिगत सीरीज़ रेखाएँ और छोटे क्षैतिज ग्रिडलाइन छिपी रहती हैं।
+यह उदाहरण चार सीरीज़ (ओपन‑हाई‑लो‑क्लोज क्रम में) और तीन श्रेणियों वाला एक stock chart बनाता है। [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) मेथड अप/डाउन बार सक्षम करता है, और [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) हाई‑लो लाइन्स को नियंत्रित करता है जो कीमत रेंज दिखाते हैं, जबकि व्यक्तिगत सीरीज़ लाइन्स और माइनर हॉरिज़ॉन्टल ग्रिडलाइन छिपी रहती हैं।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -628,13 +628,13 @@ finally
 
 परिणाम:
 
-![स्टॉक चार्ट](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **बॉक्स एंड व्हिस्कर चार्ट बनाएं**
+### **Create Box and Whisker Charts**
 
-बॉक्स एंड व्हिस्कर चार्ट डेटा वितरण को प्रमुख सांख्यिकीय माप जैसे मध्यक, क्वारटाइल और संभावित आउट्लायर द्वारा सारांशित करके प्रदर्शित करते हैं। वे अन्वेषणात्मक डेटा विश्लेषण और सांख्यिकीय अध्ययनों में डेटा वैरिएबिलिटी को जल्दी समझने और किसी भी असामान्यता की पहचान करने में अत्यंत उपयोगी होते हैं।
+Box and whisker charts डेटा वितरण को प्रमुख सांख्यिकीय माप (जैसे मीडियन, क्वार्टाइल और संभावित आउट्लायर) को सारांशित करके प्रदर्शित करते हैं। ये अन्वेषी डेटा विश्लेषण और सांख्यिकी अध्ययन में डेटा वैरिएशन को जल्दी समझने और किसी भी असामान्यताओं की पहचान करने में मददगार होते हैं।
 
-यह उदाहरण छह मानों से एक बॉक्स एंड व्हिस्कर चार्ट बनाता है। [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) मेथड विशिष्ट क्वारटाइल गणना चुनता है। उदाहरण में औसत रेखाएँ, औसत मार्कर, आंतरिक बिंदु और आउट्लायर बिंदु भी सक्षम हैं।
+यह उदाहरण छह मानों से एक box and whisker chart बनाता है। [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) मेथड एक्सक्लूसिव क्वार्टाइल गणना चुनता है। उदाहरण में मीन्स लाइन्स, मीन्स मार्कर्स, इनर पॉइंट्स और आउट्लायर पॉइंट्स भी सक्षम हैं।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -694,11 +694,11 @@ finally
 }
 ```
 
-### **फ़नल चार्ट बनाएं**
+### **Create Funnel Charts**
 
-फ़नल चार्ट प्रक्रियाओं को दर्शाने के लिये उपयोग होते हैं जहाँ डेटा की मात्रा प्रत्येक क्रमिक चरण के साथ घटती है। वे परिवर्तन दर, बाधाओं की पहचान और बिक्री या मार्केटिंग प्रक्रियाओं की दक्षता को ट्रैक करने में विशेष रूप से सहायक होते हैं।
+Funnel charts क्रमिक चरणों वाले प्रक्रियाओं को विज़ुअलाइज़ करने के लिये उपयोग किए जाते हैं, जहाँ डेटा की मात्रा एक चरण से अगले चरण में कम होती जाती है। ये रूपांतरण दरों का विश्लेषण करने, बॉटलनेक पहचानने, और बिक्री या मार्केटिंग प्रक्रियाओं की दक्षता ट्रैक करने में विशेष रूप से सहायक होते हैं।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में एक फ़नल चार्ट जोड़ने के लिये [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50 से 500 तक के मानों से बदलता है, फिर अद्यतन प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होना आवश्यक है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके एक funnel chart जोड़ता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50 से 500 तक के मानों से बदलता है, फिर अपडेटेड प्रस्तुति को सेव करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होना आवश्यक है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -754,13 +754,13 @@ finally
 
 परिणाम:
 
-![फ़नल चार्ट](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **सनबर्स्ट चार्ट बनाएं**
+### **Create Sunburst Charts**
 
-सनबर्स्ट चार्ट पदानुक्रमित डेटा को समाग्र रिंग के रूप में दर्शाते हैं। वे भाग‑से‑पूरी संबंध को स्पष्ट, संक्षिप्त रूप में दिखाते हैं और नेस्टेड श्रेणियों तथा उप‑श्रेणियों को चित्रित करने के लिये आदर्श होते हैं।
+Sunburst charts पदानुक्रमित डेटा को विज़ुअलाइज़ करने के लिये उपयोग होते हैं, जहाँ स्तरों को अभिकेन्द्रिक रिंग्स के रूप में प्रदर्शित किया जाता है। ये भाग‑से‑सम्पूर्ण संबंध दिखाते हैं और नेस्टेड श्रेणियों को स्पष्ट, कॉम्पैक्ट फॉर्मेट में दर्शाने के लिये आदर्श होते हैं।
 
-यह उदाहरण आठ पत्तियों को चार स्तंभों और दो शाखाओं में समूहित करके एक सनबर्स्ट चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) मेथड स्तर 1 पर स्तंभ और स्तर 2 पर शाखाएँ निर्धारित करता है। श्रेणी लेबल सेगमेंट को पहचानते हैं, और मान उनके सापेक्ष आकार निर्धारित करते हैं।
+यह उदाहरण आठ लीव्स को चार स्टेम्स और दो ब्रांचेज़ में समूहित करके एक sunburst chart बनाता है। [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) मेथड स्तर 1 पर स्टेम्स और स्तर 2 पर ब्रांचेज़ असाइन करता है। श्रेणी लेबल सेगमेंट की पहचान करते हैं, और मान उनके सापेक्ष आकार निर्धारित करते हैं।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -839,13 +839,17 @@ finally
 
 परिणाम:
 
-![सनबर्स्ट चार्ट](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **हिस्टोग्राम चार्ट बनाएं**
+### **Create Histogram Charts**
 
-हिस्टोग्राम चार्ट संख्यात्मक डेटा को विभिन्न रेंज या बिन में समूहित करके वितरण दर्शाते हैं। वे आवृत्ति, विकृति और प्रसार जैसे पैटर्न की पहचान तथा डेटासेट में आउट्लायर का पता लगाने में विशेष रूप से उपयोगी होते हैं।
+Histogram charts दिखाते हैं कि संख्यात्मक मान अंतराल (bins) के बीच कैसे वितरित होते हैं। मासिक ऑर्डर प्रोसेसिंग टाइम रिपोर्ट में समान बिन चौड़ाई और थ्रेशहोल्ड का उपयोग करके अंतराल सुसंगत रखे जा सकते हैं और वितरण की तुलना आसान बनती है।
 
-यह उदाहरण छह संख्यात्मक मानों (नकारात्मक मान सहित) से एक हिस्टोग्राम बनाता है। [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) को स्वतः एग्रीगेशन टाइप के साथ कॉल करने से चार्ट प्रदर्शित करने के लिये उपयुक्त बिन निर्धारित करता है।
+हॉरिज़ॉन्टल एक्सिस पर [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) को [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/) से किसी मोड के साथ कॉल करें। [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setBinWidth) केवल `ByBinWidth` के लिये लागू होता है; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberOfBins) केवल `ByNumberOfBins` के लिये। `Automatic` का उपयोग करके चार्ट को बिन चुनने दीजिए।
+
+#### **Use a Fixed Bin Width**
+
+यह उदाहरण प्रोसेसिंग टाइम को 10‑मिनट अंतराल में वर्गीकृत करता है, जिसमें 10 मिनट तक या उसके बराबर और 40 मिनट से अधिक के लिए अलग बिन होते हैं। इन्हें [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) और [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin) के साथ सक्षम किया जाता है। जब आप स्पष्ट थ्रेशहोल्ड को [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) और [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin) से सेट करते हैं, तो [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticUnderflowBin) और [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticOverflowBin) को `false` के साथ कॉल करें।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -855,7 +859,10 @@ try
 {
     let slide = presentation.getSlides().get_Item(0);
 
-    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 500, 300);
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -864,22 +871,24 @@ try
     workbook.clear(0);
 
     let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
-    let valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", aspose.slides.SaveFormat.Pptx);
 }
 finally
 {
@@ -887,15 +896,62 @@ finally
 }
 ```
 
-परिणाम:
+PowerPoint में प्रदर्शित प्रस्तुति में बिन गिनती **3, 4, 4, 4, और 2** है। अंडरफ़्लो बिन में `5, 10, 10` शामिल हैं, इसलिए इसका थ्रेशहोल्ड इन्क्लुसिव है। ओवरफ़्लो बिन में केवल `41, 50` शामिल हैं, इसलिए इसका थ्रेशहोल्ड एक्सक्लुसिव है; `40` मान पूर्ववर्ती अंतराल में रहता है। इंटरनल बिन में मान उनके निचले सीमा से बड़े और ऊपरी सीमा से छोटे या बराबर होते हैं।
 
-![हिस्टोग्राम चार्ट](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-### **रेडार चार्ट बनाएं**
+#### **Specify the Number of Bins**
 
-रेडार चार्ट द्वि‑आयामी प्रारूप में बहुवैरीय डेटा को प्रदर्शित करते हैं, जिससे कई वेरिएबल्स की एक साथ आसान तुलना संभव होती है। वे कई प्रदर्शन मीट्रिक या विशेषताओं के बीच पैटर्न, ताकत और कमजोरियों की पहचान करने में विशेष रूप से उपयोगी होते हैं।
+स्थिर अंतराल के बजाय स्थिर विवरण स्तर चाहते हैं, तो समान डेटा के लिए पाँच बिन अनुरोध करें। यह उदाहरण अंडरफ़्लो और ओवरफ़्लो बिन को अक्षम रखता है। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए सीमाएँ रिपोर्ट‑दर‑रिपोर्ट बदल सकती हैं।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक रेडार चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+पाँच बिन की गिनती **4, 4, 4, 4, और 1** है। ऊपर के स्थिर‑चौड़ाई परिणाम से वितरण तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ भिन्न हैं।
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+
+### **Create Radar Charts**
+
+Radar charts द्वि‑आयामी फ़ॉर्मेट में बहुवैरीयेट डेटा प्रदर्शित करते हैं, जिससे कई वैरिएबल्स की एक साथ आसान तुलना संभव होती है। ये कई प्रदर्शन मीट्रिक या एट्रिब्यूट्स में पैटर्न, ताकत और कमजोरियों की पहचान करने में विशेष रूप से उपयोगी होते हैं।
+
+यह उदाहरण [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक radar chart बनाता है, फिर प्रस्तुति को PPTX के रूप में सेव करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -917,13 +973,13 @@ finally
 
 परिणाम:
 
-![रेडार चार्ट](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **मल्टी‑कैटेगरी चार्ट बनाएं**
+### **Create Multi-Category Charts**
 
-मल्टी‑कैटेगरी चार्ट उन डेटा को दर्शाने के लिये उपयोग होते हैं जो एक से अधिक श्रेणी समूह शामिल करते हैं, जिससे आप कई आयामों में मानों की एक साथ तुलना कर सकते हैं। वे जटिल, बहु‑स्तरीय डेटासेट में रुझानों और संबंधों का विश्लेषण करने के लिये विशेष रूप से सहायक होते हैं।
+Multi‑category charts उन डेटा को प्रदर्शित करने के लिये उपयोग होते हैं जिनमें एक से अधिक श्रेणी‑समूह शामिल होते हैं, जिससे आप कई आयामों में मानों की एक साथ तुलना कर सकते हैं। ये जटिल, बहु‑परत डेटा सेट में रुझान और संबंधों का विश्लेषण करने में विशेष रूप से सहायक होते हैं।
 
-यह उदाहरण चार जोड़े में व्यवस्थित आठ श्रेणियों के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) मेथड प्रत्येक जोड़े को समूह स्तर 1 पर साझा लेबल देता है, जिससे व्यक्तिगत और समूह लेबल दोनों वाले श्रेणी अक्ष बनते हैं।
+यह उदाहरण चार जोड़ों में व्यवस्थित आठ श्रेणियों वाले एक clustered column chart को बनाता है। [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) मेथड प्रत्येक जोड़े को समूह स्तर 1 पर साझा लेबल देता है, जिससे क्रमबद्ध लेबल और समूह लेबल दोनों वाला एक श्रेणी एक्सिस बनता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -997,13 +1053,13 @@ finally
 
 परिणाम:
 
-![मल्टी‑कैटेगरी चार्ट](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **मैप चार्ट बनाएं**
+### **Create Map Charts**
 
-मैप चार्ट भौगोलिक डेटा को विशिष्ट स्थानों (जैसे देश, राज्य या शहर) पर मैप करके दृश्य बनाते हैं। वे क्षेत्रीय रुझानों, जनसांख्यिकीय डेटा और स्थानिक वितरण का स्पष्ट, आकर्षक तरीके से विश्लेषण करने में अत्यधिक उपयोगी होते हैं।
+Map charts भौगोलिक डेटा को देशों, राज्यों या शहरों जैसे विशिष्ट स्थानों पर मानचित्रित करके विज़ुअलाइज़ करने के लिये उपयोग होते हैं। ये क्षेत्रीय रुझान, जनसांख्यिकीय डेटा और स्थानिक वितरण का विश्लेषण स्पष्ट, दृश्यात्मक रूप से आकर्षक तरीके से करने में मदद करते हैं।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके डिफ़ॉल्ट भौगोलिक डेटा के साथ एक मैप चार्ट बनाता है और उसे PowerPoint में देखने हेतु सहेजता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके डिफ़ॉल्ट भौगोलिक डेटा के साथ एक map chart बनाता है और PowerPoint में देखने के लिये सेव करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1025,19 +1081,19 @@ finally
 
 परिणाम:
 
-![मैप चार्ट](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-ऊपर की तस्वीर में सहेजी गई प्रस्तुति PowerPoint में खोली गई है। Aspose.Slides मैप चार्ट और उसका डेटा सही ढंग से लिखता है, लेकिन यह स्वयं मैप चार्ट नहीं बनाता: जब कोई स्लाइड जिसमें मैप चार्ट है, को इमेज में रेंडर किया जाता है या PDF या SVG में बदल दिया जाता है, तो चार्ट क्षेत्र खाली दिखता है। उसी स्लाइड के अन्य शैप्स अपरिवर्तित रहते हैं।
+The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
 {{% /alert %}}
 
-### **कंबिनेशन चार्ट बनाएं**
+### **Create Combination Charts**
 
-कंबिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या जांचने में मदद करता है, जिससे उनके बीच सम्बन्धों की पहचान आसान होती है।
+एक combination chart (या combo chart) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को जोड़ता है। यह चार्ट आपको दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या जांचने की अनुमति देता है, जिससे आप उनके बीच के संबंधों को पहचान सकें।
 
-![कंबिनेशन चार्ट](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-यह उदाहरण चार श्रेणियों में दो क्लस्टर्ड कॉलम सीरीज़ को एक लाइन सीरीज़ के साथ मिलाता है। कॉलम प्राथमिक ऊर्ध्वाधर अक्ष का उपयोग करते हैं, जबकि [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) लाइन को दाएँ ओर स्थित द्वितीयक ऊर्ध्वाधर अक्ष पर रखता है। सहायक फ़ंक्शन शीर्षक, लेजेंड, अक्ष लेबल और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
+यह उदाहरण दो clustered column सीरीज़ को एक लाइन सीरीज़ के साथ चार श्रेणियों में जोड़ता है। कॉलम प्राथमिक वर्टिकल एक्सिस का उपयोग करते हैं, जबकि [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) लाइन को दाएँ पर द्वितीय वर्टिकल एक्सिस पर रखता है। हेल्पर फ़ंक्शन शीर्षक, लेजेंड, एक्सिस लेबल और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1202,11 +1258,11 @@ function setAxisTitle(axis, axisTitle)
 createComboChart();
 ```
 
-## **चार्ट अपडेट करें**
+## **Update Charts**
 
-Aspose.Slides for Node.js via Java आपको PowerPoint चार्ट को डेटा, फ़ॉर्मेटिंग और स्टाइलिंग में संशोधन करके अपडेट करने की सुविधा देता है। यह कार्यक्षमता गतिशील सामग्री के साथ प्रस्तुतियों को अद्यतन रखने की प्रक्रिया को सरल बनाती है और यह सुनिश्चित करती है कि चार्ट वर्तमान डेटा और दृश्य मानकों को सटीक रूप से प्रतिबिंबित करें।
+Aspose.Slides for Node.js via Java आपको PowerPoint चार्ट को डेटा, फ़ॉर्मेटिंग और स्टाइलिंग में बदलाव करके अपडेट करने की अनुमति देता है। यह कार्यक्षमता प्रस्तुतियों को डायनेमिक कंटेंट के साथ अद्यतन रखने की प्रक्रिया को सरल बनाती है और सुनिश्चित करती है कि चार्ट वर्तमान डेटा और विज़ुअल मानकों को सही ढंग से प्रतिबिंबित करें।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में "My chart" नामक चार्ट को अपडेट करता है। इसमें प्रत्येक में तीन डेटा पॉइंट वाली दो कॉलम सीरीज़ आवश्यक हैं, जहाँ श्रेणी लेबल कॉलम A में और सीरीज़ नाम पहले वर्कशीट की पहली पंक्ति में होते हैं। उदाहरण [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) का उपयोग करके वर्कबुक सेल बदलता है, सीरीज़ मान अपडेट करता है, तीसरी सीरीज़ जोड़ता है, और [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType) के द्वारा चार्ट को क्लस्टर्ड सिलेंडर में बदलता है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में "My chart" नामक चार्ट को अपडेट करता है। इसमें प्रत्येक में तीन डेटा पॉइंट वाले दो कॉलम सीरीज़ की आवश्यकता होती है, जहाँ श्रेणी लेबल कॉलम A में और सीरीज़ नाम पहले वर्कशीट की पहली पंक्ति में होते हैं। उदाहरण [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) का उपयोग करके वर्कबुक सेल बदलता है, सीरीज़ मान अपडेट करता है, तीसरी सीरीज़ जोड़ता है, और [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType) के माध्यम से चार्ट को clustered cylinders में बदलता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1268,13 +1324,13 @@ finally
 }
 ```
 
-## **चार्ट के लिये डेटा रेंज सेट करें**
+## **Set Data Range for a Chart**
 
-किसी मौजूदा चार्ट द्वारा पहले उपयोग किए गए रेंज को देखने के लिये, देखें [Retrieve a Chart's Data Range](/slides/hi/nodejs-java/chart-workbook/#retrieve-a-charts-data-range)।
+किसी मौजूदा चार्ट द्वारा पहले से उपयोग किए गए रेंज को देखने के लिये, देखें [Retrieve a Chart's Data Range](/slides/hi/nodejs-java/chart-workbook/#retrieve-a-charts-data-range)।
 
-Aspose.Slides for Node.js via Java आपको वर्कशीट से एक विशिष्ट डेटा रेंज को चार्ट डेटा के स्रोत के रूप में परिभाषित करने की लचीलापन देता है। इसका अर्थ है कि आप सीधे वर्कशीट के एक हिस्से को चार्ट से मैप कर सकते हैं, जिससे आप यह नियंत्रित कर सकते हैं कि कौन‑से सेल चार्ट की सीरीज़ और श्रेणियों में योगदान देते हैं। इस प्रकार आप अपने चार्ट को वर्कशीट में नवीनतम डेटा परिवर्तन के साथ आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपके PowerPoint प्रस्तुतियों में वर्तमान और सटीक जानकारी बनी रहती है।
+Aspose.Slides for Node.js via Java आपको वर्कशीट से एक विशिष्ट डेटा रेंज को अपने चार्ट के डेटा स्रोत के रूप में परिभाषित करने की लचीलापन प्रदान करता है। इसका अर्थ है कि आप सीधे अपने वर्कशीट के किसी भाग को चार्ट से मानचित्रित कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि किन सेल्स से चार्ट की सीरीज़ और श्रेणियां बनें। परिणामस्वरूप, आप अपने चार्ट को शीट में नवीनतम डेटा परिवर्तन के साथ आसानी से अपडेट और सिंक्रोनाइज़ कर सकते हैं, यह सुनिश्चित करते हुए कि आपकी PowerPoint प्रस्तुतियां वर्तमान और सटीक जानकारी प्रतिबिंबित करें।
 
-यह उदाहरण [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड में "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` पर सेट करता है। चार्ट वर्कबुक में वह वर्कशीट और एक भरी हुई रेंज होनी चाहिए, जिसमें पहली पंक्ति में सीरीज़ हेडिंग, कॉलम A में श्रेणी लेबल और कॉलम B में तीन मान हों।
+यह उदाहरण [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड में "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` सेट करता है। चार्ट वर्कबुक में वह शीट और एक भरपूर रेंज होना चाहिए, जिसमें पहली पंक्ति में सीरीज़ हेडिंग, कॉलम A में श्रेणी लेबल और कॉलम B में तीन मान हों।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1305,11 +1361,11 @@ finally
 }
 ```
 
-## **चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करें**
+## **Use Default Markers in Charts**
 
-जब आप चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग डिफ़ॉल्ट मार्कर सिंबल दिया जाता है।
+जब आप चार्ट में डिफ़ॉल्ट मार्करों का उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग डिफ़ॉल्ट मार्कर सिम्बॉल मिल जाता है।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके दो लाइन सीरीज़ और एक लेजेंड वाला चार्ट बनाता है। [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) के माध्यम से एक्सेस किए गए मार्कर सेटिंग्स स्वचालित रूप से असाइन किए गए मार्कर सिंबल को बनाए रखती हैं। पहली सीरीज़ में एक नकारात्मक मान और एक गुम मान (`null`) है, जबकि दूसरी में प्रत्येक श्रेणी के लिये मान मौजूद है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) का उपयोग करके दो लाइन सीरीज़ और एक लेजेंड वाले चार्ट को बनाता है। [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) के माध्यम से प्राप्त मार्कर सेटिंग्स स्वचालित रूप से असाइन किए गए मार्कर सिम्बॉल को बरकरार रखती हैं। पहली सीरीज़ में नकारात्मक मान और एक मिसिंग मान (`null`) है, जबकि दूसरी में प्रत्येक श्रेणी के लिए मान है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1372,20 +1428,20 @@ finally
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**Aspose.Slides for Node.js via Java द्वारा कौन‑से चार्ट प्रकार समर्थित हैं?**
+**Aspose.Slides for Node.js via Java द्वारा कौन से चार्ट प्रकार समर्थित हैं?**
 
-Aspose.Slides for Node.js via Java कई प्रकार के चार्ट प्रकारों का समर्थन करता है, जैसे बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य। यह लचीलेपन आपको अपने डेटा विज़ुअलाइज़ेशन आवश्यकताओं के अनुरूप सबसे उपयुक्त चार्ट चुनने की सुविधा देता है।
+Aspose.Slides for Node.js via Java कई प्रकार के चार्ट प्रकारों को समर्थन देता है, जिनमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य शामिल हैं। यह लचीलापन आपको अपने डेटा विज़ुअलाइज़ेशन की आवश्यकताओं के लिये सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
-**एक स्लाइड में नया चार्ट कैसे जोड़ें?**
+**मैं स्लाइड में नया चार्ट कैसे जोड़ूं?**
 
-चार्ट जोड़ने के लिये, आप पहले [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने के मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट करते हैं। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में एकीकृत करती है।
+चार्ट जोड़ने के लिये, पहले आप [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाते हैं, वांछित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने के मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट होते हैं। इस प्रक्रिया से चार्ट सीधे आपकी प्रस्तुति में इंटीग्रेट हो जाता है।
 
-**चार्ट में प्रदर्शित डेटा को कैसे अपडेट करें?**
+**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट कर सकता हूँ?**
 
-आप चार्ट के डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) को एक्सेस करके, डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और अपनी कस्टम डेटा जोड़कर डेटा अपडेट कर सकते हैं। यह आपको प्रोग्रामmatically चार्ट को नवीनतम डेटा के अनुसार रिफ़्रेश करने की अनुमति देता है।
+आप चार्ट के डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) को एक्सेस करके, डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और अपना कस्टम डेटा जोड़कर चार्ट के डेटा को अपडेट कर सकते हैं। यह आपको प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा प्रतिबिंबित करने के लिये रिफ्रेश करने की सुविधा देता है।
 
 **क्या चार्ट की उपस्थिति को अनुकूलित करना संभव है?**
 
-हां, Aspose.Slides for Node.js via Java व्यापक अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड तथा अन्य फ़ॉर्मेटिंग तत्वों को संशोधित करके चार्ट की उपस्थिति को आपके विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार ढाल सकते हैं।
+हाँ, Aspose.Slides for Node.js via Java व्यापक अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य फ़ॉर्मेटिंग तत्वों को बदलकर चार्ट की उपस्थिति को अपने विशिष्ट डिज़ाइन आवश्यकताओं के अनुरूप बना सकते हैं।

@@ -1,6 +1,6 @@
 ---
-title: Создание или обновление диаграмм PowerPoint в Python
-linktitle: Создать или обновить диаграммы
+title: Создание или обновление диаграмм презентаций PowerPoint в Python
+linktitle: Создание или обновление диаграмм
 type: docs
 weight: 10
 url: /ru/python-net/create-chart/
@@ -13,47 +13,45 @@ keywords:
 - точечная диаграмма
 - круговая диаграмма
 - линейная диаграмма
-- Tree Map диаграмма
+- диаграмма дерева
 - биржевая диаграмма
-- коробчатая и усовая диаграмма
+- диаграмма «ящик с усами»
 - воронкообразная диаграмма
-- лучевая диаграмма
+- диаграмма Sunburst
 - гистограмма
-- радиальная диаграмма
-- мультикатегориальная диаграмма
+- радарная диаграмма
+- многокатегориальная диаграмма
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides for Python via .NET. Добавляйте, форматируйте и редактируйте диаграммы с практическими примерами кода на Python."
+description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides for Python via .NET. Добавляйте, форматируйте и редактируйте диаграммы, используя практические примеры кода на Python."
 ---
 ## **Обзор**
 
-В этой статье представлено полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides for Python via .NET. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, соответствующие вашим требованиям к дизайну. На протяжении статьи детальные примеры кода иллюстрируют каждый шаг — от инициализации презентации и объекта диаграммы до настройки серий, осей и легенд. Следуя этому руководству, вы получите прочное представление о том, как интегрировать динамическое создание диаграмм в ваши Python‑приложения, упростив процесс создания презентаций, основанных на данных.
+В этой статье представлено полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides for Python via .NET. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, соответствующие вашим конкретным требованиям к дизайну. На протяжении всей статьи детальные примеры кода иллюстрируют каждый шаг, от инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите хорошее понимание того, как интегрировать динамическое создание диаграмм в ваши Python‑приложения, оптимизируя процесс создания презентаций, основанных на данных.
 
 ## **Создание диаграммы**
 
-Диаграммы помогают быстро визуализировать данные и получить инсайты, которые могут быть неочевидны из таблицы или электронной таблицы.
+Диаграммы помогают быстро визуализировать данные и получать инсайты, которые могут быть не сразу очевидны из таблицы или электронной таблицы.
 
-**Зачем создавать диаграммы?**
+**Почему создавать диаграммы?**
 
-С помощью диаграмм вы можете:
-
-* агрегировать, конденсировать или обобщать большие объёмы данных на одном слайде презентации;
-* выявлять шаблоны и тенденции в данных;
+* агрегировать, уплотнять или суммировать большие объёмы данных на одном слайде презентации;
+* выявлять закономерности и тенденции в данных;
 * определять направление и динамику данных во времени или относительно конкретной единицы измерения;
-* находить выбросы, аномалии, отклонения, ошибки и бессмысленные данные;
-* эффективно представлять сложные данные.
+* обнаруживать выбросы, аномалии, отклонения, ошибки и нелогичные данные;
+* передавать или представлять сложные данные.
 
-В PowerPoint диаграммы создаются через функцию *Insert*, предлагающую шаблоны для большинства типов диаграмм. С помощью Aspose.Slides можно создавать как обычные диаграммы (на основе популярных типов), так и пользовательские.
+В PowerPoint вы можете создавать диаграммы через функцию *Вставка*, которая предоставляет шаблоны для создания различных типов диаграмм. С помощью Aspose.Slides вы можете создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
 
 {{% alert color="info" title="Note" %}}
-Используйте перечисление [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) из модуля [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Значения этого перечисления соответствуют различным типам диаграмм.
+Используйте перечисление [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) из модуля [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Значения в этом перечислении соответствуют различным типам диаграмм.
 {{% /alert %}}
 
 ### **Создание сгруппированных столбчатых диаграмм**
 
-В этом примере используется [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для создания сгруппированной столбчатой диаграммы, сравнивающей две серии по трём категориям. Серии используют красную и зелёную заливку, а отдельные подписи демонстрируют названия категорий, названия серий и значения. Индекс листа 0 указывает на первый лист вложенной книги диаграммы.
+Этот пример использует [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для создания сгруппированной столбчатой диаграммы, сравнивающей два ряда по трём категориям. Ряды используют красные и зелёные заливки, а отдельные подписи показывают названия категорий, названия рядов и значения. Индекс листа 0 относится к первому листу встроенной книги диаграммы.
 
 ```python
 import aspose.pydrawing as draw
@@ -128,20 +126,20 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Сгруппированная столбчатая диаграмма](clustered_column_chart.png)
 
 ### **Создание точечных диаграмм**
 
-Точечные диаграммы (известные также как scatter plots или графики x‑y) часто применяются для проверки шаблонов или демонстрации корреляций между двумя переменными.
+Точечные диаграммы (также известные как scatter plots или x‑y graphs) часто используются для проверки закономерностей или демонстрации корреляций между двумя переменными.
 
 Используйте точечную диаграмму, когда:
 
-* у вас есть парные численные данные;
-* две переменные хорошо сочетаются друг с другом;
-* нужно установить, связаны ли переменные;
-* есть независимая переменная с несколькими значениями для зависимой переменной.
+* у вас есть парные числовые данные;
+* у вас есть две переменные, которые логично связываются друг с другом;
+* вы хотите определить, связаны ли эти две переменные;
+* у вас есть независимая переменная с несколькими значениями для зависимой переменной.
 
-В этом примере отображаются два набора значений x‑y. Первая серия использует прямые линии со звёздочными маркерами, вторая — плавные линии с круговыми маркерами; обе используют [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) 10. Свойство [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) управляет формой маркера.
+Этот пример строит два набора значений x‑y. Первый ряд использует сплошные линии со звездочными маркерами, второй — плавные линии с круглыми маркерами; оба используют [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) = 10. Свойство [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) определяет форму маркера.
 
 ```python
 import aspose.slides as slides
@@ -203,13 +201,13 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![The Scatter chart](scatter_chart.png)
+![Точечная диаграмма](scatter_chart.png)
 
 ### **Создание круговых диаграмм**
 
-Круговые диаграммы лучше всего использовать для отображения отношения часть‑к‑целому, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если ваших частей или меток слишком много, имеет смысл рассмотреть гистограмму.
+Круговые диаграммы лучше всего подходят для отображения соотношения части к целому в данных, особенно когда данные содержат категориальные подписи с численными значениями. Однако если в ваших данных много частей или меток, лучше рассмотреть использование столбчатой диаграммы.
 
-В этом примере создаётся круговая диаграмма с тремя квартальными значениями. Каждый сектор имеет индивидуальную заливку и границу, а подписи показывают различные комбинации значений, процентов и информации о серии. Свойство [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) задаёт начало первого сектора под углом 180 градусов.
+Этот пример создаёт круговую диаграмму с тремя квартальными значениями. Каждый сектор имеет пользовательскую заливку и границу, а подписи показывают различные комбинации значений, процентов и информации о ряде. Свойство [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) задаёт начало первого сектора под углом 180 градусов.
 
 ```python
 import aspose.pydrawing as draw
@@ -304,13 +302,13 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![The Pie chart](pie_chart.png)
+![Круговая диаграмма](pie_chart.png)
 
 ### **Создание линейных диаграмм**
 
-Линейные диаграммы (или line graphs) лучше всего подходят для демонстрации изменения значения во времени. С их помощью можно одновременно сравнивать большое количество данных, отслеживать изменения и тенденции, подчёркивать аномалии в сериях и т.д.
+Линейные диаграммы (также известные как line graphs) лучше всего использовать в ситуациях, когда нужно показать изменения значения во времени. С помощью линейной диаграммы можно одновременно сравнивать большой объём данных, отслеживать изменения и тенденции во времени, выделять аномалии в рядах данных и многое другое.
 
-В этом примере используется [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для создания линейной диаграммы с серией и категориями по умолчанию, после чего презентация сохраняется как PPTX.
+Этот пример использует [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для создания линейной диаграммы с рядами и категориями по умолчанию, затем сохраняет презентацию в формате PPTX.
 
 ```python
 import aspose.slides as slides
@@ -324,7 +322,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-По умолчанию точки линейной диаграммы соединяются сплошными линиями. Чтобы соединять их тире, задайте [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) из [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
+По умолчанию точки линейной диаграммы соединяются сплошными прямыми линиями. Если требуется соединять точки пунктиром, установите [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) в значение из [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
 
 ```python
 import aspose.slides as slides
@@ -341,13 +339,13 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![The Line chart](line_chart.png)
+![Линейная диаграмма](line_chart.png)
 
-### **Создание иерархических диаграмм (Tree Map)**
+### **Создание диаграмм дерева**
 
-Иерархические диаграммы лучше всего подходят для данных о продажах, когда необходимо показать относительный размер категорий и быстро обратить внимание на крупные вклады в каждой категории.
+Диаграммы дерева лучше всего использовать для данных о продажах, когда нужно показать относительный размер категорий и быстро привлечь внимание к элементам, вносящим наибольший вклад в каждую категорию.
 
-В этом примере создаётся tree map с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) назначает стволы уровню группировки 1 и ветви уровню 2. Значения определяют относительные размеры прямоугольников, а подписи категорий и перекрывающие подписи родителей показывают иерархию.
+Этот пример создаёт диаграмму дерева с восемью листами, сгруппированными в четыре ствола и две ветки. Метод [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) назначает стволы на уровне группировки 1 и ветки на уровне 2. Значения определяют относительные размеры прямоугольников, а подписи категорий и перекрывающиеся подписи родителей указывают иерархию.
 
 ```python
 import aspose.slides as slides
@@ -422,15 +420,13 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![The Treemap chart](treemap_chart.png)
+![Диаграмма дерева](treemap_chart.png)
 
-### **Создание каскадных диаграмм (Waterfall)**
+### **Создание водопадных диаграмм**
 
-Каскадная диаграмма показывает, как положительные и отрицательные изменения влияют на конечное значение. Например, разбивка прибыли может начинаться с дохода, затем вычитать затраты и добавлять прочие доходы. Столбцы‑изменения плавают между предыдущим и новым накопленным значением, а итоговые столбцы идут от нуля к накопленному значению.
+Водопадная диаграмма показывает, как положительные и отрицательные изменения вносят вклад в итоговое значение. Например, разложение прибыли может начинаться с выручки, затем вычитать затраты и добавлять прочие доходы. Столбцы‑изменения «плавают» между предыдущим и новым накопленным значением, а столбцы‑итоги идут от нуля до накопленного значения.
 
-Пример использует суммы в тысячах долларов США:
-
-| Category | Workbook value | Column type |
+| Категория | Значение в книге | Тип столбца |
 | --- | ---: | --- |
 | Revenue | 1000 | Increase |
 | Cost of sales | -400 | Decrease |
@@ -439,9 +435,9 @@ with slides.Presentation() as presentation:
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-Чтобы пометить точку как промежуточный или итоговый итог, задайте её свойство [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) `True`. Укажите реальное накопленное значение в ячейке книги: `600` для валовой прибыли (`1000 - 400`) и `450` для чистой прибыли (`600 - 200 + 50`). Свойство помечает столбец как итог; оно не считает и не заполняет значение ячейки. Не используйте ноль как заполнитель и не задавайте другое изменение для итоговой точки. Итоговый столбец отображает накопленное значение без повторного добавления к текущему значению.
+Чтобы пометить точку как промежуточный или конечный итог, установите её свойство [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) в `True`. В соответствующей ячейке книги укажите фактическую накопленную сумму: `600` для валовой прибыли (`1000 - 400`) и `450` для чистой прибыли (`600 - 200 + 50`). Свойство лишь отмечает столбец как итоговый; оно не вычисляет и не заполняет значение ячейки. Не используйте ноль как заполнитель и не задавайте другое изменение для итоговой точки. Итоговый столбец отображает накопленное значение без повторного добавления к текущему значению.
 
-Этот полностью C#‑пример создаёт диаграмму, используя член `Waterfall` перечисления [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), очищает данные по умолчанию и заполняет вложенную книгу. Индекс листа `0` выбирает первый лист; столбец A содержит названия категорий, столбец B — значения. Каждый ячейка добавляется через [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). Индексы точек `2` и `5` указывают на промежуточный и окончательный итог. Включение [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) выводит суммы на столбцы. Входная презентация или книга не требуются.
+Этот полный пример C# создает диаграмму, используя член `Waterfall` перечисления [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), очищает данные по умолчанию и заполняет встроенную книгу. Индекс листа `0` выбирает первый лист; столбец A содержит названия категорий, столбец B — значения. Каждый ячейка‑значение добавляется с помощью [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). Индексы точек, начиная с нуля, `2` и `5` указывают на промежуточный и конечный итоги. Включение [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) выводит суммы на столбцы. Входная презентация или книга не требуются.
 
 ```python
 import aspose.slides as slides
@@ -476,7 +472,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
         series.data_points.add_data_point_for_waterfall_series(value_cell)
 
-    # Третья и шестая точки представляют итоги, а не дополнительные изменения.
+    # Третья и шестая точки представляют собой итоги, а не дополнительные изменения.
     series.data_points[2].set_as_total = True
     series.data_points[5].set_as_total = True
     series.show_connector_lines = True
@@ -485,17 +481,17 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Установите свойство уровня серии [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) `True`, чтобы отобразить линии, соединяющие последовательные столбцы, и упростить восприятие текущего значения. Чтобы скрыть эти линии, замените присваивание в примере на `series.show_connector_lines = False` перед сохранением. Это изменит только видимость линий, но не данные и не итоги.
+Установите свойство уровня ряда [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) в `True`, чтобы отобразить линии, соединяющие последовательные столбцы, и упростить восприятие текущего значения. Чтобы скрыть эти линии, замените назначение в примере на `series.show_connector_lines = False` перед сохранением. Это изменит только видимость линий, а не данные или итоги.
 
-Сохранённая презентация показывает валовую прибыль 600 и чистую прибыль 450, при этом оба итога построены от нуля:
+Результат:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![Водопадная диаграмма, показывающая выручку, затраты, валовую прибыль 600 и чистую прибыль 450, с подписью значений и соединительными линиями](waterfall_chart.png)
 
-### **Создание биржевых диаграмм (Stock)**
+### **Создание биржевых диаграмм**
 
-Биржевые диаграммы используют данные о ценах открытия, максимума, минимума и закрытия, помогая анализировать рыночные тренды и волатильность. Они предоставляют важные сведения о динамике акций, облегчая принятие решений инвесторами и аналитиками.
+Биржевые диаграммы используются для отображения финансовых данных, таких как цены открытии, максимуме, минимуме и закрытии, помогая анализировать рыночные тренды и волатильность. Они предоставляют важные сведения о динамике акций, помогая инвесторам и аналитикам принимать обоснованные решения.
 
-В этом примере создаётся диаграмма OHLC с четырьмя сериями в указанном порядке и тремя категориями. Свойство [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) включает полосы повышения/понижения, а [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) управляет линиями high‑low, отображающими диапазон цен; линии отдельных серий и мелкие горизонтальные линии сетки скрыты.
+Этот пример создаёт диаграмму OHLC (open‑high‑low‑close) с четырьмя рядами в указанном порядке и тремя категориями. Свойство [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) включает полосы «вверх/вниз», а [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) управляет линиями «high‑low», показывающими диапазоны цен; линии отдельных рядов и мелкие горизонтальные сетки скрыты.
 
 ```python
 import aspose.slides as slides
@@ -569,13 +565,13 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![The Stock chart](stock_chart.png)
+![Биржевая диаграмма](stock_chart.png)
 
-### **Создание коробчатых и усы (Box and Whisker) диаграмм**
+### **Создание диаграмм «ящик с усами»**
 
-Диаграммы Box and Whisker отображают распределение данных, суммируя ключевые статистические показатели, такие как медиана, квартали и возможные выбросы. Они полезны при разведывательном анализе данных и статистических исследованиях для быстрого понимания вариабельности и выявления аномалий.
+Диаграммы «ящик с усами» используются для отображения распределения данных, суммируя ключевые статистические показатели, такие как медиана, квартали и потенциальные выбросы. Они особенно полезны в исследовательском анализе и статистических исследованиях для быстрого понимания изменчивости данных и выявления аномалий.
 
-В этом примере создаётся коробчатая диаграмма из шести значений. Свойство [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) выбирает эксклюзивный метод расчёта квартилей. Пример также включает линии среднего, маркеры среднего, внутренние точки и точки‑выбросы.
+Этот пример создаёт диаграмму «ящик с усами» из шести значений. Свойство [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) выбирает эксклюзивный метод расчёта квартилей. Пример также включает средние линии, маркеры среднего, внутренние точки и точки‑выбросы.
 
 ```python
 import aspose.slides as slides
@@ -629,11 +625,11 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhisker.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Создание воронкообразных диаграмм (Funnel)**
+### **Создание воронкообразных диаграмм**
 
-Воронкообразные диаграммы визуализируют процессы с последовательными этапами, где объём данных уменьшается от шага к шагу. Они полезны для анализа конверсий, выявления узких мест и отслеживания эффективности продаж или маркетинга.
+Воронкообразные диаграммы используются для визуализации процессов, состоящих из последовательных этапов, где объём данных уменьшается от шага к шагу. Они особенно полезны для анализа коэффициентов конверсии, выявления узких мест и отслеживания эффективности процессов продаж или маркетинга.
 
-В этом примере используется [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для добавления воронкообразной диаграммы на первый слайд существующей презентации. По умолчанию данные заменяются шестью категориями и значениями от 50 до 500, после чего презентация сохраняется. Входная презентация должна содержать как минимум один слайд.
+Этот пример использует [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для добавления воронкообразной диаграммы на первый слайд существующей презентации. Он заменяет данные по умолчанию на шесть категорий со значениями от 50 до 500, затем сохраняет обновлённую презентацию. Входная презентация должна содержать минимум один слайд.
 
 ```python
 import aspose.slides as slides
@@ -683,13 +679,13 @@ with slides.Presentation("test.pptx") as presentation:
 
 Результат:
 
-![The Funnel chart](funnel_chart.png)
+![Воронкообразная диаграмма](funnel_chart.png)
 
-### **Создание лучевых диаграмм (Sunburst)**
+### **Создание диаграмм Sunburst**
 
-Лучевые диаграммы позволяют визуализировать иерархические данные, отображая уровни в виде концентрических колец. Они помогают иллюстрировать отношения часть‑к‑целому и идеально подходят для представления вложенных категорий в компактном виде.
+Диаграммы Sunburst используются для визуализации иерархических данных, отображая уровни в виде концентрических колец. Они помогают иллюстрировать соотношения часть‑к‑целому и идеально подходят для представления вложенных категорий и подкатегорий в компактном виде.
 
-В этом примере создаётся лучевая диаграмма с восьмью листами, сгруппированными в четыре ствола и две ветви. Метод [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) назначает стволы уровню 1 и ветви уровню 2. Подписи категорий определяют сегменты, а значения задают их относительные размеры.
+Этот пример создаёт диаграмму Sunburst с восемью листами, сгруппированными в четыре ствола и две ветки. Метод [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) назначает стволы на уровне группировки 1 и ветки на уровне 2. Подписи категорий определяют сегменты, а значения задают их относительные размеры.
 
 ```python
 import aspose.slides as slides
@@ -762,13 +758,17 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![The Sunburst chart](sunburst_chart.png)
+![Диаграмма Sunburst](sunburst_chart.png)
 
-### **Создание гистограмм (Histogram)**
+### **Создание гистограмм**
 
-Гистограммы используют для отображения распределения численных данных, группируя значения в диапазоны (корзины). Они полезны для выявления частоты, асимметрии, разброса и обнаружения выбросов в наборе данных.
+Гистограммы показывают, как числовые значения распределяются по интервалам (бин). Для ежемесячных отчётов о времени обработки заказов используйте одинаковую ширину бина и пороги, чтобы интервалы были согласованы и сравнение распределений было проще.
 
-В этом примере создаётся гистограмма из шести чисел, включая отрицательные. Установка [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) в автоматический режим позволяет диаграмме самостоятельно определить количество корзин для отображения распределения.
+Установите для горизонтальной оси свойство [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) в режим из [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). Параметр [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) применяется только к `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) — только к `BY_NUMBER_OF_BINS`. Используйте `AUTOMATIC`, чтобы позволить диаграмме автоматически выбирать бины.
+
+#### **Использовать фиксированную ширину бина**
+
+Этот пример группирует времена обработки в интервалы по 10 минут, создавая отдельные бины для времени ≤ 10 минут и > 40 минут. Включите эти бины с помощью [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) и [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). При указании явных порогов [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) и [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) установите [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) и [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) в `False`.
 
 ```python
 import aspose.slides as slides
@@ -777,7 +777,10 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 500, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 680, 200)
+
+    chart.has_legend = False
+    chart.has_title = False
 
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
@@ -786,33 +789,72 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
-    value_cell = workbook.get_cell(0, "A1", 15)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A2", -41)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A3", 16)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A4", 10)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A5", -23)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A6", 16)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.get_cell(0, i, 0, value)
+        series.data_points.add_data_point_for_histogram_series(value_cell)
 
-    chart.axes.horizontal_axis.aggregation_type = charts.AxisAggregationType.AUTOMATIC
+    axis = chart.axes.horizontal_axis
+    axis.aggregation_type = charts.AxisAggregationType.BY_BIN_WIDTH
+    axis.bin_width = 10
+    axis.is_underflow_bin = True
+    axis.is_automatic_underflow_bin = False
+    axis.underflow_bin = 10
+    axis.is_overflow_bin = True
+    axis.is_automatic_overflow_bin = False
+    axis.overflow_bin = 40
 
-    presentation.save("Histogram.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Результат:
+Презентация в PowerPoint показывает количество элементов в бинах **3, 4, 4, 4, и 2**. Бин‑недостаток включает `5, 10, 10`, поэтому его порог включительный. Бин‑переполнение включает только `41, 50`, его порог исключительный; значения, равные `40`, остаются в предыдущем интервале. Внутренние бины содержат значения больше нижней границы и ≤ верхней границы.
 
-![The Histogram chart](histogram_chart.png)
+![Гистограмма с бинами по 10 минут и явными порогами недо‑ и переполнения](histogram_bin_width.png)
 
-### **Создание радиальных диаграмм (Radar)**
+#### **Указать количество бинов**
 
-Радиальные диаграммы позволяют отображать многовариантные данные в двумерном виде, упрощая сравнение нескольких переменных одновременно. Они полезны для выявления шаблонов, сильных и слабых сторон по множеству метрик или атрибутов.
+Для фиксированного уровня детализации вместо фиксированных интервалов запросите пять бинов для тех же данных. В этом примере бины‑недостаток и бины‑переполнение отключены. Диаграмма определяет ширину по диапазону данных, поэтому границы могут изменяться между отчётами.
 
-В этом примере используется [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для создания радиальной диаграммы с серией и категориями по умолчанию, после чего презентация сохраняется как PPTX.
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 680, 200)
+
+    chart.has_legend = False
+    chart.has_title = False
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.get_cell(0, i, 0, value)
+        series.data_points.add_data_point_for_histogram_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.aggregation_type = charts.AxisAggregationType.BY_NUMBER_OF_BINS
+    axis.number_of_bins = 5
+
+    presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Пять бинов имеют количества **4, 4, 4, 4, и 1**. Сравните это распределение с результатом фиксированной ширины выше: входные значения одинаковы, но границы различаются.
+
+![Гистограмма с пятью бинами, рассчитанными из тех же данных](histogram_bin_count.png)
+
+### **Создание радарных диаграмм**
+
+Радарные диаграммы используются для отображения многомерных данных в двумерном формате, позволяя легко сравнивать несколько переменных одновременно. Они особенно полезны для выявления шаблонов, сильных и слабых сторон по множеству показателей производительности или характеристик.
+
+Этот пример использует [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для создания радарной диаграммы с рядами и категориями по умолчанию, затем сохраняет презентацию в формате PPTX.
 
 ```python
 import aspose.slides as slides
@@ -828,13 +870,13 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![The Radar chart](radar_chart.png)
+![Радарная диаграмма](radar_chart.png)
 
 ### **Создание многокатегориальных диаграмм**
 
-Многокатегориальные диаграммы применяются для отображения данных, охватывающих более одной категориальной группы, позволяя сравнивать значения по нескольким измерениям одновременно. Они полезны при анализе тенденций и взаимосвязей в сложных многослойных наборах данных.
+Многокатегориальные диаграммы используются для отображения данных, включающих более одной категориальной группировки, позволяя сравнивать значения по нескольким измерениям одновременно. Они особенно полезны, когда необходимо анализировать тенденции и взаимосвязи в сложных многоуровневых наборах данных.
 
-В этом примере создаётся сгруппированная столбчатая диаграмма с восемью категориями, сгруппированными по четыре пары. Метод [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) задаёт каждой паре общий подпись на уровне группировки 1, формируя ось категорий с отдельными и групповыми метками.
+Этот пример создаёт сгруппированную столбчатую диаграмму с восемью категориями, расположенными в четырёх парах. Метод [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) задаёт каждой паре общую подпись на уровне группировки 1, создавая ось категорий с отдельными и групповыми подписями.
 
 ```python
 import aspose.slides as slides
@@ -902,13 +944,13 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![The multi category chart](multi_category_chart.png)
+![Многокатегориальная диаграмма](multi_category_chart.png)
 
-### **Создание картографических диаграмм (Map)**
+### **Создание картографических диаграмм**
 
-Картографические диаграммы визуализируют географические данные, сопоставляя информацию с конкретными местоположениями — странами, регионами или городами. Они полезны для анализа региональных тенденций, демографических данных и пространственного распределения в наглядном виде.
+Картографические диаграммы используются для визуализации географических данных, сопоставляя информацию с конкретными местоположениями, такими как страны, штаты или города. Они особенно полезны для анализа региональных тенденций, демографических данных и пространственного распределения в наглядном виде.
 
-В этом примере используется [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для создания картографической диаграммы с данными по умолчанию, после чего она сохраняется для просмотра в PowerPoint.
+Этот пример использует [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для создания картографической диаграммы с данными по умолчанию и сохраняет её для просмотра в PowerPoint.
 
 ```python
 import aspose.slides as slides
@@ -924,19 +966,19 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![The Map chart](map_chart.png)
+![Картографическая диаграмма](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Изображение выше показывает открытую в PowerPoint сохранённую презентацию. Aspose.Slides корректно записывает картографическую диаграмму и её данные, но сама не рисует карты: при рендеринге слайда в изображение или конвертации в PDF/ SVG область диаграммы остаётся пустой. Другие формы на том же слайде не затронуты.
+Изображение выше показывает сохранённую презентацию, открывшуюся в PowerPoint. Aspose.Slides корректно записывает картографическую диаграмму и её данные, но сама диаграмма не рисуется: при рендеринге слайда в изображение или конвертации в PDF или SVG область диаграммы остаётся пустой. Другие фигуры на том же слайде не затрагиваются.
 {{% /alert %}}
 
 ### **Создание комбинированных диаграмм**
 
-Комбинированная (или combo) диаграмма объединяет два и более типа диаграмм в одном графике. Такой график позволяет выделять, сравнивать или исследовать различия между несколькими наборами данных, облегчая определение взаимосвязей.
+Комбинированная диаграмма (или combo chart) объединяет два и более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между двумя и более наборами данных, помогая выявлять взаимосвязи между ними.
 
-![The combination chart](combination_chart.png)
+![Комбинированная диаграмма](combination_chart.png)
 
-В этом примере комбинируются две сгруппированные столбцовые серии с линейной серией по четырём категориям. Столбцы используют основную вертикальную ось, а [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) размещает линию на вторичной вертикальной оси справа. Вспомогательные функции настраивают заголовок, легенду, подписи осей и сетку.
+Этот пример объединяет два ряда сгруппированных столбцов с рядом линий по четырём категориям. Столбцы используют первичную вертикальную ось, а [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) размещает линию на вторичной вертикальной оси справа. Вспомогательные функции настраивают заголовок, легенду, подписи осей и сетку.
 
 ```python
 import aspose.pydrawing as draw
@@ -1084,9 +1126,9 @@ create_combo_chart()
 
 ## **Обновление диаграмм**
 
-Aspose.Slides for Python via .NET позволяет обновлять диаграммы PowerPoint, изменяя данные, форматирование и стиль. Это упрощает поддержание актуальности презентаций с динамическим содержимым и гарантирует, что диаграммы точно отражают текущие данные и визуальные стандарты.
+Aspose.Slides for Python via .NET позволяет обновлять диаграммы PowerPoint, изменяя данные диаграммы, её форматирование и стиль. Эта возможность упрощает процесс поддержания презентаций в актуальном состоянии с динамическим содержимым и гарантирует, что диаграммы точно отражают текущие данные и визуальные стандарты.
 
-В примере обновляется диаграмма с именем "My chart" на первом слайде существующей презентации. Требуются две серии столбцов по три точки данных, где метки категорий находятся в столбце A, а имена серий — в первой строке первого листа. Пример использует [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) для изменения ячеек книги, обновляет значения серий, добавляет третью серию и меняет тип диаграммы на сгруппированные цилиндры через [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
+Этот пример обновляет диаграмму с именем "My chart" на первом слайде существующей презентации. Требуются два ряда столбцов с по‑три значениями в каждом, при этом подписи категорий находятся в столбце A, а имена рядов — в первой строке первого листа. Пример использует [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) для изменения ячеек книги, обновляет значения рядов, добавляет третий ряд и переключает тип диаграммы на сгруппированные цилиндры через [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
 
 ```python
 import aspose.slides as slides
@@ -1138,11 +1180,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **Установка диапазона данных для диаграммы**
 
-Чтобы просмотреть диапазон, уже использованный диаграммой, см. [Retrieve a Chart's Data Range](/slides/ru/python-net/chart-workbook/#retrieve-a-charts-data-range).
+Чтобы посмотреть диапазон, уже используемый существующей диаграммой, см. [Получить диапазон данных диаграммы](/slides/ru/python-net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Python via .NET предоставляет возможность задать конкретный диапазон листа в качестве источника данных диаграммы. Это позволяет напрямую сопоставлять часть листа с диаграммой, контролируя, какие ячейки участвуют в сериях и категориях. В результате вы можете легко обновлять и синхронизировать диаграммы с последними изменениями данных в листе, гарантируя актуальность информации в презентациях.
+Aspose.Slides for Python via .NET предоставляет гибкость определения конкретного диапазона данных из листа в качестве источника для диаграммы. Это означает, что вы можете напрямую сопоставлять часть листа с диаграммой, контролируя, какие ячейки участвуют в рядах и категориях диаграммы. Таким образом, удобно обновлять и синхронизировать диаграммы с последними изменениями данных в листе, гарантируя актуальность и точность информации в ваших презентациях PowerPoint.
 
-В этом примере используется [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) для установки источника данных диаграммы "My chart" на первом слайде существующей презентации в `Sheet1!A1:B4`. Книга диаграммы должна содержать указанный лист и заполненный диапазон с заголовком серии в первой строке, метками категорий в столбце A и тремя значениями в столбце B.
+Этот пример использует [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) для установки источника данных диаграммы с именем "My chart" на первом слайде существующей презентации в `Sheet1!A1:B4`. Книга диаграммы должна содержать этот лист и заполненный диапазон с заголовком ряда в первой строке, подписью категорий в столбце A и тремя значениями в столбце B.
 
 ```python
 import aspose.slides as slides
@@ -1161,11 +1203,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("SetDataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Использование стандартных маркеров в диаграммах**
+## **Использование маркеров по умолчанию в диаграммах**
 
-При использовании стандартных маркеров каждая серия диаграммы автоматически получает различный символ маркера.
+При использовании маркеров по умолчанию в диаграммах каждый ряд получает автоматически другой символ маркера.
 
-В примере применяется [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для создания диаграммы с двумя линейными сериями и легендой. Настройки [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) сохраняют автоматически назначенные символы маркеров. Первая серия содержит отрицательное значение и пропущенное значение, представленное `None`, вторая — значение для каждой категории.
+Этот пример использует [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) для создания диаграммы с двумя линейными рядами и легендой. Настройки [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) сохраняют автоматически назначенные символы маркеров. Первый ряд включает отрицательное значение и пропущенное значение, обозначенное `None`, тогда как второй содержит значение для каждой категории.
 
 ```python
 import aspose.slides as slides
@@ -1222,20 +1264,20 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
 **Какие типы диаграмм поддерживает Aspose.Slides for Python via .NET?**
 
-Aspose.Slides for Python via .NET поддерживает широкий спектр типов диаграмм, включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип для визуализации ваших данных.
+Aspose.Slides for Python via .NET поддерживает широкий спектр типов диаграмм, включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радарные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип диаграммы для визуализации ваших данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Для добавления диаграммы сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), получите нужный слайд по индексу и вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс сразу интегрирует диаграмму в вашу презентацию.
+Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), получите нужный слайд по индексу и затем вызовите метод для добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
 
-**Как обновить отображаемые в диаграмме данные?**
+**Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив её книгу данных ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), очистив любые серии и категории по умолчанию и затем добавив свои данные. Это позволяет программно освежить диаграмму в соответствии с последними данными.
+Вы можете обновить данные диаграммы, получив доступ к её книге данных ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), очистив любые ряды и категории по умолчанию и затем добавив свои собственные данные. Это позволяет программно обновлять диаграмму, отражая последние данные.
 
 **Можно ли настроить внешний вид диаграммы?**
 
-Да, Aspose.Slides for Python via .NET предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие элементы форматирования, чтобы адаптировать внешний вид диаграммы к вашим дизайнерским требованиям.
+Да, Aspose.Slides for Python via .NET предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие элементы форматирования, чтобы адаптировать внешний вид диаграммы к вашим специфическим требованиям к дизайну.

@@ -1,6 +1,6 @@
 ---
-title: Tạo hoặc Cập nhật biểu đồ PowerPoint trong Python
-linktitle: Tạo hoặc Cập nhật biểu đồ
+title: Tạo hoặc Cập nhật Biểu đồ PowerPoint trong Python
+linktitle: Tạo hoặc Cập nhật Biểu đồ
 type: docs
 weight: 10
 url: /vi/python-java/create-chart/
@@ -14,10 +14,10 @@ keywords:
 - biểu đồ tròn
 - biểu đồ đường
 - biểu đồ cây
-- biểu đồ cổ phiếu
+- biểu đồ chứng khoán
 - biểu đồ hộp và râu
 - biểu đồ phễu
-- biểu đồ mặt trời
+- biểu đồ đĩa mặt trời
 - biểu đồ histogram
 - biểu đồ radar
 - biểu đồ đa danh mục
@@ -26,35 +26,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Tạo và tùy chỉnh biểu đồ trong bản trình bày PowerPoint bằng Aspose.Slides cho Python thông qua Java. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong Python."
+description: "Tạo và tùy chỉnh biểu đồ trong các bản trình bày PowerPoint bằng Aspose.Slides cho Python thông qua Java. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong Python."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides cho Python thông qua Java. Bạn sẽ học cách thêm biểu đồ vào một slide một cách lập trình, điền dữ liệu vào biểu đồ và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ việc khởi tạo bản trình bày và đối tượng biểu đồ đến cấu hình chuỗi, trục và chú giải. Bằng cách làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng Python của mình, giúp đơn giản hoá quá trình tạo các bản trình bày dựa trên dữ liệu.
+Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides for Python thông qua Java. Bạn sẽ học cách lập trình thêm biểu đồ vào một slide, đưa dữ liệu vào, và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ việc khởi tạo bản trình bày và đối tượng biểu đồ đến cấu hình series, trục và chú giải. Khi làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào các ứng dụng Python của mình, giúp đơn giản hoá quá trình tạo các bài thuyết trình dựa trên dữ liệu.
 
 ## **Tạo biểu đồ**
 
-Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và rút ra những hiểu biết có thể không ngay lập tức rõ ràng từ bảng hoặc bảng tính.
+Biểu đồ giúp người dùng nhanh chóng trực quan hoá dữ liệu và khám phá những hiểu biết có thể không ngay lập tức hiển thị trong bảng hoặc bảng tính.
 
 **Tại sao nên tạo biểu đồ?**
 
-Bằng cách sử dụng biểu đồ, bạn có thể:
+Sử dụng biểu đồ, bạn có thể:
 
-* tổng hợp, nén hoặc tóm tắt một lượng lớn dữ liệu trên một slide trong bài thuyết trình;
-* phát hiện các mẫu và xu hướng trong dữ liệu;
-* suy ra hướng và động lực của dữ liệu theo thời gian hoặc theo một đơn vị đo cụ thể;
+* tổng hợp, rút gọn hoặc tóm tắt một lượng lớn dữ liệu trên một slide trong bản thuyết trình;
+* khám phá các mẫu và xu hướng trong dữ liệu;
+* suy ra hướng và động lượng của dữ liệu theo thời gian hoặc so với một đơn vị đo lường cụ thể;
 * phát hiện các ngoại lệ, sai lệch, lỗi và dữ liệu vô nghĩa;
 * truyền đạt hoặc trình bày dữ liệu phức tạp.
 
-Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
+Trong PowerPoint, bạn có thể tạo biểu đồ qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Khi sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
 
 {{% alert color="info" title="Note" %}}
 Sử dụng enumeration [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) trong gói [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/). Các giá trị trong enumeration này tương ứng với các loại biểu đồ khác nhau.
 {{% /alert %}}
 
-### **Tạo biểu đồ Cột Nhóm**
+### **Tạo biểu đồ Cột nhóm (Clustered Column)**
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ cột nhóm so sánh hai chuỗi qua ba danh mục. Các chuỗi sử dụng màu nền đỏ và xanh lá, và nhãn riêng lẻ hiển thị tên danh mục, tên chuỗi và giá trị. Chỉ mục worksheet 0 đề cập tới sheet đầu tiên trong workbook biểu đồ được nhúng.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ cột nhóm so sánh hai series qua ba danh mục. Hai series sử dụng màu nền đỏ và xanh lá, và các nhãn riêng lẻ hiển thị tên danh mục, tên series và giá trị. Chỉ số worksheet 0 đề cập đến trang tính đầu tiên trong workbook biểu đồ được nhúng.
 
 ```python
 import jpype
@@ -139,20 +139,20 @@ finally:
 
 Kết quả:
 
-![Biểu đồ cột nhóm](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Tạo biểu đồ Phân tán**
+### **Tạo biểu đồ Phân tán (Scatter)**
 
-Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc chứng minh mối tương quan giữa hai biến.
+Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc minh họa mối tương quan giữa hai biến.
 
 Sử dụng biểu đồ phân tán khi:
 
 * Bạn có dữ liệu số cặp đôi.
-* Bạn có hai biến liên kết chặt chẽ với nhau.
+* Bạn có hai biến tương quan chặt chẽ với nhau.
 * Bạn muốn xác định liệu hai biến có liên quan hay không.
 * Bạn có một biến độc lập có nhiều giá trị cho một biến phụ thuộc.
 
-Ví dụ này vẽ hai bộ giá trị x‑y. Chuỗi đầu tiên sử dụng đường thẳng với dấu sao, trong khi chuỗi thứ hai dùng đường mượt với dấu tròn; cả hai đều có kích thước dấu hiệu là 10, được cấu hình bằng [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). Phương thức [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) kiểm soát hình dạng dấu hiệu.
+Ví dụ này vẽ hai bộ giá trị x‑y. Series thứ nhất sử dụng đường thẳng với dấu sao, trong khi series thứ hai dùng đường mượt với dấu vòng; cả hai đều có kích thước dấu hiệu 10, được cấu hình bằng [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). Phương thức [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) điều khiển hình dạng dấu hiệu.
 
 ```python
 import jpype
@@ -222,13 +222,13 @@ finally:
 
 Kết quả:
 
-![Biểu đồ phân tán](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Tạo biểu đồ Tròn**
+### **Tạo biểu đồ Tròn (Pie)**
 
-Biểu đồ tròn thích hợp nhất để hiển thị mối quan hệ phần‑tổng trong dữ liệu, đặc biệt khi dữ liệu có nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn chứa quá nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
+Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑với‑toàn trong dữ liệu, đặc biệt khi dữ liệu có nhãn phân loại với giá trị số. Tuy nhiên, nếu dữ liệu của bạn có quá nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
 
-Ví dụ này tạo một biểu đồ tròn với ba giá trị quý. Mỗi lát cắt có màu nền và viền tùy chỉnh, và các nhãn hiển thị các kết hợp khác nhau của giá trị, phần trăm và thông tin chuỗi. Phương thức [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) đặt lát cắt đầu tiên bắt đầu ở góc 180 độ.
+Ví dụ này tạo một biểu đồ tròn với ba giá trị quý. Mỗi miếng bánh có màu nền và viền tùy chỉnh, và các nhãn hiển thị các kết hợp khác nhau của giá trị, tỷ lệ phần trăm và thông tin series. Phương thức [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) đặt góc bắt đầu của miếng đầu tiên là 180 độ.
 
 ```python
 import jpype
@@ -301,8 +301,6 @@ try:
     second_slice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot)
 
     third_slice = series.getDataPoints().get_Item(2)
-    third_slice.getFormat().set
-
     third_slice.getFormat().getFill().setFillType(FillType.Solid)
     color = Color(255, 127, 80)
     third_slice.getFormat().getFill().getSolidFillColor().setColor(color)
@@ -336,13 +334,13 @@ finally:
 
 Kết quả:
 
-![Biểu đồ tròn](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **Tạo biểu đồ Đường**
+### **Tạo biểu đồ Đường (Line)**
 
-Biểu đồ đường (còn gọi là line graph) thích hợp nhất trong các tình huống bạn muốn thể hiện sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh lượng lớn dữ liệu cùng lúc, theo dõi biến đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong chuỗi dữ liệu, và hơn thế nữa.
+Biểu đồ đường (còn gọi là line graph) thích hợp trong các trường hợp bạn muốn minh họa sự thay đổi giá trị theo thời gian. Bằng một biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu cùng lúc, theo dõi biến động và xu hướng theo thời gian, làm nổi bật các bất thường trong series, và hơn thế nữa.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ đường với chuỗi và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ đường với series và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
 
 ```python
 import jpype
@@ -364,7 +362,7 @@ finally:
     presentation.dispose()
 ```
 
-Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng dấu gạch, hãy gọi [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) với một giá trị từ [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/):
+Mặc định, các điểm trên biểu đồ đường được nối bằng các đoạn thẳng liên tục. Nếu bạn muốn các điểm được nối bằng nét gạch, hãy gọi [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) với một giá trị từ [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/):
 
 ```python
 import jpype
@@ -389,13 +387,13 @@ finally:
 
 Kết quả:
 
-![Biểu đồ đường](line_chart.png)
+![The Line chart](line_chart.png)
 
 ### **Tạo biểu đồ Cây (Tree Map)**
 
-Biểu đồ cây (tree map) thích hợp nhất cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý tới các mục đóng góp lớn trong mỗi danh mục.
+Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý tới những mục đóng góp lớn trong mỗi danh mục.
 
-Ví dụ này tạo một tree map với tám lá được nhóm thành bốn thân và hai nhánh. Phương thức [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) gán các thân ở mức nhóm 1 và các nhánh ở mức 2. Giá trị xác định kích thước hình chữ nhật tương đối, trong khi nhãn danh mục và nhãn cha chồng lên nhau xác định cấu trúc phân cấp.
+Ví dụ này tạo một biểu đồ cây với tám lá được nhóm thành bốn cành và hai nhánh. Phương thức [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) gán các cành ở mức nhóm 1 và các nhánh ở mức 2. Giá trị xác định kích thước hình chữ nhật tương đối, trong khi các nhãn danh mục và nhãn cha chồng chéo xác định cấu trúc phân cấp.
 
 ```python
 import jpype
@@ -478,32 +476,32 @@ finally:
 
 Kết quả:
 
-![Biểu đồ tree map](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
 ### **Tạo biểu đồ Thác nước (Waterfall)**
 
-Biểu đồ thác nước hiển thị cách các biến đổi dương và âm đóng góp vào giá trị cuối cùng. Ví dụ, một báo cáo lợi nhuận có thể bắt đầu bằng doanh thu, trừ chi phí, và cộng thu nhập khác. Các cột thay đổi nổi giữa giá trị chạy trước và giá trị chạy mới, trong khi các cột tổng mở rộng từ 0 tới giá trị tích lũy.
+Biểu đồ thác nước cho thấy cách các thay đổi dương và âm đóng góp vào giá trị cuối cùng. Ví dụ, một phân tích lợi nhuận có thể bắt đầu với doanh thu, trừ chi phí, và cộng thêm các khoản thu nhập khác. Các cột thay đổi nổi giữa giá trị chạy trước và mới, trong khi các cột tổng mở rộng từ 0 đến giá trị tích lũy.
 
-Ví dụ dưới đây sử dụng các khoản tiền tính bằng nghìn đô la Mỹ:
+Ví dụ dưới đây sử dụng các khoản tính bằng nghìn đô la Mỹ:
 
-| Category | Workbook value | Column type |
+| Danh mục | Giá trị trong workbook | Kiểu cột |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| Doanh thu | 1000 | Increase |
+| Giá vốn bán hàng | -400 | Decrease |
+| Lợi nhuận gộp | 600 | Intermediate total |
+| Chi phí hoạt động | -200 | Decrease |
+| Thu nhập khác | 50 | Increase |
+| Lợi nhuận ròng | 450 | Final total |
 
-Để đánh dấu một điểm là tổng trung gian hoặc tổng cuối cùng, gọi phương thức [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) của nó với `True`. Cung cấp giá trị tích lũy thực tế trong ô workbook của điểm đó: `600` cho lợi nhuận gộp (`1000 - 400`) và `450` cho lợi nhuận ròng (`600 - 200 + 50`). Phương thức đánh dấu cột là tổng; nó không tính toán hay điền giá trị ô. Không sử dụng 0 làm chỗ giữ chỗ hoặc cung cấp biến đổi khác cho điểm tổng. Cột tổng hiển thị giá trị tích lũy mà không cộng lại vào giá trị chạy.
+Để đánh dấu một điểm là tổng trung gian hoặc tổng cuối, gọi phương thức [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) của nó với `True`. Cung cấp giá trị tích lũy thực tế trong ô workbook của điểm đó: `600` cho lợi nhuận gộp (`1000 - 400`) và `450` cho lợi nhuận ròng (`600 - 200 + 50`). Phương thức chỉ đánh dấu cột là tổng; nó không tính toán hay điền giá trị ô. Không sử dụng 0 làm chỗ giữ chỗ hoặc cung cấp thay đổi khác cho điểm tổng. Cột tổng hiển thị giá trị tích lũy mà không cộng lại vào giá trị chạy.
 
-Ví dụ Python hoàn chỉnh này tạo một biểu đồ bằng thành phần `Waterfall` của [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), xóa dữ liệu mặc định và điền workbook được nhúng. Chỉ mục worksheet `0` chọn worksheet đầu tiên; cột A chứa tên danh mục và cột B chứa giá trị. Mỗi ô giá trị được thêm bằng [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Các chỉ số điểm dựa trên zero `2` và `5` xác định các tổng trung gian và cuối cùng. Gọi [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) với `True` để hiển thị số tiền trên cột. Không cần bản trình bày hoặc workbook đầu vào.
+Ví dụ Python hoàn chỉnh này tạo một biểu đồ sử dụng thành viên `Waterfall` của [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), xoá dữ liệu mặc định, và điền workbook được nhúng. Chỉ số worksheet `0` chọn worksheet đầu tiên; cột A chứa tên danh mục và cột B chứa giá trị. Mỗi ô giá trị được thêm bằng [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Các chỉ số điểm dựa trên zero `2` và `5` xác định tổng trung gian và tổng cuối. Gọi [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) với `True` sẽ hiển thị số tiền trên các cột. Không cần bản trình bày hoặc workbook đầu vào.
 
 ```python
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
+if not jpime.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
@@ -538,7 +536,7 @@ try:
         value_cell = workbook.getCell(worksheet_index, i + 1, 1, values[i])
         series.getDataPoints().addDataPointForWaterfallSeries(value_cell)
 
-    # Các điểm thứ ba và thứ sáu đại diện cho tổng, không phải các thay đổi bổ sung.
+    # Điểm thứ ba và thứ sáu đại diện cho tổng, không phải thay đổi bổ sung.
     series.getDataPoints().get_Item(2).setSetAsTotal(True)
     series.getDataPoints().get_Item(5).setSetAsTotal(True)
     series.setShowConnectorLines(True)
@@ -549,17 +547,17 @@ finally:
     presentation.dispose()
 ```
 
-Gọi phương thức cấp độ chuỗi [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) với `True` để hiển thị các đường nối giữa các cột liên tiếp và làm cho giá trị chạy dễ theo dõi hơn. Để ẩn các đường này, thay thế lời gọi phương thức trong ví dụ bằng `series.setShowConnectorLines(False)` trước khi lưu. Thao tác này chỉ thay đổi khả năng hiển thị đường, không thay đổi dữ liệu hay tổng.
+Gọi phương thức cấp series [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) với `True` để hiển thị các đường nối các cột liên tiếp và giúp theo dõi giá trị chạy dễ dàng hơn. Để ẩn các đường này, thay thế lời gọi phương thức trong ví dụ bằng `series.setShowConnectorLines(False)` trước khi lưu. Thao tác này chỉ thay đổi hiển thị đường, không ảnh hưởng tới dữ liệu hay tổng.
 
-Bản trình bày đã lưu hiển thị lợi nhuận gộp 600 và lợi nhuận ròng 450, với cả hai tổng được vẽ từ 0:
+Bản trình bày đã lưu hiển thị lợi nhuận gộp 600 và lợi nhuận ròng 450, cả hai tổng đều bắt đầu từ 0:
 
-![Biểu đồ thác nước hiển thị doanh thu, chi phí, lợi nhuận gộp 600 và lợi nhuận ròng 450, kèm nhãn giá trị và đường nối](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
 ### **Tạo biểu đồ Cổ phiếu (Stock)**
 
-Biểu đồ cổ phiếu được sử dụng để hiển thị dữ liệu tài chính như giá mở cửa, cao nhất, thấp nhất và đóng cửa, hỗ trợ phân tích xu hướng thị trường và độ biến động. Chúng cung cấp những hiểu biết quan trọng về hiệu suất cổ phiếu, giúp nhà đầu tư và nhà phân tích đưa ra quyết định thông minh.
+Biểu đồ cổ phiếu dùng để hiển thị dữ liệu tài chính như giá mở cửa, cao nhất, thấp nhất và đóng cửa, hỗ trợ phân tích xu hướng thị trường và độ biến động. Chúng cung cấp những hiểu biết quan trọng về hiệu suất cổ phiếu, giúp nhà đầu tư và nhà phân tích đưa ra quyết định thông minh.
 
-Ví dụ này tạo một biểu đồ open‑high‑low‑close với bốn chuỗi theo đúng thứ tự và ba danh mục. Phương thức [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) bật thanh lên/xuống, và [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) kiểm soát các đường cao‑thấp hiển thị phạm vi giá, trong khi các đường chuỗi riêng lẻ và các đường kẻ lưới ngang phụ được ẩn.
+Ví dụ này tạo một biểu đồ mở‑cao‑thấp‑đóng (OHLC) với bốn series theo thứ tự và ba danh mục. Phương thức [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) bật các thanh lên/xuống, và [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) điều khiển các đường cao‑thấp hiển thị phạm vi giá, trong khi các đường series riêng lẻ và các đường lưới ngang phụ được ẩn.
 
 ```python
 import jpype
@@ -641,13 +639,13 @@ finally:
 
 Kết quả:
 
-![Biểu đồ cổ phiếu](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
 ### **Tạo biểu đồ Hộp và Râu (Box and Whisker)**
 
-Biểu đồ hộp và râu được dùng để hiển thị phân phối dữ liệu bằng cách tóm tắt các chỉ số thống kê chính, như trung vị, tứ phân vị và các điểm ngoại lệ tiềm năng. Chúng rất hữu ích trong phân tích khám phá dữ liệu và các nghiên cứu thống kê để nhanh chóng hiểu biến thiên dữ liệu và xác định bất thường.
+Biểu đồ hộp và râu được dùng để hiển thị phân phối dữ liệu bằng cách tóm tắt các chỉ số thống kê chính, như trung vị, các phần tư và các ngoại lệ tiềm năng. Chúng đặc biệt hữu ích trong phân tích dữ liệu khám phá và các nghiên cứu thống kê để nhanh chóng hiểu biến thiên dữ liệu và phát hiện bất thường.
 
-Ví dụ này tạo một biểu đồ hộp và râu từ sáu giá trị. Phương thức [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) chọn cách tính tứ phân vị exclusive. Ví dụ cũng bật các đường trung bình, dấu hiệu trung bình, các điểm nội và các điểm ngoại lệ.
+Ví dụ này tạo một biểu đồ hộp và râu từ sáu giá trị. Phương thức [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) chọn cách tính phần tư loại trừ. Ví dụ cũng bật các đường trung bình, dấu hiệu trung bình, các điểm nội bộ và các điểm ngoại lệ.
 
 ```python
 import jpype
@@ -711,9 +709,9 @@ finally:
 
 ### **Tạo biểu đồ Phễu (Funnel)**
 
-Biểu đồ phễu được dùng để trực quan hoá quy trình có các giai đoạn tuần tự, trong đó khối lượng dữ liệu giảm dần khi tiến từ bước này sang bước tiếp theo. Chúng đặc biệt hữu ích để phân tích tỉ lệ chuyển đổi, xác định các nút thắt và theo dõi hiệu quả của quy trình bán hàng hoặc marketing.
+Biểu đồ phễu dùng để trực quan hoá các quy trình có các giai đoạn tuần tự, trong đó khối lượng dữ liệu giảm dần khi tiến từ bước này sang bước tiếp theo. Chúng đặc biệt hữu ích để phân tích tỷ lệ chuyển đổi, xác định các nút thắt, và theo dõi hiệu suất của quy trình bán hàng hoặc tiếp thị.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để thêm một biểu đồ phễu vào slide đầu tiên của bản trình bày hiện có. Nó thay thế dữ liệu mặc định bằng sáu danh mục và giá trị từ 50 đến 500, sau đó lưu bản trình bày đã cập nhật. Bản trình bày đầu vào phải có ít nhất một slide.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để thêm một biểu đồ phễu vào slide đầu tiên của một bản trình bày hiện có. Nó thay thế dữ liệu mặc định bằng sáu danh mục và các giá trị từ 50 tới 500, sau đó lưu bản trình bày đã cập nhật. Bản trình bày đầu vào phải có ít nhất một slide.
 
 ```python
 import jpype
@@ -771,13 +769,13 @@ finally:
 
 Kết quả:
 
-![Biểu đồ phễu](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Tạo biểu đồ Mặt Trời (Sunburst)**
+### **Tạo biểu đồ Đĩa Mặt Trời (Sunburst)**
 
-Biểu đồ mặt trời được dùng để trực quan hoá dữ liệu phân cấp, hiển thị các mức dưới dạng các vòng đồng tâm. Chúng giúp minh hoạ mối quan hệ phần‑tổng và rất phù hợp để biểu diễn các danh mục lồng nhau và các danh mục con một cách rõ ràng, gọn gàng.
+Biểu đồ đĩa mặt trời dùng để trực quan hoá dữ liệu phân cấp, hiển thị các mức độ dưới dạng các vòng đồng tâm. Chúng giúp minh hoạ các mối quan hệ phần‑với‑toàn và rất thích hợp để biểu diễn các danh mục và tiểu danh mục lồng nhau một cách rõ ràng, gọn gàng.
 
-Ví dụ này tạo một biểu đồ mặt trời với tám lá được nhóm thành bốn thân và hai nhánh. Phương thức [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) gán các thân ở mức nhóm 1 và các nhánh ở mức 2. Các nhãn danh mục xác định các đoạn, và các giá trị quyết định kích thước tương đối của chúng.
+Ví dụ này tạo một biểu đồ đĩa mặt trời với tám lá được nhóm thành bốn cành và hai nhánh. Phương thức [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) gán các cành ở mức nhóm 1 và các nhánh ở mức 2. Các nhãn danh mục xác định các phân khúc, và các giá trị quyết định kích thước tương đối của chúng.
 
 ```python
 import jpype
@@ -858,13 +856,17 @@ finally:
 
 Kết quả:
 
-![Biểu đồ mặt trời](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Tạo biểu đồ Histogram**
 
-Biểu đồ histogram được dùng để biểu diễn phân phối dữ liệu số bằng cách nhóm các giá trị thành các khoảng hoặc thùng. Chúng đặc biệt hữu ích để xác định các mẫu dữ liệu như tần suất, độ lệch và phạm vi, và để phát hiện ngoại lệ trong một tập dữ liệu.
+Biểu đồ histogram cho thấy cách các giá trị số được phân bố qua các khoảng (bins). Đối với các báo cáo hàng tháng về thời gian xử lý đơn hàng, hãy sử dụng cùng một độ rộng bin và cùng các ngưỡng để giữ các khoảng nhất quán và làm cho việc so sánh các phân bố dễ dàng hơn.
 
-Ví dụ này tạo một histogram từ sáu giá trị số, bao gồm cả giá trị âm. Gọi [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) với kiểu tổng hợp tự động cho phép biểu đồ xác định các thùng sử dụng để hiển thị phân phối.
+Gọi [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) trên trục ngang với một chế độ từ [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) chỉ áp dụng cho `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) chỉ áp dụng cho `ByNumberOfBins`. Sử dụng `Automatic` để cho phép biểu đồ tự chọn các bin.
+
+#### **Sử dụng độ rộng bin cố định**
+
+Ví dụ này nhóm thời gian xử lý thành các khoảng 10 phút, với các bin riêng cho thời gian ≤10 phút và >40 phút. Kích hoạt các bin này bằng [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) và [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin). Khi cung cấp ngưỡng rõ ràng qua [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) và [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin), gọi [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) và [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) với `False`.
 
 ```python
 import jpype
@@ -879,7 +881,10 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300)
+    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200)
+
+    chart.setLegend(False)
+    chart.setTitle(False)
 
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
@@ -888,35 +893,82 @@ try:
     workbook.clear(0)
 
     series = chart.getChartData().getSeries().add(ChartType.Histogram)
-    value_cell = workbook.getCell(0, "A1", 15)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A2", -41)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A3", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A4", 10)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A5", -23)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A6", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.getCell(0, i, 0, float(value))
+        series.getDataPoints().addDataPointForHistogramSeries(value_cell)
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic)
+    axis = chart.getAxes().getHorizontalAxis()
+    axis.setAggregationType(AxisAggregationType.ByBinWidth)
+    axis.setBinWidth(10.0)
+    axis.setUnderflowBin(True)
+    axis.setAutomaticUnderflowBin(False)
+    axis.setUnderflowBin(10.0)
+    axis.setOverflowBin(True)
+    axis.setAutomaticOverflowBin(False)
+    axis.setOverflowBin(40.0)
 
-    presentation.save("Histogram.pptx", SaveFormat.Pptx)
+    presentation.save("Histogram-bin-width.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Kết quả:
+Bản trình bày hiển thị trong PowerPoint cho thấy số lượng bin là **3, 4, 4, 4, và 2**. Bin dưới (underflow) bao gồm `5, 10, 10`, vì vậy ngưỡng của nó là bao gồm. Bin trên (overflow) chỉ bao gồm `41, 50`, vì vậy ngưỡng của nó là không bao gồm; cả hai giá trị bằng `40` vẫn nằm trong khoảng phía trước. Các bin nội bộ chứa các giá trị lớn hơn rìa dưới và nhỏ hơn hoặc bằng rìa trên.
 
-![Biểu đồ histogram](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **Xác định số lượng bin**
+
+Đối với mức chi tiết cố định thay vì các khoảng cố định, yêu cầu năm bin cho cùng một tập dữ liệu. Ví dụ này để bin dưới và bin trên bị tắt. Biểu đồ xác định độ rộng dựa trên phạm vi dữ liệu, vì vậy các rìa có thể thay đổi giữa các báo cáo.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AxisAggregationType, ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200)
+
+    chart.setLegend(False)
+    chart.setTitle(False)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series = chart.getChartData().getSeries().add(ChartType.Histogram)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.getCell(0, i, 0, float(value))
+        series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+
+    axis = chart.getAxes().getHorizontalAxis()
+    axis.setAggregationType(AxisAggregationType.ByNumberOfBins)
+    axis.setNumberOfBins(5)
+
+    presentation.save("Histogram-bin-count.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Năm bin có số lượng **4, 4, 4, 4, và 1**. So sánh phân bố này với kết quả độ rộng cố định ở trên: các giá trị đầu vào giống nhau, nhưng các rìa khác nhau.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Tạo biểu đồ Radar**
 
-Biểu đồ radar được dùng để hiển thị dữ liệu đa biến trong một định dạng hai chiều, cho phép so sánh dễ dàng nhiều biến cùng lúc. Chúng rất hữu ích để xác định các mẫu, điểm mạnh và điểm yếu trên nhiều chỉ số hiệu suất hoặc thuộc tính.
+Biểu đồ radar dùng để hiển thị dữ liệu đa biến trong một định dạng hai chiều, cho phép so sánh dễ dàng nhiều biến cùng lúc. Chúng đặc biệt hữu ích để xác định các mẫu, điểm mạnh và điểm yếu qua nhiều chỉ số hoặc thuộc tính hiệu suất.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ radar với chuỗi và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ radar với series và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
 
 ```python
 import jpype
@@ -940,11 +992,11 @@ finally:
 
 Kết quả:
 
-![Biểu đồ radar](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
 ### **Tạo biểu đồ Đa‑Danh mục (Multi‑Category)**
 
-Biểu đồ đa‑danh mục được dùng để hiển thị dữ liệu có hơn một nhóm phân loại, cho phép bạn so sánh giá trị qua nhiều chiều đồng thời. Chúng đặc biệt hữu ích khi bạn cần phân tích xu hướng và mối quan hệ trong các bộ dữ liệu phức tạp, đa lớp.
+Biểu đồ đa‑danh mục dùng để hiển thị dữ liệu liên quan đến hơn một nhóm danh mục, cho phép bạn so sánh các giá trị qua nhiều chiều đồng thời. Chúng rất hữu ích khi cần phân tích xu hướng và mối quan hệ trong các bộ dữ liệu phức tạp, nhiều lớp.
 
 Ví dụ này tạo một biểu đồ cột nhóm với tám danh mục được sắp xếp thành bốn cặp. Phương thức [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) cung cấp cho mỗi cặp một nhãn chung ở mức nhóm 1, tạo ra trục danh mục có cả nhãn cá nhân và nhãn nhóm.
 
@@ -1022,11 +1074,11 @@ finally:
 
 Kết quả:
 
-![Biểu đồ đa‑danh mục](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **Tạo biểu đồ Bản đồ (Map)**
 
-Biểu đồ bản đồ được dùng để trực quan hoá dữ liệu địa lý bằng cách ánh xạ thông tin tới các vị trí cụ thể như quốc gia, bang hoặc thành phố. Chúng rất hữu ích để phân tích xu hướng khu vực, dữ liệu dân cư và phân bố không gian một cách rõ ràng, hấp dẫn về mặt hình ảnh.
+Biểu đồ bản đồ dùng để trực quan hoá dữ liệu địa lý bằng cách ánh xạ thông tin tới các vị trí cụ thể như quốc gia, bang hoặc thành phố. Chúng đặc biệt hữu ích để phân tích xu hướng khu vực, dữ liệu nhân khẩu và phân phối không gian một cách rõ ràng và thu hút.
 
 Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ bản đồ với dữ liệu địa lý mặc định và lưu nó để xem trong PowerPoint.
 
@@ -1052,19 +1104,19 @@ finally:
 
 Kết quả:
 
-![Biểu đồ bản đồ](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Hình ảnh trên cho thấy bản trình bày đã lưu được mở trong PowerPoint. Aspose.Slides ghi biểu đồ bản đồ và dữ liệu của nó một cách chính xác, nhưng không tự vẽ biểu đồ bản đồ: khi một slide chứa biểu đồ này được render thành hình ảnh hoặc chuyển đổi sang PDF hoặc SVG, vùng biểu đồ sẽ xuất hiện trống. Các hình dạng khác trên cùng slide không bị ảnh hưởng.
+Hình ảnh trên hiển thị bản trình bày đã lưu mở trong PowerPoint. Aspose.Slides ghi đúng biểu đồ bản đồ và dữ liệu của nó, nhưng không tự vẽ biểu đồ bản đồ: khi một slide chứa biểu đồ này được render thành hình ảnh hoặc chuyển đổi sang PDF hoặc SVG, khu vực biểu đồ sẽ xuất hiện trống. Các hình khác trên cùng slide không bị ảnh hưởng.
 {{% /alert %}}
 
 ### **Tạo biểu đồ Kết hợp (Combination)**
 
-Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác nhau giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
+Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong cùng một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác nhau giữa hai hoặc nhiều bộ dữ liệu, giúp nhận diện mối quan hệ giữa chúng.
 
-![Biểu đồ kết hợp](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Ví dụ này kết hợp hai chuỗi cột nhóm với một chuỗi đường qua bốn danh mục. Các cột sử dụng trục dọc chính, trong khi [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) đặt đường trên trục dọc phụ bên phải. Các hàm trợ giúp cấu hình tiêu đề, chú giải, nhãn trục và các đường lưới.
+Ví dụ này kết hợp hai series cột nhóm với một series đường qua bốn danh mục. Các cột sử dụng trục dọc chính, trong khi [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) đặt đường trên trục dọc phụ ở bên phải. Các hàm trợ giúp cấu hình tiêu đề, chú giải, nhãn trục và các đường lưới.
 
 ```python
 import jpype
@@ -1109,7 +1161,7 @@ def create_chart_with_first_series(slide):
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # Xóa các chuỗi và danh mục mặc định được tạo.
+    # Xóa các series và danh mục được tạo mặc định.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
@@ -1126,7 +1178,7 @@ def create_chart_with_first_series(slide):
     cell = workbook.getCell(worksheet_index, 4, 0, "Category 4")
     chart.getChartData().getCategories().add(cell)
 
-    # Thêm chuỗi đầu tiên.
+    # Thêm series đầu tiên.
     series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
@@ -1196,7 +1248,7 @@ def set_primary_axes_format(chart):
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Đặt màu của các đường lưới chính dọc.
+    # Đặt màu cho các đường lưới dọc chính.
     major_grid_lines_format = vertical_axis.getMajorGridLinesFormat().getLine().getFillFormat()
     major_grid_lines_format.setFillType(FillType.Solid)
     color = Color(217, 217, 217)
@@ -1234,9 +1286,9 @@ create_combo_chart()
 
 ## **Cập nhật biểu đồ**
 
-Aspose.Slides cho Python thông qua Java cho phép bạn cập nhật các biểu đồ PowerPoint bằng cách sửa đổi dữ liệu, định dạng và kiểu dáng của biểu đồ. Tính năng này đơn giản hoá quá trình duy trì bản trình bày cập nhật với nội dung động và đảm bảo biểu đồ phản ánh chính xác dữ liệu hiện tại và tiêu chuẩn hình ảnh.
+Aspose.Slides for Python thông qua Java cho phép bạn cập nhật các biểu đồ PowerPoint bằng cách sửa đổi dữ liệu biểu đồ, định dạng và kiểu dáng. Tính năng này đơn giản hoá quá trình duy trì bản trình bày luôn cập nhật với nội dung động và đảm bảo biểu đồ phản ánh chính xác dữ liệu và tiêu chuẩn hình ảnh hiện tại.
 
-Ví dụ này cập nhật biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có. Nó yêu cầu hai chuỗi cột với ba điểm dữ liệu mỗi chuỗi, với nhãn danh mục trong cột A và tên chuỗi ở hàng đầu của worksheet đầu tiên. Ví dụ sử dụng [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) để thay đổi các ô workbook, cập nhật giá trị chuỗi, thêm một chuỗi thứ ba và thay đổi loại biểu đồ thành cột trụ nhóm thông qua [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
+Ví dụ này cập nhật biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có. Nó yêu cầu hai series cột, mỗi series có ba điểm dữ liệu, với nhãn danh mục ở cột A và tên series ở hàng đầu tiên của worksheet đầu tiên. Ví dụ sử dụng [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) để thay đổi các ô workbook, cập nhật giá trị series, thêm một series thứ ba, và thay đổi loại biểu đồ thành các hình trụ nhóm qua [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
 
 ```python
 import jpype
@@ -1296,11 +1348,11 @@ finally:
 
 ## **Đặt phạm vi dữ liệu cho biểu đồ**
 
-Để kiểm tra phạm vi đã được sử dụng bởi một biểu đồ hiện có, xem [Retrieve a Chart's Data Range](/slides/vi/python-java/chart-workbook/#retrieve-a-charts-data-range).
+Để xem phạm vi đã được biểu đồ hiện có sử dụng, xem [Retrieve a Chart's Data Range](/slides/vi/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides cho Python thông qua Java cung cấp tính linh hoạt để xác định một phạm vi dữ liệu cụ thể từ worksheet làm nguồn cho dữ liệu biểu đồ của bạn. Điều này có nghĩa là bạn có thể ánh xạ trực tiếp một phần của worksheet vào biểu đồ, cho phép kiểm soát các ô nào đóng góp vào chuỗi và danh mục của biểu đồ. Kết quả, bạn có thể dễ dàng cập nhật và đồng bộ biểu đồ với các thay đổi dữ liệu mới nhất trong worksheet, đảm bảo các bản trình bày PowerPoint của bạn phản ánh thông tin hiện tại và chính xác.
+Aspose.Slides for Python thông qua Java cung cấp khả năng linh hoạt để xác định một phạm vi dữ liệu cụ thể từ worksheet làm nguồn cho dữ liệu biểu đồ của bạn. Điều này có nghĩa là bạn có thể ánh xạ trực tiếp một phần worksheet tới biểu đồ, cho phép kiểm soát các ô nào sẽ đóng góp vào series và danh mục của biểu đồ. Kết quả là, bạn có thể dễ dàng cập nhật và đồng bộ hóa các biểu đồ với các thay đổi dữ liệu mới nhất trong worksheet, đảm bảo các bản thuyết trình PowerPoint của bạn luôn phản ánh thông tin hiện tại và chính xác.
 
-Ví dụ này sử dụng [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) để đặt nguồn dữ liệu của biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có thành `Sheet1!A1:B4`. Workbook của biểu đồ phải chứa worksheet đó và một phạm vi đã được điền với tiêu đề chuỗi ở hàng đầu, nhãn danh mục ở cột A và ba giá trị ở cột B.
+Ví dụ này sử dụng [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) để đặt nguồn dữ liệu của biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có thành `Sheet1!A1:B4`. Workbook của biểu đồ phải chứa worksheet đó và một phạm vi đã được điền với tiêu đề series ở hàng đầu, nhãn danh mục ở cột A, và ba giá trị ở cột B.
 
 ```python
 import jpype
@@ -1327,11 +1379,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Sử dụng các dấu hiệu mặc định trong biểu đồ**
+## **Sử dụng dấu hiệu mặc định trong biểu đồ**
 
-Khi bạn sử dụng các dấu hiệu mặc định trong biểu đồ, mỗi chuỗi biểu đồ sẽ tự động nhận một ký hiệu dấu hiệu mặc định khác nhau.
+Khi bạn sử dụng dấu hiệu mặc định trong biểu đồ, mỗi series sẽ tự động nhận một ký hiệu dấu hiệu mặc định khác nhau.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ với hai chuỗi đường và một chú giải. Các cài đặt dấu hiệu truy cập thông qua [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) giữ lại các ký hiệu dấu hiệu được gán tự động. Chuỗi đầu tiên bao gồm một giá trị âm và một giá trị thiếu, được đại diện bằng `None`, trong khi chuỗi thứ hai có giá trị cho mọi danh mục.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) để tạo một biểu đồ với hai series đường và một chú giải. Các thiết lập dấu hiệu truy cập qua [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) giữ lại các ký hiệu dấu hiệu được gán tự động. Series đầu tiên bao gồm một giá trị âm và một giá trị thiếu, được biểu thị bằng `None`, trong khi series thứ hai có giá trị cho mọi danh mục.
 
 ```python
 import jpype
@@ -1396,20 +1448,20 @@ finally:
     presentation.dispose()
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Các loại biểu đồ nào được Aspose.Slides cho Python thông qua Java hỗ trợ?**
+**Các loại biểu đồ nào được Aspose.Slides for Python thông qua Java hỗ trợ?**
 
-Aspose.Slides cho Python thông qua Java hỗ trợ một loạt các loại biểu đồ, bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều hơn nữa. Tính linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
+Aspose.Slides for Python thông qua Java hỗ trợ nhiều loại biểu đồ, bao gồm biểu đồ cột, đường, tròn, khu vực, phân tán, histogram, radar và nhiều loại khác. Tính linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
 
 **Làm thế nào để thêm một biểu đồ mới vào slide?**
 
-Để thêm một biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), lấy slide mong muốn bằng chỉ mục, sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quy trình này tích hợp biểu đồ trực tiếp vào bản trình bày của bạn.
+Để thêm biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), lấy slide mong muốn bằng chỉ số của nó, và sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu khởi tạo. Quy trình này tích hợp biểu đồ trực tiếp vào bản trình bày của bạn.
 
-**Làm sao tôi có thể cập nhật dữ liệu hiển thị trong một biểu đồ?**
+**Làm sao tôi có thể cập nhật dữ liệu hiển thị trong biểu đồ?**
 
-Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), xóa bất kỳ chuỗi và danh mục mặc định nào, và sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ một cách lập trình để phản ánh dữ liệu mới nhất.
+Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), xoá các series và danh mục mặc định, sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ một cách lập trình để phản ánh dữ liệu mới nhất.
 
 **Có thể tùy chỉnh giao diện của biểu đồ không?**
 
-Có, Aspose.Slides cho Python thông qua Java cung cấp các tùy chọn tùy chỉnh phong phú. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, chú giải và các yếu tố định dạng khác để điều chỉnh giao diện biểu đồ theo yêu cầu thiết kế cụ thể của bạn.
+Có, Aspose.Slides for Python thông qua Java cung cấp nhiều tùy chọn tùy chỉnh. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, chú giải và các yếu tố định dạng khác để điều chỉnh giao diện biểu đồ sao cho phù hợp với yêu cầu thiết kế cụ thể của mình.

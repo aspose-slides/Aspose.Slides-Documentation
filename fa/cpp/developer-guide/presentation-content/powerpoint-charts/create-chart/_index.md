@@ -1,61 +1,61 @@
 ---
-title: ایجاد یا به‌روزرسانی نمودارهای ارائه پاورپوینت در C++
-linktitle: ایجاد یا به‌روزرسانی نمودارها
+title: "ایجاد یا بهروزرسانی نمودارهای ارائه پاورپوینت در C++"
+linktitle: "ایجاد یا بهروزرسانی نمودارها"
 type: docs
 weight: 10
 url: /fa/cpp/create-chart/
 aliases:
   - /cpp/update-chart/
 keywords:
-  - افزودن نمودار
-  - ایجاد نمودار
-  - ویرایش نمودار
-  - تغییر نمودار
-  - به‌روزرسانی نمودار
-  - نمودار پراکنده
-  - نمودار دایره‌ای
-  - نمودار خطی
-  - نمودار نقشه‌درختی
-  - نمودار سهام
-  - نمودار جعبه‌ای و دندانه‌ای
-  - نمودار قیفی
-  - نمودار خورشیدی
-  - نمودار هیستوگرام
-  - نمودار رادار
-  - نمودار چنددسته‌ای
-  - PowerPoint
-  - ارائه
-  - C++
-  - Aspose.Slides
-description: "نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای C++ ایجاد و سفارشی‌سازی کنید. نمودارها را با مثال‌های کد عملی در C++ اضافه، قالب‌بندی و ویرایش کنید."
+- "افزودن نمودار"
+- "ایجاد نمودار"
+- "ویرایش نمودار"
+- "تغییر نمودار"
+- "بهروزرسانی نمودار"
+- "نمودار پراکنده"
+- "نمودار دایره‌ای"
+- "نمودار خطی"
+- "نمودار درخت-نقشه"
+- "نمودار سهام"
+- "نمودار جعبه‌ای و ویسکر"
+- "نمودار قیفی"
+- "نمودار خورشیدی"
+- "نمودار هیستوگرام"
+- "نمودار رادار"
+- "نمودار چنددسته‌ای"
+- "پاورپوینت"
+- "ارائه"
+- "C++"
+- "Aspose.Slides"
+description: "نمودارها را در ارائه‌های پاورپوینت با استفاده از Aspose.Slides برای C++ ایجاد و سفارشی کنید. نمودارها را با مثال‌های کد عملی در C++ اضافه، قالب‌بندی و ویرایش کنید."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-این مقاله راهنمای جامع ایجاد و سفارشی‌سازی نمودارها با Aspose.Slides برای C++ را ارائه می‌دهد. شما یاد می‌گیرید چگونه به‌صورت برنامه‌نویسی یک نمودار به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلف را برای مطابقت با نیازهای طراحی خود اعمال کنید. در طول مقاله، مثال‌های کد دقیق هر گام را از مقداردهی اولیهٔ ارائه و شیء نمودار تا پیکربندی سری‌ها، محورها و افسانه‌ها نشان می‌دهند. با دنبال کردن این راهنما، درک روشنی از یکپارچه‌سازی تولید دینامیک نمودار در برنامه‌های C++ خود به دست می‌آید و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کند.
+این مقاله راهنمایی جامع برای ایجاد و سفارشی‌سازی نمودارها با استفاده از Aspose.Slides برای C++ ارائه می‌دهد. شما یاد خواهید گرفت که چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلفی را برای تطبیق با نیازهای طراحی خاص خود اعمال کنید. در سرتاسر مقاله، مثال‌های کد دقیق هر گام را نشان می‌دهند، از مقداردهی اولیهٔ ارائه و شیء نمودار تا پیکربندی سری‌ها، محورها و افسانه‌ها. با دنبال کردن این راهنما، درک محکمی از چگونگی ادغام تولید پویا نمودارها در برنامه‌های C++ خود به دست خواهید آورد و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کنید.
 
-## **ایجاد یک نمودار**
+## **ایجاد نمودار**
 
-نمودارها به افراد کمک می‌کنند تا داده‌ها را به‌سرعت تجسم کنند و بینش‌هایی کسب کنند که ممکن است از یک جدول یا صفحه‌گسترده به‌راحتی مشهود نباشند.
+نمودارها به افراد کمک می‌کنند تا به‌سرعت داده‌ها را بصری‌سازی کرده و بینش‌هایی به‌دست آورند که ممکن است از جدول یا صفحه‌گسترده بلافاصله قابل مشاهده نباشد.
 
 **چرا نمودار ایجاد کنیم؟**
 
 با استفاده از نمودارها می‌توانید:
 
-* داده‌های بزرگ را در یک اسلاید جمع‌آوری، فشرده یا خلاصه کنید؛
-* الگوها و روندهای داده را آشکار سازید؛
-* جهت و گام‌به‌گام بودن داده‌ها را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص استنتاج کنید؛
-* نقاط دورافتاده، ناهنجاری‌ها، انحرافات، خطاها و داده‌های نامعقول را شناسایی کنید؛
-* داده‌های پیچیده را ارتباطی یا ارائه کنید.
+* مقادیر زیاد داده را در یک اسلاید جمع‌آوری، فشرده یا خلاصه کنید؛
+* الگوها و روندهای داده را آشکار کنید؛
+* جهت و شتاب داده را در طول زمان یا نسبت به واحد اندازه‌گیری خاصی تعیین کنید؛
+* نقاط ناهنجار، انحراف‌ها، خطاها و داده‌های غیرمنطقی را شناسایی کنید؛
+* داده‌های پیچیده را ارتباط یا ارائه کنید.
 
-در PowerPoint می‌توانید از عملکرد *درج* برای ایجاد نمودارها استفاده کنید که قالب‌های مختلفی برای طراحی انواع نمودارها در اختیار می‌گذارد. با Aspose.Slides می‌توانید هم نمودارهای عادی (بر پایهٔ انواع رایج نمودار) و هم نمودارهای سفارشی ایجاد کنید.
+در PowerPoint می‌توانید نمودارها را از طریق عملکرد *Insert* ایجاد کنید که قالب‌های متنوعی برای طراحی انواع مختلف نمودارها فراهم می‌کند. با Aspose.Slides می‌توانید هم نمودارهای معمولی (بر پایهٔ انواع مشهور نمودار) و هم نمودارهای سفارشی ایجاد کنید.
 
 {{% alert color="info" title="Note" %}}
-از شمارش‌گر [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) در فضای‌نامی [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) استفاده کنید. مقادیر این شمارش‌گر با انواع مختلف نمودار مطابقت دارند.
+از شمارش‌نامه [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) در فضای نام [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) استفاده کنید. مقادیر این شمارش‌نامه به انواع مختلف نمودارها مربوط می‌شوند.
 {{% /alert %}}
 
 ### **ایجاد نمودارهای ستونی خوشه‌ای**
 
-این مثال با استفاده از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) یک نمودار ستونی خوشه‌ای ایجاد می‌کند که دو سری را در سه دسته مقایسه می‌کند. سری‌ها از پر کردن‌های قرمز و سبز استفاده می‌کنند و برچسب‌های فردی نام دسته، نام سری و مقادیر را نشان می‌دهند. شاخص شیت ۰ به اولین شیت در کتاب‌کار نمودار تعبیه‌شده اشاره دارد.
+این مثال از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار ستونی خوشه‌ای استفاده می‌کند که دو سری را در سه دسته مقایسه می‌کند. سری‌ها از پرکردن‌های قرمز و سبز استفاده می‌کنند و برچسب‌های جداگانه نام دسته‌ها، نام سری‌ها و مقادیر را نشان می‌دهند. اندیس کاربرگ 0 به اولین برگهٔ کاربرگ توکار نمودار اشاره دارد.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -165,20 +165,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 نتیجه:
 
-![نمودار ستونی خوشه‌ای](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **ایجاد نمودارهای پراکندگی**
+### **ایجاد نمودارهای پراکنده**
 
-نمودارهای پراکندگی (به‌عنوان نمودارهای نقطه‌ای یا گراف‌های x‑y نیز شناخته می‌شوند) برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
+نمودارهای پراکنده (که به‌عنوان scatter plots یا نمودارهای x‑y هم شناخته می‌شوند) اغلب برای بررسی الگوها یا نشان‌دادن همبستگی بین دو متغیر استفاده می‌شوند.
 
-از نمودار پراکندگی زمانی استفاده کنید که:
+از نمودار پراکنده زمانی استفاده کنید که:
 
-* داده‌های عددی جفت‌شده داشته باشید؛
-* دو متغیر که به‌خوبی با هم جفت می‌شوند داشته باشید؛
-* بخواهید تعیین کنید آیا دو متغیر مرتبط هستند یا خیر؛
-* یک متغیر مستقل داشته باشید که برای یک متغیر وابسته مقادیر متعددی دارد.
+* داده‌های عددی جفت‌دار دارید؛
+* دو متغیر وجود دارد که به‌خوبی با هم جفت می‌شوند؛
+* می‌خواهید تعیین کنید آیا دو متغیر با هم مرتبط هستند یا نه؛
+* یک متغیر مستقل دارد که برای یک متغیر وابسته مقادیر متعددی دارد.
 
-این مثال دو مجموعه مقدار x‑y را رسم می‌کند. سری اول از خطوط مستقیم با نشانگرهای ستاره‌ای، و سری دوم از خطوط صاف با نشانگرهای دایره‌ای استفاده می‌کند؛ هر دو از اندازهٔ نشانگر ۱۰ استفاده می‌کنند که با [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/) تنظیم می‌شود. روش [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) شکل نشانگر را کنترل می‌کند.
+این مثال دو مجموعه مقادیر x‑y را رسم می‌کند. سری اول خطوط مستقیم با نشانگرهای ستاره‌ای دارد، در حالی که سری دوم خطوط صاف با نشانگرهای دایره‌ای؛ هر دو اندازهٔ نشانگر ۱۰ دارند که با [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/) تنظیم می‌شود. روش [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) شکل نشانگر را کنترل می‌کند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -268,13 +268,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 نتیجه:
 
-![نمودار پراکندگی](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **ایجاد نمودارهای دایره‌ای**
 
-نمودارهای دایره‌ای برای نمایش رابطهٔ بخش به کل در داده‌ها بهترین هستند، به‌ویژه زمانی که داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. با این حال، اگر داده‌های شما شامل بخش‌ها یا برچسب‌های زیادی باشد، ممکن است بهتر باشد به‌جای آن از نمودار میله‌ای استفاده کنید.
+نمودارهای دایره‌ای برای نشان‌دادن رابطهٔ بخش‑به‑کل داده‌ها، به‌ویژه زمانی که داده‌ها برچسب‌های دسته‌ای با مقادیر عددی دارند، بهترین گزینه هستند. اما اگر داده‌های شما شامل تعداد زیادی بخش یا برچسب باشد، ممکن است بخواهید به جای آن از نمودار میله‌ای استفاده کنید.
 
-این مثال یک نمودار دایره‌ای با سه مقدار فصلی ایجاد می‌کند. هر برش پر کردن و حاشیهٔ سفارشی دارد و برچسب‌ها ترکیبی از مقادیر، درصدها و اطلاعات سری را نمایش می‌دهند. روش [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) اولین برش را در ۱۸۰ درجه شروع می‌کند.
+این مثال یک نمودار دایره‌ای با سه مقدار سه‌ماهه ایجاد می‌کند. هر برش پرکردن و حاشیهٔ سفارشی دارد و برچسب‌ها ترکیبی مختلف از مقادیر، درصدها و اطلاعات سری را نشان می‌دهند. روش [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) اولین برش را در زاویهٔ ۱۸۰ درجه آغاز می‌کند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -411,13 +411,13 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 نتیجه:
 
-![نمودار دایره‌ای](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
 ### **ایجاد نمودارهای خطی**
 
-نمودارهای خطی (به‌عنوان گراف‌های خطی نیز شناخته می‌شوند) برای نشان دادن تغییرات مقدار در طول زمان مناسب هستند. با استفاده از یک نمودار خطی می‌توانید مقدار زیادی داده را به‌طور همزمان مقایسه کنید، تغییرات و روندها را در طول زمان پیگیری کنید، ناهنجاری‌ها را در سری‌های داده برجسته کنید و موارد دیگر.
+نمودارهای خطی (که به‌عنوان line graphs هم شناخته می‌شوند) برای نشان‌دادن تغییرات مقدار در طول زمان مناسب هستند. با استفاده از نمودار خطی می‌توانید مقدار زیادی داده را هم‌زمان مقایسه کنید، تغییرات و روندها را در طول زمان دنبال کنید، ناهنجاری‌های سری داده را برجسته کنید و غیره.
 
-این مثال با استفاده از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) یک نمودار خطی با سری‌ها و دسته‌های پیش‌فرض ایجاد می‌کند و سپس ارائه را به صورت PPTX ذخیره می‌کند.
+این مثال از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار خطی با سری‌ها و دسته‌های پیش‌فرض استفاده می‌کند و سپس ارائه را به‌صورت PPTX ذخیره می‌کند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -449,7 +449,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-به‌صورت پیش‌فرض، نقاط یک نمودار خطی با خطوط مستقیم پیوسته به‌هم متصل می‌شوند. اگر می‌خواهید به‌جای آن نقاط با خط تیره متصل شوند، با مقدار دلخواه از [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) متد [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) را فراخوانی کنید:
+به‌صورت پیش‌فرض، نقاط در نمودار خطی با خطوط مستقیم پیوسته به‌هم متصل می‌شوند. اگر می‌خواهید به‌جای آن نقاط با خط چین متصل شوند، از [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) با مقداری از [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) استفاده کنید:
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -486,13 +486,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 نتیجه:
 
-![نمودار خطی](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **ایجاد نمودارهای درخت‌نقشه**
+### **ایجاد نمودارهای درخت‑نقشه**
 
-نمودارهای درخت‌نقشه برای داده‌های فروش مناسب هستند وقتی می‌خواهید اندازهٔ نسبی دسته‌های داده را نشان دهید و به‌سرعت به مواردی که سهم بزرگی در هر دسته دارند، توجه کنید.
+نمودارهای درخت‑نقشه برای داده‌های فروش مناسب هستند وقتی می‌خواهید اندازهٔ نسبی دسته‌های داده را نشان دهید و به‌سرعت توجه را به مواردی که سهم بزرگ‌تری در هر دسته دارند جلب کنید.
 
-این مثال یک درخت‌نقشه با هشت برگ که در چهار شاخه و دو زیرشاخه گروه‌بندی شده‌اند ایجاد می‌کند. متد [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) شاخه‌ها را در سطح گروه‌بندی ۱ و زیرشاخه‌ها را در سطح ۲ اختصاص می‌دهد. مقادیر اندازهٔ مستطیل‌های نسبی را تعیین می‌کنند، در حالی که برچسب‌های دسته‌ای و برچسب‌های والدین همپوشانی‌دار سلسله مراتب را شناسایی می‌کنند.
+این مثال یک درخت‑نقشه با هشت برگ که در چهار ساقه و دو شاخه گروه‌بندی شده‌اند، ایجاد می‌کند. روش [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ساقه‌ها را در سطح گروه‌بندی 1 و شاخه‌ها را در سطح 2 اختصاص می‌دهد. مقادیر اندازهٔ نسبی مستطیل‌ها را تعیین می‌کند، در حالی که برچسب‌های دسته و برچسب‌های والدین همپوشانی‌کننده سلسله‌مراتب را مشخص می‌سازند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -598,26 +598,26 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 نتیجه:
 
-![نمودار درخت‌نقشه](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **ایجاد نمودارهای آبشاری**
+### **ایجاد نمودارهای آبشار**
 
-نمودار آبشاری نشان می‌دهد چگونه تغییرات مثبت و منفی به‌یک مقدار نهایی می‌انجامند. به‌عنوان مثال، یک تجزیه سود می‌تواند با درآمد شروع شود، هزینه‌ها را کسر کند و سایر درآمدها را اضافه کند. ستون‌های تغییر بین مقدار قبلی و مقدار جدید شناور می‌شوند، در حالی که ستون‌های مجموع از صفر تا مقدار انباشته شده گسترش می‌یابند.
+نمودار آبشار نشان می‌دهد که چگونه تغییرات مثبت و منفی به مقدار نهایی کمک می‌کنند. به‌عنوان مثال، یک تجزیه سود می‌تواند با درآمد شروع شود، هزینه‌ها را کم کند و درآمدهای دیگر را اضافه کند. ستون‌های تغییر بین مقدار قبلی و مقدار جدید شناور می‌شوند، در حالی که ستون‌های کل از صفر تا مقدار انباشت‌شده گسترش می‌یابند.
 
-مثال زیر از مقادیر هزار دلار آمریکا استفاده می‌کند:
+مثال زیر از مقادیر به‌صورت هزار دلار آمریکا استفاده می‌کند:
 
-| دسته | مقدار کتاب‌کار | نوع ستون |
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| درآمد | 1000 | افزایش |
-| هزینهٔ فروش | -400 | کاهش |
-| سود ناخالص | 600 | مجموع میانی |
-| هزینه‌های عملیاتی | -200 | کاهش |
-| سایر درآمدها | 50 | افزایش |
-| سود خالص | 450 | مجموع نهایی |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-برای علامت‌گذاری یک نقطه به‌عنوان مجموع میانی یا نهایی، متد [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) آن را با `true` فراخوانی کنید. مقدار انباشتهٔ واقعی را در سلول کتاب‌کار آن نقطه قرار دهید: `600` برای سود ناخالص (`1000 - 400`) و `450` برای سود خالص (`600 - 200 + 50`). این متد ستون را به‌عنوان مجموع علامت‌گذاری می‌کند؛ محاسبه یا پر کردن مقدار سلول را انجام نمی‌دهد. از صفر به‌عنوان جای‌دار استفاده نکنید یا مقدار تغییر دیگری برای نقطهٔ مجموع وارد نکنید. یک ستون مجموع مقدار انباشته را بدون افزودن دوباره به مقدار جاری نمایش می‌دهد.
+برای علامت‌گذاری یک نقطه به‌عنوان کل میانی یا نهایی، روش [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) آن را با `true` فراخوانی کنید. مقدار انباشت‌شدهٔ واقعی را در سلول کاربرگ آن نقطه قرار دهید: `600` برای سود ناخالص (`1000 - 400`) و `450` برای سود خالص (`600 - 200 + 50`). این روش فقط ستون را به‌عنوان کل علامت‌گذاری می‌کند؛ محاسبه یا پرکردن مقدار سلول را انجام نمی‌دهد. از صفر به‌عنوان جایگزین استفاده نکنید و مقدار دیگری برای نقطهٔ کل ارائه ندهید. یک ستون کل مقدار انباشت‌شده را بدون افزودن دوباره به مقدار جاری نمایش می‌دهد.
 
-این مثال کامل C++ یک نمودار ایجاد می‌کند که از عضو `Waterfall` شمارش‌گر [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) استفاده می‌کند، داده‌های پیش‌فرض را پاک می‌کند و کتاب‌کار تعبیه‌شده را پر می‌کند. شاخص شیت `0` اولین شیت را انتخاب می‌کند؛ ستون A شامل نام‌های دسته و ستون B شامل مقادیر است. هر سلول مقدار با [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) اضافه می‌شود. اندیس‌های نقطه‌ای صفر‑مبنا `2` و `5` مجموع‌های میانی و نهایی را شناسایی می‌کنند. با عبور `true` به متد [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) مقادیر روی ستون‌ها نمایش داده می‌شود. نیازی به ارائه یا کتاب‌کار ورودی نیست.
+این مثال کامل C++ یک نمودار ایجاد می‌کند که از عضو `Waterfall` شمارش‌نامه [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) استفاده می‌کند، داده‌های پیش‌فرض را پاک می‌کند و کاربرگ توکار را پر می‌کند. اندیس کاربرگ `0` اولین کاربرگ را انتخاب می‌کند؛ ستون A نام دسته‌ها و ستون B مقادیر را شامل می‌شود. هر سلول مقدار با [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) افزوده می‌شود. اندیس‌های نقطه‌ای مبتنی بر صفر `2` و `5` کل‌های میانی و نهایی را مشخص می‌کنند. فراخوانی `true` برای [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) مقادیر را روی ستون‌ها نشان می‌دهد. هیچ ارائه یا کاربرگ ورودی لازم نیست.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -700,17 +700,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-متد سطح‑سری [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) را با `true` فراخوانی کنید تا خطوطی که ستون‌های متوالی را به‌هم وصل می‌کنند نشان داده شوند و مقدار جاری راحت‌تر دنبال شود. برای مخفی کردن این خطوط، انتساب در مثال را با `series->set_ShowConnectorLines(false);` پیش از ذخیره‌سازی جایگزین کنید. این تنها دیداری خطوط را تغییر می‌دهد، نه داده یا مجموع‌ها را.
+در سطح سری، فراخوانی روش [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) با `true` خطوط پیوندی بین ستون‌های متوالی را نشان می‌دهد و پیگیری مقدار جاری را آسان‌تر می‌کند. برای پنهان کردن این خطوط، اختصاص در مثال را با `series->set_ShowConnectorLines(false);` پیش از ذخیره‌سازی جایگزین کنید. این تغییر فقط نمایش خط را تحت تأثیر قرار می‌دهد، نه داده یا کل‌ها.
 
-ارائهٔ ذخیره‌شده سود ناخالص ۶۰۰ و سود خالص ۴۵۰ را نشان می‌دهد، به‌طوری که هر دو مجموع از صفر استخراج شده‌اند:
+ارائهٔ ذخیره‌شده سود ناخالص ۶۰۰ و سود خالص ۴۵۰ را نشان می‌دهد، به‌طوری‌که هر دو کل از صفر کشیده می‌شوند:
 
-![نمودار آبشاری نشان‌دهندهٔ درآمد، هزینه‌ها، سود ناخالص ۶۰۰ و سود خالص ۴۵۰، با برچسب‌های مقدار و خطوط اتصال](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
 ### **ایجاد نمودارهای سهام**
 
-نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تحلیل روندهای بازار و نوسانات کمک می‌کنند. آنها بینش‌های اساسی دربارهٔ عملکرد سهام فراهم می‌کنند و به سرمایه‌گذاران و تجزیه‑و‌تحلیل‌گران در تصمیم‌گیری آگاهانه کمک می‌نمایند.
+نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تحلیل روندهای بازار و نوسانات کمک می‌کنند. این نمودارها بینش‌های اساسی در مورد عملکرد سهام فراهم می‌کنند و به سرمایه‌گذاران و تحلیل‌گران در اتخاذ تصمیم‌های آگاهانه یاری می‌رسانند.
 
-این مثال یک نمودار open‑high‑low‑close با چهار سری به این ترتیب و سه دسته ایجاد می‌کند. متد [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) نوارهای بالا/پایین را فعال می‌کند و [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) خطوط بالا‑پایین را که بازهٔ قیمت‌ها را نشان می‌دهند، کنترل می‌کند؛ در حالی که خطوط سری‌های فردی و خطوط شبکهٔ افقی جزئی مخفی می‌شوند.
+این مثال یک نمودار open‑high‑low‑close با چهار سری به‌این‌ترتیب و سه دسته ایجاد می‌کند. روش [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) نوارهای بالا/پایین را فعال می‌کند و [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) خطوط بالا‑پایین را که بازهٔ قیمتی را نشان می‌دهند، کنترل می‌کند، در حالی که خطوط سری‌های منفرد و خطوط شبکه افقی جزئی مخفی می‌شوند.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -818,13 +818,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 نتیجه:
 
-![نمودار سهام](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **ایجاد نمودارهای جعبه‌ای و دندانه‌ای**
+### **ایجاد نمودارهای جعبه‌ای و ویسکر**
 
-نمودارهای جعبه‌ای و دندانه‌ای توزیع داده‌ها را با خلاصه‌سازی معیارهای آماری کلیدی مانند میانه، چارک‌ها و نقاط دور افتاده نمایش می‌دهند. این نمودارها در تحلیل اکتشافی داده‌ها و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناهنجاری‌ها بسیار مفید هستند.
+نمودارهای جعبه‌ای و ویسکر برای نمایش توزیع داده‌ها با خلاصه‌سازی معیارهای آماری کلیدی مانند میانه، چارک‌ها و نقاط دورافتاده استفاده می‌شوند. این نمودارها به‌ویژه در تحلیل‌های اکتشافی داده و مطالعات آماری برای درک سریع تغییرپذیری داده و شناسایی ناهنجاری‌ها مفید هستند.
 
-این مثال یک نمودار جعبه‌ای و دندانه‌ای از شش مقدار ایجاد می‌کند. متد [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) روش محاسبهٔ چارک انحصاری را انتخاب می‌کند. مثال همچنین خطوط میانگین، نشانگرهای میانگین، نقاط داخلی و نقاط دورافتاده را فعال می‌کند.
+این مثال یک نمودار جعبه‌ای و ویسکر از شش مقدار ایجاد می‌کند. روش [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) محاسبهٔ چارک انحصاری را انتخاب می‌کند. مثال همچنین خطوط میانگین، نشانگرهای میانگین، نقاط داخلی و نقاط دورافتاده را فعال می‌کند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -907,9 +907,9 @@ presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 
 ### **ایجاد نمودارهای قیفی**
 
-نمودارهای قیفی برای تجسم فرایندهایی که شامل مراحل متوالی هستند به کار می‌روند؛ در این فرایند حجم داده‌ها با پیشرفت از یک گام به گام بعدی کاهش می‌یابد. این نمودارها به‌ویژه برای تجزیه و تحلیل نرخ تبدیل، شناسایی گلوگاه‌ها و ردیابی کارایی فرایندهای فروش یا بازاریابی مفید هستند.
+نمودارهای قیفی برای تصویرسازی فرآیندهایی که شامل مراحل متوالی هستند استفاده می‌شوند؛ در این فرآیند حجم داده‌ها از یک مرحله به مرحله بعدی کاهش می‌یابد. این نمودارها به‌ویژه برای تحلیل نرخ تبدیل، شناسایی گلوگاه‌ها و پیگیری کارایی فرآیندهای فروش یا بازاریابی مفید هستند.
 
-این مثال با استفاده از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) یک نمودار قیفی به اسلاید اول ارائهٔ موجود اضافه می‌کند. داده‌های پیش‌فرض را با شش دسته و مقادیری بین ۵۰ تا ۵۰۰ جایگزین می‌کند و سپس ارائه بروز شده را ذخیره می‌کند. ارائه ورودی باید حداقل یک اسلاید داشته باشد.
+این مثال از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) برای افزودن یک نمودار قیفی به اولین اسلاید ارائهٔ موجود استفاده می‌کند. داده‌های پیش‌فرض را با شش دسته و مقادیری بین ۵۰ تا ۵۰۰ جایگزین می‌کند و سپس ارائه به‌روزشده را ذخیره می‌کند. ارائه ورودی باید حداقل یک اسلاید داشته باشد.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -984,13 +984,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 نتیجه:
 
-![نمودار قیفی](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
 ### **ایجاد نمودارهای خورشیدی**
 
-نمودارهای خورشیدی برای تجسم داده‌های سلسله‌مراتبی استفاده می‌شوند؛ سطوح به‌صورت حلقه‌های متحدالمرکز نشان داده می‌شوند. این نمودارها رابطهٔ بخش به کل را نشان می‌دهند و برای نمایش دسته‌ها و زیردسته‌های تو در تو در قالبی واضح و فشرده ایده‌آل هستند.
+نمودارهای خورشیدی برای تصویرسازی داده‌های سلسله‌مراتبی استفاده می‌شوند؛ سطوح به‌صورت حلقه‌های متحد‌المرکز نمایش داده می‌شوند. این نمودارها به‌صورت واضح ارتباط بخش‑به‑کل را نشان می‌دهند و برای نمایاندن دسته‌ها و زیرمجموعه‌های تو در تو در قالبی فشرده و واضح مناسب هستند.
 
-این مثال یک نمودار خورشیدی با هشت برگ که در چهار شاخه و دو زیرشاخه گروه‌بندی شده‌اند ایجاد می‌کند. متد [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) شاخه‌ها را در سطح گروه‌بندی ۱ و زیرشاخه‌ها را در سطح ۲ اختصاص می‌دهد. برچسب‌های دسته بخش‌ها را شناسایی می‌کنند و مقادیر اندازهٔ نسبی آن‌ها را تعیین می‌نمایند.
+این مثال یک نمودار خورشیدی با هشت برگ که در چهار ساقه و دو شاخه گروه‌بندی شده‌اند، ایجاد می‌کند. روش [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ساقه‌ها را در سطح گروه‌بندی 1 و شاخه‌ها را در سطح 2 اختصاص می‌دهد. برچسب‌های دسته بخش‌ها را شناسایی می‌کند و مقادیر اندازهٔ نسبی آن‌ها را تعیین می‌کند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1093,15 +1093,20 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 نتیجه:
 
-![نمودار خورشیدی](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **ایجاد نمودارهای هیستوگرام**
 
-نمودارهای هیستوگرام توزیع داده‌های عددی را با گروه‌بندی مقادیر در بازه‌ها یا سبدها نمایش می‌دهند. این نمودارها برای شناسایی الگوهای داده مانند فراوانی، کجایگی و پراکندگی و همچنین برای کشف نقاط دورافتاده در یک مجموعه داده مفید هستند.
+نمودارهای هیستوگرام نشان می‌دهند که چگونه مقادیر عددی در فواصل (بِن‌ها) توزیع می‌شوند. برای گزارش‌های ماهانهٔ زمان پردازش سفارشات، از عرض بِن ثابت و آستانه‌های یکسان استفاده کنید تا فواصل ثابت بمانند و مقایسه توزیع‌ها آسان‌تر شود.
 
-این مثال یک هیستوگرام از شش مقدار عددی، از جمله مقادیر منفی، ایجاد می‌کند. فراخوانی [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) با مقدار «automatic» به نمودار اجازه می‌دهد سبدهای مناسب برای نمایش توزیع را تعیین کند.
+محور افقی را با فراخوانی روش [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) و مقدار از [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/) تنظیم کنید. [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) تنها برای حالت `ByBinWidth` اعمال می‌شود؛ [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) تنها برای `ByNumberOfBins` استفاده می‌شود. برای اجازهٔ انتخاب خودکار بِن‌ها از `Automatic` استفاده کنید.
+
+#### **استفاده از عرض بِن ثابت**
+
+این مثال زمان‌های پردازش را به فواصل ۱۰ دقیقه‌ای تقسیم می‌کند، به‌طوری‌که بِن‌های جداگانه‌ای برای زمان‌های برابر یا کمتر از ۱۰ دقیقه و بیش از ۴۰ دقیقه وجود دارد. این بِن‌ها را با [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) و [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/) فعال کنید. هنگام ارائهٔ آستانه‌های صریح از طریق [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) و [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/)، با `false` روش‌های [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) و [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) را فراخوانی کنید.
 
 ```cpp
+#include <system/array.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/string.h>
@@ -1136,7 +1141,10 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 500, 300);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
 
 chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
@@ -1145,33 +1153,105 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
-auto valueCell = workbook->GetCell(0, u"A1", ObjectExt::Box(15));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A2", ObjectExt::Box(-41));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A3", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A4", ObjectExt::Box(10));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A5", ObjectExt::Box(-23));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A6", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
 
-chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(AxisAggregationType::Automatic);
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByBinWidth);
+axis->set_BinWidth(10);
+axis->set_IsUnderflowBin(true);
+axis->set_IsAutomaticUnderflowBin(false);
+axis->set_UnderflowBin(10);
+axis->set_IsOverflowBin(true);
+axis->set_IsAutomaticOverflowBin(false);
+axis->set_OverflowBin(40);
 
-presentation->Save(u"Histogram.pptx", SaveFormat::Pptx);
+presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-نتیجه:
+ارائه‌ای که در PowerPoint نمایش داده می‌شود، تعداد بِن‌ها **۳، ۴، ۴، ۴ و ۲** را نشان می‌دهد. بِن زیر جریان (`underflow`) شامل `5, 10, 10` است، بنابراین آستانهٔ آن شامل این مقادیر می‌شود. بِن بالای جریان (`overflow`) فقط شامل `41, 50` است، بنابراین آستانهٔ آن استثنایی است؛ مقادیر برابر `40` در بازهٔ قبلی باقی می‌مانند. بِن‌های داخلی شامل مقادیری بزرگ‌تر از حد پایین و کمتر یا مساوی حد بالای خود هستند.
 
-![نمودار هیستوگرام](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **مشخص کردن تعداد بِن‌ها**
+
+برای داشتن سطح جزئیات ثابت به‌جای بازه‌های ثابت، برای همان داده‌ها پنج بِن درخواست کنید. این مثال بِن‌های زیر جریان و بالا جریان را غیرفعال می‌گذارد. نمودار عرض را از بازهٔ داده‌ها استخراج می‌کند، بنابراین مرزها می‌توانند بین گزارش‌ها تغییر کنند.
+
+```cpp
+#include <system/array.h>
+#include <system/shared_ptr.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByNumberOfBins);
+axis->set_NumberOfBins(5);
+
+presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
+```
+
+پنج بِن شمارش **۴، ۴، ۴، ۴ و ۱** دارند. این توزیع را با نتیجهٔ عرض ثابت بالا مقایسه کنید: مقادیر ورودی یکسان هستند، اما مرزها متفاوتند.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **ایجاد نمودارهای رادار**
 
-نمودارهای رادار برای نمایش داده‌های چندمتغیره در قالب دوبُعدی استفاده می‌شوند و امکان مقایسهٔ آسان چندین متغیر به‌صورت همزمان را فراهم می‌کنند. این نمودارها برای شناسایی الگوها، نقاط قوت و ضعف در میان معیارهای عملکردی یا ویژگی‌های متعدد بسیار مفیدند.
+نمودارهای رادار برای نمایش داده‌های چندمتغیره در قالب دو‑بعدی استفاده می‌شوند و امکان مقایسهٔ آسان چندین متغیر به‌صورت همزمان را فراهم می‌آورند. این نمودارها به‌ویژه برای شناسایی الگوها، قوت‌ها و ضعف‌ها در میان معیارهای عملکرد یا ویژگی‌های متعدد مفید هستند.
 
-این مثال با استفاده از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) یک نمودار رادار با سری‌ها و دسته‌های پیش‌فرض ایجاد می‌کند و سپس ارائه را به صورت PPTX ذخیره می‌کند.
+این مثال از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار رادار با سری‌ها و دسته‌های پیش‌فرض استفاده می‌کند و سپس ارائه را به‌صورت PPTX ذخیره می‌کند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1205,13 +1285,13 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 نتیجه:
 
-![نمودار رادار](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
 ### **ایجاد نمودارهای چنددسته‌ای**
 
-نمودارهای چنددسته‌ای برای نمایش داده‌هایی استفاده می‌شوند که شامل بیش از یک گروه‌بندی دسته‌ای هستند و به شما امکان مقایسهٔ مقادیر در ابعاد متعدد به‌صورت همزمان را می‌دهند. این نمودارها به‌ویژه زمانی که نیاز به تحلیل روندها و روابط در مجموعه داده‌های پیچیده و چند لایه‌دار دارید، مفید هستند.
+نمودارهای چنددسته‌ای برای نمایش داده‌هایی که شامل بیش از یک گروه‌بندی دسته‌ای هستند استفاده می‌شوند و به شما امکان می‌دهند مقادیر را در چند بُعد هم‌زمان مقایسه کنید. این نمودارها به‌ویژه هنگام نیاز به تحلیل روندها و روابط در مجموعه‌های دادهٔ پیچیده و چند لایه مفید هستند.
 
-این مثال یک نمودار ستونی خوشه‌ای با هشت دسته که در چهار جفت مرتب شده‌اند، ایجاد می‌کند. متد [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) به هر جفت برچسب مشترک در سطح گروه‌بندی ۱ می‌دهد و محور دسته‌ای را با برچسب‌های فردی و گروهی تولید می‌کند.
+این مثال یک نمودار ستونی خوشه‌ای با هشت دسته arranged در چهار جفت ایجاد می‌کند. روش [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) به هر جفت یک برچسب مشترک در سطح گروه‌بندی 1 می‌دهد و به این ترتیب محور دسته شامل هر دو برچسب فردی و گروهی می‌شود.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1306,13 +1386,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 نتیجه:
 
-![نمودار چنددسته‌ای](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **ایجاد نمودارهای نقشه‌ای**
+### **ایجاد نمودارهای نقشه**
 
-نمودارهای نقشه‌ای برای تجسم داده‌های جغرافیایی با نگاشت اطلاعات به مکان‌های خاص مانند کشورها، ایالات یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای مناطق، داده‌های جمعیتی و توزیع‌های فضایی به‌صورت واضح و بصری جذاب بسیار مفیدند.
+نمودارهای نقشه برای تصویرسازی داده‌های جغرافیایی با نقشه‌برداری اطلاعات به مکان‌های خاص مانند کشورها، ایالت‌ها یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیتی و توزیع‌های مکانی به‌صورت واضح و بصری جذاب مفید هستند.
 
-این مثال با استفاده از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) یک نمودار نقشه‌ای با داده‌های جغرافیایی پیش‌فرض ایجاد می‌کند و آن را برای مشاهده در PowerPoint ذخیره می‌کند.
+این مثال از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار نقشه با داده‌های جغرافیایی پیش‌فرض استفاده می‌کند و آن را برای مشاهده در PowerPoint ذخیره می‌کند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1346,19 +1426,19 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 نتیجه:
 
-![نمودار نقشه‌ای](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-تصویر بالا نشان‌دهندهٔ ارائهٔ ذخیره‌شده‌ای است که در PowerPoint باز شده است. Aspose.Slides نمودار نقشه‌ای و داده‌های آن را به‌درستی می‌نویسد، اما خود نمودارهای نقشه‌ای را رسم نمی‌کند: هنگامی که اسلاید حاوی چنین نموداری به تصویر تبدیل یا به PDF یا SVG تبدیل می‌شود، ناحیهٔ نمودار خالی می‌ماند. اشکال دیگر در همان اسلاید تحت‌تأثیر قرار نمی‌گیرند.
+تصویر بالا نشان می‌دهد که ارائهٔ ذخیره‌شده در PowerPoint باز شده است. Aspose.Slides نمودار نقشه و داده‌های آن را به‌درستی می‌نویسد، اما خود نمودار نقشه را رسم نمی‌کند: وقتی اسلایدی که حاوی یک نمودار نقشه است به تصویر تبدیل می‌شود یا به PDF یا SVG تبدیل می‌گردد، ناحیهٔ نمودار خالی می‌ماند. سایر اشکال روی همان اسلاید تحت تأثیر قرار نمی‌گیرند.
 {{% /alert %}}
 
 ### **ایجاد نمودارهای ترکیبی**
 
-نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا شباهت‌های بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید و روابط بین آنها را شناسایی نمایید.
+یک نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا شباهت‌های بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید و روابط بین آن‌ها را شناسایی کنید.
 
-![نمودار ترکیبی](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-این مثال دو سری ستونی خوشه‌ای را با یک سری خطی در چهار دسته ترکیب می‌کند. ستون‌ها از محور عمودی اصلی استفاده می‌کنند، در حالی که [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) خط را بر روی محور عمودی ثانویهٔ سمت راست قرار می‌دهد. توابع کمکی عنوان، افسانه، برچسب‌های محور و خطوط شبکه را پیکربندی می‌کنند.
+این مثال دو سری ستونی خوشه‌ای را با یک سری خطی در چهار دسته ترکیب می‌کند. ستون‌ها از محور عمودی اولیه استفاده می‌کنند، در حالی که [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) خط را بر روی محور عمودی ثانویه سمت راست قرار می‌دهد. توابع کمکی عنوان، افسانه، برچسب‌های محور و خطوط شبکه را پیکربندی می‌کنند.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1569,9 +1649,9 @@ ComboChartExample::CreateComboChart();
 
 ## **به‌روزرسانی نمودارها**
 
-Aspose.Slides برای C++ به شما امکان می‌دهد تا نمودارهای PowerPoint را با تغییر داده‌های نمودار، قالب‌بندی و سبک‌ها به‌روزرسانی کنید. این قابلیت فرآیند نگهداری ارائه‌ها با محتوای دینامیک را ساده می‌کند و اطمینان می‌دهد که نمودارها به‌درستی داده‌ها و استانداردهای بصری فعلی را منعکس می‌کنند.
+Aspose.Slides برای C++ به شما امکان می‌دهد نمودارهای PowerPoint را با اصلاح داده‌های نمودار، قالب‌بندی و استایل به‌روزرسانی کنید. این قابلیت فرآیند حفظ به‌روز بودن ارائه‌ها با محتوای پویا را ساده می‌کند و اطمینان می‌دهد که نمودارها به‌درستی داده‌ها و استانداردهای بصری فعلی را منعکس می‌کنند.
 
-این مثال نمودار دارای نام «My chart» را در اسلاید اول یک ارائهٔ موجود به‌روز می‌کند. این مثال به دو سری ستونی با هر کدام سه نقطه داده نیاز دارد، به‌طوری که برچسب‌های دسته در ستون A و نام‌های سری در ردیف اول اولین شیت قرار داشته باشند. مثال با استفاده از [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) سلول‌های کتاب‌کار را تغییر می‌دهد، مقادیر سری‌ها را به‌روز می‌کند، سری سوم را اضافه می‌کند و نمودار را از طریق [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/) به سیلندری خوشه‌ای تبدیل می‌کند.
+این مثال نمودار با نام «My chart» را در اولین اسلاید ارائهٔ موجود به‌روزرسانی می‌کند. این مثال به دو سری ستونی با سه نقطه داده در هر سری نیاز دارد، که برچسب‌های دسته در ستون A و نام‌های سری در ردیف اول اولین کاربرگ قرار دارند. این مثال از [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) برای تغییر سلول‌های کاربرگ استفاده می‌کند، مقادیر سری‌ها را به‌روز می‌کند، سری سوم را اضافه می‌کند و نوع نمودار را به استوانه‌های خوشه‌ای از طریق [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/) تغییر می‌دهد.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1652,13 +1732,13 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 ```
 
-## **تنظیم دامنه داده برای یک نمودار**
+## **تنظیم محدودهٔ داده برای یک نمودار**
 
-برای بررسی دامنه‌ای که قبلاً توسط یک نمودار موجود استفاده شده است، به [Retrieve a Chart's Data Range](/slides/fa/cpp/chart-workbook/#retrieve-a-charts-data-range) مراجعه کنید.
+برای بررسی محدوده‌ای که قبلاً توسط یک نمودار موجود استفاده شده است، به [Retrieve a Chart's Data Range](/slides/fa/cpp/chart-workbook/#retrieve-a-charts-data-range) مراجعه کنید.
 
-Aspose.Slides برای C++ انعطاف‌پذیری تعیین دامنهٔ دادهٔ خاصی از یک شیت را به‌عنوان منبع دادهٔ نمودار شما فراهم می‌آورد. این به این معناست که می‌توانید به‌طور مستقیم بخشی از شیت خود را به نمودار متصل کنید و کنترل کنید که کدام سلول‌ها در سری‌ها و دسته‌های نمودار مشارکت دارند. در نتیجه می‌توانید نمودارهای خود را به‌راحتی با جدیدترین تغییرات داده در شیت همگام‌سازی کنید و اطمینان حاصل کنید که ارائه‌های PowerPoint شما اطلاعات دقیق و بروز را نشان می‌دهند.
+Aspose.Slides برای C++ انعطاف‌پذیری تعریف محدودهٔ دادهٔ خاصی از کاربرگ به‌عنوان منبع دادهٔ نمودار شما را فراهم می‌کند. این به این معناست که می‌توانید بخشی از کاربرگ خود را به‌مستقیم به نمودار اختصاص دهید و کنترل کنید که کدام سلول‌ها به سری‌ها و دسته‌های نمودار کمک می‌کنند. در نتیجه، می‌توانید نمودارهای خود را به‌راحتی به‌روزرسانی و همگام‌سازی کنید تا تغییرات داده‌های جدید کاربرگ را منعکس کنند و اطمینان حاصل کنید که ارائه‌های PowerPoint شما اطلاعات دقیق و به‌روز را نشان می‌دهند.
 
-این مثال با استفاده از [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) منبع دادهٔ نمودار با نام «My chart» را در اسلاید اول یک ارائهٔ موجود به `Sheet1!A1:B4` تنظیم می‌کند. کتاب‌کار نمودار باید آن شیت را داشته باشد و یک دامنه پر شده با سرعنوان سری در ردیف اول، برچسب‌های دسته در ستون A و سه مقدار در ستون B داشته باشد.
+این مثال از [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) برای تنظیم منبع دادهٔ نمودار با نام «My chart» در اولین اسلاید ارائهٔ موجود به `Sheet1!A1:B4` استفاده می‌کند. کاربرگ نمودار باید آن برگه را داشته باشد و یک محدودهٔ پر شده با سرعنوان سری در ردیف اول، برچسب‌های دسته در ستون A و سه مقدار در ستون B داشته باشد.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1702,9 +1782,9 @@ presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 
 ## **استفاده از نشانگرهای پیش‌فرض در نمودارها**
 
-زمانی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌صورت خودکار یک نماد نشانگر پیش‌فرض متفاوت دریافت می‌کند.
+زمانی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌طور خودکار یک نماد نشانگر پیش‌فرض متفاوت دریافت می‌کند.
 
-این مثال با استفاده از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) یک نمودار با دو سری خطی و یک افسانه ایجاد می‌کند. تنظیمات [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) نمادهای نشانگر اختصاص یافته به‌صورت خودکار را حفظ می‌کند. سری اول شامل یک مقدار منفی و یک مقدار گمشده است که با `nullptr` نمایش داده می‌شود، در حالی که سری دوم برای هر دسته مقدار دارد.
+این مثال از [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) برای ایجاد یک نمودار با دو سری خطی و یک افسانه استفاده می‌کند. تنظیمات [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) نمادهای نشانگر اختصاص داده‌شده به‌صورت خودکار را حفظ می‌کند. سری اول شامل یک مقدار منفی و یک مقدار گمشده (نمایش داده شده به‌عنوان `nullptr`) است، در حالی که سری دوم برای هر دسته مقداری دارد.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1790,20 +1870,20 @@ chart->get_Legend()->set_Overlay(false);
 presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
 **کدام انواع نمودارها توسط Aspose.Slides برای C++ پشتیبانی می‌شوند؟**
 
-Aspose.Slides برای C++ طیف وسیعی از انواع نمودارها را پشتیبانی می‌کند، از جمله میله‌ای، خطی، دایره‌ای، ناحیه‌ای، پراکندگی، هیستوگرام، رادار و بسیاری دیگر. این انعطاف‌پذیری به شما اجازه می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای تجسم داده خود انتخاب کنید.
+Aspose.Slides برای C++ طیف گسترده‌ای از انواع نمودارها از جمله نوار، خط، دایره، ناحیه، پراکنده، هیستوگرام، رادار و بسیاری دیگر را پشتیبانی می‌کند. این انعطاف‌پذیری به شما اجازه می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای بصری‌سازی داده‌های خود انتخاب کنید.
 
 **چگونه یک نمودار جدید به اسلاید اضافه کنم؟**
 
-برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) ایجاد می‌کنید، اسلاید موردنظر را با استفاده از اندیس آن دریافت می‌کنید و سپس متد افزودن نمودار را صدا می‌زنید، نوع نمودار و داده‌های اولیه را مشخص می‌کنید. این فرآیند نمودار را مستقیماً در ارائهٔ شما ادغام می‌کند.
+برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) ایجاد می‌کنید، اسلاید موردنظر را بر اساس اندیس آن دریافت می‌کنید و سپس متد افزودن نمودار را فراخوانی می‌کنید؛ در این فراخوانی نوع نمودار و داده‌های اولیه را مشخص می‌کنید. این فرآیند نمودار را مستقیماً در ارائهٔ شما ادغام می‌کند.
 
-**چگونه می‌توانم داده‌های نمایش داده‌شده در یک نمودار را به‌روز کنم؟**
+**چگونه می‌توانم داده‌های نمایش‌داده‌شده در یک نمودار را به‌روزرسانی کنم؟**
 
-می‌توانید داده‌های یک نمودار را با دسترسی به کتاب‌کار دادهٔ آن ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/))، پاک‌سازی سری‌ها و دسته‌های پیش‌فرض، و سپس افزودن داده‌های سفارشی خود به‌روزرسانی کنید. این امکان، تازه‌سازی برنامه‌نویسی نمودار را برای بازتاب جدیدترین داده‌ها فراهم می‌سازد.
+می‌توانید داده‌های یک نمودار را با دسترسی به کاربرگ دادهٔ آن ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/))، پاک کردن هر سری و دستهٔ پیش‌فرض، و سپس افزودن داده‌های سفارشی خود به‌روزرسانی کنید. این امکان به‌صورت برنامه‌نویسی اجازه می‌دهد تا نمودار را برای بازتاب آخرین داده‌ها تازه کنید.
 
 **آیا امکان سفارشی‌سازی ظاهر نمودار وجود دارد؟**
 
-بله، Aspose.Slides برای C++ گزینه‌های گسترده‌ای برای سفارشی‌سازی فراهم می‌کند. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، افسانه‌ها و سایر عناصر قالب‌بندی را برای تطبیق ظاهر نمودار با نیازهای طراحی خاص خود تغییر دهید.
+بله، Aspose.Slides برای C++ گزینه‌های گسترده‌ای برای سفارشی‌سازی فراهم می‌کند. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، افسانه‌ها و سایر عناصر قالب‌بندی را تغییر دهید تا ظاهر نمودار را مطابق با نیازهای طراحی خاص خود تنظیم کنید.

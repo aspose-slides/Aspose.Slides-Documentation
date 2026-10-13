@@ -5,55 +5,53 @@ type: docs
 weight: 10
 url: /id/php-java/create-chart/
 keywords:
-- menambahkan diagram
-- membuat diagram
-- mengedit diagram
-- mengubah diagram
-- memperbarui diagram
+- tambahkan diagram
+- buat diagram
+- edit diagram
+- ubah diagram
+- perbarui diagram
 - diagram sebar
 - diagram lingkaran
 - diagram garis
 - diagram peta pohon
-- diagram saham
-- diagram kotak-whisker
+- diagram stok
+- diagram kotak dan whisker
 - diagram corong
 - diagram sunburst
 - diagram histogram
 - diagram radar
-- diagram multi-kategori
+- diagram multi‑kategori
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides for PHP via Java. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam PHP."
+description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk PHP via Java. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam PHP."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini memberikan panduan lengkap tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides for PHP via Java. Anda akan belajar cara menambahkan diagram secara programatik ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain khusus Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi PHP Anda, mempercepat proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk PHP via Java. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk memenuhi persyaratan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi PHP Anda, menyederhanakan proses pembuatan presentasi berbasis data.
 
-## **Buat Diagram**
+## **Membuat Diagram**
 
-Diagram membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan yang mungkin tidak langsung terlihat dari tabel atau lembar kerja.
+Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
 
 **Mengapa Membuat Diagram?**
 
-Menggunakan diagram, Anda dapat:
-
-* mengagregasi, merangkum, atau menyederhanakan sejumlah besar data pada satu slide dalam presentasi;
-* menunjukkan pola dan tren dalam data;
-* menyimpulkan arah dan momentum data dari waktu ke waktu atau terkait unit pengukuran tertentu;
-* mendeteksi nilai outlier, penyimpangan, deviasi, kesalahan, dan data yang tidak masuk akal;
+* mengagregasi, merangkum, atau mereduksi sejumlah besar data pada satu slide dalam presentasi;
+* menampilkan pola dan tren dalam data;
+* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu;
+* mengidentifikasi nilai outlier, penyimpangan, deviasi, kesalahan, dan data yang tidak masuk akal;
 * mengkomunikasikan atau menyajikan data yang kompleks.
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat baik diagram reguler (berdasarkan jenis diagram populer) maupun diagram kustom.
+Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis diagram. Dengan menggunakan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) maupun diagram khusus.
 
 {{% alert color="info" title="Note" %}}
-Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) dalam namespace [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/). Nilai-nilai dalam enumerasi ini sesuai dengan berbagai jenis diagram.
+Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) di namespace [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/). Nilai-nilai dalam enumerasi ini sesuai dengan berbagai tipe diagram.
 {{% /alert %}}
 
-### **Buat Diagram Kolom Terklaster**
+### **Membuat Diagram Kolom Berkelompok**
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk membuat diagram kolom terklaster yang membandingkan dua seri across tiga kategori. Seri menggunakan isi merah dan hijau, dan label individu menampilkan nama kategori, nama seri, dan nilai. Indeks lembar kerja 0 merujuk ke lembar pertama dalam buku kerja diagram yang tersemat.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk membuat diagram kolom berkelompok yang membandingkan dua seri di tiga kategori. Seri menggunakan isian merah dan hijau, serta label individual menampilkan nama kategori, nama seri, dan nilai. Indeks worksheet 0 mengacu pada lembar pertama dalam buku kerja diagram yang tersemat.
 
 ```php
 use aspose\slides\ChartType;
@@ -137,22 +135,22 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Kolom Terklaster](clustered_column_chart.png)
+![Diagram Kolom Berkelompok](clustered_column_chart.png)
 
-### **Buat Diagram Sebar**
+### **Membuat Diagram Sebar**
 
-Diagram sebar (juga dikenal sebagai plot sebar atau grafik x-y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+Diagram sebar (juga dikenal sebagai scatter plot atau grafik x-y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
 Gunakan diagram sebar ketika:
 
 * Anda memiliki data numerik berpasangan.
-* Anda memiliki dua variabel yang cocok bersama.
-* Anda ingin menentukan apakah kedua variabel tersebut terkait.
+* Anda memiliki dua variabel yang saling berpasangan dengan baik.
+* Anda ingin menentukan apakah dua variabel tersebut berkaitan.
 * Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen.
 
-Contoh ini memplot dua set nilai x-y. Seri pertama menggunakan garis lurus dengan penanda bintang, sementara yang kedua menggunakan garis halus dengan penanda lingkaran; keduanya menggunakan ukuran penanda 10, yang dikonfigurasi dengan [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). Metode [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) mengontrol bentuk penanda.
+Contoh ini memplot dua set nilai x-y. Seri pertama menggunakan garis lurus dengan penanda bintang, sementara seri kedua menggunakan garis halus dengan penanda lingkaran; keduanya menggunakan ukuran penanda 10, yang dikonfigurasi dengan [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). Metode [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) mengontrol bentuk penanda.
 
 ```php
 use aspose\slides\ChartType;
@@ -221,15 +219,15 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Diagram Sebar](scatter_chart.png)
 
-### **Buat Diagram Lingkaran**
+### **Membuat Diagram Lingkaran**
 
-Diagram lingkaran paling cocok untuk menunjukkan hubungan bagian-dengan‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin lebih baik menggunakan diagram batang.
+Diagram lingkaran paling cocok untuk menampilkan hubungan bagian-dengan-seluruh pada data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan diagram batang sebagai gantinya.
 
-Contoh ini membuat diagram lingkaran dengan tiga nilai kuartalan. Setiap irisan memiliki isi dan batas kustom, dan label menampilkan kombinasi nilai, persentase, dan informasi seri yang berbeda. Metode [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) mengatur irisan pertama mulai pada 180 derajat.
+Contoh ini membuat diagram lingkaran dengan tiga nilai kuartalan. Setiap irisan memiliki isian dan batas khusus, dan label menampilkan kombinasi nilai, persentase, dan informasi seri yang berbeda. Metode [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) mengatur irisan pertama untuk memulai pada 180 derajat.
 
 ```php
 use aspose\slides\ChartType;
@@ -339,15 +337,15 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Diagram Lingkaran](pie_chart.png)
 
-### **Buat Diagram Garis**
+### **Membuat Diagram Garis**
 
 Diagram garis (juga dikenal sebagai grafik garis) paling cocok digunakan dalam situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lainnya.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk membuat diagram garis dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk membuat diagram garis dengan seri dan kategori default, lalu menyimpan presentasi sebagai PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -369,7 +367,7 @@ finally
 }
 ```
 
-Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik-titik tersebut dihubungkan dengan garis putus‑putus, panggil [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) dengan nilai dari [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
+Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik-titik tersebut dihubungkan dengan garis putus-putus, panggil [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) dengan nilai dari [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
 
 ```php
 use aspose\slides\ChartType;
@@ -395,15 +393,15 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Diagram Garis](line_chart.png)
 
-### **Buat Diagram Peta Pohon**
+### **Membuat Diagram Peta Pohon**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian pada item yang merupakan kontributor besar dalam tiap kategori.
+Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menampilkan ukuran relatif kategori data dan dengan cepat menarik perhatian pada item yang memberikan kontribusi besar dalam setiap kategori.
 
-Contoh ini membuat peta pohon dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada level pengelompokan 1 dan cabang pada level 2. Nilai menentukan ukuran relatif persegi panjang, sementara label kategori dan label induk yang tumpang tindih mengidentifikasi hierarki.
+Contoh ini membuat diagram peta pohon dengan delapan daun yang dikelompokkan ke dalam empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada tingkat pengelompokan 1 dan cabang pada tingkat 2. Nilai menentukan ukuran relatif persegi panjang, sedangkan label kategori dan label induk yang tumpang tindih mengidentifikasi hierarki.
 
 ```php
 use aspose\slides\ChartType;
@@ -485,26 +483,26 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Diagram Peta Pohon](treemap_chart.png)
 
-### **Buat Diagram Air Terjun**
+### **Membuat Diagram Air Terjun**
 
-Diagram air terjun menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian keuntungan dapat dimulai dengan pendapatan, mengurangkan biaya, dan menambahkan pendapatan lain. Kolom perubahan mengambang antara nilai berjalan sebelumnya dan yang baru, sementara kolom total memanjang dari nol ke nilai terakumulasi.
+Diagram air terjun menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian profit dapat dimulai dengan pendapatan, dikurangi biaya, dan ditambah pendapatan lain. Kolom perubahan mengambang antara nilai berjalan sebelumnya dan nilai baru, sementara kolom total memperluas dari nol ke nilai terakumulasi.
 
-| Kategori | Nilai Buku Kerja | Tipe Kolom |
+| Kategori | Nilai buku kerja | Jenis kolom |
 | --- | ---: | --- |
 | Revenue | 1000 | Peningkatan |
 | Cost of sales | -400 | Penurunan |
-| Gross profit | 600 | Total Interim |
+| Gross profit | 600 | Total menengah |
 | Operating expenses | -200 | Penurunan |
 | Other income | 50 | Peningkatan |
-| Net profit | 450 | Total Akhir |
+| Net profit | 450 | Total akhir |
 
-Untuk menandai titik sebagai total interim atau akhir, panggil metode [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) dengan `true`. Berikan jumlah terakumulasi yang sebenarnya di sel buku kerja titik tersebut: `600` untuk laba kotor (`1000 - 400`) dan `450` untuk laba bersih (`600 - 200 + 50`). Metode tersebut menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai tempat penampung atau memberikan perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya kembali ke nilai berjalan.
+Untuk menandai sebuah titik sebagai total menengah atau total akhir, panggil metode [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/)‑nya dengan `true`. Isi sel buku kerja pada titik tersebut dengan jumlah terakumulasi yang sebenarnya: `600` untuk gross profit (`1000 - 400`) dan `450` untuk net profit (`600 - 200 + 50`). Metode ini menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau menambahkan perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
 
-Contoh PHP lengkap ini membuat diagram menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), menghapus data default, dan mengisi buku kerja yang tersemat. Indeks lembar kerja `0` memilih lembar pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total interim dan akhir. Memanggil [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) dengan `true` menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau buku kerja input.
+Contoh PHP lengkap ini membuat diagram menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), membersihkan data default, dan mengisi buku kerja yang tersemat. Indeks worksheet `0` memilih lembar kerja pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total menengah dan total akhir. Memanggil [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) dengan `true` menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau buku kerja input.
 
 ```php
 use aspose\slides\ChartType;
@@ -558,17 +556,17 @@ finally
 }
 ```
 
-Panggil metode [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) pada level seri dengan `true` untuk menampilkan garis yang menghubungkan kolom berurutan dan memudahkan mengikuti nilai berjalan. Untuk menyembunyikan garis tersebut, ganti pemanggilan metode dalam contoh dengan `$series->setShowConnectorLines(false);` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
+Panggil metode tingkat seri [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) dengan `true` untuk menampilkan garis yang menghubungkan kolom berurutan dan memudahkan pelacakan nilai berjalan. Untuk menyembunyikan garis ini, ganti pemanggilan metode dalam contoh dengan `$series->setShowConnectorLines(false);` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
 
-Presentasi yang disimpan menunjukkan laba kotor 600 dan laba bersih 450, dengan kedua total dimulai dari nol:
+Diagram yang disimpan menunjukkan gross profit 600 dan net profit 450, keduanya ditarik dari nol:
 
-![Diagram air terjun yang menunjukkan pendapatan, biaya, laba kotor 600, dan laba bersih 450, dengan label nilai dan garis penghubung](waterfall_chart.png)
+![Diagram air terjun menunjukkan pendapatan, biaya, laba kotor 600, dan laba bersih 450, dengan label nilai dan garis penghubung](waterfall_chart.png)
 
-### **Buat Diagram Saham**
+### **Membuat Diagram Stok**
 
-Diagram saham digunakan untuk menampilkan data keuangan seperti harga buka, tinggi, rendah, dan tutup, membantu menganalisis tren pasar dan volatilitas. Mereka menawarkan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
+Diagram stok digunakan untuk menampilkan data keuangan seperti harga open, high, low, dan close, membantu menganalisis tren pasar dan volatilitas. Mereka memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
 
-Contoh ini membuat diagram open‑high‑low‑close dengan empat seri dalam urutan tersebut dan tiga kategori. Metode [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) mengaktifkan batang naik/turun, dan [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) mengontrol garis tinggi‑rendah yang menunjukkan rentang harga, sedangkan garis seri individual dan grid minor horizontal disembunyikan.
+Contoh ini membuat diagram open‑high‑low‑close dengan empat seri dalam urutan tersebut dan tiga kategori. Metode [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) mengaktifkan batang naik/turun, dan [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) mengontrol garis high‑low yang menunjukkan rentang harga, sementara garis seri individu dan garis kisi minor horizontal disembunyikan.
 
 ```php
 use aspose\slides\ChartType;
@@ -652,15 +650,15 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
-![Diagram Saham](stock_chart.png)
+![Diagram Stok](stock_chart.png)
 
-### **Buat Diagram Kotak‑Whisker**
+### **Membuat Diagram Kotak dan Whisker**
 
-Diagram kotak‑whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan outlier potensial. Mereka sangat berguna dalam analisis data eksploratori dan studi statistik untuk dengan cepat memahami variabilitas data dan mengidentifikasi anomali.
+Diagram kotak dan whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan outlier potensial. Mereka sangat berguna dalam analisis data eksploratif dan studi statistik untuk dengan cepat memahami variabilitas data dan mengidentifikasi anomali.
 
-Contoh ini membuat diagram kotak‑whisker dari enam nilai. Metode [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) memilih perhitungan kuartil eksklusif. Contoh juga mengaktifkan garis rata‑rata, penanda rata‑rata, titik dalam, dan titik outlier.
+Contoh ini membuat diagram kotak dan whisker dari enam nilai. Metode [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) memilih perhitungan kuartil eksklusif. Contoh juga mengaktifkan garis mean, penanda mean, titik internal, dan titik outlier.
 
 ```php
 use aspose\slides\ChartType;
@@ -723,11 +721,11 @@ finally
 }
 ```
 
-### **Buat Diagram Corong**
+### **Membuat Diagram Corong**
 
-Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahap berurutan, di mana volume data berkurang saat bergerak dari satu langkah ke langkah berikutnya. Mereka sangat membantu dalam menganalisis tingkat konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
+Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, di mana volume data berkurang saat bergerak dari satu langkah ke langkah berikutnya. Mereka sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk menambahkan diagram corong ke slide pertama dari presentasi yang ada. Ia mengganti data default dengan enam kategori dan nilai antara 50 hingga 500, kemudian menyimpan presentasi yang diperbarui. Presentasi input harus berisi setidaknya satu slide.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk menambahkan diagram corong ke slide pertama presentasi yang ada. Ia menggantikan data default dengan enam kategori dan nilai mulai dari 50 hingga 500, lalu menyimpan presentasi yang diperbarui. Presentasi input harus memiliki setidaknya satu slide.
 
 ```php
 use aspose\slides\ChartType;
@@ -783,15 +781,15 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Diagram Corong](funnel_chart.png)
 
-### **Buat Diagram Sunburst**
+### **Membuat Diagram Sunburst**
 
-Diagram sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkat sebagai cincin konsentris. Mereka membantu menggambarkan hubungan bagian‑dengan‑keseluruhan dan ideal untuk merepresentasikan kategori bersarang dan subkategori dalam format yang jelas dan ringkas.
+Diagram sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkatan sebagai cincin konsentrik. Mereka membantu menggambarkan hubungan bagian‑dengan‑seluruh dan ideal untuk merepresentasikan kategori bersarang dalam format yang jelas dan kompak.
 
-Contoh ini membuat diagram sunburst dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada level pengelompokan 1 dan cabang pada level 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
+Contoh ini membuat diagram sunburst dengan delapan daun yang dikelompokkan ke dalam empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada tingkat pengelompokan 1 dan cabang pada tingkat 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
 
 ```php
 use aspose\slides\ChartType;
@@ -870,15 +868,19 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Diagram Sunburst](sunburst_chart.png)
 
-### **Buat Diagram Histogram**
+### **Membuat Diagram Histogram**
 
-Diagram histogram digunakan untuk merepresentasikan distribusi data numerik dengan mengelompokkan nilai ke dalam rentang atau bin. Mereka sangat berguna untuk mengidentifikasi pola data seperti frekuensi, skewness, dan sebaran, serta mendeteksi outlier dalam dataset.
+Histogram menampilkan bagaimana nilai numerik terdistribusi di antara interval (bin). Untuk laporan bulanan tentang waktu pemrosesan pesanan, gunakan lebar bin dan ambang yang sama agar interval konsisten dan distribusi lebih mudah dibandingkan.
 
-Contoh ini membuat histogram dari enam nilai numerik, termasuk nilai negatif. Memanggil [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) dengan tipe agregasi otomatis memungkinkan diagram menentukan bin yang digunakan untuk menampilkan distribusi.
+Panggil [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) pada sumbu horizontal dengan mode dari [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) hanya berlaku untuk `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) hanya berlaku untuk `ByNumberOfBins`. Gunakan `Automatic` agar diagram memilih bin secara otomatis.
+
+#### **Gunakan Lebar Bin Tetap**
+
+Contoh ini mengelompokkan waktu pemrosesan ke dalam interval 10 menit, dengan bin terpisah untuk waktu ≤ 10 menit dan > 40 menit. Aktifkan bin tersebut dengan [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) dan [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). Saat menyediakan ambang eksplisit melalui [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) dan [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/), panggil [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) dan [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) dengan `false`.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -891,7 +893,10 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 500, 300);
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 680, 200);
+
+    $chart->setLegend(false);
+    $chart->setTitle(false);
 
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
@@ -900,22 +905,24 @@ try
     $workbook->clear(0);
 
     $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
-    $valueCell = $workbook->getCell(0, "A1", 15);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A2", -41);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A3", 16);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A4", 10);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A5", -23);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A6", 16);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for ($i = 0; $i < count($values); $i++)
+    {
+        $valueCell = $workbook->getCell(0, $i, 0, $values[$i]);
+        $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    }
 
-    $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setAggregationType(AxisAggregationType::ByBinWidth);
+    $axis->setBinWidth(10);
+    $axis->setUnderflowBin(true);
+    $axis->setAutomaticUnderflowBin(false);
+    $axis->setUnderflowBin(10);
+    $axis->setOverflowBin(true);
+    $axis->setAutomaticOverflowBin(false);
+    $axis->setOverflowBin(40);
 
-    $presentation->save("Histogram.pptx", SaveFormat::Pptx);
+    $presentation->save("Histogram-bin-width.pptx", SaveFormat::Pptx);
 }
 finally
 {
@@ -923,15 +930,65 @@ finally
 }
 ```
 
-Hasil:
+Presentasi yang ditampilkan di PowerPoint menunjukkan jumlah bin **3, 4, 4, 4, dan 2**. Bin underflow mencakup `5, 10, 10`, sehingga ambangnya inklusif. Bin overflow hanya mencakup `41, 50`, sehingga ambangnya eksklusif; kedua nilai yang sama dengan `40` tetap berada di interval sebelumnya. Bin interior berisi nilai yang lebih besar dari batas bawah dan kurang dari atau sama dengan batas atasnya.
 
-![Diagram Histogram](histogram_chart.png)
+![Histogram dengan bin 10‑menit dan ambang batas underflow serta overflow yang eksplisit](histogram_bin_width.png)
 
-### **Buat Diagram Radar**
+#### **Tentukan Jumlah Bin**
 
-Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara bersamaan dengan mudah. Mereka sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di antara beberapa metrik kinerja atau atribut.
+Untuk tingkat detail tetap alih-alih interval tetap, minta lima bin untuk data yang sama. Contoh ini menonaktifkan bin underflow dan overflow. Diagram menentukan lebar dari rentang data, sehingga batas dapat berubah antar laporan.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk membuat diagram radar dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
+```php
+use aspose\slides\AxisAggregationType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 680, 200);
+
+    $chart->setLegend(false);
+    $chart->setTitle(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
+    $values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for ($i = 0; $i < count($values); $i++)
+    {
+        $valueCell = $workbook->getCell(0, $i, 0, $values[$i]);
+        $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    }
+
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setAggregationType(AxisAggregationType::ByNumberOfBins);
+    $axis->setNumberOfBins(5);
+
+    $presentation->save("Histogram-bin-count.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Lima bin memiliki jumlah **4, 4, 4, 4, dan 1**. Bandingkan distribusi ini dengan hasil lebar‑bin tetap di atas: nilai input identik, tetapi batasnya berbeda.
+
+![Histogram dengan lima bin yang dihitung dari data yang sama](histogram_bin_count.png)
+
+### **Membuat Diagram Radar**
+
+Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara simultan. Mereka sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di berbagai metrik atau atribut kinerja.
+
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk membuat diagram radar dengan seri dan kategori default, lalu menyimpan presentasi sebagai PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -953,15 +1010,15 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Diagram Radar](radar_chart.png)
 
-### **Buat Diagram Multi‑Kategori**
+### **Membuat Diagram Multi‑Kategori**
 
-Diagram multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di beberapa dimensi secara bersamaan. Mereka sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam dataset yang kompleks dan berlapis‑lapis.
+Diagram multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di berbagai dimensi secara simultan. Mereka sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam dataset yang kompleks dan berlapis.
 
-Contoh ini membuat diagram kolom terklaster dengan delapan kategori yang disusun dalam empat pasang. Metode [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) memberikan setiap pasang label bersama pada level pengelompokan 1, menghasilkan sumbu kategori dengan label individu dan grup.
+Contoh ini membuat diagram kolom berkelompok dengan delapan kategori yang diatur dalam empat pasangan. Metode [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) memberikan setiap pasangan label bersama pada tingkat pengelompokan 1, menghasilkan sumbu kategori dengan label individual dan grup.
 
 ```php
 use aspose\slides\ChartType;
@@ -1035,13 +1092,13 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Diagram Multi‑Kategori](multi_category_chart.png)
 
-### **Buat Diagram Peta**
+### **Membuat Diagram Peta**
 
-Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi spesifik seperti negara, provinsi, atau kota. Mereka sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial secara jelas dan menarik secara visual.
+Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi spesifik seperti negara, provinsi, atau kota. Mereka sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial dalam cara yang jelas dan menarik secara visual.
 
 Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk membuat diagram peta dengan data geografis default dan menyimpannya untuk dilihat di PowerPoint.
 
@@ -1065,21 +1122,21 @@ finally
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Diagram Peta](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Gambar di atas menunjukkan presentasi yang disimpan terbuka di PowerPoint. Aspose.Slides menulis diagram peta dan datanya dengan benar, tetapi tidak menggambar diagram peta secara langsung: ketika slide yang berisi diagram tersebut dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram menjadi kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
+Gambar di atas menunjukkan presentasi yang disimpan terbuka di PowerPoint. Aspose.Slides menulis diagram peta dan datanya dengan benar, tetapi tidak menggambar diagram peta sendiri: ketika slide yang berisi diagram tersebut dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram menjadi kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
 {{% /alert %}}
 
-### **Buat Diagram Kombinasi**
+### **Membuat Diagram Kombinasi**
 
-Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih jenis diagram dalam satu grafik. Diagram ini memungkinkan Anda menyorot, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antara mereka.
+Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antara mereka.
 
 ![Diagram Kombinasi](combination_chart.png)
 
-Contoh ini menggabungkan dua seri kolom terklaster dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) menempatkan garis pada sumbu vertikal sekunder di kanan. Fungsi bantuan mengonfigurasi judul, legenda, label sumbu, dan garis kisi.
+Contoh ini menggabungkan dua seri kolom berkelompok dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) menempatkan garis pada sumbu vertikal sekunder di kanan. Fungsi bantu mengonfigurasi judul, legenda, label sumbu, dan garis kisi.
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1251,11 +1308,11 @@ function setAxisTitle($axis, $axisTitle)
 createComboChart();
 ```
 
-## **Perbarui Diagram**
+## **Memperbarui Diagram**
 
-Aspose.Slides for PHP via Java memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, pemformatan, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap mutakhir dengan konten dinamis dan memastikan diagram secara akurat mencerminkan data dan standar visual terkini.
+Aspose.Slides untuk PHP via Java memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, pemformatan, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap mutakhir dengan konten dinamis dan memastikan diagram secara akurat mencerminkan data serta standar visual terkini.
 
-Contoh ini memperbarui diagram bernama "My chart" pada slide pertama dari presentasi yang ada. Ia memerlukan dua seri kolom dengan tiga titik data masing‑masing, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh menggunakan [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) untuk mengubah sel buku kerja, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah diagram menjadi silinder terklaster melalui [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
+Contoh ini memperbarui diagram bernama "My chart" pada slide pertama presentasi yang ada. Ia memerlukan dua seri kolom dengan tiga titik data masing‑masing, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh menggunakan [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) untuk mengubah sel buku kerja, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah diagram menjadi silinder berkelompok melalui [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
 
 ```php
 use aspose\slides\ChartType;
@@ -1319,13 +1376,13 @@ finally
 }
 ```
 
-## **Atur Rentang Data untuk Diagram**
+## **Menetapkan Rentang Data untuk Diagram**
 
 Untuk memeriksa rentang yang sudah digunakan oleh diagram yang ada, lihat [Retrieve a Chart's Data Range](/slides/id/php-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for PHP via Java memberikan fleksibilitas untuk menentukan rentang data spesifik dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat memetakan bagian lembar kerja secara langsung ke diagram, memungkinkan Anda mengontrol sel mana yang berkontribusi pada seri dan kategori diagram. Akibatnya, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang terkini dan akurat.
+Aspose.Slides untuk PHP via Java menyediakan fleksibilitas untuk menentukan rentang data spesifik dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat memetakan bagian lembar kerja langsung ke diagram, memungkinkan kontrol atas sel mana yang berkontribusi pada seri dan kategori diagram. Dengan demikian, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan terkini.
 
-Contoh ini menggunakan [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) untuk mengatur sumber data diagram bernama "My chart" pada slide pertama dari presentasi yang ada ke `Sheet1!A1:B4`. Buku kerja diagram harus berisi lembar kerja tersebut dan rentang yang terisi dengan judul seri di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
+Contoh ini menggunakan [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) untuk menetapkan sumber data diagram bernama "My chart" pada slide pertama presentasi yang ada ke `Sheet1!A1:B4`. Buku kerja diagram harus berisi lembar kerja tersebut dan rentang terisi dengan judul seri di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
 
 ```php
 use aspose\slides\Presentation;
@@ -1357,11 +1414,11 @@ finally
 }
 ```
 
-## **Gunakan Penanda Default dalam Diagram**
+## **Gunakan Penanda Default pada Diagram**
 
-Saat Anda menggunakan penanda default dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda default yang berbeda.
+Ketika Anda menggunakan penanda default pada diagram, setiap seri diagram mendapatkan simbol penanda default yang berbeda secara otomatis.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk membuat diagram dengan dua seri garis dan sebuah legenda. Pengaturan penanda yang diakses melalui [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai kosong, yang direpresentasikan dengan `null`, sementara seri kedua memiliki nilai untuk setiap kategori.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) untuk membuat diagram dengan dua seri garis dan legenda. Pengaturan penanda yang diakses melalui [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai yang hilang, yang direpresentasikan oleh `null`, sementara seri kedua memiliki nilai untuk setiap kategori.
 
 ```php
 use aspose\slides\ChartType;
@@ -1428,18 +1485,18 @@ finally
 
 ## **FAQ**
 
-**Jenis diagram apa yang didukung oleh Aspose.Slides for PHP via Java?**
+**Tipe diagram apa yang didukung oleh Aspose.Slides untuk PHP via Java?**
 
-Aspose.Slides for PHP via Java mendukung berbagai jenis diagram, termasuk batang, garis, lingkaran, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih jenis diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
+Aspose.Slides untuk PHP via Java mendukung beragam tipe diagram, termasuk bar, line, pie, area, scatter, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling sesuai untuk kebutuhan visualisasi data Anda.
 
 **Bagaimana cara menambahkan diagram baru ke slide?**
 
-Untuk menambahkan diagram, pertama-tama buat instance kelas [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, dengan menentukan jenis diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
 
-**Bagaimana saya dapat memperbarui data yang ditampilkan dalam sebuah diagram?**
+**Bagaimana saya dapat memperbarui data yang ditampilkan pada diagram?**
 
-Anda dapat memperbarui data diagram dengan mengakses buku data diagramnya ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), menghapus semua seri dan kategori default, lalu menambahkan data kustom Anda. Ini memungkinkan Anda secara programatik menyegarkan diagram agar mencerminkan data terbaru.
+Anda dapat memperbarui data diagram dengan mengakses workbook data diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), membersihkan seri dan kategori default, kemudian menambahkan data khusus Anda. Ini memungkinkan Anda menyegarkan diagram secara programatis agar mencerminkan data terbaru.
 
 **Apakah memungkinkan untuk menyesuaikan tampilan diagram?**
 
-Ya, Aspose.Slides for PHP via Java menyediakan opsi kustomisasi yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram sesuai dengan kebutuhan desain spesifik Anda.
+Ya, Aspose.Slides untuk PHP via Java menyediakan opsi kustomisasi yang luas. Anda dapat memodifikasi warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram dengan persyaratan desain spesifik Anda.

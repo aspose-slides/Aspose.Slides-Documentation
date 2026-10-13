@@ -1,5 +1,5 @@
 ---
-title: Tạo hoặc Cập nhật Biểu đồ PowerPoint trong .NET
+title: Tạo hoặc Cập nhật Biểu đồ Bài thuyết trình PowerPoint trong .NET
 linktitle: Tạo hoặc Cập nhật Biểu đồ
 type: docs
 weight: 10
@@ -13,50 +13,46 @@ keywords:
 - biểu đồ phân tán
 - biểu đồ tròn
 - biểu đồ đường
-- biểu đồ cây
-- biểu đồ cổ phiếu
+- biểu đồ cây bản đồ
+- biểu đồ chứng khoán
 - biểu đồ hộp và râu
 - biểu đồ phễu
-- biểu đồ sunburst
-- biểu đồ histogram
+- biểu đồ nổ mặt trời
+- biểu đồ tần suất
 - biểu đồ radar
 - biểu đồ đa danh mục
 - PowerPoint
-- bài thuyết trình
+- bản trình bày
 - .NET
 - C#
 - Aspose.Slides
-description: "Tạo và tùy chỉnh biểu đồ trong các bản thuyết trình PowerPoint bằng Aspose.Slides cho .NET. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế bằng C#."
+description: "Tạo và tùy chỉnh biểu đồ trong bản trình bày PowerPoint bằng Aspose.Slides cho .NET. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong C#."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides for .NET. Bạn sẽ học cách lập trình thêm biểu đồ vào một slide, đưa dữ liệu vào và áp dụng các tùy chọn định dạng khác nhau để phù hợp với yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo đối tượng Presentation và Chart cho tới cấu hình series, trục và legend. Bằng cách làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào các ứng dụng .NET, giúp đơn giản hoá quá trình tạo các bản thuyết trình dựa trên dữ liệu.
+Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides cho .NET. Bạn sẽ học cách thêm biểu đồ vào một slide một cách lập trình, điền dữ liệu và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo đối tượng Presentation và Chart cho đến cấu hình series, trục và legend. Bằng cách làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào các ứng dụng .NET của mình, giúp đơn giản hóa quy trình tạo các bản trình bày dựa trên dữ liệu.
 
 ## **Tạo biểu đồ**
 
-Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và thu thập những hiểu biết mà có thể không ngay lập tức rõ ràng từ bảng hoặc bảng tính.
+Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và thu được những hiểu biết có thể không ngay lập tức rõ ràng từ bảng hoặc bảng tính.
 
-**Tại sao lại tạo biểu đồ?**
+**Tại sao tạo biểu đồ?**
 
-Sử dụng biểu đồ, bạn có thể:
-
-* tổng hợp, nén hoặc tóm tắt một lượng lớn dữ liệu trên một slide duy nhất;
-* khám phá các mẫu và xu hướng trong dữ liệu;
-* suy ra hướng và động lực của dữ liệu theo thời gian hoặc dựa trên một đơn vị đo lường cụ thể;
-* phát hiện các giá trị ngoại lệ, sai lệch, lỗi và dữ liệu vô nghĩa;
+* tổng hợp, nén hoặc tóm tắt một lượng lớn dữ liệu trên một slide duy nhất trong bản trình bày;
+* phát hiện các mẫu và xu hướng trong dữ liệu;
+* đưa ra hướng và đà của dữ liệu theo thời gian hoặc so với một đơn vị đo lường cụ thể;
+* phát hiện các giá trị ngoại lệ, bất thường, sai lệch, lỗi và dữ liệu vô lý;
 * truyền đạt hoặc trình bày dữ liệu phức tạp.
 
-Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
+Trong PowerPoint, bạn có thể tạo biểu đồ qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Khi sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
 
 {{% alert color="info" title="Note" %}}
-
 Sử dụng enumeration [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) trong namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Các giá trị trong enumeration này tương ứng với các loại biểu đồ khác nhau.
-
 {{% /alert %}}
 
-### **Tạo biểu đồ Cột Nhóm**
+### **Tạo biểu đồ cột cụm**
 
-Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ cột nhóm so sánh hai series qua ba danh mục. Các series sử dụng màu nền đỏ và xanh lá, và các nhãn riêng lẻ hiển thị tên danh mục, tên series và giá trị. Chỉ số worksheet 0 đề cập tới trang tính đầu tiên trong workbook biểu đồ nhúng.
+Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ cột cụm so sánh hai series qua ba danh mục. Các series sử dụng màu nền đỏ và xanh lá, và các nhãn riêng lẻ hiển thị tên danh mục, tên series và giá trị. Chỉ mục bảng tính 0 đề cập đến sheet đầu tiên trong workbook biểu đồ được nhúng.
 
 ```csharp
 using System.Drawing;
@@ -132,20 +128,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Biểu đồ Cột Nhóm](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Tạo biểu đồ Scatter**
+### **Tạo biểu đồ phân tán**
 
-Biểu đồ scatter (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc chứng minh mối tương quan giữa hai biến.
+Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x-y) thường được sử dụng để kiểm tra các mẫu hoặc minh họa mối tương quan giữa hai biến.
 
-Sử dụng biểu đồ scatter khi:
+Sử dụng biểu đồ phân tán khi:
 
 * Bạn có dữ liệu số đôi.
-* Bạn có hai biến phù hợp cùng nhau.
+* Bạn có hai biến kết hợp tốt với nhau.
 * Bạn muốn xác định liệu hai biến có liên quan hay không.
 * Bạn có một biến độc lập có nhiều giá trị cho một biến phụ thuộc.
 
-Ví dụ này vẽ hai tập giá trị x‑y. Series đầu tiên dùng đường thẳng với dấu sao, trong khi series thứ hai dùng đường mượt với dấu tròn; cả hai đều có [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) là 10. Thuộc tính [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) điều khiển hình dạng dấu đánh dấu.
+Ví dụ này vẽ hai bộ giá trị x-y. Series đầu tiên sử dụng đường thẳng với dấu sao, trong khi series thứ hai dùng đường mượt với dấu vòng tròn; cả hai đều có [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) là 10. Thuộc tính [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) kiểm soát hình dạng dấu.
 
 ```csharp
 using Aspose.Slides;
@@ -208,13 +204,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Biểu đồ Scatter](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Tạo biểu đồ Tròn**
+### **Tạo biểu đồ tròn**
 
-Biểu đồ tròn thích hợp để hiển thị quan hệ phần‑tới‑toàn bộ trong dữ liệu, đặc biệt khi dữ liệu có các nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
+Biểu đồ tròn thường được dùng để hiển thị mối quan hệ phần-so-với-toàn bộ trong dữ liệu, đặc biệt khi dữ liệu có nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
 
-Ví dụ này tạo một biểu đồ tròn với ba giá trị quý. Mỗi lát bánh có màu nền và viền tùy chỉnh, và các nhãn hiển thị các kết hợp khác nhau của giá trị, phần trăm và thông tin series. Thuộc tính [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) đặt lát đầu tiên bắt đầu ở 180 độ.
+Ví dụ này tạo một biểu đồ tròn với ba giá trị quý. Mỗi miếng có nền và viền tùy chỉnh, và các nhãn hiển thị các kết hợp khác nhau của giá trị, phần trăm và thông tin series. Thuộc tính [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) đặt miếng đầu tiên bắt đầu tại 180 độ.
 
 ```csharp
 using System.Drawing;
@@ -310,13 +306,13 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Biểu đồ Tròn](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **Tạo biểu đồ Đường**
+### **Tạo biểu đồ đường**
 
-Biểu đồ đường (còn gọi là line graph) thích hợp trong những tình huống bạn muốn thể hiện sự thay đổi giá trị theo thời gian. Bằng biểu đồ đường, bạn có thể so sánh lượng dữ liệu lớn cùng lúc, theo dõi các thay đổi và xu hướng theo thời gian, làm nổi bật bất thường trong series dữ liệu, và hơn nữa.
+Biểu đồ đường (còn gọi là line graph) thường được dùng khi bạn muốn minh họa sự thay đổi giá trị theo thời gian. Bằng biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu cùng lúc, theo dõi các thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series dữ liệu, và nhiều hơn nữa.
 
-Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ đường với series và danh mục mặc định, sau đó lưu bản thuyết trình ở định dạng PPTX.
+Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ đường với series và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -331,7 +327,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng nét gạch, hãy đặt [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) thành một giá trị từ [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng nét gạch, hãy đặt [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) thành giá trị từ [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
 
 ```csharp
 using Aspose.Slides;
@@ -350,13 +346,13 @@ foreach (var series in lineChart.ChartData.Series)
 
 Kết quả:
 
-![Biểu đồ Đường](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Tạo biểu đồ Cây (Tree Map)**
+### **Tạo biểu đồ Tree Map**
 
-Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý tới các mục đóng góp lớn trong mỗi danh mục.
+Biểu đồ Tree Map thường được dùng cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý đến các mục đóng góp lớn trong mỗi danh mục.
 
-Ví dụ này tạo một biểu đồ cây với tám leaf được nhóm thành bốn stem và hai branch. Phương thức [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán stem ở mức nhóm 1 và branch ở mức 2. Giá trị quyết định kích thước hình chữ nhật tương đối, trong khi nhãn danh mục và nhãn cha chồng lên nhau xác định cấp độ phân cấp.
+Ví dụ này tạo một tree map với tám leaf được nhóm thành bốn stem và hai branch. Phương thức [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán stem ở mức nhóm 1 và branch ở mức 2. Các giá trị xác định kích thước hình chữ nhật tương đối, trong khi nhãn danh mục và nhãn cha chồng chéo xác định cấp bậc.
 
 ```csharp
 using Aspose.Slides;
@@ -432,26 +428,24 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Biểu đồ Tree Map](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Tạo biểu đồ Thác (Waterfall)**
+### **Tạo biểu đồ Waterfall**
 
-Biểu đồ thác hiển thị cách các thay đổi dương và âm góp phần vào giá trị cuối cùng. Ví dụ, một bảng phân tích lợi nhuận có thể bắt đầu với doanh thu, trừ chi phí, và cộng thu nhập khác. Các cột thay đổi nổi giữa giá trị chạy trước và giá trị mới, trong khi các cột tổng mở rộng từ 0 tới giá trị tích lũy.
+Biểu đồ Waterfall cho thấy cách các thay đổi dương và âm đóng góp vào giá trị cuối cùng. Ví dụ, một phân tích lợi nhuận có thể bắt đầu với doanh thu, trừ chi phí và cộng thu nhập khác. Các cột thay đổi nổi giữa giá trị chạy trước và mới, trong khi các cột tổng mở rộng từ 0 tới giá trị tích lũy.
 
-Ví dụ sau sử dụng các khoản tiền tính bằng nghìn USD:
-
-| Danh mục | Giá trị workbook | Loại cột |
+| Danh mục | Giá trị Workbook | Loại cột |
 | --- | ---: | --- |
-| Doanh thu | 1000 | Increase |
-| Giá vốn bán hàng | -400 | Decrease |
-| Lợi nhuận gộp | 600 | Intermediate total |
-| Chi phí hoạt động | -200 | Decrease |
-| Thu nhập khác | 50 | Increase |
-| Lợi nhuận ròng | 450 | Final total |
+| Doanh thu | 1000 | Tăng |
+| Chi phí bán hàng | -400 | Giảm |
+| Lợi nhuận gộp | 600 | Tổng trung gian |
+| Chi phí vận hành | -200 | Giảm |
+| Thu nhập khác | 50 | Tăng |
+| Lợi nhuận ròng | 450 | Tổng cuối |
 
-Để đánh dấu một điểm là tổng trung gian hoặc tổng cuối, đặt thuộc tính [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) của nó thành `true`. Cung cấp giá trị tích lũy thực tế trong ô workbook của điểm đó: `600` cho lợi nhuận gộp (`1000 - 400`) và `450` cho lợi nhuận ròng (`600 - 200 + 50`). Thuộc tính này chỉ đánh dấu cột là tổng; nó không tính toán hay điền giá trị ô. Không sử dụng 0 làm chỗ trống hoặc cung cấp thay đổi khác cho một điểm tổng. Cột tổng hiển thị giá trị tích lũy mà không cộng lại vào giá trị chạy.
+Để đánh dấu một điểm là tổng trung gian hoặc tổng cuối, đặt thuộc tính [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) của nó thành `true`. Cung cấp số tiền tích lũy thực tế trong ô workbook của điểm đó: `600` cho lợi nhuận gộp (`1000 - 400`) và `450` cho lợi nhuận ròng (`600 - 200 + 50`). Thuộc tính này đánh dấu cột là tổng; nó không tính toán hay điền giá trị ô. Không sử dụng 0 làm chỗ giữ chỗ hoặc cung cấp thay đổi khác cho điểm tổng. Một cột tổng hiển thị giá trị tích lũy mà không cộng lại vào giá trị chạy.
 
-Ví dụ C# đầy đủ này tạo một biểu đồ bằng thành viên `Waterfall` của [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), xóa dữ liệu mặc định và điền workbook nhúng. Chỉ số worksheet `0` chọn worksheet đầu tiên; cột A chứa tên danh mục và cột B chứa giá trị. Mỗi ô giá trị được thêm bằng [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Các chỉ số điểm không dựa trên 0 là `2` và `5` xác định các tổng trung gian và cuối. Bật [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) để hiển thị số tiền trên cột. Không cần bản thuyết trình hoặc workbook đầu vào.
+Ví dụ C# đầy đủ này tạo một biểu đồ bằng thành viên `Waterfall` của [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), xóa dữ liệu mặc định và điền workbook nhúng. Chỉ mục worksheet `0` chọn worksheet đầu tiên; cột A chứa tên danh mục và cột B chứa các giá trị. Mỗi ô giá trị được thêm bằng [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Các chỉ số điểm bắt đầu từ 0 là `2` và `5` xác định tổng trung gian và tổng cuối. Bật [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) hiển thị các số tiền trên các cột. Không cần bản trình bày hoặc workbook đầu vào.
 
 ```csharp
 using Aspose.Slides;
@@ -489,7 +483,7 @@ for (var i = 0; i < categories.Length; i++)
     series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
 
-// Điểm thứ ba và thứ sáu đại diện cho tổng, không phải các thay đổi bổ sung.
+// Các điểm thứ ba và thứ sáu đại diện cho tổng, không phải các thay đổi bổ sung.
 series.DataPoints[2].SetAsTotal = true;
 series.DataPoints[5].SetAsTotal = true;
 series.ShowConnectorLines = true;
@@ -498,17 +492,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Đặt thuộc tính cấp series [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) thành `true` để hiển thị các đường nối các cột liên tiếp, giúp theo dõi giá trị chạy dễ hơn. Để ẩn các đường này, thay đổi câu lệnh trong ví dụ thành `series.ShowConnectorLines = false;` trước khi lưu. Thay đổi này chỉ ảnh hưởng tới việc hiển thị đường, không thay đổi dữ liệu hay tổng.
+Đặt thuộc tính [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) ở mức series thành `true` để hiển thị các đường nối các cột liên tiếp và giúp giá trị chạy dễ theo dõi hơn. Để ẩn các đường này, thay thế phép gán trong ví dụ bằng `series.ShowConnectorLines = false;` trước khi lưu. Thay đổi này chỉ ảnh hưởng đến việc hiển thị đường, không thay đổi dữ liệu hay các tổng.
 
-Bản thuyết trình đã lưu hiển thị lợi nhuận gộp 600 và lợi nhuận ròng 450, cả hai tổng đều bắt đầu từ 0:
+Bản trình bày đã lưu hiển thị lợi nhuận gộp 600 và lợi nhuận ròng 450, với cả hai tổng đều bắt đầu từ 0:
 
-![Biểu đồ Waterfall hiển thị doanh thu, chi phí, lợi nhuận gộp 600 và lợi nhuận ròng 450, kèm nhãn giá trị và đường nối](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **Tạo biểu đồ Cổ phiếu (Stock)**
+### **Tạo biểu đồ Stock**
 
-Biểu đồ cổ phiếu được dùng để hiển thị dữ liệu tài chính như giá mở cửa, cao nhất, thấp nhất và đóng cửa, giúp phân tích xu hướng thị trường và biến động. Chúng cung cấp những hiểu biết quan trọng về hiệu suất cổ phiếu, hỗ trợ nhà đầu tư và nhà phân tích đưa ra quyết định thông minh.
+Biểu đồ Stock được dùng để hiển thị dữ liệu tài chính như giá mở, cao, thấp và đóng, giúp phân tích xu hướng thị trường và biến động. Chúng cung cấp những hiểu biết quan trọng về hiệu suất cổ phiếu, hỗ trợ nhà đầu tư và nhà phân tích đưa ra quyết định sáng suốt.
 
-Ví dụ này tạo một biểu đồ OHLC với bốn series theo thứ tự và ba danh mục. Thuộc tính [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) bật thanh lên/xuống, và [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) điều khiển các đường cao-thấp hiển thị phạm vi giá, trong khi các đường series riêng lẻ và lưới ngang phụ được ẩn.
+Ví dụ này tạo một biểu đồ open-high-low-close với bốn series theo thứ tự đó và ba danh mục. Thuộc tính [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) bật các thanh lên/xuống, và [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) điều khiển các đường high-low hiển thị khoảng giá, trong khi các đường series riêng lẻ và các lưới ngang phụ được ẩn.
 
 ```csharp
 using Aspose.Slides;
@@ -585,13 +579,13 @@ presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Biểu đồ Stock](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Tạo biểu đồ Hộp và Râu (Box and Whisker)**
+### **Tạo biểu đồ Box và Whisker**
 
-Biểu đồ hộp và râu được dùng để hiển thị phân bố dữ liệu bằng cách tóm tắt các chỉ số thống kê chính, như trung vị, các phần tư và các giá trị ngoại lệ tiềm năng. Chúng rất hữu ích trong phân tích dữ liệu khám phá và nghiên cứu thống kê để nhanh chóng nắm bắt độ biến thiên của dữ liệu và xác định bất thường.
+Biểu đồ Box và Whisker được dùng để hiển thị phân phối dữ liệu bằng cách tóm tắt các chỉ số thống kê chính, như trung vị, các phần tư và các ngoại lệ tiềm năng. Chúng đặc biệt hữu ích trong phân tích dữ liệu khám phá và các nghiên cứu thống kê để nhanh chóng hiểu được độ biến thiên của dữ liệu và xác định bất thường.
 
-Ví dụ này tạo một biểu đồ hộp và râu từ sáu giá trị. Thuộc tính [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) chọn cách tính phần tư loại trừ. Ví dụ cũng bật các đường trung bình, dấu đánh dấu trung bình, điểm nội bộ và điểm ngoại lệ.
+Ví dụ này tạo một biểu đồ Box và Whisker từ sáu giá trị. Thuộc tính [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) chọn cách tính quartile exclusive. Ví dụ cũng bật các đường trung bình, dấu chấm trung bình, các điểm nội và các điểm ngoại lệ.
 
 ```csharp
 using Aspose.Slides;
@@ -646,11 +640,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Tạo biểu đồ Phễu (Funnel)**
+### **Tạo biểu đồ Funnel**
 
-Biểu đồ phễu được dùng để trực quan hoá quy trình có các giai đoạn tuần tự, trong đó khối lượng dữ liệu giảm dần khi di chuyển từ bước này sang bước tiếp theo. Chúng đặc biệt hữu ích để phân tích tỷ lệ chuyển đổi, xác định các điểm tắc nghẽn và theo dõi hiệu suất của quy trình bán hàng hoặc tiếp thị.
+Biểu đồ Funnel được dùng để trực quan hoá các quy trình có các giai đoạn tuần tự, trong đó khối lượng dữ liệu giảm dần khi tiến từ bước này sang bước tiếp theo. Chúng đặc biệt hữu ích trong việc phân tích tỷ lệ chuyển đổi, nhận dạng các điểm tắc nghẽn và theo dõi hiệu suất của các quy trình bán hàng hoặc tiếp thị.
 
-Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để thêm một biểu đồ phễu vào slide đầu tiên của một bản thuyết trình hiện có. Nó thay thế dữ liệu mặc định bằng sáu danh mục và các giá trị từ 50 tới 500, sau đó lưu bản thuyết trình đã cập nhật. Bản thuyết trình đầu vào phải có ít nhất một slide.
+Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để thêm một biểu đồ funnel vào slide đầu tiên của một bản trình bày hiện có. Nó thay thế dữ liệu mặc định bằng sáu danh mục và các giá trị từ 50 đến 500, sau đó lưu bản trình bày đã cập nhật. Bản trình bày đầu vào phải có ít nhất một slide.
 
 ```csharp
 using Aspose.Slides;
@@ -701,13 +695,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Biểu đồ Funnel](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Tạo biểu đồ Nắng mặt trời (Sunburst)**
+### **Tạo biểu đồ Sunburst**
 
-Biểu đồ sunburst được dùng để trực quan hoá dữ liệu phân cấp, hiển thị các mức dưới dạng các vòng đồng tâm. Chúng giúp minh họa quan hệ phần‑tới‑toàn bộ và rất phù hợp để biểu diễn các danh mục lồng nhau và các danh mục phụ trong một định dạng rõ ràng, gọn gàng.
+Biểu đồ Sunburst được dùng để trực quan hoá dữ liệu phân cấp, hiển thị các cấp độ dưới dạng các vòng đồng tâm. Chúng giúp minh họa mối quan hệ phần-so-với-toàn bộ và lý tưởng cho việc biểu diễn các danh mục và tiểu mục lồng nhau một cách rõ ràng, gọn gàng.
 
-Ví dụ này tạo một biểu đồ sunburst với tám leaf được nhóm thành bốn stem và hai branch. Phương thức [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán stem ở mức nhóm 1 và branch ở mức 2. Các nhãn danh mục xác định các đoạn, và các giá trị quyết định kích thước tương đối của chúng.
+Ví dụ này tạo một biểu đồ sunburst với tám leaf được nhóm thành bốn stem và hai branch. Phương thức [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán stem ở mức nhóm 1 và branch ở mức 2. Nhãn danh mục xác định các phân đoạn, và các giá trị xác định kích thước tương đối của chúng.
 
 ```csharp
 using Aspose.Slides;
@@ -781,13 +775,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Biểu đồ Sunburst](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Tạo biểu đồ Histogram**
 
-Biểu đồ histogram được dùng để biểu diễn phân bố của dữ liệu số bằng cách nhóm các giá trị vào các khoảng hoặc thùng. Chúng đặc biệt hữu ích để xác định các mẫu dữ liệu như tần suất, độ lệch và độ rộng, và để phát hiện các ngoại lệ trong một bộ dữ liệu.
+Biểu đồ Histogram cho thấy cách các giá trị số được phân bố qua các khoảng (bins). Đối với báo cáo hàng tháng về thời gian xử lý đơn hàng, hãy sử dụng cùng độ rộng bin và ngưỡng để giữ các khoảng thời gian nhất quán và giúp so sánh phân bố dễ dàng hơn.
 
-Ví dụ này tạo một histogram từ sáu giá trị số, bao gồm cả giá trị âm. Đặt [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/aggregationtype/) thành tự động cho phép biểu đồ tự quyết định các thùng được sử dụng để hiển thị phân bố.
+Đặt trục ngang [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) thành một chế độ từ [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) chỉ áp dụng cho `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) chỉ áp dụng cho `ByNumberOfBins`. Sử dụng `Automatic` để để biểu đồ tự chọn các bin.
+
+#### **Sử dụng độ rộng Bin cố định**
+
+Ví dụ này nhóm thời gian xử lý thành các khoảng 10 phút, với các bin riêng cho thời gian ≤ 10 phút và > 40 phút. Kích hoạt các bin này bằng [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) và [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). Khi cung cấp các ngưỡng [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) và [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) một cách rõ ràng, đặt [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) và [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) thành `false`.
 
 ```csharp
 using Aspose.Slides;
@@ -797,7 +795,10 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
 
 chart.ChartData.Categories.Clear();
 chart.ChartData.Series.Clear();
@@ -806,33 +807,77 @@ var workbook = chart.ChartData.ChartDataWorkbook;
 workbook.Clear(0);
 
 var series = chart.ChartData.Series.Add(ChartType.Histogram);
-var valueCell = workbook.GetCell(0, "A1", 15);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A2", -41);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A3", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A4", 10);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A5", -23);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook.GetCell(0, "A6", 16);
-series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
 
-chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByBinWidth;
+axis.BinWidth = 10;
+axis.IsUnderflowBin = true;
+axis.IsAutomaticUnderflowBin = false;
+axis.UnderflowBin = 10;
+axis.IsOverflowBin = true;
+axis.IsAutomaticOverflowBin = false;
+axis.OverflowBin = 40;
 
-presentation.Save("Histogram.pptx", SaveFormat.Pptx);
+presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-Kết quả:
+Bản trình bày trong PowerPoint hiển thị số lượng các bin là **3, 4, 4, 4, và 2**. Bin underflow bao gồm `5, 10, 10`, nên ngưỡng của nó là bao gồm. Bin overflow chỉ bao gồm `41, 50`, nên ngưỡng của nó là loại trừ; cả hai giá trị bằng `40` vẫn ở khoảng trước. Các bin nội chứa các giá trị lớn hơn giới hạn dưới và nhỏ hơn hoặc bằng giới hạn trên.
 
-![Biểu đồ Histogram](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **Xác định số lượng Bin**
+
+Đối với mức chi tiết cố định thay vì các khoảng cố định, yêu cầu năm bin cho cùng dữ liệu. Ví dụ này để các bin underflow và overflow bị tắt. Biểu đồ xác định độ rộng dựa trên dải dữ liệu, do đó các ranh giới có thể thay đổi giữa các báo cáo.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 680, 200);
+
+chart.HasLegend = false;
+chart.HasTitle = false;
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.Histogram);
+double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+for (var i = 0; i < values.Length; i++)
+{
+    var valueCell = workbook.GetCell(0, i, 0, values[i]);
+    series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+}
+
+var axis = chart.Axes.HorizontalAxis;
+axis.AggregationType = AxisAggregationType.ByNumberOfBins;
+axis.NumberOfBins = 5;
+
+presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+```
+
+Năm bin có số lượng là **4, 4, 4, 4 và 1**. So sánh phân bố này với kết quả độ rộng cố định ở trên: các giá trị đầu vào giống nhau, nhưng các ranh giới khác nhau.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Tạo biểu đồ Radar**
 
-Biểu đồ radar được dùng để hiển thị dữ liệu đa biến trong một định dạng hai chiều, cho phép so sánh dễ dàng nhiều biến cùng lúc. Chúng đặc biệt hữu ích để xác định các mẫu, điểm mạnh và điểm yếu trên nhiều chỉ số hiệu suất hoặc đặc tính.
+Biểu đồ Radar được dùng để hiển thị dữ liệu đa biến trong một định dạng hai chiều, cho phép so sánh dễ dàng nhiều biến cùng lúc. Chúng đặc biệt hữu ích để xác định các mẫu, điểm mạnh và điểm yếu trên nhiều chỉ số hoặc thuộc tính hiệu suất.
 
-Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ radar với series và danh mục mặc định, sau đó lưu bản thuyết trình ở định dạng PPTX.
+Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ radar với series và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -849,13 +894,13 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Biểu đồ Radar](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Tạo biểu đồ Đa‑danh mục (Multi‑Category)**
+### **Tạo biểu đồ đa danh mục**
 
-Biểu đồ đa‑danh mục được dùng để hiển thị dữ liệu liên quan tới hơn một nhóm danh mục, cho phép bạn so sánh giá trị trên nhiều chiều cùng lúc. Chúng đặc biệt hữu ích khi bạn cần phân tích xu hướng và mối quan hệ trong các bộ dữ liệu phức tạp, đa lớp.
+Biểu đồ đa danh mục được dùng để hiển thị dữ liệu có hơn một nhóm phân loại, cho phép bạn so sánh các giá trị qua nhiều chiều cùng lúc. Chúng đặc biệt hữu ích khi bạn cần phân tích xu hướng và mối quan hệ trong các bộ dữ liệu phức tạp, đa lớp.
 
-Ví dụ này tạo một biểu đồ cột nhóm với tám danh mục được sắp xếp thành bốn cặp. Phương thức [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán mỗi cặp một nhãn chung ở mức nhóm 1, tạo ra trục danh mục có cả nhãn cá nhân và nhãn nhóm.
+Ví dụ này tạo một biểu đồ cột cụm với tám danh mục sắp xếp thành bốn cặp. Phương thức [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán mỗi cặp một nhãn chung ở mức nhóm 1, tạo ra trục danh mục với cả nhãn riêng lẻ và nhãn nhóm.
 
 ```csharp
 using Aspose.Slides;
@@ -924,13 +969,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Biểu đồ đa‑danh mục](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Tạo biểu đồ Bản đồ (Map)**
+### **Tạo biểu đồ Bản đồ**
 
-Biểu đồ bản đồ được dùng để trực quan hoá dữ liệu địa lý bằng cách ánh xạ thông tin tới các vị trí cụ thể như quốc gia, tiểu bang hoặc thành phố. Chúng rất hữu ích để phân tích xu hướng khu vực, dữ liệu nhân khẩu học và phân bố không gian theo cách rõ ràng, hấp dẫn về mặt hình ảnh.
+Biểu đồ Bản đồ được dùng để trực quan hoá dữ liệu địa lý bằng cách gán thông tin tới các vị trí cụ thể như quốc gia, bang hoặc thành phố. Chúng đặc biệt hữu ích trong việc phân tích xu hướng khu vực, dữ liệu nhân khẩu học và phân bố không gian một cách rõ ràng, hấp dẫn về mặt hình ảnh.
 
-Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ bản đồ với dữ liệu địa lý mặc định và lưu nó để xem trong PowerPoint.
+Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ bản đồ với dữ liệu địa lý mặc định và lưu để xem trong PowerPoint.
 
 ```csharp
 using Aspose.Slides;
@@ -947,21 +992,19 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Biểu đồ Map](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-
-Hình ảnh trên cho thấy bản thuyết trình đã lưu được mở trong PowerPoint. Aspose.Slides ghi đúng biểu đồ bản đồ và dữ liệu của nó, nhưng không tự vẽ biểu đồ bản đồ: khi một slide chứa biểu đồ này được render thành ảnh hoặc chuyển đổi sang PDF hoặc SVG, vùng biểu đồ sẽ xuất hiện trống. Các hình khác trên cùng slide không bị ảnh hưởng.
-
+Ảnh trên cho thấy bản trình bày đã lưu mở trong PowerPoint. Aspose.Slides ghi đúng biểu đồ bản đồ và dữ liệu của nó, nhưng không tự vẽ biểu đồ bản đồ: khi một slide chứa biểu đồ này được render ra hình ảnh hoặc chuyển đổi sang PDF hoặc SVG, khu vực biểu đồ sẽ trống. Các hình dạng khác trên cùng slide không bị ảnh hưởng.
 {{% /alert %}}
 
-### **Tạo biểu đồ Kết hợp (Combination)**
+### **Tạo biểu đồ Kết hợp**
 
-Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong cùng một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc xem xét sự khác nhau giữa hai hoặc nhiều bộ dữ liệu, giúp nhận diện mối quan hệ giữa chúng.
+Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác biệt giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
 
-![Biểu đồ kết hợp](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Ví dụ này kết hợp hai series cột nhóm với một series đường qua bốn danh mục. Các cột dùng trục tung chính, trong khi [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) đặt đường trên trục tung phụ ở phía bên phải. Các hàm trợ giúp cấu hình tiêu đề, legend, nhãn trục và lưới.
+Ví dụ này kết hợp hai series cột cụm với một series đường qua bốn danh mục. Các cột sử dụng trục dọc chính, trong khi [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) đặt đường trên trục dọc phụ ở bên phải. Các hàm trợ giúp cấu hình tiêu đề, legend, nhãn trục và lưới.
 
 ```csharp
 using System.Drawing;
@@ -1123,9 +1166,9 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Cập nhật biểu đồ**
 
-Aspose.Slides for .NET cho phép bạn cập nhật các biểu đồ PowerPoint bằng cách sửa đổi dữ liệu, định dạng và kiểu dáng biểu đồ. Tính năng này đơn giản hoá quá trình duy trì các bản thuyết trình luôn cập nhật với nội dung động và đảm bảo biểu đồ phản ánh chính xác dữ liệu và tiêu chuẩn hình ảnh hiện tại.
+Aspose.Slides cho .NET cho phép bạn cập nhật biểu đồ PowerPoint bằng cách sửa đổi dữ liệu, định dạng và kiểu dáng biểu đồ. Chức năng này đơn giản hoá quy trình giữ cho các bản trình bày luôn cập nhật với nội dung động và đảm bảo biểu đồ phản ánh chính xác dữ liệu hiện tại và tiêu chuẩn hình ảnh.
 
-Ví dụ này cập nhật biểu đồ có tên "My chart" trên slide đầu tiên của một bản thuyết trình hiện có. Nó yêu cầu hai series cột, mỗi series có ba điểm dữ liệu, với nhãn danh mục trong cột A và tên series trong dòng đầu tiên của worksheet đầu tiên. Ví dụ sử dụng [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) để thay đổi các ô workbook, cập nhật giá trị series, thêm một series thứ ba, và thay đổi biểu đồ thành hình trụ nhóm qua [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
+Ví dụ này cập nhật biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có. Nó yêu cầu hai series cột với ba điểm dữ liệu mỗi series, với nhãn danh mục trong cột A và tên series trong hàng đầu tiên của worksheet đầu tiên. Ví dụ sử dụng [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) để thay đổi các ô workbook, cập nhật giá trị series, thêm một series thứ ba, và thay đổi loại biểu đồ thành clustered cylinders thông qua [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
 ```csharp
 using Aspose.Slides;
@@ -1181,11 +1224,11 @@ presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 
 ## **Đặt phạm vi dữ liệu cho biểu đồ**
 
-Để kiểm tra phạm vi đã được biểu đồ hiện có sử dụng, xem [Retrieve a Chart's Data Range](/slides/vi/net/chart-workbook/#retrieve-a-charts-data-range).
+Để xem phạm vi đã được sử dụng bởi một biểu đồ hiện có, xem [Retrieve a Chart's Data Range](/slides/vi/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for .NET cung cấp tính linh hoạt để xác định một phạm vi dữ liệu cụ thể từ worksheet làm nguồn cho dữ liệu biểu đồ. Điều này có nghĩa là bạn có thể trực tiếp ánh xạ một phần của worksheet vào biểu đồ, cho phép kiểm soát các ô nào đóng góp vào series và danh mục của biểu đồ. Kết quả, bạn có thể dễ dàng cập nhật và đồng bộ biểu đồ với các thay đổi dữ liệu mới nhất trong worksheet, đảm bảo các bản thuyết trình PowerPoint của bạn phản ánh thông tin hiện tại và chính xác.
+Aspose.Slides cho .NET cung cấp tính linh hoạt để định nghĩa một phạm vi dữ liệu cụ thể từ worksheet làm nguồn cho dữ liệu của biểu đồ. Điều này có nghĩa là bạn có thể trực tiếp ánh xạ một phần của worksheet vào biểu đồ, cho phép kiểm soát các ô nào đóng góp vào series và danh mục của biểu đồ. Kết quả, bạn có thể dễ dàng cập nhật và đồng bộ biểu đồ với các thay đổi dữ liệu mới nhất trong worksheet, đảm bảo các bản trình bày PowerPoint của bạn phản ánh thông tin hiện tại và chính xác.
 
-Ví dụ này sử dụng [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) để đặt nguồn dữ liệu của biểu đồ có tên "My chart" trên slide đầu tiên của một bản thuyết trình hiện có thành `Sheet1!A1:B4`. Workbook của biểu đồ phải chứa worksheet đó và một phạm vi đã được điền với tiêu đề series ở dòng đầu, nhãn danh mục ở cột A và ba giá trị ở cột B.
+Ví dụ này sử dụng [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) để đặt nguồn dữ liệu cho biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có thành `Sheet1!A1:B4`. Workbook của biểu đồ phải chứa worksheet đó và một phạm vi đã được điền với tiêu đề series ở hàng đầu, nhãn danh mục ở cột A và ba giá trị ở cột B.
 
 ```csharp
 using Aspose.Slides;
@@ -1208,11 +1251,11 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 ```
 
-## **Sử dụng dấu đánh dấu mặc định trong biểu đồ**
+## **Sử dụng Dấu Mặc Định trong Biểu Đồ**
 
-Khi bạn sử dụng dấu đánh dấu mặc định trong biểu đồ, mỗi series sẽ tự động nhận một ký hiệu dấu đánh dấu mặc định khác nhau.
+Khi bạn sử dụng dấu mặc định trong biểu đồ, mỗi series của biểu đồ sẽ tự động nhận một ký hiệu dấu mặc định khác nhau.
 
-Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ với hai series đường và một legend. Cài đặt [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) giữ lại các ký hiệu dấu đánh dấu được gán tự động. Series đầu tiên bao gồm một giá trị âm và một giá trị thiếu, được biểu diễn bằng `null`, trong khi series thứ hai có giá trị cho mọi danh mục.
+Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ với hai series đường và một legend. Cài đặt [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) giữ lại các ký hiệu dấu được gán tự động. Series đầu tiên bao gồm một giá trị âm và một giá trị thiếu, được biểu thị bằng `null`, trong khi series thứ hai có giá trị cho mọi danh mục.
 
 ```csharp
 using Aspose.Slides;
@@ -1270,20 +1313,20 @@ chart.Legend.Overlay = false;
 presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Các loại biểu đồ nào được Aspose.Slides for .NET hỗ trợ?**
+**Các loại biểu đồ nào được Aspose.Slides cho .NET hỗ trợ?**
 
-Aspose.Slides for .NET hỗ trợ một loạt các loại biểu đồ, bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều loại khác. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
+Aspose.Slides cho .NET hỗ trợ nhiều loại biểu đồ, bao gồm thanh, đường, tròn, diện tích, phân tán, histogram, radar và nhiều loại khác. Tính linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
 
-**Làm thế nào để thêm một biểu đồ mới vào slide?**
+**Làm thế nào để thêm biểu đồ mới vào một slide?**
 
-Để thêm một biểu đồ, đầu tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), lấy slide mong muốn bằng chỉ số của nó, và sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quy trình này tích hợp biểu đồ trực tiếp vào bản thuyết trình của bạn.
+Để thêm biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) , lấy slide mong muốn bằng chỉ mục của nó, sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quá trình này tích hợp biểu đồ trực tiếp vào bản trình bày của bạn.
 
 **Làm sao tôi có thể cập nhật dữ liệu hiển thị trong biểu đồ?**
 
-Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), xóa bất kỳ series và danh mục mặc định nào, và sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn lập trình làm mới biểu đồ để phản ánh dữ liệu mới nhất.
+Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), xóa bất kỳ series và danh mục mặc định nào, sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ một cách lập trình để phản ánh dữ liệu mới nhất.
 
 **Có thể tùy chỉnh giao diện của biểu đồ không?**
 
-Có, Aspose.Slides for .NET cung cấp nhiều tùy chọn tùy biến. Bạn có thể sửa đổi màu sắc, phông chữ, nhãn, legend và các yếu tố định dạng khác để điều chỉnh giao diện của biểu đồ theo yêu cầu thiết kế cụ thể của bạn.
+Có, Aspose.Slides cho .NET cung cấp các tùy chọn tùy chỉnh phong phú. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, legend và các yếu tố định dạng khác để điều chỉnh giao diện biểu đồ phù hợp với yêu cầu thiết kế cụ thể của bạn.

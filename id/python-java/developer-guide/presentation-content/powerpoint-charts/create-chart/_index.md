@@ -1,60 +1,62 @@
 ---
-title: Buat atau Perbarui Diagram Presentasi PowerPoint dalam Python
-linktitle: Buat atau Perbarui Diagram
+title: "Buat atau Perbarui Diagram Presentasi PowerPoint di Python"
+linktitle: "Buat atau Perbarui Diagram"
 type: docs
 weight: 10
 url: /id/python-java/create-chart/
 keywords:
-- tambahkan diagram
+- tambah diagram
 - buat diagram
-- sunting diagram
+- edit diagram
 - ubah diagram
 - perbarui diagram
-- diagram penyebaran
+- diagram sebar
 - diagram lingkaran
 - diagram garis
 - diagram peta pohon
 - diagram saham
-- diagram kotak dan garis
+- diagram kotak-dan-garis
 - diagram corong
-- diagram matahari
+- diagram sunburst
 - diagram histogram
 - diagram radar
-- diagram multi kategori
+- diagram multi-kategori
 - PowerPoint
 - presentasi
 - Python
 - Java
 - Aspose.Slides
-description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Python melalui Java. Tambahkan, format, dan sunting diagram dengan contoh kode praktis dalam Python."
+description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Python via Java. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam Python."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menyediakan panduan lengkap tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk Python melalui Java. Anda akan mempelajari cara menambahkan diagram ke slide secara programatik, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Python Anda, mempermudah proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk Python via Java. Anda akan belajar cara menambahkan diagram ke slide secara programatik, mengisi data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode yang detail menggambarkan setiap langkah, mulai dari inisialisasi presentasi dan objek diagram hingga konfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Python Anda, mempermudah proses pembuatan presentasi berbasis data.
 
 ## **Buat Diagram**
 
-Diagram membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
+Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
 
 **Mengapa Membuat Diagram?**
 
 Dengan diagram, Anda dapat:
 
-* menggabungkan, merangkum, atau menyederhanakan sejumlah besar data pada satu slide dalam presentasi;
+* menggabungkan, memadatkan, atau merangkum sejumlah besar data pada satu slide dalam sebuah presentasi;
 * menampilkan pola dan tren dalam data;
-* menyimpulkan arah dan momentum data seiring waktu atau terhadap unit pengukuran tertentu;
-* mengidentifikasi nilai pencilan, penyimpangan, kesalahan, dan data yang tidak masuk akal;
+* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu;
+* mengidentifikasi outlier, penyimpangan, kesalahan, dan data yang tidak masuk akal;
 * menyampaikan atau mempresentasikan data yang kompleks.
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Sisipkan*, yang menyediakan templat untuk merancang berbagai jenis diagram. Dengan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) serta diagram khusus.
+Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis diagram. Dengan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) dan diagram khusus.
 
 {{% alert color="info" title="Catatan" %}}
-Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) dalam paket [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/). Nilai‑nilai dalam enumerasi ini sesuai dengan tipe diagram yang berbeda.
+
+Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) dalam paket [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/). Nilai-nilai dalam enumerasi ini sesuai dengan berbagai tipe diagram.
+
 {{% /alert %}}
 
-### **Buat Diagram Kolom Tergrup**
+### **Buat Diagram Kolom Terkelompok**
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram kolom tergrup yang membandingkan dua seri pada tiga kategori. Seri menggunakan isi merah dan hijau, dan label individual menunjukkan nama kategori, nama seri, serta nilai. Indeks lembar kerja 0 mengacu pada lembar pertama dalam buku kerja diagram yang disematkan.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram kolom terkelompok yang membandingkan dua seri pada tiga kategori. Seri menggunakan isian merah dan hijau, dan label individual menunjukkan nama kategori, nama seri, serta nilai. Indeks worksheet 0 mengacu pada lembar pertama dalam workbook diagram yang disematkan.
 
 ```python
 import jpype
@@ -139,16 +141,16 @@ finally:
 
 Hasilnya:
 
-![Diagram Kolom Tergrup](clustered_column_chart.png)
+![Diagram Kolom Terkelompok](clustered_column_chart.png)
 
-### **Buat Diagram Penyebaran**
+### **Buat Diagram Sebar**
 
-Diagram penyebaran (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
-Gunakan diagram penyebaran ketika:
+Gunakan diagram sebar ketika:
 
 * Anda memiliki data numerik berpasangan.
-* Anda memiliki dua variabel yang berpasangan dengan baik.
+* Anda memiliki dua variabel yang saling berhubungan.
 * Anda ingin menentukan apakah dua variabel tersebut berhubungan.
 * Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen.
 
@@ -222,13 +224,13 @@ finally:
 
 Hasilnya:
 
-![Diagram Penyebaran](scatter_chart.png)
+![Diagram Sebar](scatter_chart.png)
 
 ### **Buat Diagram Lingkaran**
 
-Diagram lingkaran paling cocok untuk menunjukkan hubungan bagian‑dengan‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, pertimbangkan menggunakan diagram batang sebagai gantinya.
+Diagram lingkaran paling cocok untuk menunjukkan hubungan bagian‑dengan‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan diagram batang sebagai gantinya.
 
-Contoh ini membuat diagram lingkaran dengan tiga nilai kuartalan. Setiap irisan memiliki isi dan batas khusus, dan label menampilkan kombinasi nilai, persentase, serta informasi seri. Metode [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) mengatur irisan pertama mulai dari 180 derajat.
+Contoh ini membuat diagram lingkaran dengan tiga nilai kuartalan. Setiap irisan memiliki isian dan batas khusus, dan label menampilkan kombinasi nilai, persentase, serta informasi seri. Metode [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) mengatur irisan pertama mulai dari 180 derajat.
 
 ```python
 import jpype
@@ -338,9 +340,9 @@ Hasilnya:
 
 ### **Buat Diagram Garis**
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lain‑lain.
+Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren dari waktu ke waktu, menyoroti anomali dalam seri data, dan lain‑lain.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram garis dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram garis dengan seri dan kategori bawaan, lalu menyimpan presentasi sebagai PPTX.
 
 ```python
 import jpype
@@ -362,7 +364,7 @@ finally:
     presentation.dispose()
 ```
 
-Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik dihubungkan oleh garis putus‑putus, panggil [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) dengan nilai dari [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/):
+Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, panggil [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) dengan nilai dari [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/):
 
 ```python
 import jpype
@@ -391,9 +393,9 @@ Hasilnya:
 
 ### **Buat Diagram Peta Pohon**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang memberikan kontribusi besar dalam tiap kategori.
+Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang menjadi kontributor besar dalam setiap kategori.
 
-Contoh ini membuat peta pohon dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) menetapkan batang pada tingkat pengelompokan 1 dan cabang pada tingkat 2. Nilai menentukan ukuran persegi relatif, sementara label kategori dan label orang tua yang tumpang tindih mengidentifikasi hierarki.
+Contoh ini membuat peta pohon dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) menetapkan batang pada tingkat pengelompokan 1 dan cabang pada tingkat 2. Nilai‑nilai menentukan ukuran persegi relatif, sementara label kategori dan label induk yang tumpang tindih mengidentifikasi hirarki.
 
 ```python
 import jpype
@@ -480,22 +482,22 @@ Hasilnya:
 
 ### **Buat Diagram Air Terjun**
 
-Diagram air terjun menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, perincian laba dapat dimulai dengan pendapatan, mengurangi biaya, dan menambahkan pendapatan lain. Kolom perubahan melayang di antara nilai berjalan sebelumnya dan nilai baru, sementara kolom total memperluas dari nol hingga nilai terakumulasi.
+Diagram air terjun menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian laba dapat dimulai dengan pendapatan, mengurangi biaya, dan menambahkan pendapatan lain. Kolom perubahan mengambang di antara nilai berjalan sebelumnya dan baru, sementara kolom total memperluas dari nol ke nilai terakumulasi.
 
 Contoh berikut menggunakan jumlah dalam ribuan dolar AS:
 
-| Kategori | Nilai buku kerja | Jenis kolom |
+| Kategori | Nilai Workbook | Tipe Kolom |
 | --- | ---: | --- |
 | Pendapatan | 1000 | Peningkatan |
-| Biaya penjualan | -400 | Penurunan |
-| Laba kotor | 600 | Total menengah |
-| Beban operasional | -200 | Penurunan |
+| Harga pokok penjualan | -400 | Penurunan |
+| Laba kotor | 600 | Total Antara |
+| Beban operasi | -200 | Penurunan |
 | Pendapatan lain | 50 | Peningkatan |
-| Laba bersih | 450 | Total akhir |
+| Laba bersih | 450 | Total Akhir |
 
-Untuk menandai sebuah titik sebagai total menengah atau akhir, panggil metode [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) dengan `True`. Isi sel buku kerja dengan jumlah terakumulasi yang sebenarnya pada titik tersebut: `600` untuk laba kotor (`1000 - 400`) dan `450` untuk laba bersih (`600 - 200 + 50`). Metode ini menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau memasukkan perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
+Untuk menandai titik sebagai total antara atau total akhir, panggil metode [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) pada titik tersebut dengan `True`. Isi sel workbook dengan jumlah terakumulasi yang sebenarnya: `600` untuk laba kotor (`1000 - 400`) dan `450` untuk laba bersih (`600 - 200 + 50`). Metode ini menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau menyertakan perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
 
-Contoh Python lengkap ini membuat diagram menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), menghapus data default, dan mengisi buku kerja yang disematkan. Indeks lembar kerja `0` memilih lembar pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total menengah dan total akhir. Memanggil [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) dengan `True` menampilkan jumlah pada kolom. Tidak ada presentasi atau buku kerja input yang diperlukan.
+Contoh Python lengkap ini membuat diagram menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), menghapus data bawaan, dan mengisi workbook yang disematkan. Indeks worksheet `0` memilih lembar pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total antara dan total akhir. Memanggil [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) dengan `True` menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau workbook input.
 
 ```python
 import jpype
@@ -547,17 +549,17 @@ finally:
     presentation.dispose()
 ```
 
-Panggil metode tingkat seri [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) dengan `True` untuk menampilkan garis yang menghubungkan kolom berurutan dan memudahkan pelacakan nilai berjalan. Untuk menyembunyikan garis ini, ganti pemanggilan metode dalam contoh dengan `series.setShowConnectorLines(False)` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
+Panggil metode tingkat seri [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) dengan `True` untuk menampilkan garis yang menghubungkan kolom berurutan dan memudahkan melacak nilai berjalan. Untuk menyembunyikan garis ini, ganti pemanggilan metode dalam contoh dengan `series.setShowConnectorLines(False)` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
 
-Presentasi yang disimpan menampilkan laba kotor 600 dan laba bersih 450, dengan kedua total dihitung dari nol:
+Presentasi yang disimpan menampilkan laba kotor 600 dan laba bersih 450, dengan kedua total dimulai dari nol:
 
-![Diagram Air Terjun menunjukkan pendapatan, biaya, laba kotor 600, dan laba bersih 450, dengan label nilai dan garis penghubung](waterfall_chart.png)
+![Diagram Air Terjun menampilkan pendapatan, biaya, laba kotor 600, dan laba bersih 450, dengan label nilai dan garis penghubung](waterfall_chart.png)
 
 ### **Buat Diagram Saham**
 
-Diagram saham digunakan untuk menampilkan data keuangan seperti harga pembukaan, tertinggi, terendah, dan penutupan, membantu menganalisis tren pasar dan volatilitas. Mereka memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
+Diagram saham digunakan untuk menampilkan data keuangan seperti harga pembukaan, tertinggi, terendah, dan penutupan, membantu menganalisis tren pasar dan volatilitas. Diagram ini memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
 
-Contoh ini membuat diagram OHLC (Open‑High‑Low‑Close) dengan empat seri dalam urutan tersebut dan tiga kategori. Metode [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) mengaktifkan batang naik/turun, dan [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) mengontrol garis tinggi‑rendah yang menunjukkan rentang harga, sementara garis seri individual dan garis kisi horisontal minor disembunyikan.
+Contoh ini membuat diagram open‑high‑low‑close dengan empat seri dalam urutan tersebut dan tiga kategori. Metode [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) mengaktifkan batang naik/turun, dan [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) mengatur format garis tinggi‑rendah yang menunjukkan rentang harga, sementara garis seri individu dan garis kisi horizontal minor disembunyikan.
 
 ```python
 import jpype
@@ -643,9 +645,9 @@ Hasilnya:
 
 ### **Buat Diagram Kotak‑Dan‑Garis**
 
-Diagram kotak‑dan‑garis digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik kunci, seperti median, kuartil, dan potensi pencilan. Mereka sangat berguna dalam analisis data eksploratori dan studi statistik untuk cepat memahami variabilitas data dan mengidentifikasi anomali.
+Diagram kotak‑dan‑garis digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan kemungkinan outlier. Diagram ini sangat berguna dalam analisis data eksploratori dan studi statistik untuk dengan cepat memahami variabilitas data dan mengidentifikasi anomali.
 
-Contoh ini membuat diagram kotak‑dan‑garis dari enam nilai. Metode [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) memilih perhitungan kuartil eksklusif. Contoh juga mengaktifkan garis rata‑rata, penanda rata‑rata, titik internal, dan titik pencilan.
+Contoh ini membuat diagram kotak‑dan‑garis dari enam nilai. Metode [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) memilih perhitungan kuartil eksklusif. Contoh juga mengaktifkan garis rata‑rata, penanda rata‑rata, titik internal, dan titik outlier.
 
 ```python
 import jpype
@@ -709,9 +711,9 @@ finally:
 
 ### **Buat Diagram Corong**
 
-Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, di mana volume data berkurang seiring kemajuan dari satu langkah ke langkah berikutnya. Mereka sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
+Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, di mana volume data menurun seiring berjalannya langkah demi langkah. Diagram ini sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi kemacetan, dan melacak efisiensi proses penjualan atau pemasaran.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk menambahkan diagram corong ke slide pertama presentasi yang ada. Ia menggantikan data default dengan enam kategori dan nilai mulai dari 50 hingga 500, lalu menyimpan presentasi yang telah diperbarui. Presentasi input harus memiliki setidaknya satu slide.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk menambahkan diagram corong ke slide pertama dari sebuah presentasi yang ada. Diagram menggantikan data bawaan dengan enam kategori dan nilai mulai dari 50 hingga 500, kemudian menyimpan presentasi yang diperbarui. Presentasi input harus memiliki setidaknya satu slide.
 
 ```python
 import jpype
@@ -771,11 +773,11 @@ Hasilnya:
 
 ![Diagram Corong](funnel_chart.png)
 
-### **Buat Diagram Matahari**
+### **Buat Diagram Sunburst**
 
-Diagram matahari digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkatan sebagai cincin konsentris. Mereka membantu menggambarkan hubungan bagian‑dengan‑keseluruhan dan ideal untuk mewakili kategori bersarang serta subkategori dalam format yang jelas dan ringkas.
+Diagram sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkatan sebagai cincin konsentris. Diagram ini membantu menggambarkan hubungan bagian‑dengan‑keseluruhan dan sangat cocok untuk merepresentasikan kategori bersarang dalam format yang jelas dan kompak.
 
-Contoh ini membuat diagram matahari dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) menetapkan batang pada tingkat pengelompokan 1 dan cabang pada tingkat 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
+Contoh ini membuat diagram sunburst dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) menetapkan batang pada tingkat pengelompokan 1 dan cabang pada tingkat 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
 
 ```python
 import jpype
@@ -856,13 +858,17 @@ finally:
 
 Hasilnya:
 
-![Diagram Matahari](sunburst_chart.png)
+![Diagram Sunburst](sunburst_chart.png)
 
 ### **Buat Diagram Histogram**
 
-Diagram histogram digunakan untuk merepresentasikan distribusi data numerik dengan mengelompokkan nilai ke dalam rentang atau bin. Mereka sangat berguna untuk mengidentifikasi pola data seperti frekuensi, skewness, dan sebaran, serta mendeteksi pencilan dalam kumpulan data.
+Diagram histogram menunjukkan bagaimana nilai numerik terdistribusi di seluruh interval (bin). Untuk laporan bulanan mengenai waktu pemrosesan pesanan, gunakan lebar bin dan ambang batas yang sama agar interval tetap konsisten dan distribusi lebih mudah dibandingkan.
 
-Contoh ini membuat histogram dari enam nilai numerik, termasuk nilai negatif. Memanggil [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) dengan tipe agregasi otomatis memungkinkan diagram menentukan bin yang digunakan untuk menampilkan distribusi.
+Panggil [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) pada sumbu horizontal dengan mode dari [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) hanya berlaku untuk `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) hanya berlaku untuk `ByNumberOfBins`. Gunakan `Automatic` agar diagram menentukan bin secara otomatis.
+
+#### **Gunakan Lebar Bin Tetap**
+
+Contoh ini mengelompokkan waktu pemrosesan menjadi interval 10 menit, dengan bin terpisah untuk waktu ≤ 10 menit dan > 40 menit. Aktifkan bin ini dengan [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) dan [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin). Saat menyediakan ambang batas eksplisit melalui [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) dan [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin), panggil [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) dan [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) dengan `False`.
 
 ```python
 import jpype
@@ -877,7 +883,10 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300)
+    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200)
+
+    chart.setLegend(False)
+    chart.setTitle(False)
 
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
@@ -886,35 +895,82 @@ try:
     workbook.clear(0)
 
     series = chart.getChartData().getSeries().add(ChartType.Histogram)
-    value_cell = workbook.getCell(0, "A1", 15)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A2", -41)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A3", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A4", 10)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A5", -23)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
-    value_cell = workbook.getCell(0, "A6", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.getCell(0, i, 0, float(value))
+        series.getDataPoints().addDataPointForHistogramSeries(value_cell)
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic)
+    axis = chart.getAxes().getHorizontalAxis()
+    axis.setAggregationType(AxisAggregationType.ByBinWidth)
+    axis.setBinWidth(10.0)
+    axis.setUnderflowBin(True)
+    axis.setAutomaticUnderflowBin(False)
+    axis.setUnderflowBin(10.0)
+    axis.setOverflowBin(True)
+    axis.setAutomaticOverflowBin(False)
+    axis.setOverflowBin(40.0)
 
-    presentation.save("Histogram.pptx", SaveFormat.Pptx)
+    presentation.save("Histogram-bin-width.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Hasilnya:
+Presentasi yang ditampilkan di PowerPoint menunjukkan jumlah bin **3, 4, 4, 4, dan 2**. Bin underflow mencakup `5, 10, 10`, sehingga ambang batasnya inklusif. Bin overflow hanya mencakup `41, 50`, sehingga ambang batasnya eksklusif; kedua nilai yang sama dengan `40` tetap berada di interval sebelumnya. Bin interior berisi nilai yang lebih besar dari batas bawah dan kurang dari atau sama dengan batas atasnya.
 
-![Diagram Histogram](histogram_chart.png)
+![Histogram dengan bin 10 menit dan ambang batas underflow serta overflow yang eksplisit](histogram_bin_width.png)
+
+#### **Tentukan Jumlah Bin**
+
+Untuk level detail tetap alih‑alih interval tetap, minta lima bin untuk data yang sama. Contoh ini menonaktifkan bin underflow dan overflow. Diagram menentukan lebar berdasarkan rentang data, sehingga batas dapat berubah antar laporan.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AxisAggregationType, ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200)
+
+    chart.setLegend(False)
+    chart.setTitle(False)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series = chart.getChartData().getSeries().add(ChartType.Histogram)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.getCell(0, i, 0, float(value))
+        series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+
+    axis = chart.getAxes().getHorizontalAxis()
+    axis.setAggregationType(AxisAggregationType.ByNumberOfBins)
+    axis.setNumberOfBins(5)
+
+    presentation.save("Histogram-bin-count.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Lima bin memiliki jumlah **4, 4, 4, 4, dan 1**. Bandingkan distribusi ini dengan hasil lebar‑bin tetap di atas: nilai inputnya identik, tetapi batasnya berbeda.
+
+![Histogram dengan lima bin yang dihitung dari data yang sama](histogram_bin_count.png)
 
 ### **Buat Diagram Radar**
 
-Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara bersamaan. Mereka sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di seluruh metrik atau atribut kinerja.
+Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara bersamaan. Diagram ini terutama berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di antara beberapa metrik atau atribut kinerja.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram radar dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram radar dengan seri dan kategori bawaan, lalu menyimpan presentasi sebagai PPTX.
 
 ```python
 import jpype
@@ -942,9 +998,9 @@ Hasilnya:
 
 ### **Buat Diagram Multi‑Kategori**
 
-Diagram multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di banyak dimensi secara simultan. Mereka sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam kumpulan data yang kompleks dan berlapis.
+Diagram multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di banyak dimensi secara bersamaan. Diagram ini sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam kumpulan data multi‑lapis yang kompleks.
 
-Contoh ini membuat diagram kolom tergrup dengan delapan kategori yang diatur dalam empat pasangan. Metode [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) memberikan setiap pasangan label bersama pada tingkat pengelompokan 1, menghasilkan sumbu kategori dengan label individu dan grup.
+Contoh ini membuat diagram kolom terkelompok dengan delapan kategori yang diatur dalam empat pasang. Metode [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) memberikan setiap pasang label bersama pada tingkat pengelompokan 1, menghasilkan sumbu kategori dengan label individual dan grup.
 
 ```python
 import jpype
@@ -1024,9 +1080,9 @@ Hasilnya:
 
 ### **Buat Diagram Peta**
 
-Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi spesifik seperti negara, provinsi, atau kota. Mereka sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial dalam cara yang jelas dan menarik secara visual.
+Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi tertentu seperti negara, provinsi, atau kota. Diagram ini sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial secara jelas dan menarik secara visual.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram peta dengan data geografis default dan menyimpannya untuk dilihat di PowerPoint.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram peta dengan data geografis bawaan dan menyimpannya untuk dilihat di PowerPoint.
 
 ```python
 import jpype
@@ -1053,7 +1109,9 @@ Hasilnya:
 ![Diagram Peta](map_chart.png)
 
 {{% alert color="info" title="Catatan" %}}
-Gambar di atas menunjukkan presentasi yang disimpan dibuka di PowerPoint. Aspose.Slides menulis diagram peta dan datanya dengan benar, tetapi tidak menggambar diagram peta secara langsung: ketika slide yang memuat diagram peta dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram muncul kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
+
+Gambar di atas menunjukkan presentasi yang disimpan terbuka di PowerPoint. Aspose.Slides menulis diagram peta dan datanya dengan benar, tetapi tidak menggambar diagram peta secara langsung: ketika slide yang berisi diagram peta dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram muncul kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
+
 {{% /alert %}}
 
 ### **Buat Diagram Kombinasi**
@@ -1062,14 +1120,14 @@ Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram d
 
 ![Diagram Kombinasi](combination_chart.png)
 
-Contoh ini menggabungkan dua seri kolom tergrup dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) menempatkan garis pada sumbu vertikal sekunder di kanan. Fungsi bantu mengonfigurasi judul, legenda, label sumbu, dan garis kisi.
+Contoh ini menggabungkan dua seri kolom terkelompok dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) menempatkan garis pada sumbu vertikal sekunder di sebelah kanan. Fungsi bantuan mengonfigurasi judul, legenda, label sumbu, dan garis kisi.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpage.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import AxisPositionType, ChartType, CrossesType, FillType, LegendPositionType, NullableBool, Presentation, SaveFormat
 
@@ -1107,7 +1165,7 @@ def create_chart_with_first_series(slide):
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # Hapus seri dan kategori yang dihasilkan secara default.
+    # Hapus seri dan kategori default yang dihasilkan.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
@@ -1232,9 +1290,9 @@ create_combo_chart()
 
 ## **Perbarui Diagram**
 
-Aspose.Slides untuk Python melalui Java memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, pemformatan, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap up‑to‑date dengan konten dinamis dan memastikan diagram mencerminkan data serta standar visual terkini.
+Aspose.Slides untuk Python via Java memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, pemformatan, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap mutakhir dengan konten dinamis dan memastikan diagram secara akurat mencerminkan data serta standar visual terkini.
 
-Contoh ini memperbarui diagram bernama "My chart" pada slide pertama presentasi yang ada. Ia memerlukan dua seri kolom dengan tiga titik data masing‑masing, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh ini menggunakan [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) untuk mengubah sel buku kerja, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah diagram menjadi silinder tergrup melalui [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
+Contoh ini memperbarui diagram bernama "My chart" pada slide pertama dari presentasi yang ada. Ia memerlukan dua seri kolom dengan masing‑masing tiga titik data, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh ini menggunakan [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) untuk mengubah sel workbook, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah diagram menjadi silinder terkelompok melalui [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
 
 ```python
 import jpype
@@ -1292,13 +1350,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Atur Rentang Data untuk Diagram**
+## **Tetapkan Rentang Data untuk Diagram**
 
 Untuk memeriksa rentang yang sudah digunakan oleh diagram yang ada, lihat [Retrieve a Chart's Data Range](/slides/id/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides untuk Python melalui Java menyediakan fleksibilitas untuk mendefinisikan rentang data spesifik dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat memetakan bagian lembar kerja langsung ke diagram, memungkinkan kontrol sel mana yang berkontribusi pada seri dan kategori diagram. Akibatnya, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan terkini.
+Aspose.Slides untuk Python via Java menyediakan fleksibilitas untuk mendefinisikan rentang data spesifik dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat langsung memetakan bagian dari lembar kerja ke diagram, memungkinkan Anda mengontrol sel mana yang berkontribusi pada seri dan kategori diagram. Dengan demikian, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan terkini.
 
-Contoh ini menggunakan [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) untuk menetapkan sumber data diagram bernama "My chart" pada slide pertama presentasi yang ada ke `Sheet1!A1:B4`. Buku kerja diagram harus berisi lembar tersebut dan rentang terisi dengan judul seri di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
+Contoh ini menggunakan [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) untuk menetapkan sumber data diagram bernama "My chart" pada slide pertama dari presentasi yang ada ke `Sheet1!A1:B4`. Workbook diagram harus berisi lembar kerja tersebut dan rentang terisi dengan judul seri pada baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
 
 ```python
 import jpype
@@ -1325,11 +1383,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Gunakan Penanda Default dalam Diagram**
+## **Gunakan Penanda Bawaan di Diagram**
 
-Saat Anda menggunakan penanda default dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda default yang berbeda.
+Ketika Anda menggunakan penanda bawaan di diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda bawaan yang berbeda.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram dengan dua seri garis dan sebuah legenda. Pengaturan penanda yang diakses melalui [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai yang hilang, yang direpresentasikan oleh `None`, sementara seri kedua memiliki nilai untuk setiap kategori.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram dengan dua seri garis dan legenda. Pengaturan penanda yang diakses melalui [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai yang hilang, yang direpresentasikan oleh `None`, sementara seri kedua memiliki nilai untuk setiap kategori.
 
 ```python
 import jpype
@@ -1396,18 +1454,18 @@ finally:
 
 ## **FAQ**
 
-**Jenis diagram apa yang didukung oleh Aspose.Slides untuk Python melalui Java?**
+**Tipe diagram apa yang didukung oleh Aspose.Slides untuk Python via Java?**
 
-Aspose.Slides untuk Python melalui Java mendukung berbagai macam tipe diagram, termasuk batang, garis, lingkaran, area, penyebaran, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
+Aspose.Slides untuk Python via Java mendukung berbagai tipe diagram, termasuk batang, garis, lingkaran, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
 
 **Bagaimana cara menambahkan diagram baru ke slide?**
 
-Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambah diagram, menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), ambil slide yang diinginkan menggunakan indeksnya, kemudian panggil metode untuk menambahkan diagram dengan menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
 
 **Bagaimana cara memperbarui data yang ditampilkan dalam diagram?**
 
-Anda dapat memperbarui data diagram dengan mengakses buku data diagramnya ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), menghapus seri dan kategori default, lalu menambahkan data khusus Anda. Ini memungkinkan Anda menyegarkan diagram secara programatik agar mencerminkan data terbaru.
+Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), menghapus semua seri dan kategori bawaan, lalu menambahkan data khusus Anda. Hal ini memungkinkan Anda menyegarkan diagram secara programatik agar mencerminkan data terbaru.
 
-**Apakah mungkin menyesuaikan tampilan diagram?**
+**Apakah memungkinkan menyesuaikan tampilan diagram?**
 
-Ya, Aspose.Slides untuk Python melalui Java menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram sesuai kebutuhan desain spesifik Anda.
+Ya, Aspose.Slides untuk Python via Java menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram sesuai kebutuhan desain spesifik Anda.

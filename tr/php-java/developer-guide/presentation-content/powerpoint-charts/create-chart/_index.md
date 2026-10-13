@@ -1,5 +1,5 @@
 ---
-title: PHP'de PowerPoint Sunum Grafikleri Oluşturma veya Güncelleme
+title: PHP'de PowerPoint Sunumu Grafiklerini Oluşturma veya Güncelleme
 linktitle: Grafik Oluşturma veya Güncelleme
 type: docs
 weight: 10
@@ -10,50 +10,50 @@ keywords:
 - grafik düzenle
 - grafik değiştir
 - grafik güncelle
-- dağıtık grafik
-- pasta grafik
-- çizgi grafik
-- ağaç harita grafik
-- stok grafik
-- kutu ve bıyık grafik
-- huni grafik
-- güneş patlaması grafik
-- histogram grafik
-- radar grafik
+- dağılım grafiği
+- pasta grafiği
+- çizgi grafiği
+- ağaç haritası grafiği
+- hisse senedi grafiği
+- kutu ve çan grafiği
+- huni grafiği
+- güneş patlaması grafiği
+- histogram grafiği
+- radar grafiği
 - çok kategorili grafik
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PowerPoint sunumlarında grafik oluşturun ve özelleştirin. PHP'de pratik kod örnekleriyle grafik ekleyin, biçimlendirin ve düzenleyin."
+description: "Aspose.Slides for PHP via Java kullanarak PowerPoint sunumlarında grafikler oluşturun ve özelleştirin. Grafikleri ekleyin, biçimlendirin ve PHP'de uygulanabilir kod örnekleriyle düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for PHP via Java kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir slayda programlı olarak grafik eklemeyi, verileri doldurmayı ve belirli tasarım gereksinimlerinize uyacak şekilde çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmadan serileri, eksenleri ve lejantları yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunmaktadır. Bu rehberi izleyerek, PHP uygulamalarınıza dinamik grafik oluşturmayı entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
+Bu makale, Aspose.Slides for PHP via Java kullanarak grafikler oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir slayta programlı olarak nasıl grafik ekleyeceğinizi, verilerle nasıl dolduracağınızı ve belirli tasarım gereksinimlerinize uyması için çeşitli biçimlendirme seçeneklerini nasıl uygulayacağınızı öğreneceksiniz. Makale boyunca, sunum ve grafik nesnesinin başlatılmasından seriler, eksenler ve lejandların yapılandırılmasına kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu rehberi izleyerek, PHP uygulamalarınızda dinamik grafik oluşturmayı bütünleştirmenin sağlam bir anlayışına sahip olacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
 
 ## **Grafik Oluşturma**
 
-Grafikler, insanların verileri hızlı bir şekilde görselleştirmesine ve tablolar veya elektronik tablolarda hemen fark edilmemiş olabilecek içgörüler elde etmesine yardımcı olur.
+Grafikler, insanların verileri hızlı bir şekilde görselleştirmesine ve bir tablo ya da elektronik tablodan hemen anlaşılmayan içgörüler elde etmesine yardımcı olur.
 
-**Grafik Neden Oluşturulur?**
+**Grafik Neden Oluşturulmalı?**
 
-Grafikleri kullanarak:
+Grafikler kullanarak:
 
-* Büyük miktarda veriyi bir sunum slaydında tek bir slayda toplamak, sıkıştırmak veya özetlemek;
-* Verideki desenleri ve trendleri ortaya çıkarmak;
-* Verinin zaman içindeki yönünü ve ivmesini veya belirli bir ölçü birimine göre belirlemek;
-* Uç değerleri, sapmaları, hataları ve mantıksız verileri tespit etmek;
-* Karmaşık verileri iletişim kurmak veya sunmak.
+* Tek bir slaytta büyük miktarda veriyi toplulaştırabilir, sıkıştırabilir veya özetleyebilirsiniz;
+* Verideki kalıpları ve eğilimleri ortaya çıkarabilirsiniz;
+* Zaman içinde veya belirli bir ölçüm birimine göre verinin yönünü ve momentumunu çıkarabilirsiniz;
+* Aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit edebilirsiniz;
+* Karmaşık verileri iletebilir veya sunabilirsiniz.
 
-PowerPoint’te, *Insert* işlevi aracılığıyla birçok grafik türü tasarlamak için şablonlar sağlayan grafikler oluşturabilirsiniz. Aspose.Slides kullanarak, hem standart grafikler (popüler grafik türlerine dayanan) hem de özelleştirilmiş grafikler oluşturabilirsiniz.
+PowerPoint'te, *Ekle* işlevi aracılığıyla birçok grafik türü tasarlamak için şablonlar sağlayan grafikler oluşturabilirsiniz. Aspose.Slides kullanarak, popüler grafik türlerine dayalı normal grafikler ve özelleştirilmiş grafikler oluşturabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) enumeration in the [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) namespace. The values in this enumeration correspond to different chart types.
+[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) sayımını [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) ad alanında kullanın. Bu sayımdaki değerler farklı grafik türlerine karşılık gelir.
 {{% /alert %}}
 
 ### **Kümelenmiş Sütun Grafikleri Oluşturma**
 
-Bu örnek, iki seriyi üç kategori üzerinden karşılaştıran bir kümelenmiş sütun grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metodunu kullanır. Seriler kırmızı ve yeşil dolgu renkleri kullanır ve ayrı etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfayı ifade eder.
+Bu örnek, üç kategori boyunca iki seriyi karşılaştıran bir kümelenmiş sütun grafik oluşturmak için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) kullanır. Seriler kırmızı ve yeşil dolgu renklerine sahiptir ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfayı ifade eder.
 
 ```php
 use aspose\slides\ChartType;
@@ -139,20 +139,20 @@ finally
 
 Sonuç:
 
-![Kümelenmiş Sütun grafiği](clustered_column_chart.png)
+![Kümelenmiş Sütun Grafiği](clustered_column_chart.png)
 
-### **Saçılım (Scatter) Grafikleri Oluşturma**
+### **Dağılım Grafiklerini Oluşturma**
 
-Saçılım grafikleri (scatter plot ya da x‑y grafikler olarak da bilinir) genellikle iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için kullanılır.
+Dağılım grafikleri (dağılım çizimleri veya x‑y grafikleri olarak da bilinir) genellikle iki değişken arasındaki kalıpları kontrol etmek veya korelasyonları göstermek için kullanılır.
 
-Bir saçılım grafiği şu durumlarda kullanılmalıdır:
+Dağılım grafiği kullanın:
 
-* Eşleşmiş sayısal verileriniz varsa.
-* Birbirini iyi tamamlayan iki değişkeniniz varsa.
+* Eşleştirilmiş sayısal verileriniz varsa.
+* İyi eşleşen iki değişkeniniz varsa.
 * İki değişkenin ilişkili olup olmadığını belirlemek istiyorsanız.
 * Bağımlı bir değişken için birden çok değere sahip bağımsız bir değişkeniniz varsa.
 
-Bu örnek, iki set x‑y değeri çizer. İlk seri yıldız işaretçileriyle düz çizgiler kullanırken, ikinci seri daire işaretçileriyle yumuşak çizgiler kullanır; her iki seri de [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/) ile 10 boyutunda işaretçiye sahiptir. [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) yöntemi işaretçi şeklini kontrol eder.
+Bu örnek iki x‑y değer setini çizer. İlk seri yıldız işaretçili düz çizgiler kullanırken, ikincisi dairesel işaretçili yumuşak çizgiler kullanır; her ikisi de [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/) ile 10 boyutunda işaretçiye sahiptir. [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) yöntemi işaretçi şekilini kontrol eder.
 
 ```php
 use aspose\slides\ChartType;
@@ -223,13 +223,13 @@ finally
 
 Sonuç:
 
-![Saçılım grafiği](scatter_chart.png)
+![Dağılım Grafiği](scatter_chart.png)
 
-### **Pasta (Pie) Grafikleri Oluşturma**
+### **Pasta Grafiklerini Oluşturma**
 
-Pasta grafikler, özellikle sayısal değerlere sahip kategori etiketleri içerdiğinde, verinin bütün‑içindeki bölüm ilişkisini göstermek için en uygun seçeneklerdir. Ancak veriniz çok fazla bölüm veya etiket içeriyorsa, bir çubuk grafiği tercih etmeniz daha mantıklı olabilir.
+Pasta grafikleri, özellikle kategorik etiketleri sayısal değerlerle içeren verilerde, parçanın bütüne oranını göstermek için en iyisidir. Ancak veriniz çok sayıda parça veya etiket içeriyorsa, bir çubuk grafik kullanmayı düşünmelisiniz.
 
-Bu örnek, üç çeyrek değeri içeren bir pasta grafik oluşturur. Her dilim özel bir dolgu ve kenarlık alır ve etiketler değer, yüzde ve seri bilgilerini farklı kombinasyonlarla gösterir. [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) yöntemi ilk dilimin 180 derece konumda başlamasını sağlar.
+Bu örnek, üç çeyrek değerle bir pasta grafik oluşturur. Her dilim özel bir dolgu ve kenarlığa sahiptir ve etiketler değer, yüzde ve seri bilgisi kombinasyonlarını gösterir. [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) yöntemi ilk dilimi 180 derecede başlatır.
 
 ```php
 use aspose\slides\ChartType;
@@ -341,13 +341,13 @@ finally
 
 Sonuç:
 
-![Pasta grafiği](pie_chart.png)
+![Pasta Grafiği](pie_chart.png)
 
-### **Çizgi (Line) Grafikleri Oluşturma**
+### **Çizgi Grafiklerini Oluşturma**
 
-Çizgi grafikler (line graphs olarak da bilinir), zaman içindeki değer değişimlerini göstermek istediğiniz durumlarda en uygun seçenektir. Çizgi grafiği kullanarak büyük miktarda veriyi bir kerede karşılaştırabilir, zaman içinde değişimleri ve trendleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+Çizgi grafikler (çizgi diyagramları olarak da bilinir), değer değişimini zaman içinde göstermek istediğiniz durumlarda en iyisidir. Bir çizgi grafikle, büyük miktarda veriyi tek seferde karşılaştırabilir, zaman içinde değişiklik ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilir ve daha fazlasını yapabilirsiniz.
 
-Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metodunu kullanır ve sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafik oluşturmak için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) kullanır ve ardından sunumu PPTX olarak kaydeder.
 
 ```php
 use aspose\slides\ChartType;
@@ -369,7 +369,7 @@ finally
 }
 ```
 
-Varsayılan olarak, bir çizgi grafiğindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaların tireli çizgilerle birleştirilmesini isterseniz, [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) değerlerinden birini kullanarak [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) metodunu çağırın:
+Varsayılan olarak, bir çizgi grafikteki noktalar düz kesintisiz çizgilerle birleştirilir. Noktaların tireli çizgilerle birleştirilmesini istiyorsanız, [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) içinden bir değerle [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) metodunu çağırın:
 
 ```php
 use aspose\slides\ChartType;
@@ -397,13 +397,13 @@ finally
 
 Sonuç:
 
-![Çizgi grafiği](line_chart.png)
+![Çizgi Grafiği](line_chart.png)
 
-### **Ağaç Haritası (Tree Map) Grafikleri Oluşturma**
+### **Ağaç Haritası Grafiklerini Oluşturma**
 
-Ağaç haritası grafikleri, her kategori içinde büyük katkıda bulunan öğelere hızlıca dikkat çekmek istediğiniz satış verileri için en uygunudur.
+Ağaç haritası grafikleri, satış verileri için, veri kategorilerinin göreceli boyutlarını göstermek ve her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğinizde en iyisidir.
 
-Bu örnek, sekiz yaprağı dört gövde ve iki dalda gruplayan bir ağaç haritası oluşturur. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) yöntemi, 1. grup seviyesindeki gövdeleri ve 2. seviyedeki dalları atar. Değerler, göreli dikdörtgen boyutlarını belirlerken, kategori etiketleri ve üst üste gelen ebeveyn etiketleri hiyerarşiyi tanımlar.
+Bu örnek, dört sap ve iki dal içinde gruplanmış sekiz yaprakla bir ağaç haritası oluşturur. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) yöntemi sapları grup düzeyi 1, dalları ise düzey 2 olarak atar. Değerler göreceli dikdörtgen boyutlarını belirlerken, kategori etiketleri ve üst üste binen ebeveyn etiketleri hiyerarşiyi tanımlar.
 
 ```php
 use aspose\slides\ChartType;
@@ -424,7 +424,7 @@ try
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $workbook->clear(0);
 
-    // Dal 1
+    // Şube 1
     $categoryCell = $workbook->getCell(0, "C1", "Leaf1");
     $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
@@ -440,7 +440,7 @@ try
     $categoryCell = $workbook->getCell(0, "C4", "Leaf4");
     $chart->getChartData()->getCategories()->add($categoryCell);
 
-    // Dal 2
+    // Şube 2
     $categoryCell = $workbook->getCell(0, "C5", "Leaf5");
     $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
@@ -487,11 +487,11 @@ finally
 
 Sonuç:
 
-![Ağaç haritası grafiği](treemap_chart.png)
+![Ağaç Haritası Grafiği](treemap_chart.png)
 
-### **Şelale (Waterfall) Grafikleri Oluşturma**
+### **Şelale Grafiklerini Oluşturma**
 
-Şelale grafiği, pozitif ve negatif değişimlerin nihai değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kâr dağılımı gelirle başlayıp maliyetleri çıkarır ve diğer gelirleri ekler. Değişim sütunları önceki ve yeni birikimli değerler arasında süzülürken, toplam sütunlar sıfırdan birikimli değere kadar uzanır.
+Şelale grafiği, pozitif ve negatif değişikliklerin nihai değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kar dağılımı gelirle başlayıp maliyetleri çıkarır ve diğer gelirleri ekler. Değişim sütunları önceki ve yeni çalışma değerleri arasında süzülürken, toplam sütunlar sıfırdan birikmiş değere kadar uzanır.
 
 Aşağıdaki örnek, ABD doları binleri cinsinden tutarları kullanır:
 
@@ -499,14 +499,14 @@ Aşağıdaki örnek, ABD doları binleri cinsinden tutarları kullanır:
 | --- | ---: | --- |
 | Gelir | 1000 | Artış |
 | Satış maliyeti | -400 | Azalış |
-| Brüt kâr | 600 | Ara toplam |
+| Brüt kar | 600 | Ara toplam |
 | Faaliyet giderleri | -200 | Azalış |
 | Diğer gelir | 50 | Artış |
-| Net kâr | 450 | Nihai toplam |
+| Net kar | 450 | Son toplam |
 
-Bir noktayı ara veya nihai toplam olarak işaretlemek için, `true` değeriyle [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) metodunu çağırın. O noktadaki çalışma kitabı hücresine gerçek birikimli tutarı girin: Brüt kâr için `600` (`1000 - 400`) ve net kâr için `450` (`600 - 200 + 50`). Metot sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın veya toplam noktasına başka bir değişim eklemeyin. Toplam sütun, birikimli değeri tekrar eklemeden gösterir.
+Bir noktayı ara veya son toplam olarak işaretlemek için, `true` ile [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) metodunu çağırın. O noktadaki çalışma kitabı hücresine gerçek birikmiş tutarı girin: brüt kar için `600` (`1000 - 400`) ve net kar için `450` (`600 - 200 + 50`). Metod sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın ve toplam noktasına başka bir değişim eklemeyin. Toplam sütun, birikmiş değeri tekrar eklemeden gösterir.
 
-Bu tam PHP örneği, [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) üyesi `Waterfall` kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk sayfayı seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) yöntemiyle eklenir. Sıfır‑tabanlı nokta indeksleri `2` ve `5` ara ve nihai toplamları tanımlar. [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) yöntemi `true` olarak ayarlandığında tutarlar sütunlarda gösterilir. Giriş sunumu veya çalışma kitabına gerek yoktur.
+Bu tam PHP örneği, [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) içinde `Waterfall` üyesini kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk çalışma sayfasını seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) ile eklenir. Sıfır tabanlı nokta indeksleri `2` ve `5`, ara ve son toplamları tanımlar. [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) `true` ile çağrıldığında tutarlar sütunlarda gösterilir. Giriş sunumu veya çalışma kitabı gerekmez.
 
 ```php
 use aspose\slides\ChartType;
@@ -546,7 +546,7 @@ try
         $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
     }
 
-    // Üçüncü ve altıncı noktalar toplamları temsil eder, ek değişiklikler değildir.
+    // Üçüncü ve altıncı noktalar ek değişiklikler değil, toplamları temsil eder.
     $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
     $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
     $series->setShowConnectorLines(true);
@@ -560,17 +560,17 @@ finally
 }
 ```
 
-Seri‑seviyesindeki [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) metodunu `true` olarak ayarlayarak ardışık sütunları birleştiren çizgileri gösterin ve birikimli değerin takibini kolaylaştırın. Bu çizgileri gizlemek için, örnekteki metod çağrısını `$series->setShowConnectorLines(false);` ile değiştirip kaydetmeden önce uygulayın. Bu yalnızca çizgi görünürlüğünü değiştirir, veri veya toplamları etkilemez.
+Seri düzeyinde [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) metodunu `true` ile çağırarak ardışık sütunları birleştiren çizgileri gösterin ve çalışma değerinin izlenmesini kolaylaştırın. Bu çizgileri gizlemek için örnekteki metod çağrısını `$series->setShowConnectorLines(false);` ile değiştirin ve ardından kaydedin. Bu yalnızca çizgi görünürlüğünü değiştirir, veri veya toplamları etkilemez.
 
-Kaydedilen sunum, sıfırdan başlayan brüt kâr 600 ve net kâr 450 toplamlarını gösterir:
+Kaydedilen sunum, 600 brüt kar ve 450 net karı, her iki toplamın da sıfırdan çekildiği şekilde gösterir:
 
-![Şelale grafiği, gelir, maliyetler, brüt kâr 600 ve net kâr 450, değer etiketleri ve bağlayıcı çizgileri ile](waterfall_chart.png)
+![Gelir, maliyetler, 600 brüt kar ve 450 net karın değer etiketleri ve bağlayıcı çizgileriyle gösterildiği Şelale grafiği](waterfall_chart.png)
 
-### **Stok (Stock) Grafikleri Oluşturma**
+### **Hisse Senedi Grafiklerini Oluşturma**
 
-Stok grafikler, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstermek için kullanılır; piyasa trendlerini ve volatiliteyi analiz etmeye yardımcı olur. Bu grafikler, hisse performansı hakkında kritik içgörüler sunarak yatırımcıların ve analistlerin bilinçli kararlar almasını sağlar.
+Hisse senedi grafikleri, açık, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstermek için kullanılır; piyasa eğilimlerini ve volatiliteyi analiz etmeye yardımcı olur. Bu grafikler, hisse performansı hakkında kritik içgörüler sunar ve yatırımcıların ve analistlerin bilinçli kararlar almasını destekler.
 
-Bu örnek, sırasıyla dört seri ve üç kategori içeren bir açılış‑yüksek‑düşük‑kapanış grafiği oluşturur. [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) yöntemi up/down çubuklarını etkinleştirir ve [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) yüksek-düşük çizgilerini kontrol eder; bireysel seri çizgileri ve ince yatay ızgara çizgileri gizlenir.
+Bu örnek, dört seriyi bu sırayla ve üç kategoriyle bir açık‑yüksek‑düşük‑kapanış grafiği oluşturur. [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) yöntemi up/down çubuklarını etkinleştirir ve [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) yüksek‑düşük çizgilerini kontrol eder; bireysel seri çizgileri ve minor yatay ızgaralar gizlenir.
 
 ```php
 use aspose\slides\ChartType;
@@ -656,13 +656,13 @@ finally
 
 Sonuç:
 
-![Stok grafiği](stock_chart.png)
+![Hisse Senedi Grafiği](stock_chart.png)
 
-### **Kutu ve Bıyık (Box and Whisker) Grafikleri Oluşturma**
+### **Kutu ve Çan Grafiklerini Oluşturma**
 
-Kutu ve bıyık grafikler, medyan, çeyrekler ve olası uç değerler gibi temel istatistiksel ölçüleri özetleyerek veri dağılımını gösterir. Bu grafikler, keşifsel veri analizi ve istatistiksel çalışmalarda veri değişkenliğini hızlıca anlamak ve anormallikleri tespit etmek için çok faydalıdır.
+Kutu ve çan grafikler, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek verinin dağılımını göstermek için kullanılır. Keşifsel veri analizi ve istatistiksel çalışmalarta, veri değişkenliğini hızlıca anlamak ve anormallikleri tanımlamak için özellikle yararlıdır.
 
-Bu örnek, altı değerden bir kutu ve bıyık grafiği oluşturur. [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) yöntemi dışsal çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç nokta ve uç nokta gösterimini etkinleştirir.
+Bu örnek, altı değerden bir kutu ve çan grafiği oluşturur. [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) yöntemi ayrıcalıklı çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç noktalar ve aykırı değer noktalarını etkinleştirir.
 
 ```php
 use aspose\slides\ChartType;
@@ -725,11 +725,11 @@ finally
 }
 ```
 
-### **Huni (Funnel) Grafikleri Oluşturma**
+### **Huni Grafiklerini Oluşturma**
 
-Huni grafikler, bir sürecin ardışık aşamalarını görselleştirir; veri hacmi bir adımdan bir sonraki adıma geçtikçe azalır. Bu grafikler, dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle faydalıdır.
+Huni grafikler, bir süreçte ardışık aşamaları görselleştirmek için kullanılır; veri hacmi bir adımdan diğerine geçerken azalır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle faydalıdır.
 
-Bu örnek, mevcut bir sunumun ilk slaydına bir huni grafiği eklemek için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metodunu kullanır. Varsayılan veriler, 50 ile 500 arasında değişen altı kategori ve değerle değiştirilir, ardından güncellenen sunum kaydedilir. Giriş sunumu en az bir slayt içermelidir.
+Bu örnek, mevcut bir sunumun ilk slaytına bir huni grafik eklemek için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) kullanır. Varsayılan verileri altı kategori ve 50‑500 arasında değişen değerlerle değiştirir, ardından güncellenmiş sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
 
 ```php
 use aspose\slides\ChartType;
@@ -787,13 +787,13 @@ finally
 
 Sonuç:
 
-![Huni grafiği](funnel_chart.png)
+![Huni Grafiği](funnel_chart.png)
 
-### **Güneş Patlaması (Sunburst) Grafikleri Oluşturma**
+### **Güneş Patlaması Grafiklerini Oluşturma**
 
-Güneş patlaması grafikler, katmanları aynımerkezli halkalar olarak göstererek hiyerarşik verileri görselleştirir. Parça‑bütün ilişkilerini ortaya koyar ve iç içe geçmiş kategorileri net ve kompakt bir biçimde temsil etmek için idealdir.
+Güneş patlaması grafikler, hiyerarşik verileri görselleştirmek için kullanılır; seviyeler iç içe halkalar olarak gösterilir. Parça‑bütün ilişkilerini göstermek ve iç içe kategorileri ve alt kategorileri net ve kompakt bir biçimde temsil etmek için idealdir.
 
-Bu örnek, sekiz yaprağı dört gövde ve iki dalda gruplayan bir güneş patlaması grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) yöntemi, 1. grup seviyesindeki gövdeleri ve 2. seviyedeki dalları atar. Kategori etiketleri bölümleri tanımlarken, değerler göreli boyutlarını belirler.
+Bu örnek, dört sap ve iki dal içinde gruplanmış sekiz yaprakla bir güneş patlaması grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) yöntemi sapları grup düzeyi 1, dalları ise düzey 2 olarak atar. Kategori etiketleri segmentleri tanımlar, değerler ise göreceli boyutlarını belirler.
 
 ```php
 use aspose\slides\ChartType;
@@ -813,7 +813,7 @@ try
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $workbook->clear(0);
 
-    // Dal 1
+    // Şube 1
     $categoryCell = $workbook->getCell(0, "C1", "Leaf1");
     $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
@@ -829,7 +829,7 @@ try
     $categoryCell = $workbook->getCell(0, "C4", "Leaf4");
     $chart->getChartData()->getCategories()->add($categoryCell);
 
-    // Dal 2
+    // Şube 2
     $categoryCell = $workbook->getCell(0, "C5", "Leaf5");
     $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
@@ -874,13 +874,17 @@ finally
 
 Sonuç:
 
-![Güneş patlaması grafiği](sunburst_chart.png)
+![Güneş Patlaması Grafiği](sunburst_chart.png)
 
-### **Histogram Grafikleri Oluşturma**
+### **Histogram Grafiklerini Oluşturma**
 
-Histogram grafikler, sayısal verileri aralıklara (bins) bölerek dağılımını temsil eder. Bu grafikler, frekans, çarpıklık ve yayılım gibi veri desenlerini tanımlamak ve bir veri kümesindeki uç değerleri tespit etmek için özellikle yararlıdır.
+Histogram grafikler, sayısal değerlerin aralıklar (kümeler) içinde nasıl dağıldığını gösterir. Sipariş işleme sürelerinin aylık raporları için, aralıkları tutarlı tutmak ve dağılımları karşılaştırmayı kolaylaştırmak amacıyla aynı küme genişliği ve eşik değerleri kullanılmalıdır.
 
-Bu örnek, negatif değerler dahil olmak üzere altı sayısal değerden bir histogram oluşturur. [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) metoduna otomatik toplama türü verilirse, grafik dağılımı göstermek için kullanılacak aralıkları kendisi belirler.
+Yatay eksende, [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) içinden bir modla [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) çağırın. `ByBinWidth` için sadece [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) uygulanır; `ByNumberOfBins` için sadece [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) uygulanır. `Automatic` kullanarak grafiğin kümeleri seçmesine izin verin.
+
+#### **Sabit Küme Genişliği Kullanma**
+
+Bu örnek, işleme sürelerini 10 dakikalık aralıklara gruplar; 10 dakikaya kadar ve 40 dakikadan üzeri için ayrı kümeler oluşturur. Bu kümeleri [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) ve [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) ile etkinleştirin. Açık eşikler sağlamak için [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) ve [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) ile birlikte [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) ve [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) metodlarını `false` olarak çağırın.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -893,7 +897,10 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 500, 300);
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 680, 200);
+
+    $chart->setLegend(false);
+    $chart->setTitle(false);
 
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
@@ -902,22 +909,24 @@ try
     $workbook->clear(0);
 
     $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
-    $valueCell = $workbook->getCell(0, "A1", 15);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A2", -41);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A3", 16);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A4", 10);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A5", -23);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A6", 16);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for ($i = 0; $i < count($values); $i++)
+    {
+        $valueCell = $workbook->getCell(0, $i, 0, $values[$i]);
+        $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    }
 
-    $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setAggregationType(AxisAggregationType::ByBinWidth);
+    $axis->setBinWidth(10);
+    $axis->setUnderflowBin(true);
+    $axis->setAutomaticUnderflowBin(false);
+    $axis->setUnderflowBin(10);
+    $axis->setOverflowBin(true);
+    $axis->setAutomaticOverflowBin(false);
+    $axis->setOverflowBin(40);
 
-    $presentation->save("Histogram.pptx", SaveFormat::Pptx);
+    $presentation->save("Histogram-bin-width.pptx", SaveFormat::Pptx);
 }
 finally
 {
@@ -925,15 +934,65 @@ finally
 }
 ```
 
-Sonuç:
+PowerPoint'te görüntülenen sunum, **3, 4, 4, 4 ve 2** küme sayısını gösterir. Alt akış kümesi `5, 10, 10` içerdiği için eşik kapsayıcıdır. Üst akış kümesi yalnızca `41, 50` içerdiği için eşik dışlayıcıdır; `40` değerleri önceki aralıkta kalır. İç kümeler, alt sınırdan büyük ve üst sınırdan küçük ya da eşit değerleri içerir.
 
-![Histogram grafiği](histogram_chart.png)
+![10 dakikalık kümeler ve açık alt/üst akış eşikleriyle histogram](histogram_bin_width.png)
 
-### **Radar Grafikleri Oluşturma**
+#### **Küme Sayısını Belirleme**
 
-Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birden fazla değişkeni aynı anda kolayca karşılaştırmanızı sağlar. Bu grafikler, performans metrikleri veya özellikler arasındaki desenleri, güçlü ve zayıf yönleri belirlemek için özellikle kullanışlıdır.
+Sabit aralıklar yerine sabit bir detay seviyesi istiyorsanız, aynı veri için beş küme isteyin. Bu örnek, alt ve üst akış kümelerini devre dışı bırakır. Grafik, genişliği veri aralığından belirler; bu nedenle sınırlar raporlar arasında değişebilir.
 
-Bu örnek, varsayılan seriler ve kategorilerle bir radar grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metodunu kullanır ve sunumu PPTX olarak kaydeder.
+```php
+use aspose\slides\AxisAggregationType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 680, 200);
+
+    $chart->setLegend(false);
+    $chart->setTitle(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
+    $values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for ($i = 0; $i < count($values); $i++)
+    {
+        $valueCell = $workbook->getCell(0, $i, 0, $values[$i]);
+        $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    }
+
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setAggregationType(AxisAggregationType::ByNumberOfBins);
+    $axis->setNumberOfBins(5);
+
+    $presentation->save("Histogram-bin-count.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Beş küme, **4, 4, 4, 4 ve 1** sayısını gösterir. Yukarıdaki sabit‑genişlik sonucu ile karşılaştırın: giriş değerleri aynı, ancak sınırlar farklıdır.
+
+![Aynı veriden hesaplanan beş kümeli histogram](histogram_bin_count.png)
+
+### **Radar Grafiklerini Oluşturma**
+
+Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birkaç değişkeni aynı anda kolayca karşılaştırmanıza olanak tanır. Performans metrikleri veya özellikler arasındaki kalıpları, güçlü yönleri ve zayıf yönleri belirlemede özellikle yararlıdır.
+
+Bu örnek, varsayılan seriler ve kategorilerle bir radar grafik oluşturmak için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) kullanır ve ardından sunumu PPTX olarak kaydeder.
 
 ```php
 use aspose\slides\ChartType;
@@ -957,13 +1016,13 @@ finally
 
 Sonuç:
 
-![Radar grafiği](radar_chart.png)
+![Radar Grafiği](radar_chart.png)
 
 ### **Çok Kategorili Grafikler Oluşturma**
 
-Çok kategorili grafikler, birden fazla kategori grubu içeren verileri göstermek için kullanılır; böylece değerleri aynı anda birden çok boyutta karşılaştırabilirsiniz. Bu grafikler, karmaşık, çok katmanlı veri setlerinde trendler ve ilişkileri analiz etmeniz gerektiğinde özellikle faydalıdır.
+Çok kategorili grafikler, birden fazla kategorik gruplama içeren verileri göstermek için kullanılır; böylece değerleri aynı anda birçok boyutta karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri kümelerinde eğilimleri ve ilişkileri analiz etmeniz gerektiğinde özellikle faydalıdır.
 
-Bu örnek, dört çift halinde sekiz kategori içeren bir kümelenmiş sütun grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) yöntemi, her çifte grup seviyesinde ortak bir etiket atayarak, bireysel ve grup etiketlerini içeren bir kategori ekseni üretir.
+Bu örnek, dört çift halinde düzenlenmiş sekiz kategoriyle bir kümelenmiş sütun grafik oluşturur. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) yöntemi, her çift için grup düzeyi 1'de ortak bir etiket verir; böylece kategori ekseninde hem tekil hem grup etiketleri yer alır.
 
 ```php
 use aspose\slides\ChartType;
@@ -1039,13 +1098,13 @@ finally
 
 Sonuç:
 
-![Çok kategorili grafik](multi_category_chart.png)
+![Çok Kategorili Grafik](multi_category_chart.png)
 
-### **Harita (Map) Grafikleri Oluşturma**
+### **Harita Grafiklerini Oluşturma**
 
-Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgi eşleyerek coğrafi verileri görselleştirir. Bu grafikler, bölgesel trendleri, demografik verileri ve mekânsal dağılımları açık ve görsel olarak ilgi çekici bir biçimde analiz etmek için özellikle yararlıdır.
+Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgi eşleştirerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve mekânsal dağılımları net ve görsel olarak çekici bir biçimde analiz etmek için özellikle yararlıdır.
 
-Bu örnek, varsayılan coğrafi verilerle bir harita grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metodunu kullanır ve PowerPoint’te görüntülenmek üzere kaydeder.
+Bu örnek, varsayılan coğrafi verilerle bir harita grafik oluşturmak için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) kullanır ve PowerPoint'te görüntülenmek üzere kaydeder.
 
 ```php
 use aspose\slides\ChartType;
@@ -1069,19 +1128,21 @@ finally
 
 Sonuç:
 
-![Harita grafiği](map_chart.png)
+![Harita Grafiği](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Yukarıdaki resim, PowerPoint’te açılan kaydedilmiş sunumu gösterir. Aspose.Slides, harita grafiğini ve verisini doğru bir şekilde yazar, ancak harita grafiklerini kendisi çizmeyiz: bir slayt görüntüye, PDF’ye veya SVG’ye render edildiğinde grafik alanı boş görünür. Aynı slayd üzerindeki diğer şekiller etkilenmez.
+
+Yukarıdaki resim, kaydedilen sunumun PowerPoint'te açılmış halini gösterir. Aspose.Slides harita grafiği ve verilerini doğru yazar, ancak kendisi harita grafiği çizmez: bir slayt görüntüye, PDF'e veya SVG'ye render edildiğinde grafik alanı boş çıkar. Aynı slaydın diğer şekilleri etkilenmez.
+
 {{% /alert %}}
 
-### **Kombinasyon Grafikleri Oluşturma**
+### **Kombinasyon Grafiklerini Oluşturma**
 
-Kombinasyon (combo) grafiği, tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki veya daha fazla veri seti arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır; böylece ilişkileri tanımlamanız kolaylaşır.
+Kombinasyon grafiği (veya combo grafiği), tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki ya da daha fazla veri seti arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve aralarındaki ilişkileri belirlemenize yardımcı olur.
 
-![Kombinasyon grafiği](combination_chart.png)
+![Kombinasyon Grafiği](combination_chart.png)
 
-Bu örnek, dört kategori boyunca iki kümelenmiş sütun serisini bir çizgi serisi ile birleştirir. Sütunlar birincil dikey ekseni, [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) yöntemi ise çizgi serisini sağdaki ikinci dikey eksene yerleştirir. Yardımcı fonksiyonlar başlık, lejant, eksen etiketleri ve ızgara çizgilerini yapılandırır.
+Bu örnek, dört kategori boyunca iki kümelenmiş sütun serisi ile bir çizgi serisini birleştirir. Sütunlar birincil dikey ekseni, çizgi ise [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) ile sağda ikinci bir dikey eksene yerleştirilir. Yardımcı işlevler başlık, lejand, eksen etiketleri ve ızgaraları yapılandırır.
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1255,9 +1316,9 @@ createComboChart();
 
 ## **Grafikleri Güncelleme**
 
-Aspose.Slides for PHP via Java, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu işlev, sunumların dinamik içerikle güncel kalmasını basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını temin eder.
+Aspose.Slides for PHP via Java, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu işlevsellik, sunumların dinamik içerikle güncel tutulmasını basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını sağlar.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki "My chart" adlı grafiği günceller. Her biri üç veri noktasına sahip iki sütun serisi, A sütununda kategori etiketleri ve ilk çalışma sayfasının ilk satırında seri adları bulunmalıdır. Örnek, [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) yöntemiyle çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/) ile kümelenmiş silindir tipine dönüştürür.
+Bu örnek, mevcut bir sunumun ilk slaytındaki "My chart" adlı grafiği günceller. Her biri üç veri noktasına sahip iki sütun serisi gerekir; kategori etiketleri A sütununda, seri adları ise ilk çalışma sayfasının ilk satırında bulunur. Örnek, [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) kullanarak çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/) ile kümelenmiş silindirlere değiştirir.
 
 ```php
 use aspose\slides\ChartType;
@@ -1321,13 +1382,13 @@ finally
 }
 ```
 
-## **Bir Grafik İçin Veri Aralığını Belirleme**
+## **Bir Grafik için Veri Aralığını Ayarlama**
 
-Mevcut bir grafik tarafından kullanılan aralığı incelemek için [Retrieve a Chart's Data Range](/slides/tr/php-java/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
+Mevcut bir grafik tarafından zaten kullanılan aralığı incelemek için, [Retrieve a Chart's Data Range](/slides/tr/php-java/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
 
-Aspose.Slides for PHP via Java, çalışma sayfasındaki belirli bir veri aralığını grafiğinizin veri kaynağı olarak tanımlamanıza esneklik sağlar. Bu, çalışma sayfanızın yalnızca bir kısmını grafikle eşlemenize, hangi hücrelerin seri ve kategori verilerine katkıda bulunduğunu kontrol etmenize imkan verir. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilirsiniz; böylece PowerPoint sunumlarınız güncel ve doğru bilgileri yansıtır.
+Aspose.Slides for PHP via Java, bir çalışma sayfasındaki belirli bir veri aralığını grafiğinizin veri kaynağı olarak tanımlamanıza esneklik sağlar. Bu, çalışma sayfanızın bir bölümünü doğrudan grafiğe eşlemenize ve hücrelerin hangi serilere ve kategorilere katkıda bulunduğunu kontrol etmenize olanak tanır. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilir, PowerPoint sunumlarınızın güncel ve doğru bilgi yansıtmasını sağlayabilirsiniz.
 
-Bu örnek, `Sheet1!A1:B4` aralığını veri kaynağı olarak ayarlamak için [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) metodunu kullanır; burada grafik çalışma kitabının bu çalışma sayfasını ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren bir veri aralığını barındırması gerekir.
+Bu örnek, mevcut bir sunumun ilk slaytındaki "My chart" adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlamak için [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) kullanır. Grafik çalışma kitabında bu çalışma sayfası ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer bulunan bir aralık bulunmalıdır.
 
 ```php
 use aspose\slides\Presentation;
@@ -1361,9 +1422,9 @@ finally
 
 ## **Grafiklerde Varsayılan İşaretçileri Kullanma**
 
-Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir varsayılan işaretçi sembolü alır.
+Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisine otomatik olarak farklı bir varsayılan işaretçi sembolü atanır.
 
-Bu örnek, iki çizgi serisi ve bir lejant içeren bir grafik oluşturmak için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metodunu kullanır. [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) aracılığıyla erişilen işaretçi ayarları, otomatik atanmış işaretçi sembollerini korur. İlk seri negatif bir değer ve `null` ile temsil edilen eksik bir değer içerirken, ikinci seri her kategori için bir değer içerir.
+Bu örnek, iki çizgi serisi ve bir lejand ile bir grafik oluşturmak için [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) kullanır. [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) aracılığıyla erişilen işaretçi ayarları, otomatik olarak atanmış işaretçi sembollerini korur. İlk seri, `null` ile temsil edilen negatif bir değer ve eksik bir değer içerirken, ikincisi her kategori için bir değer içerir.
 
 ```php
 use aspose\slides\ChartType;
@@ -1432,16 +1493,16 @@ finally
 
 **Aspose.Slides for PHP via Java hangi grafik türlerini destekliyor?**
 
-Aspose.Slides for PHP via Java, çubuk, çizgi, pasta, alan, saçılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenizi sağlar.
+Aspose.Slides for PHP via Java, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenize olanak tanır.
 
 **Bir slayta yeni bir grafik nasıl eklenir?**
 
-Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istenen slaytı indeksine göre alır ve ardından grafik türünü ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunuma entegre eder.
+Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istenen slaytı indeksine göre alır ve ardından grafik türünü ve başlangıç verilerini belirterek grafik ekleme yöntemini çağırırsınız. Bu işlem grafiği doğrudan sunumunuza entegre eder.
 
-**Bir grafikteki veriler nasıl güncellenir?**
+**Grafikte gösterilen veriler nasıl güncellenir?**
 
-Grafiğin veri kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip özel verilerinizi ekleyerek grafiğin verilerini güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenizi sağlar.
+Bir grafiğin verilerini, veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip, kendi verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenizi sağlar.
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides for PHP via Java kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejantları ve diğer biçimlendirme öğelerini değiştirebilir, grafik görünümünü belirli tasarım gereksinimlerinize göre şekillendirebilirsiniz.
+Evet, Aspose.Slides for PHP via Java kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejandları ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre uyarlayabilirsiniz.

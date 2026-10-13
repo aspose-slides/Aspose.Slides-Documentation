@@ -1,58 +1,58 @@
----  
-title: Diagrammen maken of bijwerken in PowerPoint-presentaties op Android  
-linktitle: Diagrammen maken of bijwerken  
-type: docs  
-weight: 10  
-url: /nl/androidjava/create-chart/  
-keywords:  
-- diagram toevoegen  
-- diagram maken  
-- diagram bewerken  
-- diagram wijzigen  
-- diagram bijwerken  
-- spreidingsdiagram  
-- taartdiagram  
-- lijndiagram  
-- boomkaartdiagram  
-- aandelendiagram  
-- box-en-whisker-diagram  
-- trechterdiagram  
-- sunburst-diagram  
-- histogramdiagram  
-- radardiagram  
-- multicategorie-diagram  
-- PowerPoint  
-- presentatie  
-- Android  
-- Java  
-- Aspose.Slides  
-description: "Diagrammen maken en aanpassen in PowerPoint-presentaties met Aspose.Slides voor Android via Java. Diagrammen toevoegen, opmaken en bewerken met praktische code-voorbeelden in Java."  
+---
+title: Diagrammen in PowerPoint‑presentaties maken of bijwerken op Android
+linktitle: Diagrammen maken of bijwerken
+type: docs
+weight: 10
+url: /nl/androidjava/create-chart/
+keywords:
+- diagram toevoegen
+- diagram maken
+- diagram bewerken
+- diagram wijzigen
+- diagram bijwerken
+- spreidingsdiagram
+- taartdiagram
+- lijndiagram
+- boomkaartdiagram
+- aandelendiagram
+- box‑en‑whisker‑diagram
+- trechterdiagram
+- zonnestralingdiagram
+- histogramdiagram
+- radardiagram
+- multi‑categorie diagram
+- PowerPoint
+- presentatie
+- Android
+- Java
+- Aspose.Slides
+description: "Maak en pas diagrammen aan in PowerPoint‑presentaties met Aspose.Slides voor Android via Java. Voeg diagrammen toe, formatteer en bewerk ze met praktische codevoorbeelden in Java."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide gids over hoe u diagrammen kunt maken en aanpassen met Aspose.Slides voor Android via Java. U leert hoe u programmatisch een diagram aan een dia kunt toevoegen, het kunt vullen met gegevens en verschillende opmaakopties kunt toepassen om aan uw specifieke ontwerpvereisten te voldoen. Door het artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en diagramobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijgt u een grondig inzicht in het integreren van dynamische diagramgeneratie in uw Android‑applicaties, waardoor het maken van datagestuurde presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreid overzicht over hoe diagrammen te maken en aan te passen met Aspose.Slides voor Android via Java. Je leert hoe je programmatisch een diagram aan een dia kunt toevoegen, deze met gegevens kunt vullen en diverse opmaakopties kunt toepassen om te voldoen aan je specifieke ontwerpvereisten. Gedurende het artikel laten gedetailleerde codevoorbeelden elke stap zien, van het initialiseren van de presentatie en het diagramobject tot het configureren van series, assen en legenden. Door deze gids te volgen krijg je een solide begrip van hoe je dynamische diagramgeneratie in je Android‑applicaties kunt integreren, waardoor het proces van het maken van gegevensgedreven presentaties wordt gestroomlijnd.
 
 ## **Diagram maken**
 
-Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
+Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te verkrijgen die niet onmiddellijk duidelijk zijn vanuit een tabel of spreadsheet.
 
 **Waarom diagrammen maken?**
 
-* groeperen, samenvatten of comprimeren van grote hoeveelheden gegevens op één dia in een presentatie;
+* grotere hoeveelheden gegevens samenvatten, comprimeren of condenseren op één dia in een presentatie;
 * patronen en trends in gegevens blootleggen;
-* de richting en het momentum van gegevens over tijd of ten opzichte van een specifieke meeteenheid afleiden;
-* uitschieters, afwijkingen, fouten en onsamenhangende gegevens opsporen;
+* de richting en het momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitbijters, afwijkingen, fouten en onzinnige gegevens opsporen;
 * complexe gegevens communiceren of presenteren.
 
-In PowerPoint kunt u diagrammen maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van vele soorten diagrammen. Met Aspose.Slides kunt u zowel gewone diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
+In PowerPoint kun je diagrammen maken via de *Invoegen*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende diagramtypen. Met Aspose.Slides kun je zowel reguliere diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
 
 {{% alert color="info" title="Note" %}}
-Gebruik de enumeratie [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) in het pakket [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). De waarden in deze enumeratie komen overeen met verschillende diagramtypen.
+Gebruik de [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) enumeratie in het [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) pakket. De waarden in deze enumeratie komen overeen met verschillende diagramtypen.
 {{% /alert %}}
 
-### **Clusterkolomdiagrammen maken**
+### **Geclusterde kolomdiagrammen maken**
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een clusterkolomdiagram te maken dat twee series over drie categorieën vergelijkt. De series gebruiken rode en groene vullingen, en individuele labels tonen categorienamen, serienamen en waarden. Werkblad‑index 0 verwijst naar het eerste blad in de ingebedde diagram‑werkmap.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een gegroepeerd kolomdiagram te maken dat twee series over drie categorieën vergelijkt. De series gebruiken rode en groene opvullingen, en individuele labels tonen categorienamen, serienamen en waarden. Werkbladindex 0 verwijst naar het eerste blad in de ingesloten diagramwerkmap.
 
 ```java
 import com.aspose.slides.*;
@@ -131,22 +131,22 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het clusterkolomdiagram](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **Spreidingsdiagrammen maken**
 
-Spreidingsdiagrammen (ook wel spreidingsplotten of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te controleren of correlaties tussen twee variabelen te demonstreren.
+Scatterdiagrammen (ook wel spreidingsplots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te onderzoeken of correlaties tussen twee variabelen aan te tonen.
 
 Gebruik een spreidingsdiagram wanneer:
 
-* U heeft gekoppelde numerieke gegevens.
-* U heeft twee variabelen die goed bij elkaar passen.
-* U wilt bepalen of de twee variabelen met elkaar verbonden zijn.
-* U heeft een onafhankelijke variabele die meerdere waarden heeft voor een afhankelijke variabele.
+* Je beschikt over gekoppelde numerieke gegevens.
+* Je hebt twee variabelen die goed bij elkaar passen.
+* Je wilt bepalen of de twee variabelen met elkaar verbonden zijn.
+* Je hebt een onafhankelijke variabele die meerdere waarden heeft voor een afhankelijke variabele.
 
-Dit voorbeeld plot twee sets van x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markeringen, terwijl de tweede vloeiende lijnen met cirkel‑markeringen gebruikt; beide gebruiken een marker‑grootte van 10, geconfigureerd met [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). De [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) methode bepaalt de vorm van de marker.
+Dit voorbeeld plot twee sets x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markeringen, terwijl de tweede gladde lijnen met cirkel‑markeringen gebruikt; beide gebruiken een markergrootte van 10, geconfigureerd met [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). De methode [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) bepaalt de vorm van de markering.
 
 ```java
 import com.aspose.slides.*;
@@ -212,15 +212,15 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het spreidingsdiagram](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Taartdiagrammen maken**
 
-Taartdiagrammen worden het best gebruikt om de deel‑tot‑geheel‑relatie in gegevens te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als uw gegevens echter veel delen of labels bevatten, kunt u beter een staafdiagram gebruiken.
+Taartdiagrammen zijn het meest geschikt om de deel‑tot‑geheel‑relatie in gegevens te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je echter veel delen of labels hebt, kun je beter een staafdiagram gebruiken.
 
-Dit voorbeeld maakt een taartdiagram met drie kwartaalwaarden. Elke sector heeft een aangepaste vulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en serie‑informatie. De [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) methode stelt de eerste sector in om te starten op 180 graden.
+Dit voorbeeld maakt een taartdiagram met drie kwartaalwaarden. Elke sector heeft een aangepaste opvulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en serie‑informatie. De methode [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) stelt de eerste sector in op 180 graden.
 
 ```java
 import com.aspose.slides.*;
@@ -319,15 +319,15 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het taartdiagram](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
 ### **Lijndiagrammen maken**
 
-Lijndiagrammen (ook wel lijngrafieken genoemd) worden het best gebruikt wanneer u veranderingen in waarde over tijd wilt demonstreren. Met een lijndiagram kunt u een grote hoeveelheid gegevens tegelijk vergelijken, trends in de loop van de tijd volgen, anomalieën in dataseries benadrukken en meer.
+Lijndiagrammen (ook wel lijngrafieken genoemd) zijn het meest geschikt in situaties waarin je veranderingen in waarden over tijd wilt aantonen. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends in de loop der tijd volgen, anomalieën in gegevensseries benadrukken, en meer.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een lijndiagram te maken met de standaard series en categorieën, en slaat de presentatie vervolgens op als PPTX.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een lijndiagram te maken met de standaard series en categorieën, en slaat vervolgens de presentatie op als PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -347,7 +347,7 @@ finally
 }
 ```
 
-Standaard worden punten op een lijndiagram met rechte doorlopende lijnen verbonden. Als u wilt dat de punten met stippellijnen worden verbonden, roep dan [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
+Standaard worden punten op een lijndiagram gekoppeld door rechte doorlopende lijnen. Als je wilt dat de punten in plaats daarvan met streepjescodes worden verbonden, roep je [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -370,15 +370,15 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het lijndiagram](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Boomkaartdiagrammen maken**
+### **Tree‑map diagrammen maken**
 
-Boomkaartdiagrammen worden het best gebruikt voor verkoopgegevens wanneer u de relatieve grootte van datacategorieën wilt tonen en snel de aandacht wilt trekken naar items die grote bijdragers binnen elke categorie zijn.
+Tree‑map diagrammen zijn het meest geschikt voor verkoopgegevens wanneer je de relatieve grootte van gegevenscategorieën wilt weergeven en snel de aandacht wilt trekken op items die grote bijdragers zijn binnen elke categorie.
 
-Dit voorbeeld maakt een boomkaart met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoekgroottes, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie identificeren.
+Dit voorbeeld maakt een tree‑map met acht bladeren gegroepeerd in vier stammen en twee takken. De methode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoekgroottes, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie identificeren.
 
 ```java
 import com.aspose.slides.*;
@@ -457,28 +457,26 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het boomkaartdiagram](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
 ### **Watervaldiagrammen maken**
 
-Een watervaldiagram toont hoe positieve en negatieve veranderingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winst‑opdeling kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderingskolommen zweven tussen de vorige en de nieuwe lopende waardes, terwijl totaalkolommen van nul tot de geaccumuleerde waarde reiken.
-
-De onderstaande tabel toont voorbeeldwaarden in duizenden Amerikaanse dollars:
+Een watervaldiagram toont hoe positieve en negatieve veranderingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winstopdeling kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Wijzigingskolommen zweven tussen de vorige en nieuwe lopende waarden, terwijl totaal kolommen van nul tot de opgehoopte waarde reiken.
 
 | Categorie | Werkbladwaarde | Kolomtype |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| Omzet | 1000 | Toename |
+| Kosten van verkoop | -400 | Afname |
+| Brutowinst | 600 | Tussentotaal |
+| Bedrijfskosten | -200 | Afname |
+| Overige inkomsten | 50 | Toename |
+| Nettowinst | 450 | Eindtotaal |
 
-Om een punt te markeren als een tussentotaal of eindtotaal, roep zijn [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) methode aan met `true`. Verstrek het werkelijke geaccumuleerde bedrag in de werkblad‑cel van dat punt: `600` voor brutowinst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De methode markeert de kolom als een totaal; hij berekent of vult de celwaarde niet. Gebruik geen nul als tijdelijke aanduiding en lever geen andere wijziging voor een totaalpunt. Een totaal‑kolom toont de geaccumuleerde waarde zonder deze opnieuw bij de lopende waarde op te tellen.
+Om een punt te markeren als een tussentotaal of eindtotaal, roep je de [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) methode aan met `true`. Geef het daadwerkelijke opgehoopte bedrag op in de werkbladcel van dat punt: `600` voor brutowinst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De methode markeert de kolom als een totaal; hij berekent of vult de celwaarde niet. Gebruik geen nul als tijdelijke aanduiding of lever een andere wijziging voor een totaalpunt. Een totaal‑kolom toont de opgehoopte waarde zonder deze opnieuw bij de lopende waarde op te tellen.
 
-Dit volledige Java‑voorbeeld maakt een diagram met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), wist de standaardgegevens en vult de ingebedde werkmap. Werkblad‑index `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). De nul‑gebaseerde punt‑indices `2` en `5` identificeren respectievelijk het tussentotaal en eindtotaal. Het aanroepen van [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) met `true` toont de bedragen op de kolommen. Er is geen invoer‑presentatie of werkmap vereist.
+Dit volledige Java‑voorbeeld maakt een diagram met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), leegt de standaardgegevens, en vult de ingesloten werkmap. Werkbladindex `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). De nul‑gebaseerde punt‑indices `2` en `5` identificeren respectievelijk het tussentotaal en het eindtotaal. Een oproep naar [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) met `true` toont de bedragen op de kolommen. Er is geen invoerpresentatie of werkmap nodig.
 
 ```java
 import com.aspose.slides.*;
@@ -516,7 +514,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // Het derde en zesde punt vertegenwoordigen totalen, niet extra wijzigingen.
+    // De derde en zesde punten vertegenwoordigen totalen, niet extra wijzigingen.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -530,17 +528,17 @@ finally
 }
 ```
 
-Roep de series‑niveau [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) methode aan met `true` om lijnen te tonen die opeenvolgende kolommen verbinden en de lopende waarde beter leesbaar te maken. Om deze lijnen te verbergen, vervang de methode‑aanroep in het voorbeeld door `series.setShowConnectorLines(false);` vóór het opslaan. Dit verandert alleen de zichtbaarheid van de lijn, niet de data of totalen.
+Roep op serieniveau de [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) methode aan met `true` om verbindingslijnen tussen opeenvolgende kolommen weer te geven en de voortschrijdende waarde beter te volgen. Om deze lijnen te verbergen, vervang je de methodeaanroep in het voorbeeld door `series.setShowConnectorLines(false);` vóór het opslaan. Dit wijzigt alleen de zichtbaarheid van de lijnen, niet de gegevens of totalen.
 
-Resultaat:
+De opgeslagen presentatie toont een brutowinst van 600 en een nettowinst van 450, met beide totalen getekend vanaf nul:
 
-![Watervaldiagram dat omzet, kosten, brutowinst van 600 en nettowinst van 450 toont, met waardelabels en verbindingslijnen](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **Aandelendiagrammen maken**
+### **Aandelen‑diagrammen maken**
 
-Aandelendiagrammen worden gebruikt om financiële gegevens zoals openings‑, hoog‑, laag‑ en slotkoersen weer te geven, wat helpt bij het analyseren van markttrends en volatiliteit. Ze bieden essentiële inzichten in de aandelenprestaties en ondersteunen beleggers en analisten bij het nemen van onderbouwde beslissingen.
+Aandelen‑diagrammen worden gebruikt om financiële gegevens weer te geven zoals openings‑, hoog‑, laag‑ en slotkoersen, en helpen markttrends en volatiliteit analyseren. Ze bieden essentiële inzichten in de prestaties van aandelen, waardoor beleggers en analisten weloverwogen beslissingen kunnen nemen.
 
-Dit voorbeeld maakt een open‑high‑low‑close‑diagram met vier series in die volgorde en drie categorieën. De [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) methode activeert op‑/ neer‑balken, en [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) regelt de hoog‑laag‑lijnen die de prijsbereiken tonen, terwijl de individuele serielijnen en minder belangrijke horizontale rasterlijnen verborgen blijven.
+Dit voorbeeld maakt een open‑hoog‑laag‑slot‑diagram met vier series in die volgorde en drie categorieën. De methode [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) activeert op‑/neer‑balken, en [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) regelt de hoog‑laag lijnen die de prijsklassen tonen, terwijl de individuele serielijnen en kleine horizontale rasterlijnen verborgen blijven.
 
 ```java
 import com.aspose.slides.*;
@@ -620,15 +618,15 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het aandelendiagram](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Box‑en‑whisker‑diagrammen maken**
+### **Box‑en‑whisker diagrammen maken**
 
-Box‑en‑whisker‑diagrammen worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en eventuele uitschieters. Ze zijn bijzonder nuttig in verkennende data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
+Box‑en‑whisker diagrammen worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitbijters. Ze zijn vooral nuttig bij verkennende data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
 
-Dit voorbeeld maakt een box‑en‑whisker‑diagram van zes waarden. De [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) methode selecteert de exclusieve kwartiel‑berekening. Het voorbeeld activeert bovendien gemiddelde‑lijnen, gemiddelde‑markeringen, interne punten en uitschieter‑punten.
+Dit voorbeeld maakt een box‑en‑whisker diagram van zes waarden. De methode [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) selecteert de exclusieve kwartielberekening. Het voorbeeld schakelt ook gemiddelde lijnen, gemiddelde markeringen, interne punten en uitbijterpunten in.
 
 ```java
 import com.aspose.slides.*;
@@ -688,11 +686,11 @@ finally
 }
 ```
 
-### **Trechterdiagrammen maken**
+### **Funnel‑diagrammen maken**
 
-Trechterdiagrammen worden gebruikt om processen te visualiseren die opeenvolgende fasen omvatten, waarbij het gegevensvolume afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn bijzonder nuttig voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
+Funnel‑diagrammen worden gebruikt om processen te visualiseren die opeenvolgende fasen omvatten, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn bijzonder nuttig voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een trechterdiagram toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaardgegevens door zes categorieën en waarden variërend van 50 tot 500, en slaat de bijgewerkte presentatie vervolgens op. De invoer‑presentatie moet ten minste één dia bevatten.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een funnel‑diagram toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaardgegevens door zes categorieën en waarden variërend van 50 tot 500, en slaat vervolgens de bijgewerkte presentatie op. De invoerpresentatie moet minimaal één dia bevatten.
 
 ```java
 import com.aspose.slides.*;
@@ -746,15 +744,15 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het trechterdiagram](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
 ### **Sunburst‑diagrammen maken**
 
-Sunburst‑diagrammen worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus als concentrische ringen worden weergegeven. Ze helpen de deel‑tot‑geheel‑relaties te illustreren en zijn ideaal voor het weergeven van geneste categorieën en subcategorieën in een duidelijk, compact formaat.
+Sunburst‑diagrammen worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus worden weergegeven als concentrische ringen. Ze helpen bij het illustreren van deel‑tot‑geheel‑relaties en zijn ideaal voor het weergeven van geneste categorieën en subcategorieën in een duidelijk, compact formaat.
 
-Dit voorbeeld maakt een Sunburst‑diagram met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Categorie‑labels identificeren de segmenten, en de waarden bepalen hun relatieve grootte.
+Dit voorbeeld maakt een sunburst‑diagram met acht bladeren gegroepeerd in vier stammen en twee takken. De methode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Categorielabels identificeren de segmenten, en de waarden bepalen hun relatieve grootte.
 
 ```java
 import com.aspose.slides.*;
@@ -831,15 +829,19 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het Sunburst-diagram](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Histogram‑diagrammen maken**
 
-Histogram‑diagrammen worden gebruikt om de verdeling van numerieke gegevens weer te geven door waarden in reeksen of “bins” te groeperen. Ze zijn bijzonder nuttig voor het identificeren van patronen in gegevens zoals frequentie, scheefheid en spreiding, en voor het detecteren van uitschieters in een dataset.
+Histogram‑diagrammen tonen hoe numerieke waarden zijn verdeeld over intervallen (bins). Voor maandelijkse rapporten over orderverwerkingstijden gebruik je dezelfde bin‑breedte en drempels om intervallen consistent te houden en verdelingen makkelijker te vergelijken.
 
-Dit voorbeeld maakt een histogram van zes numerieke waarden, inclusief negatieve waarden. Het aanroepen van [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) met het automatische aggregatietype laat het diagram de gebruikte bins bepalen om de verdeling weer te geven.
+Roep [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) aan op de horizontale as met een modus uit [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) wordt alleen toegepast bij `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) alleen bij `ByNumberOfBins`. Gebruik `Automatic` om de diagram de bins te laten bepalen.
+
+#### **Gebruik een vaste bin‑breedte**
+
+Dit voorbeeld groepeert verwerkingstijden in intervallen van 10 minuten, met aparte bins voor tijden van 10 minuten of minder en voor tijden boven 40 minuten. Schakel deze bins in met [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) en [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Wanneer expliciete drempels worden opgegeven via [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) en [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), roep je [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) en [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) aan met `false`.
 
 ```java
 import com.aspose.slides.*;
@@ -849,7 +851,10 @@ try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300);
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -858,22 +863,24 @@ try
     workbook.clear(0);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
-    IChartDataCell valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 }
 finally
 {
@@ -881,15 +888,62 @@ finally
 }
 ```
 
-Resultaat:
+De presentatie die in PowerPoint wordt getoond, bevat bin‑tellingen van **3, 4, 4, 4, en 2**. De underflow‑bin omvat `5, 10, 10`, dus de drempel is inclusief. De overflow‑bin omvat alleen `41, 50`, dus de drempel is exclusief; beide waarden gelijk aan `40` blijven in het voorgaande interval. De binnenste bins bevatten waarden die groter zijn dan hun ondergrens en kleiner dan of gelijk aan hun bovengrens.
 
-![Het histogramdiagram](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **Specificeer het aantal bins**
+
+Voor een vaste detailgraad in plaats van vaste intervallen, vraag je vijf bins aan voor dezelfde gegevens. Dit voorbeeld houdt onder‑ en overflow‑bins uitgeschakeld. Het diagram bepaalt de breedte op basis van het gegevensbereik, dus grenzen kunnen tussen rapporten wijzigen.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+De vijf bins hebben tellers van **4, 4, 4, 4, en 1**. Vergelijk deze verdeling met het resultaat van vaste breedte hierboven: de invoergegevens zijn identiek, maar de grenzen verschillen.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Radar‑diagrammen maken**
 
-Radar‑diagrammen worden gebruikt om multivariate gegevens in een tweedimensionaal formaat weer te geven, waardoor meerdere variabelen tegelijk gemakkelijk kunnen worden vergeleken. Ze zijn vooral nuttig om patronen, sterktes en zwaktes over verschillende prestatiemetrics of attributen te identificeren.
+Radar‑diagrammen worden gebruikt om multivariate gegevens weer te geven in een tweedimensionale indeling, waardoor meerdere variabelen tegelijk gemakkelijk vergelijken kunnen worden. Ze zijn bijzonder nuttig om patronen, sterktes en zwaktes over meerdere prestatiemaatstaven of attributen te identificeren.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een radardiagram te maken met de standaard series en categorieën, en slaat de presentatie vervolgens op als PPTX.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een radar‑diagram te maken met de standaard series en categorieën, en slaat vervolgens de presentatie op als PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -909,15 +963,15 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het radardiagram](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Multi‑categorie‑diagrammen maken**
+### **Multi‑categorie diagrammen maken**
 
-Multi‑categorie‑diagrammen worden gebruikt om gegevens te tonen die meer dan één categorische groepering omvatten, waardoor u waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder nuttig wanneer u trends en relaties binnen complexe, gelaagde datasets moet analyseren.
+Multi‑categorie diagrammen worden gebruikt om gegevens weer te geven die meer dan één categorische groepering omvatten, waardoor je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn vooral handig wanneer je trends en relaties binnen complexe, gelaagde datasets moet analyseren.
 
-Dit voorbeeld maakt een clusterkolomdiagram met acht categorieën gerangschikt in vier paren. De [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) methode geeft elk paar een gedeeld label op groeperingsniveau 1, waardoor een categorische as ontstaat met zowel individuele als groepslabels.
+Dit voorbeeld maakt een gegroepeerd kolomdiagram met acht categorieën gerangschikt in vier paren. De methode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) geeft elk paar een gedeeld label op groeperingsniveau 1, waardoor een categorieas ontstaat met zowel individuele als groepslabels.
 
 ```java
 import com.aspose.slides.*;
@@ -989,15 +1043,15 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het multicategorie‑diagram](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Kaartdiagrammen maken**
+### **Kaart‑diagrammen maken**
 
-Kaartdiagrammen worden gebruikt om geografische gegevens te visualiseren door informatie toe te wijzen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke verdelingen op een duidelijke, visueel aantrekkelijke manier.
+Kaart‑diagrammen worden gebruikt om geografische gegevens te visualiseren door informatie toe te wijzen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke verdelingen op een duidelijke, visueel aantrekkelijke manier.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een kaartdiagram te maken met de standaard geografische gegevens en slaat het vervolgens op voor weergave in PowerPoint.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een kaart‑diagram te maken met de standaard geografische gegevens en slaat het op voor weergave in PowerPoint.
 
 ```java
 import com.aspose.slides.*;
@@ -1017,21 +1071,21 @@ finally
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het kaartdiagram](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft het kaartdiagram en de bijbehorende gegevens correct, maar tekent zelf geen kaartdiagrammen: wanneer een dia met zo’n diagram wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het diagramgebied leeg. Andere vormen op dezelfde dia blijven onaangetast.
+De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft het kaartdiagram en de gegevens correct weg, maar tekent zelf geen kaartdiagrammen: wanneer een dia met een dergelijk diagram wordt gerenderd naar een afbeelding of wordt geconverteerd naar PDF of SVG, blijft het diagramgebied leeg. Andere vormen op dezelfde dia blijven onveranderd.
 {{% /alert %}}
 
 ### **Combinatie‑diagrammen maken**
 
-Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram laat u verschillen tussen twee of meer datasets benadrukken, vergelijken of onderzoeken, waardoor u relaties tussen hen kunt identificeren.
+Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram stelt je in staat om verschillen tussen twee of meer datasets te benadrukken, vergelijken of te onderzoeken, waardoor je de onderlinge relaties kunt identificeren.
 
-![Het combinatie‑diagram](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Dit voorbeeld combineert twee clusterkolom‑series met een lijndiagram over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) de lijn op een secundaire verticale as aan de rechterkant plaatst. De hulpfuncties configureren de titel, legenda, as‑labels en rasterlijnen.
+Dit voorbeeld combineert twee gegroepeerde kolomseries met een lijnserie over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) de lijn op een secundaire verticale as rechts plaatst. De hulpfuncties configureren de titel, legende, aslabels en rasterlijnen.
 
 ```java
 import com.aspose.slides.*;
@@ -1202,9 +1256,9 @@ example.createComboChart();
 
 ## **Diagrammen bijwerken**
 
-Aspose.Slides voor Android via Java maakt het mogelijk om PowerPoint‑diagrammen bij te werken door diagramgegevens, opmaak en stijl aan te passen. Deze functionaliteit vereenvoudigt het onderhouden van presentaties met dynamische inhoud en zorgt ervoor dat diagrammen nauwkeurig de actuele gegevens en visuele standaarden weergeven.
+Aspose.Slides voor Android via Java stelt je in staat PowerPoint‑diagrammen bij te werken door diagramgegevens, opmaak en styling aan te passen. Deze functionaliteit vereenvoudigt het bijwerken van presentaties met dynamische inhoud en zorgt ervoor dat diagrammen nauwkeurig de actuele gegevens en visuele standaarden weergeven.
 
-Dit voorbeeld werkt het diagram met de naam “My chart” op de eerste dia van een bestaande presentatie bij. Het vereist twee kolom‑series met elk drie datapunten, waarbij categorielabels in kolom A staan en serienamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) om werkbladcellen te wijzigen, werkt seriewaarden bij, voegt een derde serie toe en verandert het diagram naar cluster‑cilinders via [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
+Dit voorbeeld werkt het diagram met de naam "My chart" op de eerste dia van een bestaande presentatie bij. Het vereist twee kolomseries met elk drie gegevenspunten, met categorielabels in kolom A en serienaam in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) om werkbladcellen te wijzigen, werkt seriewaarden bij, voegt een derde serie toe, en verandert het diagram naar gegroepeerde cilinders via [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1264,13 +1318,13 @@ finally
 }
 ```
 
-## **Gegevensbereik voor een diagram instellen**
+## **Gegevensbereik instellen voor een diagram**
 
-Om het bereik dat al door een bestaand diagram wordt gebruikt te inspecteren, zie [Retrieve a Chart's Data Range](/slides/nl/androidjava/chart-workbook/#retrieve-a-charts-data-range).
+Om het bereik dat al door een bestaand diagram wordt gebruikt te bekijken, zie [Retrieve a Chart's Data Range](/slides/nl/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides voor Android via Java biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor de diagramgegevens te definiëren. Dit betekent dat u rechtstreeks een deel van uw werkblad aan het diagram kunt koppelen, zodat u kunt bepalen welke cellen bijdragen aan de series en categorieën van het diagram. Hierdoor kunt u uw diagrammen eenvoudig bijwerken en synchroniseren met de laatste gegevenswijzigingen in uw werkblad, zodat uw PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
+Aspose.Slides voor Android via Java biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor je diagramgegevens te definiëren. Dit betekent dat je direct een gedeelte van je werkblad aan het diagram kunt koppelen, waardoor je kunt bepalen welke cellen bijdragen aan de series en categorieën van het diagram. Hierdoor kun je je diagrammen eenvoudig bijwerken en synchroniseren met de nieuwste gegevenswijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
 
-Dit voorbeeld gebruikt [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) om de gegevensbron van het diagram met de naam “My chart” op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. Het diagram‑werkboek moet dat werkblad bevatten en een ingevuld bereik met een seriekop in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
+Dit voorbeeld gebruikt [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) om de gegevensbron van het diagram met de naam "My chart" op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. Het diagramwerkboek moet dat werkblad en een gevulde range met een seriekop in de eerste rij, categorielabels in kolom A en drie waarden in kolom B bevatten.
 
 ```java
 import com.aspose.slides.*;
@@ -1299,11 +1353,11 @@ finally
 }
 ```
 
-## **Standaardmarkeringen in diagrammen gebruiken**
+## **Standaard‑markeringen gebruiken in diagrammen**
 
-Wanneer u standaardmarkeringen in diagrammen gebruikt, krijgt elke diagramserie automatisch een ander standaard‑markering‑symbool.
+Wanneer je standaard‑markeringen in diagrammen gebruikt, krijgt elke diagramserie automatisch een verschillend standaard‑markeersymbool toegewezen.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een diagram te maken met twee lijndiagram‑series en een legenda. De marker‑instellingen die worden benaderd via [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) behouden de automatisch toegewezen markering‑symbolen. De eerste serie bevat een negatieve waarde en een ontbrekende waarde, weergegeven met `null`, terwijl de tweede voor elke categorie een waarde heeft.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een diagram te maken met twee lijnderies en een legende. De markeerinstellingen die via [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) worden opgehaald, behouden de automatisch toegewezen markeersymbolen. De eerste serie bevat een negatieve waarde en een missende waarde, weergegeven als `null`, terwijl de tweede een waarde heeft voor elke categorie.
 
 ```java
 import com.aspose.slides.*;
@@ -1370,16 +1424,16 @@ finally
 
 **Welke diagramtypen worden ondersteund door Aspose.Slides voor Android via Java?**
 
-Aspose.Slides voor Android via Java ondersteunt een breed scala aan diagramtypen, waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt u in staat om het meest geschikte diagramtype voor uw gegevensvisualisatie te kiezen.
+Aspose.Slides voor Android via Java ondersteunt een breed scala aan diagramtypen, waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt je in staat om het meest geschikte diagramtype voor je data‑visualisatiebehoeften te kiezen.
 
 **Hoe voeg ik een nieuw diagram toe aan een dia?**
 
-Om een diagram toe te voegen, maakt u eerst een instantie van de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑klasse, haalt u de gewenste dia op via de index en roept u vervolgens de methode aan om een diagram toe te voegen, waarbij u het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in uw presentatie.
+Om een diagram toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑klasse, haal je de gewenste dia op via de index, en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in je presentatie.
 
-**Hoe kan ik de gegevens die in een diagram worden weergegeven bijwerken?**
+**Hoe kan ik de weergegeven gegevens in een diagram bijwerken?**
 
-U kunt de gegevens van een diagram bijwerken door toegang te krijgen tot de gegevens‑werkmap ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), eventuele standaard series en categorieën te wissen, en vervolgens uw aangepaste gegevens toe te voegen. Hiermee kunt u het diagram programmatisch vernieuwen zodat het de nieuwste gegevens reflecteert.
+Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot zijn gegevenswerkmap ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), eventuele standaard series en categorieën te wissen, en vervolgens je eigen gegevens toe te voegen. Hiermee kun je het diagram programmatisch vernieuwen zodat het de nieuwste data weergeeft.
 
 **Is het mogelijk om het uiterlijk van het diagram aan te passen?**
 
-Ja, Aspose.Slides voor Android via Java biedt uitgebreide aanpassingsmogelijkheden. U kunt kleuren, lettertypen, labels, legenda’s en andere opmaakelementen wijzigen om het diagram aan te passen aan uw specifieke ontwerpvereisten.
+Ja, Aspose.Slides voor Android via Java biedt uitgebreide aanpassingsmogelijkheden. Je kunt kleuren, lettertypen, labels, legenden en andere opmaakelementen wijzigen om het diagram aan te passen aan je specifieke ontwerpvereisten.

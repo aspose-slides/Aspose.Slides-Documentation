@@ -1,61 +1,60 @@
 ---
-title: Créer ou mettre à jour des graphiques PowerPoint en C++
+title: Créer ou mettre à jour des graphiques de présentation PowerPoint en C++
 linktitle: Créer ou mettre à jour des graphiques
 type: docs
 weight: 10
 url: /fr/cpp/create-chart/
 aliases:
+  - /cpp/mise-a-jour-graphique/
   - /cpp/update-chart/
 keywords:
 - ajouter un graphique
 - créer un graphique
-- modifier le graphique
-- changer le graphique
-- mettre à jour le graphique
+- modifier un graphique
+- changer un graphique
+- mettre à jour un graphique
 - graphique de dispersion
 - graphique circulaire
-- graphique en courbes
-- graphique arborescence
+- graphique en ligne
+- graphique en carte arborescente
 - graphique boursier
 - graphique boîte à moustaches
 - graphique en entonnoir
 - graphique Sunburst
-- histogramme
+- graphique histogramme
 - graphique radar
-- graphique multicatégorie
+- graphique multi-catégorie
 - PowerPoint
 - présentation
 - C++
 - Aspose.Slides
-description: "Créer et personnaliser des graphiques dans les présentations PowerPoint à l'aide d'Aspose.Slides for C++. Ajouter, formater et modifier des graphiques avec des exemples de code pratiques en C++."
+description: "Créer et personnaliser des graphiques dans les présentations PowerPoint à l'aide d'Aspose.Slides pour C++. Ajouter, formater et modifier des graphiques avec des exemples de code pratiques en C++."
 ---
-## **Vue d'ensemble**
+## **Présentation**
 
-Cet article fournit un guide complet sur la création et la personnalisation de graphiques avec Aspose.Slides for C++. Vous apprendrez à ajouter programmétiquement un graphique à une diapositive, à le renseigner avec des données et à appliquer diverses options de mise en forme pour répondre à vos exigences de conception spécifiques. Tout au long de l'article, des exemples de code détaillés illustrent chaque étape, de l'initialisation de la présentation et de l'objet graphique à la configuration des séries, des axes et des légendes. En suivant ce guide, vous acquerrez une solide compréhension de l'intégration de la génération dynamique de graphiques dans vos applications C++, simplifiant ainsi le processus de création de présentations axées sur les données.
+Cet article fournit un guide complet sur la façon de créer et de personnaliser des graphiques à l'aide d'Aspose.Slides pour C++. Vous apprendrez à ajouter programmétiquement un graphique à une diapositive, à le remplir de données et à appliquer diverses options de formatage pour répondre à vos exigences de conception spécifiques. Tout au long de l'article, des exemples de code détaillés illustrent chaque étape, depuis l'initialisation de la présentation et de l'objet graphique jusqu'à la configuration des séries, des axes et des légendes. En suivant ce guide, vous acquerrez une solide compréhension de l'intégration de la génération dynamique de graphiques dans vos applications C++, simplifiant le processus de création de présentations basées sur les données.
 
 ## **Créer un graphique**
 
-Les graphiques aident les personnes à visualiser rapidement les données et à en tirer des insights qui ne sont pas immédiatement évidents à partir d'un tableau ou d'une feuille de calcul.
+Les graphiques aident les personnes à visualiser rapidement les données et à obtenir des informations qui ne sont pas immédiatement évidentes à partir d'un tableau ou d'une feuille de calcul.
 
 **Pourquoi créer des graphiques ?**
 
-Avec les graphiques, vous pouvez :
-
-* regrouper, condenser ou résumer de gros volumes de données sur une seule diapositive ;
-* faire apparaître des modèles et des tendances dans les données ;
-* déduire la direction et l’élan des données au fil du temps ou par rapport à une unité de mesure spécifique ;
-* repérer les valeurs aberrantes, les anomalies, les déviations, les erreurs et les données incohérentes ;
+* agréger, condenser ou résumer de grandes quantités de données sur une seule diapositive d'une présentation ;
+* mettre en évidence les modèles et tendances dans les données ;
+* déduire la direction et l'élan des données dans le temps ou par rapport à une unité de mesure spécifique ;
+* détecter les valeurs aberrantes, les anomalies, les écarts, les erreurs et les données incohérentes ;
 * communiquer ou présenter des données complexes.
 
-Dans PowerPoint, vous pouvez créer des graphiques via la fonction *Insertion*, qui fournit des modèles pour concevoir de nombreux types de graphiques. Avec Aspose.Slides, vous pouvez créer à la fois des graphiques classiques (basés sur des types de graphiques populaires) et des graphiques personnalisés.
+Dans PowerPoint, vous pouvez créer des graphiques via la fonction *Insérer*, qui fournit des modèles pour concevoir de nombreux types de graphiques. Avec Aspose.Slides, vous pouvez créer à la fois des graphiques standards (basés sur des types de graphiques populaires) et des graphiques personnalisés.
 
 {{% alert color="info" title="Note" %}}
-Utilisez l’énumération [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) du namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Les valeurs de cette énumération correspondent à différents types de graphiques.
+Utilisez l'énumération [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) dans l'espace de noms [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Les valeurs de cette énumération correspondent à différents types de graphiques.
 {{% /alert %}}
 
 ### **Créer des graphiques à colonnes groupées**
 
-Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour créer un graphique à colonnes groupées comparant deux séries sur trois catégories. Les séries utilisent des remplissages rouge et vert, et des libellés individuels montrent les noms de catégorie, les noms de série et les valeurs. L’index de feuille de calcul 0 fait référence à la première feuille du classeur intégré du graphique.
+Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour créer un graphique à colonnes groupées qui compare deux séries sur trois catégories. Les séries utilisent des remplissages rouge et vert, et les libellés individuels affichent les noms de catégorie, les noms de séries et les valeurs. L'index de feuille de calcul 0 fait référence à la première feuille du classeur de graphique intégré.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -165,7 +164,7 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Le résultat :
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Le graphique à colonnes groupées](clustered_column_chart.png)
 
 ### **Créer des graphiques de dispersion**
 
@@ -173,12 +172,12 @@ Les graphiques de dispersion (également appelés nuages de points ou graphiques
 
 Utilisez un graphique de dispersion lorsque :
 
-* Vous disposez de données numériques par paires.
-* Vous avez deux variables qui s’associent bien.
+* Vous disposez de données numériques appariées.
+* Vous avez deux variables qui se couplent bien.
 * Vous souhaitez déterminer si les deux variables sont liées.
-* Vous avez une variable indépendante comportant plusieurs valeurs pour une variable dépendante.
+* Vous avez une variable indépendante qui possède plusieurs valeurs pour une variable dépendante.
 
-Cet exemple trace deux ensembles de valeurs x‑y. La première série utilise des lignes droites avec des marqueurs en forme d’étoile, tandis que la seconde utilise des lignes lisses avec des marqueurs circulaires ; les deux utilisent une taille de marqueur de 10, définie avec [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). La méthode [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) contrôle la forme du marqueur.
+Cet exemple trace deux ensembles de valeurs x‑y. La première série utilise des lignes droites avec des marqueurs en forme d’étoile, tandis que la seconde utilise des lignes lisses avec des marqueurs en cercle ; les deux utilisent une taille de marqueur de 10, définie avec [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). La méthode [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) contrôle la forme du marqueur.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -268,13 +267,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Le résultat :
 
-![The Scatter chart](scatter_chart.png)
+![Le graphique de dispersion](scatter_chart.png)
 
 ### **Créer des graphiques circulaires**
 
-Les graphiques circulaires sont les mieux adaptés pour montrer la relation partie‑à‑tout dans les données, surtout lorsque les données contiennent des libellés catégoriques avec des valeurs numériques. Cependant, si vos données comportent de nombreuses parties ou libellés, vous pourriez envisager d’utiliser un graphique à barres à la place.
+Les graphiques circulaires sont les plus adaptés pour montrer la relation partie‑à‑tout dans les données, surtout lorsque les données contiennent des libellés catégoriels avec des valeurs numériques. Cependant, si vos données contiennent de nombreuses parties ou libellés, il peut être préférable d’envisager un graphique à barres.
 
-Cet exemple crée un graphique circulaire avec trois valeurs trimestrielles. Chaque secteur possède un remplissage et une bordure personnalisés, et les libellés affichent différentes combinaisons de valeurs, de pourcentages et d’informations de série. La méthode [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) fixe le premier secteur à 180 degrés.
+Cet exemple crée un graphique circulaire avec trois valeurs trimestrielles. Chaque tranche possède un remplissage et une bordure personnalisés, et les libellés affichent différentes combinaisons de valeurs, de pourcentages et d’informations de série. La méthode [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) définit la première tranche à 180 degrés.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -411,13 +410,13 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 Le résultat :
 
-![The Pie chart](pie_chart.png)
+![Le graphique circulaire](pie_chart.png)
 
-### **Créer des graphiques en courbes**
+### **Créer des graphiques en lignes**
 
-Les graphiques en courbes (également appelés graphiques linéaires) sont les mieux adaptés lorsqu’on veut illustrer des variations de valeur dans le temps. Avec un graphique en courbes, vous pouvez comparer de grandes quantités de données d’un seul coup, suivre les changements et les tendances au fil du temps, mettre en évidence des anomalies dans les séries de données, etc.
+Les graphiques en lignes (également appelés graphiques linéaires) sont les plus adaptés aux situations où vous souhaitez démontrer des variations de valeur au fil du temps. En utilisant un graphique en lignes, vous pouvez comparer un grand nombre de données d’un seul coup, suivre les évolutions et les tendances dans le temps, mettre en évidence les anomalies dans les séries de données, etc.
 
-Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour créer un graphique en courbes avec les séries et catégories par défaut, puis enregistre la présentation au format PPTX.
+Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour créer un graphique en lignes avec les séries et catégories par défaut, puis enregistre la présentation au format PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -449,7 +448,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Par défaut, les points d’un graphique en courbes sont reliés par des lignes droites continues. Si vous souhaitez que les points soient reliés par des tirets, appelez [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) avec une valeur de [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) :
+Par défaut, les points d’un graphique en lignes sont reliés par des lignes droites continues. Si vous souhaitez que les points soient reliés par des tirets, appelez [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) avec une valeur de [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) :
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -486,13 +485,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 Le résultat :
 
-![The Line chart](line_chart.png)
+![Le graphique en lignes](line_chart.png)
 
-### **Créer des graphiques en arborescence**
+### **Créer des graphiques en carte arborescente**
 
-Les graphiques en arborescence sont les mieux adaptés aux données de ventes lorsque vous voulez montrer la taille relative des catégories de données et attirer rapidement l’attention sur les éléments qui contribuent le plus dans chaque catégorie.
+Les graphiques en carte arborescente sont les plus adaptés aux données de ventes lorsque vous souhaitez montrer la taille relative des catégories de données et attirer rapidement l’attention sur les éléments qui contribuent le plus au sein de chaque catégorie.
 
-Cet exemple crée une arborescence avec huit feuilles regroupées en quatre troncs et deux branches. La méthode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) attribue les troncs au niveau de groupement 1 et les branches au niveau 2. Les valeurs déterminent la taille relative des rectangles, tandis que les libellés de catégorie et les libellés parents qui se chevauchent identifient la hiérarchie.
+Cet exemple crée une carte arborescente avec huit feuilles regroupées en quatre troncs et deux branches. La méthode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) attribue les troncs au niveau de regroupement 1 et les branches au niveau 2. Les valeurs déterminent les tailles relatives des rectangles, tandis que les libellés de catégorie et les libellés parents qui se chevauchent identifient la hiérarchie.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -598,26 +597,26 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 Le résultat :
 
-![The Treemap chart](treemap_chart.png)
+![Le graphique en carte arborescente](treemap_chart.png)
 
 ### **Créer des graphiques en cascade**
 
-Un graphique en cascade montre comment les variations positives et négatives contribuent à une valeur finale. Par exemple, un décompte de bénéfice peut commencer par le chiffre d’affaires, soustraire les coûts, puis ajouter d’autres revenus. Les colonnes de variation flottent entre les valeurs cumulées précédentes et nouvelles, tandis que les colonnes totales s’étendent de zéro à la valeur accumulée.
+Un graphique en cascade montre comment les variations positives et négatives contribuent à une valeur finale. Par exemple, la ventilation d’un bénéfice peut commencer par les revenus, soustraire les coûts, puis ajouter d’autres revenus. Les colonnes de variation flottent entre les valeurs précédentes et nouvelles, tandis que les colonnes totales s’étendent de zéro à la valeur accumulée.
 
 L’exemple suivant utilise des montants en milliers de dollars américains :
 
 | Catégorie | Valeur du classeur | Type de colonne |
 | --- | ---: | --- |
-| Chiffre d’affaires | 1000 | Augmentation |
+| Revenus | 1000 | Augmentation |
 | Coût des ventes | -400 | Diminution |
-| Marge brute | 600 | Total intermédiaire |
-| Frais d’exploitation | -200 | Diminution |
+| Bénéfice brut | 600 | Total intermédiaire |
+| Charges d’exploitation | -200 | Diminution |
 | Autres revenus | 50 | Augmentation |
 | Bénéfice net | 450 | Total final |
 
-Pour marquer un point comme total intermédiaire ou final, appelez sa méthode [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) avec `true`. Fournissez le montant réellement accumulé dans la cellule de classeur correspondante : `600` pour la marge brute (`1000 - 400`) et `450` pour le bénéfice net (`600 - 200 + 50`). La méthode indique simplement que la colonne est un total ; elle ne calcule ni ne remplit la valeur de la cellule. N’utilisez pas zéro comme espace réservé ni ne fournissez une autre variation pour un point total. Une colonne totale affiche la valeur accumulée sans la rajouter à nouveau à la valeur courante.
+Pour marquer un point comme total intermédiaire ou final, appelez sa méthode [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) avec `true`. Fournissez le montant réellement accumulé dans la cellule du classeur correspondante : `600` pour le bénéfice brut (`1000 - 400`) et `450` pour le bénéfice net (`600 - 200 + 50`). La méthode indique que la colonne est un total ; elle ne calcule pas et ne remplit pas la valeur de la cellule. N’utilisez pas zéro comme espace réservé ni ne fournissez une autre variation pour un point total. Une colonne totale affiche la valeur accumulée sans l’ajouter de nouveau à la valeur en cours.
 
-Cet exemple complet en C++ crée un graphique en utilisant le membre `Waterfall` de [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), vide les données par défaut et remplit le classeur intégré. L’index de feuille 0 sélectionne la première feuille ; la colonne A contient les noms de catégorie et la colonne B les valeurs. Chaque cellule de valeur est ajoutée avec [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Les indices de points basés sur zéro `2` et `5` identifient respectivement le total intermédiaire et le total final. En transmettant `true` à [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/), les montants sont affichés sur les colonnes. Aucun classeur ou présentation d’entrée n’est requis.
+Cet exemple complet en C++ crée un graphique en utilisant le membre `Waterfall` de [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), efface les données par défaut et remplit le classeur incorporé. L’index de feuille de calcul `0` sélectionne la première feuille ; la colonne A contient les noms de catégorie et la colonne B les valeurs. Chaque cellule de valeur est ajoutée avec [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Les indices de points basés sur zéro `2` et `5` identifient respectivement les totaux intermédiaires et finaux. En passant `true` à [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/), les montants s’affichent sur les colonnes. Aucun classeur ou présentation d’entrée n’est requis.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -691,7 +690,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// Le troisième et le sixième points représentent des totaux, pas des changements supplémentaires.
+// Les troisième et sixième points représentent des totaux, pas des changements supplémentaires.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -700,17 +699,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-Appelez la méthode au niveau de la série [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) avec `true` pour afficher les lignes liant les colonnes consécutives et faciliter le suivi de la valeur courante. Pour masquer ces lignes, remplacez l’affectation dans l’exemple par `series->set_ShowConnectorLines(false);` avant l’enregistrement. Cela ne change que la visibilité des lignes, pas les données ni les totaux.
+Appelez la méthode au niveau de la série [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) avec `true` pour afficher les lignes reliant les colonnes consécutives et faciliter le suivi de la valeur en cours. Pour masquer ces lignes, remplacez l’affectation dans l’exemple par `series->set_ShowConnectorLines(false);` avant d’enregistrer. Cela ne modifie que la visibilité des lignes, pas les données ni les totaux.
 
-La présentation enregistrée montre une marge brute de 600 et un bénéfice net de 450, les deux totaux étant partant de zéro :
+La présentation enregistrée montre un bénéfice brut de 600 et un bénéfice net de 450, les deux totaux étant dessinés à partir de zéro :
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![Le graphique en cascade montrant les revenus, les coûts, le bénéfice brut de 600 et le bénéfice net de 450, avec des libellés de valeur et des lignes de connexion](waterfall_chart.png)
 
 ### **Créer des graphiques boursiers**
 
-Les graphiques boursiers sont utilisés pour afficher des données financières telles que les prix d’ouverture, haut, bas et de clôture, aidant à analyser les tendances du marché et la volatilité. Ils offrent des insights essentiels sur la performance des actions, aidant les investisseurs et les analystes à prendre des décisions éclairées.
+Les graphiques boursiers sont utilisés pour afficher des données financières telles que les prix d’ouverture, haut, bas et clôture, aidant à analyser les tendances du marché et la volatilité. Ils offrent des informations essentielles sur la performance d’une action, facilitant la prise de décision des investisseurs et des analystes.
 
-Cet exemple crée un graphique open‑high‑low‑close avec quatre séries dans cet ordre et trois catégories. La méthode [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) active les barres haut/bas, et [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) contrôle les lignes haut‑bas qui montrent les fourchettes de prix, tandis que les lignes des séries individuelles et les lignes de grille horizontales mineures sont masquées.
+Cet exemple crée un graphique ouvert‑haut‑bas‑clôture avec quatre séries dans cet ordre et trois catégories. La méthode [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) active les barres haut/bas, et [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) contrôle les lignes haut‑bas qui indiquent les fourchettes de prix, tandis que les lignes des séries individuelles et les quadrillages horizontaux mineurs sont masqués.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -818,13 +817,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 Le résultat :
 
-![The Stock chart](stock_chart.png)
+![Le graphique boursier](stock_chart.png)
 
-### **Créer des graphiques à boîte et moustaches**
+### **Créer des graphiques boîte à moustaches**
 
-Les graphiques à boîte et moustaches servent à afficher la distribution des données en résumant les mesures statistiques clés, telles que la médiane, les quartiles et les éventuels valeurs aberrantes. Ils sont particulièrement utiles en analyse exploratoire de données et en études statistiques pour comprendre rapidement la variabilité des données et identifier d’éventuelles anomalies.
+Les graphiques boîte à moustaches sont utilisés pour afficher la distribution des données en résumant les mesures statistiques clés, telles que la médiane, les quartiles et les valeurs aberrantes potentielles. Ils sont particulièrement utiles dans l’analyse exploratoire de données et les études statistiques pour comprendre rapidement la variabilité des données et identifier d’éventuelles anomalies.
 
-Cet exemple crée un graphique à boîte et moustaches à partir de six valeurs. La méthode [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) choisit le calcul exclusif des quartiles. L’exemple active également les lignes de moyenne, les marqueurs de moyenne, les points internes et les points aberrants.
+Cet exemple crée un graphique boîte à moustaches à partir de six valeurs. La méthode [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) sélectionne le calcul de quartile exclusif. L’exemple active également les lignes de moyenne, les marqueurs de moyenne, les points intérieurs et les points aberrants.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -907,7 +906,7 @@ presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 
 ### **Créer des graphiques en entonnoir**
 
-Les graphiques en entonnoir servent à visualiser des processus comportant des étapes séquentielles, où le volume des données diminue à chaque étape. Ils sont particulièrement utiles pour analyser les taux de conversion, identifier les goulets d’étranglement et suivre l’efficacité des processus de vente ou de marketing.
+Les graphiques en entonnoir sont utilisés pour visualiser des processus comportant des étapes séquentielles, où le volume de données diminue à chaque étape. Ils sont particulièrement utiles pour analyser les taux de conversion, identifier les goulets d’étranglement et suivre l’efficacité des processus de vente ou de marketing.
 
 Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour ajouter un graphique en entonnoir à la première diapositive d’une présentation existante. Il remplace les données par défaut par six catégories et des valeurs allant de 50 à 500, puis enregistre la présentation mise à jour. La présentation d’entrée doit contenir au moins une diapositive.
 
@@ -984,13 +983,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 Le résultat :
 
-![The Funnel chart](funnel_chart.png)
+![Le graphique en entonnoir](funnel_chart.png)
 
-### **Créer des graphiques sunburst**
+### **Créer des graphiques Sunburst**
 
-Les graphiques sunburst servent à visualiser des données hiérarchiques, affichant les niveaux sous forme d’anneaux concentriques. Ils aident à illustrer les relations partie‑à‑tout et sont idéaux pour représenter des catégories et sous‑catégories imbriquées de manière claire et compacte.
+Les graphiques Sunburst sont utilisés pour visualiser des données hiérarchiques, affichant les niveaux sous forme d’anneaux concentriques. Ils aident à illustrer les relations partie‑à‑tout et sont idéaux pour représenter des catégories et sous‑catégories imbriquées de manière claire et compacte.
 
-Cet exemple crée un graphique sunburst avec huit feuilles regroupées en quatre troncs et deux branches. La méthode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) assigne les troncs au niveau de groupement 1 et les branches au niveau 2. Les libellés de catégorie identifient les segments, et les valeurs déterminent leurs tailles relatives.
+Cet exemple crée un graphique Sunburst avec huit feuilles regroupées en quatre troncs et deux branches. La méthode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) attribue les troncs au niveau de regroupement 1 et les branches au niveau 2. Les libellés de catégorie identifient les segments, et les valeurs déterminent leurs tailles relatives.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1093,15 +1092,20 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 Le résultat :
 
-![The Sunburst chart](sunburst_chart.png)
+![Le graphique Sunburst](sunburst_chart.png)
 
-### **Créer des graphiques à histogramme**
+### **Créer des graphiques histogramme**
 
-Les graphiques à histogramme servent à représenter la distribution de données numériques en regroupant les valeurs en intervalles ou “bacs”. Ils sont particulièrement utiles pour identifier des motifs de données tels que la fréquence, l’asymétrie et l’étendue, ainsi que pour détecter des valeurs aberrantes dans un jeu de données.
+Les graphiques histogramme montrent comment les valeurs numériques sont réparties sur des intervalles (classes). Pour les rapports mensuels sur les temps de traitement des commandes, utilisez la même largeur de classe et les mêmes seuils afin de garder les intervalles cohérents et de faciliter la comparaison des distributions.
 
-Cet exemple crée un histogramme à partir de six valeurs numériques, incluant des valeurs négatives. En appelant [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) avec la valeur automatique, le graphique détermine les intervalles à afficher pour représenter la distribution.
+Appelez la méthode de l’axe horizontal [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) avec un mode provenant de [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) ne s’applique qu’à `ByBinWidth` ; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) ne s’applique qu’à `ByNumberOfBins`. Utilisez `Automatic` pour laisser le graphique choisir les classes.
+
+#### **Utiliser une largeur de classe fixe**
+
+Cet exemple regroupe les temps de traitement en intervalles de 10 minutes, avec des classes distinctes pour les temps ≤ 10 minutes et > 40 minutes. Activez ces classes avec [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) et [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). Lors de la fourniture de seuils explicites via [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) et [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), appelez [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) et [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) avec `false`.
 
 ```cpp
+#include <system/array.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/string.h>
@@ -1136,7 +1140,10 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 500, 300);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
 
 chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
@@ -1145,42 +1152,53 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
-auto valueCell = workbook->GetCell(0, u"A1", ObjectExt::Box(15));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A2", ObjectExt::Box(-41));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A3", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A4", ObjectExt::Box(10));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A5", ObjectExt::Box(-23));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A6", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
 
-chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(AxisAggregationType::Automatic);
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByBinWidth);
+axis->set_BinWidth(10);
+axis->set_IsUnderflowBin(true);
+axis->set_IsAutomaticUnderflowBin(false);
+axis->set_UnderflowBin(10);
+axis->set_IsOverflowBin(true);
+axis->set_IsAutomaticOverflowBin(false);
+axis->set_OverflowBin(40);
 
-presentation->Save(u"Histogram.pptx", SaveFormat::Pptx);
+presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-Le résultat :
+La présentation affichée dans PowerPoint montre des effectifs de **3, 4, 4, 4 et 2**. La classe de sous‑débordement comprend `5, 10, 10`, son seuil est donc inclusif. La classe de dépassement comprend uniquement `41, 50`, son seuil est exclusif ; les deux valeurs égales à `40` restent dans l’intervalle précédent. Les classes intérieures contiennent les valeurs supérieures à leur borne inférieure et inférieures ou égales à leur borne supérieure.
 
-![The Histogram chart](histogram_chart.png)
+![Histogramme avec des classes de 10 minutes et des seuils de sous‑débordement et de dépassement explicites](histogram_bin_width.png)
 
-### **Créer des graphiques radar**
+#### **Spécifier le nombre de classes**
 
-Les graphiques radar servent à afficher des données multivariées dans un format bidimensionnel, permettant une comparaison facile de plusieurs variables simultanément. Ils sont particulièrement utiles pour identifier des modèles, des forces et des faiblesses à travers plusieurs indicateurs de performance ou attributs.
-
-Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour créer un graphique radar avec les séries et catégories par défaut, puis enregistre la présentation au format PPTX.
+Pour un niveau de détail fixe au lieu d’intervalles fixes, demandez cinq classes pour les mêmes données. Cet exemple désactive les classes de sous‑débordement et de dépassement. Le graphique détermine la largeur à partir de la plage des données, de sorte que les limites peuvent varier d’un rapport à l’autre.
 
 ```cpp
+#include <system/array.h>
 #include <system/shared_ptr.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <DOM/Chart/AxisAggregationType.h>
 #include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
 #include <DOM/Chart/IChartCategoryCollection.h>
 #include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IFormat.h>
-#include <DOM/IChart> 
+#include <DOM/IChart.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
 #include <DOM/ILineFillFormat.h>
@@ -1191,19 +1209,88 @@ Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.sl
 #include <Export/SaveFormat.h>
 
 using namespace System;
-using <…> 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
 
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByNumberOfBins);
+axis->set_NumberOfBins(5);
+
+presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
+```
+
+Les cinq classes ont des effectifs de **4, 4, 4, 4 et 1**. Comparez cette distribution avec le résultat à largeur fixe ci‑dessus : les valeurs d’entrée sont identiques, mais les limites diffèrent.
+
+![Histogramme avec cinq classes calculées à partir des mêmes données](histogram_bin_count.png)
+
+### **Créer des graphiques radar**
+
+Les graphiques radar sont utilisés pour afficher des données multivariées dans un format bidimensionnel, permettant une comparaison facile de plusieurs variables simultanément. Ils sont particulièrement utiles pour identifier des modèles, des forces et des faiblesses à travers plusieurs indicateurs de performance ou attributs.
+
+Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour créer un graphique radar avec les séries et catégories par défaut, puis enregistre la présentation au format PPTX.
+
+```cpp
+#include <system/shared_ptr.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+slide->get_Shapes()->AddChart(ChartType::Radar, 20, 20, 500, 300);
+
+presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 ```
 
 Le résultat :
 
-![The Radar chart](radar_chart.png)
+![Le graphique radar](radar_chart.png)
 
 ### **Créer des graphiques multi‑catégories**
 
-Les graphiques multi‑catégories servent à afficher des données impliquant plus d’un regroupement catégorique, permettant de comparer des valeurs sur plusieurs dimensions simultanément. Ils sont particulièrement utiles lorsqu’il faut analyser les tendances et les relations au sein de jeux de données complexes et à plusieurs niveaux.
+Les graphiques multi‑catégories sont utilisés pour afficher des données impliquant plusieurs regroupements catégoriels, permettant de comparer des valeurs sur plusieurs dimensions simultanément. Ils sont particulièrement utiles lorsqu’il faut analyser les tendances et les relations au sein de jeux de données complexes à plusieurs niveaux.
 
-Cet exemple crée un graphique à colonnes groupées avec huit catégories organisées en quatre paires. La méthode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) attribue à chaque paire un libellé partagé au niveau de groupement 1, produisant un axe de catégorie avec des libellés individuels et de groupe.
+Cet exemple crée un graphique à colonnes groupées avec huit catégories organisées en quatre paires. La méthode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) attribue à chaque paire un libellé partagé au niveau de regroupement 1, produisant un axe de catégorie avec des libellés individuels et de groupe.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1298,13 +1385,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Le résultat :
 
-![The multi category chart](multi_category_chart.png)
+![Le graphique multi‑catégories](multi_category_chart.png)
 
-### **Créer des graphiques carte**
+### **Créer des graphiques cartographiques**
 
-Les graphiques carte servent à visualiser des données géographiques en associant des informations à des emplacements spécifiques tels que des pays, des états ou des villes. Ils sont particulièrement utiles pour analyser les tendances régionales, les données démographiques et les répartitions spatiales de façon claire et visuellement attrayante.
+Les graphiques cartographiques sont utilisés pour visualiser des données géographiques en associant des informations à des emplacements spécifiques tels que des pays, des États ou des villes. Ils sont particulièrement utiles pour analyser les tendances régionales, les données démographiques et les distributions spatiales de manière claire et visuellement attrayante.
 
-Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour créer un graphique carte avec les données géographiques par défaut et l’enregistre pour visualisation dans PowerPoint.
+Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour créer un graphique cartographique avec les données géographiques par défaut et l’enregistre pour le visualiser dans PowerPoint.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1338,19 +1425,19 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 Le résultat :
 
-![The Map chart](map_chart.png)
+![Le graphique cartographique](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-L’image ci‑dessus montre la présentation enregistrée ouverte dans PowerPoint. Aspose.Slides écrit correctement le graphique carte et ses données, mais il ne dessine pas les graphiques carte lui‑même : lorsqu’une diapositive contenant un tel graphique est rendue en image ou convertie en PDF ou SVG, la zone du graphique apparaît vide. Les autres formes sur la même diapositive ne sont pas affectées.
+L’image ci‑dessus montre la présentation enregistrée ouverte dans PowerPoint. Aspose.Slides écrit correctement le graphique cartographique et ses données, mais il ne dessine pas les graphiques cartographiques lui‑même : lorsqu’une diapositive contenant un tel graphique est rendue en image ou convertie en PDF ou SVG, la zone du graphique apparaît vide. Les autres formes sur la même diapositive ne sont pas affectées.
 {{% /alert %}}
 
 ### **Créer des graphiques combinés**
 
-Un graphique combiné (ou graphique combo) associe deux types de graphiques ou plus dans un même diagramme. Ce graphique vous permet de mettre en évidence, comparer ou examiner les différences entre deux jeux de données ou plus, aidant à identifier les relations entre eux.
+Un graphique combiné (ou combo) combine deux ou plusieurs types de graphiques dans un même diagramme. Ce graphique vous permet de mettre en avant, comparer ou examiner les différences entre deux ensembles de données ou plus, aidant à identifier les relations entre eux.
 
-![The combination chart](combination_chart.png)
+![Le graphique combiné](combination_chart.png)
 
-Cet exemple combine deux séries de colonnes groupées avec une série en ligne sur quatre catégories. Les colonnes utilisent l’axe vertical principal, tandis que [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) place la ligne sur un axe vertical secondaire à droite. Les fonctions d’assistance configurent le titre, la légende, les libellés d’axes et les lignes de grille.
+Cet exemple combine deux séries à colonnes groupées avec une série en lignes sur quatre catégories. Les colonnes utilisent l’axe vertical principal, tandis que [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) place la ligne sur un axe vertical secondaire à droite. Les fonctions d’assistance configurent le titre, la légende, les libellés d’axes et les quadrillages.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1561,9 +1648,9 @@ ComboChartExample::CreateComboChart();
 
 ## **Mettre à jour les graphiques**
 
-Aspose.Slides for C++ vous permet de mettre à jour les graphiques PowerPoint en modifiant les données du graphique, la mise en forme et le style. Cette fonctionnalité simplifie le maintien à jour des présentations avec du contenu dynamique et garantit que les graphiques reflètent avec précision les données actuelles et les normes visuelles.
+Aspose.Slides pour C++ vous permet de mettre à jour les graphiques PowerPoint en modifiant les données du graphique, le formatage et le style. Cette fonctionnalité simplifie le processus de maintien à jour des présentations avec du contenu dynamique et garantit que les graphiques reflètent avec précision les données actuelles et les normes visuelles.
 
-Cet exemple met à jour le graphique nommé « My chart » sur la première diapositive d’une présentation existante. Il nécessite deux séries de colonnes contenant chacune trois points de données, avec les libellés de catégorie dans la colonne A et les noms de séries dans la première ligne de la première feuille. L’exemple utilise [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) pour modifier les cellules du classeur, met à jour les valeurs des séries, ajoute une troisième série et change le type du graphique en cylindres groupés via [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
+Cet exemple met à jour le graphique nommé "My chart" sur la première diapositive d’une présentation existante. Il nécessite deux séries de colonnes avec trois points de données chacune, les libellés de catégorie se trouvant dans la colonne A et les noms de séries dans la première ligne de la première feuille de calcul. L’exemple utilise [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) pour modifier les cellules du classeur, met à jour les valeurs des séries, ajoute une troisième série et change le type du graphique en cylindres groupés via [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1644,13 +1731,13 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 ```
 
-## **Définir la plage de données d’un graphique**
+## **Définir la plage de données d'un graphique**
 
 Pour inspecter la plage déjà utilisée par un graphique existant, consultez [Retrieve a Chart's Data Range](/slides/fr/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for C++ offre la flexibilité de définir une plage de données spécifique d’une feuille de calcul comme source des données de votre graphique. Cela signifie que vous pouvez mapper directement une portion de votre feuille à votre graphique, ce qui vous permet de contrôler quelles cellules contribuent aux séries et aux catégories du graphique. Ainsi, vous pouvez facilement mettre à jour et synchroniser vos graphiques avec les dernières modifications de données de votre feuille, assurant que vos présentations PowerPoint reflètent des informations actuelles et précises.
+Aspose.Slides pour C++ offre la flexibilité de définir une plage de données spécifique provenant d’une feuille de calcul comme source des données de votre graphique. Cela signifie que vous pouvez mapper directement une portion de votre feuille de calcul au graphique, ce qui vous permet de contrôler quelles cellules contribuent aux séries et aux catégories du graphique. Ainsi, vous pouvez facilement mettre à jour et synchroniser vos graphiques avec les dernières modifications des données de votre feuille, garantissant que vos présentations PowerPoint reflètent des informations actuelles et exactes.
 
-Cet exemple utilise [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) pour définir la source de données du graphique nommé « My chart » sur la première diapositive d’une présentation existante sur `Sheet1!A1:B4`. Le classeur du graphique doit contenir cette feuille et une plage remplie avec un intitulé de série en première ligne, des libellés de catégorie en colonne A et trois valeurs en colonne B.
+Cet exemple utilise [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) pour définir la source de données du graphique nommé "My chart" sur la première diapositive d’une présentation existante à `Sheet1!A1:B4`. Le classeur du graphique doit contenir cette feuille et une plage remplie avec un en‑tête de série dans la première ligne, des libellés de catégorie dans la colonne A et trois valeurs dans la colonne B.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1692,11 +1779,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **Utiliser des marqueurs par défaut dans les graphiques**
+## **Utiliser les marqueurs par défaut dans les graphiques**
 
-Lorsque vous utilisez des marqueurs par défaut dans les graphiques, chaque série de graphique reçoit automatiquement un symbole de marqueur différent.
+Lorsque vous utilisez des marqueurs par défaut dans les graphiques, chaque série du graphique reçoit automatiquement un symbole de marqueur par défaut différent.
 
-Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour créer un graphique avec deux séries en ligne et une légende. Les paramètres [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) conservent les symboles de marqueur assignés automatiquement. La première série comprend une valeur négative et une valeur manquante, représentée par `nullptr`, tandis que la seconde possède une valeur pour chaque catégorie.
+Cet exemple utilise [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) pour créer un graphique avec deux séries en lignes et une légende. Les paramètres [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) conservent les symboles de marqueur attribués automatiquement. La première série comprend une valeur négative et une valeur manquante, représentée par `nullptr`, tandis que la seconde possède une valeur pour chaque catégorie.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1784,18 +1871,18 @@ presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Quels types de graphiques sont pris en charge par Aspose.Slides for C++ ?**
+**Quels types de graphiques sont pris en charge par Aspose.Slides pour C++ ?**
 
-Aspose.Slides for C++ prend en charge un large éventail de types de graphiques, notamment les graphiques à barres, en courbes, circulaires, en aires, de dispersion, à histogramme, radar et bien d’autres. Cette flexibilité vous permet de choisir le type de graphique le plus adapté à vos besoins de visualisation de données.
+Aspose.Slides pour C++ prend en charge un large éventail de types de graphiques, notamment les graphiques à barres, en lignes, circulaires, en aires, de dispersion, histogramme, radar et bien d’autres. Cette flexibilité vous permet de choisir le type de graphique le plus approprié à vos besoins de visualisation de données.
 
 **Comment ajouter un nouveau graphique à une diapositive ?**
 
-Pour ajouter un graphique, vous créez d’abord une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), récupérez la diapositive souhaitée à l’aide de son index, puis appelez la méthode d’ajout de graphique en spécifiant le type de graphique et les données initiales. Ce processus intègre le graphique directement dans votre présentation.
+Pour ajouter un graphique, créez d’abord une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), récupérez la diapositive souhaitée à l’aide de son index, puis appelez la méthode pour ajouter un graphique en spécifiant le type de graphique et les données initiales. Ce processus intègre le graphique directement dans votre présentation.
 
-**Comment mettre à jour les données affichées dans un graphique ?**
+**Comment puis‑je mettre à jour les données affichées dans un graphique ?**
 
-Vous pouvez mettre à jour les données d’un graphique en accédant à son classeur de données ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), en nettoyant les séries et catégories par défaut, puis en ajoutant vos données personnalisées. Cela vous permet de rafraîchir programmatiquement le graphique pour refléter les dernières données.
+Vous pouvez mettre à jour les données d’un graphique en accédant à son classeur de données ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), en supprimant les séries et catégories par défaut, puis en ajoutant vos propres données personnalisées. Cela vous permet de rafraîchir programmatiquement le graphique pour refléter les dernières données.
 
 **Est‑il possible de personnaliser l’apparence du graphique ?**
 
-Oui, Aspose.Slides for C++ offre de nombreuses options de personnalisation. Vous pouvez modifier les couleurs, les polices, les libellés, les légendes et d’autres éléments de mise en forme pour adapter l’apparence du graphique à vos exigences de conception spécifiques.
+Oui, Aspose.Slides pour C++ offre de nombreuses options de personnalisation. Vous pouvez modifier les couleurs, les polices, les libellés, les légendes et d’autres éléments de formatage pour adapter l’apparence du graphique à vos exigences de conception spécifiques.

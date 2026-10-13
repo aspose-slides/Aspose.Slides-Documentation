@@ -1,5 +1,5 @@
 ---
-title: PHP에서 PowerPoint 프레젠테이션 차트를 만들거나 업데이트하기
+title: PHP에서 PowerPoint 프레젠테이션 차트 만들기 또는 업데이트
 linktitle: 차트 만들기 또는 업데이트
 type: docs
 weight: 10
@@ -11,11 +11,11 @@ keywords:
 - 차트 변경
 - 차트 업데이트
 - 산점도 차트
-- 원형 차트
+- 파이 차트
 - 꺾은선 차트
 - 트리맵 차트
-- 주식 차트
-- 박스·위스커 차트
+- 스톡 차트
+- 박스 및 위스커 차트
 - 퍼널 차트
 - 선버스트 차트
 - 히스토그램 차트
@@ -25,35 +25,33 @@ keywords:
 - 프레젠테이션
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java를 사용하여 PowerPoint 프레젠테이션에서 차트를 만들고 사용자 정의합니다. PHP 실용 코드 예제로 차트를 추가하고, 서식 지정하며, 편집합니다."
+description: "Aspose.Slides for PHP via Java를 사용하여 PowerPoint 프레젠테이션에서 차트를 만들고 사용자 지정합니다. 실용적인 PHP 코드 예제로 차트를 추가, 서식 지정 및 편집합니다."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides for PHP via Java를 사용하여 차트를 만들고 사용자 지정하는 방법에 대한 포괄적인 가이드를 제공합니다. 슬라이드에 차트를 프로그래밍 방식으로 추가하고, 데이터를 채우며, 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배웁니다. 문서 전체에 걸쳐 자세한 코드 예제가 각 단계를 설명합니다(프레젠테이션 및 차트 개체 초기화, 시리즈, 축 및 범례 구성). 이 가이드를 따라 하면 PHP 애플리케이션에 동적 차트 생성을 통합하는 방법을 확실히 이해하게 되며, 데이터 기반 프레젠테이션 제작 과정을 간소화할 수 있습니다.
+이 문서는 Aspose.Slides for PHP via Java를 사용하여 차트를 만들고 사용자 지정하는 방법에 대한 포괄적인 가이드를 제공합니다. 차트를 프로그래밍 방식으로 슬라이드에 추가하고 데이터를 채우며 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배웁니다. 기사 전체에 걸쳐 자세한 코드 예제가 각 단계를 설명합니다. 프레젠테이션 및 차트 객체를 초기화하고 시리즈, 축, 범례를 구성하는 단계부터 시작합니다. 이 가이드를 따르면 PHP 애플리케이션에 동적 차트 생성을 통합하는 방법을 확실히 이해하게 되어 데이터 기반 프레젠테이션 생성 과정을 간소화할 수 있습니다.
 
 ## **차트 만들기**
 
-차트는 데이터를 빠르게 시각화하고 표나 스프레드시트에서는 즉시 드러나지 않을 수 있는 인사이트를 얻는 데 도움이 됩니다.
+차트는 사람들이 데이터를 빠르게 시각화하고 표나 스프레드시트에서 즉시 파악하기 어려운 인사이트를 얻는 데 도움이 됩니다.
 
-**차트를 만들어야 하는 이유**
+**왜 차트를 만들까요?**
 
-차트를 사용하면 다음을 수행할 수 있습니다.
-
-* 프레젠테이션의 단일 슬라이드에 대량의 데이터를 집계, 압축 또는 요약합니다.
-* 데이터의 패턴과 추세를 드러냅니다.
-* 특정 측정 단위에 대한 시간 경과에 따른 데이터의 방향 및 모멘텀을 추론합니다.
-* 이상치, 변칙, 편차, 오류 및 비논리적인 데이터를 식별합니다.
+* 한 슬라이드에 대량의 데이터를 집계, 압축 또는 요약합니다;
+* 데이터의 패턴과 추세를 노출합니다;
+* 시간 경과에 따른 또는 특정 측정 단위에 대한 데이터의 방향과 모멘텀을 추론합니다;
+* 이상값, 변칙, 편차, 오류 및 불합리한 데이터를 식별합니다;
 * 복잡한 데이터를 전달하거나 프레젠테이션합니다.
 
-PowerPoint에서는 *Insert* 기능을 통해 다양한 차트 템플릿을 사용해 차트를 만들 수 있습니다. Aspose.Slides를 사용하면 일반 차트(인기 차트 유형 기반)와 사용자 정의 차트를 모두 만들 수 있습니다.
+PowerPoint에서는 *Insert* 기능을 통해 차트를 만들 수 있으며, 다양한 차트 유형을 설계하기 위한 템플릿을 제공합니다. Aspose.Slides를 사용하면 일반 차트(일반적인 차트 유형 기반)와 사용자 지정 차트를 모두 만들 수 있습니다.
 
 {{% alert color="info" title="Note" %}}
-[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) 열거형을 [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) 네임스페이스에서 사용합니다. 이 열거형의 값은 서로 다른 차트 유형에 해당합니다.
+다음 네임스페이스의 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) 열거형을 [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) 네임스페이스에서 사용합니다. 이 열거형의 값은 다양한 차트 유형에 해당합니다.
 {{% /alert %}}
 
-### **클러스터형 열 차트 만들기**
+### **클러스터드 열 차트 만들기**
 
-이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)을 사용해 3개 카테고리에서 두 시리즈를 비교하는 클러스터형 열 차트를 생성합니다. 시리즈는 빨간색 및 초록색 채우기를 사용하고, 개별 레이블에 카테고리 이름, 시리즈 이름 및 값이 표시됩니다. 워크시트 인덱스 0은 포함된 차트 워크북의 첫 번째 시트를 가리킵니다.
+이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)를 사용하여 세 범주에 걸쳐 두 시리즈를 비교하는 클러스터드 열 차트를 생성합니다. 시리즈는 빨간색과 초록색 채우기를 사용하고, 개별 레이블은 범주 이름, 시리즈 이름 및 값을 표시합니다. 워크시트 인덱스 0은 임베디드 차트 워크북의 첫 번째 시트를 나타냅니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -139,20 +137,20 @@ finally
 
 결과:
 
-![클러스터형 열 차트](clustered_column_chart.png)
+![클러스터드 열 차트](clustered_column_chart.png)
 
 ### **산점도 차트 만들기**
 
-산점도 차트(산점도 플롯 또는 x‑y 그래프라고도 함)는 두 변수 간의 패턴을 확인하거나 상관관계를 보여줄 때 자주 사용됩니다.
+산점도 차트(산점도 플롯 또는 x-y 그래프라고도 함)는 종종 두 변수 간의 패턴을 확인하거나 상관관계를 보여주는 데 사용됩니다.
 
-산점도 차트를 사용할 상황:
+산점도 차트를 사용할 때:
 
-* 쌍을 이루는 수치 데이터가 있는 경우
-* 두 변수가 잘 맞는 경우
-* 두 변수가 관련이 있는지 판단하고자 할 때
-* 종속 변수에 대해 여러 값을 갖는 독립 변수가 있는 경우
+* 쌍을 이루는 수치 데이터가 있을 때.
+* 두 변수가 서로 잘 짝을 이룰 때.
+* 두 변수가 관련이 있는지 확인하고 싶을 때.
+* 종속 변수에 대해 여러 값이 있는 독립 변수가 있을 때.
 
-이 예제는 두 세트의 x‑y 값을 플롯합니다. 첫 번째 시리즈는 별 마커가 있는 직선, 두 번째 시리즈는 원 마커가 있는 부드러운 곡선을 사용하며, 두 시리즈 모두 마커 크기를 10으로 설정하고 [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/)로 지정합니다. 마커 모양은 [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) 메서드로 제어합니다.
+이 예제는 두 세트의 x-y 값을 플롯합니다. 첫 번째 시리즈는 별 마커가 있는 직선, 두 번째 시리즈는 원형 마커가 있는 부드러운 선을 사용합니다; 두 시리즈 모두 마커 크기를 10으로 설정했으며, 이는 [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/)로 구성됩니다. [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) 메서드는 마커 모양을 제어합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -225,11 +223,11 @@ finally
 
 ![산점도 차트](scatter_chart.png)
 
-### **원형 차트 만들기**
+### **파이 차트 만들기**
 
-원형 차트는 특히 범주형 레이블에 숫자 값이 있는 경우 데이터의 전체 대비 부분 관계를 보여주는 데 가장 적합합니다. 다만 구성 요소나 레이블이 너무 많은 경우에는 막대 차트를 고려하는 것이 좋습니다.
+파이 차트는 특히 데이터에 숫자 값이 있는 범주형 레이블이 포함된 경우, 전체 대비 비율 관계를 표시하는 데 가장 적합합니다. 그러나 데이터에 많은 부분이나 레이블이 포함된 경우에는 막대 차트를 사용하는 것이 좋을 수 있습니다.
 
-이 예제는 3개의 분기값을 가진 원형 차트를 생성합니다. 각 조각은 사용자 정의 채우기와 테두리를 갖고, 레이블은 값, 백분율 및 시리즈 정보를 다양한 조합으로 표시합니다. [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) 메서드는 첫 번째 조각이 180도에서 시작하도록 설정합니다.
+이 예제는 3개의 분기 값을 가진 파이 차트를 생성합니다. 각 슬라이스는 사용자 지정 채우기와 테두리를 갖고, 레이블은 값, 백분율 및 시리즈 정보의 다양한 조합을 표시합니다. [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) 메서드는 첫 슬라이스가 180도에서 시작하도록 설정합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -341,13 +339,13 @@ finally
 
 결과:
 
-![원형 차트](pie_chart.png)
+![파이 차트](pie_chart.png)
 
 ### **꺾은선 차트 만들기**
 
-꺾은선 차트(선 그래프라고도 함)는 시간 경과에 따른 값 변화를 보여줄 때 가장 적합합니다. 꺾은선 차트를 사용하면 대량 데이터를 한 번에 비교하고, 시간에 따른 변화와 추세를 추적하며, 데이터 시리즈의 이상치를 강조하는 등 다양한 작업을 수행할 수 있습니다.
+꺾은선 차트(라인 그래프라고도 함)는 값이 시간에 따라 어떻게 변하는지 보여주어야 할 때 가장 적합합니다. 꺾은선 차트를 사용하면 많은 데이터를 한 번에 비교하고, 시간에 따른 변화와 추세를 추적하며, 데이터 시리즈의 이상치를 강조할 수 있습니다.
 
-이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)을 사용해 기본 시리즈와 카테고리를 가진 꺾은선 차트를 만든 후 프레젠테이션을 PPTX 형식으로 저장합니다.
+이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)를 사용하여 기본 시리즈와 범주를 가진 꺾은선 차트를 생성하고 프레젠테이션을 PPTX로 저장합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -369,7 +367,7 @@ finally
 }
 ```
 
-기본적으로 꺾은선 차트의 포인트는 직선으로 연결됩니다. 점을 대시 형태로 연결하고 싶다면 [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/)에 [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) 값을 전달하면 됩니다.
+기본적으로 꺾은선 차트의 포인트는 직선으로 연결됩니다. 포인트를 점선으로 연결하려면 [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/)를 사용하여 [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/)에서 값을 지정합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -401,9 +399,9 @@ finally
 
 ### **트리맵 차트 만들기**
 
-트리맵 차트는 각 카테고리 내에서 큰 기여도를 가진 항목에 빠르게 주목하고 싶을 때, 매출 데이터와 같은 경우에 가장 적합합니다.
+트리맵 차트는 각 카테고리 내에서 큰 기여자를 빠르게 강조하고 싶을 때, 매출 데이터와 같은 데이터 카테고리의 상대 크기를 보여주는 데 가장 적합합니다.
 
-이 예제는 8개의 리프가 4개의 스템과 2개의 브랜치로 그룹화된 트리맵을 생성합니다. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 메서드는 레벨 1에 스템을, 레벨 2에 브랜치를 할당합니다. 값은 사각형 크기의 상대 비율을 결정하고, 카테고리 레이블 및 겹치는 상위 레이블이 계층 구조를 나타냅니다.
+이 예제는 8개의 리프가 4개의 스템과 2개의 브랜치로 그룹화된 트리맵을 생성합니다. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 메서드는 레벨 1에 스템을, 레벨 2에 브랜치를 할당합니다. 값은 사각형의 상대 크기를 결정하고, 카테고리 레이블 및 겹치는 상위 레이블이 계층 구조를 표시합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -491,22 +489,20 @@ finally
 
 ### **워터폴 차트 만들기**
 
-워터폴 차트는 양·음 변화가 최종값에 어떻게 기여하는지 보여줍니다. 예를 들어, 수익에서 비용을 차감하고 기타 수입을 더해 이익을 계산하는 방식입니다. 변동 열은 이전값과 새로운 누적값 사이에 표시되며, 총계 열은 0부터 누적값까지 확장됩니다.
+워터폴 차트는 양 및 음의 변동이 최종 값에 어떻게 기여하는지를 보여줍니다. 예를 들어, 이익 분해는 매출에서 시작하여 비용을 차감하고 기타 수입을 더하는 방식입니다. 변동 열은 이전 값과 새로운 누적 값 사이에 떠 있으며, 총 열은 0에서 누적 값까지 확장됩니다.
 
-다음 예제는 미국 달러 천 달러 단위 금액을 사용합니다.
-
-| Category | Workbook value | Column type |
+| 카테고리 | 워크북 값 | 열 유형 |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| 매출 | 1000 | 증가 |
+| 매출원가 | -400 | 감소 |
+| 총이익 | 600 | 중간 합계 |
+| 영업비용 | -200 | 감소 |
+| 기타 수익 | 50 | 증가 |
+| 순이익 | 450 | 최종 합계 |
 
-중간 또는 최종 합계를 표시하려면 해당 포인트의 [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) 메서드에 `true`를 전달합니다. 워크북 셀에 실제 누적 금액(`600`은 총이익, `450`은 순이익)을 입력해야 하며, 메서드는 열을 합계로 표시할 뿐 셀 값을 계산하거나 채우지는 않습니다. 제로를 플레이스홀더로 사용하거나 다른 변동값을 합계 포인트에 지정하지 마세요. 합계 열은 누적값을 표시하지만 다시 더하지는 않습니다.
+중간 또는 최종 합계로 표시하려면 해당 포인트의 [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) 메서드를 `true`로 호출합니다. 해당 포인트의 워크북 셀에 실제 누적 금액을 제공하십시오: 총이익은 `600` (`1000 - 400`), 순이익은 `450` (`600 - 200 + 50`). 이 메서드는 열을 합계로 표시하지만 셀 값을 계산하거나 채우지는 않습니다. 자리표로 0을 사용하거나 다른 변동을 합계 포인트에 제공하지 마십시오. 합계 열은 누적 값을 표시하지만 실행 값에 다시 추가하지는 않습니다.
 
-이 전체 PHP 예제는 `Waterfall` 멤버([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/))를 사용해 차트를 만들고, 기본 데이터를 지운 뒤 삽입된 워크북을 채웁니다. 워크시트 인덱스 `0`은 첫 번째 워크시트를 선택하고, A 열에는 카테고리 이름을, B 열에는 값을 넣습니다. 각 값 셀은 [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/)를 사용해 추가합니다. 0 기반 포인트 인덱스 `2`와 `5`가 각각 중간 및 최종 합계를 나타냅니다. [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/)를 `true`로 호출하면 값이 열에 표시됩니다. 입력 프레젠테이션이나 워크북이 필요하지 않습니다.
+이 완전한 PHP 예제는 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/)의 `Waterfall` 멤버를 사용하여 차트를 생성하고, 기본 데이터를 지우고 임베디드 워크북을 채웁니다. 워크시트 인덱스 `0`은 첫 번째 워크시트를 선택합니다; A 열에는 카테고리 이름이, B 열에는 값이 들어 있습니다. 각 값 셀은 [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/)를 사용하여 추가합니다. 0부터 시작하는 포인트 인덱스 `2`와 `5`는 중간 및 최종 합계를 식별합니다. [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/)를 `true`로 호출하면 열에 금액이 표시됩니다. 입력 프레젠테이션이나 워크북은 필요하지 않습니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -546,7 +542,7 @@ try
         $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
     }
 
-    // 세 번째와 여섯 번째 포인트는 추가 변동이 아니라 합계입니다.
+    // 세 번째와 여섯 번째 포인트는 추가 변경이 아니라 합계입니다.
     $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
     $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
     $series->setShowConnectorLines(true);
@@ -560,17 +556,17 @@ finally
 }
 ```
 
-시리즈 수준에서 [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) 메서드를 `true`로 호출하면 연속 열을 연결하는 선이 표시되어 누적값을 쉽게 추적할 수 있습니다. 선을 숨기려면 예제의 해당 호출을 `$series->setShowConnectorLines(false);` 로 바꾼 뒤 저장합니다. 이는 선의 가시성만 변경하고 데이터나 합계에는 영향을 주지 않습니다.
+시리즈 수준의 [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) 메서드를 `true`로 호출하면 연속 열을 연결하는 선이 표시되어 실행 값을 따라가기가 쉬워집니다. 이러한 선을 숨기려면 예제에서 메서드 호출을 `$series->setShowConnectorLines(false);` 로 바꾸고 저장하기 전에 호출하십시오. 이 변경은 선 가시성만 영향을 주며 데이터나 합계에는 영향을 주지 않습니다.
 
-저장된 프레젠테이션은 0부터 시작하는 총이익 600과 순이익 450을 보여줍니다.
+저장된 프레젠테이션은 총이익 600과 순이익 450을 표시하며, 두 합계 모두 0에서 시작합니다:
 
-![워터폴 차트(수익, 비용, 총이익 600, 순이익 450 표시, 값 레이블 및 연결선 포함)](waterfall_chart.png)
+![워터폴 차트](waterfall_chart.png)
 
-### **주식 차트 만들기**
+### **스톡 차트 만들기**
 
-주식 차트는 시가, 고가, 저가, 종가와 같은 금융 데이터를 표시해 시장 추세와 변동성을 분석하는 데 활용됩니다. 투자자와 분석가가 정보를 기반으로 의사결정을 내리는 데 필수적인 인사이트를 제공합니다.
+스톡 차트는 시가, 고가, 저가, 종가와 같은 재무 데이터를 표시하여 시장 추세와 변동성을 분석하는 데 사용됩니다. 이는 투자자와 분석가가 정보에 입각한 결정을 내리는 데 필수적인 인사이트를 제공합니다.
 
-이 예제는 4개의 시리즈(오픈‑하이‑로우‑클로즈 순)와 3개의 카테고리를 가진 주식 차트를 생성합니다. [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) 메서드로 상승/하락 막대를 활성화하고, [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/)으로 가격 범위를 나타내는 고‑저 라인을 제어합니다. 개별 시리즈 라인과 미세 수평 그리드선은 숨겨집니다.
+이 예제는 순서대로 네 개의 시리즈와 세 개의 카테고리를 가진 OHLC(시가-고가-저가-종가) 차트를 생성합니다. [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) 메서드는 상승/하강 막대를 활성화하고, [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/)은 가격 범위를 표시하는 고저 라인을 제어합니다. 개별 시리즈 라인과 작은 가로 그리드는 숨겨집니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -656,13 +652,13 @@ finally
 
 결과:
 
-![주식 차트](stock_chart.png)
+![스톡 차트](stock_chart.png)
 
-### **박스‑위스커 차트 만들기**
+### **박스-위스커 차트 만들기**
 
-박스‑위스커 차트는 중앙값, 사분위수 및 잠재적 이상치를 요약해 데이터 분포를 표시합니다. 탐색적 데이터 분석 및 통계 연구에서 데이터 변동성을 빠르게 파악하고 이상치를 식별하는 데 유용합니다.
+박스-위스커 차트는 중앙값, 사분위수 및 잠재적 이상값과 같은 핵심 통계 측정을 요약하여 데이터 분포를 표시하는 데 사용됩니다. 탐색적 데이터 분석 및 통계 연구에서 데이터 변동성을 빠르게 이해하고 이상치를 식별하는 데 특히 유용합니다.
 
-이 예제는 6개의 값을 사용해 박스‑위스커 차트를 생성합니다. [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) 메서드가 배타적 사분위수 계산을 선택합니다. 또한 평균선, 평균 마커, 내부 포인트 및 이상치 포인트를 활성화합니다.
+이 예제는 여섯 개의 값을 사용하여 박스-위스커 차트를 생성합니다. [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) 메서드는 배타적 사분위수 계산을 선택합니다. 또한 평균선, 평균 마커, 내부 포인트 및 이상값 포인트를 활성화합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -727,9 +723,9 @@ finally
 
 ### **퍼널 차트 만들기**
 
-퍼널 차트는 단계별로 데이터 양이 감소하는 프로세스를 시각화하는 데 사용됩니다. 전환율 분석, 병목 현상 파악, 영업 및 마케팅 프로세스 효율성 추적에 특히 유용합니다.
+퍼널 차트는 단계별로 진행하면서 데이터 양이 감소하는 프로세스를 시각화하는 데 사용됩니다. 전환율 분석, 병목 현상 파악, 판매 또는 마케팅 프로세스 효율성 추적 등에 특히 유용합니다.
 
-이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)을 사용해 기존 프레젠테이션의 첫 번째 슬라이드에 퍼널 차트를 추가합니다. 기본 데이터를 6개의 카테고리와 50~500 범위 값으로 교체한 뒤 프레젠테이션을 저장합니다. 입력 프레젠테이션에는 최소 하나의 슬라이드가 있어야 합니다.
+이 예제는 기존 프레젠테이션의 첫 번째 슬라이드에 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)를 사용해 퍼널 차트를 추가합니다. 기본 데이터를 여섯 개 카테고리와 50에서 500까지의 값으로 교체한 뒤 업데이트된 프레젠테이션을 저장합니다. 입력 프레젠테이션에는 최소 한 개의 슬라이드가 있어야 합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -791,9 +787,9 @@ finally
 
 ### **선버스트 차트 만들기**
 
-선버스트 차트는 계층형 데이터를 동심원 형태의 링으로 시각화합니다. 전체 대비 부분 관계를 나타내며, 중첩된 카테고리와 하위 카테고리를 명확하고 압축된 형태로 표현하는 데 적합합니다.
+선버스트 차트는 계층형 데이터를 시각화하며, 레벨을 동심원 형태의 링으로 표시합니다. 부분-전체 관계를 나타내고 중첩된 카테고리와 하위 카테고리를 명확하고 간결하게 표현하는 데 이상적입니다.
 
-이 예제는 8개의 리프가 4개의 스템과 2개의 브랜치로 그룹화된 선버스트 차트를 생성합니다. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 메서드가 레벨 1에 스템을, 레벨 2에 브랜치를 할당합니다. 카테고리 레이블이 구역을 식별하고, 값이 상대적인 크기를 결정합니다.
+이 예제는 8개의 리프가 4개의 스템과 2개의 브랜치로 그룹화된 선버스트 차트를 생성합니다. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 메서드는 레벨 1에 스템을, 레벨 2에 브랜치를 할당합니다. 카테고리 레이블이 섹션을 식별하고 값이 상대 크기를 결정합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -878,9 +874,13 @@ finally
 
 ### **히스토그램 차트 만들기**
 
-히스토그램 차트는 수치 데이터를 구간(빈)별로 그룹화해 분포를 나타냅니다. 빈도, 왜도, 산포와 같은 패턴을 식별하고 데이터셋의 이상치를 탐지하는 데 특히 유용합니다.
+히스토그램 차트는 숫자 값이 구간(빈)별로 어떻게 분포되는지를 보여줍니다. 주문 처리 시간과 같은 월간 보고서에서는 구간 너비와 임계값을 동일하게 유지하여 구간을 일관되게 유지하고 분포를 비교하기 쉽게 합니다.
 
-이 예제는 6개의 수치 값(음수 포함)으로 히스토그램을 생성합니다. [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/)에 자동 집계 유형을 지정하면 차트가 분포를 표시할 빈을 자동으로 결정합니다.
+[setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/)을 수평 축에 적용하고 [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) 중 하나를 지정합니다. [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/)는 `ByBinWidth`에만 적용되고, [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/)는 `ByNumberOfBins`에만 적용됩니다. `Automatic`을 사용하면 차트가 자동으로 빈을 선택합니다.
+
+#### **고정 구간 너비 사용**
+
+이 예제는 처리 시간을 10분 구간으로 그룹화하고, 10분 이하와 40분 초과에 대해 별도의 빈을 설정합니다. 이러한 빈은 [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/)과 [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/)으로 활성화합니다. [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) 및 [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/)으로 명시적 임계값을 제공할 때는 [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/)과 [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/)를 `false`로 설정합니다.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -893,7 +893,10 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 500, 300);
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 680, 200);
+
+    $chart->setLegend(false);
+    $chart->setTitle(false);
 
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
@@ -902,22 +905,24 @@ try
     $workbook->clear(0);
 
     $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
-    $valueCell = $workbook->getCell(0, "A1", 15);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A2", -41);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A3", 16);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A4", 10);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A5", -23);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
-    $valueCell = $workbook->getCell(0, "A6", 16);
-    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for ($i = 0; $i < count($values); $i++)
+    {
+        $valueCell = $workbook->getCell(0, $i, 0, $values[$i]);
+        $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    }
 
-    $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setAggregationType(AxisAggregationType::ByBinWidth);
+    $axis->setBinWidth(10);
+    $axis->setUnderflowBin(true);
+    $axis->setAutomaticUnderflowBin(false);
+    $axis->setUnderflowBin(10);
+    $axis->setOverflowBin(true);
+    $axis->setAutomaticOverflowBin(false);
+    $axis->setOverflowBin(40);
 
-    $presentation->save("Histogram.pptx", SaveFormat::Pptx);
+    $presentation->save("Histogram-bin-width.pptx", SaveFormat::Pptx);
 }
 finally
 {
@@ -925,15 +930,65 @@ finally
 }
 ```
 
-결과:
+PowerPoint에서 표시된 프레젠테이션은 빈 카운트가 **3, 4, 4, 4, 2**임을 보여줍니다. 언더플로우 빈은 `5, 10, 10`을 포함하므로 임계값이 포함됩니다. 오버플로우 빈은 `41, 50`만 포함하므로 임계값이 제외됩니다; `40`과 같은 값은 이전 구간에 남습니다. 내부 빈은 하한 초과이고 상한 이하인 값을 포함합니다.
 
-![히스토그램 차트](histogram_chart.png)
+![10분 구간 및 명시적 언더플로우/오버플로우 임계값을 갖는 히스토그램](histogram_bin_width.png)
+
+#### **빈 개수 지정**
+
+고정 구간 대신 고정 세부 수준이 필요할 경우 동일한 데이터에 대해 5개의 빈을 요청합니다. 이 예제는 언더플로우와 오버플로우 빈을 비활성화합니다. 차트는 데이터 범위에서 너비를 결정하므로 경계는 보고서마다 변경될 수 있습니다.
+
+```php
+use aspose\slides\AxisAggregationType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 680, 200);
+
+    $chart->setLegend(false);
+    $chart->setTitle(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
+    $values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for ($i = 0; $i < count($values); $i++)
+    {
+        $valueCell = $workbook->getCell(0, $i, 0, $values[$i]);
+        $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    }
+
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setAggregationType(AxisAggregationType::ByNumberOfBins);
+    $axis->setNumberOfBins(5);
+
+    $presentation->save("Histogram-bin-count.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+5개의 빈은 카운트가 **4, 4, 4, 4, 1**입니다. 위의 고정 너비 결과와 분포를 비교해 보십시오: 입력값은 동일하지만 경계가 다릅니다.
+
+![동일 데이터에서 계산된 5개의 빈을 갖는 히스토그램](histogram_bin_count.png)
 
 ### **레이더 차트 만들기**
 
-레이더 차트는 다변량 데이터를 2차원 형태로 표시해 여러 변수를 동시에 비교할 수 있게 합니다. 여러 성능 지표나 속성 간의 패턴, 강점, 약점을 파악하는 데 특히 유용합니다.
+레이더 차트는 다변량 데이터를 2차원 형식으로 표시하여 여러 변수를 동시에 쉽게 비교할 수 있게 해줍니다. 특히 여러 성능 지표나 속성 전반에 걸친 패턴, 강점, 약점을 식별하는 데 유용합니다.
 
-이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)을 사용해 기본 시리즈와 카테고리를 가진 레이더 차트를 만든 뒤 프레젠테이션을 PPTX 형식으로 저장합니다.
+이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)를 사용하여 기본 시리즈와 범주를 가진 레이더 차트를 생성하고 프레젠테이션을 PPTX로 저장합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -961,9 +1016,9 @@ finally
 
 ### **다중 카테고리 차트 만들기**
 
-다중 카테고리 차트는 하나 이상의 카테고리 그룹을 포함하는 데이터를 표시해 여러 차원에서 값을 동시에 비교할 수 있게 합니다. 복합적인 다계층 데이터셋의 트렌드와 관계를 분석할 때 특히 도움이 됩니다.
+다중 카테고리 차트는 하나 이상의 범주형 그룹이 포함된 데이터를 표시하여 여러 차원에서 값을 비교할 수 있게 합니다. 복잡한 다중 레이어 데이터셋 내에서 추세와 관계를 분석할 때 특히 유용합니다.
 
-이 예제는 4쌍으로 구성된 8개의 카테고리를 가진 클러스터형 열 차트를 생성합니다. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 메서드가 각 쌍에 레벨 1에서 공유 레이블을 부여해 개별 레이블과 그룹 레이블이 모두 표시되는 축을 만듭니다.
+이 예제는 8개의 카테고리를 4쌍으로 배열한 클러스터드 열 차트를 생성합니다. [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 메서드는 각 쌍에 레벨 1에서 공유 레이블을 부여하여 개별 레이블과 그룹 레이블이 모두 있는 카테고리 축을 생성합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -1043,9 +1098,9 @@ finally
 
 ### **맵 차트 만들기**
 
-맵 차트는 국가, 주, 도시 등 특정 위치에 정보를 매핑해 지리 데이터를 시각화합니다. 지역별 트렌드, 인구통계 및 공간 분포를 명확하고 시각적으로 매력적인 방식으로 분석할 때 특히 유용합니다.
+맵 차트는 국가, 주, 도시와 같은 특정 위치에 정보를 매핑하여 지리 데이터를 시각화합니다. 지역 추세, 인구 통계 데이터 및 공간 분포를 명확하고 시각적으로 매력적으로 분석하는 데 특히 유용합니다.
 
-이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)을 사용해 기본 지리 데이터를 가진 맵 차트를 만든 뒤 PowerPoint에서 볼 수 있도록 저장합니다.
+이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)를 사용하여 기본 지리 데이터를 가진 맵 차트를 생성하고 PowerPoint에서 보기 위해 저장합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -1057,9 +1112,7 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::Map, 20, 20, 500, 3
-
-00);
+    $chart = $slide->getShapes()->addChart(ChartType::Map, 20, 20, 500, 300);
 
     $presentation->save("mapChart.pptx", SaveFormat::Pptx);
 }
@@ -1074,16 +1127,16 @@ finally
 ![맵 차트](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-위 그림은 저장된 프레젠테이션을 PowerPoint에서 연 모습입니다. Aspose.Slides는 맵 차트와 데이터를 올바르게 기록하지만, 자체적으로 맵 차트를 그리지는 않습니다. 슬라이드가 이미지, PDF 또는 SVG로 렌더링될 때 차트 영역은 비어 있게 됩니다. 동일 슬라이드의 다른 도형에는 영향을 주지 않습니다.
+위 사진은 PowerPoint에서 연 저장된 프레젠테이션을 보여줍니다. Aspose.Slides는 맵 차트와 데이터를 올바르게 기록하지만, 자체적으로 맵 차트를 그리지는 않습니다. 슬라이드가 이미지로 렌더링되거나 PDF 또는 SVG로 변환될 때 차트 영역은 비어 있게 됩니다. 동일 슬라이드의 다른 도형은 영향을 받지 않습니다.
 {{% /alert %}}
 
-### **콤비네이션 차트 만들기**
+### **복합 차트 만들기**
 
-콤비네이션 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이를 통해 여러 데이터 세트 간의 차이를 강조·비교·분석해 관계를 파악할 수 있습니다.
+복합 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이 차트를 사용하면 두 개 이상의 데이터 세트를 강조, 비교 또는 차이를 조사하여 서로 간의 관계를 파악할 수 있습니다.
 
-![콤비네이션 차트](combination_chart.png)
+![복합 차트](combination_chart.png)
 
-이 예제는 4개의 카테고리에 걸쳐 두 개의 클러스터형 열 시리즈와 하나의 선 시리즈를 결합합니다. 열은 기본 수직 축을 사용하고, [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/)를 사용해 선은 오른쪽 보조 수직 축에 배치합니다. 보조 함수가 제목, 범례, 축 레이블 및 그리드라인을 구성합니다.
+이 예제는 4개의 카테고리에 대해 두 개의 클러스터드 열 시리즈와 하나의 꺾은선 시리즈를 결합합니다. 열은 기본 수직 축을 사용하고, [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) 메서드는 꺾은선을 오른쪽에 위치한 보조 수직 축에 배치합니다. 헬퍼 함수는 제목, 범례, 축 레이블 및 격자를 구성합니다.
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1257,9 +1310,9 @@ createComboChart();
 
 ## **차트 업데이트**
 
-Aspose.Slides for PHP via Java를 사용하면 차트 데이터, 서식 및 스타일을 수정해 PowerPoint 차트를 업데이트할 수 있습니다. 이 기능을 통해 프레젠테이션을 동적 콘텐츠와 동기화하고 차트가 최신 데이터와 시각 표준을 정확히 반영하도록 할 수 있습니다.
+Aspose.Slides for PHP via Java를 사용하면 차트 데이터를 수정하고 서식 및 스타일을 변경하여 PowerPoint 차트를 업데이트할 수 있습니다. 이 기능은 프레젠테이션을 동적 콘텐츠와 최신 상태로 유지하고 차트가 현재 데이터와 시각적 표준을 정확히 반영하도록 단순화합니다.
 
-이 예제는 기존 프레젠테이션의 첫 번째 슬라이드에 있는 "My chart"라는 차트를 업데이트합니다. 각 시리즈에 3개의 데이터 포인트가 있는 두 개의 열 시리즈가 필요하며, 카테고리 레이블은 A 열에, 시리즈 이름은 첫 번째 워크시트의 첫 행에 있다고 가정합니다. 예제는 [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/)을 사용해 워크북 셀을 변경하고, 시리즈 값을 업데이트하며, 세 번째 시리즈를 추가하고, [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/)을 통해 차트 유형을 클러스터형 실린더로 변경합니다.
+이 예제는 기존 프레젠테이션의 첫 번째 슬라이드에 있는 "My chart"라는 차트를 업데이트합니다. 여기에는 각 3개의 데이터 포인트를 가진 두 개의 컬럼 시리즈가 필요하며, 카테고리 레이블은 A 열에, 시리즈 이름은 첫 번째 워크시트의 첫 행에 있습니다. 예제는 [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/)를 사용해 워크북 셀을 변경하고, 시리즈 값을 업데이트하고, 세 번째 시리즈를 추가하며, [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/)으로 차트를 클러스터드 실린더로 변경합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -1325,11 +1378,11 @@ finally
 
 ## **차트 데이터 범위 설정**
 
-기존 차트가 이미 사용 중인 범위를 확인하려면 [Retrieve a Chart's Data Range](/slides/ko/php-java/chart-workbook/#retrieve-a-charts-data-range)를 참조하십시오.
+기존 차트가 사용 중인 범위를 확인하려면 [Retrieve a Chart's Data Range](/slides/ko/php-java/chart-workbook/#retrieve-a-charts-data-range)를 참조하십시오.
 
-Aspose.Slides for PHP via Java는 워크시트의 특정 데이터 범위를 차트 데이터 소스로 정의할 수 있는 유연성을 제공합니다. 이를 통해 워크시트의 어느 셀을 차트 시리즈와 카테고리에 포함시킬지 직접 지정할 수 있어, 워크시트 변경 시 차트를 쉽게 업데이트하고 동기화할 수 있습니다.
+Aspose.Slides for PHP via Java는 워크시트의 특정 데이터 범위를 차트 데이터의 소스로 정의할 수 있는 유연성을 제공합니다. 이를 통해 워크시트의 일부 셀을 차트의 시리즈와 범주에 매핑하여 차트에 어떤 셀이 기여하는지 제어할 수 있습니다. 결과적으로 워크시트의 최신 데이터 변경 사항에 따라 차트를 쉽게 업데이트하고 동기화하여 PowerPoint 프레젠테이션이 현재 정확한 정보를 반영하도록 할 수 있습니다.
 
-이 예제는 [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/)을 사용해 기존 프레젠테이션 첫 슬라이드의 "My chart" 차트 데이터 소스를 `Sheet1!A1:B4`로 설정합니다. 차트 워크북에 해당 워크시트가 존재하고, 첫 행에 시리즈 헤더, A 열에 카테고리 레이블, B 열에 세 값이 채워진 범위가 있어야 합니다.
+이 예제는 기존 프레젠테이션의 첫 번째 슬라이드에 있는 "My chart" 차트의 데이터 소스를 `Sheet1!A1:B4`로 설정하기 위해 [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/)를 사용합니다. 차트 워크북에는 해당 워크시트와 첫 행에 시리즈 헤딩, A 열에 카테고리 레이블, B 열에 세 값을 포함하는 채워진 범위가 있어야 합니다.
 
 ```php
 use aspose\slides\Presentation;
@@ -1363,9 +1416,9 @@ finally
 
 ## **차트에서 기본 마커 사용**
 
-차트에 기본 마커를 사용하면 각 시리즈마다 자동으로 서로 다른 마커 기호가 할당됩니다.
+차트에서 기본 마커를 사용하면 각 차트 시리즈에 자동으로 서로 다른 기본 마커 기호가 할당됩니다.
 
-이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)을 사용해 두 개의 선 시리즈와 범례가 있는 차트를 만든 뒤, [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/)를 통해 자동 할당된 마커 기호를 유지합니다. 첫 번째 시리즈에는 음수 값과 `null`로 표시된 누락 값이 포함되고, 두 번째 시리즈는 모든 카테고리에 값을 가지고 있습니다.
+이 예제는 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/)를 사용해 두 개의 꺾은선 시리즈와 범례가 있는 차트를 생성합니다. [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/)를 통해 접근한 마커 설정은 자동으로 할당된 마커 기호를 유지합니다. 첫 번째 시리즈에는 음수 값과 `null`로 표시된 누락 값이 포함되고, 두 번째 시리즈에는 각 카테고리에 값이 있습니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -1430,20 +1483,20 @@ finally
 }
 ```
 
-## **FAQ**
+## **자주 묻는 질문**
 
-**Aspose.Slides for PHP via Java에서 지원되는 차트 유형은 무엇인가요?**
+**Aspose.Slides for PHP via Java에서 지원되는 차트 유형은 무엇입니까?**
 
-Aspose.Slides for PHP via Java는 막대, 선, 원, 영역, 산점도, 히스토그램, 레이더 등 다양한 차트 유형을 지원합니다. 이를 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 자유롭게 선택할 수 있습니다.
+Aspose.Slides for PHP via Java는 막대, 선, 파이, 영역, 산점도, 히스토그램, 레이더 등 다양한 차트 유형을 지원합니다. 이 유연성을 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 선택할 수 있습니다.
 
-**슬라이드에 새 차트를 어떻게 추가하나요?**
+**슬라이드에 새 차트를 추가하려면 어떻게 해야 하나요?**
 
-차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 인스턴스를 만든 뒤, 인덱스로 원하는 슬라이드를 가져오고, 차트 유형과 초기 데이터를 지정해 차트를 추가하는 메서드를 호출합니다. 이렇게 하면 차트가 프레젠테이션에 직접 삽입됩니다.
+차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 클래스의 인스턴스를 만들고, 인덱스를 사용해 원하는 슬라이드를 가져온 후, 차트 유형과 초기 데이터를 지정하여 차트를 추가하는 메서드를 호출합니다. 이 과정은 차트를 프레젠테이션에 직접 통합합니다.
 
-**차트에 표시되는 데이터를 어떻게 업데이트하나요?**
+**차트에 표시된 데이터를 어떻게 업데이트할 수 있나요?**
 
-차트의 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/))에 접근해 기본 시리즈와 카테고리를 삭제하고, 사용자 정의 데이터를 추가하면 차트 데이터를 업데이트할 수 있습니다. 이를 통해 차트를 프로그래밍 방식으로 최신 데이터에 맞게 새로 고칠 수 있습니다.
+차트의 데이터를 업데이트하려면 차트 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/))에 접근하여 기본 시리즈와 범주를 지우고 사용자 지정 데이터를 추가하면 됩니다. 이를 통해 차트를 프로그래밍 방식으로 최신 데이터에 맞게 새로 고칠 수 있습니다.
 
-**차트 외관을 사용자 정의할 수 있나요?**
+**차트 모양을 사용자 지정할 수 있나요?**
 
-예, Aspose.Slides for PHP via Java는 광범위한 사용자 정의 옵션을 제공합니다. 색상, 글꼴, 레이블, 범례 및 기타 서식 요소를 수정해 차트 외관을 특정 디자인 요구에 맞게 조정할 수 있습니다.
+예, Aspose.Slides for PHP via Java는 광범위한 사용자 지정 옵션을 제공합니다. 색상, 글꼴, 레이블, 범례 및 기타 서식 요소를 수정하여 차트 외관을 특정 디자인 요구 사항에 맞게 조정할 수 있습니다.

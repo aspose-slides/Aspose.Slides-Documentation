@@ -1,5 +1,5 @@
 ---
-title: ایجاد یا به‌روزرسانی نمودارهای ارائه PowerPoint در Python
+title: ایجاد یا به‌روزرسانی نمودارهای ارائه PowerPoint در پایتون
 linktitle: ایجاد یا به‌روزرسانی نمودارها
 type: docs
 weight: 10
@@ -23,35 +23,37 @@ keywords:
 - نمودار چنددسته‌ای
 - PowerPoint
 - ارائه
-- Python
+- پایتون
 - Aspose.Slides
-description: "ایجاد و سفارشی‌سازی نمودارها در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای Python از طریق .NET. افزودن، قالب‌بندی و ویرایش نمودارها با مثال‌های کد عملی در Python."
+description: "ایجاد و سفارشی‌سازی نمودارها در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای پایتون از طریق .NET. افزودن، قالب‌بندی و ویرایش نمودارها با مثال‌های کد عملی در پایتون."
 ---
-## **نمای کلی**
+## **بررسی اجمالی**
 
-این مقاله یک راهنمای جامع در مورد نحوه ایجاد و سفارشی‌سازی نمودارها با استفاده از Aspose.Slides برای Python از طریق .NET ارائه می‌دهد. شما یاد خواهید گرفت که چگونه به‌صورت برنامه‌نویسی، یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلفی را اعمال کنید تا با الزامات طراحی خاص شما مطابقت داشته باشد. در طول مقاله، مثال‌های کد دقیق هر مرحله را نشان می‌دهند، از مقداردهی اولیه ارائه و شی نمودار تا پیکربندی سری‌ها، محورها و افسانه‌ها. با دنبال کردن این راهنما، درک محکمی از چگونگی یکپارچه‌سازی تولید نمودارهای پویا در برنامه‌های Python خود به دست می‌آورید و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کنید.
+این مقاله راهنمایی جامع در مورد نحوه ایجاد و سفارشی‌سازی نمودارها با استفاده از Aspose.Slides برای Python از طریق .NET ارائه می‌دهد. شما یاد می‌گیرید چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلفی را برای مطابقت با نیازهای طراحی خود اعمال کنید. در طول مقاله، مثال‌های کد تفصیلی هر مرحله را نشان می‌دهند، از مقداردهی اولیه شی Presentation و شی Chart تا پیکربندی سِری‌ها، محورها و افسانه‌ها. با دنبال کردن این راهنما، درک محکمی از چگونگی یکپارچه‌سازی تولید دینامیک نمودارها در برنامه‌های Python خود به دست می‌آورید و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کنید.
 
-## **ایجاد نمودار**
+## **ایجاد یک نمودار**
 
-نمودارها به افراد کمک می‌کنند تا به‌سرعت داده‌ها را تجسم کنند و بینش‌هایی به‌دست آورند که ممکن است از یک جدول یا صفحه‌گسترده به‌سرعت واضح نباشند.
+نمودارها به افراد کمک می‌کنند تا داده‌ها را سریعاً بصری‌سازی کنند و بینش‌هایی به دست آورند که از جدول یا صفحه‌گسترده به‌راحتی قابل مشاهده نیستند.
 
-**چرا نمودار ایجاد کنیم؟**
+**چرا ایجاد نمودار؟**
 
-* داده‌های بزرگ را در یک اسلاید از ارائه جمع‌آوری، فشرده‌سازی یا خلاصه کنید؛  
-* الگوها و روندهای داده را آشکار کنید؛  
-* جهت و شتاب داده را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص استنتاج کنید؛  
-* نقاط دور از نُرمال، انحرافات، خطاها و داده‌های غیرمنطقی را شناسایی کنید؛  
+با استفاده از نمودارها می‌توانید:
+
+* مقادیر زیاد داده را در یک اسلاید جمع‌آوری، فشرده یا خلاصه کنید؛
+* الگوها و روندهای داده را آشکار سازید؛
+* جهت و شتاب داده را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص تشخیص دهید؛
+* نقاط دور، انحرافات، خطاها و داده‌های نامعقول را شناسایی کنید؛
 * داده‌های پیچیده را ارتباط یا ارائه دهید.
 
-در PowerPoint می‌توانید نمودارها را از طریق عملکرد *Insert* ایجاد کنید که قالب‌های مختلفی برای طراحی انواع نمودارها فراهم می‌کند. با استفاده از Aspose.Slides می‌توانید هر دو نوع نمودارهای معمولی (بر پایه انواع نمودارهای محبوب) و نمودارهای سفارشی را ایجاد کنید.
+در PowerPoint می‌توانید از عملکرد *Insert* برای ایجاد نمودارها استفاده کنید، که قالب‌های متنوعی برای طراحی انواع نمودارها فراهم می‌کند. با Aspose.Slides می‌توانید هم نمودارهای معمولی (بر پایه انواع رایج نمودار) و هم نمودارهای سفارشی ایجاد کنید.
 
 {{% alert color="info" title="Note" %}}
-از شمرده‌سازی [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) در ماژول [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) استفاده کنید. مقادیر این شمرده‌سازی با انواع مختلف نمودارها مطابقت دارند.
+از شمارش [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) در ماژول [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) استفاده کنید. مقادیر این شمارش به انواع مختلف نمودارها اشاره دارند.
 {{% /alert %}}
 
-### **ایجاد نمودارهای ستون خوشه‌ای**
+### **ایجاد نمودارهای ستونی خوشه‌ای**
 
-این مثال از [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای ایجاد یک نمودار ستون خوشه‌ای استفاده می‌کند که دو سری را در سه دسته مقایسه می‌کند. سری‌ها از پر کردن‌های قرمز و سبز استفاده می‌کنند و برچسب‌های فردی نام دسته‌ها، نام سری‌ها و مقادیر را نشان می‌دهند. شماره شیت ۰ به اولین شیت در کتاب‌کار جاسازی‌شده نمودار اشاره دارد.
+این مثال از متد [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای ساخت یک نمودار ستونی خوشه‌ای استفاده می‌کند که دو سری را در سه دسته مقایسه می‌کند. سِری‌ها از پرکننده‌های قرمز و سبز استفاده می‌کنند و برچسب‌های جداگانه نام دسته‌ها، نام سِری‌ها و مقادیر را نشان می‌دهند. شاخص کاربرگ 0 به اولین شیت در کتاب‌کار تعبیه‌شده اشاره دارد.
 
 ```python
 import aspose.pydrawing as draw
@@ -130,16 +132,16 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای پراکنده**
 
-نمودارهای پراکنده (که به‌عنوان نمودار پراکندگی یا گراف xy نیز شناخته می‌شوند) اغلب برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
+نمودارهای پراکنده (که به عنوان scatter plots یا نمودارهای x‑y نیز شناخته می‌شوند) معمولاً برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
 
-از یک نمودار پراکنده استفاده کنید وقتی:
+از نمودار پراکنده زمانی استفاده کنید که:
 
-* داده‌های عددی جفت‌شده دارید.  
-* دو متغیر دارید که به‌خوبی با هم جفت می‌شوند.  
-* می‌خواهید تعیین کنید آیا دو متغیر مرتبط هستند یا نه.  
-* یک متغیر مستقل دارید که برای متغیر وابسته مقادیر متعددی دارد.
+* داده‌های عددی جفت‌شده داشته باشید؛
+* دو متغیر که به‌خوبی با هم جفت می‌شوند، داشته باشید؛
+* بخواهید تعیین کنید آیا دو متغیر مرتبط هستند یا نه؛
+* متغیر مستقل دارای مقادیر متعددی برای یک متغیر وابسته باشد.
 
-این مثال دو مجموعه مقدار x-y را رسم می‌کند. سری اول از خطوط مستقیم با نشانگرهای ستاره‌ای استفاده می‌کند، در حالی که سری دوم از خطوط صاف با نشانگرهای دایره‌ای بهره می‌گیرد؛ هر دو از [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) مقدار ۱۰ استفاده می‌کنند. ویژگی [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) شکل نشانگر را کنترل می‌کند.
+این مثال دو مجموعه مقدار x‑y رسم می‌کند. سِری اول خطوط مستقیم با نشانگرهای ستاره دارد، در حالی که سِری دوم خطوط نرم با نشانگرهای دایره؛ هر دو از یک [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) برابر 10 استفاده می‌کنند. ویژگی [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) شکل نشانگر را کنترل می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -205,9 +207,9 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای دایره‌ای**
 
-نمودارهای دایره‌ای برای نشان دادن رابطه بخش به کل در داده‌ها بهترین هستند، به‌ویژه زمانی که داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی هستند. با این حال، اگر داده‌های شما شامل بخش‌ها یا برچسب‌های زیادی باشد، ممکن است به‌جای آن استفاده از نمودار میله‌ای را در نظر بگیرید.
+نمودارهای دایره‌ای بهترین استفاده برای نشان دادن رابطه بخش‑به‑کل در داده‌هاست، به‌ویژه زمانی که داده‌ها دارای برچسب‌های طبقه‌ای با مقادیر عددی باشند. اما اگر داده‌های شما بخش‌ها یا برچسب‌های زیادی داشته باشند، ممکن است بهتر باشد به جای آن از نمودار میله‌ای استفاده کنید.
 
-این مثال یک نمودار دایره‌ای با سه مقدار فصلی ایجاد می‌کند. هر برش پر کردن و حاشیه سفارشی دارد و برچسب‌ها ترکیبی‌های مختلفی از مقدار، درصد و اطلاعات سری را نمایش می‌دهند. ویژگی [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) اولین برش را به شروع در ۱۸۰ درجه تنظیم می‌کند.
+این مثال یک نمودار دایره‌ای با سه مقدار فصلی ایجاد می‌کند. هر برش دارای پرکننده و حاشیه سفارشی است و برچسب‌ها ترکیبی متفاوت از مقادیر، درصدها و اطلاعات سِری را نمایش می‌دهند. ویژگی [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) اولین برش را در زاویه 180 درجه شروع می‌کند.
 
 ```python
 import aspose.pydrawing as draw
@@ -306,9 +308,9 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای خطی**
 
-نمودارهای خطی (که به‌عنوان گراف‌های خطی نیز شناخته می‌شوند) بهترین گزینه در موقعیت‌هایی هستند که می‌خواهید تغییرات مقدار را بر گذشت زمان نشان دهید. با استفاده از نمودار خطی می‌توانید حجم وسیعی از داده‌ها را یک‌جا مقایسه کنید، تغییرات و روندها را در طول زمان پیگیری کنید، ناهنجاری‌ها را در سری داده‌ها برجسته کنید و غیره.
+نمودارهای خطی (که به عنوان line graphs نیز شناخته می‌شوند) بهترین استفاده را در موقعیت‌هایی دارند که می‌خواهید تغییرات مقدار در طول زمان را نشان دهید. با یک نمودار خطی می‌توانید مقدار زیادی داده را به‌صورت همزمان مقایسه کنید، تغییرات و روندها را در زمان پیگیری کنید، ناهنجاری‌های سِری داده را برجسته کنید و غیره.
 
-این مثال از [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای ایجاد یک نمودار خطی با سری‌ها و دسته‌های پیش‌فرض استفاده می‌کند، سپس ارائه را به‌صورت PPTX ذخیره می‌کند.
+این مثال از متد [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای ساخت یک نمودار خطی با سِری‌ها و دسته‌های پیش‌فرض استفاده می‌کند و سپس ارائه را به صورت PPTX ذخیره می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -322,7 +324,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-به‌صورت پیش‌فرض، نقاط در یک نمودار خطی با خطوط صاف و پیوسته به‌هم متصل می‌شوند. اگر می‌خواهید نقاط به‌جای آن با خط تیره متصل شوند، [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) را به مقداری از [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) تنظیم کنید.
+به‌طور پیش‌فرض، نقاط یک نمودار خطی با خطوط مستقیم پیوسته به‌هم متصل می‌شوند. اگر می‌خواهید به‌جای خطوط پیوسته از خط‌های نقطه‌خطی استفاده کنید، ویژگی [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) را به مقدار دلخواه از [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) تنظیم کنید:
 
 ```python
 import aspose.slides as slides
@@ -341,11 +343,11 @@ with slides.Presentation() as presentation:
 
 ![نمودار خطی](line_chart.png)
 
-### **ایجاد نمودارهای درختی**
+### **ایجاد نمودارهای درختی (Tree Map)**
 
-نمودارهای درختی بهترین گزینه برای داده‌های فروش هستند وقتی می‌خواهید اندازه نسبی دسته‌های داده را نشان دهید و سریعاً توجه را به آیتم‌های بزرگ‌سهم در هر دسته جلب کنید.
+نمودارهای درختی بهترین استفاده را برای داده‌های فروش دارند زمانی که می‌خواهید اندازه نسبی دسته‌های داده را نشان دهید و به‌سرعت توجه را به آیتم‌های بزرگ‌سهم در هر دسته جلب کنید.
 
-این مثال یک درخت‌نقشه با هشت برگ گروه‌بندی‌شده در چهار ساقه و دو شاخه ایجاد می‌کند. متد [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) ساقه‌ها را در سطح گروه‌بندی ۱ و شاخه‌ها را در سطح ۲ تخصیص می‌دهد. مقادیر اندازه نسبی مستطیل‌ها را تعیین می‌کنند، در حالی که برچسب‌های دسته و برچسب‌های والد همپوشانی سلسله‌مراتب را شناسایی می‌کنند.
+این مثال یک نمودار درختی با هشت برگ که در چهار شاخه و دو گره گروه‌بندی شده‌اند، ایجاد می‌کند. متد [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) شاخه‌ها را در سطح 1 و گره‌ها را در سطح 2 اختصاص می‌دهد. مقادیر اندازه نسبی مستطیل‌ها را تعیین می‌کنند، در حالی که برچسب‌های دسته و برچسب‌های والد همپوشان سلسله مراتب را نشان می‌دهند.
 
 ```python
 import aspose.slides as slides
@@ -424,20 +426,22 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای آبشاری**
 
-نمودار آبشاری نشان می‌دهد که چگونه تغییرات مثبت و منفی به مقدار نهایی کمک می‌کنند. برای مثال، تجزیه سود می‌تواند با درآمد شروع شود، هزینه‌ها را کم کند و سایر درآمدها را اضافه کند. ستون‌های تغییر بین مقدار قبلی و مقدار جدید جاری شناور می‌شوند، در حالی که ستون‌های کل از صفر تا مقدار تجمعی امتداد دارند.
+نمودار آبشاری نشان می‌دهد که تغییرات مثبت و منفی چگونه به مقدار نهایی می‌رسند. به‌عنوان مثال، یک تقسیم‌بندی سود می‌تواند با درآمد شروع شود، هزینه‌ها را کم کند و درآمدهای دیگر را اضافه کند. ستون‌های تغییر بین مقدار قبلی و مقدار جدید شناور می‌شوند، در حالی که ستون‌های کل از صفر تا مقدار جمع‌شده گسترش می‌یابند.
 
-| Category | Workbook value | Column type |
+مثال زیر از مقادیر بر پایه هزار دلار آمریکا استفاده می‌کند:
+
+| دسته | مقدار کتاب‌کار | نوع ستون |
 | --- | ---: | --- |
-| درآمد | 1000 | افزایش |
-| هزینه فروش | -400 | کاهش |
-| سود ناخالص | 600 | کل میانی |
-| هزینه‌های عملیاتی | -200 | کاهش |
-| سایر درآمد | 50 | افزایش |
-| سود خالص | 450 | کل نهایی |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-برای علامت‌گذاری یک نقطه به‌عنوان کل میانی یا نهایی، ویژگی [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) آن را به `True` تنظیم کنید. مقدار تجمعی واقعی را در سلول کتاب‌کار آن نقطه قرار دهید: `600` برای سود ناخالص (`1000 - 400`) و `450` برای سود خالص (`600 - 200 + 50`). این ویژگی ستون را به‌عنوان کل علامت‌گذاری می‌کند؛ محاسبه یا پرکردن مقدار سلول را انجام نمی‌دهد. از صفر به‌عنوان جایگزین استفاده نکنید یا تغییر دیگری برای نقطه کل فراهم نکنید. یک ستون کل مقدار تجمعی را بدون افزودن دوباره به مقدار جاری نمایش می‌دهد.
+برای علامت‌گذاری نقطه‌ای به عنوان مجموع میانی یا نهایی، ویژگی [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) آن را به `True` تنظیم کنید. مقدار واقعی جمع‌شده را در سلول کتاب‌کار آن نقطه وارد کنید: `600` برای سود ناخالص (`1000 - 400`) و `450` برای سود خالص (`600 - 200 + 50`). این ویژگی ستون را به عنوان مجموع علامت‌گذاری می‌کند؛ محاسبه یا پر کردن مقدار سلول را انجام نمی‌دهد. از صفر به‌عنوان شاخص‌گذار استفاده نکنید یا تغییر دیگری برای نقطه مجموع فراهم نکنید. یک ستون مجموع مقدار جمع‌شده را بدون افزودن دوباره به مقدار جاری نشان می‌دهد.
 
-این مثال کامل C# یک نمودار با استفاده از عضو `Waterfall` از [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) ایجاد می‌کند، داده‌های پیش‌فرض را پاک می‌کند و کتاب‌کار جاسازی‌شده را پر می‌کند. شماره شیت `0` اولین شیت را انتخاب می‌کند؛ ستون A شامل نام‌های دسته و ستون B شامل مقادیر است. هر سلول مقدار با [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/) اضافه می‌شود. ایندکس‌های نقطه‌ای مبتنی بر صفر `2` و `5` کل‌های میانی و نهایی را شناسایی می‌کنند. فعال‌سازی [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) مقادیر را روی ستون‌ها نمایش می‌دهد. نیازی به ارائه یا کتاب‌کار ورودی نیست.
+این مثال کامل C# یک نمودار را با عضو `Waterfall` از [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) ایجاد می‌کند، داده‌های پیش‌فرض را پاک می‌کند و کتاب‌کار تعبیه‌شده را پر می‌سازد. شاخص کاربرگ `0` اولین کاربرگ را انتخاب می‌کند؛ ستون A نام دسته‌ها و ستون B مقادیر را شامل می‌شود. هر سلول مقدار با متد [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/) اضافه می‌شود. شاخص‌های نقطه‑صفر‑پایه `2` و `5` به ترتیب مجموع‌های میانی و نهایی را شناسایی می‌کند. فعال‌سازی [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) مقادیر را روی ستون‌ها نشان می‌دهد. ورودی ارائه یا کتاب‌کار لازم نیست.
 
 ```python
 import aspose.slides as slides
@@ -472,7 +476,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
         series.data_points.add_data_point_for_waterfall_series(value_cell)
 
-    # نقطه‌های سوم و ششم به عنوان مجموع‌ها محسوب می‌شوند، نه تغییرات اضافه.
+    # نقاط سوم و ششم نمایانگر مجموع‌ها هستند، نه تغییرات اضافی.
     series.data_points[2].set_as_total = True
     series.data_points[5].set_as_total = True
     series.show_connector_lines = True
@@ -481,17 +485,17 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ویژگی سطح سری [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) را به `True` تنظیم کنید تا خطوطی که ستون‌های متوالی را وصل می‌کنند نشان داده شوند و مقدار جاری راحت‌تر دنبال شود. برای مخفی کردن این خطوط، انتساب را در مثال به `series.show_connector_lines = False` قبل از ذخیره‌سازی تغییر دهید. این فقط نمای خطوط را تغییر می‌دهد، نه داده‌ها یا کل‌ها.
+ویژگی سِری‑سطح [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) را به `True` تنظیم کنید تا خطوطی که ستون‌های متوالی را به هم وصل می‌کند نشان داده شود و مقدار جاری راحت‌تر دنبال شود. برای مخفی کردن این خطوط، تخصیص در مثال را قبل از ذخیره‌سازی به `series.show_connector_lines = False` تغییر دهید. این فقط نمایانی خطوط را تغییر می‌دهد، نه داده یا مجموع‌ها.
 
-ارائه ذخیره‌شده سود ناخالص 600 و سود خالص 450 را نشان می‌دهد، با هر دو کل که از صفر ترسیم شده‌اند:
+ارائه ذخیره‌شده نشان‌دهنده سود ناخالص 600 و سود خالص 450 است، که هر دو مجموع از صفر کشیده شده‌اند:
 
-![نمودار آبشاری](waterfall_chart.png)
+![نمودار آبشاری نشان‌دهنده درآمد، هزینه‌ها، سود ناخالص 600 و سود خالص 450 همراه با برچسب‌های مقدار و خطوط اتصال](waterfall_chart.png)
 
-### **ایجاد نمودارهای سهام**
+### **ایجاد نمودارهای سهام (Stock)**
 
-نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تحلیل روندهای بازار و نوسان کمک می‌کنند. آن‌ها بینش‌های اساسی درباره عملکرد سهام ارائه می‌دهند و به سرمایه‌گذاران و تحلیل‌گران کمک می‌کنند تا تصمیمات آگاهی‌بخش بگیرند.
+نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تحلیل روندهای بازار و نوسان‌ها کمک می‌گردند. این نمودارها بینش‌های مهمی درباره عملکرد سهام فراهم می‌کنند و به سرمایه‌گذاران و تحلیل‌گران در اتخاذ تصمیمات آگاهانه کمک می‌نمایند.
 
-این مثال یک نمودار باز-بالا-پایین-بسته با چهار سری به ترتیب و سه دسته ایجاد می‌کند. ویژگی [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) نوارهای بالا/پایین را فعال می‌کند و [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) خطوط بالا-پایین که دامنه‌های قیمتی را نشان می‌دهند کنترل می‌کند، در حالی که خطوط سری‌های فردی و خطوط شبکه افقی جزئی مخفی هستند.
+این مثال یک نمودار open‑high‑low‑close با چهار سِری به ترتیب آن و سه دسته ایجاد می‌کند. ویژگی [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) نوارهای بالا/پایین را فعال می‌کند و [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) خطوط بالا‑پایینی که محدوده قیمت را نشان می‌دهند کنترل می‌کند، در حالی که خطوط سِری‌های فردی و خطوط شبکه افقی جزئی مخفی هستند.
 
 ```python
 import aspose.slides as slides
@@ -567,11 +571,11 @@ with slides.Presentation() as presentation:
 
 ![نمودار سهام](stock_chart.png)
 
-### **ایجاد نمودارهای جعبه‌ای و ویسکر**
+### **ایجاد نمودارهای جعبه‌ای و ویس‑کر (Box and Whisker)**
 
-نمودارهای جعبه‌ای و ویسکر برای نمایش توزیع داده‌ها با خلاصه‌سازی معیارهای آماری کلیدی مانند میانه، چارک‌ها و مقادیر دوری احتمالی استفاده می‌شوند. آن‌ها به‌ویژه در تحلیل اکتشافی داده‌ها و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناهنجاری‌ها مفیدند.
+نمودارهای جعبه‌ای و ویس‑کر برای نمایش توزیع داده‌ها با خلاصه‌کردن معیارهای آماری کلیدی مانند میانه، چارک‌ها و نقاط دور استفاده می‌شوند. این نمودارها در تحلیل اکتشافی داده‌ها و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناهنجاری‌ها بسیار مفید هستند.
 
-این مثال یک نمودار جعبه‌ای و ویسکر از شش مقدار ایجاد می‌کند. ویژگی [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) روش محاسبه چارک انحصاری را انتخاب می‌کند. مثال همچنین خطوط میانگین، نشانگرهای میانگین، نقاط داخلی و نقاط دوری را فعال می‌کند.
+این مثال یک نمودار جعبه‌ای و ویس‑کر از شش مقدار ایجاد می‌کند. ویژگی [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) محاسبه چارک انحصاری را انتخاب می‌کند. مثال همچنین خطوط میانگین، نشانگرهای میانگین، نقاط داخلی و نقاط دور را فعال می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -625,11 +629,11 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhisker.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **ایجاد نمودارهای قیفی**
+### **ایجاد نمودارهای قیفی (Funnel)**
 
-نمودارهای قیفی برای تجسم فرآیندی که شامل مراحل متوالی است استفاده می‌شوند، که حجم داده‌ها با پیشرفت از یک گام به گام بعدی کاهش می‌یابد. این نمودارها به‌ویژه برای تجزیه و تحلیل نرخ تبدیل، شناسایی گلوگاه‌ها و پیگیری کارایی فرآیندهای فروش یا بازاریابی مفیدند.
+نمودارهای قیفی برای تصویربرداری فرآیندهایی که شامل مراحل توالی‌دار هستند به کار می‌روند، به‌طوری که حجم داده‌ها در هر مرحله کاهش می‌یابد. این نمودارها برای تجزیه و تحلیل نرخ تبدیل، شناسایی گلوگاه‌ها و پیگیری کارایی فرآیندهای فروش یا بازاریابی بسیار مفیدند.
 
-این مثال از [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای افزودن یک نمودار قیفی به اولین اسلاید یک ارائه موجود استفاده می‌کند. داده‌های پیش‌فرض را با شش دسته و مقادیری بین ۵۰ تا ۵۰۰ جایگزین می‌کند، سپس ارائه به‌روزرسانی‌شده را ذخیره می‌کند. ارائه ورودی باید حداقل یک اسلاید داشته باشد.
+این مثال از متد [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای افزودن یک نمودار قیفی به اولین اسلاید یک ارائه موجود استفاده می‌کند. داده‌های پیش‌فرض را با شش دسته و مقادیری بین 50 تا 500 جایگزین می‌کند و سپس ارائه به‌روزشده را ذخیره می‌کند. ارائه ورودی باید حداقل یک اسلاید داشته باشد.
 
 ```python
 import aspose.slides as slides
@@ -681,11 +685,11 @@ with slides.Presentation("test.pptx") as presentation:
 
 ![نمودار قیفی](funnel_chart.png)
 
-### **ایجاد نمودارهای خورشیدی**
+### **ایجاد نمودارهای خورشیدی (Sunburst)**
 
-نمودارهای خورشیدی برای تجسم داده‌های سلسله‌مراتبی استفاده می‌شوند، سطوح را به صورت حلقه‌های متحدالمرکز نمایش می‌دهند. آن‌ها به بیان روابط بخش به کل کمک می‌کنند و برای نمایاندن دسته‌ها و زیرمجموعه‌های تودرتو در قالبی واضح و فشرده ایده‌آل هستند.
+نمودارهای خورشیدی برای تصویربرداری داده‌های سلسله‌مراتبی با نشان دادن سطوح به‌صورت حلقه‌های متحد‌المرکز استفاده می‌شوند. این نمودارها به توضیح روابط بخش‑به‑کل کمک می‌کنند و برای نمایش دسته‌ها و زیرمجموعه‌های تو در تو به‌صورت واضح و فشرده ایده‌آلند.
 
-این مثال یک نمودار خورشیدی با هشت برگ گروه‌بندی‌شده در چهار ساقه و دو شاخه ایجاد می‌کند. متد [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) ساقه‌ها را در سطح گروه‌بندی ۱ و شاخه‌ها را در سطح ۲ تخصیص می‌دهد. برچسب‌های دسته بخش‌ها را شناسایی می‌کنند و مقادیر اندازه نسبی آن‌ها را تعیین می‌کند.
+این مثال یک نمودار خورشیدی با هشت برگ که در چهار شاخه و دو گره گروه‌بندی شده‌اند، ایجاد می‌کند. متد [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) شاخه‌ها را در سطح 1 و گره‌ها را در سطح 2 اختصاص می‌دهد. برچسب‌های دسته بخش‌ها را شناسایی می‌کنند و مقادیر اندازه نسبی آن‌ها را تعیین می‌نمایند.
 
 ```python
 import aspose.slides as slides
@@ -762,9 +766,13 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای هیستوگرام**
 
-نمودارهای هیستوگرام برای نشان دادن توزیع داده‌های عددی با گروه‌بندی مقادیر به بازه‌ها یا سطل‌ها استفاده می‌شوند. آن‌ها برای شناسایی الگوهای داده مانند فراوانی، کشیدگی و پراکندگی، و همچنین برای کشف نقاط دوری در یک مجموعه داده مفیدند.
+نمودارهای هیستوگرام نشان می‌دهند که مقادیر عددی چگونه در بازه‌های (bins) مختلف توزیع شده‌اند. برای گزارش‌های ماهانه زمان پردازش سفارش‌ها، از عرض باین ثابت و آستانه‌های ثابت استفاده کنید تا بازه‌ها یکسان بمانند و توزیع‌ها آسان‌تر مقایسه شوند.
 
-این مثال یک هیستوگرام از شش مقدار عددی، از جمله مقادیر منفی، ایجاد می‌کند. تنظیم [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) به حالت خودکار به نمودار اجازه می‌دهد که سطل‌های مورد استفاده برای نمایش توزیع را تعیین کند.
+محور افقی را با ویژگی [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) به حالت دلخواهی از [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/) تنظیم کنید. ویژگی [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) فقط در حالت `BY_BIN_WIDTH` اعمال می‌شود؛ [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) فقط در حالت `BY_NUMBER_OF_BINS` کاربرد دارد. برای اجازه به نمودار جهت انتخاب باین‌ها از `AUTOMATIC` استفاده کنید.
+
+#### **استفاده از عرض باین ثابت**
+
+این مثال زمان‌های پردازش را به بازه‌های 10‑دقیقه‌ای تقسیم می‌کند، به‌طوری که باین‌های جداگانه‌ای برای زمان‌های زیر یا برابر 10 دقیقه و بالای 40 دقیقه داشته باشد. این باین‌ها را با [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) و [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/) فعال کنید. هنگام ارائه آستانه‌های صریح برای [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) و [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/)، ویژگی‌های [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) و [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) را به `False` تنظیم کنید.
 
 ```python
 import aspose.slides as slides
@@ -773,7 +781,10 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 500, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 680, 200)
+
+    chart.has_legend = False
+    chart.has_title = False
 
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
@@ -782,33 +793,72 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
-    value_cell = workbook.get_cell(0, "A1", 15)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A2", -41)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A3", 16)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A4", 10)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A5", -23)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
-    value_cell = workbook.get_cell(0, "A6", 16)
-    series.data_points.add_data_point_for_histogram_series(value_cell)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.get_cell(0, i, 0, value)
+        series.data_points.add_data_point_for_histogram_series(value_cell)
 
-    chart.axes.horizontal_axis.aggregation_type = charts.AxisAggregationType.AUTOMATIC
+    axis = chart.axes.horizontal_axis
+    axis.aggregation_type = charts.AxisAggregationType.BY_BIN_WIDTH
+    axis.bin_width = 10
+    axis.is_underflow_bin = True
+    axis.is_automatic_underflow_bin = False
+    axis.underflow_bin = 10
+    axis.is_overflow_bin = True
+    axis.is_automatic_overflow_bin = False
+    axis.overflow_bin = 40
 
-    presentation.save("Histogram.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-نتیجه:
+ارائه در PowerPoint تعداد باین‌ها را به صورت **3, 4, 4, 4, 2** نشان می‌دهد. باین زیر‌جریان شامل `5, 10, 10` است، بنابراین آستانه‌اش شامل می‌شود. باین بالادست فقط `41, 50` را دربر می‌گیرد، بنابراین آستانه‌اش مستثنی است؛ هر دو مقدار برابر با `40` در بازه قبلی باقی می‌مانند. باین‌های داخلی شامل مقادیری بزرگ‌تر از حد پایین و کمتر یا مساوی حد بالایی خود هستند.
 
-![نمودار هیستوگرام](histogram_chart.png)
+![هیستوگرام با باین‌های 10‑دقیقه‌ای و آستانه‌های زیر و بالادست صریح](histogram_bin_width.png)
+
+#### **مشخص کردن تعداد باین‌ها**
+
+برای داشتن سطح جزئیات ثابت به جای بازه‌های ثابت، برای همان داده پنج باین درخواست کنید. این مثال باین‌های زیر و بالادست را غیرفعال می‌کند. نمودار عرض را از بازه داده‌ها تعیین می‌کند، بنابراین مرزبندی‌ها می‌توانند بین گزارش‌ها تغییر کنند.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 680, 200)
+
+    chart.has_legend = False
+    chart.has_title = False
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
+    values = [5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50]
+    for i, value in enumerate(values):
+        value_cell = workbook.get_cell(0, i, 0, value)
+        series.data_points.add_data_point_for_histogram_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.aggregation_type = charts.AxisAggregationType.BY_NUMBER_OF_BINS
+    axis.number_of_bins = 5
+
+    presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
+```
+
+پنج باین تعداد **4, 4, 4, 4, 1** دارند. این توزیع را با نتیجه‌ی عرض ثابت بالا مقایسه کنید: مقادیر ورودی یکسان هستند، اما مرزبندی‌ها متفاوت‌اند.
+
+![هیستوگرام با پنج باین محاسبه‌شده از همان داده‌ها](histogram_bin_count.png)
 
 ### **ایجاد نمودارهای رادار**
 
-نمودارهای رادار برای نمایش داده‌های چندمتغیره در قالب دو‑بعدی استفاده می‌شوند که امکان مقایسه آسان چند متغیر به‌صورت همزمان را فراهم می‌کنند. آن‌ها برای شناسایی الگوها، نقاط قوت و ضعف در میان معیارهای عملکرد یا ویژگی‌های متعدد مفیدند.
+نمودارهای رادار برای نمایش داده‌های چندمتغیره در قالب دو‑بعدی استفاده می‌شوند و امکان مقایسه همزمان چند متغیر را به‌راحتی فراهم می‌کنند. این نمودارها به‌ویژه برای شناسایی الگوها، نقاط قوت و ضعف در میان چندین معیار عملکرد یا ویژگی مفیدند.
 
-این مثال از [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای ایجاد یک نمودار رادار با سری‌ها و دسته‌های پیش‌فرض استفاده می‌کند، سپس ارائه را به‌صورت PPTX ذخیره می‌کند.
+این مثال از متد [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای ساخت یک نمودار رادار با سِری‌ها و دسته‌های پیش‌فرض استفاده می‌کند و سپس ارائه را به صورت PPTX ذخیره می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -828,9 +878,9 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای چنددسته‌ای**
 
-نمودارهای چنددسته‌ای برای نمایش داده‌هایی استفاده می‌شوند که شامل بیش از یک گروه‌بندی دسته‌ای هستند و به شما امکان می‌دهند مقادیر را در چند بُعد به‌صورت همزمان مقایسه کنید. این نمودارها به‌ویژه هنگام تحلیل روندها و روابط در داده‌های پیچیده و چندلایه مفیدند.
+نمودارهای چنددسته‌ای برای نمایش داده‌هایی استفاده می‌شوند که شامل بیش از یک گروه‌بندی طبقه‌ای هستند و به شما امکان می‌دهند مقادیر را در چند بُعد به‌طور همزمان مقایسه کنید. این نمودارها به‌ویژه هنگام نیاز به تجزیه و تحلیل روندها و روابط در مجموعه داده‌های چندسطحی مفیدند.
 
-این مثال یک نمودار ستون خوشه‌ای با هشت دسته که در چهار جفت تنظیم شده‌اند، ایجاد می‌کند. متد [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) به هر جفت یک برچسب مشترک در سطح گروه‌بندی ۱ می‌دهد و محور دسته با برچسب‌های فردی و گروهی تولید می‌کند.
+این مثال یک نمودار ستونی خوشه‌ای با هشت دسته که در چهار جفت مرتب شده‌اند، ایجاد می‌کند. متد [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) به هر جفت یک برچسب مشترک در سطح 1 می‌دهد و محور دسته‌بندی را هم با برچسب‌های فردی و هم گروهی تولید می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -900,11 +950,11 @@ with slides.Presentation() as presentation:
 
 ![نمودار چنددسته‌ای](multi_category_chart.png)
 
-### **ایجاد نمودارهای نقشه**
+### **ایجاد نمودارهای نقشه‌ای**
 
-نمودارهای نقشه برای تجسم داده‌های جغرافیایی با نگاشت اطلاعات به مکان‌های خاصی مانند کشورها، استان‌ها یا شهرها استفاده می‌شوند. آن‌ها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیتی و توزیع‌های مکانی به‌صورت واضح و بصری جذاب مفیدند.
+نمودارهای نقشه‌ای برای بصری‌سازی داده‌های جغرافیایی با نگاشت اطلاعات به مکان‌های خاص مانند کشورها، ایالت‌ها یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیتی و توزیع‌های فضایی به‌صورت واضح و جذاب مفیدند.
 
-این مثال از [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای ایجاد یک نمودار نقشه با داده‌های جغرافیایی پیش‌فرض استفاده می‌کند و آن را برای مشاهده در PowerPoint ذخیره می‌کند.
+این مثال از متد [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای ساخت یک نمودار نقشه‌ای با داده‌های جغرافیایی پیش‌فرض استفاده می‌کند و آن را برای مشاهده در PowerPoint ذخیره می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -920,19 +970,19 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![نمودار نقشه](map_chart.png)
+![نمودار نقشه‌ای](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-عکس بالا ارائه ذخیره‌شده را که در PowerPoint باز شده نشان می‌دهد. Aspose.Slides نمودار نقشه و داده‌های آن را به‌درستی می‌نویسد، اما خود نمودارهای نقشه را رسم نمی‌کند: زمانی که اسلاید حاوی آن به تصویر رندر شود یا به PDF یا SVG تبدیل شود، ناحیه نمودار خالی می‌ماند. سایر اشکال روی همان اسلاید تحت تأثیر نیستند.
+تصویر بالا نشان‌دهنده ارائه ذخیره‌شده باز شده در PowerPoint است. Aspose.Slides نقشه‌نمودار و داده‌های آن را به‑درستی می‌نویسد، اما خود نقشه‌نمودار را رسم نمی‌کند: وقتی اسلایدی که شامل آن است به تصویر تبدیل یا به PDF یا SVG تبدیل می‌شود، ناحیه نمودار خالی می‌ماند. سایر اشکال روی همان اسلاید تحت تأثیر قرار نمی‌گیرند.
 {{% /alert %}}
 
 ### **ایجاد نمودارهای ترکیبی**
 
-نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌های دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید و روابط بین آن‌ها را شناسایی کنید.
+نمودار ترکیبی (combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا شباهت‌های بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید و روابط بین آن‌ها را شناسایی نمایید.
 
 ![نمودار ترکیبی](combination_chart.png)
 
-این مثال دو سری ستون خوشه‌ای را با یک سری خطی در چهار دسته ترکیب می‌کند. ستون‌ها از محور عمودی اصلی استفاده می‌کنند، در حالی که [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) خط را روی محور عمودی ثانوی در سمت راست قرار می‌دهد. توابع کمکی عنوان، افسانه، برچسب‌های محور و خطوط شبکه را پیکربندی می‌کنند.
+این مثال دو سِری ستون خوشه‌ای را با یک سِری خطی در چهار دسته ترکیب می‌کند. ستون‌ها از محور عمودی اولیه استفاده می‌کنند، در حالی که ویژگی [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) خط را روی محور عمودی ثانویه سمت راست قرار می‌دهد. توابع کمکی عنوان، افسانه، برچسب‌های محور و خطوط شبکه را پیکربندی می‌کنند.
 
 ```python
 import aspose.pydrawing as draw
@@ -1080,9 +1130,9 @@ create_combo_chart()
 
 ## **به‌روزرسانی نمودارها**
 
-Aspose.Slides برای Python از طریق .NET به شما امکان می‌دهد تا نمودارهای PowerPoint را با تغییر داده‌های نمودار، قالب‌بندی و استایل به‌روز کنید. این قابلیت فرآیند نگه‌داشتن ارائه‌ها به‌روز با محتوای پویا را ساده می‌کند و اطمینان می‌دهد که نمودارها به‌درستی داده‌های فعلی و استانداردهای بصری را منعکس می‌کنند.
+Aspose.Slides برای Python از طریق .NET به شما امکان می‌دهد تا نمودارهای PowerPoint را با تغییر داده‌های نمودار، قالب‌بندی و استایل بروز کنید. این قابلیت فرآیند نگه داشتن ارائه‌ها با محتوای پویا را ساده می‌کند و تضمین می‌کند که نمودارها به‌درستی داده‌ها و استانداردهای بصری کنونی را منعکس کنند.
 
-این مثال نمودار با نام "My chart" را در اولین اسلاید یک ارائه موجود به‌روز می‌کند. این نیاز به دو سری ستونی با هر کدام سه نقطه داده دارد، با برچسب‌های دسته در ستون A و نام‌های سری در ردیف اول شیت اول. مثال از [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) برای تغییر سلول‌های کتاب‌کار استفاده می‌کند، مقادیر سری‌ها را به‌روز می‌کند، یک سری سوم اضافه می‌کند و نمودار را به استوانه‌های خوشه‌ای از طریق [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/) تغییر می‌دهد.
+این مثال نمودار با نام «My chart» را در اولین اسلاید یک ارائه موجود به‌روز می‌کند. این مثال به دو سِری ستونی با سه نقطه داده هر کدام نیاز دارد، که برچسب‌های دسته در ستون A و نام سِری‌ها در ردیف اول اولین کاربرگ قرار دارند. مثال از متد [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) برای تغییر سلول‌های کتاب‌کار استفاده می‌کند، مقادیر سِری‌ها را به‌روزرسانی می‌کند، سِری سوم را اضافه می‌کند و نوع نمودار را از طریق ویژگی [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/) به ستون‌های خوشه‌ای استوانه‌ای تغییر می‌دهد.
 
 ```python
 import aspose.slides as slides
@@ -1132,13 +1182,13 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("AsposeChartModified.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تنظیم محدوده داده برای یک نمودار**
+## **تنظیم بازه داده برای یک نمودار**
 
-برای بررسی محدوده‌ای که قبلاً توسط یک نمودار موجود استفاده شده است، به [Retrieve a Chart's Data Range](/slides/fa/python-net/chart-workbook/#retrieve-a-charts-data-range) مراجعه کنید.
+برای بررسی بازه‌ای که قبلاً توسط یک نمودار موجود استفاده شده است، به [Retrieve a Chart's Data Range](/slides/fa/python-net/chart-workbook/#retrieve-a-charts-data-range) مراجعه کنید.
 
-Aspose.Slides برای Python از طریق .NET انعطاف‌پذیری تعریف یک محدوده داده خاص از یک شیت را به‌عنوان منبع داده‌های نمودار شما فراهم می‌کند. این به این معناست که می‌توانید بخش خاصی از شیت خود را مستقیماً به نمودار نگاشت کنید و کنترل کنید که کدام سلول‌ها به سری‌ها و دسته‌های نمودار کمک می‌کنند. در نتیجه، می‌توانید به‌ راحتی نمودارهای خود را با آخرین تغییرات داده در شیت به‌روز و همگام کنید و اطمینان حاصل کنید که ارائه‌های PowerPoint شما اطلاعات جاری و دقیق را نشان می‌دهند.
+Aspose.Slides برای Python از طریق .NET انعطاف‌پذیری تعریف بازه داده خاصی از یک کاربرگ به‌عنوان منبع داده برای نمودار شما را فراهم می‌کند. این به این معناست که می‌توانید بخشی از کاربرگ خود را مستقیماً به نمودار نگاشت کنید و کنترل کنید که کدام سلول‌ها به سِری‌ها و دسته‌های نمودار کمک می‌کنند. در نتیجه می‌توانید نمودارهای خود را به‌راحتی با آخرین تغییرات داده در کاربرگ بروز کنید و اطمینان حاصل کنید که ارائه‌های PowerPoint شما اطلاعات دقیق و به‌روز را نشان می‌دهند.
 
-این مثال از [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) برای تنظیم منبع دادهٔ نمودار با نام "My chart" در اولین اسلاید یک ارائه موجود به `Sheet1!A1:B4` استفاده می‌کند. کتاب‌کار نمودار باید آن شیت و یک بازه پرشده با سرصفحهٔ سری در ردیف اول، برچسب‌های دسته در ستون A و سه مقدار در ستون B را داشته باشد.
+این مثال از متد [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) برای تنظیم منبع داده نمودار با نام «My chart» در اولین اسلاید یک ارائه موجود به `Sheet1!A1:B4` استفاده می‌کند. کتاب‌کار نمودار باید آن کاربرگ و بازه پرشده‌ای داشته باشد که سرعنوان سِری در ردیف اول، برچسب‌های دسته در ستون A و سه مقدار در ستون B قرار دارند.
 
 ```python
 import aspose.slides as slides
@@ -1159,9 +1209,9 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **استفاده از نشانگرهای پیش‌فرض در نمودارها**
 
-هنگامی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌صورت خودکار یک نماد نشانگر پیش‌فرض متفاوت دریافت می‌کند.
+هنگامی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سِری نمودار به‌صورت خودکار یک نماد نشانگر پیش‌فرض متفاوت دریافت می‌کند.
 
-این مثال از [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای ایجاد یک نمودار با دو سری خطی و یک افسانه استفاده می‌کند. تنظیمات [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) نمادهای نشانگر به‌صورت خودکار اختصاص یافته را حفظ می‌کند. سری اول شامل یک مقدار منفی و یک مقدار گمشده است که با `None` نشان داده می‌شود، در حالی که سری دوم برای هر دسته یک مقدار دارد.
+این مثال از متد [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) برای ساخت یک نمودار با دو سِری خطی و یک افسانه استفاده می‌کند. تنظیمات [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) نمادهای نشانگر اختصاص داده‌شده به‌صورت خودکار را حفظ می‌کند. سِری اول شامل یک مقدار منفی و یک مقدار گم‌شده (نماینده `None`) است، در حالی که سِری دوم برای هر دسته یک مقدار دارد.
 
 ```python
 import aspose.slides as slides
@@ -1218,20 +1268,20 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **سؤالات متداول**
 
-**چه انواع نمودارهایی توسط Aspose.Slides برای Python از طریق .NET پشتیبانی می‌شود؟**
+**کدام انواع نمودارها توسط Aspose.Slides برای Python از طریق .NET پشتیبانی می‌شوند؟**
 
-Aspose.Slides برای Python از طریق .NET انواع گسترده‌ای از نمودارها را پشتیبانی می‌کند، از جمله نوار، خط، دایره‌ای، مساحت، پراکنده، هیستوگرام، رادار و بسیاری دیگر. این انعطاف‌پذیری به شما اجازه می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای تجسم داده خود انتخاب کنید.
+Aspose.Slides برای Python از طریق .NET طیف گسترده‌ای از انواع نمودارها شامل نوار، خط، دایره، مساحت، پراکنده، هیستوگرامی، رادار و بسیاری دیگر را پشتیبانی می‌کند. این انعطاف‌پذیری به شما اجازه می‌دهد مناسب‌ترین نوع نمودار را برای نیازهای بصری‌سازی داده خود انتخاب کنید.
 
 **چگونه یک نمودار جدید به اسلاید اضافه کنم؟**
 
-برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) ایجاد می‌کنید، اسلاید مورد نظر را با استفاده از ایندکس آن بازیابی می‌کنید، سپس متد افزودن نمودار را فراخوانی می‌کنید و نوع نمودار و داده‌های اولیه را مشخص می‌کنید. این فرآیند نمودار را مستقیماً به ارائه شما ادغام می‌کند.
+برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) ایجاد کنید، اسلاید مورد نظر را با شاخص آن دریافت کنید و سپس متد افزودن نمودار را صدا بزنید و نوع نمودار و داده‌های اولیه را مشخص کنید. این فرآیند نمودار را مستقیماً به ارائه شما اضافه می‌کند.
 
-**چگونه می‌توانم داده‌های نمایش‌داده‌شده در یک نمودار را به‌روزرسانی کنم؟**
+**چگونه می‌توانم داده‌های نمایش دیده‌شده در یک نمودار را به‌روزرسانی کنم؟**
 
-می‌توانید داده‌های یک نمودار را با دسترسی به کتاب‌کار داده‌های آن ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))، پاک‌کردن هر سری و دسته پیش‌فرض، و سپس افزودن داده‌های سفارشی‌تان به‌روز کنید. این امکان را می‌دهد که برنامه‌نویسی نمودار را برای بازتاب جدیدترین داده‌ها تازه‌سازی کنید.
+می‌توانید با دسترسی به کتاب‌کار داده‌های نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))، سِری‌ها و دسته‌های پیش‌فرض را پاک کنید و داده‌های سفارشی خود را اضافه کنید. این کار به‌صورت برنامه‌نویسی امکان تازه‌سازی نمودار برای بازتاب جدیدترین داده‌ها را فراهم می‌کند.
 
 **آیا امکان سفارشی‌سازی ظاهر نمودار وجود دارد؟**
 
-بله، Aspose.Slides برای Python از طریق .NET گزینه‌های سفارشی‌سازی گسترده‌ای را فراهم می‌کند. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، افسانه‌ها و سایر عناصر قالب‌بندی را برای تطبیق ظاهر نمودار با نیازهای طراحی خاص خود تغییر دهید.
+بله، Aspose.Slides برای Python از طریق .NET گزینه‌های سفارشی‌سازی گسترده‌ای ارائه می‌دهد. می‌توانید رنگ‌ها، فونت‌ها، برچسب‌ها، افسانه‌ها و سایر عناصر قالب‌بندی را تغییر دهید تا ظاهر نمودار را با الزامات طراحی خاص خود هماهنگ کنید.

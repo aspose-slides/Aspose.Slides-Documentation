@@ -1,6 +1,6 @@
 ---
-title: Tạo hoặc Cập nhật Biểu đồ Bài trình bày PowerPoint trong C++
-linktitle: Tạo hoặc Cập nhật Biểu đồ
+title: Tạo hoặc Cập nhật biểu đồ trong bản trình bày PowerPoint bằng C++
+linktitle: Tạo hoặc Cập nhật biểu đồ
 type: docs
 weight: 10
 url: /vi/cpp/create-chart/
@@ -16,46 +16,46 @@ keywords:
 - biểu đồ tròn
 - biểu đồ đường
 - biểu đồ cây
-- biểu đồ cổ phiếu
+- biểu đồ chứng khoán
 - biểu đồ hộp và râu
 - biểu đồ phễu
-- biểu đồ sunburst
+- biểu đồ Sunburst
 - biểu đồ histogram
 - biểu đồ radar
 - biểu đồ đa danh mục
 - PowerPoint
-- bài trình bày
+- bản trình bày
 - C++
 - Aspose.Slides
-description: "Tạo và tùy chỉnh biểu đồ trong các bài trình bày PowerPoint bằng Aspose.Slides cho C++. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong C++."
+description: "Tạo và tùy chỉnh biểu đồ trong các bản trình bày PowerPoint bằng Aspose.Slides cho C++. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong C++."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides cho C++. Bạn sẽ học cách thêm biểu đồ vào một slide bằng mã, điền dữ liệu cho nó và áp dụng các tùy chọn định dạng khác nhau để phù hợp với yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo đối tượng Presentation và Chart cho tới cấu hình series, trục và legend. Khi theo dõi hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào các ứng dụng C++ của mình, giúp đơn giản hoá quy trình tạo các bài trình bày dựa trên dữ liệu.
+Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides cho C++. Bạn sẽ học cách thêm biểu đồ vào một slide bằng mã, điền dữ liệu vào biểu đồ và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo đối tượng Presentation và Chart cho tới cấu hình series, trục và legend. Khi thực hiện theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng C++ của mình, giúp đơn giản hoá quá trình tạo các bản trình bày dựa trên dữ liệu.
 
 ## **Tạo biểu đồ**
 
-Biểu đồ giúp mọi người nhanh chóng hình dung dữ liệu và thu được những hiểu biết có thể không ngay lập tức rõ ràng từ bảng hoặc bảng tính.
+Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và khám phá những góc nhìn có thể không rõ ràng từ bảng tính hoặc bảng dữ liệu.
 
-**Tại sao nên tạo biểu đồ?**
+**Tại sao tạo biểu đồ?**
 
 Sử dụng biểu đồ, bạn có thể:
 
-* tổng hợp, thu gọn hoặc tóm tắt một lượng lớn dữ liệu trên một slide duy nhất trong bản trình bày;
-* phát hiện các mẫu và xu hướng trong dữ liệu;
-* suy ra hướng và động lực của dữ liệu theo thời gian hoặc theo một đơn vị đo cụ thể;
-* phát hiện các giá trị ngoại lệ, sai lệch, lỗi và dữ liệu vô nghĩa;
+* tổng hợp, cống đật hoặc tóm tắt lượng dữ liệu lớn trên một slide trong bản trình chiếu;
+* phố điển mối xúng và xu hướng trong dữ liệu;
+* suy ra hướng và động lực của dữ liệu theo thời gian hoặc theo một đơn vị đo lường cụ thể;
+* phát hiện các giá trị bất thường, lỗi và dữ liệu không hợp lý;
 * truyền đạt hoặc trình bày dữ liệu phức tạp.
 
 Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
 
 {{% alert color="info" title="Note" %}}
-Sử dụng enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) trong namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Các giá trị trong enumeration này tương ứng với các loại biểu đồ khác nhau.
+Sử dụng enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) trong không gian tên [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Các giá trị trong enumeration này tương ứng với các loại biểu đồ khác nhau.
 {{% /alert %}}
 
-### **Tạo biểu đồ Cột Nhóm**
+### **Tạo biểu đồ cột nhóm**
 
-Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ cột nhóm so sánh hai series qua ba danh mục. Các series sử dụng màu nền đỏ và xanh lá, và các nhãn riêng lẻ hiển thị tên danh mục, tên series và giá trị. Chỉ mục bảng tính 0 đề cập đến sheet đầu tiên trong workbook biểu đồ được nhúng.
+Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ cột nhóm so sánh hai series qua ba danh mục. Các series sử dụng màu nền đỏ và xanh lá, và các nhãn riêng lẻ hiển thị tên danh mục, tên series và giá trị. Chỉ mục worksheet 0 đề cập đến sheet đầu tiên trong workbook biểu đồ được nhúng.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -165,20 +165,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Kết quả:
 
-![Biểu đồ Cột Nhóm](clustered_column_chart.png)
+![Biểu đồ cột nhóm](clustered_column_chart.png)
 
-### **Tạo biểu đồ Phân tán**
+### **Tạo biểu đồ phân tán**
 
-Biểu đồ scatter (còn được gọi là biểu đồ phân tán hoặc đồ thị x-y) thường được dùng để kiểm tra các mẫu hoặc minh họa mối tương quan giữa hai biến.
+Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc thể hiện mối tương quan giữa hai biến.
 
-Sử dụng biểu đồ scatter khi:
+Sử dụng biểu đồ phân tán khi:
 
-* Bạn có dữ liệu số dạng cặp.
-* Bạn có hai biến kết hợp tốt với nhau.
+* Bạn có dữ liệu số cặp đôi.
+* Bạn có hai biến có mối quan hệ chặt chẽ.
 * Bạn muốn xác định liệu hai biến có liên quan hay không.
 * Bạn có một biến độc lập có nhiều giá trị cho một biến phụ thuộc.
 
-Ví dụ này vẽ hai bộ giá trị x-y. Series đầu tiên dùng đường thẳng với dấu sao, trong khi series thứ hai dùng đường mảnh với dấu tròn; cả hai đều có kích thước dấu đánh dấu là 10, được thiết lập bằng [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Phương thức [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) kiểm soát hình dạng dấu đánh dấu.
+Ví dụ này vẽ hai tập giá trị x‑y. Series đầu tiên sử dụng đường thẳng với dấu sao, trong khi series thứ hai dùng đường mượt với dấu tròn; cả hai đều có kích thước dấu chấm 10, được đặt bằng [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Phương thức [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) điều khiển hình dạng dấu.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -268,13 +268,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Kết quả:
 
-![Biểu đồ Phân tán](scatter_chart.png)
+![Biểu đồ phân tán](scatter_chart.png)
 
-### **Tạo biểu đồ Tròn**
+### **Tạo biểu đồ tròn**
 
-Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑với‑toàn trong dữ liệu, đặc biệt khi dữ liệu chứa các nhãn phân loại với các giá trị số. Tuy nhiên, nếu dữ liệu của bạn có nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
+Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑trong‑toàn trong dữ liệu, đặc biệt khi dữ liệu có nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có quá nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
 
-Ví dụ này tạo một biểu đồ tròn với ba giá trị hàng quý. Mỗi phần có màu nền và viền tùy chỉnh, và các nhãn hiển thị các kết hợp khác nhau của giá trị, phần trăm và thông tin series. Phương thức [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) đặt góc phần đầu tiên bắt đầu ở 180 độ.
+Ví dụ này tạo một biểu đồ tròn với ba giá trị quý. Mỗi lát bánh có màu nền và viền tùy chỉnh, và các nhãn hiển thị các tổ hợp khác nhau của giá trị, phần trăm và thông tin series. Phương pháp [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) đặt lát đầu tiên bắt đầu ở 180 độ.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -411,11 +411,11 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 Kết quả:
 
-![Biểu đồ Tròn](pie_chart.png)
+![Biểu đồ tròn](pie_chart.png)
 
-### **Tạo biểu đồ Đường**
+### **Tạo biểu đồ đường**
 
-Biểu đồ đường (còn gọi là đồ thị đường) thích hợp trong các tình huống bạn muốn minh họa sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu cùng lúc, theo dõi các thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series dữ liệu, và nhiều hơn nữa.
+Biểu đồ đường (còn gọi là line graph) thích hợp khi bạn muốn thể hiện sự thay đổi của giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu cùng lúc, theo dõi các thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series và nhiều hơn nữa.
 
 Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ đường với series và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
 
@@ -449,7 +449,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Mặc định, các điểm trên biểu đồ đường được nối bằng các đoạn thẳng liên tục. Nếu bạn muốn các điểm được nối bằng dấu gạch ngang, hãy gọi [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) với giá trị từ [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
+Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tiếp. Nếu bạn muốn các điểm được nối bằng nét đứt, hãy gọi [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) với một giá trị từ [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -486,13 +486,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 Kết quả:
 
-![Biểu đồ Đường](line_chart.png)
+![Biểu đồ đường](line_chart.png)
 
-### **Tạo biểu đồ Cây**
+### **Tạo biểu đồ cây**
 
-Biểu đồ cây (Tree map) thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý tới các mục có đóng góp lớn trong mỗi danh mục.
+Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý đến những mục đóng góp lớn trong mỗi danh mục.
 
-Ví dụ này tạo một biểu đồ cây với tám lá được nhóm thành bốn thân và hai nhánh. Phương thức [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán các thân ở mức nhóm 1 và các nhánh ở mức 2. Giá trị xác định kích thước hình chữ nhật tương đối, trong khi nhãn danh mục và nhãn cha chồng lên nhau xác định phân cấp.
+Ví dụ này tạo một biểu đồ cây với tám lá được nhóm thành bốn nhánh và hai nhánh phụ. Phương pháp [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán các nhánh ở mức nhóm 1 và các nhánh phụ ở mức 2. Các giá trị xác định kích thước hình chữ nhật tương đối, trong khi nhãn danh mục và nhãn cha chồng chéo xác định cấu trúc phân cấp.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -598,26 +598,26 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 Kết quả:
 
-![Biểu đồ Cây](treemap_chart.png)
+![Biểu đồ cây](treemap_chart.png)
 
-### **Tạo biểu đồ Waterfall**
+### **Tạo biểu đồ thác nước**
 
-Biểu đồ waterfall hiển thị cách các thay đổi dương và âm đóng góp vào giá trị cuối cùng. Ví dụ, phân tích lợi nhuận có thể bắt đầu bằng doanh thu, trừ chi phí, và cộng thu nhập khác. Các cột thay đổi nổi giữa giá trị chạy trước và giá trị mới, trong khi các cột tổng mở rộng từ zero tới giá trị tích lũy.
+Biểu đồ thác nước cho thấy cách các thay đổi dương và âm đóng góp vào một giá trị cuối cùng. Ví dụ, một phân tích lợi nhuận có thể bắt đầu bằng doanh thu, trừ chi phí và cộng thu nhập khác. Các cột thay đổi nổi giữa giá trị chạy trước và mới, trong khi các cột tổng mở rộng từ 0 tới giá trị tích lũy.
 
-Bảng dưới đây sử dụng các khoản tiền tính bằng nghìn đô la Mỹ:
+Bảng dưới đây sử dụng các khoản tiền tính bằng hàng nghìn đô la Mỹ:
 
-| Danh mục | Giá trị trong Workbook | Loại cột |
+| Danh mục | Giá trị sổ làm việc | Kiểu cột |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| Doanh thu | 1000 | Tăng |
+| Giá vốn bán hàng | -400 | Giảm |
+| Lợi nhuận gộp | 600 | Tổng trung gian |
+| Chi phí hoạt động | -200 | Giảm |
+| Thu nhập khác | 50 | Tăng |
+| Lợi nhuận ròng | 450 | Tổng cuối cùng |
 
-Để đánh dấu một điểm là tổng trung gian hoặc tổng cuối cùng, gọi phương thức [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) của nó với `true`. Cung cấp giá trị tích lũy thực tế trong ô workbook của điểm đó: `600` cho lợi nhuận gộp (`1000 - 400`) và `450` cho lợi nhuận ròng (`600 - 200 + 50`). Phương thức chỉ đánh dấu cột là tổng; nó không tính hoặc điền giá trị ô. Không sử dụng zero làm chỗ trống hoặc cung cấp thay đổi khác cho điểm tổng. Một cột tổng hiển thị giá trị tích lũy mà không cộng lại vào giá trị chạy.
+Để đánh dấu một điểm là tổng trung gian hoặc tổng cuối cùng, hãy gọi phương thức [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) của nó với `true`. Cung cấp giá trị tích lũy thực tế trong ô workbook của điểm đó: `600` cho lợi nhuận gộp (`1000 - 400`) và `450` cho lợi nhuận ròng (`600 - 200 + 50`). Phương thức này chỉ đánh dấu cột là tổng; nó không tính toán hoặc điền giá trị ô. Không sử dụng 0 làm chỗ trống hoặc cung cấp thay đổi khác cho một điểm tổng. Cột tổng hiển thị giá trị tích lũy mà không cộng lại vào giá trị chạy.
 
-Ví dụ C++ đầy đủ này tạo một biểu đồ sử dụng thành phần `Waterfall` của [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), xóa dữ liệu mặc định và điền workbook nhúng. Chỉ mục worksheet `0` chọn worksheet đầu tiên; cột A chứa tên danh mục và cột B chứa giá trị. Mỗi ô giá trị được thêm bằng [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Các chỉ số điểm zero‑based `2` và `5` xác định các tổng trung gian và tổng cuối cùng. Gửi `true` tới [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) hiển thị số tiền trên các cột. Không cần bản trình bày hoặc workbook đầu vào.
+Ví dụ C++ đầy đủ này tạo một biểu đồ sử dụng thành viên `Waterfall` của [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), xóa dữ liệu mặc định và điền workbook nhúng. Chỉ mục worksheet `0` chọn sheet đầu tiên; cột A chứa tên danh mục và cột B chứa giá trị. Mỗi ô giá trị được thêm bằng [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Các chỉ số điểm không‑dựa‑zero `2` và `5` xác định tổng trung gian và tổng cuối cùng. Gọi [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) với `true` để hiển thị số tiền trên các cột. Không cần bản trình bày hoặc workbook đầu vào.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -691,7 +691,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// Các điểm thứ ba và thứ sáu đại diện cho tổng, không phải các thay đổi bổ sung.
+// Điểm thứ ba và thứ sáu đại diện cho tổng, không phải các thay đổi bổ sung.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -700,17 +700,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-Gọi phương thức cấp độ series [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) với `true` để hiển thị các đường nối các cột liên tiếp và giúp theo dõi giá trị chạy dễ hơn. Để ẩn các đường này, thay thế phép gán trong ví dụ bằng `series->set_ShowConnectorLines(false);` trước khi lưu. Thao tác này chỉ thay đổi khả năng hiển thị đường, không ảnh hưởng tới dữ liệu hay tổng.
+Gọi phương thức cấp series [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) với `true` để hiển thị các đường nối các cột liên tiếp, giúp theo dõi giá trị chạy dễ dàng hơn. Để ẩn các đường này, thay thế câu lệnh trong ví dụ bằng `series->set_ShowConnectorLines(false);` trước khi lưu. Thay đổi này chỉ ảnh hưởng tới việc hiển thị đường, không thay đổi dữ liệu hay tổng.
 
-Bản trình bày đã lưu hiển thị lợi nhuận gộp 600 và lợi nhuận ròng 450, với cả hai tổng được vẽ từ zero:
+Bản trình bày đã lưu hiển thị lợi nhuận gộp 600 và lợi nhuận ròng 450, cả hai tổng được vẽ từ 0:
 
-![Biểu đồ Waterfall hiển thị doanh thu, chi phí, lợi nhuận gộp 600 và lợi nhuận ròng 450, cùng nhãn giá trị và đường nối](waterfall_chart.png)
+![Biểu đồ thác nước hiển thị doanh thu, chi phí, lợi nhuận gộp 600 và lợi nhuận ròng 450, với nhãn giá trị và đường nối](waterfall_chart.png)
 
-### **Tạo biểu đồ Cổ phiếu**
+### **Tạo biểu đồ chứng khoán**
 
-Biểu đồ cổ phiếu được dùng để hiển thị dữ liệu tài chính như giá mở cửa, cao nhất, thấp nhất và đóng cửa, hỗ trợ phân tích xu hướng thị trường và biến động. Chúng cung cấp những hiểu biết quan trọng về hiệu suất cổ phiếu, giúp nhà đầu tư và nhà phân tích đưa ra quyết định sáng suốt.
+Biểu đồ chứng khoán được dùng để hiển thị dữ liệu tài chính như giá mở, cao, thấp và đóng, hỗ trợ phân tích xu hướng thị trường và độ biến động. Chúng cung cấp những hiểu biết quan trọng về hiệu suất cổ phiếu, giúp nhà đầu tư và nhà phân tích đưa ra quyết định thông minh.
 
-Ví dụ này tạo một biểu đồ open‑high‑low‑close với bốn series theo thứ tự đó và ba danh mục. Phương thức [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) bật thanh lên/xuống, và [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) điều khiển các đường cao‑thấp hiển thị dải giá, trong khi các đường series riêng lẻ và các đường lưới ngang phụ được ẩn.
+Ví dụ này tạo một biểu đồ mở‑cao‑thấp‑đóng với bốn series theo thứ tự đó và ba danh mục. Phương pháp [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) bật các thanh lên/xuống, và [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) kiểm soát các đường cao‑thấp hiển thị phạm vi giá, trong khi các đường series riêng lẻ và các đường lưới ngang phụ được ẩn.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -818,13 +818,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 Kết quả:
 
-![Biểu đồ Cổ phiếu](stock_chart.png)
+![Biểu đồ chứng khoán](stock_chart.png)
 
-### **Tạo biểu đồ Box và Whisker**
+### **Tạo biểu đồ hộp và râu**
 
-Biểu đồ box và whisker được dùng để hiển thị phân bố dữ liệu bằng cách tóm tắt các đo lường thống kê chính như trung vị, các phần tư và các ngoại lệ tiềm năng. Chúng đặc biệt hữu ích trong phân tích dữ liệu khám phá và các nghiên cứu thống kê để nhanh chóng hiểu biến động dữ liệu và xác định bất thường.
+Biểu đồ hộp và râu được dùng để hiển thị phân phối dữ liệu bằng cách tóm tắt các đo lường thống kê chính, như trung vị, các phần tư và các điểm ngoại lệ tiềm năng. Chúng rất hữu ích trong phân tích dữ liệu khám phá và các nghiên cứu thống kê để nhanh chóng hiểu biến thiên dữ liệu và xác định bất thường.
 
-Ví dụ này tạo một biểu đồ box và whisker từ sáu giá trị. Phương thức [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) chọn cách tính phần tư loại trừ. Ví dụ cũng bật các đường trung bình, dấu trung bình, điểm nội và điểm ngoại lệ.
+Ví dụ này tạo một biểu đồ hộp và râu từ sáu giá trị. Phương pháp [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) chọn phép tính phần tư loại trừ. Ví dụ cũng bật các đường trung bình, dấu trung bình, các điểm bên trong và các điểm ngoại lệ.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -905,11 +905,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **Tạo biểu đồ Phễu**
+### **Tạo biểu đồ phễu**
 
-Biểu đồ phễu được dùng để trực quan hoá các quy trình có các giai đoạn tuần tự, trong đó khối lượng dữ liệu giảm dần khi tiến từ bước này sang bước tiếp theo. Chúng đặc biệt hữu ích để phân tích tỷ lệ chuyển đổi, xác định nút thắt và theo dõi hiệu quả của các quy trình bán hàng hoặc marketing.
+Biểu đồ phễu được dùng để trực quan hoá các quy trình có các giai đoạn tuần tự, trong đó khối lượng dữ liệu giảm dần khi tiến từ bước này sang bước kế. Chúng đặc biệt hữu ích cho việc phân tích tỷ lệ chuyển đổi, xác định điểm nghẽn và theo dõi hiệu quả của các quy trình bán hàng hoặc tiếp thị.
 
-Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) để thêm một biểu đồ phễu vào slide đầu tiên của một bản trình bày hiện có. Nó thay thế dữ liệu mặc định bằng sáu danh mục và các giá trị từ 50 đến 500, sau đó lưu bản trình bày đã cập nhật. Bản trình bày đầu vào phải chứa ít nhất một slide.
+Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) để thêm một biểu đồ phễu vào slide đầu tiên của một bản trình bày hiện có. Nó thay thế dữ liệu mặc định bằng sáu danh mục và các giá trị từ 50 tới 500, sau đó lưu bản trình bày đã cập nhật. Bản trình bày đầu vào phải chứa ít nhất một slide.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -984,13 +984,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 Kết quả:
 
-![Biểu đồ Phễu](funnel_chart.png)
+![Biểu đồ phễu](funnel_chart.png)
 
 ### **Tạo biểu đồ Sunburst**
 
-Biểu đồ sunburst được dùng để trực quan hoá dữ liệu phân cấp, hiển thị các cấp độ dưới dạng các vòng đồng tâm. Chúng giúp minh họa mối quan hệ phần‑với‑toàn và lý tưởng cho việc biểu diễn các danh mục lồng nhau và các danh mục con một cách rõ ràng, gọn gàng.
+Biểu đồ Sunburst được dùng để trực quan hoá dữ liệu phân cấp, hiển thị các mức dưới dạng các vòng đồng tâm. Chúng giúp minh họa mối quan hệ phần‑trong‑toàn và rất phù hợp để biểu diễn các danh mục lồng nhau và các danh mục con một cách rõ ràng, gọn gàng.
 
-Ví dụ này tạo một biểu đồ sunburst với tám lá được nhóm thành bốn thân và hai nhánh. Phương thức [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán các thân ở mức nhóm 1 và các nhánh ở mức 2. Nhãn danh mục xác định các phân đoạn, và các giá trị quyết định kích thước tương đối của chúng.
+Ví dụ này tạo một biểu đồ Sunburst với tám lá được nhóm thành bốn nhánh và hai nhánh phụ. Phương pháp [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán các nhánh ở mức nhóm 1 và các nhánh phụ ở mức 2. Các nhãn danh mục xác định các phân đoạn, và các giá trị quyết định kích thước tương đối của chúng.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1095,13 +1095,18 @@ Kết quả:
 
 ![Biểu đồ Sunburst](sunburst_chart.png)
 
-### **Tạo biểu đồ Histogram**
+### **Tạo biểu đồ histogram**
 
-Biểu đồ histogram được dùng để biểu diễn phân bố dữ liệu số bằng cách nhóm các giá trị thành các khoảng hoặc bins. Chúng đặc biệt hữu ích để xác định các mẫu dữ liệu như tần suất, độ lệch và phân tán, và để phát hiện ngoại lệ trong một tập dữ liệu.
+Biểu đồ histogram cho thấy cách các giá trị số được phân bố qua các khoảng (bins). Đối với các báo cáo hàng tháng về thời gian xử lý đơn hàng, hãy sử dụng cùng một độ rộng bin và ngưỡng để giữ các khoảng nhất quán và dễ so sánh các phân bố.
 
-Ví dụ này tạo một histogram từ sáu giá trị số, bao gồm các giá trị âm. Gọi [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) với giá trị tự động cho phép biểu đồ tự xác định các bins dùng để hiển thị phân bố.
+Gọi phương thức trục ngang [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) với một chế độ từ [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) chỉ áp dụng cho `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) chỉ áp dụng cho `ByNumberOfBins`. Sử dụng `Automatic` để để biểu đồ tự chọn các bin.
+
+#### **Sử dụng độ rộng bin cố định**
+
+Ví dụ này nhóm thời gian xử lý thành các khoảng 10 phút, với một bin cho thời gian ≤ 10 phút và một bin cho thời gian > 40 phút. Kích hoạt các bin này bằng [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) và [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). Khi cung cấp ngưỡng rõ ràng qua [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) và [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), gọi [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) và [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) với `false`.
 
 ```cpp
+#include <system/array.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/string.h>
@@ -1136,7 +1141,10 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 500, 300);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
 
 chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
@@ -1145,31 +1153,103 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
 auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
-auto valueCell = workbook->GetCell(0, u"A1", ObjectExt::Box(15));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A2", ObjectExt::Box(-41));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A3", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A4", ObjectExt::Box(10));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A5", ObjectExt::Box(-23));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
-valueCell = workbook->GetCell(0, u"A6", ObjectExt::Box(16));
-series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
 
-chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(AxisAggregationType::Automatic);
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByBinWidth);
+axis->set_BinWidth(10);
+axis->set_IsUnderflowBin(true);
+axis->set_IsAutomaticUnderflowBin(false);
+axis->set_UnderflowBin(10);
+axis->set_IsOverflowBin(true);
+axis->set_IsAutomaticOverflowBin(false);
+axis->set_OverflowBin(40);
 
-presentation->Save(u"Histogram.pptx", SaveFormat::Pptx);
+presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-Kết quả:
+Bản trình bày hiển thị trong PowerPoint cho thấy số lượng trong các bin là **3, 4, 4, 4 và 2**. Bin underflow bao gồm `5, 10, 10`, vì vậy ngưỡng của nó là bao gồm. Bin overflow chỉ bao gồm `41, 50`, vì vậy ngưỡng của nó là loại trừ; cả giá trị `40` vẫn thuộc vào khoảng trước. Các bin trung gian chứa các giá trị lớn hơn giới hạn dưới và nhỏ hơn hoặc bằng giới hạn trên.
 
-![Biểu đồ Histogram](histogram_chart.png)
+![Histogram với các bin 10‑phút và ngưỡng underflow/overflow rõ ràng](histogram_bin_width.png)
 
-### **Tạo biểu đồ Radar**
+#### **Chỉ định số lượng bin**
 
-Biểu đồ radar được dùng để hiển thị dữ liệu đa biến trong một định dạng hai chiều, cho phép so sánh dễ dàng nhiều biến đồng thời. Chúng đặc biệt hữu ích để xác định các mẫu, điểm mạnh và điểm yếu trên nhiều chỉ số hiệu suất hoặc thuộc tính.
+Đối với mức chi tiết cố định thay vì các khoảng cố định, yêu cầu năm bin cho cùng dữ liệu. Ví dụ này để tắt bin underflow và overflow. Biểu đồ sẽ tính độ rộng dựa trên phạm vi dữ liệu, vì vậy các giới hạn có thể thay đổi giữa các báo cáo.
+
+```cpp
+#include <system/array.h>
+#include <system/shared_ptr.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 200);
+
+chart->set_HasLegend(false);
+chart->set_HasTitle(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Histogram);
+auto values = MakeArray<double>({ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 });
+for (auto i = 0; i < values->get_Length(); i++)
+{
+    auto valueCell = workbook->GetCell(0, i, 0, ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_AggregationType(AxisAggregationType::ByNumberOfBins);
+axis->set_NumberOfBins(5);
+
+presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
+```
+
+Năm bin có số lượng là **4, 4, 4, 4 và 1**. So sánh phân bố này với kết quả độ rộng cố định ở trên: các giá trị đầu vào giống nhau, nhưng các giới hạn khác nhau.
+
+![Histogram với năm bin được tính từ cùng dữ liệu](histogram_bin_count.png)
+
+### **Tạo biểu đồ radar**
+
+Biểu đồ radar được dùng để hiển thị dữ liệu đa biến trong định dạng hai chiều, cho phép so sánh dễ dàng nhiều biến cùng lúc. Chúng đặc biệt hữu ích để xác định các mẫu, điểm mạnh và điểm yếu trên nhiều chỉ số hoặc thuộc tính hiệu suất.
 
 Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ radar với series và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
 
@@ -1179,34 +1259,39 @@ Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/asp
 #include <DOM/Chart/IChartCategoryCollection.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
-#include <DOM/Chart/IFormat> 
+#include <DOM/Chart/IFormat.h>
 #include <DOM/IChart.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
 #include <DOM/ILineFillFormat.h>
-#include <DOM/ILineFormat>
-#include <DOM/IShapeCollection>
-#include <DOM/ISlide>
-#include <DOM/Presentation> 
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 
 using namespace System;
 using namespace Aspose::Slides;
-using?   …… ……                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
 
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+slide->get_Shapes()->AddChart(ChartType::Radar, 20, 20, 500, 300);
 
+presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 ```
 
 Kết quả:
 
-![Biểu đồ Radar](radar_chart.png)
+![Biểu đồ radar](radar_chart.png)
 
-### **Tạo biểu đồ Đa danh mục**
+### **Tạo biểu đồ đa danh mục**
 
-Biểu đồ đa danh mục được dùng để hiển thị dữ liệu có hơn một nhóm phân loại, cho phép bạn so sánh các giá trị trên nhiều chiều đồng thời. Chúng đặc biệt hữu ích khi bạn cần phân tích xu hướng và mối quan hệ trong các bộ dữ liệu phức tạp, đa lớp.
+Biểu đồ đa danh mục được dùng để hiển thị dữ liệu liên quan tới hơn một nhóm phân loại, cho phép bạn so sánh các giá trị qua nhiều chiều đồng thời. Chúng đặc biệt hữu ích khi bạn cần phân tích xu hướng và mối quan hệ trong các bộ dữ liệu phức tạp, nhiều lớp.
 
-Ví dụ này tạo một biểu đồ cột nhóm với tám danh mục được sắp xếp thành bốn cặp. Phương thức [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) gán mỗi cặp một nhãn chung ở mức nhóm 1, tạo ra trục danh mục có cả nhãn riêng lẻ và nhãn nhóm.
+Ví dụ này tạo một biểu đồ cột nhóm với tám danh mục được sắp xếp thành bốn cặp. Phương pháp [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) cung cấp mỗi cặp một nhãn chung ở mức nhóm 1, tạo ra trục danh mục có cả nhãn riêng lẻ và nhóm.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1301,13 +1386,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Kết quả:
 
-![Biểu đồ Đa danh mục](multi_category_chart.png)
+![Biểu đồ đa danh mục](multi_category_chart.png)
 
-### **Tạo biểu đồ Bản đồ**
+### **Tạo biểu đồ bản đồ**
 
-Biểu đồ bản đồ được dùng để trực quan hoá dữ liệu địa lý bằng cách gán thông tin tới các vị trí cụ thể như quốc gia, tiểu bang hoặc thành phố. Chúng đặc biệt hữu ích để phân tích xu hướng khu vực, dữ liệu dân số và phân bố không gian một cách rõ ràng, thu hút.
+Biểu đồ bản đồ được dùng để trực quan hoá dữ liệu địa lý bằng cách ánh xạ thông tin tới các vị trí cụ thể như quốc gia, bang hoặc thành phố. Chúng rất hữu ích trong việc phân tích xu hướng khu vực, dữ liệu nhân khẩu và phân bố không gian một cách rõ ràng, hấp dẫn.
 
-Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ bản đồ với dữ liệu địa lý mặc định và lưu nó để xem trong PowerPoint.
+Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ bản đồ với dữ liệu địa lý mặc định và lưu để xem trong PowerPoint.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1341,19 +1426,19 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 Kết quả:
 
-![Biểu đồ Bản đồ](map_chart.png)
+![Biểu đồ bản đồ](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Hình ảnh trên cho thấy bản trình bày đã lưu được mở trong PowerPoint. Aspose.Slides ghi đúng biểu đồ bản đồ và dữ liệu của nó, nhưng không tự vẽ biểu đồ bản đồ: khi một slide chứa biểu đồ này được render thành ảnh hoặc chuyển đổi sang PDF hoặc SVG, khu vực biểu đồ sẽ xuất hiện trống. Các hình dạng khác trên cùng slide không bị ảnh hưởng.
+Hình ảnh trên cho thấy bản trình bày đã lưu được mở trong PowerPoint. Aspose.Slides ghi đúng biểu đồ bản đồ và dữ liệu của nó, nhưng không tự vẽ biểu đồ bản đồ: khi một slide chứa biểu đồ này được render thành hình ảnh hoặc chuyển đổi sang PDF hay SVG, khu vực biểu đồ sẽ xuất hiện trống. Các hình dạng khác trên cùng slide không bị ảnh hưởng.
 {{% /alert %}}
 
-### **Tạo biểu đồ Kết hợp**
+### **Tạo biểu đồ kết hợp**
 
-Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra các khác biệt giữa hai hoặc nhiều bộ dữ liệu, giúp nhận diện mối quan hệ giữa chúng.
+Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác biệt giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
 
 ![Biểu đồ kết hợp](combination_chart.png)
 
-Ví dụ này kết hợp hai series cột nhóm với một series đường qua bốn danh mục. Các cột sử dụng trục đứng chính, trong khi [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) đặt đường trên trục đứng phụ bên phải. Các hàm trợ giúp cấu hình tiêu đề, legend, nhãn trục và lưới.
+Ví dụ này kết hợp hai series cột nhóm với một series đường qua bốn danh mục. Các cột sử dụng trục dọc chính, trong khi [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) đặt đường trên một trục dọc phụ ở bên phải. Các hàm trợ giúp cấu hình tiêu đề, legend, nhãn trục và lưới.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1564,9 +1649,9 @@ ComboChartExample::CreateComboChart();
 
 ## **Cập nhật biểu đồ**
 
-Aspose.Slides cho C++ cho phép bạn cập nhật biểu đồ PowerPoint bằng cách sửa đổi dữ liệu, định dạng và kiểu dáng của biểu đồ. Tính năng này đơn giản hoá quá trình giữ cho bản trình bày luôn cập nhật với nội dung động và đảm bảo biểu đồ phản ánh chính xác dữ liệu hiện tại và tiêu chuẩn hình ảnh.
+Aspose.Slides cho C++ cho phép bạn cập nhật các biểu đồ PowerPoint bằng cách sửa đổi dữ liệu biểu đồ, định dạng và kiểu dáng. Tính năng này đơn giản hoá quá trình giữ cho bản trình bày luôn cập nhật với nội dung động và đảm bảo biểu đồ phản ánh chính xác dữ liệu hiện tại và tiêu chuẩn hình ảnh.
 
-Ví dụ này cập nhật biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có. Nó yêu cầu hai series cột với ba điểm dữ liệu mỗi series, với nhãn danh mục trong cột A và tên series trong hàng đầu tiên của worksheet đầu tiên. Ví dụ sử dụng [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) để thay đổi các ô workbook, cập nhật giá trị series, thêm series thứ ba, và thay đổi loại biểu đồ thành clustered cylinders thông qua [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
+Ví dụ này cập nhật biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có. Nó yêu cầu hai series cột với ba điểm dữ liệu mỗi series, với nhãn danh mục trong cột A và tên series trong hàng đầu tiên của sheet đầu tiên. Ví dụ sử dụng [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) để thay đổi các ô workbook, cập nhật giá trị series, thêm một series thứ ba, và thay đổi loại biểu đồ thành clustered cylinders thông qua [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1649,11 +1734,11 @@ presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 
 ## **Đặt phạm vi dữ liệu cho biểu đồ**
 
-Để kiểm tra phạm vi đã được biểu đồ hiện có sử dụng, xem [Lấy phạm vi dữ liệu của biểu đồ](/slides/vi/cpp/chart-workbook/#retrieve-a-charts-data-range).
+Để kiểm tra phạm vi đã được biểu đồ hiện có sử dụng, xem [Retrieve a Chart's Data Range](/slides/vi/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides cho C++ cung cấp sự linh hoạt để định nghĩa một phạm vi dữ liệu cụ thể từ worksheet làm nguồn cho dữ liệu biểu đồ của bạn. Điều này có nghĩa là bạn có thể ánh xạ trực tiếp một phần của worksheet tới biểu đồ, cho phép kiểm soát các ô nào sẽ đóng góp vào series và danh mục của biểu đồ. Kết quả, bạn có thể dễ dàng cập nhật và đồng bộ biểu đồ với các thay đổi dữ liệu mới nhất trong worksheet, đảm bảo bản trình bày PowerPoint của bạn phản ánh thông tin hiện tại và chính xác.
+Aspose.Slides cho C++ cung cấp khả năng linh hoạt để định nghĩa một phạm vi dữ liệu cụ thể từ một worksheet làm nguồn cho dữ liệu biểu đồ của bạn. Điều này có nghĩa là bạn có thể ánh xạ trực tiếp một phần của worksheet tới biểu đồ, cho phép kiểm soát các ô nào góp phần vào series và danh mục của biểu đồ. Nhờ đó, bạn có thể dễ dàng cập nhật và đồng bộ hoá biểu đồ với các thay đổi dữ liệu mới nhất trong worksheet, đảm bảo các bản trình bày PowerPoint của bạn phản ánh thông tin hiện tại và chính xác.
 
-Ví dụ này sử dụng [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) để đặt nguồn dữ liệu của biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có thành `Sheet1!A1:B4`. Workbook của biểu đồ phải chứa worksheet đó và một phạm vi đã được điền với tiêu đề series ở hàng đầu, nhãn danh mục ở cột A và ba giá trị ở cột B.
+Ví dụ này sử dụng [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) để đặt nguồn dữ liệu của biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có thành `Sheet1!A1:B4`. Workbook biểu đồ phải chứa worksheet đó và một phạm vi đã được điền với tiêu đề series ở hàng đầu tiên, nhãn danh mục ở cột A và ba giá trị ở cột B.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1695,11 +1780,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **Sử dụng các dấu đánh dấu mặc định trong biểu đồ**
+## **Sử dụng các ký hiệu mặc định trong biểu đồ**
 
-Khi bạn sử dụng các dấu đánh dấu mặc định trong biểu đồ, mỗi series biểu đồ sẽ nhận được một ký hiệu dấu đánh dấu mặc định khác nhau một cách tự động.
+Khi bạn sử dụng các ký hiệu mặc định trong biểu đồ, mỗi series biểu đồ sẽ tự động nhận một ký hiệu mặc định khác nhau.
 
-Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ với hai series đường và một legend. Cài đặt [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) giữ nguyên các ký hiệu dấu đánh dấu được gán tự động. Series đầu tiên bao gồm một giá trị âm và một giá trị thiếu, biểu diễn bằng `nullptr`, trong khi series thứ hai có giá trị cho mỗi danh mục.
+Ví dụ này sử dụng [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) để tạo một biểu đồ với hai series đường và một legend. Cài đặt [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) giữ lại các ký hiệu được gán tự động. Series đầu tiên bao gồm một giá trị âm và một giá trị thiếu, được biểu diễn bằng `nullptr`, trong khi series thứ hai có giá trị cho mọi danh mục.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1789,16 +1874,16 @@ presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 **Aspose.Slides cho C++ hỗ trợ những loại biểu đồ nào?**
 
-Aspose.Slides cho C++ hỗ trợ một loạt các loại biểu đồ, bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều loại khác. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
+Aspose.Slides cho C++ hỗ trợ đa dạng các loại biểu đồ, bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều loại khác. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
 
 **Làm thế nào để thêm một biểu đồ mới vào slide?**
 
-Để thêm một biểu đồ, đầu tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), truy xuất slide mong muốn bằng chỉ mục của nó, rồi gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quy trình này tích hợp biểu đồ trực tiếp vào bản trình bày của bạn.
+Để thêm biểu đồ, trước tiên tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), lấy slide mong muốn bằng chỉ mục, sau đó gọi phương thức thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quy trình này tích hợp biểu đồ trực tiếp vào bản trình bày của bạn.
 
-**Làm sao tôi có thể cập nhật dữ liệu hiển thị trong một biểu đồ?**
+**Làm sao để cập nhật dữ liệu hiển thị trong biểu đồ?**
 
-Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), xóa bất kỳ series và danh mục mặc định nào, sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ một cách lập trình để phản ánh dữ liệu mới nhất.
+Bạn có thể cập nhật dữ liệu biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), xoá bất kỳ series và danh mục mặc định nào, và sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn lập trình làm mới biểu đồ để phản ánh dữ liệu mới nhất.
 
 **Có thể tùy chỉnh giao diện của biểu đồ không?**
 
-Có, Aspose.Slides cho C++ cung cấp các tùy chọn tùy chỉnh rộng rãi. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, legend và các yếu tố định dạng khác để điều chỉnh giao diện biểu đồ sao cho phù hợp với yêu cầu thiết kế cụ thể của bạn.
+Có, Aspose.Slides cho C++ cung cấp nhiều tùy chọn tùy chỉnh. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, legend và các yếu tố định dạng khác để điều chỉnh giao diện biểu đồ sao cho phù hợp với yêu cầu thiết kế cụ thể của mình.

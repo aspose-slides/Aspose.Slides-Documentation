@@ -1,6 +1,6 @@
 ---
-title: Создание или обновление диаграмм PowerPoint в Java
-linktitle: Создание или обновление диаграмм
+title: Создание или обновление диаграмм презентаций PowerPoint в Java
+linktitle: Создать или обновить диаграммы
 type: docs
 weight: 10
 url: /ru/java/create-chart/
@@ -13,11 +13,11 @@ keywords:
 - точечная диаграмма
 - круговая диаграмма
 - линейная диаграмма
-- деревовидная диаграмма
-- биржевая диаграмма
-- диаграмма ящик с усами
+- диаграмма древовидной карты
+- фондовая диаграмма
+- ящичная диаграмма с усами
 - воронкообразная диаграмма
-- солнцевидная диаграмма
+- лучевая диаграмма
 - гистограмма
 - радиальная диаграмма
 - многокатегориальная диаграмма
@@ -29,31 +29,31 @@ description: "Создавайте и настраивайте диаграмм�
 ---
 ## **Обзор**
 
-Эта статья предоставляет всестороннее руководство по созданию и настройке диаграмм с помощью Aspose.Slides for Java. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, чтобы соответствовать вашим конкретным требованиям дизайна. На протяжении всей статьи детальные примеры кода иллюстрируют каждый шаг, от инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите прочное понимание того, как интегрировать динамическое построение диаграмм в ваши Java‑приложения, оптимизируя процесс создания презентаций, основанных на данных.
+В этой статье представлено полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides for Java. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, соответствующие вашим требованиям к дизайну. В статье приведены подробные примеры кода, иллюстрирующие каждый шаг — от инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите твердое понимание того, как интегрировать динамическое построение диаграмм в свои Java‑приложения, оптимизируя процесс создания презентаций, основанных на данных.
 
 ## **Создание диаграммы**
 
-Диаграммы помогают быстро визуализировать данные и получать инсайты, которые могут быть неочевидны из таблицы или электронной таблицы.
+Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые могут быть неочевидны из таблицы или электронных таблиц.
 
 **Зачем создавать диаграммы?**
 
-Используя диаграммы, вы можете:
+С помощью диаграмм вы можете:
 
 * агрегировать, сжимать или суммировать большие объёмы данных на одном слайде презентации;
-* выявлять шаблоны и тенденции в данных;
+* выявлять закономерности и тренды в данных;
 * определять направление и динамику данных во времени или относительно конкретной единицы измерения;
 * обнаруживать выбросы, аномалии, отклонения, ошибки и бессмысленные данные;
-* эффективно представлять сложные данные.
+* эффективно передавать сложные данные.
 
-В PowerPoint вы можете создавать диаграммы через *Вставка* функцию, которая предоставляет шаблоны для разработки множества типов диаграмм. С помощью Aspose.Slides вы можете создавать как обычные диаграммы (на основе популярных типов) так и пользовательские диаграммы.
+В PowerPoint вы можете создавать диаграммы через функцию *Insert*, которая предоставляет шаблоны для разработки множества типов диаграмм. С помощью Aspose.Slides вы можете создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) enumeration in the [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) package. The values in this enumeration correspond to different chart types.
+Используйте перечисление [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) из пакета [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/). Значения этого перечисления соответствуют разным типам диаграмм.
 {{% /alert %}}
 
 ### **Создание сгруппированных столбчатых диаграмм**
 
-Этот пример использует [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) для создания сгруппированной столбчатой диаграммы, сравнивающей два ряда по трём категориям. Ряды используют красные и зелёные заливки, а отдельные подписи демонстрируют названия категорий, названия рядов и значения. Индекс листа 0 относится к первому листу во вложенной книге диаграммы.
+В этом примере используется метод [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) для создания сгруппированной столбчатой диаграммы, сравнивающей два ряда по трем категориям. Ряды используют красные и зелёные заливки, а отдельные подписи отображают имена категорий, имена рядов и значения. Индекс листа 0 относится к первому листу в встроенной книге диаграммы.
 
 ```java
 import com.aspose.slides.*;
@@ -134,20 +134,20 @@ finally
 
 Результат:
 
-![Сгруппированная столбчатая диаграмма](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **Создание точечных диаграмм**
 
-Точечные диаграммы (также известные как scatter plots или x‑y graphs) часто используются для проверки шаблонов или демонстрации корреляций между двумя переменными.
+Точечные диаграммы (также известные как scatter plots или x‑y графики) часто используют для проверки паттернов или демонстрации корреляций между двумя переменными.
 
 Используйте точечную диаграмму, когда:
 
 * У вас есть парные числовые данные.
-* Две переменные хорошо согласуются между собой.
+* Есть две переменные, которые логично сопоставляются.
 * Вы хотите определить, связаны ли две переменные.
 * Есть независимая переменная, имеющая несколько значений для зависимой переменной.
 
-Этот пример отображает два набора значений x‑y. Первый ряд использует прямые линии со звёздочными маркерами, а второй — плавные линии с круглыми маркерами; оба используют размер маркера 10, задаваемый через [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-). Метод [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) управляет формой маркера.
+В этом примере построены два набора значений x‑y. Первый ряд использует прямые линии со звёздчатыми маркерами, второй — плавные линии с круглыми маркерами; оба используют размер маркера 10, задаваемый методом [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-). Метод [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) управляет формой маркера.
 
 ```java
 import com.aspose.slides.*;
@@ -215,13 +215,13 @@ finally
 
 Результат:
 
-![Точечная диаграмма](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Создание круговых диаграмм**
 
-Круговые диаграммы лучше всего использовать для отображения соотношения часть‑к‑целому в данных, особенно когда данные содержат категориальные подписи с числовыми значениями. Однако если в ваших данных много частей или подписи, стоит рассмотреть использование столбчатой диаграммы.
+Круговые диаграммы лучше всего использовать для отображения отношения части к целому, особенно когда данные содержат категориальные метки с числовыми значениями. Однако, если у вас много частей или меток, стоит рассмотреть столбчатую диаграмму.
 
-Этот пример создаёт круговую диаграмму с тремя квартальными значениями. Каждый сектор имеет индивидуальную заливку и границу, а подписи показывают разные комбинации значений, процентов и информации о ряде. Метод [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) задаёт начальный угол первого сектора в 180 градусов.
+В этом примере создаётся круговая диаграмма с тремя квартальными значениями. Каждый сектор имеет индивидуальную заливку и границу, а подписи отображают разные комбинации значений, процентов и информации о ряде. Метод [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) задаёт начальный угол первого сектора 180°.
 
 ```java
 import com.aspose.slides.*;
@@ -287,7 +287,7 @@ try
     secondSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot);
 
     IChartDataPoint thirdSlice = series.getDataPoints().get_Item(2);
-    thirdSlice.getFormat().setFill().setFillType(FillType.Solid);
+    thirdSlice.getFormat().getFill().setFillType(FillType.Solid);
     thirdSlice.getFormat().getFill().getSolidFillColor().setColor(new Color(255, 127, 80));
 
     thirdSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
@@ -322,13 +322,13 @@ finally
 
 Результат:
 
-![Круговая диаграмма](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
 ### **Создание линейных диаграмм**
 
-Линейные диаграммы (также известные как line graphs) лучше всего использовать в ситуациях, когда необходимо продемонстрировать изменения значения во времени. С их помощью можно сравнивать большие объёмы данных одновременно, отслеживать изменения и тенденции, выделять аномалии в ряде и многое другое.
+Линейные диаграммы (также известные как line graphs) лучше всего подходят для демонстрации изменения значений во времени. С их помощью можно одновременно сравнивать большие объёмы данных, отслеживать изменения и тренды, выделять аномалии в рядах и т.д.
 
-Этот пример использует [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) для создания линейной диаграммы с рядом и категориями по умолчанию, затем сохраняет презентацию в формате PPTX.
+В этом примере метод [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) используется для создания линейной диаграммы с рядами и категориями по умолчанию, после чего презентация сохраняется в формате PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -348,7 +348,7 @@ finally
 }
 ```
 
-По умолчанию точки на линейной диаграмме соединяются прямыми непрерывными линиями. Если хотите, чтобы точки соединялись пунктиром, вызовите [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) с значением из [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/):
+По умолчанию точки на линейной диаграмме соединяются прямыми непрерывными линиями. Если следует соединять их пунктиром, вызовите [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) с одним из значений [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -373,13 +373,13 @@ finally
 
 Результат:
 
-![Линейная диаграмма](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Создание диаграмм Tree Map**
+### **Создание диаграмм «Древовидная карта»**
 
-Деревовидные диаграммы лучше всего использовать для данных о продажах, когда нужно показать относительный размер категорий и быстро обратить внимание на крупные вклады в каждой категории.
+Диаграммы «Древовидная карта» лучше всего подходят для отображения данных о продажах, когда необходимо показать относительный размер категорий и быстро обратить внимание на категории, вносящие наибольший вклад.
 
-Этот пример создаёт Tree Map с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) назначает стволы на уровне группировки 1 и ветви на уровне 2. Значения определяют относительные размеры прямоугольников, а метки категорий и перекрывающиеся метки родителей показывают иерархию.
+В этом примере создаётся древовидная карта с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) назначает стволы на уровне группировки 1 и ветви на уровне 2. Значения определяют относительные размеры прямоугольников, а подписи категорий и перекрывающие родительские подписи отображают иерархию.
 
 ```java
 import com.aspose.slides.*;
@@ -397,7 +397,7 @@ try
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // Ветвь 1
+    // Ветка 1
     IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
     IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
@@ -413,7 +413,7 @@ try
     categoryCell = workbook.getCell(0, "C4", "Leaf4");
     chart.getChartData().getCategories().add(categoryCell);
 
-    // Ветвь 2
+    // Ветка 2
     categoryCell = workbook.getCell(0, "C5", "Leaf5");
     leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
@@ -460,13 +460,13 @@ finally
 
 Результат:
 
-![Диаграмма Tree Map](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Создание водопадных диаграмм**
+### **Создание каскадных (водопадных) диаграмм**
 
-Водопадная диаграмма показывает, как положительные и отрицательные изменения вносят вклад в конечное значение. Например, разбивка прибыли может начинаться с выручки, затем вычитать затраты и добавлять прочие доходы. Столбцы изменений плавают между предыдущим и новым накопленными значениями, а итоговые столбцы идут от нуля до накопленного значения.
+Водопадная диаграмма показывает, как положительные и отрицательные изменения влияют на конечное значение. Например, разбивка прибыли может начинаться с выручки, из которой вычитаются затраты, а затем добавляются прочие доходы. Столбцы изменений «плавают» между предыдущим и новым текущим значением, тогда как итоговые столбцы простираются от нуля до накопленного значения.
 
-Следующая таблица использует суммы в тысячах долларов США:
+В следующем примере использованы суммы в тысячах долларов США:
 
 | Категория | Значение в книге | Тип столбца |
 | --- | ---: | --- |
@@ -475,11 +475,11 @@ finally
 | Валовая прибыль | 600 | Промежуточный итог |
 | Операционные расходы | -200 | Уменьшение |
 | Прочий доход | 50 | Увеличение |
-| Чистая прибыль | 450 | Итоговый итог |
+| Чистая прибыль | 450 | Финальный итог |
 
-Чтобы пометить точку как промежуточный или конечный итог, вызовите её метод [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) со значением `true`. Укажите фактическую накопленную сумму в ячейке книги: `600` для валовой прибыли (`1000 - 400`) и `450` для чистой прибыли (`600 - 200 + 50`). Метод помечает столбец как итоговый; он не рассчитывает и не заполняет значение ячейки. Не используйте ноль как заполнитель и не задавайте другое изменение для итоговой точки. Итоговый столбец отображает накопленное значение без повторного прибавления к текущему.
+Чтобы пометить точку как промежуточный или финальный итог, вызовите её метод [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) с параметром `true`. Укажите фактическое накопленное значение в ячейке книги этой точки: `600` для валовой прибыли (`1000 - 400`) и `450` для чистой прибыли (`600 - 200 + 50`). Метод помечает столбец как итоговый; он не рассчитывает и не заполняет значение ячейки. Не используйте ноль как заполнитель и не задавайте другое изменение для итоговой точки. Итоговый столбец отображает накопленное значение без двойного добавления к текущему.
 
-Этот полный пример на Java создаёт диаграмму, используя член `Waterfall` перечисления [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), очищает данные по умолчанию и заполняет вложенную книгу. Индекс листа `0` выбирает первый лист; столбец A содержит названия категорий, столбец B — значения. Каждая ячейка значения добавляется через [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Нулевые индексы точек `2` и `5` определяют промежуточные и конечные итоги. Вызов [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) со значением `true` отображает суммы на столбцах. Входная презентация или книга не требуются.
+Этот полный Java‑пример создаёт диаграмму, используя член `Waterfall` перечисления [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), очищает данные по умолчанию и заполняет встроенную книгу. Индекс листа `0` выбирает первый лист; столбец A содержит названия категорий, столбец B — значения. Каждая ячейка со значением добавляется методом [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Нулевые индексы точек `2` и `5` указывают на промежуточный и финальный итоги. Вызов [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) с `true` отображает суммы на столбцах. Вводной презентации или книги не требуется.
 
 ```java
 import com.aspose.slides.*;
@@ -517,7 +517,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // Третий и шестой пункты представляют итоги, а не дополнительные изменения.
+    // Третья и шестая точки представляют итоги, а не дополнительные изменения.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -531,15 +531,17 @@ finally
 }
 ```
 
-Вызов метода уровня ряда [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) со значением `true` покажет линии, соединяющие последовательные столбцы, и упростит отслеживание текущего значения. Чтобы скрыть эти линии, замените вызов метода в примере на `series.setShowConnectorLines(false);` перед сохранением. Это изменит только видимость линий, а не данные или итоги.
+Вызов метода уровня ряда [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) с `true` покажет линии, соединяющие последовательные столбцы, облегчая отслеживание текущего значения. Чтобы скрыть эти линии, замените вызов в примере на `series.setShowConnectorLines(false);` перед сохранением. Это изменит только видимость линий, а не данные или итоги.
 
-![Водопадная диаграмма, показывающая выручку, затраты, валовую прибыль 600 и чистую прибыль 450, с метками значений и линиями соединения](waterfall_chart.png)
+Сохранённая презентация показывает валовую прибыль 600 и чистую прибыль 450, оба итога начитываются от нуля:
 
-### **Создание биржевых диаграмм**
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-Биржевые диаграммы используются для отображения финансовых данных, таких как цены открытия, максимумы, минимумы и закрытия, помогая анализировать рыночные тенденции и волатильность. Они предоставляют важные инсайты о динамике акций, способствуя принятию информированных решений инвесторами и аналитиками.
+### **Создание фондовых (stock) диаграмм**
 
-Этот пример создаёт диаграмму open‑high‑low‑close с четырьмя рядами в указанном порядке и тремя категориями. Метод [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) включает бары вверх/вниз, а [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) контролирует линии high‑low, отображающие диапазон цен, в то время как линии отдельных рядов и мелкие горизонтальные сетки скрыты.
+Фондовые диаграммы используются для отображения финансовых данных, таких как цены открытия, максимумы, минимумы и закрытия, помогая анализировать рыночные тенденции и волатильность. Они предоставляют важную информацию о динамике акций, помогая инвесторам и аналитикам принимать обоснованные решения.
+
+В этом примере создаётся диаграмма Open‑High‑Low‑Close с четырьмя рядами в указанном порядке и тремя категориями. Метод [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) включает бары роста/падения, а [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) управляет линиями High‑Low, показывающими диапазоны цен; линии отдельных рядов и мелкие горизонтальные сетки скрыты.
 
 ```java
 import com.aspose.slides.*;
@@ -621,13 +623,13 @@ finally
 
 Результат:
 
-![Биржевая диаграмма](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Создание диаграмм «Ящик с усами»**
+### **Создание диаграмм «Box and Whisker»**
 
-Диаграммы «ящик с усами» используются для отображения распределения данных, суммируя ключевые статистические показатели, такие как медиана, квартали и потенциальные выбросы. Они особенно полезны в исследовательском анализе и статистических исследованиях для быстрого понимания изменчивости данных и выявления аномалий.
+Диаграммы «Box and Whisker» используются для отображения распределения данных, суммируя ключевые статистические показатели, такие как медиана, квартилы и потенциальные выбросы. Они особенно полезны в исследовательском анализе и статистических исследованиях для быстрого понимания вариативности данных и выявления аномалий.
 
-Этот пример создаёт диаграмму «ящик с усами» из шести значений. Метод [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) выбирает эксклюзивный метод расчёта квартилей. Пример также включает средние линии, маркеры среднего, внутренние точки и точки‑выбросы.
+В этом примере создаётся диаграмма «Box and Whisker» из шести значений. Метод [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) выбирает эксклюзивный метод расчёта квартилей. Пример также включает линии среднего, маркеры среднего, внутренние точки и точки‑выбросы.
 
 ```java
 import com.aspose.slides.*;
@@ -689,9 +691,9 @@ finally
 
 ### **Создание воронкообразных диаграмм**
 
-Воронкообразные диаграммы используются для визуализации процессов, включающих последовательные стадии, где объём данных уменьшается при переходе от одного шага к другому. Они особенно полезны для анализа коэффициентов конверсии, выявления узких мест и отслеживания эффективности процессов продаж или маркетинга.
+Воронкообразные диаграммы используются для визуализации процессов, состоящих из последовательных этапов, где объём данных уменьшается с переходом от одного шага к следующему. Они особенно полезны для анализа коэффициентов конверсии, выявления узких мест и отслеживания эффективности продаж или маркетинговых процессов.
 
-Этот пример использует [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) для добавления воронкообразной диаграммы на первый слайд существующей презентации. Он заменяет данные по умолчанию на шесть категорий и значений от 50 до 500, затем сохраняет обновлённую презентацию. Входная презентация должна содержать как минимум один слайд.
+В этом примере метод [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) добавляет воронкообразную диаграмму на первый слайд существующей презентации. Он заменяет данные по умолчанию на шесть категорий со значениями от 50 до 500, после чего сохраняет обновлённую презентацию. Входная презентация должна содержать минимум один слайд.
 
 ```java
 import com.aspose.slides.*;
@@ -747,13 +749,13 @@ finally
 
 Результат:
 
-![Воронкообразная диаграмма](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Создание Sunburst диаграмм**
+### **Создание лучевых (sunburst) диаграмм**
 
-Sunburst диаграммы используются для визуализации иерархических данных, отображая уровни в виде концентрических колец. Они помогают иллюстрировать отношения часть‑к‑целому и идеальны для представления вложенных категорий и подкатегорий в компактном виде.
+Лучевые диаграммы используются для визуализации иерархических данных, отображая уровни в виде концентрических колец. Они помогают проиллюстрировать отношения часть‑к‑целому и идеальны для представления вложенных категорий и подкатегорий в компактном виде.
 
-Этот пример создаёт Sunburst диаграмму с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) назначает стволы на уровне группировки 1 и ветви на уровне 2. Метки категорий определяют сегменты, а значения задают их относительные размеры.
+В этом примере создаётся лучевая диаграмма с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) назначает стволы на уровне 1 и ветви на уровне 2. Подписи категорий определяют сегменты, а значения задают их относительные размеры.
 
 ```java
 import com.aspose.slides.*;
@@ -771,7 +773,7 @@ try
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // Ветвь 1
+    // Ветка 1
     IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
     IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
@@ -787,7 +789,7 @@ try
     categoryCell = workbook.getCell(0, "C4", "Leaf4");
     chart.getChartData().getCategories().add(categoryCell);
 
-    // Ветвь 2
+    // Ветка 2
     categoryCell = workbook.getCell(0, "C5", "Leaf5");
     leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
@@ -832,13 +834,17 @@ finally
 
 Результат:
 
-![Sunburst диаграмма](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Создание гистограмм**
 
-Гистограммы используются для представления распределения числовых данных путём группировки значений в диапазоны (bins). Они особенно полезны для выявления шаблонов данных, таких как частота, асимметрия и разброс, а также для обнаружения выбросов в наборе данных.
+Гистограммы показывают, как числовые значения распределены по интервалам (бин). Для ежемесячных отчётов о времени обработки заказов используйте одинаковую ширину бинов и пороги, чтобы интервалы были согласованны и распределения легко сравнивались.
 
-Этот пример создаёт гистограмму из шести числовых значений, включая отрицательные. Вызов [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) с автоматическим типом агрегации позволяет диаграмме определить используемые диапазоны для отображения распределения.
+Вызовите [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) на горизонтальной оси, указав режим из [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) применяется только к `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) — только к `ByNumberOfBins`. Используйте `Automatic`, чтобы позволить диаграмме самостоятельно выбирать бины.
+
+#### **Использовать фиксированную ширину бина**
+
+В этом примере время обработки группируется в интервалы по 10 минут, с отдельными бинами для значений ≤ 10 минут и > 40 минут. Включите эти бины с помощью [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) и [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-). При задавании конкретных порогов через [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) и [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-), вызовите [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) и [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) с параметром `false`.
 
 ```java
 import com.aspose.slides.*;
@@ -848,7 +854,10 @@ try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300);
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -857,22 +866,24 @@ try
     workbook.clear(0);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
-    IChartDataCell valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 }
 finally
 {
@@ -880,15 +891,62 @@ finally
 }
 ```
 
-Результат:
+Презентация в PowerPoint показывает количество элементов в бинах **3, 4, 4, 4 и 2**. Бин недополнения (underflow) включает `5, 10, 10`, поэтому его порог включающий. Бин переполнения (overflow) включает только `41, 50`, поэтому его порог исключающий; значения, равные `40`, остаются в предыдущем интервале. Внутренние бины содержат значения больше нижней границы и меньше либо равные верхней границе.
 
-![Гистограмма](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-### **Создание радиальных диаграмм**
+#### **Указать количество бинов**
 
-Радиальные (радарные) диаграммы используются для отображения многовариантных данных в двумерном формате, позволяя легко сравнивать несколько переменных одновременно. Они особенно полезны для выявления шаблонов, сильных и слабых сторон по множеству метрик производительности или атрибутов.
+Для фиксированного уровня детализации вместо фиксированных интервалов запросите пять бинов для тех же данных. В этом примере бины недополнения и переполнения отключены. Диаграмма определяет ширину из диапазона данных, поэтому границы могут меняться между отчётами.
 
-Этот пример использует [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) для создания радиальной диаграммы с рядами и категориями по умолчанию, затем сохраняет презентацию в формате PPTX.
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
+    double[] values = { 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 };
+    for (int i = 0; i < values.length; i++)
+    {
+        IChartDataCell valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Пять бинов имеют количества **4, 4, 4, 4 и 1**. Сравните это распределение с результатом фиксированной ширины выше: входные значения одинаковы, но границы различаются.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+
+### **Создание радиальных (radar) диаграмм**
+
+Радиальные диаграммы используются для отображения многомерных данных в двумерном виде, позволяя легко сравнивать несколько переменных одновременно. Они особенно полезны для выявления паттернов, сильных и слабых сторон по нескольким метрикам производительности или атрибутам.
+
+В этом примере метод [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) создаёт радиальную диаграмму с рядами и категориями по умолчанию, после чего презентация сохраняется в формате PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -910,13 +968,13 @@ finally
 
 Результат:
 
-![Радарная диаграмма](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
 ### **Создание многокатегориальных диаграмм**
 
-Многокатегориальные диаграммы используются для отображения данных, включающих более одной группировки категорий, позволяя сравнивать значения по нескольким измерениям одновременно. Они особенно полезны при анализе тенденций и взаимосвязей в сложных, многослойных наборах данных.
+Многокатегориальные диаграммы используются для отображения данных, содержащих более одной категориальной группировки, позволяя сравнивать значения по нескольким измерениям одновременно. Они особенно полезны при анализе трендов и взаимосвязей в сложных, многослойных наборах данных.
 
-Этот пример создаёт сгруппированную столбчатую диаграмму с восемью категориями, расположенными в четырёх парах. Метод [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) задаёт каждой паре общий ярлык на уровне группировки 1, создавая ось категорий с отдельными и групповыми метками.
+В этом примере создаётся сгруппированная столбчатая диаграмма с восемью категориями, расположенными в четырёх парах. Метод [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) задаёт каждой паре общий ярлык на уровне группировки 1, образуя ось категорий с отдельными и групповыми подписями.
 
 ```java
 import com.aspose.slides.*;
@@ -990,13 +1048,13 @@ finally
 
 Результат:
 
-![Многокатегориальная диаграмма](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **Создание картографических диаграмм**
 
-Картографические диаграммы используются для визуализации географических данных, сопоставляя информацию с конкретными местоположениями, такими как страны, штаты или города. Они особенно полезны для анализа региональных тенденций, демографических данных и пространственного распределения в ясном и визуально привлекательном виде.
+Картографические диаграммы используются для визуализации географических данных, сопоставляя информацию с конкретными локациями, такими как страны, штаты или города. Они особенно полезны для анализа региональных трендов, демографических данных и пространственного распределения в наглядном и привлекательном виде.
 
-Этот пример использует [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) для создания картографической диаграммы с данными по умолчанию и сохраняет её для просмотра в PowerPoint.
+В этом примере метод [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) создаёт картографическую диаграмму с геоданными по умолчанию и сохраняет её для просмотра в PowerPoint.
 
 ```java
 import com.aspose.slides.*;
@@ -1018,19 +1076,19 @@ finally
 
 Результат:
 
-![Картографическая диаграмма](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Изображение выше показывает сохранённую презентацию, открытая в PowerPoint. Aspose.Slides корректно записывает картографическую диаграмму и её данные, но самостоятельно не рисует такие диаграммы: когда слайд, содержащий её, рендерится в изображение или конвертируется в PDF или SVG, область диаграммы остаётся пустой. Другие фигуры на том же слайде остаются без изменений.
+Изображение выше показывает сохранённую презентацию, открывшуюся в PowerPoint. Aspose.Slides корректно записывает картографическую диаграмму и её данные, но сама не рисует такие диаграммы: при рендеринге слайда в изображение или конвертации в PDF или SVG область диаграммы будет пустой. Другие фигуры на том же слайде остаются без изменений.
 {{% /alert %}}
 
 ### **Создание комбинированных диаграмм**
 
-Комбинированная (combo) диаграмма объединяет два или более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между несколькими наборами данных, помогая выявлять взаимосвязи между ними.
+Комбинированная диаграмма (или combo chart) объединяет два и более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между несколькими наборами данных, помогая выявлять взаимосвязи между ними.
 
-![Комбинированная диаграмма](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Этот пример комбинирует два сгруппированных столбца с линейным рядом по четырём категориям. Столбцы используют основную вертикальную ось, а [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) размещает линию на вторичной вертикальной оси справа. Вспомогательные функции настраивают заголовок, легенду, подписи осей и сетку.
+В этом примере комбинируются два ряда сгруппированных столбцов с линейным рядом по четырём категориям. Столбцы используют основную вертикальную ось, а [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) помещает линию на вторичную вертикальную ось справа. Вспомогательные функции настраивают заголовок, легенду, подписи осей и сетку.
 
 ```java
 import com.aspose.slides.*;
@@ -1201,9 +1259,9 @@ example.createComboChart();
 
 ## **Обновление диаграмм**
 
-Aspose.Slides for Java позволяет обновлять диаграммы PowerPoint, меняя данные диаграммы, её форматирование и стиль. Эта возможность упрощает процесс поддержания презентаций в актуальном состоянии с динамичным содержимым и гарантирует, что диаграммы точно отражают текущие данные и визуальные стандарты.
+Aspose.Slides for Java позволяет обновлять диаграммы PowerPoint, изменяя данные, форматирование и стиль. Эта возможность упрощает поддержание презентаций в актуальном состоянии с динамичным содержимым и гарантирует, что диаграммы точно отражают текущие данные и визуальные стандарты.
 
-Этот пример обновляет диаграмму с именем "My chart" на первом слайде существующей презентации. Требуются два ряда с тремя точками данных каждый, при этом метки категорий находятся в столбце A, а имена рядов — в первой строке первого листа. Пример использует [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) для изменения ячеек книги, обновляет значения рядов, добавляет третий ряд и меняет тип диаграммы на сгруппированные цилиндры через [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-).
+В этом примере обновляется диаграмма с именем «My chart» на первом слайде существующей презентации. Требуются два ряда столбцов по три точки данных каждый, с подписями категорий в столбце A и именами рядов в первой строке первого листа. Пример использует [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) для изменения ячеек книги, обновляет значения рядов, добавляет третий ряд и меняет тип диаграммы на сгруппированные цилиндры через [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1263,13 +1321,13 @@ finally
 }
 ```
 
-## **Задание диапазона данных для диаграммы**
+## **Установка диапазона данных для диаграммы**
 
-Чтобы изучить диапазон, уже используемый существующей диаграммой, см. [Получить диапазон данных диаграммы](/slides/ru/java/chart-workbook/#retrieve-a-charts-data-range).
+Чтобы узнать диапазон, уже используемый существующей диаграммой, см. [Retrieve a Chart's Data Range](/slides/ru/java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Java предоставляет гибкость определения конкретного диапазона данных из листа в качестве источника для данных вашей диаграммы. Это означает, что вы можете напрямую сопоставлять часть листа с диаграммой, контролируя, какие ячейки участвуют в рядах и категориях. В результате вы легко обновляете и синхронизируете диаграммы с последними изменениями данных в листе, обеспечивая актуальность и точность информации в ваших презентациях PowerPoint.
+Aspose.Slides for Java предоставляет возможность задать конкретный диапазон данных из листа в качестве источника данных вашей диаграммы. Это означает, что вы можете напрямую сопоставить часть листа с диаграммой, контролируя, какие ячейки участвуют в рядах и категориях. В результате вы легко обновляете и синхронизируете диаграммы с последними изменениями данных в листе, обеспечивая актуальность и точность презентаций.
 
-Этот пример использует [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) для установки источника данных диаграммы с именем "My chart" на первом слайде существующей презентации в `Sheet1!A1:B4`. Книга диаграммы должна содержать указанный лист и заполненный диапазон с заголовком ряда в первой строке, метками категорий в столбце A и тремя значениями в столбце B.
+В этом примере метод [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) задаёт источник данных диаграммы с именем «My chart» на первом слайде существующей презентации как `Sheet1!A1:B4`. Книга диаграммы должна содержать указанный лист и заполненный диапазон с заголовком ряда в первой строке, метками категорий в столбце A и тремя значениями в столбце B.
 
 ```java
 import com.aspose.slides.*;
@@ -1298,11 +1356,11 @@ finally
 }
 ```
 
-## **Использование маркеров по умолчанию в диаграммах**
+## **Использование стандартных маркеров в диаграммах**
 
-При использовании маркеров по умолчанию в диаграммах каждый ряд получает автоматически различный маркер.
+При использовании стандартных маркеров в диаграммах каждый ряд получает автоматически различный маркер.
 
-Этот пример использует [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) для создания диаграммы с двумя линейными рядами и легендой. Настройки маркеров, полученные через [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--), сохраняют автоматически присвоенные формы маркеров. Первый ряд содержит отрицательное значение и пропущенное значение, представленное `null`, в то время как второй ряд имеет значение для каждой категории.
+В этом примере метод [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) создаёт диаграмму с двумя линейными рядами и легендой. Настройки маркеров, получаемые через [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--), сохраняют автоматически назначенные символы. Первый ряд содержит отрицательное значение и пропущенное значение, представленное `null`, второй ряд имеет значение для каждой категории.
 
 ```java
 import com.aspose.slides.*;
@@ -1365,20 +1423,20 @@ finally
 }
 ```
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
 **Какие типы диаграмм поддерживает Aspose.Slides for Java?**
 
-Aspose.Slides for Java поддерживает широкий спектр типов диаграмм, включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип диаграммы для ваших потребностей в визуализации данных.
+Aspose.Slides for Java поддерживает широкий спектр типов диаграмм, включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбирать наиболее подходящий тип диаграммы для ваших задач по визуализации данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), получите нужный слайд по его индексу, а затем вызовите метод для добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
+Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), получите нужный слайд по индексу и затем вызовите метод для добавления диаграммы, задав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
 
 **Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив доступ к её книге данных ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), очистив любые ряды и категории по умолчанию, а затем добавив свои пользовательские данные. Это позволяет программно обновить диаграмму, отражая последние данные.
+Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), очистив любые ряды и категории по умолчанию и затем добавив свои пользовательские данные. Это позволяет программно обновлять диаграмму, отражая актуальные данные.
 
 **Можно ли настроить внешний вид диаграммы?**
 
-Да, Aspose.Slides for Java предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие элементы форматирования, чтобы адаптировать внешний вид диаграммы под ваши конкретные требования дизайна.
+Да, Aspose.Slides for Java предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие элементы форматирования, чтобы адаптировать внешний вид диаграммы под ваши конкретные требования к дизайну.

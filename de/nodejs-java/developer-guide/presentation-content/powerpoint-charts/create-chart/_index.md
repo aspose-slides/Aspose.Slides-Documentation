@@ -1,5 +1,5 @@
 ---
-title: Erstellen oder Aktualisieren von PowerPoint-Diagrammen in JavaScript
+title: Diagramme in PowerPoint-Präsentationen in JavaScript erstellen oder aktualisieren
 linktitle: Diagramme erstellen oder aktualisieren
 type: docs
 weight: 10
@@ -10,49 +10,53 @@ keywords:
 - Diagramm bearbeiten
 - Diagramm ändern
 - Diagramm aktualisieren
-- Streudiagramm
-- Kuchendiagramm
+- Punktediagramm
+- Kreisdiagramm
 - Liniendiagramm
 - Baumkartendiagramm
-- Aktienkursdiagramm
-- Box-Whisker-Diagramm
+- Börsendiagramm
+- Box und Whisker Diagramm
 - Trichterdiagramm
-- Sonnenstrahlendiagramm
-- Histogrammdiagramm
+- Sunburst-Diagramm
+- Histogramm
 - Radar-Diagramm
-- Mehrkategoriediagramm
+- Mehrkategorie-Diagramm
 - PowerPoint
 - Präsentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erstellen und Anpassen von Diagrammen in PowerPoint-Präsentationen mit Aspose.Slides für Node.js via Java. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Codebeispielen in JavaScript."
+description: "Diagramme in PowerPoint-Präsentationen mit Aspose.Slides für Node.js über Java erstellen und anpassen. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Codebeispielen in JavaScript."
 ---
 ## **Übersicht**
 
-Dieser Artikel bietet eine umfassende Anleitung, wie Diagramme mit Aspose.Slides für Node.js via Java erstellt und angepasst werden. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten befüllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis zur Konfiguration von Serien, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Node.js-Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen optimieren.
+Dieser Artikel bietet eine umfassende Anleitung, wie Sie Diagramme mit Aspose.Slides für Node.js über Java erstellen und anpassen. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihre speziellen Designanforderungen zu erfüllen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis hin zur Konfiguration von Serien, Achsen und Legenden. Durch Befolgen dieser Anleitung erhalten Sie ein solides Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Node.js‑Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen optimieren.
 
 ## **Diagramm erstellen**
 
-Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Tabellenkalkulationsblatt nicht sofort ersichtlich sind.
+Diagramme helfen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Arbeitsblatt nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
-* große Datenmengen auf einer einzelnen Folie einer Präsentation aggregieren, komprimieren oder zusammenfassen;
-* Muster und Trends in Daten aufzeigen;
-* die Richtung und das Momentum von Daten über die Zeit oder in Bezug auf eine bestimmte Maßeinheit ableiten;
+Mit Diagrammen können Sie:
+
+* große Datenmengen auf einer einzigen Folie in einer Präsentation aggregieren, kondensieren oder zusammenfassen;
+* Muster und Trends in den Daten sichtbar machen;
+* die Richtung und Dynamik von Daten über die Zeit oder in Bezug auf eine bestimmte Einheit ableiten;
 * Ausreißer, Abweichungen, Fehler und unsinnige Daten erkennen;
 * komplexe Daten kommunizieren oder präsentieren.
 
-In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erzeugen.
+In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für viele Diagrammtypen bietet. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erzeugen.
 
 {{% alert color="info" title="Note" %}}
-Verwenden Sie die [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) Aufzählung im [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) Modul. Die Werte in dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
+
+Verwenden Sie die [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)‑Enumeration im [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/)‑Modul. Die Werte dieser Enumeration entsprechen verschiedenen Diagrammtypen.
+
 {{% /alert %}}
 
 ### **Gruppierte Säulendiagramme erstellen**
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein gruppiertes Säulendiagramm zu erstellen, das zwei Serien über drei Kategorien vergleicht. Die Serien verwenden rote und grüne Füllungen, und einzelne Beschriftungen zeigen Kategorienamen, Seriendnamen und Werte an. Arbeitsblattindex 0 bezieht sich auf das erste Blatt in der eingebetteten Diagramm‑Arbeitsmappe.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein gruppiertes Säulendiagramm zu erstellen, das zwei Serien über drei Kategorien vergleicht. Die Serien verwenden rote bzw. grüne Füllungen, und einzelne Beschriftungen zeigen Kategorienamen, Seriennamen und Werte an. Arbeitsblatt‑Index 0 bezieht sich auf das erste Blatt in der eingebetteten Diagrammarbeitsmappe.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -133,20 +137,20 @@ finally
 
 Das Ergebnis:
 
-![Das gruppierte Säulendiagramm](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Streudiagramme erstellen**
+### **Punktediagramme erstellen**
 
-Streudiagramme (auch als Scatter‑Plots oder x‑y‑Diagramme bezeichnet) werden häufig verwendet, um Muster zu überprüfen oder Korrelationen zwischen zwei Variablen zu demonstrieren.
+Punktediagramme (auch Scatter‑Plots oder x‑y‑Diagramme genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen darzustellen.
 
-Verwenden Sie ein Streudiagramm, wenn:
+Verwenden Sie ein Punktediagramm, wenn:
 
-* Sie haben gepaarte numerische Daten.
-* Sie haben zwei Variablen, die gut zusammenpassen.
-* Sie möchten feststellen, ob die beiden Variablen miteinander verbunden sind.
-* Sie haben eine unabhängige Variable, die mehrere Werte für eine abhängige Variable hat.
+* Sie gepaarte numerische Daten haben.
+* Sie zwei Variablen besitzen, die gut zusammenpassen.
+* Sie feststellen möchten, ob die beiden Variablen zusammenhängen.
+* Sie eine unabhängige Variable haben, die für eine abhängige Variable mehrere Werte besitzt.
 
-Dieses Beispiel zeichnet zwei Sätze von x‑y‑Werten. Die erste Serie verwendet gerade Linien mit Stern‑Markierungen, während die zweite glatte Linien mit Kreis‑Markierungen nutzt; beide verwenden eine Markierungsgröße von 10, konfiguriert mit [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). Die [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol)‑Methode steuert die Form der Markierung.
+Dieses Beispiel zeichnet zwei Sätze von x‑y‑Werten. Die erste Serie verwendet gerade Linien mit Stern‑Markern, während die zweite glatte Linien mit Kreis‑Markern nutzt; beide verwenden eine Markergöße von 10, konfiguriert mit [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). Die Methode [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) steuert die Markerform.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -214,13 +218,13 @@ finally
 
 Das Ergebnis:
 
-![Das Streudiagramm](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Kuchendiagramme erstellen**
+### **Kreisdiagramme erstellen**
 
-Kuchendiagramme eignen sich am besten, um das Verhältnis von Teil zu Ganzem in Daten zu zeigen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Wenn Ihre Daten jedoch viele Teile oder Beschriftungen enthalten, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
+Kreisdiagramme eignen sich am besten, um das Verhältnis von Teil zu Ganzem darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Datenbasis jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
 
-Dieses Beispiel erstellt ein Kuchendiagramm mit drei Quartalswerten. Jeder Abschnitt hat eine benutzerdefinierte Füllung und Rahmen, und die Beschriftungen zeigen verschiedene Kombinationen von Werten, Prozentsätzen und Serieninformationen an. Die [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle)‑Methode legt fest, dass das erste Segment bei 180 Grad beginnt.
+Dieses Beispiel erstellt ein Kreisdiagramm mit drei Quartalswerten. Jede Scheibe hat eine benutzerdefinierte Füllung und Kontur, und die Beschriftungen zeigen verschiedene Kombinationen aus Werten, Prozentwerten und Serieninformationen. Die Methode [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) legt den Startwinkel der ersten Scheibe auf 180 Grad fest.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -321,13 +325,13 @@ finally
 
 Das Ergebnis:
 
-![Das Kuchendiagramm](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
 ### **Liniendiagramme erstellen**
 
-Liniendiagramme (auch als Liniendiagramme bezeichnet) eignen sich am besten für Situationen, in denen Sie Änderungen von Werten im Laufe der Zeit darstellen möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und vieles mehr.
+Liniendiagramme (auch Liniendiagramme genannt) sind ideal, wenn Sie Änderungen von Werten über die Zeit darstellen wollen. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends über die Zeit nachverfolgen, Anomalien in Datenserien hervorheben und mehr.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Liniendiagramm mit den Standardserien und -kategorien zu erstellen, und speichert anschließend die Präsentation als PPTX.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Liniendiagramm mit den Standardserien und -kategorien zu erstellen und speichert die Präsentation als PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -347,7 +351,7 @@ finally
 }
 ```
 
-Standardmäßig werden Punkte in einem Liniendiagramm durch gerade durchgängige Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, rufen Sie [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) mit einem Wert aus [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) auf:
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade kontinuierliche Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, rufen Sie [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) mit einem Wert aus [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) auf:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -374,13 +378,13 @@ finally
 
 Das Ergebnis:
 
-![Das Liniendiagramm](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Baumdiagramme erstellen**
+### **Baumkarten erstellen**
 
-Baumdiagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell die Aufmerksamkeit auf Elemente lenken möchten, die große Beiträge innerhalb jeder Kategorie leisten.
+Baumkarten eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell Aufmerksamkeit auf große Beitragende innerhalb jeder Kategorie lenken wollen.
 
-Dieses Beispiel erstellt ein Baumdiagramm mit acht Blättern, die in vier Stämme und zwei Zweige gruppiert sind. Die [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem)‑Methode weist Stämme der Gruppierungsebene 1 und Zweige der Ebene 2 zu. Werte bestimmen die relativen Rechteckgrößen, während Kategoriebeschriftungen und überlappende übergeordnete Beschriftungen die Hierarchie identifizieren.
+Dieses Beispiel erstellt eine Baumkarte mit acht Blättern, gruppiert in vier Stämme und zwei Zweige. Die Methode [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) ordnet Stämme auf Gruppierungsebene 1 und Zweige auf Ebene 2 zu. Werte bestimmen die relativen Rechteckgrößen, während Kategorienbeschriftungen und überlappende Elternbeschriftungen die Hierarchie kennzeichnen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -461,13 +465,15 @@ finally
 
 Das Ergebnis:
 
-![Das Baumdiagramm](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
 ### **Wasserfalldiagramme erstellen**
 
-Ein Wasserfalldiagramm zeigt, wie positive und negative Änderungen zu einem Endwert beitragen. Zum Beispiel kann eine Gewinnaufstellung mit dem Umsatz beginnen, Kosten abziehen und andere Einnahmen hinzufügen. Änderungs­spalten schwimmen zwischen dem vorherigen und dem neuen laufenden Wert, während Gesamts­palten von null bis zum kumulierten Wert reichen.
+Ein Wasserfalldiagramm zeigt, wie positive und negative Änderungen zu einem Endwert beitragen. Zum Beispiel kann eine Gewinnaufstellung mit Umsatz beginnen, Kosten abziehen und weitere Einnahmen hinzufügen. Änderungs­spalten schweben zwischen dem vorherigen und dem neuen Laufwert, während Gesamtsäulen von 0 bis zum akkumulierten Wert reichen.
 
-| Kategorie | Arbeitsblattwert | Spaltentyp |
+Das folgende Beispiel verwendet Beträge in Tausend US‑Dollar:
+
+| Kategorie | Arbeitsmappenwert | Spaltentyp |
 | --- | ---: | --- |
 | Umsatz | 1000 | Zunahme |
 | Verkaufskosten | -400 | Abnahme |
@@ -476,9 +482,9 @@ Ein Wasserfalldiagramm zeigt, wie positive und negative Änderungen zu einem End
 | Sonstige Einnahmen | 50 | Zunahme |
 | Nettogewinn | 450 | Endsumme |
 
-Um einen Punkt als Zwischensumme oder Endsumme zu markieren, rufen Sie seine [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal)‑Methode mit `true` auf. Geben Sie den tatsächlich akkumulierten Betrag in der Arbeitsblattzelle dieses Punktes an: `600` für den Bruttogewinn (`1000 - 400`) und `450` für den Nettogewinn (`600 - 200 + 50`). Die Methode markiert die Spalte als Gesamtsumme; sie berechnet oder füllt den Zellenwert nicht. Verwenden Sie nicht null als Platzhalter und geben Sie keinen anderen Änderungswert für einen Gesamts‑Punkt an. Eine Gesamts‑Spalte zeigt den akkumulierten Wert an, ohne ihn erneut zum laufenden Wert hinzuzufügen.
+Um einen Punkt als Zwischensumme oder Endsumme zu markieren, rufen Sie dessen Methode [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) mit `true` auf. Geben Sie den tatsächlichen akkumulierten Betrag in der zugehörigen Arbeitsmappen‑Zelle an: `600` für den Bruttogewinn (`1000 - 400`) und `450` für den Nettogewinn (`600 - 200 + 50`). Die Methode markiert die Spalte als Summe; sie berechnet den Zellenwert nicht. Verwenden Sie nicht 0 als Platzhalter und geben Sie keinen anderen Änderungswert für einen Summenpunkt an. Eine Gesamtsäule zeigt den akkumulierten Wert, ohne ihn erneut zum Laufwert hinzuzufügen.
 
-Dieses vollständige JavaScript‑Beispiel erstellt ein Diagramm mit dem `Waterfall`‑Mitglied von [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), löscht die Standarddaten und füllt die eingebettete Arbeitsmappe. Arbeitsblattindex `0` wählt das erste Arbeitsblatt; Spalte A enthält Kategorienamen und Spalte B enthält Werte. Jeder Wert wird mit [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) hinzugefügt. Die nullbasierten Punktindizes `2` und `5` identifizieren die Zwischensumme bzw. die Endsumme. Der Aufruf von [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) mit `true` zeigt die Beträge auf den Spalten an. Es wird keine Eingabepräsentation oder Arbeitsmappe benötigt.
+Dieses vollständige JavaScript‑Beispiel erstellt ein Diagramm mit dem `Waterfall`‑Mitglied von [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), löscht die Standarddaten und füllt die eingebettete Arbeitsmappe. Der Arbeitsblatt‑Index `0` wählt das erste Arbeitsblatt; Spalte A enthält Kategorienamen und Spalte B Werte. Jeder Wert wird mit [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) hinzugefügt. Die nullbasierten Punktindizes `2` und `5` bezeichnen die Zwischensumme bzw. die Endsumme. Der Aufruf von [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) mit `true` zeigt die Beträge auf den Spalten an. Es wird weder eine Eingabepräsentation noch eine Arbeitsmappe benötigt.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -516,7 +522,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // Der dritte und der sechste Punkt stellen Summen dar, nicht zusätzliche Änderungen.
+    // Der dritte und der sechste Punkt stellen Gesamtsummen dar, nicht zusätzliche Änderungen.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -530,15 +536,17 @@ finally
 }
 ```
 
-Rufen Sie die Serien‑Methode [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) mit `true` auf, um Linien zu zeigen, die aufeinanderfolgende Spalten verbinden und den laufenden Wert leichter nachvollziehbar zu machen. Um diese Linien auszublenden, ersetzen Sie den Methodenaufruf im Beispiel durch `series.setShowConnectorLines(false);` vor dem Speichern. Dies ändert nur die Sichtbarkeit der Linien, nicht die Daten oder Summen.
+Rufen Sie auf der Serienebene die Methode [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) mit `true` auf, um Linien zwischen aufeinanderfolgenden Spalten anzuzeigen und den Laufwert leichter nachvollziehen zu können. Um diese Linien auszublenden, ersetzen Sie den Methodenaufruf im Beispiel durch `series.setShowConnectorLines(false);` vor dem Speichern. Dies ändert nur die Sichtbarkeit der Linien, nicht die Daten oder Summen.
 
-![Wasserfalldiagramm, das Umsatz, Kosten, Bruttogewinn von 600 und Nettogewinn von 450 zeigt, mit Wertbeschriftungen und Verbindungslinien](waterfall_chart.png)
+Die gespeicherte Präsentation zeigt einen Bruttogewinn von 600 und einen Nettogewinn von 450, wobei beide Summen von 0 ausgehend gezeichnet werden:
 
-### **Aktienkurvendiagramme erstellen**
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-Aktienkurvendiagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Hoch‑, Tief‑ und Schlusskurse darzustellen und so Markttrends sowie Volatilität zu analysieren. Sie liefern wesentliche Einblicke in die Kursentwicklung und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
+### **Börsendiagramme erstellen**
 
-Dieses Beispiel erstellt ein Open‑High‑Low‑Close‑Diagramm mit vier Serien in dieser Reihenfolge und drei Kategorien. Die [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars)‑Methode aktiviert Auf‑/Ab‑Balken, und [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) steuert die Hoch‑Tief‑Linien, die die Preisspannen anzeigen, während die einzelnen Serienlinien und die kleinen horizontalen Gitternetzlinien ausgeblendet werden.
+Börsendiagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Höchst‑, Tief‑ und Schlusskurse darzustellen und damit Markttrends sowie Volatilität zu analysieren. Sie bieten wesentliche Einblicke in die Kursentwicklung und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
+
+Dieses Beispiel erstellt ein Open‑High‑Low‑Close‑Diagramm mit vier Serien in dieser Reihenfolge und drei Kategorien. Die Methode [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) aktiviert Auf‑/Ab‑Balken, und [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) steuert die Hoch‑Tief‑Linien, die die Preisspannen anzeigen, während die einzelnen Serienlinien und feine horizontale Gitterlinien ausgeblendet werden.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -620,13 +628,15 @@ finally
 }
 ```
 
-![Das Aktienkurvendiagramm](stock_chart.png)
+Das Ergebnis:
 
-### **Box‑Whisker‑Diagramme erstellen**
+![The Stock chart](stock_chart.png)
 
-Box‑Whisker‑Diagramme werden verwendet, um die Verteilung von Daten darzustellen, indem zentrale statistische Kennzahlen wie Median, Quartile und mögliche Ausreißer zusammengefasst werden. Sie sind besonders nützlich in explorativen Analysen und statistischen Studien, um Datenvariabilität schnell zu erfassen und Anomalien zu erkennen.
+### **Box‑und‑Whisker‑Diagramme erstellen**
 
-Dieses Beispiel erstellt ein Box‑Whisker‑Diagramm aus sechs Werten. Die [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod)‑Methode wählt die exklusive Quartilsberechnung. Das Beispiel aktiviert außerdem Mittelwertlinien, Mittelwert‑Markierungen, innere Punkte und Ausreißerpunkte.
+Box‑ und Whisker‑Diagramme zeigen die Verteilung von Daten, indem sie wichtige statistische Kennzahlen wie Median, Quartile und potenzielle Ausreißer zusammenfassen. Sie sind besonders nützlich in explorativen Datenanalysen und statistischen Studien, um die Datenvariabilität schnell zu verstehen und Anomalien zu identifizieren.
+
+Dieses Beispiel erstellt ein Box‑ und Whisker‑Diagramm aus sechs Werten. Die Methode [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) wählt die exklusive Quartilberechnung. Das Beispiel aktiviert zudem Mittelwertlinien, Mittelwertmarker, innere Punkte und Ausreißerpunkte.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -688,9 +698,9 @@ finally
 
 ### **Trichterdiagramme erstellen**
 
-Trichterdiagramme werden verwendet, um Prozesse mit sequenziellen Stufen zu visualisieren, bei denen das Datenvolumen von einem Schritt zum nächsten abnimmt. Sie eignen sich besonders zur Analyse von Konversionsraten, zur Identifikation von Engpässen und zur Verfolgung der Effizienz von Vertriebs‑ oder Marketingprozessen.
+Trichterdiagramme visualisieren Prozesse mit aufeinanderfolgenden Stufen, bei denen das Datenvolumen von einem Schritt zum nächsten abnimmt. Sie sind besonders hilfreich, um Konversionsraten zu analysieren, Engpässe zu identifizieren und die Effizienz von Vertriebs‑ oder Marketingprozessen zu verfolgen.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um einem bestehenden Präsentationsdokument ein Trichterdiagramm zur ersten Folie hinzuzufügen. Es ersetzt die Standarddaten durch sechs Kategorien und Werte von 50 bis 500 und speichert anschließend die aktualisierte Präsentation. Die Eingabepäsentation muss mindestens eine Folie enthalten.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um einer bestehenden Präsentation auf der ersten Folie ein Trichterdiagramm hinzuzufügen. Es ersetzt die Standarddaten durch sechs Kategorien und Werte von 50 bis 500 und speichert die aktualisierte Präsentation. Die Eingabedatei muss mindestens eine Folie enthalten.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -746,13 +756,13 @@ finally
 
 Das Ergebnis:
 
-![Das Trichterdiagramm](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Sonnenstrahlendiagramme erstellen**
+### **Sunburst‑Diagramme erstellen**
 
-Sonnenstrahlendiagramme werden verwendet, um hierarchische Daten zu visualisieren, wobei Ebenen als konzentrische Ringe dargestellt werden. Sie veranschaulichen Teil‑zu‑Ganz‑Beziehungen und eignen sich hervorragend für die kompakte Darstellung verschachtelter Kategorien und Unterkategorien.
+Sunburst‑Diagramme visualisieren hierarchische Daten, indem sie Ebenen als konzentrische Ringe darstellen. Sie veranschaulichen Teil‑zu‑Ganz‑Beziehungen und eignen sich ideal, um verschachtelte Kategorien und Unterkategorien klar und kompakt darzustellen.
 
-Dieses Beispiel erstellt ein Sonnenstrahlendiagramm mit acht Blättern, die in vier Stämme und zwei Zweige gruppiert sind. Die [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem)‑Methode weist Stämme der Gruppierungsebene 1 und Zweige der Ebene 2 zu. Kategoriebeschriftungen identifizieren die Segmente, und die Werte bestimmen ihre relative Größe.
+Dieses Beispiel erstellt ein Sunburst‑Diagramm mit acht Blättern, gruppiert in vier Stämme und zwei Zweige. Die Methode [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) ordnet Stämme auf Gruppierungsebene 1 und Zweige auf Ebene 2 zu. Kategorienbeschriftungen identifizieren die Segmente, und die Werte bestimmen ihre relative Größe.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -831,13 +841,17 @@ finally
 
 Das Ergebnis:
 
-![Das Sonnenstrahlendiagramm](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Histogramm‑Diagramme erstellen**
+### **Histogrammdiagramme erstellen**
 
-Histogramm‑Diagramme werden verwendet, um die Verteilung numerischer Daten darzustellen, indem Werte in Bereiche oder Klassen gruppiert werden. Sie eignen sich besonders gut zur Identifikation von Mustern wie Häufigkeit, Schiefe und Streuung sowie zum Erkennen von Ausreißern in einem Datensatz.
+Histogrammdiagramme zeigen, wie numerische Werte über Intervalle (Bins) verteilt sind. Für monatliche Berichte über Auftragsbearbeitungszeiten verwenden Sie dieselbe Bin‑Breite und dieselben Schwellenwerte, um die Intervalle konsistent zu halten und Vergleiche der Verteilungen zu erleichtern.
 
-Dieses Beispiel erstellt ein Histogramm aus sechs numerischen Werten, einschließlich negativer Werte. Der Aufruf von [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) mit dem automatischen Aggregationstyp lässt das Diagramm die für die Darstellung der Verteilung zu verwendenden Klassen selbst bestimmen.
+Rufen Sie [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) für die horizontale Achse mit einem Modus aus [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/) auf. [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setBinWidth) gilt nur für `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberOfBins) gilt nur für `ByNumberOfBins`. Verwenden Sie `Automatic`, damit das Diagramm die Bins selbst wählt.
+
+#### **Feste Bin‑Breite verwenden**
+
+Dieses Beispiel gruppiert Bearbeitungszeiten in 10‑Minuten‑Intervalle, mit eigenen Bins für Zeiten ≤ 10 Minuten und > 40 Minuten. Aktivieren Sie diese Bins mit [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) und [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin). Wenn Sie explizite Schwellenwerte über [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) und [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin) angeben, rufen Sie [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticUnderflowBin) und [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticOverflowBin) mit `false` auf.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -847,7 +861,10 @@ try
 {
     let slide = presentation.getSlides().get_Item(0);
 
-    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 500, 300);
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -856,22 +873,24 @@ try
     workbook.clear(0);
 
     let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
-    let valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", aspose.slides.SaveFormat.Pptx);
 }
 finally
 {
@@ -879,15 +898,62 @@ finally
 }
 ```
 
-Das Ergebnis:
+Die in PowerPoint angezeigte Präsentation zeigt Bin‑Zahlen von **3, 4, 4, 4, und 2**. Der Unterlauf‑Bin enthält `5, 10, 10`, sodass seine Schwelle inklusiv ist. Der Überlauf‑Bin enthält nur `41, 50`, sodass seine Schwelle exklusiv ist; beide Werte gleich `40` bleiben im vorangegangenen Intervall. Die inneren Bins enthalten Werte > untere Grenze und ≤ obere Grenze.
 
-![Das Histogramm-Diagramm](histogram_chart.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+
+#### **Anzahl der Bins festlegen**
+
+Für ein festes Detailniveau statt fester Intervalle fordern Sie fünf Bins für dieselben Daten an. Dieses Beispiel lässt Unter‑ und Überlauf‑Bins deaktiviert. Das Diagramm bestimmt die Breite aus dem Datenbereich, sodass Grenzen zwischen Berichten variieren können.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Die fünf Bins haben Zähler von **4, 4, 4, 4, und 1**. Vergleichen Sie diese Verteilung mit dem Ergebnis der festen Breite oben: Die Eingabewerte sind identisch, jedoch unterscheiden sich die Grenzen.
+
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Radar‑Diagramme erstellen**
 
-Radar‑Diagramme werden verwendet, um multivariate Daten in einem zweidimensionalen Format darzustellen, wodurch mehrere Variablen gleichzeitig leicht verglichen werden können. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungskennzahlen oder Attribute hinweg zu erkennen.
+Radar‑Diagramme zeigen multivariate Daten in einem zweidimensionalen Format und ermöglichen den einfachen Vergleich mehrerer Variablen gleichzeitig. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungskennzahlen oder Attribute hinweg zu identifizieren.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Radar‑Diagramm mit den Standardserien und -kategorien zu erstellen, und speichert die Präsentation als PPTX.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Radar‑Diagramm mit den Standardserien und -kategorien zu erzeugen und speichert die Präsentation als PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -909,13 +975,13 @@ finally
 
 Das Ergebnis:
 
-![Das Radar‑Diagramm](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Mehrkategorielle Diagramme erstellen**
+### **Mehrkategorie‑Diagramme erstellen**
 
-Mehrkategorielle Diagramme werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung enthalten, sodass Werte über mehrere Dimensionen gleichzeitig verglichen werden können. Sie sind besonders hilfreich, wenn Trends und Zusammenhänge in komplexen, mehrschichtigen Datensätzen analysiert werden sollen.
+Mehrkategorie‑Diagramme visualisieren Daten, die mehr als eine kategoriale Gruppierung enthalten, sodass Sie Werte über mehrere Dimensionen gleichzeitig vergleichen können. Sie sind besonders hilfreich, wenn Sie Trends und Zusammenhänge in komplexen, mehrschichtigen Datensätzen analysieren müssen.
 
-Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit acht Kategorien, die in vier Paare angeordnet sind. Die [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem)‑Methode gibt jedem Paar ein gemeinsames Beschriftungslabel auf Gruppierungsebene 1, wodurch eine Kategorienachse mit sowohl einzelnen als auch Gruppen‑Labels entsteht.
+Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit acht Kategorien, die in vier Paaren angeordnet sind. Die Methode [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) gibt jedem Paar ein gemeinsames Beschriftungs-Label auf Gruppierungsebene 1, wodurch eine Achse mit sowohl einzelnen als auch Gruppen‑Labels entsteht.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -989,13 +1055,13 @@ finally
 
 Das Ergebnis:
 
-![Das mehrkategorielle Diagramm](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **Karten‑Diagramme erstellen**
 
-Karten‑Diagramme werden verwendet, um geografische Daten zu visualisieren, indem Informationen bestimmten Standorten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
+Karten‑Diagramme visualisieren geografische Daten, indem sie Informationen bestimmten Orten wie Ländern, Bundesländern oder Städten zuordnen. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Karten‑Diagramm mit den Standardgeodaten zu erstellen und es zum Betrachten in PowerPoint zu speichern.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Karten‑Diagramm mit den Standardgeodaten zu erzeugen und speichert es zur Ansicht in PowerPoint.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1017,19 +1083,21 @@ finally
 
 Das Ergebnis:
 
-![Das Karten‑Diagramm](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Das obige Bild zeigt die gespeicherte Präsentation, geöffnet in PowerPoint. Aspose.Slides schreibt das Karten‑Diagramm und seine Daten korrekt, zeichnet jedoch keine Karten‑Diagramme selbst: Wenn eine Folie, die eines enthält, zu einem Bild gerendert oder in PDF oder SVG konvertiert wird, erscheint der Diagrammbereich leer. Andere Formen auf derselben Folie bleiben unverändert.
+
+Das obige Bild zeigt die gespeicherte Präsentation, in PowerPoint geöffnet. Aspose.Slides schreibt das Karten‑Diagramm und seine Daten korrekt, zeichnet jedoch selbst keine Karten‑Diagramme: Wenn eine Folie mit einem solchen Diagramm zu einem Bild gerendert oder in PDF bzw. SVG konvertiert wird, bleibt der Diagrammbereich leer. Andere Formen auf derselben Folie bleiben unverändert.
+
 {{% /alert %}}
 
-### **Kombinationsdiagramme erstellen**
+### **Kombinations‑Diagramme erstellen**
 
-Ein Kombinationsdiagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
+Ein Kombinations‑Diagramm (oder Combo‑Diagramm) verbindet zwei oder mehr Diagrammtypen in einer einzigen Grafik. Dieses Diagramm ermöglicht es, Unterschiede zwischen mehreren Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
 
-![Das Kombinationsdiagramm](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Dieses Beispiel kombiniert zwei gruppierte Säulenseries mit einer Linienserie über vier Kategorien. Die Säulen verwenden die primäre vertikale Achse, während [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) die Linie auf einer sekundären vertikalen Achse rechts platziert. Die Hilfsfunktionen konfigurieren Titel, Legende, Achsenbeschriftungen und Gitternetzlinien.
+Dieses Beispiel kombiniert zwei gruppierte Säulenseries mit einer Liniensreihe über vier Kategorien. Die Säulen nutzen die primäre vertikale Achse, während [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) die Linie auf eine sekundäre vertikale Achse rechts legt. Hilfsfunktionen konfigurieren Titel, Legende, Achsenbeschriftungen und Gitternetzlinien.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1175,9 +1243,9 @@ function setSecondaryAxesFormat(chart)
     let secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(aspose.slides.AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
-    secondaryVerticalAxis.getFormat().getLine().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
 }
@@ -1196,9 +1264,9 @@ createComboChart();
 
 ## **Diagramme aktualisieren**
 
-Aspose.Slides für Node.js via Java ermöglicht Ihnen, PowerPoint‑Diagramme zu aktualisieren, indem Sie Diagrammdaten, Formatierungen und Stile ändern. Diese Funktion vereinfacht das Aktualisieren von Präsentationen mit dynamischen Inhalten und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards exakt wiedergeben.
+Aspose.Slides für Node.js über Java ermöglicht das Aktualisieren von PowerPoint‑Diagrammen durch Modifikation von Diagrammdaten, Formatierung und Stil. Diese Funktion vereinfacht das Aktualisieren von Präsentationen mit dynamischem Inhalt und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards exakt wiedergeben.
 
-Dieses Beispiel aktualisiert das Diagramm mit dem Namen "My chart" auf der ersten Folie einer bestehenden Präsentation. Es erfordert zwei Spaltenserien mit je drei Datenpunkten, wobei Kategoriebeschriftungen in Spalte A und Seriennamen in der ersten Zeile des ersten Arbeitsblatts stehen. Das Beispiel verwendet [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell), um Arbeitsblattzellen zu ändern, aktualisiert Serienwerte, fügt eine dritte Serie hinzu und ändert das Diagramm über [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType) zu gruppierten Zylindern.
+Dieses Beispiel aktualisiert das Diagramm mit dem Namen „My chart“ auf der ersten Folie einer bestehenden Präsentation. Es erfordert zwei Spaltenserien mit jeweils drei Datenpunkten, wobei Kategorienamen in Spalte A und Seriennamen in der ersten Zeile des ersten Arbeitsblatts stehen. Das Beispiel verwendet [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell), um Arbeitsmappenzellen zu ändern, aktualisiert Serienwerte, fügt eine dritte Serie hinzu und ändert das Diagramm zu gruppierten Zylindern über [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1262,11 +1330,11 @@ finally
 
 ## **Datenbereich für ein Diagramm festlegen**
 
-Um den bereits von einem bestehenden Diagramm verwendeten Bereich zu prüfen, siehe [Diagrammdatenbereich abrufen](/slides/de/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
+Um den bereits von einem bestehenden Diagramm genutzten Bereich zu prüfen, siehe [Retrieve a Chart's Data Range](/slides/de/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides für Node.js via Java bietet die Flexibilität, einen bestimmten Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten zu definieren. Das bedeutet, dass Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen können, sodass Sie steuern können, welche Zellen zu den Serien und Kategorien des Diagramms beitragen. Dadurch können Sie Ihre Diagramme leicht mit den neuesten Datenänderungen in Ihrem Arbeitsblatt aktualisieren und synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und korrekte Informationen wiedergeben.
+Aspose.Slides für Node.js über Java bietet die Flexibilität, einen konkreten Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten festzulegen. Das bedeutet, Sie können einen Teil Ihrer Arbeitsmappe gezielt einem Diagramm zuordnen und so steuern, welche Zellen zu den Serien und Kategorien des Diagramms beitragen. Dadurch lassen sich Diagramme leicht aktualisieren und mit den neuesten Datenänderungen in Ihrer Arbeitsmappe synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und präzise Informationen widerspiegeln.
 
-Dieses Beispiel verwendet [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange), um die Datenquelle des Diagramms mit dem Namen "My chart" auf der ersten Folie einer bestehenden Präsentation auf `Sheet1!A1:B4` zu setzen. Die Diagrammarbeitsmappe muss dieses Arbeitsblatt enthalten und einen befüllten Bereich mit einer Serienüberschrift in der ersten Zeile, Kategoriebeschriftungen in Spalte A und drei Werten in Spalte B aufweisen.
+Dieses Beispiel verwendet [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange), um die Datenquelle des Diagramms mit dem Namen „My chart“ auf der ersten Folie einer bestehenden Präsentation auf `Sheet1!A1:B4` zu setzen. Die Diagramm‑Arbeitsmappe muss dieses Arbeitsblatt und einen befüllten Bereich mit einer Serienüberschrift in der ersten Zeile, Kategorienamen in Spalte A und drei Werten in Spalte B enthalten.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1297,11 +1365,11 @@ finally
 }
 ```
 
-## **Standard‑Markierungen in Diagrammen verwenden**
+## **Standard‑Marker in Diagrammen verwenden**
 
-Wenn Sie Standard‑Markierungen in Diagrammen verwenden, erhält jede Diagrammserie automatisch ein unterschiedliches Standard‑Markierungssymbol.
+Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammserie automatisch ein unterschiedliches Standard‑Marker‑Symbol.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Diagramm mit zwei Linienserien und einer Legende zu erstellen. Die über [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) zugänglichen Markierungseinstellungen behalten die automatisch zugewiesenen Markierungssymbole bei. Die erste Serie enthält einen negativen Wert und einen fehlenden Wert, dargestellt durch `null`, während die zweite für jede Kategorie einen Wert hat.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Diagramm mit zwei Liniensen und einer Legende zu erstellen. Die über [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) abgerufenen Marker‑Einstellungen behalten die automatisch zugewiesenen Marker‑Symbole. Die erste Serie enthält einen negativen Wert und einen fehlenden Wert, dargestellt durch `null`, während die zweite für jede Kategorie einen Wert hat.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1366,18 +1434,18 @@ finally
 
 ## **FAQ**
 
-**Welche Diagrammtypen werden von Aspose.Slides für Node.js via Java unterstützt?**
+**Welche Diagrammtypen werden von Aspose.Slides für Node.js über Java unterstützt?**
 
-Aspose.Slides für Node.js via Java unterstützt eine breite Palette von Diagrammtypen, darunter Balken, Linien, Kuchen, Flächen, Scatter, Histogramme, Radar und viele weitere. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Visualisierungsanforderungen auszuwählen.
+Aspose.Slides für Node.js über Java unterstützt eine breite Palette von Diagrammtypen, darunter Balken, Linien, Kreis, Fläche, Scatter, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht Ihnen die Auswahl des am besten geeigneten Diagrammtyps für Ihre Datenvisualisierung.
 
-**Wie füge ich einem Folie ein neues Diagramm hinzu?**
+**Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
 
-Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse, rufen die gewünschte Folie über ihren Index ab und rufen anschließend die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse, rufen die gewünschte Folie über ihren Index ab und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
 **Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-Sie können die Diagrammdaten aktualisieren, indem Sie auf das Daten‑Workbook des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) zugreifen, die Standardserien und -kategorien löschen und anschließend Ihre benutzerdefinierten Daten hinzufügen. Dadurch können Sie das Diagramm programmgesteuert aktualisieren, um die neuesten Daten widerzuspiegeln.
+Sie können die Diagrammdaten aktualisieren, indem Sie auf die Datenarbeitsmappe ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) zugreifen, die Standardserien und -kategorien löschen und anschließend Ihre benutzerdefinierten Daten hinzufügen. So können Sie das Diagramm programmgesteuert aktualisieren, um die neuesten Daten widerzuspiegeln.
 
-**Ist es möglich, das Aussehen des Diagramms anzupassen?**
+**Ist es möglich, das Erscheinungsbild des Diagramms anzupassen?**
 
-Ja, Aspose.Slides für Node.js via Java bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere Formatierungselemente ändern, um das Aussehen des Diagramms an Ihre spezifischen Designanforderungen anzupassen.
+Ja, Aspose.Slides für Node.js über Java bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriften, Beschriftungen, Legenden und andere Formatierungselemente ändern, um das Diagramm an Ihre speziellen Designanforderungen anzupassen.
