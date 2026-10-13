@@ -1,5 +1,5 @@
 ---
-title: PowerPoint prezentáció diagramjainak létrehozása vagy frissítése PHP-ben
+title: PowerPoint prezentáció diagramok létrehozása vagy frissítése PHP-ben
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -10,14 +10,14 @@ keywords:
 - diagram szerkesztése
 - diagram módosítása
 - diagram frissítése
-- szórásdiagram
+- szórt diagram
 - kördiagram
 - vonaldiagram
-- fa térkép diagram
+- faábra diagram
 - részvénydiagram
-- doboz és szárnydiagram
+- doboz és fajlagos diagram
 - tölcsérdiagram
-- napcsillag diagram
+- napfelkelte diagram
 - hisztogram diagram
 - radar diagram
 - többkategóriás diagram
@@ -25,699 +25,1078 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "PowerPoint prezentációkban diagramok létrehozása és testreszabása az Aspose.Slides for PHP (Java) segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati kódrészletekkel."
+description: "PowerPoint prezentációkban diagramok létrehozása és testreszabása az Aspose.Slides for PHP via Java segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati PHP kódpéldákkal."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásáról és testreszabásáról az Aspose.Slides használatával. Megtanulhatja, hogyan adjon programozottan diagramot egy diára, töltse fel adatokkal, és alkalmazza a különböző formázási beállításokat, hogy megfeleljenek az Ön specifikus tervezési követelményeinek. A cikk során részletes kódrészletek illusztrálják az egyes lépéseket, a bemutató és a diagramobjektum inicializálásától a sorozatok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével szilárd megértést szerez a dinamikus diagramgenerálás integrálásáról alkalmazásaiban, egyszerűsítve az adatvezérelt prezentációk létrehozásának folyamatát.
+Ez a cikk átfogó útmutatót nyújt arról, hogyan hozhatunk létre és testreszabhatunk diagramokat az Aspose.Slides for PHP via Java segítségével. Megtanulhatja, hogyan adjon programozottan diagramot egy diára, töltse fel adatokka­l, és alkalmazzon különféle formázási beállításokat a tervezési igényeknek megfelelően. A cikk részletes kódpéldákat tartalmaz, a prezentáció és a diagram objektum inicializálásától a sorozatok, tengelyek és jelmagyarázat konfigurálásáig. Az útmutató követésével alaposan megérti, hogyan integrálhat dinamikus diagramgenerálást PHP‑alkalmazásaiba, egyszerűsítve az adat‑alapú prezentációk létrehozását.
 
 ## **Diagram létrehozása**
 
-A diagramok segítik az embereket gyorsan megjeleníteni az adatokat és olyan betekintéseket nyerni, amelyek nem feltétlenül nyilvánvalóak egy táblázatból vagy munkafüzetből.
+A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat és meglátásokat nyerni, amelyek egy táblázatból vagy számolótáblából nem feltétlenül nyilvánvalóak.
 
-**Miért hozzunk létre diagramokat?**
+**Miért hozunk létre diagramokat?**
 
-* nagy mennyiségű adat összegyűjtése, tömörítése vagy összegzése egyetlen dián a prezentációban  
-* minták és trendek feltárása az adatokban  
-* az adatok időbeli vagy egy adott mérőegységhez viszonyított irányának és lendületének meghatározása  
-* kilógó értékek, rendellenességek, eltérések, hibák, értelmetlen adatok stb. felismerése  
-* összetett adatok közlése vagy bemutatása  
+* összesíteni, sűríteni vagy összefoglalni nagy mennyiségű adatot egyetlen dián a prezentációban;
+* feltárni az adatokban rejlő mintákat és trendeket;
+* megállapítani az adatok irányát és lendületét az idő függvényében vagy egy konkrét mérőegységhez viszonyítva;
+* azonosítani a kiugró értékeket, eltéréseket, hibákat és értelmetlen adatokat;
+* komplex adatok kommunikálása vagy bemutatása.
 
-PowerPointban a diagramok létrehozhatók a *Insert* (Beszúrás) funkción keresztül, amely sablonokat biztosít számos diagramtípus megtervezéséhez. Az Aspose.Slides használatával mind szabványos diagramokat (népszerű diagramtípusok alapján), mind egyedi diagramokat hozhat létre.
+A PowerPointban a *Insert* (Beszúrás) funkcióval hozhatók létre diagramok, amely sablonokat biztosít a különféle diagramtípusok tervezéséhez. Az Aspose.Slides használatával mind szabványos diagramokat (népszerű típusokon alapuló), mind egyedi diagramokat hozhat létre.
 
 {{% alert color="info" title="Note" %}}
-Diagramok létrehozásához használja a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) osztályt. Ennek az osztálynak a mezői a különböző diagramtípusoknak felelnek meg.
+Használja a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) felsorolást a [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) névtérben. Ennek a felsorolásnak az értékei a különböző diagramtípusoknak felelnek meg.
 {{% /alert %}}
 
 ### **Csoportosított oszlopdiagramok létrehozása**
 
-Ez a szakasz bemutatja, hogyan hozhatók létre csoportosított oszlopdiagramok az Aspose.Slides segítségével. Megtanulja, hogyan inicializálja a prezentációt, adjon hozzá egy diagramot, és testre szabja elemeit, például a címet, az adatokat, a sorozatokat, a kategóriákat és a stílusokat. Kövesse az alábbi lépéseket, hogy lássa, hogyan generálódik egy szabványos csoportosított oszlopdiagram:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) osztályból.  
-1. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType::ClusteredColumn` típust.  
-1. Adjon címet a diagramhoz.  
-1. Érje el a diagram adat munkalapját.  
-1. Törölje az összes alapértelmezett sorozatot és kategóriát.  
-1. Adjon hozzá új sorozatokat és kategóriákat.  
-1. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
-1. Alkalmazzon kitöltőszínt a diagram sorozathoz.  
-1. Adjon címkéket a diagram sorozathoz.  
-1. Mentse a módosított prezentációt PPTX fájlként.
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy csoportosított oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategória mentén. A sorozatok piros és zöld kitöltést használnak, és az egyedi címkék megmutatják a kategória neveket, a sorozat neveket és az értékeket. A 0 indexű munkalap az beágyazott diagram munkafüzet első lapjára utal.
 
 ```php
-  # Egy PPTX fájlt képviselő prezentáció osztály példányosítása
-  $pres = new Presentation();
-  try {
-    # Az első diát eléri
-    $sld = $pres->getSlides()->get_Item(0);
-    # Diagramot ad hozzá az alapértelmezett adataival
-    $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
-    # Beállítja a diagram címét
-    $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
-    $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
-    $chart->getChartTitle()->setHeight(20);
-    $chart->hasTitle();
-    # Beállítja, hogy az első sorozat értékeket mutasson
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Beállítja a diagram adatlapjának indexét
-    $defaultWorksheetIndex = 0;
-    # Lekéri a diagram adat munkalapját
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Törli az alapértelmezett generált sorozatokat és kategóriákat
-    $chart->getChartData()->getSeries()->clear();
-    $chart->getChartData()->getCategories()->clear();
-    $s = $chart->getChartData()->getSeries()->size();
-    $s = $chart->getChartData()->getCategories()->size();
-    # Új sorozatokat ad hozzá
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # Új kategóriákat ad hozzá
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # Az első diagram sorozatot veszi
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Most feltölti a sorozat adatait
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Beállítja a sorozat kitöltőszínét
-    $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # A második diagram sorozatot veszi
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Feltölti a sorozat adatait
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # Beállítja a sorozat kitöltőszínét
-    $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Egyéni címkéket hoz létre minden kategóriához az új sorozathoz
-    # Beállítja, hogy az első címke a kategória nevét mutassa
-    $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
-    $lbl->getDataLabelFormat()->setShowCategoryName(true);
-    $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
-    $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    # A harmadik címke értékét mutatja
-    $lbl = $series->getDataPoints()->get_Item(2)->getLabel();
-    $lbl->getDataLabelFormat()->setShowValue(true);
-    $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    $lbl->getDataLabelFormat()->setSeparator("/");
-    # Elmenti a diagramot tartalmazó prezentációt
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-### **Szórásdiagramok létrehozása**
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
 
-A szórásdiagramok (más néven szórásábrák vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korrelációk bemutatására.
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
-Használjon szórásdiagramot, ha:
-
-* párosított numerikus adatokkal rendelkezik  
-* két változója jól párosítható egymással  
-* meg akarja határozni, hogy a két változó kapcsolatban áll-e  
-* független változója több értékkel rendelkezik egy függő változóra vonatkozóan  
-
-1. Kövesse a lépéseket a [Csoportosított oszlopdiagramok létrehozása](#create-clustered-column-charts) részben.  
-2. A harmadik lépésnél adjon hozzá egy diagramot némi adattal, és adja meg a diagram típusát az alábbiak közül:
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Egy szórásdiagramot ábrázol._  
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Egy görbék által összekötött szórásdiagramot ábrázol adatjelölőkkel._  
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Görbék által összekötött szórásdiagram, adatjelölők nélkül._  
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Egy egyenes vonalakkal összekötött szórásdiagram adatjelölőkkel._  
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Egyenes vonalakkal összekötött szórásdiagram adatjelölők nélkül._
-
-```php
-  # Egy PPTX fájlt képviselő prezentáció osztály példányosítása
-  $pres = new Presentation();
-  try {
-    # Az első diát eléri
-    $slide = $pres->getSlides()->get_Item(0);
-    # Létrehozza az alapértelmezett diagramot
-    $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # Lekéri az alapértelmezett diagram adat munkalap indexét
-    $defaultWorksheetIndex = 0;
-    # Lekéri a diagram adat munkalapját
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Törli a demo sorozatot
-    $chart->getChartData()->getSeries()->clear();
-    # Új sorozatokat ad hozzá
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Series 2"), $chart->getType());
-    # Az első diagram sorozatot veszi
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Új pontot (1:3) ad a sorozathoz
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 1), $fact->getCell($defaultWorksheetIndex, 2, 2, 3));
-    # Új pontot (2:10) ad hozzá
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
-    # Módosítja a sorozat típusát
-    $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
-    # Módosítja a diagram sorozat jelölőjét
-    $series->getMarker()->setSize(10);
-    $series->getMarker()->setSymbol(MarkerStyleType::Star);
-    # A második diagram sorozatot veszi
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Új pontot (5:2) ad hozzá ott
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
-    # Új pontot (3:1) ad hozzá
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 3), $fact->getCell($defaultWorksheetIndex, 3, 4, 1));
-    # Új pontot (2:2) ad hozzá
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 4, 3, 2), $fact->getCell($defaultWorksheetIndex, 4, 4, 2));
-    # Új pontot (5:1) ad hozzá
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
-    # Módosítja a diagram sorozat jelölőjét
-    $series->getMarker()->setSize(10);
-    $series->getMarker()->setSymbol(MarkerStyleType::Circle);
-    $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-### **Kördiagramok létrehozása**
-
-A kördiagramok leginkább a részek és az egész közötti viszony bemutatására alkalmasak, különösen akkor, ha az adatok kategóriákat tartalmaznak numerikus értékekkel. Ha azonban sok rész vagy címke van az adatokban, érdemes oszlopdiagramot alkalmazni.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Pie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Pie) típust.  
-4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
-6. Adjon hozzá új sorozatokat és kategóriákat.  
-7. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
-8. Adjon hozzá új pontokat a diagramhoz, és alkalmazzon egyedi színeket a kördiagram szektoraira.  
-9. Állítsa be a sorozatok címkéit.  
-10. Engedélyezze a vezetővonalakat a sorozatcímkékhez.  
-11. Állítsa be a kördiagram szektorainak forgatási szögét.  
-12. Mentse a módosított prezentációt PPTX fájlként.
-
-```php
-  # Egy PPTX fájlt képviselő prezentáció osztály példányosítása
-  $pres = new Presentation();
-  try {
-    # Az első diát eléri
-    $slides = $pres->getSlides()->get_Item(0);
-    # Diagramot ad hozzá alapértelmezett adatokkal
-    $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # Beállítja a diagram címét
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # Beállítja, hogy az első sorozat értékeket mutasson
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Beállítja a diagram adatlap indexét
-    $defaultWorksheetIndex = 0;
-    # Lekéri a diagram adat munkalapját
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Törli az alapértelmezett generált sorozatokat és kategóriákat
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    # Új kategóriákat ad hozzá
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # Új sorozatot ad hozzá
-    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # Feltölti a sorozat adatait
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Nem működik az új verzióban
-    # Új pontok hozzáadása és a szektor színének beállítása
-    # series.IsColorVaried = true;
-    $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
-    $point = $series->getDataPoints()->get_Item(0);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-    # Beállítja a szektor szegélyét
-    $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $point->getFormat()->getLine()->setWidth(3.0);
-    $point->getFormat()->getLine()->setStyle(LineStyle->ThinThick);
-    $point->getFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    $point1 = $series->getDataPoints()->get_Item(1);
-    $point1->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
-    # Beállítja a szektor szegélyét
-    $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $point1->getFormat()->getLine()->setWidth(3.0);
-    $point1->getFormat()->getLine()->setStyle(LineStyle->Single);
-    $point1->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDot);
-    $point2 = $series->getDataPoints()->get_Item(2);
-    $point2->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-    # Beállítja a szektor szegélyét
-    $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $point2->getFormat()->getLine()->setWidth(2.0);
-    $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
-    $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # Egyéni címkéket hoz létre minden kategóriához az új sorozathoz
-    $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
-    # lbl.ShowCategoryName = true;
-    $lbl1->getDataLabelFormat()->setShowValue(true);
-    $lbl2 = $series->getDataPoints()->get_Item(1)->getLabel();
-    $lbl2->getDataLabelFormat()->setShowValue(true);
-    $lbl2->getDataLabelFormat()->setShowLegendKey(true);
-    $lbl2->getDataLabelFormat()->setShowPercentage(true);
-    $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
-    $lbl3->getDataLabelFormat()->setShowSeriesName(true);
-    $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Megjeleníti a vezető vonalakat a diagramon
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # Beállítja a kördiagram szektorok forgatási szögét
-    $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
-    # Elmenti a diagramot tartalmazó prezentációt
-    $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 2, "Series 2");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $categoryCell = $workbook->getCell($worksheetIndex, 1, 0, "Category 1");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell($worksheetIndex, 2, 0, "Category 2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell($worksheetIndex, 3, 0, "Category 3");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 1, 20);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 1, 50);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 1, 30);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 0, 0);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($color);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(1);
+
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 2, 30);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 2, 10);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 2, 60);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 0, 128, 0);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($color);
+
+    $label = $series->getDataPoints()->get_Item(0)->getLabel();
+    $label->getDataLabelFormat()->setShowCategoryName(true);
+
+    $label = $series->getDataPoints()->get_Item(1)->getLabel();
+    $label->getDataLabelFormat()->setShowSeriesName(true);
+
+    $label = $series->getDataPoints()->get_Item(2)->getLabel();
+    $label->getDataLabelFormat()->setShowValue(true);
+    $label->getDataLabelFormat()->setShowSeriesName(true);
+    $label->getDataLabelFormat()->setSeparator("/");
+
+    $presentation->save("AsposeChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
+
+Az eredmény:
+
+![A csoportosított oszlop diagram](clustered_column_chart.png)
+
+### **Szórásdiagramok létrehozása**
+
+A szórásdiagramok (más néven szóráspont diagramok vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korrelációk bemutatására.
+
+Használjon szórásdiagramot, ha:
+
+* párosított numerikus adatai vannak.
+* két változója van, amely jól párosítható.
+* meg szeretné határozni, hogy a két változó összefügg‑e.
+* van egy független változója, amelynek több értéke van egy függő változóhoz.
+
+Ez a példa két x‑y értékkészletet ábrázol. Az első sorozat egyenes vonalakat használ csillag‑markerekkel, míg a második sima vonalakat kör‑markerekkel; mindkettő 10‑es marker‑mérettel, a [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/) metódussal beállítva. A [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) metódus szabályozza a marker alakját.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\MarkerStyleType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 20, 20, 500, 300);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $chart->getChartData()->getSeries()->clear();
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 1, 1, "Series 1");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 1, 3, "Series 2");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 2, 1, 1);
+    $yValueCell = $workbook->getCell($worksheetIndex, 2, 2, 3);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 3, 1, 2);
+    $yValueCell = $workbook->getCell($worksheetIndex, 3, 2, 10);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
+
+    $series->getMarker()->setSize(10);
+    $series->getMarker()->setSymbol(MarkerStyleType::Star);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(1);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 2, 3, 5);
+    $yValueCell = $workbook->getCell($worksheetIndex, 2, 4, 2);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 3, 3, 3);
+    $yValueCell = $workbook->getCell($worksheetIndex, 3, 4, 1);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 4, 3, 2);
+    $yValueCell = $workbook->getCell($worksheetIndex, 4, 4, 2);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 5, 3, 5);
+    $yValueCell = $workbook->getCell($worksheetIndex, 5, 4, 1);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $series->getMarker()->setSize(10);
+    $series->getMarker()->setSymbol(MarkerStyleType::Circle);
+
+    $presentation->save("AsposeChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Az eredmény:
+
+![A szórásdiagram](scatter_chart.png)
+
+### **Kördiagramok létrehozása**
+
+A kördiagramok leginkább a rész‑egész kapcsolat ábrázolására alkalmasak, különösen, ha az adatok kategória‑címkéket számszerű értékekkel tartalmaznak. Ha azonban sok rész vagy címke van, érdemes sávdiagramot használni.
+
+Ez a példa egy három negyedévi értéket tartalmazó kördiagramot hoz létre. Minden szelet egyedi kitöltéssel és kerettel rendelkezik, a címkék pedig különböző kombinációkban jelenítik meg az értékeket, százalékokat és sorozatinformációkat. A [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) metódus az első szeletet 180 °‑nél kezdi.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\LineStyle;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 20, 20, 500, 300);
+
+    $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
+    $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
+    $chart->getChartTitle()->setHeight(20);
+    $chart->setTitle(true);
+
+    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $categoryCell = $workbook->getCell(0, 1, 0, "1st Qtr");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, 2, 0, "2nd Qtr");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, 3, 0, "3rd Qtr");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 1, 20);
+    $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 1, 50);
+    $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 1, 30);
+    $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+
+    $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
+
+    $firstSlice = $series->getDataPoints()->get_Item(0);
+    $firstSlice->getFormat()->getFill()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 0, 255, 255);
+    $firstSlice->getFormat()->getFill()->getSolidFillColor()->setColor($color);
+
+    $firstSlice->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 128, 128, 128);
+    $firstSlice->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $firstSlice->getFormat()->getLine()->setWidth(3.0);
+    $firstSlice->getFormat()->getLine()->setStyle(LineStyle::ThinThick);
+    $firstSlice->getFormat()->getLine()->setDashStyle(LineDashStyle::LargeDash);
+
+    $secondSlice = $series->getDataPoints()->get_Item(1);
+    $secondSlice->getFormat()->getFill()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $secondSlice->getFormat()->getFill()->getSolidFillColor()->setColor($color);
+
+    $secondSlice->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 0, 0, 255);
+    $secondSlice->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $secondSlice->getFormat()->getLine()->setWidth(3.0);
+    $secondSlice->getFormat()->getLine()->setStyle(LineStyle::Single);
+    $secondSlice->getFormat()->getLine()->setDashStyle(LineDashStyle::LargeDashDot);
+
+    $thirdSlice = $series->getDataPoints()->get_Item(2);
+    $thirdSlice->getFormat()->getFill()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 127, 80);
+    $thirdSlice->getFormat()->getFill()->getSolidFillColor()->setColor($color);
+
+    $thirdSlice->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 0, 0);
+    $thirdSlice->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $thirdSlice->getFormat()->getLine()->setWidth(2.0);
+    $thirdSlice->getFormat()->getLine()->setStyle(LineStyle::ThinThin);
+    $thirdSlice->getFormat()->getLine()->setDashStyle(LineDashStyle::LargeDashDotDot);
+
+    $firstLabel = $series->getDataPoints()->get_Item(0)->getLabel();
+    $firstLabel->getDataLabelFormat()->setShowValue(true);
+
+    $secondLabel = $series->getDataPoints()->get_Item(1)->getLabel();
+    $secondLabel->getDataLabelFormat()->setShowValue(true);
+    $secondLabel->getDataLabelFormat()->setShowLegendKey(true);
+    $secondLabel->getDataLabelFormat()->setShowPercentage(true);
+
+    $thirdLabel = $series->getDataPoints()->get_Item(2)->getLabel();
+    $thirdLabel->getDataLabelFormat()->setShowSeriesName(true);
+    $thirdLabel->getDataLabelFormat()->setShowPercentage(true);
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
+
+    $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
+
+    $presentation->save("PieChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Az eredmény:
+
+![A kördiagram](pie_chart.png)
 
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használatosak, ahol az értékek időbeli változását szeretné bemutatni. Egy vonaldiagram segítségével egyszerre nagy mennyiségű adatot hasonlíthat össze, nyomon követheti az időbeli változásokat és trendeket, kiemelhet anomáliákat az adatsorokban, és még sok mást.
+A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben hasznosak, amikor az időbeli értékváltozást szeretnénk bemutatni. Egy vonaldiagram segítségével egyszerre összehasonlíthat nagy mennyiségű adatot, nyomon követheti az időbeli változásokat és trendeket, kiemelheti a sorozatok anomáliáit és egyebeket.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
-1. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Line](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Line) típust.  
-1. Érje el a diagram adatkönyvét a ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) segítségével.  
-1. Törölje az alapértelmezett sorozatokat és kategóriákat.  
-1. Adjon hozzá új sorozatokat és kategóriákat.  
-1. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
-1. Mentse a módosított prezentációt PPTX fájlként.
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy vonaldiagram létrehozásához az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-    $pres->save("lineChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $lineChart = $slide->getShapes()->addChart(ChartType::Line, 20, 20, 500, 300);
+
+    $presentation->save("lineChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-Alapértelmezetten a vonaldiagram pontjait egyenes, folytonos vonalak kötik össze. Ha a pontokat vonalvonalak helyett szaggatott vonallal szeretné összekötni, megadhatja a kívánt vonaltípust a következőképpen:
+Alapértelmezés szerint a vonaldiagram pontjait egyenes, folytonos vonalak kötik össze. Ha pontosvonalak helyett szaggatott vonalakat szeretne, hívja a [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) metódust a [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) egyik értékével:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-    $seriesCollection = $lineChart->getChartData()->getSeries();
-    foreach ($seriesCollection as $series) {
-      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+use aspose\slides\ChartType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $lineChart = $slide->getShapes()->addChart(ChartType::Line, 20, 20, 500, 300);
+
+    for ($i = 0; $i < java_values($lineChart->getChartData()->getSeries()->size()); $i++)
+    {
+        $series = $lineChart->getChartData()->getSeries()->get_Item($i);
+        $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
     }
-    $pres->save("lineChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Fa térkép diagramok létrehozása**
+Az eredmény:
 
-A fa térkép diagramok leginkább értékesítési adatok esetén hasznosak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet az egyes kategóriák nagy hozzájáruló elemeire.
+![A vonaldiagram](line_chart.png)
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Treemap](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Treemap) típust.  
-4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
-6. Adjon hozzá új sorozatokat és kategóriákat.  
-7. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
-8. Mentse a módosított prezentációt PPTX fájlként.
+### **Fafelület-diagramok (Tree Map) létrehozása**
+
+A faábrák (Tree Map) leginkább értékesítési adatok esetén hasznosak, amikor a kategória‑méretek relatív arányát szeretnénk megjeleníteni, és gyorsan felhívni a figyelmet az egyes kategóriák nagy hozzájáruló elemeire.
+
+Ez a példa egy nyolc levélből álló faábrát hoz létre, amely négy szárra és két ágra csoportosul. A [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) metódus az 1. szintű csoportosításnál a szárakat, a 2. szintnél az ágakat rendeli hozzá. Az értékek határozzák meg a relatív téglalap‑méreteket, a kategória‑címkék és a szülő‑címkék pedig a hierarchiát mutatják.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Treemap, 50, 50, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\ParentLabelLayoutType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Treemap, 20, 20, 500, 300);
+
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $wb->clear(0);
-    # 1. ág
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    // Ág 1
+    $categoryCell = $workbook->getCell(0, "C1", "Leaf1");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "Leaf2"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
+
+    $categoryCell = $workbook->getCell(0, "C2", "Leaf2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "C3", "Leaf3");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
-    # 2. ág
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
+
+    $categoryCell = $workbook->getCell(0, "C4", "Leaf4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    // Ág 2
+    $categoryCell = $workbook->getCell(0, "C5", "Leaf5");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "Leaf6"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Leaf7"));
+
+    $categoryCell = $workbook->getCell(0, "C6", "Leaf6");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "C7", "Leaf7");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem4");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Leaf8"));
+
+    $categoryCell = $workbook->getCell(0, "C8", "Leaf8");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
     $series = $chart->getChartData()->getSeries()->add(ChartType::Treemap);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D1", 4));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D2", 5));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D3", 3));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D4", 6));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D5", 9));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D6", 9));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D7", 4));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D8", 3));
+    $valueCell = $workbook->getCell(0, "D1", 4);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D2", 5);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D3", 3);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D4", 6);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D5", 9);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D6", 9);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D7", 4);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D8", 3);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+
     $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
-    $pres->save("Treemap.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Treemap.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Részvénydiagramok létrehozása**
+Az eredmény:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#OpenHighLowClose) típust.  
-4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
-6. Adjon hozzá új sorozatokat és kategóriákat.  
-7. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
-8. Határozza meg a magas‑alacsony vonalak formátumát.  
-9. Mentse a módosított prezentációt PPTX fájlként.
+![A faábra diagram](treemap_chart.png)
+
+### **Vízesésdiagramok (Waterfall) létrehozása**
+
+A vízesésdiagram azt mutatja, hogy a pozitív és negatív változások hogyan járulnak hozzá a végső értékhez. Például egy profit‑bontás kezdődhet a bevétellel, majd levonja a költségeket, és hozzáadja a többi jövedelmet. A változási oszlopok az előző és az új futó érték között lebegnek, míg a total‑oszlopok a nullától a felhalmozott értékig terjednek.
+
+A következő példa ezredekben (USD) megadott összegeket használ:
+
+| Kategória | Munkafüzet‑érték | Oszlop‑típus |
+| --- | ---: | --- |
+| Bevétel | 1000 | Növekedés |
+| Eladási költség | -400 | Csökkenés |
+| Bruttó profit | 600 | Közbenső total |
+| Működési költség | -200 | Csökkenés |
+| Egyéb jövedelem | 50 | Növekedés |
+| Nettó profit | 450 | Végső total |
+
+Egy pont közbenső vagy végső total‑ként való megjelöléséhez hívja meg a [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) metódust `true`‑val. Adja meg a tényleges felhalmozott összeget a pont munkafüzet‑cellájában: `600` a bruttó profithoz (`1000 - 400`) és `450` a nettó profithoz (`600 - 200 + 50`). A metódus csak megjelöli az oszlopot total‑ként; nem számítja ki vagy tölti ki a cella‑értéket. Ne használjon nullát helyőrzőként, és ne adjon meg más változást total‑pontként. A total‑oszlop a felhalmozott értéket mutatja anélkül, hogy újra hozzáadná a futó értékhez.
+
+Ez a komplett PHP‑példa a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) `Waterfall` tagját használja, törli az alapértelmezett adatokat, és feltölti a beágyazott munkafüzetet. A `0`‑ás munkalap az első lapot választja; az A oszlop a kategória‑neveket, a B oszlop az értékeket tartalmazza. Minden értéket a [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) metódussal adunk hozzá. A nulla‑bázisú pontindexek `2` és `5` az közbenső és végső total‑t jelölik. A [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) `true`‑val való hívása megjeleníti az összegeket az oszlopokon. Nincs bemeneti prezentáció vagy munkafüzet szükséges.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::OpenHighLowClose, 50, 50, 600, 400, false);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Waterfall, 20, 20, 680, 200);
+
+    $chart->setTitle(true);
+    $chart->getChartTitle()->addTextFrameForOverriding("Profit breakdown (USD thousands)");
+    $chart->getChartTitle()->setOverlay(false);
+    $chart->setLegend(false);
+
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, 1, 0, "A"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, 2, 0, "B"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, 3, 0, "C"));
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 1, "Open"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 2, "High"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 3, "Low"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 4, "Close"), $chart->getType());
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $workbook->clear($worksheetIndex);
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Profit");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::Waterfall);
+    $categories = [ "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" ];
+    $values = [ 1000, -400, 600, -200, 50, 450 ];
+
+    for ($i = 0; $i < count($categories); $i++)
+    {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, $categories[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell($worksheetIndex, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
+    }
+
+    // A harmadik és hatodik pont total‑értékeket jelöl, nem további változásokat.
+    $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
+    $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
+    $series->setShowConnectorLines(true);
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("WaterfallChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+A sorozatszintű [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) metódus `true`‑val való meghívása vonalakat jelenít meg az egymást követő oszlopok között, így könnyebben követhető a futó érték. Ezeknek a vonalaknak a elrejtéséhez cserélje ki a példában a hívást `$series->setShowConnectorLines(false);`‑re a mentés előtt. Ez csak a vonalak láthatóságát módosítja, nem az adatokat vagy total‑okat.
+
+A mentett prezentáció 600‑as bruttó profitot és 450‑as nettó profitot mutat, mindkét total nulláról indul:
+
+![Vízesésdiagram, amely a bevételt, költségeket, 600‑as bruttó profitot és 450‑as nettó profitot mutat értékcímkékkel és összekötő vonalakkal](waterfall_chart.png)
+
+### **Részvénydiagramok (Stock) létrehozása**
+
+A részvénydiagramok pénzügyi adatok, például nyitó, legmagasabb, legalacsonyabb és záró árak megjelenítésére szolgálnak, segítve a piaci trendek és volatilitás elemzését. Alapvető betekintést nyújtanak a részvény teljesítményébe, támogatva a befektetőket és elemzőket a megalapozott döntéshozatalban.
+
+Ez a példa egy nyitó‑magas‑alacsony‑záró diagramot hoz létre négy sorozattal ebben a sorrendben és három kategóriával. A [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) metódus engedélyezi a fel‑/le‑oszlopokat, a [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) szabályozza a high‑low vonalakat, míg az egyes sorozat‑vonalak és a kisebb vízszintes rácsvonalak rejtve maradnak.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $categoryCell = $workbook->getCell(0, 1, 0, "A");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, 2, 0, "B");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, 3, 0, "C");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Open");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::OpenHighLowClose);
+    $seriesNameCell = $workbook->getCell(0, 0, 2, "High");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::OpenHighLowClose);
+    $seriesNameCell = $workbook->getCell(0, 0, 3, "Low");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::OpenHighLowClose);
+    $seriesNameCell = $workbook->getCell(0, 0, 4, "Close");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::OpenHighLowClose);
+
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 1, 1, 72));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 1, 25));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 1, 38));
+    $valueCell = $workbook->getCell(0, 1, 1, 72);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 2, 1, 25);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 3, 1, 38);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 1, 2, 172));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 2, 57));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 2, 57));
+    $valueCell = $workbook->getCell(0, 1, 2, 172);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 2, 2, 57);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 3, 2, 57);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 1, 3, 12));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 3, 12));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 3, 13));
+    $valueCell = $workbook->getCell(0, 1, 3, 12);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 2, 3, 12);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 3, 3, 13);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+
     $series = $chart->getChartData()->getSeries()->get_Item(3);
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 1, 4, 25));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 4, 38));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
+    $valueCell = $workbook->getCell(0, 1, 4, 25);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 2, 4, 38);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 3, 4, 50);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $seriesCollection = $chart->getChartData()->getSeries();
-    foreach ($seriesCollection as $ser) {
-      $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++)
+    {
+        $stockSeries = $chart->getChartData()->getSeries()->get_Item($i);
+        $stockSeries->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $presentation->save("Stock-chart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Doboz‑ és szárnydiagramok létrehozása**
+Az eredmény:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#BoxAndWhisker) típust.  
-4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
-6. Adjon hozzá új sorozatokat és kategóriákat.  
-7. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
-8. Mentse a módosított prezentációt PPTX fájlként.
+![A részvénydiagram](stock_chart.png)
+
+### **Doboz‑ és fajlagos diagramok (Box and Whisker) létrehozása**
+
+A doboz‑ és fajlagos diagramok az adat eloszlását mutatják, összefoglalva a főbb statisztikai mutatókat, például a mediánt, kvartiliseket és lehetséges kiugró értékeket. Különösen hasznosak feltáró adat‑elemzésekben és statisztikai vizsgálatokban, hogy gyorsan megértsük az adat variabilitását és az esetleges anomáliákat.
+
+Ez a példa hat értékből hoz létre egy doboz‑ és fajlagos diagramot. A [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) metódus az exkluzív kvartilis‑számítást választja. A példa engedélyezi az átlag‑vonalakat, átlag‑markereket, belső pontokat és kiugró pontokat.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::BoxAndWhisker, 50, 50, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\QuartileMethodType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::BoxAndWhisker, 20, 20, 500, 300);
+
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $wb->clear(0);
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Category 1"));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $categoryCell = $workbook->getCell(0, "A1", "Category 1");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A2", "Category 2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A3", "Category 3");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A4", "Category 4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A5", "Category 5");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A6", "Category 6");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
     $series = $chart->getChartData()->getSeries()->add(ChartType::BoxAndWhisker);
+
     $series->setQuartileMethod(QuartileMethodType::Exclusive);
     $series->setShowMeanLine(true);
     $series->setShowMeanMarkers(true);
     $series->setShowInnerPoints(true);
     $series->setShowOutlierPoints(true);
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B1", 15));
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B2", 41));
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B3", 16));
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B4", 10));
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B5", 23));
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B6", 16));
-    $pres->save("BoxAndWhisker.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $valueCell = $workbook->getCell(0, "B1", 15);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B2", 41);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B3", 16);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B4", 10);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B5", 23);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B6", 16);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+
+    $presentation->save("BoxAndWhisker.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Tölcsérdiagramok létrehozása**
+### **Tölcsérdiagramok (Funnel) létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Funnel](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Funnel) típust.  
-4. Mentse a módosított prezentációt PPTX fájlként.
+A tölcsérdiagramok a folyamatok sorozatos szakaszainak vizualizálására szolgálnak, ahol az adat‑mennyiség a lépésről lépésre csökken. Különösen hasznosak a konverziós arányok elemzésében, szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
+
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy tölcsérdiagram hozzáadására egy meglévő prezentáció első diájához. Lecseréli az alapértelmezett adatot hat kategóriára és 50‑tól 500‑ig terjedő értékekre, majd menti a frissített prezentációt. A bemeneti prezentációnak legalább egy diát kell tartalmaznia.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Funnel, 50, 50, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("test.pptx");
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Funnel, 50, 50, 500, 400);
+
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $wb->clear(0);
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "Category 2"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "Category 3"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Category 4"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Category 5"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Category 6"));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $categoryCell = $workbook->getCell(0, "A1", "Category 1");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A2", "Category 2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A3", "Category 3");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A4", "Category 4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A5", "Category 5");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A6", "Category 6");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
     $series = $chart->getChartData()->getSeries()->add(ChartType::Funnel);
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B1", 50));
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B2", 100));
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B3", 200));
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B4", 300));
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B5", 400));
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B6", 500));
-    $pres->save("Funnel.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $valueCell = $workbook->getCell(0, "B1", 50);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B2", 100);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B3", 200);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B4", 300);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B5", 400);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B6", 500);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+
+    $presentation->save("Funnel.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Napcsillag diagramok létrehozása**
+Az eredmény:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Sunburst](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Sunburst) típust.  
-4. Mentse a módosított prezentációt PPTX fájlként.
+![A tölcsérdiagram](funnel_chart.png)
+
+### **Napfelkelte‑diagramok (Sunburst) létrehozása**
+
+A napfelkelte‑diagramok hierarchikus adatokat jelenítenek meg, a szinteket koncentrikus gyűrűkkel ábrázolva. Segítségükkel könnyen szemléltethetők a rész‑egész kapcsolatok, ideálisak a beágyazott kategóriák és alkategóriák világos, kompakt megjelenítésére.
+
+Ez a példa egy nyolc levélből álló napfelkelte‑diagramot hoz létre, amely négy szárra és két ágra csoportosul. A [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) metodus az 1. szintű szárakat, a 2. szintű ágakat rendeli hozzá. A kategória‑címkék az egyes szegmenseket jelölik, az értékek pedig a relatív méreteket határozzák meg.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 50, 50, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Sunburst, 20, 20, 500, 300);
+
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $wb->clear(0);
-    # 1. ág
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    // Ág 1
+    $categoryCell = $workbook->getCell(0, "C1", "Leaf1");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "Leaf2"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
+
+    $categoryCell = $workbook->getCell(0, "C2", "Leaf2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "C3", "Leaf3");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
-    # 2. ág
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
+
+    $categoryCell = $workbook->getCell(0, "C4", "Leaf4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    // Ág 2
+    $categoryCell = $workbook->getCell(0, "C5", "Leaf5");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "Leaf6"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Leaf7"));
+
+    $categoryCell = $workbook->getCell(0, "C6", "Leaf6");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "C7", "Leaf7");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem4");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Leaf8"));
+
+    $categoryCell = $workbook->getCell(0, "C8", "Leaf8");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
     $series = $chart->getChartData()->getSeries()->add(ChartType::Sunburst);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D1", 4));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D2", 5));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D3", 3));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D4", 6));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D5", 9));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D6", 9));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D7", 4));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D8", 3));
-    $pres->save("Sunburst.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $valueCell = $workbook->getCell(0, "D1", 4);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D2", 5);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D3", 3);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D4", 6);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D5", 9);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D6", 9);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D7", 4);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D8", 3);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+
+    $presentation->save("Sunburst.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Hisztogram diagramok létrehozása**
+Az eredmény:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::Histogram](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Histogram) típust.  
-4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
-6. Adjon hozzá új sorozatokat és kategóriákat.  
-7. Mentse a módosított prezentációt PPTX fájlként.
+![A napfelkelte diagram](sunburst_chart.png)
+
+### **Hisztogramok (Histogram) létrehozása**
+
+A hisztogramok a numerikus adatok eloszlását jelenítik meg értéktartományokra vagy bin‑ekre csoportosítva. Különösen hasznosak a gyakoriság, ferdeség, szórás felismerésében és a kiugró értékek feltárásában.
+
+Ez a példa hat numerikus értékkel hoz létre egy hisztogramot, beleértve negatív értékeket is. A [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) automatikus aggregációs típusának hívásával a diagram maga dönt a megjelenítendő bin‑ekről.
 
 ```php
-  $pres = new Presentation();
-  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Histogram, 50, 50, 500, 400);
-  $chart->getChartData()->getCategories()->clear();
-  $chart->getChartData()->getSeries()->clear();
-  $wb = $chart->getChartData()->getChartDataWorkbook();
-  $wb->clear(0);
-  $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A1", 15));
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A2", -41));
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A3", 16));
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A4", 10));
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A5", -23));
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A6", 16));
-  $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
+use aspose\slides\AxisAggregationType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 500, 300);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
+    $valueCell = $workbook->getCell(0, "A1", 15);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "A2", -41);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "A3", 16);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "A4", 10);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "A5", -23);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "A6", 16);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+
+    $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
+
+    $presentation->save("Histogram.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
+
+Az eredmény:
+
+![A hisztogram diagram](histogram_chart.png)
 
 ### **Radar diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Adjon hozzá egy diagramot némi adattal, és adja meg a kívánt diagramtípust ([ChartType::Radar](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Radar) ebben az esetben).  
-4. Mentse a módosított prezentációt PPTX fájlként.
+A radar diagramok többváltozós adatot jelenítenek meg kétdimenziós formátumban, lehetővé téve több változó egyszerre történő összehasonlítását. Különösen hasznosak minták, erősségek és gyengeségek azonosítására több teljesítménymutató vagy attribútum között.
+
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy radar diagram létrehozásához az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Radar, 20, 20, 400, 300);
-    $pres->save("Radar-chart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addChart(ChartType::Radar, 20, 20, 500, 300);
+
+    $presentation->save("Radar-chart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
+
+Az eredmény:
+
+![A radar diagram](radar_chart.png)
 
 ### **Többkategóriás diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType::ClusteredColumn](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ClusteredColumn) típust.  
-4. Érje el a diagram adatkönyvét a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) segítségével.  
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.  
-6. Adjon hozzá új sorozatokat és kategóriákat.  
-7. Adjon hozzá új diagramadatokat a diagram sorozathoz.  
-8. Mentse a módosított prezentációt PPTX fájlként.
+A többkategóriás diagramok olyan adatokat jelenítenek meg, amelyek több kategória‑csoportot tartalmaznak, lehetővé téve az értékek több dimenzióban történő egyidejű összehasonlítását. Különösen hasznosak bonyolult, többszintű adathalmazok trendjeinek és összefüggéseinek elemzéséhez.
+
+Ez a példa egy nyolc kategóriából álló csoportosított oszlopdiagramot hoz létre, amely négy párra rendezett. A [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) metódus minden párhoz közös címkét ad az 1. csoportosítási szinten, így a kategória‑tengely egyaránt tartalmaz egyedi és csoportosított címkéket.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $ch = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 600, 450);
-    $ch->getChartData()->getSeries()->clear();
-    $ch->getChartData()->getCategories()->clear();
-    $fact = $ch->getChartData()->getChartDataWorkbook();
-    $fact->clear(0);
-    $defaultWorksheetIndex = 0;
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c2", "A"));
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $worksheetIndex = 0;
+
+    $categoryCell = $workbook->getCell(0, "c2", "A");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
     $category->getGroupingLevels()->setGroupingItem(1, "Group1");
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c3", "B"));
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c4", "C"));
+    $categoryCell = $workbook->getCell(0, "c3", "B");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "c4", "C");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
     $category->getGroupingLevels()->setGroupingItem(1, "Group2");
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c5", "D"));
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c6", "E"));
+    $categoryCell = $workbook->getCell(0, "c5", "D");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "c6", "E");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
     $category->getGroupingLevels()->setGroupingItem(1, "Group3");
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c7", "F"));
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c8", "G"));
+    $categoryCell = $workbook->getCell(0, "c7", "F");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "c8", "G");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
     $category->getGroupingLevels()->setGroupingItem(1, "Group4");
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c9", "H"));
-    # Sorozat hozzáadása
-    $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType::ClusteredColumn);
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D2", 10));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D3", 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D4", 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D5", 40));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D6", 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D7", 60));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D8", 70));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D9", 80));
-    # Prezentáció mentése diagrammal
-    $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $categoryCell = $workbook->getCell(0, "c9", "H");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $seriesNameCell = $workbook->getCell(0, "D1", "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::ClusteredColumn);
+
+    $valueCell = $workbook->getCell($worksheetIndex, "D2", 10);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D3", 20);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D4", 30);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D5", 40);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D6", 50);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D7", 60);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D8", 70);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D9", 80);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+
+    $presentation->save("AsposeChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Térkép diagramok létrehozása**
+Az eredmény:
 
-A térkép diagramok földrajzi adatokat jelenítenek meg, és segítenek összehasonlítani az értékeket régiók szerint.
+![A többkategóriás diagram](multi_category_chart.png)
+
+### **Térképdiagramok (Map) létrehozása**
+
+A térképdiagramok földrajzi adatok vizualizálására szolgálnak, az információt konkrét helyekhez (országok, államok, városok) rendelve. Különösen hasznosak regionális trendek, demográfiai adatok és térbeli eloszlások elemzésére egyértelmű, látványos módon.
+
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy térképdiagram létrehozásához az alapértelmezett földrajzi adatokkal, majd a megtekintés céljából menti PowerPoint‑ban.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Map, 50, 50, 500, 400);
-    $pres->save("mapChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Map, 20, 20, 500, 300);
+
+    $presentation->save("mapChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Kombinációs diagramok létrehozása**
+Az eredmény:
 
-A kombinációs diagram (vagy combo diagram) két vagy több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a két vagy több adatkészlet közötti különbségeket, segítve a köztük lévő kapcsolatok azonosítását.
+![A térképdiagram](map_chart.png)
+
+{{% alert color="info" title="Note" %}}
+A fenti kép a mentett prezentációt mutatja PowerPoint‑ban megnyitva. Az Aspose.Slides helyesen írja a térképdiagramot és annak adatait, de maga a diagramot nem rajzolja: ha egy diát, amely tartalmaz ilyen diagramot, képre vagy PDF‑re, SVG‑re renderelünk, a diagram terület üresen marad. A dián lévő egyéb alakzatok nem érintettek.
+{{% /alert %}}
+
+### **Kombinációs diagramok (Combination) létrehozása**
+
+A kombinációs (vagy combo) diagram két vagy több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemeljük, összehasonlítsuk vagy megvizsgáljuk két vagy több adathalmaz különbségeit, elősegítve a köztük lévő kapcsolatok feltárását.
 
 ![A kombinációs diagram](combination_chart.png)
 
-Az alábbi PHP kód mutatja, hogyan hozható létre a fenti kombinációs diagram egy PowerPoint prezentációban:
+Ez a példa négy kategórián keresztül két csoportosított oszlop sorozatot és egy vonal sorozatot kombinál. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) a vonalat a jobb oldali másodlagos függőleges tengelyre helyezi. A segédfüggvények beállítják a címet, jelmagyarázatot, tengelycímkéket és rácsvonalakat.
 
 ```php
-function createComboChart() {
+use aspose\slides\AxisPositionType;
+use aspose\slides\ChartType;
+use aspose\slides\CrossesType;
+use aspose\slides\FillType;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+function createComboChart()
+{
     $presentation = new Presentation();
-    $slide = $presentation->getSlides()->get_Item(0);
-    try {
-        $chart = createChartWithFirstSeries($slide);
+    try
+    {
+        $chart = createChartWithFirstSeries($presentation->getSlides()->get_Item(0));
 
         addSecondSeriesToChart($chart);
         addThirdSeriesToChart($chart);
@@ -726,56 +1105,62 @@ function createComboChart() {
         setSecondaryAxesFormat($chart);
 
         $presentation->save("combo-chart.pptx", SaveFormat::Pptx);
-    } finally {
+    }
+    finally
+    {
         $presentation->dispose();
     }
 }
 
-function createChartWithFirstSeries($slide) {
+function createChartWithFirstSeries($slide)
+{
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // Állítsa be a diagram címét.
     $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
     $chart->getChartTitle()->setOverlay(false);
-    $titleParagraph = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
-    $titleFormat = $titleParagraph->getParagraphFormat()->getDefaultPortionFormat();
-    $titleFormat->setFontBold(NullableBool::False);
-    $titleFormat->setFontHeight(18);
-    
-    // Állítsa be a diagram jelmagyarázatát.
+    $portionFormat = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $portionFormat->setFontBold(NullableBool::False);
+    $portionFormat->setFontHeight(18);
+
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // Törölje az alapértelmezett létrehozott sorozatokat és kategóriákat.
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
-    $worksheetIndex = 0;
     $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
 
-    // Új kategóriák hozzáadása.
-    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 1, 0, "Category 1"));
-    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 2, 0, "Category 2"));
-    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 3, 0, "Category 3"));
-    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 4, 0, "Category 4"));
+    $categoryCell = $workbook->getCell($worksheetIndex, 1, 0, "Category 1");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell($worksheetIndex, 2, 0, "Category 2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell($worksheetIndex, 3, 0, "Category 3");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell($worksheetIndex, 4, 0, "Category 4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
 
-    // Az első sorozat hozzáadása.
     $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
     $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
 
     $series->getParentSeriesGroup()->setOverlap(-25);
     $series->getParentSeriesGroup()->setGapWidth(220);
 
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 1, 4.3));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 1, 2.5));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 1, 3.5));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 4, 1, 4.5));
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 1, 4.3);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 1, 2.5);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 1, 3.5);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 4, 1, 4.5);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
 
     return $chart;
 }
 
-function addSecondSeriesToChart($chart) {
+function addSecondSeriesToChart($chart)
+{
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $worksheetIndex = 0;
 
@@ -785,50 +1170,58 @@ function addSecondSeriesToChart($chart) {
     $series->getParentSeriesGroup()->setOverlap(-25);
     $series->getParentSeriesGroup()->setGapWidth(220);
 
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 2, 2.4));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 2, 4.4));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 2, 1.8));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 4, 2, 2.8));
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 2, 2.4);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 2, 4.4);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 2, 1.8);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 4, 2, 2.8);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
 }
 
-function addThirdSeriesToChart($chart) {
+function addThirdSeriesToChart($chart)
+{
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $worksheetIndex = 0;
 
     $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Series 3");
     $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::Line);
 
-    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 1, 3, 2.0));
-    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 2, 3, 2.0));
-    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 3, 3, 3.0));
-    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 4, 3, 5.0));
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 3, 2.0);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 3, 2.0);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 3, 3.0);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 4, 3, 5.0);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
 
     $series->setPlotOnSecondAxis(true);
 }
 
-function setPrimaryAxesFormat($chart) {
-    // A vízszintes tengely beállítása.
+function setPrimaryAxesFormat($chart)
+{
     $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
     $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($horizontalAxis, "X Axis");
 
-    // A függőleges tengely beállítása.
     $verticalAxis = $chart->getAxes()->getVerticalAxis();
     $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // A függőleges fő rácsvonalak színének beállítása.
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
-    $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
+    $color = new Java("java.awt.Color", 217, 217, 217);
+    $majorGridLinesFormat->getSolidFillColor()->setColor($color);
 }
 
-function setSecondaryAxesFormat($chart) {
-    // A másodlagos vízszintes tengely beállítása.
+function setSecondaryAxesFormat($chart)
+{
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -836,7 +1229,6 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // A másodlagos függőleges tengely beállítása.
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -847,154 +1239,207 @@ function setSecondaryAxesFormat($chart) {
     setAxisTitle($secondaryVerticalAxis, "Y Axis 2");
 }
 
-function setAxisTitle($axis, $axisTitle) {
+function setAxisTitle($axis, $axisTitle)
+{
     $axis->setTitle(true);
     $axis->getTitle()->setOverlay(false);
-    $titleParagraph = $axis->getTitle()->addTextFrameForOverriding($axisTitle)->getParagraphs()->get_Item(0);
-    $titleFormat = $titleParagraph->getParagraphFormat()->getDefaultPortionFormat();
-    $titleFormat->setFontBold(NullableBool::False);
-    $titleFormat->setFontHeight(12);
+    $titlePortionFormat = $axis->getTitle()->addTextFrameForOverriding($axisTitle)->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $titlePortionFormat->setFontBold(NullableBool::False);
+    $titlePortionFormat->setFontHeight(12);
 }
+
+createComboChart();
 ```
 
 ## **Diagramok frissítése**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból, amely a frissíteni kívánt diagramot tartalmazó prezentációt képviseli.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Járja be az összes alakzatot, hogy megtalálja a kívánt diagramot.  
-4. Érje el a diagram adat munkalapját.  
-5. Módosítsa a diagram adat sorozatát a sorozatértékek megváltoztatásával.  
-6. Adjon hozzá egy új sorozatot, és töltse fel az adatokat.  
-7. Mentse a módosított prezentációt PPTX fájlként.
+Az Aspose.Slides for PHP via Java lehetővé teszi a PowerPoint diagramok frissítését a diagram adatainak, formázásának és stílusának módosításával. Ez a funkció egyszerűsíti a prezentációk naprakészen tartását dinamikus tartalommal, és biztosítja, hogy a diagramok pontosan tükrözzék az aktuális adatokat és vizuális szabványokat.
+
+Ez a példa frissíti a „My chart” nevű diagramot a meglévő prezentáció első diáján. Két oszlop‑sorozatra van szükség, mindegyik három adat‑ponttal, a kategória‑címkék az A oszlopban, a sorozat‑nevek az első munkalap első sorában. A példa a [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) metódust használja a munkafüzet‑cellák módosításához, frissíti a sorozat‑értékeket, hozzáad egy harmadik sorozatot, és a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/) segítségével a diagramot csoportosított henger‑típusra változtatja.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Első dia lekérése
-    $sld = $pres->getSlides()->get_Item(0);
-    # Diagram lekérése alapértelmezett adatokkal
-    $chart = $sld->getShapes()->get_Item(0);
-    # A diagram adatlap indexének beállítása
-    $defaultWorksheetIndex = 0;
-    # A diagram adat munkalapjának lekérése
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # A diagram kategória nevének módosítása
-    $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
-    $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    # Az első diagram sorozat kivétele
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Most sorozat adatainak frissítése
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Sorozat név módosítása
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
-    $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
-    $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
-    # A második diagram sorozat kivétele
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Most sorozat adatainak frissítése
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Sorozat név módosítása
+$chartName = "My chart";
+$chartClass = new JavaClass("com.aspose.slides.IChart");
 
-    $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
-    $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
-    $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # Most új sorozat hozzáadása
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
-    # A harmadik diagram sorozat kivétele
-    $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # Most a sorozat adatainak feltöltése
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
-    $chart->setType(ChartType::ClusteredCylinder);
-    # Prezentáció mentése diagrammal
-    $pres->save("AsposeChartModified_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation("ExistingChart.pptx");
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++)
+    {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartClass) && $chartName === java_values($shape->getName()))
+        {
+            $chart = $shape;
+            $worksheetIndex = 0;
+
+            $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+            $workbook->getCell($worksheetIndex, 1, 0, "Modified Category 1");
+            $workbook->getCell($worksheetIndex, 2, 0, "Modified Category 2");
+
+            $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+            $workbook->getCell($worksheetIndex, 0, 1, "New_Series 1");
+            $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
+            $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
+            $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
+
+            $series = $chart->getChartData()->getSeries()->get_Item(1);
+
+            $workbook->getCell($worksheetIndex, 0, 2, "New_Series 2");
+            $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
+            $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
+            $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
+
+            $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Series 3");
+            $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+            $valueCell = $workbook->getCell($worksheetIndex, 1, 3, 20);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+            $valueCell = $workbook->getCell($worksheetIndex, 2, 3, 50);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+            $valueCell = $workbook->getCell($worksheetIndex, 3, 3, 30);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+
+            $chart->setType(ChartType::ClusteredCylinder);
+        }
     }
-  }
+
+    $presentation->save("AsposeChartModified.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
 ## **Adattartomány beállítása diagramhoz**
 
-A már használt tartomány megtekintéséhez lásd a [Diagram adat tartományának lekérdezése](/slides/hu/php-java/chart-workbook/#retrieve-a-charts-data-range) oldalt.
+A már meglévő diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/php-java/chart-workbook/#retrieve-a-charts-data-range) szakaszt.
 
-A diagram adattartományának beállításához tegye a következőt:
+Az Aspose.Slides for PHP via Java rugalmasságot biztosít egy adott munkalap‑tartomány diagram adatforrásként történő meghatározásához. Ez azt jelenti, hogy közvetlenül leképezheti a munkalap egy részét a diagramra, így szabályozva, mely cellák járulnak hozzá a sorozatokhoz és kategóriákhoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja diagramjait a munkalap legújabb adatváltozásaival, biztosítva, hogy a PowerPoint‑prezentációk aktuális és pontos információkat tükrözzenek.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztályból, amely a diagramot tartalmazó prezentációt képviseli.  
-2. Szerezzen egy hivatkozást egy diára a indexe alapján.  
-3. Járja be az összes alakzatot, hogy megtalálja a kívánt diagramot.  
-4. Érje el a diagram adatot, és állítsa be a tartományt.  
-5. Mentse a módosított prezentációt PPTX fájlként.
+Ez a példa a [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) metódust használja a „My chart” nevű diagram adatforrásának beállításához az első dián egy meglévő prezentációban a `Sheet1!A1:B4` tartománnyal. A diagram munkafüzetének tartalmaznia kell a megadott munkalapot, valamint egy sorozatfejlécet az első sorban, kategória‑címkéket az A oszlopban, és három értéket a B oszlopban.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->get_Item(0);
-    $chart->getChartData()->setRange("Sheet1!A1:B4");
-    $pres->save("SetDataRange_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$chartName = "My chart";
+$chartClass = new JavaClass("com.aspose.slides.IChart");
+
+$presentation = new Presentation("ExistingChart.pptx");
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++)
+    {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartClass) && $chartName === java_values($shape->getName()))
+        {
+            $chart = $shape;
+            $chart->getChartData()->setRange("Sheet1!A1:B4");
+        }
     }
-  }
+
+    $presentation->save("SetDataRange.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
 ## **Alapértelmezett jelölők használata diagramokban**
 
-Alapértelmezett jelölők használatakor a diagram sorozatai automatikusan különböző jelölőszimbólumot kapnak.
+Alapértelmezett jelölők használatakor minden diagram‑sorozathoz automatikusan különböző alap‑jelölő szimbólum kerül.
+
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy két vonal‑sorozatot és jelmagyarázatot tartalmazó diagram létrehozásához. A [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/)‑en keresztül elérhető jelölő beállítások megtartják a automatikusan hozzárendelt jelölő szimbólumokat. Az első sorozat negatív értéket és egy hiányzó (`null`) értéket tartalmaz, a másik minden kategóriához értéket ad.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 10, 10, 400, 400);
+
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "C1"));
-    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 1, 24));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "C2"));
-    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 1, 23));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "C3"));
-    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 1, -10));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 4, 0, "C4"));
-    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 1, null));
-    $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
-    # A második diagram sorozat kivétele
-    $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    # Most a sorozat adatainak feltöltése
-    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
-    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
-    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
-    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 2, 40));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $categoryCell = $workbook->getCell(0, 1, 0, "C1");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $valueCell = $workbook->getCell(0, 1, 1, 24);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+
+    $categoryCell = $workbook->getCell(0, 2, 0, "C2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $valueCell = $workbook->getCell(0, 2, 1, 23);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+
+    $categoryCell = $workbook->getCell(0, 3, 0, "C3");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $valueCell = $workbook->getCell(0, 3, 1, -10);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+
+    $categoryCell = $workbook->getCell(0, 4, 0, "C4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $valueCell = $workbook->getCell(0, 4, 1, null);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+
+    $seriesNameCell = $workbook->getCell(0, 0, 2, "Series 2");
+    $secondSeries = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $valueCell = $workbook->getCell(0, 1, 2, 30);
+    $secondSeries->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 2, 2, 10);
+    $secondSeries->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 3, 2, 60);
+    $secondSeries->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 4, 2, 40);
+    $secondSeries->getDataPoints()->addDataPointForLineSeries($valueCell);
+
     $chart->setLegend(true);
     $chart->getLegend()->setOverlay(false);
-    $pres->save("DefaultMarkersInChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("DefaultMarkersInChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
 ## **GYIK**
 
-**Milyen diagramtípusokat támogat az Aspose.Slides?**
+**Milyen diagramtípusokat támogat az Aspose.Slides for PHP via Java?**
 
-Az Aspose.Slides sokféle [diagramtípust](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) támogat, beleértve az oszlop-, vonal-, kör-, terület-, szórás-, hisztogram-, radar- és még sok más típust. Ez a rugalmasság lehetővé teszi, hogy az adatmegjelenítési igényeinek legmegfelelőbb diagramtípust válassza.
+Az Aspose.Slides for PHP via Java széles körű diagramtípusokat támogat, többek között oszlop, vonal, kör, terület, szórás, hisztogram, radar és még sok mást. Ez a rugalmasság lehetővé teszi, hogy a legmegfelelőbb diagramtípust válassza adat‑vizualizációs igényeihez.
 
 **Hogyan adhatok új diagramot egy diára?**
 
-Új diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztály egy példányát, szerezze meg a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagram típusát és a kezdeti adatokat. Ez a folyamat közvetlenül integrálja a diagramot a prezentációba.
+Diagram hozzáadásához először egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) objektumot hoz létre, lekéri a kívánt diát az indexe alapján, majd meghívja a diagram‑hozzáadási metódust, megadva a diagram‑típust és a kezdeti adatokat. Ez a folyamat közvetlenül a prezentációba integrálja a diagramot.
 
-**Hogyan frissíthetem egy diagram megjelenített adatait?**
+**Hogyan frissíthetem a diagramon megjelenített adatokat?**
 
-Egy diagram adatait a diagram adatkönyvének ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) elérésével, az alapértelmezett sorozatok és kategóriák törlésével, majd a saját egyedi adatainak hozzáadásával frissítheti. Így a diagram mindig a legújabb adatokat tükrözi.
+A diagram adatainak frissítéséhez hozzáfér a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)‑hez, törli az alapértelmezett sorozatokat és kategóriákat, majd hozzáadja a saját egyedi adatait. Így programozottan frissítheti a diagramot a legújabb adatokkal.
 
-**Lehetséges-e a diagram megjelenésének testreszabása?**
+**Lehetséges testreszabni a diagram megjelenését?**
 
-Igen, az Aspose.Slides kiterjedt testreszabási lehetőségeket biztosít. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb [formázási elemek](/slides/hu/php-java/chart-entities/) beállításait, hogy a diagram kinézetét az Ön tervezési igényeihez igazítsa.
+Igen, az Aspose.Slides for PHP via Java kiterjedt testreszabási lehetőségeket kínál. Módosíthat színeket, betűtípusokat, címkéket, jelmagyarázatot és egyéb formázási elemeket, hogy a diagram megjelenését a konkrét tervezési követelményeknek megfelelően alakítsa.

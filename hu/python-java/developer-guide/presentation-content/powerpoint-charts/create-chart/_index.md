@@ -1,5 +1,5 @@
 ---
-title: PowerPoint prezentáció diagramjainak létrehozása vagy frissítése Pythonban
+title: PowerPoint prezentáció diagramok létrehozása vagy frissítése Pythonban
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -10,14 +10,14 @@ keywords:
 - diagram szerkesztése
 - diagram módosítása
 - diagram frissítése
-- szórásdiagram
+- szórt diagram
 - kördiagram
 - vonaldiagram
 - fa térképes diagram
 - részvénydiagram
-- doboz- és szárnydiagram
+- doboz‑ és szárnydiagram
 - tölcsérdiagram
-- sunburst diagram
+- nap sugarú diagram
 - hisztogram diagram
 - radar diagram
 - többkategóriás diagram
@@ -26,49 +26,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for Python via Java használatával. Diagramok hozzáadása, formázása és szerkesztése gyakorlati Python kódpéldákkal."
+description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for Python via Java segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati Python kódpéldákkal."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides használatával. Megtanulja, hogyan lehet programozott módon diagramot hozzáadni egy diához, adatokat betölteni, és különféle formázási beállításokat alkalmazni a specifikus tervezési követelményekhez. A cikk során részletes kódpéldák illusztrálják az egyes lépéseket, az előadás és a diagramobjektum inicializálásától a sorozatok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével alapos megértést szerez a dinamikus diagramgenerálás integrálásáról alkalmazásaiba, ezáltal leegyszerűsítve az adat‑vezérelt prezentációk elkészítését.
+Ez a cikk átfogó útmutatót nyújt arról, hogyan hozhatunk létre és testreszabhatunk diagramokat az Aspose.Slides for Python via Java segítségével. Megtanulhatja, hogyan adjon programozott módon diagramot egy diára, hogyan töltse fel adatokka­l, és hogyan alkalmazzon különféle formázási beállításokat a konkrét tervezési igényeihez. A cikk során részletes kódpéldák mutatják be az egyes lépéseket, a bemutató és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével alapos ismereteket szerezhet a dinamikus diagramgenerálás integrálásáról Python‑alkalmazásaiba, megkönnyítve az adat‑vezérelt prezentációk létrehozását.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat és felismerni azokat a meglátásokat, amelyek nem feltétlenül láthatók egy táblázatból vagy egy táblázatkezelőből.
+A diagramok segítik az embereket abban, hogy gyorsan megjelenítsék az adatokat, és olyan betekintéseket nyerjenek, amelyek egy táblázatból vagy munkafüzetből nem azonnal nyerhetők ki.
 
-**Miért hozzunk létre diagramokat?**
+**Miért hozunk létre diagramokat?**
 
-Diagramokkal:
+Diagramok használatával:
 
-* nagymennyiségű adatot aggregálni, sűríteni vagy összefoglalni egyetlen dián egy prezentációban
-* felfedni az adatokban rejlő mintákat és trendeket
-* meghatározni az adatok irányát és lendületét az idő múlásával vagy egy adott mérőegységhez viszonyítva
-* azonosítani kiugró értékeket, eltéréseket, hibákat, értelmetlen adatokat stb.
-* kommunikálni vagy bemutatni összetett adatokat
+* összevonhat, tömöríthet vagy összefoglalhat nagy mennyiségű adatot egyetlen dián egy prezentációban;
+* feltárhatja az adatok mintáit és trendjeit;
+* megállapíthatja az adatok irányát és lendületét időben vagy egy adott mérőegységhez viszonyítva;
+* felfedezhet kiugró értékeket, eltéréseket, hibákat és értelmetlen adatokat;
+* kommunikálhat vagy bemutathat összetett adatokat.
 
-A PowerPointban a *Beszúrás* funkcióval hozhatók létre diagramok, amely sablonokat biztosít számos diagramtípus megtervezéséhez. Az Aspose.Slides segítségével létrehozhatunk mind szabványos diagramokat (népszerű diagramtípusokon alapulókat), mind egyedi diagramokat.
+PowerPointban a diagramok létrehozhatók a *Beszúrás* funkcióval, amely számos diagramtípushoz kínál sablonokat. Az Aspose.Slides segítségével szabályos diagramokat (népszerű típusokra alapozva) és egyéni diagramokat egyaránt létrehozhat.
 
 {{% alert color="info" title="Note" %}}
-A diagramok létrehozásához használja a [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) osztályt. Ennek az osztálynak a mezői a különböző diagramtípusoknak felelnek meg.
+Használja a [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) enumerációt a [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/) csomagban. Az enumeráció értékei különböző diagramtípusoknak felelnek meg.
 {{% /alert %}}
 
-### **Csoportosított oszlopdiagramok létrehozása**
+### **Csoportos oszlopdiagramok létrehozása**
 
-Ez a szakasz bemutatja, hogyan hozhatók létre csoportosított oszlopdiagramok az Aspose.Slides használatával. Megtanulja, hogyan kell inicializálni egy prezentációt, diagramot hozzáadni, és testreszabni annak elemeit, mint például címet, adatokat, sorozatokat, kategóriákat és stílusokat. Kövesse az alábbi lépéseket, hogy lássa, hogyan generálódik egy szabványos csoportosított oszlopdiagram:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot némi adatokkal, és adja meg a `ChartType.ClusteredColumn` típust.
-4. Adjon címet a diagramhoz.
-5. Érje el a diagram adat‑munkalapját.
-6. Törölje az összes alapértelmezett sorozatot és kategóriát.
-7. Adjon hozzá új sorozatokat és kategóriákat.
-8. Adjon hozzá új diagramadatokat a diagram sorozatokhoz.
-9. Alkalmazzon kitöltőszínt a diagram sorozatokra.
-10. Adjon címkéket a diagram sorozatokhoz.
-11. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a C# kód bemutatja, hogyan hozható létre egy csoportosított oszlopdiagram:
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódust használja egy csoportos oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltést kapnak, az egyedi címkék a kategória‑neveket, sorozat‑neveket és értékeket mutatják. A 0‑ás munkalap index az beágyazott diagram‑munkafüzet első lapjára mutat.
 
 ```python
 import jpype
@@ -81,115 +67,92 @@ from asposeslides.api import ChartType, FillType, NullableBool, Presentation, Sa
 
 Color = jpype.JClass("java.awt.Color")
 
-# Példányosít egy prezentációosztályt, amely egy PPTX fájlt képvisel.
 presentation = Presentation()
 try:
-    # Eléri az első diát
     slide = presentation.getSlides().get_Item(0)
 
-    # Diagramot ad hozzá alapértelmezett adatokkal
-    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
 
-    # Beállítja a diagram címét
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Beállítja a diagram adatlap indexét
-    default_worksheet_index = 0
-
-    # Lekéri a diagram adatlapját
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
 
-    # Törli az alapértelmezett generált sorozatokat és kategóriákat
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
-    # Új sorozatokat ad hozzá
-    cell = workbook.getCell(default_worksheet_index, 0, 1, "Series 1")
-    chart.getChartData().getSeries().add(cell,chart.getType())
-    cell = workbook.getCell(default_worksheet_index, 0, 2, "Series 2")
-    chart.getChartData().getSeries().add(cell,chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 0, 2, "Series 2")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Új kategóriákat ad hozzá
-    cell = workbook.getCell(default_worksheet_index, 1, 0, "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 0, "Category 2")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 0, "Category 3")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(worksheet_index, 1, 0, "Category 1")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(worksheet_index, 2, 0, "Category 2")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(worksheet_index, 3, 0, "Category 3")
+    chart.getChartData().getCategories().add(category_cell)
 
-    # Lekéri az első diagram sorozatot
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Most feltölti a sorozat adatait
-    cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, 1, 1, 20)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 2, 1, 50)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 3, 1, 30)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Beállítja a sorozat kitöltőszínét
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
 
-    # Lekéri a második diagram sorozatot
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Feltölti a sorozat adatait
-    cell = workbook.getCell(default_worksheet_index, 1, 2, 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 2, 10)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 2, 60)
-    series.getDataPoints().addDataPointForBarSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, 1, 2, 30)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 2, 2, 10)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 3, 2, 60)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Beállítja a sorozat kitöltőszínét
     series.getFormat().getFill().setFillType(FillType.Solid)
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN)
+    color = Color(0, 128, 0)
+    series.getFormat().getFill().getSolidFillColor().setColor(color)
 
-    #Készít egyéni címkéket az új sorozat minden kategóriájához
-    # Beállítja az első címkét, hogy a kategória nevét mutassa
     label = series.getDataPoints().get_Item(0).getLabel()
     label.getDataLabelFormat().setShowCategoryName(True)
 
     label = series.getDataPoints().get_Item(1).getLabel()
     label.getDataLabelFormat().setShowSeriesName(True)
 
-    # Megjeleníti az értéket a harmadik címkén
     label = series.getDataPoints().get_Item(2).getLabel()
     label.getDataLabelFormat().setShowValue(True)
     label.getDataLabelFormat().setShowSeriesName(True)
     label.getDataLabelFormat().setSeparator("/")
 
-    # Mentés a diagrammal a prezentációba
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+Az eredmény:
+
+![A csoportos oszlopdiagram](clustered_column_chart.png)
+
 ### **Szórásdiagramok létrehozása**
 
-A szórásdiagramok (más néven szóráspontdiagramok vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
+A szórásdiagramok (más néven szórásábrák vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
 
 Használjon szórásdiagramot, ha:
 
-* párosított numerikus adatai vannak
-* két változója van, amely jól összeillik
-* meg szeretné határozni, hogy a két változó összefügg-e
-* független változója több értékkel rendelkezik egy függő változóra vonatkozóan
+* párosított numerikus adatokkal rendelkezik;
+* két változó jól párosítható egymással;
+* meg szeretné határozni, hogy a két változó összefügg‑e;
+* egy független változó több értéket kap egy függő változóhoz képest.
 
-1. Kövesse a [Csoportosított oszlopdiagramok létrehozása](#create-clustered-column-charts) lépéseit.
-2. A harmadik lépésnél adjon hozzá egy diagramot némi adatokkal, és adja meg a diagram típusát az alábbiak közül:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Egy szórásdiagramot képvisel._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Egy görbékkel összekapcsolt szórásdiagramot képvisel, adatjelölőkkel._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Görbékkel összekapcsolt szórásdiagram, adatjelölők nélkül._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Vonalakkal összekapcsolt szórásdiagram, adatjelölőkkel._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Vonalakkal összekapcsolt szórásdiagram, adatjelölők nélkül._
-
-Ez a Python kód bemutatja, hogyan hozható létre szórásdiagram különböző jelölőkkel minden sorozathoz:
+Ez a példa két x‑y értékkészletet ábrázol. Az első sorozat egyenes vonalakat csillag‑markerrel, a második sima vonalakat kör‑markerrel jeleníti meg; mindkettő marker‑mérete 10, a [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize) metódussal állítható be. A [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) metódus a marker alakját szabályozza.
 
 ```python
 import jpype
@@ -200,100 +163,72 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, MarkerStyleType, Presentation, SaveFormat
 
-    # Példányosít egy prezentációosztályt, amely egy PPTX fájlt képvisel.
 presentation = Presentation()
 try:
-    # Eléri az első diát
     slide = presentation.getSlides().get_Item(0)
 
-    # Létrehozza az alapértelmezett diagramot
-    chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400)
+    chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300)
 
-    # Lekéri az alapértelmezett diagram adatlap indexét
-    default_worksheet_index = 0
-
-    # Lekéri a diagram adatlapját
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
 
-    # Törli a demo sorozatot
     chart.getChartData().getSeries().clear()
 
-    # Új sorozatokat ad hozzá
-    cell = workbook.getCell(default_worksheet_index, 1, 1, "Series 1")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(default_worksheet_index, 1, 3, "Series 2")
-    chart.getChartData().getSeries().add(cell, chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 1, 1, "Series 1")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 1, 3, "Series 2")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Lekéri az első diagram sorozatot
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Új pontot (1:3) ad hozzá a sorozathoz
-    x_cell = workbook.getCell(default_worksheet_index, 2, 1, 1)
-    y_cell = workbook.getCell(default_worksheet_index, 2, 2, 3)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 2, 1, 1)
+    y_value_cell = workbook.getCell(worksheet_index, 2, 2, 3)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Új pontot (2:10) ad hozzá
-    x_cell = workbook.getCell(default_worksheet_index, 3, 1, 2)
-    y_cell = workbook.getCell(default_worksheet_index, 3, 2, 10)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 3, 1, 2)
+    y_value_cell = workbook.getCell(worksheet_index, 3, 2, 10)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Módosítja a sorozat típusát
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers)
 
-    # Módosítja a diagram sorozat jelölőjét
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Star)
 
-    # Lekéri a második diagram sorozatot
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Új pontot (5:2) ad hozzá ott
-    x_cell = workbook.getCell(default_worksheet_index, 2, 3, 5)
-    y_cell = workbook.getCell(default_worksheet_index, 2, 4, 2)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 2, 3, 5)
+    y_value_cell = workbook.getCell(worksheet_index, 2, 4, 2)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Új pontot (3:1) ad hozzá
-    x_cell = workbook.getCell(default_worksheet_index, 3, 3, 3)
-    y_cell = workbook.getCell(default_worksheet_index, 3, 4, 1)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 3, 3, 3)
+    y_value_cell = workbook.getCell(worksheet_index, 3, 4, 1)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Új pontot (2:2) ad hozzá
-    x_cell = workbook.getCell(default_worksheet_index, 4, 3, 2)
-    y_cell = workbook.getCell(default_worksheet_index, 4, 4, 2)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 4, 3, 2)
+    y_value_cell = workbook.getCell(worksheet_index, 4, 4, 2)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Új pontot (5:1) ad hozzá
-    x_cell = workbook.getCell(default_worksheet_index, 5, 3, 5)
-    y_cell = workbook.getCell(default_worksheet_index, 5, 4, 1)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 5, 3, 5)
+    y_value_cell = workbook.getCell(worksheet_index, 5, 4, 1)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Módosítja a diagram sorozat jelölőjét
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Circle)
 
-    presentation.save("AsposeChart_out.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+Az eredmény:
+
+![A szórásdiagram](scatter_chart.png)
+
 ### **Kördiagramok létrehozása**
 
-A kördiagramok leginkább a részek és az egész közötti kapcsolatok bemutatására alkalmasak, különösen akkor, ha az adatok kategóriákat tartalmaznak numerikus értékekkel. Ha azonban az adatok sok részt vagy címkét tartalmaznak, érdemes inkább oszlopdiagramot használni.
+A kördiagramok leginkább a rész‑egész viszonyok bemutatására alkalmasak, különösen akkor, ha a kategóriák numerikus értékekkel rendelkeznek. Ha azonban sok rész vagy címke van, érdemes oszlopdiagramot használni.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Pie](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Pie) típust.
-4. Érje el a diagram adatmunkafüzetét a [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a diagram sorozatokhoz.
-8. Adjon hozzá új pontokat a diagramhoz, és alkalmazzon egyéni színeket a kördiagram szeleteihez.
-9. Állítsa be a sorozat címkéit.
-10. Engedélyezze a vezetővonalakat a sorozatcímkékhez.
-11. Állítsa be a kördiagram szeleteinek forgásszögét.
-12. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a Python kód bemutatja, hogyan hozható létre egy kördiagram:
+Ez a példa három negyedéves értékkel ellátott kördiagramot hoz létre. Minden szelethez egyedi kitöltés és keret tartozik, a címkék különböző kombinációkban jelenítik meg az értékeket, százalékokat és sorozatinformációkat. A [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) metódus az első szeletet 180 fokban kezdi.
 
 ```python
 import jpype
@@ -306,90 +241,77 @@ from asposeslides.api import ChartType, FillType, LineDashStyle, LineStyle, Null
 
 Color = jpype.JClass("java.awt.Color")
 
-# Példányosít egy prezentációosztályt, amely egy PPTX fájlt képvisel.
 presentation = Presentation()
 try:
-    # Eléri az első diát
     slide = presentation.getSlides().get_Item(0)
 
-    # Diagramot ad hozzá alapértelmezett adatokkal
-    chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+    chart = slide.getShapes().addChart(ChartType.Pie, 20, 20, 500, 300)
 
-    # Beállítja a diagram címét
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Beállítja a diagram adatlap indexét
-    default_worksheet_index = 0
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
-    # Lekéri a diagram adatlapját
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
 
-    # Törli az alapértelmezett generált sorozatokat és kategóriákat
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
-    # Új kategóriákat ad hozzá
-    cell = workbook.getCell(0, 1, 0, "First Qtr")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 2, 0, "2nd Qtr")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 3, 0, "3rd Qtr")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, 1, 0, "1st Qtr")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 2, 0, "2nd Qtr")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 3, 0, "3rd Qtr")
+    chart.getChartData().getCategories().add(category_cell)
 
-    # Új sorozatokat ad hozzá
-    cell = workbook.getCell(0, 0, 1, "Series 1")
-    series = chart.getChartData().getSeries().add(cell, chart.getType())
+    series_name_cell = workbook.getCell(0, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    #Feltölti a sorozat adatait
-    cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
-    series.getDataPoints().addDataPointForPieSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
-    series.getDataPoints().addDataPointForPieSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
-    series.getDataPoints().addDataPointForPieSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, 1, 1, 20)
+    series.getDataPoints().addDataPointForPieSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 2, 1, 50)
+    series.getDataPoints().addDataPointForPieSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 3, 1, 30)
+    series.getDataPoints().addDataPointForPieSeries(value_cell)
 
-    # Új pontok hozzáadása és a szektor színének beállítása
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(True)
 
-    point = series.getDataPoints().get_Item(0)
-    point.getFormat().getFill().setFillType(FillType.Solid)
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN)
+    first_slice = series.getDataPoints().get_Item(0)
+    first_slice.getFormat().getFill().setFillType(FillType.Solid)
+    first_slice.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN)
 
-    # Beállítja a szektor szegélyét
-    point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
-    point.getFormat().getLine().setWidth(3.0)
-    point.getFormat().getLine().setStyle(LineStyle.ThinThick)
-    point.getFormat().getLine().setDashStyle(LineDashStyle.DashDot)
+    first_slice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    first_slice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
+    first_slice.getFormat().getLine().setWidth(3.0)
+    first_slice.getFormat().getLine().setStyle(LineStyle.ThinThick)
+    first_slice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDash)
 
-    second_point = series.getDataPoints().get_Item(1)
-    second_point.getFormat().getFill().setFillType(FillType.Solid)
-    second_point.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    second_slice = series.getDataPoints().get_Item(1)
+    second_slice.getFormat().getFill().setFillType(FillType.Solid)
+    color = Color(165, 42, 42)
+    second_slice.getFormat().getFill().getSolidFillColor().setColor(color)
 
-    # Beállítja a szektor szegélyét
-    second_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    second_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
-    second_point.getFormat().getLine().setWidth(3.0)
-    second_point.getFormat().getLine().setStyle(LineStyle.Single)
-    second_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot)
+    second_slice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    second_slice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
+    second_slice.getFormat().getLine().setWidth(3.0)
+    second_slice.getFormat().getLine().setStyle(LineStyle.Single)
+    second_slice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot)
 
-    third_point = series.getDataPoints().get_Item(2)
-    third_point.getFormat().getFill().setFillType(FillType.Solid)
-    third_point.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW)
+    third_slice = series.getDataPoints().get_Item(2)
+    third_slice.getFormat().getFill().setFillType(FillType.Solid)
+    color = Color(255, 127, 80)
+    third_slice.getFormat().getFill().getSolidFillColor().setColor(color)
 
-    # Beállítja a szektor szegélyét
-    third_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    third_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
-    third_point.getFormat().getLine().setWidth(2.0)
-    third_point.getFormat().getLine().setStyle(LineStyle.ThinThin)
-    third_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot)
+    third_slice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    third_slice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    third_slice.getFormat().getLine().setWidth(2.0)
+    third_slice.getFormat().getLine().setStyle(LineStyle.ThinThin)
+    third_slice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot)
 
-    # Egyéni címkéket hoz létre minden kategóriához az új sorozathoz
     first_label = series.getDataPoints().get_Item(0).getLabel()
-
     first_label.getDataLabelFormat().setShowValue(True)
 
     second_label = series.getDataPoints().get_Item(1).getLabel()
@@ -401,28 +323,24 @@ try:
     third_label.getDataLabelFormat().setShowSeriesName(True)
     third_label.getDataLabelFormat().setShowPercentage(True)
 
-    # Megjeleníti a vezetővonalakat a diagramon
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(True)
 
-    # Beállítja a kördiagram szektorok forgásszögét
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180)
 
-    # Mentés diagrammal a prezentációt
-    presentation.save("PieChart_out.pptx", SaveFormat.Pptx)
+    presentation.save("PieChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+Az eredmény:
+
+![A kördiagram](pie_chart.png)
+
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább akkor hasznosak, amikor az értékek időbeli változását kívánja bemutatni. Egy vonaldiagram segítségével egyszerre nagy mennyiségű adatot hasonlíthat össze, nyomon követheti az időbeli változásokat és trendeket, kiemelheti az anomáliákat az adat sorozatokban, és sok más feladatot is elvégezhet.
+A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használandók, amikor az időbeli értékváltozást szeretnénk bemutatni. A vonaldiagram segítségével egyszerre összehasonlíthat nagymennyiségű adatot, nyomon követheti az időbeli változásokat és trendeket, kiemelheti a sorozatok anomáliáit, és egyéb felhasználási lehetőségek is rendelkezésre állnak.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Line](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Line) típust.
-4. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a Python kód bemutatja, hogyan hozható létre egy vonaldiagram:
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódussal egy vonaldiagramot hoz létre az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```python
 import jpype
@@ -435,14 +353,16 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    line_chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350)
+    slide = presentation.getSlides().get_Item(0)
+
+    line_chart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300)
 
     presentation.save("line_chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjai szintű, folyamatos vonalakkal vannak összekötve. Ha a pontokat vonalkavácsokkal szeretné összekötni, adja meg a kívánt vonalkavács típusát a következő módon:
+Alapértelmezés szerint a vonaldiagram pontjait egyenes, folytonos vonalak kötik össze. Ha pontok helyett szaggatott vonallal szeretné megjeleníteni, hívja meg a [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) metódust a [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) egyik értékével:
 
 ```python
 import jpype
@@ -451,34 +371,29 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, LineDashStyle, Presentation, SaveFormat
+from asposeslides.api import ChartType, LineDashStyle, Presentation
 
 presentation = Presentation()
 try:
-    line_chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350)
+    slide = presentation.getSlides().get_Item(0)
+
+    line_chart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300)
 
     for series in line_chart.getChartData().getSeries():
         series.getFormat().getLine().setDashStyle(LineDashStyle.Dash)
-
-    presentation.save("line_chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Fa térképes diagramok létrehozása**
+Az eredmény:
 
-A fa térképes diagramok leginkább értékesítési adatoknál használandók, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet az egyes kategóriákon belüli nagy hozzájárulású elemekre.
+![A vonaldiagram](line_chart.png)
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Treemap](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Treemap) típust.
-4. Érje el a diagram adatmunkafüzetét a [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a diagram sorozatokhoz.
-8. Mentse a módosított prezentációt PPTX fájlként.
+### **Fák térképes diagramok létrehozása**
 
-Ez a Python kód bemutatja, hogyan hozható létre egy fa térképes diagram:
+A fák térképes diagramok leginkább értékesítési adatok esetében alkalmasak, ha a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet az egyes kategóriák nagy hozzájáruló elemeire.
+
+Ez a példa egy fák térképet hoz létre nyolc levéllel, négy ággal és két ággal csoportosítva. A [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus az 1‑es csoportosítási szinten a szárakat, a 2‑es szinten az ágakat rendeli hozzá. Az értékek határozzák meg a téglalapok relatív méretét, míg a kategóriacímkék és a átfedő szülőcímkék az hierarchiát jelzik.
 
 ```python
 import jpype
@@ -491,63 +406,66 @@ from asposeslides.api import ChartType, ParentLabelLayoutType, Presentation, Sav
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Treemap, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    #ág 1
-    cell = workbook.getCell(0, "C1", "Leaf1")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Ág 1
+    category_cell = workbook.getCell(0, "C1", "Leaf1")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1")
 
-    cell = workbook.getCell(0, "C2", "Leaf2")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C2", "Leaf2")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C3", "Leaf3")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C3", "Leaf3")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2")
 
-    cell = workbook.getCell(0, "C4", "Leaf4")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C4", "Leaf4")
+    chart.getChartData().getCategories().add(category_cell)
 
-    #ág 2
-    cell = workbook.getCell(0, "C5", "Leaf5")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Ág 2
+    category_cell = workbook.getCell(0, "C5", "Leaf5")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2")
 
-    cell = workbook.getCell(0, "C6", "Leaf6")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C6", "Leaf6")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C7", "Leaf7")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C7", "Leaf7")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4")
 
-    cell = workbook.getCell(0, "C8", "Leaf8")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C8", "Leaf8")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.Treemap)
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(True)
-    cell = workbook.getCell(0, "D1", 4)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D2", 5)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D3", 3)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D4", 6)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D5", 9)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D6", 9)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D7", 4)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D8", 3)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
+    value_cell = workbook.getCell(0, "D1", 4)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D2", 5)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D3", 3)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D4", 6)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D5", 9)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D6", 9)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D7", 4)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D8", 3)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
 
     series.setParentLabelLayout(ParentLabelLayoutType.Overlapping)
 
@@ -556,19 +474,90 @@ finally:
     presentation.dispose()
 ```
 
+Az eredmény:
+
+![A fák térképes diagram](treemap_chart.png)
+
+### **Vízfallsorozat diagramok létrehozása**
+
+A vízfallsorozat diagram azt mutatja, hogyan járulnak hozzá a pozitív és negatív változások a végső értékhez. Például egy nyereségtörés a bevétellel kezdődik, levonja a költségeket, és hozzáadja a többi jövedelmet. A változó oszlopok az előző és az új kumulatív értékek között lebegnek, míg a teljes oszlopok a nullától a felhalmozott értékig terjednek.
+
+Az alábbi példa ezresekkel megadott amerikai dollárban számított összegeket használ:
+
+| Kategória | Munkafüzet érték | Oszlop típusa |
+| --- | ---: | --- |
+| Bevétel | 1000 | Növekedés |
+| Eladás költsége | -400 | Csökkenés |
+| Bruttó nyereség | 600 | Közbenső összeg |
+| Működési költségek | -200 | Csökkenés |
+| Egyéb jövedelem | 50 | Növekedés |
+| Nettó nyereség | 450 | Végösszeg |
+
+Egy pont közbenső vagy végső összegként való megjelöléséhez hívja meg a [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) metódust `True` értékkel. Adja meg a tényleges felhalmozott összeget a pont munkafüzet‑cellájában: `600` a bruttó nyereséghez (`1000 - 400`) és `450` a nettó nyereséghez (`600 - 200 + 50`). A metódus csak a oszlopot jelöli átlagként; nem számolja ki vagy tölti ki a cella‑értéket. Ne használjon nullát helykitöltőként, vagy adjon meg más változást összegpontként. A teljes oszlop a felhalmozott értéket mutatja anélkül, hogy újra hozzáadná az aktuális értékhez.
+
+Ez a teljes Python példa a [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) `Waterfall` tagját használja, törli az alapértelmezett adatokat, és feltölti a beágyazott munkafüzetet. A `0`‑ás munkalap‑index az első munkalapot választja; az A oszlop a kategórianéveket, a B oszlop az értékeket tartalmazza. Minden értékcellát a [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) metódussal adunk hozzá. A `2` és `5` indexű null‑alapú pontok az közbenső és végső összegként azonosítják a sorozatot. A [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) `True`‑val való meghívása megjeleníti az összegeket az oszlopokon. Nincs szükség bemeneti prezentációra vagy munkafüzetre.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Waterfall, 20, 20, 680, 200)
+
+    chart.setTitle(True)
+    chart.getChartTitle().addTextFrameForOverriding("Profit breakdown (USD thousands)")
+    chart.getChartTitle().setOverlay(False)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
+
+    workbook.clear(worksheet_index)
+
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Profit")
+    series = chart.getChartData().getSeries().add(series_name_cell, ChartType.Waterfall)
+    categories = ["Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit"]
+    values = [1000, -400, 600, -200, 50, 450]
+
+    for i in range(len(categories)):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, categories[i])
+        chart.getChartData().getCategories().add(category_cell)
+        value_cell = workbook.getCell(worksheet_index, i + 1, 1, values[i])
+        series.getDataPoints().addDataPointForWaterfallSeries(value_cell)
+
+    # A harmadik és a hatodik pont összegként jelenik meg, nem további változásként.
+    series.getDataPoints().get_Item(2).setSetAsTotal(True)
+    series.getDataPoints().get_Item(5).setSetAsTotal(True)
+    series.setShowConnectorLines(True)
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+
+    presentation.save("WaterfallChart.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+A sorozatszintű [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) `True`‑val való meghívása összekötő vonalakat jelenít meg a szomszédos oszlopok között, megkönnyítve a kumulatív érték követését. Ezeknek a vonalaknak a rejtéséhez cserélje ki a példában a hívást `series.setShowConnectorLines(False)`‑re a mentés előtt. Ez csak a vonalak láthatóságát változtatja, az adatokat vagy összegértékeket nem.
+
+A mentett prezentáció 600 bruttó és 450 nettó nyereséget mutat, mindkét összeg a nulláról indul:
+
+![A vízfallsorozat diagram, amely a bevételt, költségeket, 600 bruttó nyereséget és 450 nettó nyereséget, értékcímkékkel és összekötő vonalakkal ábrázolja](waterfall_chart.png)
+
 ### **Részvénydiagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#OpenHighLowClose) típust.
-4. Érje el a diagram adatmunkafüzetét a [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a diagram sorozatokhoz.
-8. Adja meg a magas‑alacsony vonalak formátumát.
-9. Mentse a módosított prezentációt PPTX fájlként.
+A részvénydiagramok pénzügyi adatokat, például nyitó, legmagasabb, legalacsonyabb és záró árakat jelenítenek meg, segítve a piaci trendek és volatilitás elemzését. Alapvető betekintést nyújtanak a részvények teljesítményébe, támogatva a befektetőket és elemzőket a megalapozott döntéshozatalban.
 
-Ez a Python kód bemutatja, hogyan hozható létre egy részvénydiagram:
+Ez a példa egy nyitó‑magas‑alacsony‑záró diagramot hoz létre négy sorozattal ebben a sorrendben, és három kategóriával. A [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) metódus aktiválja a fel‑le sávokat, a [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) szabályozza a magas‑alacsony vonalakat, amelyek az ármozgást mutatják, míg az egyes sorozat‑vonalak és a kisebb vízszintes hálóvonalak rejtve maradnak.
 
 ```python
 import jpype
@@ -581,85 +570,82 @@ from asposeslides.api import ChartType, FillType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, False)
+    slide = presentation.getSlides().get_Item(0)
 
-    chart.getChartData().getSeries().clear()
-    chart.getChartData().getCategories().clear()
+    chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, False)
 
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    cell = workbook.getCell(0, 1, 0, "A")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 2, 0, "B")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 3, 0, "C")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, 1, 0, "A")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 2, 0, "B")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 3, 0, "C")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, 0, 1, "Open")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(0, 0, 2, "High")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(0, 0, 3, "Low")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(0, 0, 4, "Close")
-    chart.getChartData().getSeries().add(cell, chart.getType())
+    series_name_cell = workbook.getCell(0, 0, 1, "Open")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
+    series_name_cell = workbook.getCell(0, 0, 2, "High")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
+    series_name_cell = workbook.getCell(0, 0, 3, "Low")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
+    series_name_cell = workbook.getCell(0, 0, 4, "Close")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
 
     series = chart.getChartData().getSeries().get_Item(0)
-
-    cell = workbook.getCell(0, 1, 1, 72)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 1, 25)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 1, 38)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 1, 72)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 1, 25)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 1, 38)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     series = chart.getChartData().getSeries().get_Item(1)
-    cell = workbook.getCell(0, 1, 2, 172)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 2, 57)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 2, 57)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 2, 172)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 2, 57)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 2, 57)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     series = chart.getChartData().getSeries().get_Item(2)
-    cell = workbook.getCell(0, 1, 3, 12)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 3, 12)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 3, 13)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 3, 12)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 3, 12)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 3, 13)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     series = chart.getChartData().getSeries().get_Item(3)
-    cell = workbook.getCell(0, 1, 4, 25)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 4, 38)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 4, 50)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 4, 25)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 4, 38)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 4, 50)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(True)
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
 
-    for series in chart.getChartData().getSeries():
-        series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+    for stock_series in chart.getChartData().getSeries():
+        stock_series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+
+    presentation.save("Stock-chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Doboz- és szárnydiagramok létrehozása**
+Az eredmény:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#BoxAndWhisker) típust.
-4. Érje el a diagram adatmunkafüzetét a [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a diagram sorozatokhoz.
-8. Mentse a módosított prezentációt PPTX fájlként.
+![A részvénydiagram](stock_chart.png)
 
-Ez a Python kód bemutatja, hogyan hozható létre egy doboz‑ és szárnydiagram:
+### **Doboz‑ és szárnydiagramok létrehozása**
+
+A doboz‑ és szárnydiagramok az adat eloszlását mutatják, összefoglalva a kulcsfontosságú statisztikai mérőszámokat, mint a medián, kvartilisek és lehetséges kiugró értékek. Különösen hasznosak felderítő adatelemzésben és statisztikai tanulmányokban a változékonyság gyors megértésére és az anomáliák azonosítására.
+
+Ez a példa hat értéken alapuló doboz‑ és szárnydiagramot hoz létre. A [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) metódus az exkluzív kvartilis‑számítást választja. A példa engedélyezi a középérték‑vonalakat, középérték‑markereket, belső pontokat és kiugró pontokat.
 
 ```python
 import jpype
@@ -672,25 +658,28 @@ from asposeslides.api import ChartType, Presentation, QuartileMethodType, SaveFo
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.BoxAndWhisker, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    cell = workbook.getCell(0, "A1", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A2", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A3", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A4", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A5", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A6", "Category 1")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "A1", "Category 1")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A2", "Category 2")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A3", "Category 3")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A4", "Category 4")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A5", "Category 5")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A6", "Category 6")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.BoxAndWhisker)
 
@@ -700,32 +689,29 @@ try:
     series.setShowInnerPoints(True)
     series.setShowOutlierPoints(True)
 
-    cell = workbook.getCell(0, "B1", 15)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B2", 41)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B3", 16)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B4", 10)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B5", 23)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B6", 16)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
+    value_cell = workbook.getCell(0, "B1", 15)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B2", 41)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B3", 16)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B4", 10)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B5", 23)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B6", 16)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
 
     presentation.save("BoxAndWhisker.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Tölcsérdiagramok létrehozása**
+### **Tölcsér diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Funnel](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Funnel) típust.
-4. Mentse a módosított prezentációt PPTX fájlként.
+A tölcsér diagramok segítenek vizualizálni a sorozatos szakaszokból álló folyamatokat, ahol az adat mennyisége csökken a lépésről lépésre haladva. Különösen hasznosak a konverziós arányok elemzésében, a szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
 
-Ez a Python kód bemutatja, hogyan hozható létre egy tölcsérdiagram:
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódust használja egy tölcsér diagram hozzáadásához egy meglévő prezentáció első diájához. Lecseréli az alapértelmezett adatokat hat kategóriára és 50‑től 500‑ig terjedő értékekre, majd menti a frissített prezentációt. A bemeneti prezentációnak legalább egy diát kell tartalmaznia.
 
 ```python
 import jpype
@@ -736,57 +722,60 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("test.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
-
     workbook.clear(0)
 
-    cell = workbook.getCell(0, "A1", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A2", "Category 2")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A3", "Category 3")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A4", "Category 4")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A5", "Category 5")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A6", "Category 6")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "A1", "Category 1")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A2", "Category 2")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A3", "Category 3")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A4", "Category 4")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A5", "Category 5")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A6", "Category 6")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.Funnel)
 
-    cell = workbook.getCell(0, "B1", 50)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B2", 100)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B3", 200)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B4", 300)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B5", 400)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B6", 500)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
+    value_cell = workbook.getCell(0, "B1", 50)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B2", 100)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B3", 200)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B4", 300)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B5", 400)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B6", 500)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
 
     presentation.save("Funnel.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Sunburst diagramok létrehozása**
+Az eredmény:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Sunburst](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Sunburst) típust.
-4. Mentse a módosított prezentációt PPTX fájlként.
+![A tölcsér diagram](funnel_chart.png)
 
-Ez a Python kód bemutatja, hogyan hozható létre egy sunburst diagram:
+### **Nap sugarú diagramok létrehozása**
+
+A nap sugarú diagramok a hierarchikus adatokat körkörös gyűrűkkel jelenítik meg. Segítenek a rész‑egész kapcsolatok illusztrálásában, és ideálisak beágyazott kategóriák és alkategóriák áttekinthető, kompakt formában történő ábrázolására.
+
+Ez a példa nyolc levélből álló nap sugarú diagramot hoz létre, amely négy ággal és két ággal csoportosított. A [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus az 1‑es szinten a szárakat, a 2‑es szinten az ágakat rendeli hozzá. A kategóriacímkék a szegmenseket azonosítják, az értékek pedig a relatív méreteket határozzák meg.
 
 ```python
 import jpype
@@ -799,80 +788,81 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Sunburst, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    #ág 1
-    cell = workbook.getCell(0, "C1", "Leaf1")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Ág 1
+    category_cell = workbook.getCell(0, "C1", "Leaf1")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1")
 
-    cell = workbook.getCell(0, "C2", "Leaf2")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C2", "Leaf2")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C3", "Leaf3")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C3", "Leaf3")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2")
 
-    cell = workbook.getCell(0, "C4", "Leaf4")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C4", "Leaf4")
+    chart.getChartData().getCategories().add(category_cell)
 
-    #ág 2
-    cell = workbook.getCell(0, "C5", "Leaf5")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Ág 2
+    category_cell = workbook.getCell(0, "C5", "Leaf5")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2")
 
-    cell = workbook.getCell(0, "C6", "Leaf6")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C6", "Leaf6")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C7", "Leaf7")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C7", "Leaf7")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4")
 
-    cell = workbook.getCell(0, "C8", "Leaf8")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C8", "Leaf8")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.Sunburst)
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(True)
-    cell = workbook.getCell(0, "D1", 4)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D2", 5)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D3", 3)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D4", 6)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D5", 9)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D6", 9)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D7", 4)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D8", 3)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
+    value_cell = workbook.getCell(0, "D1", 4)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D2", 5)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D3", 3)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D4", 6)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D5", 9)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D6", 9)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D7", 4)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D8", 3)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
 
     presentation.save("Sunburst.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+Az eredmény:
+
+![A nap sugarú diagram](sunburst_chart.png)
+
 ### **Hisztogram diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Histogram](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Histogram) típust.
-4. Érje el a diagram adatmunkafüzetét a [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Mentse a módosított prezentációt PPTX fájlként.
+A hisztogram diagramok a numerikus adatok eloszlását ábrázolják, az értékeket tartományokba vagy „bin“-ekbe csoportosítva. Különösen hasznosak a gyakoriság, aszimmetria és szórás mintáinak azonosításában, valamint a kiugró értékek felismerésében.
 
-Ez a Python kód bemutatja, hogyan hozható létre egy hisztogram diagram:
+Ez a példa hat numerikus értéken, köztük negatív értékeken alapuló hisztogramot hoz létre. A [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) automatikus aggregációs típusának meghívásával a diagram maga határozza meg a megjelenített tartományokat.
 
 ```python
 import jpype
@@ -885,7 +875,10 @@ from asposeslides.api import AxisAggregationType, ChartType, Presentation, SaveF
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
@@ -893,18 +886,18 @@ try:
     workbook.clear(0)
 
     series = chart.getChartData().getSeries().add(ChartType.Histogram)
-    cell = workbook.getCell(0, "A1", 15)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A2", -41)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A3", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A4", 10)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A5", -23)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A6", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
+    value_cell = workbook.getCell(0, "A1", 15)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A2", -41)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A3", 16)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A4", 10)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A5", -23)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A6", 16)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
 
     chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic)
 
@@ -913,14 +906,15 @@ finally:
     presentation.dispose()
 ```
 
+Az eredmény:
+
+![A hisztogram diagram](histogram_chart.png)
+
 ### **Radar diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot némi adatokkal, és adja meg a kívánt diagramtípust ([ChartType.Radar](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Radar) ebben az esetben).
-4. Mentse a módosított prezentációt PPTX fájlként.
+A radar diagramok többváltozós adatokat két dimenzióban jelenítenek meg, lehetővé téve több változó egyidejű összehasonlítását. Különösen hasznosak a minták, erősségek és gyengeségek felismerésében különböző teljesítménymutatók vagy attribútumok tekintetében.
 
-Ez a Python kód bemutatja, hogyan hozható létre egy radar diagram:
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódussal radar diagramot hoz létre az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```python
 import jpype
@@ -933,100 +927,24 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300)
+    slide = presentation.getSlides().get_Item(0)
+
+    slide.getShapes().addChart(ChartType.Radar, 20, 20, 500, 300)
+
     presentation.save("Radar-chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+Az eredmény:
+
+![A radar diagram](radar_chart.png)
+
 ### **Többkategóriás diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.ClusteredColumn](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ClusteredColumn) típust.
-4. Érje el a diagram adatmunkafüzetét a [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) segítségével.
-5. Törölje az alapértelmezett sorozatokat és kategóriákat.
-6. Adjon hozzá új sorozatokat és kategóriákat.
-7. Adjon hozzá új diagramadatokat a diagram sorozatokhoz.
-8. Mentse a módosított prezentációt PPTX fájlként.
+A többkategóriás diagramok olyan adatokat jelenítenek meg, amelyek több kategóriacsoportot is tartalmaznak, lehetővé téve az értékek több dimenzióban történő egyidejű összehasonlítását. Különösen hasznosak összetett, több szintű adatkészletek trendjeinek és kapcsolatrendszereinek elemzésében.
 
-Ez a Python kód bemutatja, hogyan hozható létre egy többkategóriás diagram:
-
-```python
-import jpype
-import asposeslides
-
-if not jpython.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import ChartType, Presentation, SaveFormat
-
-presentation = Presentation()
-try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450)
-    chart.getChartData().getSeries().clear()
-    chart.getChartData().getCategories().clear()
-
-    workbook = chart.getChartData().getChartDataWorkbook()
-    workbook.clear(0)
-    default_worksheet_index = 0
-
-    cell = workbook.getCell(0, "c2", "A")
-    category = chart.getChartData().getCategories().add(cell)
-    category.getGroupingLevels().setGroupingItem(1, "Group1")
-    cell = workbook.getCell(0, "c3", "B")
-    category = chart.getChartData().getCategories().add(cell)
-
-    cell = workbook.getCell(0, "c4", "C")
-    category = chart.getChartData().getCategories().add(cell)
-    category.getGroupingLevels().setGroupingItem(1, "Group2")
-    cell = workbook.getCell(0, "c5", "D")
-    category = chart.getChartData().getCategories().add(cell)
-
-    cell = workbook.getCell(0, "c6", "E")
-    category = chart.getChartData().getCategories().add(cell)
-    category.getGroupingLevels().setGroupingItem(1, "Group3")
-    cell = workbook.getCell(0, "c7", "F")
-    category = chart.getChartData().getCategories().add(cell)
-
-    cell = workbook.getCell(0, "c8", "G")
-    category = chart.getChartData().getCategories().add(cell)
-    category.getGroupingLevels().setGroupingItem(1, "Group4")
-    cell = workbook.getCell(0, "c9", "H")
-    category = chart.getChartData().getCategories().add(cell)
-
-    # Sorozat hozzáadása
-    cell = workbook.getCell(0, "D1", "Series 1")
-    series = chart.getChartData().getSeries().add(cell, ChartType.ClusteredColumn)
-
-    cell = workbook.getCell(default_worksheet_index, "D2", 10)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D3", 20)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D4", 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D5", 40)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D6", 50)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D7", 60)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D8", 70)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D9", 80)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-
-    # Prezentáció mentése diagrammal
-    presentation.save("AsposeChart_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-### **Térképi diagramok létrehozása**
-
-A térképi diagramok földrajzi adatokat jelenítenek meg, és segítenek összehasonlítani az értékeket a régiók között.
-
-Ez a Python kód bemutatja, hogyan hozható létre egy térképi diagram:
+Ez a példa egy csoportos oszlopdiagramot hoz létre nyolc kategóriával, négy párban rendezve. A [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus minden párhoz közös címkét ad az 1‑es csoportosítási szinten, így a kategória‑tengely egyéni és csoportcímkéket egyaránt tartalmaz.
 
 ```python
 import jpype
@@ -1039,19 +957,112 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    worksheet_index = 0
+
+    category_cell = workbook.getCell(0, "c2", "A")
+    category = chart.getChartData().getCategories().add(category_cell)
+    category.getGroupingLevels().setGroupingItem(1, "Group1")
+    category_cell = workbook.getCell(0, "c3", "B")
+    category = chart.getChartData().getCategories().add(category_cell)
+
+    category_cell = workbook.getCell(0, "c4", "C")
+    category = chart.getChartData().getCategories().add(category_cell)
+    category.getGroupingLevels().setGroupingItem(1, "Group2")
+    category_cell = workbook.getCell(0, "c5", "D")
+    category = chart.getChartData().getCategories().add(category_cell)
+
+    category_cell = workbook.getCell(0, "c6", "E")
+    category = chart.getChartData().getCategories().add(category_cell)
+    category.getGroupingLevels().setGroupingItem(1, "Group3")
+    category_cell = workbook.getCell(0, "c7", "F")
+    category = chart.getChartData().getCategories().add(category_cell)
+
+    category_cell = workbook.getCell(0, "c8", "G")
+    category = chart.getChartData().getCategories().add(category_cell)
+    category.getGroupingLevels().setGroupingItem(1, "Group4")
+    category_cell = workbook.getCell(0, "c9", "H")
+    category = chart.getChartData().getCategories().add(category_cell)
+
+    series_name_cell = workbook.getCell(0, "D1", "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, ChartType.ClusteredColumn)
+
+    value_cell = workbook.getCell(worksheet_index, "D2", 10)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D3", 20)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D4", 30)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D5", 40)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D6", 50)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D7", 60)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D8", 70)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D9", 80)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Az eredmény:
+
+![A többkategóriás diagram](multi_category_chart.png)
+
+### **Térképdialógusok létrehozása**
+
+A térképdialógusok földrajzi adatok vizualizálására szolgálnak, az információt országokhoz, államokhoz vagy városokhoz rendelve. Különösen hasznosak a regionális trendek, demográfiai adatok és térbeli eloszlások elemzésében, egyértelmű és vizuálisan vonzó módon.
+
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódussal térképdialógust hoz létre az alapértelmezett földrajzi adatokkal, majd a PowerPoint számára menthető formátumban tárolja.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 500, 300)
+
     presentation.save("mapChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Kombinációs diagramok létrehozása**
+Az eredmény:
 
-A kombinációs diagram (vagy combo diagram) több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a különböző adathalmazok közti különbségeket, segítve a köztük lévő összefüggések felismerését.
+![A térképdialógus](map_chart.png)
 
-![A kombinációs diagram](combination_chart.png)
+{{% alert color="info" title="Note" %}}
+A fenti kép a mentett prezentációt mutatja PowerPointben megnyitva. Az Aspose.Slides helyesen írja a térképdialógust és az adatokat, de maga a diagram nem kerül megjelenítésre: ha egy diát, amely ilyen diagramot tartalmaz, képpé renderelik vagy PDF‑re vagy SVG‑re konvertálják, a diagram területe üres marad. A dián lévő többi alakzat nem érintett.
+{{% /alert %}}
 
-Az alábbi Python kód mutatja, hogyan hozható létre a fent látható kombinációs diagram egy PowerPoint‑prezentációban:
+### **Kombinált diagramok létrehozása**
+
+A kombinált diagram (vagy combo diagram) két vagy több diagramtípust egyesít egyetlen ábrában. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a különböző adatcsoportok közti különbségeket, segítve a kapcsolatok felismerését.
+
+![A kombinált diagram](combination_chart.png)
+
+Ez a példa két csoportos oszlop sorozatot és egy vonal sorozatot kombinál négy kategóriában. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) a vonalat a jobb oldali másodlagos függőleges tengelyre helyezi. A segédfüggvények konfigurálják a címet, a jelmagyarázatot, a tengelycímkéket és a hálóvonalakat.
 
 ```python
 import jpype
@@ -1083,7 +1094,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
 
-    # Beállítja a diagram címét.
+    # Állítsa be a diagram címét.
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("Chart Title")
     chart.getChartTitle().setOverlay(False)
@@ -1092,18 +1103,18 @@ def create_chart_with_first_series(slide):
     title_format.setFontBold(NullableBool.False_)
     title_format.setFontHeight(18.0)
 
-    # Beállítja a diagram jelmagyarázatát.
+    # Állítsa be a diagram jelmagyarázatát.
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # Törli az alapértelmezett generált sorozatokat és kategóriákat.
+    # Törölje az alapértelmezett generált sorozatokat és kategóriákat.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
     worksheet_index = 0
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Új kategóriákat ad hozzá.
+    # Új kategóriák hozzáadása.
     cell = workbook.getCell(worksheet_index, 1, 0, "Category 1")
     chart.getChartData().getCategories().add(cell)
     cell = workbook.getCell(worksheet_index, 2, 0, "Category 2")
@@ -1113,7 +1124,7 @@ def create_chart_with_first_series(slide):
     cell = workbook.getCell(worksheet_index, 4, 0, "Category 4")
     chart.getChartData().getCategories().add(cell)
 
-    # Hozzáadja az első sorozatot.
+    # Az első sorozat hozzáadása.
     series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
@@ -1169,28 +1180,28 @@ def add_third_series_to_chart(chart):
     series.setPlotOnSecondAxis(True)
 
 def set_primary_axes_format(chart):
-    # Beállítja a vízszintes tengelyt.
+    # A vízszintes tengely beállítása.
     horizontal_axis = chart.getAxes().getHorizontalAxis()
     horizontal_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     horizontal_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # Beállítja a függőleges tengelyt.
+    # A függőleges tengely beállítása.
     vertical_axis = chart.getAxes().getVerticalAxis()
     vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     vertical_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Beállítja a függőleges fő rácsvonalak színét.
+    # A függőleges fő rácsvonalak színének beállítása.
     major_grid_lines_format = vertical_axis.getMajorGridLinesFormat().getLine().getFillFormat()
     major_grid_lines_format.setFillType(FillType.Solid)
     color = Color(217, 217, 217)
     major_grid_lines_format.getSolidFillColor().setColor(color)
 
 def set_secondary_axes_format(chart):
-    # Beállítja a másodlagos vízszintes tengelyt.
+    # A másodlagos vízszintes tengely beállítása.
     secondary_horizontal_axis = chart.getAxes().getSecondaryHorizontalAxis()
     secondary_horizontal_axis.setPosition(AxisPositionType.Bottom)
     secondary_horizontal_axis.setCrossType(CrossesType.Maximum)
@@ -1198,7 +1209,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
     secondary_horizontal_axis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    # Beállítja a másodlagos függőleges tengelyt.
+    # A másodlagos függőleges tengely beállítása.
     secondary_vertical_axis = chart.getAxes().getSecondaryVerticalAxis()
     secondary_vertical_axis.setPosition(AxisPositionType.Right)
     secondary_vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
@@ -1221,15 +1232,9 @@ create_combo_chart()
 
 ## **Diagramok frissítése**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból, amely a frissíteni kívánt diagramot tartalmazó prezentációt képviseli.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Járja be az összes alakzatot a kívánt diagram megtalálásához.
-4. Érje el a diagram adat‑munkalapját.
-5. Módosítsa a diagram adat sorozatát a sorozat értékeinek megváltoztatásával.
-6. Adjon hozzá egy új sorozatot és töltse fel annak adatait.
-7. Mentse a módosított prezentációt PPTX fájlként.
+Az Aspose.Slides for Python via Java lehetővé teszi, hogy a PowerPoint diagramokat frissítse a diagramadatok, formázások és stílusok módosításával. Ez a funkció leegyszerűsíti a prezentációk naprakész tartalommal való fenntartását, és biztosítja, hogy a diagramok pontosan tükrözzék a aktuális adatokat és vizuális szabványokat.
 
-Ez a Python kód mutatja, hogyan frissíthető egy diagram:
+Ez a példa frissíti a „My chart” nevű diagramot a meglévő prezentáció első diáján. Két oszlop‑sorozatot igényel, mindegyik három adatponttal, a kategóriacímkék az A oszlopban, a sorozatnevek pedig az első munkalap első sorában helyezkednek el. A példa a [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) segítségével módosítja a munkafüzet‑cellákat, frissíti a sorozat‑értékeket, egy harmadik sorozatot ad hozzá, és a diagram típusát [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType) segítségével csoportos hengeresre változtatja.
 
 ```python
 import jpype
@@ -1238,81 +1243,62 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, Presentation, SaveFormat
+from asposeslides.api import Chart, ChartType, Presentation, SaveFormat
 
-# Megnyitja a prezentációt, amely tartalmazza a frissítendő diagramot
+chart_name = "My chart"
+
 presentation = Presentation("ExistingChart.pptx")
 try:
-    # Az első diát éri el
     slide = presentation.getSlides().get_Item(0)
 
-    # Lekéri a diagramot a diáról
-    chart = slide.getShapes().get_Item(0)
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart) and chart_name == shape.getName():
+            chart = shape
+            worksheet_index = 0
 
-    # Beállítja a diagram adatlapjának indexét
-    default_worksheet_index = 0
+            workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Lekéri a diagram adatlapját
-    workbook = chart.getChartData().getChartDataWorkbook()
+            workbook.getCell(worksheet_index, 1, 0, "Modified Category 1")
+            workbook.getCell(worksheet_index, 2, 0, "Modified Category 2")
 
-    # A diagram kategória nevének módosítása
-    workbook.getCell(default_worksheet_index, 1, 0, "Modified Category 1")
-    workbook.getCell(default_worksheet_index, 2, 0, "Modified Category 2")
+            series = chart.getChartData().getSeries().get_Item(0)
 
-    # Az első diagram sorozatot veszi
-    series = chart.getChartData().getSeries().get_Item(0)
+            workbook.getCell(worksheet_index, 0, 1, "New_Series 1")
+            series.getDataPoints().get_Item(0).getValue().setData(90)
+            series.getDataPoints().get_Item(1).getValue().setData(123)
+            series.getDataPoints().get_Item(2).getValue().setData(44)
 
-    # Most frissíti a sorozat adatait
-    workbook.getCell(default_worksheet_index, 0, 1, "New_Series1")# Sorozatnév módosítása
-    series.getDataPoints().get_Item(0).getValue().setData(90)
-    series.getDataPoints().get_Item(1).getValue().setData(123)
-    series.getDataPoints().get_Item(2).getValue().setData(44)
+            series = chart.getChartData().getSeries().get_Item(1)
 
-    # A második diagram sorozatot veszi
-    series = chart.getChartData().getSeries().get_Item(1)
+            workbook.getCell(worksheet_index, 0, 2, "New_Series 2")
+            series.getDataPoints().get_Item(0).getValue().setData(23)
+            series.getDataPoints().get_Item(1).getValue().setData(67)
+            series.getDataPoints().get_Item(2).getValue().setData(99)
 
-    # Most frissíti a sorozat adatait
-    workbook.getCell(default_worksheet_index, 0, 2, "New_Series2")# Sorozatnév módosítása
-    series.getDataPoints().get_Item(0).getValue().setData(23)
-    series.getDataPoints().get_Item(1).getValue().setData(67)
-    series.getDataPoints().get_Item(2).getValue().setData(99)
+            series_name_cell = workbook.getCell(worksheet_index, 0, 3, "Series 3")
+            series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Most új sorozatot ad hozzá
-    cell = workbook.getCell(default_worksheet_index, 0, 3, "Series 3")
-    chart.getChartData().getSeries().add(cell, chart.getType())
+            value_cell = workbook.getCell(worksheet_index, 1, 3, 20)
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+            value_cell = workbook.getCell(worksheet_index, 2, 3, 50)
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+            value_cell = workbook.getCell(worksheet_index, 3, 3, 30)
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # A 3. diagram sorozatot veszi
-    series = chart.getChartData().getSeries().get_Item(2)
+            chart.setType(ChartType.ClusteredCylinder)
 
-    # Most feltölti a sorozat adatait
-    cell = workbook.getCell(default_worksheet_index, 1, 3, 20)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 3, 50)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 3, 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-
-    chart.setType(ChartType.ClusteredCylinder)
-
-    # Mentés diagrammal a prezentációt
-    presentation.save("AsposeChartModified_out.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChartModified.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Diagram adatintervallumának beállítása**
+## **Adattartomány beállítása diagramhoz**
 
-A meglévő diagram által már használt tartomány megtekintéséhez lásd a [A diagram adatintervallumának lekérése](/slides/hu/python-java/chart-workbook/#retrieve-a-charts-data-range) oldalt.
+A már létező diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/python-java/chart-workbook/#retrieve-a-charts-data-range) oldalát.
 
-A diagram adatintervallumának beállításához tegye a következőket:
+Az Aspose.Slides for Python via Java rugalmasságot biztosít, hogy egy adott munkalap‑tartományt adatforrásként állítson be a diagram adatainak. Ez azt jelenti, hogy közvetlenül leképezheti a munkalap egy részét a diagramra, így szabályozva, mely cellák járulnak hozzá a sorozatokhoz és a kategóriákhoz. Ennek eredményeként egyszerűen frissítheti és szinkronizálhatja a diagramokat a munkalap legújabb adataival, biztosítva, hogy a PowerPoint‑prezentációk naprakész és pontos információkat tükrözzenek.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból, amely a diagramot tartalmazó prezentációt képviseli.
-2. Szerezzen referenciát egy diára az indexe alapján.
-3. Járja be az összes alakzatot a kívánt diagram megtalálásához.
-4. Érje el a diagram adatot és állítsa be a tartományt.
-5. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a Python kód mutatja, hogyan állítható be a diagram adatintervalluma:
+Ez a példa a [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) metódussal állítja be a „My chart” nevű diagram adatforrását az első dián egy meglévő prezentációban a `Sheet1!A1:B4` tartományra. A diagram‑munkafüzetnek tartalmaznia kell azt a munkalapot és egy feltöltött tartományt, amely első sorban sorozat‑címkével, az A oszlopban kategóriacímkékkel és a B oszlopban három értékkel rendelkezik.
 
 ```python
 import jpype
@@ -1321,26 +1307,29 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat
+from asposeslides.api import Chart, Presentation, SaveFormat
 
-# Megnyitja a prezentációt, amely tartalmazza a diagramot
+chart_name = "My chart"
+
 presentation = Presentation("ExistingChart.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    chart = slide.getShapes().get_Item(0)
 
-    chart.getChartData().setRange("Sheet1!A1:B4")
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart) and chart_name == shape.getName():
+            chart = shape
+            chart.getChartData().setRange("Sheet1!A1:B4")
 
-    presentation.save("SetDataRange_out.pptx", SaveFormat.Pptx)
+    presentation.save("SetDataRange.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Alapértelmezett jelölők használata diagramokban**
+## **Alapértelmezett markerek használata diagramokban**
 
-Alapértelmezett jelölők használata esetén minden diagram sorozat automatikusan különböző jelölőszimbólumot kap.
+Alapértelmezett markerek használatakor a diagram minden sorozata automatikusan más‑más alapértelmezett marker‑szimbólumot kap.
 
-Ez a Python kód mutatja, hogyan állítható be automatikusan egy diagram sorozat jelölője:
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódussal egy két vonal‑sorozatot és egy jelmagyarázatot tartalmazó diagramot hoz létre. A [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) által elérhető marker‑beállítások megtartják a automatikusan hozzárendelt marker‑szimbólumokat. Az első sorozat negatív értéket és hiányzó értéket (`None`) tartalmaz, a második sorozat minden kategóriához értéket ad.
 
 ```python
 import jpype
@@ -1354,47 +1343,48 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 10, 10, 400, 400)
 
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
-    cell = workbook.getCell(0, 0, 1, "Series 1")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    series = chart.getChartData().getSeries().get_Item(0)
 
-    cell = workbook.getCell(0, 1, 0, "C1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 1, 1, 24)
-    series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 2, 0, "C2")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 2, 1, 23)
-    series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 3, 0, "C3")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 3, 1, -10)
-    series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 4, 0, "C4")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 4, 1, None)
-    series.getDataPoints().addDataPointForLineSeries(cell)
+    series_name_cell = workbook.getCell(0, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    cell = workbook.getCell(0, 0, 2, "Series 2")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    #Veszi a második diagram sorozatot
-    second_series = chart.getChartData().getSeries().get_Item(1)
+    category_cell = workbook.getCell(0, 1, 0, "C1")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 1, 1, 24)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    #Most feltölti a sorozat adatait
-    cell = workbook.getCell(0, 1, 2, 30)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 2, 2, 10)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 3, 2, 60)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 4, 2, 40)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
+    category_cell = workbook.getCell(0, 2, 0, "C2")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 2, 1, 23)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    category_cell = workbook.getCell(0, 3, 0, "C3")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 3, 1, -10)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    category_cell = workbook.getCell(0, 4, 0, "C4")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 4, 1, None)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    series_name_cell = workbook.getCell(0, 0, 2, "Series 2")
+    second_series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+
+    value_cell = workbook.getCell(0, 1, 2, 30)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 2, 10)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 2, 60)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
+    value_cell = workbook.getCell(0, 4, 2, 40)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
 
     chart.setLegend(True)
     chart.getLegend().setOverlay(False)
@@ -1406,18 +1396,18 @@ finally:
 
 ## **GYIK**
 
-**Milyen diagramtípusokat támogat az Aspose.Slides?**
+**Milyen diagramtípusok támogatottak az Aspose.Slides for Python via Java‑ben?**
 
-Az Aspose.Slides széles körű [diagramtípusokat](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) támogat, többek között oszlop, vonal, kör, terület, szórás, hisztogram, radar és még sok mást. Ez a rugalmasság lehetővé teszi, hogy az adatvizualizációs igényeknek legmegfelelőbb diagramtípust válassza.
+Az Aspose.Slides for Python via Java számos diagramtípust támogat, többek között oszlop, vonal, kör, terület, szórás, hisztogram, radar és még sok más. Ez a rugalmasság lehetővé teszi, hogy a legmegfelelőbb diagramtípust válassza adatvizualizációs igényeihez.
 
-**Hogyan adhatok hozzá új diagramot egy diára?**
+**Hogyan adhatok új diagramot egy diához?**
 
-Új diagram hozzáadásához először hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból, szerezze be a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagram típusát és a kezdeti adatokat. Ez a folyamat közvetlenül integrálja a diagramot a prezentációba.
+Új diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztály egy példányát, szerezze be a kívánt diát az indexével, majd hívja meg a diagram‑hozzáadási metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat közvetlenül a prezentációba illeszti a diagramot.
 
-**Hogyan frissíthetem egy diagramon megjelenített adatokat?**
+**Hogyan frissíthetem a diagramon megjelenő adatokat?**
 
-A diagram adatait a [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) elérésével, az alapértelmezett sorozatok és kategóriák törlésével, majd saját adatainak hozzáadásával frissítheti. Így a diagram mindig a legújabb adatokat tükrözi.
+Frissítheti a diagram adatait a diagram adat‑munkafüzetéhez ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)) való hozzáféréssel, az alapértelmezett sorozatok és kategóriák törlésével, majd egyedi adatok hozzáadásával. Ez lehetővé teszi, hogy programozott módon frissítse a diagramot a legújabb adatokat tükrözve.
 
-**Lehetősége van a diagram megjelenésének testreszabására?**
+**Lehetséges-e a diagram megjelenésének testreszabása?**
 
-Igen, az Aspose.Slides kiterjedt testreszabási lehetőségeket kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb [formázási elemeket](/slides/hu/python-java/chart-entities/), hogy a diagram megjelenése megfeleljen a konkrét tervezési követelményeknek.
+Igen, az Aspose.Slides for Python via Java széles körű testreszabási lehetőségeket kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenése megfeleljen a konkrét tervezési követelményeknek.

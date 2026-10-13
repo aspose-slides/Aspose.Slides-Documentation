@@ -1,6 +1,6 @@
 ---
-title: Δημιουργία ή Ενημέρωση Διαγραμμάτων Παρουσιάσεων PowerPoint σε .NET
-linktitle: Δημιουργία ή Ενημέρωση Διαγραμμάτων
+title: Δημιουργία ή ενημέρωση διαγραμμάτων παρουσίασης PowerPoint σε .NET
+linktitle: Δημιουργία ή ενημέωση διαγραμμάτων
 type: docs
 weight: 10
 url: /el/net/create-chart/
@@ -13,1048 +13,1087 @@ keywords:
 - διάγραμμα διασποράς
 - διάγραμμα πίτας
 - διάγραμμα γραμμής
-- διάγραμμα δέντρου
-- διάγραμμα χρηματιστηρίου
-- διάγραμμα κουτιού‑γροθιάς
+- διάγραμμα δένδρου
+- διάγραμμα μετοχών
+- διάγραμμα box and whisker
 - διάγραμμα χωνίου
-- διάγραμμα ηλιακής έκρηξης
-- ιστόγραμμα
+- διάγραμμα ηλιακού
+- διάγραμμα ιστογράμματος
 - διάγραμμα ραντάρ
-- πολυκατηγορικό διάγραμμα
+- διάγραμμα πολλαπλών κατηγοριών
 - PowerPoint
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Δημιουργήστε και προσαρμόστε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides for .NET. Προσθέστε, μορφοποιήστε και επεξεργαστείτε διαγράμματα με πρακτικά παραδείγματα κώδικα σε C#."
+description: "Δημιουργήστε και προσαρμόστε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για .NET. Προσθέστε, μορφοποιήστε και επεξεργαστείτε διαγράμματα με πρακτικά παραδείγματα κώδικα σε C#."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides for .NET. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει στις συγκεκριμένες απαιτήσεις του σχεδίου σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε σταθερή κατανόηση του πώς να ενσωματώσετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές .NET, διευκολύνοντας τη δημιουργία παρουσιάσεων που βασίζονται σε δεδομένα.
+Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργείτε και να προσαρμόζετε διαγράμματα χρησιμοποιώντας το Aspose.Slides για .NET. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης για να ταιριάζει με τις συγκεκριμένες απαιτήσεις σχεδίου σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη ρύθμιση των σειρών, των αξόνων και των υπομνημάτων. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε σταθερή κατανόηση του πώς να ενσωματώσετε τη δυναμική δημιουργία διαγραμμάτων στις εφαρμογές .NET, βελτιστοποιώντας τη διαδικασία δημιουργίας παρουσιάσεων βάσει δεδομένων.
 
-## **Δημιουργία Διαγράμματος**
+## **Δημιουργία διαγράμματος**
 
-Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να εξάγουν συμπεράσματα που ενδέχεται να μην είναι άμεσα εμφανή σε έναν πίνακα ή υπολογιστικό φύλλο.
+Τα διαγράμματα βοηθούν τους χρήστες να απεικονίζουν γρήγορα τα δεδομένα και να αποκτούν ιδέες που ίσως δεν είναι άμεσα εμφανείς από έναν πίνακα ή ένα λογιστικό φύλλο.
 
 **Γιατί να δημιουργήσετε διαγράμματα;**
 
-Χρησιμοποιώντας διαγράμματα, μπορείτε:
+* συγκεντρώνετε, συμπτύσσετε ή συνοψίζετε μεγάλες ποσότητες δεδομένων σε μία διαφάνεια μιας παρουσίασης·
+* αποκαλύπτετε μοτίβα και τάσεις στα δεδομένα·
+* συμπεραίνετε την κατεύθυνση και την ορμή των δεδομένων στο χρόνο ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης·
+* εντοπίζετε ακραίες τιμές, αποκλίσεις, σφάλματα και άσχετα δεδομένα·
+* επικοινωνείτε ή παρουσιάζετε σύνθετα δεδομένα.
 
-* να συγκεντρώσετε, συμπτύξετε ή συνοψίσετε μεγάλες ποσότητες δεδομένων σε μία διαφάνεια της παρουσίασης·
-* να αποκαλύψετε μοτίβα και τάσεις στα δεδομένα·
-* να εξακριβώσετε την κατεύθυνση και το ρυθμό των δεδομένων με την πάροδο του χρόνου ή ως προς μια συγκεκριμένη μονάδα μέτρησης·
-* να εντοπίσετε εξαιρέσεις, αποκλίσεις, σφάλματα και ασήμαντα δεδομένα·
-* να επικοινωνήσετε ή να παρουσιάσετε σύνθετα δεδομένα.
+Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας *Insert*, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο τυπικά διαγράμματα (βασισμένα σε δημοφιλείς τύπους) όσο και προσαρμοσμένα διαγράμματα.
 
-Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας *Insert*, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο τα κανονικά διαγράμματα (βασισμένα σε δημοφιλείς τύπους) όσο και προσαρμοσμένα διαγράμματα.
+{{% alert color="info" title="Σημείωση" %}}
+Χρησιμοποιήστε την απαρίθμηση [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) στο χώρο ονομασίας [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Οι τιμές σε αυτήν την απαρίθμηση αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
+{{% /alert %}}
 
-{{% alert color="info" %}} 
+### **Δημιουργία ομαδοποιημένων διαγραμμάτων στήλης**
 
-Χρησιμοποιήστε τον [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) στην περιοχή ονομάτων [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Οι τιμές αυτής της αριθμητικής τιμής αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
+Αυτό το παράδειγμα χρησιμοποιεί την μέθοδο [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα ομαδοποιημένο διάγραμμα στήλης που συγκρίνει δύο σειρές σε τρεις κατηγορίες. Οι σειρές χρησιμοποιούν κόκκινο και πράσινο γέμισμα, και οι ετικέτες δείχνουν τα ονόματα κατηγοριών, σειρών και τις τιμές. Ο δείκτης φύλλου εργασίας 0 αναφέρεται στο πρώτο φύλλο του ενσωματωμένου βιβλίου διαγράμματος.
 
-{{% /alert %}} 
-
-### **Δημιουργία Συστοιχοποιημένων Στηλών**
-
-Αυτή η ενότητα εξηγεί πώς να δημιουργήσετε συστοιχοποιημένα διαγράμματα στήλης χρησιμοποιώντας το Aspose.Slides for .NET. Θα μάθετε να αρχικοποιείτε μια παρουσίαση, να προσθέτετε ένα διάγραμμα και να προσαρμόζετε τα στοιχεία του όπως ο τίτλος, τα δεδομένα, οι σειρές, οι κατηγορίες και το στυλ. Ακολουθήστε τα παρακάτω βήματα για να δείτε πώς δημιουργείται ένα τυπικό συστοιχοποιημένο διάγραμμα στήλης:
-
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον τύπο `ChartType.ClusteredColumn`.  
-1. Προσθέστε έναν τίτλο στο διάγραμμα.  
-1. Προσπελάστε το φύλλο δεδομένων του διαγράμματος.  
-1. Εκκαθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες.  
-1. Προσθέστε νέες σειρές και κατηγορίες.  
-1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.  
-1. Εφαρμόστε χρώμα γεμίσματος στις σειρές του διαγράμματος.  
-1. Προσθέστε ετικέτες στις σειρές του διαγράμματος.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα συστοιχοποιημένο διάγραμμα στήλης:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Δημιουργία αντικειμένου Presentation.
-using (Presentation presentation = new Presentation())
-{
-    // Πρόσβαση στην πρώτη διαφάνεια.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Προσθήκη συστοιχοποιημένου γραφήματος στήλης με τα προεπιλεγμένα δεδομένα.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // Ορισμός τίτλου διαγράμματος.
-    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-    chart.ChartTitle.Height = 20;
-    chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
 
-    // Ορισμός δείκτη φύλλου δεδομένων διαγράμματος.
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-    // Λήψη βιβλίου εργασίας δεδομένων διαγράμματος.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    // Διαγραφή των προεπιλεγμένων δημιουργημένων σειρών και κατηγοριών.
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+seriesNameCell = workbook.GetCell(worksheetIndex, 0, 2, "Series 2");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    // Προσθήκη νέων σειρών.
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
+var categoryCell = workbook.GetCell(worksheetIndex, 1, 0, "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(worksheetIndex, 2, 0, "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(worksheetIndex, 3, 0, "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
 
-    // Προσθήκη νέων κατηγοριών.
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
+var series = chart.ChartData.Series[0];
 
-    // Λήψη της πρώτης σειράς διαγράμματος.
-    IChartSeries series = chart.ChartData.Series[0];
+var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 20);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 1, 50);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 1, 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-    // Συμπλήρωση δεδομένων σειράς.
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // Ορισμός χρώματος γεμίσματος για τη σειρά.
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = Color.Red;
+series = chart.ChartData.Series[1];
 
-    // Λήψη της δεύτερης σειράς διαγράμματος.
-    series = chart.ChartData.Series[1];
+valueCell = workbook.GetCell(worksheetIndex, 1, 2, 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 2, 10);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 2, 60);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-    // Συμπλήρωση δεδομένων σειράς.
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // Ορισμός χρώματος γεμίσματος για τη σειρά.
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = Color.Green;
+var label = series.DataPoints[0].Label;
+label.DataLabelFormat.ShowCategoryName = true;
 
-    // Ορισμός πρώτης ετικέτας ώστε να εμφανίζει το όνομα κατηγορίας.
-    IDataLabel label = series.DataPoints[0].Label;
-    label.DataLabelFormat.ShowCategoryName = true;
+label = series.DataPoints[1].Label;
+label.DataLabelFormat.ShowSeriesName = true;
 
-    label = series.DataPoints[1].Label;
-    label.DataLabelFormat.ShowSeriesName = true;
+label = series.DataPoints[2].Label;
+label.DataLabelFormat.ShowValue = true;
+label.DataLabelFormat.ShowSeriesName = true;
+label.DataLabelFormat.Separator = "/";
 
-    // Ορισμός σειράς ώστε να εμφανίζει την τιμή για την τρίτη ετικέτα.
-    label = series.DataPoints[2].Label;
-    label.DataLabelFormat.ShowValue = true;
-    label.DataLabelFormat.ShowSeriesName = true;
-    label.DataLabelFormat.Separator = "/";
-
-    // Αποθήκευση παρουσίασης στο δίσκο ως αρχείο PPTX.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το σύστημα συστοιχοποιημένων στηλών](clustered_column_chart.png)
+![Διάγραμμα ομαδοποιημένων στηλών](clustered_column_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Scatter**
+### **Δημιουργία διαγραμμάτων διασποράς**
 
-Τα διαγράμματα scatter (γνωστά επίσης ως διαγράμματα διασποράς ή γραφήματα x‑y) χρησιμοποιούνται συχνά για να ελέγξουν μοτίβα ή να δείξουν συσχετίσεις μεταξύ δύο μεταβλητών.
+Τα διαγράμματα διασποράς (επίσης γνωστά ως scatter plots ή x‑y graphs) χρησιμοποιούνται συχνά για να ελέγχουν μοτίβα ή να δείξουν συσχετίσεις μεταξύ δύο μεταβλητών.
 
-Χρησιμοποιήστε ένα διάγραμμα scatter όταν:
+Χρησιμοποιήστε ένα διάγραμμα διασποράς όταν:
 
-* Διαθέτετε ζευγαρωμένα αριθμητικά δεδομένα.  
-* Διαθέτετε δύο μεταβλητές που ταιριάζουν καλά μεταξύ τους.  
-* Θέλετε να καθορίσετε αν οι δύο μεταβλητές είναι σχετικές.  
-* Διαθέτετε μια ανεξάρτητη μεταβλητή που έχει πολλαπλές τιμές για μια εξαρτημένη μεταβλητή.
+* Έχετε ζευγαρωμένα αριθμητικά δεδομένα.
+* Έχετε δύο μεταβλητές που συνεργάζονται καλά μεταξύ τους.
+* Θέλετε να καθορίσετε αν οι δύο μεταβλητές είναι σχετικές.
+* Έχετε μια ανεξάρτητη μεταβλητή που έχει πολλαπλές τιμές για μια εξαρτημένη μεταβλητή.
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα scatter με διαφορετική σειρά δεικτών:
+Αυτό το παράδειγμα σχεδιάζει δύο σύνολα τιμών x‑y. Η πρώτη σειρά χρησιμοποιεί ευθείες γραμμές με αστέρια ως σημεία, ενώ η δεύτερη χρησιμοποιεί ομαλές γραμμές με κύκλους· και οι δύο χρησιμοποιούν [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) 10. Η ιδιότητα [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) ελέγχει το σχήμα του δείκτη.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Δημιουργία αντικειμένου Presentation.
-using (Presentation presentation = new Presentation())
-{
-    // Πρόσβαση στην πρώτη διαφάνεια.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Δημιουργία του προεπιλεγμένου διαγράμματος διασποράς.
-    IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Ορισμός δείκτη φύλλου δεδομένων διαγράμματος.
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-    // Λήψη βιβλίου εργασίας δεδομένων διαγράμματος.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
 
-    // Διαγραφή της προεπιλεγμένης σειράς.
-    chart.ChartData.Series.Clear();
+var seriesNameCell = workbook.GetCell(worksheetIndex, 1, 1, "Series 1");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+seriesNameCell = workbook.GetCell(worksheetIndex, 1, 3, "Series 2");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    // Προσθήκη νέων σειρών.
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
+var series = chart.ChartData.Series[0];
 
-    // Λήψη της πρώτης σειράς διαγράμματος.
-    IChartSeries series = chart.ChartData.Series[0];
+var xValueCell = workbook.GetCell(worksheetIndex, 2, 1, 1);
+var yValueCell = workbook.GetCell(worksheetIndex, 2, 2, 3);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Προσθήκη νέου σημείου (1:3) στη σειρά.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
+xValueCell = workbook.GetCell(worksheetIndex, 3, 1, 2);
+yValueCell = workbook.GetCell(worksheetIndex, 3, 2, 10);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Προσθήκη νέου σημείου (2:10).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
+series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // Αλλαγή τύπου σειράς.
-    series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
+series.Marker.Size = 10;
+series.Marker.Symbol = MarkerStyleType.Star;
 
-    // Αλλαγή δείκτη σειράς διαγράμματος.
-    series.Marker.Size = 10;
-    series.Marker.Symbol = MarkerStyleType.Star;
+series = chart.ChartData.Series[1];
 
-    // Λήψη της δεύτερης σειράς διαγράμματος.
-    series = chart.ChartData.Series[1];
+xValueCell = workbook.GetCell(worksheetIndex, 2, 3, 5);
+yValueCell = workbook.GetCell(worksheetIndex, 2, 4, 2);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Προσθήκη νέου σημείου (5:2) στη σειρά διαγράμματος.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
+xValueCell = workbook.GetCell(worksheetIndex, 3, 3, 3);
+yValueCell = workbook.GetCell(worksheetIndex, 3, 4, 1);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Προσθήκη νέου σημείου (3:1).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
+xValueCell = workbook.GetCell(worksheetIndex, 4, 3, 2);
+yValueCell = workbook.GetCell(worksheetIndex, 4, 4, 2);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Προσθήκη νέου σημείου (2:2).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
+xValueCell = workbook.GetCell(worksheetIndex, 5, 3, 5);
+yValueCell = workbook.GetCell(worksheetIndex, 5, 4, 1);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Προσθήκη νέου σημείου (5:1).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
+series.Marker.Size = 10;
+series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Αλλαγή δείκτη σειράς διαγράμματος.
-    series.Marker.Size = 10;
-    series.Marker.Symbol = MarkerStyleType.Circle;
-
-    // Αποθήκευση παρουσίασης στο δίσκο ως αρχείο PPTX.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Scatter](scatter_chart.png)
+![Διάγραμμα διασποράς](scatter_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Πίτας**
+### **Δημιουργία διαγραμμάτων πίτας**
 
-Τα διαγράμματα πίτας χρησιμοποιούνται καλύτερα για την εμφάνιση της σχέσης μέρος‑στο‑ολό σε δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά τμήματα ή ετικέτες, ίσως θελήσετε να εξετάσετε τη χρήση ενός ραβδογράμματος αντί αυτού.
+Τα διαγράμματα πίτας χρησιμοποιούνται καλύτερα για να δείξουν τη σχέση μέρος‑σε‑ολό σε δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιλαμβάνουν πολλά μέρη ή ετικέτες, ίσως θέλετε να χρησιμοποιήσετε ένα γράφημα ραβδών αντί γι’ αυτό.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο `ChartType.Pie`.  
-1. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
-1. Εκκαθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-1. Προσθέστε νέες σειρές και κατηγορίες.  
-1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.  
-1. Προσθέστε νέα σημεία στο διάγραμμα και εφαρμόστε προσαρμοσμένα χρώματα στους τομείς της πίτας.  
-1. Ορίστε ετικέτες για τις σειρές.  
-1. Ενεργοποιήστε τις γραμμές οδηγού για τις ετικέτες των σειρών.  
-1. Ορίστε τη γωνία περιστροφής για το διάγραμμα πίτας.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα πίτας με τρεις τριμηνιαίες τιμές. Κάθε κομμάτι έχει προσαρμοσμένο γέμισμα και περίγραμμα, και οι ετικέτες εμφανίζουν διαφορετικούς συνδυασμούς τιμών, ποσοστών και πληροφοριών σειράς. Η ιδιότητα [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) ορίζει το πρώτο κομμάτι να ξεκινάει στις 180 μοίρες.
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα πίτας:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Δημιουργία αντικειμένου Presentation.
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
+
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var categoryCell = workbook.GetCell(0, 1, 0, "1st Qtr");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 2, 0, "2nd Qtr");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 3, 0, "3rd Qtr");
+chart.ChartData.Categories.Add(categoryCell);
+
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 20);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 1, 50);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 1, 30);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
+
+chart.ChartData.SeriesGroups[0].IsColorVaried = true;
+
+var firstSlice = series.DataPoints[0];
+firstSlice.Format.Fill.FillType = FillType.Solid;
+firstSlice.Format.Fill.SolidFillColor.Color = Color.Cyan;
+
+firstSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+firstSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
+firstSlice.Format.Line.Width = 3.0;
+firstSlice.Format.Line.Style = LineStyle.ThinThick;
+firstSlice.Format.Line.DashStyle = LineDashStyle.LargeDash;
+
+var secondSlice = series.DataPoints[1];
+secondSlice.Format.Fill.FillType = FillType.Solid;
+secondSlice.Format.Fill.SolidFillColor.Color = Color.Brown;
+
+secondSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+secondSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
+secondSlice.Format.Line.Width = 3.0;
+secondSlice.Format.Line.Style = LineStyle.Single;
+secondSlice.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
+
+var thirdSlice = series.DataPoints[2];
+thirdSlice.Format.Fill.FillType = FillType.Solid;
+thirdSlice.Format.Fill.SolidFillColor.Color = Color.Coral;
+
+thirdSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+thirdSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+thirdSlice.Format.Line.Width = 2.0;
+thirdSlice.Format.Line.Style = LineStyle.ThinThin;
+thirdSlice.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
+
+var firstLabel = series.DataPoints[0].Label;
+firstLabel.DataLabelFormat.ShowValue = true;
+
+var secondLabel = series.DataPoints[1].Label;
+secondLabel.DataLabelFormat.ShowValue = true;
+secondLabel.DataLabelFormat.ShowLegendKey = true;
+secondLabel.DataLabelFormat.ShowPercentage = true;
+
+var thirdLabel = series.DataPoints[2].Label;
+thirdLabel.DataLabelFormat.ShowSeriesName = true;
+thirdLabel.DataLabelFormat.ShowPercentage = true;
+
+series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
+
+chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
+
+presentation.Save("PieChart.pptx", SaveFormat.Pptx);
+```
+
+Το αποτέλεσμα:
+
+![Διάγραμμα πίτας](pie_chart.png)
+
+### **Δημιουργία διαγραμμάτων γραμμής**
+
+Τα διαγράμματα γραμμής (επίσης γνωστά ως line graphs) είναι ιδανικά όταν θέλετε να παρουσιάσετε αλλαγές τιμής με την πάροδο του χρόνου. Χρησιμοποιώντας ένα διάγραμμα γραμμής, μπορείτε να συγκρίνετε μεγάλο όγκο δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις στο χρόνο, να επισημάνετε ανωμαλίες στις σειρές δεδομένων και πολλά άλλα.
+
+Αυτό το παράδειγμα χρησιμοποιεί την μέθοδο [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα διάγραμμα γραμμής με τις προεπιλεγμένες σειρές και κατηγορίες, έπειτα αποθηκεύει την παρουσίαση ως PPTX.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+presentation.Save("lineChart.pptx", SaveFormat.Pptx);
+```
+
+Από προεπιλογή, τα σημεία σε ένα διάγραμμα γραμμής συνδέονται με ευθείες συνεχή γραμμές. Εάν θέλετε τα σημεία να συνδέονται με παύλες, ορίστε την ιδιότητα [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) σε τιμή από το [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+foreach (var series in lineChart.ChartData.Series)
 {
-    // Πρόσβαση στην πρώτη διαφάνεια.
-    ISlide slide = presentation.Slides[0];
-
-    // Προσθήκη διαγράμματος με τα προεπιλεγμένα δεδομένα.
-    IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
-
-    // Ορισμός τίτλου διαγράμματος.
-    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-    chart.ChartTitle.Height = 20;
-    chart.HasTitle = true;
-
-    // Ορισμός της πρώτης σειράς ώστε να εμφανίζει τιμές.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-    // Ορισμός δείκτη φύλλου δεδομένων διαγράμματος.
-    int worksheetIndex = 0;
-
-    // Λήψη βιβλίου εργασίας δεδομένων διαγράμματος.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-
-    // Διαγραφή των προεπιλεγμένων δημιουργημένων σειρών και κατηγοριών.
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // Προσθήκη νέων κατηγοριών.
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
-
-    // Προσθήκη νέας σειράς.
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // Συμπλήρωση δεδομένων σειράς.
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
-
-    // Ορισμός χρώματος τομέα.
-    chart.ChartData.SeriesGroups[0].IsColorVaried = true;
-
-    IChartDataPoint point = series.DataPoints[0];
-    point.Format.Fill.FillType = FillType.Solid;
-    point.Format.Fill.SolidFillColor.Color = Color.Cyan;
-
-    // Ορισμός περιγράμματος τομέα.
-    point.Format.Line.FillFormat.FillType = FillType.Solid;
-    point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
-    point.Format.Line.Width = 3.0;
-    point.Format.Line.Style = LineStyle.ThinThick;
-    point.Format.Line.DashStyle = LineDashStyle.LargeDash;
-
-    IChartDataPoint point1 = series.DataPoints[1];
-    point1.Format.Fill.FillType = FillType.Solid;
-    point1.Format.Fill.SolidFillColor.Color = Color.Brown;
-
-    // Ορισμός περιγράμματος τομέα.
-    point1.Format.Line.FillFormat.FillType = FillType.Solid;
-    point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
-    point1.Format.Line.Width = 3.0;
-    point1.Format.Line.Style = LineStyle.Single;
-    point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
-
-    IChartDataPoint point2 = series.DataPoints[2];
-    point2.Format.Fill.FillType = FillType.Solid;
-    point2.Format.Fill.SolidFillColor.Color = Color.Coral;
-
-    // Ορισμός περιγράμματος τομέα.
-    point2.Format.Line.FillFormat.FillType = FillType.Solid;
-    point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
-    point2.Format.Line.Width = 2.0;
-    point2.Format.Line.Style = LineStyle.ThinThin;
-    point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
-
-    // Δημιουργία προσαρμοσμένων ετικετών για κάθε κατηγορία στη νέα σειρά.
-    IDataLabel label1 = series.DataPoints[0].Label;
-
-    label1.DataLabelFormat.ShowValue = true;
-
-    IDataLabel label2 = series.DataPoints[1].Label;
-    label2.DataLabelFormat.ShowValue = true;
-    label2.DataLabelFormat.ShowLegendKey = true;
-    label2.DataLabelFormat.ShowPercentage = true;
-
-    IDataLabel label3 = series.DataPoints[2].Label;
-    label3.DataLabelFormat.ShowSeriesName = true;
-    label3.DataLabelFormat.ShowPercentage = true;
-
-    // Ορισμός σειράς ώστε να εμφανίζει γραμμές οδηγού στο διάγραμμα.
-    series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
-
-    // Ορισμός γωνίας περιστροφής για τους τομείς του διαγράμματος πίτας.
-    chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
-
-    // Αποθήκευση παρουσίασης στο δίσκο ως αρχείο PPTX.
-    presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
+    series.Format.Line.DashStyle = LineDashStyle.Dash;
 }
 ```
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Πίτας](pie_chart.png)
+![Διάγραμμα γραμμής](line_chart.png)
 
-### **Δημιουργία Γραμμικών Διαγραμμάτων**
+### **Δημιουργία διαγραμμάτων δένδρου**
 
-Τα γραμμικά διαγράμματα (γνωστά επίσης ως γραφήματα γραμμής) χρησιμοποιούνται καλύτερα σε περιπτώσεις όπου θέλετε να δείξετε αλλαγές σε τιμές με την πάροδο του χρόνου. Με ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε μεγάλο όγκο δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις στο χρόνο, να υπογραμμίσετε ανωμαλίες σε σειρές δεδομένων κ.λπ.
+Τα διαγράμματα δένδρου είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και να προσελκύσετε γρήγορα την προσοχή σε αντικείμενα που συνεισφέρουν σε μεγάλο βαθμό σε κάθε κατηγορία.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο `ChartType.Line`.  
-1. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
-1. Εκκαθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-1. Προσθέστε νέες σειρές και κατηγορίες.  
-1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα δημιουργεί ένα δένδρο με οκτώ φύλλα ομαδοποιημένα σε τέσσερα στελέχη και δύο κλάδους. Η μέθοδος [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) αντιστοιχίζει τα στελέχη στο επίπεδο ομαδοποίησης 1 και τους κλάδους στο επίπεδο 2. Οι τιμές καθορίζουν τα σχετικά μεγέθη των ορθογωνίων, ενώ οι ετικέτες κατηγοριών και οι επικαλυπτόμενες ετικέτες γονέων προσδιορίζουν την ιεραρχία.
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα γραμμικό διάγραμμα:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    presentation.Save("lineChart.pptx", SaveFormat.Pptx);
-}
-```
+var chart = slide.Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
 
-Από προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα συνδέονται με συνεχείς ευθείες γραμμές. Εάν θέλετε τα σημεία να συνδέονται με γραμμές παύλας, μπορείτε να ορίσετε τον προτιμώμενο τύπο παύλας ως εξής:
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-using (Presentation presentation = new Presentation())
-{
-    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+// Κλάδος 1
+var categoryCell = workbook.GetCell(0, "C1", "Leaf1");
+var leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
 
-    foreach (IChartSeries series in lineChart.ChartData.Series)
-    {
-        series.Format.Line.DashStyle = LineDashStyle.Dash;
-    }
-}
+categoryCell = workbook.GetCell(0, "C2", "Leaf2");
+chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "C3", "Leaf3");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+
+categoryCell = workbook.GetCell(0, "C4", "Leaf4");
+chart.ChartData.Categories.Add(categoryCell);
+
+// Κλάδος 2
+categoryCell = workbook.GetCell(0, "C5", "Leaf5");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
+
+categoryCell = workbook.GetCell(0, "C6", "Leaf6");
+chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "C7", "Leaf7");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
+
+categoryCell = workbook.GetCell(0, "C8", "Leaf8");
+chart.ChartData.Categories.Add(categoryCell);
+
+var series = chart.ChartData.Series.Add(ChartType.Treemap);
+series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+var valueCell = workbook.GetCell(0, "D1", 4);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D2", 5);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D3", 3);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D4", 6);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D5", 9);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D6", 9);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D7", 4);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D8", 3);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+
+series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+
+presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το Γραμμικό Διάγραμμα](line_chart.png)
+![Διάγραμμα Treemap](treemap_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Δέντρου (Tree Map)**
+### **Δημιουργία διαγραμμάτων καταρράκτη**
 
-Τα διαγράμματα δέντρου (Tree Map) χρησιμοποιούνται καλύτερα για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος κατηγοριών δεδομένων και να τραβήξετε γρήγορα την προσοχή σε στοιχεία που συνεισφέρουν σημαντικά εντός κάθε κατηγορίας.
+Ένα διάγραμμα καταρράκτη δείχνει πώς οι θετικές και αρνητικές αλλαγές συμβάλλουν σε μια τελική τιμή. Για παράδειγμα, μια ανάλυση κερδών μπορεί να ξεκινάει με έσοδα, να αφαιρεί κόστη και να προσθέτει άλλα έσοδα. Οι στήλες αλλαγής «πλέουν» μεταξύ της προηγούμενης και της νέας τρέχουσας τιμής, ενώ οι στήλες συνόλων εκτείνονται από το μηδέν μέχρι τη συσσωρευμένη τιμή.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο `ChartType.Treemap`.  
-1. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
-1. Εκκαθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-1. Προσθέστε νέες σειρές και κατηγορίες.  
-1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+| Κατηγορία | Τιμή βιβλίου εργασίας | Τύπος στήλης |
+| --- | ---: | --- |
+| Έσοδα | 1000 | Αύξηση |
+| Κόστος πωλήσεων | -400 | Μείωση |
+| Μικτό κέρδος | 600 | Ενδιάμεσό σύνολο |
+| Λειτουργικά έξοδα | -200 | Μείωση |
+| Άλλα έσοδα | 50 | Αύξηση |
+| Καθαρό κέρδος | 450 | Τελικό σύνολο |
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα δέντρου:
+Για να χαρακτηριστεί ένα σημείο ως ενδιάμεσο ή τελικό σύνολο, ορίστε την ιδιότητά του [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) σε `true`. Παρέχετε το πραγματικό συσσωρευμένο ποσό στο κελί του βιβλίου εργασίας: `600` για το μικτό κέρδος (`1000 - 400`) και `450` για το καθαρό κέρδος (`600 - 200 + 50`). Η ιδιότητα σηματοδοτεί τη στήλη ως σύνολο· δεν υπολογίζει ή γεμίζει την τιμή του κελιού. Μην χρησιμοποιήσετε μηδέν ως εικονικό στοιχείο ή να παρέχετε άλλη αλλαγή για σημείο συνόλου. Μια στήλη συνόλου εμφανίζει τη συσσωρευμένη τιμή χωρίς να την προσθέσει ξανά στην τρέχουσα τιμή.
 
-```c#
+Αυτό το πλήρες παράδειγμα C# δημιουργεί ένα διάγραμμα χρησιμοποιώντας το μέλος `Waterfall` του [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), καθαρίζει τα προεπιλεγμένα δεδομένα και γεμίζει το ενσωματωμένο βιβλίο εργασίας. Ο δείκτης φύλλου εργασίας `0` επιλέγει το πρώτο φύλλο· η στήλη A περιέχει τα ονόματα κατηγοριών και η στήλη B τις τιμές. Κάθε κελί τιμής προστίθεται με την [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Οι δείκτες σημείων με βάση το μηδενικό δείκτη `2` και `5` προσδιορίζουν τα ενδιάμεσα και τα τελικά σύνολα. Η ενεργοποίηση της ιδιότητας [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) εμφανίζει τα ποσά στις στήλες. Δεν απαιτείται παρουσία ή βιβλίο εργασίας εισόδου.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Waterfall, 20, 20, 680, 200);
+
+chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Profit breakdown (USD thousands)");
+chart.ChartTitle.Overlay = false;
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+
+workbook.Clear(worksheetIndex);
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Profit");
+var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.Waterfall);
+var categories = new[] { "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" };
+var values = new double[] { 1000, -400, 600, -200, 50, 450 };
+
+for (var i = 0; i < categories.Length; i++)
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
-
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
-
-    // Κλάδος 1
-    IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C2", "Leaf2"));
-
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C3", "Leaf3"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
-
-    // Κλάδος 2
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C6", "Leaf6"));
-
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C7", "Leaf7"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C8", "Leaf8"));
-
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Treemap);
-    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D1", 4));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D2", 5));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D3", 3));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D4", 6));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D5", 9));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D6", 9));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D7", 4));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D8", 3));
-
-    series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
-
-    presentation.Save("Treemap.pptx", SaveFormat.Pptx);
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categories[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
+
+// Τα τρίτο και έκτο σημεία αντιπροσωπεύουν σύνολα, όχι επιπλέον αλλαγές.
+series.DataPoints[2].SetAsTotal = true;
+series.DataPoints[5].SetAsTotal = true;
+series.ShowConnectorLines = true;
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
+```
+
+Ορίστε την ιδιότητα επιπέδου σειράς [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) σε `true` για να εμφανίζονται γραμμές που συνδέουν διαδοχικές στήλες και να διευκολύνουν την παρακολούθηση της τρέχουσας τιμής. Για να κρύψετε αυτές τις γραμμές, αντικαταστήστε την ανάθεση στο παράδειγμα με `series.ShowConnectorLines = false;` πριν την αποθήκευση. Αυτό αλλάζει μόνο την ορατότητα της γραμμής, όχι τα δεδομένα ή τα σύνολα.
+
+Το αποθηκευμένο αρχείο παρουσίασης δείχνει το μικτό κέρδος 600 και το καθαρό κέρδος 450, με τα δύο σύνολα να ξεκινούν από το μηδέν:
+
+![Διάγραμμα καταρράκτη που δείχνει έσοδα, κόστη, μικτό κέρδος 600 και καθαρό κέρδος 450, με ετικέτες τιμών και γραμμές σύνδεσης](waterfall_chart.png)
+
+### **Δημιουργία διαγραμμάτων μετοχών**
+
+Τα διαγράμματα μετοχών χρησιμοποιούνται για την προβολή οικονομικών δεδομένων όπως τιμές άνοιγμα, υψηλή, χαμηλή και κλεισίματος, βοηθώντας στην ανάλυση τάσεων αγοράς και μεταβλητότητας. Παρέχουν σημαντικές πληροφορίες για την απόδοση των μετοχών, βοηθώντας επενδυτές και αναλυτές να λαμβάνουν τεκμηριωμένες αποφάσεις.
+
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα ανοιγμάτων‑υψών‑χαμηλών‑κλεισιμάτων με τέσσερις σειρές με αυτή τη σειρά και τ three κατηγορίες. Η ιδιότητα [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) ενεργοποιεί τις μπάρες άνω/κάτω, ενώ το [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) ελέγχει τις γραμμές υψηλού‑χαμηλού που δείχνουν τα εύρη τιμών, ενώ οι γραμμές των επιμέρους σειρών και οι μικρές οριζόντιες γραμμές πλέγματος είναι κρυφές.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+var categoryCell = workbook.GetCell(0, 1, 0, "A");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 2, 0, "B");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 3, 0, "C");
+chart.ChartData.Categories.Add(categoryCell);
+
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Open");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 2, "High");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 3, "Low");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 4, "Close");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+
+var series = chart.ChartData.Series[0];
+var valueCell = workbook.GetCell(0, 1, 1, 72);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 1, 25);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 1, 38);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[1];
+valueCell = workbook.GetCell(0, 1, 2, 172);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 2, 57);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 2, 57);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[2];
+valueCell = workbook.GetCell(0, 1, 3, 12);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 3, 12);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 3, 13);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[3];
+valueCell = workbook.GetCell(0, 1, 4, 25);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 4, 38);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 4, 50);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
+chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
+
+foreach (var stockSeries in chart.ChartData.Series)
+{
+    stockSeries.Format.Line.FillFormat.FillType = FillType.NoFill;
+}
+
+chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+
+presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το Διάγραμμα Tree Map](treemap_chart.png)
+![Διάγραμμα Μετοχών](stock_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Χρηματιστηρίου (Stock)**
+### **Δημιουργία διαγραμμάτων Box and Whisker**
 
-Τα διαγράμματα χρηματιστηρίου χρησιμοποιούνται για την προβολή οικονομικών δεδομένων όπως τιμές ανοίγματος, υψηλές, χαμηλές και κλεισίματος, βοηθώντας στην ανάλυση τάσεων αγοράς και μεταβλητότητας. Παρέχουν ουσιώδεις πληροφορίες για την απόδοση των μετοχών, διευκολύνοντας τους επενδυτές και τους αναλυτές να λαμβάνουν ενημερωμένες αποφάσεις.
+Τα διαγράμματα Box and Whisker χρησιμοποιούνται για την προβολή της κατανομής δεδομένων συνοψίζοντας βασικά στατιστικά μέτρα, όπως η διάμεσος, τα τεταρτημόρια και οι πιθανές ακραίες τιμές. Είναι ιδιαίτερα χρήσιμα στην εξερευνητική ανάλυση δεδομένων και σε στατιστικές μελέτες για γρήγορη κατανόηση της μεταβλητότητας των δεδομένων και την ταυτοποίηση τυχόν ανωμαλιών.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο `ChartType.OpenHighLowClose`.  
-1. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
-1. Εκκαθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-1. Προσθέστε νέες σειρές και κατηγορίες.  
-1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.  
-1. Καθορίστε τη μορφή HiLowLines.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα Box and Whisker από έξι τιμές. Η ιδιότητα [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) επιλέγει τον αποκλειστικό υπολογισμό τεταρτημορίων. Το παράδειγμα ενεργοποιεί επίσης γραμμές μέσου όρου, σημεία μέσου, εσωτερικά σημεία και σημεία εξαιρετικών τιμών.
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα χρηματιστηρίου:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+var chart = slide.Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "A"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "B"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "C"));
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Open"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "High"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 3, "Low"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 4, "Close"), chart.Type);
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    IChartSeries series = chart.ChartData.Series[0];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 1, 72));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 1, 25));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 1, 38));
+var categoryCell = workbook.GetCell(0, "A1", "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A2", "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A3", "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A4", "Category 4");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A5", "Category 5");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A6", "Category 6");
+chart.ChartData.Categories.Add(categoryCell);
 
-    series = chart.ChartData.Series[1];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 2, 172));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 2, 57));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 2, 57));
+var series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
 
-    series = chart.ChartData.Series[2];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 3, 12));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 3, 12));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 3, 13));
+series.QuartileMethod = QuartileMethodType.Exclusive;
+series.ShowMeanLine = true;
+series.ShowMeanMarkers = true;
+series.ShowInnerPoints = true;
+series.ShowOutlierPoints = true;
 
-    series = chart.ChartData.Series[3];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 4, 25));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 4, 38));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 4, 50));
+var valueCell = workbook.GetCell(0, "B1", 15);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B2", 41);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B3", 16);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B4", 10);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B5", 23);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B6", 16);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 
-    chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
-    chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
+presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
+```
 
-    foreach (IChartSeries ser in chart.ChartData.Series)
-    {
-        ser.Format.Line.FillFormat.FillType = FillType.NoFill;
-    }
+### **Δημιουργία διαγραμάτων χωνίου**
 
-    chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+Τα διαγράμματα χωνίου χρησιμοποιούνται για την οπτικοποίηση διαδικασιών που περιλαμβάνουν διαδοχικά στάδια, όπου ο όγκος των δεδομένων μειώνεται καθώς προχωρά από το ένα βήμα στο επόμενο. Είναι ιδιαίτερα χρήσιμα για ανάλυση ποσοστών μετατροπής, εντοπισμό σημείων συμφόρησης και παρακολούθηση της αποδοτικότητας των διαδικασιών πωλήσεων ή μάρκετινγκ.
 
-    presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
-}
+Αυτό το παράδειγμα χρησιμοποιεί την μέθοδο [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) για να προσθέσει ένα διάγραμμα χωνίου στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης. Αντικαθιστά τα προεπιλεγμένα δεδομένα με έξι κατηγορίες και τιμές από 50 έως 500, έπειτα αποθηκεύει την ενημερωμένη παρουσίαση. Η εισαγόμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("test.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var categoryCell = workbook.GetCell(0, "A1", "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A2", "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A3", "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A4", "Category 4");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A5", "Category 5");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A6", "Category 6");
+chart.ChartData.Categories.Add(categoryCell);
+
+var series = chart.ChartData.Series.Add(ChartType.Funnel);
+
+var valueCell = workbook.GetCell(0, "B1", 50);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B2", 100);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B3", 200);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B4", 300);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B5", 400);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B6", 500);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+
+presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το Διάγραμμα Χρηματιστηρίου](stock_chart.png)
+![Διάγραμμα χωνίου](funnel_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Box and Whisker**
+### **Δημιουργία διαγραμάτων Sunburst**
 
-Τα διαγράμματα Box and Whisker χρησιμοποιούνται για την παρουσίαση της κατανομής των δεδομένων, συνοψίζοντας βασικά στατιστικά μέτρα όπως η διάμεσος, τα τεταρτημόρια και πιθανά εξαιρούμενα σημεία. Είναι ιδιαίτερα χρήσιμα στην εξερευνητική ανάλυση δεδομένων και σε στατιστικές μελέτες για την ταχεία κατανόηση της μεταβλητότητας των δεδομένων και την αναγνώριση ανωμαλιών.
+Τα διαγράμματα Sunburst χρησιμοποιούνται για την οπτικοποίηση ιεραρχικών δεδομένων, παρουσιάζοντας τα επίπεδα ως συγκεντρικούς δακτύλιους. Βοηθούν στην απεικόνιση σχέσεων μέρος‑σε‑ολό και είναι ιδανικά για την αναπαράσταση εμφωλευμένων κατηγοριών και υποκατηγοριών με σαφή, συμπαγή μορφή.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο `ChartType.BoxAndWhisker`.  
-1. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
-1. Εκκαθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-1. Προσθέστε νέες σειρές και κατηγορίες.  
-1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα Sunburst με οκτώ φύλλα ομαδοποιημένα σε τέσσερα στελέχη και δύο κλάδους. Η μέθοδος [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) αντιστοιχίζει τα στελέχη στο επίπεδο ομαδοποίησης 1 και τους κλάδους στο επίπεδο 2. Οι ετικέτες κατηγοριών προσδιορίζουν τα τμήματα, και οι τιμές καθορίζουν το σχετικό τους μέγεθος.
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα Box and Whisker:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    series.QuartileMethod = QuartileMethodType.Exclusive;
-    series.ShowMeanLine = true;
-    series.ShowMeanMarkers = true;
-    series.ShowInnerPoints = true;
-    series.ShowOutlierPoints = true;
+// Κλάδος 1
+var categoryCell = workbook.GetCell(0, "C1", "Leaf1");
+var leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
 
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B1", 15));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B2", 41));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B3", 16));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B4", 10));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B5", 23));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B6", 16));
+categoryCell = workbook.GetCell(0, "C2", "Leaf2");
+chart.ChartData.Categories.Add(categoryCell);
 
-    presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
-}
-```
+categoryCell = workbook.GetCell(0, "C3", "Leaf3");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
 
-### **Δημιουργία Διάγραμμα Funnel**
+categoryCell = workbook.GetCell(0, "C4", "Leaf4");
+chart.ChartData.Categories.Add(categoryCell);
 
-Τα διαγράμματα funnel χρησιμοποιούνται για την απεικόνιση διαδικασιών που περιλαμβάνουν διαδοχικά στάδια, όπου ο όγκος των δεδομένων μειώνεται καθώς προχωρά από το ένα βήμα στο επόμενο. Είναι ιδιαίτερα χρήσιμα για την ανάλυση των ποσοστών μετατροπής, την αναγνώριση στενών σημείων και την παρακολούθηση της αποδοτικότητας των διαδικασιών πωλήσεων ή μάρκετινγκ.
+// Κλάδος 2
+categoryCell = workbook.GetCell(0, "C5", "Leaf5");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο `ChartType.Funnel`.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+categoryCell = workbook.GetCell(0, "C6", "Leaf6");
+chart.ChartData.Categories.Add(categoryCell);
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα funnel:
+categoryCell = workbook.GetCell(0, "C7", "Leaf7");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
-using Aspose.Slides.Export;
+categoryCell = workbook.GetCell(0, "C8", "Leaf8");
+chart.ChartData.Categories.Add(categoryCell);
 
-using (Presentation presentation = new Presentation("test.pptx"))
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+var series = chart.ChartData.Series.Add(ChartType.Sunburst);
+series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+var valueCell = workbook.GetCell(0, "D1", 4);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D2", 5);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D3", 3);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D4", 6);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D5", 9);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D6", 9);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D7", 4);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D8", 3);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
-
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Funnel);
-
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B1", 50));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B2", 100));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B3", 200));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B4", 300));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B5", 400));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B6", 500));
-
-    presentation.Save("Funnel.pptx", SaveFormat.Pptx);
-}
+presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το Διάγραμμα Funnel](funnel_chart.png)
+![Διάγραμμα Sunburst](sunburst_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Sunburst**
+### **Δημιουργία διαγραμμάτων Ιστόγραμμα**
 
-Τα διαγράμματα Sunburst χρησιμοποιούνται για την απεικόνιση ιεραρχικών δεδομένων, παρουσιάζοντας τα επίπεδα ως συγκρότημα κυκλικών δαχτυλιδιών. Βοηθούν στην απεικόνιση σχέσεων μέρος‑στο‑ολό και είναι ιδανικά για την αναπαράσταση ένθετων κατηγοριών και υποκατηγοριών με σαφή και συμπαγή μορφή.
+Τα διαγράμματα Ιστόγραμμα χρησιμοποιούνται για την αναπαράσταση της κατανομής αριθμητικών δεδομένων ομαδοποιώντας τις τιμές σε εύρη ή «κάδους». Είναι ιδιαίτερα χρήσιμα για τον εντοπισμό προτύπων δεδομένων όπως συχνότητα, κλίση και διασπορά, καθώς και για την ανίχνευση ακραίων τιμών σε ένα σύνολο δεδομένων.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο `ChartType.Sunburst`.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα δημιουργεί ένα ιστόγραμμα από έξι αριθμητικές τιμές, συμπεριλαμβανομένων και αρνητικών τιμών. Ορίζοντας την ιδιότητα [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/aggregationtype/) σε αυτόματο, το διάγραμμα καθορίζει αυτόματα τα κατάλληλα «κάδους» για την εμφάνιση της κατανομής.
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα Sunburst:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
 
-    // Κλάδος 1
-    IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C2", "Leaf2"));
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C3", "Leaf3"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+var series = chart.ChartData.Series.Add(ChartType.Histogram);
+var valueCell = workbook.GetCell(0, "A1", 15);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A2", -41);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A3", 16);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A4", 10);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A5", -23);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A6", 16);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
+chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
 
-    // Κλάδος 2
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C6", "Leaf6"));
-
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C7", "Leaf7"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C8", "Leaf8"));
-
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Sunburst);
-    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D1", 4));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D2", 5));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D3", 3));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D4", 6));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D5", 9));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D6", 9));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D7", 4));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D8", 3));
-
-    presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
-}
+presentation.Save("Histogram.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το Διάγραμμα Sunburst](sunburst_chart.png)
+![Διάγραμμα Ιστόγραμμα](histogram_chart.png)
 
-### **Δημιουργία Ιστογραμμάτων (Histogram)**
+### **Δημιουργία διαγραμμάτων Radar**
 
-Τα ιστογράμματα χρησιμοποιούνται για την αναπαράσταση της κατανομής αριθμητικών δεδομένων ομαδοποιώντας τις τιμές σε εύρη ή «βιτρίνες». Είναι ιδιαίτερα χρήσιμα για τον εντοπισμό μοτίβων όπως συχνότητα, ασυμμετρία και διασπορά, καθώς και για την ανίχνευση αποκλίσεων σε ένα σύνολο δεδομένων.
+Τα διαγράμματα Radar χρησιμοποιούνται για την παρουσίαση πολυμεταβλητών δεδομένων σε δισδιάστατη μορφή, επιτρέποντας εύκολη σύγκριση πολλαπλών μεταβλητών ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα για την ταυτοποίηση προτύπων, δυνατών και αδύναμων σημείων σε πολλαπλούς δείκτες απόδοσης ή χαρακτηριστικά.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον τύπο `ChartType.Histogram`.  
-1. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
-1. Εκκαθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-1. Προσθέστε νέες σειρές και κατηγορίες.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα χρησιμοποιεί την μέθοδο [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα διάγραμμα Radar με τις προεπιλεγμένες σειρές και κατηγορίες, έπειτα αποθηκεύει την παρουσίαση ως PPTX.
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα ιστόγραμμα:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+slide.Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Histogram);
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A1", 15));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A2", -41));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A3", 16));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A4", 10));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A5", -23));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A6", 16));
-
-    chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
-
-    presentation.Save("Histogram.pptx", SaveFormat.Pptx);
-}
+presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το Ιστόγραμμα](histogram_chart.png)
+![Διάγραμμα Radar](radar_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Radar**
+### **Δημιουργία διαγραμμάτων πολλαπλής κατηγορίας**
 
-Τα διαγράμματα Radar χρησιμοποιούνται για την παρουσίαση πολυμεταβλητών δεδομένων σε δισδιάστατη μορφή, επιτρέποντας εύκολη σύγκριση πολλών μεταβλητών ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα για την αναγνώριση μοτίβων, δυνατών και αδύνατων σημείων σε πολλαπλές μετρικές απόδοσης ή χαρακτηριστικά.
+Τα διαγράμματα πολλαπλής κατηγορίας χρησιμοποιούνται για την παρουσίαση δεδομένων που περιλαμβάνουν περισσότερα από ένα ομαδοποιημένα στοιχεία, επιτρέποντάς σας να συγκρίνετε τιμές σε πολλαπλές διαστάσεις ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα όταν χρειάζεται να αναλύσετε τάσεις και σχέσεις σε σύνθετα, πολυεπίπεδα σύνολα δεδομένων.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον τύπο `ChartType.Radar`.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα δημιουργεί ένα ομαδοποιημένο διάγραμμα στήλης με οκτώ κατηγορίες διατεταγμένες σε τέσσερα ζεύγη. Η μέθοδος [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) δίνει σε κάθε ζεύγος μια κοινή ετικέτα στο επίπεδο ομαδοποίησης 1, παράγοντας έναν άξονα κατηγορίας με ατομικές και ομαδικές ετικέτες.
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα radar:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
-    presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var worksheetIndex = 0;
+
+var categoryCell = workbook.GetCell(0, "c2", "A");
+var category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group1");
+categoryCell = workbook.GetCell(0, "c3", "B");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "c4", "C");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group2");
+categoryCell = workbook.GetCell(0, "c5", "D");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "c6", "E");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group3");
+categoryCell = workbook.GetCell(0, "c7", "F");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "c8", "G");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group4");
+categoryCell = workbook.GetCell(0, "c9", "H");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+var seriesNameCell = workbook.GetCell(0, "D1", "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.ClusteredColumn);
+
+var valueCell = workbook.GetCell(worksheetIndex, "D2", 10);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D3", 20);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D4", 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D5", 40);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D6", 50);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D7", 60);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D8", 70);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D9", 80);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το Διάγραμμα Radar](radar_chart.png)
+![Διάγραμμα πολλαπλής κατηγορίας](multi_category_chart.png)
 
-### **Δημιουργία Πολυκατηγορικών Διαγραμμάτων**
+### **Δημιουργία διαγραμμάτων χάρτη**
 
-Τα πολυκατηγορικά διαγράμματα χρησιμοποιούνται για την παρουσίαση δεδομένων που περιλαμβάνουν περισσότερους από έναν κατηγορηματικούς ομαδοποιητές, επιτρέποντάς σας να συγκρίνετε τιμές σε πολλαπλές διαστάσεις ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα όταν χρειάζεται να αναλύσετε τάσεις και σχέσεις μέσα σε σύνθετα, πολυεπίπεδα σύνολα δεδομένων.
+Τα διαγράμματα χάρτη χρησιμοποιούνται για την οπτικοποίηση γεωγραφικών δεδομένων αντιστοιχίζοντας πληροφορίες σε συγκεκριμένες τοποθεσίες όπως χώρες, πολιτείες ή πόλεις. Είναι ιδιαίτερα χρήσιμα για την ανάλυση περιφερειακών τάσεων, δημογραφικών δεδομένων και χωρικής κατανομής με σαφή, ελκυστική οπτική παρουσίαση.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο `ChartType.ClusteredColumn`.  
-1. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).  
-1. Εκκαθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
-1. Προσθέστε νέες σειρές και κατηγορίες.  
-1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα χρησιμοποιεί την μέθοδο [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα διάγραμμα χάρτη με τα προεπιλεγμένα γεωγραφικά δεδομένα και το αποθηκεύει για προβολή στο PowerPoint.
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα πολυκατηγορικό διάγραμμα:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var chart = slide.Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
-
-    int worksheetIndex = 0;
-
-    IChartCategory category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c2", "A"));
-    category.GroupingLevels.SetGroupingItem(1, "Group1");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c3", "B"));
-
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c4", "C"));
-    category.GroupingLevels.SetGroupingItem(1, "Group2");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c5", "D"));
-
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c6", "E"));
-    category.GroupingLevels.SetGroupingItem(1, "Group3");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c7", "F"));
-
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c8", "G"));
-    category.GroupingLevels.SetGroupingItem(1, "Group4");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
-
-    // Προσθήκη σειράς.
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
-
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D3", 20));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D4", 30));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D5", 40));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D6", 50));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D7", 60));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
-
-    // Αποθήκευση της παρουσίασης με το διάγραμμα.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το Πολυκατηγορικό Διάγραμμα](multi_category_chart.png)
+![Διάγραμμα Χάρτη](map_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Χάρτη**
+{{% alert color="info" title="Σημείωση" %}}
+Η παραπάνω εικόνα δείχνει την αποθηκευμένη παρουσίαση ανοιγμένη στο PowerPoint. Το Aspose.Slides γράφει σωστά το διάγραμμα χάρτη και τα δεδομένα του, αλλά δεν σχεδιάζει τα ίδια τα διαγράμματα χάρτη: όταν μια διαφάνεια που τα περιέχει αποδίδεται σε εικόνα ή μετατρέπεται σε PDF ή SVG, η περιοχή του διαγράμματος παραμένει κενή. Τα άλλα σχήματα στην ίδια διαφάνεια δεν επηρεάζονται.
+{{% /alert %}}
 
-Τα διαγράμματα χάρτη χρησιμοποιούνται για την απεικόνιση γεωγραφικών δεδομένων χαρτογραφώντας πληροφορίες σε συγκεκριμένες τοποθεσίες όπως χώρες, πολιτείες ή πόλεις. Είναι ιδιαίτερα χρήσιμα για την ανάλυση περιφερειακών τάσεων, δημογραφικών δεδομένων και διασποράς σε σαφή, οπτικά ελκυστική μορφή.
+### **Δημιουργία συνδυαστικών διαγραμμάτων**
 
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα χάρτη:
+Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγραμμάτων σε ένα γράφημα. Αυτό το διάγραμμα σας επιτρέπει να τονίσετε, να συγκρίνετε ή να εξετάσετε τις διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε τις σχέσεις μεταξύ τους.
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
-using Aspose.Slides.Export;
+![Διάγραμμα συνδυασμού](combination_chart.png)
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
-    presentation.Save("mapChart.pptx", SaveFormat.Pptx);
-}
-```
+Αυτό το παράδειγμα συνδυάζει δύο σειρές ομαδοποιημένων στηλών με μια σειρά γραμμής σε τέσσερις κατηγορίες. Οι στήλες χρησιμοποιούν τον κύριο κάθετο άξονα, ενώ η μέθοδος [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) τοποθετεί τη γραμμή σε δευτερεύον κάθετο άξονα στα δεξιά. Οι βοηθητικές συναρτήσεις ρυθμίζουν τον τίτλο, το υπόμνημα, τις ετικέτες αξόνων και τις γραμμές πλέγματος.
 
-Το αποτέλεσμα:
-
-![Το Διάγραμμα Χάρτη](map_chart.png)
-
-{{% alert color="info" %}} 
-
-Η εικόνα παραπάνω δείχνει την αποθηκευμένη παρουσίαση ανοιγμένη σε PowerPoint. Το Aspose.Slides γράφει σωστά το διάγραμμα χάρτη και τα δεδομένα του, αλλά δεν σχεδιάζει διαγράμματα χάρτη από μόνο του: όταν μια διαφάνεια που περιέχει τέτοιο διάγραμμα αποδίδεται σε εικόνα ή μετατρέπεται σε PDF ή SVG, η περιοχή του διαγράμματος παραμένει κενή. Τα άλλα σχήματα στην ίδια διαφάνεια δεν επηρεάζονται.
-
-{{% /alert %}} 
-
-### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
-
-Ένα συνδυαστικό διάγραμμα (ή combo διάγραμμα) συνδυάζει δύο ή περισσότερους τύπους διαγράμματος σε ένα γράφημα. Αυτό το διάγραμμα σας επιτρέπει να τονίσετε, να συγκρίνετε ή να εξετάσετε τις διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
-
-![Το Συνδυαστικό Διάγραμμα](combination_chart.png)
-
-Ο παρακάτω κώδικας C# δείχνει πώς να δημιουργήσετε το συνδυαστικό διάγραμμα που φαίνεται παραπάνω σε μια παρουσίαση PowerPoint:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-private static void CreateComboChart()
+CreateComboChart();
+
+static void CreateComboChart()
 {
-    using (Presentation presentation = new Presentation())
-    {
-        IChart chart = CreateChartWithFirstSeries(presentation.Slides[0]);
+    using var presentation = new Presentation();
+    var chart = CreateChartWithFirstSeries(presentation.Slides[0]);
 
-        AddSecondSeriesToChart(chart);
-        AddThirdSeriesToChart(chart);
+    AddSecondSeriesToChart(chart);
+    AddThirdSeriesToChart(chart);
 
-        SetPrimaryAxesFormat(chart);
-        SetSecondaryAxesFormat(chart);
+    SetPrimaryAxesFormat(chart);
+    SetSecondaryAxesFormat(chart);
 
-        presentation.Save("combo-chart.pptx", SaveFormat.Pptx);
-    }
+    presentation.Save("combo-chart.pptx", SaveFormat.Pptx);
 }
 
-private static IChart CreateChartWithFirstSeries(ISlide slide)
+static IChart CreateChartWithFirstSeries(ISlide slide)
 {
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Ορίζει τον τίτλο του διαγράμματος
     chart.HasTitle = true;
     chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
     chart.ChartTitle.Overlay = false;
-    IPortionFormat portionFormat = 
-       chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    var portionFormat = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // Ορίζει το υπόμνημα του διαγράμματος
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    int worksheetIndex = 0;
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
+    var worksheetIndex = 0;
 
-    // Προσθέτει νέες κατηγορίες
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
+    var categoryCell = workbook.GetCell(worksheetIndex, 1, 0, "Category 1");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 2, 0, "Category 2");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 3, 0, "Category 3");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 4, 0, "Category 4");
+    chart.ChartData.Categories.Add(categoryCell);
 
-    // Προσθήκη της πρώτης σειράς
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+    var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
     series.ParentSeriesGroup.Overlap = -25;
     series.ParentSeriesGroup.GapWidth = 220;
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 4.3));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2.5));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 3.5));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 4.5));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 4.3);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 1, 2.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 1, 3.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 1, 4.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 
     return chart;
 }
 
-private static void AddSecondSeriesToChart(IChart chart)
+static void AddSecondSeriesToChart(IChart chart)
 {
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
     const int worksheetIndex = 0;
 
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), ChartType.ClusteredColumn);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 2, "Series 2");
+    var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.ClusteredColumn);
 
     series.ParentSeriesGroup.Overlap = -25;
     series.ParentSeriesGroup.GapWidth = 220;
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 2.4));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 4.4));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 1.8));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 2, 2.8));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 2, 2.4);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 2, 4.4);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 2, 1.8);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 2, 2.8);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
 
-private static void AddThirdSeriesToChart(IChart chart)
+static void AddThirdSeriesToChart(IChart chart)
 {
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
     const int worksheetIndex = 0;
 
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), ChartType.Line);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Series 3");
+    var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.Line);
 
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 1, 3, 2.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 2, 3, 2.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 3, 3, 3.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 4, 3, 5.0));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 3, 2.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 3, 2.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 3, 3.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 3, 5.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
 
     series.PlotOnSecondAxis = true;
 }
 
-private static void SetPrimaryAxesFormat(IChart chart)
+static void SetPrimaryAxesFormat(IChart chart)
 {
-    // Ορίζει τον οριζόντιο άξονα
-    IAxis horizontalAxis = chart.Axes.HorizontalAxis;
+    var horizontalAxis = chart.Axes.HorizontalAxis;
     horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // Ορίζει τον κάθετο άξονα
-    IAxis verticalAxis = chart.Axes.VerticalAxis;
+    var verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Ορίζει το χρώμα των κύριων κατακόρυφων γραμμών πλέγματος
-    ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
+    var majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
 }
 
-private static void SetSecondaryAxesFormat(IChart chart)
+static void SetSecondaryAxesFormat(IChart chart)
 {
-    // Ορίζει τον δευτερεύοντα οριζόντιο άξονα
-    IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
+    var secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
     secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
     secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
     secondaryHorizontalAxis.IsVisible = false;
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // Ορίζει τον δευτερεύοντα κάθετο άξονα
-    IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
+    var secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     secondaryVerticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
@@ -1064,196 +1103,179 @@ private static void SetSecondaryAxesFormat(IChart chart)
     SetAxisTitle(secondaryVerticalAxis, "Y Axis 2");
 }
 
-private static void SetAxisTitle(IAxis axis, string axisTitle)
+static void SetAxisTitle(IAxis axis, string axisTitle)
 {
     axis.HasTitle = true;
     axis.Title.Overlay = false;
-    IPortionFormat titlePortionFormat =
-        axis.Title.AddTextFrameForOverriding(axisTitle).Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    var titlePortionFormat = axis.Title.AddTextFrameForOverriding(axisTitle).Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
     titlePortionFormat.FontBold = NullableBool.False;
     titlePortionFormat.FontHeight = 12f;
 }
 ```
 
-## **Ενημέρωση Διαγραμμάτων**
+## **Ενημέρωση διαγραμμάτων**
 
-Το Aspose.Slides for .NET σας επιτρέπει να ενημερώσετε διαγράμματα PowerPoint τροποποιώντας τα δεδομένα, τη μορφοποίηση και το στυλ τους. Αυτή η λειτουργικότητα απλοποιεί τη διαδικασία διατήρησης των παρουσιάσεων ενημερωμένων με δυναμικό περιεχόμενο και διασφαλίζει ότι τα διαγράμματα αντικατοπτρίζουν ακριβώς τα τρέχοντα δεδομένα και τα οπτικά πρότυπα.
+Το Aspose.Slides για .NET σας δίνει τη δυνατότητα να ενημερώνετε διαγράμματα PowerPoint τροποποιώντας τα δεδομένα του διαγράμματος, τη μορφοποίηση και το στυλ. Αυτή η λειτουργία απλοποιεί τη διαδικασία διατήρησης των παρουσιάσεων ενημερωμένων με δυναμικό περιεχόμενο και εξασφαλίζει ότι τα διαγράμματα αντικατοπτρίζουν ακριβώς τα τρέχοντα δεδομένα και τα οπτικά πρότυπα.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Διασχίστε όλα τα σχήματα για να εντοπίσετε το διάγραμμα.  
-1. Προσπελάστε το φύλλο δεδομένων του διαγράμματος.  
-1. Τροποποιήστε τις σειρές δεδομένων του διαγράμματος αλλάζοντας τις τιμές των σειρών.  
-1. Προσθέστε μια νέα σειρά και γεμίστε τα δεδομένα της.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα ενημερώνει το διάγραμμα με το όνομα “My chart” στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης. Απαιτεί δύο σειρές στήλης με τρία σημεία δεδομένων η καθεμία, με ετικέτες κατηγοριών στη στήλη A και ονόματα σειρών στην πρώτη γραμμή του πρώτου φύλλου εργασίας. Το παράδειγμα χρησιμοποιεί τη μέθοδο [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) για να αλλάξει κελιά του βιβλίου εργασίας, ενημερώνει τις τιμές σειράς, προσθέτει τρίτη σειρά και αλλάζει το διάγραμμα σε ομαδοποιημένους κυλίνδρους μέσω της ιδιότητας [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
-Αυτός ο κώδικας C# δείχνει πώς να ενημερώσετε ένα διάγραμμα:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
+using var presentation = new Presentation("ExistingChart.pptx");
+var slide = presentation.Slides[0];
+
+foreach (IShape shape in slide.Shapes)
 {
-    // Πρόσβαση στην πρώτη διαφάνεια.
-    ISlide slide = presentation.Slides[0];
-
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IChart chart && chart.Name == chartName)
     {
-        if (shape is IChart chart && chart.Name == chartName)
-        {
-            // Ορισμός του δείκτη φύλλου δεδομένων διαγράμματος.
-            int worksheetIndex = 0;
+        var worksheetIndex = 0;
 
-            // Λήψη του βιβλίου εργασίας δεδομένων του διαγράμματος.
-            IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+        var workbook = chart.ChartData.ChartDataWorkbook;
 
-            // Αλλαγή των ονομάτων των κατηγοριών του διαγράμματος.
-            workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
-            workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
+        workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
+        workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-            // Λήψη της πρώτης σειράς διαγράμματος.
-            IChartSeries series = chart.ChartData.Series[0];
+        var series = chart.ChartData.Series[0];
 
-            // Ενημέρωση των δεδομένων της σειράς.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Τροποποίηση του ονόματος της σειράς.
-            series.DataPoints[0].Value.Data = 90;
-            series.DataPoints[1].Value.Data = 123;
-            series.DataPoints[2].Value.Data = 44;
+        workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1");
+        series.DataPoints[0].Value.Data = 90;
+        series.DataPoints[1].Value.Data = 123;
+        series.DataPoints[2].Value.Data = 44;
 
-            // Λήψη της δεύτερης σειράς διαγράμματος.
-            series = chart.ChartData.Series[1];
+        series = chart.ChartData.Series[1];
 
-            // Ενημέρωση των δεδομένων της σειράς.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Τροποποίηση του ονόματος της σειράς.
-            series.DataPoints[0].Value.Data = 23;
-            series.DataPoints[1].Value.Data = 67;
-            series.DataPoints[2].Value.Data = 99;
+        workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2");
+        series.DataPoints[0].Value.Data = 23;
+        series.DataPoints[1].Value.Data = 67;
+        series.DataPoints[2].Value.Data = 99;
 
-            // Προσθήκη νέας σειράς.
-            series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
+        var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Series 3");
+        series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-            // Συμπλήρωση των δεδομένων της σειράς.
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
+        var valueCell = workbook.GetCell(worksheetIndex, 1, 3, 20);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+        valueCell = workbook.GetCell(worksheetIndex, 2, 3, 50);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+        valueCell = workbook.GetCell(worksheetIndex, 3, 3, 30);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-            chart.Type = ChartType.ClusteredCylinder;
-        }
+        chart.Type = ChartType.ClusteredCylinder;
     }
-
-    // Αποθήκευση της παρουσίασης με το διάγραμμα.
-    presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **Ορισμός Περιοχής Δεδομένων για Διάγραμμα**
+## **Ορισμός περιοχής δεδομένων για διάγραμμα**
 
-Για να ελέγξετε την περιοχή που χρησιμοποιείται ήδη από ένα υπάρχον διάγραμμα, δείτε το [Retrieve a Chart's Data Range](/slides/el/net/chart-workbook/#retrieve-a-charts-data-range).
+Για να ελέγχετε την περιοχή που χρησιμοποιείται ήδη από ένα υπάρχον διάγραμμα, δείτε [Ανάκτηση περιοχής δεδομένων διαγράμματος](/slides/el/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Το Aspose.Slides for .NET παρέχει την ευελιξία να ορίσετε μια συγκεκριμένη περιοχή δεδομένων από ένα φύλλο εργασίας ως πηγή για τα δεδομένα του διαγράμματος σας. Αυτό σημαίνει ότι μπορείτε άμεσα να αντιστοιχίσετε ένα τμήμα του φύλλου εργασίας σας στο διάγραμμα, ελέγχοντας ποιες κελιά συνεισφέρουν στις σειρές και κατηγορίες του διαγράμματος. Ως αποτέλεσμα, μπορείτε εύκολα να ενημερώνετε και να συγχρονίζετε τα διαγράμματά σας με τις πιο πρόσφατες αλλαγές στα δεδομένα, διασφαλίζοντας ότι οι παρουσιάσεις PowerPoint σας αντικατοπτρίζουν ακριβείς και τρέχουσες πληροφορίες.
+Το Aspose.Slides για .NET παρέχει την ευελιξία να ορίσετε μια συγκεκριμένη περιοχή δεδομένων από ένα φύλλο εργασίας ως πηγή για τα δεδομένα του διαγράμματος σας. Αυτό σημαίνει ότι μπορείτε να αντιστοιχίσετε άμεσα ένα τμήμα του φύλλου εργασίας σας στο διάγραμμα, ελέγχοντας ποιες κελιά συμβάλλουν στις σειρές και τις κατηγορίες του διαγράμματος. Ως αποτέλεσμα, μπορείτε εύκολα να ενημερώνετε και να συγχρονίζετε τα διαγράμματά σας με τις τελευταίες αλλαγές δεδομένων στο φύλλο εργασίας, διασφαλίζοντας ότι οι παρουσιάσεις PowerPoint αντικατοπτρίζουν τρέχουσες και ακριβείς πληροφορίες.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.  
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.  
-1. Διασχίστε όλα τα σχήματα για να εντοπίσετε το διάγραμμα.  
-1. Προσπελάστε τα δεδομένα του διαγράμματος και ορίστε την περιοχή.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Χρησιμοποιήστε τη μέθοδο [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) για να ορίσετε την πηγή δεδομένων του διαγράμματος με το όνομα “My chart” στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης σε `Sheet1!A1:B4`. Το βιβλίο διαγράμματος πρέπει να περιέχει αυτό το φύλλο και μια πλημμισμένη περιοχή με επικεφαλίδα σειράς στην πρώτη γραμμή, ετικέτες κατηγοριών στη στήλη A και τρεις τιμές στη στήλη B.
 
-Αυτός ο κώδικας C# δείχνει πώς να ορίσετε την περιοχή δεδομένων για ένα διάγραμμα:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
+using var presentation = new Presentation("ExistingChart.pptx");
+var slide = presentation.Slides[0];
+
+foreach (IShape shape in slide.Shapes)
 {
-    // Πρόσβαση στην πρώτη διαφάνεια.
-    ISlide slide = presentation.Slides[0];
-
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IChart chart && chart.Name == chartName)
     {
-        if (shape is IChart chart && chart.Name == chartName)
-        {
-            chart.ChartData.SetRange("Sheet1!A1:B4");
-        }
+        chart.ChartData.SetRange("Sheet1!A1:B4");
     }
-
-    presentation.Save("SetDataRange_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 ```
 
-## **Χρήση Προεπιλεγμένων Δεικτών σε Διαγράμματα**
+## **Χρήση προεπιλεγμένων σημειωτών σε διαγράμματα**
 
-Όταν χρησιμοποιείτε προεπιλεγμένους δείκτες σε διαγράμματα, κάθε σειρά του διαγράμματος λαμβάνει αυτόματα διαφορετικό προεπιλεγμένο σύμβολο δείκτη.
+Όταν χρησιμοποιείτε προεπιλεγμένους δείκτες σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει αυτόματα διαφορετικό προεπιλεγμένο σύμβολο δείκτη.
 
-Αυτός ο κώδικας C# δείχνει πώς να ορίσετε αυτόματα έναν δείκτη σειράς διαγράμματος:
+Αυτό το παράδειγμα χρησιμοποιεί την μέθοδο [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα διάγραμμα με δύο σειρές γραμμής και ένα υπόμνημα. Οι ρυθμίσεις [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) διατηρούν τα αυτόματα εκχωρημένα σύμβολα δείκτη. Η πρώτη σειρά περιλαμβάνει μια αρνητική τιμή και μια τιμή που λείπει, η οποία αναπαρίσταται με `null`, ενώ η δεύτερη έχει τιμή για κάθε κατηγορία.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+var workbook = chart.ChartData.ChartDataWorkbook;
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "C1"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 1, 24));
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "C2"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 1, 23));
+var categoryCell = workbook.GetCell(0, 1, 0, "C1");
+chart.ChartData.Categories.Add(categoryCell);
+var valueCell = workbook.GetCell(0, 1, 1, 24);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "C3"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 1, -10));
+categoryCell = workbook.GetCell(0, 2, 0, "C2");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 2, 1, 23);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 4, 0, "C4"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 4, 1, null));
+categoryCell = workbook.GetCell(0, 3, 0, "C3");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 3, 1, -10);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
+categoryCell = workbook.GetCell(0, 4, 0, "C4");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 4, 1, null);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    // Συμπλήρωση δεδομένων της σειράς.
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 4, 2, 40));
+seriesNameCell = workbook.GetCell(0, 0, 2, "Series 2");
+var secondSeries = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    chart.HasLegend = true;
-    chart.Legend.Overlay = false;
+valueCell = workbook.GetCell(0, 1, 2, 30);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 2, 10);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 2, 60);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 4, 2, 40);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
-}
+chart.HasLegend = true;
+chart.Legend.Overlay = false;
+
+presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Ποιοι τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides for .NET;**
+**Τι τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides για .NET;**
 
-Το Aspose.Slides for .NET υποστηρίζει ευρύ φάσμα τύπων διαγραμμάτων, όπως ραβδόγραμμα, γραμμικό διάγραμμα, διάγραμμα πίτας, περιοχικό, scatter, ιστόγραμμα, radar και πολλά άλλα. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες της οπτικοποίησης των δεδομένων σας.
+Το Aspose.Slides για .NET υποστηρίζει μια ευρεία γκάμα τύπων διαγραμμάτων, συμπεριλαμβανομένων γραμμής, στήλης, πίτας, επιφάνειας, διασποράς, ιστόγραμματος, ραντάρ και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
 
-**Πώς προσθέτω νέο διάγραμμα σε μια διαφάνεια;**
+**Πώς μπορώ να προσθέσω ένα νέο διάγραμμα σε μια διαφάνεια;**
 
-Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργείτε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), ανακτάτε τη ζητούμενη διαφάνεια χρησιμοποιώντας τον δείκτη της και στη συνέχεια καλείτε τη μέθοδο προσθήκης διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
+Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργείτε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), ανακτάτε την επιθυμητή διαφάνεια χρησιμοποιώντας τον δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο για προσθήκη διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
 
 **Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;**
 
-Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπελαύνοντας το βιβλίο εργασίας δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), εκκαθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και στη συνέχεια προσθέτοντας τα προσαρμοσμένα σας δεδομένα. Αυτό σας επιτρέπει να ανανεώνετε προγραμματιστικά το διάγραμμα ώστε να αντικατοπτρίζει τα πιο πρόσφατα δεδομένα.
+Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπερνώντας το βιβλίο δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), καθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και προσθέτοντας τα προσαρμοσμένα σας δεδομένα. Αυτό σάς επιτρέπει να ανανεώνετε προγραμματιστικά το διάγραμμα ώστε να αντικατοπτρίζει τα πιο πρόσφατα δεδομένα.
 
-**Μπορώ να προσαρμόσω την εμφάνιση του διαγράμματος;**
+**Μπορεί κανείς να προσαρμόσει την εμφάνιση του διαγράμματος;**
 
-Ναι, το Aspose.Slides for .NET παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα στοιχεία μορφοποίησης ώστε να προσαρμόσετε την εμφάνιση του διαγράμματος στις συγκεκριμένες απαιτήσεις του σχεδίου σας.
+Ναι, το Aspose.Slides για .NET παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα στοιχεία μορφοποίησης ώστε να προσαρμόσετε την εμφάνιση του διαγράμματος στις συγκεκριμένες απαιτήσεις σχεδίου σας.

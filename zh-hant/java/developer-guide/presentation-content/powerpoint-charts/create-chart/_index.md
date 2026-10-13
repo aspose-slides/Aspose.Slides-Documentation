@@ -15,9 +15,9 @@ keywords:
 - 折線圖
 - 樹狀圖
 - 股票圖表
-- 箱形與鬚鬚圖
+- 箱形圖與胡鬚圖
 - 漏斗圖
-- 日射圖
+- 日晷圖
 - 直方圖
 - 雷達圖
 - 多類別圖表
@@ -27,548 +27,640 @@ keywords:
 - Aspose.Slides
 description: "使用 Aspose.Slides for Java 在 PowerPoint 簡報中建立與自訂圖表。透過實用的 Java 程式碼範例新增、格式化與編輯圖表。"
 ---
-## **概述**
+## **概觀**
 
-本文提供了使用 Aspose.Slides 建立與自訂圖表的完整指南。您將學會以程式方式將圖表添加至投影片、填入資料，並套用各種格式設定以符合特定設計需求。全文以詳細的程式碼範例說明每一步，從初始化 Presentation 與圖表物件到設定系列、座標軸與圖例。依循本指南，您將能深入了解如何在應用程式中整合動態圖表產生，簡化製作資料驅動簡報的流程。
+本文提供了使用 Aspose.Slides for Java 建立與自訂圖表的完整指南。您將學習如何以程式方式將圖表新增至投影片、填入資料，並套用各種格式設定以符合特定設計需求。文章中提供了詳細的程式碼範例，說明從初始化簡報與圖表物件、設定系列、座標軸與圖例的每一步。透過本指南，您將深入了解如何在 Java 應用程式中整合動態圖表產生，簡化製作資料驅動簡報的流程。
 
 ## **建立圖表**
 
-圖表可協助人們快速視覺化資料，並獲得在表格或試算表中不易立即看出的洞見。
+圖表可協助人們快速視覺化資料，並獲得可能不易從表格或試算表中直接看出的見解。
 
-**為何要建立圖表？**
+**為什麼要建立圖表？**
 
 使用圖表，您可以：
 
-* 在單一投影片中彙總、濃縮或摘要大量資料
-* 揭示資料的模式與趨勢
-* 推斷資料隨時間或特定度量單位的方向與動能
-* 發現異常值、偏差、錯誤、無意義的資料等
-* 傳達或呈現複雜資料
+* 在簡報的單一投影片上彙總、濃縮或摘要大量資料；
+* 顯示資料中的模式與趨勢；
+* 推斷資料隨時間或相對於特定度量單位的方向與動能；
+* 發現異常值、偏差、錯誤與不合理的資料；
+* 傳達或展示複雜的資料。
 
-在 PowerPoint 中，您可透過 *Insert* 功能建立圖表，該功能提供眾多圖表樣式的範本。使用 Aspose.Slides，您可以建立一般圖表（基於常見圖表類型）和自訂圖表。
+在 PowerPoint 中，您可以透過 *Insert* 功能建立圖表，該功能提供許多圖表類型的範本。使用 Aspose.Slides，您可以建立一般圖表（基於常見圖表類型）以及自訂圖表。
 
-{{% alert color="info" title="Note" %}}
-若要建立圖表，請使用 [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) 類別。此類別中的欄位對應不同的圖表類型。
+{{% alert color="info" title="注意" %}}
+
+使用位於 [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) 套件中的 [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) 列舉。此列舉中的值對應不同的圖表類型。
+
 {{% /alert %}}
 
-### **建立叢集直條圖**
+### **建立叢集柱狀圖**
 
-本節說明如何使用 Aspose.Slides 建立叢集直條圖。您將學會初始化簡報、加入圖表，並自訂標題、資料、系列、類別與樣式等元素。請依照下列步驟觀看標準叢集直條圖的產生流程：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並提供資料，指定 `ChartType.ClusteredColumn` 類型。
-4. 為圖表新增標題。
-5. 存取圖表的資料工作表。
-6. 清除所有預設的系列與類別。
-7. 新增系列與類別。
-8. 為圖表系列新增圖表資料。
-9. 套用填色至圖表系列。
-10. 為圖表系列新增標籤。
-11. 將已修改的簡報另存為 PPTX 檔案。
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個比較兩個系列於三個類別的叢集柱狀圖。系列使用紅色與綠色填色，個別標籤示範類別名稱、系列名稱與數值。工作表索引 0 代表內嵌圖表活頁簿的第一張工作表。
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// 實例化表示 PPTX 檔案的簡報類別
-Presentation pres = new Presentation();
-try {
-    // 存取第一張投影片
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // 加入含預設資料的圖表
-    IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
-    
-    // 設定圖表標題
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    
-    // 設定圖表資料工作表的索引
-    int defaultWorksheetIndex = 0;
-    
-    // 取得圖表資料工作表
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // 刪除預設產生的系列與類別
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    int s = chart.getChartData().getSeries().size();
-    s = chart.getChartData().getCategories().size();
-    
-    // 新增系列
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
-    
-    // 新增類別
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // 取得第一個圖表系列
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    IChartDataCell categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    
-    // 現在填入系列資料
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    
-    // 設定系列的填色
+
+    IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    
-    // 取得第二個圖表系列
+
     series = chart.getChartData().getSeries().get_Item(1);
-    
-    // 填入系列資料
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // 設定系列的填色
+
+    valueCell = workbook.getCell(worksheetIndex, 1, 2, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 2, 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 2, 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
-    
-    //為新系列的每個類別建立自訂標籤
-    // 設定第一個標籤顯示類別名稱
-    IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
-    lbl.getDataLabelFormat().setShowCategoryName(true);
-    
-    lbl = series.getDataPoints().get_Item(1).getLabel();
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    
-    // 顯示第三個標籤的值
-    lbl = series.getDataPoints().get_Item(2).getLabel();
-    lbl.getDataLabelFormat().setShowValue(true);
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    lbl.getDataLabelFormat().setSeparator("/");
-    
-    // 保存含圖表的簡報
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    series.getFormat().getFill().getSolidFillColor().setColor(new Color(0, 128, 0));
+
+    IDataLabel label = series.getDataPoints().get_Item(0).getLabel();
+    label.getDataLabelFormat().setShowCategoryName(true);
+
+    label = series.getDataPoints().get_Item(1).getLabel();
+    label.getDataLabelFormat().setShowSeriesName(true);
+
+    label = series.getDataPoints().get_Item(2).getLabel();
+    label.getDataLabelFormat().setShowValue(true);
+    label.getDataLabelFormat().setShowSeriesName(true);
+    label.getDataLabelFormat().setSeparator("/");
+
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+結果：
+
+![叢集柱狀圖](clustered_column_chart.png)
 
 ### **建立散佈圖**
 
-散佈圖（亦稱散點圖或 x‑y 圖）常用於檢查模式或展示兩個變數之間的相關性。
+散佈圖（亦稱散點圖或 x‑y 圖）常用於檢查模式或示範兩個變數之間的相關性。
 
-使用散佈圖的情況：
+在以下情況使用散佈圖：
 
-* 您有成對的數值資料
-* 您有兩個相互配對的變數
-* 您想判斷兩個變數是否相關
-* 您有一個自變數對應多個因變數值
+* 您有成對的數值資料；
+* 您有兩個彼此配對良好的變數；
+* 您想判斷兩個變數是否相關；
+* 您有一個自變數對於依變數有多個值。
 
-1. 依照 [Create Clustered Column Charts](#create-clustered-column-charts) 的步驟操作。
-2. 在第三步加入圖表並提供資料，將圖表類型指定為以下任一項：
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _表示散佈圖。_
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _表示以曲線連接且帶有資料標記的散佈圖。_
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _表示以曲線連接且不帶資料標記的散佈圖。_
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _表示以直線連接且帶有資料標記的散佈圖。_
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _表示以直線連接且不帶資料標記的散佈圖。_
+此範例繪製兩組 x‑y 值。第一系列使用直線搭配星形標記，第二系列使用平滑線搭配圓形標記；兩者皆使用大小為 10 的標記，透過 [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) 設定。[setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) 方法控制標記形狀。
 
 ```java
 import com.aspose.slides.*;
 
-// 實例化表示 PPTX 檔案的簡報類別
-Presentation pres = new Presentation();
-try {
-    // 存取第一張投影片
-    ISlide slide = pres.getSlides().get_Item(0);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 建立預設圖表
-    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    
-    // 取得預設圖表資料工作表索引
-    int defaultWorksheetIndex = 0;
-    
-    // 取得圖表資料工作表
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // 刪除示範系列
+    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
-    
-    // 新增系列
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-    
-    // 取得第一個圖表系列
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 1, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 1, 3, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    
-    // 為系列新增一個新點 (1:3)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-    
-    // 新增一個新點 (2:10)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-    
-    // 變更系列類型
+
+    IChartDataCell xValueCell = workbook.getCell(worksheetIndex, 2, 1, 1);
+    IChartDataCell yValueCell = workbook.getCell(worksheetIndex, 2, 2, 3);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 1, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 2, 10);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
-    
-    // 變更圖表系列標記
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
-    
-    // 取得第二個圖表系列
+
     series = chart.getChartData().getSeries().get_Item(1);
-    
-    // 在此新增一個新點 (5:2)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-    
-    // 新增一個新點 (3:1)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-    
-    // 新增一個新點 (2:2)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-    
-    // 新增一個新點 (5:1)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-    
-    // 變更圖表系列標記
+
+    xValueCell = workbook.getCell(worksheetIndex, 2, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 2, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 3, 3);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 4, 3, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 4, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 5, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 5, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
-    
-    pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
+結果：
+
+![散佈圖](scatter_chart.png)
+
 ### **建立圓餅圖**
 
-圓餅圖最適合用來顯示資料的部分與整體關係，尤其當資料包含具數值的類別標籤時。但若資料的部份或標籤過多，建議改用條形圖。
+圓餅圖最適合用來顯示資料的部分與整體關係，特別是資料包含具有數值的分類標籤時。然而，若資料包含許多部分或標籤，建議改用長條圖。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並使用預設資料，將類型指定為 [ChartType.Pie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Pie)。
-4. 存取圖表資料工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
-5. 清除預設的系列與類別。
-6. 新增系列與類別。
-7. 為圖表系列新增圖表資料。
-8. 為圓餅圖的區塊新增點並套用自訂顏色。
-9. 設定系列的標籤。
-10. 為系列標籤啟用指示線。
-11. 設定圓餅圖區塊的旋轉角度。
-12. 將已修改的簡報另存為 PPTX 檔案。
+此範例建立一個包含三個季度值的圓餅圖。每個切片都設定了自訂填色與邊框，標籤顯示不同組合的數值、百分比與系列資訊。[setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) 方法將第一切片的起始角度設定為 180 度。
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// 實例化表示 PPTX 檔案的簡報類別
-Presentation pres = new Presentation();
-try {
-    // 存取第一張投影片
-    ISlide slides = pres.getSlides().get_Item(0);
-    
-    // 加入含預設資料的圖表
-    IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
-    
-    // 設定圖表標題
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    
-    // 設定圖表資料工作表的索引
-    int defaultWorksheetIndex = 0;
-    
-    // 取得圖表資料工作表
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // 刪除預設產生的系列與類別
+
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    
-    // 新增類別
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    
-    // 新增系列
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    
-    // 填入系列資料
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    
-    // 在新版本中無法運作
-    // 新增點並設定區塊顏色
-    // series.IsColorVaried = true;
+
+    IChartDataCell categoryCell = workbook.getCell(0, 1, 0, "1st Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "2nd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "3rd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
-    
-    IChartDataPoint point = series.getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
-	
-    // 設定區塊邊框
-    point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(LineDashStyle.DashDot);
-    
-    IChartDataPoint point1 = series.getDataPoints().get_Item(1);
-    point1.getFormat().getFill().setFillType(FillType.Solid);
-    point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
-    
-    // 設定區塊邊框
-    point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot);
-    
-    IChartDataPoint point2 = series.getDataPoints().get_Item(2);
-    point2.getFormat().getFill().setFillType(FillType.Solid);
-    point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
-    
-    // 設定區塊邊框
-    point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
-    
-    // 為新系列的每個類別建立自訂標籤
-    IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
-    
-    // lbl.ShowCategoryName = true;
-    lbl1.getDataLabelFormat().setShowValue(true);
-    
-    IDataLabel lbl2 = series.getDataPoints().get_Item(1).getLabel();
-    lbl2.getDataLabelFormat().setShowValue(true);
-    lbl2.getDataLabelFormat().setShowLegendKey(true);
-    lbl2.getDataLabelFormat().setShowPercentage(true);
-    
-    IDataLabel lbl3 = series.getDataPoints().get_Item(2).getLabel();
-    lbl3.getDataLabelFormat().setShowSeriesName(true);
-    lbl3.getDataLabelFormat().setShowPercentage(true);
-    
-    // 顯示圖表的引導線
+
+    IChartDataPoint firstSlice = series.getDataPoints().get_Item(0);
+    firstSlice.getFormat().getFill().setFillType(FillType.Solid);
+    firstSlice.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
+
+    firstSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    firstSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    firstSlice.getFormat().getLine().setWidth(3.0);
+    firstSlice.getFormat().getLine().setStyle(LineStyle.ThinThick);
+    firstSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDash);
+
+    IChartDataPoint secondSlice = series.getDataPoints().get_Item(1);
+    secondSlice.getFormat().getFill().setFillType(FillType.Solid);
+    secondSlice.getFormat().getFill().getSolidFillColor().setColor(new Color(165, 42, 42));
+
+    secondSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    secondSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    secondSlice.getFormat().getLine().setWidth(3.0);
+    secondSlice.getFormat().getLine().setStyle(LineStyle.Single);
+    secondSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot);
+
+    IChartDataPoint thirdSlice = series.getDataPoints().get_Item(2);
+    thirdSlice.getFormat().getFill().setFillType(FillType.Solid);
+    thirdSlice.getFormat().getFill().getSolidFillColor().setColor(new Color(255, 127, 80));
+
+    thirdSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    thirdSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
+    thirdSlice.getFormat().getLine().setWidth(2.0);
+    thirdSlice.getFormat().getLine().setStyle(LineStyle.ThinThin);
+    thirdSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
+
+    IDataLabel firstLabel = series.getDataPoints().get_Item(0).getLabel();
+    firstLabel.getDataLabelFormat().setShowValue(true);
+
+    IDataLabel secondLabel = series.getDataPoints().get_Item(1).getLabel();
+    secondLabel.getDataLabelFormat().setShowValue(true);
+    secondLabel.getDataLabelFormat().setShowLegendKey(true);
+    secondLabel.getDataLabelFormat().setShowPercentage(true);
+
+    IDataLabel thirdLabel = series.getDataPoints().get_Item(2).getLabel();
+    thirdLabel.getDataLabelFormat().setShowSeriesName(true);
+    thirdLabel.getDataLabelFormat().setShowPercentage(true);
+
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    
-    // 設定圓餅圖區塊的旋轉角度
+
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    
-    // 將含圖表的簡報儲存
-    pres.save("PieChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+
+    presentation.save("PieChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+結果：
+
+![圓餅圖](pie_chart.png)
 
 ### **建立折線圖**
 
-折線圖（亦稱線圖）最適合用於展示隨時間變化的數值。使用折線圖，您可以一次比較大量資料、追蹤時間趨勢、突顯資料系列的異常等。
+折線圖（亦稱折線圖）最適合用於展示隨時間變化的數值。使用折線圖，您可以一次比較大量資料，追蹤隨時間的變化與趨勢，強調資料系列中的異常，等等。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並使用預設資料，將類型指定為 [ChartType.Line](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Line)。
-4. 將已修改的簡報另存為 PPTX 檔案。
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個使用預設系列與類別的折線圖，然後將簡報儲存為 PPTX。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    pres.save("lineChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    IChart lineChart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300);
+
+    presentation.save("lineChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-預設情況下，折線圖的點會以直線連接。若希望以虛線連接點，可如下指定首選的虛線樣式：
+預設情況下，折線圖的點會以直線相連。若希望改以虛線相連，請呼叫 [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) 並傳入 [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) 中的值：
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart lineChart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300);
 
     for (IChartSeries series : lineChart.getChartData().getSeries())
     {
         series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
     }
-
-    pres.save("lineChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+結果：
+
+![折線圖](line_chart.png)
 
 ### **建立樹狀圖**
 
-樹狀圖最適合用於銷售資料，當您想顯示資料類別的相對大小並快速引起對每個類別內大型貢獻項目的注意時。
+樹狀圖在處理銷售資料時最為適用，您可以顯示資料類別的相對大小，並快速將注意力集中於各類別中貢獻較大的項目。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並使用預設資料，將類型指定為 [ChartType.Treemap](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Treemap)。
-4. 存取圖表資料工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
-5. 清除預設的系列與類別。
-6. 新增系列與類別。
-7. 為圖表系列新增圖表資料。
-8. 將已修改的簡報另存為 PPTX 檔案。
+此範例建立一個包含八個葉節點、分為四個枝幹與兩個分支的樹狀圖。[setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 方法在分組層級 1 設定枝幹，層級 2 設定分支。數值決定相對矩形大小，類別標籤與重疊的父標籤說明層級結構。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Treemap, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    //分支 1
-    IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+    // 分支 1
+    IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    //分支 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+    // 分支 2
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Treemap);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D8", 3));
+    IChartDataCell valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
 
     series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
 
-    pres.save("Treemap.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("Treemap.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **建立股票圖表**
+結果：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並使用預設資料，將類型指定為 [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#OpenHighLowClose)。
-4. 存取圖表資料工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
-5. 清除預設的系列與類別。
-6. 新增系列與類別。
-7. 為圖表系列新增圖表資料。
-8. 指定高低線的格式。
-9. 將已修改的簡報另存為 PPTX 檔案。
+![樹狀圖](treemap_chart.png)
+
+### **建立瀑布圖**
+
+瀑布圖顯示正向與負向變化如何累積至最終值。例如，利潤分解可從營收開始，減去成本，再加上其他收入。變化柱狀在前一值與新值之間浮動，而總計柱狀則從零延伸至累積值。
+
+以下範例使用千美元為單位的金額：
+
+| 類別 | 活頁簿值 | 柱狀類型 |
+| --- | ---: | --- |
+| 營收 | 1000 | 增加 |
+| 銷售成本 | -400 | 減少 |
+| 毛利 | 600 | 中間總計 |
+| 營業費用 | -200 | 減少 |
+| 其他收入 | 50 | 增加 |
+| 淨利 | 450 | 最終總計 |
+
+若要將點標記為中間或最終總計，請以 `true` 呼叫其 [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) 方法。於該點的活頁簿儲存格中提供實際累積金額：毛利為 `600`（`1000 - 400`），淨利為 `450`（`600 - 200 + 50`）。此方法僅將柱狀標記為總計，並不會自行計算或填入儲存格值。請勿使用零作為佔位或為總計點提供其他變化值。總計柱狀僅顯示累積值，不會再次加回跑動值。
+
+此完整 Java 範例使用 [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) 的 `Waterfall` 成員建立圖表，清除預設資料，並填入內嵌活頁簿。工作表索引 `0` 代表第一張工作表；A 欄放置類別名稱，B 欄放置數值。每個數值儲存格皆透過 [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) 加入。以零為基礎的點索引 `2` 與 `5` 分別辨識中間與最終總計。呼叫 [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) 並傳入 `true` 即可在柱狀上顯示金額。此範例不需輸入簡報或活頁簿。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Waterfall, 20, 20, 680, 200);
+
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Profit breakdown (USD thousands)");
+    chart.getChartTitle().setOverlay(false);
+    chart.setLegend(false);
 
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
+    workbook.clear(worksheetIndex);
 
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 1, "Open"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 2, "High"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 3, "Low"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 4, "Close"), chart.getType());
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Profit");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.Waterfall);
+    String[] categories = new String[] { "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" };
+    double[] values = new double[] { 1000, -400, 600, -200, 50, 450 };
+
+    for (int i = 0; i < categories.length; i++)
+    {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categories[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
+    }
+
+    // 第三個和第六個點代表總計，而非額外變化。
+    series.getDataPoints().get_Item(2).setSetAsTotal(true);
+    series.getDataPoints().get_Item(5).setSetAsTotal(true);
+    series.setShowConnectorLines(true);
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("WaterfallChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+在系列層級呼叫 [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) 並傳入 `true` 可顯示連接連續柱狀的線，讓跑動值更易追蹤。若要隱藏這些線，只需在儲存前將範例中的呼叫改為 `series.setShowConnectorLines(false);`。此變更僅影響線條可見度，不會改變資料或總計。
+
+儲存的簡報顯示毛利 600 與淨利 450，兩者皆從零開始繪製：
+
+![瀑布圖顯示營收、成本、毛利 600 與淨利 450，含數值標籤與連接線](waterfall_chart.png)
+
+### **建立股票圖表**
+
+股票圖表用於展示開盤、最高、最低與收盤價格等金融資料，協助分析市場走勢與波動性。它提供關鍵的股票表現洞見，協助投資人與分析師做出明智決策。
+
+此範例建立一個依序為開盤、最高、最低、收盤的 OHLC 圖，包含四個系列與三個類別。[setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) 方法啟用上下棒，[getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) 控制顯示價格區間的高低線，個別系列線條與次要水平格線則被隱藏。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell categoryCell = workbook.getCell(0, 1, 0, "A");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "B");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "C");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Open");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 2, "High");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 3, "Low");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 4, "Close");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 1, 72));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 1, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 1, 38));
+    IChartDataCell valueCell = workbook.getCell(0, 1, 1, 72);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 1, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 1, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     series = chart.getChartData().getSeries().get_Item(1);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 2, 172));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 2, 57));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 2, 57));
+    valueCell = workbook.getCell(0, 1, 2, 172);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     series = chart.getChartData().getSeries().get_Item(2);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 3, 13));
+    valueCell = workbook.getCell(0, 1, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 3, 13);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     series = chart.getChartData().getSeries().get_Item(3);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 4, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
+    valueCell = workbook.getCell(0, 1, 4, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 4, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 4, 50);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
-    for (IChartSeries ser : chart.getChartData().getSeries())
+    for (IChartSeries stockSeries : chart.getChartData().getSeries())
     {
-        ser.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        stockSeries.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     }
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+    presentation.save("Stock-chart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **建立箱形與鬚鬚圖**
+結果：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並使用預設資料，將類型指定為 [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#BoxAndWhisker)。
-4. 存取圖表資料工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
-5. 清除預設的系列與類別。
-6. 新增系列與類別。
-7. 為圖表系列新增圖表資料。
-8. 將已修改的簡報另存為 PPTX 檔案。
+![股票圖表](stock_chart.png)
+
+### **建立箱形圖與胡鬚圖**
+
+箱形圖與胡鬚圖用於透過摘要關鍵統計量（如中位數、四分位數與潛在異常值）來顯示資料分佈。它們在探索性資料分析與統計研究中特別有用，可快速了解資料變異性並識別異常。
+
+此範例使用六個數值建立箱形圖與胡鬚圖。[setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) 方法選擇排除式四分位計算。範例同時啟用平均線、平均標記、內部點與異常點。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 1"));
+    IChartDataCell categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.BoxAndWhisker);
 
@@ -578,570 +670,717 @@ try {
     series.setShowInnerPoints(true);
     series.setShowOutlierPoints(true);
 
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B1", 15));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B2", 41));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B3", 16));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B4", 10));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B5", 23));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B6", 16));
+    IChartDataCell valueCell = workbook.getCell(0, "B1", 15);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 41);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 10);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 23);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
 
-    pres.save("BoxAndWhisker.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("BoxAndWhisker.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ### **建立漏斗圖**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並使用預設資料，將類型指定為 [ChartType.Funnel](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Funnel)。
-4. 將已修改的簡報另存為 PPTX 檔案。
+漏斗圖用於視覺化包含連續階段的流程，隨著流程從一步到下一步資料量會逐漸減少。它特別適合分析轉換率、找出瓶頸，並追蹤銷售或行銷流程的效率。
+
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 將漏斗圖新增至現有簡報的第一張投影片。它以六個類別與 50 至 500 的值取代預設資料，然後儲存更新後的簡報。輸入簡報必須至少包含一張投影片。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
+Presentation presentation = new Presentation("test.pptx");
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    wb.clear(0);
-
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 2"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 3"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 4"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 5"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 6"));
+    IChartDataCell categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Funnel);
 
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B1", 50));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B2", 100));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B3", 200));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B4", 300));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B5", 400));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B6", 500));
+    IChartDataCell valueCell = workbook.getCell(0, "B1", 50);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 100);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 200);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 300);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 400);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 500);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
 
-    pres.save("Funnel.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("Funnel.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **建立日射圖**
+結果：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並使用預設資料，將類型指定為 [ChartType.Sunburst](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Sunburst)。
-4. 將已修改的簡報另存為 PPTX 檔案。
+![漏斗圖](funnel_chart.png)
+
+### **建立日晷圖**
+
+日晷圖用於視覺化階層資料，將層級以同心環方式呈現。它有助於說明部分與整體的關係，且非常適合以清晰緊湊的格式呈現巢狀類別與次類別。
+
+此範例建立一個包含八個葉節點、分為四個枝幹與兩個分支的日晷圖。[setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 方法在分組層級 1 設定枝幹，層級 2 設定分支。類別標籤說明各區段，數值決定相對大小。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Sunburst, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    //分支 1
-    IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+    // 分支 1
+    IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    //分支 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+    // 分支 2
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Sunburst);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D8", 3));
-    
-    pres.save("Sunburst.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    IChartDataCell valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+
+    presentation.save("Sunburst.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+結果：
+
+![日晷圖](sunburst_chart.png)
 
 ### **建立直方圖**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並使用預設資料，將類型指定為 [ChartType.Histogram](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Histogram)。
-4. 存取圖表資料工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
-5. 清除預設的系列與類別。
-6. 新增系列與類別。
-7. 將已修改的簡報另存為 PPTX 檔案。
+直方圖用於透過將數值資料分組至區間或箱子來呈現其分佈。它特別適合辨識資料頻率、偏斜與散布，並偵測資料集中之異常值。
+
+此範例使用六個數值（含負值）建立直方圖。呼叫 [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) 並傳入自動聚合類型，可讓圖表自行決定顯示分佈的箱子。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A1", 15));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A2", -41));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A3", 16));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A4", 10));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
+    IChartDataCell valueCell = workbook.getCell(0, "A1", 15);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A2", -41);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A3", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A4", 10);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A5", -23);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A6", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
 
     chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
-    pres.save("Histogram.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("Histogram.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+結果：
+
+![直方圖](histogram_chart.png)
 
 ### **建立雷達圖**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並提供資料，將類型指定為您偏好的 [ChartType.Radar](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Radar)。
-4. 將已修改的簡報另存為 PPTX 檔案。
+雷達圖用於以二維方式顯示多變量資料，讓多個變數同時易於比較。它特別適合辨識多項績效指標或屬性之間的模式、優勢與弱點。
+
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個使用預設系列與類別的雷達圖，然後將簡報儲存為 PPTX。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
-    pres.save("Radar-chart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addChart(ChartType.Radar, 20, 20, 500, 300);
+
+    presentation.save("Radar-chart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+結果：
+
+![雷達圖](radar_chart.png)
 
 ### **建立多類別圖表**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例。
-2. 使用索引取得投影片的參考。
-3. 新增圖表並使用預設資料，將類型指定為 [ChartType.ClusteredColumn](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ClusteredColumn)。
-4. 存取圖表資料工作簿 [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)。
-5. 清除預設的系列與類別。
-6. 新增系列與類別。
-7. 為圖表系列新增圖表資料。
-8. 將已修改的簡報另存為 PPTX 檔案。
+多類別圖表用於顯示涉及多個類別分組的資料，讓您能同時比較多維度的值。它在分析複雜、多層次資料集的趨勢與關係時特別有幫助。
+
+此範例建立一個具有八個類別、排列成四對的叢集柱狀圖。[setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 方法為每對在分組層級 1 設定共享標籤，產生同時具有個別與群組標籤的類別軸。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
-    ch.getChartData().getSeries().clear();
-    ch.getChartData().getCategories().clear();
-    
-    IChartDataWorkbook fact = ch.getChartData().getChartDataWorkbook();
-    fact.clear(0);
-    int defaultWorksheetIndex = 0;
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartCategory category = ch.getChartData().getCategories().add(fact.getCell(0, "c2", "A"));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    int worksheetIndex = 0;
+
+    IChartDataCell categoryCell = workbook.getCell(0, "c2", "A");
+    IChartCategory category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group1");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c3", "B"));
+    categoryCell = workbook.getCell(0, "c3", "B");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c4", "C"));
+    categoryCell = workbook.getCell(0, "c4", "C");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group2");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c5", "D"));
+    categoryCell = workbook.getCell(0, "c5", "D");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c6", "E"));
+    categoryCell = workbook.getCell(0, "c6", "E");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group3");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c7", "F"));
+    categoryCell = workbook.getCell(0, "c7", "F");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
+    categoryCell = workbook.getCell(0, "c8", "G");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group4");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
+    categoryCell = workbook.getCell(0, "c9", "H");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    // 添加系列
-    IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
-            ChartType.ClusteredColumn);
+    IChartDataCell seriesNameCell = workbook.getCell(0, "D1", "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.ClusteredColumn);
 
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D4", 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D5", 40));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D6", 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    
-    // 儲存含圖表的簡報
-    pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    IChartDataCell valueCell = workbook.getCell(worksheetIndex, "D2", 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D3", 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D4", 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D5", 40);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D6", 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D7", 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D8", 70);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D9", 80);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+結果：
+
+![多類別圖表](multi_category_chart.png)
 
 ### **建立地圖圖表**
 
-地圖圖表可視覺化地理資料，協助比較不同區域的數值。
+地圖圖表用於將資訊對映至特定地理位置（如國家、州或城市），以視覺化地理資料。它特別適合分析區域趨勢、人口統計資料與空間分佈，並以清晰且具視覺吸引力的方式呈現。
+
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個使用預設地理資料的地圖圖表，並儲存以供 PowerPoint 查看。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
-    pres.save("mapChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 500, 300);
+
+    presentation.save("mapChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
+結果：
+
+![地圖圖表](map_chart.png)
+
+{{% alert color="info" title="注意" %}}
+
+上圖顯示在 PowerPoint 中開啟的已儲存簡報。Aspose.Slides 正確寫入地圖圖表與其資料，但不會自行繪製地圖圖表：當包含地圖圖表的投影片渲染為影像或轉換為 PDF、SVG 時，圖表區域會是空白。同一投影片上的其他圖形不受影響。
+
+{{% /alert %}}
+
 ### **建立組合圖表**
 
-組合圖表（或稱 combo 圖）將兩種或以上的圖表類型結合於同一張圖中。此圖表可讓您突顯、比較或檢視多組資料之間的差異，協助辨識它們之間的關係。
+組合圖表（或稱 Combo 圖表）在單一圖形中結合兩種或以上的圖表類型。此圖表可讓您突顯、比較或檢視兩個或多個資料集之間的差異，協助識別它們之間的關係。
 
 ![組合圖表](combination_chart.png)
 
-以下 Java 程式碼示範如何在 PowerPoint 簡報中建立上述組合圖表：
+此範例將兩個叢集柱狀系列與一條折線系列結合於四個類別。柱狀使用主要垂直座標軸，而 [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) 將折線放於右側的次要垂直座標軸。輔助函式負責設定標題、圖例、座標軸標籤與格線。
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-static void createComboChart() {
-    Presentation presentation = new Presentation();
-    ISlide slide = presentation.getSlides().get_Item(0);
-    try {
-        IChart chart = createChartWithFirstSeries(slide);
+class ComboChartExample
+{
+    void createComboChart()
+    {
+        Presentation presentation = new Presentation();
+        try
+        {
+            IChart chart = createChartWithFirstSeries(presentation.getSlides().get_Item(0));
 
-        addSecondSeriesToChart(chart);
-        addThirdSeriesToChart(chart);
+            addSecondSeriesToChart(chart);
+            addThirdSeriesToChart(chart);
 
-        setPrimaryAxesFormat(chart);
-        setSecondaryAxesFormat(chart);
+            setPrimaryAxesFormat(chart);
+            setSecondaryAxesFormat(chart);
 
-        presentation.save("combo-chart.pptx", SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
+            presentation.save("combo-chart.pptx", SaveFormat.Pptx);
+        }
+        finally
+        {
+            presentation.dispose();
+        }
+    }
+
+    IChart createChartWithFirstSeries(ISlide slide)
+    {
+        IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+        chart.setTitle(true);
+        chart.getChartTitle().addTextFrameForOverriding("Chart Title");
+        chart.getChartTitle().setOverlay(false);
+        IPortionFormat portionFormat = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+        portionFormat.setFontBold(NullableBool.False);
+        portionFormat.setFontHeight(18f);
+
+        chart.getLegend().setPosition(LegendPositionType.Bottom);
+        chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
+
+        chart.getChartData().getSeries().clear();
+        chart.getChartData().getCategories().clear();
+
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        int worksheetIndex = 0;
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+        chart.getChartData().getCategories().add(categoryCell);
+        categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+        chart.getChartData().getCategories().add(categoryCell);
+        categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+        chart.getChartData().getCategories().add(categoryCell);
+        categoryCell = workbook.getCell(worksheetIndex, 4, 0, "Category 4");
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+        IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+        series.getParentSeriesGroup().setOverlap((byte) -25);
+        series.getParentSeriesGroup().setGapWidth(220);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 1, 4.3);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 2, 1, 2.5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 3, 1, 3.5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 4, 1, 4.5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+        return chart;
+    }
+
+    void addSecondSeriesToChart(IChart chart)
+    {
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        final int worksheetIndex = 0;
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+        IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.ClusteredColumn);
+
+        series.getParentSeriesGroup().setOverlap((byte) -25);
+        series.getParentSeriesGroup().setGapWidth(220);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 2, 2.4);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 2, 2, 4.4);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 3, 2, 1.8);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 4, 2, 2.8);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    void addThirdSeriesToChart(IChart chart)
+    {
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        final int worksheetIndex = 0;
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+        IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.Line);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 3, 2.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 2, 3, 2.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 3, 3, 3.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 4, 3, 5.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+        series.setPlotOnSecondAxis(true);
+    }
+
+    void setPrimaryAxesFormat(IChart chart)
+    {
+        IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
+        horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+        horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        setAxisTitle(horizontalAxis, "X Axis");
+
+        IAxis verticalAxis = chart.getAxes().getVerticalAxis();
+        verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+        verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        setAxisTitle(verticalAxis, "Y Axis 1");
+
+        ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
+        majorGridLinesFormat.setFillType(FillType.Solid);
+        majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
+    }
+
+    void setSecondaryAxesFormat(IChart chart)
+    {
+        IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
+        secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
+        secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
+        secondaryHorizontalAxis.setVisible(false);
+        secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
+        secondaryVerticalAxis.setPosition(AxisPositionType.Right);
+        secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+        secondaryVerticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getMajorGridLinesFormat().getLine().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getMinorGridLinesFormat().getLine().setFillType(FillType.NoFill);
+
+        setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
+    }
+
+    void setAxisTitle(IAxis axis, String axisTitle)
+    {
+        axis.setTitle(true);
+        axis.getTitle().setOverlay(false);
+        IPortionFormat titlePortionFormat = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+        titlePortionFormat.setFontBold(NullableBool.False);
+        titlePortionFormat.setFontHeight(12f);
     }
 }
 
-static IChart createChartWithFirstSeries(ISlide slide) {
-    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-
-    // 設定圖表標題。
-    chart.setTitle(true);
-    chart.getChartTitle().addTextFrameForOverriding("Chart Title");
-    chart.getChartTitle().setOverlay(false);
-    IParagraph titleParagraph = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0);
-    IPortionFormat titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(NullableBool.False);
-    titleFormat.setFontHeight(18f);
-
-    // 設定圖表圖例。
-    chart.getLegend().setPosition(LegendPositionType.Bottom);
-    chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
-
-    // 刪除預設產生的系列與類別。
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    int worksheetIndex = 0;
-    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-
-    // 新增類別。
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
-
-    // 新增第一個系列。
-    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
-    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
-
-    series.getParentSeriesGroup().setOverlap((byte)-25);
-    series.getParentSeriesGroup().setGapWidth(220);
-
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 4.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 2.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 3.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 1, 4.5));
-
-    return chart;
-}
-
-static void addSecondSeriesToChart(IChart chart) {
-    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    final int worksheetIndex = 0;
-
-    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
-    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.ClusteredColumn);
-
-    series.getParentSeriesGroup().setOverlap((byte)-25);
-    series.getParentSeriesGroup().setGapWidth(220);
-
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 2, 2.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 2, 4.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 2, 1.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 2, 2.8));
-}
-
-static void addThirdSeriesToChart(IChart chart) {
-    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    final int worksheetIndex = 0;
-
-    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
-    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.Line);
-
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 1, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 2, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 3, 3, 3.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 4, 3, 5.0));
-
-    series.setPlotOnSecondAxis(true);
-}
-
-static void setPrimaryAxesFormat(IChart chart) {
-    // 設定水平軸。
-    IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
-    horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    setAxisTitle(horizontalAxis, "X Axis");
-
-    // 設定垂直軸。
-    IAxis verticalAxis = chart.getAxes().getVerticalAxis();
-    verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    setAxisTitle(verticalAxis, "Y Axis 1");
-
-    // 設定垂直主要格線的顏色。
-    ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
-    majorGridLinesFormat.setFillType(FillType.Solid);
-    majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
-}
-
-static void setSecondaryAxesFormat(IChart chart) {
-    // 設定次要水平軸。
-    IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
-    secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
-    secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
-    secondaryHorizontalAxis.setVisible(false);
-    secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-    secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    // 設定次要垂直軸。
-    IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
-    secondaryVerticalAxis.setPosition(AxisPositionType.Right);
-    secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
-}
-
-static void setAxisTitle(IAxis axis, String axisTitle) {
-    axis.setTitle(true);
-    axis.getTitle().setOverlay(false);
-    IParagraph titleParagraph = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0);
-    IPortionFormat titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(NullableBool.False);
-    titleFormat.setFontHeight(12f);
-}
+ComboChartExample example = new ComboChartExample();
+example.createComboChart();
 ```
 
 ## **更新圖表**
 
-1. 建立代表包含欲更新圖表之簡報的 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別實例。
-2. 使用索引取得投影片的參考。
-3. 遍歷所有圖形以找到目標圖表。
-4. 存取圖表的資料工作表。
-5. 變更系列值以修改圖表資料系列。
-6. 新增系列並填入其資料。
-7. 將已修改的簡報另存為 PPTX 檔案。
+Aspose.Slides for Java 讓您可以透過修改圖表資料、格式與樣式來更新 PowerPoint 圖表。此功能簡化了讓簡報隨動態內容保持最新的流程，確保圖表正確反映目前的資料與視覺標準。
+
+此範例更新現有簡報第一張投影片上名稱為「My chart」的圖表。它需要兩個系列、每個系列三個資料點，類別標籤位於 A 欄，系列名稱位於第一張工作表的首列。範例使用 [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) 變更活頁簿儲存格，更新系列值，新增第三個系列，並透過 [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) 將圖表類型改為叢集圓柱體。
 
 ```java
 import com.aspose.slides.*;
 
-// 開啟包含要更新圖表的簡報
-Presentation pres = new Presentation("ExistingChart.pptx");
-try {
-    // 存取第一張投影片
-    ISlide sld = pres.getSlides().get_Item(0);
+final String chartName = "My chart";
 
-    // 從投影片取得圖表
-    IChart chart = (IChart)sld.getShapes().get_Item(0);
+Presentation presentation = new Presentation("ExistingChart.pptx");
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 設定圖表資料工作表的索引
-    int defaultWorksheetIndex = 0;
+    for (IShape shape : slide.getShapes())
+    {
+        if (shape instanceof IChart && chartName.equals(shape.getName()))
+        {
+            IChart chart = (IChart) shape;
+            int worksheetIndex = 0;
 
-    // 取得圖表資料工作表
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
+            IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // 變更圖表類別名稱
-    fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
-    fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
+            workbook.getCell(worksheetIndex, 1, 0, "Modified Category 1");
+            workbook.getCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-    // 取得第一個圖表系列
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+            IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // 現在更新系列資料
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // 修改系列名稱
-    series.getDataPoints().get_Item(0).getValue().setData(90);
-    series.getDataPoints().get_Item(1).getValue().setData(123);
-    series.getDataPoints().get_Item(2).getValue().setData(44);
+            workbook.getCell(worksheetIndex, 0, 1, "New_Series 1");
+            series.getDataPoints().get_Item(0).getValue().setData(90);
+            series.getDataPoints().get_Item(1).getValue().setData(123);
+            series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // 取得第二個圖表系列
-    series = chart.getChartData().getSeries().get_Item(1);
+            series = chart.getChartData().getSeries().get_Item(1);
 
-    // 現在更新系列資料
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // 修改系列名稱
-    series.getDataPoints().get_Item(0).getValue().setData(23);
-    series.getDataPoints().get_Item(1).getValue().setData(67);
-    series.getDataPoints().get_Item(2).getValue().setData(99);
+            workbook.getCell(worksheetIndex, 0, 2, "New_Series 2");
+            series.getDataPoints().get_Item(0).getValue().setData(23);
+            series.getDataPoints().get_Item(1).getValue().setData(67);
+            series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // 現在，新增一個系列
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
+            IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+            series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    // 取得第三個圖表系列
-    series = chart.getChartData().getSeries().get_Item(2);
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 3, 20);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 2, 3, 50);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 3, 3, 30);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
 
-    // 現在填入系列資料
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
+            chart.setType(ChartType.ClusteredCylinder);
+        }
+    }
 
-    chart.setType(ChartType.ClusteredCylinder);
-
-    // 儲存含圖表的簡報
-    pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("AsposeChartModified.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-## **設定圖表的資料範圍**
+## **為圖表設定資料範圍**
 
-若要檢視現有圖表已使用的範圍，請參閱 [取得圖表的資料範圍](/slides/zh-hant/java/chart-workbook/#retrieve-a-charts-data-range)。
+若要檢視現有圖表已使用的範圍，請參閱 [Retrieve a Chart's Data Range](/slides/zh-hant/java/chart-workbook/#retrieve-a-charts-data-range)。
 
-若要設定圖表的資料範圍，請執行以下步驟：
+Aspose.Slides for Java 提供彈性，讓您可將工作表中特定資料範圍定義為圖表資料來源。這意味著您可以直接將工作表的一部分對映至圖表，控制哪些儲存格貢獻於圖表的系列與類別。如此一來，您可輕鬆更新並同步圖表與工作表的最新資料變更，確保 PowerPoint 簡報呈現當前且正確的資訊。
 
-1. 建立代表包含圖表之簡報的 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別實例。
-2. 使用索引取得投影片的參考。
-3. 遍歷所有圖形以找到目標圖表。
-4. 存取圖表資料並設定範圍。
-5. 將已修改的簡報另存為 PPTX 檔案。
+此範例使用 [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) 將現有簡報第一張投影片上名稱為「My chart」的圖表資料來源設定為 `Sheet1!A1:B4`。圖表活頁簿必須包含該工作表，且該範圍需已填入資料，第一列為系列標題，A 欄為類別標籤，B 欄為三個數值。
 
 ```java
 import com.aspose.slides.*;
 
-// 開啟包含圖表的簡報
-Presentation pres = new Presentation("ExistingChart.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
-    
-    chart.getChartData().setRange("Sheet1!A1:B4");
-    
-    pres.save("SetDataRange_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+final String chartName = "My chart";
+
+Presentation presentation = new Presentation("ExistingChart.pptx");
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes())
+    {
+        if (shape instanceof IChart && chartName.equals(shape.getName()))
+        {
+            IChart chart = (IChart) shape;
+            chart.getChartData().setRange("Sheet1!A1:B4");
+        }
+    }
+
+    presentation.save("SetDataRange.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ## **在圖表中使用預設標記**
 
-使用預設標記時，每個圖表系列會自動取得不同的標記符號。
+使用預設標記時，每個圖表系列會自動取得不同的預設標記符號。
+
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個包含兩條線系列與圖例的圖表。透過 [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) 取得的標記設定會保留自動指派的標記符號。第一系列包含負值與缺失值（以 `null` 代表），第二系列則為每個類別都有值。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
 
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "C1"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 1, 24));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "C2"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 1, 23));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "C3"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 1, -10));
-    chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    //取得第二個圖表系列
-    IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
+    IChartDataCell categoryCell = workbook.getCell(0, 1, 0, "C1");
+    chart.getChartData().getCategories().add(categoryCell);
+    IChartDataCell valueCell = workbook.getCell(0, 1, 1, 24);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
 
-    //現在填入系列資料
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 2, 40));
+    categoryCell = workbook.getCell(0, 2, 0, "C2");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 2, 1, 23);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 3, 0, "C3");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 3, 1, -10);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 4, 0, "C4");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 4, 1, null);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    seriesNameCell = workbook.getCell(0, 0, 2, "Series 2");
+    IChartSeries secondSeries = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    valueCell = workbook.getCell(0, 1, 2, 30);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 10);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 60);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 4, 2, 40);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
 
     chart.setLegend(true);
     chart.getLegend().setOverlay(false);
 
-    pres.save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-## **常見問題**
+## **常見問答**
 
-**Aspose.Slides 支援哪些圖表類型？**
+**Aspose.Slides for Java 支援哪些圖表類型？**
 
-Aspose.Slides 支援廣泛的[圖表類型](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)，包括長條圖、折線圖、圓餅圖、區域圖、散佈圖、直方圖、雷達圖等，讓您能依資料視覺化需求選擇最適合的圖表類型。
+Aspose.Slides for Java 支援廣泛的圖表類型，包括長條圖、折線圖、圓餅圖、區域圖、散佈圖、直方圖、雷達圖等。此彈性讓您能依資料視覺化需求選擇最合適的圖表類型。
 
-**如何在投影片中新增圖表？**
+**如何將新圖表新增至投影片？**
 
-首先建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例，依索引取得目標投影片，然後呼叫加入圖表的方法，指定圖表類型與初始資料，即可將圖表直接嵌入簡報。
+先建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例，依索引取得目標投影片，然後呼叫加入圖表的方法，指定圖表類型與初始資料。此流程可直接將圖表整合至您的簡報。
 
-**如何更新圖表中顯示的資料？**
+**我該如何更新圖表中顯示的資料？**
 
-您可以通過存取圖表的資料工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/))，清除預設的系列與類別，然後加入自訂資料，來刷新圖表以顯示最新資料。
-
-**是否可以自訂圖表的外觀？**
-
-可以，Aspose.Slides 提供豐富的自訂選項。您可以修改顏色、字型、標籤、圖例以及其他[格式化元素](/slides/zh-hant/java/chart-entities/)，以符合特定的設計需求。
+您可以透過存取圖表的資料活頁簿（[IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)），清除預設的系列與類別，然後加入自訂資料。如此即可以程式方式刷新圖表，呈現最新資料。

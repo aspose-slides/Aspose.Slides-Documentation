@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-diagramok létrehozása vagy módosítása JavaScriptben
+title: PowerPoint-prezentáció diagramjainak létrehozása vagy frissítése JavaScriptben
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -13,11 +13,11 @@ keywords:
 - szórt diagram
 - kördiagram
 - vonaldiagram
-- fa térképes diagram
+- fa térkép diagram
 - részvénydiagram
-- doboz és ívháromszög diagram
-- tölcsérdiagram
-- napraforgó diagram
+- doboz- és bajusz diagram
+- tölcsér diagram
+- napfény diagram
 - hisztogram diagram
 - radar diagram
 - többkategóriás diagram
@@ -26,781 +26,1033 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Diagramok létrehozása és testreszabása PowerPoint-prezentációkban az Aspose.Slides for Node.js segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati JavaScript kódpéldákkal."
+description: "Diagramok létrehozása és testreszabása PowerPoint-prezentációkban az Aspose.Slides for Node.js via Java segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati JavaScript kódpéldákkal."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides használatával. Megtanulja, hogyan adhat programozott módon egy diagramot egy diára, hogyan töltheti fel adatokal, és különféle formázási lehetőségeket alkalmazhat a konkrét tervezési igényeknek megfelelően. A cikk során részletes kódpéldák illusztrálják az egyes lépéseket, a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével mélyrehatóan megértheti a dinamikus diagramgenerálás integrálását alkalmazásaiba, ezzel egyszerűsítve az adat‑vezérelt prezentációk létrehozását.
+Ez a cikk átfogó útmutatót ad arról, hogyan hozhatók létre és testreszabhatók diagramok az Aspose.Slides for Node.js via Java használatával. Megtanulja, hogyan adjon programozottan diagramot egy diára, töltse fel adatokal, és alkalmazzon különféle formázási lehetőségeket a tervezési követelményeknek megfelelően. A cikk részletes kódpéldákkal szemlélteti az egyes lépéseket, az előadás és a diagram objektum inicializálásától a sorok, tengelyek és jelmagyarázatok beállításáig. Az útmutató követésével alaposan megértheti a dinamikus diagramgenerálás integrálását Node.js alkalmazásaiba, ezzel egyszerűsítve az adat‑vezérelt prezentációk létrehozását.
 
 ## **Diagram létrehozása**
 
-A diagramok lehetővé teszik, hogy az emberek gyorsan vizualizálják az adatokat, és olyan betekintéseket nyerjenek, amelyek táblázatból vagy munkafüzetből nem látszanak azonnal.
+A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat és olyan betekintéseket nyerni, amelyek egy táblázatból vagy számolaptól nem feltűnőek.
 
-**Miért érdemes diagramokat létrehozni?**
+**Miért érdemes diagramokat készíteni?**
 
-Diagramok segítségével:
+Diagramok használatával:
 
-* nagy mennyiségű adatot összegyűjthet, tömöríthet vagy összefoglalhat egyetlen dián belül
-* mintákat és trendeket tárhat fel az adatokban
-* meghatározhatja az adatok irányát és lendületét időben vagy egy adott mérőegységhez viszonyítva
-* felfedezhet kiugró, rendellenes, eltérő vagy hibás adatokat
-* komplex adatokat kommunikálhat vagy prezentálhat
+* nagy mennyiségű adatot összesíthet, tömöríthet vagy összefoglalhat egyetlen dián;
+* mintákat és trendeket tárhat fel az adatokban;
+* meghatározhatja az adat irányát és lendületét az idő vagy egy adott mérőegység függvényében;
+* kiemelheti az outliereket, eltéréseket, hibákat és értelmetlen adatokat;
+* bonyolult adatokat kommunikálhat és bemutathat.
 
-A PowerPointban a *Beszúrás* funkcióval hozhat létre diagramokat, amely számos sablont biztosít különböző diagramtípusok tervezéséhez. Az Aspose.Slides segítségével mind szabványos, mind egyedi diagramokat hozhat létre.
+PowerPointban a *Beszúrás* funkción keresztül hozhatók létre diagramok, amelyek számos előre elkészített sablont kínálnak. Az Aspose.Slides segítségével mind szabványos, mind egyedi diagramok létrehozhatók.
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Megjegyzés" %}}
 
-Diagramok létrehozásához használja a [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) osztályt. Ennek az osztálynak a mezői a különböző diagramtípusoknak felelnek meg.
+Használja a [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) felsorolást az [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) modulban. Az értékek a felsorolásban különböző diagramtípusoknak felelnek meg.
 
 {{% /alert %}}
 
-### **Csoportosított oszlopdiagramok létrehozása**
+### **Klaszteres oszlopdiagramok létrehozása**
 
-Ez a szakasz bemutatja, hogyan hozhat létre csoportosított oszlopdiagramokat az Aspose.Slides használatával. Megtanulja, hogyan inicializáljon egy prezentációt, adjon hozzá egy diagramot, és testreszabja annak elemeit, például a címet, az adatokat, a sorokat, a kategóriákat és a stílust. Kövesse az alábbi lépéseket a szabványos csoportosított oszlopdiagram létrehozásához:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) osztályból.
-1. Szerezzen hivatkozást egy diára a sorszámával.
-1. Adjon hozzá egy diagramot némi adattal, és adja meg a `ChartType.ClusteredColumn` típust.
-1. Adjon címet a diagramnak.
-1. Hozzáférés a diagram adatlapjához.
-1. Távolítsa el az összes alapértelmezett sort és kategóriát.
-1. Adjon hozzá új sorokat és kategóriákat.
-1. Adjon hozzá új diagramadatot a diagram soraihoz.
-1. Alkalmazzon kitöltőszínt a diagram soraira.
-1. Adjon címkéket a diagram soraira.
-1. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy csoportosított oszlopdiagram:
+Ez a példa a [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metódust használja egy klaszteres oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltéseket kapnak, a címkék pedig a kategórianeveket, sorozatneveket és értékeket jelenítik meg. A 0‑s munkalapindex az beágyazott diagram munkafüzetének első lapjára mutat.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Pptx fájlt képviselő prezentáció osztály példányosítása
-var pres = new aspose.slides.Presentation();
-try {
-    // Az első dia elérése
-    var sld = pres.getSlides().get_Item(0);
-    // Diagram hozzáadása az alapértelmezett adataival
-    var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
-    // A diagram címének beállítása
-    chart.setTitle(true);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    // Az első sorozat értékek megjelenítésének beállítása
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // A diagram adatlap indexének beállítása
-    var defaultWorksheetIndex = 0;
-    // A diagram adatlapjának lekérése
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Az alapértelmezett generált sorozatok és kategóriák törlése
+    chart.setTitle(true);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    var s = chart.getChartData().getSeries().size();
-    s = chart.getChartData().getCategories().size();
-    // Új sorozatok hozzáadása
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // Új kategóriák hozzáadása
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Az első diagram sorozat kivétele
-    var series = chart.getChartData().getSeries().get_Item(0);
-    // Most feltölti a sorozat adatokat
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Kitöltőszín beállítása a sorozathoz
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().get_Item(0);
+
+    let valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // A második diagram sorozat kivétele
+
     series = chart.getChartData().getSeries().get_Item(1);
-    // Sorozat adatainak feltöltése
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // Kitöltőszín beállítása a sorozathoz
+
+    valueCell = workbook.getCell(worksheetIndex, 1, 2, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 2, 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 2, 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    // Egyéni címkék létrehozása az egyes kategóriákhoz az új sorozathoz
-    // Az első címke beállítása a kategórianév megjelenítésére
-    var lbl = series.getDataPoints().get_Item(0).getLabel();
-    lbl.getDataLabelFormat().setShowCategoryName(true);
-    lbl = series.getDataPoints().get_Item(1).getLabel();
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    // Az érték megjelenítése a harmadik címkén
-    lbl = series.getDataPoints().get_Item(2).getLabel();
-    lbl.getDataLabelFormat().setShowValue(true);
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    lbl.getDataLabelFormat().setSeparator("/");
-    // Prezentáció mentése diagrammal
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    series.getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
+
+    let label = series.getDataPoints().get_Item(0).getLabel();
+    label.getDataLabelFormat().setShowCategoryName(true);
+
+    label = series.getDataPoints().get_Item(1).getLabel();
+    label.getDataLabelFormat().setShowSeriesName(true);
+
+    label = series.getDataPoints().get_Item(2).getLabel();
+    label.getDataLabelFormat().setShowValue(true);
+    label.getDataLabelFormat().setShowSeriesName(true);
+    label.getDataLabelFormat().setSeparator("/");
+
+    presentation.save("AsposeChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Szóródási diagramok létrehozása**
+Az eredmény:
 
-A szóródási diagramok (más néven szórásdiagramok vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
+![The Clustered Column chart](clustered_column_chart.png)
 
-Használjon szóródási diagramot, ha:
+### **Szórásdiagramok létrehozása**
 
-* párosított numerikus adatokkal dolgozik
-* két változó jól párosítható egymással
-* meg szeretné határozni, hogy a két változó összefügg‑e
-* egy független változó több értékkel rendelkezik egy függő változóhoz képest
+A szórásdiagramok (más néven szóráspont‑diagramok vagy x‑y grafikonok) gyakran használtak minták keresésére vagy a két változó közötti korreláció bemutatására.
 
-1. Kövesse a [Csoportosított oszlopdiagramok létrehozása](#create-clustered-column-charts) lépéseit.
-2. A harmadik lépésben adjon hozzá egy diagramot némi adattal, és válassza a diagramtípust az alábbiak közül:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Szóródási diagramot jelöl._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Szóródási diagram, amely görbékkel van összekötve, adatjelölőkkel._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Szóródási diagram, amely görbékkel van összekötve, adatjelölők nélkül._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Szóródási diagram, amely egyenes vonalakkal van összekötve, adatjelölőkkel._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Szóródási diagram, amely egyenes vonalakkal van összekötve, adatjelölők nélkül._
+Használjon szórásdiagramot, ha:
 
-Ez a JavaScript‑kód megmutatja, hogyan hozható létre egy szóródási diagram különböző jelölőkkel minden sorhoz:
+* párosított numerikus adatai vannak;
+* két változó jó párost alkot;
+* meg szeretné határozni, hogy a két változó összefügg-e;
+* egy független változó több értékkel rendelkezik egy függő változó esetén.
+
+Ez a példa két x‑y értékhalmazt ábrázol. Az első sorozat egyenes vonalakat csillag‑jelölőkkel, a második pedig sima vonalakat kör‑jelölőkkel használ; mindkettő 10‑es jelölőmérettel, a [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize) segítségével beállítva. A [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) metódus szabályozza a jelölő alakját.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// PPTX fájlt képviselő prezentáció osztály példányosítása
-var pres = new aspose.slides.Presentation();
-try {
-    // Az első dia elérése
-    var slide = pres.getSlides().get_Item(0);
-    // Alapértelmezett diagram létrehozása
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    // Az alapértelmezett diagram adatlap indexének lekérése
-    var defaultWorksheetIndex = 0;
-    // A diagram adatlapjának lekérése
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // A demo sorozat törlése
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
-    // Új sorozatok hozzáadása
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-    // Az első diagram sorozat kivétele
-    var series = chart.getChartData().getSeries().get_Item(0);
-    // Új pont (1:3) hozzáadása a sorozathoz
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-    // Új pont (2:10) hozzáadása
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-    // A sorozat típusának módosítása
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 1, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 1, 3, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let series = chart.getChartData().getSeries().get_Item(0);
+
+    let xValueCell = workbook.getCell(worksheetIndex, 2, 1, 1);
+    let yValueCell = workbook.getCell(worksheetIndex, 2, 2, 3);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 1, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 2, 10);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
-    // A diagram sorozat jelölőjének módosítása
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
-    // A második diagram sorozat kivétele
+
     series = chart.getChartData().getSeries().get_Item(1);
-    // Új pont (5:2) hozzáadása ott
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-    // Új pont (3:1) hozzáadása
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-    // Új pont (2:2) hozzáadása
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-    // Új pont (5:1) hozzáadása
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-    // A diagram sorozat jelölőjének módosítása
+
+    xValueCell = workbook.getCell(worksheetIndex, 2, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 2, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 3, 3);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 4, 3, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 4, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 5, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 5, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
-    pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("AsposeChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+Az eredmény:
+
+![The Scatter chart](scatter_chart.png)
 
 ### **Kördiagramok létrehozása**
 
-A kördiagramok leginkább arra alkalmasak, hogy megmutassák az adat rész‑egész arányát, különösen, ha a adatok kategóriákat és numerikus értékeket tartalmaznak. Ha azonban sok rész vagy címke van, érdemes oszlopdiagramot használni.
+A kördiagramok leginkább a rész‑egész kapcsolat ábrázolására alkalmasak, különösen ha a data kategóriákhoz numerikus értékek tartoznak. Ha azonban sok rész vagy címke van, érdemesebb lehet oszlopdiagramot használni.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Pie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Pie) típust.
-4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
-5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
-6. Adjon hozzá új sorokat és kategóriákat.
-7. Adjon hozzá új diagramadatot a diagram soraihoz.
-8. Adjon hozzá új pontokat a diagramhoz, és alkalmazzon egyedi színeket a kördiagram szektoraira.
-9. Állítson be címkéket a sorokhoz.
-10. Engedélyezze a vezetővonalakat a sorcímkékhez.
-11. Állítsa be a forgásszöget a kördiagram szektoraiban.
-12. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy kördiagram:
+Ez a példa három negyedéves értékkel hoz létre egy kördiagramot. Minden szelet egyedi kitöltést és szegélyt kap, a címkék pedig különböző kombinációkat mutatnak értékekből, százalékokból és sorozatinformációkból. A [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) metódus az első szeletet 180 fokra állítja.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// PPTX fájlt képviselő prezentáció osztály példányosítása
-var pres = new aspose.slides.Presentation();
-try {
-    // Az első dia elérése
-    var slides = pres.getSlides().get_Item(0);
-    // Diagram hozzáadása alapértelmezett adatokkal
-    var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // A diagram címének beállítása
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    // Az első sorozat értékek megjelenítésének beállítása
+
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // A diagram adatlap indexének beállítása
-    var defaultWorksheetIndex = 0;
-    // A diagram adatlapjának lekérése
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Az alapértelmezett generált sorozatok és kategóriák törlése
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // Új kategóriák hozzáadása
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    // Új sorozatok hozzáadása
-    var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // A sorozat adatainak feltöltése
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Nem működik az új verzióban
-    // Adding new points and setting sector color
-    // series.IsColorVaried = true;
+
+    let categoryCell = workbook.getCell(0, 1, 0, "1st Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "2nd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "3rd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
-    var point = series.getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // A szektor keretének beállítása
-    point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
-    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
-    var point1 = series.getDataPoints().get_Item(1);
-    point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // A szektor keretének beállítása
-    point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
-    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
-    var point2 = series.getDataPoints().get_Item(2);
-    point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // A szektor keretének beállítása
-    point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
-    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
-    // Egyéni címkék létrehozása az új sorozat minden kategóriájához
-    var lbl1 = series.getDataPoints().get_Item(0).getLabel();
-    // lbl.ShowCategoryName = true;
-    lbl1.getDataLabelFormat().setShowValue(true);
-    var lbl2 = series.getDataPoints().get_Item(1).getLabel();
-    lbl2.getDataLabelFormat().setShowValue(true);
-    lbl2.getDataLabelFormat().setShowLegendKey(true);
-    lbl2.getDataLabelFormat().setShowPercentage(true);
-    var lbl3 = series.getDataPoints().get_Item(2).getLabel();
-    lbl3.getDataLabelFormat().setShowSeriesName(true);
-    lbl3.getDataLabelFormat().setShowPercentage(true);
-    // Vezetővonalak megjelenítése a diagramhoz
+
+    let firstSlice = series.getDataPoints().get_Item(0);
+    firstSlice.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    firstSlice.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    firstSlice.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    firstSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    firstSlice.getFormat().getLine().setWidth(3.0);
+    firstSlice.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    firstSlice.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDash));
+
+    let secondSlice = series.getDataPoints().get_Item(1);
+    secondSlice.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlice.getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+
+    secondSlice.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    secondSlice.getFormat().getLine().setWidth(3.0);
+    secondSlice.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    secondSlice.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
+
+    let thirdSlice = series.getDataPoints().get_Item(2);
+    thirdSlice.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlice.getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 127, 80));
+
+    thirdSlice.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    thirdSlice.getFormat().getLine().setWidth(2.0);
+    thirdSlice.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    thirdSlice.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
+
+    let firstLabel = series.getDataPoints().get_Item(0).getLabel();
+    firstLabel.getDataLabelFormat().setShowValue(true);
+
+    let secondLabel = series.getDataPoints().get_Item(1).getLabel();
+    secondLabel.getDataLabelFormat().setShowValue(true);
+    secondLabel.getDataLabelFormat().setShowLegendKey(true);
+    secondLabel.getDataLabelFormat().setShowPercentage(true);
+
+    let thirdLabel = series.getDataPoints().get_Item(2).getLabel();
+    thirdLabel.getDataLabelFormat().setShowSeriesName(true);
+    thirdLabel.getDataLabelFormat().setShowPercentage(true);
+
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // A kördiagram szektorok forgásszögének beállítása
+
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // Prezentáció mentése diagrammal
-    pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("PieChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+Az eredmény:
+
+![The Pie chart](pie_chart.png)
 
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan esetekben hasznosak, amikor az értékek időbeli változását szeretné bemutatni. Vonaldiagram segítségével egy nagy mennyiségű adatot egyszerre hasonlíthat össze, nyomon követheti az időbeli változásokat és trendeket, kiemelheti az anomáliákat az adatcsoportokban, stb.
+A vonaldiagramok (más néven vonal‑grafikonok) leginkább akkor használhatók, ha az értékek időbeli változását szeretnénk bemutatni. Egy vonaldiagram segítségével nagy mennyiségű adatot összehasonlíthat egyszerre, nyomon követheti az időbeli változásokat és trendeket, kiemelheti a sorozatok anomáliáit, és még sok mást.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára a sorszámával.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Line](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Line) típust.
-1. Hozzáférés a diagram adatkönyvtárához ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)).
-1. Távolítsa el az alapértelmezett sorokat és kategóriákat.
-1. Adjon hozzá új sorokat és kategóriákat.
-1. Adjon hozzá új diagramadatot a diagram soraihoz.
-1. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy vonaldiagram:
+Ez a példa a [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metódust használja egy vonaldiagram létrehozásához az alapértelmezett sorozattal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let lineChart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 20, 20, 500, 300);
+
+    presentation.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjai egyenes, folytonos vonallal vannak összekötve. Ha pontokat szaggatott vonallal szeretne összekötni, a kívánt vonaltípust a következőképpen adhatja meg:
+Alapértelmezés szerint a vonaldiagram pontjai egyenes, folytonos vonallal vannak összekötve. Ha pontok helyett szaggatott vonalt szeretne, hívja meg a [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) metódust a [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) egyik értékével:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
-try {
-    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let lineChart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 20, 20, 500, 300);
+
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++)
+    {
         let series = lineChart.getChartData().getSeries().get_Item(i);
         series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
     }
-    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Fák térképe (Tree Map) diagramok létrehozása**
+Az eredmény:
 
-A fák térképe diagramok leginkább értékesítési adatoknál hasznosak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan rámutatni a nagy hozzájáruló tételekre az egyes kategóriákon belül.
+![The Line chart](line_chart.png)
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Treemap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Treemap) típust.
-4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
-5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
-6. Adjon hozzá új sorokat és kategóriákat.
-7. Adjon hozzá új diagramadatot a diagram soraihoz.
-8. Mentse a módosított prezentációt PPTX fájlként.
+### **Fa térkép diagramok létrehozása**
 
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy fák térképe diagram:
+A fa térkép diagramok leginkább értékesítési adatok esetén hasznosak, amikor a kategóriák relatív méretét szeretnénk bemutatni, és gyorsan felhívni a figyelmet az egyes kategóriák nagy hozzájáruló elemeire.
+
+Ez a példa egy fa térképet hoz létre nyolc levéllel, amelyek négy ágban és két alágban csoportosulnak. A [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus az 1‑es csoportosítási szinthez rendeli az ágakat, a 2‑es szinthez pedig az alágakat. Az értékek határozzák meg a relatív téglalapméreteket, a kategória‑címkék és a szülőcímkék pedig az hierarchiát azonosítják.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Treemap, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    // ág 1
-    var leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    // Ág 1
+    let categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    let leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
-    // ág 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    // Ág 2
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Treemap);
+
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Treemap);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D8", 3));
+    let valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+
     series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
-    pres.save("Treemap.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("Treemap.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Részvény (Stock) diagramok létrehozása**
+Az eredmény:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) típust.
-4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
-5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
-6. Adjon hozzá új sorokat és kategóriákat.
-7. Adjon hozzá új diagramadatot a diagram soraihoz.
-8. Adja meg a high‑low vonalak formátumát.
-9. Mentse a módosított prezentációt PPTX fájlként.
+![The Treemap chart](treemap_chart.png)
 
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy részvénydiagram:
+### **Vízöntős diagramok létrehozása**
+
+A vízöntős diagram azt mutatja, hogyan járulnak hozzá a pozitív és negatív változások a végső értékhez. Például egy nyereség‑bontás a bevétellel kezdődik, lecsökkenti a költségeket, és hozzáadja a többi jövedelmet. A változási oszlopok a korábbi és az új állandó érték között lebegnek, míg a teljes oszlopok a nullától az összegyűjtött értékig terjednek.
+
+A következő példa ezrekben kifejezett USD összegeket használ:
+
+| Kategória | Munkafüzet érték | Oszlop típusa |
+| --- | ---: | --- |
+| Bevétel | 1000 | Növekedés |
+| Értékesítési költség | -400 | Csökkenés |
+| Bruttó eredmény | 600 | Közbenső összeg |
+| Működési költség | -200 | Csökkenés |
+| Egyéb bevétel | 50 | Növekedés |
+| Nettó eredmény | 450 | Végső összeg |
+
+Egy pont közbenső vagy végső összegként való jelöléséhez hívja meg a [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) metódust `true`‑val. A tényleges összegyűjtött értéket a pont munkafüzet‑cellájában adja meg: `600` a bruttó eredményhez (`1000 - 400`) és `450` a nettó eredményhez (`600 - 200 + 50`). A metódus csak az oszlopot jelöli meg összegként; nem számolja ki vagy tölti ki a cella értékét. Ne használjon nullát helyőrzőként, és ne adjon meg más változást egy összeg‑pont esetén. A teljes oszlop az összegyűjtött értéket mutatja anélkül, hogy újra hozzáadná azt a futó értékhez.
+
+Ez a teljes JavaScript példa a `Waterfall` tagot használja a [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)‑ból, törli az alapértelmezett adatokat, és feltölti a beágyazott munkafüzetet. A 0‑s munkalap index a első munkalapot választja; az A oszlop a kategória neveket, a B oszlop az értékeket tartalmazza. Minden értékcellát a [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) metódussal adunk hozzá. A 0‑bázisú pontindexek `2` és `5` a közbenső és végső összeg pontokat jelölik. A [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) `true`‑val való hívása megjeleníti az összegeket az oszlopokon. Bemutató vagy munkafüzet bemenetre nincs szükség.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Waterfall, 20, 20, 680, 200);
+
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Profit breakdown (USD thousands)");
+    chart.getChartTitle().setOverlay(false);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
+    workbook.clear(worksheetIndex);
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Profit");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.Waterfall);
+    let categories = [ "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" ];
+    let values = [ 1000, -400, 600, -200, 50, 450 ];
+
+    for (let i = 0; i < categories.length; i++)
+    {
+        let categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categories[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        let valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
+    }
+
+    // A harmadik és a hatodik pont összegként jelenik meg, nem további változásként.
+    series.getDataPoints().get_Item(2).setSetAsTotal(true);
+    series.getDataPoints().get_Item(5).setSetAsTotal(true);
+    series.setShowConnectorLines(true);
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("WaterfallChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+A sorozatszintű [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) `true`‑val való hívása vonalakat jelenít meg az egymást követő oszlopok között, megkönnyítve a futó érték követését. A vonalak elrejtéséhez cserélje le a példában a metódushívást `series.setShowConnectorLines(false);`‑re a mentés előtt. Ez csak a vonal láthatóságát változtatja, az adatot vagy az összegzőket nem.
+
+A mentett prezentáció 600‑as bruttó eredményt és 450‑as nettó eredményt mutat, mindkettő nullától indulva:
+
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+
+### **Részvénydiagramok létrehozása**
+
+A részvénydiagramok pénzügyi adatokat, például nyitó, legmagasabb, legalacsonyabb és záró árakat jelenítenek meg, segítve a piaci trendek és volatilitás elemzését. Alapvető betekintést nyújtanak a részvény teljesítményébe, támogatva a befektetőket és elemzőket a megalapozott döntések meghozatalában.
+
+Ez a példa egy nyitó‑magas‑alacsony‑záró (OHLC) diagramot hoz létre négy sorozattal ebben a sorrendben és három kategóriával. A [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) metódus engedélyezi a fel/le sávokat, a [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) szabályozza a magas‑alacsony vonalakat, míg az egyedi sorozat‑vonalak és a kisebb vízszintes rácsvonalak rejtve vannak.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
 
-    chart.getChartData().getCategories().clear();
-    chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 1, "Open"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 2, "High"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 3, "Low"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 4, "Close"), chart.getType());
-    var series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 1, 72));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 1, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 1, 38));
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+
+    let categoryCell = workbook.getCell(0, 1, 0, "A");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "B");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "C");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let seriesNameCell = workbook.getCell(0, 0, 1, "Open");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 2, "High");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 3, "Low");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 4, "Close");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+
+    let series = chart.getChartData().getSeries().get_Item(0);
+    let valueCell = workbook.getCell(0, 1, 1, 72);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 1, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 1, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     series = chart.getChartData().getSeries().get_Item(1);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 2, 172));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 2, 57));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 2, 57));
+    valueCell = workbook.getCell(0, 1, 2, 172);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     series = chart.getChartData().getSeries().get_Item(2);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 3, 13));
+    valueCell = workbook.getCell(0, 1, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 3, 13);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     series = chart.getChartData().getSeries().get_Item(3);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 4, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
+    valueCell = workbook.getCell(0, 1, 4, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 4, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 4, 50);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        let ser = chart.getChartData().getSeries().get_Item(i);
-        ser.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++)
+    {
+        let stockSeries = chart.getChartData().getSeries().get_Item(i);
+        stockSeries.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     }
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    presentation.save("Stock-chart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Doboz‑ és ívháromszög diagramok (Box and Whisker) létrehozása**
+Az eredmény:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) típust.
-4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
-5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
-6. Adjon hozzá új sorokat és kategóriákat.
-7. Adjon hozzá új diagramadatot a diagram soraihoz.
-8. Mentse a módosított prezentációt PPTX fájlként.
+![The Stock chart](stock_chart.png)
 
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy doboz‑ és ívháromszög diagram:
+### **Doboz‑ és bajusz diagramok létrehozása**
+
+A doboz‑ és bajusz diagramok az adat eloszlását jelenítik meg, összefoglalva a kulcsfontosságú statisztikai mérőszámokat, például a mediánt, kvartiliseket és a lehetséges outliereket. Különösen hasznosak felderítő adat‑elemzések és statisztikai tanulmányok során, hogy gyorsan megértsük az adat variabilitását és az esetleges anomáliákat.
+
+Ez a példa hat értékkel hoz létre egy doboz‑ és bajusz diagramot. A [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) metódus az exkluzív kvartilis‑számítást választja. A példa továbbá engedélyezi az átlag‑vonalakat, átlag‑jelölőket, belső pontokat és outlier pontokat.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 1"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.BoxAndWhisker);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.BoxAndWhisker);
+
     series.setQuartileMethod(aspose.slides.QuartileMethodType.Exclusive);
     series.setShowMeanLine(true);
     series.setShowMeanMarkers(true);
     series.setShowInnerPoints(true);
     series.setShowOutlierPoints(true);
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B1", 15));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B2", 41));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B3", 16));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B4", 10));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B5", 23));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B6", 16));
-    pres.save("BoxAndWhisker.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    let valueCell = workbook.getCell(0, "B1", 15);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 41);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 10);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 23);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+
+    presentation.save("BoxAndWhisker.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Tölcsér diagramok (Funnel) létrehozása**
+### **Tölcsér diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Funnel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Funnel) típust.
-4. Mentse a módosított prezentációt PPTX fájlként.
+A tölcsér diagramok a folyamatok szekvenciális szakaszait jelenítik meg, ahol az adat mennyisége csökken a lépésről lépésre haladva. Különösen hasznosak a konverziós arányok elemzésében, a szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
 
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy tölcsérdiagram:
+Ez a példa a [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metódust használja, hogy egy tölcsér diagramot adjon az első diára egy meglévő prezentációban. A alapértelmezett adatot hat kategória és 50‑tól 500‑ig terjedő értékekkel cseréli le, majd menti a frissített prezentációt. A bemeneti prezentációnak legalább egy diával kell rendelkeznie.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation("test.pptx");
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 2"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 3"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 4"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 5"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 6"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Funnel);
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B1", 50));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B2", 100));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B3", 200));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B4", 300));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B5", 400));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B6", 500));
-    pres.save("Funnel.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Funnel);
+
+    let valueCell = workbook.getCell(0, "B1", 50);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 100);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 200);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 300);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 400);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 500);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+
+    presentation.save("Funnel.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Napraforgó (Sunburst) diagramok létrehozása**
+Az eredmény:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Sunburst](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Sunburst) típust.
-4. Mentse a módosított prezentációt PPTX fájlként.
+![The Funnel chart](funnel_chart.png)
 
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy napraforgódiagram:
+### **Napfény diagramok létrehozása**
+
+A napfény diagramok hierarchikus adatokat jelenítenek meg, szintjeiket koncentrikus gyűrűként ábrázolva. Segítségükkel a rész‑egész viszonyok vizualizálhatók, és ideálisak a beágyazott kategóriák és alkategóriák tiszta, kompakt megjelenítésére.
+
+Ez a példa nyolc levélből álló napfény diagramot hoz létre, amely négy ágban és két alágban csoportosul. A [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus az 1‑es szinten az ágakat, a 2‑es szinten a branch‑eket rendeli. A kategória‑címkék az egyes szegmenseket azonosítják, az értékek pedig a relatív méreteket határozzák meg.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Sunburst, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    // ág 1
-    var leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    // Ág 1
+    let categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    let leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
-    // ág 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    // Ág 2
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Sunburst);
+
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Sunburst);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D8", 3));
-    pres.save("Sunburst.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    let valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+
+    presentation.save("Sunburst.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+Az eredmény:
+
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Hisztogram diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.Histogram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Histogram) típust.
-4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
-5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
-6. Adjon hozzá új sorokat és kategóriákat.
-7. Mentse a módosított prezentációt PPTX fájlként.
+A hisztogramok numerikus adatok eloszlását ábrázolják, az értékeket tartományokra vagy „bin”-ekre csoportosítva. Különösen hasznosak a gyakoriság, ferdeség és szórás mintáinak azonosítására, valamint az outlierek felfedezésére egy adathalmazban.
 
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy hisztogram diagram:
+Ez a példa hat numerikus értékkel, köztük negatív számokkal hoz létre egy hisztogramot. A [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) automatikus aggregációs típussal való meghívása lehetővé teszi a diagram számára, hogy meghatározza a megjelenített eloszláshoz szükséges bin‑eket.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
-chart.getChartData().getCategories().clear();
-chart.getChartData().getSeries().clear();
-var wb = chart.getChartData().getChartDataWorkbook();
-wb.clear(0);
-var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A1", 15));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A2", -41));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A3", 16));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A4", 10));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
-chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 500, 300);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
+    let valueCell = workbook.getCell(0, "A1", 15);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A2", -41);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A3", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A4", 10);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A5", -23);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A6", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+
+    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+
+    presentation.save("Histogram.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
 ```
+
+Az eredmény:
+
+![The Histogram chart](histogram_chart.png)
 
 ### **Radar diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Adjon hozzá egy diagramot némi adattal, és adja meg a kívánt diagramtípust ([ChartType.Radar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Radar) ebben az esetben).
-4. Mentse a módosított prezentációt PPTX fájlként.
+A radar diagramok többdimenziós adatokat kétdimenziós formában jelenítenek meg, lehetővé téve több változó egyszerű összehasonlítását egyszerre. Különösen hasznosak a minták, erősségek és gyengeségek azonosítására több teljesítménymutató vagy attribútum esetén.
 
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy radar diagram:
+Ez a példa a [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metódust használja, hogy egy radar diagramot hozzon létre az alapértelmezett sorozattal és kategóriákkal, majd PPTX‑ként mentse a prezentációt.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
-    pres.save("Radar-chart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 500, 300);
+
+    presentation.save("Radar-chart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+Az eredmény:
+
+![The Radar chart](radar_chart.png)
 
 ### **Többkategóriás diagramok létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, és adja meg a [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ClusteredColumn) típust.
-4. Hozzáférés a diagram adatkönyvtárához [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/).
-5. Távolítsa el az alapértelmezett sorokat és kategóriákat.
-6. Adjon hozzá új sorokat és kategóriákat.
-7. Adjon hozzá új diagramadatot a diagram soraihoz.
-8. Mentse a módosított prezentációt PPTX fájlként.
+A többkategóriás diagramok olyan adatokat jelenítenek meg, amelyek több kategória‑csoportot tartalmaznak, lehetővé téve az értékek összehasonlítását több dimenzióban egyszerre. Különösen hasznosak bonyolult, több rétegből álló adatkészletek trendjeinek és kapcsolatrendszereinek elemzéséhez.
 
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy többkategóriás diagram:
+Ez a példa egy klaszteres oszlopdiagramot hoz létre nyolc kategóriával, amelyek négy párosítva jelennek meg. A [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus minden párhoz egy közös címkét ad az 1‑es csoportosítási szinten, így a kategória‑tengely egyaránt tartalmaz egyéni és csoportcímkéket.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
-    ch.getChartData().getSeries().clear();
-    ch.getChartData().getCategories().clear();
-    var fact = ch.getChartData().getChartDataWorkbook();
-    fact.clear(0);
-    var defaultWorksheetIndex = 0;
-    var category = ch.getChartData().getCategories().add(fact.getCell(0, "c2", "A"));
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let worksheetIndex = 0;
+
+    let categoryCell = workbook.getCell(0, "c2", "A");
+    let category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group1");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c3", "B"));
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c4", "C"));
+    categoryCell = workbook.getCell(0, "c3", "B");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "c4", "C");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group2");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c5", "D"));
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c6", "E"));
+    categoryCell = workbook.getCell(0, "c5", "D");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "c6", "E");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group3");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c7", "F"));
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
+    categoryCell = workbook.getCell(0, "c7", "F");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "c8", "G");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group4");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-    // Sorozat hozzáadása
-    var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D4", 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D5", 40));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D6", 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    // Prezentáció mentése diagrammal
-    pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    categoryCell = workbook.getCell(0, "c9", "H");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    let seriesNameCell = workbook.getCell(0, "D1", "Series 1");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.ClusteredColumn);
+
+    let valueCell = workbook.getCell(worksheetIndex, "D2", 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D3", 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D4", 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D5", 40);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D6", 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D7", 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D8", 70);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D9", 80);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+    presentation.save("AsposeChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Térképi diagramok létrehozása**
+Az eredmény:
 
-A térképi diagramok földrajzi adatokat jelenítenek meg, és segítenek az értékek összehasonlításában régiók között.
+![The multi category chart](multi_category_chart.png)
 
-Ez a JavaScript‑kód bemutatja, hogyan hozható létre egy térképi diagram:
+### **Térkép diagramok létrehozása**
+
+A térkép diagramok földrajzi adatok megjelenítésére szolgálnak, az információt konkrét helyekhez – például országokhoz, államokhoz vagy városokhoz – rendelve. Különösen hasznosak a regionális trendek, demográfiai adatok és térbeli eloszlások elemzésében, egyértelműen és vizuálisan vonzó módon.
+
+Ez a példa a [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metódust használja, hogy egy alapértelmezett földrajzi adatokkal ellátott térkép diagramot hozzon létre, majd PowerPointban megtekinthető formában mentse el.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-let pres = new aspose.slides.Presentation();
-try {
-    let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
-    pres.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Map, 20, 20, 500, 300);
+
+    presentation.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Kombinált diagramok létrehozása**
+Az eredmény:
 
-A kombinált diagram (vagy combo diagram) két vagy több diagramtípust egyesít egy grafikonban. Ez a diagram lehetővé teszi, hogy kiemeljen, összehasonlítson vagy megvizsgáljon különböző adatcsoportok közti eltéréseket, ezáltal segítve a köztük lévő összefüggések felismerését.
+![The Map chart](map_chart.png)
+
+{{% alert color="info" title="Megjegyzés" %}}
+
+A fenti kép a mentett prezentációt mutatja PowerPointban megnyitva. Az Aspose.Slides helyesen írja a térkép diagramot és annak adatait, de a diagramot maga nem rajzolja meg: ha egy diagramot tartalmazó diát képre, PDF‑re vagy SVG‑re renderel, a diagram területe üres marad. A dián lévő egyéb alakzatok nem érintettek.
+
+{{% /alert %}}
+
+### **Kombináció diagramok létrehozása**
+
+A kombináció (vagy combo) diagram több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemeljük, összehasonlítsuk vagy vizsgáljuk a két vagy több adatcsoport közötti különbségeket, segítve a köztük lévő kapcsolatok azonosítását.
 
 ![The combination chart](combination_chart.png)
 
-Az alábbi JavaScript‑kód bemutatja, hogyan hozható létre a fenti kombinált diagram egy PowerPoint‑prezentációban:
+Ez a példa négy kategóriában egy vonaldiagrammal kombinál két klaszteres oszlop sorozatot. Az oszlopok az elsődleges függőleges tengelyt, a [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) pedig a vonalat a jobb oldalon található másodlagos függőleges tengelyre helyezi. A segédfüggvények a címet, jelmagyarázatot, tengelycímkéket és rácsvonalakat konfigurálják.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-function createComboChart() {
+function createComboChart()
+{
     let presentation = new aspose.slides.Presentation();
-    let slide = presentation.getSlides().get_Item(0);
-    try {
-        let chart = createChartWithFirstSeries(slide);
+    try
+    {
+        let chart = createChartWithFirstSeries(presentation.getSlides().get_Item(0));
 
         addSecondSeriesToChart(chart);
         addThirdSeriesToChart(chart);
@@ -809,58 +1061,64 @@ function createComboChart() {
         setSecondaryAxesFormat(chart);
 
         presentation.save("combo-chart.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
+    }
+    finally
+    {
         presentation.dispose();
     }
 }
 
-function createChartWithFirstSeries(slide) {
+function createChartWithFirstSeries(slide)
+{
     let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Állítsa be a diagram címét.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
-    let titleParagraph = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0);
-    let titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
-    titleFormat.setFontHeight(18);
+    let portionFormat = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    portionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
+    portionFormat.setFontHeight(18);
 
-    // Állítsa be a diagram jelmagyarázatát.
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // Törölje az alapértelmezett generált sorozatokat és kategóriákat.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    const worksheetIndex = 0;
     let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
 
-    // Új kategóriák hozzáadása.
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
+    let categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 4, 0, "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    // Az első sorozat hozzáadása.
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
     series.getParentSeriesGroup().setOverlap(java.newByte(-25));
     series.getParentSeriesGroup().setGapWidth(220);
 
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 4.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 2.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 3.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 1, 4.5));
+    let valueCell = workbook.getCell(worksheetIndex, 1, 1, 4.3);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 2.5);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 3.5);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 4, 1, 4.5);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
 
     return chart;
 }
 
-function addSecondSeriesToChart(chart) {
+function addSecondSeriesToChart(chart)
+{
     let workbook = chart.getChartData().getChartDataWorkbook();
-    const worksheetIndex = 0;
+    let worksheetIndex = 0;
 
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
     let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.ClusteredColumn);
@@ -868,50 +1126,57 @@ function addSecondSeriesToChart(chart) {
     series.getParentSeriesGroup().setOverlap(java.newByte(-25));
     series.getParentSeriesGroup().setGapWidth(220);
 
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 2, 2.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 2, 4.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 2, 1.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 2, 2.8));
+    let valueCell = workbook.getCell(worksheetIndex, 1, 2, 2.4);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 2, 4.4);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 2, 1.8);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 4, 2, 2.8);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
 }
 
-function addThirdSeriesToChart(chart) {
+function addThirdSeriesToChart(chart)
+{
     let workbook = chart.getChartData().getChartDataWorkbook();
-    const worksheetIndex = 0;
+    let worksheetIndex = 0;
 
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
     let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.Line);
 
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 1, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 2, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 3, 3, 3.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 4, 3, 5.0));
+    let valueCell = workbook.getCell(worksheetIndex, 1, 3, 2.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 3, 2.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 3, 3.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 4, 3, 5.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
 
     series.setPlotOnSecondAxis(true);
 }
 
-function setPrimaryAxesFormat(chart) {
-    // A vízszintes tengely beállítása.
+function setPrimaryAxesFormat(chart)
+{
     let horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // A függőleges tengely beállítása.
     let verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // A függőleges fő rácsvonalak színének beállítása.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
 }
 
-function setSecondaryAxesFormat(chart) {
-    // A másodlagos vízszintes tengely beállítása.
+function setSecondaryAxesFormat(chart)
+{
     let secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(aspose.slides.AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(aspose.slides.CrossesType.Maximum);
@@ -919,7 +1184,6 @@ function setSecondaryAxesFormat(chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // A másodlagos függőleges tengely beállítása.
     let secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(aspose.slides.AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
@@ -930,167 +1194,202 @@ function setSecondaryAxesFormat(chart) {
     setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
 }
 
-function setAxisTitle(axis, axisTitle) {
+function setAxisTitle(axis, axisTitle)
+{
     axis.setTitle(true);
     axis.getTitle().setOverlay(false);
-    let titleParagraph = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0);
-    let titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
-    titleFormat.setFontHeight(12);
+    let titlePortionFormat = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    titlePortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
+    titlePortionFormat.setFontHeight(12);
 }
+
+createComboChart();
 ```
 
 ## **Diagramok frissítése**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból, amely a frissítendő diagramot tartalmazó prezentációt képviseli.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Járjon végig az összes alakzaton, hogy megtalálja a kívánt diagramot.
-4. Hozzáférés a diagram adatlapjához.
-5. Módosítsa a diagram adat sorait a sorértékek megváltoztatásával.
-6. Adjon hozzá egy új sort, és töltse fel adataival.
-7. Mentse a módosított prezentációt PPTX fájlként.
+Az Aspose.Slides for Node.js via Java lehetővé teszi a PowerPoint diagramok frissítését a diagram adatok, formázás és stílus módosításával. Ez a funkció egyszerűsíti a prezentációk aktuális tartalommal való naprakészen tartását, és biztosítja, hogy a diagramok pontosan tükrözzék a jelenlegi adatokat és a vizuális szabványokat.
 
-Ez a JavaScript‑kód bemutatja, hogyan frissíthető egy diagram:
+Ez a példa frissíti a „My chart” nevű diagramot az első dián egy meglévő prezentációban. Két három adatpontból álló oszlop sorozatra van szükség, ahol a kategória‑címkék az A oszlopban, a sorozatnevek pedig az első munkalap első sorában találhatók. A példa a [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) metódust használja a munkafüzet‑cellák módosításához, frissíti a sorozat értékeit, hozzáad egy harmadik sorozatot, és a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType) metódussal klaszteres hengerdiagramra változtatja a diagramot.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("ExistingChart.pptx");
-try {
-    // Az első slideMarker elérése
-    var sld = pres.getSlides().get_Item(0);
-    // Diagram lekérése alapértelmezett adatokkal
-    var chart = sld.getShapes().get_Item(0);
-    // A diagram adatlap indexének beállítása
-    var defaultWorksheetIndex = 0;
-    // A diagram adatlapjának lekérése
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // A diagram kategória nevének módosítása
-    fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
-    fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    // Az első diagram sorozat kivétele
-    var series = chart.getChartData().getSeries().get_Item(0);
-    // Sorozat adatainak frissítése
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Sorozat nevének módosítása
-    series.getDataPoints().get_Item(0).getValue().setData(90);
-    series.getDataPoints().get_Item(1).getValue().setData(123);
-    series.getDataPoints().get_Item(2).getValue().setData(44);
-    // A második diagram sorozat kivétele
-    series = chart.getChartData().getSeries().get_Item(1);
-    // Sorozat adatainak frissítése
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Sorozat nevének módosítása
-    series.getDataPoints().get_Item(0).getValue().setData(23);
-    series.getDataPoints().get_Item(1).getValue().setData(67);
-    series.getDataPoints().get_Item(2).getValue().setData(99);
-    // Új sorozat hozzáadása
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // A harmadik diagram sorozat kivétele
-    series = chart.getChartData().getSeries().get_Item(2);
-    // Sorozat adatainak feltöltése
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
-    chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // Prezentáció mentése diagrammal
-    pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+let chartName = "My chart";
+
+let presentation = new aspose.slides.Presentation("ExistingChart.pptx");
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++)
+    {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart") && chartName === shape.getName())
+        {
+            let chart = shape;
+            let worksheetIndex = 0;
+
+            let workbook = chart.getChartData().getChartDataWorkbook();
+
+            workbook.getCell(worksheetIndex, 1, 0, "Modified Category 1");
+            workbook.getCell(worksheetIndex, 2, 0, "Modified Category 2");
+
+            let series = chart.getChartData().getSeries().get_Item(0);
+
+            workbook.getCell(worksheetIndex, 0, 1, "New_Series 1");
+            series.getDataPoints().get_Item(0).getValue().setData(90);
+            series.getDataPoints().get_Item(1).getValue().setData(123);
+            series.getDataPoints().get_Item(2).getValue().setData(44);
+
+            series = chart.getChartData().getSeries().get_Item(1);
+
+            workbook.getCell(worksheetIndex, 0, 2, "New_Series 2");
+            series.getDataPoints().get_Item(0).getValue().setData(23);
+            series.getDataPoints().get_Item(1).getValue().setData(67);
+            series.getDataPoints().get_Item(2).getValue().setData(99);
+
+            let seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+            series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+            let valueCell = workbook.getCell(worksheetIndex, 1, 3, 20);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 2, 3, 50);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 3, 3, 30);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+            chart.setType(aspose.slides.ChartType.ClusteredCylinder);
+        }
     }
+
+    presentation.save("AsposeChartModified.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ## **Adattartomány beállítása diagramhoz**
 
-A már meglévő diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/nodejs-java/chart-workbook/#retrieve-a-charts-data-range) szakaszt.
+A meglévő diagram által már használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/nodejs-java/chart-workbook/#retrieve-a-charts-data-range) oldalt.
 
-Az adattartomány beállításához a diagramhoz kövesse az alábbi lépéseket:
+Az Aspose.Slides for Node.js via Java rugalmasságot biztosít egy adott munkalap adott adattartományának diagramadat‑forrásként történő meghatározásához. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap‑részletet a diagramra, ezáltal szabályozva, mely cellák járulnak hozzá a diagram sorozataihoz és kategóriáihoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja diagramjait a munkalap legújabb adataival, biztosítva, hogy a PowerPoint prezentációk aktuális és pontos információkat tükrözzenek.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztályból, amely a diagramot tartalmazó prezentációt képviseli.
-2. Szerezzen hivatkozást egy diára a sorszámával.
-3. Járjon végig az összes alakzaton, hogy megtalálja a kívánt diagramot.
-4. Hozzáférés a diagram adataihoz, és állítsa be a tartományt.
-5. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a JavaScript‑kód bemutatja, hogyan állítható be egy diagram adattartománya:
+Ez a példa a [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) metódussal állítja be a „My chart” nevű diagram adatforrását az első dián egy meglévő prezentációban a `Sheet1!A1:B4` tartományra. A diagram munkafüzete tartalmazza azt a munkalapot, és egy feltöltött tartományt, ahol az első sorban a sorozat fejléc, az A oszlopban a kategória‑címkék, a B oszlopban pedig három érték található.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("ExistingChart.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().get_Item(0);
-    chart.getChartData().setRange("Sheet1!A1:B4");
-    pres.save("SetDataRange_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+let chartName = "My chart";
+
+let presentation = new aspose.slides.Presentation("ExistingChart.pptx");
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++)
+    {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart") && chartName === shape.getName())
+        {
+            let chart = shape;
+            chart.getChartData().setRange("Sheet1!A1:B4");
+        }
     }
+
+    presentation.save("SetDataRange.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ## **Alapértelmezett jelölők használata diagramokban**
 
-Alapértelmezett jelölők használata esetén minden diagram sor automatikusan más‑más jelölőszimbólumot kap.
+Alapértelmezett jelölők használatakor minden diagram sorozat automatikusan különböző jelölőszimbólumot kap.
 
-Ez a JavaScript‑kód bemutatja, hogyan állítható be egy diagram sorának jelölője automatikusan:
+Ez a példa a [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) metódust használja egy két vonal sorozatot és egy jelmagyarázatot tartalmazó diagram létrehozásához. A [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) által elérhető jelölőbeállítások megtartják a automatikusan kiosztott jelölőszimbólumokat. Az első sorozat egy negatív értéket és egy hiányzó értéket (`null`) tartalmaz, míg a második minden kategóriához értéket ad.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 10, 10, 400, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 10, 10, 400, 400);
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    var fact = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    var series = chart.getChartData().getSeries().get_Item(0);
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "C1"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 1, 24));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "C2"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 1, 23));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "C3"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 1, -10));
-    chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // A második diagram sorozat kivétele
-    var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Sorozat adatainak feltöltése
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 2, 40));
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+
+    let seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let categoryCell = workbook.getCell(0, 1, 0, "C1");
+    chart.getChartData().getCategories().add(categoryCell);
+    let valueCell = workbook.getCell(0, 1, 1, 24);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 2, 0, "C2");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 2, 1, 23);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 3, 0, "C3");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 3, 1, -10);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 4, 0, "C4");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 4, 1, null);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    seriesNameCell = workbook.getCell(0, 0, 2, "Series 2");
+    let secondSeries = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    valueCell = workbook.getCell(0, 1, 2, 30);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 10);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 60);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 4, 2, 40);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+
     chart.setLegend(true);
     chart.getLegend().setOverlay(false);
-    pres.save("DefaultMarkersInChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("DefaultMarkersInChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ## **GYIK**
 
-**Milyen diagramtípusokat támogat az Aspose.Slides?**
+**Milyen diagramtípusok támogatottak az Aspose.Slides for Node.js via Java‑ban?**
 
-Az Aspose.Slides széles körű [diagramtípusokat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) támogat, beleértve az oszlop-, vonal-, kör-, terület-, szórás-, hisztogram-, radar- és még sok más típust. Ez a rugalmasság lehetővé teszi, hogy a legmegfelelőbb diagramtípust válassza adatvizualizációs igényeihez.
+Az Aspose.Slides for Node.js via Java számos diagramtípust támogat, többek között oszlop, vonal, kör, terület, szórás, hisztogram, radar és még sok más. Ez a rugalmasság lehetővé teszi, hogy az adatvizualizációs igényeinek legmegfelelőbb diagramtípust válassza.
 
-**Hogyan adhatok hozzá egy új diagramot a diához?**
+**Hogyan adhatok új diagramot egy diához?**
 
-Diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztály egy példányát, szerezze meg a kívánt diát a sorszámával, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagram típusát és a kezdeti adatokat. Ez a folyamat közvetlenül a prezentációba integrálja a diagramot.
+Diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztály egy példányát, szerezze be a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadásához szükséges metódust, megadva a diagram típust és a kezdeti adatokat. Ez a folyamat közvetlenül a prezentációba integrálja a diagramot.
 
-**Hogyan frissíthetem a diagramon megjelenő adatokat?**
+**Hogyan frissíthetem a diagramon megjelenített adatokat?**
 
-A diagram adatait úgy frissítheti, hogy hozzáfér a diagram adatkönyvtárához ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), eltávolítja az alapértelmezett sorokat és kategóriákat, majd hozzáadja a saját egyedi adatait. Így programozott módon frissítheti a diagramot a legújabb adatokkal.
+A diagram adatait a [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) elérésével, az alapértelmezett sorozatok és kategóriák törlésével, majd saját adatainak hozzáadásával frissítheti. Így programozottan frissítheti a diagramot a legújabb adatokkal.
 
-**Lehetőség van a diagram megjelenésének testreszabására?**
+**Lehetséges a diagram megjelenésének testreszabása?**
 
-Igen, az Aspose.Slides kiterjedt testreszabási lehetőségeket kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb [formázási elemeket](/slides/hu/nodejs-java/chart-entities/), hogy a diagram megjelenése megfeleljen az egyedi tervezési követelményeknek.
+Igen, az Aspose.Slides for Node.js via Java kiterjedt testreszabási lehetőségeket kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenése megfeleljen a konkrét tervezési követelményeknek.

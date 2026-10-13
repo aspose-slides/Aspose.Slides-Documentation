@@ -1,806 +1,1058 @@
 ---
-title: Buat atau Perbarui Diagram Presentasi PowerPoint dengan JavaScript
+title: Buat atau Perbarui Diagram Presentasi PowerPoint dalam JavaScript
 linktitle: Buat atau Perbarui Diagram
 type: docs
 weight: 10
 url: /id/nodejs-java/create-chart/
 keywords:
-- menambahkan diagram
-- membuat diagram
-- mengedit diagram
-- mengubah diagram
-- memperbarui diagram
+- tambahkan diagram
+- buat diagram
+- edit diagram
+- ubah diagram
+- perbarui diagram
 - diagram sebar
-- diagram pai
+- diagram lingkaran
 - diagram garis
 - diagram peta pohon
 - diagram saham
-- diagram kotak dan whisker
+- diagram box and whisker
 - diagram corong
 - diagram sunburst
 - diagram histogram
 - diagram radar
-- diagram multi‑kategori
+- diagram multi kategori
 - PowerPoint
 - presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint dengan Aspose.Slides untuk Node.js. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam JavaScript."
+description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Node.js via Java. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam JavaScript."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini memberikan panduan lengkap tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisi data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, mempermudah proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk Node.js via Java. Anda akan belajar cara secara programatis menambahkan diagram ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan agar sesuai dengan kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Node.js Anda, menyederhanakan proses pembuatan presentasi berbasis data.
 
-## **Buat Diagram**
+## **Membuat Diagram**
 
-Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
+Diagram membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan yang mungkin tidak segera terlihat dari tabel atau spreadsheet.
 
 **Mengapa Membuat Diagram?**
 
 Dengan diagram, Anda dapat:
 
-* menggabungkan, memadatkan, atau merangkum sejumlah besar data pada satu slide dalam presentasi
-* menampilkan pola dan tren dalam data
-* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu
-* menemukan outlier, penyimpangan, kesalahan, data yang tidak masuk akal, dll.
-* menyampaikan atau mempersembahkan data yang kompleks
+* menggabungkan, memadatkan, atau merangkum sejumlah besar data pada satu slide dalam sebuah presentasi;
+* menampilkan pola dan tren dalam data;
+* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu;
+* menemukan nilai pencilan, penyimpangan, kesalahan, dan data yang tidak masuk akal;
+* mengkomunikasikan atau menyajikan data yang kompleks.
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) dan diagram khusus.
+Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) maupun diagram kustom.
 
 {{% alert color="info" title="Note" %}}
 
-Untuk membuat diagram, gunakan kelas [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/). bidang dalam kelas ini sesuai dengan tipe diagram yang berbeda.
+Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) dalam modul [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/). Nilai‑nilai dalam enumerasi ini mewakili tipe diagram yang berbeda.
 
 {{% /alert %}}
 
-### **Buat Diagram Kolom Berkelompok**
+### **Membuat Diagram Kolom Berkelompok**
 
-Bagian ini menjelaskan cara membuat diagram kolom berkelompok menggunakan Aspose.Slides. Anda akan belajar menginisialisasi presentasi, menambahkan diagram, dan menyesuaikan elemennya seperti judul, data, seri, kategori, serta gaya. Ikuti langkah-langkah di bawah ini untuk melihat cara diagram kolom berkelompok standar dihasilkan:
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) .
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType.ClusteredColumn` .
-1. Tambahkan judul ke diagram.
-1. Akses worksheet data diagram.
-1. Hapus semua seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Tambahkan data diagram baru untuk seri diagram.
-1. Terapkan warna isi ke seri diagram.
-1. Tambahkan label ke seri diagram.
-1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode JavaScript ini memperlihatkan cara membuat diagram kolom berkelompok:
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram kolom berkelompok yang membandingkan dua seri pada tiga kategori. Seri menggunakan isian merah dan hijau, serta label individu menampilkan nama kategori, nama seri, dan nilai. Indeks worksheet 0 merujuk pada lembar pertama dalam workbook diagram yang disematkan.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Membuat instance kelas presentasi yang mewakili file PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Mengakses slide pertama
-    var sld = pres.getSlides().get_Item(0);
-    // Menambahkan diagram dengan data defaultnya
-    var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
-    // Mengatur Judul diagram
-    chart.setTitle(true);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    // Mengatur seri pertama agar menampilkan nilai
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Mengatur indeks untuk lembar data diagram
-    var defaultWorksheetIndex = 0;
-    // Mendapatkan WorkSheet data diagram
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Menghapus seri dan kategori yang dihasilkan secara default
+    chart.setTitle(true);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    var s = chart.getChartData().getSeries().size();
-    s = chart.getChartData().getCategories().size();
-    // Menambahkan seri baru
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // Menambahkan kategori baru
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Mengambil seri diagram pertama
-    var series = chart.getChartData().getSeries().get_Item(0);
-    // Sekarang mengisi data seri
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Mengatur warna isi untuk seri
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().get_Item(0);
+
+    let valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Mengambil seri diagram kedua
+
     series = chart.getChartData().getSeries().get_Item(1);
-    // Mengisi data seri
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // Mengatur warna isi untuk seri
+
+    valueCell = workbook.getCell(worksheetIndex, 1, 2, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 2, 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 2, 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    // Membuat label khusus untuk setiap kategori pada seri baru
-    // Mengatur label pertama agar menampilkan nama Kategori
-    var lbl = series.getDataPoints().get_Item(0).getLabel();
-    lbl.getDataLabelFormat().setShowCategoryName(true);
-    lbl = series.getDataPoints().get_Item(1).getLabel();
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    // Menampilkan nilai untuk label ketiga
-    lbl = series.getDataPoints().get_Item(2).getLabel();
-    lbl.getDataLabelFormat().setShowValue(true);
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    lbl.getDataLabelFormat().setSeparator("/");
-    // Menyimpan presentasi dengan diagram
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    series.getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
+
+    let label = series.getDataPoints().get_Item(0).getLabel();
+    label.getDataLabelFormat().setShowCategoryName(true);
+
+    label = series.getDataPoints().get_Item(1).getLabel();
+    label.getDataLabelFormat().setShowSeriesName(true);
+
+    label = series.getDataPoints().get_Item(2).getLabel();
+    label.getDataLabelFormat().setShowValue(true);
+    label.getDataLabelFormat().setShowSeriesName(true);
+    label.getDataLabelFormat().setSeparator("/");
+
+    presentation.save("AsposeChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Scatter**
+Hasilnya:
 
-Diagram scatter (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+![The Clustered Column chart](clustered_column_chart.png)
 
-Gunakan diagram scatter ketika:
+### **Membuat Diagram Sebar**
 
-* Anda memiliki data numerik berpasangan
-* Anda memiliki dua variabel yang berpasangan dengan baik
-* Anda ingin menentukan apakah dua variabel saling terkait
-* Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen
+Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
-1. Ikuti langkah‑langkah di [Create Clustered Column Charts](#create-clustered-column-charts).
-2. Pada langkah ketiga, tambahkan diagram dengan beberapa data dan tentukan tipe diagram Anda sebagai salah satu berikut:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Mewakili diagram scatter._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Mewakili diagram scatter yang dihubungkan oleh kurva, dengan penanda data._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Mewakili diagram scatter yang dihubungkan oleh kurva, tanpa penanda data._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Mewakili diagram scatter yang dihubungkan oleh garis lurus, dengan penanda data._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Mewakili diagram scatter yang dihubungkan oleh garis lurus, tanpa penanda data._
+Gunakan diagram sebar ketika:
 
-Kode JavaScript ini menunjukkan cara membuat diagram scatter dengan penanda berbeda untuk tiap seri:
+* Anda memiliki data numerik berpasangan.
+* Anda memiliki dua variabel yang saling berhubungan.
+* Anda ingin menentukan apakah kedua variabel tersebut terkait.
+* Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen.
+
+Contoh ini memplot dua set nilai x‑y. Seri pertama menggunakan garis lurus dengan penanda bintang, sementara seri kedua menggunakan garis halus dengan penanda lingkaran; keduanya memakai ukuran penanda 10, yang dikonfigurasi dengan [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). Metode [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) mengontrol bentuk penanda.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Membuat instance kelas presentasi yang mewakili file PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Mengakses slide pertama
-    var slide = pres.getSlides().get_Item(0);
-    // Membuat diagram default
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    // Mendapatkan indeks worksheet data diagram default
-    var defaultWorksheetIndex = 0;
-    // Mendapatkan worksheet data diagram
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Menghapus seri demo
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
-    // Menambahkan seri baru
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-    // Mengambil seri diagram pertama
-    var series = chart.getChartData().getSeries().get_Item(0);
-    // Menambahkan titik baru (1:3) ke seri
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-    // Menambahkan titik baru (2:10)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-    // Mengubah tipe seri
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 1, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 1, 3, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let series = chart.getChartData().getSeries().get_Item(0);
+
+    let xValueCell = workbook.getCell(worksheetIndex, 2, 1, 1);
+    let yValueCell = workbook.getCell(worksheetIndex, 2, 2, 3);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 1, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 2, 10);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
-    // Mengubah penanda seri diagram
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
-    // Mengambil seri diagram kedua
+
     series = chart.getChartData().getSeries().get_Item(1);
-    // Menambahkan titik baru (5:2) di sana
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-    // Menambahkan titik baru (3:1)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-    // Menambahkan titik baru (2:2)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-    // Menambahkan titik baru (5:1)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-    // Mengubah penanda seri diagram
+
+    xValueCell = workbook.getCell(worksheetIndex, 2, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 2, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 3, 3);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 4, 3, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 4, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 5, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 5, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
-    pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("AsposeChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Pai**
+Hasilnya:
 
-Diagram pai paling cocok untuk menampilkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, bila data Anda memiliki banyak bagian atau label, pertimbangkan menggunakan diagram batang sebagai gantinya.
+![The Scatter chart](scatter_chart.png)
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Pie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Pie) .
-4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
-5. Hapus seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Tambahkan poin baru untuk diagram dan terapkan warna khusus untuk sektor diagram pai.
-9. Atur label untuk seri.
-10. Aktifkan garis penunjuk untuk label seri.
-11. Atur sudut rotasi untuk sektor diagram pai.
-12. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+### **Membuat Diagram Lingkaran**
 
-Kode JavaScript ini menunjukkan cara membuat diagram pai:
+Diagram lingkaran paling cocok untuk menunjukkan hubungan bagian‑dengan‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, bila data Anda memiliki banyak bagian atau label, pertimbangkan untuk menggunakan diagram batang sebagai gantinya.
+
+Contoh ini membuat diagram lingkaran dengan tiga nilai triwulanan. Setiap irisan memiliki isian dan batas khusus, dan label menampilkan kombinasi nilai, persentase, serta informasi seri. Metode [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) mengatur irisan pertama mulai pada 180 derajat.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Membuat instance kelas presentasi yang mewakili file PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Mengakses slide pertama
-    var slides = pres.getSlides().get_Item(0);
-    // Menambahkan diagram dengan data default
-    var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // Mengatur Judul diagram
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    // Mengatur seri pertama agar menampilkan nilai
+
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Mengatur indeks untuk lembar data diagram
-    var defaultWorksheetIndex = 0;
-    // Mendapatkan worksheet data diagram
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Menghapus seri dan kategori yang dihasilkan secara default
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // Menambahkan kategori baru
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    // Menambahkan seri baru
-    var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // Mengisi data seri
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Tidak berfungsi pada versi baru
-    // Adding new points and setting sector color
-    // series.IsColorVaried = true;
+
+    let categoryCell = workbook.getCell(0, 1, 0, "1st Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "2nd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "3rd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
-    var point = series.getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // Mengatur batas sektor
-    point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
-    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
-    var point1 = series.getDataPoints().get_Item(1);
-    point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // Mengatur batas sektor
-    point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
-    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
-    var point2 = series.getDataPoints().get_Item(2);
-    point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // Mengatur batas sektor
-    point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
-    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
-    // Membuat label khusus untuk setiap kategori pada seri baru
-    var lbl1 = series.getDataPoints().get_Item(0).getLabel();
-    // lbl.ShowCategoryName = true;
-    lbl1.getDataLabelFormat().setShowValue(true);
-    var lbl2 = series.getDataPoints().get_Item(1).getLabel();
-    lbl2.getDataLabelFormat().setShowValue(true);
-    lbl2.getDataLabelFormat().setShowLegendKey(true);
-    lbl2.getDataLabelFormat().setShowPercentage(true);
-    var lbl3 = series.getDataPoints().get_Item(2).getLabel();
-    lbl3.getDataLabelFormat().setShowSeriesName(true);
-    lbl3.getDataLabelFormat().setShowPercentage(true);
-    // Menampilkan Garis Penunjuk untuk Diagram
+
+    let firstSlice = series.getDataPoints().get_Item(0);
+    firstSlice.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    firstSlice.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    firstSlice.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    firstSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    firstSlice.getFormat().getLine().setWidth(3.0);
+    firstSlice.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    firstSlice.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDash));
+
+    let secondSlice = series.getDataPoints().get_Item(1);
+    secondSlice.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlice.getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+
+    secondSlice.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    secondSlice.getFormat().getLine().setWidth(3.0);
+    secondSlice.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    secondSlice.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
+
+    let thirdSlice = series.getDataPoints().get_Item(2);
+    thirdSlice.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlice.getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 127, 80));
+
+    thirdSlice.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    thirdSlice.getFormat().getLine().setWidth(2.0);
+    thirdSlice.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    thirdSlice.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
+
+    let firstLabel = series.getDataPoints().get_Item(0).getLabel();
+    firstLabel.getDataLabelFormat().setShowValue(true);
+
+    let secondLabel = series.getDataPoints().get_Item(1).getLabel();
+    secondLabel.getDataLabelFormat().setShowValue(true);
+    secondLabel.getDataLabelFormat().setShowLegendKey(true);
+    secondLabel.getDataLabelFormat().setShowPercentage(true);
+
+    let thirdLabel = series.getDataPoints().get_Item(2).getLabel();
+    thirdLabel.getDataLabelFormat().setShowSeriesName(true);
+    thirdLabel.getDataLabelFormat().setShowPercentage(true);
+
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // Mengatur Sudut Rotasi untuk Sektor Diagram Pai
+
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // Menyimpan presentasi dengan diagram
-    pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("PieChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Garis**
+Hasilnya:
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lainnya.
+![The Pie chart](pie_chart.png)
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-1. Dapatkan referensi ke slide menggunakan indeksnya.
-1. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Line](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Line) .
-1. Akses workbook data diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) .
-1. Hapus seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Tambahkan data diagram baru untuk seri diagram.
-1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+### **Membuat Diagram Garis**
 
-Kode JavaScript ini menunjukkan cara membuat diagram garis:
+Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren sepanjang waktu, menyoroti anomali dalam seri data, dan lain‑lain.
+
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram garis dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let lineChart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 20, 20, 500, 300);
+
+    presentation.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-Secara default, titik‑titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda menginginkan titik‑titik dihubungkan oleh garis putus‑putus, Anda dapat menentukan tipe dash yang diinginkan sebagai berikut:
+Secara default, titik pada diagram garis dihubungkan oleh garis lurus berkelanjutan. Jika Anda ingin titik‑titik tersebut dihubungkan oleh gaya garis putus‑putus, panggil [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) dengan nilai dari [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
-try {
-    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let lineChart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 20, 20, 500, 300);
+
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++)
+    {
         let series = lineChart.getChartData().getSeries().get_Item(i);
         series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
     }
-    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Tree Map**
+Hasilnya:
 
-Diagram tree map paling cocok untuk data penjualan ketika Anda ingin menampilkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang menjadi kontributor besar dalam setiap kategori.
+![The Line chart](line_chart.png)
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Treemap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Treemap) .
-4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
-5. Hapus seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+### **Membuat Diagram Peta Pohon**
 
-Kode JavaScript ini menunjukkan cara membuat diagram tree map:
+Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang berkontribusi besar dalam setiap kategori.
+
+Contoh ini membuat peta pohon dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) menetapkan batang pada level pengelompokan 1 dan cabang pada level 2. Nilai menentukan ukuran relatif masing‑ma­si, sementara label kategori dan label induk yang tumpang tindih mengidentifikasi hierarki.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Treemap, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    // cabang 1
-    var leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    // Cabang 1
+    let categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    let leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
-    // cabang 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    // Cabang 2
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Treemap);
+
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Treemap);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D8", 3));
+    let valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+
     series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
-    pres.save("Treemap.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("Treemap.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Saham**
+Hasilnya:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) .
-4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
-5. Hapus seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Tentukan format garis high‑low.
-9. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+![The Treemap chart](treemap_chart.png)
 
-Kode JavaScript ini menunjukkan cara membuat diagram saham:
+### **Membuat Diagram Air Terjun**
+
+Diagram air terjun menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian laba dapat dimulai dengan pendapatan, mengurangi biaya, dan menambah pendapatan lain. Kolom perubahan mengambang antara nilai berjalan sebelumnya dan nilai baru, sementara kolom total memperluas dari nol ke nilai terakumulasi.
+
+Contoh berikut menggunakan jumlah dalam ribuan dolar AS:
+
+| Kategori | Nilai workbook | Tipe kolom |
+| --- | ---: | --- |
+| Pendapatan | 1000 | Peningkatan |
+| Harga pokok penjualan | -400 | Penurunan |
+| Laba kotor | 600 | Total menengah |
+| Beban operasional | -200 | Penurunan |
+| Pendapatan lain | 50 | Peningkatan |
+| Laba bersih | 450 | Total akhir |
+
+Untuk menandai suatu titik sebagai total menengah atau akhir, panggil metode [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal)‑nya dengan `true`. Berikan jumlah terakumulasi sebenarnya pada sel workbook titik tersebut: `600` untuk laba kotor (`1000 - 400`) dan `450` untuk laba bersih (`600 - 200 + 50`). Metode tersebut menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau memberi perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
+
+Contoh lengkap JavaScript ini membuat diagram menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), menghapus data default, dan mengisi workbook yang disematkan. Indeks worksheet `0` memilih lembar pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total menengah dan total akhir. Memanggil [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) dengan `true` menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau workbook input.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Waterfall, 20, 20, 680, 200);
+
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Profit breakdown (USD thousands)");
+    chart.getChartTitle().setOverlay(false);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
+    workbook.clear(worksheetIndex);
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Profit");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.Waterfall);
+    let categories = [ "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" ];
+    let values = [ 1000, -400, 600, -200, 50, 450 ];
+
+    for (let i = 0; i < categories.length; i++)
+    {
+        let categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categories[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        let valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
+    }
+
+    // Titik ketiga dan keenam mewakili total, bukan perubahan tambahan.
+    series.getDataPoints().get_Item(2).setSetAsTotal(true);
+    series.getDataPoints().get_Item(5).setSetAsTotal(true);
+    series.setShowConnectorLines(true);
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("WaterfallChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Panggil metode tingkat seri [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) dengan `true` untuk menampilkan garis yang menghubungkan kolom berurutan dan memudahkan pelacakan nilai berjalan. Untuk menyembunyikan garis tersebut, gantikan pemanggilan metode dalam contoh dengan `series.setShowConnectorLines(false);` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
+
+Presentasi yang disimpan menampilkan laba kotor 600 dan laba bersih 450, keduanya dihitung dari nol:
+
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+
+### **Membuat Diagram Saham**
+
+Diagram saham digunakan untuk menampilkan data keuangan seperti harga buka, tinggi, rendah, dan tutup, membantu menganalisis tren pasar dan volatilitas. Diagram ini memberikan wawasan penting tentang kinerja saham, mendukung investor dan analis dalam membuat keputusan yang tepat.
+
+Contoh ini membuat diagram OHLC (Open‑High‑Low‑Close) dengan empat seri dalam urutan tersebut dan tiga kategori. Metode [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) mengaktifkan batang naik/turun, dan [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) mengontrol garis tinggi‑rendah yang menampilkan rentang harga, sementara garis seri individu dan garis kisi horizontal minor disembunyikan.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
 
-    chart.getChartData().getCategories().clear();
-    chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 1, "Open"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 2, "High"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 3, "Low"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 4, "Close"), chart.getType());
-    var series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 1, 72));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 1, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 1, 38));
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+
+    let categoryCell = workbook.getCell(0, 1, 0, "A");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "B");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "C");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let seriesNameCell = workbook.getCell(0, 0, 1, "Open");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 2, "High");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 3, "Low");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 4, "Close");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+
+    let series = chart.getChartData().getSeries().get_Item(0);
+    let valueCell = workbook.getCell(0, 1, 1, 72);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 1, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 1, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     series = chart.getChartData().getSeries().get_Item(1);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 2, 172));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 2, 57));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 2, 57));
+    valueCell = workbook.getCell(0, 1, 2, 172);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     series = chart.getChartData().getSeries().get_Item(2);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 3, 13));
+    valueCell = workbook.getCell(0, 1, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 3, 13);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     series = chart.getChartData().getSeries().get_Item(3);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 4, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
+    valueCell = workbook.getCell(0, 1, 4, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 4, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 4, 50);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        let ser = chart.getChartData().getSeries().get_Item(i);
-        ser.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++)
+    {
+        let stockSeries = chart.getChartData().getSeries().get_Item(i);
+        stockSeries.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     }
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    presentation.save("Stock-chart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Box and Whisker**
+Hasilnya:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) .
-4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
-5. Hapus seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+![The Stock chart](stock_chart.png)
 
-Kode JavaScript ini menunjukkan cara membuat diagram box and whisker:
+### **Membuat Diagram Box‑and‑Whisker**
+
+Diagram box‑and‑whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan pencilan potensial. Diagram ini sangat berguna dalam analisis eksplorasi data dan studi statistik untuk cepat memahami variabilitas data dan mengidentifikasi anomali.
+
+Contoh ini membuat diagram box‑and‑whisker dari enam nilai. Metode [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) memilih perhitungan kuartil eksklusif. Contoh juga mengaktifkan garis rata‑rata, penanda rata‑rata, titik internal, dan titik pencilan.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 1"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.BoxAndWhisker);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.BoxAndWhisker);
+
     series.setQuartileMethod(aspose.slides.QuartileMethodType.Exclusive);
     series.setShowMeanLine(true);
     series.setShowMeanMarkers(true);
     series.setShowInnerPoints(true);
     series.setShowOutlierPoints(true);
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B1", 15));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B2", 41));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B3", 16));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B4", 10));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B5", 23));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B6", 16));
-    pres.save("BoxAndWhisker.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    let valueCell = workbook.getCell(0, "B1", 15);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 41);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 10);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 23);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+
+    presentation.save("BoxAndWhisker.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Funnel**
+### **Membuat Diagram Corong**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Funnel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Funnel) .
-4. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, di mana volume data berkurang seiring berjalannya langkah demi langkah. Diagram ini sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi hambatan, dan melacak efisiensi proses penjualan atau pemasaran.
 
-Kode JavaScript ini menunjukkan cara membuat diagram funnel:
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) untuk menambahkan diagram corong ke slide pertama dari presentasi yang ada. Ia menggantikan data default dengan enam kategori dan nilai mulai dari 50 hingga 500, kemudian menyimpan presentasi yang telah diperbarui. Presentasi input harus memiliki setidaknya satu slide.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation("test.pptx");
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 2"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 3"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 4"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 5"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 6"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Funnel);
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B1", 50));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B2", 100));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B3", 200));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B4", 300));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B5", 400));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B6", 500));
-    pres.save("Funnel.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Funnel);
+
+    let valueCell = workbook.getCell(0, "B1", 50);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 100);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 200);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 300);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 400);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 500);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+
+    presentation.save("Funnel.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Sunburst**
+Hasilnya:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Sunburst](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Sunburst) .
-4. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+![The Funnel chart](funnel_chart.png)
 
-Kode JavaScript ini menunjukkan cara membuat diagram sunburst:
+### **Membuat Diagram Sunburst**
+
+Diagram sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkat sebagai cincin konsentrik. Diagram ini membantu memperlihatkan hubungan bagian‑dengan‑keseluruhan dan ideal untuk merepresentasikan kategori bersarang serta subkategori dalam format yang jelas dan kompak.
+
+Contoh ini membuat diagram sunburst dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) menetapkan batang pada level pengelompokan 1 dan cabang pada level 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Sunburst, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    // cabang 1
-    var leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    // Cabang 1
+    let categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    let leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
-    // cabang 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    // Cabang 2
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Sunburst);
+
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Sunburst);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D8", 3));
-    pres.save("Sunburst.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    let valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+
+    presentation.save("Sunburst.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Histogram**
+Hasilnya:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Histogram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Histogram) .
-4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
-5. Hapus seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+![The Sunburst chart](sunburst_chart.png)
 
-Kode JavaScript ini menunjukkan cara membuat diagram histogram:
+### **Membuat Diagram Histogram**
+
+Diagram histogram digunakan untuk merepresentasikan distribusi data numerik dengan mengelompokkan nilai ke dalam rentang atau bin. Diagram ini sangat berguna untuk mengidentifikasi pola data seperti frekuensi, kemiringan, dan penyebaran, serta untuk mendeteksi pencilan dalam suatu kumpulan data.
+
+Contoh ini membuat histogram dari enam nilai numerik, termasuk nilai negatif. Memanggil [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) dengan tipe agregasi otomatis memungkinkan diagram menentukan bin yang digunakan untuk menampilkan distribusi.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
-chart.getChartData().getCategories().clear();
-chart.getChartData().getSeries().clear();
-var wb = chart.getChartData().getChartDataWorkbook();
-wb.clear(0);
-var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A1", 15));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A2", -41));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A3", 16));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A4", 10));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
-chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
-```
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
 
-### **Buat Diagram Radar**
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 500, 300);
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan ([ChartType.Radar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#Radar) dalam kasus ini).
-4. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
 
-Kode JavaScript ini menunjukkan cara membuat diagram radar:
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
+    let valueCell = workbook.getCell(0, "A1", 15);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A2", -41);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A3", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A4", 10);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A5", -23);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A6", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
 
-var pres = new aspose.slides.Presentation();
-try {
-    pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
-    pres.save("Radar-chart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+
+    presentation.save("Histogram.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Multi‑Kategori**
+Hasilnya:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ClusteredColumn) .
-4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) .
-5. Hapus seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+![The Histogram chart](histogram_chart.png)
 
-Kode JavaScript ini menunjukkan cara membuat diagram multi‑kategori:
+### **Membuat Diagram Radar**
+
+Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan mudah beberapa variabel secara bersamaan. Diagram ini sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di antara beberapa metrik atau atribut kinerja.
+
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram radar dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
-    ch.getChartData().getSeries().clear();
-    ch.getChartData().getCategories().clear();
-    var fact = ch.getChartData().getChartDataWorkbook();
-    fact.clear(0);
-    var defaultWorksheetIndex = 0;
-    var category = ch.getChartData().getCategories().add(fact.getCell(0, "c2", "A"));
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 500, 300);
+
+    presentation.save("Radar-chart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Hasilnya:
+
+![The Radar chart](radar_chart.png)
+
+### **Membuat Diagram Multi‑Kategori**
+
+Diagram multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di beberapa dimensi secara bersamaan. Diagram ini sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam kumpulan data kompleks berlapis.
+
+Contoh ini membuat diagram kolom berkelompok dengan delapan kategori yang diatur dalam empat pasang. Metode [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) memberikan setiap pasang label bersama pada level pengelompokan 1, menghasilkan sumbu kategori dengan label individu dan grup.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let worksheetIndex = 0;
+
+    let categoryCell = workbook.getCell(0, "c2", "A");
+    let category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group1");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c3", "B"));
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c4", "C"));
+    categoryCell = workbook.getCell(0, "c3", "B");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "c4", "C");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group2");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c5", "D"));
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c6", "E"));
+    categoryCell = workbook.getCell(0, "c5", "D");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "c6", "E");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group3");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c7", "F"));
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
+    categoryCell = workbook.getCell(0, "c7", "F");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "c8", "G");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group4");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-    // Menambahkan Seri
-    var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D4", 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D5", 40));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D6", 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    // Simpan presentasi dengan diagram
-    pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    categoryCell = workbook.getCell(0, "c9", "H");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    let seriesNameCell = workbook.getCell(0, "D1", "Series 1");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.ClusteredColumn);
+
+    let valueCell = workbook.getCell(worksheetIndex, "D2", 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D3", 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D4", 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D5", 40);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D6", 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D7", 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D8", 70);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D9", 80);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+    presentation.save("AsposeChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Peta**
+Hasilnya:
 
-Diagram peta memvisualisasikan data geografis dan membantu membandingkan nilai antar wilayah.
+![The multi category chart](multi_category_chart.png)
 
-Kode JavaScript ini menunjukkan cara membuat diagram peta:
+### **Membuat Diagram Peta**
+
+Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi spesifik seperti negara, provinsi, atau kota. Diagram ini sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial secara jelas dan menarik secara visual.
+
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram peta dengan data geografis default dan menyimpannya untuk dilihat di PowerPoint.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-let pres = new aspose.slides.Presentation();
-try {
-    let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
-    pres.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Map, 20, 20, 500, 300);
+
+    presentation.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Buat Diagram Kombinasi**
+Hasilnya:
+
+![The Map chart](map_chart.png)
+
+{{% alert color="info" title="Note" %}}
+
+Gambar di atas menunjukkan presentasi yang disimpan dibuka di PowerPoint. Aspose.Slides menulis diagram peta dan datanya dengan benar, tetapi tidak menggambar diagram peta secara langsung: ketika slide yang berisi diagram peta dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram menjadi kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
+
+{{% /alert %}}
+
+### **Membuat Diagram Kombinasi**
 
 Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
 
 ![The combination chart](combination_chart.png)
 
-Kode JavaScript berikut memperlihatkan cara membuat diagram kombinasi yang ditampilkan di atas dalam presentasi PowerPoint:
+Contoh ini menggabungkan dua seri kolom berkelompok dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) menempatkan garis pada sumbu vertikal sekunder di sebelah kanan. Fungsi pembantu mengonfigurasi judul, legenda, label sumbu, dan garis kisi.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-function createComboChart() {
+function createComboChart()
+{
     let presentation = new aspose.slides.Presentation();
-    let slide = presentation.getSlides().get_Item(0);
-    try {
-        let chart = createChartWithFirstSeries(slide);
+    try
+    {
+        let chart = createChartWithFirstSeries(presentation.getSlides().get_Item(0));
 
         addSecondSeriesToChart(chart);
         addThirdSeriesToChart(chart);
@@ -809,58 +1061,64 @@ function createComboChart() {
         setSecondaryAxesFormat(chart);
 
         presentation.save("combo-chart.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
+    }
+    finally
+    {
         presentation.dispose();
     }
 }
 
-function createChartWithFirstSeries(slide) {
+function createChartWithFirstSeries(slide)
+{
     let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Atur judul diagram.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
-    let titleParagraph = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0);
-    let titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
-    titleFormat.setFontHeight(18);
+    let portionFormat = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    portionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
+    portionFormat.setFontHeight(18);
 
-    // Atur legenda diagram.
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // Hapus seri dan kategori yang dihasilkan secara default.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    const worksheetIndex = 0;
     let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
 
-    // Tambahkan kategori baru.
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
+    let categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 4, 0, "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    // Tambahkan seri pertama.
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
     series.getParentSeriesGroup().setOverlap(java.newByte(-25));
     series.getParentSeriesGroup().setGapWidth(220);
 
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 4.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 2.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 3.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 1, 4.5));
+    let valueCell = workbook.getCell(worksheetIndex, 1, 1, 4.3);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 2.5);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 3.5);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 4, 1, 4.5);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
 
     return chart;
 }
 
-function addSecondSeriesToChart(chart) {
+function addSecondSeriesToChart(chart)
+{
     let workbook = chart.getChartData().getChartDataWorkbook();
-    const worksheetIndex = 0;
+    let worksheetIndex = 0;
 
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
     let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.ClusteredColumn);
@@ -868,50 +1126,57 @@ function addSecondSeriesToChart(chart) {
     series.getParentSeriesGroup().setOverlap(java.newByte(-25));
     series.getParentSeriesGroup().setGapWidth(220);
 
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 2, 2.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 2, 4.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 2, 1.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 2, 2.8));
+    let valueCell = workbook.getCell(worksheetIndex, 1, 2, 2.4);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 2, 4.4);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 2, 1.8);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 4, 2, 2.8);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
 }
 
-function addThirdSeriesToChart(chart) {
+function addThirdSeriesToChart(chart)
+{
     let workbook = chart.getChartData().getChartDataWorkbook();
-    const worksheetIndex = 0;
+    let worksheetIndex = 0;
 
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
     let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.Line);
 
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 1, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 2, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 3, 3, 3.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 4, 3, 5.0));
+    let valueCell = workbook.getCell(worksheetIndex, 1, 3, 2.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 3, 2.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 3, 3.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 4, 3, 5.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
 
     series.setPlotOnSecondAxis(true);
 }
 
-function setPrimaryAxesFormat(chart) {
-    // Atur sumbu horizontal.
+function setPrimaryAxesFormat(chart)
+{
     let horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // Atur sumbu vertikal.
     let verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Atur warna garis kisi utama vertikal.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
 }
 
-function setSecondaryAxesFormat(chart) {
-    // Atur sumbu horizontal sekunder.
+function setSecondaryAxesFormat(chart)
+{
     let secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(aspose.slides.AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(aspose.slides.CrossesType.Maximum);
@@ -919,7 +1184,6 @@ function setSecondaryAxesFormat(chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // Atur sumbu vertikal sekunder.
     let secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(aspose.slides.AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
@@ -930,167 +1194,202 @@ function setSecondaryAxesFormat(chart) {
     setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
 }
 
-function setAxisTitle(axis, axisTitle) {
+function setAxisTitle(axis, axisTitle)
+{
     axis.setTitle(true);
     axis.getTitle().setOverlay(false);
-    let titleParagraph = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0);
-    let titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
-    titleFormat.setFontHeight(12);
+    let titlePortionFormat = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    titlePortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
+    titlePortionFormat.setFontHeight(12);
 }
+
+createComboChart();
 ```
 
-## **Perbarui Diagram**
+## **Memperbarui Diagram**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) yang mewakili presentasi yang berisi diagram yang ingin Anda perbarui.
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Telusuri semua shape untuk menemukan diagram yang diinginkan.
-4. Akses worksheet data diagram.
-5. Modifikasi seri data diagram dengan mengubah nilai seri.
-6. Tambahkan seri baru dan isi datanya.
-7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+Aspose.Slides untuk Node.js via Java memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, pemformatan, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap up‑to‑date dengan konten dinamis dan memastikan diagram secara akurat mencerminkan data serta standar visual terkini.
 
-Kode JavaScript ini menunjukkan cara memperbarui diagram:
+Contoh ini memperbarui diagram bernama "My chart" pada slide pertama dari presentasi yang ada. Ia memerlukan dua seri kolom dengan masing‑masing tiga titik data, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh menggunakan [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) untuk mengubah sel workbook, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah tipe diagram menjadi silinder berkelompok melalui [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType).
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("ExistingChart.pptx");
-try {
-    // Akses slide pertama
-    var sld = pres.getSlides().get_Item(0);
-    // Dapatkan diagram dengan data default
-    var chart = sld.getShapes().get_Item(0);
-    // Mengatur indeks lembar data diagram
-    var defaultWorksheetIndex = 0;
-    // Mendapatkan worksheet data diagram
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Mengubah Nama Kategori diagram
-    fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
-    fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    // Ambil seri diagram pertama
-    var series = chart.getChartData().getSeries().get_Item(0);
-    // Sekarang memperbarui data seri
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Memodifikasi nama seri
-    series.getDataPoints().get_Item(0).getValue().setData(90);
-    series.getDataPoints().get_Item(1).getValue().setData(123);
-    series.getDataPoints().get_Item(2).getValue().setData(44);
-    // Ambil seri diagram kedua
-    series = chart.getChartData().getSeries().get_Item(1);
-    // Sekarang memperbarui data seri
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Memodifikasi nama seri
-    series.getDataPoints().get_Item(0).getValue().setData(23);
-    series.getDataPoints().get_Item(1).getValue().setData(67);
-    series.getDataPoints().get_Item(2).getValue().setData(99);
-    // Sekarang, menambahkan seri baru
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // Ambil seri diagram ketiga
-    series = chart.getChartData().getSeries().get_Item(2);
-    // Sekarang mengisi data seri
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
-    chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // Simpan presentasi dengan diagram
-    pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+let chartName = "My chart";
+
+let presentation = new aspose.slides.Presentation("ExistingChart.pptx");
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++)
+    {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart") && chartName === shape.getName())
+        {
+            let chart = shape;
+            let worksheetIndex = 0;
+
+            let workbook = chart.getChartData().getChartDataWorkbook();
+
+            workbook.getCell(worksheetIndex, 1, 0, "Modified Category 1");
+            workbook.getCell(worksheetIndex, 2, 0, "Modified Category 2");
+
+            let series = chart.getChartData().getSeries().get_Item(0);
+
+            workbook.getCell(worksheetIndex, 0, 1, "New_Series 1");
+            series.getDataPoints().get_Item(0).getValue().setData(90);
+            series.getDataPoints().get_Item(1).getValue().setData(123);
+            series.getDataPoints().get_Item(2).getValue().setData(44);
+
+            series = chart.getChartData().getSeries().get_Item(1);
+
+            workbook.getCell(worksheetIndex, 0, 2, "New_Series 2");
+            series.getDataPoints().get_Item(0).getValue().setData(23);
+            series.getDataPoints().get_Item(1).getValue().setData(67);
+            series.getDataPoints().get_Item(2).getValue().setData(99);
+
+            let seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+            series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+            let valueCell = workbook.getCell(worksheetIndex, 1, 3, 20);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 2, 3, 50);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 3, 3, 30);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+            chart.setType(aspose.slides.ChartType.ClusteredCylinder);
+        }
     }
+
+    presentation.save("AsposeChartModified.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-## **Atur Rentang Data untuk Diagram**
+## **Menetapkan Rentang Data untuk Diagram**
 
 Untuk memeriksa rentang yang sudah digunakan oleh diagram yang ada, lihat [Retrieve a Chart's Data Range](/slides/id/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Untuk mengatur rentang data bagi diagram, lakukan hal berikut:
+Aspose.Slides untuk Node.js via Java menyediakan fleksibilitas untuk menetapkan rentang data spesifik dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat secara langsung memetakan bagian lembar kerja ke diagram, memungkinkan kontrol atas sel‑sel mana yang berkontribusi pada seri dan kategori diagram. Akibatnya, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan terkini.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) yang mewakili presentasi yang berisi diagram.
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Telusuri semua shape untuk menemukan diagram yang diinginkan.
-4. Akses data diagram dan atur rentangnya.
-5. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode JavaScript ini menunjukkan cara mengatur rentang data untuk diagram:
+Contoh ini menggunakan [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) untuk menetapkan sumber data diagram bernama "My chart" pada slide pertama dari presentasi yang ada ke `Sheet1!A1:B4`. Workbook diagram harus berisi lembar tersebut dan rentang terisi dengan judul seri di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("ExistingChart.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().get_Item(0);
-    chart.getChartData().setRange("Sheet1!A1:B4");
-    pres.save("SetDataRange_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+let chartName = "My chart";
+
+let presentation = new aspose.slides.Presentation("ExistingChart.pptx");
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++)
+    {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart") && chartName === shape.getName())
+        {
+            let chart = shape;
+            chart.getChartData().setRange("Sheet1!A1:B4");
+        }
     }
+
+    presentation.save("SetDataRange.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-## **Gunakan Penanda Default dalam Diagram**
+## **Menggunakan Penanda Bawaan dalam Diagram**
 
-Saat Anda menggunakan penanda default dalam diagram, setiap seri diagram secara otomatis mendapat simbol penanda yang berbeda.
+Saat Anda menggunakan penanda bawaan dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda bawaan yang berbeda.
 
-Kode JavaScript ini menunjukkan cara mengatur penanda seri diagram secara otomatis:
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) untuk membuat diagram dengan dua seri garis dan sebuah legenda. Pengaturan penanda yang diakses melalui [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai yang hilang, yang direpresentasikan oleh `null`, sedangkan seri kedua memiliki nilai untuk setiap kategori.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 10, 10, 400, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 10, 10, 400, 400);
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    var fact = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    var series = chart.getChartData().getSeries().get_Item(0);
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "C1"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 1, 24));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "C2"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 1, 23));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "C3"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 1, -10));
-    chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Ambil seri diagram kedua
-    var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Sekarang mengisi data seri
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 2, 40));
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+
+    let seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let categoryCell = workbook.getCell(0, 1, 0, "C1");
+    chart.getChartData().getCategories().add(categoryCell);
+    let valueCell = workbook.getCell(0, 1, 1, 24);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 2, 0, "C2");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 2, 1, 23);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 3, 0, "C3");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 3, 1, -10);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 4, 0, "C4");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 4, 1, null);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    seriesNameCell = workbook.getCell(0, 0, 2, "Series 2");
+    let secondSeries = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    valueCell = workbook.getCell(0, 1, 2, 30);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 10);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 60);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 4, 2, 40);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+
     chart.setLegend(true);
     chart.getLegend().setOverlay(false);
-    pres.save("DefaultMarkersInChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("DefaultMarkersInChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Jenis diagram apa yang didukung oleh Aspose.Slides?**
+**Jenis diagram apa yang didukung oleh Aspose.Slides untuk Node.js via Java?**
 
-Aspose.Slides mendukung berbagai [chart types](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), termasuk bar, line, pie, area, scatter, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
+Aspose.Slides untuk Node.js via Java mendukung beragam tipe diagram, termasuk batang, garis, lingkaran, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling sesuai untuk kebutuhan visualisasi data Anda.
 
 **Bagaimana cara menambahkan diagram baru ke slide?**
 
-Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) , ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, dengan menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, menentukan tipe diagram dan data awal. Proses ini menyisipkan diagram langsung ke dalam presentasi Anda.
 
 **Bagaimana cara memperbarui data yang ditampilkan dalam diagram?**
 
-Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), menghapus semua seri dan kategori default, lalu menambahkan data khusus Anda. Ini memungkinkan Anda menyegarkan diagram secara programatis agar mencerminkan data terbaru.
+Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), menghapus seri dan kategori default, kemudian menambahkan data kustom Anda. Ini memungkinkan Anda menyegarkan diagram secara programatis agar mencerminkan data terbaru.
 
-**Apakah mungkin menyesuaikan tampilan diagram?**
+**Apakah memungkinkan menyesuaikan tampilan diagram?**
 
-Ya, Aspose.Slides menyediakan opsi kustomisasi yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen [formatting elements](/slides/id/nodejs-java/chart-entities/) lainnya untuk menyesuaikan tampilan diagram sesuai kebutuhan desain spesifik Anda.
+Ya, Aspose.Slides untuk Node.js via Java menyediakan opsi kustomisasi yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram sesuai kebutuhan desain spesifik Anda.

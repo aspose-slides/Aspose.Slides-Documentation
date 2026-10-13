@@ -1,5 +1,5 @@
 ---
-title: Erstellen oder Aktualisieren von PowerPoint-Präsentationsdiagrammen in JavaScript
+title: Erstellen oder Aktualisieren von PowerPoint-Diagrammen in JavaScript
 linktitle: Diagramme erstellen oder aktualisieren
 type: docs
 weight: 10
@@ -11,794 +11,1036 @@ keywords:
 - Diagramm ändern
 - Diagramm aktualisieren
 - Streudiagramm
-- Kreisdiagramm
+- Kuchendiagramm
 - Liniendiagramm
 - Baumkartendiagramm
-- Börsendiagramm
-- Box-und-Whisker-Diagramm
+- Aktienkursdiagramm
+- Box-Whisker-Diagramm
 - Trichterdiagramm
-- Sonnenstrahl-Diagramm
+- Sonnenstrahlendiagramm
 - Histogrammdiagramm
-- Radardiagramm
-- Mehrkategorien-Diagramm
+- Radar-Diagramm
+- Mehrkategoriediagramm
 - PowerPoint
 - Präsentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erstellen und Anpassen von Diagrammen in PowerPoint‑Präsentationen mit Aspose.Slides für Node.js. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Code‑Beispielen in JavaScript."
+description: "Erstellen und Anpassen von Diagrammen in PowerPoint-Präsentationen mit Aspose.Slides für Node.js via Java. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Codebeispielen in JavaScript."
 ---
 ## **Übersicht**
 
-Dieser Artikel bietet eine umfassende Anleitung, wie Sie Diagramme mit Aspose.Slides erstellen und anpassen. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, vom Initialisieren der Präsentation und des Diagrammobjekts bis hin zur Konfiguration von Reihen, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein solides Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Anwendungen integrieren und den Prozess der Erstellung datenbasierter Präsentationen rationalisieren.
+Dieser Artikel bietet eine umfassende Anleitung, wie Diagramme mit Aspose.Slides für Node.js via Java erstellt und angepasst werden. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten befüllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis zur Konfiguration von Serien, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Node.js-Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen optimieren.
 
 ## **Diagramm erstellen**
 
-Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Spreadsheet nicht sofort ersichtlich sind.
+Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Tabellenkalkulationsblatt nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
-Mit Diagrammen können Sie:
+* große Datenmengen auf einer einzelnen Folie einer Präsentation aggregieren, komprimieren oder zusammenfassen;
+* Muster und Trends in Daten aufzeigen;
+* die Richtung und das Momentum von Daten über die Zeit oder in Bezug auf eine bestimmte Maßeinheit ableiten;
+* Ausreißer, Abweichungen, Fehler und unsinnige Daten erkennen;
+* komplexe Daten kommunizieren oder präsentieren.
 
-* große Datenmengen auf einer einzigen Folie einer Präsentation aggregieren, kondensieren oder zusammenfassen
-* Muster und Trends in Daten aufzeigen
-* die Richtung und das Momentum von Daten über die Zeit oder in Bezug auf eine bestimmte Einheit ableiten
-* Ausreißer, Abweichungen, Fehler, unsinnige Daten usw. erkennen
-* komplexe Daten kommunizieren oder präsentieren
-
-In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für viele Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
+In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erzeugen.
 
 {{% alert color="info" title="Note" %}}
-Um Diagramme zu erstellen, verwenden Sie die [ChartType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/)‑Klasse. Die Felder dieser Klasse entsprechen verschiedenen Diagrammtypen.
+Verwenden Sie die [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) Aufzählung im [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/) Modul. Die Werte in dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
 {{% /alert %}}
 
-### **Erstellen von gruppierten Säulendiagrammen**
+### **Gruppierte Säulendiagramme erstellen**
 
-Dieser Abschnitt erklärt, wie Sie gruppierte Säulendiagramme mit Aspose.Slides erstellen. Sie lernen, eine Präsentation zu initialisieren, ein Diagramm hinzuzufügen und Elemente wie Titel, Daten, Reihen, Kategorien und Stil anzupassen. Folgen Sie den Schritten unten, um zu sehen, wie ein Standard‑Gruppiertes‑Säulendiagramm erzeugt wird:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation)‑Klasse.
-1. Rufen Sie über den Index eine Folie ab.
-1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.ClusteredColumn` an.
-1. Fügen Sie dem Diagramm einen Titel hinzu.
-1. Greifen Sie auf das Daten‑Worksheet des Diagramms zu.
-1. Löschen Sie alle Standard‑Reihen und -Kategorien.
-1. Fügen Sie neue Reihen und Kategorien hinzu.
-1. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
-1. Wenden Sie eine Füllfarbe auf die Diagrammreihe an.
-1. Fügen Sie Beschriftungen zur Diagrammreihe hinzu.
-1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
-
-Dieser C#‑Code demonstriert, wie ein gruppiertes Säulendiagramm erstellt wird:
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein gruppiertes Säulendiagramm zu erstellen, das zwei Serien über drei Kategorien vergleicht. Die Serien verwenden rote und grüne Füllungen, und einzelne Beschriftungen zeigen Kategorienamen, Seriendnamen und Werte an. Arbeitsblattindex 0 bezieht sich auf das erste Blatt in der eingebetteten Diagramm‑Arbeitsmappe.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instanziiert eine Präsentationsklasse, die eine PPTX‑Datei darstellt
-var pres = new aspose.slides.Presentation();
-try {
-    // Greift auf die erste Folie zu
-    var sld = pres.getSlides().get_Item(0);
-    // Fügt ein Diagramm mit Standarddaten hinzu
-    var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
-    // Setzt den Diagrammtitel
-    chart.setTitle(true);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    // Setzt die erste Serie so, dass Werte angezeigt werden
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Setzt den Index für das Diagrammdatenblatt
-    var defaultWorksheetIndex = 0;
-    // Holt das Diagrammdaten‑Worksheet
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Löscht die standardmäßig erzeugten Serien und Kategorien
+    chart.setTitle(true);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    var s = chart.getChartData().getSeries().size();
-    s = chart.getChartData().getCategories().size();
-    // Fügt neue Serien hinzu
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // Fügt neue Kategorien hinzu
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Nimmt die erste Diagrammserie
-    var series = chart.getChartData().getSeries().get_Item(0);
-    // Befüllt jetzt die Seriendaten
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Setzt die Füllfarbe für die Serie
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().get_Item(0);
+
+    let valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Nimmt die zweite Diagrammserie
+
     series = chart.getChartData().getSeries().get_Item(1);
-    // Befüllt die Seriendaten
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // Setzt die Füllfarbe für die Serie
+
+    valueCell = workbook.getCell(worksheetIndex, 1, 2, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 2, 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 2, 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    // Erstellt benutzerdefinierte Beschriftungen für jede Kategorie der neuen Serie
-    // Setzt die erste Beschriftung, um den Kategorienamen anzuzeigen
-    var lbl = series.getDataPoints().get_Item(0).getLabel();
-    lbl.getDataLabelFormat().setShowCategoryName(true);
-    lbl = series.getDataPoints().get_Item(1).getLabel();
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    // Zeigt den Wert für die dritte Beschriftung an
-    lbl = series.getDataPoints().get_Item(2).getLabel();
-    lbl.getDataLabelFormat().setShowValue(true);
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    lbl.getDataLabelFormat().setSeparator("/");
-    // Speichert die Präsentation mit Diagramm
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    series.getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
+
+    let label = series.getDataPoints().get_Item(0).getLabel();
+    label.getDataLabelFormat().setShowCategoryName(true);
+
+    label = series.getDataPoints().get_Item(1).getLabel();
+    label.getDataLabelFormat().setShowSeriesName(true);
+
+    label = series.getDataPoints().get_Item(2).getLabel();
+    label.getDataLabelFormat().setShowValue(true);
+    label.getDataLabelFormat().setShowSeriesName(true);
+    label.getDataLabelFormat().setSeparator("/");
+
+    presentation.save("AsposeChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Streudiagrammen**
+Das Ergebnis:
 
-Streudiagramme (auch Scatter‑Plots oder X‑Y‑Diagramme genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu zeigen.
+![Das gruppierte Säulendiagramm](clustered_column_chart.png)
+
+### **Streudiagramme erstellen**
+
+Streudiagramme (auch als Scatter‑Plots oder x‑y‑Diagramme bezeichnet) werden häufig verwendet, um Muster zu überprüfen oder Korrelationen zwischen zwei Variablen zu demonstrieren.
 
 Verwenden Sie ein Streudiagramm, wenn:
 
-* Sie gepaarte numerische Daten haben
-* Sie zwei Variablen haben, die gut zusammenpassen
-* Sie feststellen möchten, ob zwei Variablen miteinander verbunden sind
-* Sie eine unabhängige Variable mit mehreren Werten für eine abhängige Variable besitzen
+* Sie haben gepaarte numerische Daten.
+* Sie haben zwei Variablen, die gut zusammenpassen.
+* Sie möchten feststellen, ob die beiden Variablen miteinander verbunden sind.
+* Sie haben eine unabhängige Variable, die mehrere Werte für eine abhängige Variable hat.
 
-1. Folgen Sie den Schritten in [Erstellen von gruppierten Säulendiagrammen](#erstellen-von‑gruppen‑säulendiagrammen).
-2. Für den dritten Schritt fügen Sie ein Diagramm mit Daten hinzu und wählen einen der folgenden Diagrammtypen:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) – _Streudiagramm mit Markern._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) – _Streudiagramm, das durch Kurven verbunden ist, mit Datenmarkern._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) – _Streudiagramm, das durch Kurven verbunden ist, ohne Datenmarker._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) – _Streudiagramm, das durch gerade Linien verbunden ist, mit Datenmarkern._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) – _Streudiagramm, das durch gerade Linien verbunden ist, ohne Datenmarker._
-
-Dieser JavaScript‑Code zeigt, wie ein Streudiagramm mit unterschiedlichen Markern für jede Reihe erstellt wird:
+Dieses Beispiel zeichnet zwei Sätze von x‑y‑Werten. Die erste Serie verwendet gerade Linien mit Stern‑Markierungen, während die zweite glatte Linien mit Kreis‑Markierungen nutzt; beide verwenden eine Markierungsgröße von 10, konfiguriert mit [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). Die [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol)‑Methode steuert die Form der Markierung.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Instanziiert eine Präsentationsklasse, die eine PPTX‑Datei darstellt
-var pres = new aspose.slides.Presentation();
-try {
-    // Greift auf die erste Folie zu
-    var slide = pres.getSlides().get_Item(0);
-    // Erstellt das Standarddiagramm
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    // Holt den Index des Standard‑Diagrammdaten‑Worksheets
-    var defaultWorksheetIndex = 0;
-    // Holt das Diagrammdaten‑Worksheet
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Löscht die Demo‑Serien
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
-    // Fügt neue Serien hinzu
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-    // Nimmt die erste Diagrammserie
-    var series = chart.getChartData().getSeries().get_Item(0);
-    // Fügt der Serie einen neuen Punkt (1:3) hinzu
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-    // Fügt einen neuen Punkt (2:10) hinzu
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-    // Ändert den Serientyp
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 1, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 1, 3, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let series = chart.getChartData().getSeries().get_Item(0);
+
+    let xValueCell = workbook.getCell(worksheetIndex, 2, 1, 1);
+    let yValueCell = workbook.getCell(worksheetIndex, 2, 2, 3);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 1, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 2, 10);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
-    // Ändert den Marker der Diagrammserie
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
-    // Nimmt die zweite Diagrammserie
+
     series = chart.getChartData().getSeries().get_Item(1);
-    // Fügt dort einen neuen Punkt (5:2) hinzu
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-    // Fügt einen neuen Punkt (3:1) hinzu
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-    // Fügt einen neuen Punkt (2:2) hinzu
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-    // Fügt einen neuen Punkt (5:1) hinzu
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-    // Ändert den Marker der Diagrammserie
+
+    xValueCell = workbook.getCell(worksheetIndex, 2, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 2, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 3, 3);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 4, 3, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 4, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 5, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 5, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
-    pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("AsposeChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Kreisdiagrammen**
+Das Ergebnis:
 
-Kreisdiagramme eignen sich am besten, um das Teil‑zu‑Ganz‑Verhältnis darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Datenbasis jedoch viele Teile oder Beschriftungen, sollten Sie eher ein Balkendiagramm in Betracht ziehen.
+![Das Streudiagramm](scatter_chart.png)
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
-2. Rufen Sie über den Index eine Folie ab.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Pie](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Pie) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
-6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
-8. Fügen Sie neue Punkte für das Diagramm hinzu und wenden Sie benutzerdefinierte Farben für die Sektoren des Kreisdiagramms an.
-9. Setzen Sie Beschriftungen für die Reihen.
-10. Aktivieren Sie Führungs‑Linien für die Reihen‑Beschriftungen.
-11. Legen Sie den Rotationswinkel für die Sektoren des Kreisdiagramms fest.
-12. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+### **Kuchendiagramme erstellen**
 
-Dieser JavaScript‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
+Kuchendiagramme eignen sich am besten, um das Verhältnis von Teil zu Ganzem in Daten zu zeigen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Wenn Ihre Daten jedoch viele Teile oder Beschriftungen enthalten, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
+
+Dieses Beispiel erstellt ein Kuchendiagramm mit drei Quartalswerten. Jeder Abschnitt hat eine benutzerdefinierte Füllung und Rahmen, und die Beschriftungen zeigen verschiedene Kombinationen von Werten, Prozentsätzen und Serieninformationen an. Die [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle)‑Methode legt fest, dass das erste Segment bei 180 Grad beginnt.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instanziert eine Präsentationsklasse, die eine PPTX-Datei darstellt
-var pres = new aspose.slides.Presentation();
-try {
-    // Greift auf die erste Folie zu
-    var slides = pres.getSlides().get_Item(0);
-    // Fügt ein Diagramm mit Standarddaten hinzu
-    var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // Setzt den Diagrammtitel
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    // Setzt die erste Serie, um Werte anzuzeigen
+
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Setzt den Index für das Diagrammdaten-Arbeitsblatt
-    var defaultWorksheetIndex = 0;
-    // Holt das Diagrammdaten-Worksheet
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Löscht die standardmäßig erzeugten Serien und Kategorien
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // Fügt neue Kategorien hinzu
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    // Fügt neue Serien hinzu
-    var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // Befüllt die Seriendaten
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Funktioniert in der neuen Version nicht
-    // Hinzufügen neuer Punkte und Festlegen der Sektor-Farbe
-    // series.IsColorVaried = true;
+
+    let categoryCell = workbook.getCell(0, 1, 0, "1st Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "2nd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "3rd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
-    var point = series.getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // Setzt die Sektor-Randlinie
-    point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
-    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
-    var point1 = series.getDataPoints().get_Item(1);
-    point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // Setzt die Sektor-Randlinie
-    point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
-    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
-    var point2 = series.getDataPoints().get_Item(2);
-    point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // Setzt die Sektor-Randlinie
-    point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
-    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
-    // Erstellt benutzerdefinierte Beschriftungen für jede Kategorie der neuen Serie
-    var lbl1 = series.getDataPoints().get_Item(0).getLabel();
-    // lbl.ShowCategoryName = true;
-    lbl1.getDataLabelFormat().setShowValue(true);
-    var lbl2 = series.getDataPoints().get_Item(1).getLabel();
-    lbl2.getDataLabelFormat().setShowValue(true);
-    lbl2.getDataLabelFormat().setShowLegendKey(true);
-    lbl2.getDataLabelFormat().setShowPercentage(true);
-    var lbl3 = series.getDataPoints().get_Item(2).getLabel();
-    lbl3.getDataLabelFormat().setShowSeriesName(true);
-    lbl3.getDataLabelFormat().setShowPercentage(true);
-    // Zeigt Führungs-Linien für das Diagramm an
+
+    let firstSlice = series.getDataPoints().get_Item(0);
+    firstSlice.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    firstSlice.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    firstSlice.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    firstSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    firstSlice.getFormat().getLine().setWidth(3.0);
+    firstSlice.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    firstSlice.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDash));
+
+    let secondSlice = series.getDataPoints().get_Item(1);
+    secondSlice.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlice.getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+
+    secondSlice.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    secondSlice.getFormat().getLine().setWidth(3.0);
+    secondSlice.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    secondSlice.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
+
+    let thirdSlice = series.getDataPoints().get_Item(2);
+    thirdSlice.getFormat().setFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlice.getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 127, 80));
+
+    thirdSlice.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    thirdSlice.getFormat().getLine().setWidth(2.0);
+    thirdSlice.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    thirdSlice.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
+
+    let firstLabel = series.getDataPoints().get_Item(0).getLabel();
+    firstLabel.getDataLabelFormat().setShowValue(true);
+
+    let secondLabel = series.getDataPoints().get_Item(1).getLabel();
+    secondLabel.getDataLabelFormat().setShowValue(true);
+    secondLabel.getDataLabelFormat().setShowLegendKey(true);
+    secondLabel.getDataLabelFormat().setShowPercentage(true);
+
+    let thirdLabel = series.getDataPoints().get_Item(2).getLabel();
+    thirdLabel.getDataLabelFormat().setShowSeriesName(true);
+    thirdLabel.getDataLabelFormat().setShowPercentage(true);
+
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // Setzt den Rotationswinkel für die Sektoren des Kreisdiagramms
+
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // Speichert die Präsentation mit einem Diagramm
-    pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("PieChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Liniendiagrammen**
+Das Ergebnis:
 
-Liniendiagramme (auch Liniendiagramme genannt) eignen sich besonders, wenn Sie Änderungen von Werten über die Zeit demonstrieren möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Veränderungen und Trends im Zeitverlauf verfolgen, Anomalien in Datenreihen hervorheben und mehr.
+![Das Kuchendiagramm](pie_chart.png)
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
-1. Rufen Sie über den Index eine Folie ab.
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Line](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Line) an.
-1. Greifen Sie auf das Diagramm‑Daten‑Workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/)) zu.
-1. Löschen Sie die Standard‑Reihen und -Kategorien.
-1. Fügen Sie neue Reihen und Kategorien hinzu.
-1. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
-1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+### **Liniendiagramme erstellen**
 
-Dieser JavaScript‑Code zeigt, wie ein Liniendiagramm erstellt wird:
+Liniendiagramme (auch als Liniendiagramme bezeichnet) eignen sich am besten für Situationen, in denen Sie Änderungen von Werten im Laufe der Zeit darstellen möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und vieles mehr.
+
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Liniendiagramm mit den Standardserien und -kategorien zu erstellen, und speichert anschließend die Präsentation als PPTX.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let lineChart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 20, 20, 500, 300);
+
+    presentation.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-Standardmäßig werden Punkte in einem Liniendiagramm durch gerade, durchgehende Linien verbunden. Wenn Sie die Punkte stattdessen mit Strichen verbinden möchten, können Sie den gewünschten Strichtyp wie folgt angeben:
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade durchgängige Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, rufen Sie [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) mit einem Wert aus [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) auf:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
-try {
-    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let lineChart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 20, 20, 500, 300);
+
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++)
+    {
         let series = lineChart.getChartData().getSeries().get_Item(i);
         series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
     }
-    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Baumkartendiagrammen**
+Das Ergebnis:
 
-Baumkartendiagramme eignen sich besonders für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell Aufmerksamkeit auf große Beitragsleister innerhalb jeder Kategorie lenken möchten.
+![Das Liniendiagramm](line_chart.png)
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
-2. Rufen Sie über den Index eine Folie ab.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Treemap](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Treemap) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
-6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
-8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+### **Baumdiagramme erstellen**
 
-Dieser JavaScript‑Code zeigt, wie ein Baumkartendiagramm erstellt wird:
+Baumdiagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell die Aufmerksamkeit auf Elemente lenken möchten, die große Beiträge innerhalb jeder Kategorie leisten.
+
+Dieses Beispiel erstellt ein Baumdiagramm mit acht Blättern, die in vier Stämme und zwei Zweige gruppiert sind. Die [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem)‑Methode weist Stämme der Gruppierungsebene 1 und Zweige der Ebene 2 zu. Werte bestimmen die relativen Rechteckgrößen, während Kategoriebeschriftungen und überlappende übergeordnete Beschriftungen die Hierarchie identifizieren.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Treemap, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
     // Zweig 1
-    var leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+    let categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    let leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
+
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
+
     // Zweig 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Treemap);
+
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Treemap);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D8", 3));
+    let valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+
     series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
-    pres.save("Treemap.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("Treemap.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Börsendiagrammen**
+Das Ergebnis:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
-2. Rufen Sie über den Index eine Folie ab.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
-6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
-8. Legen Sie das Format für Hoch‑Niedrig‑Linien fest.
-9. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+![Das Baumdiagramm](treemap_chart.png)
 
-Dieser JavaScript‑Code zeigt, wie ein Börsendiagramm erstellt wird:
+### **Wasserfalldiagramme erstellen**
+
+Ein Wasserfalldiagramm zeigt, wie positive und negative Änderungen zu einem Endwert beitragen. Zum Beispiel kann eine Gewinnaufstellung mit dem Umsatz beginnen, Kosten abziehen und andere Einnahmen hinzufügen. Änderungs­spalten schwimmen zwischen dem vorherigen und dem neuen laufenden Wert, während Gesamts­palten von null bis zum kumulierten Wert reichen.
+
+| Kategorie | Arbeitsblattwert | Spaltentyp |
+| --- | ---: | --- |
+| Umsatz | 1000 | Zunahme |
+| Verkaufskosten | -400 | Abnahme |
+| Bruttogewinn | 600 | Zwischensumme |
+| Betriebskosten | -200 | Abnahme |
+| Sonstige Einnahmen | 50 | Zunahme |
+| Nettogewinn | 450 | Endsumme |
+
+Um einen Punkt als Zwischensumme oder Endsumme zu markieren, rufen Sie seine [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal)‑Methode mit `true` auf. Geben Sie den tatsächlich akkumulierten Betrag in der Arbeitsblattzelle dieses Punktes an: `600` für den Bruttogewinn (`1000 - 400`) und `450` für den Nettogewinn (`600 - 200 + 50`). Die Methode markiert die Spalte als Gesamtsumme; sie berechnet oder füllt den Zellenwert nicht. Verwenden Sie nicht null als Platzhalter und geben Sie keinen anderen Änderungswert für einen Gesamts‑Punkt an. Eine Gesamts‑Spalte zeigt den akkumulierten Wert an, ohne ihn erneut zum laufenden Wert hinzuzufügen.
+
+Dieses vollständige JavaScript‑Beispiel erstellt ein Diagramm mit dem `Waterfall`‑Mitglied von [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), löscht die Standarddaten und füllt die eingebettete Arbeitsmappe. Arbeitsblattindex `0` wählt das erste Arbeitsblatt; Spalte A enthält Kategorienamen und Spalte B enthält Werte. Jeder Wert wird mit [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) hinzugefügt. Die nullbasierten Punktindizes `2` und `5` identifizieren die Zwischensumme bzw. die Endsumme. Der Aufruf von [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) mit `true` zeigt die Beträge auf den Spalten an. Es wird keine Eingabepräsentation oder Arbeitsmappe benötigt.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Waterfall, 20, 20, 680, 200);
+
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Profit breakdown (USD thousands)");
+    chart.getChartTitle().setOverlay(false);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
+
+    workbook.clear(worksheetIndex);
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Profit");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.Waterfall);
+    let categories = [ "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" ];
+    let values = [ 1000, -400, 600, -200, 50, 450 ];
+
+    for (let i = 0; i < categories.length; i++)
+    {
+        let categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categories[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        let valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
+    }
+
+    // Der dritte und der sechste Punkt stellen Summen dar, nicht zusätzliche Änderungen.
+    series.getDataPoints().get_Item(2).setSetAsTotal(true);
+    series.getDataPoints().get_Item(5).setSetAsTotal(true);
+    series.setShowConnectorLines(true);
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("WaterfallChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Rufen Sie die Serien‑Methode [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) mit `true` auf, um Linien zu zeigen, die aufeinanderfolgende Spalten verbinden und den laufenden Wert leichter nachvollziehbar zu machen. Um diese Linien auszublenden, ersetzen Sie den Methodenaufruf im Beispiel durch `series.setShowConnectorLines(false);` vor dem Speichern. Dies ändert nur die Sichtbarkeit der Linien, nicht die Daten oder Summen.
+
+![Wasserfalldiagramm, das Umsatz, Kosten, Bruttogewinn von 600 und Nettogewinn von 450 zeigt, mit Wertbeschriftungen und Verbindungslinien](waterfall_chart.png)
+
+### **Aktienkurvendiagramme erstellen**
+
+Aktienkurvendiagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Hoch‑, Tief‑ und Schlusskurse darzustellen und so Markttrends sowie Volatilität zu analysieren. Sie liefern wesentliche Einblicke in die Kursentwicklung und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
+
+Dieses Beispiel erstellt ein Open‑High‑Low‑Close‑Diagramm mit vier Serien in dieser Reihenfolge und drei Kategorien. Die [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars)‑Methode aktiviert Auf‑/Ab‑Balken, und [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) steuert die Hoch‑Tief‑Linien, die die Preisspannen anzeigen, während die einzelnen Serienlinien und die kleinen horizontalen Gitternetzlinien ausgeblendet werden.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
 
-    chart.getChartData().getCategories().clear();
-    chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 1, "Open"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 2, "High"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 3, "Low"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 4, "Close"), chart.getType());
-    var series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 1, 72));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 1, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 1, 38));
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+
+    let categoryCell = workbook.getCell(0, 1, 0, "A");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "B");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "C");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let seriesNameCell = workbook.getCell(0, 0, 1, "Open");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 2, "High");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 3, "Low");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 4, "Close");
+    chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.OpenHighLowClose);
+
+    let series = chart.getChartData().getSeries().get_Item(0);
+    let valueCell = workbook.getCell(0, 1, 1, 72);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 1, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 1, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     series = chart.getChartData().getSeries().get_Item(1);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 2, 172));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 2, 57));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 2, 57));
+    valueCell = workbook.getCell(0, 1, 2, 172);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     series = chart.getChartData().getSeries().get_Item(2);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 3, 13));
+    valueCell = workbook.getCell(0, 1, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 3, 13);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     series = chart.getChartData().getSeries().get_Item(3);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 4, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
+    valueCell = workbook.getCell(0, 1, 4, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 4, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 4, 50);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        let ser = chart.getChartData().getSeries().get_Item(i);
-        ser.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++)
+    {
+        let stockSeries = chart.getChartData().getSeries().get_Item(i);
+        stockSeries.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     }
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    presentation.save("Stock-chart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Box‑und‑Whisker‑Diagrammen**
+![Das Aktienkurvendiagramm](stock_chart.png)
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
-2. Rufen Sie über den Index eine Folie ab.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
-6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
-8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+### **Box‑Whisker‑Diagramme erstellen**
 
-Dieser JavaScript‑Code zeigt, wie ein Box‑und‑Whisker‑Diagramm erstellt wird:
+Box‑Whisker‑Diagramme werden verwendet, um die Verteilung von Daten darzustellen, indem zentrale statistische Kennzahlen wie Median, Quartile und mögliche Ausreißer zusammengefasst werden. Sie sind besonders nützlich in explorativen Analysen und statistischen Studien, um Datenvariabilität schnell zu erfassen und Anomalien zu erkennen.
+
+Dieses Beispiel erstellt ein Box‑Whisker‑Diagramm aus sechs Werten. Die [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod)‑Methode wählt die exklusive Quartilsberechnung. Das Beispiel aktiviert außerdem Mittelwertlinien, Mittelwert‑Markierungen, innere Punkte und Ausreißerpunkte.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 1"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.BoxAndWhisker);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.BoxAndWhisker);
+
     series.setQuartileMethod(aspose.slides.QuartileMethodType.Exclusive);
     series.setShowMeanLine(true);
     series.setShowMeanMarkers(true);
     series.setShowInnerPoints(true);
     series.setShowOutlierPoints(true);
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B1", 15));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B2", 41));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B3", 16));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B4", 10));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B5", 23));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B6", 16));
-    pres.save("BoxAndWhisker.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    let valueCell = workbook.getCell(0, "B1", 15);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 41);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 10);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 23);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+
+    presentation.save("BoxAndWhisker.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Trichterdiagrammen**
+### **Trichterdiagramme erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
-2. Rufen Sie über den Index eine Folie ab.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Funnel](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Funnel) an.
-4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Trichterdiagramme werden verwendet, um Prozesse mit sequenziellen Stufen zu visualisieren, bei denen das Datenvolumen von einem Schritt zum nächsten abnimmt. Sie eignen sich besonders zur Analyse von Konversionsraten, zur Identifikation von Engpässen und zur Verfolgung der Effizienz von Vertriebs‑ oder Marketingprozessen.
 
-Dieser JavaScript‑Code zeigt, wie ein Trichterdiagramm erstellt wird:
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um einem bestehenden Präsentationsdokument ein Trichterdiagramm zur ersten Folie hinzuzufügen. Es ersetzt die Standarddaten durch sechs Kategorien und Werte von 50 bis 500 und speichert anschließend die aktualisierte Präsentation. Die Eingabepäsentation muss mindestens eine Folie enthalten.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation("test.pptx");
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 2"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 3"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 4"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 5"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 6"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Funnel);
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B1", 50));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B2", 100));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B3", 200));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B4", 300));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B5", 400));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B6", 500));
-    pres.save("Funnel.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Funnel);
+
+    let valueCell = workbook.getCell(0, "B1", 50);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 100);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 200);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 300);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 400);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 500);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+
+    presentation.save("Funnel.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Sonnenstrahl‑Diagrammen**
+Das Ergebnis:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
-2. Rufen Sie über den Index eine Folie ab.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Sunburst](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Sunburst) an.
-4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+![Das Trichterdiagramm](funnel_chart.png)
 
-Dieser JavaScript‑Code zeigt, wie ein Sonnenstrahl‑Diagramm erstellt wird:
+### **Sonnenstrahlendiagramme erstellen**
+
+Sonnenstrahlendiagramme werden verwendet, um hierarchische Daten zu visualisieren, wobei Ebenen als konzentrische Ringe dargestellt werden. Sie veranschaulichen Teil‑zu‑Ganz‑Beziehungen und eignen sich hervorragend für die kompakte Darstellung verschachtelter Kategorien und Unterkategorien.
+
+Dieses Beispiel erstellt ein Sonnenstrahlendiagramm mit acht Blättern, die in vier Stämme und zwei Zweige gruppiert sind. Die [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem)‑Methode weist Stämme der Gruppierungsebene 1 und Zweige der Ebene 2 zu. Kategoriebeschriftungen identifizieren die Segmente, und die Werte bestimmen ihre relative Größe.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Sunburst, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
     // Zweig 1
-    var leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+    let categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    let leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
+
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
+
     // Zweig 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Sunburst);
+
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Sunburst);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D8", 3));
-    pres.save("Sunburst.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    let valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+
+    presentation.save("Sunburst.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Histogrammdiagrammen**
+Das Ergebnis:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
-2. Rufen Sie über den Index eine Folie ab.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Histogram](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Histogram) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
-6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+![Das Sonnenstrahlendiagramm](sunburst_chart.png)
 
-Dieser JavaScript‑Code zeigt, wie ein Histogrammdiagramm erstellt wird:
+### **Histogramm‑Diagramme erstellen**
+
+Histogramm‑Diagramme werden verwendet, um die Verteilung numerischer Daten darzustellen, indem Werte in Bereiche oder Klassen gruppiert werden. Sie eignen sich besonders gut zur Identifikation von Mustern wie Häufigkeit, Schiefe und Streuung sowie zum Erkennen von Ausreißern in einem Datensatz.
+
+Dieses Beispiel erstellt ein Histogramm aus sechs numerischen Werten, einschließlich negativer Werte. Der Aufruf von [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) mit dem automatischen Aggregationstyp lässt das Diagramm die für die Darstellung der Verteilung zu verwendenden Klassen selbst bestimmen.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
-chart.getChartData().getCategories().clear();
-chart.getChartData().getSeries().clear();
-var wb = chart.getChartData().getChartDataWorkbook();
-wb.clear(0);
-var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A1", 15));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A2", -41));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A3", 16));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A4", 10));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
-series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
-chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
-```
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
 
-### **Erstellen von Radardiagrammen**
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 500, 300);
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
-2. Rufen Sie über den Index eine Folie ab.
-3. Fügen Sie ein Diagramm mit Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp ([ChartType.Radar](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Radar)) an.
-4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
 
-Dieser JavaScript‑Code zeigt, wie ein Radardiagramm erstellt wird:
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
+    let valueCell = workbook.getCell(0, "A1", 15);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A2", -41);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A3", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A4", 10);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A5", -23);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A6", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
 
-var pres = new aspose.slides.Presentation();
-try {
-    pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
-    pres.save("Radar-chart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+
+    presentation.save("Histogram.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Mehrkategorien‑Diagrammen**
+Das Ergebnis:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
-2. Rufen Sie über den Index eine Folie ab.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.ClusteredColumn](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ClusteredColumn) an.
-4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
-5. Löschen Sie die Standard‑Reihen und -Kategorien.
-6. Fügen Sie neue Reihen und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
-8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+![Das Histogramm-Diagramm](histogram_chart.png)
 
-Dieser JavaScript‑Code zeigt, wie ein Mehrkategorien‑Diagramm erstellt wird:
+### **Radar‑Diagramme erstellen**
+
+Radar‑Diagramme werden verwendet, um multivariate Daten in einem zweidimensionalen Format darzustellen, wodurch mehrere Variablen gleichzeitig leicht verglichen werden können. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungskennzahlen oder Attribute hinweg zu erkennen.
+
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Radar‑Diagramm mit den Standardserien und -kategorien zu erstellen, und speichert die Präsentation als PPTX.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
-    ch.getChartData().getSeries().clear();
-    ch.getChartData().getCategories().clear();
-    var fact = ch.getChartData().getChartDataWorkbook();
-    fact.clear(0);
-    var defaultWorksheetIndex = 0;
-    var category = ch.getChartData().getCategories().add(fact.getCell(0, "c2", "A"));
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 500, 300);
+
+    presentation.save("Radar-chart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Das Ergebnis:
+
+![Das Radar‑Diagramm](radar_chart.png)
+
+### **Mehrkategorielle Diagramme erstellen**
+
+Mehrkategorielle Diagramme werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung enthalten, sodass Werte über mehrere Dimensionen gleichzeitig verglichen werden können. Sie sind besonders hilfreich, wenn Trends und Zusammenhänge in komplexen, mehrschichtigen Datensätzen analysiert werden sollen.
+
+Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit acht Kategorien, die in vier Paare angeordnet sind. Die [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem)‑Methode gibt jedem Paar ein gemeinsames Beschriftungslabel auf Gruppierungsebene 1, wodurch eine Kategorienachse mit sowohl einzelnen als auch Gruppen‑Labels entsteht.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let worksheetIndex = 0;
+
+    let categoryCell = workbook.getCell(0, "c2", "A");
+    let category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group1");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c3", "B"));
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c4", "C"));
+    categoryCell = workbook.getCell(0, "c3", "B");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "c4", "C");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group2");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c5", "D"));
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c6", "E"));
+    categoryCell = workbook.getCell(0, "c5", "D");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "c6", "E");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group3");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c7", "F"));
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
+    categoryCell = workbook.getCell(0, "c7", "F");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    categoryCell = workbook.getCell(0, "c8", "G");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group4");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-    // Hinzufügen von Serien
-    var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D4", 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D5", 40));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D6", 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    // Präsentation mit Diagramm speichern
-    pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    categoryCell = workbook.getCell(0, "c9", "H");
+    category = chart.getChartData().getCategories().add(categoryCell);
+
+    let seriesNameCell = workbook.getCell(0, "D1", "Series 1");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.ClusteredColumn);
+
+    let valueCell = workbook.getCell(worksheetIndex, "D2", 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D3", 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D4", 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D5", 40);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D6", 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D7", 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D8", 70);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D9", 80);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+    presentation.save("AsposeChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Kartendiagrammen**
+Das Ergebnis:
 
-Kartendiagramme visualisieren geografische Daten und helfen, Werte über Regionen hinweg zu vergleichen.
+![Das mehrkategorielle Diagramm](multi_category_chart.png)
 
-Dieser JavaScript‑Code zeigt, wie ein Kartendiagramm erstellt wird:
+### **Karten‑Diagramme erstellen**
+
+Karten‑Diagramme werden verwendet, um geografische Daten zu visualisieren, indem Informationen bestimmten Standorten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
+
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Karten‑Diagramm mit den Standardgeodaten zu erstellen und es zum Betrachten in PowerPoint zu speichern.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-let pres = new aspose.slides.Presentation();
-try {
-    let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
-    pres.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Map, 20, 20, 500, 300);
+
+    presentation.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Erstellen von Kombinationsdiagrammen**
+Das Ergebnis:
 
-Ein Kombinationsdiagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen mehreren Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
+![Das Karten‑Diagramm](map_chart.png)
+
+{{% alert color="info" title="Note" %}}
+Das obige Bild zeigt die gespeicherte Präsentation, geöffnet in PowerPoint. Aspose.Slides schreibt das Karten‑Diagramm und seine Daten korrekt, zeichnet jedoch keine Karten‑Diagramme selbst: Wenn eine Folie, die eines enthält, zu einem Bild gerendert oder in PDF oder SVG konvertiert wird, erscheint der Diagrammbereich leer. Andere Formen auf derselben Folie bleiben unverändert.
+{{% /alert %}}
+
+### **Kombinationsdiagramme erstellen**
+
+Ein Kombinationsdiagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
 
 ![Das Kombinationsdiagramm](combination_chart.png)
 
-Der folgende JavaScript‑Code zeigt, wie das oben dargestellte Kombinationsdiagramm in einer PowerPoint‑Präsentation erstellt wird:
+Dieses Beispiel kombiniert zwei gruppierte Säulenseries mit einer Linienserie über vier Kategorien. Die Säulen verwenden die primäre vertikale Achse, während [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) die Linie auf einer sekundären vertikalen Achse rechts platziert. Die Hilfsfunktionen konfigurieren Titel, Legende, Achsenbeschriftungen und Gitternetzlinien.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-function createComboChart() {
+function createComboChart()
+{
     let presentation = new aspose.slides.Presentation();
-    let slide = presentation.getSlides().get_Item(0);
-    try {
-        let chart = createChartWithFirstSeries(slide);
+    try
+    {
+        let chart = createChartWithFirstSeries(presentation.getSlides().get_Item(0));
 
         addSecondSeriesToChart(chart);
         addThirdSeriesToChart(chart);
@@ -807,58 +1049,64 @@ function createComboChart() {
         setSecondaryAxesFormat(chart);
 
         presentation.save("combo-chart.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
+    }
+    finally
+    {
         presentation.dispose();
     }
 }
 
-function createChartWithFirstSeries(slide) {
+function createChartWithFirstSeries(slide)
+{
     let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Setzt den Diagrammtitel.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
-    let titleParagraph = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0);
-    let titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
-    titleFormat.setFontHeight(18);
+    let portionFormat = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    portionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
+    portionFormat.setFontHeight(18);
 
-    // Setzt die Diagrammlegende.
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // Löscht die standardmäßig erzeugten Serien und Kategorien.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    const worksheetIndex = 0;
     let workbook = chart.getChartData().getChartDataWorkbook();
+    let worksheetIndex = 0;
 
-    // Fügt neue Kategorien hinzu.
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
+    let categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 4, 0, "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    // Fügt die erste Serie hinzu.
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
     series.getParentSeriesGroup().setOverlap(java.newByte(-25));
     series.getParentSeriesGroup().setGapWidth(220);
 
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 4.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 2.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 3.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 1, 4.5));
+    let valueCell = workbook.getCell(worksheetIndex, 1, 1, 4.3);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 2.5);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 3.5);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 4, 1, 4.5);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
 
     return chart;
 }
 
-function addSecondSeriesToChart(chart) {
+function addSecondSeriesToChart(chart)
+{
     let workbook = chart.getChartData().getChartDataWorkbook();
-    const worksheetIndex = 0;
+    let worksheetIndex = 0;
 
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
     let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.ClusteredColumn);
@@ -866,50 +1114,57 @@ function addSecondSeriesToChart(chart) {
     series.getParentSeriesGroup().setOverlap(java.newByte(-25));
     series.getParentSeriesGroup().setGapWidth(220);
 
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 2, 2.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 2, 4.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 2, 1.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 2, 2.8));
+    let valueCell = workbook.getCell(worksheetIndex, 1, 2, 2.4);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 2, 4.4);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 2, 1.8);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 4, 2, 2.8);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
 }
 
-function addThirdSeriesToChart(chart) {
+function addThirdSeriesToChart(chart)
+{
     let workbook = chart.getChartData().getChartDataWorkbook();
-    const worksheetIndex = 0;
+    let worksheetIndex = 0;
 
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
     let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.Line);
 
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 1, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 2, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 3, 3, 3.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 4, 3, 5.0));
+    let valueCell = workbook.getCell(worksheetIndex, 1, 3, 2.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 3, 2.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 3, 3.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 4, 3, 5.0);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
 
     series.setPlotOnSecondAxis(true);
 }
 
-function setPrimaryAxesFormat(chart) {
-    // Setzt die horizontale Achse.
+function setPrimaryAxesFormat(chart)
+{
     let horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // Setzt die vertikale Achse.
     let verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Setzt die Farbe der vertikalen Hauptgitterlinien.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
 }
 
-function setSecondaryAxesFormat(chart) {
-    // Setzt die sekundäre horizontale Achse.
+function setSecondaryAxesFormat(chart)
+{
     let secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(aspose.slides.AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(aspose.slides.CrossesType.Maximum);
@@ -917,176 +1172,212 @@ function setSecondaryAxesFormat(chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // Setzt die sekundäre vertikale Achse.
     let secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(aspose.slides.AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
-    secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    secondaryVerticalAxis.getFormat().getLine().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
 }
 
-function setAxisTitle(axis, axisTitle) {
+function setAxisTitle(axis, axisTitle)
+{
     axis.setTitle(true);
     axis.getTitle().setOverlay(false);
-    let titleParagraph = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0);
-    let titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
-    titleFormat.setFontHeight(12);
+    let titlePortionFormat = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    titlePortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
+    titlePortionFormat.setFontHeight(12);
 }
+
+createComboChart();
 ```
 
 ## **Diagramme aktualisieren**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse, die die zu aktualisierende Diagramm‑Präsentation darstellt.
-2. Rufen Sie über den Index eine Folie ab.
-3. Durchsuchen Sie alle Formen, um das gewünschte Diagramm zu finden.
-4. Greifen Sie auf das Diagramm‑Daten‑Worksheet zu.
-5. Ändern Sie die Werte der Diagrammdaten‑Reihen.
-6. Fügen Sie eine neue Reihe hinzu und füllen Sie deren Daten.
-7. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Aspose.Slides für Node.js via Java ermöglicht Ihnen, PowerPoint‑Diagramme zu aktualisieren, indem Sie Diagrammdaten, Formatierungen und Stile ändern. Diese Funktion vereinfacht das Aktualisieren von Präsentationen mit dynamischen Inhalten und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards exakt wiedergeben.
 
-Dieser JavaScript‑Code zeigt, wie ein Diagramm aktualisiert wird:
+Dieses Beispiel aktualisiert das Diagramm mit dem Namen "My chart" auf der ersten Folie einer bestehenden Präsentation. Es erfordert zwei Spaltenserien mit je drei Datenpunkten, wobei Kategoriebeschriftungen in Spalte A und Seriennamen in der ersten Zeile des ersten Arbeitsblatts stehen. Das Beispiel verwendet [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell), um Arbeitsblattzellen zu ändern, aktualisiert Serienwerte, fügt eine dritte Serie hinzu und ändert das Diagramm über [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType) zu gruppierten Zylindern.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("ExistingChart.pptx");
-try {
-    // Zugriff auf die erste Folie
-    var sld = pres.getSlides().get_Item(0);
-    // Diagramm mit Standarddaten abrufen
-    var chart = sld.getShapes().get_Item(0);
-    // Festlegen des Indexes des Diagramm‑Datenblatts
-    var defaultWorksheetIndex = 0;
-    // Abrufen des Diagrammdaten‑Worksheets
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Ändern des Diagramm‑Kategorienamens
-    fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
-    fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    // Erste Diagrammserie auswählen
-    var series = chart.getChartData().getSeries().get_Item(0);
-    // Jetzt die Seriendaten aktualisieren
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Seriennamen ändern
-    series.getDataPoints().get_Item(0).getValue().setData(90);
-    series.getDataPoints().get_Item(1).getValue().setData(123);
-    series.getDataPoints().get_Item(2).getValue().setData(44);
-    // Zweite Diagrammserie auswählen
-    series = chart.getChartData().getSeries().get_Item(1);
-    // Jetzt die Seriendaten aktualisieren
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Seriennamen ändern
-    series.getDataPoints().get_Item(0).getValue().setData(23);
-    series.getDataPoints().get_Item(1).getValue().setData(67);
-    series.getDataPoints().get_Item(2).getValue().setData(99);
-    // Jetzt eine neue Serie hinzufügen
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // Dritte Diagrammserie auswählen
-    series = chart.getChartData().getSeries().get_Item(2);
-    // Jetzt die Seriendaten füllen
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
-    chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // Präsentation mit Diagramm speichern
-    pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+let chartName = "My chart";
+
+let presentation = new aspose.slides.Presentation("ExistingChart.pptx");
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++)
+    {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart") && chartName === shape.getName())
+        {
+            let chart = shape;
+            let worksheetIndex = 0;
+
+            let workbook = chart.getChartData().getChartDataWorkbook();
+
+            workbook.getCell(worksheetIndex, 1, 0, "Modified Category 1");
+            workbook.getCell(worksheetIndex, 2, 0, "Modified Category 2");
+
+            let series = chart.getChartData().getSeries().get_Item(0);
+
+            workbook.getCell(worksheetIndex, 0, 1, "New_Series 1");
+            series.getDataPoints().get_Item(0).getValue().setData(90);
+            series.getDataPoints().get_Item(1).getValue().setData(123);
+            series.getDataPoints().get_Item(2).getValue().setData(44);
+
+            series = chart.getChartData().getSeries().get_Item(1);
+
+            workbook.getCell(worksheetIndex, 0, 2, "New_Series 2");
+            series.getDataPoints().get_Item(0).getValue().setData(23);
+            series.getDataPoints().get_Item(1).getValue().setData(67);
+            series.getDataPoints().get_Item(2).getValue().setData(99);
+
+            let seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+            series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+            let valueCell = workbook.getCell(worksheetIndex, 1, 3, 20);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 2, 3, 50);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 3, 3, 30);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+            chart.setType(aspose.slides.ChartType.ClusteredCylinder);
+        }
     }
+
+    presentation.save("AsposeChartModified.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ## **Datenbereich für ein Diagramm festlegen**
 
-So legen Sie den Datenbereich für ein Diagramm fest:
+Um den bereits von einem bestehenden Diagramm verwendeten Bereich zu prüfen, siehe [Diagrammdatenbereich abrufen](/slides/de/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse, die die Präsentation mit dem Diagramm enthält.
-2. Rufen Sie über den Index eine Folie ab.
-3. Durchsuchen Sie alle Formen, um das gewünschte Diagramm zu finden.
-4. Greifen Sie auf die Diagrammdaten zu und setzen Sie den Bereich.
-5. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Aspose.Slides für Node.js via Java bietet die Flexibilität, einen bestimmten Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten zu definieren. Das bedeutet, dass Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen können, sodass Sie steuern können, welche Zellen zu den Serien und Kategorien des Diagramms beitragen. Dadurch können Sie Ihre Diagramme leicht mit den neuesten Datenänderungen in Ihrem Arbeitsblatt aktualisieren und synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und korrekte Informationen wiedergeben.
 
-Dieser JavaScript‑Code zeigt, wie der Datenbereich für ein Diagramm festgelegt wird:
+Dieses Beispiel verwendet [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange), um die Datenquelle des Diagramms mit dem Namen "My chart" auf der ersten Folie einer bestehenden Präsentation auf `Sheet1!A1:B4` zu setzen. Die Diagrammarbeitsmappe muss dieses Arbeitsblatt enthalten und einen befüllten Bereich mit einer Serienüberschrift in der ersten Zeile, Kategoriebeschriftungen in Spalte A und drei Werten in Spalte B aufweisen.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("ExistingChart.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().get_Item(0);
-    chart.getChartData().setRange("Sheet1!A1:B4");
-    pres.save("SetDataRange_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+let chartName = "My chart";
+
+let presentation = new aspose.slides.Presentation("ExistingChart.pptx");
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++)
+    {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart") && chartName === shape.getName())
+        {
+            let chart = shape;
+            chart.getChartData().setRange("Sheet1!A1:B4");
+        }
     }
+
+    presentation.save("SetDataRange.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-## **Standard‑Marker in Diagrammen verwenden**
+## **Standard‑Markierungen in Diagrammen verwenden**
 
-Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammreihe automatisch ein anderes Markersymbol.
+Wenn Sie Standard‑Markierungen in Diagrammen verwenden, erhält jede Diagrammserie automatisch ein unterschiedliches Standard‑Markierungssymbol.
 
-Dieser JavaScript‑Code zeigt, wie ein Diagramm‑Reihen‑Marker automatisch gesetzt wird:
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart), um ein Diagramm mit zwei Linienserien und einer Legende zu erstellen. Die über [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) zugänglichen Markierungseinstellungen behalten die automatisch zugewiesenen Markierungssymbole bei. Die erste Serie enthält einen negativen Wert und einen fehlenden Wert, dargestellt durch `null`, während die zweite für jede Kategorie einen Wert hat.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 10, 10, 400, 400);
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 10, 10, 400, 400);
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    var fact = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    var series = chart.getChartData().getSeries().get_Item(0);
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "C1"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 1, 24));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "C2"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 1, 23));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "C3"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 1, -10));
-    chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Nimm die zweite Diagrammserie
-    var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Jetzt die Seriendaten befüllen
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 2, 40));
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+
+    let seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    let categoryCell = workbook.getCell(0, 1, 0, "C1");
+    chart.getChartData().getCategories().add(categoryCell);
+    let valueCell = workbook.getCell(0, 1, 1, 24);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 2, 0, "C2");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 2, 1, 23);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 3, 0, "C3");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 3, 1, -10);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 4, 0, "C4");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 4, 1, null);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    seriesNameCell = workbook.getCell(0, 0, 2, "Series 2");
+    let secondSeries = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    valueCell = workbook.getCell(0, 1, 2, 30);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 10);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 60);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 4, 2, 40);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+
     chart.setLegend(true);
     chart.getLegend().setOverlay(false);
-    pres.save("DefaultMarkersInChart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+
+    presentation.save("DefaultMarkersInChart.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Welche Diagrammtypen werden von Aspose.Slides unterstützt?**
+**Welche Diagrammtypen werden von Aspose.Slides für Node.js via Java unterstützt?**
 
-Aspose.Slides unterstützt eine Vielzahl von [Diagrammtypen](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/), darunter Balken, Linien, Kreis, Flächen, Streu, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierung auszuwählen.
+Aspose.Slides für Node.js via Java unterstützt eine breite Palette von Diagrammtypen, darunter Balken, Linien, Kuchen, Flächen, Scatter, Histogramme, Radar und viele weitere. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Visualisierungsanforderungen auszuwählen.
 
-**Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
+**Wie füge ich einem Folie ein neues Diagramm hinzu?**
 
-Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse, holen die gewünschte Folie über deren Index und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse, rufen die gewünschte Folie über ihren Index ab und rufen anschließend die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
 **Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-Sie können die Daten eines Diagramms aktualisieren, indem Sie auf das zugehörige Daten‑Workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/)) zugreifen, vorhandene Standard‑Reihen und -Kategorien entfernen und anschließend Ihre benutzerdefinierten Daten hinzufügen. So können Sie das Diagramm programmgesteuert aktualisieren, um die neuesten Daten wiederzugeben.
+Sie können die Diagrammdaten aktualisieren, indem Sie auf das Daten‑Workbook des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) zugreifen, die Standardserien und -kategorien löschen und anschließend Ihre benutzerdefinierten Daten hinzufügen. Dadurch können Sie das Diagramm programmgesteuert aktualisieren, um die neuesten Daten widerzuspiegeln.
 
 **Ist es möglich, das Aussehen des Diagramms anzupassen?**
 
-Ja, Aspose.Slides bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere [Formatierungselemente](/slides/de/nodejs-java/chart-entities/) ändern, um das Erscheinungsbild des Diagramms an Ihre spezifischen Designanforderungen anzupassen.
+Ja, Aspose.Slides für Node.js via Java bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere Formatierungselemente ändern, um das Aussehen des Diagramms an Ihre spezifischen Designanforderungen anzupassen.

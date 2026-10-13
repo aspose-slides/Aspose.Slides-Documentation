@@ -1,723 +1,1096 @@
 ---
-title: Diagrammen in PowerPoint-presentaties maken of bijwerken in PHP
-linktitle: Diagrammen maken of bijwerken
+title: Grafieken in PowerPoint-presentaties maken of bijwerken in PHP
+linktitle: Grafieken maken of bijwerken
 type: docs
 weight: 10
 url: /nl/php-java/create-chart/
 keywords:
-- diagram toevoegen
-- diagram maken
-- diagram bewerken
-- diagram wijzigen
-- diagram bijwerken
-- spreidingsdiagram
-- cirkeldiagram
-- lijndiagram
-- boomkaartdiagram
-- aandelen-diagram
-- box-en-whisker-diagram
-- trechterdiagram
-- sunburst-diagram
-- histogramdiagram
-- radardiagram
-- diagram met meerdere categorieën
+- grafiek toevoegen
+- grafiek maken
+- grafiek bewerken
+- grafiek wijzigen
+- grafiek bijwerken
+- spreidingsgrafiek
+- taartgrafiek
+- lijngrafiek
+- boomkaartgrafiek
+- aandelengrafiek
+- box en whisker grafiek
+- funnelgrafiek
+- sunburst-grafiek
+- histogramgrafiek
+- radargrafiek
+- grafiek met meerdere categorieën
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Maak en pas diagrammen aan in PowerPoint-presentaties met Aspose.Slides voor PHP via Java. Voeg diagrammen toe, formatteer ze en bewerk ze met praktische codevoorbeelden."
+description: "Grafieken maken en aanpassen in PowerPoint-presentaties met Aspose.Slides voor PHP via Java. Grafieken toevoegen, opmaken en bewerken met praktische code-voorbeelden in PHP."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide gids over hoe u diagrammen kunt maken en aanpassen met Aspose.Slides. U leert hoe u programmeermatig een diagram toevoegt aan een dia, het vult met gegevens, en verschillende opmaakopties toepast om te voldoen aan uw specifieke ontwerpeisen. Gedurende het artikel illustreren gedetailleerde codevoorbeelden elke stap, van het initialiseren van de presentatie en diagramobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijgt u een solide begrip van hoe u dynamische diagramgeneratie kunt integreren in uw toepassingen, waardoor het proces van het maken van data‑gedreven presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreide handleiding voor het maken en aanpassen van grafieken met Aspose.Slides voor PHP via Java. Je leert hoe je programmeerbaar een grafiek aan een dia kunt toevoegen, deze met gegevens kunt vullen en verschillende opmaakopties kunt toepassen om te voldoen aan jouw specifieke ontwerpvereisten. Door het artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en grafiekobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijg je een gedegen begrip van hoe je dynamische grafiekgeneratie kunt integreren in je PHP‑toepassingen, waardoor het proces van het maken van datagedreven presentaties wordt gestroomlijnd.
 
-## **Diagram maken**
+## **Grafiek maken**
 
-Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te verkrijgen die mogelijk niet direct duidelijk zijn uit een tabel of spreadsheet.
+Grafieken helpen mensen snel data te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
 
-**Waarom diagrammen maken?**
+**Waarom grafieken maken?**
 
-* grote hoeveelheden gegevens samenvatten, comprimeren of aggregeren op één dia in een presentatie
-* patronen en trends in gegevens blootleggen
-* de richting en het momentum van gegevens over de tijd of ten opzichte van een specifieke meeteenheid afleiden
-* uitbijters, afwijkingen, fouten, onzinnige gegevens, enz. opsporen
-* complexe gegevens communiceren of presenteren
+* grote hoeveelheden data samenvatten, comprimeren of consolideren op één dia in een presentatie;
+* patronen en trends in data blootleggen;
+* de richting en momentum van data over tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitbijters, afwijkingen, fouten en onsamenhangende data opsporen;
+* complexe data communiceren of presenteren.
 
-In PowerPoint kunt u diagrammen maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van vele soorten diagrammen. Met Aspose.Slides kunt u zowel reguliere diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
+In PowerPoint kun je grafieken maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van vele soorten grafieken. Met Aspose.Slides kun je zowel reguliere grafieken (gebaseerd op populaire grafiektype­n) als aangepaste grafieken maken.
 
 {{% alert color="info" title="Note" %}}
-Om diagrammen te maken, gebruikt u de [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) klasse. De velden in deze klasse komen overeen met verschillende diagramtypen.
+Gebruik de [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) enumeratie in de [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) namespace. De waarden in deze enumeratie komen overeen met verschillende grafiektype­n.
 {{% /alert %}}
 
-### **Geclusterde kolomdiagrammen maken**
+### **Gegroepeerde kolomgrafieken maken**
 
-Deze sectie legt uit hoe u geclusterde kolomdiagrammen maakt met Aspose.Slides. U leert een presentatie initialiseren, een diagram toevoegen en elementen zoals titel, gegevens, series, categorieën en styling aanpassen. Volg de onderstaande stappen om te zien hoe een standaard geclusterd kolomdiagram wordt gegenereerd:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType::ClusteredColumn`.
-4. Voeg een titel toe aan het diagram.
-5. Open het gegevenswerkblad van het diagram.
-6. Wis alle standaard series en categorieën.
-7. Voeg nieuwe series en categorieën toe.
-8. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-9. Pas een opvulkleur toe op de diagramseries.
-10. Voeg labels toe aan de diagramseries.
-11. Sla de aangepaste presentatie op als een PPTX‑bestand.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een gegroepeerde kolomgrafiek te maken die twee series vergelijkt over drie categorieën. De series gebruiken rode en groene vullingen, en individuele labels tonen categorienamen, serienamen en waarden. Werkblad‑index 0 verwijst naar het eerste blad in de ingebedde grafiek‑werkmap.
 
 ```php
-  # Instantieert een presentatieklasse die een PPTX‑bestand voorstelt
-  $pres = new Presentation();
-  try {
-    # Toegang tot de eerste dia
-    $sld = $pres->getSlides()->get_Item(0);
-    # Voegt een diagram toe met de standaardgegevens
-    $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
-    # Stelt de titel van het diagram in
-    $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
-    $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
-    $chart->getChartTitle()->setHeight(20);
-    $chart->hasTitle();
-    # Stelt de eerste serie in om waarden weer te geven
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Stelt de index in voor het gegevensblad van het diagram
-    $defaultWorksheetIndex = 0;
-    # Haalt het gegevenswerkblad van het diagram op
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Verwijdert de standaard gegenereerde series en categorieën
-    $chart->getChartData()->getSeries()->clear();
-    $chart->getChartData()->getCategories()->clear();
-    $s = $chart->getChartData()->getSeries()->size();
-    $s = $chart->getChartData()->getCategories()->size();
-    # Voegt nieuwe series toe
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # Voegt nieuwe categorieën toe
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # Neemt de eerste diagramserie
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Vult nu de seriedata
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Stelt de vulkleur in voor de serie
-    $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Neemt de tweede diagramserie
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Vult de seriedata
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # Stelt de vulkleur in voor de serie
-    $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Maak aangepaste labels voor elke categorie voor de nieuwe serie
-    # Stelt het eerste label in om de categorienaam weer te geven
-    $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
-    $lbl->getDataLabelFormat()->setShowCategoryName(true);
-    $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
-    $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    # Toont de waarde voor het derde label
-    $lbl = $series->getDataPoints()->get_Item(2)->getLabel();
-    $lbl->getDataLabelFormat()->setShowValue(true);
-    $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    $lbl->getDataLabelFormat()->setSeparator("/");
-    # Slaat de presentatie met diagram op
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-### **Spreidingsdiagrammen maken**
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
 
-Spreidingsdiagrammen (ook bekend als spreidingsgrafieken of x‑y‑grafieken) worden vaak gebruikt om patronen te controleren of correlaties tussen twee variabelen aan te tonen.
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
-Gebruik een spreidingsdiagram wanneer:
-
-* u gekoppelde numerieke gegevens hebt
-* u twee variabelen hebt die goed bij elkaar passen
-* u wilt bepalen of twee variabelen met elkaar verband houden
-* u een onafhankelijke variabele hebt die meerdere waarden heeft voor een afhankelijke variabele
-
-1. Volg de stappen in [Geclusterde kolomdiagrammen maken](#create-clustered-column-charts).
-2. Voor de derde stap, voeg een diagram toe met enkele gegevens en specificeer uw diagramtype als een van de volgende:
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Stelt een spreidingsdiagram voor._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stelt een spreidingsdiagram voor dat met curves verbonden is, met datamarkers._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Stelt een spreidingsdiagram voor dat met curves verbonden is, zonder datamarkers._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stelt een spreidingsdiagram voor dat met rechte lijnen verbonden is, met datamarkers._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Stelt een spreidingsdiagram voor dat met rechte lijnen verbonden is, zonder datamarkers._
-
-```php
-  # Instantieert een presentatieklasse die een PPTX‑bestand voorstelt
-  $pres = new Presentation();
-  try {
-    # Toegang tot de eerste dia
-    $slide = $pres->getSlides()->get_Item(0);
-    # Maakt het standaard diagram
-    $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # Haalt de index op van het standaard gegevenswerkblad van het diagram
-    $defaultWorksheetIndex = 0;
-    # Haalt het gegevenswerkblad van het diagram op
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Verwijdert de demo‑series
-    $chart->getChartData()->getSeries()->clear();
-    # Voegt nieuwe series toe
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Series 2"), $chart->getType());
-    # Neemt de eerste diagramserie
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Voegt een nieuw punt (1:3) toe aan de serie
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 1), $fact->getCell($defaultWorksheetIndex, 2, 2, 3));
-    # Voegt een nieuw punt (2:10) toe
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
-    # Wijzigt het serietype
-    $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
-    # Wijzigt de marker van de diagramserie
-    $series->getMarker()->setSize(10);
-    $series->getMarker()->setSymbol(MarkerStyleType::Star);
-    # Neemt de tweede diagramserie
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Voegt daar een nieuw punt (5:2) toe
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
-    # Voegt een nieuw punt (3:1) toe
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 3), $fact->getCell($defaultWorksheetIndex, 3, 4, 1));
-    # Voegt een nieuw punt (2:2) toe
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 4, 3, 2), $fact->getCell($defaultWorksheetIndex, 4, 4, 2));
-    # Voegt een nieuw punt (5:1) toe
-    $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
-    # Wijzigt de marker van de diagramserie
-    $series->getMarker()->setSize(10);
-    $series->getMarker()->setSymbol(MarkerStyleType::Circle);
-    $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-### **Cirkeldiagrammen maken**
-
-Cirkeldiagrammen worden het best gebruikt om de deel‑tot‑geheel‑relatie in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als uw gegevens echter veel delen of labels bevatten, kunt u overwegen in plaats daarvan een staafdiagram te gebruiken.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType::Pie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Pie).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
-5. Wis de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Voeg nieuwe punten toe voor het diagram en pas aangepaste kleuren toe voor de sectoren van het cirkeldiagram.
-9. Stel labels in voor de series.
-10. Schakel leader‑lines in voor de series‑labels.
-11. Stel de rotatiehoek in voor de sectoren van het cirkeldiagram.
-12. Sla de aangepaste presentatie op als een PPTX‑bestand.
-
-```php
-  # Instantieert een presentatieklasse die een PPTX‑bestand voorstelt
-  $pres = new Presentation();
-  try {
-    # Toegang tot de eerste dia
-    $slides = $pres->getSlides()->get_Item(0);
-    # Voegt een diagram toe met standaardgegevens
-    $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # Stelt de titel van het diagram in
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # Stelt de eerste serie in om waarden weer te geven
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 2, "Series 2");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $categoryCell = $workbook->getCell($worksheetIndex, 1, 0, "Category 1");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell($worksheetIndex, 2, 0, "Category 2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell($worksheetIndex, 3, 0, "Category 3");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 1, 20);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 1, 50);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 1, 30);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 0, 0);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($color);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(1);
+
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 2, 30);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 2, 10);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 2, 60);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 0, 128, 0);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($color);
+
+    $label = $series->getDataPoints()->get_Item(0)->getLabel();
+    $label->getDataLabelFormat()->setShowCategoryName(true);
+
+    $label = $series->getDataPoints()->get_Item(1)->getLabel();
+    $label->getDataLabelFormat()->setShowSeriesName(true);
+
+    $label = $series->getDataPoints()->get_Item(2)->getLabel();
+    $label->getDataLabelFormat()->setShowValue(true);
+    $label->getDataLabelFormat()->setShowSeriesName(true);
+    $label->getDataLabelFormat()->setSeparator("/");
+
+    $presentation->save("AsposeChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Het resultaat:
+
+![De gegroepeerde kolomgrafiek](clustered_column_chart.png)
+
+### **Spreidingsgrafieken maken**
+
+Spreidingsgrafieken (ook wel scatter plots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen aan te tonen.
+
+Gebruik een spreidingsgrafiek wanneer:
+
+* Je hebt gekoppelde numerieke data.
+* Je hebt twee variabelen die goed bij elkaar passen.
+* Je wilt bepalen of de twee variabelen gerelateerd zijn.
+* Je hebt een onafhankelijke variabele met meerdere waarden voor een afhankelijke variabele.
+
+Dit voorbeeld plot twee sets x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markers, terwijl de tweede gladde lijnen met cirkel‑markers gebruikt; beide gebruiken een marker‑grootte van 10, geconfigureerd met [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). De [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) methode bepaalt de marker‑vorm.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\MarkerStyleType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 20, 20, 500, 300);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $chart->getChartData()->getSeries()->clear();
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 1, 1, "Series 1");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 1, 3, "Series 2");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 2, 1, 1);
+    $yValueCell = $workbook->getCell($worksheetIndex, 2, 2, 3);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 3, 1, 2);
+    $yValueCell = $workbook->getCell($worksheetIndex, 3, 2, 10);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
+
+    $series->getMarker()->setSize(10);
+    $series->getMarker()->setSymbol(MarkerStyleType::Star);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(1);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 2, 3, 5);
+    $yValueCell = $workbook->getCell($worksheetIndex, 2, 4, 2);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 3, 3, 3);
+    $yValueCell = $workbook->getCell($worksheetIndex, 3, 4, 1);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 4, 3, 2);
+    $yValueCell = $workbook->getCell($worksheetIndex, 4, 4, 2);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $xValueCell = $workbook->getCell($worksheetIndex, 5, 3, 5);
+    $yValueCell = $workbook->getCell($worksheetIndex, 5, 4, 1);
+    $series->getDataPoints()->addDataPointForScatterSeries($xValueCell, $yValueCell);
+
+    $series->getMarker()->setSize(10);
+    $series->getMarker()->setSymbol(MarkerStyleType::Circle);
+
+    $presentation->save("AsposeChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Het resultaat:
+
+![De spreidingsgrafiek](scatter_chart.png)
+
+### **Taartgrafieken maken**
+
+Taartgrafieken zijn het beste geschikt om de deel‑tot‑geheel‑relatie in data weer te geven, vooral wanneer de data categorische labels met numerieke waarden bevat. Als je data echter veel delen of labels bevat, kun je beter een staafgrafiek gebruiken.
+
+Dit voorbeeld maakt een taartgrafiek met drie kwartaalwaarden. Elke sector heeft een aangepaste vulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en series‑informatie. De [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) methode stelt de eerste sector in op 180 graden.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\LineStyle;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 20, 20, 500, 300);
+
+    $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
+    $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
+    $chart->getChartTitle()->setHeight(20);
+    $chart->setTitle(true);
+
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Stelt de index in voor het gegevensblad van het diagram
-    $defaultWorksheetIndex = 0;
-    # Haalt het gegevenswerkblad van het diagram op
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Verwijdert de standaard gegenereerde series en categorieën
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    # Voegt nieuwe categorieën toe
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # Voegt nieuwe series toe
-    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # Vult de seriedata
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Werkt niet in de nieuwe versie
-    # Adding new points and setting sector color
-    # series.IsColorVaried = true;
+
+    $categoryCell = $workbook->getCell(0, 1, 0, "1st Qtr");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, 2, 0, "2nd Qtr");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, 3, 0, "3rd Qtr");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 1, 20);
+    $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 1, 50);
+    $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 1, 30);
+    $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
-    $point = $series->getDataPoints()->get_Item(0);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-    # Stelt de sectorrand in
-    $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $point->getFormat()->getLine()->setWidth(3.0);
-    $point->getFormat()->getLine()->setStyle(LineStyle->ThinThick);
-    $point->getFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    $point1 = $series->getDataPoints()->get_Item(1);
-    $point1->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
-    # Stelt de sectorrand in
-    $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $point1->getFormat()->getLine()->setWidth(3.0);
-    $point1->getFormat()->getLine()->setStyle(LineStyle->Single);
-    $point1->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDot);
-    $point2 = $series->getDataPoints()->get_Item(2);
-    $point2->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-    # Stelt de sectorrand in
-    $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $point2->getFormat()->getLine()->setWidth(2.0);
-    $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
-    $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # Maakt aangepaste labels voor elke categorie voor de nieuwe serie
-    $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
-    # lbl.ShowCategoryName = true;
-    $lbl1->getDataLabelFormat()->setShowValue(true);
-    $lbl2 = $series->getDataPoints()->get_Item(1)->getLabel();
-    $lbl2->getDataLabelFormat()->setShowValue(true);
-    $lbl2->getDataLabelFormat()->setShowLegendKey(true);
-    $lbl2->getDataLabelFormat()->setShowPercentage(true);
-    $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
-    $lbl3->getDataLabelFormat()->setShowSeriesName(true);
-    $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Toont leiderslijnen voor het diagram
+
+    $firstSlice = $series->getDataPoints()->get_Item(0);
+    $firstSlice->getFormat()->getFill()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 0, 255, 255);
+    $firstSlice->getFormat()->getFill()->getSolidFillColor()->setColor($color);
+
+    $firstSlice->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 128, 128, 128);
+    $firstSlice->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $firstSlice->getFormat()->getLine()->setWidth(3.0);
+    $firstSlice->getFormat()->getLine()->setStyle(LineStyle::ThinThick);
+    $firstSlice->getFormat()->getLine()->setDashStyle(LineDashStyle::LargeDash);
+
+    $secondSlice = $series->getDataPoints()->get_Item(1);
+    $secondSlice->getFormat()->getFill()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $secondSlice->getFormat()->getFill()->getSolidFillColor()->setColor($color);
+
+    $secondSlice->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 0, 0, 255);
+    $secondSlice->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $secondSlice->getFormat()->getLine()->setWidth(3.0);
+    $secondSlice->getFormat()->getLine()->setStyle(LineStyle::Single);
+    $secondSlice->getFormat()->getLine()->setDashStyle(LineDashStyle::LargeDashDot);
+
+    $thirdSlice = $series->getDataPoints()->get_Item(2);
+    $thirdSlice->getFormat()->getFill()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 127, 80);
+    $thirdSlice->getFormat()->getFill()->getSolidFillColor()->setColor($color);
+
+    $thirdSlice->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 0, 0);
+    $thirdSlice->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $thirdSlice->getFormat()->getLine()->setWidth(2.0);
+    $thirdSlice->getFormat()->getLine()->setStyle(LineStyle::ThinThin);
+    $thirdSlice->getFormat()->getLine()->setDashStyle(LineDashStyle::LargeDashDotDot);
+
+    $firstLabel = $series->getDataPoints()->get_Item(0)->getLabel();
+    $firstLabel->getDataLabelFormat()->setShowValue(true);
+
+    $secondLabel = $series->getDataPoints()->get_Item(1)->getLabel();
+    $secondLabel->getDataLabelFormat()->setShowValue(true);
+    $secondLabel->getDataLabelFormat()->setShowLegendKey(true);
+    $secondLabel->getDataLabelFormat()->setShowPercentage(true);
+
+    $thirdLabel = $series->getDataPoints()->get_Item(2)->getLabel();
+    $thirdLabel->getDataLabelFormat()->setShowSeriesName(true);
+    $thirdLabel->getDataLabelFormat()->setShowPercentage(true);
+
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # Stelt de rotatiehoek in voor de sectoren van het cirkeldiagram
+
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
-    # Slaat de presentatie met een diagram op
-    $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("PieChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Lijndiagrammen maken**
+Het resultaat:
 
-Lijndiagrammen (ook bekend als lijngrafieken) worden het best gebruikt in situaties waarin u veranderingen in waarde over tijd wilt aantonen. Met een lijndiagram kunt u een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends over tijd volgen, anomalieën in reeksen markeren, en meer.
+![De taartgrafiek](pie_chart.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType::Line](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Line).
-4. Open het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)).
-5. Wis de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de aangepaste presentatie op als een PPTX‑bestand.
+### **Lijngrafieken maken**
+
+Lijngrafieken (ook wel lijngrafieken genoemd) worden het best gebruikt in situaties waarin je veranderingen in waarde over tijd wilt aantonen. Met een lijngrafiek kun je een grote hoeveelheid data in één keer vergelijken, veranderingen en trends over tijd volgen, anomalieën in dataseries benadrukken, enzovoort.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een lijngrafiek te maken met de standaard series en categorieën, en slaat de presentatie op als PPTX.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-    $pres->save("lineChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $lineChart = $slide->getShapes()->addChart(ChartType::Line, 20, 20, 500, 300);
+
+    $presentation->save("lineChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-Standaard worden punten op een lijndiagram verbonden door rechte doorlopende lijnen. Als u wilt dat de punten in plaats daarvan worden verbonden door stippellijnen, kunt u het gewenste streeptype opgeven als volgt:
+Standaard worden punten op een lijngrafiek verbonden door rechte doorlopende lijnen. Als je wilt dat de punten met stippellijnen worden verbonden, roep je [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) :
 
 ```php
-  $pres = new Presentation();
-  try {
-    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-    $seriesCollection = $lineChart->getChartData()->getSeries();
-    foreach ($seriesCollection as $series) {
-      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+use aspose\slides\ChartType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $lineChart = $slide->getShapes()->addChart(ChartType::Line, 20, 20, 500, 300);
+
+    for ($i = 0; $i < java_values($lineChart->getChartData()->getSeries()->size()); $i++)
+    {
+        $series = $lineChart->getChartData()->getSeries()->get_Item($i);
+        $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
     }
-    $pres->save("lineChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Boommapdiagrammen maken**
+Het resultaat:
 
-Boommapdiagrammen worden het best gebruikt voor verkoopgegevens wanneer u de relatieve grootte van gegevenscategorieën wilt weergeven en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
+![De lijngrafiek](line_chart.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType::Treemap](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Treemap).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
-5. Wis de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de aangepaste presentatie op als een PPTX‑bestand.
+### **Boomkaartgrafieken maken**
+
+Boomkaartgrafieken zijn het beste geschikt voor verkoopdata wanneer je de relatieve grootte van datacategorieën wilt tonen en snel de aandacht wilt trekken naar items die grote bijdragers zijn binnen elke categorie.
+
+Dit voorbeeld maakt een boomkaart met acht bladeren gegroepeerd in vier stelen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) methode kent stammen toe op groeplevel 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoekgroottes, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie identificeren.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Treemap, 50, 50, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\ParentLabelLayoutType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Treemap, 20, 20, 500, 300);
+
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $wb->clear(0);
-    # tak 1
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    // Tak 1
+    $categoryCell = $workbook->getCell(0, "C1", "Leaf1");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "Leaf2"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
+
+    $categoryCell = $workbook->getCell(0, "C2", "Leaf2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "C3", "Leaf3");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
-    # tak 2
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
+
+    $categoryCell = $workbook->getCell(0, "C4", "Leaf4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    // Tak 2
+    $categoryCell = $workbook->getCell(0, "C5", "Leaf5");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "Leaf6"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Leaf7"));
+
+    $categoryCell = $workbook->getCell(0, "C6", "Leaf6");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "C7", "Leaf7");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem4");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Leaf8"));
+
+    $categoryCell = $workbook->getCell(0, "C8", "Leaf8");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
     $series = $chart->getChartData()->getSeries()->add(ChartType::Treemap);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D1", 4));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D2", 5));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D3", 3));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D4", 6));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D5", 9));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D6", 9));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D7", 4));
-    $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D8", 3));
+    $valueCell = $workbook->getCell(0, "D1", 4);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D2", 5);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D3", 3);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D4", 6);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D5", 9);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D6", 9);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D7", 4);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D8", 3);
+    $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+
     $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
-    $pres->save("Treemap.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Treemap.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Aandelen‑diagrammen maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#OpenHighLowClose).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
-5. Wis de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Specificeer het formaat van de high‑low‑lijnen.
-9. Sla de aangepaste presentatie op als een PPTX‑bestand.
+![De boomkaart](treemap_chart.png)
+
+### **Watervalgrafieken maken**
+
+Een watervalgrafiek toont hoe positieve en negatieve veranderingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winstoverzicht kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderingenkolommen zweven tussen de vorige en nieuwe tussenwaarden, terwijl totaalkolommen zich uitstrekken van nul tot de geaccumuleerde waarde.
+
+| Categorie | Werkbladwaarde | Kolomtype |
+| --- | ---: | --- |
+| Omzet | 1000 | Stijging |
+| Kostprijs verkoop | -400 | Daling |
+| Brutowinst | 600 | Tussentotaal |
+| Bedrijfskosten | -200 | Daling |
+| Overige inkomsten | 50 | Stijging |
+| Nettowinst | 450 | Eindtotaal |
+
+Om een punt als een tussentotaal of eindtotaal te markeren, roep je de [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) methode aan met `true`. Geef het werkelijke geaccumuleerde bedrag op in de werkbladcel van dat punt: `600` voor brutowinst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De methode markeert de kolom als een totaal; hij berekent of vult de celwaarde niet automatisch in. Gebruik geen nul als tijdelijke aanduiding of andere wijziging voor een totaalpunt. Een totaalkolom toont de geaccumuleerde waarde zonder deze opnieuw bij te tellen bij de tussenwaarde.
+
+Dit volledige PHP‑voorbeeld maakt een grafiek met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), verwijdert de standaarddata en vult de ingebedde werkmap. Werkblad‑index `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). De nul‑gebaseerde punt‑indices `2` en `5` identificeren respectievelijk het tussentotaal en het eindtotaal. Het aanroepen van [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) met `true` toont de bedragen op de kolommen. Er is geen invoer‑presentatie of werkmap vereist.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::OpenHighLowClose, 50, 50, 600, 400, false);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Waterfall, 20, 20, 680, 200);
+
+    $chart->setTitle(true);
+    $chart->getChartTitle()->addTextFrameForOverriding("Profit breakdown (USD thousands)");
+    $chart->getChartTitle()->setOverlay(false);
+    $chart->setLegend(false);
+
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, 1, 0, "A"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, 2, 0, "B"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, 3, 0, "C"));
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 1, "Open"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 2, "High"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 3, "Low"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 4, "Close"), $chart->getType());
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $workbook->clear($worksheetIndex);
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Profit");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::Waterfall);
+    $categories = [ "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" ];
+    $values = [ 1000, -400, 600, -200, 50, 450 ];
+
+    for ($i = 0; $i < count($categories); $i++)
+    {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, $categories[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell($worksheetIndex, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
+    }
+
+    // De derde en zesde punten vertegenwoordigen totalen, niet extra wijzigingen.
+    $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
+    $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
+    $series->setShowConnectorLines(true);
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("WaterfallChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Roep de series‑niveau [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) methode aan met `true` om lijnen te tonen die opeenvolgende kolommen verbinden en zo de tussenwaarde makkelijker te volgen. Om deze lijnen te verbergen, vervang je de methode‑aanroep in het voorbeeld door `$series->setShowConnectorLines(false);` vóór het opslaan. Dit verandert alleen de zichtbaarheid van de lijnen, niet de data of totalen.
+
+![Watervalgrafiek die omzet, kosten, brutowinst van 600 en nettowinst van 450 toont, met waardelabels en verbindingslijnen](waterfall_chart.png)
+
+### **Aandeligrafieken maken**
+
+Aandeligrafieken worden gebruikt om financiële data zoals open, high, low en close prijzen weer te geven, waardoor markttendensen en volatiliteit geanalyseerd kunnen worden. Ze bieden essentiële inzichten in de aandelenprestaties, waardoor investeerders en analisten weloverwogen beslissingen kunnen nemen.
+
+Dit voorbeeld maakt een open‑high‑low‑close‑grafiek met vier series in die volgorde en drie categorieën. De [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) methode schakelt up/down‑balken in, en [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) regelt de high‑low‑lijnen die de prijsbereiken tonen, terwijl de individuele series‑lijnen en kleine horizontale rasterlijnen verborgen zijn.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $categoryCell = $workbook->getCell(0, 1, 0, "A");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, 2, 0, "B");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, 3, 0, "C");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Open");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::OpenHighLowClose);
+    $seriesNameCell = $workbook->getCell(0, 0, 2, "High");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::OpenHighLowClose);
+    $seriesNameCell = $workbook->getCell(0, 0, 3, "Low");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::OpenHighLowClose);
+    $seriesNameCell = $workbook->getCell(0, 0, 4, "Close");
+    $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::OpenHighLowClose);
+
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 1, 1, 72));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 1, 25));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 1, 38));
+    $valueCell = $workbook->getCell(0, 1, 1, 72);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 2, 1, 25);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 3, 1, 38);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 1, 2, 172));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 2, 57));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 2, 57));
+    $valueCell = $workbook->getCell(0, 1, 2, 172);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 2, 2, 57);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 3, 2, 57);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 1, 3, 12));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 3, 12));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 3, 13));
+    $valueCell = $workbook->getCell(0, 1, 3, 12);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 2, 3, 12);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 3, 3, 13);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+
     $series = $chart->getChartData()->getSeries()->get_Item(3);
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 1, 4, 25));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 4, 38));
-    $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
+    $valueCell = $workbook->getCell(0, 1, 4, 25);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 2, 4, 38);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 3, 4, 50);
+    $series->getDataPoints()->addDataPointForStockSeries($valueCell);
+
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $seriesCollection = $chart->getChartData()->getSeries();
-    foreach ($seriesCollection as $ser) {
-      $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++)
+    {
+        $stockSeries = $chart->getChartData()->getSeries()->get_Item($i);
+        $stockSeries->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $presentation->save("Stock-chart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Box‑en‑Whisker‑diagrammen maken**
+![De aandelengrafiek](stock_chart.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#BoxAndWhisker).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
-5. Wis de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de aangepaste presentatie op als een PPTX‑bestand.
+### **Box‑en‑whisker‑grafieken maken**
+
+Box‑en‑whisker‑grafieken worden gebruikt om de verdeling van data weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitbijters. Ze zijn bijzonder nuttig bij verkennende data‑analyse en statistische studies om snel de variabiliteit van data te begrijpen en eventuele anomalieën te identificeren.
+
+Dit voorbeeld maakt een box‑en‑whisker‑grafiek van zes waarden. De [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) methode selecteert de exclusieve kwartielberekening. Het voorbeeld schakelt ook gemiddelde‑lijnen, gemiddelde‑markers, interne punten en uitbijterpunten in.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::BoxAndWhisker, 50, 50, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\QuartileMethodType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::BoxAndWhisker, 20, 20, 500, 300);
+
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $wb->clear(0);
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Category 1"));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $categoryCell = $workbook->getCell(0, "A1", "Category 1");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A2", "Category 2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A3", "Category 3");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A4", "Category 4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A5", "Category 5");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A6", "Category 6");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
     $series = $chart->getChartData()->getSeries()->add(ChartType::BoxAndWhisker);
+
     $series->setQuartileMethod(QuartileMethodType::Exclusive);
     $series->setShowMeanLine(true);
     $series->setShowMeanMarkers(true);
     $series->setShowInnerPoints(true);
     $series->setShowOutlierPoints(true);
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B1", 15));
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B2", 41));
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B3", 16));
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B4", 10));
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B5", 23));
-    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B6", 16));
-    $pres->save("BoxAndWhisker.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $valueCell = $workbook->getCell(0, "B1", 15);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B2", 41);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B3", 16);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B4", 10);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B5", 23);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B6", 16);
+    $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($valueCell);
+
+    $presentation->save("BoxAndWhisker.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Trechterdiagrammen maken**
+### **Funnel‑grafieken maken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType::Funnel](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Funnel).
-4. Sla de aangepaste presentatie op als een PPTX‑bestand.
+Funnel‑grafieken worden gebruikt om processen te visualiseren die opeenvolgende stadia omvatten, waarbij het volume van data afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral nuttig voor het analyseren van conversieratio's, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een funnel‑grafiek toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaarddata door zes categorieën en waarden variërend van 50 tot 500, en slaat de bijgewerkte presentatie op. De invoer‑presentatie moet minstens één dia bevatten.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Funnel, 50, 50, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("test.pptx");
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Funnel, 50, 50, 500, 400);
+
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $wb->clear(0);
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "Category 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "Category 2"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "Category 3"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Category 4"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Category 5"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Category 6"));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $categoryCell = $workbook->getCell(0, "A1", "Category 1");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A2", "Category 2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A3", "Category 3");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A4", "Category 4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A5", "Category 5");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell(0, "A6", "Category 6");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
     $series = $chart->getChartData()->getSeries()->add(ChartType::Funnel);
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B1", 50));
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B2", 100));
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B3", 200));
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B4", 300));
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B5", 400));
-    $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B6", 500));
-    $pres->save("Funnel.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $valueCell = $workbook->getCell(0, "B1", 50);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B2", 100);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B3", 200);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B4", 300);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B5", 400);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "B6", 500);
+    $series->getDataPoints()->addDataPointForFunnelSeries($valueCell);
+
+    $presentation->save("Funnel.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Sunburst‑diagrammen maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType::Sunburst](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Sunburst).
-4. Sla de aangepaste presentatie op als een PPTX‑bestand.
+![De funnel‑grafiek](funnel_chart.png)
+
+### **Sunburst‑grafieken maken**
+
+Sunburst‑grafieken worden gebruikt om hiërarchische data te visualiseren, waarbij niveaus als concentrische ringen worden weergegeven. Ze helpen deel‑tot‑geheel‑relaties te illustreren en zijn ideaal voor het representeren van geneste categorieën en subcategorieën in een duidelijk, compact formaat.
+
+Dit voorbeeld maakt een sunburst‑grafiek met acht bladeren gegroepeerd in vier stelen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) methode kent stammen toe op groeplevel 1 en takken op niveau 2. Categorielabels identificeren de segmenten, en de waarden bepalen hun relatieve grootte.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 50, 50, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Sunburst, 20, 20, 500, 300);
+
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $wb->clear(0);
-    # tak 1
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    // Tak 1
+    $categoryCell = $workbook->getCell(0, "C1", "Leaf1");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "Leaf2"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
+
+    $categoryCell = $workbook->getCell(0, "C2", "Leaf2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "C3", "Leaf3");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
-    # tak 2
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
+
+    $categoryCell = $workbook->getCell(0, "C4", "Leaf4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    // Tak 2
+    $categoryCell = $workbook->getCell(0, "C5", "Leaf5");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "Leaf6"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Leaf7"));
+
+    $categoryCell = $workbook->getCell(0, "C6", "Leaf6");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "C7", "Leaf7");
+    $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem4");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Leaf8"));
+
+    $categoryCell = $workbook->getCell(0, "C8", "Leaf8");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
     $series = $chart->getChartData()->getSeries()->add(ChartType::Sunburst);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D1", 4));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D2", 5));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D3", 3));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D4", 6));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D5", 9));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D6", 9));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D7", 4));
-    $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D8", 3));
-    $pres->save("Sunburst.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $valueCell = $workbook->getCell(0, "D1", 4);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D2", 5);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D3", 3);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D4", 6);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D5", 9);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D6", 9);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D7", 4);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "D8", 3);
+    $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+
+    $presentation->save("Sunburst.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-### **Histogramdiagrammen maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType::Histogram](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Histogram).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
-5. Wis de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Sla de aangepaste presentatie op als een PPTX‑bestand.
+![De sunburst‑grafiek](sunburst_chart.png)
 
-```php
-  $pres = new Presentation();
-  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Histogram, 50, 50, 500, 400);
-  $chart->getChartData()->getCategories()->clear();
-  $chart->getChartData()->getSeries()->clear();
-  $wb = $chart->getChartData()->getChartDataWorkbook();
-  $wb->clear(0);
-  $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A1", 15));
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A2", -41));
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A3", 16));
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A4", 10));
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A5", -23));
-  $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A6", 16));
-  $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
-```
+### **Histogramgrafieken maken**
 
-### **Radardiagrammen maken**
+Histogramgrafieken worden gebruikt om de verdeling van numerieke data weer te geven door waarden te groeperen in bereiken of bakken. Ze zijn bijzonder handig om datapatronen zoals frequentie, scheefheid en spreiding te identificeren, en om uitbijters in een dataset te detecteren.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met enkele gegevens en specificeer uw gewenste diagramtype ([ChartType::Radar](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#Radar) in dit geval).
-4. Sla de aangepaste presentatie op als een PPTX‑bestand.
+Dit voorbeeld maakt een histogram van zes numerieke waarden, inclusief negatieve waarden. Het aanroepen van [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) met het automatische aggregatietype laat de grafiek de bakken bepalen die nodig zijn om de verdeling weer te geven.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Radar, 20, 20, 400, 300);
-    $pres->save("Radar-chart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\AxisAggregationType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-### **Diagrammen met meerdere categorieën maken**
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type [ChartType::ClusteredColumn](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ClusteredColumn).
-4. Open het gegevenswerkboek van het diagram [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
-5. Wis de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de aangepaste presentatie op als een PPTX‑bestand.
-
-```php
-  $pres = new Presentation();
-  try {
-    $ch = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 600, 450);
-    $ch->getChartData()->getSeries()->clear();
-    $ch->getChartData()->getCategories()->clear();
-    $fact = $ch->getChartData()->getChartDataWorkbook();
-    $fact->clear(0);
-    $defaultWorksheetIndex = 0;
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c2", "A"));
-    $category->getGroupingLevels()->setGroupingItem(1, "Group1");
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c3", "B"));
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c4", "C"));
-    $category->getGroupingLevels()->setGroupingItem(1, "Group2");
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c5", "D"));
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c6", "E"));
-    $category->getGroupingLevels()->setGroupingItem(1, "Group3");
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c7", "F"));
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c8", "G"));
-    $category->getGroupingLevels()->setGroupingItem(1, "Group4");
-    $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c9", "H"));
-    # Series toevoegen
-    $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType::ClusteredColumn);
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D2", 10));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D3", 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D4", 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D5", 40));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D6", 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D7", 60));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D8", 70));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D9", 80));
-    # Presentatie met diagram opslaan
-    $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-### **Kaartdiagrammen maken**
-
-Kaartdiagrammen visualiseren geografische gegevens en helpen waarden over regio’s heen te vergelijken.
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Map, 50, 50, 500, 400);
-    $pres->save("mapChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-### **Combinatiediagrammen maken**
-
-Een combinatiediagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram stelt u in staat om verschillen tussen twee of meer datasets te benadrukken, vergelijken of onderzoeken, zodat u relaties tussen hen kunt herkennen.
-
-![Het combinatiediagram](combination_chart.png)
-
-De volgende PHP‑code laat zien hoe u het bovenstaande combinatiediagram kunt maken in een PowerPoint‑presentatie:
-
-```php
-function createComboChart() {
-    $presentation = new Presentation();
+$presentation = new Presentation();
+try
+{
     $slide = $presentation->getSlides()->get_Item(0);
-    try {
-        $chart = createChartWithFirstSeries($slide);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Histogram, 20, 20, 500, 300);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
+    $valueCell = $workbook->getCell(0, "A1", 15);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "A2", -41);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "A3", 16);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "A4", 10);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "A5", -23);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+    $valueCell = $workbook->getCell(0, "A6", 16);
+    $series->getDataPoints()->addDataPointForHistogramSeries($valueCell);
+
+    $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
+
+    $presentation->save("Histogram.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Het resultaat:
+
+![De histogramgrafiek](histogram_chart.png)
+
+### **Radargrafieken maken**
+
+Radargrafieken worden gebruikt om multivariate data weer te geven in een tweedimensionaal formaat, waardoor verschillende variabelen tegelijkertijd gemakkelijk kunnen worden vergeleken. Ze zijn bijzonder nuttig om patronen, sterktes en zwaktes over meerdere prestatiemetingen of attributen te identificeren.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een radargrafiek te maken met de standaard series en categorieën, en slaat de presentatie op als PPTX.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addChart(ChartType::Radar, 20, 20, 500, 300);
+
+    $presentation->save("Radar-chart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Het resultaat:
+
+![De radargrafiek](radar_chart.png)
+
+### **Grafieken met meerdere categorieën maken**
+
+Grafieken met meerdere categorieën worden gebruikt om data weer te geven die meer dan één categorische groepering bevatten, waardoor je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder nuttig wanneer je trends en relaties moet analyseren binnen complexe, gelaagde datasets.
+
+Dit voorbeeld maakt een gegroepeerde kolomgrafiek met acht categorieën gerangschikt in vier paren. De [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) methode geeft elk paar een gedeeld label op groeplevel 1, waardoor een categorische as ontstaat met zowel individuele als groepslabels.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $worksheetIndex = 0;
+
+    $categoryCell = $workbook->getCell(0, "c2", "A");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+    $category->getGroupingLevels()->setGroupingItem(1, "Group1");
+    $categoryCell = $workbook->getCell(0, "c3", "B");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "c4", "C");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+    $category->getGroupingLevels()->setGroupingItem(1, "Group2");
+    $categoryCell = $workbook->getCell(0, "c5", "D");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "c6", "E");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+    $category->getGroupingLevels()->setGroupingItem(1, "Group3");
+    $categoryCell = $workbook->getCell(0, "c7", "F");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $categoryCell = $workbook->getCell(0, "c8", "G");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+    $category->getGroupingLevels()->setGroupingItem(1, "Group4");
+    $categoryCell = $workbook->getCell(0, "c9", "H");
+    $category = $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $seriesNameCell = $workbook->getCell(0, "D1", "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::ClusteredColumn);
+
+    $valueCell = $workbook->getCell($worksheetIndex, "D2", 10);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D3", 20);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D4", 30);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D5", 40);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D6", 50);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D7", 60);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D8", 70);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, "D9", 80);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+
+    $presentation->save("AsposeChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Het resultaat:
+
+![De meer‑categorie‑grafiek](multi_category_chart.png)
+
+### **Kaartgrafieken maken**
+
+Kaartgrafieken worden gebruikt om geografische data te visualiseren door informatie toe te wijzen aan specifieke locaties zoals landen, staten of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische data en ruimtelijke verdelingen op een duidelijke, visueel aantrekkelijke manier.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een kaartgrafiek te maken met de standaard geografische data en slaat deze op voor weergave in PowerPoint.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Map, 20, 20, 500, 300);
+
+    $presentation->save("mapChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+```
+
+Het resultaat:
+
+![De kaartgrafiek](map_chart.png)
+
+{{% alert color="info" title="Note" %}}
+De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft de kaartgrafiek en de bijbehorende data correct weg, maar tekent zelf geen kaartgrafieken: wanneer een dia met een dergelijke grafiek wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het grafiekgebied leeg. Andere vormen op dezelfde dia blijven onaangetast.
+{{% /alert %}}
+
+### **Combinatiegrafieken maken**
+
+Een combinatiegrafiek (of combo‑grafiek) combineert twee of meer grafiektype­n in één grafiek.
+
+![De combinatiegrafiek](combination_chart.png)
+
+Dit voorbeeld combineert twee gegroepeerde kolomseries met een lijngrafiek over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) de lijn plaatst op een secundaire verticale as aan de rechterkant. De hulpfuncties configureren de titel, legenda, as‑labels en rasterlijnen.
+
+```php
+use aspose\slides\AxisPositionType;
+use aspose\slides\ChartType;
+use aspose\slides\CrossesType;
+use aspose\slides\FillType;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+function createComboChart()
+{
+    $presentation = new Presentation();
+    try
+    {
+        $chart = createChartWithFirstSeries($presentation->getSlides()->get_Item(0));
 
         addSecondSeriesToChart($chart);
         addThirdSeriesToChart($chart);
@@ -726,56 +1099,62 @@ function createComboChart() {
         setSecondaryAxesFormat($chart);
 
         $presentation->save("combo-chart.pptx", SaveFormat::Pptx);
-    } finally {
+    }
+    finally
+    {
         $presentation->dispose();
     }
 }
 
-function createChartWithFirstSeries($slide) {
+function createChartWithFirstSeries($slide)
+{
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // Stel de diagramtitel in.
     $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
     $chart->getChartTitle()->setOverlay(false);
-    $titleParagraph = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
-    $titleFormat = $titleParagraph->getParagraphFormat()->getDefaultPortionFormat();
-    $titleFormat->setFontBold(NullableBool::False);
-    $titleFormat->setFontHeight(18);
-    
-    // Stel de diagramlegenda in.
+    $portionFormat = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $portionFormat->setFontBold(NullableBool::False);
+    $portionFormat->setFontHeight(18);
+
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // Verwijder de standaard gegenereerde series en categorieën.
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
-    $worksheetIndex = 0;
     $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
 
-    // Voeg nieuwe categorieën toe.
-    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 1, 0, "Category 1"));
-    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 2, 0, "Category 2"));
-    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 3, 0, "Category 3"));
-    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 4, 0, "Category 4"));
+    $categoryCell = $workbook->getCell($worksheetIndex, 1, 0, "Category 1");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell($worksheetIndex, 2, 0, "Category 2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell($worksheetIndex, 3, 0, "Category 3");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $categoryCell = $workbook->getCell($worksheetIndex, 4, 0, "Category 4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
 
-    // Voeg de eerste serie toe.
     $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
     $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
 
     $series->getParentSeriesGroup()->setOverlap(-25);
     $series->getParentSeriesGroup()->setGapWidth(220);
 
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 1, 4.3));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 1, 2.5));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 1, 3.5));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 4, 1, 4.5));
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 1, 4.3);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 1, 2.5);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 1, 3.5);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 4, 1, 4.5);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
 
     return $chart;
 }
 
-function addSecondSeriesToChart($chart) {
+function addSecondSeriesToChart($chart)
+{
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $worksheetIndex = 0;
 
@@ -785,50 +1164,58 @@ function addSecondSeriesToChart($chart) {
     $series->getParentSeriesGroup()->setOverlap(-25);
     $series->getParentSeriesGroup()->setGapWidth(220);
 
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 2, 2.4));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 2, 4.4));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 2, 1.8));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 4, 2, 2.8));
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 2, 2.4);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 2, 4.4);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 2, 1.8);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 4, 2, 2.8);
+    $series->getDataPoints()->addDataPointForBarSeries($valueCell);
 }
 
-function addThirdSeriesToChart($chart) {
+function addThirdSeriesToChart($chart)
+{
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $worksheetIndex = 0;
 
     $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Series 3");
     $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::Line);
 
-    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 1, 3, 2.0));
-    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 2, 3, 2.0));
-    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 3, 3, 3.0));
-    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 4, 3, 5.0));
+    $valueCell = $workbook->getCell($worksheetIndex, 1, 3, 2.0);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 2, 3, 2.0);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 3, 3, 3.0);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell($worksheetIndex, 4, 3, 5.0);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
 
     $series->setPlotOnSecondAxis(true);
 }
 
-function setPrimaryAxesFormat($chart) {
-    // Stel de horizontale as in.
+function setPrimaryAxesFormat($chart)
+{
     $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
     $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($horizontalAxis, "X Axis");
 
-    // Stel de verticale as in.
     $verticalAxis = $chart->getAxes()->getVerticalAxis();
     $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // Stel de kleur van de verticale grote rasterlijnen in.
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
-    $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
+    $color = new Java("java.awt.Color", 217, 217, 217);
+    $majorGridLinesFormat->getSolidFillColor()->setColor($color);
 }
 
-function setSecondaryAxesFormat($chart) {
-    // Stel de secundaire horizontale as in.
+function setSecondaryAxesFormat($chart)
+{
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -836,7 +1223,6 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // Stel de secundaire verticale as in.
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -847,154 +1233,207 @@ function setSecondaryAxesFormat($chart) {
     setAxisTitle($secondaryVerticalAxis, "Y Axis 2");
 }
 
-function setAxisTitle($axis, $axisTitle) {
+function setAxisTitle($axis, $axisTitle)
+{
     $axis->setTitle(true);
     $axis->getTitle()->setOverlay(false);
-    $titleParagraph = $axis->getTitle()->addTextFrameForOverriding($axisTitle)->getParagraphs()->get_Item(0);
-    $titleFormat = $titleParagraph->getParagraphFormat()->getDefaultPortionFormat();
-    $titleFormat->setFontBold(NullableBool::False);
-    $titleFormat->setFontHeight(12);
+    $titlePortionFormat = $axis->getTitle()->addTextFrameForOverriding($axisTitle)->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $titlePortionFormat->setFontBold(NullableBool::False);
+    $titlePortionFormat->setFontHeight(12);
+}
+
+createComboChart();
+```
+
+## **Grafieken bijwerken**
+
+Aspose.Slides voor PHP via Java stelt je in staat PowerPoint‑grafieken bij te werken door grafiekdata, opmaak en styling aan te passen. Deze functionaliteit vereenvoudigt het bijwerken van presentaties met dynamische inhoud en zorgt ervoor dat grafieken nauwkeurig de huidige data en visuele standaarden weergeven.
+
+Dit voorbeeld werkt de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie bij. Het vereist twee kolom‑series met elk drie datapunten, met categorielabels in kolom A en serienamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) om werkbladcellen te wijzigen, werkt series‑waarden bij, voegt een derde series toe, en verandert de grafiek naar gegroepeerde cilinders via [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$chartName = "My chart";
+$chartClass = new JavaClass("com.aspose.slides.IChart");
+
+$presentation = new Presentation("ExistingChart.pptx");
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++)
+    {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartClass) && $chartName === java_values($shape->getName()))
+        {
+            $chart = $shape;
+            $worksheetIndex = 0;
+
+            $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+            $workbook->getCell($worksheetIndex, 1, 0, "Modified Category 1");
+            $workbook->getCell($worksheetIndex, 2, 0, "Modified Category 2");
+
+            $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+            $workbook->getCell($worksheetIndex, 0, 1, "New_Series 1");
+            $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
+            $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
+            $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
+
+            $series = $chart->getChartData()->getSeries()->get_Item(1);
+
+            $workbook->getCell($worksheetIndex, 0, 2, "New_Series 2");
+            $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
+            $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
+            $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
+
+            $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Series 3");
+            $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+            $valueCell = $workbook->getCell($worksheetIndex, 1, 3, 20);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+            $valueCell = $workbook->getCell($worksheetIndex, 2, 3, 50);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+            $valueCell = $workbook->getCell($worksheetIndex, 3, 3, 30);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+
+            $chart->setType(ChartType::ClusteredCylinder);
+        }
+    }
+
+    $presentation->save("AsposeChartModified.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
 }
 ```
 
-## **Diagrammen bijwerken**
+## **Gegevensbereik voor een grafiek instellen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse die de presentatie bevat met het diagram dat u wilt bijwerken.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Doorloop alle shapes om het gewenste diagram te vinden.
-4. Open het gegevenswerkblad van het diagram.
-5. Wijzig de diagramseries door de waarden van de series aan te passen.
-6. Voeg een nieuwe serie toe en vul de gegevens in.
-7. Sla de aangepaste presentatie op als een PPTX‑bestand.
+Om het bereik dat al door een bestaande grafiek wordt gebruikt te inspecteren, zie [Een gegevensbereik van een grafiek ophalen](/slides/nl/php-java/chart-workbook/#retrieve-a-charts-data-range).
+
+Aspose.Slides voor PHP via Java biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor de data van je grafiek te definiëren. Dit betekent dat je direct een gedeelte van je werkblad aan de grafiek kunt koppelen, waardoor je kunt bepalen welke cellen bijdragen aan de series en categorieën van de grafiek. Hierdoor kun je je grafieken eenvoudig bijwerken en synchroniseren met de nieuwste gegevenswijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
+
+Dit voorbeeld gebruikt [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) om de gegevensbron van de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. Het grafiek‑werkboek moet dat werkblad bevatten en een gevulde reeks met een series‑kop in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Toegang tot de eerste dia
-    $sld = $pres->getSlides()->get_Item(0);
-    # Haal diagram op met standaardgegevens
-    $chart = $sld->getShapes()->get_Item(0);
-    # Instellen van de index van het gegevensblad van het diagram
-    $defaultWorksheetIndex = 0;
-    # Ophalen van het gegevenswerkblad van het diagram
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Wijzigen van de diagramcategornaam
-    $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
-    $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    # Neem de eerste diagramserie
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Werk nu de seriedata bij
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Serienaam aanpassen
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
-    $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
-    $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
-    # Neem de tweede diagramserie
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Werk nu de seriedata bij
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Serienaam aanpassen
+$chartName = "My chart";
+$chartClass = new JavaClass("com.aspose.slides.IChart");
 
-    $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
-    $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
-    $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # Voeg nu een nieuwe serie toe
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
-    # Neem de derde diagramserie
-    $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # Vul nu seriedata in
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
-    $chart->setType(ChartType::ClusteredCylinder);
-    # Sla de presentatie met diagram op
-    $pres->save("AsposeChartModified_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation("ExistingChart.pptx");
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++)
+    {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartClass) && $chartName === java_values($shape->getName()))
+        {
+            $chart = $shape;
+            $chart->getChartData()->setRange("Sheet1!A1:B4");
+        }
     }
-  }
+
+    $presentation->save("SetDataRange.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-## **Gegevensbereik instellen voor een diagram**
+## **Standaard‑markers gebruiken in grafieken**
 
-Om het bereik dat al door een bestaand diagram wordt gebruikt te bekijken, zie [Gegevensbereik van een diagram ophalen](/slides/nl/php-java/chart-workbook/#retrieve-a-charts-data-range).
+Wanneer je standaard‑markers in grafieken gebruikt, krijgt elke grafiekserie automatisch een ander standaard‑markersymbool.
 
-Om het gegevensbereik voor een diagram in te stellen, doet u het volgende:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse die de presentatie bevat met het diagram.
-2. Verkrijg een referentie naar een dia met behulp van de index.
-3. Doorloop alle shapes om het gewenste diagram te vinden.
-4. Open de diagramgegevens en stel het bereik in.
-5. Sla de aangepaste presentatie op als een PPTX‑bestand.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een grafiek met twee lijngrafiekseries en een legenda te maken. De marker‑instellingen die toegankelijk zijn via [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) behouden de automatisch toegewezen markersymbolen. De eerste serie bevat een negatieve waarde en een ontbrekende waarde, weergegeven door `null`, terwijl de tweede een waarde heeft voor elke categorie.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->get_Item(0);
-    $chart->getChartData()->setRange("Sheet1!A1:B4");
-    $pres->save("SetDataRange_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **Standaardmarkeringen gebruiken in diagrammen**
+$presentation = new Presentation();
+try
+{
+    $slide = $presentation->getSlides()->get_Item(0);
 
-Wanneer u standaardmarkeringen gebruikt in diagrammen, krijgt elke diagramserie automatisch een ander marker‑symbool.
-
-```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 10, 10, 400, 400);
+
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "C1"));
-    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 1, 24));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "C2"));
-    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 1, 23));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "C3"));
-    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 1, -10));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 4, 0, "C4"));
-    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 1, null));
-    $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
-    # Neem de tweede diagramserie
-    $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    # Nu seriedata invullen
-    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
-    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
-    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
-    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 2, 40));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $categoryCell = $workbook->getCell(0, 1, 0, "C1");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $valueCell = $workbook->getCell(0, 1, 1, 24);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+
+    $categoryCell = $workbook->getCell(0, 2, 0, "C2");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $valueCell = $workbook->getCell(0, 2, 1, 23);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+
+    $categoryCell = $workbook->getCell(0, 3, 0, "C3");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $valueCell = $workbook->getCell(0, 3, 1, -10);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+
+    $categoryCell = $workbook->getCell(0, 4, 0, "C4");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+    $valueCell = $workbook->getCell(0, 4, 1, null);
+    $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+
+    $seriesNameCell = $workbook->getCell(0, 0, 2, "Series 2");
+    $secondSeries = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $valueCell = $workbook->getCell(0, 1, 2, 30);
+    $secondSeries->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 2, 2, 10);
+    $secondSeries->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 3, 2, 60);
+    $secondSeries->getDataPoints()->addDataPointForLineSeries($valueCell);
+    $valueCell = $workbook->getCell(0, 4, 2, 40);
+    $secondSeries->getDataPoints()->addDataPointForLineSeries($valueCell);
+
     $chart->setLegend(true);
     $chart->getLegend()->setOverlay(false);
-    $pres->save("DefaultMarkersInChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("DefaultMarkersInChart.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
 ```
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Welke diagramtypen worden ondersteund door Aspose.Slides?**
+**Welke grafiektype­n worden ondersteund door Aspose.Slides voor PHP via Java?**
 
-Aspose.Slides ondersteunt een breed scala aan [diagramtypen](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), waaronder staaf, lijn, cirkel, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt u in staat om het meest geschikte diagramtype voor uw visualisatiebehoeften te kiezen.
+Aspose.Slides voor PHP via Java ondersteunt een breed scala aan grafiektype­n, waaronder staaf-, lijn-, taart-, gebieds-, spreiding-, histogram-, radar‑ en vele andere. Deze flexibiliteit stelt je in staat het meest geschikte grafiektype voor je datavisualisatie‑behoeften te kiezen.
 
-**Hoe voeg ik een nieuw diagram toe aan een dia?**
+**Hoe voeg ik een nieuwe grafiek toe aan een dia?**
 
-Om een diagram toe te voegen, maakt u eerst een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse, haalt u de gewenste dia op met behulp van de index, en roept u vervolgens de methode aan om een diagram toe te voegen, waarbij u het diagramtype en de initiële gegevens opgeeft. Deze procedure integreert het diagram direct in uw presentatie.
+Om een grafiek toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) klasse, haal je de gewenste dia op via de index, en roep je vervolgens de methode aan om een grafiek toe te voegen, waarbij je het grafiektype en de initiële data opgeeft. Dit proces integreert de grafiek direct in je presentatie.
 
-**Hoe kan ik de gegevens in een diagram bijwerken?**
+**Hoe kan ik de weergegeven data in een grafiek bijwerken?**
 
-U kunt de gegevens van een diagram bijwerken door het gegevenswerkboek van het diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) te openen, eventuele standaard series en categorieën te wissen, en vervolgens uw aangepaste gegevens toe te voegen. Hiermee kunt u het diagram vernieuwen zodat het de nieuwste gegevens weergeeft.
+Je kunt de data van een grafiek bijwerken door toegang te krijgen tot het dat workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), eventuele standaard series en categorieën te wissen, en vervolgens je eigen data toe te voegen. Hiermee kun je de grafiek programmeerbaar vernieuwen zodat deze de meest recente gegevens weergeeft.
 
-**Is het mogelijk om het uiterlijk van het diagram aan te passen?**
+**Is het mogelijk het uiterlijk van de grafiek aan te passen?**
 
-Ja, Aspose.Slides biedt uitgebreide aanpassingsmogelijkheden. U kunt kleuren, lettertypen, labels, legenda’s en andere [opmaakelementen](/slides/nl/php-java/chart-entities/) wijzigen om het uiterlijk van het diagram af te stemmen op uw specifieke ontwerpeisen.
+Ja, Aspose.Slides voor PHP via Java biedt uitgebreide aanpassingsmogelijkheden. Je kunt kleuren, lettertypen, labels, legenda’s en andere opmaakelementen wijzigen om het uiterlijk van de grafiek af te stemmen op jouw specifieke ontwerpvereisten.

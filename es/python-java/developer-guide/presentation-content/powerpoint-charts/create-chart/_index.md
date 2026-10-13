@@ -11,64 +11,48 @@ keywords:
 - cambiar gráfico
 - actualizar gráfico
 - gráfico de dispersión
-- gráfico de sectores
+- gráfico circular
 - gráfico de líneas
 - gráfico de mapa de árbol
-- gráfico de cotizaciones
+- gráfico de valores
 - gráfico de caja y bigotes
 - gráfico de embudo
-- gráfico de explosión radial
+- gráfico Sunburst
 - gráfico de histograma
 - gráfico de radar
-- gráfico multicategoría
+- gráfico de múltiples categorías
 - PowerPoint
 - presentación
 - Python
 - Java
 - Aspose.Slides
-description: "Crear y personalizar gráficos en presentaciones PowerPoint utilizando Aspose.Slides para Python a través de Java. Añadir, dar formato y editar gráficos con ejemplos de código prácticos en Python."
+description: "Crear y personalizar gráficos en presentaciones de PowerPoint usando Aspose.Slides for Python via Java. Añadir, formatear y editar gráficos con ejemplos de código prácticos en Python."
 ---
-## **Descripción general**
+## **Visión general**
 
-Este artículo ofrece una guía completa sobre cómo crear y personalizar gráficos utilizando Aspose.Slides. Aprenderá a añadir programáticamente un gráfico a una diapositiva, poblarlo con datos y aplicar diversas opciones de formato para adaptarlo a sus requisitos de diseño específicos. A lo largo del artículo, ejemplos de código detallados ilustran cada paso, desde la inicialización de la presentación y el objeto gráfico hasta la configuración de series, ejes y leyendas. Siguiendo esta guía, obtendrá una comprensión sólida de cómo integrar la generación dinámica de gráficos en sus aplicaciones, optimizando el proceso de creación de presentaciones basadas en datos.
+Este artículo ofrece una guía completa sobre cómo crear y personalizar gráficos usando Aspose.Slides for Python via Java. Aprenderá a agregar programáticamente un gráfico a una diapositiva, poblarlo con datos y aplicar diversas opciones de formato para que coincidan con sus requisitos de diseño específicos. A lo largo del artículo, los ejemplos de código detallados ilustran cada paso, desde la inicialización de la presentación y el objeto de gráfico hasta la configuración de series, ejes y leyendas. Siguiendo esta guía, obtendrá una comprensión sólida de cómo integrar la generación dinámica de gráficos en sus aplicaciones Python, optimizando el proceso de crear presentaciones basadas en datos.
 
 ## **Crear un gráfico**
 
-Los gráficos ayudan a las personas a visualizar rápidamente los datos y a obtener ideas que pueden no ser evidentes de inmediato a partir de una tabla o hoja de cálculo.
+Los gráficos ayudan a las personas a visualizar rápidamente los datos y obtener ideas que pueden no ser inmediatamente evidentes a partir de una tabla o hoja de cálculo.
 
 **¿Por qué crear gráficos?**
 
-Usando gráficos, puede:
+* agregar, condensar o resumir grandes cantidades de datos en una sola diapositiva de una presentación;
+* exponer patrones y tendencias en los datos;
+* deducir la dirección y el impulso de los datos a lo largo del tiempo o con respecto a una unidad de medida específica;
+* identificar valores atípicos, aberraciones, desviaciones, errores y datos sin sentido;
+* comunicar o presentar datos complejos.
 
-* agregar, condensar o resumir grandes cantidades de datos en una sola diapositiva de una presentación
-* exponer patrones y tendencias en los datos
-* deducir la dirección y el impulso de los datos a lo largo del tiempo o respecto a una unidad de medida específica
-* detectar valores atípicos, aberraciones, desviaciones, errores, datos sin sentido, etc.
-* comunicar o presentar datos complejos
-
-En PowerPoint, puede crear gráficos mediante la función *Insertar*, que ofrece plantillas para diseñar muchos tipos de gráficos. Con Aspose.Slides, puede crear tanto gráficos estándar (basados en tipos de gráficos populares) como gráficos personalizados.
+En PowerPoint, puede crear gráficos mediante la función *Insertar*, que ofrece plantillas para diseñar muchos tipos de gráficos. Con Aspose.Slides, puede crear tanto gráficos normales (basados en tipos de gráficos populares) como gráficos personalizados.
 
 {{% alert color="info" title="Note" %}}
-Para crear gráficos, utilice la clase [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/). Los campos de esta clase corresponden a diferentes tipos de gráficos.
+Utilice la enumeración [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) del paquete [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/). Los valores de esta enumeración corresponden a diferentes tipos de gráficos.
 {{% /alert %}}
 
 ### **Crear gráficos de columnas agrupadas**
 
-Esta sección explica cómo crear gráficos de columnas agrupadas utilizando Aspose.Slides. Aprenderá a inicializar una presentación, añadir un gráfico y personalizar sus elementos, como el título, los datos, las series, las categorías y el estilo. Siga los pasos a continuación para ver cómo se genera un gráfico de columnas agrupadas estándar:
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation).
-1. Obtener una referencia a una diapositiva mediante su índice.
-1. Añadir un gráfico con algunos datos y especificar el tipo `ChartType.ClusteredColumn`.
-1. Añadir un título al gráfico.
-1. Acceder a la hoja de datos del gráfico.
-1. Eliminar todas las series y categorías predeterminadas.
-1. Añadir nuevas series y categorías.
-1. Añadir nuevos datos al gráfico para las series.
-1. Aplicar un color de relleno a las series del gráfico.
-1. Añadir etiquetas a las series del gráfico.
-1. Guardar la presentación modificada como archivo PPTX.
-
-Este código C# muestra cómo crear un gráfico de columnas agrupadas:
+Este ejemplo utiliza [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para crear un gráfico de columnas agrupadas que compara dos series en tres categorías. Las series usan rellenos rojo y verde, y las etiquetas individuales muestran los nombres de las categorías, los nombres de las series y los valores. El índice de hoja de cálculo 0 se refiere a la primera hoja del libro de trabajo del gráfico incrustado.
 
 ```python
 import jpype
@@ -81,115 +65,92 @@ from asposeslides.api import ChartType, FillType, NullableBool, Presentation, Sa
 
 Color = jpype.JClass("java.awt.Color")
 
-# Instancia una clase de presentación que representa un archivo PPTX.
 presentation = Presentation()
 try:
-    # Accede a la primera diapositiva
     slide = presentation.getSlides().get_Item(0)
 
-    # Añade un gráfico con sus datos predeterminados
-    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
 
-    # Establece el título del gráfico
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Establece el índice para la hoja de datos del gráfico
-    default_worksheet_index = 0
-
-    # Obtiene la hoja de datos del gráfico
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
 
-    # Elimina las series y categorías generadas por defecto
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
-    # Añade nuevas series
-    cell = workbook.getCell(default_worksheet_index, 0, 1, "Series 1")
-    chart.getChartData().getSeries().add(cell,chart.getType())
-    cell = workbook.getCell(default_worksheet_index, 0, 2, "Series 2")
-    chart.getChartData().getSeries().add(cell,chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 0, 2, "Series 2")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Añade nuevas categorías
-    cell = workbook.getCell(default_worksheet_index, 1, 0, "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 0, "Category 2")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 0, "Category 3")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(worksheet_index, 1, 0, "Category 1")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(worksheet_index, 2, 0, "Category 2")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(worksheet_index, 3, 0, "Category 3")
+    chart.getChartData().getCategories().add(category_cell)
 
-    # Obtiene la primera serie del gráfico
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Ahora rellena los datos de la serie
-    cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, 1, 1, 20)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 2, 1, 50)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 3, 1, 30)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Establece el color de relleno para la serie
     series.getFormat().getFill().setFillType(FillType.Solid)
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
 
-    # Obtiene la segunda serie del gráfico
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Rellena los datos de la serie
-    cell = workbook.getCell(default_worksheet_index, 1, 2, 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 2, 10)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 2, 60)
-    series.getDataPoints().addDataPointForBarSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, 1, 2, 30)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 2, 2, 10)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 3, 2, 60)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Establece el color de relleno para la serie
     series.getFormat().getFill().setFillType(FillType.Solid)
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN)
+    color = Color(0, 128, 0)
+    series.getFormat().getFill().getSolidFillColor().setColor(color)
 
-    #Crear etiquetas personalizadas para cada categoría de la nueva serie
-    # Establece la primera etiqueta para mostrar el nombre de la categoría
     label = series.getDataPoints().get_Item(0).getLabel()
     label.getDataLabelFormat().setShowCategoryName(True)
 
     label = series.getDataPoints().get_Item(1).getLabel()
     label.getDataLabelFormat().setShowSeriesName(True)
 
-    # Muestra el valor para la tercera etiqueta
     label = series.getDataPoints().get_Item(2).getLabel()
     label.getDataLabelFormat().setShowValue(True)
     label.getDataLabelFormat().setShowSeriesName(True)
     label.getDataLabelFormat().setSeparator("/")
 
-    # Guarda la presentación con el gráfico
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+El resultado:
+
+![El gráfico de columnas agrupadas](clustered_column_chart.png)
+
 ### **Crear gráficos de dispersión**
 
-Los gráficos de dispersión (también conocidos como diagramas de dispersión o gráficos x‑y) se utilizan a menudo para comprobar patrones o demostrar correlaciones entre dos variables.
+Los gráficos de dispersión (también conocidos como diagramas de dispersión o gráficos xy) se utilizan frecuentemente para comprobar patrones o demostrar correlaciones entre dos variables.
 
 Utilice un gráfico de dispersión cuando:
 
-* disponga de datos numéricos emparejados
-* tenga dos variables que se relacionen bien entre sí
-* quiera determinar si dos variables están relacionadas
-* tenga una variable independiente que posea varios valores para una variable dependiente
+* disponga de datos numéricos emparejados.
+* tenga dos variables que se relacionen bien entre sí.
+* desee determinar si las dos variables están relacionadas.
+* disponga de una variable independiente que tenga múltiples valores para una variable dependiente.
 
-1. Siga los pasos en [Crear gráficos de columnas agrupadas](#create-clustered-column-charts).
-2. Para el tercer paso, añada un gráfico con algunos datos y especifique su tipo de gráfico como uno de los siguientes:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithMarkers) - _Representa un gráfico de dispersión._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Representa un gráfico de dispersión conectado por curvas, con marcadores de datos._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Representa un gráfico de dispersión conectado por curvas, sin marcadores de datos._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Representa un gráfico de dispersión conectado por líneas, con marcadores de datos._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Representa un gráfico de dispersión conectado por líneas, sin marcadores de datos._
-
-Este código Python muestra cómo crear un gráfico de dispersión con diferentes marcadores para cada serie:
+Este ejemplo traza dos conjuntos de valores x‑y. La primera serie usa líneas rectas con marcadores de estrella, mientras que la segunda usa líneas suaves con marcadores de círculo; ambas usan un tamaño de marcador de 10, configurado con [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). El método [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) controla la forma del marcador.
 
 ```python
 import jpype
@@ -200,100 +161,72 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, MarkerStyleType, Presentation, SaveFormat
 
-# Instancia una clase de presentación que representa un archivo PPTX.
 presentation = Presentation()
 try:
-    # Accede a la primera diapositiva
     slide = presentation.getSlides().get_Item(0)
 
-    # Crea el gráfico predeterminado
-    chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400)
+    chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300)
 
-    # Obtiene el índice de la hoja de datos del gráfico predeterminado
-    default_worksheet_index = 0
-
-    # Obtiene la hoja de datos del gráfico
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
 
-    # Elimina la serie de demostración
     chart.getChartData().getSeries().clear()
 
-    # Añade nuevas series
-    cell = workbook.getCell(default_worksheet_index, 1, 1, "Series 1")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(default_worksheet_index, 1, 3, "Series 2")
-    chart.getChartData().getSeries().add(cell, chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 1, 1, "Series 1")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+    series_name_cell = workbook.getCell(worksheet_index, 1, 3, "Series 2")
+    chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Toma la primera serie del gráfico
     series = chart.getChartData().getSeries().get_Item(0)
 
-    # Añade un nuevo punto (1:3) a la serie
-    x_cell = workbook.getCell(default_worksheet_index, 2, 1, 1)
-    y_cell = workbook.getCell(default_worksheet_index, 2, 2, 3)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 2, 1, 1)
+    y_value_cell = workbook.getCell(worksheet_index, 2, 2, 3)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Añade un nuevo punto (2:10)
-    x_cell = workbook.getCell(default_worksheet_index, 3, 1, 2)
-    y_cell = workbook.getCell(default_worksheet_index, 3, 2, 10)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 3, 1, 2)
+    y_value_cell = workbook.getCell(worksheet_index, 3, 2, 10)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Cambia el tipo de serie
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers)
 
-    # Cambia el marcador de la serie del gráfico
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Star)
 
-    # Toma la segunda serie del gráfico
     series = chart.getChartData().getSeries().get_Item(1)
 
-    # Añade un nuevo punto (5:2) allí
-    x_cell = workbook.getCell(default_worksheet_index, 2, 3, 5)
-    y_cell = workbook.getCell(default_worksheet_index, 2, 4, 2)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 2, 3, 5)
+    y_value_cell = workbook.getCell(worksheet_index, 2, 4, 2)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Añade un nuevo punto (3:1)
-    x_cell = workbook.getCell(default_worksheet_index, 3, 3, 3)
-    y_cell = workbook.getCell(default_worksheet_index, 3, 4, 1)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 3, 3, 3)
+    y_value_cell = workbook.getCell(worksheet_index, 3, 4, 1)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Añade un nuevo punto (2:2)
-    x_cell = workbook.getCell(default_worksheet_index, 4, 3, 2)
-    y_cell = workbook.getCell(default_worksheet_index, 4, 4, 2)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 4, 3, 2)
+    y_value_cell = workbook.getCell(worksheet_index, 4, 4, 2)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Añade un nuevo punto (5:1)
-    x_cell = workbook.getCell(default_worksheet_index, 5, 3, 5)
-    y_cell = workbook.getCell(default_worksheet_index, 5, 4, 1)
-    series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+    x_value_cell = workbook.getCell(worksheet_index, 5, 3, 5)
+    y_value_cell = workbook.getCell(worksheet_index, 5, 4, 1)
+    series.getDataPoints().addDataPointForScatterSeries(x_value_cell, y_value_cell)
 
-    # Cambia el marcador de la serie del gráfico
     series.getMarker().setSize(10)
     series.getMarker().setSymbol(MarkerStyleType.Circle)
 
-    presentation.save("AsposeChart_out.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Crear gráficos de sectores**
+El resultado:
 
-Los gráficos de sectores son ideales para mostrar la relación parte‑todo en los datos, especialmente cuando los datos contienen etiquetas categóricas con valores numéricos. Sin embargo, si sus datos contienen muchas partes o etiquetas, quizá prefiera utilizar un gráfico de barras.
+![El gráfico de dispersión](scatter_chart.png)
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Pie](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Pie).
-4. Acceder al libro de datos del gráfico [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Añadir nuevos datos al gráfico para las series.
-8. Añadir nuevos puntos al gráfico y aplicar colores personalizados a los sectores del gráfico de sectores.
-9. Establecer etiquetas para las series.
-10. Habilitar líneas guía para las etiquetas de las series.
-11. Definir el ángulo de rotación de los sectores del gráfico de sectores.
-12. Guardar la presentación modificada como archivo PPTX.
+### **Crear gráficos circulares**
 
-Este código Python muestra cómo crear un gráfico de sectores:
+Los gráficos circulares se utilizan mejor para mostrar la relación parte‑todo en los datos, especialmente cuando los datos contienen etiquetas categóricas con valores numéricos. Sin embargo, si sus datos contienen muchas partes o etiquetas, podría considerar usar un gráfico de barras en su lugar.
+
+Este ejemplo crea un gráfico circular con tres valores trimestrales. Cada porción tiene un relleno y borde personalizados, y las etiquetas muestran diferentes combinaciones de valores, porcentajes e información de la serie. El método [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) establece que la primera porción comience a 180 grados.
 
 ```python
 import jpype
@@ -306,90 +239,77 @@ from asposeslides.api import ChartType, FillType, LineDashStyle, LineStyle, Null
 
 Color = jpype.JClass("java.awt.Color")
 
-# Instancia una clase de presentación que representa un archivo PPTX.
 presentation = Presentation()
 try:
-    # Accede a la primera diapositiva
     slide = presentation.getSlides().get_Item(0)
 
-    # Añade un gráfico con datos predeterminados
-    chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+    chart = slide.getShapes().addChart(ChartType.Pie, 20, 20, 500, 300)
 
-    # Establece el título del gráfico
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Establece el índice para la hoja de datos del gráfico
-    default_worksheet_index = 0
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
-    # Obtiene la hoja de datos del gráfico
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
 
-    # Elimina las series y categorías generadas por defecto
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
-    # Añade nuevas categorías
-    cell = workbook.getCell(0, 1, 0, "First Qtr")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 2, 0, "2nd Qtr")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 3, 0, "3rd Qtr")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, 1, 0, "1st Qtr")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 2, 0, "2nd Qtr")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 3, 0, "3rd Qtr")
+    chart.getChartData().getCategories().add(category_cell)
 
-    # Añade nuevas series
-    cell = workbook.getCell(0, 0, 1, "Series 1")
-    series = chart.getChartData().getSeries().add(cell, chart.getType())
+    series_name_cell = workbook.getCell(0, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    #Popula los datos de la serie
-    cell = workbook.getCell(default_worksheet_index, 1, 1, 20)
-    series.getDataPoints().addDataPointForPieSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 1, 50)
-    series.getDataPoints().addDataPointForPieSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 1, 30)
-    series.getDataPoints().addDataPointForPieSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, 1, 1, 20)
+    series.getDataPoints().addDataPointForPieSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 2, 1, 50)
+    series.getDataPoints().addDataPointForPieSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, 3, 1, 30)
+    series.getDataPoints().addDataPointForPieSeries(value_cell)
 
-    # Añadiendo nuevos puntos y estableciendo el color del sector
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(True)
 
-    point = series.getDataPoints().get_Item(0)
-    point.getFormat().getFill().setFillType(FillType.Solid)
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN)
+    first_slice = series.getDataPoints().get_Item(0)
+    first_slice.getFormat().getFill().setFillType(FillType.Solid)
+    first_slice.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN)
 
-    # Establece el borde del sector
-    point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
-    point.getFormat().getLine().setWidth(3.0)
-    point.getFormat().getLine().setStyle(LineStyle.ThinThick)
-    point.getFormat().getLine().setDashStyle(LineDashStyle.DashDot)
+    first_slice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    first_slice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
+    first_slice.getFormat().getLine().setWidth(3.0)
+    first_slice.getFormat().getLine().setStyle(LineStyle.ThinThick)
+    first_slice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDash)
 
-    second_point = series.getDataPoints().get_Item(1)
-    second_point.getFormat().getFill().setFillType(FillType.Solid)
-    second_point.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    second_slice = series.getDataPoints().get_Item(1)
+    second_slice.getFormat().getFill().setFillType(FillType.Solid)
+    color = Color(165, 42, 42)
+    second_slice.getFormat().getFill().getSolidFillColor().setColor(color)
 
-    # Establece el borde del sector
-    second_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    second_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
-    second_point.getFormat().getLine().setWidth(3.0)
-    second_point.getFormat().getLine().setStyle(LineStyle.Single)
-    second_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot)
+    second_slice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    second_slice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
+    second_slice.getFormat().getLine().setWidth(3.0)
+    second_slice.getFormat().getLine().setStyle(LineStyle.Single)
+    second_slice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot)
 
-    third_point = series.getDataPoints().get_Item(2)
-    third_point.getFormat().getFill().setFillType(FillType.Solid)
-    third_point.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW)
+    third_slice = series.getDataPoints().get_Item(2)
+    third_slice.getFormat().setFill().setFillType(FillType.Solid)
+    color = Color(255, 127, 80)
+    third_slice.getFormat().getFill().getSolidFillColor().setColor(color)
 
-    # Establece el borde del sector
-    third_point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    third_point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
-    third_point.getFormat().getLine().setWidth(2.0)
-    third_point.getFormat().getLine().setStyle(LineStyle.ThinThin)
-    third_point.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot)
+    third_slice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    third_slice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    third_slice.getFormat().getLine().setWidth(2.0)
+    third_slice.getFormat().getLine().setStyle(LineStyle.ThinThin)
+    third_slice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot)
 
-    # Crea etiquetas personalizadas para cada categoría de la nueva serie
     first_label = series.getDataPoints().get_Item(0).getLabel()
-
     first_label.getDataLabelFormat().setShowValue(True)
 
     second_label = series.getDataPoints().get_Item(1).getLabel()
@@ -401,28 +321,24 @@ try:
     third_label.getDataLabelFormat().setShowSeriesName(True)
     third_label.getDataLabelFormat().setShowPercentage(True)
 
-    # Muestra líneas guía para el gráfico
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(True)
 
-    # Establece el ángulo de rotación para los sectores del gráfico de sectores
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180)
 
-    # Guarda la presentación con un gráfico
-    presentation.save("PieChart_out.pptx", SaveFormat.Pptx)
+    presentation.save("PieChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+El resultado:
+
+![El gráfico circular](pie_chart.png)
+
 ### **Crear gráficos de líneas**
 
-Los gráficos de líneas (también conocidos como diagramas de líneas) se utilizan mejor en situaciones en las que desea demostrar cambios de valor a lo largo del tiempo. Con un gráfico de líneas, puede comparar una gran cantidad de datos a la vez, seguir cambios y tendencias a lo largo del tiempo, resaltar anomalías en series de datos, y más.
+Los gráficos de líneas (también conocidos como diagramas de líneas) se utilizan mejor en situaciones en las que se desea demostrar cambios en el valor a lo largo del tiempo. Con un gráfico de líneas, puede comparar una gran cantidad de datos a la vez, seguir cambios y tendencias a lo largo del tiempo, resaltar anomalías en series de datos, y más.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-1. Obtener una referencia a una diapositiva mediante su índice.
-1. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Line](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Line).
-1. Guardar la presentación modificada como archivo PPTX.
-
-Este código Python muestra cómo crear un gráfico de líneas:
+Este ejemplo utiliza [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para crear un gráfico de líneas con las series y categorías predeterminadas, y luego guarda la presentación como PPTX.
 
 ```python
 import jpype
@@ -435,14 +351,16 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    line_chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350)
+    slide = presentation.getSlides().get_Item(0)
+
+    line_chart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300)
 
     presentation.save("line_chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Por defecto, los puntos de un gráfico de líneas están unidos por líneas rectas continuas. Si desea que los puntos se unan mediante guiones, puede especificar el tipo de guion preferido de la siguiente manera:
+Por defecto, los puntos en un gráfico de líneas están unidos por líneas continuas rectas. Si desea que los puntos se unan mediante guiones, llame a [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) con un valor de [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/):
 
 ```python
 import jpype
@@ -451,34 +369,29 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, LineDashStyle, Presentation, SaveFormat
+from asposeslides.api import ChartType, LineDashStyle, Presentation
 
 presentation = Presentation()
 try:
-    line_chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350)
+    slide = presentation.getSlides().get_Item(0)
+
+    line_chart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300)
 
     for series in line_chart.getChartData().getSeries():
         series.getFormat().getLine().setDashStyle(LineDashStyle.Dash)
-
-    presentation.save("line_chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Crear gráficos de árbol de mapas**
+El resultado:
 
-Los gráficos de árbol de mapas se emplean mejor para datos de ventas cuando se desea mostrar el tamaño relativo de las categorías de datos y atraer rápidamente la atención a los elementos que son grandes contribuyentes dentro de cada categoría.
+![El gráfico de líneas](line_chart.png)
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Treemap](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Treemap).
-4. Acceder al libro de datos del gráfico [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Añadir nuevos datos al gráfico para las series.
-8. Guardar la presentación modificada como archivo PPTX.
+### **Crear gráficos de mapa de árbol**
 
-Este código Python muestra cómo crear un gráfico de árbol de mapas:
+Los gráficos de mapa de árbol son ideales para datos de ventas cuando se desea mostrar el tamaño relativo de las categorías de datos y atraer rápidamente la atención a los elementos que son grandes contribuyentes dentro de cada categoría.
+
+Este ejemplo crea un mapa de árbol con ocho hojas agrupadas en cuatro tallos y dos ramas. El método [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) asigna los tallos al nivel de agrupación 1 y las ramas al nivel 2. Los valores determinan los tamaños relativos de los rectángulos, mientras que las etiquetas de categoría y las etiquetas de padres superpuestas identifican la jerarquía.
 
 ```python
 import jpype
@@ -491,63 +404,66 @@ from asposeslides.api import ChartType, ParentLabelLayoutType, Presentation, Sav
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Treemap, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    #rama 1
-    cell = workbook.getCell(0, "C1", "Leaf1")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Rama 1
+    category_cell = workbook.getCell(0, "C1", "Leaf1")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1")
 
-    cell = workbook.getCell(0, "C2", "Leaf2")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C2", "Leaf2")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C3", "Leaf3")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C3", "Leaf3")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2")
 
-    cell = workbook.getCell(0, "C4", "Leaf4")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C4", "Leaf4")
+    chart.getChartData().getCategories().add(category_cell)
 
-    #rama 2
-    cell = workbook.getCell(0, "C5", "Leaf5")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Rama 2
+    category_cell = workbook.getCell(0, "C5", "Leaf5")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2")
 
-    cell = workbook.getCell(0, "C6", "Leaf6")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C6", "Leaf6")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C7", "Leaf7")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C7", "Leaf7")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4")
 
-    cell = workbook.getCell(0, "C8", "Leaf8")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C8", "Leaf8")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.Treemap)
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(True)
-    cell = workbook.getCell(0, "D1", 4)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D2", 5)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D3", 3)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D4", 6)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D5", 9)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D6", 9)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D7", 4)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
-    cell = workbook.getCell(0, "D8", 3)
-    series.getDataPoints().addDataPointForTreemapSeries(cell)
+    value_cell = workbook.getCell(0, "D1", 4)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D2", 5)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D3", 3)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D4", 6)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D5", 9)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D6", 9)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D7", 4)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
+    value_cell = workbook.getCell(0, "D8", 3)
+    series.getDataPoints().addDataPointForTreemapSeries(value_cell)
 
     series.setParentLabelLayout(ParentLabelLayoutType.Overlapping)
 
@@ -556,19 +472,88 @@ finally:
     presentation.dispose()
 ```
 
-### **Crear gráficos de cotizaciones**
+El resultado:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#OpenHighLowClose).
-4. Acceder al libro de datos del gráfico [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Añadir nuevos datos al gráfico para las series.
-8. Especificar el formato de las líneas alto‑bajo.
-9. Guardar la presentación modificada como archivo PPTX.
+![El gráfico de mapa de árbol](treemap_chart.png)
 
-Este código Python muestra cómo crear un gráfico de cotizaciones:
+### **Crear gráficos de cascada**
+
+Un gráfico de cascada muestra cómo los cambios positivos y negativos contribuyen a un valor final. Por ejemplo, un desglose de beneficios puede comenzar con los ingresos, restar los costes y añadir otros ingresos. Las columnas de cambios flotan entre los valores corrientes anteriores y nuevos, mientras que las columnas totales se extienden desde cero hasta el valor acumulado.
+
+| Categoría | Valor del libro | Tipo de columna |
+| --- | ---: | --- |
+| Ingresos | 1000 | Incremento |
+| Coste de ventas | -400 | Disminución |
+| Beneficio bruto | 600 | Total intermedio |
+| Gastos operativos | -200 | Disminución |
+| Otros ingresos | 50 | Incremento |
+| Beneficio neto | 450 | Total final |
+
+Para marcar un punto como total intermedio o final, llame a su método [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) con `True`. Proporcione la cantidad acumulada real en la celda del libro de trabajo correspondiente a ese punto: `600` para el beneficio bruto (`1000 - 400`) y `450` para el beneficio neto (`600 - 200 + 50`). El método marca la columna como total; no calcula ni rellena el valor de la celda. No utilice cero como marcador de posición ni proporcione otro cambio para un punto total. Una columna total muestra el valor acumulado sin añadirlo nuevamente al valor corriente.
+
+Este ejemplo completo en Python crea un gráfico usando el miembro `Waterfall` de [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), borra los datos predeterminados y rellena el libro de trabajo incrustado. El índice de hoja de cálculo `0` selecciona la primera hoja; la columna A contiene los nombres de categoría y la columna B contiene los valores. Cada celda de valor se añade con [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Los índices de punto basados en cero `2` y `5` identifican los totales intermedios y finales. Llamar a [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) con `True` muestra las cantidades en las columnas. No se requiere una presentación o libro de trabajo de entrada.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Waterfall, 20, 20, 680, 200)
+
+    chart.setTitle(True)
+    chart.getChartTitle().addTextFrameForOverriding("Profit breakdown (USD thousands)")
+    chart.getChartTitle().setOverlay(False)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
+
+    workbook.clear(worksheet_index)
+
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Profit")
+    series = chart.getChartData().getSeries().add(series_name_cell, ChartType.Waterfall)
+    categories = ["Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit"]
+    values = [1000, -400, 600, -200, 50, 450]
+
+    for i in range(len(categories)):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, categories[i])
+        chart.getChartData().getCategories().add(category_cell)
+        value_cell = workbook.getCell(worksheet_index, i + 1, 1, values[i])
+        series.getDataPoints().addDataPointForWaterfallSeries(value_cell)
+
+    # El tercer y sexto punto representan totales, no cambios adicionales.
+    series.getDataPoints().get_Item(2).setSetAsTotal(True)
+    series.getDataPoints().get_Item(5).setSetAsTotal(True)
+    series.setShowConnectorLines(True)
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+
+    presentation.save("WaterfallChart.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Llama al método a nivel de serie [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) con `True` para mostrar líneas que enlazan columnas consecutivas y facilitar el seguimiento del valor corriente. Para ocultar estas líneas, reemplace la llamada al método en el ejemplo por `series.setShowConnectorLines(False)` antes de guardar. Esto solo cambia la visibilidad de la línea, no los datos ni los totales.
+
+La presentación guardada muestra un beneficio bruto de 600 y un beneficio neto de 450, con ambos totales dibujados desde cero:
+
+![Gráfico de cascada que muestra ingresos, costes, beneficio bruto de 600 y beneficio neto de 450, con etiquetas de valor y líneas de conexión](waterfall_chart.png)
+
+### **Crear gráficos de valores**
+
+Los gráficos de valores se usan para mostrar datos financieros como los precios de apertura, máximo, mínimo y cierre, ayudando a analizar tendencias del mercado y volatilidad. Proveen información esencial sobre el rendimiento de las acciones, asistiendo a inversores y analistas a tomar decisiones informadas.
+
+Este ejemplo crea un gráfico de apertura‑máximo‑mínimo‑cierre con cuatro series en ese orden y tres categorías. El método [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) habilita las barras de subida/bajada, y [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) controla las líneas alto‑bajo que muestran los rangos de precios, mientras que las líneas de serie individuales y las líneas de cuadrícula horizontal menores están ocultas.
 
 ```python
 import jpype
@@ -581,85 +566,82 @@ from asposeslides.api import ChartType, FillType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, False)
+    slide = presentation.getSlides().get_Item(0)
 
-    chart.getChartData().getSeries().clear()
-    chart.getChartData().getCategories().clear()
+    chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, False)
 
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    cell = workbook.getCell(0, 1, 0, "A")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 2, 0, "B")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 3, 0, "C")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, 1, 0, "A")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 2, 0, "B")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, 3, 0, "C")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, 0, 1, "Open")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(0, 0, 2, "High")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(0, 0, 3, "Low")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    cell = workbook.getCell(0, 0, 4, "Close")
-    chart.getChartData().getSeries().add(cell, chart.getType())
+    series_name_cell = workbook.getCell(0, 0, 1, "Open")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
+    series_name_cell = workbook.getCell(0, 0, 2, "High")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
+    series_name_cell = workbook.getCell(0, 0, 3, "Low")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
+    series_name_cell = workbook.getCell(0, 0, 4, "Close")
+    chart.getChartData().getSeries().add(series_name_cell, ChartType.OpenHighLowClose)
 
     series = chart.getChartData().getSeries().get_Item(0)
-
-    cell = workbook.getCell(0, 1, 1, 72)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 1, 25)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 1, 38)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 1, 72)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 1, 25)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 1, 38)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     series = chart.getChartData().getSeries().get_Item(1)
-    cell = workbook.getCell(0, 1, 2, 172)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 2, 57)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 2, 57)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 2, 172)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 2, 57)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 2, 57)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     series = chart.getChartData().getSeries().get_Item(2)
-    cell = workbook.getCell(0, 1, 3, 12)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 3, 12)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 3, 13)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 3, 12)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 3, 12)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 3, 13)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     series = chart.getChartData().getSeries().get_Item(3)
-    cell = workbook.getCell(0, 1, 4, 25)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 2, 4, 38)
-    series.getDataPoints().addDataPointForStockSeries(cell)
-    cell = workbook.getCell(0, 3, 4, 50)
-    series.getDataPoints().addDataPointForStockSeries(cell)
+    value_cell = workbook.getCell(0, 1, 4, 25)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 4, 38)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 4, 50)
+    series.getDataPoints().addDataPointForStockSeries(value_cell)
 
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(True)
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
 
-    for series in chart.getChartData().getSeries():
-        series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+    for stock_series in chart.getChartData().getSeries():
+        stock_series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
+
+    presentation.save("Stock-chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+El resultado:
+
+![El gráfico de valores](stock_chart.png)
+
 ### **Crear gráficos de caja y bigotes**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#BoxAndWhisker).
-4. Acceder al libro de datos del gráfico [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Añadir nuevos datos al gráfico para las series.
-8. Guardar la presentación modificada como archivo PPTX.
+Los gráficos de caja y bigotes se utilizan para mostrar la distribución de los datos resumida mediante medidas estadísticas clave, como la mediana, cuartiles y posibles valores atípicos. Son particularmente útiles en el análisis exploratorio de datos y estudios estadísticos para comprender rápidamente la variabilidad de los datos e identificar anomalías.
 
-Este código Python muestra cómo crear un gráfico de caja y bigotes:
+Este ejemplo crea un gráfico de caja y bigotes a partir de seis valores. El método [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) selecciona el cálculo exclusivo de cuartiles. El ejemplo también habilita líneas de media, marcadores de media, puntos internos y puntos atípicos.
 
 ```python
 import jpype
@@ -672,25 +654,28 @@ from asposeslides.api import ChartType, Presentation, QuartileMethodType, SaveFo
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.BoxAndWhisker, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    cell = workbook.getCell(0, "A1", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A2", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A3", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A4", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A5", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A6", "Category 1")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "A1", "Category 1")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A2", "Category 2")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A3", "Category 3")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A4", "Category 4")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A5", "Category 5")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A6", "Category 6")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.BoxAndWhisker)
 
@@ -700,18 +685,18 @@ try:
     series.setShowInnerPoints(True)
     series.setShowOutlierPoints(True)
 
-    cell = workbook.getCell(0, "B1", 15)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B2", 41)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B3", 16)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B4", 10)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B5", 23)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
-    cell = workbook.getCell(0, "B6", 16)
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(cell)
+    value_cell = workbook.getCell(0, "B1", 15)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B2", 41)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B3", 16)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B4", 10)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B5", 23)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
+    value_cell = workbook.getCell(0, "B6", 16)
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(value_cell)
 
     presentation.save("BoxAndWhisker.pptx", SaveFormat.Pptx)
 finally:
@@ -720,12 +705,9 @@ finally:
 
 ### **Crear gráficos de embudo**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Funnel](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Funnel).
-4. Guardar la presentación modificada como archivo PPTX.
+Los gráficos de embudo se utilizan para visualizar procesos que implican etapas secuenciales, donde el volumen de datos disminuye a medida que avanza de un paso al siguiente. Son especialmente útiles para analizar tasas de conversión, identificar cuellos de botella y seguir la eficiencia de procesos de ventas o marketing.
 
-Este código Python muestra cómo crear un gráfico de embudo:
+Este ejemplo utiliza [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para añadir un gráfico de embudo a la primera diapositiva de una presentación existente. Reemplaza los datos predeterminados con seis categorías y valores que van de 50 a 500, y luego guarda la presentación actualizada. La presentación de entrada debe contener al menos una diapositiva.
 
 ```python
 import jpype
@@ -736,57 +718,60 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("test.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
-
     workbook.clear(0)
 
-    cell = workbook.getCell(0, "A1", "Category 1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A2", "Category 2")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A3", "Category 3")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A4", "Category 4")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A5", "Category 5")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, "A6", "Category 6")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "A1", "Category 1")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A2", "Category 2")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A3", "Category 3")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A4", "Category 4")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A5", "Category 5")
+    chart.getChartData().getCategories().add(category_cell)
+    category_cell = workbook.getCell(0, "A6", "Category 6")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.Funnel)
 
-    cell = workbook.getCell(0, "B1", 50)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B2", 100)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B3", 200)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B4", 300)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B5", 400)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
-    cell = workbook.getCell(0, "B6", 500)
-    series.getDataPoints().addDataPointForFunnelSeries(cell)
+    value_cell = workbook.getCell(0, "B1", 50)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B2", 100)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B3", 200)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B4", 300)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B5", 400)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
+    value_cell = workbook.getCell(0, "B6", 500)
+    series.getDataPoints().addDataPointForFunnelSeries(value_cell)
 
     presentation.save("Funnel.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Crear gráficos de explosión radial**
+El resultado:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Sunburst](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Sunburst).
-4. Guardar la presentación modificada como archivo PPTX.
+![El gráfico de embudo](funnel_chart.png)
 
-Este código Python muestra cómo crear un gráfico de explosión radial:
+### **Crear gráficos Sunburst**
+
+Los gráficos Sunburst se utilizan para visualizar datos jerárquicos, mostrando los niveles como anillos concéntricos. Ayudan a ilustrar relaciones parte‑todo y son ideales para representar categorías y subcategorías anidadas de forma clara y compacta.
+
+Este ejemplo crea un gráfico Sunburst con ocho hojas agrupadas en cuatro tallos y dos ramas. El método [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) asigna los tallos al nivel de agrupación 1 y las ramas al nivel 2. Las etiquetas de categoría identifican los segmentos, y los valores determinan sus tamaños relativos.
 
 ```python
 import jpype
@@ -799,80 +784,81 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Sunburst, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    #rama 1
-    cell = workbook.getCell(0, "C1", "Leaf1")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Rama 1
+    category_cell = workbook.getCell(0, "C1", "Leaf1")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1")
 
-    cell = workbook.getCell(0, "C2", "Leaf2")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C2", "Leaf2")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C3", "Leaf3")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C3", "Leaf3")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2")
 
-    cell = workbook.getCell(0, "C4", "Leaf4")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C4", "Leaf4")
+    chart.getChartData().getCategories().add(category_cell)
 
-    #rama 2
-    cell = workbook.getCell(0, "C5", "Leaf5")
-    leaf = chart.getChartData().getCategories().add(cell)
+    # Rama 2
+    category_cell = workbook.getCell(0, "C5", "Leaf5")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3")
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2")
 
-    cell = workbook.getCell(0, "C6", "Leaf6")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C6", "Leaf6")
+    chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "C7", "Leaf7")
-    leaf = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C7", "Leaf7")
+    leaf = chart.getChartData().getCategories().add(category_cell)
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4")
 
-    cell = workbook.getCell(0, "C8", "Leaf8")
-    chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "C8", "Leaf8")
+    chart.getChartData().getCategories().add(category_cell)
 
     series = chart.getChartData().getSeries().add(ChartType.Sunburst)
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(True)
-    cell = workbook.getCell(0, "D1", 4)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D2", 5)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D3", 3)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D4", 6)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D5", 9)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D6", 9)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D7", 4)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
-    cell = workbook.getCell(0, "D8", 3)
-    series.getDataPoints().addDataPointForSunburstSeries(cell)
+    value_cell = workbook.getCell(0, "D1", 4)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D2", 5)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D3", 3)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D4", 6)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D5", 9)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D6", 9)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D7", 4)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
+    value_cell = workbook.getCell(0, "D8", 3)
+    series.getDataPoints().addDataPointForSunburstSeries(value_cell)
 
     presentation.save("Sunburst.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+El resultado:
+
+![El gráfico Sunburst](sunburst_chart.png)
+
 ### **Crear gráficos de histograma**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.Histogram](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Histogram).
-4. Acceder al libro de datos del gráfico [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Guardar la presentación modificada como archivo PPTX.
+Los gráficos de histograma se utilizan para representar la distribución de datos numéricos agrupando los valores en intervalos o contenedores. Son particularmente útiles para identificar patrones de datos como frecuencia, sesgo y dispersión, y para detectar valores atípicos en un conjunto de datos.
 
-Este código Python muestra cómo crear un gráfico de histograma:
+Este ejemplo crea un histograma a partir de seis valores numéricos, incluidos valores negativos. Llamar a [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) con el tipo de agregación automática permite que el gráfico determine los contenedores utilizados para mostrar la distribución.
 
 ```python
 import jpype
@@ -885,7 +871,10 @@ from asposeslides.api import AxisAggregationType, ChartType, Presentation, SaveF
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300)
+
     chart.getChartData().getCategories().clear()
     chart.getChartData().getSeries().clear()
 
@@ -893,18 +882,18 @@ try:
     workbook.clear(0)
 
     series = chart.getChartData().getSeries().add(ChartType.Histogram)
-    cell = workbook.getCell(0, "A1", 15)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A2", -41)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A3", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A4", 10)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A5", -23)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
-    cell = workbook.getCell(0, "A6", 16)
-    series.getDataPoints().addDataPointForHistogramSeries(cell)
+    value_cell = workbook.getCell(0, "A1", 15)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A2", -41)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A3", 16)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A4", 10)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A5", -23)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
+    value_cell = workbook.getCell(0, "A6", 16)
+    series.getDataPoints().addDataPointForHistogramSeries(value_cell)
 
     chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic)
 
@@ -913,14 +902,15 @@ finally:
     presentation.dispose()
 ```
 
+El resultado:
+
+![El gráfico de histograma](histogram_chart.png)
+
 ### **Crear gráficos de radar**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con algunos datos y especificar su tipo de gráfico preferido ([ChartType.Radar](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#Radar) en este caso).
-4. Guardar la presentación modificada como archivo PPTX.
+Los gráficos de radar se utilizan para mostrar datos multivariantes en un formato bidimensional, permitiendo comparar fácilmente varias variables simultáneamente. Son particularmente útiles para identificar patrones, fortalezas y debilidades a través de múltiples métricas de rendimiento o atributos.
 
-Este código Python muestra cómo crear un gráfico de radar:
+Este ejemplo utiliza [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para crear un gráfico de radar con las series y categorías predeterminadas, y luego guarda la presentación como PPTX.
 
 ```python
 import jpype
@@ -933,24 +923,24 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300)
+    slide = presentation.getSlides().get_Item(0)
+
+    slide.getShapes().addChart(ChartType.Radar, 20, 20, 500, 300)
+
     presentation.save("Radar-chart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Crear gráficos multicategoría**
+El resultado:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Añadir un gráfico con datos predeterminados y especificar el tipo [ChartType.ClusteredColumn](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#ClusteredColumn).
-4. Acceder al libro de datos del gráfico [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/).
-5. Eliminar las series y categorías predeterminadas.
-6. Añadir nuevas series y categorías.
-7. Añadir nuevos datos al gráfico para las series.
-8. Guardar la presentación modificada como archivo PPTX.
+![El gráfico de radar](radar_chart.png)
 
-Este código Python muestra cómo crear un gráfico multicategoría:
+### **Crear gráficos de múltiples categorías**
+
+Los gráficos de múltiples categorías se utilizan para mostrar datos que implican más de una agrupación categórica, permitiendo comparar valores a través de múltiples dimensiones simultáneamente. Son especialmente útiles cuando se necesita analizar tendencias y relaciones dentro de conjuntos de datos complejos y multi‑capas.
+
+Este ejemplo crea un gráfico de columnas agrupadas con ocho categorías organizadas en cuatro pares. El método [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) asigna a cada par una etiqueta compartida en el nivel de agrupación 1, produciendo un eje de categorías con etiquetas individuales y de grupo.
 
 ```python
 import jpype
@@ -963,70 +953,76 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
+
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
-    default_worksheet_index = 0
 
-    cell = workbook.getCell(0, "c2", "A")
-    category = chart.getChartData().getCategories().add(cell)
+    worksheet_index = 0
+
+    category_cell = workbook.getCell(0, "c2", "A")
+    category = chart.getChartData().getCategories().add(category_cell)
     category.getGroupingLevels().setGroupingItem(1, "Group1")
-    cell = workbook.getCell(0, "c3", "B")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c3", "B")
+    category = chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "c4", "C")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c4", "C")
+    category = chart.getChartData().getCategories().add(category_cell)
     category.getGroupingLevels().setGroupingItem(1, "Group2")
-    cell = workbook.getCell(0, "c5", "D")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c5", "D")
+    category = chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "c6", "E")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c6", "E")
+    category = chart.getChartData().getCategories().add(category_cell)
     category.getGroupingLevels().setGroupingItem(1, "Group3")
-    cell = workbook.getCell(0, "c7", "F")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c7", "F")
+    category = chart.getChartData().getCategories().add(category_cell)
 
-    cell = workbook.getCell(0, "c8", "G")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c8", "G")
+    category = chart.getChartData().getCategories().add(category_cell)
     category.getGroupingLevels().setGroupingItem(1, "Group4")
-    cell = workbook.getCell(0, "c9", "H")
-    category = chart.getChartData().getCategories().add(cell)
+    category_cell = workbook.getCell(0, "c9", "H")
+    category = chart.getChartData().getCategories().add(category_cell)
 
-    # Añadiendo series
-    cell = workbook.getCell(0, "D1", "Series 1")
-    series = chart.getChartData().getSeries().add(cell, ChartType.ClusteredColumn)
+    series_name_cell = workbook.getCell(0, "D1", "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, ChartType.ClusteredColumn)
 
-    cell = workbook.getCell(default_worksheet_index, "D2", 10)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D3", 20)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D4", 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D5", 40)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D6", 50)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D7", 60)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D8", 70)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, "D9", 80)
-    series.getDataPoints().addDataPointForBarSeries(cell)
+    value_cell = workbook.getCell(worksheet_index, "D2", 10)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D3", 20)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D4", 30)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D5", 40)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D6", 50)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D7", 60)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D8", 70)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
+    value_cell = workbook.getCell(worksheet_index, "D9", 80)
+    series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Guardar presentación con gráfico
-    presentation.save("AsposeChart_out.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+El resultado:
+
+![El gráfico de múltiples categorías](multi_category_chart.png)
+
 ### **Crear gráficos de mapa**
 
-Los gráficos de mapa visualizan datos geográficos y ayudan a comparar valores entre regiones.
+Los gráficos de mapa se utilizan para visualizar datos geográficos asignando información a ubicaciones específicas como países, estados o ciudades. Son particularmente útiles para analizar tendencias regionales, datos demográficos y distribuciones espaciales de manera clara y visualmente atractiva.
 
-Este código Python muestra cómo crear un gráfico de mapa:
+Este ejemplo utiliza [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para crear un gráfico de mapa con los datos geográficos predeterminados y lo guarda para su visualización en PowerPoint.
 
 ```python
 import jpype
@@ -1039,19 +1035,30 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 500, 300)
+
     presentation.save("mapChart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+El resultado:
+
+![El gráfico de mapa](map_chart.png)
+
+{{% alert color="info" title="Note" %}}
+La imagen anterior muestra la presentación guardada abierta en PowerPoint. Aspose.Slides escribe el gráfico de mapa y sus datos correctamente, pero no dibuja los gráficos de mapa por sí mismo: cuando una diapositiva que contiene uno se renderiza a una imagen o se convierte a PDF o SVG, el área del gráfico queda en blanco. Otras formas en la misma diapositiva no se ven afectadas.
+{{% /alert %}}
+
 ### **Crear gráficos combinados**
 
-Un gráfico combinado (o gráfico combo) combina dos o más tipos de gráficos en un solo diagrama. Este gráfico le permite resaltar, comparar o examinar diferencias entre dos o más conjuntos de datos, ayudándole a identificar relaciones entre ellos.
+Un gráfico combinado (o gráfico combo) combina dos o más tipos de gráficos en un solo diagrama. Este gráfico permite resaltar, comparar o examinar diferencias entre dos o más conjuntos de datos, ayudándole a identificar relaciones entre ellos.
 
 ![El gráfico combinado](combination_chart.png)
 
-El siguiente código Python muestra cómo crear el gráfico combinado que se muestra arriba en una presentación de PowerPoint:
+Este ejemplo combina dos series de columnas agrupadas con una serie de líneas en cuatro categorías. Las columnas usan el eje vertical principal, mientras que [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) coloca la línea en un eje vertical secundario a la derecha. Las funciones auxiliares configuran el título, la leyenda, las etiquetas de los ejes y las líneas de cuadrícula.
 
 ```python
 import jpype
@@ -1169,14 +1176,14 @@ def add_third_series_to_chart(chart):
     series.setPlotOnSecondAxis(True)
 
 def set_primary_axes_format(chart):
-    # Establecer el eje horizontal.
+    # Configurar el eje horizontal.
     horizontal_axis = chart.getAxes().getHorizontalAxis()
     horizontal_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     horizontal_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # Establecer el eje vertical.
+    # Configurar el eje vertical.
     vertical_axis = chart.getAxes().getVerticalAxis()
     vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     vertical_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
@@ -1190,7 +1197,7 @@ def set_primary_axes_format(chart):
     major_grid_lines_format.getSolidFillColor().setColor(color)
 
 def set_secondary_axes_format(chart):
-    # Establecer el eje horizontal secundario.
+    # Configurar el eje horizontal secundario.
     secondary_horizontal_axis = chart.getAxes().getSecondaryHorizontalAxis()
     secondary_horizontal_axis.setPosition(AxisPositionType.Bottom)
     secondary_horizontal_axis.setCrossType(CrossesType.Maximum)
@@ -1198,7 +1205,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
     secondary_horizontal_axis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    # Establecer el eje vertical secundario.
+    # Configurar el eje vertical secundario.
     secondary_vertical_axis = chart.getAxes().getSecondaryVerticalAxis()
     secondary_vertical_axis.setPosition(AxisPositionType.Right)
     secondary_vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
@@ -1221,15 +1228,9 @@ create_combo_chart()
 
 ## **Actualizar gráficos**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) que represente la presentación que contiene el gráfico que desea actualizar.
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Recorrer todas las formas para encontrar el gráfico deseado.
-4. Acceder a la hoja de datos del gráfico.
-5. Modificar las series de datos del gráfico cambiando los valores de las series.
-6. Añadir una nueva serie y poblar sus datos.
-7. Guardar la presentación modificada como archivo PPTX.
+Aspose.Slides for Python via Java le permite actualizar los gráficos de PowerPoint modificando los datos, el formato y el estilo del gráfico. Esta funcionalidad simplifica el proceso de mantener las presentaciones actualizadas con contenido dinámico y garantiza que los gráficos reflejen con precisión los datos actuales y los estándares visuales.
 
-Este código Python muestra cómo actualizar un gráfico:
+Este ejemplo actualiza el gráfico llamado "My chart" en la primera diapositiva de una presentación existente. Requiere dos series de columnas con tres puntos de datos cada una, con etiquetas de categoría en la columna A y nombres de series en la primera fila de la primera hoja de cálculo. El ejemplo utiliza [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) para cambiar celdas del libro, actualiza los valores de las series, añade una tercera serie y cambia el gráfico a cilindros agrupados mediante [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
 
 ```python
 import jpype
@@ -1238,81 +1239,62 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, Presentation, SaveFormat
+from asposeslides.api import Chart, ChartType, Presentation, SaveFormat
 
-# Abre la presentación que contiene el gráfico a actualizar
+chart_name = "My chart"
+
 presentation = Presentation("ExistingChart.pptx")
 try:
-    # Accede a la primera diapositiva
     slide = presentation.getSlides().get_Item(0)
 
-    # Obtiene el gráfico de la diapositiva
-    chart = slide.getShapes().get_Item(0)
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart) and chart_name == shape.getName():
+            chart = shape
+            worksheet_index = 0
 
-    # Establece el índice de la hoja de datos del gráfico
-    default_worksheet_index = 0
+            workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Obteniendo la hoja de datos del gráfico
-    workbook = chart.getChartData().getChartDataWorkbook()
+            workbook.getCell(worksheet_index, 1, 0, "Modified Category 1")
+            workbook.getCell(worksheet_index, 2, 0, "Modified Category 2")
 
-    # Cambiando el nombre de la categoría del gráfico
-    workbook.getCell(default_worksheet_index, 1, 0, "Modified Category 1")
-    workbook.getCell(default_worksheet_index, 2, 0, "Modified Category 2")
+            series = chart.getChartData().getSeries().get_Item(0)
 
-    # Obtiene la primera serie del gráfico
-    series = chart.getChartData().getSeries().get_Item(0)
+            workbook.getCell(worksheet_index, 0, 1, "New_Series 1")
+            series.getDataPoints().get_Item(0).getValue().setData(90)
+            series.getDataPoints().get_Item(1).getValue().setData(123)
+            series.getDataPoints().get_Item(2).getValue().setData(44)
 
-    # Actualizando ahora los datos de la serie
-    workbook.getCell(default_worksheet_index, 0, 1, "New_Series1")# Modificando el nombre de la serie
-    series.getDataPoints().get_Item(0).getValue().setData(90)
-    series.getDataPoints().get_Item(1).getValue().setData(123)
-    series.getDataPoints().get_Item(2).getValue().setData(44)
+            series = chart.getChartData().getSeries().get_Item(1)
 
-    # Obtiene la segunda serie del gráfico
-    series = chart.getChartData().getSeries().get_Item(1)
+            workbook.getCell(worksheet_index, 0, 2, "New_Series 2")
+            series.getDataPoints().get_Item(0).getValue().setData(23)
+            series.getDataPoints().get_Item(1).getValue().setData(67)
+            series.getDataPoints().get_Item(2).getValue().setData(99)
 
-    # Actualizando ahora los datos de la serie
-    workbook.getCell(default_worksheet_index, 0, 2, "New_Series2")# Modificando el nombre de la serie
-    series.getDataPoints().get_Item(0).getValue().setData(23)
-    series.getDataPoints().get_Item(1).getValue().setData(67)
-    series.getDataPoints().get_Item(2).getValue().setData(99)
+            series_name_cell = workbook.getCell(worksheet_index, 0, 3, "Series 3")
+            series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Ahora, añadiendo una nueva serie
-    cell = workbook.getCell(default_worksheet_index, 0, 3, "Series 3")
-    chart.getChartData().getSeries().add(cell, chart.getType())
+            value_cell = workbook.getCell(worksheet_index, 1, 3, 20)
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+            value_cell = workbook.getCell(worksheet_index, 2, 3, 50)
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+            value_cell = workbook.getCell(worksheet_index, 3, 3, 30)
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Obtiene la tercera serie del gráfico
-    series = chart.getChartData().getSeries().get_Item(2)
+            chart.setType(ChartType.ClusteredCylinder)
 
-    # Ahora rellenando los datos de la serie
-    cell = workbook.getCell(default_worksheet_index, 1, 3, 20)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 2, 3, 50)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-    cell = workbook.getCell(default_worksheet_index, 3, 3, 30)
-    series.getDataPoints().addDataPointForBarSeries(cell)
-
-    chart.setType(ChartType.ClusteredCylinder)
-
-    # Guarda la presentación con el gráfico
-    presentation.save("AsposeChartModified_out.pptx", SaveFormat.Pptx)
+    presentation.save("AsposeChartModified.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Establecer rango de datos para un gráfico**
 
-Para inspeccionar el rango ya utilizado por un gráfico existente, consulte [Retrieve a Chart's Data Range](/slides/es/python-java/chart-workbook/#retrieve-a-charts-data-range).
+Para inspeccionar el rango ya usado por un gráfico existente, consulte [Retrieve a Chart's Data Range](/slides/es/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Para establecer el rango de datos de un gráfico, haga lo siguiente:
+Aspose.Slides for Python via Java ofrece la flexibilidad de definir un rango de datos específico de una hoja de cálculo como origen para los datos de su gráfico. Esto significa que puede mapear directamente una parte de su hoja a el gráfico, permitiéndole controlar qué celdas contribuyen a las series y categorías del gráfico. Como resultado, puede actualizar y sincronizar fácilmente sus gráficos con los últimos cambios de datos en su hoja, asegurando que sus presentaciones PowerPoint reflejen información actual y precisa.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) que represente la presentación que contiene el gráfico.
-2. Obtener una referencia a una diapositiva mediante su índice.
-3. Recorrer todas las formas para encontrar el gráfico deseado.
-4. Acceder a los datos del gráfico y establecer el rango.
-5. Guardar la presentación modificada como archivo PPTX.
-
-Este código Python muestra cómo establecer el rango de datos para un gráfico:
+Este ejemplo utiliza [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) para establecer la fuente de datos del gráfico llamado "My chart" en la primera diapositiva de una presentación existente a `Sheet1!A1:B4`. El libro de trabajo del gráfico debe contener esa hoja y un rango poblado con un encabezado de serie en la primera fila, etiquetas de categoría en la columna A y tres valores en la columna B.
 
 ```python
 import jpype
@@ -1321,26 +1303,29 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat
+from asposeslides.api import Chart, Presentation, SaveFormat
 
-# Abre la presentación que contiene el gráfico
+chart_name = "My chart"
+
 presentation = Presentation("ExistingChart.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    chart = slide.getShapes().get_Item(0)
 
-    chart.getChartData().setRange("Sheet1!A1:B4")
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart) and chart_name == shape.getName():
+            chart = shape
+            chart.getChartData().setRange("Sheet1!A1:B4")
 
-    presentation.save("SetDataRange_out.pptx", SaveFormat.Pptx)
+    presentation.save("SetDataRange.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Usar marcadores predeterminados en los gráficos**
+## **Usar marcadores predeterminados en gráficos**
 
-Cuando utiliza marcadores predeterminados en los gráficos, cada serie del gráfico obtiene automáticamente un símbolo de marcador diferente.
+Cuando usa marcadores predeterminados en los gráficos, cada serie del gráfico obtiene automáticamente un símbolo de marcador predeterminado diferente.
 
-Este código Python muestra cómo establecer automáticamente un marcador de serie de gráfico:
+Este ejemplo utiliza [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) para crear un gráfico con dos series de líneas y una leyenda. La configuración de marcadores accesada mediante [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) conserva los símbolos de marcador asignados automáticamente. La primera serie incluye un valor negativo y un valor ausente, representado por `None`, mientras que la segunda tiene un valor para cada categoría.
 
 ```python
 import jpype
@@ -1354,47 +1339,48 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 10, 10, 400, 400)
 
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
     workbook = chart.getChartData().getChartDataWorkbook()
-    cell = workbook.getCell(0, 0, 1, "Series 1")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    series = chart.getChartData().getSeries().get_Item(0)
 
-    cell = workbook.getCell(0, 1, 0, "C1")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 1, 1, 24)
-    series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 2, 0, "C2")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 2, 1, 23)
-    series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 3, 0, "C3")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 3, 1, -10)
-    series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 4, 0, "C4")
-    chart.getChartData().getCategories().add(cell)
-    cell = workbook.getCell(0, 4, 1, None)
-    series.getDataPoints().addDataPointForLineSeries(cell)
+    series_name_cell = workbook.getCell(0, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    cell = workbook.getCell(0, 0, 2, "Series 2")
-    chart.getChartData().getSeries().add(cell, chart.getType())
-    #Obtiene la segunda serie del gráfico
-    second_series = chart.getChartData().getSeries().get_Item(1)
+    category_cell = workbook.getCell(0, 1, 0, "C1")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 1, 1, 24)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    #Ahora rellenando los datos de la serie
-    cell = workbook.getCell(0, 1, 2, 30)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 2, 2, 10)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 3, 2, 60)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
-    cell = workbook.getCell(0, 4, 2, 40)
-    second_series.getDataPoints().addDataPointForLineSeries(cell)
+    category_cell = workbook.getCell(0, 2, 0, "C2")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 2, 1, 23)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    category_cell = workbook.getCell(0, 3, 0, "C3")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 3, 1, -10)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    category_cell = workbook.getCell(0, 4, 0, "C4")
+    chart.getChartData().getCategories().add(category_cell)
+    value_cell = workbook.getCell(0, 4, 1, None)
+    series.getDataPoints().addDataPointForLineSeries(value_cell)
+
+    series_name_cell = workbook.getCell(0, 0, 2, "Series 2")
+    second_series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+
+    value_cell = workbook.getCell(0, 1, 2, 30)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
+    value_cell = workbook.getCell(0, 2, 2, 10)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
+    value_cell = workbook.getCell(0, 3, 2, 60)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
+    value_cell = workbook.getCell(0, 4, 2, 40)
+    second_series.getDataPoints().addDataPointForLineSeries(value_cell)
 
     chart.setLegend(True)
     chart.getLegend().setOverlay(False)
@@ -1404,20 +1390,20 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Qué tipos de gráficos admite Aspose.Slides?**
+**¿Qué tipos de gráficos son compatibles con Aspose.Slides for Python via Java?**
 
-Aspose.Slides admite una amplia gama de [chart types](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), incluidos barras, líneas, sectores, áreas, dispersión, histograma, radar y muchos más. Esta flexibilidad le permite elegir el tipo de gráfico más adecuado para sus necesidades de visualización de datos.
+Aspose.Slides for Python via Java admite una amplia gama de tipos de gráficos, incluidos de barras, líneas, circulares, de área, de dispersión, histogramas, de radar y muchos más. Esta flexibilidad le permite elegir el tipo de gráfico más adecuado para sus necesidades de visualización de datos.
 
 **¿Cómo añado un nuevo gráfico a una diapositiva?**
 
-Para añadir un gráfico, primero crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), recupera la diapositiva deseada mediante su índice y luego llama al método para añadir un gráfico, especificando el tipo de gráfico y los datos iniciales. Este proceso integra el gráfico directamente en su presentación.
+Para añadir un gráfico, primero crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) , recupera la diapositiva deseada mediante su índice y luego llama al método para añadir un gráfico, especificando el tipo de gráfico y los datos iniciales. Este proceso integra el gráfico directamente en su presentación.
 
 **¿Cómo puedo actualizar los datos mostrados en un gráfico?**
 
-Puede actualizar los datos de un gráfico accediendo a su libro de datos ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), eliminando cualquier serie y categoría predeterminada y luego añadiendo sus datos personalizados. Esto le permite refrescar el gráfico para reflejar los datos más recientes.
+Puede actualizar los datos de un gráfico accediendo a su libro de datos ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), eliminando cualquier serie y categoría predeterminada, y luego añadiendo sus datos personalizados. Esto le permite refrescar programáticamente el gráfico para reflejar los datos más recientes.
 
 **¿Es posible personalizar la apariencia del gráfico?**
 
-Sí, Aspose.Slides ofrece amplias opciones de personalización. Puede modificar colores, fuentes, etiquetas, leyendas y otros [formatting elements](/slides/es/python-java/chart-entities/) para adaptar la apariencia del gráfico a sus requisitos de diseño específicos.
+Sí, Aspose.Slides for Python via Java ofrece amplias opciones de personalización. Puede modificar colores, fuentes, etiquetas, leyendas y otros elementos de formato para adaptar la apariencia del gráfico a sus requisitos de diseño específicos.

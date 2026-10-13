@@ -1,6 +1,6 @@
 ---
-title: Utwórz lub zaktualizuj wykresy w prezentacji PowerPoint w Pythonie
-linktitle: Utwórz lub zaktualizuj wykresy
+title: "Utwórz lub zaktualizuj wykresy w prezentacji PowerPoint w Pythonie"
+linktitle: "Utwórz lub zaktualizuj wykresy"
 type: docs
 weight: 10
 url: /pl/python-net/create-chart/
@@ -15,401 +15,349 @@ keywords:
 - wykres liniowy
 - wykres mapy drzewa
 - wykres giełdowy
-- wykres pudełkowy i wąsowy
+- wykres pudełkowy
 - wykres lejkowy
 - wykres promieniowy
 - wykres histogramu
 - wykres radarowy
 - wykres wielokategorii
-- prezentacja PowerPoint
+- PowerPoint
+- prezentacja
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i dostosowywać wykresy w prezentacjach PowerPoint oraz OpenDocument przy użyciu Aspose.Slides for Python via .NET. Zawiera informacje o dodawaniu, formatowaniu i edycji wykresów w prezentacjach wraz z praktycznymi przykładami kodu w Pythonie."
+description: "Utwórz i dostosuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides for Python via .NET. Dodawaj, formatuj i edytuj wykresy, korzystając z praktycznych przykładów kodu w Pythonie."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak tworzyć i dostosowywać wykresy za pomocą Aspose.Slides for Python via .NET. Dowiesz się, jak dodać wykres do slajdu, wypełnić go danymi i sformatować zgodnie z wymaganiami projektowymi. Przykłady kodu obejmują tworzenie prezentacji i wykresów, konfigurowanie serii, osi i legend oraz integrację generowania wykresów w aplikacjach.
+Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides for Python via .NET. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi i zastosować różne opcje formatowania, aby spełnić określone wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidne zrozumienie, jak integrować dynamiczne generowanie wykresów w aplikacjach Pythona, upraszczając proces tworzenia prezentacji opartych na danych.
 
-## **Utworzenie wykresu**
+## **Tworzenie wykresu**
 
-Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które mogą nie być od razu oczywiste w tabeli lub arkuszu kalkulacyjnym.
+Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które nie są od razu oczywiste w tabeli lub arkuszu kalkulacyjnym.
 
 **Dlaczego tworzyć wykresy?**
 
-* agregować, zagęszczać lub podsumowywać duże ilości danych na pojedynczym slajdzie w prezentacji;
-* ujawniać wzorce i trendy w danych;
-* wywnioskować kierunek i dynamikę danych w czasie lub względem określonej jednostki pomiarowej;
-* wykrywać odstające wartości, aberracje, odchylenia, błędy i nielogiczne dane;
-* przekazywać lub prezentować złożone dane.
+Korzystając z wykresów, możesz:
 
-W PowerPoint możesz tworzyć wykresy za pomocą funkcji *Insert*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
+* zagregować, skondensować lub podsumować duże ilości danych na jednym slajdzie prezentacji;
+* ujawnić wzorce i trendy w danych;
+* określić kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary;
+* wykryć odchylenia, anomalie, błędy i dane niezgodne z rzeczywistością;
+* przekazać lub przedstawić złożone dane.
+
+W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji *Wstaw*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach wykresów), jak i wykresy niestandardowe.
 
 {{% alert color="info" title="Note" %}}
-Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) w przestrzeni nazw [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
+Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) w module [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
 {{% /alert %}}
 
-### **Tworzenie wykresów kolumnowych grupowanych**
+### **Tworzenie wykresów kolumnowych skumulowanych**
 
-Ta sekcja wyjaśnia, jak tworzyć wykresy kolumnowe grupowane za pomocą Aspose.Slides for Python via .NET. Nauczysz się inicjalizować prezentację, dodawać wykres i dostosowywać jego elementy, takie jak tytuł, dane, serie, kategorie i stylizację. Postępuj zgodnie z poniższymi krokami, aby zobaczyć, jak generowany jest standardowy wykres kolumnowy grupowany:
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do stworzenia skumulowanego wykresu kolumnowego, który porównuje dwie serie w trzech kategoriach. Serie mają wypełnienia na czerwono i zielono, a indywidualne etykiety pokazują nazwy kategorii, nazwy serii i wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z danymi i określ typ `ChartType.CLUSTERED_COLUMN`.
-4. Dodaj tytuł do wykresu.
-5. Uzyskaj dostęp do arkusza danych wykresu.
-6. Wyczyść wszystkie domyślne serie i kategorie.
-7. Dodaj nowe serie i kategorie.
-8. Dodaj nowe dane wykresu dla serii.
-9. Zastosuj kolor wypełnienia do serii wykresu.
-10. Dodaj etykiety do serii wykresu.
-11. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-```py
-import aspose.slides.charts as charts
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Utwórz instancję klasy Presentation, która reprezentuje plik PPTX.
 with slides.Presentation() as presentation:
-
-    # Uzyskaj dostęp do pierwszego slajdu.
     slide = presentation.slides[0]
 
-    # Dodaj wykres kolumnowy grupowany z domyślnymi danymi.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-    # Ustaw tytuł wykresu.
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # Ustaw indeks arkusza danych wykresu.
+    workbook = chart.chart_data.chart_data_workbook
     worksheet_index = 0
 
-    # Pobierz skoroszyt danych wykresu.
-    workbook = chart.chart_data.chart_data_workbook
-
-    # Usuń domyślnie wygenerowane serie i kategorie.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # Dodaj nowe serie.
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
+    chart.chart_data.series.add(series_name_cell, chart.type)
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 2, "Series 2")
+    chart.chart_data.series.add(series_name_cell, chart.type)
 
-    # Dodaj nowe kategorie.
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
+    category_cell = workbook.get_cell(worksheet_index, 1, 0, "Category 1")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(worksheet_index, 2, 0, "Category 2")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(worksheet_index, 3, 0, "Category 3")
+    chart.chart_data.categories.add(category_cell)
 
-    # Pobierz pierwszą serię wykresu.
     series = chart.chart_data.series[0]
 
-    # Wypełnij dane serii.
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
+    value_cell = workbook.get_cell(worksheet_index, 1, 1, 20)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 1, 50)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 1, 30)
+    series.data_points.add_data_point_for_bar_series(value_cell)
 
-    # Ustaw kolor wypełnienia dla serii.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
-    # Pobierz drugą serię wykresu.
     series = chart.chart_data.series[1]
 
-    # Wypełnij dane serii.
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
+    value_cell = workbook.get_cell(worksheet_index, 1, 2, 30)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 2, 10)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 2, 60)
+    series.data_points.add_data_point_for_bar_series(value_cell)
 
-    # Ustaw kolor wypełnienia dla serii.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # Ustaw pierwszą etykietę, aby wyświetlała nazwę kategorii.
     label = series.data_points[0].label
     label.data_label_format.show_category_name = True
 
     label = series.data_points[1].label
     label.data_label_format.show_series_name = True
 
-    # Ustaw serię, aby wyświetlała wartość dla trzeciej etykiety.
     label = series.data_points[2].label
     label.data_label_format.show_value = True
     label.data_label_format.show_series_name = True
     label.data_label_format.separator = "/"
-                
-    # Zapisz prezentację na dysku jako plik PPTX.
-    presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres kolumnowy grupowany](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **Tworzenie wykresów punktowych**
 
-Wykresy punktowe (znane również jako wykresy rozproszenia lub wykresy x-y) są często używane do sprawdzania wzorców lub wykazywania korelacji pomiędzy dwoma zmiennymi.
+Wykresy punktowe (znane również jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwoma zmiennymi.
 
 Użyj wykresu punktowego, gdy:
 
-* Masz sparowane dane liczbowe.
-* Masz dwie zmienne, które dobrze ze sobą współgrają.
-* Chcesz określić, czy dwie zmienne są ze sobą powiązane.
-* Masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej.
+* masz sparowane dane liczbowe;
+* masz dwie zmienne, które dobrze ze sobą współgrają;
+* chcesz określić, czy dwie zmienne są ze sobą powiązane;
+* masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej.
 
-Ten kod w Pythonie pokazuje, jak utworzyć wykres punktowy z różnymi znacznikami dla każdej serii:
+Ten przykład rysuje dwa zestawy wartości x‑y. Pierwsza seria używa linii prostych ze znacznikami‑gwiazdkami, a druga – wygładzonych linii ze znacznikami‑kół; obie używają [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) = 10. Właściwość [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) kontroluje kształt znacznika.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# Utwórz instancję klasy Presentation.
 with slides.Presentation() as presentation:
-
-    # Uzyskaj dostęp do pierwszego slajdu.
     slide = presentation.slides[0]
 
-    # Utwórz domyślny wykres punktowy.
     chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 20, 20, 500, 300)
 
-    # Ustaw indeks arkusza danych wykresu.
+    workbook = chart.chart_data.chart_data_workbook
     worksheet_index = 0
 
-    # Pobierz skoroszyt danych wykresu.
-    workbook = chart.chart_data.chart_data_workbook
-
-    # Usuń domyślną serię.
     chart.chart_data.series.clear()
 
-    # Dodaj nowe serie.
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 1, "Series 1"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 3, "Series 2"), chart.type)
+    series_name_cell = workbook.get_cell(worksheet_index, 1, 1, "Series 1")
+    chart.chart_data.series.add(series_name_cell, chart.type)
+    series_name_cell = workbook.get_cell(worksheet_index, 1, 3, "Series 2")
+    chart.chart_data.series.add(series_name_cell, chart.type)
 
-    # Pobierz pierwszą serię wykresu.
     series = chart.chart_data.series[0]
 
-    # Dodaj nowy punkt (1:3) do serii.
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
+    x_value_cell = workbook.get_cell(worksheet_index, 2, 1, 1)
+    y_value_cell = workbook.get_cell(worksheet_index, 2, 2, 3)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # Dodaj nowy punkt (2:10).
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
+    x_value_cell = workbook.get_cell(worksheet_index, 3, 1, 2)
+    y_value_cell = workbook.get_cell(worksheet_index, 3, 2, 10)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # Zmień typ serii.
     series.type = charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS
 
-    # Zmień marker serii wykresu.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.STAR
 
-    # Pobierz drugą serię wykresu.
     series = chart.chart_data.series[1]
 
-    # Dodaj nowy punkt (5:2) do serii wykresu.
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
+    x_value_cell = workbook.get_cell(worksheet_index, 2, 3, 5)
+    y_value_cell = workbook.get_cell(worksheet_index, 2, 4, 2)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # Dodaj nowy punkt (3:1).
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 3, 3), workbook.get_cell(worksheet_index, 3, 4, 1))
+    x_value_cell = workbook.get_cell(worksheet_index, 3, 3, 3)
+    y_value_cell = workbook.get_cell(worksheet_index, 3, 4, 1)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # Dodaj nowy punkt (2:2).
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 4, 3, 2), workbook.get_cell(worksheet_index, 4, 4, 2))
+    x_value_cell = workbook.get_cell(worksheet_index, 4, 3, 2)
+    y_value_cell = workbook.get_cell(worksheet_index, 4, 4, 2)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # Dodaj nowy punkt (5:1).
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
+    x_value_cell = workbook.get_cell(worksheet_index, 5, 3, 5)
+    y_value_cell = workbook.get_cell(worksheet_index, 5, 4, 1)
+    series.data_points.add_data_point_for_scatter_series(x_value_cell, y_value_cell)
 
-    # Zmień marker serii wykresu.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.CIRCLE
 
-    presentation.save("ScatterChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres punktowy](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Tworzenie wykresów kołowych**
 
-Wykresy kołowe najlepiej służą do przedstawiania zależności części do całości w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jednakże, jeśli Twoje dane zawierają wiele części lub etykiet, warto rozważyć użycie wykresu słupkowego.
+Wykresy kołowe najlepiej służą do przedstawiania zależności części do całości w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jeśli jednak Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.PIE`.
-4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Dodaj nowe punkty do wykresu i zastosuj niestandardowe kolory do sektorów wykresu kołowego.
-9. Ustaw etykiety dla serii.
-10. Włącz linie poprowadzenia dla etykiet serii.
-11. Ustaw kąt obrotu wykresu kołowego.
-12. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy wycinek ma niestandardowe wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Właściwość [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) ustawia początek pierwszego wycinka pod kątem 180 stopni.
 
-```py
-import aspose.slides.charts as charts
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Utwórz instancję klasy Presentation, która reprezentuje plik PPTX.
 with slides.Presentation() as presentation:
-
-    # Uzyskaj dostęp do pierwszego slajdu.
     slide = presentation.slides[0]
 
-    # Dodaj wykres z domyślnymi danymi.
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 20, 20, 500, 300)
 
-    # Ustaw tytuł wykresu.
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # Ustaw indeks arkusza danych wykresu.
+    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
+
+    workbook = chart.chart_data.chart_data_workbook
     worksheet_index = 0
 
-    # Pobierz skoroszyt danych wykresu.
-    workbook = chart.chart_data.chart_data_workbook
-
-    # Usuń domyślnie wygenerowane serie i kategorie.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # Dodaj nowe kategorie.
-    chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "First Qtr"))
-    chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "2nd Qtr"))
-    chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "3rd Qtr"))
+    category_cell = workbook.get_cell(0, 1, 0, "1st Qtr")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, 2, 0, "2nd Qtr")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, 3, 0, "3rd Qtr")
+    chart.chart_data.categories.add(category_cell)
 
-    # Dodaj nowe serie.
-    series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
+    series_name_cell = workbook.get_cell(0, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-    # Wypełnij dane serii.
-    series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 1, 1, 20))
-    series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
-    series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
+    value_cell = workbook.get_cell(worksheet_index, 1, 1, 20)
+    series.data_points.add_data_point_for_pie_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 1, 50)
+    series.data_points.add_data_point_for_pie_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 1, 30)
+    series.data_points.add_data_point_for_pie_series(value_cell)
 
-    # Ustaw kolor sektora.
     chart.chart_data.series_groups[0].is_color_varied = True
 
-    point = series.data_points[0]
-    point.format.fill.fill_type = slides.FillType.SOLID
-    point.format.fill.solid_fill_color.color = draw.Color.cyan
+    first_slice = series.data_points[0]
+    first_slice.format.fill.fill_type = slides.FillType.SOLID
+    first_slice.format.fill.solid_fill_color.color = draw.Color.cyan
 
-    # Ustaw obramowanie sektora.
-    point.format.line.fill_format.fill_type = slides.FillType.SOLID
-    point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
-    point.format.line.width = 3.0
-    point.format.line.style = slides.LineStyle.THIN_THICK
-    point.format.line.dash_style = slides.LineDashStyle.DASH_DOT
+    first_slice.format.line.fill_format.fill_type = slides.FillType.SOLID
+    first_slice.format.line.fill_format.solid_fill_color.color = draw.Color.gray
+    first_slice.format.line.width = 3.0
+    first_slice.format.line.style = slides.LineStyle.THIN_THICK
+    first_slice.format.line.dash_style = slides.LineDashStyle.LARGE_DASH
 
-    point1 = series.data_points[1]
-    point1.format.fill.fill_type = slides.FillType.SOLID
-    point1.format.fill.solid_fill_color.color = draw.Color.brown
+    second_slice = series.data_points[1]
+    second_slice.format.fill.fill_type = slides.FillType.SOLID
+    second_slice.format.fill.solid_fill_color.color = draw.Color.brown
 
-    # Ustaw obramowanie sektora.
-    point1.format.line.fill_format.fill_type = slides.FillType.SOLID
-    point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
-    point1.format.line.width = 3.0
-    point1.format.line.style = slides.LineStyle.SINGLE
-    point1.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT
+    second_slice.format.line.fill_format.fill_type = slides.FillType.SOLID
+    second_slice.format.line.fill_format.solid_fill_color.color = draw.Color.blue
+    second_slice.format.line.width = 3.0
+    second_slice.format.line.style = slides.LineStyle.SINGLE
+    second_slice.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT
 
-    point2 = series.data_points[2]
-    point2.format.fill.fill_type = slides.FillType.SOLID
-    point2.format.fill.solid_fill_color.color = draw.Color.coral
+    third_slice = series.data_points[2]
+    third_slice.format.fill.fill_type = slides.FillType.SOLID
+    third_slice.format.fill.solid_fill_color.color = draw.Color.coral
 
-    # Ustaw obramowanie sektora.
-    point2.format.line.fill_format.fill_type = slides.FillType.SOLID
-    point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
-    point2.format.line.width = 2.0
-    point2.format.line.style = slides.LineStyle.THIN_THIN
-    point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
+    third_slice.format.line.fill_format.fill_type = slides.FillType.SOLID
+    third_slice.format.line.fill_format.solid_fill_color.color = draw.Color.red
+    third_slice.format.line.width = 2.0
+    third_slice.format.line.style = slides.LineStyle.THIN_THIN
+    third_slice.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-    # Utwórz niestandardowe etykiety dla każdej kategorii w nowej serii.
-    label1 = series.data_points[0].label
+    first_label = series.data_points[0].label
+    first_label.data_label_format.show_value = True
 
-    label1.data_label_format.show_value = True
+    second_label = series.data_points[1].label
+    second_label.data_label_format.show_value = True
+    second_label.data_label_format.show_legend_key = True
+    second_label.data_label_format.show_percentage = True
 
-    label2 = series.data_points[1].label
-    label2.data_label_format.show_value = True
-    label2.data_label_format.show_legend_key = True
-    label2.data_label_format.show_percentage = True
+    third_label = series.data_points[2].label
+    third_label.data_label_format.show_series_name = True
+    third_label.data_label_format.show_percentage = True
 
-    label3 = series.data_points[2].label
-    label3.data_label_format.show_series_name = True
-    label3.data_label_format.show_percentage = True
-
-    # Ustaw serię, aby wyświetlała linie prowadzące dla wykresu.
     series.labels.default_data_label_format.show_leader_lines = True
 
-    # Ustaw kąt obrotu dla sektorów wykresu kołowego.
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
-    # Zapisz prezentację na dysku jako plik PPTX.
     presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres kołowy](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
 ### **Tworzenie wykresów liniowych**
 
-Wykresy liniowe (znane również jako wykresy liniowe) najlepiej sprawdzają się w sytuacjach, w których chcesz przedstawić zmiany wartości w czasie. Korzystając z wykresu liniowego, możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
+Wykresy liniowe (znane również jako wykresy liniowe) najlepiej sprawdzają się w sytuacjach, w których chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.LINE`.
-4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do stworzenia wykresu liniowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 20, 20, 500, 300)
-    
-    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
+    slide = presentation.slides[0]
+
+    line_chart = slide.shapes.add_chart(charts.ChartType.LINE, 20, 20, 500, 300)
+
+    presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Domyślnie punkty na wykresie liniowym są połączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, możesz określić preferowany typ kreski w następujący sposób:
+Domyślnie punkty na wykresie liniowym są łączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, ustaw [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) na wartość z [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
 
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+    slide = presentation.slides[0]
+
+    line_chart = slide.shapes.add_chart(charts.ChartType.LINE, 20, 20, 500, 300)
 
     for series in line_chart.chart_data.series:
         series.format.line.dash_style = slides.LineDashStyle.DASH
-
-    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres liniowy](line_chart.png)
+![The Line chart](line_chart.png)
 
 ### **Tworzenie wykresów mapy drzewa**
 
-Wykresy mapy drzewa są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy będące dużymi wkładaczami w każdej kategorii.
+Wykresy mapy drzewa najlepiej nadają się do danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które są dużymi wkładaczami w każdej kategorii.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.TREEMAP`.
-4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) przypisuje pędy na poziomie grupowania 1 i gałęzie na poziomie 2. Wartości decydują o względnych rozmiarach prostokątów, a etykiety kategorii oraz nakładające się etykiety nadrzędne identyfikują hierarchię.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.TREEMAP, 20, 20, 500, 300)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.TREEMAP, 20, 20, 500, 300)
+
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
@@ -417,151 +365,245 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     # Gałąź 1
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C1", "Leaf1"))
+    category_cell = workbook.get_cell(0, "C1", "Leaf1")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem1")
     leaf.grouping_levels.set_grouping_item(2, "Branch1")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C2", "Leaf2"))
+    category_cell = workbook.get_cell(0, "C2", "Leaf2")
+    chart.chart_data.categories.add(category_cell)
 
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C3", "Leaf3"))
+    category_cell = workbook.get_cell(0, "C3", "Leaf3")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem2")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C4", "Leaf4"))
+    category_cell = workbook.get_cell(0, "C4", "Leaf4")
+    chart.chart_data.categories.add(category_cell)
 
     # Gałąź 2
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C5", "Leaf5"))
+    category_cell = workbook.get_cell(0, "C5", "Leaf5")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem3")
     leaf.grouping_levels.set_grouping_item(2, "Branch2")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C6", "Leaf6"))
+    category_cell = workbook.get_cell(0, "C6", "Leaf6")
+    chart.chart_data.categories.add(category_cell)
 
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C7", "Leaf7"))
+    category_cell = workbook.get_cell(0, "C7", "Leaf7")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem4")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C8", "Leaf8"))
+    category_cell = workbook.get_cell(0, "C8", "Leaf8")
+    chart.chart_data.categories.add(category_cell)
 
     series = chart.chart_data.series.add(charts.ChartType.TREEMAP)
     series.labels.default_data_label_format.show_category_name = True
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D1", 4))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D2", 5))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D3", 3))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D4", 6))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D5", 9))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D6", 9))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D7", 4))
-    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D8", 3))
+    value_cell = workbook.get_cell(0, "D1", 4)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D2", 5)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D3", 3)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D4", 6)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D5", 9)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D6", 9)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D7", 4)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
+    value_cell = workbook.get_cell(0, "D8", 3)
+    series.data_points.add_data_point_for_treemap_series(value_cell)
 
     series.parent_label_layout = charts.ParentLabelLayoutType.OVERLAPPING
 
-    presentation.save("TreeMap.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Treemap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres mapy drzewa](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Tworzenie wykresów giełdowych**
+### **Tworzenie wykresów wodospadowych**
 
-Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksymalne, minimalne i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają istotnych informacji o wynikach akcji, wspomagając inwestorów i analityków w podejmowaniu świadomych decyzji.
+Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do wartości końcowej. Na przykład podział zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny zmian „pływają” pomiędzy poprzednią a nową wartością bieżącą, natomiast kolumny sumaryczne rozciągają się od zera do skumulowanej wartości.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.OPEN_HIGH_LOW_CLOSE`.
-4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Określ format linii wysokich/niskich.
-9. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Poniższy przykład używa kwot w tysiącach dolarów amerykańskich:
 
-```py
-import aspose.slides.charts as charts
+| Kategoria | Wartość w skoroszycie | Typ kolumny |
+| --- | ---: | --- |
+| Przychód | 1000 | Wzrost |
+| Koszt sprzedaży | -400 | Spadek |
+| Zysk brutto | 600 | Suma pośrednia |
+| Koszty operacyjne | -200 | Spadek |
+| Inny przychód | 50 | Wzrost |
+| Zysk netto | 450 | Suma końcowa |
+
+Aby oznaczyć punkt jako sumę pośrednią lub końcową, ustaw jego właściwość [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) na `True`. Podaj rzeczywistą skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Właściwość oznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako symbolu zastępczego ani nie podawaj innej zmiany dla punktu sumy. Kolumna sumy wyświetla skumulowaną wartość bez ponownego dodawania jej do wartości bieżącej.
+
+Ten kompletny przykład C# tworzy wykres przy użyciu członka `Waterfall` wyliczenia [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B wartości. Każda komórka wartości jest dodawana metodą [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). Indeksy punktów zaczynające się od zera `2` i `5` identyfikują sumy pośrednie i końcowe. Włączenie [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) wyświetla kwoty na kolumnach. Nie wymaga się żadnej wejściowej prezentacji ani skoroszytu.
+
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 300, False)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.WATERFALL, 20, 20, 680, 200)
+
+    chart.has_title = True
+    chart.chart_title.add_text_frame_for_overriding("Profit breakdown (USD thousands)")
+    chart.chart_title.overlay = False
+    chart.has_legend = False
 
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
     workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
 
-    chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "A"))
-    chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "B"))
-    chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "C"))
+    workbook.clear(worksheet_index)
 
-    chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Open"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "High"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(0, 0, 3, "Low"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(0, 0, 4, "Close"), chart.type)
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Profit")
+    series = chart.chart_data.series.add(series_name_cell, charts.ChartType.WATERFALL)
+    categories = ["Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit"]
+    values = [1000, -400, 600, -200, 50, 450]
+
+    for i in range(len(categories)):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, categories[i])
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_w
+
+    # Trzeci i szósty punkt reprezentują sumy, a nie dodatkowe zmiany.
+    series.data_points[2].set_as_total = True
+    series.data_points[5].set_as_total = True
+    series.show_connector_lines = True
+    series.labels.default_data_label_format.show_value = True
+
+    presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Ustaw właściwość [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) na poziomie serii na `True`, aby pokazać linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień w przykładzie przypisanie na `series.show_connector_lines = False` przed zapisem. Zmiana dotyczy wyłącznie widoczności linii, nie danych ani sum.
+
+Zapisana prezentacja pokazuje zysk brutto 600 i zysk netto 450, przy czym obie sumy są rysowane od zera:
+
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+
+### **Tworzenie wykresów giełdowych**
+
+Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksymalne, minimalne i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
+
+Ten przykład tworzy wykres otwarcia‑wysoko‑nisko‑zamknięcia z czterema seriami w tej kolejności i trzema kategoriami. Właściwość [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) włącza słupki wzrostu/spadku, a [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) kontroluje linie wysokich‑niskich, które pokazują zakresy cen; linie serii i drobne linie siatki poziome są ukryte.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 300, False)
+
+    workbook = chart.chart_data.chart_data_workbook
+
+    category_cell = workbook.get_cell(0, 1, 0, "A")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, 2, 0, "B")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, 3, 0, "C")
+    chart.chart_data.categories.add(category_cell)
+
+    series_name_cell = workbook.get_cell(0, 0, 1, "Open")
+    chart.chart_data.series.add(series_name_cell, charts.ChartType.OPEN_HIGH_LOW_CLOSE)
+    series_name_cell = workbook.get_cell(0, 0, 2, "High")
+    chart.chart_data.series.add(series_name_cell, charts.ChartType.OPEN_HIGH_LOW_CLOSE)
+    series_name_cell = workbook.get_cell(0, 0, 3, "Low")
+    chart.chart_data.series.add(series_name_cell, charts.ChartType.OPEN_HIGH_LOW_CLOSE)
+    series_name_cell = workbook.get_cell(0, 0, 4, "Close")
+    chart.chart_data.series.add(series_name_cell, charts.ChartType.OPEN_HIGH_LOW_CLOSE)
 
     series = chart.chart_data.series[0]
-
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 1, 72))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 1, 25))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 1, 38))
+    value_cell = workbook.get_cell(0, 1, 1, 72)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 2, 1, 25)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 3, 1, 38)
+    series.data_points.add_data_point_for_stock_series(value_cell)
 
     series = chart.chart_data.series[1]
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 2, 172))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 2, 57))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 2, 57))
+    value_cell = workbook.get_cell(0, 1, 2, 172)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 2, 2, 57)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 3, 2, 57)
+    series.data_points.add_data_point_for_stock_series(value_cell)
 
     series = chart.chart_data.series[2]
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 3, 12))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 3, 12))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 3, 13))
+    value_cell = workbook.get_cell(0, 1, 3, 12)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 2, 3, 12)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 3, 3, 13)
+    series.data_points.add_data_point_for_stock_series(value_cell)
 
     series = chart.chart_data.series[3]
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 4, 25))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 4, 38))
-    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 4, 50))
+    value_cell = workbook.get_cell(0, 1, 4, 25)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 2, 4, 38)
+    series.data_points.add_data_point_for_stock_series(value_cell)
+    value_cell = workbook.get_cell(0, 3, 4, 50)
+    series.data_points.add_data_point_for_stock_series(value_cell)
 
     chart.chart_data.series_groups[0].up_down_bars.has_up_down_bars = True
     chart.chart_data.series_groups[0].hi_low_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
 
-    for ser in chart.chart_data.series:
-        ser.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+    for stock_series in chart.chart_data.series:
+        stock_series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    presentation.save("StockChart.pptx", slides.export.SaveFormat.PPTX)
+    chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+
+    presentation.save("Stock-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres giełdowy](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Tworzenie wykresów pudełkowych i wąsowych**
+### **Tworzenie wykresów pudełkowych (Box and Whisker)**
 
-Wykresy pudełkowe i wąsowe służą do wyświetlania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w analizie eksploracyjnej danych i badaniach statystycznych, umożliwiając szybkie zrozumienie zmienności danych i identyfikację anomalii.
+Wykresy pudełkowe służą do wyświetlania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne odstające wartości. Są szczególnie przydatne w eksploracyjnej analizie danych i badaniach statystycznych, umożliwiając szybkie zrozumienie zmienności danych i identyfikację anomalii.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.BOX_AND_WHISKER`.
-4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład tworzy wykres pudełkowy z sześciu wartości. Właściwość [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) wybiera wyłączny sposób obliczania kwartylów. Przykład włącza także linie średniej, znaczniki średniej, wewnętrzne punkty i punkty odstające.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.BOX_AND_WHISKER, 20, 20, 500, 300)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.BOX_AND_WHISKER, 20, 20, 500, 300)
+
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
     workbook = chart.chart_data.chart_data_workbook
     workbook.clear(0)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "A1", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A2", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A3", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A4", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A5", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A6", "Category 1"))
+    category_cell = workbook.get_cell(0, "A1", "Category 1")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A2", "Category 2")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A3", "Category 3")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A4", "Category 4")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A5", "Category 5")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A6", "Category 6")
+    chart.chart_data.categories.add(category_cell)
 
     series = chart.chart_data.series.add(charts.ChartType.BOX_AND_WHISKER)
 
@@ -571,77 +613,93 @@ with slides.Presentation() as presentation:
     series.show_inner_points = True
     series.show_outlier_points = True
 
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B1", 15))
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B2", 41))
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B3", 16))
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B4", 10))
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B5", 23))
-    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B6", 16))
+    value_cell = workbook.get_cell(0, "B1", 15)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
+    value_cell = workbook.get_cell(0, "B2", 41)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
+    value_cell = workbook.get_cell(0, "B3", 16)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
+    value_cell = workbook.get_cell(0, "B4", 10)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
+    value_cell = workbook.get_cell(0, "B5", 23)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
+    value_cell = workbook.get_cell(0, "B6", 16)
+    series.data_points.add_data_point_for_box_and_whisker_series(value_cell)
 
-    presentation.save("BoxAndWhiskerChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("BoxAndWhisker.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Tworzenie wykresów lejkowych**
 
-Wykresy lejkowe służą do wizualizacji procesów obejmujących kolejne etapy, w których objętość danych maleje w miarę przechodzenia z jednego kroku do następnego. Są szczególnie przydatne do analizy wskaźników konwersji, identyfikacji wąskich gardeł i śledzenia efektywności procesów sprzedaży lub marketingu.
+Wykresy lejkowe służą do wizualizacji procesów, które obejmują kolejne etapy, przy czym wolumen danych maleje wraz z przechodzeniem z jednego kroku do następnego. Są szczególnie pomocne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.FUNNEL`.
-4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do dodania wykresu lejkowego na pierwszym slajdzie istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, a następnie zapisuje zaktualizowaną prezentację. Wejściowa prezentacja musi zawierać co najmniej jeden slajd.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.FUNNEL, 50, 50, 500, 400)
+with slides.Presentation("test.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.FUNNEL, 50, 50, 500, 400)
+
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
     workbook = chart.chart_data.chart_data_workbook
     workbook.clear(0)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "A1", "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A2", "Category 2"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A3", "Category 3"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A4", "Category 4"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A5", "Category 5"))
-    chart.chart_data.categories.add(workbook.get_cell(0, "A6", "Category 6"))
+    category_cell = workbook.get_cell(0, "A1", "Category 1")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A2", "Category 2")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A3", "Category 3")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A4", "Category 4")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A5", "Category 5")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(0, "A6", "Category 6")
+    chart.chart_data.categories.add(category_cell)
 
     series = chart.chart_data.series.add(charts.ChartType.FUNNEL)
 
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B1", 50))
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B2", 100))
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B3", 200))
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B4", 300))
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B5", 400))
-    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B6", 500))
+    value_cell = workbook.get_cell(0, "B1", 50)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
+    value_cell = workbook.get_cell(0, "B2", 100)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
+    value_cell = workbook.get_cell(0, "B3", 200)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
+    value_cell = workbook.get_cell(0, "B4", 300)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
+    value_cell = workbook.get_cell(0, "B5", 400)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
+    value_cell = workbook.get_cell(0, "B6", 500)
+    series.data_points.add_data_point_for_funnel_series(value_cell)
 
-    presentation.save("FunnelChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Funnel.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres lejkowy](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Tworzenie wykresów promieniowych**
+### **Tworzenie wykresów promieniowych (Sunburst)**
 
-Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają zobrazować zależności części do całości i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzysty, zwarty sposób.
+Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają zilustrować zależności części do całości i są idealne do przedstawiania zagnieżdżonych kategorii oraz podkategorii w przejrzystym, kompaktowym formacie.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.SUNBURST`.
-4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) przypisuje pędy na poziomie grupowania 1 i gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.SUNBURST, 20, 20, 500, 300)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 20, 20, 500, 300)
+
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
@@ -649,66 +707,78 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     # Gałąź 1
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C1", "Leaf1"))
+    category_cell = workbook.get_cell(0, "C1", "Leaf1")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem1")
     leaf.grouping_levels.set_grouping_item(2, "Branch1")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C2", "Leaf2"))
+    category_cell = workbook.get_cell(0, "C2", "Leaf2")
+    chart.chart_data.categories.add(category_cell)
 
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C3", "Leaf3"))
+    category_cell = workbook.get_cell(0, "C3", "Leaf3")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem2")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C4", "Leaf4"))
+    category_cell = workbook.get_cell(0, "C4", "Leaf4")
+    chart.chart_data.categories.add(category_cell)
 
     # Gałąź 2
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C5", "Leaf5"))
+    category_cell = workbook.get_cell(0, "C5", "Leaf5")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem3")
     leaf.grouping_levels.set_grouping_item(2, "Branch2")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C6", "Leaf6"))
+    category_cell = workbook.get_cell(0, "C6", "Leaf6")
+    chart.chart_data.categories.add(category_cell)
 
-    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C7", "Leaf7"))
+    category_cell = workbook.get_cell(0, "C7", "Leaf7")
+    leaf = chart.chart_data.categories.add(category_cell)
     leaf.grouping_levels.set_grouping_item(1, "Stem4")
 
-    chart.chart_data.categories.add(workbook.get_cell(0, "C8", "Leaf8"))
+    category_cell = workbook.get_cell(0, "C8", "Leaf8")
+    chart.chart_data.categories.add(category_cell)
 
     series = chart.chart_data.series.add(charts.ChartType.SUNBURST)
     series.labels.default_data_label_format.show_category_name = True
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D1", 4))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D2", 5))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D3", 3))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D4", 6))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D5", 9))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D6", 9))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D7", 4))
-    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D8", 3))
+    value_cell = workbook.get_cell(0, "D1", 4)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D2", 5)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D3", 3)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D4", 6)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D5", 9)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D6", 9)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D7", 4)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
+    value_cell = workbook.get_cell(0, "D8", 3)
+    series.data_points.add_data_point_for_sunburst_series(value_cell)
 
-    presentation.save("SunburstChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Sunburst.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres promieniowy](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Tworzenie wykresów histogramów**
+### **Tworzenie wykresów histogramu**
 
-Histogramy służą do reprezentacji rozkładu danych liczbowych poprzez grupowanie wartości w przedziały (koszyki). Są szczególnie przydatne do identyfikacji wzorców, takich jak częstość, skośność i rozproszenie, oraz do wykrywania odstających wartości w zestawie danych.
+Histogramy służą do przedstawiania rozkładu danych liczbowych poprzez grupowanie wartości w przedziały (koszyki). Są szczególnie przydatne do identyfikacji wzorców w danych, takich jak częstotliwość, asymetria i rozproszenie, oraz do wykrywania odstających wartości w zestawie danych.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z danymi i określ typ `ChartType.HISTOGRAM`.
-4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nową serię i wypełnij ją punktami danych. Histogram nie ma kategorii; koszyki są obliczane z wartości.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład tworzy histogram z sześciu wartości liczbowych, w tym wartości ujemnych. Ustawienie [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) na automatyczne pozwala wykresowi samodzielnie określić liczbę koszyków używanych do wyświetlenia rozkładu.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 500, 300)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 500, 300)
+
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
@@ -716,65 +786,65 @@ with slides.Presentation() as presentation:
     workbook.clear(0)
 
     series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A1", 15))
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A2", -41))
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A3", 16))
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A4", 10))
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A5", -23))
-    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A6", 16))
+    value_cell = workbook.get_cell(0, "A1", 15)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
+    value_cell = workbook.get_cell(0, "A2", -41)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
+    value_cell = workbook.get_cell(0, "A3", 16)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
+    value_cell = workbook.get_cell(0, "A4", 10)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
+    value_cell = workbook.get_cell(0, "A5", -23)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
+    value_cell = workbook.get_cell(0, "A6", 16)
+    series.data_points.add_data_point_for_histogram_series(value_cell)
 
     chart.axes.horizontal_axis.aggregation_type = charts.AxisAggregationType.AUTOMATIC
 
-    presentation.save("HistogramChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Histogram.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres histogramu](histogram_chart.png)
+![The Histogram chart](histogram_chart.png)
 
 ### **Tworzenie wykresów radarowych**
 
-Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w różnych miarach wydajności lub cechach.
+Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w wielu miarach wydajności lub atrybutach.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z danymi i określ typ `ChartType.RADAR`.
-4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do stworzenia wykresu radarowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
 ```python
 import aspose.slides as slides
-
-with slides.Presentation() as presentation:
-    presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
-    presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Wynik:
-
-![Wykres radarowy](radar_chart.png)
-
-### **Tworzenie wykresów wielokategorii**
-
-Wykresy wielokategorii służą do wyświetlania danych, które obejmują więcej niż jedną grupę kategorialną, umożliwiając jednoczesne porównanie wartości w wielu wymiarach. Są szczególnie przydatne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.CLUSTERED_COLUMN`.
-4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-```py
 import aspose.slides.charts as charts
-import aspose.slides as slides
-import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    slide.shapes.add_chart(charts.ChartType.RADAR, 20, 20, 500, 300)
+
+    presentation.save("Radar-chart.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Wynik:
+
+![The Radar chart](radar_chart.png)
+
+### **Tworzenie wykresów wielokategorii**
+
+Wykresy wielokategorii służą do wyświetlania danych obejmujących więcej niż jedną grupę kategoryczną, umożliwiając jednoczesne porównywanie wartości w wielu wymiarach. Są szczególnie pomocne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zbiorach danych.
+
+Ten przykład tworzy skumulowany wykres kolumnowy z ośmioma kategoriami ułożonymi w cztery pary. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z zarówno pojedynczymi, jak i grupowymi etykietami.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
@@ -783,72 +853,95 @@ with slides.Presentation() as presentation:
 
     worksheet_index = 0
 
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c2", "A"))
+    category_cell = workbook.get_cell(0, "c2", "A")
+    category = chart.chart_data.categories.add(category_cell)
     category.grouping_levels.set_grouping_item(1, "Group1")
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c3", "B"))
+    category_cell = workbook.get_cell(0, "c3", "B")
+    category = chart.chart_data.categories.add(category_cell)
 
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c4", "C"))
+    category_cell = workbook.get_cell(0, "c4", "C")
+    category = chart.chart_data.categories.add(category_cell)
     category.grouping_levels.set_grouping_item(1, "Group2")
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c5", "D"))
+    category_cell = workbook.get_cell(0, "c5", "D")
+    category = chart.chart_data.categories.add(category_cell)
 
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c6", "E"))
+    category_cell = workbook.get_cell(0, "c6", "E")
+    category = chart.chart_data.categories.add(category_cell)
     category.grouping_levels.set_grouping_item(1, "Group3")
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c7", "F"))
+    category_cell = workbook.get_cell(0, "c7", "F")
+    category = chart.chart_data.categories.add(category_cell)
 
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c8", "G"))
+    category_cell = workbook.get_cell(0, "c8", "G")
+    category = chart.chart_data.categories.add(category_cell)
     category.grouping_levels.set_grouping_item(1, "Group4")
-    category = chart.chart_data.categories.add(workbook.get_cell(0, "c9", "H"))
+    category_cell = workbook.get_cell(0, "c9", "H")
+    category = chart.chart_data.categories.add(category_cell)
 
-    # Dodaj serię.
-    series = chart.chart_data.series.add(workbook.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
+    series_name_cell = workbook.get_cell(0, "D1", "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, charts.ChartType.CLUSTERED_COLUMN)
 
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D2", 10))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D3", 20))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D4", 30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D5", 40))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D6", 50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D7", 60))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D8", 70))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D9", 80))
+    value_cell = workbook.get_cell(worksheet_index, "D2", 10)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D3", 20)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D4", 30)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D5", 40)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D6", 50)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D7", 60)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D8", 70)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, "D9", 80)
+    series.data_points.add_data_point_for_bar_series(value_cell)
 
-    # Zapisz prezentację z wykresem.
-    presentation.save("MultiCategoryChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres wielokategorii](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **Tworzenie wykresów mapowych**
 
-Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany czy miasta. Są szczególnie przydatne do analizy trendów regionalnych, danych demograficznych i rozkładów przestrzennych w czytelny, wizualnie atrakcyjny sposób.
+Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany lub miasta. Są szczególnie przydatne do analizy trendów regionalnych, danych demograficznych i rozmieszczenia przestrzennego w przejrzysty, wizualnie atrakcyjny sposób.
 
-Ten kod w Pythonie pokazuje, jak utworzyć wykres mapowy:
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do stworzenia wykresu mapowego z domyślnymi danymi geograficznymi i zapisuje go do wyświetlenia w programie PowerPoint.
 
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.MAP, 20, 20, 500, 300)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.MAP, 20, 20, 500, 300)
+
     presentation.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
 
-![Wykres mapowy](map_chart.png)
+![The Map chart](map_chart.png)
+
+{{% alert color="info" title="Note" %}}
+Powyższy obraz przedstawia zapisany plik prezentacji otwarty w programie PowerPoint. Aspose.Slides zapisuje wykres mapowy i jego dane prawidłowo, ale sam nie rysuje wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany do PDF‑a lub SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie pozostają nienaruszone.
+{{% /alert %}}
 
 ### **Tworzenie wykresów kombinowanych**
 
-Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym grafie. Ten wykres pozwala podkreślić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
+Wykres kombinowany (lub combo) łączy dwa lub więcej typów wykresów w jednym grafie. Ten wykres pozwala podkreślić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
 
-![Wykres kombinowany](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Poniższy kod w Pythonie pokazuje, jak utworzyć przedstawiony powyżej wykres kombinowany w prezentacji PowerPoint:
+Ten przykład łączy dwie skumulowane serie kolumnowe z serią liniową w czterech kategoriach. Kolumny używają głównej pionowej osi, natomiast [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) umieszcza linię na drugiej pionowej osi po prawej stronie. Funkcje pomocnicze konfigurowane są tak, aby ustawić tytuł, legendę, etykiety osi i linie siatki.
 
 ```python
-import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 def create_combo_chart():
     with slides.Presentation() as presentation:
@@ -862,51 +955,50 @@ def create_combo_chart():
 
         presentation.save("combo-chart.pptx", slides.export.SaveFormat.PPTX)
 
-
 def create_chart_with_first_series(slide):
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
 
-    # Ustaw tytuł wykresu.
     chart.has_title = True
     chart.chart_title.add_text_frame_for_overriding("Chart Title")
     chart.chart_title.overlay = False
-    title_paragraph = chart.chart_title.text_frame_for_overriding.paragraphs[0]
-    title_format = title_paragraph.paragraph_format.default_portion_format
+    portion_format = chart.chart_title.text_frame_for_overriding.paragraphs[0].paragraph_format.default_portion_format
+    portion_format.font_bold = slides.NullableBool.FALSE
+    portion_format.font_height = 18
 
-    title_format.font_bold = slides.NullableBool.FALSE
-    title_format.font_height = 18
-
-    # Ustaw legendę wykresu.
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
-    # Usuń domyślnie wygenerowane serie i kategorie.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    worksheet_index = 0
     workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
 
-    # Dodaj nowe kategorie.
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 4, 0, "Category 4"))
+    category_cell = workbook.get_cell(worksheet_index, 1, 0, "Category 1")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(worksheet_index, 2, 0, "Category 2")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(worksheet_index, 3, 0, "Category 3")
+    chart.chart_data.categories.add(category_cell)
+    category_cell = workbook.get_cell(worksheet_index, 4, 0, "Category 4")
+    chart.chart_data.categories.add(category_cell)
 
-    # Dodaj pierwszą serię.
     series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
     series = chart.chart_data.series.add(series_name_cell, chart.type)
 
     series.parent_series_group.overlap = -25
     series.parent_series_group.gap_width = 220
 
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 4.3))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 2.5))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 3.5))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 1, 4.5))
+    value_cell = workbook.get_cell(worksheet_index, 1, 1, 4.3)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 1, 2.5)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 1, 3.5)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 4, 1, 4.5)
+    series.data_points.add_data_point_for_bar_series(value_cell)
 
     return chart
-
 
 def add_second_series_to_chart(chart):
     workbook = chart.chart_data.chart_data_workbook
@@ -918,11 +1010,14 @@ def add_second_series_to_chart(chart):
     series.parent_series_group.overlap = -25
     series.parent_series_group.gap_width = 220
 
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 2.4))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 4.4))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 1.8))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 2, 2.8))
-
+    value_cell = workbook.get_cell(worksheet_index, 1, 2, 2.4)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 2, 4.4)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 2, 1.8)
+    series.data_points.add_data_point_for_bar_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 4, 2, 2.8)
+    series.data_points.add_data_point_for_bar_series(value_cell)
 
 def add_third_series_to_chart(chart):
     workbook = chart.chart_data.chart_data_workbook
@@ -931,37 +1026,35 @@ def add_third_series_to_chart(chart):
     series_name_cell = workbook.get_cell(worksheet_index, 0, 3, "Series 3")
     series = chart.chart_data.series.add(series_name_cell, charts.ChartType.LINE)
 
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 1, 3, 2.0))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 2, 3, 2.0))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 3, 3, 3.0))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 4, 3, 5.0))
+    value_cell = workbook.get_cell(worksheet_index, 1, 3, 2.0)
+    series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 2, 3, 2.0)
+    series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 3, 3, 3.0)
+    series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(worksheet_index, 4, 3, 5.0)
+    series.data_points.add_data_point_for_line_series(value_cell)
 
     series.plot_on_second_axis = True
 
-
 def set_primary_axes_format(chart):
-    # Ustaw oś poziomą.
     horizontal_axis = chart.axes.horizontal_axis
-    horizontal_axis.text_format.portion_format.font_height = 12.0
+    horizontal_axis.text_format.portion_format.font_height = 12
     horizontal_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # Ustaw oś pionową.
     vertical_axis = chart.axes.vertical_axis
-    vertical_axis.text_format.portion_format.font_height = 12.0
+    vertical_axis.text_format.portion_format.font_height = 12
     vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Ustaw kolor głównych linii siatki pionowej.
     major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
     major_grid_lines_format.fill_type = slides.FillType.SOLID
     major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
 
-
 def set_secondary_axes_format(chart):
-    # Ustaw dodatkową oś poziomą.
     secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
     secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
     secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
@@ -969,119 +1062,95 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Ustaw dodatkową oś pionową.
     secondary_vertical_axis = chart.axes.secondary_vertical_axis
     secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
-    secondary_vertical_axis.text_format.portion_format.font_height = 12.0
+    secondary_vertical_axis.text_format.portion_format.font_height = 12
     secondary_vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(secondary_vertical_axis, "Y Axis 2")
 
-
 def set_axis_title(axis, axis_title):
     axis.has_title = True
     axis.title.overlay = False
     title_portion_format = axis.title.add_text_frame_for_overriding(axis_title).paragraphs[0].paragraph_format.default_portion_format
     title_portion_format.font_bold = slides.NullableBool.FALSE
-    title_portion_format.font_height = 12.0
+    title_portion_format.font_height = 12
+
+
+create_combo_chart()
 ```
 
 ## **Aktualizacja wykresów**
 
-Aspose.Slides for Python via .NET umożliwia aktualizację danych wykresu, formatowania i stylizacji, aby Twoje prezentacje PowerPoint były aktualne.
+Aspose.Slides for Python via .NET umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylu. Funkcjonalność ta upraszcza utrzymanie prezentacji aktualnymi przy użyciu dynamicznych treści i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane oraz standardy wizualne.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) aby otworzyć prezentację zawierającą wykres.
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Przejdź przez wszystkie kształty, aby znaleźć wykres.
-4. Uzyskaj dostęp do arkusza danych wykresu.
-5. Zmodyfikuj serie danych wykresu, zmieniając wartości serii.
-6. Dodaj nową serię i wypełnij ją danymi.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład aktualizuje wykres o nazwie „My chart” na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, przy czym etykiety kategorii znajdują się w kolumnie A, a nazwy serii w pierwszym wierszu pierwszego arkusza. Przykład używa [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię i zmienia typ wykresu na skumulowane cylindry przy użyciu [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 chart_name = "My chart"
 
-# Utwórz instancję klasy Presentation, która reprezentuje plik PPTX.
 with slides.Presentation("ExistingChart.pptx") as presentation:
-
-    # Uzyskaj dostęp do pierwszego slajdu.
     slide = presentation.slides[0]
 
     for shape in slide.shapes:
         if isinstance(shape, charts.Chart) and shape.name == chart_name:
             chart = shape
-
-            # Ustaw indeks arkusza danych wykresu.
             worksheet_index = 0
 
-            # Pobierz skoroszyt danych wykresu.
             workbook = chart.chart_data.chart_data_workbook
 
-            # Zmień nazwy kategorii wykresu.
             workbook.get_cell(worksheet_index, 1, 0, "Modified Category 1")
             workbook.get_cell(worksheet_index, 2, 0, "Modified Category 2")
 
-            # Pobierz pierwszą serię wykresu.
             series = chart.chart_data.series[0]
 
-            # Zaktualizuj dane serii.
-            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # Modyfikacja nazwy serii.
+            workbook.get_cell(worksheet_index, 0, 1, "New_Series 1")
             series.data_points[0].value.data = 90
             series.data_points[1].value.data = 123
             series.data_points[2].value.data = 44
 
-            # Pobierz drugą serię wykresu.
             series = chart.chart_data.series[1]
 
-            # Zaktualizuj dane serii.
-            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # Modyfikacja nazwy serii.
+            workbook.get_cell(worksheet_index, 0, 2, "New_Series 2")
             series.data_points[0].value.data = 23
             series.data_points[1].value.data = 67
             series.data_points[2].value.data = 99
 
-            # Dodaj nową serię.
-            series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), chart.type)
+            series_name_cell = workbook.get_cell(worksheet_index, 0, 3, "Series 3")
+            series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-            # Wypełnij dane serii.
-            series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 3, 20))
-            series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 3, 50))
-            series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 3, 30))
+            value_cell = workbook.get_cell(worksheet_index, 1, 3, 20)
+            series.data_points.add_data_point_for_bar_series(value_cell)
+            value_cell = workbook.get_cell(worksheet_index, 2, 3, 50)
+            series.data_points.add_data_point_for_bar_series(value_cell)
+            value_cell = workbook.get_cell(worksheet_index, 3, 3, 30)
+            series.data_points.add_data_point_for_bar_series(value_cell)
 
             chart.type = charts.ChartType.CLUSTERED_CYLINDER
 
-            # Zapisz prezentację z wykresem.
-            presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AsposeChartModified.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ustawianie zakresu danych dla wykresu**
+## **Ustawienie zakresu danych dla wykresu**
 
-Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Pobieranie zakresu danych wykresu](/slides/pl/python-net/chart-workbook/#retrieve-a-charts-data-range).
+Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Retrieve a Chart's Data Range](/slides/pl/python-net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Python via .NET umożliwia użycie konkretnego zakresu arkusza jako źródła danych dla wykresu. Kontroluje to, które komórki dostarczają serie i kategorie wykresu oraz pozwala aktualizować wykres, aby odzwierciedlał zmiany w arkuszu.
+Aspose.Slides for Python via .NET zapewnia elastyczność definiowania określonego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować część arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. Dzięki temu łatwo aktualizujesz i synchronizujesz wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) aby otworzyć prezentację zawierającą wykres.
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Przejdź przez wszystkie kształty, aby znaleźć wykres.
-4. Uzyskaj dostęp do danych wykresu i ustaw zakres.
-5. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład używa [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) do ustawienia źródła danych wykresu o nazwie „My chart” na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz oraz wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A i trzema wartościami w kolumnie B.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 chart_name = "My chart"
 
-# Utwórz instancję klasy Presentation, która reprezentuje plik PPTX.
 with slides.Presentation("ExistingChart.pptx") as presentation:
-
-    # Uzyskaj dostęp do pierwszego slajdu.
     slide = presentation.slides[0]
 
     for shape in slide.shapes:
@@ -1089,20 +1158,22 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             chart = shape
             chart.chart_data.set_range("Sheet1!A1:B4")
 
-    presentation.save("DataRange.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("SetDataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Używanie domyślnych znaczników w wykresach**
 
-Gdy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny symbol znacznika.
+Gdy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
 
-```py
-import aspose.slides.charts as charts
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do stworzenia wykresu z dwiema seriami liniowymi i legendą. Ustawienia [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) zachowują automatycznie przypisane symbole znaczników. Pierwsza seria zawiera wartość ujemną i brakującą wartość, reprezentowaną przez `None`, natomiast druga ma wartość dla każdej kategorii.
+
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 10, 10, 400, 400)
 
     chart.chart_data.series.clear()
@@ -1110,27 +1181,40 @@ with slides.Presentation() as presentation:
 
     workbook = chart.chart_data.chart_data_workbook
 
-    series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
+    series_name_cell = workbook.get_cell(0, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "C1"))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 1, 24))
+    category_cell = workbook.get_cell(0, 1, 0, "C1")
+    chart.chart_data.categories.add(category_cell)
+    value_cell = workbook.get_cell(0, 1, 1, 24)
+    series.data_points.add_data_point_for_line_series(value_cell)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "C2"))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 1, 23))
+    category_cell = workbook.get_cell(0, 2, 0, "C2")
+    chart.chart_data.categories.add(category_cell)
+    value_cell = workbook.get_cell(0, 2, 1, 23)
+    series.data_points.add_data_point_for_line_series(value_cell)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "C3"))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 1, -10))
+    category_cell = workbook.get_cell(0, 3, 0, "C3")
+    chart.chart_data.categories.add(category_cell)
+    value_cell = workbook.get_cell(0, 3, 1, -10)
+    series.data_points.add_data_point_for_line_series(value_cell)
 
-    chart.chart_data.categories.add(workbook.get_cell(0, 4, 0, "C4"))
-    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 4, 1, None))
+    category_cell = workbook.get_cell(0, 4, 0, "C4")
+    chart.chart_data.categories.add(category_cell)
+    value_cell = workbook.get_cell(0, 4, 1, None)
+    series.data_points.add_data_point_for_line_series(value_cell)
 
-    series2 = chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "Series 2"), chart.type)
+    series_name_cell = workbook.get_cell(0, 0, 2, "Series 2")
+    second_series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-    # Wypełnij dane serii.
-    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 2, 30))
-    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 2, 10))
-    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 2, 60))
-    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 4, 2, 40))
+    value_cell = workbook.get_cell(0, 1, 2, 30)
+    second_series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(0, 2, 2, 10)
+    second_series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(0, 3, 2, 60)
+    second_series.data_points.add_data_point_for_line_series(value_cell)
+    value_cell = workbook.get_cell(0, 4, 2, 40)
+    second_series.data_points.add_data_point_for_line_series(value_cell)
 
     chart.has_legend = True
     chart.legend.overlay = False
@@ -1142,15 +1226,15 @@ with slides.Presentation() as presentation:
 
 **Jakie typy wykresów są obsługiwane przez Aspose.Slides for Python via .NET?**
 
-Aspose.Slides for Python via .NET obsługuje szeroką gamę typów wykresów, w tym słupkowy, liniowy, kołowy, obszarowy, punktowy, histogram, radarowy i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides for Python via .NET obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, warstwowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), pobierz żądany slajd za pomocą jego indeksu, a następnie wywołaj metodę dodającą wykres, określając typ wykresu oraz początkowe dane. Proces ten integruje wykres bezpośrednio w prezentacji.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), pobierasz żądany slajd za pomocą jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio z prezentacją.
 
 **Jak mogę zaktualizować dane wyświetlane w wykresie?**
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Pozwala to programowo odświeżyć wykres, aby odzwierciedlał najnowsze informacje.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programowe odświeżenie wykresu w celu odzwierciedlenia najnowszych danych.
 
 **Czy można dostosować wygląd wykresu?**
 

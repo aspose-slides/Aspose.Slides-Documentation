@@ -1,5 +1,5 @@
 ---
-title: Δημιουργία ή Ενημέρωση Διαγραμμάτων Παρουσιάσεων PowerPoint σε Android
+title: Δημιουργία ή Ενημέρωση Διαγραμμάτων Παρουσίασης PowerPoint σε Android
 linktitle: Δημιουργία ή Ενημέρωση Διαγραμμάτων
 type: docs
 weight: 10
@@ -10,577 +10,648 @@ keywords:
 - επεξεργασία διαγράμματος
 - αλλαγή διαγράμματος
 - ενημέρωση διαγράμματος
-- διάγραμμα διασκορπισμού
-- παϊτικό διάγραμμα
+- διασκορπισμένο διάγραμμα
+- κυκλικό διάγραμμα
 - γραμμικό διάγραμμα
-- διάγραμμα χάρτη δένδρου
-- διάγραμμα αποθέματος
-- διάγραμμα κουτιού-κουκιάς
-- διάγραμμα χώνου
-- διάγραμμα ηλιακού κόσμου
-- ιστογράφημα
-- διάγραμμα ραδίου
-- πολυ-κατηγορικό διάγραμμα
+- διάγραμμα χάρτη δέντρου
+- διάγραμμα χρηματιστηρίου
+- διάγραμμα box and whisker
+- διάγραμμα χωνιού
+- διάγραμμα ηλιαγών
+- ιστόγραμμα
+- διάγραμμα ραντάρ
+- πολυκατηγορικό διάγραμμα
 - PowerPoint
 - παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Δημιουργήστε και προσαρμόστε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για Android. Προσθέστε, μορφοποιήστε και επεξεργαστείτε διαγράμματα με πρακτικά παραδείγματα κώδικα Java."
+description: "Δημιουργήστε και προσαρμόστε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για Android μέσω Java. Προσθέστε, μορφοποιήστε και επεξεργαστείτε διαγράμματα με πρακτικά παραδείγματα κώδικα σε Java."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει με τις συγκεκριμένες απαιτήσεις σχεδίασής σας. Σε όλη τη διάρκεια του άρθρου, λεπτομερή παραδείγματα κώδικα εικονογραφούν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε μια σταθερή κατανόηση του πώς να ενσωματώσετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές σας, βελτιώνοντας τη διαδικασία δημιουργίας παρουσιάσεων βασισμένων σε δεδομένα.
+Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides για Android μέσω Java. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζουν με τις συγκεκριμένες απαιτήσεις σχεδίου σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε στερεή κατανόηση του πώς να ενσωματώσετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές Android, βελτιώνοντας τη διαδικασία δημιουργίας παρουσιάσεων βασισμένων σε δεδομένα.
 
 ## **Δημιουργία Διαγράμματος**
 
-Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να αποκτούν διορατικότητα που ενδέχεται να μην είναι άμεσα εμφανής από έναν πίνακα ή ένα λογιστικό φύλλο.
+Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να αποκτούν διορατικότητα που μπορεί να μην είναι άμεσα εμφανής από έναν πίνακα ή ένα υπολογιστικό φύλλο.
 
 **Γιατί να δημιουργήσετε διαγράμματα;**
 
-Χρησιμοποιώντας διαγράμματα, μπορείτε:
+Χρησιμοποιώντας διαγράμματα, μπορείτε να:
 
-* να συγκεντρώσετε, συμπτύξετε ή συνοψίσετε μεγάλες ποσότητες δεδομένων σε μία διαφάνεια της παρουσίασης
-* να αποκαλύψετε μοτίβα και τάσεις στα δεδομένα
-* να καθορίσετε την κατεύθυνση και το κίνηση των δεδομένων με την πάροδο του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης
-* να εντοπίσετε ακραίες τιμές, αποκλίσεις, σφάλματα, άσυρτα δεδομένα κ. λπ.
-* να επικοινωνήσετε ή να παρουσιάσετε σύνθετα δεδομένα
+* συγκεντρώνετε, συμπιέζετε ή συνοψίζετε μεγάλες ποσότητες δεδομένων σε μια ενιαία διαφάνεια μιας παρουσίασης.
+* αποκαλύπτετε πρότυπα και τάσεις στα δεδομένα.
+* συνεπαγωγείτε την κατεύθυνση και την ορμή των δεδομένων με το χρόνο ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης.
+* εντοπίζετε εξαιρετικές τιμές, αποκλίσεις, παρεκκλιστικά, σφάλματα και ανοησία δεδομένα.
+* επικοινωνείτε ή παρουσιάζετε σύνθετα δεδομένα.
 
-Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας *Insert*, η οποία προσφέρει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο κανονικά διαγράμματα (βασισμένα σε δημοφιλείς τύπους διαγραμμάτων) όσο και προσαρμοσμένα διαγράμματα.
+Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας *Insert*, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο κανονικά διαγράμματα (βάσει δημοφιλών τύπων διαγραμμάτων) όσο και προσαρμοσμένα διαγράμματα.
 
 {{% alert color="info" title="Note" %}}
-Για να δημιουργήσετε διαγράμματα, χρησιμοποιήστε την κλάση [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/). Τα πεδία σε αυτήν την κλάση αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
+Χρησιμοποιήστε την απαρίθμηση [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) στο πακέτο [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). Οι τιμές σε αυτήν την απαρίθμηση αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
 {{% /alert %}}
 
 ### **Δημιουργία Ομαδοποιημένων Στήλων**
 
-Αυτή η ενότητα εξηγεί πώς να δημιουργήσετε ομαδοποιημένα στήλες χρησιμοποιώντας το Aspose.Slides. Θα μάθετε να αρχικοποιείτε μια παρουσίαση, να προσθέτετε ένα διάγραμμα και να προσαρμόζετε τα στοιχεία του, όπως τίτλο, δεδομένα, σειρές, κατηγορίες και στυλ. Ακολουθήστε τα παρακάτω βήματα για να δείτε πώς δημιουργείται ένα τυπικό ομαδοποιημένο στήλης:
-
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-1. Προσθέστε ένα διάγραμμα με δεδομένα και καθορίστε τον τύπο `ChartType.ClusteredColumn`.
-1. Προσθέστε έναν τίτλο στο διάγραμμα.
-1. Πρόσβαση στο φύλλο εργασίας δεδομένων του διαγράμματος.
-1. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες.
-1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-1. Εφαρμόστε χρώμα γεμίσματος στις σειρές του διαγράμματος.
-1. Προσθέστε ετικέτες στις σειρές του διαγράμματος.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα ομαδοποιημένο στήλης:
+Αυτό το παράδειγμα χρησιμοποιεί [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να δημιουργήσει ένα ομαδοποιημένο στήλο διάγραμμα που συγκρίνει δύο σειρές σε τρεις κατηγορίες. Οι σειρές χρησιμοποιούν κόκκινο και πράσινο γέμισμα, και οι μεμονωμένες ετικέτες δείχνουν τα ονόματα κατηγοριών, τα ονόματα σειρών και τις τιμές. Ο δείκτης φύλλου εργασίας 0 αναφέρεται στο πρώτο φύλλο στο ενσωματωμένο βιβλίο εργασίας διαγράμματος.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation();
-try {
-    // Προσπελαύνει την πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Προσθέτει ένα διάγραμμα με τα προεπιλεγμένα δεδομένα του
-    IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
-    
-    // Ορίζει τον τίτλο του διαγράμματος
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    
-    // Ορίζει το δείκτη για το φύλλο δεδομένων του διαγράμματος
-    int defaultWorksheetIndex = 0;
-    
-    // Αποκτά το φύλλο εργασίας δεδομένων του διαγράμματος
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    int s = chart.getChartData().getSeries().size();
-    s = chart.getChartData().getCategories().size();
-    
-    // Προσθέτει νέες σειρές
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
-    
-    // Προσθέτει νέες κατηγορίες
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // Παίρνει την πρώτη σειρά του διαγράμματος
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    IChartDataCell categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    
-    // Τώρα γεμίζει τα δεδομένα της σειράς
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    
-    // Ορίζει το χρώμα γεμίσματος για τη σειρά
+
+    IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    
-    // Παίρνει τη δεύτερη σειρά του διαγράμματος
+
     series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Γεμίζει τα δεδομένα της σειράς
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Ορίζει το χρώμα γεμίσματος για τη σειρά
+
+    valueCell = workbook.getCell(worksheetIndex, 1, 2, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 2, 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 2, 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
-    
-    //Δημιουργήστε προσαρμοσμένες ετικέτες για κάθε κατηγορία για τη νέα σειρά
-    // Ορίζει την πρώτη ετικέτα ώστε να εμφανίζει το όνομα κατηγορίας
-    IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
-    lbl.getDataLabelFormat().setShowCategoryName(true);
-    
-    lbl = series.getDataPoints().get_Item(1).getLabel();
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    
-    // Εμφανίζει την τιμή για την τρίτη ετικέτα
-    lbl = series.getDataPoints().get_Item(2).getLabel();
-    lbl.getDataLabelFormat().setShowValue(true);
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    lbl.getDataLabelFormat().setSeparator("/");
-    
-    // Saves the presentation with chart
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
+
+    IDataLabel label = series.getDataPoints().get_Item(0).getLabel();
+    label.getDataLabelFormat().setShowCategoryName(true);
+
+    label = series.getDataPoints().get_Item(1).getLabel();
+    label.getDataLabelFormat().setShowSeriesName(true);
+
+    label = series.getDataPoints().get_Item(2).getLabel();
+    label.getDataLabelFormat().setShowValue(true);
+    label.getDataLabelFormat().setShowSeriesName(true);
+    label.getDataLabelFormat().setSeparator("/");
+
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Διάσπασης**
-Τα διαγράμματα διάσπασης (γνωστά και ως scatter plots ή γραφήματα x‑y) χρησιμοποιούνται συχνά για να εντοπίσουν μοτίβα ή να αποδείξουν συσχετίσεις μεταξύ δύο μεταβλητών.
+Το αποτέλεσμα:
 
-Χρησιμοποιήστε διάγραμμα διάσπασης όταν:
+![Το ομαδοποιημένο στήλο διάγραμμα](clustered_column_chart.png)
 
-* έχετε ζευγαρωμένα αριθμητικά δεδομένα
-* έχετε δύο μεταβλητές που συνδυάζονται καλά
-* θέλετε να καθορίσετε αν δύο μεταβλητές σχετίζονται
-* έχετε μια ανεξάρτητη μεταβλητή που έχει πολλαπλές τιμές για μια εξαρτημένη μεταβλητή
+### **Δημιουργία Διασκορπισμένων Διαγραμμάτων**
 
-1. Ακολουθήστε τα βήματα στην ενότητα [Create Clustered Column Charts](#create-clustered-column-charts).
-2. Για το τρίτο βήμα, προσθέστε ένα διάγραμμα με δεδομένα και καθορίστε τον τύπο διαγράμματος ως έναν από τους ακόλουθους:
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Αναπαριστά διάγραμμα διάσπασης με δείκτες._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Αναπαριστά διάγραμμα διάσπασης συνδεδεμένο με καμπύλες, με δείκτες δεδομένων._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Αναπαριστά διάγραμμα διάσπασης συνδεδεμένο με καμπύλες, χωρίς δείκτες δεδομένων._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Αναπαριστά διάγραμμα διάσπασης συνδεδεμένο με ευθείες γραμμές, με δείκτες δεδομένων._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Αναπαριστά διάγραμμα διάσπασης συνδεδεμένο με ευθείες γραμμές, χωρίς δείκτες δεδομένων._
+Τα διασκορπισμένα διαγράμματα (επίσης γνωστά ως scatter plots ή γραφήματα x‑y) χρησιμοποιούνται συχνά για τον έλεγχο μοτίβων ή την επίδειξη συσχετισμών μεταξύ δύο μεταβλητών.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα διάσπασης με διαφορετικούς δείκτες για κάθε σειρά:
+Χρησιμοποιήστε διασκορπισμένο διάγραμμα όταν:
+
+* Έχετε ζευγαρωμένα αριθμητικά δεδομένα.
+* Έχετε δύο μεταβλητές που συνδυάζονται καλά.
+* Θέλετε να προσδιορίσετε αν οι δύο μεταβλητές σχετίζονται.
+* Έχετε μια ανεξάρτητη μεταβλητή που έχει πολλές τιμές για μια εξαρτημένη μεταβλητή.
+
+Αυτό το παράδειγμα σχεδιάζει δύο σύνολα τιμών x‑y. Η πρώτη σειρά χρησιμοποιεί ευθείες γραμμές με αστέρι ως δείκτες, ενώ η δεύτερη χρησιμοποιεί ομαλές γραμμές με κύκλο ως δείκτη· και οι δύο χρησιμοποιούν μέγεθος δείκτη 10, ρυθμισμένο με [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). Η μέθοδος [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) ελέγχει το σχήμα του δείκτη.
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation();
-try {
-    // Προσεγγίζει την πρώτη διαφάνεια
-    ISlide slide = pres.getSlides().get_Item(0);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Δημιουργεί το προεπιλεγμένο διάγραμμα
-    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    
-    // Λαμβάνει το δείκτη του προεπιλεγμένου φύλλου δεδομένων του διαγράμματος
-    int defaultWorksheetIndex = 0;
-    
-    // Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Διαγράφει τη σειρά επίδειξης
+    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
-    
-    // Προσθέτει νέες σειρές
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-    
-    // Παίρνει την πρώτη σειρά του διαγράμματος
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 1, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 1, 3, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    
-    // Προσθέτει ένα νέο σημείο (1:3) στη σειρά
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-    
-    // Προσθέτει ένα νέο σημείο (2:10)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-    
-    // Αλλάζει τον τύπο της σειράς
+
+    IChartDataCell xValueCell = workbook.getCell(worksheetIndex, 2, 1, 1);
+    IChartDataCell yValueCell = workbook.getCell(worksheetIndex, 2, 2, 3);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 1, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 2, 10);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
-    
-    // Αλλάζει το δείκτη (marker) της σειράς διαγράμματος
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
-    
-    // Παίρνει τη δεύτερη σειρά του διαγράμματος
+
     series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Προσθέτει ένα νέο σημείο (5:2) εκεί
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-    
-    // Προσθέτει ένα νέο σημείο (3:1)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-    
-    // Προσθέτει ένα νέο σημείο (2:2)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-    
-    // Προσθέτει ένα νέο σημείο (5:1)
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-    
-    // Αλλάζει το δείκτη (marker) της σειράς διαγράμματος
+
+    xValueCell = workbook.getCell(worksheetIndex, 2, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 2, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 3, 3);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 4, 3, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 4, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 5, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 5, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
-    
-    pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Δημιουργία Παϊτικών Διαγραμμάτων**
+Το αποτέλεσμα:
 
-Τα παϊτικά διαγράμματα είναι ιδανικά για την εμφάνιση της σχέσης «μέρος προς ολόκληρο» στα δεδομένα, ειδικά όταν τα δεδομένα περιλαμβάνουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά τμήματα ή ετικέτες, ίσως θελήσετε να εξετάσετε ένα ραβδόγραμμα αντί γι’ αυτό.
+![Το διασκορπισμένο διάγραμμα](scatter_chart.png)
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Pie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Pie).
-4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-8. Προσθέστε νέα σημεία στο διάγραμμα και εφαρμόστε προσαρμοσμένα χρώματα για τους τομείς του παϊτικού διαγράμματος.
-9. Ορίστε ετικέτες για τις σειρές.
-10. Ενεργοποιήστε γραμμές οδηγού για τις ετικέτες των σειρών.
-11. Ορίστε τη γωνία περιστροφής για τους τομείς του παϊτικού διαγράμματος.
-12. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+### **Δημιουργία Κυκλικών Διαγραμμάτων**
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα παϊτικό διάγραμμα:
+Αυτό το παράδειγμα δημιουργεί ένα κυκλικό διάγραμμα με τρεις τριμηνιαίες τιμές. Κάθε φέτα έχει προσαρμοσμένο γέμισμα και περίγραμμα, και οι ετικέτες εμφανίζουν διάφορους συνδυασμούς τιμών, ποσοστών και πληροφοριών σειράς. Η μέθοδος [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) θέτει την πρώτη φέτα να ξεκινά στις 180 μοίρες.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation();
-try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    ISlide slides = pres.getSlides().get_Item(0);
-    
-    // Προσθέτει ένα διάγραμμα με προεπιλεγμένα δεδομένα
-    IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
-    
-    // Ορίζει τον τίτλο του διαγράμματος
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    
-    // Ορίζει το δείκτη για το φύλλο δεδομένων του διαγράμματος
-    int defaultWorksheetIndex = 0;
-    
-    // Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες
+
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    
-    // Προσθέτει νέες κατηγορίες
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    
-    // Προσθέτει νέες σειρές
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    
-    //Γεμίζει τα δεδομένα της σειράς
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    
-    // Δεν λειτουργεί στη νέα έκδοση
-    // Προσθήκη νέων σημείων και ορισμός χρώματος τομέα
-    // series.IsColorVaried = true;
+
+    IChartDataCell categoryCell = workbook.getCell(0, 1, 0, "1st Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "2nd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "3rd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
-    
-    IChartDataPoint point = series.getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
-	
-    // Ορίζει το περίγραμμα του τομέα
-    point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(LineDashStyle.DashDot);
-    
-    IChartDataPoint point1 = series.getDataPoints().get_Item(1);
-    point1.getFormat().getFill().setFillType(FillType.Solid);
-    point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
-    
-    // Ορίζει το περίγραμμα του τομέα
-    point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot);
-    
-    IChartDataPoint point2 = series.getDataPoints().get_Item(2);
-    point2.getFormat().getFill().setFillType(FillType.Solid);
-    point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
-    
-    // Ορίζει το περίγραμμα του τομέα
-    point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
-    
-    // Δημιουργεί προσαρμοσμένες ετικέτες για κάθε κατηγορία της νέας σειράς
-    IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
-    
-    // lbl.ShowCategoryName = true;
-    lbl1.getDataLabelFormat().setShowValue(true);
-    
-    IDataLabel lbl2 = series.getDataPoints().get_Item(1).getLabel();
-    lbl2.getDataLabelFormat().setShowValue(true);
-    lbl2.getDataLabelFormat().setShowLegendKey(true);
-    lbl2.getDataLabelFormat().setShowPercentage(true);
-    
-    IDataLabel lbl3 = series.getDataPoints().get_Item(2).getLabel();
-    lbl3.getDataLabelFormat().setShowSeriesName(true);
-    lbl3.getDataLabelFormat().setShowPercentage(true);
-    
-    // Εμφανίζει γραμμές οδηγού για το διάγραμμα
+
+    IChartDataPoint firstSlice = series.getDataPoints().get_Item(0);
+    firstSlice.getFormat().getFill().setFillType(FillType.Solid);
+    firstSlice.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
+
+    firstSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    firstSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(128, 128, 128));
+    firstSlice.getFormat().getLine().setWidth(3.0);
+    firstSlice.getFormat().getLine().setStyle(LineStyle.ThinThick);
+    firstSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDash);
+
+    IChartDataPoint secondSlice = series.getDataPoints().get_Item(1);
+    secondSlice.getFormat().getFill().setFillType(FillType.Solid);
+    secondSlice.getFormat().getFill().getSolidFillColor().setColor(Color.rgb(165, 42, 42));
+
+    secondSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    secondSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    secondSlice.getFormat().getLine().setWidth(3.0);
+    secondSlice.getFormat().getLine().setStyle(LineStyle.Single);
+    secondSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot);
+
+    IChartDataPoint thirdSlice = series.getDataPoints().get_Item(2);
+    thirdSlice.getFormat().getFill().setFillType(FillType.Solid);
+    thirdSlice.getFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 127, 80));
+
+    thirdSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    thirdSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
+    thirdSlice.getFormat().getLine().setWidth(2.0);
+    thirdSlice.getFormat().getLine().setStyle(LineStyle.ThinThin);
+    thirdSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
+
+    IDataLabel firstLabel = series.getDataPoints().get_Item(0).getLabel();
+    firstLabel.getDataLabelFormat().setShowValue(true);
+
+    IDataLabel secondLabel = series.getDataPoints().get_Item(1).getLabel();
+    secondLabel.getDataLabelFormat().setShowValue(true);
+    secondLabel.getDataLabelFormat().setShowLegendKey(true);
+    secondLabel.getDataLabelFormat().setShowPercentage(true);
+
+    IDataLabel thirdLabel = series.getDataPoints().get_Item(2).getLabel();
+    thirdLabel.getDataLabelFormat().setShowSeriesName(true);
+    thirdLabel.getDataLabelFormat().setShowPercentage(true);
+
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    
-    // Ορίζει τη γωνία περιστροφής για τους τομείς του παϊτικού διαγράμματος
+
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    
-    // Αποθηκεύει την παρουσίαση με το διάγραμμα
-    pres.save("PieChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+
+    presentation.save("PieChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+Το αποτέλεσμα:
+
+![Το κυκλικό διάγραμμα](pie_chart.png)
 
 ### **Δημιουργία Γραμμικών Διαγραμμάτων**
 
-Τα γραμμικά διαγράμματα (επίσης γνωστά ως γραφήματα γραμμής) είναι ιδανικά όταν θέλετε να παρουσιάσετε αλλαγές στην τιμή με την πάροδο του χρόνου. Χρησιμοποιώντας ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε μεγάλο όγκο δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις με το χρόνο, να επισημαίνετε ανωμαλίες σε σειρές δεδομένων και πολλά άλλα.
-
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Line](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Line).
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γραμμικό διάγραμμα:
+Αυτό το παράδειγμα χρησιμοποιεί [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να δημιουργήσει ένα γραμμικό διάγραμμα με τις προεπιλεγμένες σειρές και κατηγορίες, στη συνέχεια αποθηκεύει την παρουσίαση ως PPTX.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    pres.save("lineChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    IChart lineChart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300);
+
+    presentation.save("lineChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-Με προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα ενώνουνται με στενές συνεχείς γραμμές. Εάν θέλετε τα σημεία να ενώνονται με παύλες, μπορείτε να καθορίσετε τον προτιμώμενο τύπο παύλας ως εξής:
+Από προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα συνδέονται με συνεχείς ευθείες γραμμές. Εάν θέλετε τα σημεία να συνδέονται με παύλες, καλέστε την [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) με μια τιμή από την [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart lineChart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300);
 
     for (IChartSeries series : lineChart.getChartData().getSeries())
     {
         series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
     }
-} finally {
-    if (pres != null) pres.dispose();
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Δένδρου**
+Το αποτέλεσμα:
 
-Τα διαγράμματα δένδρου (tree map) είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και να τραβήξετε γρήγορα την προσοχή σε στοιχεία που συνεισφέρουν σημαντικά σε κάθε κατηγορία.
+![Το γραμμικό διάγραμμα](line_chart.png)
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Treemap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Treemap).
-4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+### **Δημιουργία Διαγραμμάτων Δέντρου**
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα δένδρου:
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα δέντρου με οκτώ φύλλα ομαδοποιημένα σε τέσσερις κορμούς και δύο κλαδιά. Η μέθοδος [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) εκχωρεί κορμούς στο επίπεδο ομαδοποίησης 1 και κλαδιά στο επίπεδο 2. Οι τιμές καθορίζουν το σχετικό μέγεθος των ορθογωνίων, ενώ οι ετικέτες κατηγοριών και οι επικαλυπτόμενες γονικές ετικέτες προσδιορίζουν την ιεραρχία.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Treemap, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    //κλάδος 1
-    IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+    // Κλάδος 1
+    IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    //κλάδος 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+    // Κλάδος 2
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Treemap);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D8", 3));
+    IChartDataCell valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
 
     series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
 
-    pres.save("Treemap.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("Treemap.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Αποθεμάτων**
+Το αποτέλεσμα:
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#OpenHighLowClose).
-4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-8. Καθορίστε τη μορφή των γραμμών υψηλού‑χαμηλού.
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+![Το διάγραμμα δέντρου](treemap_chart.png)
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα αποθέματος:
+### **Δημιουργία Γραφημάτων Καταρράκτη**
+
+Ένα διάγραμμα καταρράκτη δείχνει πώς οι θετικές και αρνητικές αλλαγές συμβάλλουν σε μια τελική τιμή. Για παράδειγμα, μια ανάλυση κέρδους μπορεί να ξεκινήσει με έσοδα, να αφαιρέσει κόστη και να προσθέσει άλλα έσοδα. Οι στήλες αλλαγής αιωρούνται μεταξύ των προηγούμενων και των νέων τρεχουσών τιμών, ενώ οι συνολικές στήλες εκτείνονται από το μηδέν μέχρι την συσσωρευμένη τιμή.
+
+| Κατηγορία | Τιμή βιβλίου εργασίας | Τύπος στήλης |
+| --- | ---: | --- |
+| Revenue | 1000 | Αύξηση |
+| Cost of sales | -400 | Μείωση |
+| Gross profit | 600 | Ενδιάμεσο σύνολο |
+| Operating expenses | -200 | Μείωση |
+| Other income | 50 | Αύξηση |
+| Net profit | 450 | Τελικό σύνολο |
+
+Για να σημαδέψετε ένα σημείο ως ενδιάμεσο ή τελικό σύνολο, καλέστε τη μέθοδο [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) με `true`. Παρέχετε την πραγματική συσσωρευμένη ποσότητα στο κελί του βιβλίου εργασίας για αυτό το σημείο: `600` για το ακαθάριστο κέρδος (`1000 - 400`) και `450` για το καθαρό κέρδος (`600 - 200 + 50`). Η μέθοδος σημαδεύει τη στήλη ως σύνολο· δεν υπολογίζει ή γεμίζει την τιμή του κελιού. Μην χρησιμοποιήσετε το μηδέν ως σύμβολο κράτησης ή να προσθέσετε άλλη αλλαγή για σημείο σύνολου. Μια στήλη σύνολου εμφανίζει τη συσσωρευμένη τιμή χωρίς να την προσθέτει ξανά στη τρέχουσα τιμή.
+
+Το πλήρες παράδειγμα Java δημιουργεί ένα διάγραμμα χρησιμοποιώντας το μέλος `Waterfall` του [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), καθαρίζει τα προεπιλεγμένα δεδομένα και γεμίζει το ενσωματωμένο βιβλίο εργασίας. Ο δείκτης φύλλου εργασίας `0` επιλέγει το πρώτο φύλλο; η στήλη Α περιέχει τα ονόματα των κατηγοριών και η στήλη Β τις τιμές. Κάθε κελί τιμής προστίθεται με [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Οι μηδενικής βάσης δείκτες σημείων `2` και `5` προσδιορίζουν τα ενδιάμεσα και τα τελικά σύνολα. Καλώντας το [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) με `true` εμφανίζει τις ποσότητες στις στήλες. Δεν απαιτείται εισαγωγική παρουσίαση ή βιβλίο εργασίας.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Waterfall, 20, 20, 680, 200);
+
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Profit breakdown (USD thousands)");
+    chart.getChartTitle().setOverlay(false);
+    chart.setLegend(false);
 
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
+    workbook.clear(worksheetIndex);
 
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 1, "Open"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 2, "High"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 3, "Low"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 4, "Close"), chart.getType());
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Profit");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.Waterfall);
+    String[] categories = new String[] { "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" };
+    double[] values = new double[] { 1000, -400, 600, -200, 50, 450 };
+
+    for (int i = 0; i < categories.length; i++)
+    {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categories[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
+    }
+
+    // Τα τρίτο και έκτο σημεία αντιπροσωπεύουν σύνολα, όχι πρόσθετες αλλαγές.
+    series.getDataPoints().get_Item(2).setSetAsTotal(true);
+    series.getDataPoints().get_Item(5).setSetAsTotal(true);
+    series.setShowConnectorLines(true);
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("WaterfallChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Καλέστε τη μέθοδο σε επίπεδο σειράς [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) με `true` για να εμφανιστούν γραμμές που συνδέουν διαδοχικές στήλες και να καταστήσουν την τρέχουσα τιμή πιο ευκρινή. Για να κρύψετε αυτές τις γραμμές, αντικαταστήστε την κλήση με `series.setShowConnectorLines(false);` πριν από την αποθήκευση. Αυτό αλλάζει μόνο την ορατότητα των γραμμών, όχι τα δεδομένα ή τα σύνολα.
+
+Το αποθηκευμένο αρχείο παρουσίασης εμφανίζει ακαθάριστο κέρδος 600 και καθαρό κέρδος 450, με τα δύο σύνολα να προέρχονται από το μηδέν:
+
+![Διάγραμμα καταρράκτη](waterfall_chart.png)
+
+### **Δημιουργία Διαγραμμάτων Χρηματιστηρίου**
+
+Τα διαγράμματα χρηματιστηρίου χρησιμοποιούνται για την προβολή οικονομικών δεδομένων όπως τιμές ανοίγματος, υψηλής, χαμηλής και κλεισίματος, βοηθώντας στην ανάλυση τάσεων της αγοράς και της μεταβλητότητας. Παρέχουν κρίσιμες γνώσεις για την απόδοση των μετοχών, βοηθώντας επενδυτές και αναλυτές να παίρνουν τεκμηριωμένες αποφάσεις.
+
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα ανοίγματος‑υψηλής‑χαμηλής‑κλεισίματος με τέσσερις σειρές με αυτή τη σειρά και τρεις κατηγορίες. Η μέθοδος [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) ενεργοποιεί τις μπάρες ανοδικής/καθοδικής κίνησης, και η [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) ελέγχει τις γραμμές υψηλού‑χαμηλού που δείχνουν τις τιμές, ενώ οι γραμμές των επιμέρους σειρών και οι μικρές οριζόντιες γραμμές πλέγματος είναι κρυμμένες.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell categoryCell = workbook.getCell(0, 1, 0, "A");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "B");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "C");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Open");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 2, "High");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 3, "Low");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 4, "Close");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 1, 72));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 1, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 1, 38));
+    IChartDataCell valueCell = workbook.getCell(0, 1, 1, 72);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 1, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 1, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     series = chart.getChartData().getSeries().get_Item(1);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 2, 172));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 2, 57));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 2, 57));
+    valueCell = workbook.getCell(0, 1, 2, 172);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     series = chart.getChartData().getSeries().get_Item(2);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 3, 13));
+    valueCell = workbook.getCell(0, 1, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 3, 13);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     series = chart.getChartData().getSeries().get_Item(3);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 4, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
+    valueCell = workbook.getCell(0, 1, 4, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 4, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 4, 50);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
-    for (IChartSeries ser : chart.getChartData().getSeries())
+    for (IChartSeries stockSeries : chart.getChartData().getSeries())
     {
-        ser.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        stockSeries.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     }
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+    presentation.save("Stock-chart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Κουτιού‑Κουκιάς**
+Το αποτέλεσμα:
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#BoxAndWhisker).
-4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+![Το διάγραμμα χρηματιστηρίου](stock_chart.png)
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα κουτιού‑κουκιάς:
+### **Δημιουργία Διαγραμμάτων Box and Whisker**
+
+Τα διαγράμματα Box and Whisker χρησιμοποιούνται για την προβολή της κατανομής των δεδομένων συνοψίζοντας βασικά στατιστικά μέτρα, όπως η διάμεσος, τα τεταρτημόρια και οι πιθανές εξαιρετικές τιμές. Είναι ιδιαίτερα χρήσιμα στην εξερευνητική ανάλυση δεδομένων και τις στατιστικές μελέτες για γρήγορη κατανόηση της διακύμανσης των δεδομένων και την αναγνώριση τυχόν ανωμαλιών.
+
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα Box and Whisker από έξι τιμές. Η μέθοδος [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) επιλέγει τον αποκλειστικό υπολογισμό τεταρτημορίων. Το παράδειγμα ενεργοποιεί επίσης γραμμές μέσου όρου, δείκτες μέσου, εσωτερικά σημεία και σημεία εξαιρετικών τιμών.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 1"));
+    IChartDataCell categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.BoxAndWhisker);
 
@@ -590,588 +661,717 @@ try {
     series.setShowInnerPoints(true);
     series.setShowOutlierPoints(true);
 
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B1", 15));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B2", 41));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B3", 16));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B4", 10));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B5", 23));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B6", 16));
+    IChartDataCell valueCell = workbook.getCell(0, "B1", 15);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 41);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 10);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 23);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
 
-    pres.save("BoxAndWhisker.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("BoxAndWhisker.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ### **Δημιουργία Διαγραμμάτων Χωνιού**
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Funnel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Funnel).
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Τα διαγράμματα χωνιού χρησιμοποιούνται για την απεικόνιση διαδικασιών που περιλαμβάνουν διαδοχικά στάδια, όπου ο όγκος των δεδομένων μειώνεται καθώς προχωρά από το ένα βήμα στο επόμενο. Είναι ιδιαίτερα χρήσιμα για την ανάλυση των ποσοστών μετατροπής, την ταυτοποίηση σημείων συμφόρησης και την παρακολούθηση της αποδοτικότητας διαδικασιών πωλήσεων ή μάρκετινγκ.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα χωνιού:
+Αυτό το παράδειγμα χρησιμοποιεί [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να προσθέσει ένα διάγραμμα χωνιού στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης. Αντικαθιστά τα προεπιλεγμένα δεδομένα με έξι κατηγορίες και τιμές από 50 έως 500, στη συνέχεια αποθηκεύει την ενημερωμένη παρουσίαση. Η εισαγώμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
+Presentation presentation = new Presentation("test.pptx");
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    wb.clear(0);
-
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 2"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 3"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 4"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 5"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 6"));
+    IChartDataCell categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Funnel);
 
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B1", 50));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B2", 100));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B3", 200));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B4", 300));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B5", 400));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B6", 500));
+    IChartDataCell valueCell = workbook.getCell(0, "B1", 50);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 100);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 200);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 300);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 400);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 500);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
 
-    pres.save("Funnel.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("Funnel.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Ηλιακού Κόσμου**
+Το αποτέλεσμα:
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Sunburst](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Sunburst).
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+![Το διάγραμμα χωνιού](funnel_chart.png)
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα ηλιακού κόσμου:
+### **Δημιουργία Ηλιαγών Διαγραμμάτων**
+
+Τα διαγράμματα ηλιαγών χρησιμοποιούνται για την απεικόνιση ιεραρχικών δεδομένων, εμφανίζοντας τα επίπεδα ως κυκλικές ζώνες. Βοηθούν στην απεικόνιση σχέσεων μέρους‑συνολικού και είναι ιδανικά για την αναπαράσταση ένθετων κατηγοριών και υποκατηγοριών με σαφή, συμπαγή μορφή.
+
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα ηλιαγών με οκτώ φύλλα ομαδοποιημένα σε τέσσερις κορμούς και δύο κλαδιά. Η μέθοδος [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) εκχωρεί κορμούς στο επίπεδο ομαδοποίησης 1 και κλαδιά στο επίπεδο 2. Οι ετικέτες κατηγοριών προσδιορίζουν τα τμήματα, και οι τιμές καθορίζουν το σχετικό μέγεθός τους.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Sunburst, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    //κλάδος 1
-    IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+    // Κλάδος 1
+    IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    //κλάδος 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+    // Κλάδος 2
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Sunburst);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D8", 3));
-    
-    pres.save("Sunburst.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    IChartDataCell valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+
+    presentation.save("Sunburst.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
+
+Το αποτέλεσμα:
+
+![Το διάγραμμα ηλιαγών](sunburst_chart.png)
 
 ### **Δημιουργία Ιστογραμμάτων**
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.Histogram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Histogram).
-4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Τα ιστόγραμμα χρησιμοποιούνται για την αναπαράσταση της κατανομής αριθμητικών δεδομένων ομαδοποιώντας τις τιμές σε εύρη ή κλάδους. Είναι ιδιαίτερα χρήσιμα για την αναγνώριση μοτίβων όπως η συχνότητα, η λοξοτρόπια και η ανάλογη διασπορά, καθώς και για την ανίχνευση εξαιρετικών τιμών σε ένα σύνολο δεδομένων.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα ιστογράφημα:
+Αυτό το παράδειγμα δημιουργεί ένα ιστόγραμμα από έξι αριθμητικές τιμές, συμπεριλαμβανομένων και αρνητικών τιμών. Καλώντας το [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) με τον αυτόματο τύπο συγκέντρωσης επιτρέπει στο διάγραμμα να καθορίσει τα κλάδους που θα χρησιμοποιήσει για την απεικόνιση της κατανομής.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A1", 15));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A2", -41));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A3", 16));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A4", 10));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
+    IChartDataCell valueCell = workbook.getCell(0, "A1", 15);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A2", -41);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A3", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A4", 10);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A5", -23);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A6", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
 
     chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
-    pres.save("Histogram.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("Histogram.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Ραδίου**
+Το αποτέλεσμα:
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Προσθέστε ένα διάγραμμα με δεδομένα και καθορίστε τον προτιμώμενο τύπο διαγράμματος ([ChartType.Radar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#Radar) σε αυτήν την περίπτωση).
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+![Το ιστόγραμμα](histogram_chart.png)
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα ραδίου:
+### **Δημιουργία Ραδιογραφικών Διαγραμμάτων**
+
+Τα ραδιογραφικά διαγράμματα χρησιμοποιούνται για την προβολή πολυδιάστατων δεδομένων σε δισδιάστατη μορφή, επιτρέποντας εύκολη σύγκριση πολλών μεταβλητών ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα για την αναγνώριση προτύπων, ισχυρών και αδύναμων σημείων σε πολλαπλές μετρικές απόδοσης ή χαρακτηριστικά.
+
+Αυτό το παράδειγμα χρησιμοποιεί [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να δημιουργήσει ένα ραδιογραφικό διάγραμμα με τις προεπιλεγμένες σειρές και κατηγορίες, στη συνέχεια αποθηκεύει την παρουσίαση ως PPTX.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
-    pres.save("Radar-chart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Δημιουργία Πολυ‑Κατηγορικών Διαγραμμάτων**
-
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType.ClusteredColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ClusteredColumn).
-4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/).
-5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα πολυ‑κατηγορικό διάγραμμα:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
-    ch.getChartData().getSeries().clear();
-    ch.getChartData().getCategories().clear();
-    
-    IChartDataWorkbook fact = ch.getChartData().getChartDataWorkbook();
-    fact.clear(0);
-    int defaultWorksheetIndex = 0;
-
-    IChartCategory category = ch.getChartData().getCategories().add(fact.getCell(0, "c2", "A"));
-    category.getGroupingLevels().setGroupingItem(1, "Group1");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c3", "B"));
-
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c4", "C"));
-    category.getGroupingLevels().setGroupingItem(1, "Group2");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c5", "D"));
-
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c6", "E"));
-    category.getGroupingLevels().setGroupingItem(1, "Group3");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c7", "F"));
-
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
-    category.getGroupingLevels().setGroupingItem(1, "Group4");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-
-    // Προσθήκη Σειρών
-    IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
-            ChartType.ClusteredColumn);
-
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D4", 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D5", 40));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D6", 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    
-    // Αποθήκευση παρουσίασης με διάγραμμα
-    pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Δημιουργία Διαγραμμάτων Χάρτη**
-
-Τα διαγράμματα χάρτη οπτικοποιούν γεωγραφικά δεδομένα και βοηθούν στη σύγκριση τιμών μεταξύ περιοχών.
-
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα χάρτη:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
-    pres.save("mapChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
-
-Ένα συνδυαστικό διάγραμμα (ή combo diagram) συνδυάζει δύο ή περισσότερους τύπους διαγραμμάτων σε ένα μόνο γράφημα. Αυτό το διάγραμμα σάς επιτρέπει να τονίσετε, συγκρίνετε ή εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
-
-![The combination chart](combination_chart.png)
-
-Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε το συνδυαστικό διάγραμμα που φαίνεται παραπάνω σε μια παρουσίαση PowerPoint:
-
-```java
-import com.aspose.slides.*;
-import java.awt.Color;
-
-static void createComboChart() {
-    Presentation presentation = new Presentation();
+Presentation presentation = new Presentation();
+try
+{
     ISlide slide = presentation.getSlides().get_Item(0);
-    try {
-        IChart chart = createChartWithFirstSeries(slide);
 
-        addSecondSeriesToChart(chart);
-        addThirdSeriesToChart(chart);
+    slide.getShapes().addChart(ChartType.Radar, 20, 20, 500, 300);
 
-        setPrimaryAxesFormat(chart);
-        setSecondaryAxesFormat(chart);
-
-        presentation.save("combo-chart.pptx", SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
-    }
+    presentation.save("Radar-chart.pptx", SaveFormat.Pptx);
 }
+finally
+{
+    presentation.dispose();
+}
+```
 
-static IChart createChartWithFirstSeries(ISlide slide) {
-    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+Το αποτέλεσμα:
 
-    // Ορισμός τίτλου διαγράμματος.
-    chart.setTitle(true);
-    chart.getChartTitle().addTextFrameForOverriding("Chart Title");
-    chart.getChartTitle().setOverlay(false);
-    IParagraph titleParagraph = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0);
-    IPortionFormat titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(NullableBool.False);
-    titleFormat.setFontHeight(18f);
+![Το ραδιογραφικό διάγραμμα](radar_chart.png)
 
-    // Ορισμός υπόμνηματος διαγράμματος.
-    chart.getLegend().setPosition(LegendPositionType.Bottom);
-    chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
+### **Δημιουργία Πολυκατηγορικών Διαγραμμάτων**
 
-    // Διαγραφή των προεπιλεγμένων δημιουργημένων σειρών και κατηγοριών.
+Τα πολυκατηγορικά διαγράμματα χρησιμοποιούνται για την προβολή δεδομένων που περιλαμβάνουν περισσότερα από ένα κατηγοριακά σύνολα, επιτρέποντας τη σύγκριση τιμών σε πολλές διαστάσεις ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα όταν πρέπει να αναλύσετε τάσεις και σχέσεις σε σύνθετα, πολυεπίπεδα σύνολα δεδομένων.
+
+Αυτό το παράδειγμα δημιουργεί ένα ομαδοποιημένο στήλο διάγραμμα με οκτώ κατηγορίες διατεταγμένες σε τέσσερα ζεύγη. Η μέθοδος [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) δίνει σε κάθε ζεύγος μια κοινή ετικέτα στο επίπεδο ομαδοποίησης 1, δημιουργώντας άξονα κατηγοριών με τόσο ατομικές όσο και ομαδικές ετικέτες.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
     int worksheetIndex = 0;
-    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Προσθήκη νέων κατηγοριών.
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
+    IChartDataCell categoryCell = workbook.getCell(0, "c2", "A");
+    IChartCategory category = chart.getChartData().getCategories().add(categoryCell);
+    category.getGroupingLevels().setGroupingItem(1, "Group1");
+    categoryCell = workbook.getCell(0, "c3", "B");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    // Προσθήκη της πρώτης σειράς.
-    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
-    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    categoryCell = workbook.getCell(0, "c4", "C");
+    category = chart.getChartData().getCategories().add(categoryCell);
+    category.getGroupingLevels().setGroupingItem(1, "Group2");
+    categoryCell = workbook.getCell(0, "c5", "D");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    series.getParentSeriesGroup().setOverlap((byte)-25);
-    series.getParentSeriesGroup().setGapWidth(220);
+    categoryCell = workbook.getCell(0, "c6", "E");
+    category = chart.getChartData().getCategories().add(categoryCell);
+    category.getGroupingLevels().setGroupingItem(1, "Group3");
+    categoryCell = workbook.getCell(0, "c7", "F");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 4.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 2.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 3.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 1, 4.5));
+    categoryCell = workbook.getCell(0, "c8", "G");
+    category = chart.getChartData().getCategories().add(categoryCell);
+    category.getGroupingLevels().setGroupingItem(1, "Group4");
+    categoryCell = workbook.getCell(0, "c9", "H");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    return chart;
-}
-
-static void addSecondSeriesToChart(IChart chart) {
-    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    final int worksheetIndex = 0;
-
-    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+    IChartDataCell seriesNameCell = workbook.getCell(0, "D1", "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.ClusteredColumn);
 
-    series.getParentSeriesGroup().setOverlap((byte)-25);
-    series.getParentSeriesGroup().setGapWidth(220);
+    IChartDataCell valueCell = workbook.getCell(worksheetIndex, "D2", 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D3", 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D4", 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D5", 40);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D6", 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D7", 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D8", 70);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D9", 80);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
 
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 2, 2.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 2, 4.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 2, 1.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 2, 2.8));
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα:
+
+![Το πολυκατηγορικό διάγραμμα](multi_category_chart.png)
+
+### **Δημιουργία Χαρτογραφικών Διαγραμμάτων**
+
+Τα χάρτια διαγράμματα χρησιμοποιούνται για την απεικόνιση γεωγραφικών δεδομένων χαρτογραφώντας πληροφορίες σε συγκεκριμένες τοποθεσίες όπως χώρες, πολιτείες ή πόλεις. Είναι ιδιαίτερα χρήσιμα για την ανάλυση περιφερειακών τάσεων, δημογραφικών δεδομένων και χωρικών κατανομών με σαφή, οπτικά ελκυστικό τρόπο.
+
+Αυτό το παράδειγμα χρησιμοποιεί [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να δημιουργήσει ένα χάρτῳ διάγραμμα με τα προεπιλεγμένα γεωγραφικά δεδομένα και το αποθηκεύει για προβολή στο PowerPoint.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 500, 300);
+
+    presentation.save("mapChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα:
+
+![Το χάρτη](map_chart.png)
+
+{{% alert color="info" title="Note" %}}
+Η παραπάνω εικόνα δείχνει την αποθηκευμένη παρουσίαση ανοιγμένη στο PowerPoint. Το Aspose.Slides γράφει το χάρτιο διάγραμμα και τα δεδομένα του σωστά, αλλά δεν σχεδιάζει τα χάρτια διαγράμματα μόνο του: όταν μια διαφάνεια που περιέχει τέτοιο διάγραμμα αποδίδεται σε εικόνα ή μετατρέπεται σε PDF ή SVG, η περιοχή του διαγράμματος εμφανίζεται κενή. Άλλα σχήματα στην ίδια διαφάνεια δεν επηρεάζονται.
+{{% /alert %}}
+
+### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
+
+![Το συνδυαστικό διάγραμμα](combination_chart.png)
+
+Αυτό το παράδειγμα συνδυάζει δύο σειρές ομαδοποιημένων στηλών με μια σειρά γραμμής σε τέσσερις κατηγορίες. Οι στήλες χρησιμοποιούν τον κύριο κάθετο άξονα, ενώ η [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) τοποθετεί τη γραμμή σε δευτερεύον κάθετο άξονα στα δεξιά. Οι βοηθητικές συναρτήσεις ρυθμίζουν τον τίτλο, το υπόμνημα, τις ετικέτες των αξόνων και τις γραμμές πλέγματος.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+class ComboChartExample
+{
+    void createComboChart()
+    {
+        Presentation presentation = new Presentation();
+        try
+        {
+            IChart chart = createChartWithFirstSeries(presentation.getSlides().get_Item(0));
+
+            addSecondSeriesToChart(chart);
+            addThirdSeriesToChart(chart);
+
+            setPrimaryAxesFormat(chart);
+            setSecondaryAxesFormat(chart);
+
+            presentation.save("combo-chart.pptx", SaveFormat.Pptx);
+        }
+        finally
+        {
+            presentation.dispose();
+        }
+    }
+
+    IChart createChartWithFirstSeries(ISlide slide)
+    {
+        IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+        chart.setTitle(true);
+        chart.getChartTitle().addTextFrameForOverriding("Chart Title");
+        chart.getChartTitle().setOverlay(false);
+        IPortionFormat portionFormat = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+        portionFormat.setFontBold(NullableBool.False);
+        portionFormat.setFontHeight(18f);
+
+        chart.getLegend().setPosition(LegendPositionType.Bottom);
+        chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
+
+        chart.getChartData().getSeries().clear();
+        chart.getChartData().getCategories().clear();
+
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        int worksheetIndex = 0;
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+        chart.getChartData().getCategories().add(categoryCell);
+        categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+        chart.getChartData().getCategories().add(categoryCell);
+        categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+        chart.getChartData().getCategories().add(categoryCell);
+        categoryCell = workbook.getCell(worksheetIndex, 4, 0, "Category 4");
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+        IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+        series.getParentSeriesGroup().setOverlap((byte) -25);
+        series.getParentSeriesGroup().setGapWidth(220);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 1, 4.3);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 2, 1, 2.5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 3, 1, 3.5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 4, 1, 4.5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+        return chart;
+    }
+
+    void addSecondSeriesToChart(IChart chart)
+    {
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        final int worksheetIndex = 0;
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+        IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.ClusteredColumn);
+
+        series.getParentSeriesGroup().setOverlap((byte) -25);
+        series.getParentSeriesGroup().setGapWidth(220);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 2, 2.4);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 2, 2, 4.4);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 3, 2, 1.8);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 4, 2, 2.8);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    void addThirdSeriesToChart(IChart chart)
+    {
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        final int worksheetIndex = 0;
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+        IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.Line);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 3, 2.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 2, 3, 2.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 3, 3, 3.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 4, 3, 5.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+        series.setPlotOnSecondAxis(true);
+    }
+
+    void setPrimaryAxesFormat(IChart chart)
+    {
+        IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
+        horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+        horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        setAxisTitle(horizontalAxis, "X Axis");
+
+        IAxis verticalAxis = chart.getAxes().getVerticalAxis();
+        verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+        verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        setAxisTitle(verticalAxis, "Y Axis 1");
+
+        ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
+        majorGridLinesFormat.setFillType(FillType.Solid);
+        majorGridLinesFormat.getSolidFillColor().setColor(Color.rgb(217, 217, 217));
+    }
+
+    void setSecondaryAxesFormat(IChart chart)
+    {
+        IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
+        secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
+        secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
+        secondaryHorizontalAxis.setVisible(false);
+        secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
+        secondaryVerticalAxis.setPosition(AxisPositionType.Right);
+        secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+        secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
+    }
+
+    void setAxisTitle(IAxis axis, String axisTitle)
+    {
+        axis.setTitle(true);
+        axis.getTitle().setOverlay(false);
+        IPortionFormat titlePortionFormat = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+        titlePortionFormat.setFontBold(NullableBool.False);
+        titlePortionFormat.setFontHeight(12f);
+    }
 }
 
-static void addThirdSeriesToChart(IChart chart) {
-    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    final int worksheetIndex = 0;
-
-    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
-    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.Line);
-
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 1, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 2, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 3, 3, 3.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 4, 3, 5.0));
-
-    series.setPlotOnSecondAxis(true);
-}
-
-static void setPrimaryAxesFormat(IChart chart) {
-    // Ορισμός του οριζόντιου άξονα.
-    IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
-    horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    setAxisTitle(horizontalAxis, "X Axis");
-
-    // Ορισμός του κάθετου άξονα.
-    IAxis verticalAxis = chart.getAxes().getVerticalAxis();
-    verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    setAxisTitle(verticalAxis, "Y Axis 1");
-
-    // Ορισμός χρώματος των κύριων πλεγμάτων του κάθετου άξονα.
-    ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
-    majorGridLinesFormat.setFillType(FillType.Solid);
-    majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
-}
-
-static void setSecondaryAxesFormat(IChart chart) {
-    // Ορισμός του δευτερεύοντος οριζόντιου άξονα.
-    IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
-    secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
-    secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
-    secondaryHorizontalAxis.setVisible(false);
-    secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-    secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    // Ορισμός του δευτερεύοντος κάθετου άξονα.
-    IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
-    secondaryVerticalAxis.setPosition(AxisPositionType.Right);
-    secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
-}
-
-static void setAxisTitle(IAxis axis, String axisTitle) {
-    axis.setTitle(true);
-    axis.getTitle().setOverlay(false);
-    IParagraph titleParagraph = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0);
-    IPortionFormat titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(NullableBool.False);
-    titleFormat.setFontHeight(12f);
-}
+ComboChartExample example = new ComboChartExample();
+example.createComboChart();
 ```
 
 ## **Ενημέρωση Διαγραμμάτων**
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα που θέλετε να ενημερώσετε.
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Περπατήστε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
-4. Πρόσβαση στο φύλλο εργασίας δεδομένων του διαγράμματος.
-5. Τροποποιήστε τις σειρές δεδομένων του διαγράμματος αλλάζοντας τις τιμές των σειρών.
-6. Προσθέστε μια νέα σειρά και συμπληρώστε τα δεδομένα της.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Το Aspose.Slides for Android via Java επιτρέπει την ενημέρωση διαγραμμάτων PowerPoint τροποποιώντας τα δεδομένα του διαγράμματος, τη μορφοποίηση και το στυλ. Αυτή η λειτουργία απλοποιεί τη διαδικασία διατήρησης των παρουσιάσεων ενημερωμένων με δυναμικό περιεχόμενο και διασφαλίζει ότι τα διαγράμματα αντικατοπτρίζουν με ακρίβεια τα τρέχοντα δεδομένα και τα οπτικά πρότυπα.
 
-Αυτός ο κώδικας Java δείχνει πώς να ενημερώσετε ένα διάγραμμα:
+Αυτό το παράδειγμα ενημερώνει το διάγραμμα με όνομα "My chart" στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης. Απαιτούνται δύο στήλες σειρών με τρία σημεία δεδομένων η κάθε μία, με ετικέτες κατηγοριών στη στήλη Α και ονόματα σειρών στην πρώτη γραμμή του πρώτου φύλλου εργασίας. Το παράδειγμα χρησιμοποιεί [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) για να αλλάξει τα κελιά του βιβλίου εργασίας, ενημερώνει τις τιμές των σειρών, προσθέτει τρίτη σειρά και αλλάζει το διάγραμμα σε ομαδοποιημένους κυλίνδρους μέσω του [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
 
-// Ανοίγει την παρουσίαση που περιέχει το διάγραμμα για ενημέρωση
-Presentation pres = new Presentation("ExistingChart.pptx");
-try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
+final String chartName = "My chart";
 
-    // Λήψη του διαγράμματος από τη διαφάνεια
-    IChart chart = (IChart)sld.getShapes().get_Item(0);
+Presentation presentation = new Presentation("ExistingChart.pptx");
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ορισμός του δείκτη του φύλλου δεδομένων του διαγράμματος
-    int defaultWorksheetIndex = 0;
+    for (IShape shape : slide.getShapes())
+    {
+        if (shape instanceof IChart && chartName.equals(shape.getName()))
+        {
+            IChart chart = (IChart) shape;
+            int worksheetIndex = 0;
 
-    // Λήψη του φύλλου εργασίας δεδομένων του διαγράμματος
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
+            IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Αλλαγή του ονόματος κατηγορίας του διαγράμματος
-    fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
-    fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
+            workbook.getCell(worksheetIndex, 1, 0, "Modified Category 1");
+            workbook.getCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-    // Λήψη της πρώτης σειράς του διαγράμματος
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+            IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Τώρα ενημέρωση των δεδομένων της σειράς
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Τροποποίηση του ονόματος σειράς
-    series.getDataPoints().get_Item(0).getValue().setData(90);
-    series.getDataPoints().get_Item(1).getValue().setData(123);
-    series.getDataPoints().get_Item(2).getValue().setData(44);
+            workbook.getCell(worksheetIndex, 0, 1, "New_Series 1");
+            series.getDataPoints().get_Item(0).getValue().setData(90);
+            series.getDataPoints().get_Item(1).getValue().setData(123);
+            series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Λήψη της δεύτερης σειράς του διαγράμματος
-    series = chart.getChartData().getSeries().get_Item(1);
+            series = chart.getChartData().getSeries().get_Item(1);
 
-    // Τώρα ενημέρωση των δεδομένων της σειράς
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Τροποποίηση του ονόματος σειράς
-    series.getDataPoints().get_Item(0).getValue().setData(23);
-    series.getDataPoints().get_Item(1).getValue().setData(67);
-    series.getDataPoints().get_Item(2).getValue().setData(99);
+            workbook.getCell(worksheetIndex, 0, 2, "New_Series 2");
+            series.getDataPoints().get_Item(0).getValue().setData(23);
+            series.getDataPoints().get_Item(1).getValue().setData(67);
+            series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Τώρα, προσθήκη νέας σειράς
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
+            IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+            series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    // Λήψη της τρίτης σειράς του διαγράμματος
-    series = chart.getChartData().getSeries().get_Item(2);
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 3, 20);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 2, 3, 50);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 3, 3, 30);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
 
-    // Τώρα γεμίζοντας τα δεδομένα της σειράς
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
+            chart.setType(ChartType.ClusteredCylinder);
+        }
+    }
 
-    chart.setType(ChartType.ClusteredCylinder);
-
-    // Αποθήκευση της παρουσίασης με το διάγραμμα
-    pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("AsposeChartModified.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός Πεδίου Δεδομένων για Διάγραμμα**
+## **Ορισμός Εύρους Δεδομένων για Διάγραμμα**
 
-Για να εξετάσετε το εύρος που χρησιμοποιείται ήδη από υπάρχον διάγραμμα, δείτε [Retrieve a Chart's Data Range](/slides/el/androidjava/chart-workbook/#retrieve-a-charts-data-range).
+Για να ελέγξετε το εύρος που χρησιμοποιείται ήδη από ένα υπάρχον διάγραμμα, δείτε την [Ανάκτηση Εύρους Δεδομένων Διαγράμματος](/slides/el/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-Για να ορίσετε το πεδίο δεδομένων για ένα διάγραμμα, κάντε τα εξής:
+Το Aspose.Slides for Android via Java παρέχει την ευελιξία να ορίσετε ένα συγκεκριμένο εύρος δεδομένων από ένα φύλλο εργασίας ως πηγή για τα δεδομένα του διαγράμματός σας. Αυτό σημαίνει ότι μπορείτε άμεσα να χαρτογραφήσετε ένα τμήμα του φύλλου εργασίας σας στο διάγραμμα, ελέγχοντας ποιες κελίες συμβάλλουν στις σειρές και τις κατηγορίες του διαγράμματος. Ως αποτέλεσμα, μπορείτε εύκολα να ενημερώνετε και να συγχρονίζετε τα διαγράμματά σας με τις τελευταίες αλλαγές δεδομένων στο φύλλο εργασίας, διασφαλίζοντας ότι οι παρουσιάσεις PowerPoint σας αντικατοπτρίζουν ακριβείς και ενημερωμένες πληροφορίες.
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.
-2. Λάβετε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Περπατήστε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
-4. Πρόσβαση στα δεδομένα του διαγράμματος και ορίστε το εύρος.
-5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας Java δείχνει πώς να ορίσετε το πεδίο δεδομένων για ένα διάγραμμα:
+Αυτό το παράδειγμα χρησιμοποιεί το [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) για να ορίσει την πηγή δεδομένων του διαγράμματος με όνομα "My chart" στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης σε `Sheet1!A1:B4`. Το βιβλίο εργασιών του διαγράμματος πρέπει να περιέχει αυτό το φύλλο και ένα συμπληρωμένο εύρος με μια επικεφαλίδα σειράς στην πρώτη γραμμή, ετικέτες κατηγοριών στη στήλη Α και τρεις τιμές στη στήλη Β.
 
 ```java
 import com.aspose.slides.*;
 
-// Ανοίγει την παρουσίαση που περιέχει το διάγραμμα
-Presentation pres = new Presentation("ExistingChart.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
-    
-    chart.getChartData().setRange("Sheet1!A1:B4");
-    
-    pres.save("SetDataRange_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+final String chartName = "My chart";
+
+Presentation presentation = new Presentation("ExistingChart.pptx");
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes())
+    {
+        if (shape instanceof IChart && chartName.equals(shape.getName()))
+        {
+            IChart chart = (IChart) shape;
+            chart.getChartData().setRange("Sheet1!A1:B4");
+        }
+    }
+
+    presentation.save("SetDataRange.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ## **Χρήση Προεπιλεγμένων Δεικτών σε Διαγράμματα**
 
-Όταν χρησιμοποιείτε προεπιλεγμένους δείκτες σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει αυτόματα διαφορετικό σύμβολο δείκτη.
+Όταν χρησιμοποιείτε προεπιλεγμένους δείκτες σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει αυτόματα ένα διαφορετικό προεπιλεγμένο σύμβολο δείκτη.
 
-Αυτός ο κώδικας Java δείχνει πώς να θέσετε αυτόματα έναν δείκτη σειράς διαγράμματος:
+Αυτό το παράδειγμα χρησιμοποιεί [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να δημιουργήσει ένα διάγραμμα με δύο σειρές γραμμής και ένα υπόμνημα. Οι ρυθμίσεις του δείκτη που προσπελάζονται μέσω του [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) διατηρούν τα αυτόματα εκχωρηθέντα σύμβολα δείκτη. Η πρώτη σειρά περιλαμβάνει μια αρνητική τιμή και μια ελλιπή τιμή, που αντιπροσωπεύεται από `null`, ενώ η δεύτερη έχει τιμή για κάθε κατηγορία.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
 
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "C1"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 1, 24));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "C2"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 1, 23));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "C3"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 1, -10));
-    chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    //Πάρτε τη δεύτερη σειρά του διαγράμματος
-    IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
+    IChartDataCell categoryCell = workbook.getCell(0, 1, 0, "C1");
+    chart.getChartData().getCategories().add(categoryCell);
+    IChartDataCell valueCell = workbook.getCell(0, 1, 1, 24);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
 
-    //Τώρα γεμίζουμε τα δεδομένα της σειράς
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 2, 40));
+    categoryCell = workbook.getCell(0, 2, 0, "C2");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 2, 1, 23);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 3, 0, "C3");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 3, 1, -10);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 4, 0, "C4");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 4, 1, null);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    seriesNameCell = workbook.getCell(0, 0, 2, "Series 2");
+    IChartSeries secondSeries = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    valueCell = workbook.getCell(0, 1, 2, 30);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 10);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 60);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 4, 2, 40);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
 
     chart.setLegend(true);
     chart.getLegend().setOverlay(false);
 
-    pres.save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Συχνές ερωτήσεις**
 
-**Ποιοί τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides;**
+**Τι τύπους διαγραμμάτων υποστηρίζει το Aspose.Slides for Android via Java;**
 
-Το Aspose.Slides υποστηρίζει μια ευρεία γκάμα [chart types](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), συμπεριλαμβανομένων των ραβδογραφικών, γραμμικών, παϊτικών, επιφανειακών, διασκορπισμού, ιστογραμμάτων, ραδίου και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
+Το Aspose.Slides for Android via Java υποστηρίζει μια ευρεία γκάμα τύπων διαγραμμάτων, συμπεριλαμβανομένων των ραβδογράμμων, γραμμικών, κυκλικών, περιοχής, διασκορπισμένων, ιστογραμμάτων, ραδιογραφικών και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
 
-**Πώς προσθέτω νέο διάγραμμα σε διαφάνεια;**
+**Πώς προσθέτω ένα νέο διάγραμμα σε μια διαφάνεια;**
 
-Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργείτε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), ανακτάτε τη ζητούμενη διαφάνεια χρησιμοποιώντας τον δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο προσθήκης διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
+Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργείτε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), ανακτάτε τη διαφάνεια που θέλετε χρησιμοποιώντας τον δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο για προσθήκη διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
 
 **Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;**
 
-Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπελαύνοντας το βιβλίο εργασίας δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), καθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και, στη συνέχεια, προσθέτοντας τα προσαρμοσμένα σας δεδομένα. Αυτό σας επιτρέπει να ανανεώσετε το διάγραμμα ώστε να αντανακλά τα πιο πρόσφατα δεδομένα.
+Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπελαύνοντας το βιβλίο εργασίας δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), διαγράφοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και προσθέτοντας τις προσαρμοσμένες σας πληροφορίες. Αυτό σας επιτρέπει να ανανεώνετε το διάγραμμα προγραμματιστικά ώστε να αντανακλά τα πιο πρόσφατα δεδομένα.
 
 **Μπορώ να προσαρμόσω την εμφάνιση του διαγράμματος;**
 
-Ναι, το Aspose.Slides παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα [formatting elements](/slides/el/androidjava/chart-entities/) ώστε να προσαρμόσετε την εμφάνιση του διαγράμματος σύμφωνα με τις συγκεκριμένες απαιτήσεις σχεδίασής σας.
+Ναι, το Aspose.Slides for Android via Java παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπόμνημα και άλλα στοιχεία μορφοποίησης ώστε να προσαρμόσετε την εμφάνιση του διαγράμματος σύμφωνα με τις συγκεκριμένες απαιτήσεις του σχεδίου σας.

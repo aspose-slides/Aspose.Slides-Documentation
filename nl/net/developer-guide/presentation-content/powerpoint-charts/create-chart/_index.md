@@ -1,6 +1,6 @@
 ---
-title: Diagrammen in PowerPoint-presentaties maken of bijwerken in .NET
-linktitle: Diagrammen maken of bijwerken
+title: Maak of werk diagrammen in PowerPoint‑presentaties bij in .NET
+linktitle: Maak of werk diagrammen bij
 type: docs
 weight: 10
 url: /nl/net/create-chart/
@@ -10,27 +10,27 @@ keywords:
 - diagram bewerken
 - diagram wijzigen
 - diagram bijwerken
-- spreidingsdiagram
+- scatter‑diagram
 - taartdiagram
 - lijndiagram
-- boomkaartdiagram
-- aandelen diagram
-- box-en-whisker-diagram
+- tree‑map‑diagram
+- aandelen‑diagram
+- box‑en‑whisker‑diagram
 - trechterdiagram
-- sunburst-diagram
+- sunburst‑diagram
 - histogramdiagram
 - radardiagram
-- multicategorie diagram
+- multicategorie‑diagram
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Diagrammen maken en aanpassen in PowerPoint-presentaties met Aspose.Slides voor .NET. Diagrammen toevoegen, opmaken en bewerken met praktische code-voorbeelden in C#."
+description: "Maak en pas diagrammen aan in PowerPoint‑presentaties met behulp van Aspose.Slides voor .NET. Voeg diagrammen toe, formatteer ze en bewerk ze met praktische code‑voorbeelden in C#."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide gids over hoe je diagrammen kunt maken en aanpassen met Aspose.Slides voor .NET. Je leert hoe je programmatisch een diagram toevoegt aan een dia, het vult met gegevens, en verschillende opmaakopties toepast om te voldoen aan je specifieke ontwerpvereisten. Door het hele artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en het diagramobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische diagramgeneratie kunt integreren in je .NET‑toepassingen, waardoor het proces van het maken van gegevens‑gedreven presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreide gids over hoe je diagrammen kunt maken en aanpassen met Aspose.Slides voor .NET. Je leert hoe je programmatic een diagram toevoegt aan een dia, het vult met gegevens en verschillende opmaakopties toepast om te voldoen aan jouw ontwerpvereisten. Door het artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en het diagramobject tot het configureren van reeksen, assen en legenda’s. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische diagramgeneratie integreert in je .NET‑applicaties, waardoor het maken van datagedreven presentaties wordt gestroomlijnd.
 
 ## **Diagram maken**
 
@@ -38,1015 +38,1070 @@ Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te verkrijge
 
 **Waarom diagrammen maken?**
 
-* grotere hoeveelheden gegevens samenvatten, consolideren of condenseren op één dia in een presentatie;
+Met diagrammen kun je:
+
+* grote hoeveelheden gegevens samenvatten op één dia in een presentatie;
 * patronen en trends in gegevens blootleggen;
-* de richting en dynamiek van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
-* uitbijters, afwijkingen, afwijkende waarden, fouten en onsamenhangende gegevens opsporen;
+* de richting en momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitschieters, afwijkingen, fouten en onlogische gegevens opsporen;
 * complexe gegevens communiceren of presenteren.
 
-In PowerPoint kun je diagrammen maken via de *Invoegen*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende diagramtypen. Met Aspose.Slides kun je zowel reguliere diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
+In PowerPoint kun je diagrammen maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende diagramtypen. Met Aspose.Slides kun je zowel standaarddiagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
 
-{{% alert color="info" %}} 
-Gebruik de [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeratie onder de namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). De waarden in deze enumeratie komen overeen met verschillende diagramtypen.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
 
-### **Gegroepeerde kolomdiagrammen**
+Gebruik de [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)‑enumeratie onder de [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) namespace. De waarden in deze enumeratie komen overeen met verschillende diagramtypen.
 
-Deze sectie legt uit hoe je gegroepeerde kolomdiagrammen maakt met Aspose.Slides voor .NET. Je leert een presentatie te initialiseren, een diagram toe te voegen en de elementen ervan aan te passen, zoals titel, gegevens, series, categorieën en opmaak. Volg de onderstaande stappen om te zien hoe een standaard gegroepeerd kolomdiagram wordt gegenereerd:
+{{% /alert %}}
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.ClusteredColumn`.
-4. Voeg een titel toe aan het diagram.
-5. Toegang tot het gegevenswerkblad van het diagram.
-6. Verwijder alle standaard series en categorieën.
-7. Voeg nieuwe series en categorieën toe.
-8. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-9. Pas een vulkleur toe op de diagramserie.
-10. Voeg labels toe aan de diagramserie.
-11. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+### **Clustered Column‑diagrammen maken**
 
-Deze C#‑code toont hoe je een gegroepeerd kolomdiagram maakt:
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) om een clustered column‑diagram te maken dat twee reeksen over drie categorieën vergelijkt. De reeksen gebruiken rode en groene opvullingen, en individuele labels tonen categorienamen, reeksnamen en waarden. Werkblad‑index 0 verwijst naar het eerste blad in de ingesloten diagram‑werkmap.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse.
-using (Presentation presentation = new Presentation())
-{
-    // Toegang tot de eerste dia.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Voeg een gegroepeerde kolomdiagram toe met de standaardgegevens.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // Stel de diagramtitel in.
-    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-    chart.ChartTitle.Height = 20;
-    chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
 
-    // Stel de index van het diagramdatablad in.
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-    // Haal het diagramdatablad op.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    // Verwijder de standaard gegenereerde series en categorieën.
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+seriesNameCell = workbook.GetCell(worksheetIndex, 0, 2, "Series 2");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    // Voeg nieuwe series toe.
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
+var categoryCell = workbook.GetCell(worksheetIndex, 1, 0, "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(worksheetIndex, 2, 0, "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(worksheetIndex, 3, 0, "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
 
-    // Voeg nieuwe categorieën toe.
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
+var series = chart.ChartData.Series[0];
 
-    // Haal de eerste diagramserie op.
-    IChartSeries series = chart.ChartData.Series[0];
+var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 20);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 1, 50);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 1, 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-    // Vul de seriegegevens.
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // Stel de vulkleur voor de serie in.
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = Color.Red;
+series = chart.ChartData.Series[1];
 
-    // Haal de tweede diagramserie op.
-    series = chart.ChartData.Series[1];
+valueCell = workbook.GetCell(worksheetIndex, 1, 2, 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 2, 10);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 2, 60);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-    // Vul de seriegegevens.
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // Stel de vulkleur voor de serie in.
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = Color.Green;
+var label = series.DataPoints[0].Label;
+label.DataLabelFormat.ShowCategoryName = true;
 
-    // Stel het eerste label in om de categorienaam weer te geven.
-    IDataLabel label = series.DataPoints[0].Label;
-    label.DataLabelFormat.ShowCategoryName = true;
+label = series.DataPoints[1].Label;
+label.DataLabelFormat.ShowSeriesName = true;
 
-    label = series.DataPoints[1].Label;
-    label.DataLabelFormat.ShowSeriesName = true;
+label = series.DataPoints[2].Label;
+label.DataLabelFormat.ShowValue = true;
+label.DataLabelFormat.ShowSeriesName = true;
+label.DataLabelFormat.Separator = "/";
 
-    // Stel de serie in om de waarde voor het derde label weer te geven.
-    label = series.DataPoints[2].Label;
-    label.DataLabelFormat.ShowValue = true;
-    label.DataLabelFormat.ShowSeriesName = true;
-    label.DataLabelFormat.Separator = "/";
-
-    // Sla de presentatie op naar schijf als een PPTX‑bestand.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![Het gegroepeerde kolomdiagram](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Spreidingsdiagrammen**
+### **Scatter‑diagrammen maken**
 
-Spreidingsdiagrammen (ook wel spreidingsplots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen aan te tonen.
+Scatter‑diagrammen (ook wel scatter‑plots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen te demonstreren.
 
-Gebruik een spreidingsdiagram wanneer:
+Gebruik een scatter‑diagram wanneer:
 
-* je beschikt over gekoppelde numerieke gegevens.
-* je hebt twee variabelen die goed bij elkaar passen.
-* je wilt bepalen of de twee variabelen met elkaar verbonden zijn.
-* je hebt een onafhankelijke variabele die meerdere waarden heeft voor een afhankelijke variabele.
+* je gekoppelde numerieke gegevens hebt;
+* je twee variabelen hebt die goed bij elkaar passen;
+* je wilt bepalen of de twee variabelen gerelateerd zijn;
+* je een onafhankelijke variabele hebt met meerdere waarden voor een afhankelijke variabele.
 
-Deze C#‑code laat zien hoe je een spreidingsdiagram maakt met een andere reeks markers:
+Dit voorbeeld plaatst twee sets x‑y‑waarden. De eerste reeks gebruikt rechte lijnen met ster‑markeringen, terwijl de tweede gladde lijnen met cirkel‑markeringen gebruikt; beide gebruiken een [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) van 10. De [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/)‑eigenschap bepaalt de vorm van de markering.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse.
-using (Presentation presentation = new Presentation())
-{
-    // Toegang tot de eerste dia.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Maak het standaard spreidingsdiagram.
-    IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Stel de index van het diagramdatablad in.
-    int worksheetIndex = 0;
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-    // Haal het diagramdatablad op.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
 
-    // Verwijder de standaard series.
-    chart.ChartData.Series.Clear();
+var seriesNameCell = workbook.GetCell(worksheetIndex, 1, 1, "Series 1");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+seriesNameCell = workbook.GetCell(worksheetIndex, 1, 3, "Series 2");
+chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    // Voeg nieuwe series toe.
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
+var series = chart.ChartData.Series[0];
 
-    // Haal de eerste diagramserie op.
-    IChartSeries series = chart.ChartData.Series[0];
+var xValueCell = workbook.GetCell(worksheetIndex, 2, 1, 1);
+var yValueCell = workbook.GetCell(worksheetIndex, 2, 2, 3);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Voeg een nieuw punt (1:3) toe aan de serie.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
+xValueCell = workbook.GetCell(worksheetIndex, 3, 1, 2);
+yValueCell = workbook.GetCell(worksheetIndex, 3, 2, 10);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Voeg een nieuw punt (2:10) toe.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
+series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // Wijzig het type van de serie.
-    series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
+series.Marker.Size = 10;
+series.Marker.Symbol = MarkerStyleType.Star;
 
-    // Wijzig de marker van de diagramserie.
-    series.Marker.Size = 10;
-    series.Marker.Symbol = MarkerStyleType.Star;
+series = chart.ChartData.Series[1];
 
-    // Haal de tweede diagramserie op.
-    series = chart.ChartData.Series[1];
+xValueCell = workbook.GetCell(worksheetIndex, 2, 3, 5);
+yValueCell = workbook.GetCell(worksheetIndex, 2, 4, 2);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Voeg een nieuw punt (5:2) toe aan de diagramserie.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
+xValueCell = workbook.GetCell(worksheetIndex, 3, 3, 3);
+yValueCell = workbook.GetCell(worksheetIndex, 3, 4, 1);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Voeg een nieuw punt (3:1) toe.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
+xValueCell = workbook.GetCell(worksheetIndex, 4, 3, 2);
+yValueCell = workbook.GetCell(worksheetIndex, 4, 4, 2);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Voeg een nieuw punt (2:2) toe.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
+xValueCell = workbook.GetCell(worksheetIndex, 5, 3, 5);
+yValueCell = workbook.GetCell(worksheetIndex, 5, 4, 1);
+series.DataPoints.AddDataPointForScatterSeries(xValueCell, yValueCell);
 
-    // Voeg een nieuw punt (5:1) toe.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
+series.Marker.Size = 10;
+series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Wijzig de marker van de diagramserie.
-    series.Marker.Size = 10;
-    series.Marker.Symbol = MarkerStyleType.Circle;
-
-    // Sla de presentatie op naar schijf als een PPTX‑bestand.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![Het spreidingsdiagram](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Taartdiagrammen**
+### **Taart‑diagrammen maken**
 
-Taartdiagrammen zijn het beste te gebruiken om de deel‑tot‑geheel‑relatie in gegevens te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafdiagram gebruiken.
+Taart‑diagrammen worden het best gebruikt om de deel‑tot‑geheel‑relatie in gegevens te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je echter veel onderdelen of labels hebt, kun je overwegen een staafdiagram te gebruiken.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Pie`.
-4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Verwijder de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Voeg nieuwe punten toe aan het diagram en pas aangepaste kleuren toe op de sectoren van het taartdiagram.
-9. Stel labels in voor de series.
-10. Schakel leader‑lijnen in voor de serie‑labels.
-11. Stel de rotatiehoek in voor het taartdiagram.
-12. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld maakt een taart‑diagram met drie kwartaalwaarden. Elk segment heeft een aangepaste opvulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en reeks‑informatie. De [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/)‑eigenschap stelt de eerste sector in op 180 graden.
 
-Deze C#‑code toont hoe je een taartdiagram maakt:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse.
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
+
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var categoryCell = workbook.GetCell(0, 1, 0, "1st Qtr");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 2, 0, "2nd Qtr");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 3, 0, "3rd Qtr");
+chart.ChartData.Categories.Add(categoryCell);
+
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 20);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 2, 1, 50);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, 3, 1, 30);
+series.DataPoints.AddDataPointForPieSeries(valueCell);
+
+chart.ChartData.SeriesGroups[0].IsColorVaried = true;
+
+var firstSlice = series.DataPoints[0];
+firstSlice.Format.Fill.FillType = FillType.Solid;
+firstSlice.Format.Fill.SolidFillColor.Color = Color.Cyan;
+
+firstSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+firstSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
+firstSlice.Format.Line.Width = 3.0;
+firstSlice.Format.Line.Style = LineStyle.ThinThick;
+firstSlice.Format.Line.DashStyle = LineDashStyle.LargeDash;
+
+var secondSlice = series.DataPoints[1];
+secondSlice.Format.Fill.FillType = FillType.Solid;
+secondSlice.Format.Fill.SolidFillColor.Color = Color.Brown;
+
+secondSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+secondSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
+secondSlice.Format.Line.Width = 3.0;
+secondSlice.Format.Line.Style = LineStyle.Single;
+secondSlice.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
+
+var thirdSlice = series.DataPoints[2];
+thirdSlice.Format.Fill.FillType = FillType.Solid;
+thirdSlice.Format.Fill.SolidFillColor.Color = Color.Coral;
+
+thirdSlice.Format.Line.FillFormat.FillType = FillType.Solid;
+thirdSlice.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+thirdSlice.Format.Line.Width = 2.0;
+thirdSlice.Format.Line.Style = LineStyle.ThinThin;
+thirdSlice.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
+
+var firstLabel = series.DataPoints[0].Label;
+firstLabel.DataLabelFormat.ShowValue = true;
+
+var secondLabel = series.DataPoints[1].Label;
+secondLabel.DataLabelFormat.ShowValue = true;
+secondLabel.DataLabelFormat.ShowLegendKey = true;
+secondLabel.DataLabelFormat.ShowPercentage = true;
+
+var thirdLabel = series.DataPoints[2].Label;
+thirdLabel.DataLabelFormat.ShowSeriesName = true;
+thirdLabel.DataLabelFormat.ShowPercentage = true;
+
+series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
+
+chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
+
+presentation.Save("PieChart.pptx", SaveFormat.Pptx);
+```
+
+Het resultaat:
+
+![The Pie chart](pie_chart.png)
+
+### **Lijn‑diagrammen maken**
+
+Lijn‑diagrammen (ook wel lijndiagrammen genoemd) worden het best gebruikt wanneer je veranderingen in waarden in de tijd wilt laten zien. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, trends volgen, anomalieën in reeksen markeren, enzovoort.
+
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) om een lijndiagram met de standaard reeksen en categorieën te maken, en slaat vervolgens de presentatie op als PPTX.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+presentation.Save("lineChart.pptx", SaveFormat.Pptx);
+```
+
+Standaard worden punten in een lijndiagram verbonden door rechte doorlopende lijnen. Als je wilt dat de punten in plaats daarvan met streepjes worden verbonden, stel je [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) in op een waarde uit [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+foreach (var series in lineChart.ChartData.Series)
 {
-    // Toegang tot de eerste dia.
-    ISlide slide = presentation.Slides[0];
-
-    // Voeg een diagram toe met de standaardgegevens.
-    IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
-
-    // Stel de diagramtitel in.
-    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-    chart.ChartTitle.Height = 20;
-    chart.HasTitle = true;
-
-    // Stel de eerste serie in om waarden weer te geven.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-    // Stel de index van het diagramdatablad in.
-    int worksheetIndex = 0;
-
-    // Haal het diagramdatablad op.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-
-    // Verwijder de standaard gegenereerde series en categorieën.
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // Voeg nieuwe categorieën toe.
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
-
-    // Voeg nieuwe series toe.
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // Vul de seriedata.
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
-
-    // Stel de sectorkleur in.
-    chart.ChartData.SeriesGroups[0].IsColorVaried = true;
-
-    IChartDataPoint point = series.DataPoints[0];
-    point.Format.Fill.FillType = FillType.Solid;
-    point.Format.Fill.SolidFillColor.Color = Color.Cyan;
-
-    // Stel de sectorrand in.
-    point.Format.Line.FillFormat.FillType = FillType.Solid;
-    point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
-    point.Format.Line.Width = 3.0;
-    point.Format.Line.Style = LineStyle.ThinThick;
-    point.Format.Line.DashStyle = LineDashStyle.LargeDash;
-
-    IChartDataPoint point1 = series.DataPoints[1];
-    point1.Format.Fill.FillType = FillType.Solid;
-    point1.Format.Fill.SolidFillColor.Color = Color.Brown;
-
-    // Stel de sectorrand in.
-    point1.Format.Line.FillFormat.FillType = FillType.Solid;
-    point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
-    point1.Format.Line.Width = 3.0;
-    point1.Format.Line.Style = LineStyle.Single;
-    point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
-
-    IChartDataPoint point2 = series.DataPoints[2];
-    point2.Format.Fill.FillType = FillType.Solid;
-    point2.Format.Fill.SolidFillColor.Color = Color.Coral;
-
-    // Stel de sectorrand in.
-    point2.Format.Line.FillFormat.FillType = FillType.Solid;
-    point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
-    point2.Format.Line.Width = 2.0;
-    point2.Format.Line.Style = LineStyle.ThinThin;
-    point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
-
-    // Maak aangepaste labels voor elke categorie in de nieuwe serie.
-    IDataLabel label1 = series.DataPoints[0].Label;
-
-    label1.DataLabelFormat.ShowValue = true;
-
-    IDataLabel label2 = series.DataPoints[1].Label;
-    label2.DataLabelFormat.ShowValue = true;
-    label2.DataLabelFormat.ShowLegendKey = true;
-    label2.DataLabelFormat.ShowPercentage = true;
-
-    IDataLabel label3 = series.DataPoints[2].Label;
-    label3.DataLabelFormat.ShowSeriesName = true;
-    label3.DataLabelFormat.ShowPercentage = true;
-
-    // Stel de serie in om leader‑lijnen weer te geven voor het diagram.
-    series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
-
-    // Stel de rotatiehoek in voor de taartdiagramsectoren.
-    chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
-
-    // Sla de presentatie op naar schijf als een PPTX‑bestand.
-    presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
+    series.Format.Line.DashStyle = LineDashStyle.Dash;
 }
 ```
 
 Het resultaat:
 
-![Het taartdiagram](pie_chart.png)
+![The Line chart](line_chart.png)
 
-### **Lijndiagrammen**
+### **Tree‑Map‑diagrammen maken**
 
-Lijndiagrammen (ook wel lijngrafieken genoemd) zijn het beste te gebruiken wanneer je veranderingen in waarde over de tijd wilt aantonen. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, wijzigingen en trends in de tijd volgen, afwijkingen in een gegevensreeks benadrukken, enzovoort.
+Tree‑Map‑diagrammen zijn ideaal voor verkoopgegevens wanneer je de relatieve grootte van gegevenscategorieën wilt tonen en snel de items wilt benadrukken die grote bijdragers zijn binnen elke categorie.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Line`.
-4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Verwijder de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld maakt een tree‑map met acht bladeren gegroepeerd in vier stammen en twee takken. De [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoekgroottes, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie aangeven.
 
-Deze C#‑code toont hoe je een lijndiagram maakt:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    presentation.Save("lineChart.pptx", SaveFormat.Pptx);
-}
-```
+var chart = slide.Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
 
-Standaard worden punten op een lijndiagram verbonden door rechte doorlopende lijnen. Als je wilt dat de punten in plaats daarvan met stippellijnen worden verbonden, kun je het gewenste dash‑type als volgt opgeven:
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-using (Presentation presentation = new Presentation())
-{
-    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+// Tak 1
+var categoryCell = workbook.GetCell(0, "C1", "Leaf1");
+var leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
 
-    foreach (IChartSeries series in lineChart.ChartData.Series)
-    {
-        series.Format.Line.DashStyle = LineDashStyle.Dash;
-    }
-}
+categoryCell = workbook.GetCell(0, "C2", "Leaf2");
+chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "C3", "Leaf3");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+
+categoryCell = workbook.GetCell(0, "C4", "Leaf4");
+chart.ChartData.Categories.Add(categoryCell);
+
+// Tak 2
+categoryCell = workbook.GetCell(0, "C5", "Leaf5");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
+
+categoryCell = workbook.GetCell(0, "C6", "Leaf6");
+chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "C7", "Leaf7");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
+
+categoryCell = workbook.GetCell(0, "C8", "Leaf8");
+chart.ChartData.Categories.Add(categoryCell);
+
+var series = chart.ChartData.Series.Add(ChartType.Treemap);
+series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+var valueCell = workbook.GetCell(0, "D1", 4);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D2", 5);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D3", 3);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D4", 6);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D5", 9);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D6", 9);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D7", 4);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+valueCell = workbook.GetCell(0, "D8", 3);
+series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+
+series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+
+presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![Het lijndiagram](line_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Boomkaartdiagrammen**
+### **Waterfall‑diagrammen maken**
 
-Boomkaartdiagrammen zijn het beste te gebruiken voor verkoopgegevens wanneer je de relatieve grootte van gegevenscategorieën wilt weergeven en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
+Een waterfall‑diagram toont hoe positieve en negatieve wijzigingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winst‑analyse kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderings‑kolommen zweven tussen de vorige en nieuwe cumulatieve waarden, terwijl totaal‑kolommen van nul tot de geaccumuleerde waarde reiken.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Treemap`.
-4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Verwijder de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Het volgende voorbeeld gebruikt bedragen in duizenden Amerikaanse dollars:
 
-Deze C#‑code toont hoe je een boomkaartdiagram maakt:
+| Categorie | Werkbladwaarde | Kolomtype |
+| --- | ---: | --- |
+| Omzet | 1000 | Stijging |
+| Kosten van verkoop | -400 | Daling |
+| Bruto winst | 600 | Tussenstand |
+| Operationele kosten | -200 | Daling |
+| Overige inkomsten | 50 | Stijging |
+| Netto winst | 450 | Eindstand |
 
-```c#
+Om een punt te markeren als een tussen‑ of eindstand, stel je de [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/)‑eigenschap in op `true`. Lever het werkelijke geaccumuleerde bedrag in de werkbladcel van dat punt: `600` voor bruto winst (`1000 - 400`) en `450` voor netto winst (`600 - 200 + 50`). De eigenschap markeert de kolom als totaal; ze berekent of vult de celwaarde niet automatisch. Gebruik geen nul als tijdelijke aanduiding en voeg geen extra wijziging toe aan een totaalpunt. Een totaalkolom toont de geaccumuleerde waarde zonder deze opnieuw bij de lopende waarde op te tellen.
+
+Deze volledige C#‑voorbeeld maakt een diagram met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), wist de standaardgegevens en vult de ingesloten werkmap. Werkblad‑index `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B de waarden. Elke waardecel wordt toegevoegd met [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). De nul‑gebaseerde puntindexen `2` en `5` identificeren respectievelijk de tussen‑ en eindtotalen. Het inschakelen van [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) toont de bedragen op de kolommen. Er is geen invoerpresentatie of werkmap vereist.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Waterfall, 20, 20, 680, 200);
+
+chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Profit breakdown (USD thousands)");
+chart.ChartTitle.Overlay = false;
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+
+workbook.Clear(worksheetIndex);
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Profit");
+var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.Waterfall);
+var categories = new[] { "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" };
+var values = new double[] { 1000, -400, 600, -200, 50, 450 };
+
+for (var i = 0; i < categories.Length; i++)
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
-
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
-
-    // Tak 1
-    IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C2", "Leaf2"));
-
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C3", "Leaf3"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
-
-    // Tak 2
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C6", "Leaf6"));
-
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C7", "Leaf7"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C8", "Leaf8"));
-
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Treemap);
-    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D1", 4));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D2", 5));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D3", 3));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D4", 6));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D5", 9));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D6", 9));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D7", 4));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D8", 3));
-
-    series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
-
-    presentation.Save("Treemap.pptx", SaveFormat.Pptx);
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categories[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
+
+// De derde en zesde punten vertegenwoordigen totalen, niet extra wijzigingen.
+series.DataPoints[2].SetAsTotal = true;
+series.DataPoints[5].SetAsTotal = true;
+series.ShowConnectorLines = true;
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
+```
+
+Stel de serie‑niveau [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/)‑eigenschap in op `true` om verbindingslijnen tussen opeenvolgende kolommen weer te geven en het volgen van de cumulatieve waarde eenvoudiger te maken. Om deze lijnen te verbergen, vervang je de toewijzing in het voorbeeld door `series.ShowConnectorLines = false;` vóór het opslaan. Dit verandert alleen de zichtbaarheid van de lijnen, niet de gegevens of totalen.
+
+De opgeslagen presentatie toont een bruto winst van 600 en een netto winst van 450, waarbij beide totalen van nul beginnen:
+
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+
+### **Aandelen‑diagrammen maken**
+
+Aandelen‑diagrammen worden gebruikt om financiële gegevens zoals open, high, low en close prijzen weer te geven, waarmee markttrends en volatiliteit geanalyseerd kunnen worden. Ze bieden essentiële inzichten in aandeelsprestaties en ondersteunen investeerders en analisten bij het nemen van weloverwogen beslissingen.
+
+Dit voorbeeld maakt een open‑high‑low‑close‑diagram met vier reeksen in die volgorde en drie categorieën. De [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/)‑eigenschap schakelt up/down‑balken in, en [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) regelt de high‑low‑lijnen die de prijsklassen tonen, terwijl de afzonderlijke reekslijnen en kleinere horizontale rasterlijnen verborgen blijven.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+var categoryCell = workbook.GetCell(0, 1, 0, "A");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 2, 0, "B");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, 3, 0, "C");
+chart.ChartData.Categories.Add(categoryCell);
+
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Open");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 2, "High");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 3, "Low");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+seriesNameCell = workbook.GetCell(0, 0, 4, "Close");
+chart.ChartData.Series.Add(seriesNameCell, ChartType.OpenHighLowClose);
+
+var series = chart.ChartData.Series[0];
+var valueCell = workbook.GetCell(0, 1, 1, 72);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 1, 25);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 1, 38);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[1];
+valueCell = workbook.GetCell(0, 1, 2, 172);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 2, 57);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 2, 57);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[2];
+valueCell = workbook.GetCell(0, 1, 3, 12);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 3, 12);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 3, 13);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+series = chart.ChartData.Series[3];
+valueCell = workbook.GetCell(0, 1, 4, 25);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 4, 38);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 4, 50);
+series.DataPoints.AddDataPointForStockSeries(valueCell);
+
+chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
+chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
+
+foreach (var stockSeries in chart.ChartData.Series)
+{
+    stockSeries.Format.Line.FillFormat.FillType = FillType.NoFill;
+}
+
+chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+
+presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![Het boomkaartdiagram](treemap_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Aandelen‑diagrammen**
+### **Box‑and‑Whisker‑diagrammen maken**
 
-Aandelen‑diagrammen worden gebruikt om financiële gegevens zoals open, high, low en close prijzen weer te geven, waardoor markttendensen en volatiliteit geanalyseerd kunnen worden. Ze bieden essentiële inzichten in de prestaties van aandelen, wat beleggers en analisten helpt weloverwogen beslissingen te nemen.
+Box‑and‑Whisker‑diagrammen worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitschieters. Ze zijn bijzonder nuttig bij verkennende data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.OpenHighLowClose`.
-4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Verwijder de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Specificeer het HiLowLines‑formaat.
-9. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld maakt een box‑and‑whisker‑diagram uit zes waarden. De [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/)‑eigenschap selecteert de exclusieve kwartielberekening. Het voorbeeld schakelt bovendien gemiddelde‑lijnen, gemiddelde‑markeringen, interne punten en uitschieter‑punten in.
 
-Deze C#‑code toont hoe je een aandelen‑diagram maakt:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+var chart = slide.Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "A"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "B"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "C"));
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Open"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "High"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 3, "Low"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 4, "Close"), chart.Type);
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    IChartSeries series = chart.ChartData.Series[0];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 1, 72));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 1, 25));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 1, 38));
+var categoryCell = workbook.GetCell(0, "A1", "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A2", "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A3", "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A4", "Category 4");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A5", "Category 5");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A6", "Category 6");
+chart.ChartData.Categories.Add(categoryCell);
 
-    series = chart.ChartData.Series[1];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 2, 172));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 2, 57));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 2, 57));
+var series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
 
-    series = chart.ChartData.Series[2];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 3, 12));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 3, 12));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 3, 13));
+series.QuartileMethod = QuartileMethodType.Exclusive;
+series.ShowMeanLine = true;
+series.ShowMeanMarkers = true;
+series.ShowInnerPoints = true;
+series.ShowOutlierPoints = true;
 
-    series = chart.ChartData.Series[3];
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 4, 25));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 4, 38));
-    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 4, 50));
+var valueCell = workbook.GetCell(0, "B1", 15);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B2", 41);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B3", 16);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B4", 10);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B5", 23);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
+valueCell = workbook.GetCell(0, "B6", 16);
+series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 
-    chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
-    chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
+presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
+```
 
-    foreach (IChartSeries ser in chart.ChartData.Series)
-    {
-        ser.Format.Line.FillFormat.FillType = FillType.NoFill;
-    }
+### **Trechter‑diagrammen maken**
 
-    chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+Trechter‑diagrammen visualiseren processen die uit opeenvolgende fasen bestaan, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral handig voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
 
-    presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
-}
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) om een trechter‑diagram toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaardgegevens door zes categorieën met waarden van 50 tot 500, en slaat vervolgens de aangepaste presentatie op. De invoerpresentatie moet minstens één dia bevatten.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("test.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var categoryCell = workbook.GetCell(0, "A1", "Category 1");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A2", "Category 2");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A3", "Category 3");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A4", "Category 4");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A5", "Category 5");
+chart.ChartData.Categories.Add(categoryCell);
+categoryCell = workbook.GetCell(0, "A6", "Category 6");
+chart.ChartData.Categories.Add(categoryCell);
+
+var series = chart.ChartData.Series.Add(ChartType.Funnel);
+
+var valueCell = workbook.GetCell(0, "B1", 50);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B2", 100);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B3", 200);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B4", 300);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B5", 400);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+valueCell = workbook.GetCell(0, "B6", 500);
+series.DataPoints.AddDataPointForFunnelSeries(valueCell);
+
+presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![Het aandelen‑diagram](stock_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Box‑en‑whisker‑diagrammen**
+### **Sunburst‑diagrammen maken**
 
-Box‑en‑whisker‑diagrammen worden gebruikt om de distributie van gegevens weer te geven door belangrijke statistische maatstaven, zoals mediaan, kwartielen en mogelijke uitbijters, samen te vatten. Ze zijn bijzonder nuttig in verkennende data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
+Sunburst‑diagrammen visualiseren hiërarchische gegevens door niveaus als concentrische ringen weer te geven. Ze helpen deel‑tot‑geheel‑relaties te illustreren en zijn ideaal voor het duidelijk en compact weergeven van geneste categorieën en subcategorieën.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.BoxAndWhisker`.
-4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Verwijder de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld maakt een sunburst‑diagram met acht bladeren gegroepeerd in vier stammen en twee takken. De [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Categorie‑labels identificeren de segmenten, en de waarden bepalen hun relatieve afmetingen.
 
-Deze C#‑code toont hoe je een box‑en‑whisker‑diagram maakt:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    series.QuartileMethod = QuartileMethodType.Exclusive;
-    series.ShowMeanLine = true;
-    series.ShowMeanMarkers = true;
-    series.ShowInnerPoints = true;
-    series.ShowOutlierPoints = true;
+// Tak 1
+var categoryCell = workbook.GetCell(0, "C1", "Leaf1");
+var leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
 
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B1", 15));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B2", 41));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B3", 16));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B4", 10));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B5", 23));
-    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B6", 16));
+categoryCell = workbook.GetCell(0, "C2", "Leaf2");
+chart.ChartData.Categories.Add(categoryCell);
 
-    presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
-}
-```
+categoryCell = workbook.GetCell(0, "C3", "Leaf3");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
 
-### **Funnel‑diagrammen**
+categoryCell = workbook.GetCell(0, "C4", "Leaf4");
+chart.ChartData.Categories.Add(categoryCell);
 
-Funnel‑diagrammen worden gebruikt om processen te visualiseren die opeenvolgende fasen omvatten, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral nuttig voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
+// Tak 2
+categoryCell = workbook.GetCell(0, "C5", "Leaf5");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
+leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Funnel`.
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+categoryCell = workbook.GetCell(0, "C6", "Leaf6");
+chart.ChartData.Categories.Add(categoryCell);
 
-Deze C#‑code toont hoe je een funnel‑diagram maakt:
+categoryCell = workbook.GetCell(0, "C7", "Leaf7");
+leaf = chart.ChartData.Categories.Add(categoryCell);
+leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
-using Aspose.Slides.Export;
+categoryCell = workbook.GetCell(0, "C8", "Leaf8");
+chart.ChartData.Categories.Add(categoryCell);
 
-using (Presentation presentation = new Presentation("test.pptx"))
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+var series = chart.ChartData.Series.Add(ChartType.Sunburst);
+series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+var valueCell = workbook.GetCell(0, "D1", 4);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D2", 5);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D3", 3);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D4", 6);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D5", 9);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D6", 9);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D7", 4);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+valueCell = workbook.GetCell(0, "D8", 3);
+series.DataPoints.AddDataPointForSunburstSeries(valueCell);
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
-
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Funnel);
-
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B1", 50));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B2", 100));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B3", 200));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B4", 300));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B5", 400));
-    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B6", 500));
-
-    presentation.Save("Funnel.pptx", SaveFormat.Pptx);
-}
+presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![Het trechterdiagram](funnel_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Sunburst‑diagrammen**
+### **Histogram‑diagrammen maken**
 
-Sunburst‑diagrammen worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus als concentrische ringen worden weergegeven. Ze helpen deel‑tot‑geheel‑relaties te illustreren en zijn ideaal voor het weergeven van geneste categorieën en subcategorieën in een duidelijk, compact formaat.
+Histogram‑diagrammen geven de verdeling van numerieke gegevens weer door waarden in intervallen (bakken) te groeperen. Ze zijn bijzonder nuttig om patronen zoals frequentie, scheefheid en spreiding te ontdekken, en om uitschieters in een dataset te detecteren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.Sunburst`.
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld maakt een histogram uit zes numerieke waarden, inclusief negatieve getallen. Door [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/aggregationtype/) automatisch in te stellen laat je het diagram de benodigde bakken bepalen voor de weergave van de verdeling.
 
-Deze C#‑code toont hoe je een Sunburst‑diagram maakt:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+var chart = slide.Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
 
-    // Tak 1
-    IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C2", "Leaf2"));
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
 
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C3", "Leaf3"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+var series = chart.ChartData.Series.Add(ChartType.Histogram);
+var valueCell = workbook.GetCell(0, "A1", 15);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A2", -41);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A3", 16);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A4", 10);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A5", -23);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
+valueCell = workbook.GetCell(0, "A6", 16);
+series.DataPoints.AddDataPointForHistogramSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
+chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
 
-    // Tak 2
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
-    leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C6", "Leaf6"));
-
-    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C7", "Leaf7"));
-    leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
-
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "C8", "Leaf8"));
-
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Sunburst);
-    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D1", 4));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D2", 5));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D3", 3));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D4", 6));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D5", 9));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D6", 9));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D7", 4));
-    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D8", 3));
-
-    presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
-}
+presentation.Save("Histogram.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![Het Sunburst‑diagram](sunburst_chart.png)
+![The Histogram chart](histogram_chart.png)
 
-### **Histogram‑diagrammen**
+### **Radar‑diagrammen maken**
 
-Histogram‑diagrammen worden gebruikt om de verdeling van numerieke gegevens weer te geven door waarden in klassen of “bins” te groeperen. Ze zijn bijzonder nuttig om patronen zoals frequentie, scheefheid en spreiding te identificeren en om uitbijters in een dataset te detecteren.
+Radar‑diagrammen tonen multivariate gegevens in een tweedimensionaal formaat, waardoor meerdere variabelen tegelijk gemakkelijk kunnen worden vergeleken. Ze zijn vooral nuttig om patronen, sterktes en zwaktes over verschillende prestatie‑indicatoren of attributen te identificeren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.Histogram`.
-4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Verwijder de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) om een radar‑diagram met de standaard reeksen en categorieën te maken, en slaat vervolgens de presentatie op als PPTX.
 
-Deze C#‑code toont hoe je een histogram‑diagram maakt:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
-    chart.ChartData.Categories.Clear();
-    chart.ChartData.Series.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
+slide.Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
 
-    IChartSeries series = chart.ChartData.Series.Add(ChartType.Histogram);
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A1", 15));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A2", -41));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A3", 16));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A4", 10));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A5", -23));
-    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A6", 16));
-
-    chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
-
-    presentation.Save("Histogram.pptx", SaveFormat.Pptx);
-}
+presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![Het histogramdiagram](histogram_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Radar‑diagrammen**
+### **Multi‑categorie‑diagrammen maken**
 
-Radar‑diagrammen worden gebruikt om multivariabele gegevens in een tweedimensionaal formaat weer te geven, waardoor meerdere variabelen tegelijk gemakkelijk kunnen worden vergeleken. Ze zijn bijzonder nuttig om patronen, sterktes en zwaktes over verschillende prestatie‑metrics of attributen te identificeren.
+Multi‑categorie‑diagrammen tonen gegevens die meer dan één categorische groepering bevatten, waardoor je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder bruikbaar wanneer je trends en relaties binnen complexe, meerlagige datasets wilt analyseren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met enkele gegevens en specificeer het type `ChartType.Radar`.
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld maakt een clustered column‑diagram met acht categorieën, gerangschikt in vier paren. De [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)‑methode geeft elk paar een gedeeld label op groeperingsniveau 1, waardoor de categoriebenadering zowel individuele als groepslabels weergeeft.
 
-Deze C#‑code toont hoe je een radar‑diagram maakt:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
-    presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var worksheetIndex = 0;
+
+var categoryCell = workbook.GetCell(0, "c2", "A");
+var category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group1");
+categoryCell = workbook.GetCell(0, "c3", "B");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "c4", "C");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group2");
+categoryCell = workbook.GetCell(0, "c5", "D");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "c6", "E");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group3");
+categoryCell = workbook.GetCell(0, "c7", "F");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+categoryCell = workbook.GetCell(0, "c8", "G");
+category = chart.ChartData.Categories.Add(categoryCell);
+category.GroupingLevels.SetGroupingItem(1, "Group4");
+categoryCell = workbook.GetCell(0, "c9", "H");
+category = chart.ChartData.Categories.Add(categoryCell);
+
+var seriesNameCell = workbook.GetCell(0, "D1", "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.ClusteredColumn);
+
+var valueCell = workbook.GetCell(worksheetIndex, "D2", 10);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D3", 20);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D4", 30);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D5", 40);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D6", 50);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D7", 60);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D8", 70);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+valueCell = workbook.GetCell(worksheetIndex, "D9", 80);
+series.DataPoints.AddDataPointForBarSeries(valueCell);
+
+presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![Het radar‑diagram](radar_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Meervoudige‑categorie‑diagrammen**
+### **Kaart‑diagrammen maken**
 
-Meervoudige‑categorie‑diagrammen worden gebruikt om gegevens weer te geven die meer dan één categorische groepering omvatten, zodat je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder behulpzaam wanneer je trends en relaties binnen complexe, meerlagige datasets moet analyseren.
+Kaart‑diagrammen visualiseren geografische gegevens door informatie te koppelen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig om regionale trends, demografische data en ruimtelijke verdelingen duidelijk en visueel aantrekkelijk te analyseren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een diagram toe met standaardgegevens en specificeer het type `ChartType.ClusteredColumn`.
-4. Toegang tot het gegevenswerkboek van het diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Verwijder de standaard series en categorieën.
-6. Voeg nieuwe series en categorieën toe.
-7. Voeg nieuwe diagramgegevens toe voor de diagramseries.
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) om een kaart‑diagram met de standaard geografische gegevens te maken en slaat het vervolgens op voor weergave in PowerPoint.
 
-Deze C#‑code toont hoe je een diagram met meerdere categorieën maakt:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var chart = slide.Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    workbook.Clear(0);
-
-    int worksheetIndex = 0;
-
-    IChartCategory category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c2", "A"));
-    category.GroupingLevels.SetGroupingItem(1, "Group1");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c3", "B"));
-
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c4", "C"));
-    category.GroupingLevels.SetGroupingItem(1, "Group2");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c5", "D"));
-
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c6", "E"));
-    category.GroupingLevels.SetGroupingItem(1, "Group3");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c7", "F"));
-
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c8", "G"));
-    category.GroupingLevels.SetGroupingItem(1, "Group4");
-    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
-
-    // Voeg een serie toe.
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
-
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D3", 20));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D4", 30));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D5", 40));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D6", 50));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D7", 60));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
-
-    // Sla de presentatie op met het diagram.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![Het diagram met meerdere categorieën](multi_category_chart.png)
+![The Map chart](map_chart.png)
 
-### **Kaart‑diagrammen**
+{{% alert color="info" title="Note" %}}
 
-Kaart‑diagrammen worden gebruikt om geografische gegevens te visualiseren door informatie te koppelen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke distributies op een duidelijke, visueel aantrekkelijke manier.
+De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft het kaart‑diagram en de data correct weg, maar tekent zelf geen kaart‑diagrammen: wanneer een dia met een dergelijk diagram wordt gerenderd naar een afbeelding of wordt geconverteerd naar PDF of SVG, blijft het diagramgebied leeg. Andere vormen op dezelfde dia blijven onaangetast.
 
-Deze C#‑code toont hoe je een kaart‑diagram maakt:
+{{% /alert %}}
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
-using Aspose.Slides.Export;
+### **Combinatie‑diagrammen maken**
 
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
-    presentation.Save("mapChart.pptx", SaveFormat.Pptx);
-}
-```
+Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram laat je verschillen tussen twee of meer datasets benadrukken, vergelijken of onderzoeken, waardoor relaties tussen hen duidelijk worden.
 
-Het resultaat:
+![The combination chart](combination_chart.png)
 
-![Het kaartdiagram](map_chart.png)
+Dit voorbeeld combineert twee clustered column‑reeksen met een lijnreeks over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) de lijn op een secundaire verticale as rechts plaatst. Helper‑functies configureren titel, legenda, as‑labels en rasterlijnen.
 
-{{% alert color="info" %}} 
-De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft het kaartdiagram en de bijbehorende gegevens correct, maar tekent zelf geen kaartdiagrammen: wanneer een dia met zo’n diagram wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het diagramgebied leeg. Andere vormen op dezelfde dia blijven onaangetast.
-{{% /alert %}} 
-
-### **Combinatie‑diagrammen**
-
-![Het combinatie‑diagram](combination_chart.png)
-
-De volgende C#‑code toont hoe je het bovenstaande combinatie‑diagram maakt in een PowerPoint‑presentatie:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-private static void CreateComboChart()
+CreateComboChart();
+
+static void CreateComboChart()
 {
-    using (Presentation presentation = new Presentation())
-    {
-        IChart chart = CreateChartWithFirstSeries(presentation.Slides[0]);
+    using var presentation = new Presentation();
+    var chart = CreateChartWithFirstSeries(presentation.Slides[0]);
 
-        AddSecondSeriesToChart(chart);
-        AddThirdSeriesToChart(chart);
+    AddSecondSeriesToChart(chart);
+    AddThirdSeriesToChart(chart);
 
-        SetPrimaryAxesFormat(chart);
-        SetSecondaryAxesFormat(chart);
+    SetPrimaryAxesFormat(chart);
+    SetSecondaryAxesFormat(chart);
 
-        presentation.Save("combo-chart.pptx", SaveFormat.Pptx);
-    }
+    presentation.Save("combo-chart.pptx", SaveFormat.Pptx);
 }
 
-private static IChart CreateChartWithFirstSeries(ISlide slide)
+static IChart CreateChartWithFirstSeries(ISlide slide)
 {
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Stelt de diagramtitel in
     chart.HasTitle = true;
     chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
     chart.ChartTitle.Overlay = false;
-    IPortionFormat portionFormat = 
-       chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    var portionFormat = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // Stelt de diagramlegenda in
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // Verwijdert de standaard gegenereerde series en categorieën
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    int worksheetIndex = 0;
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
+    var worksheetIndex = 0;
 
-    // Voegt nieuwe categorieën toe
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
+    var categoryCell = workbook.GetCell(worksheetIndex, 1, 0, "Category 1");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 2, 0, "Category 2");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 3, 0, "Category 3");
+    chart.ChartData.Categories.Add(categoryCell);
+    categoryCell = workbook.GetCell(worksheetIndex, 4, 0, "Category 4");
+    chart.ChartData.Categories.Add(categoryCell);
 
-    // Voeg de eerste serie toe
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+    var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
     series.ParentSeriesGroup.Overlap = -25;
     series.ParentSeriesGroup.GapWidth = 220;
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 4.3));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2.5));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 3.5));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 4.5));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 1, 4.3);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 1, 2.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 1, 3.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 1, 4.5);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 
     return chart;
 }
 
-private static void AddSecondSeriesToChart(IChart chart)
+static void AddSecondSeriesToChart(IChart chart)
 {
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
     const int worksheetIndex = 0;
 
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), ChartType.ClusteredColumn);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 2, "Series 2");
+    var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.ClusteredColumn);
 
     series.ParentSeriesGroup.Overlap = -25;
     series.ParentSeriesGroup.GapWidth = 220;
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 2.4));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 4.4));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 1.8));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 2, 2.8));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 2, 2.4);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 2, 4.4);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 2, 1.8);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 2, 2.8);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
 
-private static void AddThirdSeriesToChart(IChart chart)
+static void AddThirdSeriesToChart(IChart chart)
 {
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    var workbook = chart.ChartData.ChartDataWorkbook;
     const int worksheetIndex = 0;
 
-    IChartSeries series = chart.ChartData.Series.Add(
-        workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), ChartType.Line);
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Series 3");
+    var series = chart.ChartData.Series.Add(seriesNameCell, ChartType.Line);
 
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 1, 3, 2.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 2, 3, 2.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 3, 3, 3.0));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 4, 3, 5.0));
+    var valueCell = workbook.GetCell(worksheetIndex, 1, 3, 2.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 2, 3, 2.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 3, 3, 3.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
+    valueCell = workbook.GetCell(worksheetIndex, 4, 3, 5.0);
+    series.DataPoints.AddDataPointForLineSeries(valueCell);
 
     series.PlotOnSecondAxis = true;
 }
 
-private static void SetPrimaryAxesFormat(IChart chart)
+static void SetPrimaryAxesFormat(IChart chart)
 {
-    // Stelt de horizontale as in
-    IAxis horizontalAxis = chart.Axes.HorizontalAxis;
+    var horizontalAxis = chart.Axes.HorizontalAxis;
     horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // Stelt de verticale as in
-    IAxis verticalAxis = chart.Axes.VerticalAxis;
+    var verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Stelt de kleur van de verticale hoofdgridlijnen in
-    ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
+    var majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
 }
 
-private static void SetSecondaryAxesFormat(IChart chart)
+static void SetSecondaryAxesFormat(IChart chart)
 {
-    // Stelt de secundaire horizontale as in
-    IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
+    var secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
     secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
     secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
     secondaryHorizontalAxis.IsVisible = false;
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // Stelt de secundaire verticale as in
-    IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
+    var secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     secondaryVerticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
@@ -1056,12 +1111,11 @@ private static void SetSecondaryAxesFormat(IChart chart)
     SetAxisTitle(secondaryVerticalAxis, "Y Axis 2");
 }
 
-private static void SetAxisTitle(IAxis axis, string axisTitle)
+static void SetAxisTitle(IAxis axis, string axisTitle)
 {
     axis.HasTitle = true;
     axis.Title.Overlay = false;
-    IPortionFormat titlePortionFormat =
-        axis.Title.AddTextFrameForOverriding(axisTitle).Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    var titlePortionFormat = axis.Title.AddTextFrameForOverriding(axisTitle).Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
     titlePortionFormat.FontBold = NullableBool.False;
     titlePortionFormat.FontHeight = 12f;
 }
@@ -1069,183 +1123,167 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Diagrammen bijwerken**
 
-Aspose.Slides voor .NET stelt je in staat om PowerPoint‑diagrammen bij te werken door diagramgegevens, opmaak en stijl aan te passen. Deze functionaliteit vereenvoudigt het proces van het actueel houden van presentaties met dynamische inhoud en zorgt ervoor dat diagrammen nauwkeurig de huidige gegevens en visuele standaarden weergeven.
+Aspose.Slides voor .NET stelt je in staat PowerPoint‑diagrammen bij te werken door diagramgegevens, opmaak en styling te wijzigen. Deze functionaliteit vereenvoudigt het up‑to‑date houden van presentaties met dynamische inhoud en zorgt ervoor dat diagrammen nauwkeurig de actuele gegevens en visuele standaarden weergeven.
 
-1. Instantieer de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) die de presentatie met een diagram vertegenwoordigt.
-2. Verkrijg een referentie naar een dia via de index.
-3. Loop door alle vormen om het diagram te vinden.
-4. Toegang tot het gegevenswerkblad van het diagram.
-5. Pas de diagramreeks aan door de reekswerte te wijzigen.
-6. Voeg een nieuwe reeks toe en vul de gegevens in.
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld werkt het diagram met de naam “My chart” op de eerste dia van een bestaande presentatie bij. Het vereist twee kolom‑reeksen met elk drie datapunten, waarbij categorielabels in kolom A staan en reeksnamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) om werkbladcellen te wijzigen, werkt reeksen bij, voegt een derde reeks toe en wijzigt het diagram naar clustered cylinders via [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
-Deze C#‑code toont hoe je een diagram bijwerkt:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// Instantieer de Presentation-klasse die een PPTX‑bestand voorstelt.
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
+using var presentation = new Presentation("ExistingChart.pptx");
+var slide = presentation.Slides[0];
+
+foreach (IShape shape in slide.Shapes)
 {
-    // Toegang tot de eerste dia.
-    ISlide slide = presentation.Slides[0];
-
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IChart chart && chart.Name == chartName)
     {
-        if (shape is IChart chart && chart.Name == chartName)
-        {
-            // Stel de index van het diagramdatablad in.
-            int worksheetIndex = 0;
+        var worksheetIndex = 0;
 
-            // Haal het diagramdatablad op.
-            IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+        var workbook = chart.ChartData.ChartDataWorkbook;
 
-            // Wijzig de categorienamen van het diagram.
-            workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
-            workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
+        workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
+        workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-            // Haal de eerste diagramserie op.
-            IChartSeries series = chart.ChartData.Series[0];
+        var series = chart.ChartData.Series[0];
 
-            // Werk de seriedata bij.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // De serienaam aanpassen.
-            series.DataPoints[0].Value.Data = 90;
-            series.DataPoints[1].Value.Data = 123;
-            series.DataPoints[2].Value.Data = 44;
+        workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1");
+        series.DataPoints[0].Value.Data = 90;
+        series.DataPoints[1].Value.Data = 123;
+        series.DataPoints[2].Value.Data = 44;
 
-            // Haal de tweede diagramserie op.
-            series = chart.ChartData.Series[1];
+        series = chart.ChartData.Series[1];
 
-            // Werk de seriedata bij.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // De serienaam aanpassen.
-            series.DataPoints[0].Value.Data = 23;
-            series.DataPoints[1].Value.Data = 67;
-            series.DataPoints[2].Value.Data = 99;
+        workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2");
+        series.DataPoints[0].Value.Data = 23;
+        series.DataPoints[1].Value.Data = 67;
+        series.DataPoints[2].Value.Data = 99;
 
-            // Voeg een nieuwe serie toe.
-            series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
+        var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Series 3");
+        series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-            // Vul de seriedata.
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
-            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
+        var valueCell = workbook.GetCell(worksheetIndex, 1, 3, 20);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+        valueCell = workbook.GetCell(worksheetIndex, 2, 3, 50);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+        valueCell = workbook.GetCell(worksheetIndex, 3, 3, 30);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
 
-            chart.Type = ChartType.ClusteredCylinder;
-        }
+        chart.Type = ChartType.ClusteredCylinder;
     }
-
-    // Sla de presentatie op met het diagram.
-    presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **Gegevensbereik instellen voor een diagram**
+## **Gegevensbereik voor een diagram instellen**
 
-Om het bereik dat al door een bestaand diagram wordt gebruikt te bekijken, zie [Gegevensbereik van een diagram ophalen](/slides/nl/net/chart-workbook/#retrieve-a-charts-data-range).
+Om het bereik te inspecteren dat al door een bestaand diagram wordt gebruikt, zie [Retrieve a Chart's Data Range](/slides/nl/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides voor .NET biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor de diagramgegevens te definiëren. Dit betekent dat je direct een deel van je werkblad kunt koppelen aan het diagram, waardoor je kunt bepalen welke cellen bijdragen aan de series en categorieën van het diagram. Als resultaat kun je je diagrammen eenvoudig bijwerken en synchroniseren met de nieuwste gegevenswijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
+Aspose.Slides voor .NET biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor je diagram‑gegevens te definiëren. Dit betekent dat je direct een gedeelte van je werkblad kunt koppelen aan het diagram, zodat je kunt bepalen welke cellen bijdragen aan de reeksen en categorieën van het diagram. Hierdoor kun je je diagrammen eenvoudig bijwerken en synchroniseren met de laatste gegevenswijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
 
-1. Instantieer de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) die de presentatie met een diagram vertegenwoordigt.
-2. Verkrijg een referentie naar een dia via de index.
-3. Loop door alle vormen om het diagram te vinden.
-4. Toegang tot de diagramgegevens en stel het bereik in.
-5. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld gebruikt [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) om de gegevensbron van het diagram met de naam “My chart” op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. De diagram‑werkmap moet dat werkblad en een gevulde reeks bevatten met een reekskop in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
 
-Deze C#‑code toont hoe je het gegevensbereik voor een diagram instelt:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
 const string chartName = "My chart";
 
-// Instantieer de Presentation-klasse die een PPTX-bestand voorstelt.
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
+using var presentation = new Presentation("ExistingChart.pptx");
+var slide = presentation.Slides[0];
+
+foreach (IShape shape in slide.Shapes)
 {
-    // Toegang tot de eerste dia.
-    ISlide slide = presentation.Slides[0];
-
-    foreach (IShape shape in slide.Shapes)
+    if (shape is IChart chart && chart.Name == chartName)
     {
-        if (shape is IChart chart && chart.Name == chartName)
-        {
-            chart.ChartData.SetRange("Sheet1!A1:B4");
-        }
+        chart.ChartData.SetRange("Sheet1!A1:B4");
     }
-
-    presentation.Save("SetDataRange_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 ```
 
-## **Standaard‑markers gebruiken in diagrammen**
+## **Standaard‑markeringen in diagrammen gebruiken**
 
-Wanneer je standaard‑markers in diagrammen gebruikt, krijgt elke diagramreeks automatisch een ander standaard‑markersymbool.
+Wanneer je standaard‑markeringen in diagrammen gebruikt, krijgt elke diagramreeks automatisch een verschillend standaard‑markering symbool.
 
-Deze C#‑code toont hoe je automatisch een marker voor een diagramreeks instelt:
+Dit voorbeeld gebruikt [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) om een diagram met twee lijnreeksen en een legenda te maken. De [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/)‑instellingen behouden de automatisch toegewezen markering‑symbolen. De eerste reeks bevat een negatieve waarde en een ontbrekende waarde, weergegeven door `null`, terwijl de tweede reeks een waarde voor elke categorie heeft.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+var workbook = chart.ChartData.ChartDataWorkbook;
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "C1"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 1, 24));
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "C2"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 1, 23));
+var categoryCell = workbook.GetCell(0, 1, 0, "C1");
+chart.ChartData.Categories.Add(categoryCell);
+var valueCell = workbook.GetCell(0, 1, 1, 24);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "C3"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 1, -10));
+categoryCell = workbook.GetCell(0, 2, 0, "C2");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 2, 1, 23);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 4, 0, "C4"));
-    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 4, 1, null));
+categoryCell = workbook.GetCell(0, 3, 0, "C3");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 3, 1, -10);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
+categoryCell = workbook.GetCell(0, 4, 0, "C4");
+chart.ChartData.Categories.Add(categoryCell);
+valueCell = workbook.GetCell(0, 4, 1, null);
+series.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    // Vul de seriedata in.
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
-    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 4, 2, 40));
+seriesNameCell = workbook.GetCell(0, 0, 2, "Series 2");
+var secondSeries = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
 
-    chart.HasLegend = true;
-    chart.Legend.Overlay = false;
+valueCell = workbook.GetCell(0, 1, 2, 30);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 2, 2, 10);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 3, 2, 60);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
+valueCell = workbook.GetCell(0, 4, 2, 40);
+secondSeries.DataPoints.AddDataPointForLineSeries(valueCell);
 
-    presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
-}
+chart.HasLegend = true;
+chart.Legend.Overlay = false;
+
+presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
 **Welke diagramtypen worden ondersteund door Aspose.Slides voor .NET?**
 
-Aspose.Slides voor .NET ondersteunt een breed scala aan diagramtypen, waaronder staaf-, lijn-, taart-, gebieds-, spreidings-, histogram-, radar- en vele andere. Deze flexibiliteit stelt je in staat om het meest geschikte diagramtype voor je gegevensvisualisatie‑behoeften te kiezen.
+Aspose.Slides voor .NET ondersteunt een breed scala aan diagramtypen, waaronder staaf, lijn, taart, gebied, scatter, histogram, radar en vele anderen. Deze flexibiliteit stelt je in staat het meest geschikte diagramtype voor je datavisualisatie‑behoeften te kiezen.
 
 **Hoe voeg ik een nieuw diagram toe aan een dia?**
 
-Om een diagram toe te voegen, maak je eerst een instantie van de klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), haal je de gewenste dia op via de index, en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in je presentatie.
+Om een diagram toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑klasse, haal je de gewenste dia op via zijn index, en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in je presentatie.
 
-**Hoe kan ik de weergegeven gegevens in een diagram bijwerken?**
+**Hoe kan ik de gegevens in een diagram bijwerken?**
 
-Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot het gegevenswerkboek ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), eventuele standaard series en categorieën te verwijderen en vervolgens je aangepaste gegevens toe te voegen. Hiermee kun je het diagram programmatisch vernieuwen zodat het de nieuwste gegevens weergeeft.
+Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot de gegevens‑werkmap ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), eventuele standaard‑reeksen en -categorieën te wissen, en vervolgens je eigen gegevens toe te voegen. Hiermee kun je het diagram programmatically refreshen zodat het de nieuwste gegevens weergeeft.
 
-**Is het mogelijk om het uiterlijk van het diagram aan te passen?**
+**Is het mogelijk het uiterlijk van het diagram aan te passen?**
 
-Ja, Aspose.Slides voor .NET biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legendes en andere opmaak‑elementen wijzigen om het uiterlijk van het diagram af te stemmen op je specifieke ontwerpvereisten.
+Ja, Aspose.Slides voor .NET biedt uitgebreide aanpassingsmogelijkheden. Je kunt kleuren, lettertypen, labels, legenda’s en andere opmaakelementen wijzigen om het uiterlijk van het diagram af te stemmen op jouw specifieke ontwerpeisen.

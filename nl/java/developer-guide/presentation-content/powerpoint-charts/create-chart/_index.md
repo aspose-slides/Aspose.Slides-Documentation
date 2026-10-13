@@ -1,572 +1,662 @@
 ---
-title: Grafieken in PowerPoint-presentaties maken of bijwerken in Java
-linktitle: Grafieken maken of bijwerken
+title: Diagrammen in PowerPoint-presentaties maken of bijwerken in Java
+linktitle: Diagrammen maken of bijwerken
 type: docs
 weight: 10
 url: /nl/java/create-chart/
 keywords:
-- grafiek toevoegen
-- grafiek maken
-- grafiek bewerken
-- grafiek wijzigen
-- grafiek bijwerken
-- spreidingsgrafiek
-- taartgrafiek
-- lijngrafiek
-- boomkaartgrafiek
-- aandelengrafiek
-- box-en-whisker-grafiek
-- trechtergrafiek
-- sunburst-grafiek
-- histogramgrafiek
-- radargrafiek
-- multicategorie-grafiek
+- diagram toevoegen
+- diagram maken
+- diagram bewerken
+- diagram wijzigen
+- diagram bijwerken
+- spreidingsdiagram
+- taartdiagram
+- lijndiagram
+- boomkaartdiagram
+- aandelendiagram
+- box-en-whisker-diagram
+- funnel-diagram
+- sunburst-diagram
+- histogram-diagram
+- radardiagram
+- multicategorie-diagram
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Grafieken maken en aanpassen in PowerPoint-presentaties met Aspose.Slides voor Java. Grafieken toevoegen, opmaken en bewerken met praktische code-voorbeelden in Java."
+description: "Diagrammen maken en aanpassen in PowerPoint-presentaties met Aspose.Slides voor Java. Diagrammen toevoegen, opmaken en bewerken met praktische code-voorbeelden in Java."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide gids over hoe je grafieken kunt maken en aanpassen met Aspose.Slides. Je leert hoe je programmatisch een grafiek aan een dia toevoegt, deze vult met gegevens en verschillende opmaakopties toepast om te voldoen aan je specifieke ontwerpvereisten. Door het artikel heen illustreren gedetailleerde codevoorbeelden elke stap, van het initialiseren van de presentatie en het grafiekobject tot het configureren van series, assen en legendes. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische grafiekgeneratie in je applicaties integreert, zodat het proces van het creëren van gegevensgedreven presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreide gids over hoe je diagrammen maakt en aanpast met Aspose.Slides voor Java. Je leert hoe je programmatic een diagram aan een dia toevoegt, deze vult met gegevens, en verschillende opmaakopties toepast om te voldoen aan je specifieke ontwerpvereisten. Door het artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en diagramobject tot het configureren van series, assen en legenden. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische diagramgeneratie integreert in je Java‑toepassingen, waardoor het proces van het maken van datagestuurde presentaties wordt gestroomlijnd.
 
-## **Maak een grafiek**
+## **Diagram maken**
 
-Grafieken helpen mensen snel gegevens te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
+Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te krijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
 
-**Waarom grafieken maken?**
+**Waarom diagrammen maken?**
 
-* je kunt grote hoeveelheden gegevens op één dia in een presentatie aggregeren, condenseren of samenvatten  
-* je kunt patronen en trends in gegevens blootleggen  
-* je kunt de richting en impuls van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden  
-* je kunt uitschieters, afwijkingen, fouten, onzinnige gegevens, enzovoort opsporen  
-* je kunt complexe gegevens communiceren of presenteren  
+* grote hoeveelheden gegevens aggregeren, comprimeren of samenvatten op één dia in een presentatie;
+* patronen en trends in gegevens blootleggen;
+* de richting en het momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitbijters, afwijkingen, fouten en onsamenhangende gegevens opsporen;
+* complexe gegevens communiceren of presenteren.
 
-In PowerPoint kun je grafieken maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van vele soorten grafieken. Met Aspose.Slides kun je zowel reguliere grafieken (gebaseerd op populaire grafiektype­s) als aangepaste grafieken maken.
+In PowerPoint kun je diagrammen maken via de *Invoegen*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende soorten diagrammen. Met Aspose.Slides kun je zowel reguliere diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
 
 {{% alert color="info" title="Note" %}}
-Om grafieken te maken, gebruik je de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) klasse. De velden in deze klasse komen overeen met verschillende grafiektype­s.
+Gebruik de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) enumeratie in het [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) pakket. De waarden in deze enumeratie komen overeen met verschillende diagramtypen.
 {{% /alert %}}
 
-### **Gegroepeerde kolomgrafieken maken**
+### **Gegroepeerde kolomdiagrammen**
 
-Deze sectie legt uit hoe je gegroepeerde kolomgrafieken maakt met Aspose.Slides. Je leert een presentatie te initialiseren, een grafiek toe te voegen en de elementen ervan, zoals titel, gegevens, series, categorieën en opmaak, aan te passen. Volg de onderstaande stappen om te zien hoe een standaard gegroepeerde kolomgrafiek wordt gegenereerd:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met enige gegevens en specificeer het type `ChartType.ClusteredColumn`.  
-4. Voeg een titel toe aan de grafiek.  
-5. Open het gegevenswerkblad van de grafiek.  
-6. Wis alle standaard series en categorieën.  
-7. Voeg nieuwe series en categorieën toe.  
-8. Voeg nieuwe grafiekgegevens toe aan de series.  
-9. Pas een vulkleur toe op de grafiekseries.  
-10. Voeg labels toe aan de grafiekseries.  
-11. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een gegroepeerde kolomdiagram te maken die twee series vergelijkt over drie categorieën. De series gebruiken rode en groene vullingen, en individuele labels tonen categorienamen, serienamen en waarden. Werkbladindex 0 verwijst naar het eerste blad in de ingebedde diagramwerkmap.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instantieert een presentatieklasse die een PPTX‑bestand vertegenwoordigt
-Presentation pres = new Presentation();
-try {
-    // Toegang tot de eerste dia
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Voeg een grafiek toe met de standaardgegevens
-    IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
-    
-    // Stelt de titel van de grafiek in
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    
-    // Stelt de index in voor het gegevensblad van de grafiek
-    int defaultWorksheetIndex = 0;
-    
-    // Haalt het werkblad met grafiekgegevens op
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Verwijdert de standaard gegenereerde series en categorieën
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    int s = chart.getChartData().getSeries().size();
-    s = chart.getChartData().getCategories().size();
-    
-    // Voegt nieuwe series toe
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
-    
-    // Voegt nieuwe categorieën toe
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // Neemt de eerste grafiekserie
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    IChartDataCell categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    
-    // Populeert nu de seriedata
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    
-    // Stelt de vulkleur in voor de serie
+
+    IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    
-    // Neemt de tweede grafiekserie
+
     series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Populeert seriedata
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Stelt de vulkleur in voor de serie
+
+    valueCell = workbook.getCell(worksheetIndex, 1, 2, 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 2, 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 2, 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
-    
-    // Maak aangepaste labels voor elke categorie voor de nieuwe serie
-    // Stelt het eerste label in om de categorienaam te tonen
-    IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
-    lbl.getDataLabelFormat().setShowCategoryName(true);
-    
-    lbl = series.getDataPoints().get_Item(1).getLabel();
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    
-    // Toont waarde voor het derde label
-    lbl = series.getDataPoints().get_Item(2).getLabel();
-    lbl.getDataLabelFormat().setShowValue(true);
-    lbl.getDataLabelFormat().setShowSeriesName(true);
-    lbl.getDataLabelFormat().setSeparator("/");
-    
-    // Slaat de presentatie met grafiek op
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    series.getFormat().getFill().getSolidFillColor().setColor(new Color(0, 128, 0));
+
+    IDataLabel label = series.getDataPoints().get_Item(0).getLabel();
+    label.getDataLabelFormat().setShowCategoryName(true);
+
+    label = series.getDataPoints().get_Item(1).getLabel();
+    label.getDataLabelFormat().setShowSeriesName(true);
+
+    label = series.getDataPoints().get_Item(2).getLabel();
+    label.getDataLabelFormat().setShowValue(true);
+    label.getDataLabelFormat().setShowSeriesName(true);
+    label.getDataLabelFormat().setSeparator("/");
+
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Spreidingsgrafieken maken**
+Het resultaat:
 
-Spreidingsgrafieken (ook wel scatter plots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te ontdekken of correlaties tussen twee variabelen te demonstreren.
+![De gegroepeerde kolomdiagram](clustered_column_chart.png)
 
-Gebruik een spreidingsgrafiek wanneer:
+### **Spreidingsdiagrammen**
 
-* je beschikt over gekoppelde numerieke gegevens  
-* je hebt twee variabelen die goed op elkaar aansluiten  
-* je wilt bepalen of twee variabelen met elkaar verband houden  
-* je een onafhankelijke variabele hebt met meerdere waarden voor een afhankelijke variabele  
+Spreidingsdiagrammen (ook bekend als scatter plots of x‑y‑grafieken) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen te demonstreren.
 
-1. Volg de stappen in [Gegroepeerde kolomgrafieken maken](#create-clustered-column-charts).  
-2. Voor de derde stap, voeg een grafiek toe met enige gegevens en specificeer je grafiektype als een van de volgende:  
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Stelt een spreidingsgrafiek voor._  
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stelt een spreidingsgrafiek voor die met krommen is verbonden, met gegevensmarkeringen._  
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Stelt een spreidingsgrafiek voor die met krommen is verbonden, zonder gegevensmarkeringen._  
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stelt een spreidingsgrafiek voor die met rechte lijnen is verbonden, met gegevensmarkeringen._  
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Stelt een spreidingsgrafiek voor die met rechte lijnen is verbonden, zonder gegevensmarkeringen._
+Gebruik een spreidingsdiagram wanneer:
+
+* je gekoppelde numerieke gegevens hebt;
+* je twee variabelen hebt die goed bij elkaar passen;
+* je wilt bepalen of de twee variabelen gerelateerd zijn;
+* je een onafhankelijke variabele hebt met meerdere waarden voor een afhankelijke variabele.
+
+Dit voorbeeld plot twee sets x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markeringen, terwijl de tweede vloeiende lijnen met cirkel‑markeringen gebruikt; beide gebruiken een marker‑grootte van 10, geconfigureerd met [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-). De [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) methode bepaalt de marker‑vorm.
 
 ```java
 import com.aspose.slides.*;
 
-// Instantieert een presentatieklasse die een PPTX-bestand vertegenwoordigt
-Presentation pres = new Presentation();
-try {
-    // Toegang tot de eerste dia
-    ISlide slide = pres.getSlides().get_Item(0);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Maakt de standaardgrafiek
-    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    
-    // Haalt de index van het standaardgrafiekgegevenswerkblad op
-    int defaultWorksheetIndex = 0;
-    
-    // Haalt het werkblad met grafiekgegevens op
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Verwijdert de voorbeeldserie
+    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
-    
-    // Voegt nieuwe series toe
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-    
-    // Neemt de eerste grafiekserie
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 1, 1, "Series 1");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+    seriesNameCell = workbook.getCell(worksheetIndex, 1, 3, "Series 2");
+    chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    
-    // Voegt een nieuw punt (1:3) aan de serie toe
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-    
-    // Voegt een nieuw punt (2:10) toe
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-    
-    // Wijzigt het serietype
+
+    IChartDataCell xValueCell = workbook.getCell(worksheetIndex, 2, 1, 1);
+    IChartDataCell yValueCell = workbook.getCell(worksheetIndex, 2, 2, 3);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 1, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 2, 10);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
-    
-    // Wijzigt de marker van de grafiekserie
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
-    
-    // Neemt de tweede grafiekserie
+
     series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Voegt daar een nieuw punt (5:2) toe
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-    
-    // Voegt een nieuw punt (3:1) toe
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-    
-    // Voegt een nieuw punt (2:2) toe
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-    
-    // Voegt een nieuw punt (5:1) toe
-    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-    
-    // Wijzigt de marker van de grafiekserie
+
+    xValueCell = workbook.getCell(worksheetIndex, 2, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 2, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 3, 3, 3);
+    yValueCell = workbook.getCell(worksheetIndex, 3, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 4, 3, 2);
+    yValueCell = workbook.getCell(worksheetIndex, 4, 4, 2);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
+    xValueCell = workbook.getCell(worksheetIndex, 5, 3, 5);
+    yValueCell = workbook.getCell(worksheetIndex, 5, 4, 1);
+    series.getDataPoints().addDataPointForScatterSeries(xValueCell, yValueCell);
+
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
-    
-    pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Taartgrafieken maken**
+Het resultaat:
 
-Taartgrafieken worden het best gebruikt om de deel‑tot‑geheelrelatie in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als uw gegevens echter veel delen of labels bevatten, kunt u overwegen in plaats daarvan een staafgrafiek te gebruiken.
+![Het spreidingsdiagram](scatter_chart.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Pie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Pie).  
-4. Open het grafiekgegevenswerkboek [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Voeg nieuwe grafiekgegevens toe voor de series.  
-8. Voeg nieuwe punten toe aan de grafiek en pas aangepaste kleuren toe op de sectoren van de taartgrafiek.  
-9. Stel labels in voor de series.  
-10. Schakel lead‑lijnen in voor de series‑labels.  
-11. Stel de rotatiehoek in voor de sectoren van de taartgrafiek.  
-12. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+### **Taartdiagrammen**
+
+Taartdiagrammen worden het best gebruikt om de deel‑tot‑geheel‑relatie in gegevens te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafdiagram gebruiken.
+
+Dit voorbeeld maakt een taartdiagram met drie kwartaalwaarden. Elke part heeft een aangepaste vulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en serie‑informatie. De [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) methode stelt de eerste part in op een start‑hoek van 180 graden.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instantieert een presentatieklasse die een PPTX-bestand vertegenwoordigt
-Presentation pres = new Presentation();
-try {
-    // Toegang tot de eerste dia
-    ISlide slides = pres.getSlides().get_Item(0);
-    
-    // Voegt een grafiek toe met standaardgegevens
-    IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
-    
-    // Stelt de titel van de grafiek in
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 20, 20, 500, 300);
+
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    
-    // Stelt de index in voor het gegevensblad van de grafiek
-    int defaultWorksheetIndex = 0;
-    
-    // Haalt het werkblad met grafiekgegevens op
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Verwijdert de standaard gegenereerde series en categorieën
+
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
+
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    
-    // Voegt nieuwe categorieën toe
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    
-    // Voegt een nieuwe serie toe
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    
-    //Populeert de seriedata
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    
-    // Werkt niet in nieuwe versie
-    // Nieuwe punten toevoegen en sectorkleur instellen
-    // series.IsColorVaried = true;
+
+    IChartDataCell categoryCell = workbook.getCell(0, 1, 0, "1st Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "2nd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "3rd Qtr");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 1, 20);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 2, 1, 50);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, 3, 1, 30);
+    series.getDataPoints().addDataPointForPieSeries(valueCell);
+
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
-    
-    IChartDataPoint point = series.getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
-	
-    // Stelt de sectorrand in
-    point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(LineDashStyle.DashDot);
-    
-    IChartDataPoint point1 = series.getDataPoints().get_Item(1);
-    point1.getFormat().getFill().setFillType(FillType.Solid);
-    point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
-    
-    // Stelt de sectorrand in
-    point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot);
-    
-    IChartDataPoint point2 = series.getDataPoints().get_Item(2);
-    point2.getFormat().getFill().setFillType(FillType.Solid);
-    point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
-    
-    // Stelt de sectorrand in
-    point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
-    
-    // Maakt aangepaste labels voor elke categorie voor de nieuwe serie
-    IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
-    
-    // lbl.ShowCategoryName = true;
-    lbl1.getDataLabelFormat().setShowValue(true);
-    
-    IDataLabel lbl2 = series.getDataPoints().get_Item(1).getLabel();
-    lbl2.getDataLabelFormat().setShowValue(true);
-    lbl2.getDataLabelFormat().setShowLegendKey(true);
-    lbl2.getDataLabelFormat().setShowPercentage(true);
-    
-    IDataLabel lbl3 = series.getDataPoints().get_Item(2).getLabel();
-    lbl3.getDataLabelFormat().setShowSeriesName(true);
-    lbl3.getDataLabelFormat().setShowPercentage(true);
-    
-    // Toont leidende lijnen voor de grafiek
+
+    IChartDataPoint firstSlice = series.getDataPoints().get_Item(0);
+    firstSlice.getFormat().getFill().setFillType(FillType.Solid);
+    firstSlice.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
+
+    firstSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    firstSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    firstSlice.getFormat().getLine().setWidth(3.0);
+    firstSlice.getFormat().getLine().setStyle(LineStyle.ThinThick);
+    firstSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDash);
+
+    IChartDataPoint secondSlice = series.getDataPoints().get_Item(1);
+    secondSlice.getFormat().getFill().setFillType(FillType.Solid);
+    secondSlice.getFormat().getFill().getSolidFillColor().setColor(new Color(165, 42, 42));
+
+    secondSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    secondSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    secondSlice.getFormat().getLine().setWidth(3.0);
+    secondSlice.getFormat().getLine().setStyle(LineStyle.Single);
+    secondSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot);
+
+    IChartDataPoint thirdSlice = series.getDataPoints().get_Item(2);
+    thirdSlice.getFormat().getFill().setFillType(FillType.Solid);
+    thirdSlice.getFormat().getFill().getSolidFillColor().setColor(new Color(255, 127, 80));
+
+    thirdSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    thirdSlice.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
+    thirdSlice.getFormat().getLine().setWidth(2.0);
+    thirdSlice.getFormat().getLine().setStyle(LineStyle.ThinThin);
+    thirdSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
+
+    IDataLabel firstLabel = series.getDataPoints().get_Item(0).getLabel();
+    firstLabel.getDataLabelFormat().setShowValue(true);
+
+    IDataLabel secondLabel = series.getDataPoints().get_Item(1).getLabel();
+    secondLabel.getDataLabelFormat().setShowValue(true);
+    secondLabel.getDataLabelFormat().setShowLegendKey(true);
+    secondLabel.getDataLabelFormat().setShowPercentage(true);
+
+    IDataLabel thirdLabel = series.getDataPoints().get_Item(2).getLabel();
+    thirdLabel.getDataLabelFormat().setShowSeriesName(true);
+    thirdLabel.getDataLabelFormat().setShowPercentage(true);
+
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    
-    // Stelt de rotatiehoek in voor taartgrafieksectoren
+
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    
-    // Slaat de presentatie met een grafiek op
-    pres.save("PieChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+
+    presentation.save("PieChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Lijngrafieken maken**
+Het resultaat:
 
-Lijngrafieken (ook wel lijngrafieken genoemd) worden het best gebruikt in situaties waarin je veranderingen in waarde over tijd wilt laten zien. Met een lijngrafiek kun je een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends over tijd volgen, anomalieën in gegevensreeksen markeren, enzovoort.
+![Het taartdiagram](pie_chart.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Line](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Line).  
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+### **Lijndiagrammen**
+
+Lijndiagrammen (ook bekend als lijngrafieken) worden het best gebruikt wanneer je veranderingen in waarde over tijd wilt demonstreren. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, veranderingen en trends in de tijd volgen, anomalieën in gegevensseries markeren, en meer.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een lijndiagram te maken met de standaard series en categorieën, en slaat de presentatie op als PPTX.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    pres.save("lineChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    IChart lineChart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300);
+
+    presentation.save("lineChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-Standaard worden de punten op een lijngrafiek verbonden door rechte doorlopende lijnen. Als je wilt dat de punten met stippellijnen worden verbonden, kun je het gewenste stippeltype als volgt opgeven:
+Standaard worden punten in een lijndiagram verbonden door rechte, doorlopende lijnen. Als je wilt dat de punten met streeplijnen worden verbonden, roep dan [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart lineChart = slide.getShapes().addChart(ChartType.Line, 20, 20, 500, 300);
 
     for (IChartSeries series : lineChart.getChartData().getSeries())
     {
         series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
     }
-
-    pres.save("lineChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Boomkaartgrafieken maken**
+Het resultaat:
 
-Boomkaartgrafieken worden het best gebruikt voor verkoopgegevens wanneer je de relatieve grootte van data‑categorieën wilt weergeven en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
+![Het lijndiagram](line_chart.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Treemap](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Treemap).  
-4. Open het grafiekgegevenswerkboek [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Voeg nieuwe grafiekgegevens toe voor de series.  
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+### **Boomkaartdiagrammen**
+
+Boomkaartdiagrammen worden het best gebruikt voor verkoopgegevens wanneer je de relatieve grootte van gegevenscategorieën wilt tonen en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
+
+Dit voorbeeld maakt een boomkaart met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoek‑groottes, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie identificeren.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Treemap, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    //tak 1
-    IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+    // Tak 1
+    IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    //tak 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+    // Tak 2
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Treemap);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D8", 3));
+    IChartDataCell valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForTreemapSeries(valueCell);
 
     series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
 
-    pres.save("Treemap.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("Treemap.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Aandelengrafieken maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#OpenHighLowClose).  
-4. Open het grafiekgegevenswerkboek [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Voeg nieuwe grafiekgegevens toe voor de series.  
-8. Specificeer het formaat van de hoog‑laag‑lijnen.  
-9. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het boomkaartdiagram](treemap_chart.png)
+
+### **Watervaldiagrammen**
+
+Een watervaldiagram toont hoe positieve en negatieve veranderingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winstopbouw kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderings‑kolommen zweven tussen de vorige en nieuwe lopende waarden, terwijl totale kolommen lopen van nul tot de geaccumuleerde waarde.
+
+Het volgende voorbeeld gebruikt bedragen in duizenden Amerikaanse dollars:
+
+| Categorie | Werkboekwaarde | Kolomtype |
+| --- | ---: | --- |
+| Omzet | 1000 | Toename |
+| Kostprijs van de omzet | -400 | Aftrek |
+| Bruto winst | 600 | Tussentotaal |
+| Operationele uitgaven | -200 | Aftrek |
+| Overige inkomsten | 50 | Toename |
+| Netto winst | 450 | Eindtotaal |
+
+Om een punt te markeren als een tussentotaal of eindtotaal, roep je de [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) methode aan met `true`. Lever de feitelijke geaccumuleerde hoeveelheid in de werkboekcel van dat punt: `600` voor bruto winst (`1000 - 400`) en `450` voor netto winst (`600 - 200 + 50`). De methode markeert de kolom als totaal; hij berekent of vult de celwaarde niet automatisch in. Gebruik geen nul als tijdelijke aanduiding of voeg geen andere verandering toe voor een totaal‑punt. Een totaal‑kolom toont de geaccumuleerde waarde zonder deze opnieuw bij de lopende waarde op te tellen.
+
+Dit complete Java‑voorbeeld maakt een diagram met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), wist de standaardgegevens en vult het ingebedde werkboek. Werkbladindex `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). De nul‑gebaseerde punt‑indices `2` en `5` identificeren respectievelijk het tussentotaal en het eindtotaal. Het aanroepen van [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) met `true` toont de bedragen op de kolommen. Er is geen invoer‑presentatie of werkboek nodig.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Waterfall, 20, 20, 680, 200);
+
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Profit breakdown (USD thousands)");
+    chart.getChartTitle().setOverlay(false);
+    chart.setLegend(false);
 
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
-    chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
+    workbook.clear(worksheetIndex);
 
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 1, "Open"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 2, "High"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 3, "Low"), chart.getType());
-    chart.getChartData().getSeries().add(wb.getCell(0, 0, 4, "Close"), chart.getType());
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Profit");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.Waterfall);
+    String[] categories = new String[] { "Revenue", "Cost of sales", "Gross profit", "Operating expenses", "Other income", "Net profit" };
+    double[] values = new double[] { 1000, -400, 600, -200, 50, 450 };
+
+    for (int i = 0; i < categories.length; i++)
+    {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categories[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
+    }
+
+    // De derde en zesde punten vertegenwoordigen totalen, geen extra wijzigingen.
+    series.getDataPoints().get_Item(2).setSetAsTotal(true);
+    series.getDataPoints().get_Item(5).setSetAsTotal(true);
+    series.setShowConnectorLines(true);
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("WaterfallChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Roep de serie‑niveau [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) methode aan met `true` om lijnen te tonen die opeenvolgende kolommen verbinden en de lopende waarde makkelijker te volgen. Om deze lijnen te verbergen, vervang je de method‑aanroep in het voorbeeld door `series.setShowConnectorLines(false);` vóór het opslaan. Dit verandert alleen de zichtbaarheid van de lijnen, niet de gegevens of totalen.
+
+De opgeslagen presentatie toont een bruto winst van 600 en een netto winst van 450, beide totalen getekend vanaf nul:
+
+![Watervaldiagram met omzet, kosten, bruto winst van 600 en netto winst van 450, met waardelabels en verbindingslijnen](waterfall_chart.png)
+
+### **Aandelendiagrammen**
+
+Aandelendiagrammen worden gebruikt om financiële gegevens zoals openings‑, hoog‑, laag‑ en slotkoersen weer te geven, waardoor markttrends en volatiliteit geanalyseerd kunnen worden. Ze bieden essentiële inzichten in de aandelenprestatie en helpen beleggers en analisten bij het nemen van geïnformeerde beslissingen.
+
+Dit voorbeeld maakt een open‑high‑low‑close‑diagram met vier series in die volgorde en drie categorieën. De [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) methode activeert op‑/neer‑balken, en [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) regelt de hoog‑laag‑lijnen die prijsbereiken tonen, terwijl de individuele serie‑lijnen en kleine horizontale rasterlijnen verborgen blijven.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell categoryCell = workbook.getCell(0, 1, 0, "A");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 2, 0, "B");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, 3, 0, "C");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Open");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 2, "High");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 3, "Low");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
+    seriesNameCell = workbook.getCell(0, 0, 4, "Close");
+    chart.getChartData().getSeries().add(seriesNameCell, ChartType.OpenHighLowClose);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 1, 72));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 1, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 1, 38));
+    IChartDataCell valueCell = workbook.getCell(0, 1, 1, 72);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 1, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 1, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     series = chart.getChartData().getSeries().get_Item(1);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 2, 172));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 2, 57));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 2, 57));
+    valueCell = workbook.getCell(0, 1, 2, 172);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 57);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     series = chart.getChartData().getSeries().get_Item(2);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 3, 12));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 3, 13));
+    valueCell = workbook.getCell(0, 1, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 3, 12);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 3, 13);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     series = chart.getChartData().getSeries().get_Item(3);
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 4, 25));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
-    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
+    valueCell = workbook.getCell(0, 1, 4, 25);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 4, 38);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 4, 50);
+    series.getDataPoints().addDataPointForStockSeries(valueCell);
 
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
-    for (IChartSeries ser : chart.getChartData().getSeries())
+    for (IChartSeries stockSeries : chart.getChartData().getSeries())
     {
-        ser.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        stockSeries.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     }
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+    presentation.save("Stock-chart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Box‑en‑whisker‑grafieken maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#BoxAndWhisker).  
-4. Open het grafiekgegevenswerkboek [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Voeg nieuwe grafiekgegevens toe voor de series.  
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het aandelendiagram](stock_chart.png)
+
+### **Box‑en‑whisker‑diagrammen**
+
+Box‑en‑whisker‑diagrammen worden gebruikt om de distributie van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals mediaan, kwartielen en mogelijke uitbijters. Ze zijn bijzonder nuttig in exploratieve data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
+
+Dit voorbeeld maakt een box‑en‑whisker‑diagram van zes waarden. De [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) methode kiest de exclusieve kwartielberekening. Het voorbeeld activeert ook gemiddelde‑lijnen, gemiddelde‑markeringen, interne punten en uitbijters.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 1"));
+    IChartDataCell categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.BoxAndWhisker);
 
@@ -576,571 +666,719 @@ try {
     series.setShowInnerPoints(true);
     series.setShowOutlierPoints(true);
 
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B1", 15));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B2", 41));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B3", 16));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B4", 10));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B5", 23));
-    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B6", 16));
+    IChartDataCell valueCell = workbook.getCell(0, "B1", 15);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 41);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 10);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 23);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 16);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(valueCell);
 
-    pres.save("BoxAndWhisker.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("BoxAndWhisker.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Trechtergrafieken maken**
+### **Funnel‑diagrammen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Funnel](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Funnel).  
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Funnel‑diagrammen worden gebruikt om processen te visualiseren die opeenvolgende fasen omvatten, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral nuttig voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een funnel‑diagram toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaardgegevens door zes categorieën en waarden variërend van 50 tot 500, en slaat vervolgens de bijgewerkte presentatie op. De invoer‑presentatie moet minstens één dia bevatten.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
+Presentation presentation = new Presentation("test.pptx");
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    wb.clear(0);
-
-    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 2"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 3"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 4"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 5"));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 6"));
+    IChartDataCell categoryCell = workbook.getCell(0, "A1", "Category 1");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A2", "Category 2");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A3", "Category 3");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A4", "Category 4");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A5", "Category 5");
+    chart.getChartData().getCategories().add(categoryCell);
+    categoryCell = workbook.getCell(0, "A6", "Category 6");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Funnel);
 
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B1", 50));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B2", 100));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B3", 200));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B4", 300));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B5", 400));
-    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B6", 500));
+    IChartDataCell valueCell = workbook.getCell(0, "B1", 50);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B2", 100);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B3", 200);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B4", 300);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B5", 400);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
+    valueCell = workbook.getCell(0, "B6", 500);
+    series.getDataPoints().addDataPointForFunnelSeries(valueCell);
 
-    pres.save("Funnel.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("Funnel.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Sunburst‑grafieken maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Sunburst](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Sunburst).  
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het funnel‑diagram](funnel_chart.png)
+
+### **Sunburst‑diagrammen**
+
+Sunburst‑diagrammen worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus worden weergegeven als concentrische ringen. Ze helpen deel‑tot‑geheel‑relaties te illustreren en zijn ideaal om geneste categorieën en subcategorieën duidelijk en compact weer te geven.
+
+Dit voorbeeld maakt een sunburst‑diagram met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Categorielabels identificeren de segmenten, en de waarden bepalen hun relatieve grootte.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Sunburst, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
-    //tak 1
-    IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+    // Tak 1
+    IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
+    IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
+    categoryCell = workbook.getCell(0, "C2", "Leaf2");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+    categoryCell = workbook.getCell(0, "C3", "Leaf3");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
+    categoryCell = workbook.getCell(0, "C4", "Leaf4");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    //tak 2
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+    // Tak 2
+    categoryCell = workbook.getCell(0, "C5", "Leaf5");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
+    categoryCell = workbook.getCell(0, "C6", "Leaf6");
+    chart.getChartData().getCategories().add(categoryCell);
 
-    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+    categoryCell = workbook.getCell(0, "C7", "Leaf7");
+    leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
 
-    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
+    categoryCell = workbook.getCell(0, "C8", "Leaf8");
+    chart.getChartData().getCategories().add(categoryCell);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Sunburst);
     series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D1", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D2", 5));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D3", 3));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D4", 6));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D5", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D6", 9));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D7", 4));
-    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D8", 3));
-    
-    pres.save("Sunburst.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    IChartDataCell valueCell = workbook.getCell(0, "D1", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D2", 5);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D3", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D4", 6);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D5", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D6", 9);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D7", 4);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+    valueCell = workbook.getCell(0, "D8", 3);
+    series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+
+    presentation.save("Sunburst.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Histogramgrafieken maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Histogram](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Histogram).  
-4. Open het grafiekgegevenswerkboek [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het sunburst‑diagram](sunburst_chart.png)
+
+### **Histogram‑diagrammen**
+
+Histogram‑diagrammen worden gebruikt om de distributie van numerieke gegevens weer te geven door waarden in bereiken of «bins» te groeperen. Ze zijn bijzonder nuttig om patronen zoals frequentie, scheefheid en spreiding te identificeren, en om uitbijters in een dataset te detecteren.
+
+Dit voorbeeld maakt een histogram van zes numerieke waarden, inclusief negatieve waarden. Door [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) aan te roepen met het automatische aggregatietype, laat het diagram zelf de gebruikte bins bepalen.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Histogram, 20, 20, 500, 300);
+
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Histogram);
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A1", 15));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A2", -41));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A3", 16));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A4", 10));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
+    IChartDataCell valueCell = workbook.getCell(0, "A1", 15);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A2", -41);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A3", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A4", 10);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A5", -23);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    valueCell = workbook.getCell(0, "A6", 16);
+    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
 
     chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
-    pres.save("Histogram.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("Histogram.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Radargrafieken maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met enige gegevens en specificeer je gewenste grafiektype ([ChartType.Radar](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Radar) in dit geval).  
-4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het histogram‑diagram](histogram_chart.png)
+
+### **Radardiagrammen**
+
+Radardiagrammen worden gebruikt om multivariate gegevens in een tweedimensionaal formaat weer te geven, waardoor eenvoudige vergelijking van meerdere variabelen tegelijk mogelijk is. Ze zijn bijzonder nuttig voor het identificeren van patronen, sterktes en zwaktes over verschillende prestatiemetingen of attributen.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een radardiagram met de standaard series en categorieën te maken, en slaat vervolgens de presentatie op als PPTX.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
-    pres.save("Radar-chart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addChart(ChartType.Radar, 20, 20, 500, 300);
+
+    presentation.save("Radar-chart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Meerdere‑categorie‑grafieken maken**
+Het resultaat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.ClusteredColumn](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ClusteredColumn).  
-4. Open het grafiekgegevenswerkboek [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Voeg nieuwe grafiekgegevens toe voor de series.  
-8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+![Het radardiagram](radar_chart.png)
+
+### **Multi‑categorie‑diagrammen**
+
+Multi‑categorie‑diagrammen worden gebruikt om gegevens weer te geven die meer dan één categorische groepering bevatten, waardoor je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder nuttig wanneer je trends en relaties binnen complexe, gelaagde datasets wilt analyseren.
+
+Dit voorbeeld maakt een gegroepeerde kolomdiagram met acht categorieën, gerangschikt in vier paren. De [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) methode geeft elk paar een gedeeld label op groeperingsniveau 1, waardoor een categorische as ontstaat met zowel individuele als groepslabels.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
-    ch.getChartData().getSeries().clear();
-    ch.getChartData().getCategories().clear();
-    
-    IChartDataWorkbook fact = ch.getChartData().getChartDataWorkbook();
-    fact.clear(0);
-    int defaultWorksheetIndex = 0;
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartCategory category = ch.getChartData().getCategories().add(fact.getCell(0, "c2", "A"));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    int worksheetIndex = 0;
+
+    IChartDataCell categoryCell = workbook.getCell(0, "c2", "A");
+    IChartCategory category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group1");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c3", "B"));
+    categoryCell = workbook.getCell(0, "c3", "B");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c4", "C"));
+    categoryCell = workbook.getCell(0, "c4", "C");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group2");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c5", "D"));
+    categoryCell = workbook.getCell(0, "c5", "D");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c6", "E"));
+    categoryCell = workbook.getCell(0, "c6", "E");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group3");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c7", "F"));
+    categoryCell = workbook.getCell(0, "c7", "F");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
+    categoryCell = workbook.getCell(0, "c8", "G");
+    category = chart.getChartData().getCategories().add(categoryCell);
     category.getGroupingLevels().setGroupingItem(1, "Group4");
-    category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
+    categoryCell = workbook.getCell(0, "c9", "H");
+    category = chart.getChartData().getCategories().add(categoryCell);
 
-    // Series toevoegen
-    IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
-            ChartType.ClusteredColumn);
+    IChartDataCell seriesNameCell = workbook.getCell(0, "D1", "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.ClusteredColumn);
 
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D4", 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D5", 40));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D6", 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    
-    // Presentatie opslaan met grafiek
-    pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    IChartDataCell valueCell = workbook.getCell(worksheetIndex, "D2", 10);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D3", 20);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D4", 30);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D5", 40);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D6", 50);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D7", 60);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D8", 70);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+    valueCell = workbook.getCell(worksheetIndex, "D9", 80);
+    series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+    presentation.save("AsposeChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Kaartgrafieken maken**
+Het resultaat:
 
-Kaartgrafieken visualiseren geografische gegevens en helpen waarden tussen regio's te vergelijken.
+![Het multi‑categorie diagram](multi_category_chart.png)
+
+### **Kaart‑diagrammen**
+
+Kaart‑diagrammen worden gebruikt om geografische gegevens te visualiseren door informatie te koppelen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke distributies op een duidelijke, visueel aantrekkelijke manier.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een kaart‑diagram met de standaard geografische gegevens te maken en slaat het op voor weergave in PowerPoint.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
-    pres.save("mapChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 500, 300);
+
+    presentation.save("mapChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-### **Combinatiegrafieken maken**
+Het resultaat:
 
-Een combinatiegrafiek (of combo‑grafiek) combineert twee of meer grafiektype­s in één grafiek. Deze grafiek stelt je in staat om verschillen tussen twee of meer datasets te markeren, vergelijken of onderzoeken, waardoor je relaties tussen hen kunt identificeren.
+![Het kaart‑diagram](map_chart.png)
 
-![The combination chart](combination_chart.png)
+{{% alert color="info" title="Note" %}}
+Afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft het kaart‑diagram en de bijbehorende gegevens correct weg, maar tekent zelf geen kaart‑diagrammen: wanneer een dia die er een bevat wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het diagramgebied leeg. Andere vormen op dezelfde dia blijven onaangedaan.
+{{% /alert %}}
 
-De onderstaande Java‑code toont hoe je de hierboven weergegeven combinatiegrafiek in een PowerPoint‑presentatie kunt maken:
+### **Combinatie‑diagrammen**
+
+Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram laat je toe om verschillen tussen twee of meer datasets te benadrukken, vergelijken of onderzoeken, waardoor je relaties tussen hen kunt identificeren.
+
+![Het combinatie‑diagram](combination_chart.png)
+
+Dit voorbeeld combineert twee gegroepeerde kolomseries met een lijndiagram over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) de lijn op een secundaire verticale as rechts plaatst. Helper‑functies configureren de titel, legende, as‑labels en rasterlijnen.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-static void createComboChart() {
-    Presentation presentation = new Presentation();
-    ISlide slide = presentation.getSlides().get_Item(0);
-    try {
-        IChart chart = createChartWithFirstSeries(slide);
+class ComboChartExample
+{
+    void createComboChart()
+    {
+        Presentation presentation = new Presentation();
+        try
+        {
+            IChart chart = createChartWithFirstSeries(presentation.getSlides().get_Item(0));
 
-        addSecondSeriesToChart(chart);
-        addThirdSeriesToChart(chart);
+            addSecondSeriesToChart(chart);
+            addThirdSeriesToChart(chart);
 
-        setPrimaryAxesFormat(chart);
-        setSecondaryAxesFormat(chart);
+            setPrimaryAxesFormat(chart);
+            setSecondaryAxesFormat(chart);
 
-        presentation.save("combo-chart.pptx", SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
+            presentation.save("combo-chart.pptx", SaveFormat.Pptx);
+        }
+        finally
+        {
+            presentation.dispose();
+        }
+    }
+
+    IChart createChartWithFirstSeries(ISlide slide)
+    {
+        IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+        chart.setTitle(true);
+        chart.getChartTitle().addTextFrameForOverriding("Chart Title");
+        chart.getChartTitle().setOverlay(false);
+        IPortionFormat portionFormat = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+        portionFormat.setFontBold(NullableBool.False);
+        portionFormat.setFontHeight(18f);
+
+        chart.getLegend().setPosition(LegendPositionType.Bottom);
+        chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
+
+        chart.getChartData().getSeries().clear();
+        chart.getChartData().getCategories().clear();
+
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        int worksheetIndex = 0;
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, 1, 0, "Category 1");
+        chart.getChartData().getCategories().add(categoryCell);
+        categoryCell = workbook.getCell(worksheetIndex, 2, 0, "Category 2");
+        chart.getChartData().getCategories().add(categoryCell);
+        categoryCell = workbook.getCell(worksheetIndex, 3, 0, "Category 3");
+        chart.getChartData().getCategories().add(categoryCell);
+        categoryCell = workbook.getCell(worksheetIndex, 4, 0, "Category 4");
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+        IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+        series.getParentSeriesGroup().setOverlap((byte) -25);
+        series.getParentSeriesGroup().setGapWidth(220);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 1, 4.3);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 2, 1, 2.5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 3, 1, 3.5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 4, 1, 4.5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+
+        return chart;
+    }
+
+    void addSecondSeriesToChart(IChart chart)
+    {
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        final int worksheetIndex = 0;
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+        IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.ClusteredColumn);
+
+        series.getParentSeriesGroup().setOverlap((byte) -25);
+        series.getParentSeriesGroup().setGapWidth(220);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 2, 2.4);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 2, 2, 4.4);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 3, 2, 1.8);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 4, 2, 2.8);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    void addThirdSeriesToChart(IChart chart)
+    {
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        final int worksheetIndex = 0;
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+        IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.Line);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 3, 2.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 2, 3, 2.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 3, 3, 3.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+        valueCell = workbook.getCell(worksheetIndex, 4, 3, 5.0);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+        series.setPlotOnSecondAxis(true);
+    }
+
+    void setPrimaryAxesFormat(IChart chart)
+    {
+        IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
+        horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+        horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        setAxisTitle(horizontalAxis, "X Axis");
+
+        IAxis verticalAxis = chart.getAxes().getVerticalAxis();
+        verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+        verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        setAxisTitle(verticalAxis, "Y Axis 1");
+
+        ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
+        majorGridLinesFormat.setFillType(FillType.Solid);
+        majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
+    }
+
+    void setSecondaryAxesFormat(IChart chart)
+    {
+        IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
+        secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
+        secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
+        secondaryHorizontalAxis.setVisible(false);
+        secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
+        secondaryVerticalAxis.setPosition(AxisPositionType.Right);
+        secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+        secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+        setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
+    }
+
+    void setAxisTitle(IAxis axis, String axisTitle)
+    {
+        axis.setTitle(true);
+        axis.getTitle().setOverlay(false);
+        IPortionFormat titlePortionFormat = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+        titlePortionFormat.setFontBold(NullableBool.False);
+        titlePortionFormat.setFontHeight(12f);
     }
 }
 
-static IChart createChartWithFirstSeries(ISlide slide) {
-    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-
-    // Stel de grafiektitel in.
-    chart.setTitle(true);
-    chart.getChartTitle().addTextFrameForOverriding("Chart Title");
-    chart.getChartTitle().setOverlay(false);
-    IParagraph titleParagraph = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0);
-    IPortionFormat titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(NullableBool.False);
-    titleFormat.setFontHeight(18f);
-
-    // Stel de legende van de grafiek in.
-    chart.getLegend().setPosition(LegendPositionType.Bottom);
-    chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
-
-    // Verwijder de standaard gegenereerde series en categorieën.
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    int worksheetIndex = 0;
-    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-
-    // Voeg nieuwe categorieën toe.
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
-
-    // Voeg de eerste serie toe.
-    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
-    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
-
-    series.getParentSeriesGroup().setOverlap((byte)-25);
-    series.getParentSeriesGroup().setGapWidth(220);
-
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 4.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 2.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 3.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 1, 4.5));
-
-    return chart;
-}
-
-static void addSecondSeriesToChart(IChart chart) {
-    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    final int worksheetIndex = 0;
-
-    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
-    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.ClusteredColumn);
-
-    series.getParentSeriesGroup().setOverlap((byte)-25);
-    series.getParentSeriesGroup().setGapWidth(220);
-
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 2, 2.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 2, 4.4));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 2, 1.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 2, 2.8));
-}
-
-static void addThirdSeriesToChart(IChart chart) {
-    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    final int worksheetIndex = 0;
-
-    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
-    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.Line);
-
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 1, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 2, 3, 2.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 3, 3, 3.0));
-    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 4, 3, 5.0));
-
-    series.setPlotOnSecondAxis(true);
-}
-
-static void setPrimaryAxesFormat(IChart chart) {
-    // Stel de horizontale as in.
-    IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
-    horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    setAxisTitle(horizontalAxis, "X Axis");
-
-    // Stel de verticale as in.
-    IAxis verticalAxis = chart.getAxes().getVerticalAxis();
-    verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    setAxisTitle(verticalAxis, "Y Axis 1");
-
-    // Stel de kleur van de verticale belangrijkste rasterlijnen in.
-    ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
-    majorGridLinesFormat.setFillType(FillType.Solid);
-    majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
-}
-
-static void setSecondaryAxesFormat(IChart chart) {
-    // Stel de secundaire horizontale as in.
-    IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
-    secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
-    secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
-    secondaryHorizontalAxis.setVisible(false);
-    secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-    secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    // Stel de secundaire verticale as in.
-    IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
-    secondaryVerticalAxis.setPosition(AxisPositionType.Right);
-    secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-    setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
-}
-
-static void setAxisTitle(IAxis axis, String axisTitle) {
-    axis.setTitle(true);
-    axis.getTitle().setOverlay(false);
-    IParagraph titleParagraph = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0);
-    IPortionFormat titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
-    titleFormat.setFontBold(NullableBool.False);
-    titleFormat.setFontHeight(12f);
-}
+ComboChartExample example = new ComboChartExample();
+example.createComboChart();
 ```
 
-## **Grafieken bijwerken**
+## **Diagrammen bijwerken**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse die de presentatie vertegenwoordigt waarin de grafiek staat die je wilt bijwerken.  
-2. Haal een referentie naar een dia op via de index.  
-3. Doorloop alle vormen om de gewenste grafiek te vinden.  
-4. Open het gegevenswerkblad van de grafiek.  
-5. Wijzig de grafiekdat series door de waarden van de series te veranderen.  
-6. Voeg een nieuwe serie toe en vul de gegevens in.  
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Aspose.Slides for Java stelt je in staat PowerPoint‑diagrammen bij te werken door diagramgegevens, opmaak en stijl te wijzigen. Deze functionaliteit vereenvoudigt het proces van het actueel houden van presentaties met dynamische inhoud en zorgt ervoor dat diagrammen nauwkeurig de huidige gegevens en visuele standaarden weergeven.
+
+Dit voorbeeld werkt het diagram met de naam “My chart” op de eerste dia van een bestaande presentatie bij. Het vereist twee kolom‑series met elk drie datapunten, met categorielabels in kolom A en serienamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) om werkboekcellen te wijzigen, werkt seriewaarden bij, voegt een derde serie toe, en verandert het diagram naar gegroepeerde cilinders via [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
 
-// Opent de presentatie die de te updaten grafiek bevat
-Presentation pres = new Presentation("ExistingChart.pptx");
-try {
-    // Toegang tot de eerste dia
-    ISlide sld = pres.getSlides().get_Item(0);
+final String chartName = "My chart";
 
-    // Haal de grafiek van de dia op
-    IChart chart = (IChart)sld.getShapes().get_Item(0);
+Presentation presentation = new Presentation("ExistingChart.pptx");
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Stel de index van het grafiekgegevensblad in
-    int defaultWorksheetIndex = 0;
+    for (IShape shape : slide.getShapes())
+    {
+        if (shape instanceof IChart && chartName.equals(shape.getName()))
+        {
+            IChart chart = (IChart) shape;
+            int worksheetIndex = 0;
 
-    // Haal het grafiekgegevenswerkblad op
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
+            IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Wijzig de categorie-naam van de grafiek
-    fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
-    fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
+            workbook.getCell(worksheetIndex, 1, 0, "Modified Category 1");
+            workbook.getCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-    // Neem de eerste grafiekserie
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+            IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Nu de seriedata bijwerken
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Serie-naam wijzigen
-    series.getDataPoints().get_Item(0).getValue().setData(90);
-    series.getDataPoints().get_Item(1).getValue().setData(123);
-    series.getDataPoints().get_Item(2).getValue().setData(44);
+            workbook.getCell(worksheetIndex, 0, 1, "New_Series 1");
+            series.getDataPoints().get_Item(0).getValue().setData(90);
+            series.getDataPoints().get_Item(1).getValue().setData(123);
+            series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Neem de tweede grafiekserie
-    series = chart.getChartData().getSeries().get_Item(1);
+            series = chart.getChartData().getSeries().get_Item(1);
 
-    // Nu de seriedata bijwerken
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Serie-naam wijzigen
-    series.getDataPoints().get_Item(0).getValue().setData(23);
-    series.getDataPoints().get_Item(1).getValue().setData(67);
-    series.getDataPoints().get_Item(2).getValue().setData(99);
+            workbook.getCell(worksheetIndex, 0, 2, "New_Series 2");
+            series.getDataPoints().get_Item(0).getValue().setData(23);
+            series.getDataPoints().get_Item(1).getValue().setData(67);
+            series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Nu een nieuwe serie toevoegen
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
+            IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+            series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    // Neem de derde grafiekserie
-    series = chart.getChartData().getSeries().get_Item(2);
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, 1, 3, 20);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 2, 3, 50);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+            valueCell = workbook.getCell(worksheetIndex, 3, 3, 30);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
 
-    // Nu de seriedata vullen
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
+            chart.setType(ChartType.ClusteredCylinder);
+        }
+    }
 
-    chart.setType(ChartType.ClusteredCylinder);
-
-    // Sla de presentatie met grafiek op
-    pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("AsposeChartModified.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-## **Gegevensbereik instellen voor een grafiek**
+## **Gegevensbereik voor een diagram instellen**
 
-Zie [Gegevensbereik van een grafiek ophalen](/slides/nl/java/chart-workbook/#retrieve-a-charts-data-range) om het al gebruikte bereik van een bestaande grafiek te inspecteren.
+Om het bereik te inspecteren dat al door een bestaand diagram wordt gebruikt, zie [Retrieve a Chart's Data Range](/slides/nl/java/chart-workbook/#retrieve-a-charts-data-range).
 
-Om het gegevensbereik voor een grafiek in te stellen, doe je het volgende:
+Aspose.Slides for Java biedt de flexibiliteit om een specifiek gegevensbereik van een werkblad als bron voor de gegevens van je diagram te definiëren. Dit betekent dat je direct een deel van je werkblad kunt koppelen aan het diagram, waardoor je kunt bepalen welke cellen bijdragen aan de series en categorieën van het diagram. Als gevolg kun je je diagrammen eenvoudig bijwerken en synchroniseren met de laatste gegevenswijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en nauwkeurige informatie weerspiegelen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse die de presentatie vertegenwoordigt die de grafiek bevat.  
-2. Haal een referentie naar een dia op via de index.  
-3. Doorloop alle vormen om de gewenste grafiek te vinden.  
-4. Open de grafiekgegevens en stel het bereik in.  
-5. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld gebruikt [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) om de gegevensbron van het diagram met de naam “My chart” op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. Het diagram‑werkboek moet dat werkblad bevatten en een ingevuld bereik met een seriekoptekst in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
 
 ```java
 import com.aspose.slides.*;
 
-// Opent de presentatie die de grafiek bevat
-Presentation pres = new Presentation("ExistingChart.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
-    
-    chart.getChartData().setRange("Sheet1!A1:B4");
-    
-    pres.save("SetDataRange_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+final String chartName = "My chart";
+
+Presentation presentation = new Presentation("ExistingChart.pptx");
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes())
+    {
+        if (shape instanceof IChart && chartName.equals(shape.getName()))
+        {
+            IChart chart = (IChart) shape;
+            chart.getChartData().setRange("Sheet1!A1:B4");
+        }
+    }
+
+    presentation.save("SetDataRange.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
-## **Standaardmarkeringen gebruiken in grafieken**
+## **Standaard‑markeringen in diagrammen gebruiken**
 
-Wanneer je standaardmarkeringen in grafieken gebruikt, krijgt elke grafiekserie automatisch een ander marker‑symbool.
+Wanneer je standaard‑markeringen in diagrammen gebruikt, krijgt elke diagramserie automatisch een verschillend standaard‑markering‑symbool toegewezen.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een diagram met twee lijnderies en een legende te maken. De marker‑instellingen die via [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) worden benaderd, behouden de automatisch toegewezen marker‑symbolen. De eerste serie bevat een negatieve waarde en een ontbrekende waarde, weergegeven door `null`, terwijl de tweede voor elke categorie een waarde heeft.
 
 ```java
 import com.aspose.slides.*;
 
-// Opent de presentatie die de grafiek bevat
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
+Presentation presentation = new Presentation();
+try
+{
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
 
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "C1"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 1, 24));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "C2"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 1, 23));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "C3"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 1, -10));
-    chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
-    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Neem de tweede grafiekserie
-    IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
+    IChartDataCell categoryCell = workbook.getCell(0, 1, 0, "C1");
+    chart.getChartData().getCategories().add(categoryCell);
+    IChartDataCell valueCell = workbook.getCell(0, 1, 1, 24);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
 
-    // Nu de seriedata vullen
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
-    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 2, 40));
+    categoryCell = workbook.getCell(0, 2, 0, "C2");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 2, 1, 23);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 3, 0, "C3");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 3, 1, -10);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    categoryCell = workbook.getCell(0, 4, 0, "C4");
+    chart.getChartData().getCategories().add(categoryCell);
+    valueCell = workbook.getCell(0, 4, 1, null);
+    series.getDataPoints().addDataPointForLineSeries(valueCell);
+
+    seriesNameCell = workbook.getCell(0, 0, 2, "Series 2");
+    IChartSeries secondSeries = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    valueCell = workbook.getCell(0, 1, 2, 30);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 2, 2, 10);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 3, 2, 60);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
+    valueCell = workbook.getCell(0, 4, 2, 40);
+    secondSeries.getDataPoints().addDataPointForLineSeries(valueCell);
 
     chart.setLegend(true);
     chart.getLegend().setOverlay(false);
 
-    pres.save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Welke grafiektype­s ondersteunt Aspose.Slides?**
+**Welke diagramtypen worden ondersteund door Aspose.Slides voor Java?**
 
-Aspose.Slides ondersteunt een breed scala aan [grafiektype­s](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt je in staat om het meest geschikte grafiektype voor je gegevensvisualisatiebehoeften te kiezen.
+Aspose.Slides voor Java ondersteunt een breed scala aan diagramtypen, waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en vele andere. Deze flexibiliteit stelt je in staat het meest geschikte diagramtype voor je visualisatie‑behoeften te kiezen.
 
-**Hoe voeg ik een nieuwe grafiek toe aan een dia?**
+**Hoe voeg ik een nieuw diagram toe aan een dia?**
 
-Om een grafiek toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse, haal je de gewenste dia op via de index en roep je vervolgens de methode aan om een grafiek toe te voegen, waarbij je het grafiektype en de initiële gegevens opgeeft. Dit proces integreert de grafiek direct in je presentatie.
+Om een diagram toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑klasse, haal je de gewenste dia op via de index, en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in je presentatie.
 
-**Hoe kan ik de weergegeven gegevens in een grafiek bijwerken?**
+**Hoe kan ik de gegevens die in een diagram worden weergegeven bijwerken?**
 
-Je kunt de gegevens van een grafiek bijwerken door toegang te krijgen tot het gegevenswerkboek ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), alle standaard series en categorieën te wissen en vervolgens je eigen aangepaste gegevens toe te voegen. Hiermee kun je de grafiek vernieuwen zodat deze de nieuwste gegevens weergeeft.
+Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot het gegevens‑werkboek ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), eventuele standaard‑series en -categorieën te wissen, en vervolgens je eigen gegevens toe te voegen. Hiermee kun je het diagram programmatic vernieuwen zodat het de nieuwste gegevens weergeeft.
 
-**Is het mogelijk om het uiterlijk van de grafiek aan te passen?**
+**Is het mogelijk het uiterlijk van het diagram aan te passen?**
 
-Ja, Aspose.Slides biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legenda's en andere [formatteringselementen](/slides/nl/java/chart-entities/) aanpassen om het uiterlijk van de grafiek af te stemmen op je specifieke ontwerpvereisten.
+Ja, Aspose.Slides voor Java biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legenden en andere opmaakelementen wijzigen om het diagram aan te passen aan je specifieke ontwerpvereisten.
