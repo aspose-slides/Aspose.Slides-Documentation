@@ -1,6 +1,6 @@
 ---
 title: Converti le diapositive PowerPoint in PNG con Python
-linktitle: Diapositiva a PNG
+linktitle: PowerPoint in PNG
 type: docs
 weight: 30
 url: /it/python-net/convert-powerpoint-to-png/
@@ -19,26 +19,19 @@ keywords:
 - ODP in PNG
 - Python
 - Aspose.Slides
-description: "Converti le presentazioni PowerPoint e OpenDocument in immagini PNG di alta qualità rapidamente con Aspose.Slides per Python via .NET, garantendo risultati precisi e automatizzati."
+description: "Converti le presentazioni PowerPoint e OpenDocument in immagini PNG di alta qualità rapidamente con Aspose.Slides per Python tramite .NET, garantendo risultati precisi e automatici."
 ---
 ## **Panoramica**
 
-Aspose.Slides per Python via .NET rende semplice la conversione delle presentazioni PowerPoint in PNG. Carichi una presentazione, iteri le sue diapositive, rendi ciascuna in un’immagine raster e salvi il risultato come file PNG. È ideale per generare anteprime delle diapositive, incorporare diapositive in pagine web o produrre risorse statiche per elaborazioni successive.
+Questo articolo spiega come convertire le diapositive di una presentazione in immagini PNG utilizzando Aspose.Slides per Python tramite .NET. È possibile caricare presentazioni in formati come PPT, PPTX e ODP, renderizzare ogni diapositiva e salvarla come immagine PNG separata.
 
-## **Convertire diapositive in PNG**
+Gli esempi seguenti mostrano il rendering alla scala predefinita, l'aumento della scala, la specifica delle dimensioni di output in pixel e la scelta di uno stile di rendering a gradiente.
 
-Questa sezione mostra l’esempio più semplice possibile di conversione di una presentazione PowerPoint in immagini PNG usando Aspose.Slides per Python via .NET.
+## **Converti PowerPoint in PNG**
 
-Segui questi passaggi:
+Carica una presentazione con la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) e accedi alle sue diapositive tramite la collezione [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/). L'esempio renderizza ogni diapositiva con [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) senza parametri per creare una miniatura. Quindi chiama [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) con [ImageFormat.PNG](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) per salvare ogni diapositiva renderizzata come immagine PNG.
 
-1. Istanzia la classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni una diapositiva dalla collezione `Presentation.slides` (vedi la classe [Slide](https://reference.aspose.com/slides/it/python-net/aspose.slides/slide/)).
-1. Usa il metodo `Slide.get_image` per generare una miniatura della diapositiva.
-1. Usa il metodo `Presentation.save` per salvare la miniatura della diapositiva in formato PNG.
-
-Questo codice Python mostra come convertire una presentazione PowerPoint in PNG:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -47,16 +40,18 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Convertire diapositive in PNG con dimensioni personalizzate**
+{{% alert color="info" title="Note" %}}
+La sovraccarico di [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) senza parametri esegue il rendering a una scala di 0,2. Per esempio, una diapositiva di 720 × 540 punti produce una miniatura di 144 × 108 pixel. Per controllare le dimensioni di output, utilizza le sovraccariche con fattori di scala o una dimensione immagine esplicita mostrata di seguito.
+{{% /alert %}}
 
-Per esportare le diapositive in PNG a una scala personalizzata, chiama `Slide.get_image` con i fattori di scala orizzontale e verticale. questi moltiplicatori ridimensionano l’output rispetto alle dimensioni originali della diapositiva — ad esempio, `2.0` raddoppia sia la larghezza sia l’altezza. Usa valori uguali per `scale_x` e `scale_y` per mantenere il rapporto d’aspetto.
+## **Converti PowerPoint in PNG con Dimensioni Personalizzate**
 
-Questo codice Python dimostra l’operazione descritta:
+Passa fattori di scala orizzontali e verticali a [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) per controllare le dimensioni renderizzate. In questo esempio, entrambi i fattori sono 2, quindi una diapositiva di 720 × 540 punti produce un'immagine di 1440 × 1080 pixel. Fattori di scala uguali preservano il rapporto d'aspetto della diapositiva. Ogni immagine viene salvata in formato PNG con [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/).
 
-```py
+```python
 import aspose.slides as slides
 
-scale_x = 2
+scale_x = 2.0
 scale_y = scale_x
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -65,36 +60,64 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Convertire diapositive in PNG con dimensione specifica**
+## **Converti PowerPoint in PNG con Dimensioni Personalizzate**
 
-Se desideri generare file PNG con una dimensione specifica, passa i valori desiderati per `width` e `height`. Il codice di seguito mostra come convertire un PowerPoint in PNG specificando la dimensione dell’immagine:
+Per specificare le dimensioni di output in pixel, passa una dimensione a [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) invece dei fattori di scala. Questo esempio renderizza ogni diapositiva a 960 × 720 pixel e salva il risultato con [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). Scegli dimensioni che corrispondono al rapporto d'aspetto della diapositiva per evitare lo stiramento dell'immagine.
 
-```py
+```python
 import aspose.slides as slides
-import aspose.pydrawing as drawing
 
-size = drawing.Size(960, 720)
+image_size = slides.Size(960, 720)
 
 with slides.Presentation("presentation.pptx") as presentation:
     for index, slide in enumerate(presentation.slides):
-        with slide.get_image(size) as image:
+        with slide.get_image(image_size) as image:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Potresti provare i convertitori gratuiti di Aspose **PowerPoint-to-PNG** — [PPTX to PNG](https://products.aspose.app/slides/it/conversion/pptx-to-png) e [PPT to PNG](https://products.aspose.app/slides/it/conversion/ppt-to-png). Offrono un’implementazione live del processo descritto in questa pagina.
-{{% /alert %}}
+## **Scegli uno Stile di Rendering a Gradiente**
+
+Supponiamo che una diapositiva contenga riempimenti a gradiente, ma le transizioni nel PNG esportato appaiano più chiare o comunque diverse da quelle visualizzate in PowerPoint. È possibile utilizzare la proprietà [gradient_style](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveoptions/gradient_style/) di [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/) per scegliere come vengono renderizzati i gradienti.
+
+Scarica [gradient-styles.pptx](gradient-styles.pptx) e posizionalo nella directory di lavoro dell'applicazione. La sua prima diapositiva contiene due gradienti lineari: ciano verso arancione in alto e blu verso giallo in basso. Ogni gradiente ha due fermate, allo 0% e al 100%.
+
+Il seguente esempio carica questa presentazione e renderizza la stessa prima diapositiva in entrambe le modalità con [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/).
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("gradient-styles.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    gradient_styles = [slides.GradientStyle.DEFAULT, slides.GradientStyle.POWER_POINT_UI]
+    for style in gradient_styles:
+        options = slides.export.RenderingOptions()
+        options.gradient_style = style
+
+        with slide.get_image(options, 1.0, 1.0) as image:
+            image.save(f"gradient-{style.name}.png", slides.ImageFormat.PNG)
+```
+
+Le immagini seguenti mostrano l'output della stessa diapositiva, con entrambi i gradienti in ciascuna immagine:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Gradienti da ciano a arancione e da blu a giallo renderizzati con Default](gradient-Default.png) | ![Gli stessi gradienti renderizzati con PowerPointUI](gradient-PowerPointUI.png) |
+
+In questo esempio, `DEFAULT` produce colori intermedi più chiari, mentre `POWER_POINT_UI` produce colori intermedi più scuri. La differenza dipende dai colori e dalle fermate del gradiente.
+
+Scegli `DEFAULT` quando l'output standard di Aspose.Slides soddisfa le tue esigenze. Prova `POWER_POINT_UI` quando la tua priorità è corrispondere all'aspetto in PowerPoint. Confronta entrambi gli output con il risultato desiderato; nessuna modalità è universalmente preferibile.
 
 ## **FAQ**
 
-**Come posso esportare solo una forma specifica (ad es. un grafico o un’immagine) invece dell’intera diapositiva?**
+**Come posso esportare una forma specifica, come un grafico o un'immagine, invece dell'intera diapositiva?**
 
-Aspose.Slides supporta [la generazione di miniature per forme individuali](/slides/it/python-net/create-shape-thumbnails/); è possibile renderizzare una forma in un’immagine PNG.
+Aspose.Slides supporta la [generazione di miniature per forme individuali](/slides/it/python-net/create-shape-thumbnails/), consentendo di renderizzare una forma come immagine PNG.
 
-**La conversione in parallelo è supportata su un server?**
+**La conversione parallela è supportata su un server?**
 
-Sì, ma [non condividere](/slides/it/python-net/multithreading/) un’unica istanza di presentazione tra thread. Usa un’istanza separata per ogni thread o processo.
+Sì. Utilizza un'istanza di presentazione separata per ogni thread o processo; [non condividere un'unica istanza tra i thread](/slides/it/python-net/multithreading/).
 
-**Quali sono le limitazioni della versione di prova durante l’esportazione in PNG?**
+**Quali sono le limitazioni della modalità di valutazione quando si esporta in PNG?**
 
 La modalità di valutazione aggiunge una filigrana alle immagini di output e applica [altre restrizioni](/slides/it/python-net/licensing/) fino a quando non viene applicata una licenza.

@@ -7,52 +7,52 @@ url: /ru/php-java/shape-formatting/
 keywords:
 - формат фигуры
 - формат линии
-- эффект эскиза
-- эскиз линии фигуры
-- форматировать стиль соединения
+- эффект наброска
+- набросок линии фигуры
+- стиль соединения
 - градиентная заливка
-- заливка узором
+- заливка шаблоном
 - заливка изображением
-- текстурная заливка
+- заливка текстурой
 - заливка сплошным цветом
 - прозрачность фигуры
-- чёрно-белая визуализация фигуры
-- визуализация фигуры в градациях серого
-- повернуть фигуру
-- 3D‑эффект фаски
-- 3D‑поворотный эффект
+- черно-белая отрисовка фигуры
+- отображение фигуры в градациях серого
+- вращение фигуры
+- 3D-эффект фаски
+- 3D-эффект вращения
 - сброс форматирования
 - PowerPoint
 - презентация
 - PHP
 - Aspose.Slides
-description: "Узнайте, как форматировать фигуры PowerPoint в PHP с помощью Aspose.Slides — задавайте стили заливки, линий и эффектов для файлов PPT, PPTX и ODP с точностью и полной свободой управления."
+description: "Узнайте, как форматировать фигуры PowerPoint в PHP с помощью Aspose.Slides — задавайте стили заливки, линии и эффектов для файлов PPT, PPTX и ODP с точностью и полным контролем."
 ---
 ## **Введение**
 
-В PowerPoint вы можете добавлять фигуры на слайды. Поскольку фигуры состоят из линий, их можно форматировать, изменяя или применяя эффекты к контурам. Кроме того, фигуры можно форматировать, указывая параметры, контролирующие заполнение их внутренней части.
+В PowerPoint вы можете добавлять фигуры на слайды. Поскольку фигуры состоят из линий, их можно форматировать, изменяя или применяя эффекты к контуру. Кроме того, фигуры можно форматировать, задавая параметры заполнения их внутренних областей.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![формат-формы-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for PHP via Java предоставляет классы и методы, позволяющие форматировать фигуры с использованием тех же параметров, что доступны в PowerPoint.
+Aspose.Slides for PHP via Java предоставляет классы и методы, позволяющие форматировать фигуры с использованием тех же возможностей, что и в PowerPoint.
 
 ## **Форматирование линий**
 
-С помощью Aspose.Slides вы можете задать пользовательский стиль линии для фигуры. Ниже представлены шаги выполнения процедуры:
+С помощью Aspose.Slides вы можете задать пользовательский стиль линии для фигуры. Ниже приведена последовательность действий:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/autoshape/) на слайд.
-1. Установите [line style](https://reference.aspose.com/slides/ru/php-java/aspose.slides/linestyle/) для фигуры.
-1. Установите толщину линии.
-1. Установите [dash style](https://reference.aspose.com/slides/ru/php-java/aspose.slides/linedashstyle/) линии.
-1. Установите цвет линии для фигуры.
-1. Сохраните изменённую презентацию в файл PPTX.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) на слайд.
+1. Установите [line style](https://reference.aspose.com/slides/php-java/aspose.slides/linestyle/) фигуры.
+1. Задайте толщину линии.
+1. Установите [dash style](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) линии.
+1. Задайте цвет линии для фигуры.
+1. Сохраните изменённую презентацию как файл PPTX.
 
 Следующий PHP‑код демонстрирует, как отформатировать прямоугольный `AutoShape`:
 
 ```php
-// Создайте экземпляр класса Presentation, представляющего файл презентации.
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 $presentation = new Presentation();
 try {
     // Получите первый слайд.
@@ -61,7 +61,7 @@ try {
     // Добавьте автофигуру типа Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-    // Установите цвет заливки для прямоугольной фигуры.
+    // Задайте цвет заливки для прямоугольной фигуры.
     $shape->getFillFormat()->setFillType(FillType::NoFill);
 
     // Примените форматирование к линиям прямоугольника.
@@ -69,7 +69,7 @@ try {
     $shape->getLineFormat()->setWidth(7);
     $shape->getLineFormat()->setDashStyle(LineDashStyle::Dash);
 
-    // Установите цвет линии прямоугольника.
+    // Задайте цвет линии прямоугольника.
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
@@ -84,11 +84,11 @@ try {
 
 ![Отформатированные линии в презентации](formatted-lines.png)
 
-## **Применение эффектов эскиза к линиям фигуры**
+## **Применить эффекты наброска к линиям фигур**
 
-Эффект эскиза делает линию фигуры выглядящей нарисованной от руки. Используйте [Shape.getLineFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shape/) для доступа к настройкам линии, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/lineformat/) для доступа к настройкам эскиза и [SketchFormat.setSketchType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/sketchformat/) для выбора значения из перечисления [LineSketchType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/linesketchtype/).
+Эффект наброска делает линию фигуры выглядящей как нарисованную от руки. Используйте [Shape.getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) для доступа к настройкам линии, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) — для доступа к настройкам наброска, и [SketchFormat.setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) — для выбора значения из перечисления [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
 
-Следующий PHP‑код показывает, как применить эффект [LineSketchType.Curved](https://reference.aspose.com/slides/ru/php-java/aspose.slides/linesketchtype/) , прочитать явно присвоенное значение и удалить эффект с помощью [LineSketchType.None](https://reference.aspose.com/slides/ru/php-java/aspose.slides/linesketchtype/) :
+Следующий PHP‑код показывает, как применить эффект [LineSketchType.Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/), прочитать явно назначенное значение и удалить эффект с помощью [LineSketchType.None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
 
 ```php
 $presentation = new Presentation();
@@ -96,24 +96,24 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
 
-    // Получите формат линии фигуры и её формат эскиза.
+    // Доступ к формату линии фигуры и её формату наброска.
     $sketchFormat = $shape->getLineFormat()->getSketchFormat();
 
-    // Примените эффект эскиза.
+    // Применить эффект наброска.
     $sketchFormat->setSketchType(LineSketchType::Curved);
 
-    // Прочитайте эффект эскиза, назначенный непосредственно фигуре.
+    // Прочитать эффект наброска, назначенный непосредственно фигуре.
     $explicitSketchType = $sketchFormat->getSketchType();
     echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
 
-    // Уберите эффект эскиза.
+    // Удалить эффект наброска.
     $sketchFormat->setSketchType(LineSketchType::None);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Значение, возвращаемое [SketchFormat.getSketchType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/sketchformat/), представляет настройку, назначенную непосредственно фигуре. Если форматирование линии может наследоваться от темы, мастер‑слайда или слайда‑разметки, используйте [LineFormat.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/lineformat/), получите метод `getSketchFormat` возвращённого объекта и прочитайте его значение `getSketchType`. Эффективное значение отражает форматирование, которое действительно применяется после разрешения наследования:
+Значение, возвращаемое [SketchFormat.getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/), представляет настройку, непосредственно присвоенную фигуре. Если форматирование линии может наследоваться из темы, мастер‑слайда или шаблона, используйте [LineFormat.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/), обратитесь к методу `getSketchFormat` полученного объекта и прочитайте его значение `getSketchType`. Эффективное значение отражает фактическое форматирование после разрешения наследования:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -134,20 +134,20 @@ try {
 
 ## **Форматирование стилей соединений**
 
-Доступны три варианта типа соединения:
+Варианты трёх типов соединений:
 
-* Скруглённый
-* Угловой
-* Скошенный
+* Round
+* Miter
+* Bevel
 
-По умолчанию PowerPoint соединяет две линии под углом (например, в углу фигуры) используя настройку **Round**. Однако при рисовании фигуры с острыми углами вы можете предпочесть параметр **Miter**.
+По умолчанию, когда PowerPoint соединяет две линии под углом (например, в углу фигуры), используется параметр **Round**. Однако при рисовании фигур с острыми углами может быть предпочтительнее вариант **Miter**.
 
 ![Стиль соединения в презентации](join-style-powerpoint.png)
 
-Следующий PHP‑код демонстрирует, как три прямоугольника (как показано на изображении выше) были созданы с использованием настроек типа соединения Miter, Bevel и Round:
+Следующий PHP‑код демонстрирует, как три прямоугольника (как показано на изображении выше) были созданы с использованием настроек соединения Miter, Bevel и Round:
 
 ```php
-// Создайте экземпляр класса Presentation, представляющего файл презентации.
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 $presentation = new Presentation();
 try {
     // Получите первый слайд.
@@ -166,12 +166,12 @@ try {
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
 
-    // Установите ширину линии.
+    // Установите толщину линии.
     $shape1->getLineFormat()->setWidth(15);
     $shape2->getLineFormat()->setWidth(15);
     $shape3->getLineFormat()->setWidth(15);
 
-    // Установите цвет линии каждого прямоугольника.
+    // Задайте цвет линии для каждого прямоугольника.
     $shape1->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $shape2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -179,7 +179,7 @@ try {
     $shape3->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // Установите стиль соединения.
+    // Задайте стиль соединения.
     $shape1->getLineFormat()->setJoinStyle(LineJoinStyle::Miter);
     $shape2->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
     $shape3->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
@@ -198,16 +198,18 @@ try {
 
 ## **Градиентная заливка**
 
-В PowerPoint градиентная заливка — это параметр форматирования, позволяющий применять к фигуре непрерывный переход цветов. Например, можно задать два и более цветов так, чтобы один постепенно переходил в другой.
+В PowerPoint градиентная заливка — это параметр форматирования, позволяющий применить непрерывный переход цветов к фигуре. Например, можно задать два или более цвета, где один постепенно переходит в другой.
 
 Вот как применить градиентную заливку к фигуре с помощью Aspose.Slides:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/autoshape/) на слайд.
-1. Установите для фигуры [FillType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/filltype/) значение `Gradient`.
-1. Добавьте два желаемых цвета с определёнными позициями, используя методы `add` коллекции остановок градиента, доступные в классе [GradientFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/gradientformat/).
-1. Сохраните изменённую презентацию в файл PPTX.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) фигуры в `Gradient`.
+1. Добавьте два желаемых цвета с определёнными позициями, используя методы `add` коллекции остановок градиента, доступные через класс [GradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/) .
+1. Сохраните изменённую презентацию как файл PPTX.
+
+Следующий PHP‑код демонстрирует, как применить градиентный эффект к эллипсу:
 
 ```php
 // Создайте экземпляр класса Presentation, представляющего файл презентации.
@@ -223,7 +225,7 @@ try {
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape::Linear);
 
-    // Установите направление градиента.
+    // Задайте направление градиента.
     $shape->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection::FromCorner2);
 
     // Добавьте две остановки градиента.
@@ -237,26 +239,30 @@ try {
 }
 ```
 
-Эллипс с градиентной заливкой:
+Результат:
 
 ![Эллипс с градиентной заливкой](gradient-fill.png)
 
-## **Заливка узором**
+Если градиент выглядит иначе в экспортированном изображении, чем в PowerPoint, см. [Choose a Gradient Rendering Style](/slides/ru/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Вы можете выбрать стиль рендеринга, не меняя градиентную заливку, сохранённую в презентации.
 
-В PowerPoint заливка узором — это параметр форматирования, позволяющий применять к фигуре двухцветный рисунок, например точки, полосы, перекрёстные штрихи или шахматную решётку. Вы можете выбрать пользовательские цвета для переднего и заднего плана узора.
+## **Заливка шаблоном**
 
-Aspose.Slides предоставляет более 45 предопределённых стилей узоров, которые можно применять к фигурам для улучшения визуального восприятия презентаций. Даже после выбора предопределённого узора вы можете задать точные цвета, которые он будет использовать.
+В PowerPoint заливка шаблоном — это параметр форматирования, позволяющий применить двухцветный рисунок — например, точки, полосы, штриховку или шахматную сетку — к фигуре. Вы можете задать собственные цвета переднего и заднего плана шаблона.
 
-Вот как применить заливку узором к фигуре с помощью Aspose.Slides:
+Aspose.Slides предоставляет более 45 предопределённых стилей шаблонов, которые можно применять к фигурам для улучшения визуального восприятия презентаций. После выбора предопределённого шаблона вы всё равно можете указать точные цвета, которые он будет использовать.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+Вот как применить заливку шаблоном к фигуре с помощью Aspose.Slides:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/autoshape/) на слайд.
-1. Установите [FillType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/filltype/) фигуры в `Pattern`.
-1. Выберите стиль узора из предопределённых вариантов.
-1. Установите [Background Color](https://reference.aspose.com/slides/ru/php-java/aspose.slides/patternformat/#getBackColor) узора.
-1. Установите [Foreground Color](https://reference.aspose.com/slides/ru/php-java/aspose.slides/patternformat/#getForeColor) узора.
-1. Сохраните изменённую презентацию в файл PPTX.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) фигуры в `Pattern`.
+1. Выберите стиль шаблона из предопределённых вариантов.
+1. Установите [Background Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) шаблона.
+1. Установите [Foreground Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) шаблона.
+1. Сохраните изменённую презентацию как файл PPTX.
+
+Следующий PHP‑код демонстрирует, как применить заливку шаблоном к прямоугольнику:
 
 ```php
 // Создайте экземпляр класса Presentation, представляющего файл презентации.
@@ -268,13 +274,13 @@ try {
     // Добавьте автофигуру типа Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Установите тип заливки в Pattern.
+    // Задайте тип заливки Pattern.
     $shape->getFillFormat()->setFillType(FillType::Pattern);
 
-    // Установите стиль узора.
+    // Установите стиль шаблона.
     $shape->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::Trellis);
 
-    // Установите фоновые и передние цвета узора.
+    // Задайте фон и передний цвет шаблона.
     $shape->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
     $shape->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->YELLOW);
 
@@ -285,26 +291,30 @@ try {
 }
 ```
 
-Прямоугольник с заливкой узором:
+Результат:
 
-![Прямоугольник с заливкой узором](pattern-fill.png)
+![Прямоугольник с заливкой шаблоном](pattern-fill.png)
 
 ## **Заливка изображением**
 
-В PowerPoint заливка изображением — это параметр форматирования, позволяющий вставить изображение внутрь фигуры, фактически используя его в качестве фона фигуры.
+В PowerPoint заливка изображением — это параметр форматирования, позволяющий вставить изображение внутрь фигуры, effectively using the image as the shape's background.
 
-Вот как применить заливку изображением к фигуре с помощью Aspose.Slides:
+Вот как использовать Aspose.Slides для применения заливки изображением к фигуре:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/autoshape/) на слайд.
-1. Установите [FillType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/filltype/) фигуры в `Picture`.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) фигуры в `Picture`.
 1. Установите режим заливки изображения в `Tile` (или другой предпочтительный режим).
-1. Создайте объект [PPImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ppimage/) из изображения, которое хотите использовать.
-1. Передайте изображение в метод `SlidesPicture.setImage`.
-1. Сохраните изменённую презентацию в файл PPTX.
+1. Создайте объект [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) из изображения, которое хотите использовать.
+1. Передайте изображение методу `SlidesPicture.setImage`.
+1. Сохраните изменённую презентацию как файл PPTX.
+
+Допустим, у нас есть файл «lotus.png» со следующим изображением:
 
 ![Изображение лотоса](lotus.png)
+
+Следующий PHP‑код демонстрирует, как заполнить фигуру изображением:
 
 ```php
 // Создайте экземпляр класса Presentation, представляющего файл презентации.
@@ -316,7 +326,7 @@ try {
     // Добавьте автофигуру типа Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-    // Установите тип заливки в Picture.
+    // Задайте тип заливки Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
     // Установите режим заливки изображением.
@@ -327,7 +337,7 @@ try {
     $picture = $presentation->getImages()->addImage($image);
     $image->dispose();
 
-    // Установите изображение.
+    // Задайте изображение.
     $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 
     // Сохраните файл PPTX на диск.
@@ -337,23 +347,23 @@ try {
 }
 ```
 
-Фигура с заливкой изображением:
+Результат:
 
 ![Фигура с заливкой изображением](picture-fill.png)
 
-### **Текстурирование плиткой изображения**
+### **Замостить изображение как текстуру**
 
-Если вы хотите установить изображение плиткой в качестве текстуры и настроить поведение плитки, можете использовать следующие методы класса [PictureFillFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/) :
+Если необходимо задать замощённое изображение в качестве текстуры и настроить поведение замощения, можно использовать следующие методы класса [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) :
 
-- [setPictureFillMode](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Задаёт режим заливки изображения — `Tile` или `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#setTileAlignment): Указывает выравнивание плиток внутри фигуры.
-- [setTileFlip](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#setTileFlip): Управляет тем, будет ли плитка отражена по горизонтали, вертикали или обеим осям.
-- [setTileOffsetX](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Задаёт горизонтальное смещение плитки (в пунктах) от начала фигуры.
-- [setTileOffsetY](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Задаёт вертикальное смещение плитки (в пунктах) от начала фигуры.
-- [setTileScaleX](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#setTileScaleX): Определяет горизонтальный масштаб плитки в процентах.
-- [setTileScaleY](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#setTileScaleY): Определяет вертикальный масштаб плитки в процентах.
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): задаёт режим заливки изображения — `Tile` или `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): определяет выравнивание плиток внутри фигуры.
+- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): управляет горизонтальным, вертикальным или двойным отражением плитки.
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): задаёт горизонтальное смещение плитки (в пунктах) от начала фигуры.
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): задаёт вертикальное смещение плитки (в пунктах) от начала фигуры.
+- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): определяет горизонтальный масштаб плитки в процентах.
+- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): определяет вертикальный масштаб плитки в процентах.
 
-Следующий пример кода показывает, как добавить прямоугольную фигуру с заливкой изображением‑плиткой и настроить параметры плитки:
+Следующий пример кода показывает, как добавить прямоугольную фигуру с замощённой заливкой и настроить параметры плитки:
 
 ```php
 // Создайте экземпляр класса Presentation, представляющего файл презентации.
@@ -365,7 +375,7 @@ try {
     // Добавьте автофигуру прямоугольника.
     $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-    // Установите тип заливки фигуры в Picture.
+    // Задайте тип заливки фигуры как Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
     // Загрузите изображение и добавьте его в ресурсы презентации.
@@ -393,22 +403,24 @@ try {
 }
 ```
 
-Параметры плитки:
+Результат:
 
-![Параметры плитки](tile-options.png)
+![Параметры замощения](tile-options.png)
 
-## **Однородная заливка цветом**
+## **Заливка сплошным цветом**
 
-В PowerPoint однородная заливка цветом — это параметр форматирования, который заполняет фигуру одним равномерным цветом. Этот простой цвет фона применяется без градиентов, текстур или узоров.
+В PowerPoint заливка сплошным цветом — это параметр форматирования, заполняющий фигуру одним однородным цветом. Этот простой фон применяется без градиентов, текстур или шаблонов.
 
-Чтобы применить однородную заливку цветом к фигуре с помощью Aspose.Slides, выполните следующие шаги:
+Чтобы применить сплошную заливку к фигуре с помощью Aspose.Slides, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/autoshape/) на слайд.
-1. Установите [FillType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/filltype/) фигуры в `Solid`.
-1. Назначьте желаемый цвет заливки фигуре.
-1. Сохраните изменённую презентацию в файл PPTX.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) фигуры в `Solid`.
+1. Присвойте фигуре желаемый цвет заливки.
+1. Сохраните изменённую презентацию как файл PPTX.
+
+Следующий PHP‑код демонстрирует, как применить сплошную заливку к прямоугольнику в PowerPoint‑слайде:
 
 ```php
 // Создайте экземпляр класса Presentation, представляющего файл презентации.
@@ -420,10 +432,10 @@ try {
     // Добавьте автофигуру типа Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Установите тип заливки в Solid.
+    // Установите тип заливки Solid.
     $shape->getFillFormat()->setFillType(FillType::Solid);
 
-    // Установите цвет заливки.
+    // Задайте цвет заливки.
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
 
     // Сохраните файл PPTX на диск.
@@ -433,15 +445,24 @@ try {
 }
 ```
 
-Фигура с однородной заливкой цветом:
+Результат:
 
-![Фигура с однородной заливкой цветом](solid-color-fill.png)
+![Фигура со сплошной заливкой цветом](solid-color-fill.png)
 
-## **Установка прозрачности**
+## **Установить прозрачность**
 
-В PowerPoint при применении к фигурам однородной заливки, градиента, изображения или текстуры можно также задать уровень прозрачности, контролирующий непрозрачность заливки. Чем выше значение прозрачности, тем более прозрачной будет фигура, позволяя фону или находящимся ниже объектам частично просвечивать.
+В PowerPoint, когда вы применяете сплошную заливку, градиент, изображение или текстуру к фигурам, можно также задать уровень прозрачности, контролирующий непрозрачность заливки. Более высокий уровень прозрачности делает фигуру более просвечивающей, позволяя фону или подлежащим объектам частично просвечивать.
 
-Aspose.Slides позволяет задать уровень прозрачности, корректируя альфа‑компонент цвета, используемого для заливки. Вот как это сделать:
+Aspose.Slides позволяет задать уровень прозрачности, изменяя альфа‑компонент в цвете, используемом для заливки. Как это сделать:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) в `Solid`.
+1. Используйте `Color` для определения цвета с прозрачностью (компонент `alpha` управляет прозрачностью).
+1. Сохраните презентацию.
+
+Следующий PHP‑код демонстрирует, как задать прозрачный цвет заливки для прямоугольника:
 
 ```php
 // Создайте экземпляр класса Presentation, представляющего файл презентации.
@@ -450,10 +471,10 @@ try {
     // Получите первый слайд.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Добавьте сплошную автофигуру прямоугольника.
+    // Добавьте автофигуру сплошного прямоугольника.
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Добавьте прозрачную автофигуру прямоугольника поверх сплошной фигуры.
+    // Добавьте автофигуру прозрачного прямоугольника поверх сплошного.
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
     $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
@@ -465,24 +486,26 @@ try {
 }
 ```
 
-Прозрачная фигура:
+Результат:
 
 ![Прозрачная фигура](shape-transparency.png)
 
 ## **Поворот фигур**
 
-Aspose.Slides позволяет вращать фигуры в презентациях PowerPoint. Это может быть полезно при размещении визуальных элементов с определёнными требованиями к выравниванию или дизайну.
+Aspose.Slides позволяет вращать фигуры в презентациях PowerPoint. Это может быть полезно при размещении визуальных элементов с определённым выравниванием или дизайнерскими требованиями.
 
 Чтобы повернуть фигуру на слайде, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/autoshape/) на слайд.
-1. Установите свойство вращения фигуры на требуемый угол.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) на слайд.
+1. Установите свойство вращения фигуры в нужный угол.
 1. Сохраните презентацию.
 
+Следующий PHP‑код демонстрирует, как повернуть фигуру на 5 градусов:
+
 ```php
-// Создайте экземпляр класса Presentation, представляющего файл презентации.
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 $presentation = new Presentation();
 try {
     // Получите первый слайд.
@@ -501,21 +524,23 @@ try {
 }
 ```
 
-Поворот фигуры:
+Результат:
 
 ![Поворот фигуры](shape-rotation.png)
 
-## **Добавление 3D‑эффекта фаски**
+## **Добавить 3D-эффекты фаски**
 
-С помощью Aspose.Slides можно применять к фигурам 3D‑эффекты фаски, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/threedformat/).
+Aspose.Slides позволяет применять 3D-эффекты фаски к фигурам, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) .
 
-Чтобы добавить 3D‑эффекты фаски к фигуре, выполните следующие шаги:
+Чтобы добавить 3D-эффекты фаски к фигуре, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/autoshape/) на слайд.
-1. Настройте [ThreeDFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/threedformat/) фигуры, задав параметры фаски.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) на слайд.
+1. Настройте [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) фигуры, задав параметры фаски.
 1. Сохраните презентацию.
+
+Следующий PHP‑код показывает, как применить 3D-эффекты фаски к фигуре:
 
 ```php
 // Создайте экземпляр класса Presentation.
@@ -540,28 +565,30 @@ try {
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::ThreePt);
     $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
 
-    // Сохраните презентацию в файл PPTX.
+    // Сохраните презентацию как файл PPTX.
     $presentation->save("3D_bevel_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Эффект 3D‑фаски:
+Результат:
 
-![Эффект 3D‑фаски](3D-bevel-effect.png)
+![3D-эффект фаски](3D-bevel-effect.png)
 
-## **Добавление 3D‑поворотных эффектов**
+## **Добавить 3D-эффекты вращения**
 
-С помощью Aspose.Slides можно применять к фигурам 3D‑поворотные эффекты, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/threedformat/).
+Aspose.Slides позволяет применять 3D-эффекты вращения к фигурам, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) .
 
-Чтобы применить 3D‑поворот к фигуре:
+Чтобы применить 3D-вращение к фигуре:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/autoshape/) на слайд.
-1. Используйте [setCameraType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/camera/#setCameraType) и [setLightType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/lightrig/#setLightType) для определения 3D‑поворота.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) на слайд.
+1. Используйте [setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) и [setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType) для задания 3D‑вращения.
 1. Сохраните презентацию.
+
+Следующий PHP‑код демонстрирует, как применить 3D-эффекты вращения к фигуре:
 
 ```php
 // Создайте экземпляр класса Presentation.
@@ -577,24 +604,24 @@ try {
     $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::IsometricLeftUp);
     $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
 
-    // Сохраните презентацию в файл PPTX.
+    // Сохраните презентацию как файл PPTX.
     $presentation->save("3D_rotation_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Эффект 3D‑поворота:
+Результат:
 
-![Эффект 3D‑поворота](3D-rotation-effect.png)
+![3D-эффект вращения](3D-rotation-effect.png)
 
-## **Управление чёрно‑белой визуализацией фигур**
+## **Контроль черно-белой отрисовки фигур**
 
-[Shape::setBlackWhiteMode](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shape/#setBlackWhiteMode) определяет, как отдельная фигура отображается, когда презентация просматривается или обрабатывается в чёрно‑белом режиме. Этот метод сам по себе не включает чёрно‑белый режим и не меняет заливку, линию или другие параметры форматирования фигуры в обычном цветовом режиме.
+Метод [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) указывает, как отдельная фигура будет отрисовываться, когда презентация отображается или обрабатывается в черно-белом режиме. Он сам по себе не включает черно-белый режим и не меняет заливку, контур или другие параметры форматирования в обычном цветном режиме.
 
-Используйте значение из класса [BlackWhiteMode] для выбора нужного поведения. Например, `Automatic` позволяет приложению выбора преобразования, `Gray` и `LightGray` используют серый цвет, `BlackWhite` выводит только чёрный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в чёрно‑белом режиме. `NotDefined` означает, что режим для фигуры не установлен.
+Используйте значение из класса [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) для выбора нужного поведения. Например, `Automatic` позволяет приложению выбора выполнить конверсию, `Gray` и `LightGray` используют оттенки серого, `BlackWhite` использует только чёрный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в черно-белом режиме. `NotDefined` означает, что режим на уровне фигуры не назначен.
 
-Следующий PHP‑код создаёт цветную фигуру и делает её серой в чёрно‑белом режиме отображения:
+Следующий PHP‑код создаёт цветную фигуру и делает её серой в режиме черно‑белого отображения:
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -612,7 +639,7 @@ try {
     $orange = new Java("java.awt.Color", 255, 165, 0);
     $shape->getFillFormat()->getSolidFillColor()->setColor($orange);
 
-    // Сохраните оранжевую заливку в цветном режиме, но отображайте фигуру в сером цвете в черно-белом режиме.
+    // Сохраните оранжевую заливку в цветном режиме, но отображайте фигуру в сером цвете в режиме черно-белого.
     $shape->setBlackWhiteMode(BlackWhiteMode::Gray);
 
     $presentation->save("shape_black_white_mode.pptx", SaveFormat::Pptx);
@@ -621,18 +648,18 @@ try {
 }
 ```
 
-В обычном цветовом режиме прямоугольник сохраняет оранжевую заливку. В чёрно‑белом режиме он отображается серым, поскольку его режим установлен в `Gray`. Это позволяет сохранять полноцветный слайд, определяя при этом отдельный вид для печати, предварительного просмотра или иных процессов, учитывающих настройки чёрно‑белого отображения презентации.
+В обычном цветном режиме прямоугольник сохраняет оранжевую заливку. В рабочем процессе черно‑белого отображения он использует серый цвет, потому что его режим установлен в `Gray`. Это позволяет сохранять полноцветный слайд, одновременно определяя отдельный вид для печати, предпросмотра или других процессов, учитывающих настройки черно‑белого отображения презентации.
 
 ## **Сброс форматирования**
 
-Следующий Java‑код показывает, как сбросить форматирование слайда и вернуть положение, размер и форматирование всех фигур‑заполнителей на [LayoutSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/) к их настройкам по умолчанию:
+Следующий Java‑код показывает, как сбросить форматирование слайда и вернуть положение, размер и параметры всех фигур‑заполнителей на [LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) к их значениям по умолчанию:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
     for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
         $slide = $presentation->getSlides()->get_Item($i);
-        // Сбросить каждую фигуру на слайде, у которой есть заполнитель в макете.
+        // Сбросить каждую фигуру на слайде, у которой есть заполнитель в шаблоне.
         $slide->reset();
     }
     $presentation->save("reset_formatting.pptx", SaveFormat::Pptx);
@@ -641,16 +668,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Вопросы и ответы**
 
-**Влияет ли форматирование фигур на конечный размер файла презентации?**
+**Влияет ли форматирование фигур на окончательный размер файла презентации?**
 
-Только незначительно. Встраиваемые изображения и медиа занимают большинство места в файле, тогда как параметры фигур, такие как цвета, эффекты и градиенты, хранятся как метаданные и практически не увеличивают размер.
+Только незначительно. Встроенные изображения и медиа‑файлы занимают большую часть места, а параметры фигур, такие как цвета, эффекты и градиенты, хранятся как метаданные и практически не увеличивают размер.
 
-**Как определить фигуры на слайде, имеющие одинаковое форматирование, чтобы их сгруппировать?**
+**Как обнаружить фигуры на слайде, имеющие идентичное форматирование, чтобы их сгруппировать?**
 
-Сравните ключевые свойства форматирования каждой фигуры — параметры заливки, линии и эффекты. Если все соответствующие значения совпадают, рассматривайте их стили как идентичные и логически группируйте такие фигуры, что упрощает последующее управление стилями.
+Сравните ключевые свойства форматирования каждой фигуры — заполнение, контур и параметры эффектов. Если все соответствующие значения совпадают, рассматривайте их стили как одинаковые и логически группируйте такие фигуры, что упрощает дальнейшее управление стилями.
 
 **Можно ли сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
 
-Да. Сохраните образцы фигур с нужными стилями в шаблон презентации или в файл шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте нужные стилизованные фигуры и применяйте их форматирование там, где требуется.
+Да. Сохраните образцы фигур с нужными стилями в шаблонный набор слайдов или файл шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте необходимые стилизованные фигуры и снова примените их форматирование там, где требуется.

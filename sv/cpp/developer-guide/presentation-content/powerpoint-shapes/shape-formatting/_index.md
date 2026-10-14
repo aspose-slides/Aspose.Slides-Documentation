@@ -1,5 +1,5 @@
 ---
-title: Formatera PowerPoint-former i C++
+title: Formatera PowerPoint‑former i C++
 linktitle: Formatering av former
 type: docs
 weight: 20
@@ -7,30 +7,30 @@ url: /sv/cpp/shape-formatting/
 keywords:
 - formatera form
 - formatera linje
-- skiss-effekt
-- skisslinje för form
+- skiss‑effekt
+- skissformslinje
 - formatera anslutningsstil
 - gradientfyllning
 - mönsterfyllning
 - bildfyllning
 - texturfyllning
-- enfärgsfyllning
+- solid färgfyllning
 - formtransparens
-- svart-vit rendering av form
-- gråskalrendering av form
+- svart‑vit formrendering
+- gråskala formrendering
 - rotera form
-- 3D-bergningseffekt
-- 3D-rotereffekt
+- 3D‑fasadeffekt
+- 3D‑roteringseffekt
 - återställ formatering
 - PowerPoint
 - presentation
 - C++
 - Aspose.Slides
-description: "Lär dig hur du formaterar PowerPoint-former i C++ med Aspose.Slides - ställ in fyllning, linje- och effekts-stilar för PPT-, PPTX- och ODP-filer med precision och full kontroll."
+description: "Lär dig hur du formaterar PowerPoint‑former i C++ med Aspose.Slides — ställ in fyllnings‑, linje‑ och effektstilar för PPT, PPTX och ODP‑filer med precision och full kontroll."
 ---
 ## **Introduktion**
 
-I PowerPoint kan du lägga till former på bilder. Eftersom former består av linjer kan du formatera dem genom att ändra eller tillämpa effekter på deras konturer. Dessutom kan du formatera former genom att ange inställningar som styr hur deras insida fylls.
+I PowerPoint kan du lägga till former på bilder. Eftersom former består av linjer kan du formatera dem genom att ändra eller tillämpa effekter på deras konturer. Dessutom kan du formatera former genom att ange inställningar som styr hur deras innerväggar fylls.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
@@ -40,16 +40,16 @@ Aspose.Slides för C++ tillhandahåller gränssnitt och metoder som låter dig f
 
 Med Aspose.Slides kan du ange en anpassad linjestil för en form. Följande steg beskriver proceduren:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/) på bilden.
-1. Ställ in [linjestilen](https://reference.aspose.com/slides/sv/cpp/aspose.slides/linestyle/) för formen.
-1. Ställ in linjebredden.
-1. Ställ in [streckstilen](https://reference.aspose.com/slides/sv/cpp/aspose.slides/linedashstyle/) för linjen.
-1. Ställ in linjens färg för formen.
+1. Lägg till ett [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
+1. Ange [linjestil](https://reference.aspose.com/slides/cpp/aspose.slides/linestyle/) för formen.
+1. Ange linjebredden.
+1. Ange [streckstil](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) för linjen.
+1. Ange linjefärgen för formen.
 1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Följande kod visar hur du formaterar en rektangel‑`AutoShape`:
+Följande kod demonstrerar hur man formaterar en rektangel `AutoShape`:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -78,18 +78,18 @@ auto presentation = MakeObject<Presentation>();
 // Hämta den första bilden.
 auto slide = presentation->get_Slide(0);
 
-// Lägg till en automatisk form av typen Rektangel.
+// Lägg till en autoform av typen Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-// Ställ in fyllningsfärgen för rektangelformen.
+// Ange fyllningsfärgen för rektangelformen.
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// Applicera formatering på rektangelns linjer.
+// Tillämpa formatering på rektangelns linjer.
 shape->get_LineFormat()->set_Style(LineStyle::ThickThin);
 shape->get_LineFormat()->set_Width(7);
 shape->get_LineFormat()->set_DashStyle(LineDashStyle::Dash);
 
-// Ställ in färgen för rektangelns linje.
+// Ange färgen för rektangelns linje.
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
@@ -100,13 +100,13 @@ presentation->Dispose();
 
 Resultatet:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![De formaterade linjerna i presentationen](formatted-lines.png)
 
-## **Tillämpa skiss‑effekter på formlinjer**
+## **Tillämpa skiss‑effekter på formens linjer**
 
-En skiss‑effekt får en formlinje att se handritad ut. Använd [IShape::get_LineFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/get_lineformat/) för att komma åt linjeinställningarna, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilineformat/get_sketchformat/) för att komma åt skiss‑inställningarna och [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isketchformat/set_sketchtype/) för att välja ett värde från uppräkningen [LineSketchType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/linesketchtype/).
+En skisseffekt gör att en formlinje ser handritad ut. Använd [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) för att komma åt linjeinställningarna, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) för att komma åt skissinställningarna och [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) för att välja ett värde från uppräkningen [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/).
 
-Följande C++‑kod visar hur du tillämpar en [LineSketchType::Curved](https://reference.aspose.com/slides/sv/cpp/aspose.slides/linesketchtype/)‑effekt, läser det explicit tilldelade värdet och tar bort effekten med [LineSketchType::None](https://reference.aspose.com/slides/sv/cpp/aspose.slides/linesketchtype/):
+Följande C++‑kod visar hur man tillämpar en [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/)‑effekt, läser det uttryckligen tilldelade värdet och tar bort effekten med [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -114,23 +114,23 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
 
-// Access the shape's line format and its sketch format.
+// Åtkomst till formens linjeformat och skissformat.
 auto sketchFormat = shape->get_LineFormat()->get_SketchFormat();
 
-// Apply a sketch effect.
+// Tillämpa en skiss‑effekt.
 sketchFormat->set_SketchType(LineSketchType::Curved);
 
-// Read the sketch effect assigned directly to the shape.
+// Läs den skiss‑effekt som tilldelats direkt till formen.
 auto explicitSketchType = sketchFormat->get_SketchType();
 Console::WriteLine(u"Explicit sketch type: {0}", explicitSketchType);
 
-// Remove the sketch effect.
+// Ta bort skiss‑effekten.
 sketchFormat->set_SketchType(LineSketchType::None);
 
 presentation->Dispose();
 ```
 
-Värdet som returneras av [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isketchformat/get_sketchtype/) representerar inställningen som tilldelats direkt till formen. Om linjeformatering kan ärvas från ett tema, en huvudsida eller en layout‑bild, använd [ILineFormat::GetEffective](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilineformat/geteffective/), få åtkomst till [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), och läs [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Det effektiva värdet återspeglar den formatering som faktiskt tillämpas efter att arv har lösts:
+Värdet som returneras av [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) representerar den inställning som tilldelats direkt till formen. Om linjeformatering kan ärvas från ett tema, en master‑bild eller en layout‑bild, använd [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), få åtkomst till [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), och läs [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Det effektiva värdet återspeglar den formatering som faktiskt tillämpas efter att arv har lösts:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"presentation.pptx");
@@ -150,17 +150,17 @@ presentation->Dispose();
 
 ## **Formatera anslutningsstilar**
 
-Här är de tre alternativen för anslutningstyp:
+Här är de tre alternativ för anslutningstyp:
 
 * Rund
-* Snedkant
-* Fasad
+* Sned
+* Fas
 
-Som standard använder PowerPoint **Rund** när två linjer förenas i en vinkel (t.ex. vid en formens hörn). Om du ritar en form med skarpa vinklar kan du föredra alternativet **Snedkant**.
+Som standard, när PowerPoint förenar två linjer i en vinkel (t.ex. vid en formens hörn), använder den inställningen **Rund**. Om du däremot ritar en form med skarpa vinklar kan du föredra alternativet **Sned**.
 
-![The join style in the presentation](join-style-powerpoint.png)
+![Ansamlingsstilen i presentationen](join-style-powerpoint.png)
 
-Följande C++‑kod demonstrerar hur tre rektanglar (som visas på bilden ovan) skapades med anslutningstyperna Snedkant, Fasad och Rund:
+Följande C++‑kod demonstrerar hur tre rektanglar (som visas på bilden ovan) skapades med Miter‑, Bevel‑ och Round‑anslutningstypinställningarna:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -189,12 +189,12 @@ auto presentation = MakeObject<Presentation>();
 // Hämta den första bilden.
 auto slide = presentation->get_Slide(0);
 
-// Lägg till tre automatiska former av typen Rektangel.
+// Lägg till tre autoformer av typen Rectangle.
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
 auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
 auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-// Ställ in fyllningsfärgen för varje rektangelform.
+// Ange fyllningsfärgen för varje rektangelform.
 shape1->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape2->get_FillFormat()->set_FillType(FillType::Solid);
@@ -202,12 +202,12 @@ shape2->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape3->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// Ställ in linjebredden.
+// Ange linjebredden.
 shape1->get_LineFormat()->set_Width(15);
 shape2->get_LineFormat()->set_Width(15);
 shape3->get_LineFormat()->set_Width(15);
 
-// Ställ in färgen för varje rektangels linje.
+// Ange färgen för varje rektangels linje.
 shape1->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 shape2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -215,7 +215,7 @@ shape2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Colo
 shape3->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Ställ in anknytningsstilen.
+// Ange anslutningsstilen.
 shape1->get_LineFormat()->set_JoinStyle(LineJoinStyle::Miter);
 shape2->get_LineFormat()->set_JoinStyle(LineJoinStyle::Bevel);
 shape3->get_LineFormat()->set_JoinStyle(LineJoinStyle::Round);
@@ -232,48 +232,28 @@ presentation->Dispose();
 
 ## **Gradientfyllning**
 
-I PowerPoint är Gradientfyllning ett formateringsalternativ som låter dig applicera ett kontinuerligt färgblandning på en form. Till exempel kan du applicera två eller flera färger så att den ena gradvis tonas ut i den andra.
+I PowerPoint är Gradientfyllning ett formateringsalternativ som låter dig applicera en kontinuerlig färgblandning på en form. Du kan till exempel använda två eller fler färger så att den ena gradvis tonas in i den andra.
 
-Så här appliceras en gradientfyllning på en form med Aspose.Slides:
+Så här applicerar du en gradientfyllning på en form med Aspose.Slides:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Gradient`.
-1. Lägg till dina två föredragna färger med definierade positioner med hjälp av `Add`‑metoderna i gradientstopp‑samlingen som exponeras av gränssnittet [IGradientFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/igradientformat/).
+1. Lägg till ett [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
+1. Ange formens [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) till `Gradient`.
+1. Lägg till dina två föredragna färger med definierade positioner med hjälp av `Add`‑metoderna i gradientstopp‑samlingen som exponeras av gränssnittet [IGradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/).
 1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Följande C++‑kod demonstrerar hur du applicerar en gradientfyllning på en ellips:
-
 ```cpp
-#include <DOM/FillType.h>
-#include <DOM/GradientDirection.h>
-#include <DOM/GradientShape.h>
-#include <DOM/IAutoShape.h>
-#include <DOM/IFillFormat.h>
-#include <DOM/IGradientFormat.h>
-#include <DOM/IGradientStopCollection.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/Presentation.h>
-#include <DOM/PresetColor.h>
-#include <DOM/ShapeType.h>
-#include <Export/SaveFormat.h>
-#include <system/smart_ptr.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace System;
-
 // Instansiera Presentation‑klassen som representerar en presentationsfil.
 auto presentation = MakeObject<Presentation>();
 
 // Hämta den första bilden.
 auto slide = presentation->get_Slide(0);
 
-// Lägg till en automatisk form av typen Ellips.
+// Lägg till en autoform av typen Ellipse.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-// Applicera gradientformatering på ellipsen.
+// Tillämpa gradientformatering på ellipsen.
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
 shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
 
@@ -291,26 +271,26 @@ presentation->Dispose();
 
 Resultatet:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![Ellipsen med gradientfyllning](gradient-fill.png)
+
+Om en gradient ser annorlunda ut i en exporterad bild än i PowerPoint, se [Choose a Gradient Rendering Style](/slides/sv/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Du kan välja en rendering‑stil utan att ändra gradientfyllningen som lagras i presentationen.
 
 ## **Mönsterfyllning**
 
-I PowerPoint är Mönsterfyllning ett formateringsalternativ som låter dig applicera en tvåfärgsdesign—såsom prickar, ränder, korsningar eller rutnät—på en form. Du kan välja egna färger för mönstrets förgrund och bakgrund.
+I PowerPoint är Mönsterfyllning ett formateringsalternativ som låter dig applicera en tvåfärgsdesign — såsom prickar, ränder, korsningar eller rutmönster — på en form. Du kan välja egna färger för mönstrets förgrund och bakgrund.
 
-Aspose.Slides erbjuder över 45 fördefinierade mönsterstilar som du kan applicera på former för att förbättra dina presentationers visuella intryck. Även efter att du valt ett fördefinierat mönster kan du specificera exakt vilka färger som ska användas.
+Aspose.Slides erbjuder mer än 45 fördefinierade mönsterstilar som du kan applicera på former för att förbättra det visuella intrycket i dina presentationer. Även efter att ha valt ett fördefinierat mönster kan du fortfarande ange de exakt färger som ska användas.
 
-Så här appliceras en mönsterfyllning på en form med Aspose.Slides:
+Så här applicerar du en mönsterfyllning på en form med Aspose.Slides:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Pattern`.
+1. Lägg till ett [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
+1. Ange formens [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) till `Pattern`.
 1. Välj en mönsterstil från de fördefinierade alternativen.
-1. Ställ in [Background Color](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipatternformat/get_backcolor/) för mönstret.
-1. Ställ in [Foreground Color](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipatternformat/get_forecolor/) för mönstret.
+1. Ange [Background Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) för mönstret.
+1. Ange [Foreground Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) för mönstret.
 1. Spara den ändrade presentationen som en PPTX‑fil.
-
-Följande C++‑kod visar hur du applicerar en mönsterfyllning på en rektangel:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -337,16 +317,16 @@ auto presentation = MakeObject<Presentation>();
 // Hämta den första bilden.
 auto slide = presentation->get_Slide(0);
 
-// Lägg till en automatisk form av typen Rektangel.
+// Lägg till en autoform av typen Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Ställ in fyllningstypen till Pattern.
+// Ange fyllningstypen till Pattern.
 shape->get_FillFormat()->set_FillType(FillType::Pattern);
 
-// Ställ in mönsterstilen.
+// Ange mönsterstilen.
 shape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
 
-// Ställ in mönstrets bakgrunds- och förgrundsfärger.
+// Ange mönstrets bakgrunds- och förgrundsfärger.
 shape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_LightGray());
 shape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
 
@@ -357,28 +337,28 @@ presentation->Dispose();
 
 Resultatet:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![Rektangeln med mönsterfyllning](pattern-fill.png)
 
 ## **Bildfyllning**
 
-I PowerPoint är Bildfyllning ett formateringsalternativ som låter dig infoga en bild i en form—effektivt använda bilden som formens bakgrund.
+I PowerPoint är Bildfyllning ett formateringsalternativ som låter dig infoga en bild i en form — effektivt använder bilden som formens bakgrund.
 
 Så här använder du Aspose.Slides för att applicera en bildfyllning på en form:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Picture`.
-1. Ställ in bildfyllningsläget till `Tile` (eller ett annat föredraget läge).
-1. Skapa ett [IPPImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ippimage/)‑objekt från den bild du vill använda.
+1. Lägg till ett [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
+1. Ange formens [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) till `Picture`.
+1. Ange bildfyllningsläget till `Tile` (eller ett annat föredraget läge).
+1. Skapa ett [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/)‑objekt från den bild du vill använda.
 1. Skicka bilden till metoden `ISlidesPicture.set_Image`.
 1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Låt oss säga att vi har en fil **lotus.png** med följande bild:
+Anta att vi har en "lotus.png"-fil med följande bild:
 
-![The lotus picture](lotus.png)
+![Lotus‑bilden](lotus.png)
 
-Följande C++‑kod demonstrerar hur du fyller en form med bilden:
+Följande C++‑kod demonstrerar hur man fyller en form med bilden:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -406,13 +386,13 @@ auto presentation = MakeObject<Presentation>();
 // Hämta den första bilden.
 auto slide = presentation->get_Slide(0);
 
-// Lägg till en automatisk form av typen Rektangel.
+// Lägg till en autoform av typen Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-// Ställ in fyllningstypen till Bild.
+// Ange fyllningstypen till Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Ställ in bildfyllningsläget.
+// Ange bildfyllningsläget.
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
 // Läs in en bild och lägg till den i presentationens resurser.
@@ -420,7 +400,7 @@ auto image = Images::FromFile(u"lotus.png");
 auto picture = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
-// Ställ in bilden.
+// Ange bilden.
 shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(picture);
 
 // Spara PPTX‑filen till disk.
@@ -430,21 +410,21 @@ presentation->Dispose();
 
 Resultatet:
 
-![The shape with picture fill](picture-fill.png)
+![Formen med bildfyllning](picture-fill.png)
 
-### **Tile Picture As Texture**
+### **Tile picture som textur**
 
-Om du vill använda en kaklad bild som textur och anpassa kaklingsbeteendet kan du använda följande metoder i gränssnittet [IPictureFillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipicturefillformat/) och klassen [PictureFillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/picturefillformat/):
+Om du vill sätta en tiled bild som en textur och anpassa tiling‑beteendet kan du använda följande metoder i gränssnittet [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) och klassen [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/):
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Ställer in bildfyllningsläget—antingen `Tile` eller `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Anger justeringen av kaklorna inom formen.
-- [set_TileFlip](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Styr om kakeln vänds horisontellt, vertikalt eller båda.
-- [set_TileOffsetX](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Ställer in horisontell förskjutning av kakeln (i punkter) från formens ursprung.
-- [set_TileOffsetY](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Ställer in vertikal förskjutning av kakeln (i punkter) från formens ursprung.
-- [set_TileScaleX](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Definierar horisontell skala för kakeln i procent.
-- [set_TileScaleY](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Definierar vertikal skala för kakeln i procent.
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Anger bildfyllningsläget — antingen `Tile` eller `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Anger justeringen av plattorna inom formen.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Styr om plattan vänds horisontellt, vertikalt eller båda.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Anger den horisontella offseten för plattan (i punkter) från formens ursprung.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Anger den vertikala offseten för plattan (i punkter) från formens ursprung.
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Definierar den horisontella skalningen av plattan i procent.
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Definierar den vertikala skalningen av plattan i procent.
 
-Följande kodexempel visar hur du lägger till en rektangelform med kaklad bildfyllning och konfigurerar kakelalternativen:
+Följande kodexempel visar hur man lägger till en rektangel med en tiled bildfyllning och konfigurerar tile‑alternativen:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -474,10 +454,10 @@ auto presentation = MakeObject<Presentation>();
 // Hämta den första bilden.
 auto firstSlide = presentation->get_Slide(0);
 
-// Lägg till en automatisk rektangelform.
+// Lägg till en rektangel-autoform.
 auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-// Ställ in fyllningstypen för formen till Bild.
+// Ange fyllningstypen för formen till Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
 // Läs in bilden och lägg till den i presentationens resurser.
@@ -489,7 +469,7 @@ sourceImage->Dispose();
 auto pictureFillFormat = shape->get_FillFormat()->get_PictureFillFormat();
 pictureFillFormat->get_Picture()->set_Image(presentationImage);
 
-// Konfigurera bildfyllningsläget och kaklingsegenskaperna.
+// Konfigurera bildfyllningsläget och tile-egenskaperna.
 pictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
 pictureFillFormat->set_TileOffsetX(-32);
 pictureFillFormat->set_TileOffsetY(-32);
@@ -505,22 +485,20 @@ presentation->Dispose();
 
 Resultatet:
 
-![The tile options](tile-options.png)
+![Tile‑alternativen](tile-options.png)
 
-## **Solid Color Fill**
+## **Solid färgfyllning**
 
 I PowerPoint är Solid Color Fill ett formateringsalternativ som fyller en form med en enda, enhetlig färg. Denna enkla bakgrundsfärg appliceras utan några gradienter, texturer eller mönster.
 
-För att applicera en solid färgfyllning på en form med Aspose.Slides, följ dessa steg:
+Så här applicerar du en solid färgfyllning på en form med Aspose.Slides:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Solid`.
-1. Tilldela din föredragna fyllningsfärg till formen.
+1. Lägg till ett [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
+1. Ange formens [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) till `Solid`.
+1. Tilldela den föredragna fyllnadsfärgen till formen.
 1. Spara den ändrade presentationen som en PPTX‑fil.
-
-Följande C++‑kod demonstrerar hur du applicerar en solid färgfyllning på en rektangel i en PowerPoint‑bild:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -545,13 +523,13 @@ auto presentation = MakeObject<Presentation>();
 // Hämta den första bilden.
 auto slide = presentation->get_Slide(0);
 
-// Lägg till en automatisk form av typen Rektangel.
+// Lägg till en autoform av typen Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Ställ in fyllningstypen till Solid.
+// Ange fyllningstypen till Solid.
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 
-// Ställ in fyllningsfärgen.
+// Ange fyllningsfärgen.
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
 
 // Spara PPTX-filen till disk.
@@ -561,22 +539,20 @@ presentation->Dispose();
 
 Resultatet:
 
-![The shape with solid color fill](solid-color-fill.png)
+![Formen med solid färgfyllning](solid-color-fill.png)
 
 ## **Ställ in transparens**
 
-I PowerPoint, när du applicerar en solid färg, gradient, bild eller texturfyllning på former, kan du också ange en transparensnivå för att kontrollera fyllningens opacitet. Ett högre transparensvärde gör formen mer genomskinlig, så att bakgrunden eller underliggande objekt delvis syns.
+I PowerPoint, när du applicerar en solid färg, gradient, bild eller texturfyllning på former kan du även ange en transparensnivå för att styra fyllningens opacitet. Ett högre transparensvärde gör formen mer genomskinlig, så att bakgrunden eller underliggande objekt delvis syns.
 
-Aspose.Slides låter dig sätta transparensnivån genom att justera alfavärdet i den färg som används för fyllningen. Så här gör du:
+Aspose.Slides låter dig ange transparensnivån genom att justera alfavärdet i den färg som används för fyllningen. Så här gör du:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/) på bilden.
-1. Ställ in [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Solid`.
-1. Använd `Color` för att definiera en färg med transparens (alfakomponenten styr transparensen).
+1. Lägg till ett [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
+1. Ange [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) till `Solid`.
+1. Använd `Color` för att definiera en färg med transparens (komponenten `alpha` styr transparensen).
 1. Spara presentationen.
-
-Följande C++‑kod demonstrerar hur du applicerar en transparent fyllningsfärg på en rektangel:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -595,42 +571,40 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation‑klassen som representerar en presentationsfil.
 auto presentation = MakeObject<Presentation>();
 
 // Hämta den första bilden.
 auto slide = presentation->get_Slide(0);
 
-// Lägg till en solid rektangulär automatisk form.
+// Lägg till en solid rektangel‑autoform.
 auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Lägg till en transparent rektangulär automatisk form ovanpå den solida formen.
+// Lägg till en transparent rektangel‑autoform ovanpå den solida formen.
 auto transparentShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
 transparentShape->get_FillFormat()->set_FillType(FillType::Solid);
 transparentShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(204, 255, 255, 0));
 
-// Spara PPTX-filen till disk.
+// Spara PPTX‑filen till disk.
 presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 Resultatet:
 
-![The transparent shape](shape-transparency.png)
+![Den transparenta formen](shape-transparency.png)
 
 ## **Rotera former**
 
-Aspose.Slides låter dig rotera former i PowerPoint‑presentationer. Detta kan vara användbart när du placerar visuella element med specifik justering eller designkrav.
+Aspose.Slides låter dig rotera former i PowerPoint‑presentationer. Detta kan vara användbart vid placering av visuella element med specifika justerings‑ eller designbehov.
 
 För att rotera en form på en bild, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/) på bilden.
-1. Ställ in formens rotations‑egenskap till önskad vinkel.
+1. Lägg till ett [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
+1. Ange formens roterings‑egenskap till önskad vinkel.
 1. Spara presentationen.
-
-Följande C++‑kod demonstrerar hur du roterar en form med 5 grader:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -650,7 +624,7 @@ auto presentation = MakeObject<Presentation>();
 // Hämta den första bilden.
 auto slide = presentation->get_Slide(0);
 
-// Lägg till en automatisk form av typen Rektangel.
+// Lägg till en autoform av typen Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
 // Rotera formen med 5 grader.
@@ -663,21 +637,19 @@ presentation->Dispose();
 
 Resultatet:
 
-![The shape rotation](shape-rotation.png)
+![Formens rotation](shape-rotation.png)
 
-## **Lägg till 3D‑Bergningseffekter**
+## **Lägg till 3D‑fasade effekter**
 
-Aspose.Slides gör det möjligt att tillämpa 3D‑bergningseffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/threedformat/)-egenskaper.
+Aspose.Slides låter dig tillämpa 3D‑fasade effekter på former genom att konfigurera deras egenskaper i [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/)‑egenskaper.
 
-För att lägga till 3D‑bergningseffekter på en form, följ dessa steg:
+För att lägga till 3D‑fasade effekter på en form, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+1. Instansiera klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/) på bilden.
-1. Konfigurera formens [ThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/threedformat/) för att definiera bergningsinställningarna.
+1. Lägg till ett [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
+1. Konfigurera formens [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) för att definiera fasinställningarna.
 1. Spara presentationen.
-
-Följande C++‑kod visar hur du applicerar 3D‑bergningseffekter på en form:
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -706,12 +678,12 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Create an instance of the Presentation class.
+// Skapa en instans av Presentation‑klassen.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
 
-// Add a shape to the slide.
+// Lägg till en form på bilden.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Green());
@@ -719,7 +691,7 @@ shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 shape->get_LineFormat()->set_Width(2.0);
 
-// Set the shape's ThreeDFormat properties.
+// Ställ in formens ThreeDFormat‑egenskaper.
 shape->get_ThreeDFormat()->set_Depth(4.0);
 shape->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
 shape->get_ThreeDFormat()->get_BevelTop()->set_Height(6);
@@ -728,28 +700,26 @@ shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::Orthog
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
 
-// Save the presentation as a PPTX file.
+// Spara presentationen som en PPTX‑fil.
 presentation->Save(u"3D_bevel_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 Resultatet:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![3D‑fasadeffekten](3D-bevel-effect.png)
 
-## **Lägg till 3D‑Rotations‑effekter**
+## **Lägg till 3D‑roterings‑effekter**
 
-Aspose.Slides gör det möjligt att tillämpa 3D‑rotereffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/threedformat/)-egenskaper.
+Aspose.Slides låter dig tillämpa 3D‑roterings‑effekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/)‑egenskaper.
 
 För att applicera 3D‑rotation på en form:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/) på bilden.
-1. Använd [set_CameraType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icamera/set_cameratype/) och [set_LightType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilightrig/set_lighttype/) för att definiera 3D‑rotationen.
+1. Lägg till ett [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
+1. Använd [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) och [set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) för att definiera 3D‑rotationen.
 1. Spara presentationen.
-
-Följande C++‑kod demonstrerar hur du tillämpar 3D‑rotereffekter på en form:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -769,7 +739,7 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Skapa en instans av Presentation-klassen.
+// Skapa en instans av Presentation‑klassen.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -782,22 +752,22 @@ shape->get_ThreeDFormat()->get_Camera()->SetRotation(40, 35, 20);
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::IsometricLeftUp);
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
 
-// Spara presentationen som en PPTX-fil.
+// Spara presentationen som en PPTX‑fil.
 presentation->Save(u"3D_rotation_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 Resultatet:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![3D‑roteringseffekten](3D-rotation-effect.png)
 
 ## **Styr svart‑vit rendering för former**
 
-Metoden [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/set_blackwhitemode/) specificerar hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vit läge. Den aktiverar inte svart‑vit visning i sig och ändrar inte formens fyllning, linje eller annan formatering i normalt färgläge.
+Metoden [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) specificerar hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vit‑läge. Den aktiverar inte svart‑vit‑visning i sig och ändrar inte formens fyllning, linje eller annan formatering i normalt färgläge.
 
-Använd ett värde från uppräkningen [BlackWhiteMode](https://reference.aspose.com/slides/sv/cpp/aspose.slides/blackwhitemode/) för att välja önskat beteende. Till exempel låter `Automatic` renderingsprogrammet välja konverteringen, `Gray` och `LightGray` använder gråtoner, `BlackWhite` använder endast svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färg, och `Hidden` utesluter formen i svart‑vit läge. `NotDefined` betyder att inget form‑specifikt läge är tilldelat.
+Använd ett värde från uppräkningen [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) för att välja önskat beteende. Till exempel låter `Automatic` renderingsprogrammet välja konverteringen, `Gray` och `LightGray` använder grå färgning, `BlackWhite` använder bara svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färgning och `Hidden` utesluter formen i svart‑vit‑läge. `NotDefined` betyder att inget mode har tilldelats på formnivå.
 
-Följande C++‑kod skapar en färgad form och får den att visas grå i svart‑vit visningsläge:
+Följande C++‑kod skapar en färgad form och får den att visas grå i svart‑vit‑visningsläge:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -824,18 +794,18 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 200
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 
-// Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
+// Behåll den orange fyllningen i färgläge, men rendera formen med grå färgning i svart‑vit läge.
 shape->set_BlackWhiteMode(BlackWhiteMode::Gray);
 
 presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-I normalt färgläge behåller rektangeln sin orange fyllning. I ett arbetsflöde med svart‑vit visning använder den grå färg eftersom dess läge är satt till `Gray`. Detta låter dig behålla en färgrik bild medan du definierar ett särskilt utseende för utskrift, förhandsgranskning eller andra arbetsflöden som respekterar presentationens svart‑vita visningsinställningar.
+I normalt färgläge behåller rektangeln sin orange fyllning. I ett arbetsflöde med svart‑vit visning använder den grå färgning eftersom dess läge är satt till `Gray`. Detta låter dig bevara en fullfärgs‑bild samtidigt som du definierar ett särskilt utseende för utskrift, förhandsgranskning eller andra arbetsflöden som hedrar presentationens svart‑vita displayinställningar.
 
 ## **Återställ formatering**
 
-Följande C++‑kod visar hur du återställer formateringen på en bild och återställer position, storlek och formatering för alla former med platshållare på [LayoutSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/layoutslide/) till deras standardinställningar:
+Följande C++‑kod visar hur du återställer formateringen av en bild och återställer position, storlek och formatering för alla former med platshållare på [LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) till deras standardinställningar:
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -862,14 +832,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Påverkar formateringen av former den slutgiltiga presentationsfilens storlek?**
+**Påverkar formatering av former den slutgiltiga presentationsfilens storlek?**
 
-Endast marginellt. Inbäddade bilder och media upptar mest utrymme, medan formparametrar som färger, effekter och gradienter lagras som metadata och lägger i praktiken till ingen extra storlek.
+Endast i liten grad. Inbäddade bilder och media tar upp största delen av filstorleken, medan formparametrar som färger, effekter och gradienter lagras som metadata och adderar i praktiskt taget ingen extra storlek.
 
-**Hur kan jag identifiera former på en bild som har identisk formatering så att jag kan gruppera dem?**
+**Hur kan jag upptäcka former på en bild som delar identisk formatering så att jag kan gruppera dem?**
 
-Jämför varje forms viktigaste formaterings‑egenskaper—fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
+Jämför varje forms nyckelformaterings‑egenskaper — fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
 
 **Kan jag spara en uppsättning anpassade formstilar i en separat fil för återanvändning i andra presentationer?**
 
-Ja. Spara exempelformer med önskade stilar i en mall‑presentation eller en .POTX‑mallfil. När du skapar en ny presentation, öppna mallen, klona de stylade former du behöver och återapplicera deras formatering där det krävs.
+Ja. Spara exempelformer med önskade stilar i en mall‑bildsamling eller en .POTX‑mallfil. När du skapar en ny presentation, öppna mallen, klona de stiliserade former du behöver och återapplicera deras formatering där det krävs.

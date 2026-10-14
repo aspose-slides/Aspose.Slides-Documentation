@@ -11,7 +11,7 @@ keywords:
 - конвертировать PPT
 - конвертировать PPTX
 - PowerPoint в PNG
-- презентацию в PNG
+- презентация в PNG
 - слайд в PNG
 - PPT в PNG
 - PPTX в PNG
@@ -21,113 +21,154 @@ keywords:
 - экспортировать PPTX в PNG
 - PHP
 - Aspose.Slides
-description: "Конвертируйте презентации PowerPoint в высококачественные PNG‑изображения быстро с помощью Aspose.Slides для PHP через Java, обеспечивая точные, автоматизированные результаты."
+description: "Конвертировать презентации PowerPoint в высококачественные PNG‑изображения быстро с помощью Aspose.Slides для PHP через Java, обеспечивая точные, автоматизированные результаты."
 ---
+## **Обзор**
 
-## **О конвертации PowerPoint в PNG**
+В этой статье объясняется, как преобразовать слайды презентаций в изображения PNG с помощью Aspose.Slides для PHP через Java. Вы можете загружать презентации в формате PPT, PPTX и ODP, рендерить каждый слайд и сохранять его как отдельное PNG‑изображение.
 
-Формат PNG (Portable Network Graphics) не так популярен, как JPEG (Joint Photographic Experts Group), но он всё ещё очень популярен. 
+Приведённые ниже примеры демонстрируют рендеринг в масштабе по умолчанию, увеличение масштаба, указание размеров вывода в пикселях и выбор стиля рендеринга градиента.
 
-**Случай использования:** Если у вас сложное изображение и размер не имеет значения, PNG — лучший формат изображения, чем JPEG. 
+## **Конвертировать PowerPoint в PNG**
 
-{{% alert title="Tip" color="primary" %}} Вы можете ознакомиться с бесплатными **конвертерами PowerPoint в PNG** от Aspose: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Это живой пример процесса, описанного на этой странице. {{% /alert %}}
+Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) и получите доступ к её слайдам через коллекцию [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides). В примере каждый слайд рендерится с помощью [Slide::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) без параметров для создания миниатюры. Затем вызывается [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) с [ImageFormat::Png](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/#Png), чтобы сохранить каждый отрендеренный слайд в виде PNG‑изображения.
 
-## **Конвертация PowerPoint в PNG**
-
-Выполните следующие шаги:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Получите объект слайда из коллекции [Presentation.getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) класса [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/).
-3. Вызовите метод [Slide.getImage()](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage), чтобы получить миниатюру каждого слайда.
-4. Используйте метод [IImage.save(String formatName, int imageFormat)](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) для сохранения миниатюры слайда в формате PNG.
-
-Этот PHP‑код демонстрирует, как преобразовать презентацию PowerPoint в PNG:
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
-      $slide = $pres->getSlides()->get_Item($index);
-      $slideImage = $slide->getImage();
-      try {
-        $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage();
+        try {
+            $image->save("slide_" . $index . ".png", ImageFormat::Png);
+        } finally {
+            $image->dispose();
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+{{% alert color="info" title="Note" %}}
+Перегрузка [Slide::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) без параметров рендерит с масштабом 0.2. Например, слайд размером 720 × 540 пунктов создаёт миниатюру 144 × 108 пикселей. Чтобы управлять размерами вывода, используйте перегрузки с коэффициентами масштаба или явно указанным размером изображения, показанным ниже.
+{{% /alert %}}
 
-## **Конвертация PowerPoint в PNG с пользовательскими размерами**
+## **Конвертировать PowerPoint в PNG с пользовательскими размерами**
 
-Если вы хотите получить PNG‑файлы определённого масштаба, можете установить значения `desiredX` и `desiredY`, которые определяют размеры получаемой миниатюры. 
+Передайте горизонтальные и вертикальные коэффициенты масштаба в [Slide::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage), чтобы контролировать размеры рендеринга. В этом примере оба коэффициента равны 2, поэтому слайд размером 720 Г— 540 пунктов создает изображение 1440 Г— 1080 пикселей. Равные коэффициенты сохраняют соотношение сторон слайда. Каждое изображение сохраняется в формате PNG с помощью [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save).
 
-Этот код демонстрирует описанную операцию:
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation.pptx");
+try {
     $scaleX = 2.0;
-    $scaleY = 2.0;
-    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
-      $slide = $pres->getSlides()->get_Item($index);
-      $slideImage = $slide->getImage($scaleX, $scaleY);
-      try {
-        $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+    $scaleY = $scaleX;
+
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage($scaleX, $scaleY);
+        try {
+            $image->save("slide_" . $index . ".png", ImageFormat::Png);
+        } finally {
+            $image->dispose();
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Конвертировать PowerPoint в PNG с пользовательским размером**
 
-## **Конвертация PowerPoint в PNG с пользовательским размером**
+Чтобы задать размеры вывода в пикселях, передайте размер в [Slide::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) вместо коэффициентов масштаба. Этот пример рендерит каждый слайд с размерами 960 Г— 720 пикселей и сохраняет результат с помощью [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). Выбирайте размеры, соответствующие соотношению сторон слайда, чтобы избежать растягивания изображения.
 
-Если вы хотите получить PNG‑файлы определённого размера, можете передать желаемые параметры `width` и `height` для `ImageSize`. 
-
-Этот код показывает, как конвертировать PowerPoint в PNG, задав размер изображений: 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $size = new Java("java.awt.Dimension", 960, 720);
-    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
-      $slide = $pres->getSlides()->get_Item($index);
-      $slideImage = $slide->getImage($size);
-      try {
-        $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $imageSize = new Java("java.awt.Dimension", 960, 720);
+
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage($imageSize);
+        try {
+            $image->save("slide_" . $index . ".png", ImageFormat::Png);
+        } finally {
+            $image->dispose();
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Выберите стиль рендеринга градиента**
 
-## **Вопросы и ответы**
+Предположим, что слайд содержит градиентные заливки, но переходы в экспортированном PNG выглядят светлее или иначе отличаются от того, что вы видите в PowerPoint. Вы можете использовать метод [SaveOptions::setGradientStyle](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setGradientStyle), унаследованный от [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/), чтобы выбрать способ рендеринга градиентов.
 
-**Как экспортировать только определённую форму (например, диаграмму или изображение), а не весь слайд?**  
-Aspose.Slides поддерживает [создание миниатюр отдельных фигур](/slides/ru/php-java/create-shape-thumbnails/); вы можете отрисовать форму в PNG‑изображение.
+Скачайте [gradient-styles.pptx](gradient-styles.pptx) и разместите его в рабочем каталоге приложения. Его первый слайд содержит два линейных градиента: от цианового к оранжевому вверху и от синего к жёлтому внизу. Каждый градиент имеет две точки остановки — на 0 % и 100 %.
 
-**Поддерживается ли параллельная конвертация на сервере?**  
-Да, но [не следует делить](/slides/ru/php-java/multithreading/) один экземпляр презентации между потоками. Используйте отдельный экземпляр для каждого потока или процесса.
+Следующий пример загружает эту презентацию и рендерит один и тот же первый слайд в обоих режимах с помощью [Slide::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage).
 
-**Каковы ограничения пробной версии при экспорте в PNG?**  
-В режиме оценки к выходным изображениям добавляется водяной знак и применяются [другие ограничения](/slides/ru/php-java/licensing/), пока не будет применена лицензия.
+```php
+use aspose\slides\GradientStyle;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\RenderingOptions;
+
+$presentation = new Presentation("gradient-styles.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $gradientStyles = [GradientStyle::Default, GradientStyle::PowerPointUI];
+    foreach ($gradientStyles as $style) {
+        $options = new RenderingOptions();
+        $options->setGradientStyle($style);
+
+        $styleName = $style == GradientStyle::Default ? "Default" : "PowerPointUI";
+        $image = $slide->getImage($options, 1.0, 1.0);
+        try {
+            $image->save("gradient-" . $styleName . ".png", ImageFormat::Png);
+        } finally {
+            $image->dispose();
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Изображения ниже показывают вывод одного и того же слайда, с обоими градиентами на каждом изображении:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Градиенты от цианового к оранжевому и от синего к жёлтому, отрендеренные с Default](gradient-Default.png) | ![Те же градиенты, отрендеренные с PowerPointUI](gradient-PowerPointUI.png) |
+
+В этом примере `Default` создаёт более светлые промежуточные цвета, тогда как `PowerPointUI` создаёт более тёмные промежуточные цвета. Разница зависит от цветов и точек остановки в градиенте.
+
+Выберите `Default`, если стандартный вывод Aspose.Slides подходит для ваших задач. Попробуйте `PowerPointUI`, если ваш приоритет — соответствие внешнему виду в PowerPoint. Сравните оба вывода с желаемым результатом; ни один режим не является универсально предпочтительным.
+
+## **Часто задаваемые вопросы**
+
+**Как экспортировать отдельную форму, например диаграмму или изображение, вместо всего слайда?**
+
+Aspose.Slides поддерживает [создание миниатюр для отдельных фигур](/slides/ru/php-java/create-shape-thumbnails/), позволяя рендерить форму в виде PNG‑изображения.
+
+**Поддерживается ли параллельное преобразование на сервере?**
+
+Да. Используйте отдельный экземпляр презентации для каждого потока или процесса; [не делитесь одним экземпляром между потоками](/slides/ru/php-java/multithreading/).
+
+**Каковы ограничения оценочной версии при экспорте в PNG?**
+
+Режим оценки добавляет водяной знак к выходным изображениям и применяет [другие ограничения](/slides/ru/php-java/licensing/), пока лицензия не будет применена.

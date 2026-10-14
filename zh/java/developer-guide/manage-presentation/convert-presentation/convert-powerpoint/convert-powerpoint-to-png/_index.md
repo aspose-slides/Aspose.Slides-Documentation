@@ -11,114 +11,156 @@ keywords:
 - 转换 PPT
 - 转换 PPTX
 - PowerPoint 转 PNG
-- 演示文稿 转 PNG
-- 幻灯片 转 PNG
+- 演示文稿转 PNG
+- 幻灯片转 PNG
 - PPT 转 PNG
 - PPTX 转 PNG
 - 将 PPT 保存为 PNG
 - 将 PPTX 保存为 PNG
-- 将 PPT 导出为 PNG
-- 将 PPTX 导出为 PNG
+- 导出 PPT 为 PNG
+- 导出 PPTX 为 PNG
 - Java
 - Aspose.Slides
 description: "使用 Aspose.Slides for Java 将 PowerPoint 演示文稿快速转换为高质量 PNG 图像，确保精确、自动化的结果。"
 ---
+## **概述**
 
-## **关于 PowerPoint 到 PNG 的转换**
+本文介绍了如何使用 Aspose.Slides for Java 将演示文稿幻灯片转换为 PNG 图像。您可以加载 PPT、PPTX 和 ODP 等格式的演示文稿，渲染每张幻灯片，并将其保存为单独的 PNG 图像。
 
-PNG（可移植网络图形）格式不像 JPEG（联合图像专家组）那样流行，但它仍然非常受欢迎。
-
-**使用场景：** 当您拥有复杂图像且尺寸不是问题时，PNG 是比 JPEG 更好的图像格式。
-
-{{% alert title="Tip" color="primary" %}} 您可能想查看 Aspose 免费的 **PowerPoint 到 PNG 转换器**: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) 和 [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png)。它们是本页所述过程的实时实现。 {{% /alert %}}
+下面的示例演示了默认比例渲染、放大比例渲染、以像素指定输出尺寸以及选择渐变渲染样式。
 
 ## **将 PowerPoint 转换为 PNG**
 
-请按照以下步骤操作：
+使用 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类加载演示文稿，并通过 [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) 集合访问其幻灯片。示例使用不带参数的 [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) 渲染每张幻灯片以创建缩略图。然后调用 [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) 并使用 [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/#Png) 将每个渲染的幻灯片保存为 PNG 图像。
 
-1. 实例化 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类。
-2. 从 [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) 集合中获取位于 [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) 接口下的幻灯片对象。
-3. 使用 [ISlide.getImage()](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) 方法获取每张幻灯片的缩略图。
-4. 使用 [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) 方法将幻灯片缩略图保存为 PNG 格式。
-
-下面的 Java 代码演示如何将 PowerPoint 演示文稿转换为 PNG：
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+无参数的 [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) 重载以 0.2 的比例渲染。例如，尺寸为 720 × 540 点的幻灯片会生成 144 × 108 像素的缩略图。要控制输出尺寸，请使用带比例因子的重载或下面显示的显式图像大小。{{% /alert %}}
 
 ## **使用自定义尺寸将 PowerPoint 转换为 PNG**
 
-如果您想获取特定比例的 PNG 文件，可以设置 `desiredX` 和 `desiredY` 的值，这些值决定生成的缩略图的尺寸。
+将水平和垂直比例因子传递给 [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-float-float-) 以控制渲染尺寸。在本例中，两者均为 2，因此尺寸为 720 × 540 点的幻灯片会生成 1440 × 1080 像素的图像。相等的比例因子可保持幻灯片的宽高比。每个图像使用 [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) 以 PNG 格式保存。
 
-下面的 Java 代码演示上述操作：
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **使用自定义大小将 PowerPoint 转换为 PNG**
 
-如果您想获取特定大小的 PNG 文件，可以为 `ImageSize` 传递您首选的 `width` 和 `height` 参数。
+要以像素指定输出尺寸，请向 [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) 传递尺寸，而不是比例因子。此示例将每张幻灯片渲染为 960 × 720 像素，并使用 [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) 保存结果。请选择与幻灯片宽高比匹配的尺寸，以避免图像被拉伸。
 
-下面的代码展示了在指定图像大小的情况下将 PowerPoint 转换为 PNG 的方法： 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Dimension imageSize = new Dimension(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **选择渐变渲染样式**
+
+假设幻灯片包含渐变填充，但导出的 PNG 中的过渡颜色看起来更浅或与 PowerPoint 中看到的不同。您可以使用 [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setGradientStyle-int-) 方法（由 [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) 继承）来选择渐变的渲染方式。
+
+下载 [gradient-styles.pptx](gradient-styles.pptx) 并将其放置在应用程序的工作目录中。它的第一张幻灯片包含两个线性渐变：顶部从青色到橙色，底部从蓝色到黄色。每个渐变在 0% 和 100% 处各有两个停靠点。
+
+以下示例加载此演示文稿，并使用 [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) 在两种模式下渲染相同的第一张幻灯片。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![使用 Default 渲染的青到橙和蓝到黄渐变](gradient-Default.png) | ![使用 PowerPointUI 渲染的相同渐变](gradient-PowerPointUI.png) |
+
+在本例中，`Default` 产生较浅的中间颜色，而 `PowerPointUI` 产生较暗的中间颜色。差异取决于渐变中的颜色和停靠点。
+
+如果标准的 Aspose.Slides 输出满足需求，请选择 `Default`。如果您的首要目标是匹配 PowerPoint 中的外观，请尝试 `PowerPointUI`。将两种输出与预期结果进行比较；两种模式都没有绝对的优劣。
 
 ## **常见问题**
 
-**如何仅导出特定形状（例如图表或图片）而不是整张幻灯片？**  
-Aspose.Slides 支持 [为单个形状生成缩略图](/slides/zh/java/create-shape-thumbnails/)；您可以将形状渲染为 PNG 图像。
+**如何导出特定形状（例如图表或图片），而不是整张幻灯片？**
 
-**服务器上是否支持并行转换？**  
-是的，但不要在多个线程之间 [共享](/slides/zh/java/multithreading/) 单个演示文稿实例。请为每个线程或进程使用单独的实例。
+Aspose.Slides 支持 [为单个形状生成缩略图](/slides/zh/java/create-shape-thumbnails/)，允许您将形状渲染为 PNG 图像。
 
-**导出为 PNG 时试用版有什么限制？**  
-评估模式会在输出图像上添加水印，并在未应用许可证之前执行 [其他限制](/slides/zh/java/licensing/)。
+**服务器上是否支持并行转换？**
+
+是的。为每个线程或进程使用单独的 Presentation 实例；[不要在多个线程之间共享同一实例](/slides/zh/java/multithreading/)。
+
+**导出为 PNG 时评估版有什么限制？**
+
+评估模式会在输出图像上添加水印，并在授权之前应用[其他限制](/slides/zh/java/licensing/)。

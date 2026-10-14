@@ -1,5 +1,5 @@
 ---
-title: การจัดรูปแบบรูปร่าง PowerPoint ใน C++
+title: จัดรูปแบบรูปร่าง PowerPoint ใน C++
 linktitle: การจัดรูปแบบรูปร่าง
 type: docs
 weight: 20
@@ -10,44 +10,44 @@ keywords:
 - เอฟเฟกต์สเก็ตช์
 - เส้นรูปร่างสเก็ตช์
 - จัดรูปแบบสไตล์การเชื่อมต่อ
-- การเติมไล่สี
-- การเติมลาย
-- การเติมรูปภาพ
-- การเติมพื้นผิว
+- การเติมแบบไล่สี
+- การเติมแบบลวดลาย
+- การเติมแบบภาพ
+- การเติมแบบพื้นผิว
 - การเติมสีทึบ
-- ความโปร่งใสของรูปร่าง
-- การแสดงผลรูปร่างสีขาว-ดำ
-- การแสดงผลรูปร่างระดับสีเทา
-- การหมุนรูปร่าง
-- เอฟเฟกต์ bevel 3 มิติ
+- ความโปร่งแสงของรูปทรง
+- การเรนเดอร์รูปทรงสีขาว-ดำ
+- การเรนเดอร์รูปทรงระดับสีเทา
+- หมุนรูปทรง
+- เอฟเฟกต์บีเวล 3 มิติ
 - เอฟเฟกต์การหมุน 3 มิติ
 - รีเซ็ตการจัดรูปแบบ
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint ใน C++ ด้วย Aspose.Slides—ตั้งค่าเติม, เส้น และสไตล์เอฟเฟกต์สำหรับไฟล์ PPT, PPTX, และ ODP ด้วยความแม่นยำและการควบคุมเต็มรูปแบบ."
+description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint ใน C++ ด้วย Aspose.Slides—ตั้งค่าการเติม, เส้น, และสไตล์เอฟเฟกต์สำหรับไฟล์ PPT, PPTX และ ODP อย่างแม่นยำและควบคุมเต็มที่"
 ---
 ## **บทนำ**
 
-ใน PowerPoint คุณสามารถเพิ่มรูปร่างลงในสไลด์ได้ เนื่องจากรูปร่างประกอบด้วยเส้น คุณสามารถจัดรูปแบบรูปร่างได้โดยการแก้ไขหรือใช้เอฟเฟกต์กับขอบเส้นของมัน นอกจากนี้ คุณยังสามารถจัดรูปแบบรูปร่างโดยระบุการตั้งค่าที่ควบคุมการเติมภายในของรูปร่างได้
+ใน PowerPoint คุณสามารถเพิ่มรูปทรงลงในสไลด์ได้ เนื่องจากรูปทรงประกอบด้วยเส้น คุณสามารถจัดรูปแบบได้โดยแก้ไขหรือใช้เอฟเฟกต์กับโครงร่างของมัน นอกจากนี้คุณยังสามารถจัดรูปแบบรูปทรงโดยระบุการตั้งค่าที่ควบคุมการเติมสีภายในของรูปทรงได้
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![รูปแบบ-รูปร่าง-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ มีอินเทอร์เฟซและเมธอดที่ให้คุณจัดรูปแบบรูปร่างโดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
+Aspose.Slides for C++ มีอินเทอร์เฟซและเมธอดที่ช่วยให้คุณสามารถจัดรูปแบบรูปทรงโดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint.
 
-## **รูปแบบเส้น**
+## **จัดรูปแบบเส้น**
 
-โดยใช้ Aspose.Slides คุณสามารถกำหนดรูปแบบเส้นที่กำหนดเองสำหรับรูปร่างได้ ขั้นตอนต่อไปนี้สรุปขั้นตอนการทำงาน:
+โดยใช้ Aspose.Slides คุณสามารถระบุสไตล์เส้นแบบกำหนดเองสำหรับรูปทรงได้ ขั้นตอนต่อไปนี้แสดงวิธีการ:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [รูปแบบเส้น](https://reference.aspose.com/slides/th/cpp/aspose.slides/linestyle/) ของรูปร่าง
-1. ตั้งค่าความกว้างของเส้น
-1. ตั้งค่า [รูปแบบเส้นประ](https://reference.aspose.com/slides/th/cpp/aspose.slides/linedashstyle/) ของเส้น
-1. ตั้งค่าสีเส้นสำหรับรูปร่าง
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)  
+1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน  
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ไปยังสไลด์  
+1. ตั้งค่า [line style](https://reference.aspose.com/slides/cpp/aspose.slides/linestyle/) ของรูปทรง  
+1. ตั้งค่าความกว้างของเส้น  
+1. ตั้งค่า [dash style](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) ของเส้น  
+1. ตั้งค่าสีเส้นสำหรับรูปทรง  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 ```cpp
 #include <DOM/FillType.h>
@@ -70,39 +70,41 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์พรีเซนเทชัน
 auto presentation = MakeObject<Presentation>();
 
-// ดึงสไลด์แรก.
+// รับสไลด์แรก
 auto slide = presentation->get_Slide(0);
 
-// เพิ่มออโต้เชปของประเภท Rectangle.
+// เพิ่ม AutoShape ประเภทสี่เหลี่ยม
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-// ตั้งค่าสีเติมสำหรับรูปร่างสี่เหลี่ยม.
+// ตั้งค่าสีเติมสำหรับรูปทรงสี่เหลี่ยม
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// นำการจัดรูปแบบไปใช้กับเส้นของสี่เหลี่ยม.
+// ใช้การจัดรูปแบบกับเส้นของสี่เหลี่ยม
 shape->get_LineFormat()->set_Style(LineStyle::ThickThin);
 shape->get_LineFormat()->set_Width(7);
 shape->get_LineFormat()->set_DashStyle(LineDashStyle::Dash);
 
-// ตั้งค่าสีสำหรับเส้นของสี่เหลี่ยม.
+// ตั้งค่าสีสำหรับเส้นของสี่เหลี่ยม
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// บันทึกไฟล์ PPTX ไปยังดิสก์.
+// บันทึกไฟล์ PPTX ลงดิสก์
 presentation->Save(u"formatted_lines.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![เส้นที่จัดรูปแบบในงานนำเสนอ](formatted-lines.png)
+ผลลัพธ์:
 
-## **ใช้เอฟเฟกต์สเก็ตช์กับเส้นรูปร่าง**
+![เส้นที่จัดรูปแบบในพรีเซนเทชัน](formatted-lines.png)
 
-เอฟเฟกต์สเก็ตช์ทำให้เส้นของรูปร่างดูเหมือนวาดมือ ใช้ [IShape::get_LineFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/get_lineformat/) เพื่อเข้าถึงการตั้งค่าเส้น, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilineformat/get_sketchformat/) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/th/cpp/aspose.slides/isketchformat/set_sketchtype/) เพื่อเลือกค่าจาก enumeration [LineSketchType](https://reference.aspose.com/slides/th/cpp/aspose.slides/linesketchtype/)
+## **ใช้เอฟเฟ็กต์สเก็ตช์กับเส้นรูปทรง**
 
-โค้ด C++ ด้านล่างแสดงวิธีการใช้เอฟเฟกต์ [LineSketchType::Curved](https://reference.aspose.com/slides/th/cpp/aspose.slides/linesketchtype/) อ่านค่าที่กำหนดโดยชัดเจน, และลบเอฟเฟกต์ด้วย [LineSketchType::None](https://reference.aspose.com/slides/th/cpp/aspose.slides/linesketchtype/):
+เอฟเฟ็กต์สเก็ตช์ทำให้เส้นของรูปทรงดูเหมือนวาดด้วยมือ ใช้ [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) เพื่อเข้าถึงการตั้งค่าเส้น, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) เพื่อเลือกค่าจากแบรนด์ [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/)  
+
+โค้ด C++ ด้านล่างแสดงวิธีใช้เอฟเฟ็กต์ [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) , อ่านค่าที่กำหนดโดยตรง, และลบเอฟเฟ็กต์ด้วย [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) :
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -126,7 +128,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-ค่าที่คืนโดย [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/th/cpp/aspose.slides/isketchformat/get_sketchtype/) แสดงถึงการตั้งค่าที่กำหนดโดยตรงให้กับรูปร่าง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม, สไลด์แม่ หรือสไลด์เลย์เอาต์ ให้ใช้ [ILineFormat::GetEffective](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilineformat/geteffective/) เพื่อเข้าถึง [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) แล้วอ่านค่า [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/th/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) ค่าที่มีผลจะสะท้อนการจัดรูปแบบที่ใช้จริงหลังจากการสืบทอดได้รับการแก้ไข:
+ค่าที่ส่งกลับโดย [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) แสดงการตั้งค่าที่กำหนดโดยตรงให้กับรูปทรง หากการกำหนดรูปแบบเส้นสามารถสืบทอดจากธีม, สไลด์แม่, หรือสไลด์เลย์เอาต์ ให้ใช้ [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), เข้าถึง [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) และอ่านค่า [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) ค่าที่มีผลจริงจะแสดงการจัดรูปแบบที่ถูกนำไปใช้จริงหลังจากการสืบทอดได้รับการแก้ไข :
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"presentation.pptx");
@@ -144,17 +146,19 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **รูปแบบการเชื่อมต่อ**
+## **จัดรูปแบบสไตล์การเชื่อมต่อ**
 
-ต่อไปนี้เป็นตัวเลือกประเภทการเชื่อมต่อสามประเภท:
+ต่อไปนี้คือสามตัวเลือกประเภทการเชื่อมต่อ:
 
-* โค้ง
-* มิตเตอร์
-* บีเวล
+* Round
+* Miter
+* Bevel
 
-โดยค่าเริ่มต้น PowerPoint จะเชื่อมเส้นสองเส้นที่มุม (เช่นที่มุมของรูปร่าง) โดยใช้การตั้งค่า **โค้ง** อย่างไรก็ตาม หากคุณกำลังวาดรูปร่างที่มีมุมคม คุณอาจต้องการใช้ตัวเลือก **มิตเตอร์**
+โดยค่าเริ่มต้น เมื่อ PowerPoint เชื่อมสองเส้นที่มุม (เช่นที่มุมของรูปทรง) จะใช้การตั้งค่า **Round** หากคุณวาดรูปทรงที่มุมแหลม คุณอาจต้องการตัวเลือก **Miter**  
 
-![รูปแบบการเชื่อมต่อในงานนำเสนอ](join-style-powerpoint.png)
+![สไตล์การเชื่อมต่อในพรีเซนเทชัน](join-style-powerpoint.png)
+
+โค้ด C++ ด้านล่างแสดงวิธีที่สี่เหลี่ยมสามรูป (ตามรูปด้านบน) ถูกสร้างโดยใช้การตั้งค่าประเภทการเชื่อมต่อ Miter, Bevel, และ Round :
 
 ```cpp
 #include <DOM/FillType.h>
@@ -177,18 +181,18 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์พรีเซนเทชัน
 auto presentation = MakeObject<Presentation>();
 
-// ดึงสไลด์แรก.
+// รับสไลด์แรก
 auto slide = presentation->get_Slide(0);
 
-// เพิ่มออโต้เชปสามรูปประเภท Rectangle.
+// เพิ่ม AutoShape จำนวนสามรูปที่เป็นประเภทสี่เหลี่ยม
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
 auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
 auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-// ตั้งค่าสีเติมสำหรับแต่ละรูปสี่เหลี่ยม.
+// ตั้งค่าสีเติมสำหรับแต่ละรูปทรงสี่เหลี่ยม
 shape1->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape2->get_FillFormat()->set_FillType(FillType::Solid);
@@ -196,12 +200,12 @@ shape2->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape3->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// ตั้งค่าความกว้างของเส้น.
+// ตั้งค่าความกว้างของเส้น
 shape1->get_LineFormat()->set_Width(15);
 shape2->get_LineFormat()->set_Width(15);
 shape3->get_LineFormat()->set_Width(15);
 
-// ตั้งค่าสีสำหรับเส้นของแต่ละสี่เหลี่ยม.
+// ตั้งค่าสีสำหรับเส้นของแต่ละสี่เหลี่ยม
 shape1->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 shape2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -209,33 +213,33 @@ shape2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Colo
 shape3->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// ตั้งค่าสไตล์การเชื่อมต่อ.
+// ตั้งค่าสไตล์การเชื่อมต่อ
 shape1->get_LineFormat()->set_JoinStyle(LineJoinStyle::Miter);
 shape2->get_LineFormat()->set_JoinStyle(LineJoinStyle::Bevel);
 shape3->get_LineFormat()->set_JoinStyle(LineJoinStyle::Round);
 
-// เพิ่มข้อความในแต่ละสี่เหลี่ยม.
+// เพิ่มข้อความให้กับแต่ละสี่เหลี่ยม
 shape1->get_TextFrame()->set_Text(u"Miter Join Style");
 shape2->get_TextFrame()->set_Text(u"Bevel Join Style");
 shape3->get_TextFrame()->set_Text(u"Round Join Style");
 
-// บันทึกไฟล์ PPTX ไปยังดิสก์.
+// บันทึกไฟล์ PPTX ลงดิสก์
 presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ## **การเติมแบบไล่สี**
 
-ใน PowerPoint, การเติมแบบไล่สีเป็นตัวเลือกการจัดรูปแบบที่ให้คุณใช้การผสมสีต่อเนื่องกับรูปร่าง ตัวอย่างเช่น คุณสามารถใช้สองสีหรือมากกว่่านั้นโดยให้สีหนึ่งค่อย ๆ จางลงเป็นอีกสีหนึ่ง
+ใน PowerPoint การเติมแบบไล่สีเป็นตัวเลือกการจัดรูปแบบที่ให้คุณใช้การผสมสีอย่างต่อเนื่องกับรูปทรง ตัวอย่างเช่น คุณสามารถใช้สีสองสีหรือมากกว่านั้นโดยสีหนึ่งค่อย ๆ เบลอเข้ากับอีกสีหนึ่ง  
 
-ต่อไปนี้คือวิธีการใช้การเติมแบบไล่สีกับรูปร่างโดยใช้ Aspose.Slides:
+ต่อไปนี้เป็นวิธีการใช้ Aspose.Slides เพื่อเติมแบบไล่สีให้กับรูปทรง:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/cpp/aspose.slides/filltype/) ของรูปร่างเป็น `Gradient`
-1. เพิ่มสีที่คุณต้องการสองสีพร้อมตำแหน่งที่กำหนดโดยใช้เมธอด `Add` ของคอลเลกชัน gradient stop ที่เปิดให้ผ่านอินเทอร์เฟซ [IGradientFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/igradientformat/)
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)  
+1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน  
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ไปยังสไลด์  
+1. ตั้งค่า [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) ของรูปทรงเป็น `Gradient`  
+1. เพิ่มสีที่คุณต้องการสองสีพร้อมตำแหน่งที่กำหนดโดยใช้เมธอด `Add` ของคอลเลกชันจุดหยุดไล่สีที่เปิดเผยโดยอินเทอร์เฟซ [IGradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/)  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 ```cpp
 #include <DOM/FillType.h>
@@ -256,49 +260,53 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์พรีเซนเทชัน
 auto presentation = MakeObject<Presentation>();
 
-// ดึงสไลด์แรก.
+// รับสไลด์แรก
 auto slide = presentation->get_Slide(0);
 
-// เพิ่มออโต้เชปประเภท Ellipse.
+// เพิ่ม AutoShape ประเภท Ellipse
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-// ใช้การจัดรูปแบบไล่สีกับวงรี.
+// ใช้การจัดรูปแบบไล่สีกับวงรี
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
 shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
 
-// ตั้งทิศทางของไล่สี.
+// ตั้งค่าทิศทางของไล่สี
 shape->get_FillFormat()->get_GradientFormat()->set_GradientDirection(GradientDirection::FromCorner2);
 
-// เพิ่มจุดหยุดไล่สีสองจุด.
+// เพิ่มจุดหยุดไล่สีสองจุด
 shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(1.0f, PresetColor::Purple);
 shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, PresetColor::Red);
 
-// บันทึกไฟล์ PPTX ไปยังดิสก์.
+// บันทึกไฟล์ PPTX ลงดิสก์
 presentation->Save(u"gradient_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+ผลลัพธ์:
+
 ![วงรีที่มีการเติมแบบไล่สี](gradient-fill.png)
 
-## **การเติมลาย**
+หากไล่สีดูแตกต่างในภาพที่ส่งออกเมื่อเทียบกับใน PowerPoint ให้ดูที่ [Choose a Gradient Rendering Style](/slides/th/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). คุณสามารถเลือกสไตล์การเรนเดอร์ได้โดยไม่ต้องเปลี่ยนการเติมแบบไล่สีที่เก็บไว้ในพรีเซนเทชัน.
 
-ใน PowerPoint, การเติมลายเป็นตัวเลือกการจัดรูปแบบที่ให้คุณใช้การออกแบบสองสี—เช่น จุด, ลายเส้น, ลายตาข่าย หรือเช็ก—กับรูปร่าง คุณสามารถเลือกสีกำหนดเองสำหรับสีหน้าและสีพื้นหลังของลายได้
+## **การเติมแบบลวดลาย**
 
-Aspose.Slides มีสไตล์ลายที่กำหนดล่วงหน้าเกิน 45 แบบที่คุณสามารถใช้กับรูปร่างเพื่อเพิ่มความสวยงามของการนำเสนอของคุณ แม้หลังจากเลือกลายที่กำหนดล่วงหน้าแล้ว คุณก็ยังสามารถระบุสีที่ต้องการให้ใช้ได้
+ใน PowerPoint การเติมแบบลวดลายเป็นตัวเลือกการจัดรูปแบบที่ให้คุณใช้การออกแบบสองสี—เช่น จุด, ลายเส้น, ลายตะแครง, หรือเช็คบอร์ด—กับรูปทรง คุณสามารถเลือกสีที่กำหนดเองสำหรับพื้นหน้าและพื้นหลังของลวดลายได้  
 
-ต่อไปนี้คือวิธีการใช้การเติมลายกับรูปร่างโดยใช้ Aspose.Slides:
+Aspose.Slides มีลายลักษณ์แบบล่วงหน้ากว่า 45 แบบที่คุณสามารถใช้กับรูปทรงเพื่อเพิ่มความสวยงามของพรีเซนเทชันได้ แม้หลังจากเลือกลายลักษณ์แบบที่กำหนดไว้แล้ว คุณก็ยังสามารถระบุสีที่ต้องการใช้ได้อย่างแม่นยำ  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/cpp/aspose.slides/filltype/) ของรูปร่างเป็น `Pattern`
-1. เลือกสไตล์ลายจากตัวเลือกที่กำหนดล่วงหน้า
-1. ตั้งค่า [Background Color](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipatternformat/get_backcolor/) ของลาย
-1. ตั้งค่า [Foreground Color](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipatternformat/get_forecolor/) ของลาย
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ต่อไปนี้เป็นวิธีการใช้ Aspose.Slides เพื่อเติมแบบลวดลายให้รูปทรง:
+
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)  
+1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน  
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ไปยังสไลด์  
+1. ตั้งค่า [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) ของรูปทรงเป็น `Pattern`  
+1. เลือกสไตล์ลวดลายจากตัวเลือกที่กำหนดไว้ล่วงหน้า  
+1. ตั้งค่า [Background Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) ของลวดลาย  
+1. ตั้งค่า [Foreground Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) ของลวดลาย  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 ```cpp
 #include <DOM/FillType.h>
@@ -319,48 +327,52 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 auto presentation = MakeObject<Presentation>();
 
-// ดึงสไลด์แรก
+// รับสไลด์แรก
 auto slide = presentation->get_Slide(0);
 
-// เพิ่มออโต้เชปประเภท Rectangle
+// เพิ่ม AutoShape ประเภท Rectangle
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
 // ตั้งค่าชนิดการเติมเป็น Pattern
 shape->get_FillFormat()->set_FillType(FillType::Pattern);
 
-// ตั้งค่าสไตล์ลาย
+// ตั้งค่าสไตล์ลายลักษณ์แบบ
 shape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
 
-// ตั้งค่าสีพื้นหลังและสีพื้นหน้าของลาย
+// ตั้งค่าสีพื้นหลังและสีพื้นหน้าของลายลักษณ์แบบ
 shape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_LightGray());
 shape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
 
-// บันทึกไฟล์ PPTX ไปยังดิสก์
+// บันทึกไฟล์ PPTX ลงดิสก์
 presentation->Save(u"pattern_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![สี่เหลี่ยมที่มีการเติมลาย](pattern-fill.png)
+ผลลัพธ์:
 
-## **การเติมรูปภาพ**
+![สี่เหลี่ยมที่มีการเติมลวดลาย](pattern-fill.png)
 
-ใน PowerPoint, การเติมรูปภาพเป็นตัวเลือกการจัดรูปแบบที่ให้คุณแทรกรูปภาพเข้าไปในรูปร่าง—โดยใช้รูปภาพเป็นพื้นหลังของรูปร่าง
+## **การเติมแบบภาพ**
 
-ต่อไปนี้คือวิธีการใช้ Aspose.Slides เพื่อใช้การเติมรูปภาพกับรูปร่าง:
+ใน PowerPoint การเติมแบบภาพเป็นตัวเลือกการจัดรูปแบบที่ให้คุณแทรกภาพภายในรูปทรง—โดยใช้ภาพเป็นพื้นหลังของรูปทรงอย่างมีประสิทธิภาพ  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/cpp/aspose.slides/filltype/) ของรูปร่างเป็น `Picture`
-1. ตั้งค่าโหมดการเติมรูปภาพเป็น `Tile` (หรือโหมดอื่นที่ต้องการ)
-1. สร้างอ็อบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/cpp/aspose.slides/ippimage/) จากภาพที่คุณต้องการใช้
-1. ส่งภาพไปยังเมธอด `ISlidesPicture.set_Image`
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ต่อไปนี้เป็นวิธีการใช้ Aspose.Slides เพื่อเติมแบบภาพให้กับรูปทรง:
 
-![รูปภาพบัว](lotus.png)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)  
+1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน  
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ไปยังสไลด์  
+1. ตั้งค่า [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) ของรูปทรงเป็น `Picture`  
+1. ตั้งค่าโหมดการเติมภาพเป็น `Tile` (หรือโหมดที่ต้องการอื่น)  
+1. สร้างวัตถุ [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) จากภาพที่คุณต้องการใช้  
+1. ส่งภาพไปยังเมธอด `ISlidesPicture.set_Image`  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
+
+สมมติว่าเรามีไฟล์ "lotus.png" ที่มีภาพต่อไปนี้:
+
+![ภาพดอกบัว](lotus.png)
 
 ```cpp
 #include <DOM/FillType.h>
@@ -382,45 +394,51 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์พรีเซนเทชัน
 auto presentation = MakeObject<Presentation>();
 
-// ดึงสไลด์แรก.
+// รับสไลด์แรก
 auto slide = presentation->get_Slide(0);
 
-// เพิ่มออโต้เชปประเภท Rectangle.
+// เพิ่ม AutoShape ประเภท Rectangle
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-// ตั้งค่าชนิดการเติมเป็น Picture.
+// ตั้งค่าชนิดการเติมเป็น Picture
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// ตั้งค่าโหมดการเติมรูปภาพ.
+// ตั้งค่าโหมดการเติมภาพ
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
-// โหลดรูปภาพและเพิ่มลงในทรัพยากรของงานนำเสนอ.
+// โหลดภาพและเพิ่มเข้าไปในทรัพยากรของพรีเซนเทชัน
 auto image = Images::FromFile(u"lotus.png");
 auto picture = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
-// ตั้งค่ารูปภาพ.
+// ตั้งค่าภาพ
 shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(picture);
 
-// บันทึกไฟล์ PPTX ไปยังดิสก์.
+// บันทึกไฟล์ PPTX ลงดิสก์
 presentation->Save(u"picture_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![รูปร่างที่มีการเติมรูปภาพ](picture-fill.png)
+ผลลัพธ์:
 
-### **ใช้รูปภาพเป็นพื้นผิวแบบปูกระเบียบ**
+![รูปทรงที่เติมด้วยภาพ](picture-fill.png)
 
-- `[set_PictureFillMode](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/)`: ตั้งค่าโหมดการเติมรูปภาพ — `Tile` หรือ `Stretch`
-- `[set_TileAlignment](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipicturefillformat/set_tilealignment/)`: ระบุตำแหน่งการจัดวางของไทล์ภายในรูปร่าง
-- `[set_TileFlip](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipicturefillformat/set_tileflip/)`: ควบคุมว่ไทล์จะพลิกแนวนอน แนวตั้ง หรือทั้งสองอย่าง
-- `[set_TileOffsetX](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/)`: ตั้งค่าออฟเซ็ตแนวนอนของไทล์ (เป็นพอยท์) จากจุดกำเนิดของรูปร่าง
-- `[set_TileOffsetY](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/)`: ตั้งค่าออฟเซ็ตแนวตั้งของไทล์ (เป็นพอยท์) จากจุดกำเนิดของรูปร่าง
-- `[set_TileScaleX](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipicturefillformat/set_tilescalex/)`: กำหนดสเกลแนวนอนของไทล์เป็นเปอร์เซ็นต์
-- `[set_TileScaleY](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipicturefillformat/set_tilescaley/)`: กำหนดสเกลแนวตั้งของไทล์เป็นเปอร์เซ็นต์
+### **วางรูปภาพเป็นพื้นผิวแบบต่อกัน**
+
+หากคุณต้องการตั้งค่าภาพต่อกันเป็นพื้นผิวและปรับพฤติกรรมการต่อให้กำหนดเอง คุณสามารถใช้เมธอดต่อนี้ของอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) :
+
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): ตั้งค่าโหมดการเติมภาพ—either `Tile` หรือ `Stretch`.  
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): ระบุตำแหน่งการจัดเรียงของกระเบื้องภายในรูปทรง.  
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): ควบคุมว่ากระเบื้องจะกลับด้านในแนวนอน แนวตั้ง หรือทั้งสองอย่าง.  
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): ตั้งค่าออฟเซ็ตแนวนอนของกระเบื้อง (เป็นจุด) จากต้นกำเนิดของรูปทรง.  
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): ตั้งค่าออฟเซ็ตแนวตั้งของกระเบื้อง (เป็นจุด) จากต้นกำเนิดของรูปทรง.  
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): กำหนดสเกลแนวนอนของกระเบื้องเป็นเปอร์เซ็นต์.  
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): กำหนดสเกลแนวตั้งของกระเบื้องเป็นเปอร์เซ็นต์.  
+
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีเพิ่มรูปทรงสี่เหลี่ยมที่มีการเติมภาพแบบต่อกันและกำหนดตัวเลือกของกระเบื้อง:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -444,28 +462,28 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์พรีเซนเทชัน
 auto presentation = MakeObject<Presentation>();
 
-// ดึงสไลด์แรก.
+// รับสไลด์แรก
 auto firstSlide = presentation->get_Slide(0);
 
-// เพิ่มออโต้เชปสี่เหลี่ยมผืนผ้า.
+// เพิ่ม AutoShape ประเภท Rectangle
 auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-// ตั้งค่าชนิดการเติมของรูปร่างเป็น Picture.
+// ตั้งค่าชนิดการเติมของรูปทรงเป็น Picture
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// โหลดภาพและเพิ่มลงในทรัพยากรของงานนำเสนอ.
+// โหลดภาพและเพิ่มเข้าไปในทรัพยากรของพรีเซนเทชัน
 auto sourceImage = Images::FromFile(u"lotus.png");
 auto presentationImage = presentation->get_Images()->AddImage(sourceImage);
 sourceImage->Dispose();
 
-// กำหนดภาพให้กับรูปร่าง.
+// กำหนดภาพให้กับรูปทรง
 auto pictureFillFormat = shape->get_FillFormat()->get_PictureFillFormat();
 pictureFillFormat->get_Picture()->set_Image(presentationImage);
 
-// ตั้งค่าโหมดการเติมรูปภาพและคุณสมบัติการปูกระเบียบ.
+// กำหนดค่าโหมดการเติมภาพและคุณลักษณะการต่อภาพ
 pictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
 pictureFillFormat->set_TileOffsetX(-32);
 pictureFillFormat->set_TileOffsetY(-32);
@@ -474,25 +492,25 @@ pictureFillFormat->set_TileScaleY(50);
 pictureFillFormat->set_TileAlignment(RectangleAlignment::BottomRight);
 pictureFillFormat->set_TileFlip(TileFlip::FlipBoth);
 
-// บันทึกไฟล์ PPTX ไปยังดิสก์.
+// บันทึกไฟล์ PPTX ลงดิสก์
 presentation->Save(u"tile.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![ตัวเลือกการปูกระเบียบ](tile-options.png)
+ผลลัพธ์:
+
+![ตัวเลือกการต่อภาพ](tile-options.png)
 
 ## **การเติมสีทึบ**
 
-ใน PowerPoint, การเติมสีทึบเป็นตัวเลือกการจัดรูปแบบที่เติมสีเดียวที่สม่ำเสมอบนรูปร่าง สีพื้นหลังเรียบนี้จะถูกใช้โดยไม่มีการไล่สี, เท็กซ์เจอร์, หรือ ลายใด ๆ
+ใน PowerPoint การเติมสีทึบเป็นตัวเลือกการจัดรูปแบบที่เติมสีเดียวที่สม่ำเสมอลงในรูปทรง สีพื้นหลังเรียบนี้จะถูกใช้โดยไม่มีการไล่สี, พื้นผิว, หรือ ลวดลายใดๆ  
 
-เพื่อใช้การเติมสีทึบกับรูปร่างโดยใช้ Aspose.Slides ให้ทำตามขั้นตอนต่อนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/cpp/aspose.slides/filltype/) ของรูปร่างเป็น `Solid`
-1. กำหนดสีเติมที่คุณต้องการให้กับรูปร่าง
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)  
+1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน  
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ไปยังสไลด์  
+1. ตั้งค่า [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) ของรูปทรงเป็น `Solid`  
+1. กำหนดสีเติมที่คุณต้องการให้กับรูปทรง  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
 
 ```cpp
 #include <DOM/FillType.h>
@@ -511,40 +529,42 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์พรีเซนเทชัน
 auto presentation = MakeObject<Presentation>();
 
-// ดึงสไลด์แรก.
+// รับสไลด์แรก
 auto slide = presentation->get_Slide(0);
 
-// เพิ่มออโต้เชปประเภท Rectangle.
+// เพิ่ม AutoShape ประเภท Rectangle
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// ตั้งค่าชนิดการเติมเป็น Solid.
+// ตั้งค่าชนิดการเติมเป็น Solid
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 
-// ตั้งค่าสีเติม.
+// ตั้งค่าสีเติม
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
 
-// บันทึกไฟล์ PPTX ไปยังดิสก์.
+// บันทึกไฟล์ PPTX ลงดิสก์
 presentation->Save(u"solid_color_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![รูปร่างที่มีการเติมสีทึบ](solid-color-fill.png)
+ผลลัพธ์:
 
-## **ตั้งค่าความโปร่งใส**
+![รูปทรงที่เติมสีทึบ](solid-color-fill.png)
 
-ใน PowerPoint, เมื่อคุณใช้การเติมสีทึบ, ไล่สี, รูปภาพ หรือเท็กซ์เจอร์กับรูปร่าง คุณสามารถตั้งค่าระดับความโปร่งใสเพื่อควบคุมความทึบของการเติมได้ ค่าความโปร่งใสที่สูงจะทำให้รูปร่างโปร่งใสมากขึ้น ทำให้พื้นหลังหรือวัตถุใต้รูปร่างมองเห็นได้บางส่วน
+## **ตั้งค่าความโปร่งแสง**
 
-Aspose.Slides ให้คุณตั้งค่าความโปร่งใสโดยปรับค่า alpha ของสีที่ใช้สำหรับการเติม นี่คือวิธีทำ:
+ใน PowerPoint เมื่อคุณใช้สีทึบ, ไล่สี, ภาพ, หรือการเติมพื้นผิวกับรูปทรง คุณยังสามารถตั้งค่าระดับความโปร่งแสงเพื่อควบคุมความทึบของการเติมได้ ค่าความโปร่งแสงที่สูงทำให้รูปทรงดูโปร่งแสงมากขึ้น ทำให้พื้นหลังหรือวัตถุที่อยู่ด้านล่างมองเห็นได้บางส่วน  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/cpp/aspose.slides/filltype/) ของรูปร่างเป็น `Solid`
-1. ใช้ `Color` เพื่อกำหนดสีพร้อมความโปร่งใส (คอมโพเนนต์ `alpha` ควบคุมความโปร่งใส)
-1. บันทึกงานนำเสนอ
+Aspose.Slides ให้คุณตั้งค่าระดับความโปร่งแสงโดยปรับค่า alpha ของสีที่ใช้สำหรับการเติม นี่คือวิธีทำ:
+
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)  
+1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน  
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ไปยังสไลด์  
+1. ตั้งค่า [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) เป็น `Solid`  
+1. ใช้ `Color` เพื่อกำหนดสีที่มีความโปร่งแสง (ส่วนประกอบ `alpha` ควบคุมความโปร่งแสง)  
+1. บันทึกพรีเซนเทชัน  
 
 ```cpp
 #include <DOM/FillType.h>
@@ -563,38 +583,38 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์พรีเซนเทชัน
 auto presentation = MakeObject<Presentation>();
 
-// ดึงสไลด์แรก.
+// รับสไลด์แรก
 auto slide = presentation->get_Slide(0);
 
-// เพิ่มออโต้เชปสี่เหลี่ยมทึบ.
+// เพิ่ม AutoShape สี่เหลี่ยมสีทึบ
 auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// เพิ่มออโต้เชปสี่เหลี่ยมโปร่งใสเหนือรูปร่างทึบ.
+// เพิ่ม AutoShape สี่เหลี่ยมโปร่งแสงเหนือรูปทรงสีทึบ
 auto transparentShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
 transparentShape->get_FillFormat()->set_FillType(FillType::Solid);
 transparentShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(204, 255, 255, 0));
 
-// บันทึกไฟล์ PPTX ไปยังดิสก์.
+// บันทึกไฟล์ PPTX ลงดิสก์
 presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![รูปร่างที่โปร่งใส](shape-transparency.png)
+ผลลัพธ์:
 
-## **หมุนรูปร่าง**
+![รูปทรงโปร่งแสง](shape-transparency.png)
 
-Aspose.Slides ให้คุณหมุนรูปร่างในงานนำเสนอ PowerPoint ซึ่งเป็นประโยชน์เมื่อต้องการจัดตำแหน่งองค์ประกอบภาพตามการจัดแนวหรือความต้องการออกแบบที่เฉพาะเจาะจง
+## **หมุนรูปทรง**
 
-เพื่อหมุนรูปร่างบนสไลด์ ให้ทำตามขั้นตอนต่อไปนี้:
+Aspose.Slides ให้คุณหมุนรูปทรงในพรีเซนเทชัน PowerPoint ซึ่งเป็นประโยชน์เมื่อต้องการจัดตำแหน่งองค์ประกอบภาพด้วยการจัดแนวหรือการออกแบบที่เฉพาะเจาะจง.
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่าคุณสมบัติการหมุนของรูปร่างเป็นมุมที่ต้องการ
-1. บันทึกงานนำเสนอ
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)  
+1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน  
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ไปยังสไลด์  
+1. ตั้งค่าคุณสมบัติการหมุนของรูปทรงเป็นมุมที่ต้องการ  
+1. บันทึกพรีเซนเทชัน  
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -608,36 +628,36 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์พรีเซนเทชัน
 auto presentation = MakeObject<Presentation>();
 
-// ดึงสไลด์แรก.
+// รับสไลด์แรก
 auto slide = presentation->get_Slide(0);
 
-// เพิ่มออโต้เชปประเภท Rectangle.
+// เพิ่ม AutoShape ประเภท Rectangle
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// หมุนรูปร่างโดย 5 องศา.
+// หมุนรูปทรงโดย 5 องศา
 shape->set_Rotation(5);
 
-// บันทึกไฟล์ PPTX ไปยังดิสก์.
+// บันทึกไฟล์ PPTX ลงดิสก์
 presentation->Save(u"shape_rotation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![การหมุนของรูปร่าง](shape-rotation.png)
+ผลลัพธ์:
 
-## **เพิ่มเอฟเฟกต์ bevel 3 มิติ**
+![การหมุนรูปทรง](shape-rotation.png)
 
-Aspose.Slides ให้คุณใช้เอฟเฟกต์ bevel 3 มิติกับรูปร่างโดยกำหนดคุณสมบัติของ [ThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/threedformat/)
+## **เพิ่มเอฟเฟ็กต์บีเวล 3 มิติ**
 
-เพื่อเพิ่มเอฟเฟกต์ bevel 3 มิติให้กับรูปร่าง ให้ทำตามขั้นตอนต่อไปนี้:
+Aspose.Slides อนุญาตให้คุณใช้เอฟเฟ็กต์บีเวล 3 มิติบนรูปทรงโดยกำหนดคุณสมบัติของ [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/)  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ลงในสไลด์
-1. กำหนดค่า [ThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/threedformat/) ของรูปร่างเพื่อกำหนดการตั้งค่า bevel
-1. บันทึกงานนำเสนอ
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)  
+1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน  
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ไปยังสไลด์  
+1. กำหนดค่า [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) ของรูปทรงเพื่อกำหนดการตั้งค่าบีเวล  
+1. บันทึกพรีเซนเทชัน  
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -671,7 +691,7 @@ auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
 
-// เพิ่มรูปร่างลงในสไลด์.
+// เพิ่มรูปทรงลงบนสไลด์.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Green());
@@ -679,7 +699,7 @@ shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 shape->get_LineFormat()->set_Width(2.0);
 
-// ตั้งค่าคุณสมบัติ ThreeDFormat ของรูปร่าง.
+// ตั้งค่าคุณสมบัติ ThreeDFormat ของรูปทรง.
 shape->get_ThreeDFormat()->set_Depth(4.0);
 shape->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
 shape->get_ThreeDFormat()->get_BevelTop()->set_Height(6);
@@ -688,24 +708,24 @@ shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::Orthog
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
 
-// บันทึกงานนำเสนอเป็นไฟล์ PPTX.
+// บันทึกพรีเซนเทชันเป็นไฟล์ PPTX.
 presentation->Save(u"3D_bevel_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![เอฟเฟกต์ bevel 3 มิติ](3D-bevel-effect.png)
+ผลลัพธ์:
 
-## **เพิ่มเอฟเฟกต์การหมุน 3 มิติ**
+![เอฟเฟ็กต์บีเวล 3 มิติ](3D-bevel-effect.png)
 
-Aspose.Slides ให้คุณใช้เอฟเฟกต์การหมุน 3 มิติกับรูปร่างโดยกำหนดคุณสมบัติของ [ThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/threedformat/)
+## **เพิ่มเอฟเฟ็กต์การหมุน 3 มิติ**
 
-เพื่อใช้เอฟเฟกต์การหมุน 3 มิติ:
+Aspose.Slides อนุญาตให้คุณใช้เอฟเฟ็กต์การหมุน 3 มิติบนรูปทรงโดยกำหนดคุณสมบัติของ [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/)  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ลงในสไลด์
-1. ใช้ [set_CameraType](https://reference.aspose.com/slides/th/cpp/aspose.slides/icamera/set_cameratype/) และ [set_LightType](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilightrig/set_lighttype/) เพื่อกำหนดการหมุน 3 มิติ
-1. บันทึกงานนำเสนอ
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)  
+1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน  
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ไปยังสไลด์  
+1. ใช้เมธอด [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) และ [set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) เพื่อกำหนดการหมุน 3 มิติ  
+1. บันทึกพรีเซนเทชัน  
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -738,20 +758,22 @@ shape->get_ThreeDFormat()->get_Camera()->SetRotation(40, 35, 20);
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::IsometricLeftUp);
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
 
-// บันทึกงานนำเสนอเป็นไฟล์ PPTX.
+// บันทึกพรีเซนเทชันเป็นไฟล์ PPTX.
 presentation->Save(u"3D_rotation_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![เอฟเฟกต์การหมุน 3 มิติ](3D-rotation-effect.png)
+ผลลัพธ์:
 
-## **ควบคุมการแสดงผลสีขาว-ดำสำหรับรูปร่าง**
+![เอฟเฟ็กต์การหมุน 3 มิติ](3D-rotation-effect.png)
 
-เมธอด [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/set_blackwhitemode/) กำหนดวิธีการแสดงผลของรูปร่างแต่ละตัวเมื่อดูหรือประมวลผลงานนำเสนอในโหมดสีขาว-ดำ มันไม่ได้เปิดใช้งานการแสดงผลสีขาว-ดำโดยตรง และไม่ได้เปลี่ยนการเติม, เส้น, หรือการจัดรูปแบบอื่นของรูปร่างในโหมดสีปกติ
+## **ควบคุมการเรนเดอร์สีขาว-ดำสำหรับรูปทรง**
 
-ใช้ค่าจาก enumeration [BlackWhiteMode](https://reference.aspose.com/slides/th/cpp/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันแสดงผลเลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและสีขาว, `Black` และ `White` บังคับให้เป็นสีเดียว, `Color` รักษาสีปกติ, และ `Hidden` ลบรูปร่างในโหมดสีขาว-ดำ. `NotDefined` หมายถึงไม่มีการกำหนดโหมดระดับรูปร่าง
+เมธอด [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) ระบุว่ารูปทรงแต่ละอันจะถูกเรนเดอร์อย่างไรเมื่อพรีเซนเทชันถูกดูหรือประมวลผลในโหมดสีขาว-ดำ มันไม่ได้เปิดใช้งานการแสดงสีขาว-ดำโดยคนเดียว และไม่ได้เปลี่ยนการเติม, เส้น, หรือการจัดรูปแบบอื่นของรูปทรงในโหมดสีปกติ.  
 
-โค้ด C++ ด้านล่างสร้างรูปร่างสีและทำให้แสดงเป็นสีเทาในโหมดแสดงผลสีขาว-ดำ:
+ใช้ค่าจาก enumeration [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันเรนเดอร์เลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและสีขาว, `Black` และ `White` บังคับให้เป็นสีเดียว, `Color` คงสีปกติ, และ `Hidden` ลบรูปทรงในโหมดสีขาว-ดำ. `NotDefined` หมายความว่าไม่มีการกำหนดโหมดระดับรูปทรง.  
+
+โค้ด C++ ด้านล่างสร้างรูปทรงสีและทำให้มันแสดงเป็นสีเทาในโหมดการแสดงสีขาว-ดำ:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -778,18 +800,18 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 200
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 
-// Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
+// เก็บการเติมสีส้มในโหมดสี แต่เรนเดอร์รูปทรงด้วยสีเทาในโหมดสีขาว-ดำ.
 shape->set_BlackWhiteMode(BlackWhiteMode::Gray);
 
 presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ในโหมดสีปกติ สี่เหลี่ยมยังคงสีเติมส้มไว้ ในกระบวนการแสดงผลสีขาว-ดำ จะใช้สีเทาเนื่องจากโหมดถูกตั้งเป็น `Gray` สิ่งนี้ทำให้คุณสามารถรักษาสไลด์สีเต็มได้พร้อมกำหนดลักษณะเฉพาะสำหรับการพิมพ์ การดูตัวอย่าง หรือกระบวนการอื่น ๆ ที่เคารพการตั้งค่าแสดงผลสีขาว-ดำของงานนำเสนอ
+ในโหมดสีปกติ สี่เหลี่ยมจะคงการเติมสีส้มของมัน ในกระบวนการแสดงสีขาว-ดำ มันจะใช้สีเทาเพราะโหมดถูกตั้งเป็น `Gray` สิ่งนี้ทำให้คุณสามารถรักษาสไลด์สีเต็มได้ในขณะที่กำหนดลักษณะเฉพาะสำหรับการพิมพ์, การดูตัวอย่าง, หรือกระบวนการอื่นที่เคารพการตั้งค่าการแสดงสีขาว-ดำของพรีเซนเทชัน.
 
 ## **รีเซ็ตการจัดรูปแบบ**
 
-โค้ด C++ ด้านล่างแสดงวิธีรีเซ็ตการจัดรูปแบบของสไลด์และคืนตำแหน่ง, ขนาด, และการจัดรูปแบบของรูปร่างทั้งหมดที่มี placeholder บน [LayoutSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/layoutslide/) ไปยังการตั้งค่าเริ่มต้น:
+โค้ด C++ ด้านล่างแสดงวิธีรีเซ็ตการจัดรูปแบบของสไลด์และคืนตำแหน่ง, ขนาด, และการจัดรูปแบบของรูปทรงทั้งหมดที่มี placeholder บน [LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) ให้เป็นการตั้งค่าเริ่มต้น:
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -806,7 +828,7 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 {
-    // รีเซ็ตรูปแต่ละรูปบนสไลด์ที่มี placeholder บนเลย์เอาต์.
+    // รีเซ็ตแต่ละรูปทรงบนสไลด์ที่มี placeholder บน layout.
     slide->Reset();
 }
 
@@ -816,14 +838,14 @@ presentation->Dispose();
 
 ## **คำถามที่พบบ่อย**
 
-**การจัดรูปแบบรูปร่างมีผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
+**การจัดรูปแบบรูปทรงมีผลต่อขนาดไฟล์พรีเซนเทชันสุดท้ายหรือไม่?**
 
-มีผลเพียงเล็กน้อย เท่านั้น ภาพและสื่อที่ฝังคู่มือใช้ส่วนใหญ่ของพื้นที่ไฟล์ ส่วนพารามิเตอร์ของรูปร่าง เช่น สี, เอฟเฟกต์, และการไล่สี จะถูกเก็บเป็นเมทาดาต้าและเพิ่มขนาดไฟล์เกือบไม่มี
+เพียงเล็กน้อย เท่านั้น ภาพและสื่อที่ฝังอยู่ใช้พื้นที่ไฟล์ส่วนใหญ่ ส่วนพารามิเตอร์ของรูปทรงเช่นสี, เอฟเฟกต์, และไล่สีถูกเก็บเป็น metadata และเพิ่มขนาดไฟล์เกือบไม่มี.
 
-**ฉันจะตรวจจับรูปร่างบนสไลด์ที่มีการจัดรูปแบบเดียวกันเพื่อที่จะจัดกลุ่มได้อย่างไร?**
+**ฉันจะตรวจจับรูปทรงบนสไลด์ที่มีการจัดรูปแบบเดียวกันเพื่อที่จะจัดกลุ่มได้อย่างไร?**
 
-เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปร่าง — การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าทั้งหมดตรงกัน ให้ถือว่ารูปแบบเดียวกันและจัดกลุ่มรูปร่างเหล่านั้นตามตรรกะ ซึ่งช่วยให้การจัดการสไตล์ในภายหลังง่ายขึ้น
+ให้เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปทรง—การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าที่สอดคล้องกันทั้งหมดตรงกัน ให้ถือว่าสไตล์เหมือนกันและจัดกลุ่มรูปทรงเหล่านั้นในเชิงตรรกะ ซึ่งช่วยให้งานจัดการสไตล์ในภายหลังง่ายขึ้น.
 
-**ฉันสามารถบันทึกชุดสไตล์รูปร่างกำหนดเองเป็นไฟล์แยกเพื่อใช้ซ้ำในงานนำเสนออื่นได้หรือไม่?**
+**ฉันสามารถบันทึกชุดสไตล์รูปทรงที่กำหนดเองลงไฟล์แยกเพื่อใช้ซ้ำในพรีเซนเทชันอื่นได้หรือไม่?**
 
-ได้. เก็บรูปร่างตัวอย่างที่มีสไตล์ที่ต้องการในชุดสไลด์เทมเพลตหรือไฟล์เทมเพลต .POTX เมื่อสร้างงานนำเสนอใหม่ เปิดเทมเพลต, คัดลอกรูปร่างที่มีสไตล์ที่ต้องการ, และนำการจัดรูปแบบของมันไปใช้ใหม่ตามที่ต้องการ
+ได้ โดยให้บันทึกรูปทรงตัวอย่างที่มีสไตล์ที่ต้องการในชุดสไลด์เทมเพลตหรือไฟล์เทมเพลต .POTX เมื่อต้องสร้างพรีเซนเทชันใหม่ ให้เปิดเทมเพลต, คัดลอกรูปทรงที่มีสไตล์ที่ต้องการ, แล้วนำการจัดรูปแบบของมันไปใช้ใหม่ตามต้องการ.

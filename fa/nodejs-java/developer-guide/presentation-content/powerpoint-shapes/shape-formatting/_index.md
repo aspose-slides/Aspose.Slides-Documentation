@@ -1,5 +1,5 @@
 ---
-title: قالب‌بندی اشکال PowerPoint در JavaScript
+title: قالب‌بندی اشکال پاورپوینت در جاوااسکریپت
 linktitle: قالب‌بندی شکل
 type: docs
 weight: 20
@@ -7,8 +7,8 @@ url: /fa/nodejs-java/shape-formatting/
 keywords:
 - قالب‌بندی شکل
 - قالب‌بندی خط
-- افکت اسکچ
-- خط شکل اسکچ
+- افکت اسکیچ
+- خط شکل اسکیچ
 - قالب‌بندی سبک اتصال
 - پر کردن گرادیان
 - پر کردن الگو
@@ -16,41 +16,41 @@ keywords:
 - پر کردن بافت
 - پر کردن رنگ ثابت
 - شفافیت شکل
-- رندر سیاه‑سفید شکل
+- رندر سیاه‌وسفید شکل
 - رندر خاکستری شکل
 - چرخاندن شکل
-- افکت برجسته ۳بعدی
-- افکت چرخش ۳بعدی
+- افکت برجسته‌سازی 3D
+- افکت چرخش 3D
 - بازنشانی قالب‌بندی
-- PowerPoint
-- presentation
+- پاورپوینت
+- ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "قالب‌بندی اشکال PowerPoint در JavaScript با استفاده از Aspose.Slides—تنظیم پرکردن، خط و سبک‌های افکت برای فایل‌های PPT، PPTX و ODP با دقت و کنترل کامل."
+description: "اشکال پاورپوینت را در جاوااسکریپت با استفاده از Aspose.Slides قالب‌بندی کنید—پر کردن، خط و سبک‌های افکت را برای فایل‌های PPT، PPTX و ODP با دقت و کنترل کامل تنظیم کنید."
 ---
 ## **معرفی**
 
-در PowerPoint می‌توانید اشکال را به اسلایدها اضافه کنید. از آنجا که اشکال از خطوط تشکیل شده‌اند، می‌توانید آن‌ها را با تغییر یا اعمال افکت‌ها به حاشیه‌هایشان قالب‌بندی کنید. علاوه بر این، می‌توانید اشکال را با تعیین تنظیماتی که نحوه پر شدن داخلی آن‌ها را کنترل می‌کند، قالب‌بندی کنید.
+در پاورپوینت، می‌توانید اشکال را به اسلایدها اضافه کنید. از آنجا که اشکال از خطوط تشکیل می‌شوند، می‌توانید آنها را با تغییر یا اعمال افکت‌ها به خطوط مرزی‌شان قالب‌بندی کنید. علاوه بر این، می‌توانید اشکال را با تعیین تنظیماتی که نحوه پر کردن داخلی آنها را کنترل می‌کند، قالب‌بندی کنید.
 
-![قالب‌بندی شکل در PowerPoint](format-shape-powerpoint.png)
+![قالب‌بندی شکل در پاورپوینت](format-shape-powerpoint.png)
 
-Aspose.Slides برای Node.js از طریق Java کلاس‌ها و متدهایی را فراهم می‌کند که به شما اجازه می‌دهد اشکال را با استفاده از همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
+Aspose.Slides برای Node.js از طریق Java کلاس‌ها و متدهایی را فراهم می‌کند که به شما امکان می‌دهد اشکال را با استفاده از همان گزینه‌های موجود در پاورپوینت قالب‌بندی کنید.
 
 ## **قالب‌بندی خطوط**
 
-با استفاده از Aspose.Slides می‌توانید یک سبک خط سفارشی برای یک شکل مشخص کنید. مراحل زیر روش کار را توضیح می‌دهند:
+با استفاده از Aspose.Slides، می‌توانید سبک خط سفارشی برای یک شکل مشخص کنید. مراحل زیر روند را شرح می‌دهند:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس شاخص آن دریافت کنید.
-1. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. سبک [سبک خط](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/linestyle/) شکل را تنظیم کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. مرجعی به یک اسلاید بر اساس شاخص آن دریافت کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
+1. سبک [line style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) شکل را تنظیم کنید.
 1. عرض خط را تنظیم کنید.
-1. سبک [سبک خط نقطه‌دار](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/linedashstyle/) خط را تنظیم کنید.
-1. رنگ خط برای شکل را تنظیم کنید.
-1. ارائه تغییر یافته را به عنوان یک فایل PPTX ذخیره کنید.
+1. سبک [dash style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) خط را تنظیم کنید.
+1. رنگ خط را برای شکل تنظیم کنید.
+1. ارائه‌ٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-کد زیر نشان می‌دهد چگونه یک `AutoShape` مستطیل را قالب‌بندی کنید:
+کد زیر نحوه قالب‌بندی یک `AutoShape` مستطیلی را نشان می‌دهد:
 
 ```js
 var aspose = aspose || {};
@@ -63,22 +63,22 @@ try {
     // دریافت اولین اسلاید.
     let slide = presentation.getSlides().get_Item(0);
 
-    // افزودن یک شکل خودکار از نوع مستطیل.
+    // یک شکل خودکار از نوع مستطیل اضافه کنید.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // حذف پرکردن از شکل مستطیل.
+    // پر کردن را از شکل مستطیل حذف کنید.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // اعمال قالب‌بندی بر خطوط مستطیل.
+    // قالب‌بندی خطوط مستطیل را اعمال کنید.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
 
-    // تنظیم رنگ برای خط مستطیل.
+    // رنگ خط مستطیل را تنظیم کنید.
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // ذخیرهٔ فایل PPTX بر روی دیسک.
+    // فایل PPTX را روی دیسک ذخیره کنید.
     presentation.save("formatted_lines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -87,13 +87,13 @@ try {
 
 نتیجه:
 
-![خطوط قالب‌بندی شده در ارائه](formatted-lines.png)
+![خطوط قالب‌بندی‌شده در ارائه](formatted-lines.png)
 
-## **اعمال افکت‌های اسکچ به خطوط شکل**
+## **اعمال افکت اسکیچ به خطوط شکل**
 
-یک افکت اسکچ باعث می‌شود خط یک شکل شبیه به دست‌نویس ظاهر شود. برای دسترسی به تنظیمات خط از [Shape.getLineFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/) استفاده کنید، برای دسترسی به تنظیمات اسکچ از [LineFormat.getSketchFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/lineformat/) و برای انتخاب مقدار از لیست [LineSketchType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/linesketchtype/) از [SketchFormat.setSketchType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sketchformat/) استفاده کنید.
+یک افکت اسکیچ باعث می‌شود خط شکل شبیه به دست‌نویس باشد. برای دسترسی به تنظیمات خط از [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) استفاده کنید، برای دسترسی به تنظیمات اسکیچ از [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) و برای انتخاب مقدار از شمارش [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) از [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) استفاده کنید.
 
-کد JavaScript زیر نشان می‌دهد چگونه یک افکت [LineSketchType.Curved](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/linesketchtype/) اعمال کنید، مقدار اختصاص داده شده به‌صورت صریح را بخوانید و با [LineSketchType.None](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/linesketchtype/) افکت را حذف کنید:
+کد جاوااسکریپت زیر نحوه اعمال افکت [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/)، خواندن مقدار به‌صورت صریح و حذف افکت با [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) را نشان می‌دهد:
 
 ```js
 var aspose = aspose || {};
@@ -104,24 +104,24 @@ try {
     let slide = presentation.getSlides().get_Item(0);
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // دسترسی به قالب‌بندی خط شکل و قالب اسکچ آن.
+    // دسترسی به فرمت خط شکل و فرمت اسکیچ آن.
     let sketchFormat = shape.getLineFormat().getSketchFormat();
 
-    // اعمال یک افکت اسکچ.
+    // اعمال یک افکت اسکیچ.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
 
-    // خواندن افکت اسکچ اختصاص داده شده مستقیم به شکل.
+    // خواندن افکت اسکیچ اختصاص داده شده مستقیم به شکل.
     let explicitSketchType = sketchFormat.getSketchType();
     console.log("Explicit sketch type: " + explicitSketchType);
 
-    // حذف افکت اسکچ.
+    // حذف افکت اسکیچ.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-مقداری که توسط [SketchFormat.getSketchType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sketchformat/) برگردانده می‌شود، تنظیمی است که مستقیماً به شکل اختصاص یافته است. اگر قالب‌بندی خط می‌تواند از تم، اسلاید اصلی یا اسلاید طرح‌بندی به ارث برسد، از [LineFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/lineformat/) استفاده کنید، `getSketchFormat` را بر روی شی بازگشتی صدا بزنید و سپس متد `getSketchType` آن را فراخوانی کنید. مقدار مؤثر، قالب‌بندی واقعاً پس از حل ارث‌بری اعمال شده را نشان می‌دهد:
+مقداری که توسط [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) برگردانده می‌شود، تنظیمی را نشان می‌دهد که مستقیماً به شکل اختصاص یافته است. اگر قالب‌بندی خط می‌تواند از تم، اسلاید اصلی یا اسلاید طرح‌بندی به ارث برده شود، از [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) استفاده کنید، `getSketchFormat` را بر روی شیء بازگشتی فراخوانی کنید و سپس متد `getSketchType` آن را صدا بزنید. مقدار مؤثر قالب‌بندی واقعی را پس از حل ارث‌بری نشان می‌دهد:
 
 ```js
 var aspose = aspose || {};
@@ -145,17 +145,17 @@ try {
 
 ## **قالب‌بندی سبک‌های اتصال**
 
-در زیر سه گزینه برای نوع اتصال آمده است:
+در اینجا سه گزینهٔ نوع اتصال وجود دارد:
 
 * گرد
 * میتر
 * بویل
 
-به‌طور پیش‌فرض، وقتی PowerPoint دو خط را در یک زاویه (مانند گوشهٔ یک شکل) وصل می‌کند، از تنظیم **گرد** استفاده می‌کند. اما اگر شکل با زوایای تیز رسم می‌کنید، ممکن است گزینه **میتر** را ترجیح دهید.
+به‌طور پیش‌فرض، وقتی پاورپوینت دو خط را در زاویه‌ای (مانند گوشهٔ یک شکل) وصل می‌کند، از تنظیم **Round** استفاده می‌کند. اما اگر شما شکلی با زوایای تیز ترسیم می‌کنید، ممکن است گزینهٔ **Miter** را ترجیح دهید.
 
 ![سبک اتصال در ارائه](join-style-powerpoint.png)
 
-کد زیر نشان می‌دهد چگونه سه مستطیل (همان‌طور که در تصویر بالا نشان داده شده) با استفاده از تنظیمات نوع اتصال میتر، بویل و گرد ایجاد شده‌اند:
+کد جاوااسکریپت زیر نشان می‌دهد که چگونه سه مستطیل (همانند تصویر بالا) با استفاده از تنظیمات نوع اتصال Meter، Bevel و Round ایجاد شده‌اند:
 
 ```js
 var aspose = aspose || {};
@@ -168,12 +168,12 @@ try {
     // دریافت اولین اسلاید.
     let slide = presentation.getSlides().get_Item(0);
 
-    // افزودن سه شکل خودکار از نوع مستطیل.
+    // اضافه کردن سه شکل خودکار از نوع مستطیل.
     let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
     let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
     let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // تنظیم رنگ پرکن برای هر شکل مستطیل.
+    // تنظیم رنگ پر برای هر شکل مستطیل.
     shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -186,7 +186,7 @@ try {
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // تنظیم رنگ برای خط هر مستطیل.
+    // تنظیم رنگ خط برای هر مستطیل.
     shape1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     shape2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -204,7 +204,7 @@ try {
     shape2.getTextFrame().setText("Bevel Join Style");
     shape3.getTextFrame().setText("Round Join Style");
 
-    // ذخیرهٔ فایل PPTX بر روی دیسک.
+    // ذخیرهٔ فایل PPTX روی دیسک.
     presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -213,18 +213,16 @@ try {
 
 ## **پر کردن گرادیان**
 
-در PowerPoint، پر کردن گرادیان یک گزینه قالب‌بندی است که به شما اجازه می‌دهد ترکیبی پیوسته از رنگ‌ها را به یک شکل اعمال کنید. برای مثال می‌توانید دو یا چند رنگ را به‑گونه‌ای اعمال کنید که یکی به‌تدریج به دیگری محو شود.
+در پاورپوینت، پر کردن گرادیان یک گزینهٔ قالب‌بندی است که به شما امکان می‌دهد ترکیبی پیوسته از رنگ‌ها را به یک شکل اعمال کنید. به‌عنوان مثال، می‌توانید دو یا چند رنگ را به‌طوری اعمال کنید که یکی به‌تدریج به دیگری محو شود.
 
 در اینجا نحوهٔ اعمال پر کردن گرادیان به یک شکل با استفاده از Aspose.Slides آمده است:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس شاخص آن دریافت کنید.
-1. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. ویژگی [FillType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/filltype/) شکل را به `Gradient` تنظیم کنید.
-1. دو رنگ مورد نظر خود را با موقعیت‌های تعریف‌شده با استفاده از متدهای `add` مجموعهٔ توقف‌های گرادیان که توسط کلاس [GradientFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/gradientformat/) در اختیار است، اضافه کنید.
-1. ارائه تغییر یافته را به عنوان یک فایل PPTX ذخیره کنید.
-
-کد زیر نحوهٔ اعمال افکت پر کردن گرادیان به یک بیضی را نشان می‌دهد:
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. مرجعی به یک اسلاید بر اساس شاخص آن دریافت کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
+1. نوع [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) شکل را به `Gradient` تنظیم کنید.
+1. دو رنگ مورد نظر خود را با موقعیت‌های تعریف‌شده با استفاده از متدهای `add` مجموعهٔ نقاط توقف گرادیان که توسط کلاس [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/) ارائه می‌شود، اضافه کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
 ```js
 var aspose = aspose || {};
@@ -237,7 +235,7 @@ try {
     // دریافت اولین اسلاید.
     let slide = presentation.getSlides().get_Item(0);
 
-    // افزودن یک شکل خودکار از نوع بیضی.
+    // اضافه کردن یک شکل خودکار از نوع بیضی.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
 
     // اعمال قالب‌بندی گرادیان به بیضی.
@@ -247,39 +245,37 @@ try {
     // تنظیم جهت گرادیان.
     shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
 
-    // افزودن دو نقطهٔ توقف گرادیان.
+    // اضافه کردن دو نقطه توقف گرادیان.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
 
-    // ذخیرهٔ فایل PPTX بر روی دیسک.
+    // ذخیرهٔ فایل PPTX روی دیسک.
     presentation.save("gradient_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-نتیجه:
-
 ![بیضی با پر کردن گرادیان](gradient-fill.png)
+
+اگر یک گرادیان در تصویر صادرشده متفاوت از آنچه در پاورپوینت دیده می‌شود باشد، به [Choose a Gradient Rendering Style](/slides/fa/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) مراجعه کنید. می‌توانید سبک رندرینگ را بدون تغییر پر کردن گرادیان ذخیره‌شده در ارائه انتخاب کنید.
 
 ## **پر کردن الگو**
 
-در PowerPoint، پر کردن الگو یک گزینه قالب‌بندی است که به شما امکان می‌دهد یک طرح دو رنگی—مانند نقاط، خط‌دارها، خطوط متقاطع یا شطرنجی—را به شکل اعمال کنید. می‌توانید رنگ‌های سفارشی برای پیش‌زمینه و پس‌زمینهٔ الگو انتخاب کنید.
+در پاورپوینت، پر کردن الگو یک گزینهٔ قالب‌بندی است که به شما امکان می‌دهد طرحی دو‌رنگ مانند نقطه‌ها، نوارها، خط‌چین‌ها یا شطرنجی را به یک شکل اعمال کنید. می‌توانید رنگ‌های سفارشی برای پیش‌زمینه و پس‌زمینهٔ الگو انتخاب کنید.
 
-Aspose.Slides بیش از ۴۵ سبک الگوی پیش‌تعریف‌شده را فراهم می‌کند که می‌توانید به اشکال اعمال کنید تا جذابیت بصری ارائه‌های خود را ارتقا دهید. حتی پس از انتخاب یک الگوی پیش‌تعریف‌شده، همچنان می‌توانید رنگ‌های دقیق مورد استفاده را مشخص کنید.
+Aspose.Slides بیش از ۴۵ سبک الگوی پیش‌تعریف‌شده فراهم می‌کند که می‌توانید به اشکال اعمال کنید تا جذابیت بصری ارائه‌های خود را افزایش دهید. حتی پس از انتخاب الگوی پیش‌تعریف‌شده، می‌توانید رنگ‌های دقیق مورد استفاده آن را مشخص کنید.
 
 در اینجا نحوهٔ اعمال پر کردن الگو به یک شکل با استفاده از Aspose.Slides آمده است:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس شاخص آن دریافت کنید.
-1. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. ویژگی [FillType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/filltype/) شکل را به `Pattern` تنظیم کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. مرجعی به یک اسلاید بر اساس شاخص آن دریافت کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
+1. نوع [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) شکل را به `Pattern` تنظیم کنید.
 1. یک سبک الگو را از گزینه‌های پیش‌تعریف‌شده انتخاب کنید.
-1. [Background Color](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/patternformat/#getBackColor--) الگو را تنظیم کنید.
-1. [Foreground Color](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/patternformat/#getForeColor--) الگو را تنظیم کنید.
-1. ارائه تغییر یافته را به عنوان یک فایل PPTX ذخیره کنید.
-
-کد زیر نحوهٔ اعمال پر کردن الگو به یک مستطیل را نشان می‌دهد:
+1. رنگ [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) الگو را تنظیم کنید.
+1. رنگ [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) الگو را تنظیم کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
 ```js
 var aspose = aspose || {};
@@ -292,10 +288,10 @@ try {
     // دریافت اولین اسلاید.
     let slide = presentation.getSlides().get_Item(0);
 
-    // افزودن یک شکل خودکار از نوع مستطیل.
+    // اضافه کردن یک شکل خودکار از نوع مستطیل.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // تنظیم نوع پرکردن به الگو.
+    // تنظیم نوع پر کردن به الگو.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 
     // تنظیم سبک الگو.
@@ -305,37 +301,33 @@ try {
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // ذخیرهٔ فایل PPTX بر روی دیسک.
+    // ذخیرهٔ فایل PPTX روی دیسک.
     presentation.save("pattern_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-نتیجه:
-
 ![مستطیل با پر کردن الگو](pattern-fill.png)
 
 ## **پر کردن تصویر**
 
-در PowerPoint، پر کردن تصویر یک گزینه قالب‌بندی است که به شما اجازه می‌دهد یک تصویر را داخل یک شکل قرار دهید—در واقع تصویر را به‌عنوان پس‌زمینهٔ شکل استفاده کنید.
+در پاورپوینت، پر کردن تصویر یک گزینهٔ قالب‌بندی است که به شما امکان می‌دهد یک تصویر را داخل یک شکل درج کنید—به‌طور مؤثری تصویر به‌عنوان پس‌زمینهٔ شکل استفاده می‌شود.
 
-در اینجا نحوهٔ استفاده از Aspose.Slides برای اعمال پر کردن تصویر به یک شکل آمده است:
+در اینجا نحوهٔ استفاده از Aspose.Slides برای اعمال پر کردن تصویر به یک شکل آورده شده است:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس شاخص آن دریافت کنید.
-1. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. ویژگی [FillType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/filltype/) شکل را به `Picture` تنظیم کنید.
-1. حالت پر کردن تصویر را به `Tile` (یا هر حالت دلخواه دیگر) تنظیم کنید.
-1. یک شیء [PPImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ppimage/) از تصویری که می‌خواهید استفاده کنید، ایجاد کنید.
-1. تصویر را به متد `ISlidesPicture.setImage` پاس دهید.
-1. ارائه تغییر یافته را به عنوان یک فایل PPTX ذخیره کنید.
-
-فرض کنید فایلی به نام "lotus.png" داریم که تصویر زیر را دارد:
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. مرجعی به یک اسلاید بر حسب شاخص آن دریافت کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
+1. نوع [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) شکل را به `Picture` تنظیم کنید.
+1. حالت پر کردن تصویر را به `Tile` (یا حالت مورد نظر دیگر) تنظیم کنید.
+1. یک شیء [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) از تصویر مورد نظر خود ایجاد کنید.
+1. تصویر را به متد `ISlidesPicture.setImage` پاس کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
 ![تصویر لوتوس](lotus.png)
 
-کد زیر نحوهٔ پر کردن یک شکل با تصویر را نشان می‌دهد:
+کد جاوااسکریپت زیر نشان می‌دهد چگونه یک شکل را با تصویر پر کنید:
 
 ```js
 var aspose = aspose || {};
@@ -348,10 +340,10 @@ try {
     // دریافت اولین اسلاید.
     let slide = presentation.getSlides().get_Item(0);
 
-    // افزودن یک شکل خودکار از نوع مستطیل.
+    // اضافه کردن یک شکل خودکار از نوع مستطیل.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // تنظیم نوع پرکردن به تصویر.
+    // تنظیم نوع پر کردن به تصویر.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
     // تنظیم حالت پر کردن تصویر.
@@ -365,30 +357,28 @@ try {
     // تنظیم تصویر.
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // ذخیرهٔ فایل PPTX بر روی دیسک.
+    // ذخیرهٔ فایل PPTX روی دیسک.
     presentation.save("picture_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-نتیجه:
-
 ![شکل با پر کردن تصویر](picture-fill.png)
 
-### **کاشی کردن تصویر به‌عنوان بافت**
+### **کاشی‌کردن تصویر به عنوان بافت**
 
-اگر می‌خواهید یک تصویر کاشی‌شده را به‌عنوان بافت تنظیم کنید و رفتار کاشی‌شدن را سفارشی کنید، می‌توانید از متدهای زیر کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/) استفاده کنید:
+اگر می‌خواهید یک تصویر کاشی‌شده را به عنوان بافت تنظیم کنید و رفتار کاشی‌گذاری را سفارشی کنید، می‌توانید از روش‌های زیر کلاس [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) استفاده کنید:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): حالت پر کردن تصویر را تنظیم می‌کند—یا `Tile` یا `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): تراز کاشی‌ها در داخل شکل را مشخص می‌کند.
-- [setTileFlip](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): تعیین می‌کند آیا کاشی به‌صورت افقی، عمودی یا هر دو وارونه شود.
-- [setTileOffsetX](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): افست افقی کاشی (به نقطه) نسبت به مبدا شکل را تنظیم می‌کند.
-- [setTileOffsetY](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): افست عمودی کاشی (به نقطه) نسبت به مبدا شکل را تنظیم می‌کند.
-- [setTileScaleX](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): مقیاس افقی کاشی را به‌صورت درصد تعریف می‌کند.
-- [setTileScaleY](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): مقیاس عمودی کاشی را به‌صورت درصد تعریف می‌کند.
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): حالت پر کردن تصویر را تنظیم می‌کند—`Tile` یا `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): تراز کاشی‌ها را داخل شکل مشخص می‌کند.
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): کنترل می‌کند که آیا کاشی به‌صورت افقی، عمودی یا هر دو وارونه شود.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): افست افقی کاشی (به نقطه) را از مبدأ شکل تنظیم می‌کند.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): افست عمودی کاشی (به نقطه) را از مبدأ شکل تنظیم می‌کند.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): مقیاس افقی کاشی را به درصد تعریف می‌کند.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): مقیاس عمودی کاشی را به درصد تعریف می‌کند.
 
-نمونه کد زیر نشان می‌دهد چگونه یک شکل مستطیل با پر کردن تصویر کاشی‌شده اضافه کنید و گزینه‌های کاشی را پیکربندی کنید:
+نمونهٔ کد زیر نشان می‌دهد چگونه یک شکل مستطیلی با پر کردن تصویر کاشی‌شده اضافه کنید و گزینه‌های کاشی را پیکربندی کنید:
 
 ```js
 var aspose = aspose || {};
@@ -401,10 +391,10 @@ try {
     // دریافت اولین اسلاید.
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // افزودن یک شکل خودکار مستطیل.
+    // اضافه کردن یک شکل خودکار مستطیل.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // تنظیم نوع پرکردن شکل به تصویر.
+    // تنظیم نوع پر کردن شکل به تصویر.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
     // بارگذاری تصویر و افزودن آن به منابع ارائه.
@@ -416,7 +406,7 @@ try {
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // پیکربندی حالت پر کردن تصویر و ویژگی‌های کاشی.
+    // پیکربندی حالت پر کردن تصویر و ویژگی‌های کاشی‌گذاری.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -425,31 +415,27 @@ try {
     pictureFillFormat.setTileAlignment(java.newByte(aspose.slides.RectangleAlignment.BottomRight));
     pictureFillFormat.setTileFlip(aspose.slides.TileFlip.FlipBoth);
 
-    // ذخیرهٔ فایل PPTX بر روی دیسک.
+    // ذخیرهٔ فایل PPTX روی دیسک.
     presentation.save("tile.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-نتیجه:
-
 ![گزینه‌های کاشی](tile-options.png)
 
-## **پر کردن با رنگ ثابت**
+## **پر کردن رنگ ثابت**
 
-در PowerPoint، پر کردن با رنگ ثابت یک گزینه قالب‌بندی است که یک شکل را با یک رنگ یکنواخت پر می‌کند. این پس‌زمینه ساده بدون هیچ‌گونه گرادیان، بافت یا الگوئی اعمال می‌شود.
+در پاورپوینت، پر کردن رنگ ثابت یک گزینهٔ قالب‌بندی است که یک شکل را با یک رنگ یکنواخت تک‌رنگ پر می‌کند. این رنگ پشت‌زمینه ساده بدون هیچ گرادیان، بافت یا الگوئی اعمال می‌شود.
 
-برای اعمال پر کردن با رنگ ثابت به یک شکل با استفاده از Aspose.Slides، مراحل زیر را دنبال کنید:
+برای اعمال پر کردن رنگ ثابت به یک شکل با استفاده از Aspose.Slides، این مراحل را انجام دهید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس شاخص آن دریافت کنید.
-1. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. ویژگی [FillType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/filltype/) شکل را به `Solid` تنظیم کنید.
-1. رنگ پرکردن دلخواه خود را به شکل اختصاص دهید.
-1. ارائه تغییر یافته را به عنوان یک فایل PPTX ذخیره کنید.
-
-کد زیر نحوهٔ اعمال پر کردن رنگ ثابت به یک مستطیل در اسلاید PowerPoint را نشان می‌دهد:
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. مرجعی به یک اسلاید بر حسب شاخص آن دریافت کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
+1. نوع [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) شکل را به `Solid` تنظیم کنید.
+1. رنگ پر کردن مورد نظر خود را به شکل اختصاص دهید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
 ```js
 var aspose = aspose || {};
@@ -462,40 +448,36 @@ try {
     // دریافت اولین اسلاید.
     let slide = presentation.getSlides().get_Item(0);
 
-    // افزودن یک شکل خودکار از نوع مستطیل.
+    // اضافه کردن یک شکل خودکار از نوع مستطیل.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // تنظیم نوع پرکردن به Solid.
+    // تنظیم نوع پر کردن به Solid.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 
-    // تنظیم رنگ پرکردن.
+    // تنظیم رنگ پر کردن.
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // ذخیرهٔ فایل PPTX بر روی دیسک.
+    // ذخیرهٔ فایل PPTX روی دیسک.
     presentation.save("solid_color_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-نتیجه:
-
 ![شکل با پر کردن رنگ ثابت](solid-color-fill.png)
 
 ## **تنظیم شفافیت**
 
-در PowerPoint، وقتی پر کردن رنگ ثابت، گرادیان، تصویر یا بافت را بر اشکال اعمال می‌کنید، می‌توانید سطح شفافیت را نیز تنظیم کنید تا میزان شفافیت پر کردن را کنترل کنید. مقدار شفافیت بالاتر باعث می‌شود شکل شفاف‌تر باشد و پس‌زمینه یا اشیای زیرین تا حدی قابل مشاهده باشند.
+در پاورپوینت، هنگامی که پر کردن رنگ ثابت، گرادیان، تصویر یا بافت را به اشکال اعمال می‌کنید، می‌توانید سطح شفافیتی را تنظیم کنید تا شفافیت پر کردن کنترل شود. مقدار شفافیت بالاتر باعث می‌شود شکل شفاف‌تر شود و پس‌زمینه یا اشیای زیرین به‌صورت جزئی قابل مشاهده باشند.
 
-Aspose.Slides به شما امکان می‌دهد سطح شفافیت را با تنظیم مقدار آلفا در رنگ استفاده‌شده برای پر کردن تنظیم کنید. در اینجا نحوهٔ انجام آن آمده است:
+Aspose.Slides به شما امکان می‌دهد سطح شفافیت را با تنظیم مقدار آلفا در رنگ مورد استفاده برای پر کردن تنظیم کنید. در اینجا چگونگی انجام این کار آمده است:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس شاخص آن دریافت کنید.
-1. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. ویژگی [FillType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/filltype/) را به `Solid` تنظیم کنید.
-1. از `Color` برای تعریف رنگی با شفافیت استفاده کنید (مؤلفه `alpha` شفافیت را کنترل می‌کند).
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. مرجعی به یک اسلاید بر حسب شاخص آن دریافت کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
+1. نوع [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) را به `Solid` تنظیم کنید.
+1. از `Color` برای تعریف رنگی با شفافیت استفاده کنید (مقدار `alpha` شفافیت را کنترل می‌کند).
 1. ارائه را ذخیره کنید.
-
-کد زیر نحوهٔ اعمال رنگ پر کردن شفاف به یک مستطیل را نشان می‌دهد:
 
 ```js
 var aspose = aspose || {};
@@ -508,38 +490,32 @@ try {
     // دریافت اولین اسلاید.
     let slide = presentation.getSlides().get_Item(0);
 
-    // افزودن یک شکل خودکار مستطیل جامد.
+    // اضافه کردن یک شکل خودکار مستطیل صلب.
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // افزودن یک شکل خودکار مستطیل شفاف بالای شکل جامد.
+    // اضافه کردن یک شکل خودکار مستطیل شفاف بر روی شکل صلب.
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
 
-    // ذخیرهٔ فایل PPTX بر روی دیسک.
+    // ذخیرهٔ فایل PPTX روی دیسک.
     presentation.save("shape_transparency.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-نتیجه:
-
 ![شکل شفاف](shape-transparency.png)
 
 ## **چرخاندن اشکال**
 
-Aspose.Slides به شما امکان می‌دهد اشکال را در ارائه‌های PowerPoint چرخانید. این می‌تواند هنگام موقعیت‌یابی عناصر بصری با نیازهای خاص ترازبندی یا طراحی مفید باشد.
+Aspose.Slides به شما امکان می‌دهد اشکال را در ارائه‌های پاورپوینت بچرخانید. این می‌تواند هنگام موقعیت‌یابی عناصر بصری با نیازهای خاص ترازبندی یا طراحی مفید باشد.
 
-برای چرخاندن یک شکل در اسلاید، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس شاخص آن دریافت کنید.
-1. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. ویژگی چرخش شکل را به زاویهٔ مورد نظر تنظیم کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. مرجعی به یک اسلاید بر حسب شاخص آن دریافت کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
+1. ویژگی چرخش شکل را به زاویهٔ موردنظر تنظیم کنید.
 1. ارائه را ذخیره کنید.
-
-کد زیر نشان می‌دهد چگونه یک شکل را به‌طور 5 درجه‌ای بچرخانید:
 
 ```js
 var aspose = aspose || {};
@@ -551,48 +527,42 @@ try {
     // دریافت اولین اسلاید.
     let slide = presentation.getSlides().get_Item(0);
 
-    // افزودن یک شکل خودکار از نوع مستطیل.
+    // اضافه کردن یک شکل خودکار از نوع مستطیل.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // چرخاندن شکل به‌ میزان 5 درجه.
+    // چرخاندن شکل به میزان 5 درجه.
     shape.setRotation(5);
 
-    // ذخیرهٔ فایل PPTX بر روی دیسک.
+    // ذخیرهٔ فایل PPTX روی دیسک.
     presentation.save("shape_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-نتیجه:
-
 ![چرخش شکل](shape-rotation.png)
 
-## **افزودن افکت‌های برجسته ۳بعدی**
+## **افکت‌های برجسته‌سازی 3D را اضافه کنید**
 
-Aspose.Slides به شما امکان می‌دهد افکت‌های برجستهٔ ۳بعدی را به اشکال اعمال کنید با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/) آنها.
+Aspose.Slides به شما امکان می‌دهد افکت‌های برجسته‌سازی 3D را به اشکال با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) اعمال کنید.
 
-برای افزودن افکت‌های برجستهٔ ۳بعدی به یک شکل، مراحل زیر را انجام دهید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس شاخص آن دریافت کنید.
-1. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. ویژگی [ThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/) شکل را برای تعریف تنظیمات برجسته پیکربندی کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. مرجعی به یک اسلاید بر حسب شاخص آن دریافت کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
+1. ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) شکل را برای تعریف تنظیمات برجسته‌سازی پیکربندی کنید.
 1. ارائه را ذخیره کنید.
-
-کد زیر نشان می‌دهد چگونه افکت‌های برجستهٔ ۳بعدی را به یک شکل اعمال کنید:
 
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// ایجاد یک نمونه از کلاس Presentation.
+// یک نمونه از کلاس Presentation ایجاد کنید.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
-    // افزودن یک شکل به اسلاید.
+    // یک شکل به اسلاید اضافه کنید.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
@@ -600,7 +570,7 @@ try {
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
     shape.getLineFormat().setWidth(2.0);
 
-    // تنظیم ویژگی‌های ThreeDFormat شکل.
+    // ویژگی‌های ThreeDFormat شکل را تنظیم کنید.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -609,30 +579,24 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
 
-    // ذخیرهٔ ارائه به عنوان فایل PPTX.
+    // ارائه را به‌عنوان فایل PPTX ذخیره کنید.
     presentation.save("3D_bevel_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-نتیجه:
+![افکت برجسته‌سازی 3D](3D-bevel-effect.png)
 
-![افکت برجسته ۳بعدی](3D-bevel-effect.png)
+## **افکت‌های چرخش 3D را اضافه کنید**
 
-## **افزودن افکت‌های چرخش ۳بعدی**
+Aspose.Slides به شما امکان می‌دهد افکت‌های چرخش 3D را به اشکال با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) اعمال کنید.
 
-Aspose.Slides به شما امکان می‌دهد افکت‌های چرخش ۳بعدی را به اشکال اعمال کنید با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/) آنها.
-
-برای اعمال چرخش ۳بعدی به یک شکل:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس شاخص آن دریافت کنید.
-1. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. با استفاده از [setCameraType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/camera/#setCameraType) و [setLightType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/lightrig/#setLightType) چرخش ۳بعدی را تعریف کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
+1. مرجعی به یک اسلاید بر حسب شاخص آن دریافت کنید.
+1. یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
+1. از [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) و [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) برای تعریف چرخش 3D استفاده کنید.
 1. ارائه را ذخیره کنید.
-
-کد زیر نشان می‌دهد چگونه افکت‌های چرخش ۳بعدی را به یک شکل اعمال کنید:
 
 ```js
 var aspose = aspose || {};
@@ -658,17 +622,15 @@ try {
 }
 ```
 
-نتیجه:
+![افکت چرخش 3D](3D-rotation-effect.png)
 
-![افکت چرخش ۳بعدی](3D-rotation-effect.png)
+## **کنترل رندر سیاه‌وسفید برای اشکال**
 
-## **کنترل رندر سیاه‑سفید برای اشکال**
+متد [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) مشخص می‌کند که یک شکل فرد چگونه در زمان مشاهده یا پردازش ارائه در حالت سیاه‌وسفید رندر شود. این متد به‌تنهایی نمایش سیاه‌وسفید را فعال نمی‌کند و قالب‌بندی‌های پر کردن، خط یا دیگر ویژگی‌های شکل را در حالت رنگ طبیعی تغییر نمی‌دهد.
 
-متد [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) تعیین می‌کند که یک شکل به‌صورت فردی هنگام نمایش یا پردازش ارائه در حالت سیاه‑سفید چگونه رندر شود. این متد به‌تنهایی حالت سیاه‑سفید را فعال نمی‌کند و قالب‌بندی رنگ، خط یا سایر ویژگی‌های شکل را در حالت رنگی نرمال تغییر نمی‌دهد.
+از مقداری از شمارش [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) برای انتخاب رفتار موردنظر استفاده کنید. به‌عنوان مثال، `Automatic` به برنامه رندر اجازه می‌دهد تبدیل را انتخاب کند، `Gray` و `LightGray` از رنگ خاکستری استفاده می‌کنند، `BlackWhite` فقط سیاه و سفید را به کار می‌گیرد، `Black` و `White` یک رنگ واحد را اعمال می‌کند، `Color` رنگ‌بندی عادی را حفظ می‌کند، و `Hidden` شکل را در حالت سیاه‌وسفید حذف می‌کند. `NotDefined` به این معنی است که هیچ حالت سطحی برای شکل تعیین نشده است.
 
-از یک مقدار موجود در enumeration [BlackWhiteMode](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/blackwhitemode/) برای انتخاب رفتار موردنظر استفاده کنید. به‌عنوان مثال `Automatic` اجازه می‌دهد برنامهٔ رندر تبدیل را انتخاب کند، `Gray` و `LightGray` از رنگ خاکستری استفاده می‌کنند، `BlackWhite` فقط سیاه و سفید را به کار می‌برد، `Black` و `White` رنگ واحدی را تحمیل می‌کنند، `Color` رنگ نرمال را حفظ می‌کند و `Hidden` شکل را در حالت سیاه‑سفید حذف می‌کند. `NotDefined` به این معنی است که هیچ حالت سطح‑شکل‌ایی اختصاص نیافته است.
-
-کد زیر یک شکل رنگی ایجاد می‌کند و آن را در حالت نمایش سیاه‑سفید به‌صورت خاکستری نشان می‌دهد:
+کد جاوااسکریپت زیر یک شکل رنگی ایجاد می‌کند و آن را در حالت نمایش سیاه‌وسفید به‌صورت خاکستری نشان می‌دهد:
 
 ```js
 var aspose = aspose || {};
@@ -683,7 +645,7 @@ try {
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
 
-    // پرکردن نارنجی را در حالت رنگی نگه دارید، اما شکل را در حالت سیاه‑سفید با رنگ خاکستری رندر کنید.
+    // پر نارنجی را در حالت رنگی نگه دارید، اما شکل را در حالت سیاه‌وسفید با رنگ خاکستری رندر کنید.
     shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
 
     presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
@@ -692,11 +654,11 @@ try {
 }
 ```
 
-در حالت رنگی عادی، مستطیل پرکردن نارنجی خود را حفظ می‌کند. در یک جریان کاری نمایش سیاه‑سفید، به‌دلیل تنظیم حالت به `Gray`، از رنگ خاکستری استفاده می‌کند. این امکان را می‌دهد تا اسلاید با رنگ کامل را حفظ کرده و ظاهر متفاوتی برای چاپ، پیش‌نمایش یا دیگر جریان‌های کاری که تنظیمات نمایش سیاه‑سفید ارائه را رعایت می‌کنند، تعریف کنید.
+در حالت رنگ عادی، مستطیل رنگ پر کردن نارنجی خود را حفظ می‌کند. در جریان کار نمایش سیاه‌وسفید، به دلیل تنظیم حالت به `Gray`، از رنگ خاکستری استفاده می‌کند. این به شما امکان می‌دهد یک اسلاید تمام رنگ را حفظ کرده و در عین حال ظاهر متمایزی برای چاپ، پیش‌نمایش یا سایر جریان‌های کاری که تنظیمات نمایش سیاه‌وسفید ارائه را رعایت می‌کنند، تعریف کنید.
 
 ## **بازنشانی قالب‌بندی**
 
-کد زیر نشان می‌دهد چگونه قالب‌بندی یک اسلاید را بازنشانی کنید و موقعیت، اندازه و قالب‌بندی تمام اشکال دارای مکان‌گیرها را در [LayoutSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/) به تنظیمات پیش‌فرض برگردانید:
+کد جاوااسکریپت زیر نشان می‌دهد چگونه قالب‌بندی یک اسلاید را بازنشانی کنید و موقعیت، اندازه و قالب‌بندی تمام اشکال با نگهدارنده‌ها را در [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) به تنظیمات پیش‌فرض آنها بازگردانید:
 
 ```js
 var aspose = aspose || {};
@@ -706,7 +668,7 @@ let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // بازنشانی هر شکل در اسلایدی که یک مکان‌گیر در لایه‌ی طرح‌بندی دارد.
+        // بازنشانی هر شکلی که در اسلاید دارای نگهدارنده‌ای در طرح‌بندی است.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
@@ -715,16 +677,16 @@ try {
 }
 ```
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
 **آیا قالب‌بندی شکل بر حجم نهایی فایل ارائه تأثیر می‌گذارد؟**
 
-تنها به‌صورت حداقلی. تصاویر و رسانه‌های جاسازی‌شده بیشتر فضای فایل را اشغال می‌کنند، در حالی که پارامترهای شکل مانند رنگ‌ها، افکت‌ها و گرادیان‌ها به‌عنوان متادیتا ذخیره می‌شوند و به‌صورت قابل‌توجهی حجم اضافه نمی‌کنند.
+فقط به‌صورت جزئی. تصاویر و رسانه‌های جاسازی‌شده بخش عمده‌ای از فضای فایل را اشغال می‌کنند، در حالی که پارامترهای شکل مانند رنگ‌ها، افکت‌ها و گرادیان‌ها به‌عنوان متاداده ذخیره می‌شوند و تقریباً هیچ حجم اضافه‌ای ایجاد نمی‌کنند.
 
-**چگونه می‌توانم اشکالی را که قالب‌بندی یکسان دارند شناسایی کنم تا بتوانم آن‌ها را گروه‌بندی کنم؟**
+**چگونه می‌توانم اشکالی را که قالب‌بندی یکسان دارند در یک اسلاید شناسایی کنم تا بتوانم آنها را گروه‌بندی کنم؟**
 
-ویژگی‌های کلیدی قالب‌بندی هر شکل—پرکردن، خط و تنظیمات افکت‌ها—را مقایسه کنید. اگر تمام مقادیر متناظر یکسان باشند، سبک آن‌ها را یک‌سان در نظر بگیرید و منطقی آنها را گروه‌بندی کنید؛ این کار مدیریت بعدی سبک‌ها را ساده می‌کند.
+هر یک از ویژگی‌های کلیدی قالب‌بندی هر شکل—تنظیمات پر، خط و افکت—را مقایسه کنید. اگر تمام مقادیر متناظر برابر باشند، سبک‌های آنها را یکسان در نظر بگیرید و به‌صورت منطقی آن اشکال را گروه‌بندی کنید، که مدیریت سبک‌ها را بعداً ساده می‌کند.
 
-**آیا می‌توانم مجموعه‌ای از سبک‌های سفارشی شکل را در یک فایل جداگانه ذخیره کنم تا در ارائه‌های دیگر استفاده شود؟**
+**آیا می‌توانم مجموعه‌ای از سبک‌های سفارشی شکل را در فایلی جداگانه ذخیره کنم تا در ارائه‌های دیگر دوباره استفاده کنم؟**
 
-بله. اشکال نمونه با سبک‌های موردنظر را در یک اسلاید قالب یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد ارائه جدید، قالب را باز کنید، اشکال سبک‌دار موردنیاز را کپی کنید و قالب‌بندی آن‌ها را هرجا که لازم بود دوباره اعمال کنید.
+بله. اشکال نمونه با سبک‌های موردنظر را در یک مجموعه اسلاید قالب یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد یک ارائه جدید، قالب را باز کنید، اشکال سبک‌دار موردنیاز را کلون کنید و قالب‌بندی‌های آنها را در هر جایی که لازم است، دوباره اعمال کنید.

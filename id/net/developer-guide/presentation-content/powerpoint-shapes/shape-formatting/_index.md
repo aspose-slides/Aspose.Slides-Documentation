@@ -17,11 +17,11 @@ keywords:
 - isi warna solid
 - transparansi bentuk
 - rendering bentuk hitam-putih
-- rendering bentuk skala abu-abu
+- rendering bentuk skala abu
 - putar bentuk
 - efek bevel 3D
 - efek rotasi 3D
-- reset pemformatan
+- atur ulang pemformatan
 - PowerPoint
 - presentasi
 - .NET
@@ -29,28 +29,28 @@ keywords:
 - Aspose.Slides
 description: "Pelajari cara memformat bentuk PowerPoint dalam C# menggunakan Aspose.Slides—atur gaya isi, garis, dan efek untuk file PPT dan PPTX dengan presisi dan kontrol penuh."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Di PowerPoint, Anda dapat menambahkan bentuk ke slide. Karena bentuk terdiri dari garis, Anda dapat memformatnya dengan mengubah atau menerapkan efek pada garis tepinya. Selain itu, Anda dapat memformat bentuk dengan menentukan pengaturan yang mengontrol bagaimana bagian dalamnya diisi.
+Di PowerPoint, Anda dapat menambahkan bentuk ke slide. Karena bentuk terdiri dari garis, Anda dapat memformatnya dengan memodifikasi atau menerapkan efek pada kontur mereka. Selain itu, Anda dapat memformat bentuk dengan menentukan pengaturan yang mengontrol bagaimana interiornya diisi.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for .NET menyediakan antarmuka dan properti yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama tersedia di PowerPoint.
+Aspose.Slides untuk .NET menyediakan antarmuka dan properti yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama seperti yang tersedia di PowerPoint.
 
 ## **Format Garis**
 
-Dengan Aspose.Slides, Anda dapat menentukan gaya garis khusus untuk sebuah bentuk. Langkah‑langkah berikut menjelaskan prosedurnya:
+Dengan menggunakan Aspose.Slides, Anda dapat menentukan gaya garis khusus untuk sebuah bentuk. Langkah-langkah berikut menjelaskan prosedurnya:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-1. Atur [line style](https://reference.aspose.com/slides/id/net/aspose.slides/linestyle/) bentuk.
-1. Atur lebar garis.
-1. Atur [dash style](https://reference.aspose.com/slides/id/net/aspose.slides/linedashstyle/) garis.
-1. Atur warna garis untuk bentuk.
-1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ke slide.
+4. Atur [line style](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) bentuk tersebut.
+5. Atur lebar garis.
+6. Atur [dash style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) garis.
+7. Atur warna garis untuk bentuk.
+8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Kode C# berikut memperlihatkan cara memformat sebuah `AutoShape` persegi panjang:
+Kode C# berikut menunjukkan cara memformat sebuah `AutoShape` persegi panjang:
 
 ```c#
 using System.Drawing;
@@ -89,9 +89,9 @@ Hasilnya:
 
 ## **Terapkan Efek Sketsa pada Garis Bentuk**
 
-Efek sketsa membuat garis bentuk tampak seperti digambar tangan. Gunakan [IShape.LineFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/lineformat/) untuk mengakses pengaturan garis, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ilineformat/sketchformat/) untuk mengakses pengaturan sketsa, dan [ISketchFormat.SketchType](https://reference.aspose.com/slides/id/net/aspose.slides/isketchformat/sketchtype/) untuk memilih nilai dari enumerasi [LineSketchType](https://reference.aspose.com/slides/id/net/aspose.slides/linesketchtype/) .
+Efek sketsa membuat garis bentuk terlihat seperti digambar tangan. Gunakan [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) untuk mengakses pengaturan garis, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) untuk mengakses pengaturan sketsa, dan [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) untuk memilih nilai dari enumerasi [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/).
 
-Kode C# berikut menunjukkan cara menerapkan efek [LineSketchType.Curved](https://reference.aspose.com/slides/id/net/aspose.slides/linesketchtype/) , membaca nilai yang ditetapkan secara eksplisit, dan menghapus efek dengan [LineSketchType.None](https://reference.aspose.com/slides/id/net/aspose.slides/linesketchtype/) :
+Kode C# berikut menunjukkan cara menerapkan efek [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/), membaca nilai yang ditetapkan secara eksplisit, dan menghapus efek dengan [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
 
 ```csharp
 using Aspose.Slides;
@@ -115,7 +115,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-Nilai yang dikembalikan oleh `ISketchFormat.SketchType` mewakili pengaturan yang ditetapkan langsung pada bentuk. Jika pemformatan garis dapat diwarisi dari tema, master slide, atau layout slide, gunakan [ILineFormat.GetEffective](https://reference.aspose.com/slides/id/net/aspose.slides/ilineformat/geteffective/) , akses [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ilineformateffectivedata/sketchformat/) , dan baca [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/id/net/aspose.slides/isketchformateffectivedata/sketchtype/) . Nilai efektif mencerminkan pemformatan yang sebenarnya diterapkan setelah pewarisan diselesaikan:
+Nilai yang dikembalikan oleh `ISketchFormat.SketchType` mewakili pengaturan yang ditetapkan langsung pada bentuk. Jika pemformatan garis dapat diwarisi dari tema, master slide, atau layout slide, gunakan [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), akses [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), dan baca [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). Nilai efektif mencerminkan pemformatan yang sebenarnya diterapkan setelah pewarisan diselesaikan:
 
 ```csharp
 using Aspose.Slides;
@@ -135,17 +135,17 @@ Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 
 ## **Format Gaya Sambungan**
 
-Berikut tiga pilihan tipe sambungan:
+Berikut tiga opsi tipe sambungan:
 
-* Round
+* Bulat
 * Miter
 * Bevel
 
-Secara default, ketika PowerPoint menyambungkan dua garis pada sudut (misalnya pada sudut bentuk), ia menggunakan pengaturan **Round**. Namun, jika Anda menggambar bentuk dengan sudut tajam, Anda mungkin lebih menyukai opsi **Miter**.
+Secara default, ketika PowerPoint menggabungkan dua garis pada sudut (seperti pada sudut bentuk), ia menggunakan pengaturan **Bulat**. Namun, jika Anda menggambar bentuk dengan sudut tajam, Anda mungkin lebih memilih opsi **Miter**.
 
 ![Gaya sambungan dalam presentasi](join-style-powerpoint.png)
 
-Kode C# berikut memperlihatkan bagaimana tiga persegi panjang (seperti pada gambar di atas) dibuat menggunakan pengaturan tipe sambungan Miter, Bevel, dan Round:
+Kode C# berikut menunjukkan bagaimana tiga persegi panjang (seperti yang ditampilkan pada gambar di atas) dibuat menggunakan pengaturan tipe sambungan Miter, Bevel, dan Bulat:
 
 ```c#
 using System.Drawing;
@@ -176,7 +176,7 @@ using (Presentation presentation = new Presentation())
     shape2.LineFormat.Width = 15;
     shape3.LineFormat.Width = 15;
 
-    // Atur warna untuk setiap garis persegi panjang.
+    // Atur warna untuk garis setiap persegi panjang.
     shape1.LineFormat.FillFormat.FillType = FillType.Solid;
     shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     shape2.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -199,20 +199,18 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Gradient Fill**
+## **Isi Gradien**
 
-Di PowerPoint, Gradient Fill adalah opsi pemformatan yang memungkinkan Anda menerapkan perpaduan warna kontinu pada sebuah bentuk. Misalnya, Anda dapat menerapkan dua atau lebih warna sehingga satu warna secara bertahap memudar menjadi warna lainnya.
+Di PowerPoint, Isi Gradien adalah opsi pemformatan yang memungkinkan Anda menerapkan perpaduan warna berkelanjutan pada sebuah bentuk. Misalnya, Anda dapat menerapkan dua atau lebih warna secara bertahap sehingga satu warna memudar menjadi warna lain.
 
-Berikut cara menerapkan gradient fill pada bentuk menggunakan Aspose.Slides:
+Berikut cara menerapkan isi gradien pada sebuah bentuk menggunakan Aspose.Slides:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-1. Atur [FillType](https://reference.aspose.com/slides/id/net/aspose.slides/filltype/) bentuk menjadi `Gradient` .
-1. Tambahkan dua warna pilihan Anda dengan posisi yang ditentukan menggunakan metode `Add` dari koleksi gradient stop yang diekspos oleh antarmuka [IGradientFormat](https://reference.aspose.com/slides/id/net/aspose.slides/igradientformat/) .
-1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode C# berikut memperlihatkan cara menerapkan efek gradient fill pada sebuah elips:
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ke slide.
+4. Atur [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) bentuk ke `Gradient`.
+5. Tambahkan dua warna pilihan Anda dengan posisi yang ditentukan menggunakan metode `Add` dari koleksi gradient stop yang disediakan oleh antarmuka [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/).
+6. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
 ```c#
 using Aspose.Slides;
@@ -227,7 +225,7 @@ using (Presentation presentation = new Presentation())
     // Tambahkan auto shape tipe Ellipse.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Terapkan pemformatan gradien ke elips.
+    // Terapkan pemformatan gradien pada elips.
     shape.FillFormat.FillType = FillType.Gradient;
     shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
@@ -245,26 +243,26 @@ using (Presentation presentation = new Presentation())
 
 Hasilnya:
 
-![Elips dengan gradient fill](gradient-fill.png)
+![Elips dengan isi gradien](gradient-fill.png)
 
-## **Pattern Fill**
+Jika gradien terlihat berbeda dalam gambar yang diekspor dibandingkan dengan di PowerPoint, lihat [Choose a Gradient Rendering Style](/slides/id/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Anda dapat memilih gaya rendering tanpa mengubah isi gradien yang disimpan dalam presentasi.
 
-Di PowerPoint, Pattern Fill adalah opsi pemformatan yang memungkinkan Anda menerapkan desain dua warna—seperti titik, garis, crosshatch, atau kotak—pada sebuah bentuk. Anda dapat memilih warna kustom untuk latar depan dan latar belakang pola.
+## **Isi Pola**
 
-Aspose.Slides menyediakan lebih dari 45 gaya pola bawaan yang dapat Anda terapkan pada bentuk untuk meningkatkan daya tarik visual presentasi Anda. Bahkan setelah memilih pola bawaan, Anda masih dapat menentukan warna tepat yang harus digunakan.
+Di PowerPoint, Isi Pola adalah opsi pemformatan yang memungkinkan Anda menerapkan desain dua warna—seperti titik, garis, silang, atau cek—pada sebuah bentuk. Anda dapat memilih warna khusus untuk latar depan dan latar belakang pola.
 
-Berikut cara menerapkan pattern fill pada bentuk menggunakan Aspose.Slides:
+Aspose.Slides menyediakan lebih dari 45 gaya pola yang telah ditetapkan yang dapat Anda terapkan pada bentuk untuk meningkatkan daya tarik visual presentasi Anda. Bahkan setelah memilih pola yang telah ditetapkan, Anda masih dapat menentukan warna tepat yang akan digunakan.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-1. Atur [FillType](https://reference.aspose.com/slides/id/net/aspose.slides/filltype/) bentuk menjadi `Pattern` .
-1. Pilih gaya pola dari opsi bawaan.
-1. Atur [Background Color](https://reference.aspose.com/slides/id/net/aspose.slides/ipatternformat/backcolor/) pola.
-1. Atur [Foreground Color](https://reference.aspose.com/slides/id/net/aspose.slides/ipatternformat/forecolor/) pola.
-1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+Berikut cara menerapkan isi pola pada sebuah bentuk menggunakan Aspose.Slides:
 
-Kode C# berikut memperlihatkan cara menerapkan pattern fill pada sebuah persegi panjang:
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ke slide.
+4. Atur [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) bentuk ke `Pattern`.
+5. Pilih gaya pola dari opsi yang telah ditetapkan.
+6. Atur [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) pola.
+7. Atur [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) pola.
+8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
 ```c#
 using System.Drawing;
@@ -297,28 +295,26 @@ using (Presentation presentation = new Presentation())
 
 Hasilnya:
 
-![Persegi panjang dengan pattern fill](pattern-fill.png)
+![Persegi panjang dengan isi pola](pattern-fill.png)
 
-## **Picture Fill**
+## **Isi Gambar**
 
-Di PowerPoint, Picture Fill adalah opsi pemformatan yang memungkinkan Anda menyisipkan gambar di dalam bentuk—secara efektif menggunakan gambar sebagai latar belakang bentuk.
+Di PowerPoint, Isi Gambar adalah opsi pemformatan yang memungkinkan Anda menyisipkan gambar di dalam sebuah bentuk—secara efektif menggunakan gambar sebagai latar belakang bentuk.
 
-Berikut cara menggunakan Aspose.Slides untuk menerapkan picture fill pada bentuk:
+Berikut cara menggunakan Aspose.Slides untuk menerapkan isi gambar pada sebuah bentuk:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-1. Atur [FillType](https://reference.aspose.com/slides/id/net/aspose.slides/filltype/) bentuk menjadi `Picture` .
-1. Atur mode picture fill menjadi `Tile` (atau mode lain yang Anda inginkan).
-1. Buat objek [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) dari gambar yang ingin Anda gunakan.
-1. Tetapkan gambar ini ke properti `Picture.Image` dari `PictureFillFormat` bentuk.
-1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ke slide.
+4. Atur [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) bentuk ke `Picture`.
+5. Atur mode isi gambar ke `Tile` (atau mode lain yang diinginkan).
+6. Buat objek [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) dari gambar yang ingin Anda gunakan.
+7. Tetapkan gambar ini ke properti `Picture.Image` pada `PictureFillFormat` bentuk.
+8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Misalkan kami memiliki file "lotus.png" dengan gambar berikut:
+Misalkan kita memiliki file "lotus.png" dengan gambar berikut:
 
 ![Gambar lotus](lotus.png)
-
-Kode C# berikut memperlihatkan cara mengisi bentuk dengan gambar:
 
 ```c#
 using Aspose.Slides;
@@ -336,7 +332,7 @@ using (Presentation presentation = new Presentation())
     // Atur tipe isi menjadi Picture.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // Atur mode picture fill.
+    // Atur mode isi gambar.
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
     // Muat gambar dan tambahkan ke sumber daya presentasi.
@@ -354,21 +350,19 @@ using (Presentation presentation = new Presentation())
 
 Hasilnya:
 
-![Bentuk dengan picture fill](picture-fill.png)
+![Bentuk dengan isi gambar](picture-fill.png)
 
-### **Tile Picture As Texture**
+### **Ubin Gambar Sebagai Tekstur**
 
-Jika Anda ingin mengatur gambar ubin sebagai tekstur dan menyesuaikan perilaku ubin, Anda dapat menggunakan properti berikut dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/picturefillformat/) :
+Jika Anda ingin mengatur gambar berubin sebagai tekstur dan menyesuaikan perilaku ubin, Anda dapat menggunakan properti berikut dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/):
 
-- [PictureFillMode](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/picturefillmode/) : Mengatur mode picture fill—baik `Tile` atau `Stretch` .
-- [TileAlignment](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/tilealignment/) : Menentukan perataan ubin dalam bentuk.
-- [TileFlip](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/tileflip/) : Mengontrol apakah ubin dibalik secara horizontal, vertikal, atau keduanya.
-- [TileOffsetX](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/tileoffsetx/) : Mengatur offset horizontal ubin (dalam poin) dari asal bentuk.
-- [TileOffsetY](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/tileoffsety/) : Mengatur offset vertikal ubin (dalam poin) dari asal bentuk.
-- [TileScaleX](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/tilescalex/) : Mendefinisikan skala horizontal ubin sebagai persentase.
-- [TileScaleY](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/tilescaley/) : Mendefinisikan skala vertikal ubin sebagai persentase.
-
-Contoh kode berikut menunjukkan cara menambahkan bentuk persegi panjang dengan picture fill ubin dan mengonfigurasi opsi ubin:
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Menetapkan mode isi gambar—baik `Tile` atau `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Menentukan perataan ubin di dalam bentuk.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Mengontrol apakah ubin dibalik secara horizontal, vertikal, atau keduanya.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Menetapkan offset horizontal ubin (dalam point) dari asal bentuk.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Menetapkan offset vertikal ubin (dalam point) dari asal bentuk.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Mendefinisikan skala horizontal ubin sebagai persentase.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Mendefinisikan skala vertikal ubin sebagai persentase.
 
 ```c#
 using Aspose.Slides;
@@ -395,7 +389,7 @@ using (Presentation presentation = new Presentation())
     IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
     pictureFillFormat.Picture.Image = presentationImage;
 
-    // Konfigurasikan mode picture fill dan properti ubin.
+    // Konfigurasikan mode isi gambar dan properti ubin.
     pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     pictureFillFormat.TileOffsetX = -32;
     pictureFillFormat.TileOffsetY = -32;
@@ -413,20 +407,18 @@ Hasilnya:
 
 ![Opsi ubin](tile-options.png)
 
-## **Solid Color Fill**
+## **Isi Warna Solid**
 
-Di PowerPoint, Solid Color Fill adalah opsi pemformatan yang mengisi bentuk dengan satu warna seragam. Latar belakang berwarna polos ini diterapkan tanpa gradient, tekstur, atau pola apa pun.
+Di PowerPoint, Isi Warna Solid adalah opsi pemformatan yang mengisi bentuk dengan satu warna seragam. Latar belakang polos ini diterapkan tanpa gradien, tekstur, atau pola apa pun.
 
-Untuk menerapkan solid color fill pada bentuk menggunakan Aspose.Slides, ikuti langkah‑langkah berikut:
+Untuk menerapkan isi warna solid pada sebuah bentuk menggunakan Aspose.Slides, ikuti langkah-langkah berikut:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-1. Atur [FillType](https://reference.aspose.com/slides/id/net/aspose.slides/filltype/) bentuk menjadi `Solid` .
-1. Tetapkan warna isi pilihan Anda ke bentuk.
-1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode C# berikut memperlihatkan cara menerapkan solid color fill pada sebuah persegi panjang di slide PowerPoint:
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ke slide.
+4. Atur [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) bentuk ke `Solid`.
+5. Tetapkan warna isi pilihan Anda ke bentuk.
+6. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
 ```c#
 using System.Drawing;
@@ -455,22 +447,20 @@ using (Presentation presentation = new Presentation())
 
 Hasilnya:
 
-![Bentuk dengan solid color fill](solid-color-fill.png)
+![Bentuk dengan isi warna solid](solid-color-fill.png)
 
-## **Set Transparency**
+## **Atur Transparansi**
 
-Di PowerPoint, ketika Anda menerapkan solid color, gradient, picture, atau texture fill pada bentuk, Anda juga dapat mengatur tingkat transparansi untuk mengontrol opasitas isi. Nilai transparansi yang lebih tinggi membuat bentuk semakin tembus pandang, memungkinkan latar belakang atau objek di bawahnya terlihat sebagian.
+Di PowerPoint, ketika Anda menerapkan isi warna solid, gradien, gambar, atau tekstur pada bentuk, Anda juga dapat mengatur tingkat transparansi untuk mengontrol opasitas isi. Nilai transparansi yang lebih tinggi membuat bentuk lebih tembus pandang, memungkinkan latar belakang atau objek di bawahnya terlihat sebagian.
 
-Aspose.Slides memungkinkan Anda mengatur tingkat transparansi dengan menyesuaikan nilai alpha pada warna yang digunakan untuk isi. Berikut caranya:
+Aspose.Slides memungkinkan Anda mengatur tingkat transparansi dengan menyesuaikan nilai alfa dalam warna yang digunakan untuk isi. Berikut caranya:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-1. Atur [FillType](https://reference.aspose.com/slides/id/net/aspose.slides/filltype/) menjadi `Solid` .
-1. Gunakan `Color.FromArgb(alpha, baseColor)` untuk mendefinisikan warna dengan transparansi (komponen `alpha` mengontrol transparansi).
-1. Simpan presentasi.
-
-Kode C# berikut memperlihatkan cara menerapkan warna isi transparan pada sebuah persegi panjang:
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ke slide.
+4. Atur [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) ke `Solid`.
+5. Gunakan `Color.FromArgb(alpha, baseColor)` untuk mendefinisikan warna dengan transparansi (komponen `alpha` mengontrol transparansi).
+6. Simpan presentasi.
 
 ```c#
 using System.Drawing;
@@ -502,19 +492,17 @@ Hasilnya:
 
 ![Bentuk transparan](shape-transparency.png)
 
-## **Rotate Shapes**
+## **Putar Bentuk**
 
-Aspose.Slides memungkinkan Anda memutar bentuk dalam presentasi PowerPoint. Hal ini dapat berguna saat menempatkan elemen visual dengan kebutuhan penyelarasan atau desain khusus.
+Aspose.Slides memungkinkan Anda memutar bentuk dalam presentasi PowerPoint. Ini dapat berguna saat menempatkan elemen visual dengan kebutuhan penyelarasan atau desain tertentu.
 
-Untuk memutar bentuk pada slide, ikuti langkah‑langkah berikut:
+Untuk memutar sebuah bentuk pada slide, ikuti langkah-langkah berikut:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-1. Atur properti `Rotation` bentuk ke sudut yang diinginkan.
-1. Simpan presentasi.
-
-Kode C# berikut memperlihatkan cara memutar bentuk sebesar 5 derajat:
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ke slide.
+4. Atur properti `Rotation` bentuk ke sudut yang diinginkan.
+5. Simpan presentasi.
 
 ```c#
 using Aspose.Slides;
@@ -541,19 +529,17 @@ Hasilnya:
 
 ![Rotasi bentuk](shape-rotation.png)
 
-## **Add 3D Bevel Effects**
+## **Tambahkan Efek Bevel 3D**
 
-Aspose.Slides memungkinkan Anda menerapkan efek bevel 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/threedformat/)‑nya.
+Aspose.Slides memungkinkan Anda menerapkan efek bevel 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) mereka.
 
-Untuk menambahkan efek bevel 3D pada bentuk, ikuti langkah‑langkah berikut:
+Untuk menambahkan efek bevel 3D pada sebuah bentuk, ikuti langkah-langkah berikut:
 
-1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-1. Konfigurasikan [ThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/threedformat/) bentuk untuk menentukan pengaturan bevel.
-1. Simpan presentasi.
-
-Kode C# berikut menunjukkan cara menerapkan efek bevel 3D pada bentuk:
+1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ke slide.
+4. Konfigurasikan [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) bentuk untuk mendefinisikan pengaturan bevel.
+5. Simpan presentasi.
 
 ```c#
 using System.Drawing;
@@ -565,7 +551,7 @@ using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Tambahkan sebuah bentuk ke slide.
+    // Tambahkan bentuk ke slide.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.FillFormat.FillType = FillType.Solid;
     shape.FillFormat.SolidFillColor.Color = Color.Green;
@@ -591,19 +577,17 @@ Hasilnya:
 
 ![Efek bevel 3D](3D-bevel-effect.png)
 
-## **Add 3D Rotation Effects**
+## **Tambahkan Efek Rotasi 3D**
 
-Aspose.Slides memungkinkan Anda menerapkan efek rotasi 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/threedformat/)‑nya.
+Aspose.Slides memungkinkan Anda menerapkan efek rotasi 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) mereka.
 
-Untuk menerapkan rotasi 3D pada bentuk:
+Untuk menerapkan rotasi 3D pada sebuah bentuk:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-1. Atur [CameraType](https://reference.aspose.com/slides/id/net/aspose.slides/icamera/cameratype/) dan [LightType](https://reference.aspose.com/slides/id/net/aspose.slides/ilightrig/lighttype/) bentuk untuk mendefinisikan rotasi 3D.
-1. Simpan presentasi.
-
-Kode C# berikut memperlihatkan cara menerapkan efek rotasi 3D pada bentuk:
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ke slide.
+4. Atur [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) dan [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) bentuk untuk mendefinisikan rotasi 3D.
+5. Simpan presentasi.
 
 ```c#
 using Aspose.Slides;
@@ -630,13 +614,11 @@ Hasilnya:
 
 ![Efek rotasi 3D](3D-rotation-effect.png)
 
-## **Control Black-and-White Rendering for Shapes**
+## **Kontrol Rendering Hitam-putih untuk Bentuk**
 
-Properti [IShape.BlackWhiteMode](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/blackwhitemode/) menentukan bagaimana sebuah bentuk individual dirender ketika presentasi dilihat atau diproses dalam mode hitam‑putih. Properti ini tidak mengaktifkan tampilan hitam‑putih sendiri, dan tidak mengubah isi, garis, atau pemformatan lain dari bentuk dalam mode warna normal.
+Properti [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) menentukan bagaimana sebuah bentuk individu dirender ketika presentasi dilihat atau diproses dalam mode hitam-putih. Properti ini tidak mengaktifkan tampilan hitam-putih sendiri, dan tidak mengubah isi, garis, atau pemformatan lain bentuk dalam mode warna normal.
 
-Gunakan nilai dari enumerasi [BlackWhiteMode](https://reference.aspose.com/slides/id/net/aspose.slides/blackwhitemode/) untuk memilih perilaku yang diinginkan. Misalnya, `Automatic` membiarkan aplikasi rendering memilih konversi, `Gray` dan `LightGray` menggunakan warna abu‑abu, `BlackWhite` hanya menggunakan hitam dan putih, `Black` dan `White` memaksa satu warna, `Color` mempertahankan warna normal, dan `Hidden` menghilangkan bentuk dalam mode hitam‑putih. `NotDefined` berarti tidak ada mode level bentuk yang ditetapkan.
-
-Kode C# berikut membuat sebuah bentuk berwarna dan membuatnya muncul abu‑abu dalam mode tampilan hitam‑putih:
+Gunakan nilai dari enumerasi [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) untuk memilih perilaku yang diinginkan. Misalnya, `Automatic` memungkinkan aplikasi rendering memilih konversi, `Gray` dan `LightGray` menggunakan warna abu‑abu, `BlackWhite` hanya menggunakan hitam dan putih, `Black` dan `White` memaksa satu warna, `Color` mempertahankan warna normal, dan `Hidden` mengecualikan bentuk dalam mode hitam‑putih. `NotDefined` berarti tidak ada mode tingkat bentuk yang ditetapkan.
 
 ```csharp
 using System.Drawing;
@@ -650,17 +632,17 @@ var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.Color = Color.Orange;
 
-// Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
+// Pertahankan isi oranye pada mode warna, tetapi render bentuk dengan warna abu-abu pada mode hitam-putih.
 shape.BlackWhiteMode = BlackWhiteMode.Gray;
 
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-Dalam mode warna normal, persegi panjang tetap berisi oranye. Dalam alur kerja tampilan hitam‑putih, ia menggunakan warna abu‑abu karena mode‑nya diatur ke `Gray`. Hal ini memungkinkan Anda mempertahankan slide berwarna penuh sambil mendefinisikan tampilan khusus untuk pencetakan, pratinjau, atau alur kerja lain yang menghormati pengaturan tampilan hitam‑putih presentasi.
+Dalam mode warna normal, persegi panjang mempertahankan isian oranye. Dalam alur kerja tampilan hitam‑putih, ia menggunakan warna abu‑abu karena mode diatur ke `Gray`. Ini memungkinkan Anda mempertahankan slide berwarna penuh sambil menentukan penampilan khusus untuk pencetakan, pratinjau, atau alur kerja lain yang menghormati pengaturan tampilan hitam‑putih presentasi.
 
-## **Reset Formatting**
+## **Atur Ulang Pemformatan**
 
-Kode C# berikut memperlihatkan cara mengatur ulang pemformatan slide dan mengembalikan posisi, ukuran, serta pemformatan semua bentuk dengan placeholder pada [LayoutSlide](https://reference.aspose.com/slides/id/net/aspose.slides/layoutslide/) ke pengaturan defaultnya:
+Kode C# berikut menunjukkan cara mengatur ulang pemformatan slide dan mengembalikan posisi, ukuran, serta pemformatan semua bentuk dengan placeholder pada [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) ke pengaturan default mereka:
 
 ```c#
 using Aspose.Slides;
@@ -670,7 +652,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // Reset setiap shape pada slide yang memiliki placeholder pada layout.
+        // Atur ulang setiap shape pada slide yang memiliki placeholder pada tata letak.
         slide.Reset();
     }
 
@@ -680,14 +662,14 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **FAQ**
 
-**Apakah pemformatan bentuk mempengaruhi ukuran akhir file presentasi?**
+**Apakah pemformatan bentuk mempengaruhi ukuran file presentasi akhir?**
 
-Hanya secara minimal. Gambar dan media yang disematkan memakan sebagian besar ruang file, sedangkan parameter bentuk seperti warna, efek, dan gradient disimpan sebagai metadata dan hampir tidak menambah ukuran.
+Hanya secara minimal. Gambar dan media yang disematkan menempati sebagian besar ruang file, sementara parameter bentuk seperti warna, efek, dan gradien disimpan sebagai metadata dan hampir tidak menambah ukuran.
 
-**Bagaimana cara mendeteksi bentuk pada slide yang memiliki pemformatan identik sehingga saya dapat mengelompokkannya?**
+**Bagaimana saya dapat mendeteksi bentuk pada slide yang memiliki pemformatan identik sehingga saya dapat mengelompokkannya?**
 
-Bandingkan setiap properti pemformatan utama bentuk—pengaturan isi, garis, dan efek. Jika semua nilai yang bersesuaian cocok, perlakukan gaya mereka sebagai identik dan kelompokan bentuk‑bentuk tersebut secara logis, yang mempermudah manajemen gaya nantinya.
+Bandingkan setiap properti pemformatan utama bentuk—isi, garis, dan pengaturan efek. Jika semua nilai yang bersesuaian cocok, perlakukan gaya mereka sebagai identik dan kelompokkan secara logis bentuk‑bentuk tersebut, yang menyederhanakan manajemen gaya di kemudian hari.
 
-**Apakah saya dapat menyimpan sekumpulan gaya bentuk khusus ke file terpisah untuk digunakan kembali di presentasi lain?**
+**Apakah saya dapat menyimpan sekumpulan gaya bentuk khusus ke file terpisah untuk digunakan kembali dalam presentasi lain?**
 
-Ya. Simpan bentuk contoh dengan gaya yang diinginkan dalam deck slide templat atau file .POTX. Saat membuat presentasi baru, buka templat tersebut, kloning bentuk bergaya yang diperlukan, dan terapkan kembali pemformatannya sesuai kebutuhan.
+Ya. Simpan contoh bentuk dengan gaya yang diinginkan dalam deck slide templat atau file templat .POTX. Saat membuat presentasi baru, buka templat tersebut, kloning bentuk ber‑gaya yang diperlukan, dan terapkan kembali pemformatannya di mana diperlukan.

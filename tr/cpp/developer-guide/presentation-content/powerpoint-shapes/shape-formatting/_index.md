@@ -1,5 +1,5 @@
 ---
-title: C++ ile PowerPoint Şekillerini Biçimlendirme
+title: C++'ta PowerPoint Şekillerini Biçimlendir
 linktitle: Şekil Biçimlendirme
 type: docs
 weight: 20
@@ -7,49 +7,49 @@ url: /tr/cpp/shape-formatting/
 keywords:
 - şekil biçimlendirme
 - çizgi biçimlendirme
-- eskiz efekti
-- şekil çizgi eskizi
-- bağlama stili biçimlendirme
-- gradyan dolgu
-- desen dolgu
-- resim dolgu
-- doku dolgu
-- düz renk dolgu
+- taslak efekti
+- şekil çizgi taslak efekti
+- eklem stili biçimlendirme
+- gradyan doldurma
+- desen doldurma
+- resim doldurma
+- doku doldurma
+- düz renk doldurma
 - şekil şeffaflığı
 - siyah-beyaz şekil işleme
 - gri tonlamalı şekil işleme
-- şekil döndürme
-- 3D keskinlik efekti
-- 3D döndürme efekti
+- şekli döndür
+- 3B kırma efekti
+- 3B döndürme efekti
 - biçimlendirmeyi sıfırla
 - PowerPoint
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides kullanarak C++ içinde PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT, PPTX ve ODP dosyaları için doldurma, çizgi ve efekt stillerini hassas ve tam kontrolle ayarlayın."
+description: "Aspose.Slides kullanarak C++'ta PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT, PPTX ve ODP dosyaları için doldurma, çizgi ve efekt stillerini hassasiyetle ve tam kontrolle ayarlayın."
 ---
 ## **Giriş**
 
-PowerPoint'te slaytlara şekiller ekleyebilirsiniz. Şekiller çizgilerden oluştuğu için, kenar çizgilerini değiştirerek veya efektler uygulayarak biçimlendirebilirsiniz. Ayrıca, şekillerin içlerinin nasıl doldurulacağını kontrol eden ayarları belirleyerek şekilleri biçimlendirebilirsiniz.
+PowerPoint'te slaytlara şekil ekleyebilirsiniz. Şekiller çizgilerden oluştuğu için, çevrelerine (çerçevelerine) etkiler uygulayarak veya değiştirerek biçimlendirebilirsiniz. Ayrıca şekillerin iç kısımlarının nasıl doldurulacağını kontrol eden ayarları belirleyerek şekilleri biçimlendirebilirsiniz.
 
-![biçimlendirme-şekli-powerpoint](format-shape-powerpoint.png)
+![biçimlendirilmiş-şekil-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ , PowerPoint'te bulunan aynı seçenekleri kullanarak şekilleri biçimlendirmenizi sağlayan arayüzler ve metodlar sunar.
+Aspose.Slides for C++ şekilleri PowerPoint'te bulunan aynı seçenekleri kullanarak biçimlendirmenizi sağlayan arabirimler ve yöntemler sunar.
 
 ## **Çizgi Biçimlendirme**
 
-Aspose.Slides kullanarak bir şekil için özel bir çizgi stili belirleyebilirsiniz. Aşağıdaki adımlar prosedürü özetlemektedir:
+Aspose.Slides kullanarak bir şekil için özel çizgi stili belirtebilirsiniz. Aşağıdaki adımlar işlemi özetler:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
-1. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) slayta ekleyin.
-1. Şeklin [çizgi stili](https://reference.aspose.com/slides/tr/cpp/aspose.slides/linestyle/) ayarını belirleyin.
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ekleyin.
+1. Şeklin [line style](https://reference.aspose.com/slides/cpp/aspose.slides/linestyle/) ayarlayın.
 1. Çizgi genişliğini ayarlayın.
-1. Çizginin [çizgi dash stili](https://reference.aspose.com/slides/tr/cpp/aspose.slides/linedashstyle/) ayarını belirleyin.
-1. Şekil için çizgi rengini ayarlayın.
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Çizginin [dash style](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) ayarlayın.
+1. Şeklin çizgi rengini ayarlayın.
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki kod, bir dikdörtgen `AutoShape` nasıl biçimlendirileceğini gösterir:
+Aşağıdaki kod, bir dikdörtgen `AutoShape`'ı nasıl biçimlendireceğinizi gösterir:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -72,39 +72,41 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Sunum dosyasını temsil eden Presentation sınıfını başlat.
+// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// İlk slaytı al.
+// İlk slaytı alın.
 auto slide = presentation->get_Slide(0);
 
-// Rectangle tipinde bir otomatik şekil ekle.
+// Rectangle türünde bir otomatik şekil ekleyin.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-// Dikdörtgen şeklinin dolgu rengini ayarla.
+// Dikdörtgen şeklinin doldurma rengini ayarlayın.
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// Dikdörtgenin çizgilerine biçimlendirme uygula.
+// Dikdörtgenin çizgilerine biçimlendirme uygulayın.
 shape->get_LineFormat()->set_Style(LineStyle::ThickThin);
 shape->get_LineFormat()->set_Width(7);
 shape->get_LineFormat()->set_DashStyle(LineDashStyle::Dash);
 
-// Dikdörtgenin çizgi rengini ayarla.
+// Dikdörtgenin çizgi rengini ayarlayın.
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// PPTX dosyasını diske kaydet.
+// PPTX dosyasını diske kaydedin.
 presentation->Save(u"formatted_lines.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Sunumdaki biçimlendirilmiş çizgiler](formatted-lines.png)
 
-## **Şekil Çizgilerine Eskiz Efektleri Uygulama**
+## **Şekil Çizgilerine Taslak Efektleri Uygulama**
 
-Eskiz efekti, bir şekil çizgisini el çizimi gibi gösterir. Çizgi ayarlarına erişmek için [IShape::get_LineFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/get_lineformat/) , eskiz ayarlarına erişmek için [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilineformat/get_sketchformat/) ve [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isketchformat/set_sketchtype/) ile [LineSketchType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/linesketchtype/) enum'ından bir değer seçin.
+Bir taslak efekti, şekil çizgisini el çizimi gibi gösterir. Çizgi ayarlarına erişmek için [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) kullanın, taslak ayarlarına erişmek için [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) ve [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) enum'ından bir değer seçmek için [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) kullanın.
 
-Aşağıdaki C++ kodu, bir [LineSketchType::Curved](https://reference.aspose.com/slides/tr/cpp/aspose.slides/linesketchtype/) etkisini nasıl uygulayacağını, açıkça atanmış değeri nasıl okuyacağını ve [LineSketchType::None](https://reference.aspose.com/slides/tr/cpp/aspose.slides/linesketchtype/) ile etkiyi nasıl kaldıracağını gösterir:
+Aşağıdaki C++ kodu, bir [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) etkisi uygulamayı, açıkça atanmış değeri okumayı ve [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) ile efekti kaldırmayı gösterir:
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -128,7 +130,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-[ISketchFormat::get_SketchType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isketchformat/get_sketchtype/) tarafından döndürülen değer, şekle doğrudan atanan ayarı temsil eder. Çizgi biçimi bir tema, ana slayt veya yerleşim slaytından devralınabiliyorsa, [ILineFormat::GetEffective](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilineformat/geteffective/) kullanın, [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) erişin ve [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) değerini okuyun. Etkili değer, kalıtım çözüldükten sonra gerçekten uygulanan biçimlendirmeyi yansıtır:
+[ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) tarafından döndürülen değer, şekle doğrudan atanmış ayarı temsil eder. Çizgi biçimlendirmesi bir tema, ana slayt veya yerleşim slaytından devralınabiliyorsa, [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/) kullanın, [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) erişin ve [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) okuyun. Etkili değer, devralma çözüldükten sonra gerçekte uygulanan biçimlendirmeyi yansıtır:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"presentation.pptx");
@@ -146,19 +148,19 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **Bağlantı Stilleri Biçimlendirme**
+## **Eklem Stilleri Biçimlendirme**
 
-İşte üç bağ türü seçeneği:
+İşte üç eklem tipi seçeneği:
 
-* Round
+* Yuvarlak
 * Miter
 * Bevel
 
-Varsayılan olarak, PowerPoint iki çizgiyi bir açıda (örneğin bir şeklin köşesinde) birleştirdiğinde **Round** ayarını kullanır. Ancak, keskin açıları olan bir şekil çizerken **Miter** seçeneğini tercih edebilirsiniz.
+Varsayılan olarak, PowerPoint iki çizgiyi bir açıda (örneğin bir şeklin köşesinde) birleştirdiğinde **Yuvarlak** ayarını kullanır. Ancak keskin açılarla bir şekil çizerken **Miter** seçeneğini tercih edebilirsiniz.
 
-![Sunumdaki bağlama stili](join-style-powerpoint.png)
+![Sunumdaki eklem stili](join-style-powerpoint.png)
 
-Aşağıdaki C++ kodu, yukarıdaki görselde gösterildiği gibi üç dikdörtgenin Miter, Bevel ve Round bağ türü ayarları kullanılarak nasıl oluşturulduğunu gösterir:
+Aşağıdaki C++ kodu, yukarıdaki görselde gösterildiği gibi Miter, Bevel ve Yuvarlak eklem tipi ayarları kullanılarak üç dikdörtgenin nasıl oluşturulduğunu gösterir:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -181,18 +183,18 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
+// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// İlk slaytı al.
+// İlk slaytı alın.
 auto slide = presentation->get_Slide(0);
 
-// Rectangle tipinde üç otomatik şekil ekle.
+// Rectangle türünde üç otomatik şekil ekleyin.
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
 auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
 auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-// Her dikdörtgen şeklinin dolgu rengini ayarla.
+// Her bir dikdörtgen şeklinin doldurma rengini ayarlayın.
 shape1->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape2->get_FillFormat()->set_FillType(FillType::Solid);
@@ -200,12 +202,12 @@ shape2->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape3->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// Çizgi kalınlığını ayarla.
+// Çizgi genişliğini ayarlayın.
 shape1->get_LineFormat()->set_Width(15);
 shape2->get_LineFormat()->set_Width(15);
 shape3->get_LineFormat()->set_Width(15);
 
-// Her dikdörtgenin çizgi rengini ayarla.
+// Her bir dikdörtgenin çizgi rengini ayarlayın.
 shape1->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 shape2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -213,35 +215,35 @@ shape2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Colo
 shape3->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Bağlama stilini ayarla.
+// Eklem stilini ayarlayın.
 shape1->get_LineFormat()->set_JoinStyle(LineJoinStyle::Miter);
 shape2->get_LineFormat()->set_JoinStyle(LineJoinStyle::Bevel);
 shape3->get_LineFormat()->set_JoinStyle(LineJoinStyle::Round);
 
-// Her dikdörtgene metin ekle.
+// Her bir dikdörtgene metin ekleyin.
 shape1->get_TextFrame()->set_Text(u"Miter Join Style");
 shape2->get_TextFrame()->set_Text(u"Bevel Join Style");
 shape3->get_TextFrame()->set_Text(u"Round Join Style");
 
-// PPTX dosyasını diske kaydet.
+// PPTX dosyasını diske kaydedin.
 presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Gradyan Dolgu**
+## **Gradyan Doldurma**
 
-PowerPoint'te Gradyan Dolgu, bir şekle sürekli bir renk geçişi uygulamanıza olanak tanıyan bir biçimlendirme seçeneğidir. Örneğin, iki veya daha fazla rengi birinin yavaşça diğerine karıştığı bir şekilde uygulayabilirsiniz.
+PowerPoint'te Gradyan Doldurma, bir şekle sürekli bir renk geçişi uygulamanıza olanak tanıyan bir biçimlendirme seçeneğidir. Örneğin, bir rengin diğerine yavaşça karıştığı iki ya da daha fazla renk uygulayabilirsiniz.
 
-Aspose.Slides kullanarak bir şekle gradyan dolgu uygulama adımları:
+Aspose.Slides kullanarak bir şekle gradyan doldurma uygulamanın yolu:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
-1. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) slayta ekleyin.
-1. Şeklin [FillType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/filltype/) özelliğini `Gradient` olarak ayarlayın.
-1. [IGradientFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/igradientformat/) arayüzünün sunduğu gradyan durak koleksiyonunun `Add` metodlarını kullanarak iki tercih ettiğiniz rengi tanımlı konumlarla ekleyin.
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ekleyin.
+1. Şeklin [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) özelliğini `Gradient` olarak ayarlayın.
+1. [IGradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/) arabirimi tarafından sunulan gradyan durak koleksiyonunun `Add` yöntemleriyle tanımlı konumlarda iki tercih ettiğiniz rengi ekleyin.
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki C++ kodu, bir elipse gradyan dolgu etkisi nasıl uygulanır gösterir:
+Aşağıdaki C++ kodu, bir elipse gradyan doldurma efekti nasıl uygulanır gösterir:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -262,51 +264,55 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
+// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// İlk slaytı al.
+// İlk slaytı alın.
 auto slide = presentation->get_Slide(0);
 
-// Ellipse tipinde bir otomatik şekil ekle.
+// Ellipse türünde bir otomatik şekil ekleyin.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-// Elipseye gradyan biçimlendirmesi uygula.
+// Elipseye gradyan biçimlendirmesi uygulayın.
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
 shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
 
-// Gradyanın yönünü ayarla.
+// Gradyanın yönünü ayarlayın.
 shape->get_FillFormat()->get_GradientFormat()->set_GradientDirection(GradientDirection::FromCorner2);
 
-// İki gradyan durak ekle.
+// İki gradyan durak ekleyin.
 shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(1.0f, PresetColor::Purple);
 shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, PresetColor::Red);
 
-// PPTX dosyasını diske kaydet.
+// PPTX dosyasını diske kaydedin.
 presentation->Save(u"gradient_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Gradyan dolgulu elips](gradient-fill.png)
+Sonuç:
 
-## **Desen Dolgu**
+![Gradyan doldurmalı elips](gradient-fill.png)
 
-PowerPoint'te Desen Dolgu, nokta, çizgi, çapraz çizgi veya damga gibi iki renkli bir tasarımı şekle uygulamanıza olanak tanıyan bir biçimlendirme seçeneğidir. Desenin ön plan ve arka plan renklerini istediğiniz gibi seçebilirsiniz.
+Bir gradyan, dışa aktarılan bir görüntüde PowerPoint'tekinden farklı görünüyorsa, [Choose a Gradient Rendering Style](/slides/tr/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) bölümüne bakın. Sunumda depolanan gradyan doldurmayı değiştirmeden bir işleme stili seçebilirsiniz.
 
-Aspose.Slides, sunumlarınızın görsel çekiciliğini artırmak için şekillere uygulayabileceğiniz 45'ten fazla ön tanımlı desen stili sunar. Ön tanımlı bir desen seçtikten sonra, yine de kullanılacak tam renkleri belirtebilirsiniz.
+## **Desen Doldurma**
 
-Aspose.Slides kullanarak bir şekle desen dolgu uygulama adımları:
+PowerPoint'te Desen Doldurma, iki renkli bir tasarımı—nokta, çizgi, çapraz çizgi veya kare gibi—şekle uygulamanıza olanak tanıyan bir biçimlendirme seçeneğidir. Desenin ön ve arka plan renkleri için özel renkler seçebilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
-1. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) slayta ekleyin.
-1. Şeklin [FillType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/filltype/) özelliğini `Pattern` olarak ayarlayın.
+Aspose.Slides, sunumlarınızın görsel çekiciliğini artırmak için şekillere uygulayabileceğiniz 45'ten fazla ön tanımlı desen stili sunar. Ön tanımlı bir deseni seçtikten sonra, hâlâ kullanılacak kesin renkleri belirleyebilirsiniz.
+
+Aspose.Slides kullanarak bir şekle desen doldurma uygulamanın yolu:
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ekleyin.
+1. Şeklin [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) özelliğini `Pattern` olarak ayarlayın.
 1. Ön tanımlı seçeneklerden bir desen stili seçin.
-1. Desenin [Background Color](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipatternformat/get_backcolor/) (arka plan rengi) ayarını yapın.
-1. Desenin [Foreground Color](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipatternformat/get_forecolor/) (ön plan rengi) ayarını yapın.
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. Desenin [Arka Plan Rengi](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) ayarlayın.
+1. Desenin [Ön Plan Rengi](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) ayarlayın.
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki C++ kodu, bir dikdörtgene desen dolgu nasıl uygulanır gösterir:
+Aşağıdaki C++ kodu, bir dikdörtgene desen doldurma nasıl uygulanır gösterir:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -327,52 +333,54 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
+// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// İlk slaytı al.
+// İlk slaytı alın.
 auto slide = presentation->get_Slide(0);
 
-// Rectangle tipinde bir otomatik şekil ekle.
+// Rectangle türünde bir otomatik şekil ekleyin.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Dolgu türünü Pattern olarak ayarla.
+// Doldurma türünü Pattern olarak ayarlayın.
 shape->get_FillFormat()->set_FillType(FillType::Pattern);
 
-// Desen stilini ayarla.
+// Desen stilini ayarlayın.
 shape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
 
-// Desenin arka plan ve ön plan renklerini ayarla.
+// Desenin arka plan ve ön plan renklerini ayarlayın.
 shape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_LightGray());
 shape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
 
-// PPTX dosyasını diske kaydet.
+// PPTX dosyasını diske kaydedin.
 presentation->Save(u"pattern_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Desenli dolgu ile dikdörtgen](pattern-fill.png)
+Sonuç:
 
-## **Resim Dolgu**
+![Desenli doldurulmuş dikdörtgen](pattern-fill.png)
 
-PowerPoint'te Resim Dolgu, bir şeklin içine bir görüntü yerleştirmenize olanak tanıyan bir biçimlendirme seçeneğidir; böylece görüntü şeklin arka planı gibi davranır.
+## **Resim Doldurma**
 
-Aspose.Slides kullanarak bir şekle resim dolgu uygulama adımları:
+PowerPoint'te Resim Doldurma, bir şeklin içine bir resim yerleştirmenizi sağlayan bir biçimlendirme seçeneğidir; böylece resmi şeklin arka planı gibi kullanırsınız.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
-1. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) slayta ekleyin.
-1. Şeklin [FillType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/filltype/) özelliğini `Picture` olarak ayarlayın.
-1. Resim dolgu modunu `Tile` (veya başka bir tercih edilen modu) olarak ayarlayın.
-1. Kullanmak istediğiniz görüntüden bir [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) nesnesi oluşturun.
-1. Görüntüyü `ISlidesPicture.set_Image` metoduna geçirin.
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Aspose.Slides kullanarak bir şekle resim doldurma uygulamanın yolu:
 
-Örneğin, aşağıdaki “lotus.png” dosyasını kullanalım:
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ekleyin.
+1. Şeklin [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) özelliğini `Picture` olarak ayarlayın.
+1. Resim doldurma modunu `Tile` (veya tercih ettiğiniz başka bir mod) olarak ayarlayın.
+1. Kullanmak istediğiniz görüntüden bir [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) nesnesi oluşturun.
+1. Görüntüyü `ISlidesPicture.set_Image` yöntemine iletin.
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+
+Şöyle bir "lotus.png" dosyamız olduğunu varsayalım:
 
 ![Lotus resmi](lotus.png)
 
-Aşağıdaki C++ kodu, bir şekli resimle doldurmanın nasıl yapılacağını gösterir:
+Aşağıdaki C++ kodu, bir şekli resimle doldurmanın yolunu gösterir:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -394,49 +402,51 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
+// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// İlk slaytı al.
+// İlk slaytı alın.
 auto slide = presentation->get_Slide(0);
 
-// Rectangle tipinde bir otomatik şekil ekle.
+// Rectangle türünde bir otomatik şekil ekleyin.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-// Dolgu türünü Picture olarak ayarla.
+// Doldurma türünü Picture olarak ayarlayın.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Resim dolgu modunu ayarla.
+// Resim doldurma modunu ayarlayın.
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
-// Bir görüntü yükle ve sunum kaynaklarına ekle.
+// Bir görüntü yükleyin ve sunum kaynaklarına ekleyin.
 auto image = Images::FromFile(u"lotus.png");
 auto picture = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
-// Resmi ayarla.
+// Resmi ayarlayın.
 shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(picture);
 
-// PPTX dosyasını diske kaydet.
+// PPTX dosyasını diske kaydedin.
 presentation->Save(u"picture_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Resim dolgulu şekil](picture-fill.png)
+Sonuç:
 
-### **Döşeme Resmi Doku Olarak**
+![Resim doldurulmuş şekil](picture-fill.png)
 
-Döşeme resmi bir doku olarak ayarlamak ve döşeme davranışını özelleştirmek istiyorsanız, aşağıdaki [IPictureFillFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/) arayüzü ve [PictureFillFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/picturefillformat/) sınıfının metodlarını kullanabilirsiniz:
+### **Desen Olarak Döşeme Resmi**
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Resim dolgu modunu ayarlar—`Tile` veya `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Şekil içinde döşemelerin hizalanmasını belirtir.
-- [set_TileFlip](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Döşemenin yatay, dikey veya her iki yönde çevrilip çevrilmeyeceğini kontrol eder.
-- [set_TileOffsetX](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Şeklin başlangıcından döşemenin yatay offsetini (puan cinsinden) ayarlar.
-- [set_TileOffsetY](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Şeklin başlangıcından döşemenin dikey offsetini (puan cinsinden) ayarlar.
-- [set_TileScaleX](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Döşemenin yatay ölçeğini yüzde olarak tanımlar.
-- [set_TileScaleY](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Döşemenin dikey ölçeğini yüzde olarak tanımlar.
+Döşeme resmini doku olarak ayarlamak ve döşeme davranışını özelleştirmek istiyorsanız, [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) arabirimi ve [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) sınıfının aşağıdaki yöntemlerini kullanabilirsiniz:
 
-Aşağıdaki kod örneği, döşeme resmi dolgu ile bir dikdörtgen şekil eklemeyi ve döşeme seçeneklerini yapılandırmayı gösterir:
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Resim doldurma modunu — `Tile` ya da `Stretch` — ayarlar.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Döşemelerin şekil içinde nasıl hizalanacağını belirler.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Döşemenin yatay, dikey ya da her iki yönde çevrilip çevrilmeyeceğini kontrol eder.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Döşemenin şeklin orijininden yatay ofsetini (nokta olarak) ayarlar.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Döşemenin şeklin orijininden dikey ofsetini (nokta olarak) ayarlar.
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Döşemenin yatay ölçeğini yüzde olarak tanımlar.
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Döşemenin dikey ölçeğini yüzde olarak tanımlar.
+
+Aşağıdaki kod örneği, bir dikdörtgen şekline döşemeli resim doldurma ekleyip döşeme seçeneklerini yapılandırmayı gösterir:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -460,28 +470,28 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
+// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// İlk slaytı al.
+// İlk slaytı alın.
 auto firstSlide = presentation->get_Slide(0);
 
-// Bir dikdörtgen otomatik şekil ekle.
+// Bir dikdörtgen otomatik şekil ekleyin.
 auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-// Şeklin dolgu türünü Picture olarak ayarla.
+// Şeklin doldurma türünü Picture olarak ayarlayın.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Görüntüyü yükle ve sunum kaynaklarına ekle.
+// Görüntüyü yükleyin ve sunum kaynaklarına ekleyin.
 auto sourceImage = Images::FromFile(u"lotus.png");
 auto presentationImage = presentation->get_Images()->AddImage(sourceImage);
 sourceImage->Dispose();
 
-// Görüntüyü şekle ata.
+// Görüntüyü şekle atayın.
 auto pictureFillFormat = shape->get_FillFormat()->get_PictureFillFormat();
 pictureFillFormat->get_Picture()->set_Image(presentationImage);
 
-// Resim dolgu modunu ve döşeme özelliklerini yapılandır.
+// Resim doldurma modunu ve döşeme özelliklerini yapılandırın.
 pictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
 pictureFillFormat->set_TileOffsetX(-32);
 pictureFillFormat->set_TileOffsetY(-32);
@@ -490,27 +500,29 @@ pictureFillFormat->set_TileScaleY(50);
 pictureFillFormat->set_TileAlignment(RectangleAlignment::BottomRight);
 pictureFillFormat->set_TileFlip(TileFlip::FlipBoth);
 
-// PPTX dosyasını diske kaydet.
+// PPTX dosyasını diske kaydedin.
 presentation->Save(u"tile.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Döşeme seçenekleri](tile-options.png)
 
-## **Düz Renk Dolgu**
+## **Düz Renk Doldurma**
 
-PowerPoint'te Düz Renk Dolgu, bir şekli tek, tekdüze bir renk ile dolduran bir biçimlendirme seçeneğidir. Bu sade arka plan rengi, gradyan, doku veya desen olmaksızın uygulanır.
+PowerPoint'te Düz Renk Doldurma, bir şekli tek, eşit renkle dolduran bir biçimlendirme seçeneğidir. Bu sade arka plan rengi, gradyan, doku ya da desen olmadan uygulanır.
 
-Aspose.Slides kullanarak bir şekle düz renk dolgu uygulama adımları:
+Aspose.Slides kullanarak bir şekle düz renk doldurma uygulamak için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
-1. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) slayta ekleyin.
-1. Şeklin [FillType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.
-1. Şekle istediğiniz dolgu rengini atayın.
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ekleyin.
+1. Şeklin [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.
+1. İstediğiniz doldurma rengini şekle atayın.
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki C++ kodu, bir PowerPoint slaydındaki dikdörtgene düz renk dolgu nasıl uygulanır gösterir:
+Aşağıdaki C++ kodu, bir PowerPoint slaydındaki dikdörtgene düz renk doldurma nasıl uygulanır gösterir:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -529,42 +541,44 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
+// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// İlk slaytı al.
+// İlk slaytı alın.
 auto slide = presentation->get_Slide(0);
 
-// Rectangle tipinde bir otomatik şekil ekle.
+// Rectangle türünde bir otomatik şekil ekleyin.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Dolgu türünü Solid olarak ayarla.
+// Doldurma türünü Solid olarak ayarlayın.
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 
-// Dolgu rengini ayarla.
+// Doldurma rengini ayarlayın.
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
 
-// PPTX dosyasını diske kaydet.
+// PPTX dosyasını diske kaydedin.
 presentation->Save(u"solid_color_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Düz renk dolgulu şekil](solid-color-fill.png)
+Sonuç:
+
+![Düz renk doldurulmuş şekil](solid-color-fill.png)
 
 ## **Şeffaflık Ayarlama**
 
-PowerPoint'te bir şekle düz renk, gradyan, resim veya doku dolgu uyguladığınızda, dolgunun opaklığını kontrol etmek için şeffaflık seviyesi de ayarlayabilirsiniz. Daha yüksek şeffaflık değeri, şeklin daha çok geçişli olmasını sağlar; arka plan veya alttaki nesneler kısmen görülür.
+PowerPoint'te bir şekle düz renk, gradyan, resim ya da doku doldurması uyguladığınızda, doldurmanın opaklığını kontrol etmek için bir şeffaflık seviyesi de ayarlayabilirsiniz. Daha yüksek şeffaflık değeri, şeklin daha çok görünür olmasını sağlar; arka plan ya da alt nesneler kısmen görünür hâle gelir.
 
-Aspose.Slides, dolgu için kullanılan rengin alfa değerini ayarlayarak şeffaflık seviyesini belirlemenize olanak tanır. İşte nasıl yapılacağı:
+Aspose.Slides, doldurma için kullanılan rengin alfa bileşenini ayarlayarak şeffaflık seviyesini belirlemenize olanak tanır. İşte yapmanız gerekenler:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
-1. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) slayta ekleyin.
-1. Şeklin [FillType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.
-1. `Color` kullanarak şeffaflığa sahip bir renk tanımlayın (alfa bileşeni şeffaflığı kontrol eder).
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ekleyin.
+1. [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.
+1. `Color` kullanarak şeffaflığı olan bir renk tanımlayın (`alpha` bileşeni şeffaflığı kontrol eder).
 1. Sunumu kaydedin.
 
-Aşağıdaki C++ kodu, bir dikdörtgene şeffaf dolgu rengi nasıl uygulanır gösterir:
+Aşağıdaki C++ kodu, bir dikdörtgene şeffaf doldurma rengi uygulamayı gösterir:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -583,40 +597,42 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
+// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// İlk slaytı al.
+// İlk slaytı alın.
 auto slide = presentation->get_Slide(0);
 
-// Katı bir dikdörtgen otomatik şekil ekle.
+// Katı bir dikdörtgen otomatik şekil ekleyin.
 auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Katı şeklin üzerine şeffaf bir dikdörtgen otomatik şekil ekle.
+// Katı şeklin üzerine şeffaf bir dikdörtgen otomatik şekil ekleyin.
 auto transparentShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
 transparentShape->get_FillFormat()->set_FillType(FillType::Solid);
 transparentShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(204, 255, 255, 0));
 
-// PPTX dosyasını diske kaydet.
+// PPTX dosyasını diske kaydedin.
 presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+Sonuç:
 
 ![Şeffaf şekil](shape-transparency.png)
 
 ## **Şekilleri Döndürme**
 
-Aspose.Slides, PowerPoint sunumlarında şekilleri döndürmenizi sağlar. Bu, görsel öğeleri belirli bir hizalama veya tasarım ihtiyacıyla konumlandırmak için kullanışlıdır.
+Aspose.Slides, PowerPoint sunumlarındaki şekilleri döndürmenizi sağlar. Bu, görsel öğeleri belirli hizalama ya da tasarım gereksinimlerine göre konumlandırırken yararlı olabilir.
 
-Bir slayt üzerindeki bir şekli döndürmek için şu adımları izleyin:
+Bir slaytta şekli döndürmek için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
-1. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) slayta ekleyin.
-1. Şeklin dönüş açısı özelliğini istediğiniz açıya ayarlayın.
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ekleyin.
+1. Şeklin döndürme özelliğini istediğiniz açıya ayarlayın.
 1. Sunumu kaydedin.
 
-Aşağıdaki C++ kodu, bir şekli 5 derece döndürmenin nasıl yapılacağını gösterir:
+Aşağıdaki C++ kodu, bir şekli 5 derece döndürmeyi gösterir:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -630,38 +646,40 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
+// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// İlk slaytı al.
+// İlk slaytı alın.
 auto slide = presentation->get_Slide(0);
 
-// Rectangle tipinde bir otomatik şekil ekle.
+// Rectangle türünde bir otomatik şekil ekleyin.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Şekli 5 derece döndür.
+// Şekli 5 derece döndürün.
 shape->set_Rotation(5);
 
-// PPTX dosyasını diske kaydet.
+// PPTX dosyasını diske kaydedin.
 presentation->Save(u"shape_rotation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Şekil döndürme](shape-rotation.png)
 
-## **3D Keskinlik Efektleri Ekleme**
+## **3B Kırma Efektleri Ekleme**
 
-Aspose.Slides, şekillere 3D keskinlik efektleri uygulamanıza olanak tanır; bunun için [ThreeDFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/threedformat/) özelliklerini yapılandırabilirsiniz.
+Aspose.Slides, şekillere [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) özelliklerini yapılandırarak 3B kırma efektleri uygulamanıza olanak tanır.
 
-Bir şekle 3D keskinlik efektleri eklemek için şu adımları izleyin:
+Bir şekle 3B kırma efektleri eklemek için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
-1. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) slayta ekleyin.
-1. Şeklin [ThreeDFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/threedformat/) özelliğini keskinlik ayarlarını tanımlayacak şekilde yapılandırın.
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ekleyin.
+1. Şeklin [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) özelliğini yapılandırarak kırma ayarlarını tanımlayın.
 1. Sunumu kaydedin.
 
-Aşağıdaki C++ kodu, bir şekle 3D keskinlik efektleri nasıl uygulanır gösterir:
+Aşağıdaki C++ kodu, bir şekle 3B kırma efektleri nasıl uygulanır gösterir:
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -690,12 +708,12 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Presentation sınıfının bir örneğini oluştur.
+// Presentation sınıfının bir örneğini oluşturun.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
 
-// Slayta bir şekil ekle.
+// Slayta bir şekil ekleyin.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Green());
@@ -703,7 +721,7 @@ shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 shape->get_LineFormat()->set_Width(2.0);
 
-// Şeklin ThreeDFormat özelliklerini ayarla.
+// Şeklin ThreeDFormat özelliklerini ayarlayın.
 shape->get_ThreeDFormat()->set_Depth(4.0);
 shape->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
 shape->get_ThreeDFormat()->get_BevelTop()->set_Height(6);
@@ -712,26 +730,28 @@ shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::Orthog
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
 
-// Sunumu PPTX dosyası olarak kaydet.
+// Sunumu PPTX dosyası olarak kaydedin.
 presentation->Save(u"3D_bevel_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![3D keskinlik efekti](3D-bevel-effect.png)
+Sonuç:
 
-## **3D Döndürme Efektleri Ekleme**
+![3B kırma efekti](3D-bevel-effect.png)
 
-Aspose.Slides, şekillere 3D döndürme efektleri uygulamanıza olanak tanır; bunun için [ThreeDFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/threedformat/) özelliklerini yapılandırabilirsiniz.
+## **3B Döndürme Efektleri Ekleme**
 
-Bir şekle 3D döndürme uygulamak için:
+Aspose.Slides, şekillere [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) özelliklerini yapılandırarak 3B döndürme efektleri uygulamanıza olanak tanır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
-1. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) slayta ekleyin.
-1. 3D döndürmeyi tanımlamak için [set_CameraType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icamera/set_cameratype/) ve [set_LightType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilightrig/set_lighttype/) metodlarını kullanın.
+Bir şekle 3B döndürme uygulamak için:
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksiyle bir slayta referans alın.
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ekleyin.
+1. 3B döndürmeyi tanımlamak için [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) ve [set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) kullanın.
 1. Sunumu kaydedin.
 
-Aşağıdaki C++ kodu, bir şekle 3D döndürme efektleri nasıl uygulanır gösterir:
+Aşağıdaki C++ kodu, bir şekle 3B döndürme efektleri nasıl uygulanır gösterir:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -751,7 +771,7 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Presentation sınıfının bir örneğini oluştur.
+// Presentation sınıfının bir örneğini oluşturun.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -764,18 +784,20 @@ shape->get_ThreeDFormat()->get_Camera()->SetRotation(40, 35, 20);
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::IsometricLeftUp);
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
 
-// Sunumu PPTX dosyası olarak kaydet.
+// Sunumu PPTX dosyası olarak kaydedin.
 presentation->Save(u"3D_rotation_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![3D döndürme efekti](3D-rotation-effect.png)
+Sonuç:
+
+![3B döndürme efekti](3D-rotation-effect.png)
 
 ## **Şekiller için Siyah-Beyaz İşleme Kontrolü**
 
-[IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/set_blackwhitemode/) metodu, bir sunum siyah-beyaz modunda görüntülendiğinde veya işlendiğinde bireysel bir şeklin nasıl render edileceğini belirtir. Tek başına siyah-beyaz görüntülenmeyi etkinleştirmez ve normal renk modunda şeklin dolgu, çizgi veya diğer biçimlendirmesini değiştirmez.
+[IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) yöntemi, bir sunum siyah-beyaz modunda görüntülendiğinde veya işlendiğinde bireysel bir şeklin nasıl işleneceğini belirler. Bu yöntem tek başına siyah-beyaz görüntüyü etkinleştirmez ve normal renk modundaki şeklin doldurmasını, çizgisini veya diğer biçimlendirmesini değiştirmez.
 
-İstediğiniz davranışı seçmek için [BlackWhiteMode](https://reference.aspose.com/slides/tr/cpp/aspose.slides/blackwhitemode/) enum'undan bir değer kullanın. Örneğin, `Automatic` render uygulamasının dönüşümü seçmesine izin verir, `Gray` ve `LightGray` gri tonlamayı kullanır, `BlackWhite` sadece siyah ve beyazı kullanır, `Black` ve `White` tek bir renk zorlar, `Color` normal renklemeyi korur ve `Hidden` şekli siyah-beyaz modunda gizler. `NotDefined` şekil seviyesinde bir mod atanmadığını gösterir.
+İstenilen davranışı seçmek için [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) enum'undan bir değer kullanın. Örneğin `Automatic` uygulama tarafından dönüşümün seçilmesini sağlar, `Gray` ve `LightGray` gri renkleme kullanır, `BlackWhite` sadece siyah ve beyazı, `Black` ve `White` tek bir rengi zorlar, `Color` normal renklendirmeyi korur ve `Hidden` şekli siyah-beyaz modunda gizler. `NotDefined` ise şekil düzeyinde bir mod atanmadığını gösterir.
 
 Aşağıdaki C++ kodu, renkli bir şekil oluşturur ve siyah-beyaz görüntüleme modunda gri görünmesini sağlar:
 
@@ -804,18 +826,18 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 200
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 
-// Renk modunda turuncu dolguyu koru, ancak siyah-beyaz modunda şekli gri renkle renderla.
+// Renk modunda turuncu doldurmayı koruyun, ancak siyah-beyaz modunda şekli gri renkle renderlayın.
 shape->set_BlackWhiteMode(BlackWhiteMode::Gray);
 
 presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Normal renk modunda, dikdörtgen turuncu dolgusunu korur. Siyah-beyaz görüntüleme iş akışında, modu `Gray` olarak ayarlandığı için gri renkle gösterilir. Bu, tam renkli bir slaytı korurken, baskı, ön izleme veya sunumun siyah-beyaz görüntüleme ayarlarını dikkate alan diğer iş akışları için farklı bir görünüm tanımlamanızı sağlar.
+Normal renk modunda dikdörtgen turuncu doldurmasını korur. Siyah-beyaz görüntüleme iş akışında, modu `Gray` olarak ayarlandığı için gri renkle görüntülenir. Bu, tam renkli bir slaytı korurken baskı, ön izleme veya sunumun siyah-beyaz görüntüleme ayarlarını dikkate alan diğer iş akışları için farklı bir görünüm tanımlamanıza olanak tanır.
 
 ## **Biçimlendirmeyi Sıfırlama**
 
-Aşağıdaki C++ kodu, bir slaydın biçimlendirmesini sıfırlamayı ve [LayoutSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/layoutslide/) üzerindeki yer tutuculara sahip tüm şekillerin konum, boyut ve biçimlendirmesini varsayılan ayarlara geri döndürmeyi gösterir:
+Aşağıdaki C++ kodu, bir slaydın biçimlendirmesini sıfırlamayı ve [LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) üzerindeki yer tutuculara sahip tüm şekillerin konumunu, boyutunu ve biçimlendirmesini varsayılan ayarlara geri getirmeyi gösterir:
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -832,7 +854,7 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 {
-    // Düzen üzerindeki bir yer tutucuya sahip slayttaki her şekli sıfırla.
+    // Yer tutucuya sahip düzenli slayttaki her şekli sıfırla.
     slide->Reset();
 }
 
@@ -842,14 +864,14 @@ presentation->Dispose();
 
 ## **SSS**
 
-**Şekil biçimlendirmesi son sunum dosyasının boyutunu etkiler mi?**
+**Şekil biçimlendirmesi nihai sunum dosya boyutunu etkiler mi?**
 
-Sadece çok az. Gömülü görüntüler ve medya dosyaları dosya alanının büyük kısmını oluşturur; renkler, efektler ve gradyanlar gibi şekil parametreleri meta veri olarak saklanır ve neredeyse ek bir boyut eklemez.
+Az bir etki vardır. Gömülü görüntüler ve medya dosyaları dosya alanının büyük kısmını kaplarken, renkler, efektler ve gradyanlar gibi şekil parametreleri meta veri olarak saklanır ve neredeyse ek bir alan tüketmez.
 
-**Aynı biçimlendirmeyi paylaşan şekilleri bir slaytta tespit edip gruplamak nasıl yapılır?**
+**Bir slayttaki aynı biçimlendirmeye sahip şekilleri nasıl tespit edip gruplandırabilirim?**
 
-Her şeklin temel biçimlendirme özelliklerini—dolgu, çizgi ve efekt ayarlarını—karşılaştırın. Tüm ilgili değerler eşleşiyorsa, stilleri aynı olarak kabul edin ve bu şekilleri mantıksal olarak gruplayın; bu, sonraki stil yönetimini basitleştirir.
+Her şeklin temel biçimlendirme özelliklerini—doldurma, çizgi ve efekt ayarlarını—karşılaştırın. Tüm ilgili değerler eşleşiyorsa, stilleri aynı kabul edip bu şekilleri mantıksal olarak gruplayın; bu, sonraki stil yönetimini kolaylaştırır.
 
-**Özel şekil stillerinin bir kümesini başka sunumlarda yeniden kullanmak üzere ayrı bir dosyaya kaydedebilir miyim?**
+**Özel şekil stillerini başka sunumlarda yeniden kullanmak için ayrı bir dosyaya kaydedebilir miyim?**
 
-Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt dosyası veya .POTX şablon dosyasında saklayın. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stilize şekilleri kopyalayın ve gerekli yerlerde biçimlendirmeyi yeniden uygulayın.
+Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt destesine ya da .POTX şablon dosyasına kaydedin. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stilize şekilleri klonlayın ve gerektiği yerde biçimlendirmeyi yeniden uygulayın.

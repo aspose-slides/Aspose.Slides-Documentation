@@ -15,110 +15,153 @@ keywords:
 - اسلاید به PNG
 - PPT به PNG
 - PPTX به PNG
-- ذخیره PPT به عنوان PNG
-- ذخیره PPTX به عنوان PNG
-- صادرات PPT به PNG
-- صادرات PPTX به PNG
+- ذخیره PPT به صورت PNG
+- ذخیره PPTX به صورت PNG
+- صدور PPT به PNG
+- صدور PPTX به PNG
 - Java
 - Aspose.Slides
-description: ارائه‌های PowerPoint را به سرعت به تصاویر PNG با کیفیت بالا تبدیل کنید با Aspose.Slides برای Java، به‌طوری که نتایج دقیق و خودکار باشد.
+description: "ارائه‌های PowerPoint را به سرعت به تصاویر PNG با کیفیت بالا تبدیل کنید با Aspose.Slides برای Java، تضمین نتایج دقیق و خودکار."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-این مقاله توضیح می‌دهد چگونه ارائه‌های PowerPoint را به تصاویر PNG با استفاده از Aspose.Slides تبدیل کنیم. این مقاله نشان می‌دهد چگونه فایل‌های ارائه را در قالب‌هایی مانند PPT، PPTX و ODP بارگذاری کنیم، اسلایدها را به‌صورت تصویر رندر کنیم و نتایج را در قالب PNG ذخیره کنیم.
+این مقاله توضیح می‌دهد که چگونه اسلایدهای ارائه را به تصاویر PNG با استفاده از Aspose.Slides for Java تبدیل کنید. می‌توانید ارائه‌ها را در قالب‌های PPT، PPTX و ODP بارگذاری کنید، هر اسلاید را رندر کنید و به عنوان یک تصویر PNG جداگانه ذخیره کنید.
 
-همچنین مقاله نشان می‌دهد چگونه می‌توان تصاویر PNG تولید شده را با تنظیم مقادیر مقیاس یا تعیین عرض و ارتفاع موردنظر سفارشی کرد.
+مثال‌های زیر رندر با مقیاس پیش‌فرض، افزایش مقیاس، تعیین ابعاد خروجی بر حسب پیکسل و انتخاب سبک رندر گرادیان را نشان می‌دهند.
 
 ## **تبدیل PowerPoint به PNG**
 
-این مراحل را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.
-2. شی اسلاید را از مجموعه [Presentation.getSlides()](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation#getSlides--) که تحت رابط [ISlide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISlide) قرار دارد، دریافت کنید. 
-3. از متد [ISlide.getImage()](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISlide) برای دریافت تصویر کوچک هر اسلاید استفاده کنید.
-4. از متد [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) برای ذخیره تصویر کوچک اسلاید در قالب PNG استفاده کنید.
-
-این کد Java نشان می‌دهد چگونه یک ارائه PowerPoint را به PNG تبدیل کنیم:
+یک ارائه را با کلاس [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) بارگذاری کنید و اسلایدهای آن را از طریق مجموعه [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) دسترسی پیدا کنید. مثال هر اسلاید را با [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) بدون پارامترها رندر می‌کند تا یک تصویر بندانگشتی ایجاد شود. سپس با استفاده از [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) و [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/#Png) هر اسلاید رندر شده را به عنوان تصویر PNG ذخیره می‌کند.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+بارگذاری بدون پارامتر [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) با مقیاس ۰٫۲ رندر می‌شود. به عنوان مثال، اسلایدی با اندازه ۷۲۰ × ۵۴۰ پوینت یک تصویر بندانگشتی ۱۴۴ × ۱۰۸ پیکسل تولید می‌کند. برای کنترل ابعاد خروجی، از بارگذاری‌های دارای عوامل مقیاس یا اندازه تصویر صریح نشان‌داده‌شده در پایین استفاده کنید.
+{{% /alert %}}
+
 ## **تبدیل PowerPoint به PNG با ابعاد سفارشی**
 
-اگر می‌خواهید فایل‌های PNG با مقیاس خاصی دریافت کنید، می‌توانید مقادیر `desiredX` و `desiredY` را تنظیم کنید که ابعاد تصویر کوچک حاصل را تعیین می‌کنند. 
-
-این کد در Java عملیات توضیح داده شده را نشان می‌دهد:
+برای کنترل ابعاد رندر، عوامل مقیاس افقی و عمودی را به [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-float-float-) پاس دهید. در این مثال هر دو عامل برابر ۲ است، بنابراین اسلایدی با اندازه ۷۲۰ × ۵۴۰ پوینت یک تصویر ۱۴۴۰ × ۱۰۸۰ پیکسل تولید می‌کند. عوامل مقیاس برابر نسبت ابعاد اسلاید را حفظ می‌کند. هر تصویر با فرمت PNG توسط [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) ذخیره می‌شود.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **تبدیل PowerPoint به PNG با اندازه سفارشی**
 
-اگر می‌خواهید فایل‌های PNG با اندازه خاصی دریافت کنید، می‌توانید آرگومان‌های `width` و `height` موردنظر خود را برای `ImageSize` ارسال کنید. 
-
-این کد نشان می‌دهد چگونه یک PowerPoint را به PNG تبدیل کنید در حالی که اندازه تصاویر را مشخص می‌کنید: 
+برای تعیین ابعاد خروجی بر حسب پیکسل، به جای عوامل مقیاس، یک اندازه را به [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) پاس دهید. این مثال هر اسلاید را با ابعاد ۹۶۰ × ۷۲۰ پیکسل رندر می‌کند و نتیجه را با [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) ذخیره می‌کند. برای جلوگیری از کشیدگی تصویر، ابعادی را انتخاب کنید که نسبت عرض به ارتفاع اسلاید را حفظ کند.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Dimension imageSize = new Dimension(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **سؤالات متداول**
+## **انتخاب سبک رندر گرادیان**
 
-**چگونه می‌توانم فقط یک شکل خاص (مثلاً نمودار یا تصویر) را به‌جای کل اسلاید صادر کنم؟**
+فرض کنید اسلایدی دارای پرکننده‌های گرادیان باشد، اما انتقال‌ها در PNG صادر شده روشن‌تر یا متفاوت از آنچه در PowerPoint می‌بینید، به نظر برسند. می‌توانید از متد [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setGradientStyle-int-) که توسط [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) به ارث برده شده است، برای انتخاب نحوه رندر گرادیان‌ها استفاده کنید.
 
-Aspose.Slides از [ایجاد تصویر کوچک برای اشکال منفرد](/slides/fa/java/create-shape-thumbnails/) پشتیبانی می‌کند؛ می‌توانید یک شکل را به تصویر PNG رندر کنید.
+فایل [gradient-styles.pptx](gradient-styles.pptx) را دانلود کنید و در پوشه کاری برنامه قرار دهید. اسلاید اول آن شامل دو گرادیان خطی است: از فیروزه‌ای به نارنجی در بالا و از آبی به زرد در پایین. هر گرادیان دو توقف دارد، در ۰٪ و ۱۰۰٪.
 
-**آیا تبدیل موازی در سرور پشتیبانی می‌شود؟**
+مثال زیر این ارائه را بارگذاری می‌کند و همان اسلاید اول را در هر دو حالت با [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) رندر می‌نماید.
 
-بله، اما [به‌اشتراک نگذارید](/slides/fa/java/multithreading/) یک نمونهٔ ارائه را بین رشته‌ها. برای هر رشته یا فرآیند یک نمونه جداگانه استفاده کنید.
+```java
+import com.aspose.slides.*;
 
-**محدودیت‌های نسخه آزمایشی هنگام خروجی گرفتن به PNG چیست؟**
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-حالت ارزیابی یک واترمارک به تصاویر خروجی اضافه می‌کند و [محدودیت‌های دیگر](/slides/fa/java/licensing/) را تا اعمال یک لایسنس اعمال می‌نماید.
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![گرادیان‌های فیروزه‌ای به نارنجی و آبی به زرد رندر شده با Default](gradient-Default.png) | ![همان گرادیان‌ها رندر شده با PowerPointUI](gradient-PowerPointUI.png) |
+
+در این مثال، `Default` رنگ‌های میانی روشن‌تری تولید می‌کند، در حالی که `PowerPointUI` رنگ‌های میانی تیره‌تری می‌دهد. تفاوت بسته به رنگ‌ها و نقاط توقف در گرادیان است.
+
+`Default` را زمانی انتخاب کنید که خروجی استاندارد Aspose.Slides برای نیازهای شما کافی باشد. وقتی هدف شما تطبیق ظاهر با PowerPoint است، `PowerPointUI` را امتحان کنید. هر دو خروجی را با نتیجه مورد نظر خود مقایسه کنید؛ هیچ‌یک به‌صورت تمام‌عیار برتر نیست.
+
+## **پرسش‌های متداول**
+
+**چگونه می‌توانم یک شکل خاص، مانند نمودار یا تصویر، به‌جای کل اسلاید صادر کنم؟**
+
+Aspose.Slides از [ایجاد تصویرهای بندانگشتی برای اشکال فردی](/slides/fa/java/create-shape-thumbnails/) پشتیبانی می‌کند و به شما امکان می‌دهد یک شکل را به عنوان تصویر PNG رندر کنید.
+
+**آیا تبدیل موازی بر روی سرور پشتیبانی می‌شود؟**
+
+بله. برای هر رشته یا فرایند یک نمونه جداگانه از ارائه استفاده کنید؛ [از اشتراک یک نمونه واحد بین رشته‌ها خودداری کنید](/slides/fa/java/multithreading/).
+
+**محدودیت‌های حالت ارزیابی هنگام صادرات به PNG چیست؟**
+
+حالت ارزیابی یک واترمارک به تصاویر خروجی اضافه می‌کند و تا زمانی که لایسنس اعمال نشود، [محدودیت‌های دیگر](/slides/fa/java/licensing/) را اعمال می‌کند.

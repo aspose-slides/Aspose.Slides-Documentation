@@ -1,5 +1,5 @@
 ---
-title: Μετατροπή διαφανειών PowerPoint σε PNG με Python
+title: Μετατροπή διαφανειών PowerPoint σε PNG σε Python
 linktitle: PowerPoint σε PNG
 type: docs
 weight: 30
@@ -22,22 +22,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Μετατρέψτε διαφάνειες PowerPoint σε εικόνες PNG με Python μέσω Java. Εξαγωγή παρουσιάσεων PPT, PPTX και ODP με προσαρμοσμένες κλίμακες ή ακριβείς διαστάσεις εικόνας."
+description: "Μετατροπή διαφανειών PowerPoint σε εικόνες PNG με Python μέσω Java. Εξαγωγή παρουσιάσεων PPT, PPTX και ODP με προσαρμοσμένες κλίμακες ή ακριβείς διαστάσεις εικόνας."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να μετατρέψετε παρουσιάσεις PowerPoint σε εικόνες PNG χρησιμοποιώντας το Aspose.Slides για Python μέσω Java. Μπορείτε να φορτώσετε αρχεία PPT, PPTX και ODP, να αποδώσετε κάθε διαφάνεια και να την αποθηκεύσετε ως ξεχωριστή εικόνα PNG.
+Αυτό το άρθρο εξηγεί πώς να μετατρέψετε διαφάνειες παρουσίασης σε εικόνες PNG χρησιμοποιώντας το Aspose.Slides για Python μέσω Java. Μπορείτε να φορτώσετε παρουσιάσεις σε μορφές όπως PPT, PPTX και ODP, να αποδώσετε κάθε διαφάνεια και να την αποθηκεύσετε ως ξεχωριστή εικόνα PNG.
 
-Τα παραδείγματα δείχνουν επίσης πώς να ελέγξετε τις διαστάσεις εξόδου με παράγοντες κλίμακας ή με ακριβές πλάτος και ύψος. Κάθε παράδειγμα ξεκινά τη μηχανή εικονικής Java εάν απαιτείται και απελευθερώνει τους πόρους της παρουσίασης και της εικόνας μετά τη χρήση.
+Τα παραδείγματα παρακάτω δείχνουν απόδοση στην προεπιλεγμένη κλίμακα, αύξηση της κλίμακας, καθορισμό των διαστάσεων εξόδου σε εικονοστοιχεία και επιλογή ενός στυλ απόδοσης διαβάθμισης.
 
 ## **Μετατροπή PowerPoint σε PNG**
 
-1. Φορτώστε το αρχείο εισόδου με την κλάση [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-2. Ανακτήστε τις διαφάνειες χρησιμοποιώντας το [Presentation.getSlides](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getSlides).
-3. Αποδώστε κάθε διαφάνεια χρησιμοποιώντας το [Slide.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage).
-4. Αποθηκεύστε κάθε αποδομένη εικόνα με το [ImageFormat.Png](https://reference.aspose.com/slides/el/python-java/aspose.slides/imageformat/#Png), στη συνέχεια απελευθερώστε τους πόρους της.
-
-Το παρακάτω παράδειγμα Python εξάγει όλες τις διαφάνειες στο προεπιλεγμένο μέγεθός τους:
+Φορτώστε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) και προσπελάστε τις διαφάνειες της μέσω της συλλογής [Presentation.getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides). Το παράδειγμα αποδίδει κάθε διαφάνεια με το [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) χωρίς παραμέτρους για τη δημιουργία μικρογραφίας. Στη συνέχεια καλεί το [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) με το [ImageFormat.Png](https://reference.aspose.com/slides/python-java/aspose.slides/imageformat/#Png) για να αποθηκεύσει κάθε αποδοθείσα διαφάνεια ως εικόνα PNG.
 
 ```python
 import jpype
@@ -50,21 +45,23 @@ from asposeslides.api import ImageFormat, Presentation
 
 presentation = Presentation("presentation.pptx")
 try:
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage()
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage()
         try:
-            slide_image.save(f"slide_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
-## **Μετατροπή PowerPoint σε PNG με προσαρμοσμένη κλίμακα**
+{{% alert color="info" title="Note" %}}
+Η υπερφόρτωση του [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) χωρίς παραμέτρους αποδίδει σε κλίμακα 0.2. Για παράδειγμα, μια διαφάνεια που μετρά 720 × 540 σημεία παράγει μικρογραφία 144 × 108 εικονοστοιχείων. Για να ελέγξετε τις διαστάσεις εξόδου, χρησιμοποιήστε τις υπερφορτώσεις με παράγοντες κλίμακας ή ένα ρητό μέγεθος εικόνας όπως φαίνεται παρακάτω.
+{{% /alert %}}
 
-Περάστε οριζόντιους και κάθετους παράγοντες κλίμακας στο [Slide.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) για να αυξήσετε ή να μειώσετε τις διαστάσεις εξόδου. Για παράδειγμα, μια διαφάνεια 720 × 540 σημείων που αποδίδεται με παράγοντα κλίμακας 2 και στους δύο άξονες δημιουργεί μια εικόνα 1440 × 1080 pixel.
+## **Μετατροπή PowerPoint σε PNG με Προσαρμοσμένες Διαστάσεις**
 
-Χρησιμοποιήστε ίσους παράγοντες κλίμακας για να διατηρήσετε την αναλογία διαστάσεων της διαφάνειας. Διαφορετικοί παράγοντες τεντώνουν τη διαφάνεια οριζόντια ή κάθετα.
+Περάστε οριζόντιους και κάθετους παράγοντες κλίμακας στο [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) για να ελέγξετε τις αποδοθείσες διαστάσεις. Σε αυτό το παράδειγμα, και οι δύο παράγοντες είναι 2, έτσι μια διαφάνεια που μετρά 720 × 540 σημεία παράγει εικόνα 1440 × 1080 εικονοστοιχείων. Οι ίσοι παράγοντες κλίμακας διατηρούν την αναλογία διαστάσεων της διαφάνειας. Κάθε αποδοθείσα εικόνα αποθηκεύεται σε μορφή PNG.
 
 ```python
 import jpype
@@ -78,25 +75,24 @@ from asposeslides.api import ImageFormat, Presentation
 presentation = Presentation("presentation.pptx")
 try:
     scale_x = 2.0
-    scale_y = 2.0
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage(scale_x, scale_y)
+    scale_y = scale_x
+
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage(scale_x, scale_y)
         try:
-            slide_image.save(f"slide_scaled_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
-## **Μετατροπή PowerPoint σε PNG με προσαρμοσμένο μέγεθος**
+## **Μετατροπή PowerPoint σε PNG με Προσαρμοσμένο Μέγεθος**
 
-Για να ορίσετε ακριβείς διαστάσεις σε pixel, περάστε ένα αντικείμενο Java `Dimension` με το επιθυμητό πλάτος και ύψος στο [Slide.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage). Επιλέξτε διαστάσεις με την ίδια αναλογία όπως η αρχική διαφάνεια για να αποφύγετε την παραμόρφωση.
-
-Το παρακάτω παράδειγμα αποθηκεύει κάθε διαφάνεια ως εικόνα PNG 960 × 720 pixel:
+Για να καθορίσετε τις διαστάσεις εξόδου σε εικονοστοιχεία, περάστε ένα μέγεθος στο [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) αντί για παράγοντες κλίμακας. Αυτό το παράδειγμα αποδίδει κάθε διαφάνεια σε 960 × 720 εικονοστοιχεία και αποθηκεύει το αποτέλεσμα σε μορφή PNG. Επιλέξτε διαστάσεις που ταιριάζουν με την αναλογία της διαφάνειας ώστε να αποφύγετε την παραμόρφωση της εικόνας.
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -108,26 +104,73 @@ from java.awt import Dimension
 presentation = Presentation("presentation.pptx")
 try:
     image_size = Dimension(960, 720)
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage(image_size)
+
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage(image_size)
         try:
-            slide_image.save(f"slide_sized_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
+## **Επιλογή Στυλ Απόδοσης Διαβάθμισης**
+
+Υποθέστε ότι μια διαφάνεια περιέχει διαβαθμίσεις, αλλά οι μεταβάσεις στην εξαγόμενη PNG εμφανίζονται πιο ανοιχτές ή διαφορετικές από ό,τι βλέπετε στο PowerPoint. Μπορείτε να χρησιμοποιήσετε τη μέθοδο [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setGradientStyle) που κληρονομείται από το [RenderingOptions](https://reference.aspose.com/slides/python-java/aspose.slides/renderingoptions/) για να επιλέξετε πώς θα αποδίδονται οι διαβαθμίσεις.
+
+Κατεβάστε το αρχείο [gradient-styles.pptx](gradient-styles.pptx) και τοποθετήστε το στον κατάλογο εργασίας της εφαρμογής. Η πρώτη του διαφάνεια περιέχει δύο γραμμικές διαβαθμίσεις: κυανό σε πορτοκαλί στην κορυφή και μπλε σε κίτρινο στο κάτω μέρος. Κάθε διαβάθμιση έχει δύο στάσεις, στο 0 % και στο 100 %.
+
+Το παρακάτω παράδειγμα φορτώνει αυτήν την παρουσίαση και αποδίδει την ίδια πρώτη διαφάνεια και στις δύο λειτουργίες με το [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import GradientStyle, ImageFormat, Presentation, RenderingOptions
+
+presentation = Presentation("gradient-styles.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    gradient_styles = (GradientStyle.Default, GradientStyle.PowerPointUI)
+    for style in gradient_styles:
+        options = RenderingOptions()
+        options.setGradientStyle(style)
+
+        style_name = "Default" if style == GradientStyle.Default else "PowerPointUI"
+        image = slide.getImage(options, 1.0, 1.0)
+        try:
+            image.save(f"gradient-{style_name}.png", ImageFormat.Png)
+        finally:
+            image.dispose()
+finally:
+    presentation.dispose()
+```
+
+Οι εικόνες παρακάτω δείχνουν το αποτέλεσμα από την ίδια διαφάνεια, με τις δύο διαβαθμίσεις σε κάθε εικόνα:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Διαβαθμίσεις κυανό-πορτοκαλί και μπλε-κίτρινο αποδομένες με Default](gradient-Default.png) | ![Οι ίδιες διαβαθμίσεις αποδομένες με PowerPointUI](gradient-PowerPointUI.png) |
+
+Σε αυτό το παράδειγμα, το `Default` παράγει πιο ανοιχτά ενδιάμεσα χρώματα, ενώ το `PowerPointUI` παράγει πιο σκούρα ενδιάμεσα χρώματα. Η διαφορά εξαρτάται από τα χρώματα και τις στάσεις στη διαβάθμιση.
+
+Επιλέξτε το `Default` όταν η τυπική έξοδος του Aspose.Slides ανταποκρίνεται στις ανάγκες σας. Δοκιμάστε το `PowerPointUI` όταν η προτεραιότητά σας είναι η αντιστοίχηση με την εμφάνιση στο PowerPoint. Συγκρίνετε και τις δύο εξόδους με το επιθυμητό αποτέλεσμα· κανένας τρόπος δεν είναι γενικά προτιμότερος.
+
 ## **Συχνές ερωτήσεις**
 
-**Μπορώ να εξάγω ένα μεμονωμένο σχήμα, όπως ένα γράφημα ή μια εικόνα, αντί για ολόκληρη τη διαφάνεια;**
+**Πώς μπορώ να εξάγω ένα συγκεκριμένο σχήμα, όπως ένα γράφημα ή εικόνα, αντί ολόκληρης της διαφάνειας;**
 
-Ναι. Το Aspose.Slides υποστηρίζει τη [δημιουργία μικρογραφιών για μεμονωμένα σχήματα](/slides/el/python-java/create-shape-thumbnails/), τις οποίες μπορείτε να αποθηκεύσετε ως εικόνες PNG.
+Το Aspose.Slides υποστηρίζει [δημιουργία μικρογραφιών για μεμονωμένα σχήματα](/slides/el/python-java/create-shape-thumbnails/), επιτρέποντάς σας να αποδώσετε ένα σχήμα ως εικόνα PNG.
 
-**Μπορώ να μετατρέψω παρουσιάσεις παράλληλα σε έναν διακομιστή;**
+**Υποστηρίζεται η παράλληλη μετατροπή σε διακομιστή;**
 
-Χρησιμοποιήστε ξεχωριστή παρουσίαση για κάθε νήμα ή διεργασία και χρησιμοποιήστε μοναδικές διαδρομές εξόδου για να αποτρέψετε την αντικατάσταση αρχείων. Μην κοινοποιείτε μια παρουσίαση μεταξύ νημάτων. Δείτε το [Multithreading](/slides/el/python-java/multithreading/).
+Ναι. Χρησιμοποιήστε ξεχωριστό αντικείμενο παρουσίασης για κάθε νήμα ή διεργασία· [μην μοιράζεστε ένα μόνο αντικείμενο μεταξύ νημάτων](/slides/el/python-java/multithreading/).
 
 **Ποιους περιορισμούς έχει η δοκιμαστική έκδοση κατά την εξαγωγή σε PNG;**
 
-Η λειτουργία αξιολόγησης προσθέτει υδατογράφημα στις εικόνες εξόδου και εφαρμόζει [άλλους περιορισμούς](/slides/el/python-java/licensing/). Εφαρμόστε άδεια για να αφαιρέσετε αυτούς τους περιορισμούς.
+Η δοκιμαστική λειτουργία προσθέτει υδάτινο σήμα στις εικόνες εξόδου και εφαρμόζει [άλλους περιορισμούς](/slides/el/python-java/licensing/) μέχρι να εφαρμοστεί άδεια.

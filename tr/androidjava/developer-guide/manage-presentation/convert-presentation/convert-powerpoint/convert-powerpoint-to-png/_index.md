@@ -5,121 +5,164 @@ type: docs
 weight: 30
 url: /tr/androidjava/convert-powerpoint-to-png/
 keywords:
-- PowerPoint dönüştür
+- PowerPoint'i dönüştür
 - sunumu dönüştür
 - slaytı dönüştür
-- PPT dönüştür
-- PPTX dönüştür
+- PPT'yi dönüştür
+- PPTX'i dönüştür
 - PowerPoint'ten PNG'ye
-- sunumdan PNG'ye
-- slayttan PNG'ye
-- PPT'den PNG'ye
-- PPTX'ten PNG'ye
+- sunumu PNG'ye
+- slaytı PNG'ye
+- PPT'yi PNG'ye
+- PPTX'i PNG'ye
 - PPT'yi PNG olarak kaydet
-- PPTX'yi PNG olarak kaydet
+- PPTX'i PNG olarak kaydet
 - PPT'yi PNG'ye dışa aktar
-- PPTX'yi PNG'ye dışa aktar
+- PPTX'i PNG'ye dışa aktar
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android'i Java aracılığıyla kullanarak PowerPoint sunumlarını yüksek kaliteli PNG görüntülerine hızlıca dönüştürün, kesin ve otomatik sonuçlar sağlayın."
+description: "PowerPoint sunumlarını Android için Aspose.Slides ile Java üzerinden hızlı bir şekilde yüksek kaliteli PNG görüntülerine dönüştürün, kesin ve otomatik sonuçlar sağlayarak."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarını PNG görüntülerine dönüştürmeyi açıklar. PPT, PPTX ve ODP gibi formatlarda sunum dosyalarını nasıl yükleyeceğinizi, slaytları görüntü olarak nasıl işleyip, sonuçları PNG formatında nasıl kaydedeceğinizi gösterir.
+Bu makale, Aspose.Slides for Android'i Java üzerinden kullanarak sunum slaytlarını PNG görüntülerine dönüştürmeyi açıklar. PPT, PPTX ve ODP gibi formatlarda sunumları yükleyebilir, her slaytı renderlayabilir ve ayrı bir PNG görüntüsü olarak kaydedebilirsiniz.
 
-Makale ayrıca, ölçek değerlerini ayarlayarak veya istenen genişlik ve yüksekliği belirterek oluşturulan PNG görüntülerini nasıl özelleştirebileceğinizi gösterir.
+Aşağıdaki örnekler, varsayılan ölçekte renderlama, ölçeği artırma, çıktı boyutlarını piksel cinsinden belirtme ve bir degrade renderlama stilini seçme işlemlerini göstermektedir.
 
 ## **PowerPoint'i PNG'ye Dönüştür**
 
-Bu adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation) sınıfını örnekleyin.
-2. [Presentation.getSlides()](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation#getSlides--) koleksiyonundan, [ISlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ISlide) arayüzü altında slide nesnesini alın.
-3. Her slide için küçük resmi almak üzere [ISlide.getImage()](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ISlide) yöntemini kullanın.
-4. Slide küçük resmini PNG formatında kaydetmek için [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IImage#save(String formatName, int imageFormat)) metodunu kullanın.
-
-Bu Java kodu, bir PowerPoint sunumunu PNG'ye nasıl dönüştüreceğinizi gösterir:
+Sunumu, [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) sınıfını kullanarak yükleyin ve slaytlarına [Presentation.getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) koleksiyonu aracılığıyla erişin. Örnek, her slaytı parametresiz olarak [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage--) çağırarak bir önizleme resmi oluşturur. Ardından, her renderlanmış slaytı PNG görüntüsü olarak kaydetmek için [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) metodunu [ImageFormat.Png](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/#Png) ile çağırır.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Özel Boyutlarla PowerPoint'i PNG'ye Dönüştür**
+{{% alert color="info" title="Note" %}}
+Parametresiz [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage--) aşırı yüklemesi, 0.2 ölçeğinde renderlar. Örneğin, 720 × 540 puan ölçüsündeki bir slayt, 144 × 108 piksel bir önizleme resmi üretir. Çıktı boyutlarını kontrol etmek için aşağıda gösterildiği gibi ölçek faktörleriyle veya açık bir görüntü boyutuyla aşırı yüklemeleri kullanın.
+{{% /alert %}}
 
-Belirli bir ölçeğe yakın PNG dosyaları elde etmek istiyorsanız, sonuç küçük resminin boyutlarını belirleyen `desiredX` ve `desiredY` değerlerini ayarlayabilirsiniz. 
+## **PowerPoint'i Özel Boyutlarla PNG'ye Dönüştür**
 
-Bu Java kodu, açıklanan işlemi gösterir:
+Renderlenen boyutları kontrol etmek için yatay ve dikey ölçek faktörlerini [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-float-float-) metoduna geçirin. Bu örnekte, iki faktör de 2'dir, böylece 720 × 540 puan ölçüsündeki bir slayt, 1440 × 1080 piksel bir görüntü üretir. Eşit ölçek faktörleri, slaytın en‑boy oranını korur. Her görüntü, [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) kullanılarak PNG formatında kaydedilir.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Özel Boyutla PowerPoint'i PNG'ye Dönüştür**
+## **PowerPoint'i Özel Boyutta PNG'ye Dönüştür**
 
-Belirli bir boyuta yakın PNG dosyaları elde etmek istiyorsanız, `ImageSize` için tercih ettiğiniz `width` ve `height` argümanlarını geçirebilirsiniz. 
-
-Bu kod, görüntülerin boyutunu belirterek bir PowerPoint'i PNG'ye nasıl dönüştüreceğinizi gösterir: 
+Çıktı boyutlarını piksel olarak belirtmek için ölçek faktörleri yerine bir boyut nesnesini [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) metoduna geçirin. Bu örnek, her slaytı 960 × 720 piksel olarak renderlar ve sonucu [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) ile kaydeder. Görüntünün gerilmesini önlemek için slaytın en‑boy oranına uyan boyutları seçin.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Size imageSize = new Size(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Bir Degrade Renderlama Stili Seçin**
+
+Bir slayt degrade dolgu içerdiğini ve dışa aktarılan PNG'de geçişlerin PowerPoint'te gördüğünüzden daha açık veya farklı göründüğünü varsayalım. Degradelerin nasıl renderlanacağını seçmek için [RenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/renderingoptions/) tarafından devralınan [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setGradientStyle-int-) metodunu kullanabilirsiniz.
+
+Uygulamanın çalışma dizinine [gradient-styles.pptx](gradient-styles.pptx) dosyasını indirin ve yerleştirin. İlk slaytı, üstte camgöbeğinden turuncuya ve alttaki maviden sarıya iki lineer degrade içerir. Her degradenin iki durak noktası vardır: %0 ve %100.
+
+Aşağıdaki örnek bu sunumu yükler ve [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) metodunu kullanarak aynı ilk slaytı her iki modda da renderlar.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+| Varsayılan | PowerPointUI |
+| --- | --- |
+| ![Varsayılan ile renderlanmış camgöbeğinden turuncuya ve maviden sarıya degradeler](gradient-Default.png) | ![Aynı degradeler PowerPointUI ile renderlanmış](gradient-PowerPointUI.png) |
+
+Bu örnekte, `Default` daha açık ara renkler üretirken, `PowerPointUI` daha koyu ara renkler üretir. Fark, degradenin renklerine ve durak noktalarına bağlıdır.
+
+İhtiyacınızı karşılayan standart Aspose.Slides çıktısı için `Default` seçin. PowerPoint'teki görünümle eşleşmek önceliğinizse `PowerPointUI` deneyin. Her iki çıktıyı da hedef sonucunuzla karşılaştırın; hiçbir mod genellikle daha üstün değildir.
 
 ## **SSS**
 
-**Yalnızca belirli bir şekli (ör. grafik veya resim) tüm slayt yerine nasıl dışa aktarabilirim?**
+**Bir grafiği veya resmi gibi belirli bir şekli, tüm slayt yerine nasıl dışa aktarabilirim?**
 
-Aspose.Slides, [bireysel şekiller için küçük resim oluşturmayı](/slides/tr/androidjava/create-shape-thumbnails/) destekler; bir şekli PNG görüntüsü olarak işleyebilirsiniz.
+Aspose.Slides, bireysel şekiller için [küçük resimler oluşturmayı](/slides/tr/androidjava/create-shape-thumbnails/) destekler; böylece bir şekli PNG görüntüsü olarak renderlayabilirsiniz.
 
-**Sunucuda paralel dönüşüm destekleniyor mu?**
+**Bir sunucuda paralel dönüşüm destekleniyor mu?**
 
-Evet, ancak tek bir sunum örneğini thread'ler arasında [paylaşmayın](/slides/tr/androidjava/multithreading/). Her thread ya da süreç için ayrı bir örnek kullanın.
+Evet. Her iş parçacığı veya süreç için ayrı bir sunum örneği kullanın; [tek bir örneği iş parçacıkları arasında paylaşmayın](/slides/tr/androidjava/multithreading/).
 
-**PNG'ye dışa aktarırken deneme sürümü sınırlamaları nelerdir?**
+**PNG olarak dışa aktarırken değerlendirme sınırlamaları nelerdir?**
 
 Değerlendirme modu, çıktı görüntülerine bir filigran ekler ve lisans uygulanana kadar [diğer kısıtlamaları](/slides/tr/androidjava/licensing/) uygular.

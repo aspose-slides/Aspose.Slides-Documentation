@@ -6,89 +6,85 @@ weight: 20
 url: /tr/python-net/shape-formatting/
 keywords:
 - şekil biçimlendirme
-- satır biçimlendirme
-- eskiz etkisi
-- şekil çizgi eskizi
-- bağlantı stili biçimlendirme
-- gradyan doldurma
-- desen doldurma
-- resim doldurma
-- doku doldurma
-- düz renk doldurma
+- çizgi biçimlendirme
+- skeç efekti
+- skeç şekil çizgisi
+- eklem stili biçimlendirme
+- gradyan dolgu
+- desen dolgu
+- resim dolgu
+- doku dolgu
+- katı renk dolgu
 - şekil şeffaflığı
-- siyah-beyaz şekil renderleme
-- gri ölçek şekil renderleme
-- şekli döndürme
-- 3B keskinlik efekti
-- 3B döndürme efekti
-- biçimlendirmeyi sıfırlama
+- siyah-beyaz şekil renderlaması
+- gri tonlamalı şekil renderlaması
+- şekil döndürme
+- 3d köşe efekti
+- 3d döndürme efekti
+- biçimlendirmeyi sıfırla
 - PowerPoint
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides kullanarak Python’da PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT, PPTX ve ODP dosyaları için dolgu, satır ve efekt stillerini hassasiyetle ve tam kontrolle ayarlayın."
+description: "Aspose.Slides kullanarak Python'da PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT, PPTX ve ODP dosyaları için dolgu, çizgi ve efekt stillerini hassas ve tam kontrolle ayarlayın."
 ---
 ## **Giriş**
 
-PowerPoint’te slaytlara şekil ekleyebilirsiniz. Şekiller çizgilerden oluştuğu için, hatlarını değiştirerek veya efektler uygulayarak biçimlendirebilirsiniz. Ayrıca, iç kısımların nasıl doldurulacağını kontrol eden ayarları belirterek şekilleri biçimlendirebilirsiniz.
+PowerPoint'ta slaytlara şekil ekleyebilirsiniz. Şekiller çizgilerden oluştuğu için dış hatlarını değiştirerek veya efektler uygulayarak biçimlendirebilirsiniz. Ayrıca, şekillerin iç kısımlarının nasıl doldurulacağını kontrol eden ayarları belirterek şekilleri biçimlendirebilirsiniz.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Python, PowerPoint’te bulunan aynı seçenekleri kullanarak şekilleri biçimlendirmenizi sağlayan sınıflar ve özellikler sunar.
+Aspose.Slides for Python, PowerPoint'ta mevcut olan aynı seçenekleri kullanarak şekilleri biçimlendirmenizi sağlayan sınıflar ve özellikler sunar.
 
-## **Satırları Biçimlendirme**
+## **Çizgi Biçimlendirme**
 
-Aspose.Slides kullanarak bir şekil için özel bir satır stili belirtebilirsiniz. İşlem adımları aşağıdaki gibidir:
+Aspose.Slides kullanarak bir şekil için özel bir çizgi stili belirtebilirsiniz. Aşağıdaki adımlar prosedürü özetlemektedir:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta referans alın.  
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
-1. Şeklin [line style](https://reference.aspose.com/slides/tr/python-net/aspose.slides/linestyle/) özelliğini ayarlayın.  
-1. Satır kalınlığını belirleyin.  
-1. Şeklin [dash style](https://reference.aspose.com/slides/tr/python-net/aspose.slides/linedashstyle/) özelliğini ayarlayın.  
-1. Şeklin satır rengini belirleyin.  
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
+1. Slayta bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ekleyin.
+1. Şeklin [çizgi stili](https://reference.aspose.com/slides/python-net/aspose.slides/linestyle/) özelliğini ayarlayın.
+1. Çizgi genişliğini ayarlayın.
+1. Şeklin [çizgi dash stili](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) özelliğini ayarlayın.
+1. Şeklin çizgi rengini ayarlayın.
 1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu bir dikdörtgen `AutoShape`’ın nasıl biçimlendirileceğini gösterir:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Sunum dosyasını temsil eden Presentation sınıfını oluştur.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
     # İlk slaytı al.
     slide = presentation.slides[0]
 
-    # Rectangle tipinde bir otomatik şekil ekle.
+    # Rectangle (dikdörtgen) türünde bir otomatik şekil ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 75)
 
-    # Dikdörtgen şeklinin dolgusunu kaldır, böylece yalnızca hatları görünür.
+    # Dikdörtgen şeklinin dolgusunu kaldırın, böylece yalnızca çizgileri görünür.
     shape.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Dikdörtgenin hatlarına biçimlendirme uygula.
+    # Dikdörtgenin çizgilerine biçimlendirme uygulayın.
     shape.line_format.style = slides.LineStyle.THICK_THIN
     shape.line_format.width = 7
     shape.line_format.dash_style = slides.LineDashStyle.DASH
 
-    # Dikdörtgenin hattının rengini ayarla.
+    # Dikdörtgenin çizgi rengine ayarlayın.
     shape.line_format.fill_format.fill_type = slides.FillType.SOLID
     shape.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    # PPTX dosyasını diske kaydet.
+    # PPTX dosyasını diske kaydedin.
     presentation.save("formatted_lines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuç:
+![Sunumdaki biçimlendirilmiş çizgiler](formatted-lines.png)
 
-![The formatted lines in the presentation](formatted-lines.png)
+## **Şekil Çizgilerine Sketch Efektlerini Uygulama**
 
-## **Şekil Çizgilerine Eskiz Efektleri Uygulama**
+Sketch efekti, bir şekil çizgisinin elle çizilmiş gibi görünmesini sağlar. Çizgi ayarlarına erişmek için [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) , sketch ayarlarına erişmek için [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) , ve [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) enumarasyonundan bir değer seçmek için [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) kullanın.
 
-Eskiz efekti, bir şekil çizgisinin el çizimi gibi görünmesini sağlar. Çizgi ayarlarına erişmek için [Shape.line_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/line_format/) öğesini, eskiz ayarlarına erişmek için [LineFormat.sketch_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/lineformat/sketch_format/) öğesini ve [SketchFormat.sketch_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/sketchformat/sketch_type/) üzerinden [LineSketchType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/linesketchtype/) değerlerinden birini seçebilirsiniz.
-
-Aşağıdaki Python kodu, bir [LineSketchType.CURVED](https://reference.aspose.com/slides/tr/python-net/aspose.slides/linesketchtype/) etkisini nasıl uygulayacağınızı, doğrudan atanmış değeri nasıl okuyacağınızı ve [LineSketchType.NONE](https://reference.aspose.com/slides/tr/python-net/aspose.slides/linesketchtype/) ile efekti nasıl kaldıracağınızı gösterir:
+Aşağıdaki Python kodu, bir [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) etkisini nasıl uygulayacağını, açıkça atanmış değeri nasıl okuyacağını ve [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) ile etkiyi nasıl kaldıracağını gösterir.
 
 ```python
 import aspose.slides as slides
@@ -97,21 +93,21 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
 
-    # Şeklin satır formatına ve eskiz formatına eriş.
+    # Şeklin çizgi biçimine ve skeç biçimine erişin.
     sketch_format = shape.line_format.sketch_format
 
-    # Bir eskiz efekti uygula.
+    # Bir skeç efekti uygulayın.
     sketch_format.sketch_type = slides.LineSketchType.CURVED
 
-    # Şekle doğrudan atanmış eskiz efektini oku.
+    # Şekle doğrudan atanmış skeç efektini okuyun.
     explicit_sketch_type = sketch_format.sketch_type
     print(f"Explicit sketch type: {explicit_sketch_type}")
 
-    # Eskiz efektini kaldır.
+    # Skeç efektini kaldırın.
     sketch_format.sketch_type = slides.LineSketchType.NONE
 ```
 
-`SketchFormat.sketch_type` tarafından döndürülen değer, doğrudan şekle atanan ayarı temsil eder. Satır biçimlendirmesi bir temadan, ana slayttan veya yerleşim slaytından devralınabiliyorsa, [LineFormat.get_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides/lineformat/get_effective/) yöntemini kullanın, dönen nesnenin `sketch_format` özelliğine erişin ve `sketch_type` özelliğini okuyun. Etkili değer, devralma çözüldükten sonra gerçekte uygulanan biçimlendirmeyi yansıtır:
+`SketchFormat.sketch_type` tarafından döndürülen değer, şekle doğrudan atanmış ayarı temsil eder. Çizgi biçimlendirmesi bir temadan, ana slayttan veya düzen slaytından kalıtılamıyorsa, [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/) kullanın, dönen nesnenin `sketch_format` özelliğine erişin ve `sketch_type` özelliğini okuyun. Etkin değer, kalıtım çözüldükten sonra gerçekte uygulanan biçimlendirmeyi yansıtır:
 
 ```python
 import aspose.slides as slides
@@ -128,36 +124,36 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(f"Effective sketch type: {effective_sketch_type}")
 ```
 
-## **Bağlantı Stillerini Biçimlendirme**
+## **Eklem Stilleri Biçimlendirme**
 
-Üç bağlantı türü seçeneği vardır:
+Üç eklem tipi seçeneği şunlardır:
 
 * Yuvarlak
 * Miter
 * Bevel
 
-Varsayılan olarak, PowerPoint iki çizgiyi bir açıyla (örneğin bir şeklin köşesinde) birleştirdiğinde **Yuvarlak** ayarını kullanır. Ancak, keskin açılı bir şekil çizerken **Miter** seçeneğini tercih edebilirsiniz.
+Varsayılan olarak, PowerPoint iki çizgiyi bir açıda (örneğin bir şeklin köşesinde) birleştirdiğinde **Yuvarlak** ayarını kullanır. Ancak, keskin açılara sahip bir şekil çizerken **Miter** seçeneğini tercih edebilirsiniz.
 
-![The join style in the presentation](join-style-powerpoint.png)
+![Sunumdaki eklem stili](join-style-powerpoint.png)
 
-Aşağıdaki Python kodu, yukarıdaki görselde gösterildiği gibi Miter, Bevel ve Round bağlantı türü ayarlarıyla üç dikdörtgenin nasıl oluşturulduğunu gösterir:
+Aşağıdaki Python kodu, yukarıdaki görüntüde gösterildiği gibi üç dikdörtgenin Miter, Bevel ve Round eklem tipi ayarları kullanılarak nasıl oluşturulduğunu gösterir:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Sunum dosyasını temsil eden Presentation sınıfını oluştur.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
 	# İlk slaytı al.
 	slide = presentation.slides[0]
 
-	# Rectangle tipinde üç otomatik şekil ekle.
+	# Rectangle (dikdörtgen) türünde üç otomatik şekil ekleyin.
 	shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 75)
 	shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 210, 20, 150, 75)
 	shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 135, 150, 75)
 
-	# Her dikdörtgen şeklinin dolgu rengini ayarla.
+	# Her dikdörtgen şeklinin dolgu rengini ayarlayın.
 	shape1.fill_format.fill_type = slides.FillType.SOLID
 	shape1.fill_format.solid_fill_color.color = draw.Color.black
 	shape2.fill_format.fill_type = slides.FillType.SOLID
@@ -165,12 +161,12 @@ with slides.Presentation() as presentation:
 	shape3.fill_format.fill_type = slides.FillType.SOLID
 	shape3.fill_format.solid_fill_color.color = draw.Color.black
 
-	# Satır kalınlığını ayarla.
+	# Çizgi genişliğini ayarlayın.
 	shape1.line_format.width = 15
 	shape2.line_format.width = 15
 	shape3.line_format.width = 15
 
-	# Her dikdörtgenin hattının rengini ayarla.
+	# Her dikdörtgenin çizgi rengini ayarlayın.
 	shape1.line_format.fill_format.fill_type = slides.FillType.SOLID
 	shape1.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 	shape2.line_format.fill_format.fill_type = slides.FillType.SOLID
@@ -178,208 +174,196 @@ with slides.Presentation() as presentation:
 	shape3.line_format.fill_format.fill_type = slides.FillType.SOLID
 	shape3.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-	# Bağlantı stilini ayarla.
+	# Eklem stilini ayarlayın.
 	shape1.line_format.join_style = slides.LineJoinStyle.MITER
 	shape2.line_format.join_style = slides.LineJoinStyle.BEVEL
 	shape3.line_format.join_style = slides.LineJoinStyle.ROUND
 
-	# Her dikdörtgene metin ekle.
+	# Her dikdörtgene metin ekleyin.
 	shape1.text_frame.text = "Miter Join style"
 	shape2.text_frame.text = "Bevel Join style"
 	shape3.text_frame.text = "Round Join style"
 
-	# PPTX dosyasını diske kaydet.
+	# PPTX dosyasını diske kaydedin.
 	presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gradyan Doldurma**
+## **Gradyan Dolgu**
 
-PowerPoint’te Gradyan Doldurma, bir şekle kesintisiz bir renk geçişi uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Örneğin, iki veya daha fazla rengi birinin yavaşça diğerine karıştığı bir şekilde uygulayabilirsiniz.
+PowerPoint'ta Gradyan Dolgu, bir şekle sürekli renk karışımı uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Örneğin, bir rengin yavaşça diğerine geçeceği şekilde iki veya daha fazla renk uygulayabilirsiniz.
 
-Aspose.Slides kullanarak bir şekle gradyan doldurma uygulama adımları:
+Aşağıda Aspose.Slides kullanarak bir şekle gradyan dolgu uygulama adımları verilmiştir:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta referans alın.  
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
-1. Şeklin [FillType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/filltype/) özelliğini `GRADIENT` olarak ayarlayın.  
-1. [GradientFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/gradientformat/) sınıfının `gradient_stops` koleksiyonundaki `add` metodlarını kullanarak konumları tanımlı iki rengi ekleyin.  
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
+1. Slayta bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ekleyin.
+1. Şeklin [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) özelliğini `GRADIENT` olarak ayarlayın.
+1. İki tercih ettiğiniz rengi, tanımlı konumlarla birlikte, [GradientFormat](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/) sınıfı tarafından sağlanan `gradient_stops` koleksiyonunun `add` metotlarını kullanarak ekleyin.
 1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu bir elips üzerinde gradyan doldurma etkisinin nasıl uygulanacağını gösterir:
 
 ```python
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden Presentation sınıfını oluştur.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
     # İlk slaytı al.
     slide = presentation.slides[0]
 
-    # Ellipse tipinde bir otomatik şekil ekle.
+    # Ellipse (elips) türünde bir otomatik şekil ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 150, 75)
 
-    # Elipsa gradyan biçimlendirmesi uygula.
+    # Elips'e gradyan biçimlendirmesi uygulayın.
     shape.fill_format.fill_type = slides.FillType.GRADIENT
     shape.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
 
-    # Gradyanın yönünü ayarla.
+    # Gradyanın yönünü ayarlayın.
     shape.fill_format.gradient_format.gradient_direction = slides.GradientDirection.FROM_CORNER2
 
-    # İki gradyan durdurma noktası ekle.
+    # İki gradyan durağı ekleyin.
     shape.fill_format.gradient_format.gradient_stops.add(1.0, slides.PresetColor.PURPLE)
     shape.fill_format.gradient_format.gradient_stops.add(0, slides.PresetColor.RED)
 
-    # PPTX dosyasını diske kaydet.
+    # PPTX dosyasını diske kaydedin.
     presentation.save("gradient_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuç:
+![Gradyan dolgulu elips](gradient-fill.png)
 
-![The ellipse with gradient fill](gradient-fill.png)
+Eğer bir gradyan, PowerPoint'takinden farklı bir dışa aktarılmış görüntüde görünüyorsa, [Choose a Gradient Rendering Style](/slides/tr/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) bölümüne bakın. Sunumda depolanan gradyan dolgu değişmeden bir render stili seçebilirsiniz.
 
-## **Desen Doldurma**
+## **Desen Dolgu**
 
-PowerPoint’te Desen Doldurma, iki renkli bir tasarımı (nokta, çizgi, çapraz çizgi veya kare gibi) bir şekle uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Desenin ön ve arka plan renklerini istediğiniz gibi seçebilirsiniz.
+PowerPoint'ta Pattern Fill, bir şekle iki renkli desen (nokta, çizgi, çapraz tarama veya kare gibi) uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Desenin ön ve arka plan renklerini özelleştirebilirsiniz.
 
-Aspose.Slides, sunumlarınızın görsel çekiciliğini artırmak için şekillere uygulayabileceğiniz 45’ten fazla ön tanımlı desen stili sunar. Ön tanımlı bir deseni seçtikten sonra hâlâ kullanılacak kesin renkleri belirtebilirsiniz.
+Aspose.Slides, sunumlarınızın görsel çekiciliğini artırmak için şekillere uygulayabileceğiniz 45'ten fazla ön tanımlı desen stili sunar. Ön tanımlı bir desen seçtikten sonra bile kullanılacak kesin renkleri belirleyebilirsiniz.
 
-Aspose.Slides kullanarak bir şekle desen doldurma uygulama adımları:
+Aşağıda Aspose.Slides kullanarak bir şekle desen dolgu uygulama adımları verilmiştir:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta referans alın.  
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
-1. Şeklin [FillType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/filltype/) özelliğini `PATTERN` olarak ayarlayın.  
-1. Ön tanımlı seçeneklerden bir desen stili seçin.  
-1. Desenin [back_color](https://reference.aspose.com/slides/tr/python-net/aspose.slides/patternformat/back_color/) özelliğini ayarlayın.  
-1. Desenin [fore_color](https://reference.aspose.com/slides/tr/python-net/aspose.slides/patternformat/fore_color/) özelliğini ayarlayın.  
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
+1. Slayta bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ekleyin.
+1. Şeklin [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) özelliğini `PATTERN` olarak ayarlayın.
+1. Önceden tanımlı seçeneklerden bir desen stilini seçin.
+1. Desenin [back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) özelliğini ayarlayın.
+1. Desenin [fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) özelliğini ayarlayın.
 1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu bir dikdörtgen üzerinde desen doldurmanın nasıl yapılacağını gösterir:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Sunum dosyasını temsil eden Presentation sınıfını oluştur.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
     # İlk slaytı al.
     slide = presentation.slides[0]
 
-    # Rectangle tipinde bir otomatik şekil ekle.
+    # Rectangle (dikdörtgen) türünde bir otomatik şekil ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Doldurma tipini Pattern olarak ayarla.
+    # Dolgu tipini Pattern olarak ayarlayın.
     shape.fill_format.fill_type = slides.FillType.PATTERN
 
-    # Desen stilini ayarla.
+    # Desen stilini ayarlayın.
     shape.fill_format.pattern_format.pattern_style = slides.PatternStyle.TRELLIS
 
-    # Desen arka plan ve ön plan renklerini ayarla.
+    # Desenin arka plan ve ön plan renklerini ayarlayın.
     shape.fill_format.pattern_format.back_color.color = draw.Color.light_gray
     shape.fill_format.pattern_format.fore_color.color = draw.Color.yellow
 
-    # PPTX dosyasını diske kaydet.
+    # PPTX dosyasını diske kaydedin.
     presentation.save("pattern_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuç:
+![Desenli dolgu içeren dikdörtgen](pattern-fill.png)
 
-![The rectangle with pattern fill](pattern-fill.png)
+## **Resim Dolgu**
 
-## **Resim Doldurma**
+PowerPoint'ta Picture Fill, bir şeklin içine bir resim eklemenizi sağlayan bir biçimlendirme seçeneğidir; bu sayede resmi şeklin arka planı olarak kullanabilirsiniz.
 
-PowerPoint’te Resim Doldurma, bir şeklin içine bir görüntü yerleştirmenizi ve resmi şeklin arka planı gibi kullanmanızı sağlayan bir biçimlendirme seçeneğidir.
+Aşağıda Aspose.Slides kullanarak bir şekle resim dolgu uygulama adımları verilmiştir:
 
-Aspose.Slides kullanarak bir şekle resim doldurma uygulama adımları:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta referans alın.  
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
-1. Şeklin [FillType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/filltype/) özelliğini `PICTURE` olarak ayarlayın.  
-1. Resim doldurma modunu `TILE` (veya tercih ettiğiniz başka bir mod) olarak ayarlayın.  
-1. Kullanmak istediğiniz görselden bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) nesnesi oluşturun.  
-1. Bu görseli şeklin `picture_fill_format`’undaki `picture.image` özelliğine atayın.  
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
+1. Slayta bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ekleyin.
+1. Şeklin [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) özelliğini `PICTURE` olarak ayarlayın.
+1. Resim dolgu modunu `TILE` (veya tercih edilen başka bir mod) olarak ayarlayın.
+1. [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) nesnesini kullanmak istediğiniz resimden oluşturun.
+1. Bu resmi şeklin `picture_fill_format` özelliğindeki `picture.image` alanına atayın.
 1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki görsel “lotus.png” dosyasını göstermektedir:
+Diyelim ki aşağıdaki resimle bir "lotus.png" dosyamız var:
 
-![The lotus picture](lotus.png)
-
-Aşağıdaki Python kodu bir şekle resim doldurmanın nasıl yapılacağını gösterir:
+![Lotus resmi](lotus.png)
 
 ```python
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden Presentation sınıfını oluştur.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
     # İlk slaytı al.
     slide = presentation.slides[0]
 
-    # Rectangle tipinde bir otomatik şekil ekle.
+    # Rectangle (dikdörtgen) türünde bir otomatik şekil ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 192, 95)
 
-    # Doldurma tipini Picture olarak ayarla.
+    # Dolgu tipini Picture olarak ayarlayın.
     shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # Resim doldurma modunu ayarla.
+    # Resim dolgu modunu ayarlayın.
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
 
-    # Bir görüntü yükle ve sunum kaynaklarına ekle.
+    # Bir görüntü yükleyin ve sunum kaynaklarına ekleyin.
     with slides.Images.from_file("lotus.png") as image:
         presentation_image = presentation.images.add_image(image)
 
-    # Resmi ayarla.
+    # Resmi ayarlayın.
     shape.fill_format.picture_fill_format.picture.image = presentation_image
 
-    # PPTX dosyasını diske kaydet.
+    # PPTX dosyasını diske kaydedin.
     presentation.save("picture_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuç:
+![Resim dolgulu şekil](picture-fill.png)
 
-![The shape with picture fill](picture-fill.png)
+### **Döşeme Resmi Olarak Doku**
 
-### **Resmi Doku Olarak Döşeme**
+Eğer döşenmiş bir resmi doku olarak ayarlamak ve döşeme davranışını özelleştirmek istiyorsanız, [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) sınıfının aşağıdaki özelliklerini kullanabilirsiniz:
 
-Döşeme şeklinde bir resmi doku olarak ayarlamak ve döşeme davranışını özelleştirmek istiyorsanız, [PictureFillFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/) sınıfının aşağıdaki özelliklerini kullanabilirsiniz:
-
-- [picture_fill_mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Resim doldurma modunu `TILE` ya da `STRETCH` olarak ayarlar.  
-- [tile_alignment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/tile_alignment/): Döşemelerin şekil içinde nasıl hizalanacağını belirler.  
-- [tile_flip](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/tile_flip/): Döşemenin yatay, dikey ya da her iki yönde çevrilip çevrilmeyeceğini kontrol eder.  
-- [tile_offset_x](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/tile_offset_x/): Döşemenin şeklin orijinalinden yatay ofsetini (puan cinsinden) ayarlar.  
-- [tile_offset_y](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/tile_offset_y/): Döşemenin şeklin orijinalinden dikey ofsetini (puan cinsinden) ayarlar.  
-- [tile_scale_x](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/tile_scale_x/): Döşemenin yatay ölçeğini yüzde olarak tanımlar.  
-- [tile_scale_y](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/tile_scale_y/): Döşemenin dikey ölçeğini yüzde olarak tanımlar.
-
-Aşağıdaki kod örneği, bir dikdörtgen şekli ekleyip döşeme resim doldurması ve döşeme seçeneklerini yapılandırmanın nasıl yapıldığını gösterir:
+- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Resim dolgu modunu ayarlar—`TILE` veya `STRETCH`.
+- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): Şekil içinde döşemelerin hizalamasını belirler.
+- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): Döşemenin yatay, dikey veya her iki yönde çevrilip çevrilmeyeceğini kontrol eder.
+- [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/): Döşemenin şeklin orijininin (nokta cinsinden) yatay kaymasını ayarlar.
+- [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/): Döşemenin şeklin orijininin (nokta cinsinden) dikey kaymasını ayarlar.
+- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): Döşemenin yatay ölçeğini yüzde olarak tanımlar.
+- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): Döşemenin dikey ölçeğini yüzde olarak tanımlar.
 
 ```py
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden Presentation sınıfını oluştur.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
     # İlk slaytı al.
     first_slide = presentation.slides[0]
 
-    # Rectangle otomatik şekli ekle.
+    # Bir dikdörtgen otomatik şekil ekleyin.
     shape = first_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 190, 95)
 
-    # Şeklin doldurma tipini Picture olarak ayarla.
+    # Şeklin dolgu tipini Picture olarak ayarlayın.
     shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # Görüntüyü yükle ve sunum kaynaklarına ekle.
+    # Görüntüyü yükleyin ve sunum kaynaklarına ekleyin.
     with slides.Images.from_file("lotus.png") as source_image:
         presentation_image = presentation.images.add_image(source_image)
 
-    # Görüntüyü şekle ata.
+    # Görüntüyü şekle atayın.
     picture_fill_format = shape.fill_format.picture_fill_format
     picture_fill_format.picture.image = presentation_image
 
-    # Resim doldurma modunu ve döşeme özelliklerini yapılandır.
+    # Resim dolgu modunu ve döşeme özelliklerini yapılandırın.
     picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
     picture_fill_format.tile_offset_x = -32
     picture_fill_format.tile_offset_y = -32
@@ -388,85 +372,77 @@ with slides.Presentation() as presentation:
     picture_fill_format.tile_alignment = slides.RectangleAlignment.BOTTOM_RIGHT
     picture_fill_format.tile_flip = slides.TileFlip.FLIP_BOTH
 
-    # PPTX dosyasını diske kaydet.
+    # PPTX dosyasını diske kaydedin.
     presentation.save("tile.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuç:
+![Döşeme seçenekleri](tile-options.png)
 
-![The tile options](tile-options.png)
+## **Katı Renk Dolgu**
 
-## **Düz Renk Doldurma**
+PowerPoint'ta Solid Color Fill, bir şekli tek, tekdüze renkle dolduran bir biçimlendirme seçeneğidir. Bu sade arka plan rengi, gradyan, doku veya desen olmadan uygulanır.
 
-PowerPoint’te Düz Renk Doldurma, bir şekli tek bir renk ile dolduran bir biçimlendirme seçeneğidir. Bu düz arka plan rengi, gradyan, doku veya desen olmadan uygulanır.
+Aşağıdaki adımları izleyerek Aspose.Slides kullanarak bir şekle katı renk dolgu uygulayabilirsiniz:
 
-Aspose.Slides kullanarak bir şekle düz renk doldurma uygulama adımları:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta referans alın.  
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
-1. Şeklin [FillType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/filltype/) özelliğini `SOLID` olarak ayarlayın.  
-1. İstediğiniz dolgu rengini şekle atayın.  
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
+1. Slayta bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ekleyin.
+1. Şeklin [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) özelliğini `SOLID` olarak ayarlayın.
+1. Şekle tercih ettiğiniz dolgu rengini atayın.
 1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu bir PowerPoint slaydında bir dikdörtgene düz renk doldurma nasıl uygulanır gösterir:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Sunum dosyasını temsil eden Presentation sınıfını oluştur.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
     # İlk slaytı al.
     slide = presentation.slides[0]
 
-    # Rectangle tipinde bir otomatik şekil ekle.
+    # Rectangle (dikdörtgen) türünde bir otomatik şekil ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Doldurma tipini Solid olarak ayarla.
+    # Dolgu tipini Solid olarak ayarlayın.
     shape.fill_format.fill_type = slides.FillType.SOLID
 
-    # Doldurma rengini ayarla.
+    # Dolgu rengini ayarlayın.
     shape.fill_format.solid_fill_color.color = draw.Color.yellow
 
-    # PPTX dosyasını diske kaydet.
+    # PPTX dosyasını diske kaydedin.
     presentation.save("solid_color_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuç:
+![Katı renk dolgulu şekil](solid-color-fill.png)
 
-![The shape with solid color fill](solid-color-fill.png)
+## **Şeffaflık Ayarlama**
 
-## **Saydamlık Ayarlama**
+PowerPoint'ta bir şekle katı renk, gradyan, resim veya doku dolgusu uyguladığınızda, dolgunun opaklığını kontrol eden bir şeffaflık seviyesi de ayarlayabilirsiniz. Daha yüksek şeffaflık değeri, şeklin daha fazla şeffaf olmasını sağlar ve arka planın veya altındaki nesnelerin kısmen görünür olmasına izin verir.
 
-PowerPoint’te bir şekle düz renk, gradyan, resim ya da doku doldurması uyguladığınızda, doldurmanın saydamlık seviyesini de ayarlayarak opaklığını kontrol edebilirsiniz. Yüksek saydamlık değeri, şeklin daha şeffaf olmasını sağlar ve arka plan ya da alt nesnelerin bir kısmının görünmesine izin verir.
+Aspose.Slides, dolgu için kullanılan renkteki alfa değerini ayarlayarak şeffaflık seviyesini belirlemenizi sağlar. İşte nasıl yapılacağı:
 
-Aspose.Slides, doldurma için kullanılan rengin alfa değerini ayarlayarak saydamlık seviyesini belirlemenize olanak tanır. İşte nasıl yapılacağı:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta referans alın.  
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
-1. Dolgu tipini `SOLID` olarak ayarlayın.  
-1. `Color.from_argb` kullanarak saydamlığı olan bir renk tanımlayın (`alpha` bileşeni saydamlığı kontrol eder).  
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
+1. Slayta bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ekleyin.
+1. Dolgu tipini `SOLID` olarak ayarlayın.
+1. `Color.from_argb` kullanarak şeffaflık (alfa bileşeni) içeren bir renk tanımlayın.
 1. Sunumu kaydedin.
-
-Aşağıdaki Python kodu bir dikdörtgene saydam dolgu rengi nasıl uygulanır gösterir:
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden Presentation sınıfını oluştur.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
     # İlk slaytı al.
     slide = presentation.slides[0]
     
-    # Katı bir dikdörtgen otomatik şekil ekle.
+    # Katı bir dikdörtgen otomatik şekil ekleyin.
     slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Katı şeklin üzerine şeffaf bir dikdörtgen otomatik şekil ekle.
+    # Katı şeklin üzerine şeffaf bir dikdörtgen otomatik şekil ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 150, 75)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.from_argb(128, 204, 102, 0)
@@ -474,71 +450,63 @@ with slides.Presentation() as presentation:
     presentation.save("shape_transparency.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuç:
-
-![The transparent shape](shape-transparency.png)
+![Şeffaf şekil](shape-transparency.png)
 
 ## **Şekilleri Döndürme**
 
-Aspose.Slides, PowerPoint sunumlarında şekilleri döndürmenizi sağlar. Bu, görsel öğeleri belirli hizalamalar veya tasarım gereksinimleri doğrultusunda konumlandırırken yararlı olabilir.
+Aspose.Slides, PowerPoint sunumlarındaki şekilleri döndürmenizi sağlar. Bu, görsel öğeleri belirli hizalama veya tasarım ihtiyaçlarıyla konumlandırırken faydalı olabilir.
 
-Bir slayttaki bir şekli döndürmek için şu adımları izleyin:
+Bir slayttaki şekli döndürmek için aşağıdaki adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta referans alın.  
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
-1. Şeklin `rotation` özelliğini istediğiniz açıya (derece) ayarlayın.  
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
+1. Slayta bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ekleyin.
+1. Şeklin `rotation` özelliğini istediğiniz açıya ayarlayın.
 1. Sunumu kaydedin.
-
-Aşağıdaki Python kodu bir şekli 5 derece döndürmenin nasıl yapılacağını gösterir:
 
 ```python
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden Presentation sınıfını oluştur.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
     # İlk slaytı al.
     slide = presentation.slides[0]
 
-    # Rectangle tipinde bir otomatik şekil ekle.
+    # Rectangle (dikdörtgen) türünde bir otomatik şekil ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Şekli 5 derece döndür.
+    # Şekli 5 derece döndürün.
     shape.rotation = 5
 
-    # PPTX dosyasını diske kaydet.
+    # PPTX dosyasını diske kaydedin.
     presentation.save("shape_rotation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuç:
+![Şekil döndürme](shape-rotation.png)
 
-![The shape rotation](shape-rotation.png)
+## **3D Köşe Efektleri Ekleme**
 
-## **3B Keskinlik Efektleri Ekleme**
+Aspose.Slides, şekillere [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) özelliklerini yapılandırarak 3D köşe efektleri uygulamanızı sağlar.
 
-Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/threedformat/) özelliklerini yapılandırarak 3B keskinlik (bevel) efektleri uygulamanıza olanak tanır.
+Bir şekle 3D köşe efekti eklemek için aşağıdaki adımları izleyin:
 
-Bir şekle 3B keskinlik efekti eklemek için şu adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta referans alın.  
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
-1. Şeklin [ThreeDFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/threedformat/) özelliğini yapılandırarak keskinlik ayarlarını tanımlayın.  
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
+1. Slayta bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ekleyin.
+1. Şeklin [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) özelliğini köşe ayarlarını tanımlayacak şekilde yapılandırın.
 1. Sunumu kaydedin.
-
-Aşağıdaki Python kodu bir şekle 3B keskinlik efektinin nasıl uygulanacağını gösterir:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Presentation sınıfının bir örneğini oluştur.
+# Presentation sınıfının bir örneğini oluşturun.
 with slides.Presentation() as presentation:
 
     slide = presentation.slides[0]
 
-    # Slayta bir şekil ekle.
+    # Slayta bir şekil ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.green
@@ -546,7 +514,7 @@ with slides.Presentation() as presentation:
     shape.line_format.fill_format.solid_fill_color.color = draw.Color.orange
     shape.line_format.width = 2.0
 
-    # Şeklin ThreeDFormat özelliklerini ayarla.
+    # Şeklin ThreeDFormat özelliklerini ayarlayın.
     shape.three_d_format.depth = 4
     shape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
     shape.three_d_format.bevel_top.height = 6
@@ -555,32 +523,28 @@ with slides.Presentation() as presentation:
     shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.THREE_PT
     shape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
 
-    # Sunumu PPTX dosyası olarak kaydet.
+    # Sunumu PPTX dosyası olarak kaydedin.
     presentation.save("3D_bevel_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuç:
+![3D köşe efekti](3D-bevel-effect.png)
 
-![The 3D bevel effect](3D-bevel-effect.png)
+## **3D Döndürme Efektleri Ekleme**
 
-## **3B Döndürme Efektleri Ekleme**
+Aspose.Slides, şekillere [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) özelliklerini yapılandırarak 3D döndürme efektleri uygulamanızı sağlar.
 
-Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/threedformat/) özelliklerini yapılandırarak 3B döndürme efektleri uygulamanıza olanak tanır.
+Bir şekle 3D döndürme uygulamak için:
 
-Bir şekle 3B döndürme uygulamak için:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta referans alın.  
-1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
-1. Şeklin [camera_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/camera/camera_type/) ve [light_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/lightrig/light_type/) özelliklerini ayarlayarak 3B döndürmeyi tanımlayın.  
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
+1. Slayta bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ekleyin.
+1. Şeklin [camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) ve [light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/) ayarlarını 3D döndürmeyi tanımlayacak şekilde ayarlayın.
 1. Sunumu kaydedin.
-
-Aşağıdaki Python kodu bir şekle 3B döndürme efektinin nasıl uygulanacağını gösterir:
 
 ```python
 import aspose.slides as slides
 
-# Presentation sınıfının bir örneğini oluştur.
+# Presentation sınıfının bir örneğini oluşturun.
 with slides.Presentation() as presentation:
 
     slide = presentation.slides[0]
@@ -593,21 +557,19 @@ with slides.Presentation() as presentation:
     auto_shape.three_d_format.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
     auto_shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
 
-    # Sunumu PPTX dosyası olarak kaydet.      
+    # Sunumu PPTX dosyası olarak kaydedin.      
     presentation.save("3D_rotation_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuç:
+![3D döndürme efekti](3D-rotation-effect.png)
 
-![The 3D rotation effect](3D-rotation-effect.png)
+## **Şekiller İçin Siyah-Beyaz Renderlamayı Kontrol Etme**
 
-## **Şekiller İçin Siyah-Beyaz Renderlama Kontrolü**
+[Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) özelliği, bir sunum siyah-beyaz modunda görüntülendiğinde veya işlendiğinde bireysel bir şeklin nasıl renderlanacağını belirtir. Bu özellik tek başına siyah-beyaz görüntüyü etkinleştirmez ve normal renk modunda şeklin dolgu, çizgi veya diğer biçimlendirmelerini değiştirmez.
 
-[Shape.black_white_mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/black_white_mode/) özelliği, bir sunum siyah-beyaz modunda görüntülendiğinde veya işlendiğinde bireysel bir şeklin nasıl renderlanacağını belirler. Bu özellik tek başına siyah-beyaz gösterimi etkinleştirmez ve normal renk modunda şeklin dolgu, satır veya diğer biçimlendirmesini değiştirmez.
+[BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) enumarasyonundan bir değer kullanarak istenen davranışı seçin. Örneğin, `AUTOMATIC` render uygulamasının dönüşümü seçmesine izin verir, `GRAY` ve `LIGHT_GRAY` gri renkleme kullanır, `BLACK_WHITE` sadece siyah ve beyaz kullanır, `BLACK` ve `WHITE` tek bir rengi zorlar, `COLOR` normal renklemeyi korur ve `HIDDEN` şekli siyah-beyaz modunda gizler. `NOT_DEFINED` ise şekil seviyesinde bir mod atanmamış anlamına gelir.
 
-[BlackWhiteMode](https://reference.aspose.com/slides/tr/python-net/aspose.slides/blackwhitemode/) enum’undan bir değer alarak istenen davranışı seçebilirsiniz. Örneğin, `AUTOMATIC` renderlayıcıya dönüşümü seçtirir, `GRAY` ve `LIGHT_GRAY` gri renkleme kullanır, `BLACK_WHITE` yalnızca siyah ve beyazı, `BLACK` ve `WHITE` tek bir rengi zorlar, `COLOR` normal renklemeyi korur ve `HIDDEN` şekli siyah-beyaz modunda gizler. `NOT_DEFINED` ise şekil düzeyinde bir mod atanmadığını gösterir.
-
-Aşağıdaki Python kodu renkli bir şekil oluşturur ve siyah‑beyaz gösterim modunda gri görünmesini sağlar:
+Aşağıdaki Python kodu, renkli bir şekil oluşturur ve siyah-beyaz görüntüleme modunda gri görünmesini sağlar:
 
 ```python
 import aspose.slides as slides
@@ -620,17 +582,17 @@ with slides.Presentation() as presentation:
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.orange
 
-    # Turuncu dolguyu renk modunda tut, ancak şekli siyah-beyaz modunda gri renkle render et.
+    # Renkli modda turuncu dolguyu koruyun, ancak şekli siyah-beyaz modda gri renkle renderlayın.
     shape.black_white_mode = slides.BlackWhiteMode.GRAY
 
     presentation.save("shape_black_white_mode.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Normal renk modunda dikdörtgen turuncu dolgu ile kalır. Siyah‑beyaz gösterim iş akışında ise modu `GRAY` olduğu için gri renkte gösterilir. Bu, tam renkli bir slaytı korurken baskı, ön izleme gibi siyah‑beyaz ayarlarını saygı gösteren iş akışları için ayrı bir görünüm tanımlamanıza olanak tanır.
+Normal renk modunda, dikdörtgen turuncu dolgusunu korur. Siyah-beyaz görüntüleme akışında, modu `GRAY` olarak ayarlandığı için gri renkte gösterilir. Bu, tam renkli bir slaytı korurken, baskı, ön izleme veya sunumun siyah-beyaz görüntü ayarlarını dikkate alan diğer iş akışları için farklı bir görünüm tanımlamanıza olanak sağlar.
 
 ## **Biçimlendirmeyi Sıfırlama**
 
-Aşağıdaki Python kodu, bir slaydın biçimlendirmesini sıfırlamayı ve [LayoutSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/) üzerindeki tüm placeholder’ların konum, boyut ve biçimlendirmesini varsayılan ayarlarına geri döndürmeyi gösterir:
+Aşağıdaki Python kodu, bir slaydın biçimlendirmesini sıfırlamayı ve [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/) üzerindeki yer tutuculara sahip tüm şekillerin konum, boyut ve biçimlendirmesini varsayılan ayarlarına geri döndürmeyi gösterir:
 
 ```python
 import aspose.slides as slides
@@ -638,7 +600,7 @@ import aspose.slides as slides
 with slides.Presentation("sample.pptx") as presentation:
 
     for slide in presentation.slides:
-        # Yer tutucuya sahip olan slayttaki her şekli sıfırla.
+        # Slayttaki düzen üzerinde yer tutucuya sahip her şekli sıfırla.
         slide.reset()
 
     presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
@@ -646,14 +608,14 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **SSS**
 
-**Şekil biçimlendirmesi nihai sunum dosya boyutunu etkiler mi?**
+**Şekil biçimlendirmesi son sunum dosya boyutunu etkiler mi?**
 
-Çok az etkiler. Gömülü görüntüler ve medya dosyaları dosya boyutunun büyük kısmını oluşturur, şekil parametreleri (renkler, efektler, gradyanlar vb.) ise meta veri olarak saklanır ve neredeyse hiç ekstra yer kaplamaz.
+Yalnızca çok az etkiler. Gömülü görüntüler ve medya dosyaları dosya alanının büyük kısmını oluşturur, şekil parametreleri (renkler, efektler, gradyanlar) meta veri olarak saklanır ve neredeyse ek bir boyut eklemez.
 
-**Aynı biçimlendirmeye sahip şekilleri slaytta nasıl tespit edip gruplandırabilirim?**
+**Bir slayttaki aynı biçimlendirmeyi paylaşan şekilleri nasıl tespit edip gruplandırabilirim?**
 
-Her şeklin temel biçimlendirme özelliklerini—doldurma, satır ve efekt ayarlarını—karşılaştırın. Tüm ilgili değerler eşleşiyorsa, stillerini aynı kabul edip mantıksal olarak gruplandırın; bu, sonraki stil yönetimini kolaylaştırır.
+Eşleşen doldurma, çizgi ve efekt ayarları gibi temel biçimlendirme özelliklerini her şekil için karşılaştırın. Tüm karşılık gelen değerler eşleşiyorsa, stilleri aynı olarak kabul edin ve bu şekilleri mantıksal olarak gruplayın; bu, sonraki stil yönetimini basitleştirir.
 
-**Özel şekil stillerini başka sunumlarda kullanmak üzere ayrı bir dosyada saklayabilir miyim?**
+**Özel şekil stillerinin bir kümesini ayrı bir dosyada kaydedip diğer sunumlarda yeniden kullanabilir miyim?**
 
-Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt paketinde veya .POTX şablon dosyasında tutabilirsiniz. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stilize şekilleri klonlayın ve gerektiği yerde biçimlendirmelerini yeniden uygulayın.
+Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt destesi veya .POTX şablon dosyasında saklayın. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stilleri içeren şekilleri kopyalayın ve gerektiği yerde biçimlendirmeyi tekrar uygulayın.

@@ -1,6 +1,6 @@
 ---
 title: Konwertuj slajdy PowerPoint na PNG w JavaScript
-linktitle: PowerPoint na PNG
+linktitle: PowerPoint do PNG
 type: docs
 weight: 30
 url: /pl/nodejs-java/convert-powerpoint-to-png/
@@ -10,11 +10,11 @@ keywords:
 - konwertuj slajd
 - konwertuj PPT
 - konwertuj PPTX
-- PowerPoint na PNG
-- prezentacja na PNG
-- slajd na PNG
-- PPT na PNG
-- PPTX na PNG
+- PowerPoint do PNG
+- prezentacja do PNG
+- slajd do PNG
+- PPT do PNG
+- PPTX do PNG
 - zapisz PPT jako PNG
 - zapisz PPTX jako PNG
 - eksportuj PPT do PNG
@@ -22,113 +22,153 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Szybko konwertuj prezentacje PowerPoint na obrazy PNG wysokiej jakości w JavaScript przy użyciu Aspose.Slides dla Node.js, zapewniając precyzyjne, automatyczne wyniki."
+description: "Szybko konwertuj prezentacje PowerPoint na wysokiej jakości obrazy PNG w JavaScript przy użyciu Aspose.Slides dla Node.js, zapewniając precyzyjne, zautomatyzowane wyniki."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak konwertować prezentacje PowerPoint na obrazy PNG przy użyciu Aspose.Slides. Pokazuje, jak ładować pliki prezentacji w formatach takich jak PPT, PPTX i ODP, renderować slajdy jako obrazy oraz zapisywać wyniki w formacie PNG.
+Ten artykuł wyjaśnia, jak konwertować slajdy prezentacji na obrazy PNG przy użyciu Aspose.Slides dla Node.js w języku Java. Możesz wczytywać prezentacje w formatach takich jak PPT, PPTX i ODP, renderować każdy slajd i zapisywać go jako osobny obraz PNG.
 
-Artykuł również demonstruje, jak dostosować wygenerowane obrazy PNG, ustawiając wartości skalowania lub określając żądaną szerokość i wysokość.
+Poniższe przykłady pokazują renderowanie w domyślnej skali, zwiększanie skali, określanie wymiarów wyjściowych w pikselach oraz wybór stylu renderowania gradientu.
 
-## **Konwertuj PowerPoint na PNG**
+## **Konwertuj PowerPoint do PNG**
 
-Wykonaj następujące kroki:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-2. Uzyskaj obiekt slajdu z kolekcji zwróconej przez metodę [Presentation.getSlides()](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation#getSlides--) klasy [Slide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Slide).
-3. Użyj metody [Slide.getImage()](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Slide), aby uzyskać miniaturę każdego slajdu.
-4. Użyj metody [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/iimage/#save), aby zapisać miniaturę slajdu w formacie PNG.
-
-Ten kod JavaScript pokazuje, jak skonwertować prezentację PowerPoint na PNG:
+Załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) i uzyskaj dostęp do jej slajdów poprzez kolekcję [Presentation.getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides). Przykład renderuje każdy slajd za pomocą [Slide.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage) bez parametrów, aby utworzyć miniaturkę. Następnie wywołuje [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) z [ImageFormat.Png](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imageformat/#Png), aby zapisać każdy wyrenderowany slajd jako obraz PNG.
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    for (var index = 0; index < pres.getSlides().size(); index++) {
-        var slide = pres.getSlides().get_Item(index);
-        var slideImage = slide.getImage();
+    let slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        let slide = presentation.getSlides().get_Item(index);
+        let image = slide.getImage();
         try {
-            slideImage.save(("image_java_" + index) + ".png", aspose.slides.ImageFormat.Png);
+            image.save("slide_" + index + ".png", aspose.slides.ImageFormat.Png);
         } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Konwertuj PowerPoint na PNG z niestandardowymi wymiarami**
+{{% alert color="info" title="Uwaga" %}}
+Przeciążenie [Slide.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage) bez parametrów renderuje w skali 0,2. Na przykład slajd o wymiarach 720 × 540 punktów generuje miniaturkę 144 × 108 pikseli. Aby kontrolować wymiary wyjściowe, użyj przeciążeń ze współczynnikami skali lub podaj explicite rozmiar obrazu, jak pokazano poniżej.
+{{% /alert %}}
 
-Jeśli chcesz uzyskać pliki PNG o określonej skali, możesz ustawić wartości `desiredX` i `desiredY`, które określają wymiary powstałej miniatury.
+## **Konwertuj PowerPoint do PNG z własnymi wymiarami**
 
-Ten kod w JavaScript demonstruje opisane działanie:
+Przekaż poziome i pionowe współczynniki skali do [Slide.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage), aby kontrolować wymiary renderowanego obrazu. W tym przykładzie oba współczynniki wynoszą 2, więc slajd o wymiarach 720 × 540 punktów generuje obraz 1440 × 1080 pikseli. Równe współczynniki skali zachowują proporcje slajdu. Każdy obraz jest zapisywany w formacie PNG przy użyciu [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save).
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var scaleX = 2.0;
-    var scaleY = 2.0;
-    for (var index = 0; index < pres.getSlides().size(); index++) {
-        var slide = pres.getSlides().get_Item(index);
-        var slideImage = slide.getImage(scaleX, scaleY);
+    let scaleX = 2.0;
+    let scaleY = scaleX;
+
+    let slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        let slide = presentation.getSlides().get_Item(index);
+        let image = slide.getImage(scaleX, scaleY);
         try {
-            slideImage.save(("image_java_" + index) + ".png", aspose.slides.ImageFormat.Png);
+            image.save("slide_" + index + ".png", aspose.slides.ImageFormat.Png);
         } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Konwertuj PowerPoint na PNG z niestandardowym rozmiarem**
+## **Konwertuj PowerPoint do PNG z niestandardowym rozmiarem**
 
-Jeśli chcesz uzyskać pliki PNG o określonym rozmiarze, możesz przekazać preferowane argumenty `width` i `height` dla `ImageSize`.
-
-Ten kod pokazuje, jak skonwertować prezentację PowerPoint na PNG, określając rozmiar obrazów:
+Aby określić wymiary wyjściowe w pikselach, przekaż rozmiar do [Slide.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage) zamiast współczynników skali. Ten przykład renderuje każdy slajd w rozmiarze 960 × 720 pikseli i zapisuje wynik przy użyciu [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Dobierz wymiary tak, aby zachować proporcje slajdu, aby uniknąć rozciągnięcia obrazu.
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var size = java.newInstanceSync("java.awt.Dimension", 960, 720);
-    for (var index = 0; index < pres.getSlides().size(); index++) {
-        var slide = pres.getSlides().get_Item(index);
-        var slideImage = slide.getImage(size);
+    let imageSize = java.newInstanceSync("java.awt.Dimension", 960, 720);
+
+    let slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        let slide = presentation.getSlides().get_Item(index);
+        let image = slide.getImage(imageSize);
         try {
-            slideImage.save(("image_java_" + index) + ".png", aspose.slides.ImageFormat.Png);
+            image.save("slide_" + index + ".png", aspose.slides.ImageFormat.Png);
         } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **Wybierz styl renderowania gradientu**
+
+Załóżmy, że slajd zawiera wypełnienia gradientowe, ale przejścia w wyeksportowanym PNG wyglądają jaśniej lub inaczej niż w PowerPoint. Możesz użyć metody [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setGradientStyle) dziedziczonej po [RenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/renderingoptions/), aby wybrać sposób renderowania gradientów.
+
+Pobierz [gradient-styles.pptx](gradient-styles.pptx) i umieść go w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera dwa gradienty liniowe: cyjan do pomarańczowego u góry oraz niebieski do żółtego na dole. Każdy gradient ma dwa przystanki, przy 0 % i 100 %.
+
+Poniższy przykład wczytuje tę prezentację i renderuje ten sam pierwszy slajd w obu trybach przy użyciu [Slide.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage).
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("gradient-styles.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let gradientStyles = [aspose.slides.GradientStyle.Default, aspose.slides.GradientStyle.PowerPointUI];
+    for (let style of gradientStyles) {
+        let options = new aspose.slides.RenderingOptions();
+        options.setGradientStyle(style);
+
+        let styleName = style == aspose.slides.GradientStyle.Default ? "Default" : "PowerPointUI";
+        let image = slide.getImage(options, 1.0, 1.0);
+        try {
+            image.save("gradient-" + styleName + ".png", aspose.slides.ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Obrazy poniżej prezentują wynik tego samego slajdu, z oboma gradientami w każdym obrazie:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Cyan-to-orange and blue-to-yellow gradients rendered with Default](gradient-Default.png) | ![The same gradients rendered with PowerPointUI](gradient-PowerPointUI.png) |
+
+W tym przykładzie `Default` generuje jaśniejsze kolory pośrednie, natomiast `PowerPointUI` – ciemniejsze. Różnica zależy od kolorów i przystanków w gradiencie.
+
+Wybierz `Default`, gdy standardowy wynik Aspose.Slides spełnia Twoje potrzeby. Spróbuj `PowerPointUI`, gdy priorytetem jest dopasowanie wyglądu do PowerPoint. Porównaj oba wyniki z oczekiwanym rezultatem; żaden tryb nie jest uniwersalnie lepszy.
 
 ## **FAQ**
 
-**Jak mogę wyeksportować tylko określony kształt (np. wykres lub obraz) zamiast całego slajdu?**
+**Jak mogę wyeksportować konkretny kształt, np. wykres lub obraz, zamiast całego slajdu?**
 
-Aspose.Slides obsługuje [generowanie miniaturek dla pojedynczych kształtów](/slides/pl/nodejs-java/create-shape-thumbnails/); możesz renderować kształt do obrazu PNG.
+Aspose.Slides obsługuje [generowanie miniatur dla poszczególnych kształtów](/slides/pl/nodejs-java/create-shape-thumbnails/), umożliwiając renderowanie wybranego kształtu jako obrazu PNG.
 
-**Czy konwersja równoległa jest obsługiwana na serwerze?**
+**Czy konwersja równoległa jest wspierana na serwerze?**
 
-Tak, ale [nie udostępniaj](/slides/pl/nodejs-java/multithreading/) jednej instancji prezentacji pomiędzy wątkami. Użyj osobnej instancji dla każdego wątku lub procesu.
+Tak. Używaj osobnej instancji prezentacji dla każdego wątku lub procesu; [nie udostępniaj jednej instancji między wątkami](/slides/pl/nodejs-java/multithreading/).
 
-**Jakie są ograniczenia wersji próbnej przy eksporcie do PNG?**
+**Jakie są ograniczenia wersji ewaluacyjnej przy eksporcie do PNG?**
 
-Tryb ewaluacji dodaje znak wodny do obrazów wyjściowych i wymusza [inne ograniczenia](/slides/pl/nodejs-java/licensing/), dopóki nie zostanie zastosowana licencja.
+Tryb ewaluacyjny dodaje znak wodny do wyjściowych obrazów i nakłada [inne ograniczenia](/slides/pl/nodejs-java/licensing/), dopóki nie zostanie zastosowana licencja.

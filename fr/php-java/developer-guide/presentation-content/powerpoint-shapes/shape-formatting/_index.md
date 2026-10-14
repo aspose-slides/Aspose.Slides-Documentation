@@ -1,18 +1,18 @@
 ---
-title: "Formatage des formes PowerPoint en PHP"
+title: "Formater les formes PowerPoint en PHP"
 linktitle: "Mise en forme des formes"
 type: docs
 weight: 20
 url: /fr/php-java/shape-formatting/
 keywords:
-- "format de forme"
-- "format de ligne"
+- "mise en forme de forme"
+- "mise en forme de ligne"
 - "effet de croquis"
 - "ligne de forme en croquis"
-- "format du style de jointure"
+- "mise en forme du style de jointure"
 - "remplissage en dégradé"
-- "remplissage en motif"
-- "remplissage d’image"
+- "remplissage par motif"
+- "remplissage d'image"
 - "remplissage de texture"
 - "remplissage de couleur unie"
 - "transparence de forme"
@@ -26,26 +26,26 @@ keywords:
 - "présentation"
 - "PHP"
 - "Aspose.Slides"
-description: "Apprenez à formater les formes PowerPoint en PHP avec Aspose.Slides — définissez les styles de remplissage, de ligne et d’effet pour les fichiers PPT, PPTX et ODP avec précision et contrôle total."
+description: "Découvrez comment formater les formes PowerPoint en PHP avec Aspose.Slides — définissez les styles de remplissage, de contour et d’effet pour les fichiers PPT, PPTX et ODP avec précision et plein contrôle."
 ---
 ## **Introduction**
 
-Dans PowerPoint, vous pouvez ajouter des formes aux diapositives. Comme les formes sont constituées de lignes, vous pouvez les mettre en forme en modifiant ou en appliquant des effets à leurs contours. De plus, vous pouvez mettre en forme les formes en spécifiant les paramètres qui contrôlent la façon dont leurs intérieurs sont remplis.
+Dans PowerPoint, vous pouvez ajouter des formes aux diapositives. Puisque les formes sont composées de lignes, vous pouvez les mettre en forme en modifiant ou en appliquant des effets à leurs contours. De plus, vous pouvez formater les formes en spécifiant des paramètres qui contrôlent la façon dont leurs intérieurs sont remplis.
 
-![format-forme-powerpoint](format-shape-powerpoint.png)
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for PHP via Java fournit des classes et des méthodes qui vous permettent de mettre en forme les formes en utilisant les mêmes options disponibles dans PowerPoint.
+Aspose.Slides for PHP via Java fournit des classes et des méthodes qui vous permettent de formater les formes en utilisant les mêmes options disponibles dans PowerPoint.
 
 ## **Formater les lignes**
 
-En utilisant Aspose.Slides, vous pouvez spécifier un style de ligne personnalisé pour une forme. Les étapes suivantes décrivent la procédure :
+Avec Aspose.Slides, vous pouvez spécifier un style de ligne personnalisé pour une forme. La procédure suivante décrit les étapes :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/).
-1. Obtenir une référence à une diapositive par son indice.
-1. Ajouter une [AutoShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/autoshape/) à la diapositive.
-1. Définir le [style de ligne](https://reference.aspose.com/slides/fr/php-java/aspose.slides/linestyle/) de la forme.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenir une référence à une diapositive par son index.
+1. Ajouter un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) à la diapositive.
+1. Définir le [style de ligne](https://reference.aspose.com/slides/php-java/aspose.slides/linestyle/) de la forme.
 1. Définir la largeur de la ligne.
-1. Définir le [style de tirets](https://reference.aspose.com/slides/fr/php-java/aspose.slides/linedashstyle/) de la ligne.
+1. Définir le [style de tiret](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) de la ligne.
 1. Définir la couleur de la ligne pour la forme.
 1. Enregistrer la présentation modifiée au format PPTX.
 
@@ -58,7 +58,7 @@ try {
     // Obtenir la première diapositive.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Ajouter une forme auto de type Rectangle.
+    // Ajouter une forme automatique de type Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
     // Définir la couleur de remplissage pour la forme rectangle.
@@ -86,9 +86,9 @@ Le résultat :
 
 ## **Appliquer des effets de croquis aux lignes de forme**
 
-Un effet de croquis rend la ligne d’une forme semblable à un dessin à la main. Utilisez [Shape.getLineFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shape/) pour accéder aux paramètres de la ligne, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/lineformat/) pour accéder aux paramètres du croquis, et [SketchFormat.setSketchType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sketchformat/) pour sélectionner une valeur dans l’énumération [LineSketchType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/linesketchtype/).
+Un effet de croquis rend la ligne d’une forme semblable à un tracé à la main. Utilisez [Shape.getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) pour accéder aux paramètres de ligne, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) pour accéder aux paramètres de croquis, et [SketchFormat.setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) pour sélectionner une valeur dans l’énumération [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
 
-Le code PHP suivant montre comment appliquer un effet [LineSketchType.Curved](https://reference.aspose.com/slides/fr/php-java/aspose.slides/linesketchtype/) , lire la valeur explicitement assignée, et supprimer l’effet avec [LineSketchType.None](https://reference.aspose.com/slides/fr/php-java/aspose.slides/linesketchtype/) :
+Le code PHP suivant montre comment appliquer l’effet [LineSketchType.Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/), lire la valeur explicitement affectée, et supprimer l’effet avec [LineSketchType.None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) :
 
 ```php
 $presentation = new Presentation();
@@ -113,7 +113,7 @@ try {
 }
 ```
 
-La valeur renvoyée par [SketchFormat.getSketchType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sketchformat/) représente le paramètre assigné directement à la forme. Si le format de ligne peut être hérité d’un thème, d’une diapositive maître ou d’une diapositive de mise en page, utilisez [LineFormat.getEffective](https://reference.aspose.com/slides/fr/php-java/aspose.slides/lineformat/), accédez à la méthode `getSketchFormat` de l’objet retourné, et lisez sa valeur `getSketchType`. La valeur effective reflète le format réellement appliqué après résolution de l’héritage :
+La valeur renvoyée par [SketchFormat.getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) représente le paramètre assigné directement à la forme. Si le format de ligne peut être hérité d’un thème, d’une diapositive maîtresse ou d’une diapositive de mise en page, utilisez [LineFormat.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/), accédez à la méthode `getSketchFormat` de l’objet retourné, et lisez sa valeur `getSketchType`. La valeur effective reflète le format réellement appliqué après résolution de l’héritage :
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -140,11 +140,11 @@ Voici les trois options de type de jointure :
 * Miter
 * Bevel
 
-Par défaut, lorsque PowerPoint joint deux lignes à un angle (par exemple au coin d’une forme), il utilise le paramètre **Round**. Cependant, si vous dessinez une forme avec des angles aigus, vous pouvez préférer l’option **Miter**.
+Par défaut, lorsque PowerPoint joint deux lignes à un angle (par exemple au coin d’une forme), il utilise le paramètre **Round**. Cependant, si vous dessinez une forme avec des angles pointus, vous pouvez préférer l’option **Miter**.
 
 ![Le style de jointure dans la présentation](join-style-powerpoint.png)
 
-Le code PHP suivant montre comment trois rectangles (comme illustré dans l’image ci‑above) ont été créés en utilisant les paramètres de jointure Miter, Bevel et Round :
+Le code PHP suivant montre comment trois rectangles (comme illustré sur l’image ci‑dessus) ont été créés en utilisant les paramètres de jointure Miter, Bevel et Round :
 
 ```php
 // Instancier la classe Presentation qui représente un fichier de présentation.
@@ -153,7 +153,7 @@ try {
     // Obtenir la première diapositive.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Ajouter trois formes auto de type Rectangle.
+    // Ajouter trois formes automatiques de type Rectangle.
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
@@ -198,15 +198,15 @@ try {
 
 ## **Remplissage en dégradé**
 
-Dans PowerPoint, le remplissage en dégradé est une option de mise en forme qui vous permet d’appliquer un mélange continu de couleurs à une forme. Par exemple, vous pouvez appliquer deux couleurs ou plus de manière à ce qu’une se fonde progressivement dans l’autre.
+Dans PowerPoint, le remplissage en dégradé est une option de mise en forme qui vous permet d’appliquer un mélange continu de couleurs à une forme. Par exemple, vous pouvez appliquer deux couleurs ou plus de façon à ce que l’une s’estompe progressivement dans l’autre.
 
 Voici comment appliquer un remplissage en dégradé à une forme avec Aspose.Slides :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/).
-1. Obtenir une référence à une diapositive par son indice.
-1. Ajouter une [AutoShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/autoshape/) à la diapositive.
-1. Définir le [FillType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/filltype/) de la forme sur `Gradient`.
-1. Ajouter vos deux couleurs préférées avec des positions définies en utilisant les méthodes `add` de la collection de points d’arrêt du dégradé exposée par la classe [GradientFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/gradientformat/).
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenir une référence à une diapositive par son index.
+1. Ajouter un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) à la diapositive.
+1. Définir le [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) de la forme sur `Gradient`.
+1. Ajouter vos deux couleurs préférées avec les positions définies en utilisant les méthodes `add` de la collection d’arrêts de dégradé exposée par la classe [GradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/).
 1. Enregistrer la présentation modifiée au format PPTX.
 
 Le code PHP suivant montre comment appliquer un effet de remplissage en dégradé à une ellipse :
@@ -218,17 +218,17 @@ try {
     // Obtenir la première diapositive.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Ajouter une forme auto de type Ellipse.
+    // Ajouter une forme automatique de type Ellipse.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-    // Appliquer le format de degrade a l'ellipse.
+    // Appliquer le formatage en dégradé à l'ellipse.
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape::Linear);
 
-    // Definir la direction du degrade.
+    // Définir la direction du dégradé.
     $shape->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection::FromCorner2);
 
-    // Ajouter deux points d'arret du degrade.
+    // Ajouter deux arrêts de dégradé.
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(1.0, PresetColor::Purple);
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0, PresetColor::Red);
 
@@ -243,24 +243,26 @@ Le résultat :
 
 ![L’ellipse avec remplissage en dégradé](gradient-fill.png)
 
-## **Remplissage en motif**
+Si un dégradé apparaît différemment dans une image exportée que dans PowerPoint, consultez [Choose a Gradient Rendering Style](/slides/fr/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Vous pouvez sélectionner un style de rendu sans modifier le remplissage en dégradé stocké dans la présentation.
 
-Dans PowerPoint, le remplissage en motif est une option de mise en forme qui vous permet d’appliquer un motif bicolore — tel que des points, des rayures, des hachures croisées ou des damiers — à une forme. Vous pouvez choisir des couleurs personnalisées pour le premier plan et l’arrière‑plan du motif.
+## **Remplissage par motif**
 
-Aspose.Slides fournit plus de 45 styles de motif prédéfinis que vous pouvez appliquer aux formes pour améliorer l’aspect visuel de vos présentations. Même après avoir sélectionné un motif prédéfini, vous pouvez toujours spécifier les couleurs exactes qu’il doit utiliser.
+Dans PowerPoint, le remplissage par motif est une option de mise en forme qui vous permet d’appliquer un motif à deux couleurs — par exemple des points, des bandes, des hachures ou des carreaux—à une forme. Vous pouvez choisir des couleurs personnalisées pour le premier plan et l’arrière‑plan du motif.
 
-Voici comment appliquer un remplissage en motif à une forme avec Aspose.Slides :
+Aspose.Slides propose plus de 45 styles de motif prédéfinis que vous pouvez appliquer aux formes pour améliorer l’aspect visuel de vos présentations. Même après avoir sélectionné un motif prédéfini, vous pouvez toujours spécifier les couleurs exactes à utiliser.
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/).
-1. Obtenir une référence à une diapositive par son indice.
-1. Ajouter une [AutoShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/autoshape/) à la diapositive.
-1. Définir le [FillType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/filltype/) de la forme sur `Pattern`.
+Voici comment appliquer un remplissage par motif à une forme avec Aspose.Slides :
+
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenir une référence à une diapositive par son index.
+1. Ajouter un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) à la diapositive.
+1. Définir le [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) de la forme sur `Pattern`.
 1. Choisir un style de motif parmi les options prédéfinies.
-1. Définir la [Background Color](https://reference.aspose.com/slides/fr/php-java/aspose.slides/patternformat/#getBackColor) du motif.
-1. Définir la [Foreground Color](https://reference.aspose.com/slides/fr/php-java/aspose.slides/patternformat/#getForeColor) du motif.
+1. Définir la [Background Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) du motif.
+1. Définir la [Foreground Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) du motif.
 1. Enregistrer la présentation modifiée au format PPTX.
 
-Le code PHP suivant montre comment appliquer un remplissage en motif à un rectangle :
+Le code PHP suivant montre comment appliquer un remplissage par motif à un rectangle :
 
 ```php
 // Instancier la classe Presentation qui représente un fichier de présentation.
@@ -269,7 +271,7 @@ try {
     // Obtenir la première diapositive.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Ajouter une forme auto de type Rectangle.
+    // Ajouter une forme automatique de type Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
     // Définir le type de remplissage sur Pattern.
@@ -278,7 +280,7 @@ try {
     // Définir le style du motif.
     $shape->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::Trellis);
 
-    // Définir les couleurs d'arrière-plan et de premier plan du motif.
+    // Définir les couleurs d'arrière-plan et d'avant-plan du motif.
     $shape->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
     $shape->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->YELLOW);
 
@@ -291,7 +293,7 @@ try {
 
 Le résultat :
 
-![Le rectangle avec remplissage en motif](pattern-fill.png)
+![Le rectangle avec remplissage par motif](pattern-fill.png)
 
 ## **Remplissage d’image**
 
@@ -299,12 +301,12 @@ Dans PowerPoint, le remplissage d’image est une option de mise en forme qui vo
 
 Voici comment utiliser Aspose.Slides pour appliquer un remplissage d’image à une forme :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/).
-1. Obtenir une référence à une diapositive par son indice.
-1. Ajouter une [AutoShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/autoshape/) à la diapositive.
-1. Définir le [FillType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/filltype/) de la forme sur `Picture`.
-1. Définir le mode de remplissage d’image sur `Tile` (ou un autre mode préféré).
-1. Créer un objet [PPImage](https://reference.aspose.com/slides/fr/php-java/aspose.slides/ppimage/) à partir de l’image que vous souhaitez utiliser.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenir une référence à une diapositive par son index.
+1. Ajouter un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) à la diapositive.
+1. Définir le [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) de la forme sur `Picture`.
+1. Définir le mode de remplissage d’image sur `Tile` (ou tout autre mode souhaité).
+1. Créer un objet [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) à partir de l’image que vous voulez utiliser.
 1. Passer l’image à la méthode `SlidesPicture.setImage`.
 1. Enregistrer la présentation modifiée au format PPTX.
 
@@ -321,7 +323,7 @@ try {
     // Obtenir la première diapositive.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Ajouter une forme auto de type Rectangle.
+    // Ajouter une forme automatique de type Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
     // Définir le type de remplissage sur Picture.
@@ -349,19 +351,19 @@ Le résultat :
 
 ![La forme avec remplissage d’image](picture-fill.png)
 
-### **Image en mosaïque comme texture**
+### **Utiliser une image en mosaïque comme texture**
 
-Si vous souhaitez définir une image en mosaïque comme texture et personnaliser le comportement de la mosaïque, vous pouvez utiliser les méthodes suivantes de la classe [PictureFillFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/picturefillformat/) :
+Si vous souhaitez définir une image en mosaïque comme texture et personnaliser le comportement de la mosaïque, vous pouvez utiliser les méthodes suivantes de la classe [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) :
 
-- [setPictureFillMode](https://reference.aspose.com/slides/fr/php-java/aspose.slides/picturefillformat/#setPictureFillMode) : Définit le mode de remplissage d’image — `Tile` ou `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/fr/php-java/aspose.slides/picturefillformat/#setTileAlignment) : Spécifie l’alignement des tuiles à l’intérieur de la forme.
-- [setTileFlip](https://reference.aspose.com/slides/fr/php-java/aspose.slides/picturefillformat/#setTileFlip) : Contrôle si la tuile est retournée horizontalement, verticalement ou les deux.
-- [setTileOffsetX](https://reference.aspose.com/slides/fr/php-java/aspose.slides/picturefillformat/#setTileOffsetX) : Définit le décalage horizontal de la tuile (en points) par rapport à l’origine de la forme.
-- [setTileOffsetY](https://reference.aspose.com/slides/fr/php-java/aspose.slides/picturefillformat/#setTileOffsetY) : Définit le décalage vertical de la tuile (en points) par rapport à l’origine de la forme.
-- [setTileScaleX](https://reference.aspose.com/slides/fr/php-java/aspose.slides/picturefillformat/#setTileScaleX) : Définit l’échelle horizontale de la tuile en pourcentage.
-- [setTileScaleY](https://reference.aspose.com/slides/fr/php-java/aspose.slides/picturefillformat/#setTileScaleY) : Définit l’échelle verticale de la tuile en pourcentage.
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) : définit le mode de remplissage d’image — `Tile` ou `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment) : spécifie l’alignement des tuiles dans la forme.
+- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip) : contrôle le retournement horizontal, vertical ou les deux de la tuile.
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX) : définit le décalage horizontal de la tuile (en points) par rapport à l’origine de la forme.
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY) : définit le décalage vertical de la tuile (en points) par rapport à l’origine de la forme.
+- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX) : définit l’échelle horizontale de la tuile en pourcentage.
+- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY) : définit l’échelle verticale de la tuile en pourcentage.
 
-Le fragment de code suivant montre comment ajouter une forme rectangulaire avec un remplissage d’image en mosaïque et configurer les options de la tuile :
+Le code suivant montre comment ajouter une forme rectangle avec un remplissage d’image en mosaïque et configurer les options de mosaïque :
 
 ```php
 // Instancier la classe Presentation qui représente un fichier de présentation.
@@ -370,7 +372,7 @@ try {
     // Obtenir la première diapositive.
     $firstSlide = $presentation->getSlides()->get_Item(0);
 
-    // Ajouter une forme auto rectangle.
+    // Ajouter une forme automatique rectangle.
     $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
     // Définir le type de remplissage de la forme sur Picture.
@@ -385,7 +387,7 @@ try {
     $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
     $pictureFillFormat->getPicture()->setImage($presentationImage);
 
-    // Configurer le mode de remplissage d'image et les propriétés de mosaïque.
+    // Configurer le mode de remplissage d'image et les propriétés de mosaïquage.
     $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
     $pictureFillFormat->setTileOffsetX(-32);
     $pictureFillFormat->setTileOffsetY(-32);
@@ -407,14 +409,14 @@ Le résultat :
 
 ## **Remplissage de couleur unie**
 
-Dans PowerPoint, le remplissage de couleur unie est une option de mise en forme qui remplit une forme avec une couleur unique et uniforme. Cette couleur d’arrière‑plan simple est appliquée sans aucun dégradé, texture ou motif.
+Dans PowerPoint, le remplissage de couleur unie est une option de mise en forme qui remplit une forme avec une seule couleur uniforme. Cette couleur de fond simple est appliquée sans aucun dégradé, texture ou motif.
 
 Pour appliquer un remplissage de couleur unie à une forme avec Aspose.Slides, suivez ces étapes :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/).
-1. Obtenir une référence à une diapositive par son indice.
-1. Ajouter une [AutoShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/autoshape/) à la diapositive.
-1. Définir le [FillType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/filltype/) de la forme sur `Solid`.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenir une référence à une diapositive par son index.
+1. Ajouter un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) à la diapositive.
+1. Définir le [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) de la forme sur `Solid`.
 1. Affecter la couleur de remplissage souhaitée à la forme.
 1. Enregistrer la présentation modifiée au format PPTX.
 
@@ -427,7 +429,7 @@ try {
     // Obtenir la première diapositive.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Ajouter une forme auto de type Rectangle.
+    // Ajouter une forme automatique de type Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
     // Définir le type de remplissage sur Solid.
@@ -449,14 +451,14 @@ Le résultat :
 
 ## **Définir la transparence**
 
-Dans PowerPoint, lorsque vous appliquez une couleur unie, un dégradé, une image ou une texture à des formes, vous pouvez aussi définir un niveau de transparence pour contrôler l’opacité du remplissage. Une valeur de transparence plus élevée rend la forme plus transparente, laissant le fond ou les objets sous‑jacent partiellement visibles.
+Dans PowerPoint, lorsque vous appliquez un remplissage de couleur unie, de dégradé, d’image ou de texture à des formes, vous pouvez également définir un niveau de transparence pour contrôler l’opacité du remplissage. Une valeur de transparence élevée rend la forme plus translucide, permettant ainsi au fond ou aux objets sous‑jacent d’être partiellement visibles.
 
 Aspose.Slides vous permet de définir le niveau de transparence en ajustant la valeur alpha de la couleur utilisée pour le remplissage. Voici comment procéder :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/).
-1. Obtenir une référence à une diapositive par son indice.
-1. Ajouter une [AutoShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/autoshape/) à la diapositive.
-1. Définir le [FillType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/filltype/) sur `Solid`.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenir une référence à une diapositive par son index.
+1. Ajouter un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) à la diapositive.
+1. Définir le [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) sur `Solid`.
 1. Utiliser `Color` pour définir une couleur avec transparence (le composant `alpha` contrôle la transparence).
 1. Enregistrer la présentation.
 
@@ -469,10 +471,10 @@ try {
     // Obtenir la première diapositive.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Ajouter une forme auto rectangle solide.
+    // Ajouter une forme automatique rectangle solide.
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Ajouter une forme auto rectangle transparente au dessus de la forme solide.
+    // Ajouter une forme automatique rectangle transparente au-dessus de la forme solide.
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
     $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
@@ -490,13 +492,13 @@ Le résultat :
 
 ## **Faire pivoter les formes**
 
-Aspose.Slides vous permet de faire pivoter les formes dans les présentations PowerPoint. Cela peut être utile lors du positionnement d’éléments visuels avec des exigences spécifiques d’alignement ou de conception.
+Aspose.Slides vous permet de faire pivoter des formes dans les présentations PowerPoint. Cela peut être utile lors du positionnement d’éléments visuels avec des exigences d’alignement ou de conception spécifiques.
 
 Pour faire pivoter une forme sur une diapositive, suivez ces étapes :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/).
-1. Obtenir une référence à une diapositive par son indice.
-1. Ajouter une [AutoShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/autoshape/) à la diapositive.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenir une référence à une diapositive par son index.
+1. Ajouter un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) à la diapositive.
 1. Définir la propriété de rotation de la forme à l’angle souhaité.
 1. Enregistrer la présentation.
 
@@ -509,7 +511,7 @@ try {
     // Obtenir la première diapositive.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Ajouter une forme auto de type Rectangle.
+    // Ajouter une forme automatique de type Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
     // Faire pivoter la forme de 5 degrés.
@@ -528,14 +530,14 @@ Le résultat :
 
 ## **Ajouter des effets de biseau 3D**
 
-Aspose.Slides permet d’appliquer des effets de biseau 3D aux formes en configurant leurs propriétés [ThreeDFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/threedformat/).
+Aspose.Slides vous permet d’appliquer des effets de biseau 3D aux formes en configurant leurs propriétés [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/).
 
 Pour ajouter des effets de biseau 3D à une forme, suivez ces étapes :
 
-1. Instancier la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/).
-1. Obtenir une référence à une diapositive par son indice.
-1. Ajouter une [AutoShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/autoshape/) à la diapositive.
-1. Configurer le [ThreeDFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/threedformat/) de la forme pour définir les paramètres du biseau.
+1. Instancier la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenir une référence à une diapositive par son index.
+1. Ajouter un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) à la diapositive.
+1. Configurer le [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) de la forme pour définir les paramètres de biseau.
 1. Enregistrer la présentation.
 
 Le code PHP suivant montre comment appliquer des effets de biseau 3D à une forme :
@@ -576,14 +578,14 @@ Le résultat :
 
 ## **Ajouter des effets de rotation 3D**
 
-Aspose.Slides permet d’appliquer des effets de rotation 3D aux formes en configurant leurs propriétés [ThreeDFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/threedformat/).
+Aspose.Slides vous permet d’appliquer des effets de rotation 3D aux formes en configurant leurs propriétés [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/).
 
 Pour appliquer une rotation 3D à une forme :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/).
-1. Obtenir une référence à une diapositive par son indice.
-1. Ajouter une [AutoShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/autoshape/) à la diapositive.
-1. Utiliser [setCameraType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/camera/#setCameraType) et [setLightType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/lightrig/#setLightType) pour définir la rotation 3D.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenir une référence à une diapositive par son index.
+1. Ajouter un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) à la diapositive.
+1. Utiliser [setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) et [setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType) pour définir la rotation 3D.
 1. Enregistrer la présentation.
 
 Le code PHP suivant montre comment appliquer des effets de rotation 3D à une forme :
@@ -615,9 +617,9 @@ Le résultat :
 
 ## **Contrôler le rendu noir et blanc des formes**
 
-La méthode [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shape/#setBlackWhiteMode) spécifie comment une forme individuelle est rendue lorsqu’une présentation est affichée ou traitée en mode noir et blanc. Elle n’active pas elle‑même l’affichage en noir et blanc et ne modifie pas le remplissage, la ligne ou tout autre formatage de la forme en mode couleur normale.
+La méthode [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) spécifie comment une forme individuelle est rendue lorsqu’une présentation est visualisée ou traitée en mode noir et blanc. Elle n’active pas l’affichage noir et blanc en soi, et ne modifie pas le remplissage, le contour ou tout autre formatage de la forme en mode couleur normal.
 
-Utilisez une valeur de la classe [BlackWhiteMode](https://reference.aspose.com/slides/fr/php-java/aspose.slides/blackwhitemode/) pour sélectionner le comportement souhaité. Par exemple, `Automatic` laisse l’application de rendu choisir la conversion, `Gray` et `LightGray` utilisent des tons de gris, `BlackWhite` n’utilise que le noir et le blanc, `Black` et `White` forcent une couleur unique, `Color` préserve les couleurs normales, et `Hidden` omet la forme en mode noir et blanc. `NotDefined` signifie qu’aucun mode au niveau de la forme n’est assigné.
+Utilisez une valeur de la classe [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) pour sélectionner le comportement souhaité. Par exemple, `Automatic` laisse l’application de rendu choisir la conversion, `Gray` et `LightGray` utilisent le gris, `BlackWhite` n’emploie que le noir et le blanc, `Black` et `White` imposent une couleur unique, `Color` conserve les couleurs normales, et `Hidden` masque la forme en mode noir et blanc. `NotDefined` signifie qu’aucun mode au niveau de la forme n’est attribué.
 
 Le code PHP suivant crée une forme colorée et la fait apparaître en gris en mode d’affichage noir et blanc :
 
@@ -646,18 +648,18 @@ try {
 }
 ```
 
-En mode couleur normal, le rectangle conserve son remplissage orange. En mode d’affichage noir et blanc, il utilise le gris parce que son mode est défini sur `Gray`. Cela vous permet de préserver une diapositive en couleur complète tout en définissant une apparence distincte pour l’impression, l’aperçu ou d’autres flux de travail qui respectent les paramètres d’affichage noir et blanc de la présentation.
+En mode couleur normal, le rectangle conserve son remplissage orange. En mode d’affichage noir et blanc, il utilise le gris parce que son mode est défini sur `Gray`. Cela vous permet de garder une diapositive en couleur complète tout en définissant un aspect distinct pour l’impression, l’aperçu ou d’autres flux qui respectent les paramètres d’affichage noir et blanc de la présentation.
 
 ## **Réinitialiser le formatage**
 
-Le code Java suivant montre comment réinitialiser le formatage d’une diapositive et ramener la position, la taille et le formatage de toutes les formes avec espaces réservés sur le [LayoutSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/layoutslide/) à leurs paramètres par défaut :
+Le code Java suivant montre comment réinitialiser le formatage d’une diapositive et remettre la position, la taille et le formatage de toutes les formes avec des espaces réservés sur le [LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) à leurs paramètres par défaut :
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
     for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
         $slide = $presentation->getSlides()->get_Item($i);
-        // Réinitialiser chaque forme sur la diapositive qui possède un espace réservé dans la mise en page.
+        // Réinitialiser chaque forme de la diapositive qui possède un espace réservé sur la mise en page.
         $slide->reset();
     }
     $presentation->save("reset_formatting.pptx", SaveFormat::Pptx);
@@ -670,12 +672,12 @@ try {
 
 **Le formatage des formes affecte-t-il la taille finale du fichier de présentation ?**
 
-Seulement légèrement. Les images et les médias incorporés occupent la majeure partie de l’espace du fichier, tandis que les paramètres de forme tels que les couleurs, les effets et les dégradés sont stockés en tant que métadonnées et n’ajoutent pratiquement aucune taille supplémentaire.
+Seulement légèrement. Les images et les médias intégrés occupent la majeure partie de l’espace du fichier, tandis que les paramètres de forme tels que les couleurs, les effets et les dégradés sont stockés comme métadonnées et n’ajoutent pratiquement aucune taille supplémentaire.
 
-**Comment détecter les formes sur une diapositive qui partagent un formatage identique afin de les regrouper ?**
+**Comment détecter les formes sur une diapositive qui partagent exactement le même formatage afin de les regrouper ?**
 
-Comparez les propriétés de formatage clés de chaque forme — remplissage, ligne et paramètres d’effet. Si toutes les valeurs correspondantes sont identiques, considérez leurs styles comme identiques et regroupez logiquement ces formes, ce qui simplifie la gestion ultérieure des styles.
+Comparer les propriétés clés de formatage de chaque forme — remplissage, contour et paramètres d’effet. Si toutes les valeurs correspondantes sont identiques, considérer leurs styles comme identiques et regrouper logiquement ces formes, ce qui simplifie la gestion ultérieure des styles.
 
 **Puis‑je enregistrer un ensemble de styles de forme personnalisés dans un fichier séparé pour les réutiliser dans d’autres présentations ?**
 
-Oui. Stockez des formes d’exemple avec les styles souhaités dans un diaporama modèle ou un fichier modèle .POTX. Lors de la création d’une nouvelle présentation, ouvrez le modèle, dupliquez les formes stylisées dont vous avez besoin et réappliquez leur formatage où cela est requis.
+Oui. Enregistrez des formes d’exemple avec les styles souhaités dans un jeu de diapositives modèle ou un fichier modèle *.POTX*. Lors de la création d’une nouvelle présentation, ouvrez le modèle, clonez les formes stylisées dont vous avez besoin et réappliquez leur formatage là où c’est nécessaire.

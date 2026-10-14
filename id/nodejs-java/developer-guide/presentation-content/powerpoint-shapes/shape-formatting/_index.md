@@ -10,14 +10,14 @@ keywords:
 - efek sketsa
 - garis bentuk sketsa
 - format gaya sambungan
-- isian gradien
-- isian pola
-- isian gambar
-- isian tekstur
-- isian warna solid
+- isi gradien
+- isi pola
+- isi gambar
+- isi tekstur
+- isi warna solid
 - transparansi bentuk
-- rendering bentuk hitam-putih
-- rendering bentuk skala abu-abu
+- render bentuk hitam-putih
+- render bentuk grayscale
 - putar bentuk
 - efek bevel 3D
 - efek rotasi 3D
@@ -27,30 +27,30 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Format bentuk PowerPoint dalam JavaScript menggunakan Aspose.Slides—atur gaya isian, garis, dan efek untuk file PPT, PPTX, dan ODP dengan presisi dan kontrol penuh."
+description: "Format bentuk PowerPoint dalam JavaScript menggunakan Aspose.Slides—atur gaya isi, garis, dan efek untuk file PPT, PPTX, dan ODP dengan presisi dan kontrol penuh."
 ---
-## **Pendahuluan**
+## **Introduction**
 
-Di PowerPoint, Anda dapat menambahkan bentuk ke slide. Karena bentuk terdiri dari garis, Anda dapat memformatnya dengan mengubah atau menerapkan efek pada garis tepinya. Selain itu, Anda dapat memformat bentuk dengan menentukan pengaturan yang mengontrol bagaimana bagian dalamnya diisi.
+Di PowerPoint, Anda dapat menambahkan bentuk ke slide. Karena bentuk terbentuk dari garis, Anda dapat memformatnya dengan mengubah atau menerapkan efek pada kontur mereka. Selain itu, Anda dapat memformat bentuk dengan menentukan pengaturan yang mengendalikan cara interiornya diisi.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![format-bentuk-powerpoint](format-shape-powerpoint.png)
 
 Aspose.Slides untuk Node.js via Java menyediakan kelas dan metode yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama tersedia di PowerPoint.
 
-## **Format Garis**
+## **Format Lines**
 
-Dengan menggunakan Aspose.Slides, Anda dapat menentukan gaya garis khusus untuk sebuah bentuk. Langkah-langkah berikut menjelaskan prosedurnya:
+Menggunakan Aspose.Slides, Anda dapat menentukan gaya garis khusus untuk sebuah bentuk. Langkah‑langkah berikut menjelaskan prosedurnya:
 
-1. Buat instance dari [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) class.
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) ke slide.
-4. Atur [gaya garis](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/linestyle/) bentuk.
-5. Atur lebar garis.
-6. Atur [gaya dash](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/linedashstyle/) garis.
-7. Atur warna garis untuk bentuk.
-8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
+1. Tambahkan [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ke slide.
+1. Atur [gaya garis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) bentuk.
+1. Atur lebar garis.
+1. Atur [gaya dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) garis.
+1. Atur warna garis untuk bentuk.
+1. Simpan presentasi yang telah diubah sebagai file PPTX.
 
-Kode berikut menunjukkan cara memformat `AutoShape` berbentuk persegi panjang:
+Kode berikut menunjukkan cara memformat `AutoShape` persegi panjang:
 
 ```js
 var aspose = aspose || {};
@@ -63,10 +63,10 @@ try {
     // Dapatkan slide pertama.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Rectangle.
+    // Tambahkan auto shape tipe Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Hapus isian dari shape persegi panjang.
+    // Hapus isi dari shape persegi panjang.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     // Terapkan pemformatan pada garis persegi panjang.
@@ -85,15 +85,15 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Garis yang diformat dalam presentasi](formatted-lines.png)
 
-## **Terapkan Efek Sketsa pada Garis Bentuk**
+## **Apply Sketch Effects to Shape Lines**
 
-Efek sketsa membuat garis bentuk terlihat seperti digambar tangan. Gunakan [Shape.getLineFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/) untuk mengakses pengaturan garis, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/lineformat/) untuk mengakses pengaturan sketsa, dan [SketchFormat.setSketchType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sketchformat/) untuk memilih nilai dari enumerasi [LineSketchType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/linesketchtype/).
+Efek sketsa membuat garis bentuk terlihat seperti digambar tangan. Gunakan [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) untuk mengakses pengaturan garis, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) untuk mengakses pengaturan sketsa, dan [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) untuk memilih nilai dari enumerasi [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
 
-Kode JavaScript berikut menunjukkan cara menerapkan efek [LineSketchType.Curved](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/linesketchtype/) , membaca nilai yang ditetapkan secara eksplisit, dan menghapus efek dengan [LineSketchType.None](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/linesketchtype/):
+Kode JavaScript berikut menunjukkan cara menerapkan efek [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) , membaca nilai yang ditetapkan secara eksplisit, dan menghapus efek dengan [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) :
 
 ```js
 var aspose = aspose || {};
@@ -104,13 +104,13 @@ try {
     let slide = presentation.getSlides().get_Item(0);
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // Akses format garis shape dan format sketsa-nya.
+    // Akses format garis bentuk dan format sketsanya.
     let sketchFormat = shape.getLineFormat().getSketchFormat();
 
     // Terapkan efek sketsa.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
 
-    // Baca efek sketsa yang ditetapkan langsung pada shape.
+    // Baca efek sketsa yang ditetapkan langsung pada bentuk.
     let explicitSketchType = sketchFormat.getSketchType();
     console.log("Explicit sketch type: " + explicitSketchType);
 
@@ -121,7 +121,7 @@ try {
 }
 ```
 
-Nilai yang dikembalikan oleh [SketchFormat.getSketchType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sketchformat/) mewakili pengaturan yang ditetapkan langsung pada bentuk. Jika pemformatan garis dapat diwarisi dari tema, master slide, atau layout slide, gunakan [LineFormat.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/lineformat/), panggil `getSketchFormat` pada objek yang dikembalikan, dan kemudian panggil metode `getSketchType`‑nya. Nilai efektif mencerminkan pemformatan yang sebenarnya diterapkan setelah pewarisan diselesaikan:
+Nilai yang dikembalikan oleh [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) mewakili pengaturan yang ditetapkan langsung pada bentuk. Jika pemformatan garis dapat diwarisi dari tema, master slide, atau layout slide, gunakan [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/), panggil `getSketchFormat` pada objek yang dikembalikan, lalu panggil metode `getSketchType`‑nya. Nilai efektif mencerminkan pemformatan yang benar‑benar diterapkan setelah pewarisan diselesaikan:
 
 ```js
 var aspose = aspose || {};
@@ -143,19 +143,19 @@ try {
 }
 ```
 
-## **Format Gaya Sambungan**
+## **Format Join Styles**
 
-Berikut adalah tiga opsi jenis sambungan:
+Berikut tiga opsi tipe sambungan:
 
 * Round
 * Miter
 * Bevel
 
-Secara default, ketika PowerPoint menggabungkan dua garis pada sudut (seperti pada sudut bentuk), ia menggunakan pengaturan **Round**. Namun, jika Anda menggambar bentuk dengan sudut tajam, Anda mungkin lebih menyukai opsi **Miter**.
+Secara default, ketika PowerPoint menggabungkan dua garis pada sudut (seperti pada sudut bentuk), ia menggunakan pengaturan **Round**. Namun, jika Anda menggambar bentuk dengan sudut tajam, Anda mungkin lebih suka opsi **Miter**.
 
 ![Gaya sambungan dalam presentasi](join-style-powerpoint.png)
 
-Kode JavaScript berikut menunjukkan bagaimana tiga persegi panjang (seperti yang ditampilkan pada gambar di atas) dibuat menggunakan pengaturan jenis sambungan Miter, Bevel, dan Round:
+Kode JavaScript berikut menunjukkan bagaimana tiga persegi panjang (seperti pada gambar di atas) dibuat menggunakan pengaturan tipe sambungan Miter, Bevel, dan Round:
 
 ```js
 var aspose = aspose || {};
@@ -168,12 +168,12 @@ try {
     // Dapatkan slide pertama.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan tiga auto shape dengan tipe Rectangle.
+    // Tambahkan tiga auto shape tipe Rectangle.
     let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
     let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
     let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Atur warna isian untuk setiap shape persegi panjang.
+    // Atur warna isi untuk setiap shape persegi panjang.
     shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -211,18 +211,20 @@ try {
 }
 ```
 
-## **Isian Gradien**
+## **Gradient Fill**
 
-Di PowerPoint, Gradient Fill adalah opsi pemformatan yang memungkinkan Anda menerapkan perpaduan warna kontinu pada sebuah bentuk. Misalnya, Anda dapat menerapkan dua atau lebih warna sehingga satu secara bertahap memudar menjadi warna lain.
+Di PowerPoint, Gradient Fill adalah opsi pemformatan yang memungkinkan Anda menerapkan perpaduan warna yang berkelanjutan pada sebuah bentuk. Misalnya, Anda dapat menerapkan dua atau lebih warna sehingga satu secara bertahap memudar menjadi warna lainnya.
 
-Berikut cara menerapkan isian gradien pada sebuah bentuk menggunakan Aspose.Slides:
+Berikut cara menerapkan gradient fill pada sebuah bentuk menggunakan Aspose.Slides:
 
-1. Buat instance dari [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) class.
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) ke slide.
-4. Atur [FillType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/filltype/) bentuk menjadi `Gradient`.
-5. Tambahkan dua warna pilihan Anda dengan posisi yang ditentukan menggunakan metode `add` pada koleksi gradient stop yang disediakan oleh kelas [GradientFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/gradientformat/).
-6. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
+1. Tambahkan [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ke slide.
+1. Atur [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) bentuk ke `Gradient`.
+1. Tambahkan dua warna pilihan Anda dengan posisi yang ditentukan menggunakan metode `add` dari koleksi gradient stop yang disediakan oleh kelas [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/) .
+1. Simpan presentasi yang telah diubah sebagai file PPTX.
+
+Kode JavaScript berikut menunjukkan cara menerapkan efek gradient fill pada sebuah elips:
 
 ```js
 var aspose = aspose || {};
@@ -235,10 +237,10 @@ try {
     // Dapatkan slide pertama.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Ellipse.
+    // Tambahkan auto shape tipe Ellipse.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Terapkan pemformatan gradien pada elips.
+    // Terapkan pemformatan gradien ke ellipse.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
 
@@ -256,26 +258,30 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
-![Elips dengan isian gradien](gradient-fill.png)
+![Elips dengan gradient fill](gradient-fill.png)
 
-## **Isian Pola**
+Jika gradient terlihat berbeda dalam gambar yang diekspor dibandingkan di PowerPoint, lihat [Choose a Gradient Rendering Style](/slides/id/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Anda dapat memilih gaya rendering tanpa mengubah gradient fill yang disimpan dalam presentasi.
 
-Di PowerPoint, Pattern Fill adalah opsi pemformatan yang memungkinkan Anda menerapkan desain dua warna—seperti titik, garis, pola silang, atau cek—ke sebuah bentuk. Anda dapat memilih warna khusus untuk latar depan dan latar belakang pola.
+## **Pattern Fill**
 
-Aspose.Slides menyediakan lebih dari 45 gaya pola yang telah ditentukan sebelumnya yang dapat Anda terapkan pada bentuk untuk meningkatkan daya tarik visual presentasi Anda. Bahkan setelah memilih pola yang telah ditentukan, Anda masih dapat menentukan warna tepat yang akan digunakan.
+Di PowerPoint, Pattern Fill adalah opsi pemformatan yang memungkinkan Anda menerapkan desain dua warna—seperti titik, garis, pola silang, atau kotak—pada sebuah bentuk. Anda dapat memilih warna khusus untuk latar depan dan latar belakang pola.
 
-Berikut cara menerapkan isian pola pada sebuah bentuk menggunakan Aspose.Slides:
+Aspose.Slides menyediakan lebih dari 45 gaya pola bawaan yang dapat Anda terapkan pada bentuk untuk meningkatkan daya tarik visual presentasi Anda. Bahkan setelah memilih pola bawaan, Anda masih dapat menentukan warna tepat yang akan digunakan.
 
-1. Buat instance dari [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) class.
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) ke slide.
-4. Atur [FillType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/filltype/) bentuk menjadi `Pattern`.
-5. Pilih gaya pola dari opsi yang telah ditentukan.
-6. Atur [Background Color](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/patternformat/#getBackColor--) pola.
-7. Atur [Foreground Color](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/patternformat/#getForeColor--) pola.
-8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+Berikut cara menerapkan pattern fill pada sebuah bentuk menggunakan Aspose.Slides:
+
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
+1. Tambahkan [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ke slide.
+1. Atur [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) bentuk ke `Pattern`.
+1. Pilih gaya pola dari opsi yang sudah ditentukan.
+1. Atur [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) pola.
+1. Atur [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) pola.
+1. Simpan presentasi yang telah diubah sebagai file PPTX.
+
+Kode JavaScript berikut menunjukkan cara menerapkan pattern fill pada sebuah persegi panjang:
 
 ```js
 var aspose = aspose || {};
@@ -288,10 +294,10 @@ try {
     // Dapatkan slide pertama.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Rectangle.
+    // Tambahkan auto shape tipe Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Atur tipe isian menjadi Pattern.
+    // Atur tipe isi menjadi Pattern.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 
     // Atur gaya pola.
@@ -308,28 +314,30 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
-![Persegi panjang dengan isian pola](pattern-fill.png)
+![Persegi panjang dengan pattern fill](pattern-fill.png)
 
-## **Isian Gambar**
+## **Picture Fill**
 
-Di PowerPoint, Picture Fill adalah opsi pemformatan yang memungkinkan Anda menyisipkan gambar di dalam sebuah bentuk—secara efektif menggunakan gambar sebagai latar belakang bentuk.
+Di PowerPoint, Picture Fill adalah opsi pemformatan yang memungkinkan Anda menyisipkan gambar di dalam bentuk—sebagai latar belakang bentuk.
 
-Berikut cara menggunakan Aspose.Slides untuk menerapkan isian gambar pada sebuah bentuk:
+Berikut cara menggunakan Aspose.Slides untuk menerapkan picture fill pada sebuah bentuk:
 
-1. Buat instance dari [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) class.
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) ke slide.
-4. Atur [FillType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/filltype/) bentuk menjadi `Picture`.
-5. Atur mode isian gambar menjadi `Tile` (atau mode lain yang diinginkan).
-6. Buat objek [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) dari gambar yang ingin Anda gunakan.
-7. Berikan gambar ke metode `ISlidesPicture.setImage`.
-8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
+1. Tambahkan [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ke slide.
+1. Atur [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) bentuk ke `Picture`.
+1. Atur mode picture fill menjadi `Tile` (atau mode lain yang diinginkan).
+1. Buat objek [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) dari gambar yang ingin Anda gunakan.
+1. Berikan gambar tersebut ke metode `ISlidesPicture.setImage`.
+1. Simpan presentasi yang telah diubah sebagai file PPTX.
 
-Misalkan kita memiliki file "lotus.png" dengan gambar berikut:
+Misalnya kita memiliki file "lotus.png" dengan gambar berikut:
 
 ![Gambar lotus](lotus.png)
+
+Kode JavaScript berikut menunjukkan cara mengisi bentuk dengan gambar:
 
 ```js
 var aspose = aspose || {};
@@ -342,13 +350,13 @@ try {
     // Dapatkan slide pertama.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Rectangle.
+    // Tambahkan auto shape tipe Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Atur tipe isian menjadi Picture.
+    // Atur tipe isi menjadi Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // Atur mode isian gambar.
+    // Atur mode picture fill.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
     // Muat gambar dan tambahkan ke sumber daya presentasi.
@@ -366,21 +374,23 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
-![Bentuk dengan isian gambar](picture-fill.png)
+![Bentuk dengan picture fill](picture-fill.png)
 
-### **Ubin Gambar sebagai Tekstur**
+### **Tile Picture As Texture**
 
-Jika Anda ingin mengatur gambar berulang sebagai tekstur dan menyesuaikan perilaku pengulangan, Anda dapat menggunakan metode berikut dari kelas [PictureFillFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/):
+Jika Anda ingin mengatur gambar berulang sebagai tekstur dan menyesuaikan perilaku pengulangan, Anda dapat menggunakan metode berikut dari kelas [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) :
 
-- [setPictureFillMode](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Mengatur mode isian gambar—baik `Tile` atau `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Menentukan perataan ubin dalam bentuk.
-- [setTileFlip](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Mengontrol apakah ubin dibalik secara horizontal, vertikal, atau keduanya.
-- [setTileOffsetX](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Mengatur offset horizontal ubin (dalam poin) dari asal bentuk.
-- [setTileOffsetY](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Mengatur offset vertikal ubin (dalam poin) dari asal bentuk.
-- [setTileScaleX](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Mendefinisikan skala horizontal ubin dalam persentase.
-- [setTileScaleY](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Mendefinisikan skala vertikal ubin dalam persentase.
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Menetapkan mode picture fill—baik `Tile` atau `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Menentukan perataan ubin di dalam bentuk.
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Mengontrol apakah ubin dibalik secara horizontal, vertikal, atau keduanya.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Menetapkan offset horizontal ubin (dalam poin) dari asal bentuk.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Menetapkan offset vertikal ubin (dalam poin) dari asal bentuk.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Mendefinisikan skala horizontal ubin sebagai persentase.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Mendefinisikan skala vertikal ubin sebagai persentase.
+
+Kode contoh berikut menunjukkan cara menambahkan bentuk persegi panjang dengan picture fill berulang dan mengkonfigurasi opsi ubin:
 
 ```js
 var aspose = aspose || {};
@@ -396,7 +406,7 @@ try {
     // Tambahkan auto shape persegi panjang.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Atur tipe isian bentuk menjadi Picture.
+    // Atur tipe isi bentuk menjadi Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
     // Muat gambar dan tambahkan ke sumber daya presentasi.
@@ -408,7 +418,7 @@ try {
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Konfigurasikan mode isian gambar dan properti ubinnya.
+    // Konfigurasikan mode picture fill dan properti ubin.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -424,22 +434,24 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Opsi ubin](tile-options.png)
 
-## **Isian Warna Solid**
+## **Solid Color Fill**
 
-Di PowerPoint, Solid Color Fill adalah opsi pemformatan yang mengisi bentuk dengan satu warna seragam. Latar belakang berwarna polos ini diterapkan tanpa gradien, tekstur, atau pola.
+Di PowerPoint, Solid Color Fill adalah opsi pemformatan yang mengisi bentuk dengan satu warna seragam. Latar belakang polos ini diterapkan tanpa gradien, tekstur, atau pola apa pun.
 
-Untuk menerapkan isian warna solid pada sebuah bentuk menggunakan Aspose.Slides, ikuti langkah berikut:
+Untuk menerapkan solid color fill pada sebuah bentuk menggunakan Aspose.Slides, ikuti langkah‑langkah berikut:
 
-1. Buat instance dari [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) class.
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) ke slide.
-4. Atur [FillType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/filltype/) bentuk menjadi `Solid`.
-5. Tetapkan warna isian yang Anda inginkan pada bentuk.
-6. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
+1. Tambahkan [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ke slide.
+1. Atur [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) bentuk ke `Solid`.
+1. Tetapkan warna isi pilihan Anda ke bentuk.
+1. Simpan presentasi yang telah diubah sebagai file PPTX.
+
+Kode JavaScript berikut menunjukkan cara menerapkan solid color fill pada sebuah persegi panjang dalam slide PowerPoint:
 
 ```js
 var aspose = aspose || {};
@@ -452,13 +464,13 @@ try {
     // Dapatkan slide pertama.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Rectangle.
+    // Tambahkan auto shape tipe Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Atur tipe isian menjadi Solid.
+    // Atur tipe isi menjadi Solid.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 
-    // Atur warna isian.
+    // Atur warna isi.
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
     // Simpan file PPTX ke disk.
@@ -468,22 +480,24 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
-![Bentuk dengan isian warna solid](solid-color-fill.png)
+![Bentuk dengan solid color fill](solid-color-fill.png)
 
-## **Atur Transparansi**
+## **Set Transparency**
 
-Di PowerPoint, ketika Anda menerapkan isian warna solid, gradien, gambar, atau tekstur pada bentuk, Anda juga dapat mengatur tingkat transparansi untuk mengontrol opasitas isian. Nilai transparansi yang lebih tinggi membuat bentuk lebih tembus pandang, memungkinkan latar belakang atau objek di bawahnya terlihat sebagian.
+Di PowerPoint, saat Anda menerapkan solid color, gradient, picture, atau texture fill pada bentuk, Anda juga dapat mengatur tingkat transparansi untuk mengendalikan opasitas isi. Nilai transparansi yang lebih tinggi membuat bentuk menjadi lebih tembus, sehingga latar belakang atau objek di bawahnya terlihat sebagian.
 
-Aspose.Slides memungkinkan Anda mengatur tingkat transparansi dengan menyesuaikan nilai alfa pada warna yang digunakan untuk isian. Berikut caranya:
+Aspose.Slides memungkinkan Anda mengatur tingkat transparansi dengan menyesuaikan nilai alpha pada warna yang digunakan untuk isi. Berikut caranya:
 
-1. Buat instance dari [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) class.
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) ke slide.
-4. Atur [FillType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/filltype/) menjadi `Solid`.
-5. Gunakan `Color` untuk mendefinisikan warna dengan transparansi (komponen `alpha` mengontrol transparansi).
-6. Simpan presentasi.
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
+1. Tambahkan [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ke slide.
+1. Atur [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) ke `Solid`.
+1. Gunakan `Color` untuk mendefinisikan warna dengan transparansi (komponen `alpha` mengontrol transparansi).
+1. Simpan presentasi.
+
+Kode JavaScript berikut menunjukkan cara menerapkan warna isi transparan pada sebuah persegi panjang:
 
 ```js
 var aspose = aspose || {};
@@ -511,21 +525,23 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Bentuk transparan](shape-transparency.png)
 
-## **Putar Bentuk**
+## **Rotate Shapes**
 
-Aspose.Slides memungkinkan Anda memutar bentuk dalam presentasi PowerPoint. Ini berguna saat menempatkan elemen visual dengan kebutuhan penyelarasan atau desain tertentu.
+Aspose.Slides memungkinkan Anda memutar bentuk dalam presentasi PowerPoint. Hal ini berguna saat menempatkan elemen visual dengan kebutuhan penyelarasan atau desain tertentu.
 
-Untuk memutar sebuah bentuk pada slide, ikuti langkah berikut:
+Untuk memutar sebuah bentuk pada slide, ikuti langkah‑langkah berikut:
 
-1. Buat instance dari [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) class.
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) ke slide.
-4. Atur properti rotasi bentuk ke sudut yang diinginkan.
-5. Simpan presentasi.
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
+1. Tambahkan [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ke slide.
+1. Set properti rotasi bentuk ke sudut yang diinginkan.
+1. Simpan presentasi.
+
+Kode JavaScript berikut menunjukkan cara memutar sebuah bentuk sebesar 5 derajat:
 
 ```js
 var aspose = aspose || {};
@@ -537,7 +553,7 @@ try {
     // Dapatkan slide pertama.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Rectangle.
+    // Tambahkan auto shape tipe Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Putar shape sebesar 5 derajat.
@@ -550,33 +566,35 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Rotasi bentuk](shape-rotation.png)
 
-## **Tambahkan Efek Bevel 3D**
+## **Add 3D Bevel Effects**
 
-Aspose.Slides memungkinkan Anda menerapkan efek bevel 3D pada bentuk dengan mengkonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/threedformat/)‑nya.
+Aspose.Slides memungkinkan Anda menerapkan efek bevel 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) mereka.
 
-Untuk menambahkan efek bevel 3D pada sebuah bentuk, ikuti langkah berikut:
+Untuk menambahkan efek bevel 3D pada sebuah bentuk, ikuti langkah‑langkah berikut:
 
-1. Instansiasikan class [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/).
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) ke slide.
-4. Konfigurasikan [ThreeDFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/threedformat/) bentuk untuk mendefinisikan pengaturan bevel.
-5. Simpan presentasi.
+1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
+1. Tambahkan [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ke slide.
+1. Konfigurasikan [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) bentuk untuk menentukan pengaturan bevel.
+1. Simpan presentasi.
+
+Kode JavaScript berikut menunjukkan cara menerapkan efek bevel 3D pada sebuah bentuk:
 
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// Buat instance dari kelas Presentation.
+// Membuat instance kelas Presentation.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan shape ke slide.
+    // Tambahkan bentuk ke slide.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
@@ -584,7 +602,7 @@ try {
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
     shape.getLineFormat().setWidth(2.0);
 
-    // Atur properti ThreeDFormat shape.
+    // Atur properti ThreeDFormat bentuk.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -600,27 +618,29 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Efek bevel 3D](3D-bevel-effect.png)
 
-## **Tambahkan Efek Rotasi 3D**
+## **Add 3D Rotation Effects**
 
-Aspose.Slides memungkinkan Anda menerapkan efek rotasi 3D pada bentuk dengan mengkonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/threedformat/)‑nya.
+Aspose.Slides memungkinkan Anda menerapkan efek rotasi 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) mereka.
 
 Untuk menerapkan rotasi 3D pada sebuah bentuk:
 
-1. Buat instance dari [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) class.
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) ke slide.
-4. Gunakan [setCameraType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/camera/#setCameraType) dan [setLightType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/lightrig/#setLightType) untuk mendefinisikan rotasi 3D.
-5. Simpan presentasi.
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
+1. Tambahkan [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ke slide.
+1. Gunakan [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) dan [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) untuk menentukan rotasi 3D.
+1. Simpan presentasi.
+
+Kode JavaScript berikut menunjukkan cara menerapkan efek rotasi 3D pada sebuah bentuk:
 
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// Buat instance dari kelas Presentation.
+// Buat instance kelas Presentation.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -640,17 +660,17 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Efek rotasi 3D](3D-rotation-effect.png)
 
-## **Kontrol Rendering Hitam-putih untuk Bentuk**
+## **Control Black-and-White Rendering for Shapes**
 
-Metode [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) menentukan bagaimana sebuah bentuk individual dirender ketika presentasi dilihat atau diproses dalam mode hitam‑putih. Metode ini tidak mengaktifkan tampilan hitam‑putih sendiri, dan tidak mengubah isian, garis, atau pemformatan lain dalam mode warna normal.
+Metode [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) menentukan bagaimana sebuah bentuk individual dirender saat presentasi ditampilkan atau diproses dalam mode hitam‑putih. Metode ini tidak mengaktifkan tampilan hitam‑putih secara otomatis, dan tidak mengubah isi, garis, atau pemformatan lain bentuk dalam mode warna normal.
 
-Gunakan nilai dari enumerasi [BlackWhiteMode](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/blackwhitemode/) untuk memilih perilaku yang diinginkan. Misalnya, `Automatic` membiarkan aplikasi rendering memilih konversi, `Gray` dan `LightGray` menggunakan warna abu‑abu, `BlackWhite` hanya menggunakan hitam dan putih, `Black` dan `White` memaksa satu warna, `Color` mempertahankan warna normal, dan `Hidden` menghilangkan bentuk dalam mode hitam‑putih. `NotDefined` berarti tidak ada mode tingkat bentuk yang ditetapkan.
+Gunakan nilai dari enumerasi [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) untuk memilih perilaku yang diinginkan. Misalnya, `Automatic` membiarkan aplikasi rendering memilih konversi, `Gray` dan `LightGray` menggunakan pewarnaan abu‑abu, `BlackWhite` hanya menggunakan hitam dan putih, `Black` dan `White` memaksa satu warna, `Color` mempertahankan pewarnaan normal, dan `Hidden` menghilangkan bentuk dalam mode hitam‑putih. `NotDefined` berarti tidak ada mode pada level bentuk yang ditetapkan.
 
-Kode JavaScript berikut membuat bentuk berwarna dan membuatnya tampil abu‑abu dalam mode tampilan hitam‑putih:
+Kode JavaScript berikut membuat bentuk berwarna dan membuatnya tampak abu‑abu dalam mode tampilan hitam‑putih:
 
 ```js
 var aspose = aspose || {};
@@ -665,7 +685,7 @@ try {
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
 
-    // Pertahankan isian oranye dalam mode warna, tetapi render bentuk dengan pewarnaan abu-abu dalam mode hitam-putih.
+    // Pertahankan isi oranye dalam mode berwarna, tetapi render bentuk dengan pewarnaan abu-abu dalam mode hitam-putih.
     shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
 
     presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
@@ -674,11 +694,11 @@ try {
 }
 ```
 
-Dalam mode warna normal, persegi panjang mempertahankan isian oranye. Dalam alur kerja tampilan hitam‑putih, ia menggunakan pewarnaan abu‑abu karena mode‑nya disetel ke `Gray`. Ini memungkinkan Anda mempertahankan slide berwarna penuh sambil mendefinisikan tampilan khusus untuk pencetakan, pratinjau, atau alur kerja lain yang menghormati pengaturan tampilan hitam‑putih presentasi.
+Dalam mode warna normal, persegi panjang tetap berisi oranye. Dalam alur kerja tampilan hitam‑putih, ia menggunakan pewarnaan abu‑abu karena mode‑nya diatur ke `Gray`. Ini memungkinkan Anda mempertahankan slide berwarna penuh sambil mendefinisikan tampilan khusus untuk pencetakan, pratinjau, atau alur kerja lain yang menghormati pengaturan tampilan hitam‑putih presentasi.
 
-## **Reset Pemformatan**
+## **Reset Formatting**
 
-Kode JavaScript berikut menunjukkan cara mereset pemformatan slide dan mengembalikan posisi, ukuran, serta pemformatan semua bentuk dengan placeholder pada [LayoutSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/) ke pengaturan default mereka:
+Kode JavaScript berikut menunjukkan cara mereset pemformatan sebuah slide dan mengembalikan posisi, ukuran, dan pemformatan semua bentuk dengan placeholder pada [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) ke pengaturan default mereka:
 
 ```js
 var aspose = aspose || {};
@@ -688,7 +708,7 @@ let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // Reset setiap shape pada slide yang memiliki placeholder pada layout.
+        // Reset setiap bentuk pada slide yang memiliki placeholder pada layout.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
@@ -701,12 +721,12 @@ try {
 
 **Apakah pemformatan bentuk memengaruhi ukuran file presentasi akhir?**
 
-Hanya sedikit. Gambar dan media yang disematkan menempati sebagian besar ruang file, sementara parameter bentuk seperti warna, efek, dan gradien disimpan sebagai metadata dan hampir tidak menambah ukuran.
+Hanya sangat sedikit. Gambar dan media yang disematkan menempati sebagian besar ruang file, sementara parameter bentuk seperti warna, efek, dan gradien disimpan sebagai metadata dan hampir tidak menambah ukuran.
 
-**Bagaimana saya dapat mendeteksi bentuk pada slide yang memiliki pemformatan identik sehingga saya dapat mengelompokkannya?**
+**Bagaimana cara mendeteksi bentuk pada slide yang memiliki pemformatan identik sehingga saya dapat mengelompokkannya?**
 
-Bandingkan setiap properti pemformatan kunci bentuk—pengaturan isian, garis, dan efek. Jika semua nilai yang bersesuaian cocok, perlakukan gaya mereka sebagai identik dan kelompokkan bentuk‑bentuk tersebut secara logis, yang mempermudah manajemen gaya nanti.
+Bandingkan properti pemformatan kunci setiap bentuk—pengaturan isi, garis, dan efek. Jika semua nilai yang bersesuaian cocok, anggap gaya mereka identik dan kelompokkan bentuk‑bentuk tersebut secara logis, yang memudahkan pengelolaan gaya di kemudian hari.
 
-**Bisakah saya menyimpan sekumpulan gaya bentuk khusus ke file terpisah untuk digunakan kembali dalam presentasi lain?**
+**Apakah saya dapat menyimpan sekumpulan gaya bentuk khusus ke file terpisah untuk digunakan kembali di presentasi lain?**
 
-Ya. Simpan contoh bentuk dengan gaya yang diinginkan dalam deck slide templat atau file .POTX. Saat membuat presentasi baru, buka templat, klon bentuk bergaya yang diperlukan, dan terapkan kembali pemformatannya di mana diperlukan.
+Ya. Simpan bentuk contoh dengan gaya yang diinginkan dalam deck slide templat atau file .POTX. Saat membuat presentasi baru, buka templat tersebut, kloning bentuk bergaya yang diperlukan, dan terapkan kembali pemformatannya di tempat yang dibutuhkan.

@@ -1,6 +1,6 @@
 ---
 title: Python में PowerPoint स्लाइड्स को PNG में बदलें
-linktitle: स्लाइड से PNG
+linktitle: PowerPoint को PNG में
 type: docs
 weight: 30
 url: /hi/python-net/convert-powerpoint-to-png/
@@ -11,34 +11,27 @@ keywords:
 - PPT को PNG में बदलें
 - PPTX को PNG में बदलें
 - ODP को PNG में बदलें
-- PowerPoint से PNG
-- प्रस्तुति से PNG
-- स्लाइड से PNG
-- PPT से PNG
-- PPTX से PNG
-- ODP से PNG
+- PowerPoint को PNG में
+- प्रस्तुति को PNG में
+- स्लाइड को PNG में
+- PPT को PNG में
+- PPTX को PNG में
+- ODP को PNG में
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET के साथ PowerPoint और OpenDocument प्रस्तुतियों को तेज़ी से उच्च-गुणवत्ता वाली PNG छवियों में बदलें, सटीक और स्वचालित परिणाम सुनिश्चित करते हुए।"
+description: "Aspose.Slides for Python via .NET के साथ PowerPoint और OpenDocument प्रस्तुतियों को तेज़ी से उच्च गुणवत्ता वाली PNG छवियों में बदलें, जिससे सटीक और स्वचालित परिणाम सुनिश्चित हों।"
 ---
-## **अवलोकन**
+## **सारांश**
 
-Aspose.Slides for Python via .NET PowerPoint प्रस्तुतियों को PNG में परिवर्तित करना सरल बनाता है। आप एक प्रस्तुति लोड करते हैं, उसकी स्लाइड्स पर इटरेट करते हैं, प्रत्येक को एक रास्टर छवि में रेंडर करते हैं, और परिणाम को PNG फ़ाइलों के रूप में सहेजते हैं। यह स्लाइड प्रीव्यू उत्पन्न करने, वेब पेजों में स्लाइड्स एम्बेड करने, या डाउनस्ट्रीम प्रोसेसिंग के लिए स्थिर संसाधन बनाने हेतु आदर्श है।
+यह लेख Aspose.Slides for Python via .NET का उपयोग करके प्रस्तुति स्लाइड्स को PNG छवियों में बदलने की विधि समझाता है। आप PPT, PPTX और ODP जैसे स्वरूपों में प्रस्तुतियों को लोड कर सकते हैं, प्रत्येक स्लाइड को रेंडर कर सकते हैं, और इसे एक अलग PNG छवि के रूप में सहेज सकते हैं।
 
-## **स्लाइड्स को PNG में बदलें**
+निचे के उदाहरण डिफ़ॉल्ट स्केल पर रेंडरिंग, स्केल बढ़ाने, पिक्सल में आउटपुट आयाम निर्धारित करने, और ग्रेडिएंट रेंडरिंग स्टाइल चुनने को प्रदर्शित करते हैं।
 
-यह सेक्शन Aspose.Slides for Python via .NET का उपयोग करके PowerPoint प्रस्तुति को PNG छवियों में बदलने का सबसे सरल उदाहरण दिखाता है।
+## **PowerPoint को PNG में बदलें**
 
-इन चरणों का पालन करें:
+प्रेजेंटेशन को [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास से लोड करें और उसकी स्लाइड्स को [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) संग्रह के माध्यम से एक्सेस करें। उदाहरण प्रत्येक स्लाइड को [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) बिना पैरामीटर के थंबनेल बनाते हुए रेंडर करता है। फिर यह [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) को [ImageFormat.PNG](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) के साथ कॉल करता है ताकि प्रत्येक रेंडर की गई स्लाइड को PNG छवि के रूप में सहेजा जा सके।
 
-1. Presentation वर्ग को इंस्टैंशिएट करें।  
-1. `Presentation.slides` संग्रह से एक स्लाइड प्राप्त करें (वर्ग [Slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/) देखें)।  
-1. `Slide.get_image` मेथड का उपयोग करके स्लाइड का थंबनेल बनाएं।  
-1. `Presentation.save` मेथड का उपयोग करके स्लाइड थंबनेल को PNG फ़ॉर्मेट में सहेजें।  
-
-यह Python कोड दिखाता है कि PowerPoint प्रस्तुति को PNG में कैसे बदलें:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -47,16 +40,18 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **कस्टम आयामों के साथ स्लाइड्स को PNG में बदलें**
+{{% alert color="info" title="Note" %}}
+बिना पैरामीटर वाला [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) ओवरलोड 0.2 स्केल पर रेंडर करता है। उदाहरण के लिए, 720 × 540 पॉइंट की स्लाइड 144 × 108 पिक्सेल थंबनेल बनाती है। आउटपुट आयाम नियंत्रित करने के लिए, नीचे दिखाए गए स्केल फ़ैक्टर या स्पष्ट इमेज आकार वाले ओवरलोड का उपयोग करें।
+{{% /alert %}}
 
-कस्टम स्केल पर स्लाइड्स को PNG में निर्यात करने के लिए, क्षैतिज और लंबवत स्केल फैक्टर के साथ `Slide.get_image` को कॉल करें। ये गुणक आउटपुट का आकार स्लाइड के मूल आयामों के अनुपात में बदलते हैं—उदाहरण के लिए, `2.0` चौड़ाई और ऊँचाई दोनों को दोगुना कर देता है। अनुपात बनाए रखने के लिए `scale_x` और `scale_y` के मान बराबर रखें।
+## **PowerPoint को कस्टम आयामों के साथ PNG में बदलें**
 
-यह Python कोड वर्णित ऑपरेशन को प्रदर्शित करता है:
+रेंडर किए गए आकार को नियंत्रित करने के लिए क्षैतिज और लंबवत स्केल फ़ैक्टर को [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) में पास करें। इस उदाहरण में दोनों फ़ैक्टर 2 हैं, इसलिए 720 × 540 पॉइंट की स्लाइड 1440 × 1080 पिक्सेल की छवि बनाती है। समान स्केल फ़ैक्टर स्लाइड के पहलू अनुपात को बनाए रखते हैं। प्रत्येक छवि को PNG फॉर्मेट में [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) के साथ सहेजा जाता है।
 
-```py
+```python
 import aspose.slides as slides
 
-scale_x = 2
+scale_x = 2.0
 scale_y = scale_x
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -65,33 +60,62 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **कस्टम आकार के साथ स्लाइड्स को PNG में बदलें**
+## **PowerPoint को कस्टम आकार के साथ PNG में बदलें**
 
-यदि आप विशिष्ट आकार में PNG फ़ाइलें बनाना चाहते हैं, तो अपने इच्छित `width` और `height` मान पास करें। नीचे दिया गया कोड दर्शाता है कि इमेज आकार निर्दिष्ट करते हुए PowerPoint को PNG में कैसे बदलें:
+आउटपुट आयाम पिक्सेल में निर्दिष्ट करने के लिए, स्केल फ़ैक्टर के बजाय [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) में आकार पास करें। यह उदाहरण प्रत्येक स्लाइड को 960 × 720 पिक्सेल पर रेंडर करता है और परिणाम को [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) के साथ सहेजता है। स्लाइड के पहलू अनुपात से मेल खाने वाले आयाम चुनें ताकि छवि खिंची न हो।
 
-```py
+```python
 import aspose.slides as slides
-import aspose.pydrawing as drawing
 
-size = drawing.Size(960, 720)
+image_size = slides.Size(960, 720)
 
 with slides.Presentation("presentation.pptx") as presentation:
     for index, slide in enumerate(presentation.slides):
-        with slide.get_image(size) as image:
+        with slide.get_image(image_size) as image:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-आप Aspose के मुफ्त **PowerPoint-to-PNG कनवर्टर**—[PPTX to PNG](https://products.aspose.app/slides/hi/conversion/pptx-to-png) और [PPT to PNG](https://products.aspose.app/slides/hi/conversion/ppt-to-png) को आज़मा सकते हैं। वे इस पृष्ठ पर वर्णित प्रक्रिया का लाइव कार्यान्वयन प्रदान करते हैं।
-{{% /alert %}}
+## **ग्रेडिएंट रेंडरिंग स्टाइल चुनें**
+
+मान लीजिए किसी स्लाइड में ग्रेडिएंट फ़िल हैं, लेकिन निर्यातित PNG में परिवर्तन PowerPoint में देखे गए से हल्के या अलग दिखते हैं। आप [gradient_style](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveoptions/gradient_style/) प्रॉपर्टी को [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/) में उपयोग करके ग्रेडिएंट के रेंडरिंग का तरीका चुन सकते हैं।
+
+[gradient-styles.pptx](gradient-styles.pptx) डाउनलोड करें और इसे एप्लिकेशन की कार्यशील डायरेक्टरी में रखें। इसकी पहली स्लाइड में दो रैखिक ग्रेडिएंट हैं: ऊपर सियान से ऑरेंज और नीचे ब्लू से येलो। प्रत्येक ग्रेडिएंट में दो स्टॉप हैं, 0 % और 100 % पर।
+
+निम्न उदाहरण इस प्रस्तुति को लोड करता है और दोनों मोड में पहली स्लाइड को [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) के साथ रेंडर करता है।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("gradient-styles.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    gradient_styles = [slides.GradientStyle.DEFAULT, slides.GradientStyle.POWER_POINT_UI]
+    for style in gradient_styles:
+        options = slides.export.RenderingOptions()
+        options.gradient_style = style
+
+        with slide.get_image(options, 1.0, 1.0) as image:
+            image.save(f"gradient-{style.name}.png", slides.ImageFormat.PNG)
+```
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![सियान-से-ऑरेंज और ब्लू-से-येलो ग्रेडिएंट डिफ़ॉल्ट शैली में रेंडर किए गए](gradient-Default.png) | ![समान ग्रेडिएंट PowerPointUI शैली में रेंडर किए गए](gradient-PowerPointUI.png) |
+
+इस उदाहरण में, `DEFAULT` हल्के मध्यवर्ती रंग उत्पन्न करता है, जबकि `POWER_POINT_UI` गहरे मध्यवर्ती रंग उत्पन्न करता है। अंतर ग्रेडिएंट के रंगों और स्टॉप्स पर निर्भर करता है।
+
+जब मानक Aspose.Slides आउटपुट आपकी जरूरतों को पूरा करता है तो `DEFAULT` चुनें। जब आपका प्राथमिक लक्ष्य PowerPoint में दिखने वाले रूप से मेल खाना हो तो `POWER_POINT_UI` आज़माएँ। दोनों आउटपुट की अपनी इच्छित परिणाम से तुलना करें; कोई भी मोड सार्वभौमिक रूप से बेहतर नहीं है।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं पूरी स्लाइड के बजाय केवल एक विशिष्ट आकृति (जैसे चार्ट या चित्र) को कैसे निर्यात कर सकता हूँ?**  
-Aspose.Slides व्यक्तिगत आकृतियों के लिए थंबनेल उत्पन्न करने का समर्थन करता है](/slides/hi/python-net/create-shape-thumbnails/); आप एक आकृति को PNG छवि में रेंडर कर सकते हैं।
+**मैं पूरे स्लाइड की बजाय किसी विशिष्ट आकार, जैसे चार्ट या चित्र, को PNG के रूप में कैसे निर्यात करूँ?**
 
-**क्या सर्वर पर समानांतर रूपांतरण समर्थित है?**  
-हां, लेकिन एकल प्रस्तुति इंस्टेंस को थ्रेड्स के बीच [न साझा](/slides/hi/python-net/multithreading/) करें। प्रत्येक थ्रेड या प्रक्रिया के लिए अलग इंस्टेंस उपयोग करें।
+Aspose.Slides व्यक्तिगत आकारों के लिए [generating thumbnails for individual shapes](/slides/hi/python-net/create-shape-thumbnails/) को समर्थन देता है, जिससे आप आकार को PNG छवि के रूप में रेंडर कर सकते हैं।
 
-**PNG निर्यात करते समय ट्रायल-वर्शन की सीमाएँ क्या हैं?**  
-मूल्यांकन मोड आउटपुट छवियों में वॉटरमार्क जोड़ता है और लाइसेंस लागू होने तक [अन्य प्रतिबंध](/slides/hi/python-net/licensing/) लागू करता है।
+**क्या सर्वर पर समानांतर रूपांतरण समर्थित है?**
+
+हाँ। प्रत्येक थ्रेड या प्रोसेस के लिए अलग प्रस्तुति इंस्टेंस उपयोग करें; [do not share a single instance across threads](/slides/hi/python-net/multithreading/)।
+
+**PNG निर्यात करते समय मूल्यांकन मोड की सीमाएँ क्या हैं?**
+
+मूल्यांकन मोड आउटपुट छवियों में वॉटरमार्क जोड़ता है और लाइसेंस लागू होने तक [other restrictions](/slides/hi/python-net/licensing/) लागू करता है।

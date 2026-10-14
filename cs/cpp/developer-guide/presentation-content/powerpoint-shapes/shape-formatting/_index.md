@@ -5,51 +5,51 @@ type: docs
 weight: 20
 url: /cs/cpp/shape-formatting/
 keywords:
-- formátování tvaru
-- formátování čáry
-- skicový efekt
-- skicová čára tvaru
-- formátování stylu spojení
-- gradientní výplň
-- vzorová výplň
-- výplň obrázkem
-- výplň texturou
-- výplň plnou barvou
+- formát tvaru
+- formát čáry
+- skicovací efekt
+- skicovaná čára tvaru
+- formát spojovacího stylu
+- gradientová výplň
+- vzorková výplň
+- obrázková výplň
+- texturová výplň
+- jednobarevná výplň
 - průhlednost tvaru
 - černobílé vykreslování tvaru
-- stupňování šedi tvaru
-- otáčení tvaru
-- 3D cýlový efekt
-- 3D otáčecí efekt
+- šedotónové vykreslování tvaru
+- rotace tvaru
+- 3D zkosený efekt
+- 3D rotační efekt
 - resetování formátování
 - PowerPoint
 - prezentace
 - C++
 - Aspose.Slides
-description: "Naučte se, jak formátovat tvary PowerPointu v C++ pomocí Aspose.Slides — nastavte styly výplně, čáry a efektů pro soubory PPT, PPTX a ODP s přesností a úplnou kontrolou."
+description: "Zjistěte, jak formátovat tvary PowerPointu v C++ pomocí Aspose.Slides — nastavit výplň, čáru a styly efektů pro soubory PPT, PPTX a ODP s přesností a plnou kontrolou."
 ---
 ## **Úvod**
 
-V PowerPointu můžete do snímků přidávat tvary. Protože tvary jsou složeny z čar, můžete je formátovat úpravou nebo použitím efektů na jejich obrysech. Navíc můžete tvary formátovat nastavením, která určují, jak bude vyplněn jejich vnitřek.
+V PowerPointu můžete do snímků přidávat tvary. Protože tvary jsou složeny z čar, můžete je formátovat úpravou nebo použitím efektů na jejich obrysech. Navíc můžete tvary formátovat zadáním nastavení, která řídí, jak jsou vyplněny jejich vnitřní oblasti.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ poskytuje rozhraní a metody, které vám umožňují formátovat tvary pomocí stejných možností, jaké jsou k dispozici v PowerPointu.
+Aspose.Slides pro C++ poskytuje rozhraní a metody, které vám umožňují formátovat tvary pomocí stejných možností, jaké jsou k dispozici v PowerPointu.
 
 ## **Formátování čar**
 
-Pomocí Aspose.Slides můžete pro tvar určit vlastní styl čáry. Následující kroky popisují postup:
+Pomocí Aspose.Slides můžete pro tvar zadat vlastní styl čáry. Následující kroky popisují postup:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek objekt [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
-1. Nastavte [line style](https://reference.aspose.com/slides/cs/cpp/aspose.slides/linestyle/) tvaru.
-1. Nastavte šířku čáry.
-1. Nastavte [dash style](https://reference.aspose.com/slides/cs/cpp/aspose.slides/linedashstyle/) čáry.
-1. Nastavte barvu čáry pro tvar.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+4. Nastavte [styl čáry](https://reference.aspose.com/slides/cpp/aspose.slides/linestyle/) tvaru.
+5. Nastavte šířku čáry.
+6. Nastavte [styl čárkování](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) čáry.
+7. Nastavte barvu čáry pro tvar.
+8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Níže je ukázka kódu, která formátuje obdélník `AutoShape`:
+Následující kód ukazuje, jak naformátovat obdélníkový `AutoShape`:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -102,11 +102,11 @@ Výsledek:
 
 ![The formatted lines in the presentation](formatted-lines.png)
 
-## **Použití skicových efektů na čáry tvarů**
+## **Použití skicovacích efektů na čáry tvaru**
 
-Skicový efekt dává čáře tvaru vzhled ručně kreslené. Použijte [IShape::get_LineFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/get_lineformat/) pro přístup k nastavení čáry, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilineformat/get_sketchformat/) pro přístup k nastavení skicu a [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/isketchformat/set_sketchtype/) pro výběr hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/linesketchtype/).
+Skicovací efekt způsobí, že čára tvaru vypadá jako ručně kreslená. K přístupu k nastavením čáry použijte [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/), k přístupu k nastavením skicu [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) a k výběru hodnoty použijte [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) z výčtu [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/).
 
-Níže je C++ kód, který ukazuje, jak použít efekt [LineSketchType::Curved](https://reference.aspose.com/slides/cs/cpp/aspose.slides/linesketchtype/), přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType::None](https://reference.aspose.com/slides/cs/cpp/aspose.slides/linesketchtype/):
+Následující C++ kód ukazuje, jak použít efekt [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/), přečíst explicitně přiřazenou hodnotu a odebrat efekt pomocí [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -130,7 +130,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-Hodnota vrácená metodou [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/isketchformat/get_sketchtype/) představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozložení snímku, použijte [ILineFormat::GetEffective](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilineformat/geteffective/), přistupte k [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) a přečtěte [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Efektivní hodnota odráží formátování, které je skutečně použito po vyřešení dědičnosti:
+Hodnota vrácená metodou [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) představuje nastavení přiřazené přímo tvaru. Pokud lze formátování čáry zdědit z motivu, hlavního snímku nebo rozvržení, použijte [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), přistupte k [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) a přečtěte [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Efektivní hodnota odráží formátování, které je skutečně použito po vyřešení dědičnosti:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"presentation.pptx");
@@ -148,7 +148,7 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **Formátování stylů spojení**
+## **Formátování spojovacích stylů**
 
 Zde jsou tři možnosti typu spojení:
 
@@ -156,11 +156,11 @@ Zde jsou tři možnosti typu spojení:
 * Miter
 * Bevel
 
-Ve výchozím nastavení, když PowerPoint spojuje dvě čáry pod úhlem (například v rohu tvaru), používá nastavení **Round**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Miter**.
+Ve výchozím nastavení PowerPoint při spojení dvou čar pod úhlem (například v rohu tvaru) použije nastavení **Round**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Miter**.
 
 ![The join style in the presentation](join-style-powerpoint.png)
 
-Níže je C++ kód, který demonstruje, jak byly vytvořeny tři obdélníky (jak je vidět na obrázku výše) pomocí nastavení spojení Miter, Bevel a Round:
+Následující C++ kód ukazuje, jak byly vytvořeny tři obdélníky (viz obrázek výše) pomocí nastavení spojení Miter, Bevel a Round:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -215,7 +215,7 @@ shape2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Colo
 shape3->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Nastavte styl spojení.
+// Nastavte styl spoje.
 shape1->get_LineFormat()->set_JoinStyle(LineJoinStyle::Miter);
 shape2->get_LineFormat()->set_JoinStyle(LineJoinStyle::Bevel);
 shape3->get_LineFormat()->set_JoinStyle(LineJoinStyle::Round);
@@ -230,20 +230,20 @@ presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Gradient Fill**
+## **Gradientová výplň**
 
-V PowerPointu je Gradient Fill formátovací možnost, která umožňuje aplikovat plynulé prolínání barev na tvar. Například můžete použít dvě nebo více barev tak, aby se jedna postupně měnila na druhou.
+V PowerPointu je Gradientová výplň formátovací možnost, která umožňuje aplikovat plynulý přechod barev na tvar. Například můžete použít dvě nebo více barev tak, aby se jedna postupně měnila v druhou.
 
-Zde je postup, jak aplikovat gradientní výplň na tvar pomocí Aspose.Slides:
+Postup, jak aplikovat gradientovou výplň na tvar pomocí Aspose.Slides:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek objekt [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/filltype/) tvaru na `Gradient`.
-1. Přidejte své dvě preferované barvy s definovanými pozicemi pomocí metod `Add` kolekce gradientových zastávek, kterou poskytuje rozhraní [IGradientFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/igradientformat/).
-1. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+4. Nastavte [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) tvaru na `Gradient`.
+5. Přidejte své dvě preferované barvy s definovanými pozicemi pomocí metod `Add` kolekce gradientových zastávek, kterou poskytuje rozhraní [IGradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/).
+6. Uložte upravenou prezentaci jako soubor PPTX.
 
-Níže je C++ kód, který ukazuje, jak aplikovat gradientní výplň na elipsu:
+Následující C++ kód ukazuje, jak aplikovat gradientovou výplň na elipsu:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -273,7 +273,7 @@ auto slide = presentation->get_Slide(0);
 // Přidejte automatický tvar typu Ellipse.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-// Použijte gradientní formátování na elipsu.
+// Aplikujte gradientové formátování na elipsu.
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
 shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
 
@@ -293,24 +293,26 @@ Výsledek:
 
 ![The ellipse with gradient fill](gradient-fill.png)
 
-## **Pattern Fill**
+Pokud gradient v exportovaném obrázku vypadá jinak než v PowerPointu, podívejte se na [Choose a Gradient Rendering Style](/slides/cs/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Můžete vybrat styl vykreslování, aniž byste měnili gradientovou výplň uloženou v prezentaci.
 
-V PowerPointu je Pattern Fill formátovací možnost, která vám umožňuje aplikovat dvoubarevný vzor – například tečky, pruhy, křížové šrafování nebo šachovnici – na tvar. Můžete si zvolit vlastní barvy pro popředí a pozadí vzoru.
+## **Vzorková výplň**
 
-Aspose.Slides poskytuje více než 45 předdefinovaných stylů vzorů, které můžete aplikovat na tvary a zvýšit tak vizuální přitažlivost svých prezentací. I po výběru předdefinovaného vzoru můžete stále určit přesné barvy, které má použít.
+V PowerPointu je Vzorková výplň formátovací možnost, která vám umožňuje aplikovat dvoubarevný návrh – například tečky, pruhy, křížové šrafování nebo šachovnici – na tvar. Pro popředí i pozadí vzoru můžete zvolit vlastní barvy.
 
-Postup aplikace pattern fill na tvar pomocí Aspose.Slides:
+Aspose.Slides poskytuje více než 45 předdefinovaných vzorových stylů, které můžete použít na tvary pro zvýšení vizuální přitažlivosti prezentací. I po výběru předdefinovaného vzoru můžete určit přesné barvy, které se mají použít.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek objekt [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/filltype/) tvaru na `Pattern`.
-1. Vyberte styl vzoru z předdefinovaných možností.
-1. Nastavte [Background Color](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipatternformat/get_backcolor/) vzoru.
-1. Nastavte [Foreground Color](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipatternformat/get_forecolor/) vzoru.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+Postup, jak aplikovat vzorkovou výplň na tvar pomocí Aspose.Slides:
 
-Níže je C++ kód, který ukazuje, jak aplikovat pattern fill na obdélník:
+1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+4. Nastavte [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) tvaru na `Pattern`.
+5. Vyberte vzorový styl z předdefinovaných možností.
+6. Nastavte [Background Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) vzoru.
+7. Nastavte [Foreground Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) vzoru.
+8. Uložte upravenou prezentaci jako soubor PPTX.
+
+Následující C++ kód ukazuje, jak aplikovat vzorkovou výplň na obdélník:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -359,26 +361,26 @@ Výsledek:
 
 ![The rectangle with pattern fill](pattern-fill.png)
 
-## **Picture Fill**
+## **Obrázková výplň**
 
-V PowerPointu je Picture Fill formátovací možnost, která vám umožňuje vložit obrázek dovnitř tvaru – efektivně použít obrázek jako pozadí tvaru.
+V PowerPointu je Obrázková výplň formátovací možnost, která vám umožňuje vložit obrázek dovnitř tvaru – čímž se obrázek používá jako pozadí tvaru.
 
-Zde je postup, jak pomocí Aspose.Slides aplikovat picture fill na tvar:
+Postup, jak pomocí Aspose.Slides aplikovat obrázkovou výplň na tvar:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek objekt [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/filltype/) tvaru na `Picture`.
-1. Nastavte režim picture fill na `Tile` (nebo jiný preferovaný režim).
-1. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/) z obrázku, který chcete použít.
-1. Předávejte obrázek metodě `ISlidesPicture.set_Image`.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+4. Nastavte [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) tvaru na `Picture`.
+5. Nastavte režim obrázkové výplně na `Tile` (nebo jiný preferovaný režim).
+6. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) z obrázku, který chcete použít.
+7. Předávejte obrázek metodě `ISlidesPicture.set_Image`.
+8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Například máme soubor „lotus.png“ s následujícím obrázkem:
+Předpokládejme, že máme soubor "lotus.png" s následujícím obrázkem:
 
 ![The lotus picture](lotus.png)
 
-Níže je C++ kód, který ukazuje, jak naplnit tvar obrázkem:
+Následující C++ kód ukazuje, jak vyplnit tvar obrázkem:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -415,7 +417,7 @@ shape->get_FillFormat()->set_FillType(FillType::Picture);
 // Nastavte režim výplně obrázkem.
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
-// Načtěte obrázek a přidejte jej do prostředků prezentace.
+// Načtěte obrázek a přidejte jej do zdrojů prezentace.
 auto image = Images::FromFile(u"lotus.png");
 auto picture = presentation->get_Images()->AddImage(image);
 image->Dispose();
@@ -434,17 +436,17 @@ Výsledek:
 
 ### **Tile Picture As Texture**
 
-Pokud chcete nastavit dlaždicový obrázek jako texturu a přizpůsobit chování dlaždic, můžete použít následující metody rozhraní [IPictureFillFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/) a třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/picturefillformat/):
+Pokud chcete nastavit dlaždicový obrázek jako texturu a přizpůsobit chování dlaždic, můžete použít následující metody rozhraní [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) a třídy [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/):
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Nastaví režim výplně obrázkem – `Tile` nebo `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Určuje zarovnání dlaždic uvnitř tvaru.
-- [set_TileFlip](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Řídí, zda je dlaždice převrácena horizontálně, vertikálně nebo obojí.
-- [set_TileOffsetX](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Nastaví horizontální posun dlaždice (v bodech) od počátku tvaru.
-- [set_TileOffsetY](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Nastaví vertikální posun dlaždice (v bodech) od počátku tvaru.
-- [set_TileScaleX](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Definuje horizontální měřítko dlaždice v procentech.
-- [set_TileScaleY](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Definuje vertikální měřítko dlaždice v procentech.
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Nastavuje režim obrázkové výplně – buď `Tile`, nebo `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Určuje zarovnání dlaždic uvnitř tvaru.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Řídí, zda je dlaždice převrácena vodorovně, svisle nebo obojí.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Nastavuje vodorovný posun dlaždice (v bodech) od počátku tvaru.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Nastavuje svislý posun dlaždice (v bodech) od počátku tvaru.
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Definuje vodorovné měřítko dlaždice v procentech.
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Definuje svislé měřítko dlaždice v procentech.
 
-Níže je ukázka kódu, jak přidat obdélníkový tvar s dlaždicovou výplní obrázkem a nakonfigurovat možnosti dlaždic:
+Následující ukázka kódu ukazuje, jak přidat obdélníkový tvar s dlaždicovou obrázkovou výplní a nakonfigurovat možnosti dlaždic:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -480,7 +482,7 @@ auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50
 // Nastavte typ výplně tvaru na Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Načtěte obrázek a přidejte jej do prostředků prezentace.
+// Načtěte obrázek a přidejte jej do zdrojů prezentace.
 auto sourceImage = Images::FromFile(u"lotus.png");
 auto presentationImage = presentation->get_Images()->AddImage(sourceImage);
 sourceImage->Dispose();
@@ -507,20 +509,20 @@ Výsledek:
 
 ![The tile options](tile-options.png)
 
-## **Solid Color Fill**
+## **Jednobarevná výplň**
 
-V PowerPointu je Solid Color Fill formátovací možnost, která vyplní tvar jednou jednotnou barvou. Toto jednoduché pozadí se použije bez jakýchkoli gradientů, textur nebo vzorů.
+V PowerPointu je Jednobarevná výplň formátovací možnost, která vyplní tvar jednou, jednotnou barvou. Tento jednoduchý podklad se aplikuje bez gradientů, textur nebo vzorů.
 
-Chcete‑li použít plnou barvu na tvar pomocí Aspose.Slides, postupujte takto:
+Postup, jak aplikovat jednobarevnou výplň na tvar pomocí Aspose.Slides:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek objekt [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/filltype/) tvaru na `Solid`.
-1. Přiřaďte požadovanou barvu výplně tvaru.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+4. Nastavte [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) tvaru na `Solid`.
+5. Přiřaďte preferovanou barvu výplně tvaru.
+6. Uložte upravenou prezentaci jako soubor PPTX.
 
-Níže je C++ kód, který ukazuje, jak aplikovat solid color fill na obdélník v PowerPoint snímku:
+Následující C++ kód ukazuje, jak aplikovat jednobarevnou výplň na obdélník v PowerPoint snímku:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -565,18 +567,18 @@ Výsledek:
 
 ## **Nastavení průhlednosti**
 
-V PowerPointu můžete při použití solid color, gradient, picture nebo texture fill nastavit úroveň průhlednosti, čímž řídíte neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že bude tvar více prostupný a podklad či podkladové objekty budou částečně viditelné.
+V PowerPointu můžete při aplikaci jednobarevné, gradientové, obrázkové nebo texturové výplně na tvary také nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že tvar bude více průsvitný a podklad nebo podkladové objekty budou částečně viditelné.
 
-Aspose.Slides umožňuje nastavit úroveň průhlednosti úpravou alfa komponenty barvy použité pro výplň. Postup:
+Aspose.Slides vám umožňuje nastavit úroveň průhlednosti úpravou alfa komponenty barvy použité pro výplň. Postup:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek objekt [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/filltype/) na `Solid`.
-1. Použijte `Color` k definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
-1. Uložte prezentaci.
+1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+4. Nastavte [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) na `Solid`.
+5. Použijte `Color` k definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
+6. Uložte prezentaci.
 
-Níže je C++ kód, který ukazuje, jak aplikovat průhlednou výplň na obdélník:
+Následující C++ kód ukazuje, jak aplikovat průhlednou barvu výplně na obdélník:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -601,10 +603,10 @@ auto presentation = MakeObject<Presentation>();
 // Získejte první snímek.
 auto slide = presentation->get_Slide(0);
 
-// Přidejte automatický obdélník s plnou výplní.
+// Přidejte plně vyplněný obdélníkový automatický tvar.
 auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Přidejte průhledný obdélníkový automatický tvar nad plným tvarem.
+// Přidejte průhledný obdélníkový automatický tvar nad plný tvar.
 auto transparentShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
 transparentShape->get_FillFormat()->set_FillType(FillType::Solid);
 transparentShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(204, 255, 255, 0));
@@ -614,24 +616,23 @@ presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-
 Výsledek:
 
 ![The transparent shape](shape-transparency.png)
 
-## **Otáčení tvarů**
+## **Rotace tvarů**
 
-Aspose.Slides umožňuje otáčet tvary v PowerPoint prezentacích. To může být užitečné při umisťování vizuálních prvků s konkrétním zarovnáním nebo designovým požadavkem.
+Aspose.Slides vám umožňuje otáčet tvary v prezentacích PowerPoint. To může být užitečné při umisťování vizuálních prvků s konkrétním zarovnáním nebo designovými požadavky.
 
-Pro otočení tvaru na snímku postupujte takto:
+Postup pro otočení tvaru na snímku:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek objekt [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
-1. Nastavte vlastnost otáčení tvaru na požadovaný úhel.
-1. Uložte prezentaci.
+1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+4. Nastavte vlastnost otáčení tvaru na požadovaný úhel.
+5. Uložte prezentaci.
 
-Níže je C++ kód, který ukazuje, jak otočit tvar o 5 stupňů:
+Následující C++ kód ukazuje, jak otočit tvar o 5 stupňů:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -666,19 +667,19 @@ Výsledek:
 
 ![The shape rotation](shape-rotation.png)
 
-## **Přidání 3D efekty cýly**
+## **Přidání 3D zkosených efektů**
 
-Aspose.Slides umožňuje aplikovat 3D cýlové efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/threedformat/).
+Aspose.Slides vám umožňuje aplikovat 3D zkosené efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/).
 
-Pro přidání 3D cýlových efektů na tvar postupujte takto:
+Postup pro přidání 3D zkosených efektů na tvar:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek objekt [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
-1. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/threedformat/) tvaru pro definici nastavení cýly.
-1. Uložte prezentaci.
+1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+4. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) tvaru a definujte nastavení zkosení.
+5. Uložte prezentaci.
 
-Níže je C++ kód, který ukazuje, jak aplikovat 3D cýlové efekty na tvar:
+Následující C++ kód ukazuje, jak aplikovat 3D zkosené efekty na tvar:
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -738,19 +739,19 @@ Výsledek:
 
 ![The 3D bevel effect](3D-bevel-effect.png)
 
-## **Přidání 3D otáčecích efektů**
+## **Přidání 3D rotačních efektů**
 
-Aspose.Slides umožňuje aplikovat 3D otáčecí efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/threedformat/).
+Aspose.Slides vám umožňuje aplikovat 3D rotační efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/).
 
-Pro aplikaci 3D otáčení na tvar:
+Postup pro aplikaci 3D rotace na tvar:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek objekt [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
-1. Použijte [set_CameraType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icamera/set_cameratype/) a [set_LightType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilightrig/set_lighttype/) pro definici 3D otáčení.
-1. Uložte prezentaci.
+1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+4. Pomocí [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) a [set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) definujte 3D rotaci.
+5. Uložte prezentaci.
 
-Níže je C++ kód, který ukazuje, jak aplikovat 3D otáčecí efekty na tvar:
+Následující C++ kód ukazuje, jak aplikovat 3D rotační efekty na tvar:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -794,11 +795,11 @@ Výsledek:
 
 ## **Řízení černobílého vykreslování pro tvary**
 
-Metoda [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/set_blackwhitemode/) určuje, jak je jednotlivý tvar vykreslen, když je prezentace zobrazována nebo zpracovávána v černobílém režimu. Neaktivuje černobílý režim sama o sobě a nemění výplň, čáru ani jiné formátování tvaru v normálním barevném režimu.
+Metoda [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) určuje, jak je jednotlivý tvar vykreslen, když je prezentace zobrazována nebo zpracovávána v černobílém režimu. Nezapíná černobílý režim samotný a nemění výplň, čáru ani jiné formátování tvaru v normálním barevném režimu.
 
-Použijte hodnotu z výčtu [BlackWhiteMode](https://reference.aspose.com/slides/cs/cpp/aspose.slides/blackwhitemode/) k výběru požadovaného chování. Například `Automatic` nechá aplikaci zvolit konverzi, `Gray` a `LightGray` používají šedé zbarvení, `BlackWhite` používá pouze černou a bílou, `Black` a `White` vynutí jedinou barvu, `Color` zachová normální barvu a `Hidden` v černobílém režimu tvar vynechá. `NotDefined` znamená, že nebyl přiřazen žádný režim na úrovni tvaru.
+Použijte hodnotu z výčtu [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) k výběru požadovaného chování. Například `Automatic` nechá aplikaci pro vykreslování zvolit konverzi, `Gray` a `LightGray` používají šedé zbarvení, `BlackWhite` používá jen černou a bílou, `Black` a `White` vynutí jednotnou barvu, `Color` zachová normální barvy a `Hidden` skryje tvar v černobílém režimu. `NotDefined` znamená, že není přiřazen žádný režim na úrovni tvaru.
 
-Níže je C++ kód, který vytvoří barevný tvar a způsobí, že se v černobílém zobrazení zobrazí jako šedý:
+Následující C++ kód vytvoří barevný tvar a způsobí, že se v černobílém zobrazení zobrazí šedě:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -825,18 +826,18 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 200
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 
-// Zachovejte oranžovou výplň v barevném režimu, ale vykreslete tvar se šedým zbarvením v černobílém režimu.
+// Udržte oranžovou výplň v barevném režimu, ale vykreslete tvar se šedým zbarvením v černobílém režimu.
 shape->set_BlackWhiteMode(BlackWhiteMode::Gray);
 
 presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-V normálním barevném režimu si obdélník zachová oranžovou výplň. V pracovním postupu černobílého zobrazení používá šedé zbarvení, protože jeho režim je nastaven na `Gray`. To vám umožní zachovat plnobarevný snímek a zároveň definovat odlišný vzhled pro tisk, náhled nebo jiné procesy, které respektují nastavení černobílého zobrazení prezentace.
+V normálním barevném režimu si obdélník uchovává oranžovou výplň. V pracovním postupu černobílého zobrazení používá šedé zbarvení, protože je jeho režim nastaven na `Gray`. To vám umožní uchovat snímek v plné barvě a zároveň definovat odlišný vzhled pro tisk, náhled nebo jiné pracovní postupy, které respektují nastavení černobílého zobrazení prezentace.
 
-## **Resetování formátování**
+## **Obnovení formátování**
 
-Níže je C++ kód, který ukazuje, jak resetovat formátování snímku a vrátit pozici, velikost a formátování všech tvarů se zástupci na [LayoutSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/layoutslide/) na jejich výchozí nastavení:
+Následující C++ kód ukazuje, jak obnovit formátování snímku a vrátit pozici, velikost a formátování všech tvarů se zástupci na [LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) na jejich výchozí nastavení:
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -853,7 +854,7 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 {
-    // Resetujte každý tvar na snímku, který má zástupce v rozložení.
+    // Resetujte každý tvar na snímku, který má zástupce v rozvržení.
     slide->Reset();
 }
 
@@ -863,14 +864,14 @@ presentation->Dispose();
 
 ## **Často kladené otázky**
 
-**Ovlivňuje formátování tvarů velikost výsledného souboru prezentace?**
+**Ovlivňuje formátování tvarů konečnou velikost souboru prezentace?**
 
-Pouze minimálně. Vložené obrázky a média zabírají většinu prostoru souboru, zatímco parametry tvarů jako barvy, efekty a gradienty jsou uloženy jako metadata a prakticky nepřidávají žádnou extra velikost.
+Pouze minimálně. Vložené obrázky a média zabírají většinu místa v souboru, zatímco parametry tvarů jako barvy, efekty a gradienty jsou uloženy jako metadata a prakticky nepřidávají žádnou další velikost.
 
 **Jak mohu detekovat tvary na snímku, které mají identické formátování, abych je mohl seskupit?**
 
-Porovnejte klíčové vlastnosti formátování každého tvaru – výplň, čáru a nastavení efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styl za identický a logicky je seskupte, což usnadní následnou správu stylů.
+Porovnejte u každého tvaru klíčové vlastnosti formátování – výplň, čáru a nastavení efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte; to usnadní následnou správu stylů.
 
-**Mohu uložit sadu vlastních stylů tvarů do samostatného souboru pro opakované použití v jiných prezentacích?**
+**Mohu uložit sadu vlastních stylů tvarů do samostatného souboru pro opětovné použití v jiných prezentacích?**
 
-Ano. Uložte vzorové tvary s požadovanými styly do šablony prezentace nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, naklonujte potřebné stylované tvary a znovu aplikujte jejich formátování tam, kde je to potřeba.
+Ano. Uložte ukázkové tvary s požadovanými styly do šablony prezentace nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, klonujte potřebné stylované tvary a znovu aplikujte jejich formátování tam, kde je potřeba.

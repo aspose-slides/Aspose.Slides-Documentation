@@ -1,5 +1,5 @@
 ---
-title: Konwertuj slajdy PowerPoint do PNG w .NET
+title: Konwertuj slajdy PowerPoint na PNG w .NET
 linktitle: PowerPoint do PNG
 type: docs
 weight: 30
@@ -22,95 +22,119 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konwertuj prezentacje PowerPoint do wysokiej jakości obrazów PNG szybko przy użyciu Aspose.Slides dla .NET, zapewniając precyzyjne, zautomatyzowane wyniki."
+description: "Szybko konwertuj prezentacje PowerPoint na wysokiej jakości obrazy PNG przy użyciu Aspose.Slides dla .NET, zapewniając precyzyjne, zautomatyzowane wyniki."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak konwertować prezentacje PowerPoint na obrazy PNG przy użyciu Aspose.Slides. Pokazuje, jak ładować pliki prezentacji w formatach takich jak PPT, PPTX i ODP, renderować slajdy jako obrazy oraz zapisywać wyniki w formacie PNG.
+Ten artykuł wyjaśnia, jak konwertować slajdy prezentacji na obrazy PNG przy użyciu Aspose.Slides for .NET. Można wczytywać prezentacje w formatach takich jak PPT, PPTX i ODP, renderować każdy slajd i zapisywać go jako osobny obraz PNG.
 
-Artykuł również demonstruje, jak dostosować wygenerowane obrazy PNG, ustawiając wartości skalowania lub określając żądaną szerokość i wysokość.
+Poniższe przykłady demonstrują renderowanie miniatur, ustawianie czynników skalowania, określanie wymiarów wyjściowych w pikselach oraz wybór stylu renderowania gradientu.
 
-## **Konwertuj PowerPoint do PNG**
+## **Konwertuj PowerPoint na PNG**
 
-Wykonaj następujące kroki:
+Załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) i uzyskaj dostęp do jej slajdów poprzez kolekcję [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). Przykład renderuje każdy slajd za pomocą [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) bez parametrów, aby utworzyć miniaturę. Następnie wywołuje [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) z [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), aby zapisać każdy wyrenderowany slajd jako obraz PNG.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-2. Pobierz obiekt slajdu z kolekcji [Presentation.Slides](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/properties/slides) przy użyciu interfejsu [ISlide](https://reference.aspose.com/slides/pl/net/aspose.slides/islide).
-3. Użyj metody [ISlide.GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/islide/getimage/), aby uzyskać miniaturkę każdego slajdu.
-4. Użyj metody [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.ipresentation/save/methods/5), aby zapisać miniaturkę slajdu w formacie PNG.
+```cs
+using Aspose.Slides;
 
-Ten kod w języku C# pokazuje, jak konwertować prezentację PowerPoint na PNG. Obiekt Presentation może wczytać pliki PPT, PPTX, ODP itp., a następnie każdy slajd w obiekcie Presentation jest konwertowany na format PNG lub inne formaty obrazów.
+using var presentation = new Presentation("presentation.pptx");
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage())
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage();
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
-## **Konwertuj PowerPoint do PNG z niestandardowymi wymiarami**
+{{% alert color="info" title="Note" %}}
+Przeciążenie [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) bez parametrów renderuje w skali 0,2. Na przykład slajd o wymiarach 720 × 540 punktów tworzy miniaturę o rozmiarze 144 × 108 pikseli. Aby kontrolować wymiary wyjściowe, użyj przeciążeń z czynnikami skalowania lub explicite określonego rozmiaru obrazu, jak pokazano poniżej.
+{{% /alert %}}
 
-Jeśli chcesz uzyskać pliki PNG o określonej skali, możesz ustawić wartości `desiredX` i `desiredY`, które określają wymiary wynikowej miniaturki.
+## **Konwertuj PowerPoint na PNG z własnymi wymiarami**
 
-Ten kod w języku C# demonstruje opisaną operację:
+Przekaż poziome i pionowe czynniki skalowania do [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) aby kontrolować wymiar renderowanego obrazu. W tym przykładzie oba czynniki wynoszą 2, więc slajd o wymiarach 720 × 540 punktów daje obraz 1440 × 1080 pikseli. Równe czynniki skalowania zachowują proporcje slajdu. Każdy obraz jest zapisywany w formacie PNG przy użyciu [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/).
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    float scaleX = 2f;
-    float scaleY = 2f;
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(scaleX, scaleY))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
-## **Konwertuj PowerPoint do PNG z niestandardowym rozmiarem**
+## **Konwertuj PowerPoint na PNG z własnym rozmiarem**
 
-Jeśli chcesz uzyskać pliki PNG o określonym rozmiarze, możesz przekazać wybrane argumenty `width` i `height` dla `imageSize`.
+Aby określić wymiary wyjściowe w pikselach, przekaż rozmiar do [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) zamiast czynników skalowania. Ten przykład renderuje każdy slajd w rozdzielczości 960 × 720 pikseli i zapisuje wynik przy użyciu [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Wybierz wymiary pasujące do proporcji slajdu, aby uniknąć rozciągania obrazu.
 
-Ten kod pokazuje, jak konwertować PowerPoint na PNG, określając rozmiar obrazów:
+```cs
+using System.Drawing;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("presentation.pptx");
+
+var imageSize = new Size(960, 720);
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    Size size = new Size(960, 720);
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(size))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(imageSize);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
+
+## **Wybierz styl renderowania gradientu**
+
+Załóżmy, że slajd zawiera wypełnienia gradientowe, ale przejścia w wyeksportowanym pliku PNG wyglądają jaśniej lub inaczej niż w PowerPoint. Można użyć właściwości [GradientStyle](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/gradientstyle/) klasy [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/), aby wybrać sposób renderowania gradientów.
+
+Pobierz [gradient-styles.pptx](gradient-styles.pptx) i umieść go w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera dwa gradienty liniowe: od cyjanu do pomarańczu u góry i od niebieskiego do żółci u dołu. Każdy gradient ma dwa przystanki, przy 0 % i 100 %.
+
+Poniższy przykład wczytuje tę prezentację i renderuje ten sam pierwszy slajd w obu trybach przy użyciu [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/).
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("gradient-styles.pptx");
+var slide = presentation.Slides[0];
+
+var gradientStyles = new[] { GradientStyle.Default, GradientStyle.PowerPointUI };
+foreach (var style in gradientStyles)
+{
+    var options = new RenderingOptions { GradientStyle = style };
+    using var image = slide.GetImage(options, 1f, 1f);
+    image.Save($"gradient-{style}.png", ImageFormat.Png);
+}
+```
+
+Poniższe obrazy pokazują wynik tego samego slajdu, z oboma gradientami w każdym obrazie:
+
+| Domyślny | PowerPointUI |
+| --- | --- |
+| ![Gradienty od cyjanu do pomarańczy i od niebieskiego do żółci renderowane w trybie Domyślny](gradient-Default.png) | ![Te same gradienty renderowane w trybie PowerPointUI](gradient-PowerPointUI.png) |
+
+W tym przykładzie `Default` generuje jaśniejsze kolory pośrednie, podczas gdy `PowerPointUI` generuje ciemniejsze kolory pośrednie. Różnica zależy od kolorów i przystanków w gradiencie.
+
+Wybierz `Default`, gdy standardowy wynik Aspose.Slides spełnia Twoje potrzeby. Wypróbuj `PowerPointUI`, gdy priorytetem jest dopasowanie wyglądu do PowerPoint. Porównaj oba wyniki z zamierzonym rezultatem; żaden tryb nie jest ogólnie lepszy.
 
 ## **FAQ**
 
-**Jak mogę wyeksportować tylko określony kształt (np. wykres lub obraz), a nie cały slajd?**
+**Jak mogę wyeksportować określony kształt, taki jak wykres lub obraz, zamiast całego slajdu?**  
+Aspose.Slides obsługuje [generowanie miniatur dla poszczególnych kształtów](/slides/pl/net/create-shape-thumbnails/), umożliwiając renderowanie kształtu jako obrazu PNG.
 
-Aspose.Slides obsługuje [generowanie miniatur dla pojedynczych kształtów](/slides/pl/net/create-shape-thumbnails/); możesz renderować kształt do obrazu PNG.
+**Czy konwersja równoległa jest obsługiwana na serwerze?**  
+Tak. Używaj osobnej instancji prezentacji dla każdego wątku lub procesu; [nie udostępniaj jednej instancji pomiędzy wątkami](/slides/pl/net/multithreading/).
 
-**Czy konwersja równoległa jest obsługiwana na serwerze?**
-
-Tak, ale [nie udostępniaj](/slides/pl/net/multithreading/) jednej instancji prezentacji w wielu wątkach. Użyj osobnej instancji dla każdego wątku lub procesu.
-
-**Jakie są ograniczenia wersji próbnej przy eksportowaniu do PNG?**
-
-Tryb oceny dodaje znak wodny do wyjściowych obrazów i narzuca [inne ograniczenia](/slides/pl/net/licensing/), dopóki nie zostanie zastosowana licencja.
+**Jakie są ograniczenia wersji ewaluacyjnej przy eksporcie do PNG?**  
+Tryb ewaluacyjny dodaje znak wodny do wyjściowych obrazów i stosuje [inne ograniczenia](/slides/pl/net/licensing/), dopóki nie zostanie zastosowana licencja.

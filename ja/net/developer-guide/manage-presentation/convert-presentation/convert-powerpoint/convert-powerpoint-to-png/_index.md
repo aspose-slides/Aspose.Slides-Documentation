@@ -1,5 +1,5 @@
 ---
-title: .NET で PowerPoint スライドを PNG に変換
+title: PowerPoint スライドを .NET で PNG に変換
 linktitle: PowerPoint を PNG に変換
 type: docs
 weight: 30
@@ -22,117 +22,120 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: Aspose.Slides for .NET を使用して、PowerPoint プレゼンテーションを高品質な PNG 画像に迅速に変換し、正確で自動化された結果を保証します。
+description: "Aspose.Slides for .NET を使用して、PowerPoint プレゼンテーションを高品質な PNG 画像に迅速に変換し、正確で自動化された結果を実現します。"
 ---
-
 ## **概要**
 
-この記事では、C# を使用して PowerPoint プレゼンテーションを PNG 形式に変換する方法を説明します。以下のトピックをカバーしています。
+この記事では、Aspose.Slides for .NET を使用してプレゼンテーション スライドを PNG 画像に変換する方法を説明します。PPT、PPTX、ODP などの形式のプレゼンテーションを読み込み、各スライドをレンダリングし、個別の PNG 画像として保存できます。
 
-- [C# で PowerPoint を PNG に変換](#convert-powerpoint-to-png)
-- [C# で PPT を PNG に変換](#convert-powerpoint-to-png)
-- [C# で PPTX を PNG に変換](#convert-powerpoint-to-png)
-- [C# で ODP を PNG に変換](#convert-powerpoint-to-png)
-- [C# で PowerPoint スライドを画像に変換](#convert-powerpoint-to-png)
-
-## **.NET での PowerPoint から PNG への変換**
-
-C# のサンプルコードで PowerPoint を PNG に変換する方法については、以下のセクション [PowerPoint を PNG に変換](#convert-powerpoint-to-png) を参照してください。コードは PPT、PPTX、ODP など複数の形式を Presentation オブジェクトで読み込み、スライドのサムネイルを PNG 形式で保存できます。他の類似した画像形式への変換（JPG、BMP、TIFF、SVG）については、以下の記事で解説しています。
-
-- [C# PowerPoint を JPG に変換](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint を BMP に変換](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint を TIFF に変換](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
-- [C# PowerPoint を SVG に変換](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
-
-## **PowerPoint を PNG に変換することについて**
-
-PNG（Portable Network Graphics）形式は JPEG（Joint Photographic Experts Group）ほど一般的ではありませんが、依然として非常に広く利用されています。
-
-**使用例:** 複雑な画像でサイズが問題とならない場合、PNG は JPEG よりも適した画像形式です。
-
-{{% alert title="Tip" color="primary" %}} Aspose の無料 **PowerPoint から PNG へのコンバータ** をチェックしてください: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) および [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png)。これらは本ページで説明したプロセスの実装例です。 {{% /alert %}}
+以下の例では、サムネイルのレンダリング、スケール係数の設定、出力サイズをピクセル単位で指定する方法、そしてグラデーションのレンダリング スタイルの選択方法を示します。
 
 ## **PowerPoint を PNG に変換**
 
-以下の手順を実行します:
+[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスでプレゼンテーションを読み込み、[Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) コレクションでスライドにアクセスします。例では、パラメータなしで [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) を呼び出してサムネイルを作成します。その後、[IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) に [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) を指定して、各レンダリングされたスライドを PNG 画像として保存します。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) インターフェイスを通じて、[Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) コレクションからスライド オブジェクトを取得します。
-3. 各スライドのサムネイルを取得するために、[ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) メソッドを使用します。
-4. スライドのサムネイルを PNG 形式で保存するために、[IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) メソッドを使用します。
+```cs
+using Aspose.Slides;
 
-この C# コードは、PowerPoint プレゼンテーションを PNG に変換する方法を示しています。Presentation オブジェクトは PPT、PPTX、ODP などを読み込み、プレゼンテーション内の各スライドを PNG 形式または他の画像形式に変換します。
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage())
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage();
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+パラメータなしの [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) オーバーロードはスケール 0.2 でレンダリングします。たとえば、720 × 540 ポイントのスライドは 144 × 108 ピクセルのサムネイルになります。出力サイズを制御するには、以下に示すスケール係数を使用したオーバーロードまたは明示的な画像サイズを使用してください。
+{{% /alert %}}
 
 ## **カスタム寸法で PowerPoint を PNG に変換**
 
-特定のスケールで PNG ファイルを取得したい場合は、`desiredX` と `desiredY` の値を設定します。これらは生成されるサムネイルの寸法を決定します。
+水平および垂直のスケール係数を [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) に渡してレンダリングサイズを制御します。この例では両方の係数が 2 となり、720 × 540 ポイントのスライドは 1440 × 1080 ピクセルの画像になります。等しいスケール係数はスライドのアスペクト比を維持します。各画像は [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) を使用して PNG 形式で保存されます。
 
-以下の C# コードは上記の操作を示しています:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    float scaleX = 2f;
-    float scaleY = 2f;
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(scaleX, scaleY))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
-
 
 ## **カスタムサイズで PowerPoint を PNG に変換**
 
-特定のサイズで PNG ファイルを取得したい場合は、`imageSize` に対して好みの `width` と `height` 引数を渡すことができます。
+ピクセル単位で出力サイズを指定するには、スケール係数の代わりにサイズを [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) に渡します。この例では、すべてのスライドを 960 × 720 ピクセルでレンダリングし、[IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) で結果を保存します。スライドのアスペクト比に合ったサイズを選択し、画像が伸びるのを防いでください。
 
-以下のコードは、画像サイズを指定しながら PowerPoint を PNG に変換する方法を示しています: 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var imageSize = new Size(960, 720);
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    Size size = new Size(960, 720);
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(size))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(imageSize);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+## **グラデーションのレンダリング スタイルを選択**
+
+スライドにグラデーション フィルが含まれているが、エクスポートされた PNG の遷移が PowerPoint で見えるものより明るくなる、または異なる場合があります。そのような場合は、[RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) の [GradientStyle](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/gradientstyle/) プロパティを使用して、グラデーションのレンダリング方法を選択できます。
+
+[gradient-styles.pptx](gradient-styles.pptx) をダウンロードしてアプリケーションの作業ディレクトリに配置します。最初のスライドには、上部がシアンからオレンジ、下部が青から黄への 2 つの線形グラデーションが含まれています。各グラデーションは 0% と 100% の 2 つのストップを持ちます。
+
+以下の例はこのプレゼンテーションを読み込み、[ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) を使用して同じ最初のスライドを両方のモードでレンダリングします。
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("gradient-styles.pptx");
+var slide = presentation.Slides[0];
+
+var gradientStyles = new[] { GradientStyle.Default, GradientStyle.PowerPointUI };
+foreach (var style in gradientStyles)
+{
+    var options = new RenderingOptions { GradientStyle = style };
+    using var image = slide.GetImage(options, 1f, 1f);
+    image.Save($"gradient-{style}.png", ImageFormat.Png);
+}
+```
+
+| デフォルト | PowerPointUI |
+| --- | --- |
+| ![デフォルトでレンダリングされたシアンからオレンジ、青から黄へのグラデーション](gradient-Default.png) | ![PowerPointUI でレンダリングされた同じグラデーション](gradient-PowerPointUI.png) |
+
+この例では、`Default` は中間色が明るくなり、`PowerPointUI` は中間色が暗くなります。違いはグラデーションの色とストップに依存します。
+
+標準の Aspose.Slides 出力が目的に合う場合は `Default` を選択してください。PowerPoint の外観と一致させることが優先事項の場合は `PowerPointUI` を試してください。両方の出力を目的の結果と比較し、どちらのモードも万能に優れているわけではありません。
 
 ## **FAQ**
 
-**特定のシェイプ（例: グラフや画像）だけをエクスポートしたい場合、スライド全体ではなくシェイプだけを PNG に出力できますか？**
+**スライド全体ではなく、チャートや画像などの特定のシェイプだけをエクスポートするにはどうすればよいですか？**
 
-Aspose.Slides は [個別シェイプのサムネイル生成](/slides/ja/net/create-shape-thumbnails/) をサポートしており、シェイプを PNG 画像としてレンダリングできます。
+Aspose.Slides は [個々のシェイプのサムネイル生成](/slides/ja/net/create-shape-thumbnails/) をサポートしており、シェイプを PNG 画像としてレンダリングできます。
 
-**サーバー上で並列変換はサポートされていますか？**
+**サーバー上での並列変換はサポートされていますか？**
 
-はい、ただしスレッド間で単一の Presentation インスタンスを共有しないでください。スレッドまたはプロセスごとに別々のインスタンスを使用します。([共有しない](/slides/ja/net/multithreading/))
+はい。スレッドまたはプロセスごとに個別のプレゼンテーション インスタンスを使用してください；[スレッド間で単一のインスタンスを共有しないでください](/slides/ja/net/multithreading/)。
 
-**PNG エクスポート時の評価版の制限は何ですか？**
+**PNG へのエクスポート時の評価版の制限は何ですか？**
 
-評価モードでは出力画像に透かしが追加され、ライセンスが適用されるまで [その他の制限](/slides/ja/net/licensing/) が適用されます。
+評価モードでは出力画像に透かしが追加され、[その他の制限](/slides/ja/net/licensing/) がライセンスが適用されるまで適用されます。

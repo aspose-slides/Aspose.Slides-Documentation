@@ -1,5 +1,5 @@
 ---
-title: Konvertera PowerPoint‑bilder till PNG i Python
+title: Konvertera PowerPoint-bilder till PNG i Python
 linktitle: PowerPoint till PNG
 type: docs
 weight: 30
@@ -22,22 +22,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Konvertera PowerPoint‑bilder till PNG‑bilder i Python via Java. Exportera PPT‑, PPTX‑ och ODP‑presentationer med anpassade skalor eller exakta bilddimensioner."
+description: "Konvertera PowerPoint-bilder till PNG-bilder i Python via Java. Exportera PPT, PPTX och ODP-presentationer med anpassade skalor eller exakta bilddimensioner."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du konverterar PowerPoint‑presentationer till PNG‑bilder med Aspose.Slides för Python via Java. Du kan läsa in PPT‑, PPTX‑ och ODP‑filer, rendera varje bild och spara den som en separat PNG‑bild.
+Denna artikel förklarar hur du konverterar presentationsbilder till PNG‑bilder med Aspose.Slides för Python via Java. Du kan läsa in presentationer i format som PPT, PPTX och ODP, rendera varje bild och spara den som en separat PNG‑bild.
 
-Exemplen visar också hur du styr utskriftsdimensionerna med skalningsfaktorer eller en exakt bredd och höjd. Varje exempel startar Java‑virtuell maskin om det behövs och frigör presentation‑ och bildresurser efter användning.
+Exemplen nedan visar rendering med standardskala, ökad skala, ange utskriftsdimensioner i pixlar och välja en gradientrenderingsstil.
 
 ## **Konvertera PowerPoint till PNG**
 
-1. Läs in inmatningsfilen med klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-2. Hämta bilderna med [Presentation.getSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getSlides).
-3. Rendera varje bild med [Slide.getImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/#getImage).
-4. Spara varje renderad bild med [ImageFormat.Png](https://reference.aspose.com/slides/sv/python-java/aspose.slides/imageformat/#Png) och frigör sedan dess resurser.
-
-Följande Python‑exempel exporterar alla bilder i deras standardstorlek:
+Läs in en presentation med klassen [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) och nå dess bilder via samlingen [Presentation.getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides). Exemplet renderar varje bild med [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) utan parametrar för att skapa en miniatyr. Det anropar sedan [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) med [ImageFormat.Png](https://reference.aspose.com/slides/python-java/aspose.slides/imageformat/#Png) för att spara varje renderad bild som en PNG‑fil.
 
 ```python
 import jpype
@@ -50,21 +45,23 @@ from asposeslides.api import ImageFormat, Presentation
 
 presentation = Presentation("presentation.pptx")
 try:
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage()
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage()
         try:
-            slide_image.save(f"slide_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
-## **Konvertera PowerPoint till PNG med anpassad skala**
+{{% alert color="info" title="Note" %}}
+Den parameterlösa overloadeden [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) renderar med en skala på 0.2. Till exempel ger en bild som mäter 720 × 540 punkter en miniatyr på 144 × 108 pixlar. För att kontrollera utskriftsdimensionerna, använd overloaded‑metoderna med skalfaktorer eller en explicit bildstorlek som visas nedan.
+{{% /alert %}}
 
-Skicka horisontella och vertikala skalningsfaktorer till [Slide.getImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/#getImage) för att öka eller minska utskriftsdimensionerna. Till exempel ger en 720 × 540‑punkts bild renderad med en skalningsfaktor på 2 på båda axlarna en 1440 × 1080‑pixel bild.
+## **Konvertera PowerPoint till PNG med anpassade dimensioner**
 
-Använd lika skalningsfaktorer för att bevara bildens bildförhållande. Olika faktorer sträcker bilden horisontellt eller vertikalt.
+Ange horisontella och vertikala skalfaktorer till [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) för att kontrollera de renderade dimensionerna. I detta exempel är båda faktorerna 2, så en bild som mäter 720 × 540 punkter ger en bild på 1440 × 1080 pixlar. Likadana skalfaktorer behåller bildens bildförhållande. Varje renderad bild sparas i PNG‑format.
 
 ```python
 import jpype
@@ -78,22 +75,21 @@ from asposeslides.api import ImageFormat, Presentation
 presentation = Presentation("presentation.pptx")
 try:
     scale_x = 2.0
-    scale_y = 2.0
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage(scale_x, scale_y)
+    scale_y = scale_x
+
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage(scale_x, scale_y)
         try:
-            slide_image.save(f"slide_scaled_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
 ## **Konvertera PowerPoint till PNG med anpassad storlek**
 
-För att ange exakta pixeldimensioner, skicka ett Java‑`Dimension`‑objekt med önskad bredd och höjd till [Slide.getImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/#getImage). Välj dimensioner med samma bildförhållande som källbilden för att undvika distorsion.
-
-Följande exempel sparar varje bild som en 960 × 720‑pixel PNG‑bild:
+För att ange utskriftsdimensioner i pixlar, skicka en storlek till [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) istället för skalfaktorer. Detta exempel renderar varje bild i 960 × 720 pixlar och sparar resultatet i PNG‑format. Välj dimensioner som matchar bildens bildförhållande för att undvika att bilden sträcks.
 
 ```python
 import jpype
@@ -108,26 +104,73 @@ from java.awt import Dimension
 presentation = Presentation("presentation.pptx")
 try:
     image_size = Dimension(960, 720)
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage(image_size)
+
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage(image_size)
         try:
-            slide_image.save(f"slide_sized_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Välj en gradientrenderingsstil**
 
-**Kan jag exportera en enskild form, till exempel ett diagram eller en bild, istället för hela bilden?**
+Anta att en bild innehåller gradientfyllningar, men övergångarna i den exporterade PNG‑filen ser ljusare eller på annat sätt annorlunda ut jämfört med vad du ser i PowerPoint. Du kan använda metoden [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setGradientStyle) som ärvts av [RenderingOptions](https://reference.aspose.com/slides/python-java/aspose.slides/renderingoptions/) för att välja hur gradienterna renderas.
 
-Ja. Aspose.Slides stöder [generating thumbnails for individual shapes](/slides/sv/python-java/create-shape-thumbnails/), som du kan spara som PNG‑bilder.
+Ladda ner [gradient-styles.pptx](gradient-styles.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller två linjära gradienter: cyan till orange högst upp och blå till gul längst ner. Varje gradient har två stopp, vid 0 % och 100 %.
 
-**Kan jag konvertera presentationer parallellt på en server?**
+Följande exempel läser in denna presentation och renderar den samma första bilden i båda lägena med [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage).
 
-Använd en separat presentation‑instans för varje tråd eller process, och använd unika utdata‑sökvägar för att förhindra att filer skrivs över. Dela inte en presentation‑instans mellan trådar. Se [Multithreading](/slides/sv/python-java/multithreading/).
+```python
+import jpype
+import asposeslides
 
-**Vilka begränsningar har provversionen när man exporterar till PNG?**
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-Utvärderingsläget lägger till ett vattenmärke på utdata‑bilder och tillämpar [other restrictions](/slides/sv/python-java/licensing/). Använd en licens för att ta bort dessa begränsningar.
+from asposeslides.api import GradientStyle, ImageFormat, Presentation, RenderingOptions
+
+presentation = Presentation("gradient-styles.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    gradient_styles = (GradientStyle.Default, GradientStyle.PowerPointUI)
+    for style in gradient_styles:
+        options = RenderingOptions()
+        options.setGradientStyle(style)
+
+        style_name = "Default" if style == GradientStyle.Default else "PowerPointUI"
+        image = slide.getImage(options, 1.0, 1.0)
+        try:
+            image.save(f"gradient-{style_name}.png", ImageFormat.Png)
+        finally:
+            image.dispose()
+finally:
+    presentation.dispose()
+```
+
+Bilderna nedan visar resultatet från samma bild, med båda gradienterna i varje bild:
+
+| Standard | PowerPointUI |
+| --- | --- |
+| ![Cyan-till-orange och blå-till-gul gradienter renderade med Standard](gradient-Default.png) | ![Samma gradienter renderade med PowerPointUI](gradient-PowerPointUI.png) |
+
+I detta exempel ger `Standard` ljusare mellanfärger, medan `PowerPointUI` ger mörkare mellanfärger. Skillnaden beror på färgerna och stoppen i gradienten.
+
+Välj `Standard` när den standardmässiga Aspose.Slides‑outputen passar dina behov. Prova `PowerPointUI` när din prioritet är att matcha utseendet i PowerPoint. Jämför båda resultaten med ditt önskade resultat; inget läge är generellt att föredra.
+
+## **Vanliga frågor**
+
+**Hur kan jag exportera en specifik form, till exempel ett diagram eller en bild, istället för hela bilden?**
+
+Aspose.Slides stöder [generering av miniatyrbilder för enskilda former](/slides/sv/python-java/create-shape-thumbnails/), vilket gör att du kan rendera en form som en PNG‑bild.
+
+**Stöds parallell konvertering på en server?**
+
+Ja. Använd ett separat presentations‑instans för varje tråd eller process; [dela inte en enda instans mellan trådar](/slides/sv/python-java/multithreading/).
+
+**Vilka är begränsningarna i evalueringsläget när du exporterar till PNG?**
+
+Evalueringsläget lägger till ett vattenmärke på utdatabilderna och tillämpar [andra begränsningar](/slides/sv/python-java/licensing/) tills en licens har tillämpats.

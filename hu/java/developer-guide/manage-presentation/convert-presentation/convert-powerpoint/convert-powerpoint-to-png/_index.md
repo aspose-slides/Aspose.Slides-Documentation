@@ -21,104 +21,149 @@ keywords:
 - PPTX exportálása PNG-be
 - Java
 - Aspose.Slides
-description: "PowerPoint előadásokat gyorsan konvertáljon magas minőségű PNG képekké az Aspose.Slides for Java használatával, biztosítva pontos, automatizált eredményeket."
+description: "Konvertálja a PowerPoint prezentációkat gyorsan magas minőségű PNG képekké az Aspose.Slides for Java segítségével, biztosítva a pontos, automatizált eredményeket."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan lehet a PowerPoint előadásokat PNG képekké konvertálni az Aspose.Slides segítségével. Bemutatja, hogyan lehet betölteni előadásfájlokat PPT, PPTX és ODP formátumban, megjeleníteni a diákot képekként, és elmenteni az eredményt PNG formátumban.
+Ez a cikk bemutatja, hogyan lehet a prezentációs diákra PNG képeket konvertálni az Aspose.Slides for Java segítségével. Betöltheti a prezentációkat PPT, PPTX és ODP formátumokban, renderelheti az egyes diát, és különálló PNG képként mentheti el.
 
-A cikk azt is bemutatja, hogyan lehet testreszabni a generált PNG képeket a skálázási értékek beállításával vagy a kívánt szélesség és magasság megadásával.
+Az alábbi példák az alapértelmezett méretezés szerinti renderelést, a méretezés növelését, a kimeneti méretek pixelben való megadását és a gradient renderelési stílus választását mutatják be.
 
 ## **PowerPoint konvertálása PNG-re**
 
-Kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) példányt.
-2. Szerezze meg a dia objektumot a [Presentation.getSlides()](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation#getSlides--) gyűjteményből az [ISlide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISlide) interfész alatt.
-3. Használja az [ISlide.getImage()](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISlide) metódust a dia bélyegképének lekéréséhez.
-4. Használja az [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) metódust a dia bélyegkép PNG formátumba történő mentéséhez.
-
-Ez a Java kód megmutatja, hogyan konvertál egy PowerPoint előadást PNG-re:
+Töltsön be egy prezentációt a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) osztály segítségével, és férjen hozzá a diákhoz a [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) gyűjteményen keresztül. A példa minden diát a [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) paraméter nélküli hívásával renderel egy bélyegképet. Ezután a [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) függvényt hívja a [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/#Png) formátummal, hogy minden renderelt diát PNG képként mentse.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **PowerPoint konvertálása PNG-re egyedi méretezéssel**
+{{% alert color="info" title="Note" %}}
+A paraméter nélküli [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) túlterhelés 0,2‑es skálán renderel. Például egy 720 × 540 pont méretű dia 144 × 108 pixel bélyegképet eredményez. A kimeneti méretek szabályozásához használja a skálafaktorokkal vagy a lenti példában látható explicit képmérettel ellátott túlterheléseket.
+{{% /alert %}}
 
-Ha PNG fájlokat szeretne egy bizonyos skála körül, beállíthatja a `desiredX` és `desiredY` értékeket, amelyek meghatározzák a létrejövő bélyegkép méreteit.
+## **PowerPoint konvertálása PNG-re egyéni méretekkel**
 
-Ez a Java kód demonstrálja a leírt műveletet:
+Adjon meg vízszintes és függőleges skálafaktorokat a [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-float-float-) metódusnak a renderelt méretek szabályozásához. Ebben a példában mindkét tényező 2, így egy 720 × 540 pont méretű dia 1440 × 1080 pixeles képet eredményez. Az egyenlő skálafaktorok megőrzik a dia képarányát. Minden képet PNG formátumban ment a [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-).
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **PowerPoint konvertálása PNG-re egyedi mérettel**
+## **PowerPoint konvertálása PNG-re egyéni mérettel**
 
-Ha PNG fájlokat egy bizonyos méret körül szeretne, megadhatja a kívánt `width` és `height` argumentumokat az `ImageSize` számára.
-
-Ez a kód megmutatja, hogyan konvertál egy PowerPoint előadást PNG-re, miközben megadja a képek méretét:
+A kimeneti méretek pixelben való megadásához a skálafaktorok helyett adjon át egy méretet a [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) metódusnak. Ez a példa minden diát 960 × 720 pixelben renderel, és az eredményt a [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) menti. Válasszon olyan méreteket, amelyek megegyeznek a dia képarányával, hogy elkerülje a kép nyújtását.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Dimension imageSize = new Dimension(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Gyakran ismételt kérdések**
+## **Gradient renderelési stílus kiválasztása**
 
-**Hogyan exportálhatok csak egy adott alakzatot (például diagramot vagy képet) az egész dia helyett?**
+Tegyük fel, hogy egy dián gradient kitöltések vannak, de a PNG-ben exportált átmenetek világosabbak vagy másként különböznek attól, amit a PowerPointban lát. A [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setGradientStyle-int-) metódust használhatja, amelyet a [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) örököl, a gradientek renderelésének módjának kiválasztásához.
 
-Az Aspose.Slides támogatja az [generating thumbnails for individual shapes](/slides/hu/java/create-shape-thumbnails/); így egy alakzatot PNG képre renderelhet.
+Töltse le a [gradient-styles.pptx](gradient-styles.pptx) fájlt, és helyezze az alkalmazás munkakönyvtárába. Első diája két lineáris gradientet tartalmaz: a tetején ciánból narancsba, az alján kékről sárgára. Minden gradientnek két állomása van, 0 % és 100 %.
 
-**Támogatott-e a párhuzamos konvertálás egy szerveren?**
+Az alábbi példa betölti ezt a prezentációt, és a [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) segítségével mindkét módban rendereli ugyanazt az első diát.
 
-Igen, de ne ossza meg egyetlen prezentációs példányt a szálak között. Használjon külön példányt szálanként vagy folyamatanként.
+```java
+import com.aspose.slides.*;
 
-**Mik a próba verzió korlátai PNG exportáláskor?**
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-Az értékelő mód vízjelet helyez az kimeneti képekre és egyéb korlátozásokat alkalmaz, amíg a licenc nincs aktiválva.
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Az alábbi képek ugyanazon dia kimenetét mutatják, mindkét gradient minden képen:
+
+| Alapértelmezett | PowerPointUI |
+| --- | --- |
+| ![Cianról narancsra és kékről sárgára gradientek, az Alapértelmezett móddal renderelve](gradient-Default.png) | ![Ugyanazok a gradientek, a PowerPointUI-val renderelve](gradient-PowerPointUI.png) |
+
+Ebben a példában a `Default` világosabb köztes színeket eredményez, míg a `PowerPointUI` sötétebb köztes színeket. A különbség a gradient színeitől és állomásaitól függ.
+
+Válassza a `Default`-ot, ha a standard Aspose.Slides kimenet megfelel az igényeinek. Próbálja ki a `PowerPointUI`-t, ha az elsődleges cél a PowerPoint megjelenésének egyezése. Hasonlítsa össze mindkét kimenetet a kívánt eredménnyel; egyik mód sem tekinthető általánosan előnyösebbnek.
+
+## **GYIK**
+
+**Hogyan exportálhatok egy konkrét alakzatot, például diagramot vagy képet, a teljes dia helyett?**
+
+Az Aspose.Slides támogatja az [egyedi alakzatok bélyegképeinek létrehozását](/slides/hu/java/create-shape-thumbnails/), lehetővé téve egy alakzat PNG képként való renderelését.
+
+**Támogatott a párhuzamos konvertálás szerveren?**
+
+Igen. Használjon külön prezentációs példányt minden szál vagy folyamat számára; [ne osszon meg egyetlen példányt a szálak között](/slides/hu/java/multithreading/).
+
+**Mik a kiértékelési korlátozások PNG exportálásakor?**
+
+A kiértékelési mód vízjelet helyez a kimeneti képekre, és [egyéb korlátozásokat](/slides/hu/java/licensing/) alkalmaz, amíg licencet nem adnak meg.

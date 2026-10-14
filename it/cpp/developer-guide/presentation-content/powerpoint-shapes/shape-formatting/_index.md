@@ -1,6 +1,6 @@
 ---
-title: Formattare forme PowerPoint in C++
-linktitle: Formattazione forme
+title: Formattare le forme PowerPoint in C++
+linktitle: Formattazione delle forme
 type: docs
 weight: 20
 url: /it/cpp/shape-formatting/
@@ -8,13 +8,13 @@ keywords:
 - formattare forma
 - formattare linea
 - effetto schizzo
-- linea forma schizzo
-- formattare stile di giunzione
+- linea forma a schizzo
+- formattare stile di unione
 - riempimento gradiente
-- riempimento a motivo
+- riempimento a trama
 - riempimento immagine
-- riempimento trama
-- riempimento a tinta unita
+- riempimento texture
+- riempimento colore solido
 - trasparenza forma
 - rendering forma in bianco e nero
 - rendering forma in scala di grigi
@@ -26,30 +26,30 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Scopri come formattare le forme PowerPoint in C++ usando Aspose.Slides—imposta stili di riempimento, linea ed effetto per file PPT, PPTX e ODP con precisione e pieno controllo."
+description: "Scopri come formattare le forme PowerPoint in C++ utilizzando Aspose.Slides—imposta stili di riempimento, linea ed effetto per i file PPT, PPTX e ODP con precisione e controllo totale."
 ---
 ## **Introduzione**
 
-In PowerPoint, è possibile aggiungere forme alle diapositive. Poiché le forme sono composte da linee, è possibile formattarle modificando o applicando effetti ai loro contorni. Inoltre, è possibile formattare le forme specificando impostazioni che controllano come vengono riempiti i loro interni.
+In PowerPoint, you can add shapes to slides. Since shapes are made up of lines, you can format them by modifying or applying effects to their outlines. Additionally, you can format shapes by specifying settings that control how their interiors are filled.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides per C++ fornisce interfacce e metodi che consentono di formattare le forme utilizzando le stesse opzioni disponibili in PowerPoint.
+Aspose.Slides for C++ provides interfaces and methods that allow you to format shapes using the same options available in PowerPoint.
 
 ## **Formattare le linee**
 
-Utilizzando Aspose.Slides, è possibile specificare uno stile di linea personalizzato per una forma. I passaggi seguenti descrivono la procedura:
+Using Aspose.Slides, you can specify a custom line style for a shape. The following steps outline the procedure:
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per indice.
-1. Aggiungere un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) alla diapositiva.
-1. Impostare lo [stile di linea](https://reference.aspose.com/slides/it/cpp/aspose.slides/linestyle/) della forma.
-1. Impostare lo spessore della linea.
-1. Impostare lo [stile tratteggiato](https://reference.aspose.com/slides/it/cpp/aspose.slides/linedashstyle/) della linea.
-1. Impostare il colore della linea per la forma.
-1. Salvare la presentazione modificata come file PPTX.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the [line style](https://reference.aspose.com/slides/cpp/aspose.slides/linestyle/) of the shape.
+1. Set the line width.
+1. Set the [dash style](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) of the line.
+1. Set the line color for the shape.
+1. Save the modified presentation as a PPTX file.
 
-Il codice seguente dimostra come formattare un `AutoShape` rettangolare:
+The following code demonstrates how to format a rectangle `AutoShape`:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -72,41 +72,41 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Instanzia la classe Presentation che rappresenta un file di presentazione.
+// Istanziare la classe Presentation che rappresenta un file di presentazione.
 auto presentation = MakeObject<Presentation>();
 
-// Ottieni la prima diapositiva.
+// Ottenere la prima diapositiva.
 auto slide = presentation->get_Slide(0);
 
-// Aggiungi una forma automatica di tipo Rettangolo.
+// Aggiungere una forma automatica di tipo Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-// Imposta il colore di riempimento per la forma rettangolo.
+// Impostare il colore di riempimento per la forma rettangolare.
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// Applica la formattazione alle linee del rettangolo.
+// Applicare la formattazione alle linee del rettangolo.
 shape->get_LineFormat()->set_Style(LineStyle::ThickThin);
 shape->get_LineFormat()->set_Width(7);
 shape->get_LineFormat()->set_DashStyle(LineDashStyle::Dash);
 
-// Imposta il colore per la linea del rettangolo.
+// Impostare il colore per la linea del rettangolo.
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Salva il file PPTX su disco.
+// Salvare il file PPTX su disco.
 presentation->Save(u"formatted_lines.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il risultato:
+The result:
 
 ![Le linee formattate nella presentazione](formatted-lines.png)
 
-## **Applicare effetti sketch alle linee della forma**
+## **Applicare effetti di schizzi alle linee della forma**
 
-Un effetto sketch rende la linea di una forma simile a un disegno a mano libera. Utilizzare [IShape::get_LineFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_lineformat/) per accedere alle impostazioni della linea, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilineformat/get_sketchformat/) per accedere alle impostazioni dello sketch e [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/it/cpp/aspose.slides/isketchformat/set_sketchtype/) per selezionare un valore dall'enumerazione [LineSketchType](https://reference.aspose.com/slides/it/cpp/aspose.slides/linesketchtype/).
+A sketch effect makes a shape line look hand-drawn. Use [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) to access the line settings, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) to access the sketch settings, and [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) enumeration.
 
-Il codice C++ seguente mostra come applicare l'effetto [LineSketchType::Curved](https://reference.aspose.com/slides/it/cpp/aspose.slides/linesketchtype/), leggere il valore assegnato esplicitamente e rimuovere l'effetto con [LineSketchType::None](https://reference.aspose.com/slides/it/cpp/aspose.slides/linesketchtype/):
+The following C++ code shows how to apply a [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -130,7 +130,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-Il valore restituito da [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/it/cpp/aspose.slides/isketchformat/get_sketchtype/) rappresenta l'impostazione assegnata direttamente alla forma. Se la formattazione della linea può essere ereditata da un tema, da una diapositiva master o da una diapositiva layout, utilizzare [ILineFormat::GetEffective](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilineformat/geteffective/), accedere a [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) e leggere [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/it/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Il valore effettivo riflette la formattazione effettivamente applicata dopo la risoluzione dell'ereditarietà:
+The value returned by [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), access [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), and read [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). The effective value reflects the formatting that is actually applied after inheritance is resolved:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"presentation.pptx");
@@ -148,19 +148,19 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **Formattare gli stili di giunzione**
+## **Formattare gli stili di unione**
 
-Ecco le tre opzioni di tipo di giunzione:
+Here are the three join type options:
 
 * Round
 * Miter
 * Bevel
 
-Per impostazione predefinita, quando PowerPoint unisce due linee a un angolo (ad esempio all'angolo di una forma), utilizza l'impostazione **Round**. Tuttavia, se si disegna una forma con angoli affilati, potrebbe essere preferita l'opzione **Miter**.
+By default, when PowerPoint joins two lines at an angle (such as at a shape’s corner), it uses the **Round** setting. However, if you're drawing a shape with sharp angles, you may prefer the **Miter** option.
 
-![Lo stile di giunzione nella presentazione](join-style-powerpoint.png)
+![Lo stile di unione nella presentazione](join-style-powerpoint.png)
 
-Il codice C++ seguente dimostra come sono stati creati tre rettangoli (come mostrato nell'immagine sopra) utilizzando le impostazioni di tipo di giunzione Miter, Bevel e Round:
+The following C++ code demonstrates how three rectangles (as shown in the image above) were created using the Miter, Bevel, and Round join type settings:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -183,18 +183,18 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istanziare la classe Presentation che rappresenta un file di presentazione.
 auto presentation = MakeObject<Presentation>();
 
-// Ottieni la prima diapositiva.
+// Ottenere la prima diapositiva.
 auto slide = presentation->get_Slide(0);
 
-// Aggiungi tre forme automatiche di tipo Rettangolo.
+// Aggiungere tre forme automatiche di tipo Rectangle.
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
 auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
 auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-// Imposta il colore di riempimento per ogni forma rettangolare.
+// Impostare il colore di riempimento per ciascuna forma rettangolare.
 shape1->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape2->get_FillFormat()->set_FillType(FillType::Solid);
@@ -202,12 +202,12 @@ shape2->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape3->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// Imposta lo spessore della linea.
+// Impostare la larghezza della linea.
 shape1->get_LineFormat()->set_Width(15);
 shape2->get_LineFormat()->set_Width(15);
 shape3->get_LineFormat()->set_Width(15);
 
-// Imposta il colore per la linea di ogni rettangolo.
+// Impostare il colore per la linea di ciascun rettangolo.
 shape1->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 shape2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -215,35 +215,35 @@ shape2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Colo
 shape3->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Imposta lo stile di giunzione.
+// Impostare lo stile di unione.
 shape1->get_LineFormat()->set_JoinStyle(LineJoinStyle::Miter);
 shape2->get_LineFormat()->set_JoinStyle(LineJoinStyle::Bevel);
 shape3->get_LineFormat()->set_JoinStyle(LineJoinStyle::Round);
 
-// Aggiungi testo a ogni rettangolo.
+// Aggiungere testo a ciascun rettangolo.
 shape1->get_TextFrame()->set_Text(u"Miter Join Style");
 shape2->get_TextFrame()->set_Text(u"Bevel Join Style");
 shape3->get_TextFrame()->set_Text(u"Round Join Style");
 
-// Salva il file PPTX su disco.
+// Salvare il file PPTX su disco.
 presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Riempimento gradiente**
+## **Riempimento a gradiente**
 
-In PowerPoint, il Riempimento gradiente è un'opzione di formattazione che consente di applicare una sfumatura continua di colori a una forma. Ad esempio, è possibile applicare due o più colori in modo che uno sfumi gradualmente nell'altro.
+In PowerPoint, Gradient Fill is a formatting option that allows you to apply a continuous blend of colors to a shape. For example, you can apply two or more colors in a way that one gradually fades into another.
 
-Ecco come applicare un riempimento gradiente a una forma usando Aspose.Slides:
+Here’s how to apply a gradient fill to a shape using Aspose.Slides:
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per indice.
-1. Aggiungere un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) alla diapositiva.
-1. Impostare il [FillType](https://reference.aspose.com/slides/it/cpp/aspose.slides/filltype/) della forma su `Gradient`.
-1. Aggiungere i due colori preferiti con posizioni definite usando i metodi `Add` della raccolta di stop del gradiente esposta dall'interfaccia [IGradientFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/igradientformat/).
-1. Salvare la presentazione modificata come file PPTX.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Gradient`.
+1. Add your two preferred colors with defined positions using the `Add` methods of the gradient stop collection exposed by the [IGradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/) interface.
+1. Save the modified presentation as a PPTX file.
 
-Il codice C++ seguente dimostra come applicare un effetto di riempimento gradiente a un'ellisse:
+The following C++ code demonstrates how to apply a gradient fill effect to an ellipse:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -264,53 +264,55 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istanziare la classe Presentation che rappresenta un file di presentazione.
 auto presentation = MakeObject<Presentation>();
 
-// Ottieni la prima diapositiva.
+// Ottenere la prima diapositiva.
 auto slide = presentation->get_Slide(0);
 
-// Aggiungi una forma automatica di tipo Ellisse.
+// Aggiungere una forma automatica di tipo Ellipse.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-// Applica la formattazione a gradiente all'ellisse.
+// Applicare la formattazione a gradiente all'ellisse.
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
 shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
 
-// Imposta la direzione del gradiente.
+// Impostare la direzione del gradiente.
 shape->get_FillFormat()->get_GradientFormat()->set_GradientDirection(GradientDirection::FromCorner2);
 
-// Aggiungi due fermate del gradiente.
+// Aggiungere due fermate del gradiente.
 shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(1.0f, PresetColor::Purple);
 shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, PresetColor::Red);
 
-// Salva il file PPTX su disco.
+// Salvare il file PPTX su disco.
 presentation->Save(u"gradient_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il risultato:
+The result:
 
-![L'ellisse con riempimento gradiente](gradient-fill.png)
+![L'ellisse con riempimento a gradiente](gradient-fill.png)
 
-## **Riempimento a motivo**
+If a gradient looks different in an exported image than it does in PowerPoint, see [Scegli uno stile di rendering del gradiente](/slides/it/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
 
-In PowerPoint, il Riempimento a motivo è un'opzione di formattazione che consente di applicare un disegno bicolore — ad esempio punti, strisce, tratteggi incrociati o quadretti — a una forma. È possibile scegliere colori personalizzati per il primo piano e lo sfondo del motivo.
+## **Riempimento a trama**
 
-Aspose.Slides fornisce oltre 45 stili di motivo predefiniti che è possibile applicare alle forme per migliorare l'aspetto visivo delle presentazioni. Anche dopo aver selezionato un motivo predefinito, è ancora possibile specificare i colori esatti da utilizzare.
+In PowerPoint, Pattern Fill is a formatting option that lets you apply a two-color design—such as dots, stripes, crosshatches, or checks—to a shape. You can choose custom colors for the pattern’s foreground and background.
 
-Ecco come applicare un riempimento a motivo a una forma usando Aspose.Slides:
+Aspose.Slides provides over 45 predefined pattern styles that you can apply to shapes to enhance the visual appeal of your presentations. Even after selecting a predefined pattern, you can still specify the exact colors it should use.
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per indice.
-1. Aggiungere un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) alla diapositiva.
-1. Impostare il [FillType](https://reference.aspose.com/slides/it/cpp/aspose.slides/filltype/) della forma su `Pattern`.
-1. Scegliere uno stile di motivo dalle opzioni predefinite.
-1. Impostare il [Background Color](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipatternformat/get_backcolor/) del motivo.
-1. Impostare il [Foreground Color](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipatternformat/get_forecolor/) del motivo.
-1. Salvare la presentazione modificata come file PPTX.
+Here's how to apply a pattern fill to a shape using Aspose.Slides:
 
-Il codice C++ seguente dimostra come applicare un riempimento a motivo a un rettangolo:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Pattern`.
+1. Choose a pattern style from the predefined options.
+1. Set the [Background Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) of the pattern.
+1. Set the [Foreground Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) of the pattern.
+1. Save the modified presentation as a PPTX file.
+
+The following C++ code demonstrates how to apply a pattern fill to a rectangle:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -331,54 +333,54 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istanziare la classe Presentation che rappresenta un file di presentazione.
 auto presentation = MakeObject<Presentation>();
 
-// Ottieni la prima diapositiva.
+// Ottenere la prima diapositiva.
 auto slide = presentation->get_Slide(0);
 
-// Aggiungi una forma automatica di tipo Rectangle.
+// Aggiungere una forma automatica di tipo Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Imposta il tipo di riempimento su Pattern.
+// Impostare il tipo di riempimento su Pattern.
 shape->get_FillFormat()->set_FillType(FillType::Pattern);
 
-// Imposta lo stile del motivo.
+// Impostare lo stile del pattern.
 shape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
 
-// Imposta i colori di sfondo e di primo piano del motivo.
+// Impostare i colori di sfondo e di primo piano del pattern.
 shape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_LightGray());
 shape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
 
-// Salva il file PPTX su disco.
+// Salvare il file PPTX su disco.
 presentation->Save(u"pattern_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il risultato:
+The result:
 
-![Il rettangolo con riempimento a motivo](pattern-fill.png)
+![Il rettangolo con riempimento a trama](pattern-fill.png)
 
-## **Riempimento immagine**
+## **Riempimento con immagine**
 
-In PowerPoint, il Riempimento immagine è un'opzione di formattazione che consente di inserire un'immagine all'interno di una forma, utilizzandola effettivamente come sfondo della forma.
+In PowerPoint, Picture Fill is a formatting option that allows you to insert an image inside a shape—effectively using the image as the shape's background.
 
-Ecco come utilizzare Aspose.Slides per applicare un riempimento immagine a una forma:
+Here’s how to use Aspose.Slides to apply a picture fill to a shape:
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per indice.
-1. Aggiungere un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) alla diapositiva.
-1. Impostare il [FillType](https://reference.aspose.com/slides/it/cpp/aspose.slides/filltype/) della forma su `Picture`.
-1. Impostare la modalità di riempimento immagine su `Tile` (o un'altra modalità preferita).
-1. Creare un oggetto [IPPImage](https://reference.aspose.com/slides/it/cpp/aspose.slides/ippimage/) dall'immagine da utilizzare.
-1. Passare l'immagine al metodo `ISlidesPicture.set_Image`.
-1. Salvare la presentazione modificata come file PPTX.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Picture`.
+1. Set the picture fill mode to `Tile` (or another preferred mode).
+1. Create an [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) object from the image you want to use.
+1. Pass the image to the `ISlidesPicture.set_Image` method.
+1. Save the modified presentation as a PPTX file.
 
-Supponiamo di avere un file "lotus.png" con l'immagine seguente:
+Let's say we have a "lotus.png" file with the following picture:
 
-![L'immagine del loto](lotus.png)
+![The lotus picture](lotus.png)
 
-Il codice C++ seguente dimostra come riempire una forma con l'immagine:
+The following C++ code demonstrates how to fill a shape with the picture:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -400,51 +402,51 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istanziare la classe Presentation che rappresenta un file di presentazione.
 auto presentation = MakeObject<Presentation>();
 
-// Ottieni la prima diapositiva.
+// Ottenere la prima diapositiva.
 auto slide = presentation->get_Slide(0);
 
-// Aggiungi una forma automatica di tipo Rectangle.
+// Aggiungere una forma automatica di tipo Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-// Imposta il tipo di riempimento su Picture.
+// Impostare il tipo di riempimento su Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Imposta la modalità di riempimento immagine.
+// Impostare la modalità di riempimento immagine.
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
-// Carica un'immagine e aggiungila alle risorse della presentazione.
+// Caricare un'immagine e aggiungerla alle risorse della presentazione.
 auto image = Images::FromFile(u"lotus.png");
 auto picture = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
-// Imposta l'immagine.
+// Impostare l'immagine.
 shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(picture);
 
-// Salva il file PPTX su disco.
+// Salvare il file PPTX su disco.
 presentation->Save(u"picture_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il risultato:
+The result:
 
 ![La forma con riempimento immagine](picture-fill.png)
 
-### **Affiancare immagine come trama**
+### **Tile Picture As Texture**
 
-Se si desidera impostare un'immagine affiancata come trama e personalizzare il comportamento del mosaico, è possibile utilizzare i seguenti metodi dell'interfaccia [IPictureFillFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipicturefillformat/) e della classe [PictureFillFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/picturefillformat/):
+If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following methods of the [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) class:
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Imposta la modalità di riempimento immagine — `Tile` o `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Specifica l'allineamento delle tessere all'interno della forma.
-- [set_TileFlip](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Controlla se la tessera è capovolta orizzontalmente, verticalmente o in entrambi i sensi.
-- [set_TileOffsetX](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Imposta lo spostamento orizzontale della tessera (in punti) dall'origine della forma.
-- [set_TileOffsetY](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Imposta lo spostamento verticale della tessera (in punti) dall'origine della forma.
-- [set_TileScaleX](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Definisce la scala orizzontale della tessera in percentuale.
-- [set_TileScaleY](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Definisce la scala verticale della tessera in percentuale.
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Imposta la modalità di riempimento immagine—`Tile` o `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Specifica l'allineamento delle tessere all'interno della forma.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Controlla se la tessera è capovolta orizzontalmente, verticalmente o entrambe.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Imposta lo spostamento orizzontale della tessera (in punti) dall'origine della forma.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Imposta lo spostamento verticale della tessera (in punti) dall'origine della forma.
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Definisce la scala orizzontale della tessera come percentuale.
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Definisce la scala verticale della tessera come percentuale.
 
-Il seguente esempio di codice mostra come aggiungere una forma rettangolare con riempimento immagine affiancato e configurare le opzioni del mosaico:
+The following code sample shows how to add a rectangle shape with a tiled picture fill and configure tile options:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -468,28 +470,28 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istanziare la classe Presentation che rappresenta un file di presentazione.
 auto presentation = MakeObject<Presentation>();
 
-// Ottieni la prima diapositiva.
+// Ottenere la prima diapositiva.
 auto firstSlide = presentation->get_Slide(0);
 
-// Aggiungi una forma automatica di tipo rettangolo.
+// Aggiungere una forma automatica rettangolare.
 auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-// Imposta il tipo di riempimento della forma su Picture.
+// Impostare il tipo di riempimento della forma su Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Carica l'immagine e aggiungila alle risorse della presentazione.
+// Caricare l'immagine e aggiungerla alle risorse della presentazione.
 auto sourceImage = Images::FromFile(u"lotus.png");
 auto presentationImage = presentation->get_Images()->AddImage(sourceImage);
 sourceImage->Dispose();
 
-// Assegna l'immagine alla forma.
+// Assegnare l'immagine alla forma.
 auto pictureFillFormat = shape->get_FillFormat()->get_PictureFillFormat();
 pictureFillFormat->get_Picture()->set_Image(presentationImage);
 
-// Configura la modalità di riempimento immagine e le proprietà di mosaico.
+// Configurare la modalità di riempimento immagine e le proprietà di tassellazione.
 pictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
 pictureFillFormat->set_TileOffsetX(-32);
 pictureFillFormat->set_TileOffsetY(-32);
@@ -498,29 +500,29 @@ pictureFillFormat->set_TileScaleY(50);
 pictureFillFormat->set_TileAlignment(RectangleAlignment::BottomRight);
 pictureFillFormat->set_TileFlip(TileFlip::FlipBoth);
 
-// Salva il file PPTX su disco.
+// Salvare il file PPTX su disco.
 presentation->Save(u"tile.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il risultato:
+The result:
 
-![Le opzioni del mosaico](tile-options.png)
+![Le opzioni di tassellatura](tile-options.png)
 
-## **Riempimento a tinta unita**
+## **Riempimento a colore solido**
 
-In PowerPoint, il Riempimento a tinta unita è un'opzione di formattazione che riempie una forma con un unico colore uniforme. Questo colore di sfondo piatto viene applicato senza sfumature, trame o motivi.
+In PowerPoint, Solid Color Fill is a formatting option that fills a shape with a single, uniform color. This plain background color is applied without any gradients, textures, or patterns.
 
-Per applicare un riempimento a tinta unita a una forma usando Aspose.Slides, seguire questi passaggi:
+To apply a solid color fill to a shape using Aspose.Slides, follow these steps:
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per indice.
-1. Aggiungere un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) alla diapositiva.
-1. Impostare il [FillType](https://reference.aspose.com/slides/it/cpp/aspose.slides/filltype/) della forma su `Solid`.
-1. Assegnare il colore di riempimento desiderato alla forma.
-1. Salvare la presentazione modificata come file PPTX.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Solid`.
+1. Assign your preferred fill color to the shape.
+1. Save the modified presentation as a PPTX file.
 
-Il codice C++ seguente dimostra come applicare un riempimento a tinta unita a un rettangolo in una diapositiva PowerPoint:
+The following C++ code demonstrates how to apply a solid color fill to a rectangle in a PowerPoint slide:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -539,44 +541,44 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istanziare la classe Presentation che rappresenta un file di presentazione.
 auto presentation = MakeObject<Presentation>();
 
-// Ottieni la prima diapositiva.
+// Ottenere la prima diapositiva.
 auto slide = presentation->get_Slide(0);
 
-// Aggiungi una forma automatica di tipo Rectangle.
+// Aggiungere una forma automatica di tipo Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Imposta il tipo di riempimento su Solid.
+// Impostare il tipo di riempimento su Solid.
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 
-// Imposta il colore di riempimento.
+// Impostare il colore di riempimento.
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
 
-// Salva il file PPTX su disco.
+// Salvare il file PPTX su disco.
 presentation->Save(u"solid_color_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il risultato:
+The result:
 
-![La forma con riempimento a tinta unita](solid-color-fill.png)
+![La forma con riempimento a colore solido](solid-color-fill.png)
 
 ## **Impostare la trasparenza**
 
-In PowerPoint, quando si applica un riempimento solido, gradiente, immagine o trama a forme, è possibile impostare anche un livello di trasparenza per controllare l'opacità del riempimento. Un valore di trasparenza più alto rende la forma più trasparente, consentendo allo sfondo o agli oggetti sottostanti di essere parzialmente visibili.
+In PowerPoint, when you apply a solid color, gradient, picture, or texture fill to shapes, you can also set a transparency level to control the opacity of the fill. A higher transparency value makes the shape more see-through, allowing the background or underlying objects to be partially visible.
 
-Aspose.Slides consente di impostare il livello di trasparenza modificando il valore alpha nel colore usato per il riempimento. Ecco come fare:
+Aspose.Slides lets you set the transparency level by adjusting the alpha value in the color used for the fill. Here’s how to do it:
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per indice.
-1. Aggiungere un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) alla diapositiva.
-1. Impostare il [FillType](https://reference.aspose.com/slides/it/cpp/aspose.slides/filltype/) su `Solid`.
-1. Usare `Color` per definire un colore con trasparenza (il componente `alpha` controlla la trasparenza).
-1. Salvare la presentazione.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Solid`.
+1. Use `Color` to define a color with transparency (the `alpha` component controls transparency).
+1. Save the presentation.
 
-Il codice C++ seguente dimostra come applicare un colore di riempimento trasparente a un rettangolo:
+The following C++ code demonstrates how to apply a transparent fill color to a rectangle:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -595,42 +597,42 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istanziare la classe Presentation che rappresenta un file di presentazione.
 auto presentation = MakeObject<Presentation>();
 
-// Ottieni la prima diapositiva.
+// Ottenere la prima diapositiva.
 auto slide = presentation->get_Slide(0);
 
-// Aggiungi una forma automatica rettangolare solida.
+// Aggiungere una forma automatica rettangolare solida.
 auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Aggiungi una forma automatica rettangolare trasparente sopra la forma solida.
+// Aggiungere una forma automatica rettangolare trasparente sopra la forma solida.
 auto transparentShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
 transparentShape->get_FillFormat()->set_FillType(FillType::Solid);
 transparentShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(204, 255, 255, 0));
 
-// Salva il file PPTX su disco.
+// Salvare il file PPTX su disco.
 presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il risultato:
+The result:
 
 ![La forma trasparente](shape-transparency.png)
 
 ## **Ruotare le forme**
 
-Aspose.Slides consente di ruotare le forme nelle presentazioni PowerPoint. Questo può essere utile quando si posizionano elementi visivi con requisiti specifici di allineamento o design.
+Aspose.Slides lets you rotate shapes in PowerPoint presentations. This can be useful when positioning visual elements with specific alignment or design needs.
 
-Per ruotare una forma su una diapositiva, seguire questi passaggi:
+To rotate a shape on a slide, follow these steps:
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per indice.
-1. Aggiungere un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) alla diapositiva.
-1. Impostare la proprietà di rotazione della forma sull'angolo desiderato.
-1. Salvare la presentazione.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s rotation property to the desired angle.
+1. Save the presentation.
 
-Il codice C++ seguente dimostra come ruotare una forma di 5 gradi:
+The following C++ code demonstrates how to rotate a shape by 5 degrees:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -644,40 +646,40 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istanziare la classe Presentation che rappresenta un file di presentazione.
 auto presentation = MakeObject<Presentation>();
 
-// Ottieni la prima diapositiva.
+// Ottenere la prima diapositiva.
 auto slide = presentation->get_Slide(0);
 
-// Aggiungi una forma automatica di tipo Rectangle.
+// Aggiungere una forma automatica di tipo Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Ruota la forma di 5 gradi.
+// Ruotare la forma di 5 gradi.
 shape->set_Rotation(5);
 
-// Salva il file PPTX su disco.
+// Salvare il file PPTX su disco.
 presentation->Save(u"shape_rotation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il risultato:
+The result:
 
 ![La rotazione della forma](shape-rotation.png)
 
 ## **Aggiungere effetti di smusso 3D**
 
-Aspose.Slides consente di applicare effetti di smusso 3D alle forme configurando le proprietà del loro [ThreeDFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/threedformat/).
+Aspose.Slides allows you to apply 3D bevel effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) properties.
 
-Per aggiungere effetti di smusso 3D a una forma, seguire questi passaggi:
+To add 3D bevel effects to a shape, follow these steps:
 
-1. Istanziate la classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-1. Ottenete un riferimento a una diapositiva per indice.
-1. Aggiungete un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) alla diapositiva.
-1. Configurate il [ThreeDFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/threedformat/) della forma per definire le impostazioni di smusso.
-1. Salvate la presentazione.
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Configure the shape’s [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) to define bevel settings.
+1. Save the presentation.
 
-Il codice C++ seguente mostra come applicare effetti di smusso 3D a una forma:
+The following C++ code shows how to apply 3D bevel effects to a shape:
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -706,12 +708,12 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Crea un'istanza della classe Presentation.
+// Create an instance of the Presentation class.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
 
-// Aggiungi una forma alla diapositiva.
+// Add a shape to the slide.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Green());
@@ -719,7 +721,7 @@ shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 shape->get_LineFormat()->set_Width(2.0);
 
-// Imposta le proprietà ThreeDFormat della forma.
+// Set the shape's ThreeDFormat properties.
 shape->get_ThreeDFormat()->set_Depth(4.0);
 shape->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
 shape->get_ThreeDFormat()->get_BevelTop()->set_Height(6);
@@ -728,28 +730,28 @@ shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::Orthog
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
 
-// Salva la presentazione come file PPTX.
+// Save the presentation as a PPTX file.
 presentation->Save(u"3D_bevel_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il risultato:
+The result:
 
-![L'effetto di smusso 3D](3D-bevel-effect.png)
+![L'effetto smusso 3D](3D-bevel-effect.png)
 
 ## **Aggiungere effetti di rotazione 3D**
 
-Aspose.Slides consente di applicare effetti di rotazione 3D alle forme configurando le loro proprietà [ThreeDFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/threedformat/).
+Aspose.Slides allows you to apply 3D rotation effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) properties.
 
-Per applicare la rotazione 3D a una forma:
+To apply 3D rotation to a shape:
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per indice.
-1. Aggiungere un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) alla diapositiva.
-1. Utilizzare [set_CameraType](https://reference.aspose.com/slides/it/cpp/aspose.slides/icamera/set_cameratype/) e [set_LightType](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilightrig/set_lighttype/) per definire la rotazione 3D.
-1. Salvare la presentazione.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Use the [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) and [set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) to define the 3D rotation.
+1. Save the presentation.
 
-Il codice C++ seguente dimostra come applicare effetti di rotazione 3D a una forma:
+The following C++ code demonstrates how to apply 3D rotation effects to a shape:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -787,17 +789,17 @@ presentation->Save(u"3D_rotation_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il risultato:
+The result:
 
-![L'effetto di rotazione 3D](3D-rotation-effect.png)
+![L'effetto rotazione 3D](3D-rotation-effect.png)
 
-## **Controllare il rendering in bianco e nero per le forme**
+## **Controllare la resa in bianco e nero per le forme**
 
-Il metodo [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/set_blackwhitemode/) specifica come una singola forma viene renderizzata quando una presentazione è visualizzata o elaborata in modalità bianco e nero. Non abilita la visualizzazione in bianco e nero di per sé e non modifica il riempimento, la linea o altra formattazione della forma nella modalità colore normale.
+The [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) method specifies how an individual shape is rendered when a presentation is viewed or processed in black-and-white mode. It does not enable black-and-white display by itself, and it does not change the shape's fill, line, or other formatting in normal color mode.
 
-Utilizzare un valore dell'enumerazione [BlackWhiteMode](https://reference.aspose.com/slides/it/cpp/aspose.slides/blackwhitemode/) per selezionare il comportamento desiderato. Ad esempio, `Automatic` consente all'applicazione di rendering di scegliere la conversione, `Gray` e `LightGray` usano la colorazione grigia, `BlackWhite` utilizza solo nero e bianco, `Black` e `White` forzano un colore singolo, `Color` preserva la colorazione normale e `Hidden` omette la forma in modalità bianco e nero. `NotDefined` significa che non è stato assegnato alcun modo a livello di forma.
+Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) enumeration to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black-and-white mode. `NotDefined` means that no shape-level mode is assigned.
 
-Il codice C++ seguente crea una forma colorata e la fa apparire grigia nella modalità di visualizzazione bianco e nero:
+The following C++ code creates a colored shape and makes it appear gray in black-and-white display mode:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -824,18 +826,18 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 200
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 
-// Mantieni il riempimento arancione in modalità colore, ma visualizza la forma con colorazione grigia in modalità bianco e nero.
+// Mantenere il riempimento arancione in modalità colore, ma renderizzare la forma con colorazione grigia in modalità bianco e nero.
 shape->set_BlackWhiteMode(BlackWhiteMode::Gray);
 
 presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-In modalità colore normale, il rettangolo mantiene il riempimento arancione. In un flusso di lavoro di visualizzazione bianco e nero, utilizza la colorazione grigia perché il suo modo è impostato su `Gray`. Questo consente di preservare una diapositiva a colori completa definendo al contempo un aspetto distinto per la stampa, l'anteprima o altri flussi di lavoro che rispettano le impostazioni di visualizzazione bianco e nero della presentazione.
+In normal color mode, the rectangle retains its orange fill. In a black-and-white display workflow, it uses gray coloring because its mode is set to `Gray`. This lets you preserve a full-color slide while defining a distinct appearance for printing, previewing, or other workflows that honor the presentation's black-and-white display settings.
 
 ## **Ripristinare la formattazione**
 
-Il seguente codice C++ mostra come ripristinare la formattazione di una diapositiva e riportare posizione, dimensione e formattazione di tutte le forme con segnaposto sulla [LayoutSlide](https://reference.aspose.com/slides/it/cpp/aspose.slides/layoutslide/) ai loro valori predefiniti:
+The following C++ code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) to their default settings:
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -852,7 +854,7 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 {
-    // Reimposta ogni forma sulla diapositiva che ha un segnaposto sul layout.
+    // Reimposta ogni forma nella diapositiva che ha un segnaposto nel layout.
     slide->Reset();
 }
 
@@ -862,14 +864,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**La formattazione delle forme influisce sulla dimensione finale del file della presentazione?**
+**Does shape formatting affect the final presentation file size?**
 
-Solo in minima parte. Le immagini e i media incorporati occupano la maggior parte dello spazio del file, mentre i parametri delle forme come colori, effetti e gradienti sono memorizzati come metadati e aggiungono praticamente nessuna dimensione extra.
+Only minimally. Embedded images and media occupy most of the file space, while shape parameters such as colors, effects, and gradients are stored as metadata and add virtually no extra size.
 
-**Come posso individuare le forme su una diapositiva che condividono la stessa formattazione per raggrupparle?**
+**How can I detect shapes on a slide that share identical formatting so I can group them?**
 
-Confrontare le proprietà chiave di formattazione di ciascuna forma — riempimento, linea e impostazioni degli effetti. Se tutti i valori corrispondenti coincidono, trattare i loro stili come identici e raggruppare logicamente quelle forme, semplificando successivamente la gestione degli stili.
+Compare each shape’s key formatting properties—fill, line, and effect settings. If all corresponding values match, treat their styles as identical and logically group those shapes, which simplifies later style management.
 
-**Posso salvare un set di stili di forma personalizzati in un file separato per riutilizzarlo in altre presentazioni?**
+**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
 
-Sì. Conservare le forme di esempio con gli stili desiderati in un modello di presentazione o in un file modello .POTX. Quando si crea una nuova presentazione, aprire il modello, clonare le forme stilizzate necessarie e riapplicare la loro formattazione dove richiesto.
+Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and re‑apply their formatting wherever required.

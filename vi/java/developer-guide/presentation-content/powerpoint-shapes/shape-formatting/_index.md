@@ -1,12 +1,12 @@
 ---
-title: Định dạng các hình dạng PowerPoint trong Java
+title: Định dạng Hình dạng PowerPoint trong Java
 linktitle: Định dạng Hình dạng
 type: docs
 weight: 20
 url: /vi/java/shape-formatting/
 keywords:
 - định dạng hình dạng
-- định dạng đường viền
+- định dạng đường
 - hiệu ứng phác thảo
 - đường viền hình dạng phác thảo
 - định dạng kiểu nối
@@ -16,38 +16,38 @@ keywords:
 - đổ kết cấu
 - đổ màu đơn
 - độ trong suốt hình dạng
-- hiển thị hình dạng đen‑trắng
-- hiển thị hình dạng thang độ xám
+- hiển thị hình dạng đen-trắng
+- hiển thị hình dạng thang xám
 - xoay hình dạng
-- hiệu ứng bo 3D
+- hiệu ứng bevel 3D
 - hiệu ứng xoay 3D
 - đặt lại định dạng
 - PowerPoint
 - bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách định dạng các hình dạng PowerPoint trong Java bằng Aspose.Slides—đặt các kiểu tô, đường viền và hiệu ứng cho tệp PPT, PPTX và ODP một cách chính xác và kiểm soát đầy đủ."
+description: "Tìm hiểu cách định dạng hình dạng PowerPoint trong Java bằng Aspose.Slides—đặt các kiểu lấp đầy, đường viền và hiệu ứng cho các tệp PPT, PPTX và ODP với độ chính xác và kiểm soát đầy đủ."
 ---
 ## **Giới thiệu**
 
-Trong PowerPoint, bạn có thể thêm các hình dạng vào các slide. Vì các hình dạng được tạo thành từ các đường, bạn có thể định dạng chúng bằng cách chỉnh sửa hoặc áp dụng hiệu ứng cho viền của chúng. Ngoài ra, bạn có thể định dạng các hình dạng bằng cách chỉ định các cài đặt kiểm soát cách phần trong của chúng được tô màu.
+Trong PowerPoint, bạn có thể thêm các hình dạng vào các slide. Vì các hình dạng được tạo thành từ các đường, bạn có thể định dạng chúng bằng cách chỉnh sửa hoặc áp dụng hiệu ứng cho viền của chúng. Ngoài ra, bạn có thể định dạng các hình dạng bằng cách chỉ định các cài đặt kiểm soát cách phần bên trong của chúng được lấp đầy.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![định dạng-hình-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Java cung cấp các giao diện và phương thức cho phép bạn định dạng các hình dạng bằng các tùy chọn giống như trong PowerPoint.
+Aspose.Slides for Java cung cấp các giao diện và phương thức cho phép bạn định dạng các hình dạng bằng các tùy chọn có sẵn trong PowerPoint.
 
-## **Định dạng Đường viền**
+## **Định dạng Đường**
 
-Sử dụng Aspose.Slides, bạn có thể chỉ định kiểu đường tùy chỉnh cho một hình dạng. Các bước sau mô tả quy trình:
+Bạn có thể chỉ định kiểu đường tùy chỉnh cho một hình dạng bằng Aspose.Slides. Các bước sau mô tả quy trình:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Lấy một tham chiếu tới slide theo chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Đặt [line style](https://reference.aspose.com/slides/vi/java/com.aspose.slides/linestyle/) cho hình dạng.
-5. Đặt độ rộng đường.
-6. Đặt [dash style](https://reference.aspose.com/slides/vi/java/com.aspose.slides/linedashstyle/) cho đường.
-7. Đặt màu đường cho hình dạng.
-8. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào slide.
+1. Đặt [line style](https://reference.aspose.com/slides/java/com.aspose.slides/linestyle/) cho hình dạng.
+1. Đặt độ rộng đường.
+1. Đặt [dash style](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) cho đường.
+1. Đặt màu đường cho hình dạng.
+1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
 
 Đoạn mã sau minh họa cách định dạng một `AutoShape` hình chữ nhật:
 
@@ -55,24 +55,24 @@ Sử dụng Aspose.Slides, bạn có thể chỉ định kiểu đường tùy c
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
+// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
     // Lấy slide đầu tiên.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một auto shape loại Hình chữ nhật.
+    // Thêm một auto shape loại Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
     // Đặt màu nền cho hình chữ nhật.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
-    // Áp dụng định dạng cho các đường viền của hình chữ nhật.
+    // Áp dụng định dạng cho các đường của hình chữ nhật.
     shape.getLineFormat().setStyle(LineStyle.ThickThin);
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
 
-    // Đặt màu cho đường viền của hình chữ nhật.
+    // Đặt màu cho đường của hình chữ nhật.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
@@ -83,15 +83,13 @@ try {
 }
 ```
 
-Kết quả:
-
-![Các đường viền đã định dạng trong bản trình chiếu](formatted-lines.png)
+![Các đường đã định dạng trong bản trình chiếu](formatted-lines.png)
 
 ## **Áp dụng Hiệu ứng Phác thảo cho Đường viền Hình dạng**
 
-Hiệu ứng phác thảo làm cho đường viền của một hình dạng trông giống như được vẽ tay. Sử dụng [IShape.getLineFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/) để truy cập cài đặt đường, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilineformat/) để truy cập cài đặt phác thảo, và [ISketchFormat.setSketchType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isketchformat/) để chọn một giá trị từ enumeration [LineSketchType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/linesketchtype/).
+Hiệu ứng phác thảo làm cho đường viền của hình dạng trông như được vẽ tay. Sử dụng [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) để truy cập các cài đặt đường, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/) để truy cập các cài đặt phác thảo, và [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/) để chọn một giá trị trong liệt kê [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/).
 
-Đoạn mã Java sau cho thấy cách áp dụng hiệu ứng [LineSketchType.Curved](https://reference.aspose.com/slides/vi/java/com.aspose.slides/linesketchtype/), đọc giá trị đã được gán rõ ràng, và loại bỏ hiệu ứng bằng [LineSketchType.None](https://reference.aspose.com/slides/vi/java/com.aspose.slides/linesketchtype/):
+Đoạn mã Java sau cho thấy cách áp dụng hiệu ứng [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) , đọc giá trị được gán rõ ràng, và loại bỏ hiệu ứng bằng [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/):
 
 ```java
 Presentation presentation = new Presentation();
@@ -99,7 +97,7 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // Truy cập định dạng đường viền của hình dạng và định dạng phác thảo của nó.
+    // Truy cập định dạng đường của hình dạng và định dạng phác thảo của nó.
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
 
     // Áp dụng hiệu ứng phác thảo.
@@ -116,7 +114,7 @@ try {
 }
 ```
 
-Giá trị trả về bởi [ISketchFormat.getSketchType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isketchformat/) đại diện cho cài đặt được gán trực tiếp cho hình dạng. Nếu định dạng đường có thể được kế thừa từ chủ đề, slide chủ, hoặc slide bố cục, hãy sử dụng [ILineFormat.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilineformat/), truy cập [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilineformateffectivedata/), và đọc [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isketchformateffectivedata/). Giá trị hiệu quả phản ánh định dạng thực sự được áp dụng sau khi kế thừa được giải quyết:
+Giá trị trả về bởi [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/) đại diện cho cài đặt được gán trực tiếp cho hình dạng. Nếu định dạng đường có thể được kế thừa từ chủ đề, slide chủ hoặc slide bố cục, sử dụng [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/), truy cập [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/), và đọc [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/). Giá trị hiệu quả phản ánh định dạng thực sự được áp dụng sau khi kế thừa được giải quyết:
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -140,26 +138,26 @@ try {
 Dưới đây là ba tùy chọn kiểu nối:
 
 * Tròn
-* Vuông
-* Xiên
+* Mép
+* Xén
 
-Mặc định, khi PowerPoint nối hai đường ở một góc (ví dụ ở góc của một hình dạng), nó sử dụng cài đặt **Round**. Tuy nhiên, nếu bạn đang vẽ một hình dạng với các góc nhọn, bạn có thể thích tùy chọn **Miter**.
+Mặc định, khi PowerPoint nối hai đường ở một góc (chẳng hạn ở góc của một hình dạng), nó sử dụng cài đặt **Tròn**. Tuy nhiên, nếu bạn vẽ một hình dạng với các góc nhọn, bạn có thể thích tùy chọn **Mép**.
 
 ![Kiểu nối trong bản trình chiếu](join-style-powerpoint.png)
 
-Đoạn mã Java sau minh họa cách ba hình chữ nhật (như trong ảnh ở trên) được tạo ra bằng cách sử dụng các cài đặt kiểu nối Miter, Bevel và Round:
+Đoạn mã Java sau minh họa cách ba hình chữ nhật (như trong hình trên) được tạo bằng cài đặt kiểu nối Mép, Xén và Tròn:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
+// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
     // Lấy slide đầu tiên.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm ba auto shape loại Hình chữ nhật.
+    // Thêm ba auto shape loại Rectangle.
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
@@ -172,12 +170,12 @@ try {
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Đặt độ rộng đường viền.
+    // Đặt độ rộng đường.
     shape1.getLineFormat().setWidth(15);
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // Đặt màu cho đường viền của mỗi hình chữ nhật.
+    // Đặt màu cho đường của mỗi hình chữ nhật.
     shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
@@ -204,21 +202,21 @@ try {
 
 ## **Đổ màu Gradient**
 
-Trong PowerPoint, Gradient Fill là một tùy chọn định dạng cho phép bạn áp dụng một sự pha trộn liên tục của các màu vào một hình dạng. Ví dụ, bạn có thể áp dụng hai hoặc nhiều màu sao cho một màu dần dần chuyển sang màu khác.
+Trong PowerPoint, Đổ màu Gradient là một tùy chọn định dạng cho phép bạn áp dụng sự pha trộn liền mạch của các màu lên một hình dạng. Ví dụ, bạn có thể áp dụng hai màu hoặc nhiều màu sao cho một màu dần chuyển sang màu khác.
 
-Đây là cách áp dụng đổ màu gradient cho một hình dạng bằng Aspose.Slides:
+Dưới đây là cách áp dụng đổ màu gradient cho một hình dạng bằng Aspose.Slides:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Lấy một tham chiếu tới slide theo chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) của hình dạng thành `Gradient`.
-5. Thêm hai màu bạn muốn cùng với vị trí đã định nghĩa bằng các phương thức `add` của bộ sưu tập gradient stop được cung cấp bởi giao diện [IGradientFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igradientformat/) .
-6. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào slide.
+1. Đặt [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) của hình dạng thành `Gradient`.
+1. Thêm hai màu bạn muốn cùng với vị trí đã xác định bằng các phương thức `add` của tập hợp gradient stop được cung cấp bởi giao diện [IGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/).
+1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
 
 ```java
 import com.aspose.slides.*;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
+// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
     // Lấy slide đầu tiên.
@@ -231,7 +229,7 @@ try {
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // Đặt hướng cho gradient.
+    // Đặt hướng của gradient.
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
     // Thêm hai điểm dừng gradient.
@@ -245,32 +243,32 @@ try {
 }
 ```
 
-Kết quả:
+![Hình ellipse với đổ màu gradient](gradient-fill.png)
 
-![Ellipse với đổ màu gradient](gradient-fill.png)
+Nếu một gradient trông khác trong hình ảnh xuất khẩu so với trong PowerPoint, xem [Chọn Kiểu Hiển thị Gradient](/slides/vi/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Bạn có thể chọn kiểu hiển thị mà không thay đổi gradient được lưu trong bản trình chiếu.
 
 ## **Đổ mẫu**
 
-Trong PowerPoint, Pattern Fill là một tùy chọn định dạng cho phép bạn áp dụng một thiết kế hai màu—như chấm, sọc, chéo, hoặc caro—vào một hình dạng. Bạn có thể chọn màu tùy chỉnh cho nền trước và nền sau của mẫu.
+Trong PowerPoint, Đổ mẫu là một tùy chọn định dạng cho phép bạn áp dụng một thiết kế hai màu — như chấm, sọc, thước chéo, hoặc caro — lên một hình dạng. Bạn có thể chọn màu tùy chỉnh cho tiền cảnh và nền của mẫu.
 
-Aspose.Slides cung cấp hơn 45 kiểu mẫu được định sẵn mà bạn có thể áp dụng cho các hình dạng để nâng cao tính thẩm mỹ của bản trình chiếu. Ngay cả sau khi chọn một mẫu đã định sẵn, bạn vẫn có thể chỉ định màu chính xác mà nó sẽ sử dụng.
+Aspose.Slides cung cấp hơn 45 kiểu mẫu được định nghĩa sẵn mà bạn có thể áp dụng cho các hình dạng để tăng tính thẩm mỹ cho bản trình chiếu. Ngay cả khi đã chọn một mẫu đã định nghĩa, bạn vẫn có thể chỉ định màu chính xác mà nó sẽ sử dụng.
 
-Đây là cách áp dụng đổ mẫu cho một hình dạng bằng Aspose.Slides:
+Dưới đây là cách áp dụng đổ mẫu cho một hình dạng bằng Aspose.Slides:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Lấy một tham chiếu tới slide theo chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) của hình dạng thành `Pattern`.
-5. Chọn một kiểu mẫu từ các tùy chọn được định sẵn.
-6. Đặt [Background Color](https://reference.aspose.com/slides/vi/java/com.aspose.slides/patternformat/#getBackColor--) của mẫu.
-7. Đặt [Foreground Color](https://reference.aspose.com/slides/vi/java/com.aspose.slides/patternformat/#getForeColor--) của mẫu.
-8. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào slide.
+1. Đặt [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) của hình dạng thành `Pattern`.
+1. Chọn một kiểu mẫu từ các tùy chọn đã định nghĩa sẵn.
+1. Đặt [Màu nền](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getBackColor--) của mẫu.
+1. Đặt [Màu tiền](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getForeColor--) của mẫu.
+1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
+// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
     // Lấy slide đầu tiên.
@@ -279,13 +277,13 @@ try {
     // Thêm một auto shape loại Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Đặt kiểu nền thành Pattern.
+    // Đặt kiểu lấp đầy thành Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern);
 
     // Đặt kiểu mẫu.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
-    // Đặt màu nền và màu tiền cảnh cho mẫu.
+    // Đặt màu nền và màu tiền cảnh của mẫu.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
@@ -296,33 +294,29 @@ try {
 }
 ```
 
-Kết quả:
-
 ![Hình chữ nhật với đổ mẫu](pattern-fill.png)
 
 ## **Đổ hình ảnh**
 
-Trong PowerPoint, Picture Fill là một tùy chọn định dạng cho phép bạn chèn một hình ảnh bên trong một hình dạng—hiệu quả như đang sử dụng hình ảnh đó làm nền cho hình dạng.
+Trong PowerPoint, Đổ hình ảnh là một tùy chọn định dạng cho phép bạn chèn một hình ảnh bên trong một hình dạng — thực tế sử dụng hình ảnh làm nền cho hình dạng.
 
-Đây là cách sử dụng Aspose.Slides để áp dụng đổ hình ảnh cho một hình dạng:
+Dưới đây là cách sử dụng Aspose.Slides để áp dụng đổ hình ảnh cho một hình dạng:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Lấy một tham chiếu tới slide theo chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) của hình dạng thành `Picture`.
-5. Đặt chế độ đổ hình ảnh thành `Tile` (hoặc chế độ khác mà bạn muốn).
-6. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ippimage/) từ hình ảnh bạn muốn sử dụng.
-7. Truyền hình ảnh vào phương thức `ISlidesPicture.setImage` .
-8. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào slide.
+1. Đặt [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) của hình dạng thành `Picture`.
+1. Đặt chế độ đổ hình ảnh thành `Tile` (hoặc chế độ khác mong muốn).
+1. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) từ hình ảnh bạn muốn sử dụng.
+1. Gửi hình ảnh tới phương thức `ISlidesPicture.setImage`.
+1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
 
-Giả sử chúng ta có một tệp "lotus.png" với hình ảnh sau:
-
-![Hình lotus](lotus.png)
+![Hình ảnh lotus](lotus.png)
 
 ```java
 import com.aspose.slides.*;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
+// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
     // Lấy slide đầu tiên.
@@ -331,13 +325,13 @@ try {
     // Thêm một auto shape loại Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Đặt kiểu nền thành Picture.
+    // Đặt kiểu lấp đầy thành Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
     // Đặt chế độ đổ hình ảnh.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Tải ảnh và thêm vào tài nguyên của bản trình chiếu.
+    // Tải một hình ảnh và thêm nó vào tài nguyên của bản trình chiếu.
     IImage image = Images.fromFile("lotus.png");
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
@@ -352,28 +346,24 @@ try {
 }
 ```
 
-Kết quả:
-
 ![Hình dạng với đổ hình ảnh](picture-fill.png)
 
-### **Lát Hình ảnh Thành Kết Cấu**
+### **Xếp Hình ảnh Thành Kết Cấu**
 
-Nếu bạn muốn đặt một hình ảnh lát làm kết cấu và tùy chỉnh hành vi lát, bạn có thể sử dụng các phương thức sau của giao diện [IPictureFillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/) và lớp [PictureFillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/picturefillformat/) :
+Nếu bạn muốn đặt một hình ảnh xếp dạng ô làm kết cấu và tùy chỉnh hành vi xếp ô, bạn có thể sử dụng các phương thức sau của giao diện [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) và lớp [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Đặt chế độ đổ hình ảnh—hoặc `Tile` hoặc `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Xác định cách căn chỉnh các ô gạch trong hình dạng.
-- [setTileFlip](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Điều khiển việc lật ô gạch theo chiều ngang, chiều dọc, hoặc cả hai.
-- [setTileOffsetX](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Đặt độ lệch ngang của ô gạch (theo điểm) so với gốc của hình dạng.
-- [setTileOffsetY](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Đặt độ lệch dọc của ô gạch (theo điểm) so với gốc của hình dạng.
-- [setTileScaleX](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Xác định tỉ lệ ngang của ô gạch dưới dạng phần trăm.
-- [setTileScaleY](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Xác định tỉ lệ dọc của ô gạch dưới dạng phần trăm.
-
-Đoạn mã mẫu sau cho thấy cách thêm một hình chữ nhật với đổ hình ảnh lát và cấu hình các tùy chọn ô gạch:
+- [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Đặt chế độ đổ hình ảnh—hoặc `Tile` hoặc `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Xác định vị trí căn chỉnh của các ô trong hình dạng.
+- [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Điều khiển việc lật ô theo chiều ngang, dọc, hoặc cả hai.
+- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Đặt độ dịch chuyển ngang của ô (đơn vị point) từ gốc của hình dạng.
+- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Đặt độ dịch chuyển dọc của ô (đơn vị point) từ gốc của hình dạng.
+- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Xác định tỷ lệ ngang của ô dưới dạng phần trăm.
+- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Xác định tỷ lệ dọc của ô dưới dạng phần trăm.
 
 ```java
 import com.aspose.slides.*;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
+// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
     // Lấy slide đầu tiên.
@@ -382,19 +372,19 @@ try {
     // Thêm một auto shape hình chữ nhật.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Đặt kiểu nền của hình dạng thành Picture.
+    // Đặt kiểu lấp đầy của hình dạng thành Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Tải ảnh và thêm vào tài nguyên của bản trình chiếu.
+    // Tải hình ảnh và thêm nó vào tài nguyên của bản trình chiếu.
     IImage sourceImage = Images.fromFile("lotus.png");
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // Gán ảnh cho hình dạng.
+    // Gán hình ảnh cho hình dạng.
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Cấu hình chế độ đổ ảnh và các thuộc tính lát.
+    // Cấu hình chế độ đổ hình ảnh và các thuộc tính xếp ô.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -410,28 +400,26 @@ try {
 }
 ```
 
-Kết quả:
+![Các tùy chọn ô](tile-options.png)
 
-![Các tùy chọn ô gạch](tile-options.png)
+## **Đổ Màu Đơn**
 
-## **Đổ màu Đơn**
+Trong PowerPoint, Đổ màu Đơn là một tùy chọn định dạng cho phép bạn lấp đầy một hình dạng bằng một màu duy nhất, đồng nhất. Màu nền đơn này được áp dụng mà không có gradient, kết cấu hoặc mẫu nào.
 
-Trong PowerPoint, Solid Color Fill là một tùy chọn định dạng giúp tô màu một hình dạng bằng một màu duy nhất, đồng nhất. Nền màu đơn giản này được áp dụng mà không có gradient, texture, hay pattern.
+Để áp dụng đổ màu đơn cho một hình dạng bằng Aspose.Slides, làm theo các bước sau:
 
-Để áp dụng đổ màu đơn cho một hình dạng bằng Aspose.Slides, hãy thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Lấy một tham chiếu tới slide theo chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) của hình dạng thành `Solid`.
-5. Gán màu tô bạn muốn vào hình dạng.
-6. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào slide.
+1. Đặt [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) của hình dạng thành `Solid`.
+1. Gán màu lấp đầy bạn muốn vào hình dạng.
+1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
+// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
     // Lấy slide đầu tiên.
@@ -440,7 +428,7 @@ try {
     // Thêm một auto shape loại Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Đặt kiểu nền thành Solid.
+    // Đặt kiểu lấp đầy thành Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
 
     // Đặt màu nền.
@@ -453,37 +441,35 @@ try {
 }
 ```
 
-Kết quả:
-
 ![Hình dạng với đổ màu đơn](solid-color-fill.png)
 
-## **Đặt Độ trong Suốt**
+## **Đặt Độ Trong Suốt**
 
-Trong PowerPoint, khi bạn áp dụng màu đơn, gradient, hình ảnh, hoặc texture lên các hình dạng, bạn cũng có thể đặt mức độ trong suốt để điều chỉnh độ mờ của lớp tô. Giá trị trong suốt cao hơn làm cho hình dạng trong suốt hơn, cho phép nền hoặc các đối tượng phía sau hiển thị phần nào.
+Trong PowerPoint, khi bạn áp dụng màu đơn, gradient, hình ảnh hoặc đổ kết cấu cho các hình dạng, bạn cũng có thể đặt mức độ trong suốt để kiểm soát độ mờ của lớp lấp đầy. Giá trị trong suốt cao hơn làm cho hình dạng trở nên trong suốt hơn, cho phép nền hoặc các đối tượng phía dưới hiển thị một phần.
 
-Aspose.Slides cho phép bạn thiết lập mức độ trong suốt bằng cách điều chỉnh giá trị alpha trong màu được dùng để tô. Đây là cách làm:
+Aspose.Slides cho phép bạn đặt mức độ trong suốt bằng cách điều chỉnh giá trị alpha trong màu được sử dụng cho lớp lấp đầy. Cách thực hiện như sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Lấy một tham chiếu tới slide theo chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) thành `Solid`.
-5. Sử dụng `Color` để định nghĩa một màu có độ trong suốt (thành phần `alpha` kiểm soát độ trong suốt).
-6. Lưu bản trình chiếu.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào slide.
+1. Đặt [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) thành `Solid`.
+1. Sử dụng `Color` để xác định một màu có độ trong suốt (thành phần `alpha` kiểm soát độ trong suốt).
+1. Lưu bản trình chiếu.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
+// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
     // Lấy slide đầu tiên.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một auto shape hình chữ nhật đặc.
+    // Thêm một auto shape hình chữ nhật rắn.
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Thêm một auto shape hình chữ nhật trong suốt lên trên hình dạng đặc.
+    // Thêm một auto shape hình chữ nhật trong suốt phía trên hình rắn.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
@@ -495,26 +481,24 @@ try {
 }
 ```
 
-Kết quả:
-
 ![Hình dạng trong suốt](shape-transparency.png)
 
 ## **Xoay Hình dạng**
 
-Aspose.Slides cho phép bạn xoay các hình dạng trong bản trình chiếu PowerPoint. Điều này hữu ích khi định vị các yếu tố hình ảnh với yêu cầu căn chỉnh hoặc thiết kế cụ thể.
+Aspose.Slides cho phép bạn xoay các hình dạng trong bản trình chiếu PowerPoint. Điều này có thể hữu ích khi định vị các yếu tố hình ảnh với yêu cầu căn chỉnh hoặc thiết kế cụ thể.
 
-Để xoay một hình dạng trên slide, hãy thực hiện các bước sau:
+Để xoay một hình dạng trên slide, làm theo các bước sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Lấy một tham chiếu tới slide theo chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Đặt thuộc tính xoay của hình dạng thành góc mong muốn.
-5. Lưu bản trình chiếu.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào slide.
+1. Đặt thuộc tính xoay của hình dạng thành góc mong muốn.
+1. Lưu bản trình chiếu.
 
 ```java
 import com.aspose.slides.*;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
+// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
     // Lấy slide đầu tiên.
@@ -533,21 +517,19 @@ try {
 }
 ```
 
-Kết quả:
-
 ![Xoay hình dạng](shape-rotation.png)
 
-## **Thêm Hiệu ứng Bo 3D**
+## **Thêm Hiệu ứng Bevel 3D**
 
-Aspose.Slides cho phép bạn áp dụng hiệu ứng bo 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/threedformat/) .
+Aspose.Slides cho phép bạn áp dụng hiệu ứng Bevel 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) của chúng.
 
-Để thêm hiệu ứng bo 3D cho một hình dạng, hãy thực hiện các bước sau:
+Để thêm hiệu ứng Bevel 3D vào một hình dạng, làm theo các bước sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Lấy một tham chiếu tới slide theo chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Cấu hình [ThreeDFormat] của hình dạng để định nghĩa các cài đặt bo.
-5. Lưu bản trình chiếu.
+1. Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào slide.
+1. Cấu hình [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) của hình dạng để xác định các cài đặt bevel.
+1. Lưu bản trình chiếu.
 
 ```java
 import com.aspose.slides.*;
@@ -582,21 +564,19 @@ try {
 }
 ```
 
-Kết quả:
-
-![Hiệu ứng bo 3D](3D-bevel-effect.png)
+![Hiệu ứng bevel 3D](3D-bevel-effect.png)
 
 ## **Thêm Hiệu ứng Xoay 3D**
 
-Aspose.Slides cho phép bạn áp dụng hiệu ứng xoay 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/threedformat/) .
+Aspose.Slides cho phép bạn áp dụng hiệu ứng xoay 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) của chúng.
 
 Để áp dụng xoay 3D cho một hình dạng:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Lấy một tham chiếu tới slide theo chỉ mục của nó.
-3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Sử dụng [setCameraType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icamera/#setCameraType-int-) và [setLightType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilightrig/#setLightType-int-) để định nghĩa xoay 3D.
-5. Lưu bản trình chiếu.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) vào slide.
+1. Sử dụng [setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) và [setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-) để định nghĩa xoay 3D.
+1. Lưu bản trình chiếu.
 
 ```java
 import com.aspose.slides.*;
@@ -621,17 +601,15 @@ try {
 }
 ```
 
-Kết quả:
-
 ![Hiệu ứng xoay 3D](3D-rotation-effect.png)
 
-## **Kiểm soát Định dạng Đen‑Trắng cho Hình dạng**
+## **Kiểm soát Hiển thị Đen-Trắng cho Hình dạng**
 
-Phương thức [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) xác định cách một hình dạng riêng lẻ được hiển thị khi bản trình chiếu được xem hoặc xử lý ở chế độ đen‑trắng. Nó không tự động bật hiển thị đen‑trắng, và không thay đổi màu nền, đường viền hoặc các định dạng khác của hình dạng trong chế độ màu bình thường.
+Phương thức [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) chỉ định cách một hình dạng riêng lẻ được hiển thị khi bản trình chiếu được xem hoặc xử lý ở chế độ đen-trắng. Nó không kích hoạt chế độ hiển thị đen-trắng tự động, và không thay đổi lớp nền, đường viền hoặc các định dạng khác trong chế độ màu bình thường.
 
-Bạn có thể sử dụng một giá trị từ lớp [BlackWhiteMode](https://reference.aspose.com/slides/vi/java/com.aspose.slides/blackwhitemode/) để chọn hành vi mong muốn. Ví dụ, `Automatic` cho phép ứng dụng hiển thị lựa chọn chuyển đổi, `Gray` và `LightGray` dùng màu xám, `BlackWhite` chỉ sử dụng màu đen và trắng, `Black` và `White` ép buộc một màu duy nhất, `Color` giữ nguyên màu bình thường, và `Hidden` loại bỏ hình dạng trong chế độ đen‑trắng. `NotDefined` có nghĩa là không có chế độ nào được gán cho hình dạng.
+Sử dụng một giá trị từ lớp [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) để chọn hành vi mong muốn. Ví dụ, `Automatic` để cho phép ứng dụng hiển thị tự chọn chế độ chuyển đổi, `Gray` và `LightGray` sử dụng màu xám, `BlackWhite` chỉ dùng màu đen và trắng, `Black` và `White` buộc một màu duy nhất, `Color` giữ nguyên màu bình thường, và `Hidden` bỏ qua hình dạng trong chế độ đen-trắng. `NotDefined` có nghĩa là không có chế độ cấp cho hình dạng.
 
-Đoạn mã Java sau tạo một hình dạng có màu và làm cho nó hiển thị màu xám trong chế độ hiển thị đen‑trắng:
+Đoạn mã Java sau tạo một hình dạng màu và làm cho nó hiển thị màu xám trong chế độ hiển thị đen-trắng:
 
 ```java
 import com.aspose.slides.*;
@@ -645,7 +623,7 @@ try {
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
 
-    // Giữ màu nền cam trong chế độ màu, nhưng hiển thị hình dạng với màu xám trong chế độ đen-trắng.
+    // Giữ màu nền cam ở chế độ màu, nhưng hiển thị hình dạng với màu xám trong chế độ đen-trắng.
     shape.setBlackWhiteMode(BlackWhiteMode.Gray);
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
@@ -654,11 +632,11 @@ try {
 }
 ```
 
-Trong chế độ màu bình thường, hình chữ nhật vẫn giữ màu nền cam. Trong quy trình hiển thị đen‑trắng, nó sẽ sử dụng màu xám vì chế độ được đặt thành `Gray`. Điều này cho phép bạn giữ nguyên slide màu đầy đủ trong khi định nghĩa một giao diện riêng cho việc in ấn, xem trước, hoặc các quy trình khác tôn trọng cài đặt hiển thị đen‑trắng của bản trình chiếu.
+Trong chế độ màu bình thường, hình chữ nhật giữ màu nền cam. Trong quy trình làm việc hiển thị đen-trắng, nó sử dụng màu xám vì chế độ được đặt thành `Gray`. Điều này cho phép bạn giữ một slide màu đầy đủ trong khi định nghĩa một giao diện riêng cho việc in, xem trước hoặc các quy trình khác tôn trọng cài đặt hiển thị đen-trắng của bản trình chiếu.
 
 ## **Đặt lại Định dạng**
 
-Đoạn mã Java sau cho thấy cách đặt lại định dạng của một slide và khôi phục vị trí, kích thước, và định dạng của tất cả các hình dạng có placeholder trên [LayoutSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/layoutslide/) về cài đặt mặc định của chúng:
+Đoạn mã Java sau cho thấy cách đặt lại định dạng của một slide và khôi phục vị trí, kích thước và định dạng của tất cả các hình dạng có placeholder trên [LayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/) về cài đặt mặc định:
 
 ```java
 import com.aspose.slides.*;
@@ -666,7 +644,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Đặt lại mỗi hình dạng trên slide có placeholder trên layout.
+        // Đặt lại mỗi hình dạng trên slide có placeholder trong bố cục.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -675,16 +653,16 @@ try {
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Việc định dạng hình dạng có ảnh hưởng đến kích thước cuối cùng của tệp bản trình chiếu không?**
+**Định dạng hình dạng có ảnh hưởng đến kích thước cuối cùng của tệp bản trình chiếu không?**
 
-Chỉ rất ít. Các hình ảnh và phương tiện nhúng chiếm phần lớn dung lượng tệp, trong khi các tham số hình dạng như màu, hiệu ứng và gradient được lưu dưới dạng metadata và hầu như không làm tăng kích thước.
+Chỉ ảnh hưởng rất ít. Các hình ảnh và phương tiện được nhúng chiếm phần lớn không gian tệp, trong khi các tham số hình dạng như màu, hiệu ứng và gradient được lưu dưới dạng siêu dữ liệu và hầu như không tăng kích thước.
 
-**Làm thế nào tôi có thể phát hiện các hình dạng trên một slide có cùng định dạng để có thể nhóm chúng lại?**
+**Làm thế nào để phát hiện các hình dạng trên một slide có định dạng giống nhau để tôi có thể nhóm chúng lại?**
 
-So sánh các thuộc tính định dạng chính của mỗi hình dạng — cài đặt fill, line và effect. Nếu tất cả các giá trị tương ứng khớp nhau, coi chúng là có cùng style và nhóm các hình dạng đó lại, điều này giúp đơn giản hoá việc quản lý style sau này.
+So sánh các thuộc tính định dạng chính của mỗi hình dạng — cài đặt lấp đầy, đường viền và hiệu ứng. Nếu tất cả các giá trị tương ứng khớp nhau, coi kiểu của chúng là giống nhau và nhóm các hình dạng lại logic, giúp việc quản lý kiểu sau này trở nên đơn giản hơn.
 
-**Tôi có thể lưu một bộ các style hình dạng tùy chỉnh vào một tệp riêng để tái sử dụng trong các bản trình chiếu khác không?**
+**Tôi có thể lưu một bộ các kiểu hình dạng tùy chỉnh vào một tệp riêng để tái sử dụng trong các bản trình chiếu khác không?**
 
-Đúng. Lưu các hình mẫu có style mong muốn vào một bộ slide mẫu hoặc tệp .POTX. Khi tạo bản trình chiếu mới, mở mẫu, sao chép các hình dạng đã được style và áp dụng lại định dạng ở nơi cần.
+Có. Lưu các hình dạng mẫu với các kiểu mong muốn vào một slide mẫu hoặc tệp mẫu .POTX. Khi tạo bản trình chiếu mới, mở mẫu, sao chép các hình dạng đã định dạng cần thiết và áp dụng lại định dạng của chúng ở bất kỳ nơi nào cần thiết.

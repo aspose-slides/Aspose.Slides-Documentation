@@ -26,91 +26,118 @@ description: "Konvertera PowerPoint-presentationer till högkvalitativa PNG-bild
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du konverterar PowerPoint-presentationer till PNG‑bilder med Aspose.Slides. Den visar hur du läser in presentationsfiler i format som PPT, PPTX och ODP, renderar bilder som bilder och sparar resultatet i PNG‑format.
+Denna artikel förklarar hur du konverterar presentationsbilder till PNG‑bilder med Aspose.Slides för .NET. Du kan läsa in presentationer i format som PPT, PPTX och ODP, rendera varje bild och spara den som en separat PNG‑bild.
 
-Artikeln visar också hur du anpassar de genererade PNG‑bilderna genom att ange skalvärden eller specificera önskad bredd och höjd.
+Exemplen nedan demonstrerar rendera miniatyrbilder, ange skalningsfaktorer, specificera utdata-dimensionerna i pixlar och välja en gradientrenderingsstil.
 
 ## **Konvertera PowerPoint till PNG**
 
-Följ dessa steg:
+Läs in en presentation med klassen [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) och få åtkomst till dess bilder via samlingen [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). Exemplet renderar varje bild med [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) utan parametrar för att skapa en miniatyrbild. Det anropar sedan [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) med [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) för att spara varje renderad bild som en PNG‑bild.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
-2. Hämta bildobjektet från samlingen [Presentation.Slides](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/properties/slides) under gränssnittet [ISlide](https://reference.aspose.com/slides/sv/net/aspose.slides/islide).
-3. Använd metoden [ISlide.GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/getimage/) för att hämta miniatyrbilden för varje bild.
-4. Använd metoden [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.ipresentation/save/methods/5) för att spara bildens miniatyr till PNG‑format.
+```cs
+using Aspose.Slides;
 
-Den här C#‑koden visar hur du konverterar en PowerPoint-presentation till PNG. Presentation‑objektet kan läsa in PPT, PPTX, ODP med mera, och varje bild i presentationsobjektet konverteras sedan till PNG‑format eller andra bildformat.
+using var presentation = new Presentation("presentation.pptx");
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage())
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage();
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+Den parameterlösa [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/)‑överladdningen renderar med en skala på 0,2. Till exempel ger en bild som mäter 720 × 540 punkter en miniatyr på 144 × 108 pixlar. För att kontrollera utdata‑dimensionerna, använd överladdningarna med skalningsfaktorer eller en explicit bildstorlek som visas nedan.
+{{% /alert %}}
+
 ## **Konvertera PowerPoint till PNG med anpassade dimensioner**
 
-Om du vill få PNG‑filer med en viss skala kan du sätta värdena för `desiredX` och `desiredY`, som bestämmer dimensionerna på den resulterande miniatyrbilden.
+Skicka horisontella och vertikala skalningsfaktorer till [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) för att kontrollera de renderade dimensionerna. I detta exempel är båda faktorerna 2, så en bild som mäter 720 × 540 punkter ger en bild på 1440 × 1080 pixlar. Lika skalningsfaktorer bevarar bildens bildförhållande. Varje bild sparas i PNG‑format med [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/).
 
-Denna C#‑kod demonstrerar den beskrivna operationen:
+```cs
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("presentation.pptx");
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    float scaleX = 2f;
-    float scaleY = 2f;
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(scaleX, scaleY))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
 ## **Konvertera PowerPoint till PNG med anpassad storlek**
 
-Om du vill få PNG‑filer med en viss storlek kan du skicka dina föredragna argument `width` och `height` för `imageSize`.
+För att ange utdata‑dimensioner i pixlar, skicka en storlek till [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) istället för skalningsfaktorer. Detta exempel renderar varje bild i 960 × 720 pixlar och sparar resultatet med [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Välj dimensioner som matchar bildens bildförhållande för att undvika att bilden sträcks.
 
-Denna kod visar hur du konverterar en PowerPoint till PNG samtidigt som du specificerar storleken för bilderna:
+```cs
+using System.Drawing;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("presentation.pptx");
+
+var imageSize = new Size(960, 720);
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    Size size = new Size(960, 720);
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(size))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(imageSize);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+## **Välj en gradientrenderingsstil**
+
+Anta att en bild innehåller gradientfyllningar, men övergångarna i den exporterade PNG‑filen ser ljusare eller på annat sätt annorlunda ut än vad du ser i PowerPoint. Du kan använda egenskapen [GradientStyle](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/gradientstyle/) i [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) för att välja hur gradienterna renderas.
+
+Ladda ner [gradient-styles.pptx](gradient-styles.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller två linjära gradienter: cyan till orange högst upp och blå till gul längst ner. Varje gradient har två stopp, vid 0 % och 100 %.
+
+Följande exempel läser in denna presentation och renderar samma första bild i båda lägen med [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/).
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("gradient-styles.pptx");
+var slide = presentation.Slides[0];
+
+var gradientStyles = new[] { GradientStyle.Default, GradientStyle.PowerPointUI };
+foreach (var style in gradientStyles)
+{
+    var options = new RenderingOptions { GradientStyle = style };
+    using var image = slide.GetImage(options, 1f, 1f);
+    image.Save($"gradient-{style}.png", ImageFormat.Png);
+}
+```
+
+Bilderna nedan visar resultatet från samma bild, med båda gradienterna i varje bild:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Cyan-till-orange och blå-till-gul gradienter renderade med Default](gradient-Default.png) | ![Samma gradienter renderade med PowerPointUI](gradient-PowerPointUI.png) |
+
+I detta exempel ger `Default` ljusare mellanfärger, medan `PowerPointUI` ger mörkare mellanfärger. Skillnaden beror på färgerna och stoppen i gradienten.
+
+Välj `Default` när den standardmässiga Aspose.Slides‑utgången passar dina behov. Prova `PowerPointUI` när din prioritet är att matcha utseendet i PowerPoint. Jämför båda utgångarna med ditt önskade resultat; inget läge är generellt föredraget.
+
 ## **Vanliga frågor**
 
-**Hur kan jag exportera endast en specifik form (t.ex. diagram eller bild) istället för hela bilden?**
+**Hur kan jag exportera en specifik form, till exempel ett diagram eller en bild, istället för hela bilden?**
 
-Aspose.Slides stödjer att generera miniatyrbilder för enskilda former; du kan rendera en form till en PNG‑bild.
+Aspose.Slides stöder [generera miniatyrbilder för enskilda former](/slides/sv/net/create-shape-thumbnails/), vilket gör att du kan rendera en form som en PNG‑bild.
 
 **Stöds parallell konvertering på en server?**
 
-Ja, men dela inte en enda presentation‑instans över trådar. Använd en separat instans per tråd eller process.
+Ja. Använd en separat presentationsinstans för varje tråd eller process; [dela inte en enda instans över trådar](/slides/sv/net/multithreading/).
 
-**Vilka begränsningar gäller för provversionen vid export till PNG?**
+**Vilka är utvärderingsbegränsningarna vid export till PNG?**
 
-Utvärderingsläget lägger till ett vattenmärke på utdatasbilder och tillämpar andra begränsningar tills en licens har aktiverats.
+Utvärderingsläget lägger till ett vattenstämpel på utdata‑bilder och tillämpar [andra begränsningar](/slides/sv/net/licensing/) tills en licens har tillämpats.

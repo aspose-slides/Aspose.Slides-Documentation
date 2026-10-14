@@ -7,7 +7,7 @@ url: /de/java/shape-formatting/
 keywords:
 - Form formatieren
 - Linie formatieren
-- Skizze-Effekt
+- Skizzen-Effekt
 - Skizzenformlinie
 - Verbindungsstil formatieren
 - Verlaufsfüllung
@@ -15,41 +15,41 @@ keywords:
 - Bildfüllung
 - Texturfüllung
 - Einfarbige Füllung
-- Form-Transparenz
-- Schwarz-Weiß-Formdarstellung
-- Graustufen-Formdarstellung
+- Formtransparenz
+- Schwarz‑weiß‑Formdarstellung
+- Graustufen‑Formdarstellung
 - Form drehen
-- 3D-Abrundungseffekt
-- 3D-Drehungseffekt
+- 3D‑Kanteneffekt
+- 3D‑Drehungseffekt
 - Formatierung zurücksetzen
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint-Formen in Java mit Aspose.Slides formatieren - Füll-, Linien- und Effekts­stile für PPT-, PPTX- und ODP-Dateien präzise und vollständig steuern."
+description: "Erfahren Sie, wie Sie PowerPoint‑Formen in Java mit Aspose.Slides—Füll‑, Linien‑ und Effekt‑Stile für PPT-, PPTX‑ und ODP‑Dateien präzise und vollständig steuern."
 ---
 ## **Einleitung**
 
-In PowerPoint können Sie Formen zu Folien hinzufügen. Da Formen aus Linien bestehen, können Sie sie formatieren, indem Sie die Konturen ändern oder Effekte darauf anwenden. Zusätzlich können Sie Formen formatieren, indem Sie Einstellungen festlegen, die steuern, wie deren Innenräume gefüllt werden.
+In PowerPoint können Sie Formen zu Folien hinzufügen. Da Formen aus Linien bestehen, können Sie sie formatieren, indem Sie die Konturen ändern oder Effekte darauf anwenden. Zusätzlich können Sie Formen formatieren, indem Sie Einstellungen festlegen, die steuern, wie ihre Innenflächen gefüllt werden.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![Formatieren von Formen in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Java bietet Schnittstellen und Methoden, mit denen Sie Formen mithilfe derselben Optionen formatieren können, die in PowerPoint verfügbar sind.
+Aspose.Slides für Java bietet Schnittstellen und Methoden, mit denen Sie Formen mithilfe derselben Optionen formatieren können, die in PowerPoint verfügbar sind.
 
 ## **Linien formatieren**
 
-Mit Aspose.Slides können Sie einen benutzerdefinierten Linienstil für eine Form festlegen. Die folgenden Schritte beschreiben das Vorgehen:
+Mit Aspose.Slides können Sie für eine Form einen benutzerdefinierten Linienstil festlegen. Die folgenden Schritte beschreiben das Vorgehen:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [line style](https://reference.aspose.com/slides/de/java/com.aspose.slides/linestyle/) der Form.
-1. Setzen Sie die Linienbreite.
-1. Setzen Sie den [dash style](https://reference.aspose.com/slides/de/java/com.aspose.slides/linedashstyle/) der Linie.
-1. Setzen Sie die Linienfarbe für die Form.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Holen Sie sich eine Referenz zu einer Folie anhand ihres Index.
+1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hinzu.
+1. Legen Sie den [Linienstil](https://reference.aspose.com/slides/java/com.aspose.slides/linestyle/) der Form fest.
+1. Legen Sie die Linienbreite fest.
+1. Legen Sie den [Strichstil](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) der Linie fest.
+1. Legen Sie die Linienfarbe für die Form fest.
 1. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
 
-Der folgende Code demonstriert, wie man ein Rechteck‑`AutoShape` formatiert:
+Der folgende Code zeigt, wie man ein Rechteck‑`AutoShape` formatiert:
 
 ```java
 import com.aspose.slides.*;
@@ -61,18 +61,18 @@ try {
     // Holen Sie die erste Folie.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
+    // Fügen Sie eine AutoShape vom Typ Rechteck hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Setzen Sie die Füllfarbe für die Rechteckform.
+    // Legen Sie die Füllfarbe für die Rechteckform fest.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
-    // Wenden Sie die Formatierung auf die Linien des Rechtecks an.
+    // Wenden Sie Formatierungen auf die Linien des Rechtecks an.
     shape.getLineFormat().setStyle(LineStyle.ThickThin);
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
 
-    // Setzen Sie die Farbe für die Linie des Rechtecks.
+    // Legen Sie die Farbe für die Linie des Rechtecks fest.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
@@ -89,9 +89,9 @@ Das Ergebnis:
 
 ## **Skizze‑Effekte auf Formlinien anwenden**
 
-Ein Skizze‑Effekt lässt eine Formlinie handgezeichnet aussehen. Verwenden Sie [IShape.getLineFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/), um auf die Linieneinstellungen zuzugreifen, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilineformat/), um auf die Skizzeeinstellungen zuzugreifen, und [ISketchFormat.setSketchType](https://reference.aspose.com/slides/de/java/com.aspose.slides/isketchformat/), um einen Wert aus der Aufzählung [LineSketchType](https://reference.aspose.com/slides/de/java/com.aspose.slides/linesketchtype/) auszuwählen.
+Ein Skizze‑Effekt lässt eine Formlinie handgezeichnet erscheinen. Verwenden Sie [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) , um die Linieneinstellungen abzurufen, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/) , um die Skizzeeinstellungen zu erhalten, und [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/) , um einen Wert aus der Aufzählung [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) auszuwählen.
 
-Der folgende Java‑Code zeigt, wie man den Effekt [LineSketchType.Curved](https://reference.aspose.com/slides/de/java/com.aspose.slides/linesketchtype/) anwendet, den explizit zugewiesenen Wert ausliest und den Effekt mit [LineSketchType.None](https://reference.aspose.com/slides/de/java/com.aspose.slides/linesketchtype/) entfernt:
+Der folgende Java‑Code zeigt, wie man den Effekt [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) anwendet, den explizit zugewiesenen Wert ausliest und den Effekt mit [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) entfernt:
 
 ```java
 Presentation presentation = new Presentation();
@@ -102,21 +102,21 @@ try {
     // Greifen Sie auf das Linienformat der Form und dessen Skizzenformat zu.
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
 
-    // Wenden Sie einen Skizze-Effekt an.
+    // Wenden Sie einen Skizzen-Effekt an.
     sketchFormat.setSketchType(LineSketchType.Curved);
 
-    // Lesen Sie den direkt der Form zugewiesenen Skizze-Effekt.
+    // Lesen Sie den direkt der Form zugewiesenen Skizzen-Effekt.
     int explicitSketchType = sketchFormat.getSketchType();
     System.out.println("Explicit sketch type: " + explicitSketchType);
 
-    // Entfernen Sie den Skizze-Effekt.
+    // Entfernen Sie den Skizzen-Effekt.
     sketchFormat.setSketchType(LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-Der von [ISketchFormat.getSketchType](https://reference.aspose.com/slides/de/java/com.aspose.slides/isketchformat/) zurückgegebene Wert stellt die Einstellung dar, die direkt der Form zugewiesen wurde. Wenn die Linienformatierung von einem Design, einer Master‑Folie oder einer Layout‑Folie geerbt werden kann, verwenden Sie [ILineFormat.getEffective](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilineformat/), greifen Sie auf [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilineformateffectivedata/) zu und lesen Sie [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/de/java/com.aspose.slides/isketchformateffectivedata/) aus. Der wirksame Wert spiegelt die Formatierung wider, die tatsächlich nach Auflösung der Vererbung angewendet wird:
+Der von [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/) zurückgegebene Wert stellt die direkt der Form zugewiesene Einstellung dar. Wenn die Linienformatierung von einem Design, einer Master‑Folien oder einer Layout‑Folie geerbt werden kann, verwenden Sie [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/), greifen Sie auf [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/) zu und lesen Sie [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/) . Der effektive Wert spiegelt die Formatierung wider, die nach Auflösung der Vererbung tatsächlich angewendet wird:
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -135,7 +135,7 @@ try {
 }
 ```
 
-## **Verbindungs‑Stile formatieren**
+## **Verbindungsstile formatieren**
 
 Hier sind die drei Optionen für den Verbindungstyp:
 
@@ -143,11 +143,11 @@ Hier sind die drei Optionen für den Verbindungstyp:
 * Gehrung
 * Fase
 
-Standardmäßig verwendet PowerPoint, wenn es zwei Linien in einem Winkel (z. B. an einer Form‑Ecke) verbindet, die Einstellung **Rund**. Wenn Sie jedoch eine Form mit scharfen Winkeln zeichnen, bevorzugen Sie möglicherweise die Option **Gehrung**.
+Standardmäßig verwendet PowerPoint beim Verknüpfen zweier Linien in einem Winkel (wie an einer Formkante) die Einstellung **Rund**. Wenn Sie jedoch eine Form mit spitzen Winkeln zeichnen, können Sie die Option **Gehrung** bevorzugen.
 
-![Der Verbindungs‑Stil in der Präsentation](join-style-powerpoint.png)
+![Der Verbindungsstil in der Präsentation](join-style-powerpoint.png)
 
-Der folgende Java‑Code demonstriert, wie drei Rechtecke (wie im Bild oben gezeigt) mit den Verbindungs‑Stileinstellungen Gehrung, Fase bzw. Rund erstellt wurden:
+Der folgende Java‑Code demonstriert, wie drei Rechtecke (wie im obigen Bild) mit den Einstellungen Gehrung, Fase und Rund für den Verbindungstyp erstellt wurden:
 
 ```java
 import com.aspose.slides.*;
@@ -159,12 +159,12 @@ try {
     // Holen Sie die erste Folie.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie drei AutoShapes vom Typ Rectangle hinzu.
+    // Fügen Sie drei AutoShapes vom Typ Rechteck hinzu.
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Setzen Sie die Füllfarbe für jede Rechteckform.
+    // Legen Sie die Füllfarbe für jede Rechteckform fest.
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -172,12 +172,12 @@ try {
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Setzen Sie die Linienbreite.
+    // Legen Sie die Linienbreite fest.
     shape1.getLineFormat().setWidth(15);
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // Setzen Sie die Farbe für die Linie jedes Rechtecks.
+    // Legen Sie die Farbe für jede Rechtecklinie fest.
     shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
@@ -185,7 +185,7 @@ try {
     shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Setzen Sie den Verbindungsstil.
+    // Legen Sie den Verbindungsstil fest.
     shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
     shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
     shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
@@ -204,18 +204,16 @@ try {
 
 ## **Verlaufsfüllung**
 
-In PowerPoint ist die Verlaufsfüllung eine Formatierungsoption, die es Ihnen ermöglicht, einer Form einen kontinuierlichen Farbübergang zuzuweisen. Sie können beispielsweise zwei oder mehr Farben so anwenden, dass die eine allmählich in die andere übergeht.
+In PowerPoint ist die Verlaufsfüllung eine Formatierungsoption, die es ermöglicht, einer Form einen kontinuierlichen Farbübergang zuzuweisen. Beispielsweise können Sie zwei oder mehr Farben so anwenden, dass die eine allmählich in die andere übergeht.
 
 So wenden Sie eine Verlaufsfüllung auf eine Form mit Aspose.Slides an:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/de/java/com.aspose.slides/filltype/) der Form auf `Gradient`.
-1. Fügen Sie Ihre beiden bevorzugten Farben mit definierten Positionen mithilfe der `add`‑Methoden der Gradient‑Stop‑Sammlung hinzu, die von der Schnittstelle [IGradientFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/igradientformat/) bereitgestellt wird.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Holen Sie sich eine Referenz zu einer Folie anhand ihres Index.
+1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hinzu.
+1. Setzen Sie den [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) der Form auf `Gradient`.
+1. Fügen Sie Ihre beiden gewünschten Farben mit definierten Positionen über die `add`‑Methoden der Gradient‑Stop‑Sammlung, die über das Interface [IGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/) bereitgestellt wird, hinzu.
 1. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
-
-Der folgende Java‑Code demonstriert, wie man einer Ellipse einen Verlaufsfüllungseffekt hinzufügt:
 
 ```java
 import com.aspose.slides.*;
@@ -229,11 +227,11 @@ try {
     // Fügen Sie eine AutoShape vom Typ Ellipse hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Wenden Sie eine Verlaufsformatierung auf die Ellipse an.
+    // Wenden Sie die Verlaufformatierung auf die Ellipse an.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // Setzen Sie die Richtung des Verlaufs.
+    // Legen Sie die Richtung des Farbverlaufs fest.
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
     // Fügen Sie zwei Farbverlaufspunkte hinzu.
@@ -251,24 +249,24 @@ Das Ergebnis:
 
 ![Die Ellipse mit Verlaufsfüllung](gradient-fill.png)
 
+Wenn ein Verlauf in einem exportierten Bild anders aussieht als in PowerPoint, siehe [Wählen Sie einen Verlauf‑Renderstil](/slides/de/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Sie können einen Rendering‑Stil auswählen, ohne die im Dokument gespeicherte Verlaufsfüllung zu ändern.
+
 ## **Musterfüllung**
 
-In PowerPoint ist die Musterfüllung eine Formatierungsoption, mit der Sie einer Form ein zweifarbiges Design – z. B. Punkte, Streifen, Kreuzschraffuren oder Karos – zuweisen können. Sie können für den Vorder‑ und Hintergrund des Musters eigene Farben wählen.
+In PowerPoint ist die Musterfüllung eine Formatierungsoption, die es Ihnen ermöglicht, ein zweifarbiges Design – wie Punkte, Streifen, Kreuzschraffierungen oder Karos – auf eine Form anzuwenden. Sie können benutzerdefinierte Farben für Vorder‑ und Hintergrund des Musters wählen.
 
-Aspose.Slides bietet über 45 vordefinierte Musterstile, die Sie auf Formen anwenden können, um das visuelle Erscheinungsbild Ihrer Präsentationen zu verbessern. Selbst nach Auswahl eines vordefinierten Musters können Sie die genauen Farben festlegen, die verwendet werden sollen.
+Aspose.Slides bietet über 45 vordefinierte Musterstile, die Sie auf Formen anwenden können, um die optische Attraktivität Ihrer Präsentationen zu steigern. Auch nach Auswahl eines vordefinierten Musters können Sie die genauen Farben festlegen, die verwendet werden sollen.
 
 So wenden Sie eine Musterfüllung auf eine Form mit Aspose.Slides an:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/de/java/com.aspose.slides/filltype/) der Form auf `Pattern`.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Holen Sie sich eine Referenz zu einer Folie anhand ihres Index.
+1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hinzu.
+1. Setzen Sie den [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) der Form auf `Pattern`.
 1. Wählen Sie einen Musterstil aus den vordefinierten Optionen.
-1. Setzen Sie die [Background Color](https://reference.aspose.com/slides/de/java/com.aspose.slides/patternformat/#getBackColor--) des Musters.
-1. Setzen Sie die [Foreground Color](https://reference.aspose.com/slides/de/java/com.aspose.slides/patternformat/#getForeColor--) des Musters.
+1. Legen Sie die [Background Color](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getBackColor--) des Musters fest.
+1. Legen Sie die [Foreground Color](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getForeColor--) des Musters fest.
 1. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
-
-Der folgende Java‑Code demonstriert, wie man einer Rechteckform eine Musterfüllung zuweist:
 
 ```java
 import com.aspose.slides.*;
@@ -283,10 +281,10 @@ try {
     // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Setzen Sie den Fülltyp auf Pattern.
+    // Setzen Sie den FillType auf Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern);
 
-    // Setzen Sie den Musterstil.
+    // Setzen Sie den Pattern-Stil.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
     // Setzen Sie die Hintergrund- und Vordergrundfarben des Musters.
@@ -306,24 +304,22 @@ Das Ergebnis:
 
 ## **Bildfüllung**
 
-In PowerPoint ist die Bildfüllung eine Formatierungsoption, die es Ihnen ermöglicht, ein Bild in eine Form einzufügen – das Bild dient dabei als Hintergrund der Form.
+In PowerPoint ist die Bildfüllung eine Formatierungsoption, die es ermöglicht, ein Bild in einer Form einzufügen – das Bild dient effektiv als Hintergrund der Form.
 
-So verwenden Sie Aspose.Slides, um einer Form eine Bildfüllung zuzuweisen:
+So verwenden Sie Aspose.Slides, um eine Bildfüllung auf eine Form anzuwenden:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/de/java/com.aspose.slides/filltype/) der Form auf `Picture`.
-1. Setzen Sie den Bildfüllungs‑Modus auf `Tile` (oder einen anderen bevorzugten Modus).
-1. Erzeugen Sie ein [IPPImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/ippimage/)-Objekt aus dem Bild, das Sie verwenden möchten.
-1. Überggeben Sie das Bild an die Methode `ISlidesPicture.setImage`.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Holen Sie sich eine Referenz zu einer Folie anhand ihres Index.
+1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hinzu.
+1. Setzen Sie den [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) der Form auf `Picture`.
+1. Setzen Sie den Bildfüllungsmodus auf `Tile` (oder einen anderen gewünschten Modus).
+1. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/)‑Objekt aus dem Bild, das Sie verwenden möchten.
+1. Übergeben Sie das Bild an die Methode `ISlidesPicture.setImage`.
 1. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
 
-Angenommen, wir haben eine Datei „lotus.png“ mit folgendem Bild:
+Nehmen wir an, wir haben eine Datei „lotus.png“ mit folgendem Bild:
 
 ![Das Lotus‑Bild](lotus.png)
-
-Der folgende Java‑Code demonstriert, wie man eine Form mit dem Bild füllt:
 
 ```java
 import com.aspose.slides.*;
@@ -337,13 +333,13 @@ try {
     // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Setzen Sie den Fülltyp auf Picture.
+    // Setzen Sie den FillType auf Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
     // Setzen Sie den Bildfüllungsmodus.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Laden Sie ein Bild und fügen es den Präsentationsressourcen hinzu.
+    // Laden Sie ein Bild und fügen Sie es zu den Präsentationsressourcen hinzu.
     IImage image = Images.fromFile("lotus.png");
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
@@ -362,24 +358,24 @@ Das Ergebnis:
 
 ![Die Form mit Bildfüllung](picture-fill.png)
 
-### **Bild kacheln als Textur**
+### **Bild als Textur kacheln**
 
-Wenn Sie ein gekacheltes Bild als Textur festlegen und das Kachelverhalten anpassen möchten, können Sie die folgenden Methoden der Schnittstelle [IPictureFillFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipicturefillformat/) und der Klasse [PictureFillFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/picturefillformat/) verwenden:
+Wenn Sie ein gekacheltes Bild als Textur festlegen und das Kachelverhalten anpassen möchten, können Sie die folgenden Methoden des Interfaces [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) und der Klasse [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) verwenden:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Legt den Bildfüllungs‑Modus fest – entweder `Tile` oder `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Gibt die Ausrichtung der Kacheln innerhalb der Form an.
-- [setTileFlip](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Steuert, ob die Kachel horizontal, vertikal oder beides gespiegelt wird.
-- [setTileOffsetX](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Setzt den horizontalen Versatz der Kachel (in Punkten) vom Ursprung der Form.
-- [setTileOffsetY](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Setzt den vertikalen Versatz der Kachel (in Punkten) vom Ursprung der Form.
-- [setTileScaleX](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definiert die horizontale Skalierung der Kachel als Prozentsatz.
-- [setTileScaleY](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definiert die vertikale Skalierung der Kachel als Prozentsatz.
+- [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Legt den Bildfüllungsmodus fest – entweder `Tile` oder `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Gibt die Ausrichtung der Kacheln innerhalb der Form an.
+- [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Steuert, ob die Kachel horizontal, vertikal oder beides gespiegelt wird.
+- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Legt den horizontalen Versatz der Kachel (in Punkten) vom Ursprung der Form fest.
+- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Legt den vertikalen Versatz der Kachel (in Punkten) vom Ursprung der Form fest.
+- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definiert die horizontale Skalierung der Kachel als Prozentsatz.
+- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definiert die vertikale Skalierung der Kachel als Prozentsatz.
 
-Der folgende Beispielcode zeigt, wie man ein Rechteck mit gekachelter Bildfüllung hinzufügt und die Kacheloptionen konfiguriert:
+Der folgende Codeausschnitt zeigt, wie man eine Rechteckform mit gekachelter Bildfüllung hinzufügt und Kacheloptionen konfiguriert:
 
 ```java
 import com.aspose.slides.*;
 
-// Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei darstellt.
+// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
     // Holen Sie die erste Folie.
@@ -388,19 +384,19 @@ try {
     // Fügen Sie eine Rechteck‑AutoShape hinzu.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Setzen Sie den Fülltyp der Form auf Picture.
+    // Setzen Sie den FillType der Form auf Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Laden Sie das Bild und fügen Sie es den Präsentationsressourcen hinzu.
+    // Laden Sie das Bild und fügen es zu den Präsentationsressourcen hinzu.
     IImage sourceImage = Images.fromFile("lotus.png");
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // Ordnen Sie das Bild der Form zu.
+    // Weisen Sie das Bild der Form zu.
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Konfigurieren Sie den Bildfüllungsmodus und die Kacheleigenschaften.
+    // Konfigurieren Sie den Bildfüllungsmodus und die Kachel‑Eigenschaften.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -422,24 +418,22 @@ Das Ergebnis:
 
 ## **Einfarbige Füllung**
 
-In PowerPoint ist die einfarbige Füllung eine Formatierungsoption, die eine Form mit einer einzigen, gleichmäßigen Farbe füllt. Dieser einheitliche Hintergrund wird ohne Verläufe, Texturen oder Muster angewendet.
+In PowerPoint ist die einfarbige Füllung eine Formatierungsoption, die einer Form eine einheitliche, einfarbige Hintergrundfarbe zuweist. Diese einfache Hintergrundfarbe wird ohne Verläufe, Texturen oder Muster angewendet.
 
-So wenden Sie eine einfarbige Füllung auf eine Form mit Aspose.Slides an:
+Um mit Aspose.Slides eine einfarbige Füllung auf eine Form anzuwenden, gehen Sie wie folgt vor:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/de/java/com.aspose.slides/filltype/) der Form auf `Solid`.
-1. Weisen Sie der Form Ihre bevorzugte Füllfarbe zu.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Holen Sie sich eine Referenz zu einer Folie anhand ihres Index.
+1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hinzu.
+1. Setzen Sie den [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) der Form auf `Solid`.
+1. Weisen Sie der Form Ihre gewünschte Füllfarbe zu.
 1. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
-
-Der folgende Java‑Code demonstriert, wie man einer Rechteckform in einer PowerPoint‑Folie eine einfarbige Füllung zuweist:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei darstellt.
+// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
     // Holen Sie die erste Folie.
@@ -448,7 +442,7 @@ try {
     // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Setzen Sie den Fülltyp auf Solid.
+    // Setzen Sie den FillType auf Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
 
     // Setzen Sie die Füllfarbe.
@@ -467,18 +461,16 @@ Das Ergebnis:
 
 ## **Transparenz festlegen**
 
-In PowerPoint können Sie bei einer einfarbigen, verlaufs-, bild‑ oder texturellen Füllung von Formen auch einen Transparenzgrad festlegen, um die Undurchsichtigkeit der Füllung zu steuern. Ein höherer Transparenzwert macht die Form durchsichtiger, sodass der Hintergrund oder darunter liegende Objekte teilweise sichtbar werden.
+In PowerPoint können Sie beim Anwenden einer einfarbigen, verlaufenden, Bild‑ oder Texturfüllung auf Formen auch einen Transparenzwert festlegen, um die Undurchsichtigkeit der Füllung zu steuern. Ein höherer Transparenzwert macht die Form durchsichtiger, sodass Hintergrund oder darunterliegende Objekte teilweise sichtbar werden.
 
-Aspose.Slides ermöglicht das Festlegen des Transparenzgrads, indem Sie den Alpha‑Wert in der für die Füllung verwendeten Farbe anpassen. So geht’s:
+Aspose.Slides ermöglicht das Festlegen des Transparenzwerts, indem der Alpha‑Wert der für die Füllung verwendeten Farbe angepasst wird. So geht’s:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/de/java/com.aspose.slides/filltype/) der Form auf `Solid`.
-1. Verwenden Sie `Color`, um eine Farbe mit Transparenz zu definieren (die Komponente `alpha` steuert die Transparenz).
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Holen Sie sich eine Referenz zu einer Folie anhand ihres Index.
+1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hinzu.
+1. Setzen Sie den [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) der Form auf `Solid`.
+1. Verwenden Sie `Color`, um eine Farbe mit Transparenz zu definieren (die `alpha`‑Komponente steuert die Transparenz).
 1. Speichern Sie die Präsentation.
-
-Der folgende Java‑Code demonstriert, wie man einer Rechteckform eine transparente Füllfarbe zuweist:
 
 ```java
 import com.aspose.slides.*;
@@ -490,10 +482,10 @@ try {
     // Holen Sie die erste Folie.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine feste Rechteck-AutoShape hinzu.
+    // Fügen Sie eine solide Rechteck-AutoShape hinzu.
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Fügen Sie eine transparente Rechteck-AutoShape über der festen Form hinzu.
+    // Fügen Sie eine transparente Rechteck-AutoShape über der soliden Form hinzu.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
@@ -511,17 +503,15 @@ Das Ergebnis:
 
 ## **Formen drehen**
 
-Aspose.Slides ermöglicht das Drehen von Formen in PowerPoint‑Präsentationen. Dies kann nützlich sein, wenn visuelle Elemente mit bestimmter Ausrichtung oder Designanforderungen positioniert werden sollen.
+Aspose.Slides ermöglicht das Drehen von Formen in PowerPoint‑Präsentationen. Dies kann nützlich sein, um visuelle Elemente mit bestimmten Ausrichtungs‑ oder Designanforderungen zu positionieren.
 
-So drehen Sie eine Form auf einer Folie:
+Um eine Form auf einer Folie zu drehen, gehen Sie wie folgt vor:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie die Rotationseigenschaft der Form auf den gewünschten Winkel.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Holen Sie sich eine Referenz zu einer Folie anhand ihres Index.
+1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hinzu.
+1. Setzen Sie die Rotations‑Eigenschaft der Form auf den gewünschten Winkel.
 1. Speichern Sie die Präsentation.
-
-Der folgende Java‑Code demonstriert, wie man eine Form um 5 Grad dreht:
 
 ```java
 import com.aspose.slides.*;
@@ -532,7 +522,7 @@ try {
     // Holen Sie die erste Folie.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie ein AutoShape vom Typ Rectangle hinzu.
+    // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Drehen Sie die Form um 5 Grad.
@@ -549,19 +539,17 @@ Das Ergebnis:
 
 ![Die Formdrehung](shape-rotation.png)
 
-## **3D‑Abrundungseffekte hinzufügen**
+## **3D‑Kanteneffekte hinzufügen**
 
-Aspose.Slides ermöglicht das Anwenden von 3D‑Abrundungseffekten auf Formen, indem die Eigenschaften des [ThreeDFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/threedformat/) konfiguriert werden.
+Aspose.Slides ermöglicht das Anwenden von 3D‑Kanteneffekten auf Formen, indem deren [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/)‑Eigenschaften konfiguriert werden.
 
-So fügen Sie einer Form 3D‑Abrundungseffekte hinzu:
+Um einer Form 3D‑Kanteneffekte hinzuzufügen, gehen Sie wie folgt vor:
 
-1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-1. Konfigurieren Sie das [ThreeDFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/threedformat/) der Form, um die Abrundungseinstellungen zu definieren.
+1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Holen Sie sich eine Referenz zu einer Folie anhand ihres Index.
+1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hinzu.
+1. Konfigurieren Sie das [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) der Form, um die Kanten‑Einstellungen festzulegen.
 1. Speichern Sie die Präsentation.
-
-Der folgende Java‑Code zeigt, wie man 3D‑Abrundungseffekte auf eine Form anwendet:
 
 ```java
 import com.aspose.slides.*;
@@ -572,7 +560,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie der Folie eine Form hinzu.
+    // Fügen Sie eine Form zur Folie hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -598,21 +586,19 @@ try {
 
 Das Ergebnis:
 
-![Der 3D‑Abrundungseffekt](3D-bevel-effect.png)
+![Der 3D‑Kanten‑Effekt](3D-bevel-effect.png)
 
 ## **3D‑Drehungseffekte hinzufügen**
 
-Aspose.Slides ermöglicht das Anwenden von 3D‑Drehungseffekten auf Formen, indem die Eigenschaften des [ThreeDFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/threedformat/) konfiguriert werden.
+Aspose.Slides ermöglicht das Anwenden von 3D‑Drehungseffekten auf Formen, indem deren [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/)‑Eigenschaften konfiguriert werden.
 
-So wenden Sie eine 3D‑Drehung auf eine Form an:
+Um mit einer 3D‑Drehung eine Form zu versehen:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-1. Verwenden Sie [setCameraType](https://reference.aspose.com/slides/de/java/com.aspose.slides/icamera/#setCameraType-int-) und [setLightType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilightrig/#setLightType-int-), um die 3D‑Drehung zu definieren.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Holen Sie sich eine Referenz zu einer Folie anhand ihres Index.
+1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) hinzu.
+1. Verwenden Sie [setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) und [setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-), um die 3D‑Drehung zu definieren.
 1. Speichern Sie die Präsentation.
-
-Der folgende Java‑Code demonstriert, wie man 3D‑Drehungseffekte auf eine Form anwendet:
 
 ```java
 import com.aspose.slides.*;
@@ -641,13 +627,13 @@ Das Ergebnis:
 
 ![Der 3D‑Drehungseffekt](3D-rotation-effect.png)
 
-## **Schwarz‑weiß‑Darstellung für Formen steuern**
+## **Schwarz‑weiß‑Anzeige für Formen steuern**
 
-Die Methode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) legt fest, wie eine einzelne Form gerendert wird, wenn eine Präsentation im Schwarz‑weiß‑Modus angezeigt oder verarbeitet wird. Sie aktiviert die Schwarz‑weiß‑Anzeige nicht selbst und ändert die Füllung, Kontur oder andere Formatierungen der Form im normalen Farbmodus nicht.
+Die Methode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) legt fest, wie eine einzelne Form gerendert wird, wenn eine Präsentation im Schwarz‑weiß‑Modus angezeigt oder verarbeitet wird. Sie aktiviert die Schwarz‑weiß‑Anzeige nicht automatisch und ändert die Füll‑, Linien‑ oder andere Formatierungen der Form im normalen Farbmodus nicht.
 
-Verwenden Sie einen Wert aus der Klasse [BlackWhiteMode](https://reference.aspose.com/slides/de/java/com.aspose.slides/blackwhitemode/), um das gewünschte Verhalten auszuwählen. Beispielsweise lässt `Automatic` die Render‑Anwendung die Konvertierung wählen, `Gray` und `LightGray` verwenden Graustufen, `BlackWhite` nutzt nur Schwarz und Weiß, `Black` und `White` erzwingen eine einzelne Farbe, `Color` erhält die normale Farbdarstellung und `Hidden` blendet die Form im Schwarz‑weiß‑Modus aus. `NotDefined` bedeutet, dass kein formbezogener Modus zugewiesen ist.
+Verwenden Sie einen Wert aus der Klasse [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) , um das gewünschte Verhalten auszuwählen. Beispielweise lässt `Automatic` die Rendering‑Anwendung die Umwandlung wählen, `Gray` und `LightGray` verwenden Graufärbung, `BlackWhite` nutzt ausschließlich Schwarz und Weiß, `Black` und `White` erzwingen eine Einzelfarbe, `Color` bewahrt die normale Farbgebung, und `Hidden` lässt die Form im Schwarz‑weiß‑Modus weg. `NotDefined` bedeutet, dass kein formbezogener Modus zugewiesen ist.
 
-Der folgende Java‑Code erstellt eine farbige Form und lässt sie im Schwarz‑weiß‑Anzeige­modus grau erscheinen:
+Der folgende Java‑Code erstellt eine farbige Form und lässt sie im Schwarz‑weiß‑Anzeige‑Modus grau erscheinen:
 
 ```java
 import com.aspose.slides.*;
@@ -670,11 +656,11 @@ try {
 }
 ```
 
-Im normalen Farbmodus behält das Rechteck seine orangefarbene Füllung. In einem Schwarz‑weiß‑Darstellungs‑Workflow wird es grau angezeigt, weil sein Modus auf `Gray` gesetzt ist. So können Sie eine Vollfarbfolie beibehalten und gleichzeitig ein separates Erscheinungsbild für den Druck, die Vorschau oder andere Workflows festlegen, die die Schwarz‑weiß‑Anzeige‑Einstellungen der Präsentation berücksichtigen.
+Im normalen Farbmodus behält das Rechteck seine orangefarbene Füllung bei. In einem Schwarz‑weiß‑Anzeige‑Workflow verwendet es Graufärbung, weil sein Modus auf `Gray` gesetzt ist. Dadurch können Sie eine Vollfarbfolie erhalten und gleichzeitig ein unterschiedliches Erscheinungsbild für den Druck, die Vorschau oder andere Workflows definieren, die die Schwarz‑weiß‑Anzeigeeinstellungen der Präsentation berücksichtigen.
 
 ## **Formatierung zurücksetzen**
 
-Der folgende Java‑Code zeigt, wie man die Formatierung einer Folie zurücksetzt und die Position, Größe und Formatierung aller Formen mit Platzhaltern auf dem [LayoutSlide](https://reference.aspose.com/slides/de/java/com.aspose.slides/layoutslide/) auf die Standardwerte zurücksetzt:
+Der folgende Java‑Code zeigt, wie man die Formatierung einer Folie zurücksetzt und die Position, Größe und Formatierung aller Formen mit Platzhaltern auf dem [LayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/) auf ihre Standard‑Einstellungen zurücksetzt:
 
 ```java
 import com.aspose.slides.*;
@@ -695,12 +681,12 @@ try {
 
 **Beeinflusst die Formatierung von Formen die endgültige Dateigröße der Präsentation?**
 
-Nur minimal. Eingebettete Bilder und Medien beanspruchen den größten Teil des Speicherplatzes, während Formparameter wie Farben, Effekte und Verläufe als Metadaten gespeichert werden und praktisch keinen zusätzlichen Platz benötigen.
+Nur minimal. Eingebettete Bilder und Medien belegen den größten Teil des Speicherplatzes, während Formparameter wie Farben, Effekte und Verläufe als Metadaten gespeichert werden und praktisch keinen zusätzlichen Platz benötigen.
 
-**Wie kann ich Formen auf einer Folie erkennen, die identische Formatierung aufweisen, um sie zu gruppieren?**
+**Wie kann ich Formen auf einer Folie erkennen, die identische Formatierungen besitzen, um sie zu gruppieren?**
 
-Vergleichen Sie die wichtigsten Formatierungseigenschaften jeder Form – Füllung, Kontur und Effekt‑Einstellungen. Stimmen alle entsprechenden Werte überein, behandeln Sie deren Stile als identisch und gruppieren Sie die Formen logisch, was die spätere Stilverwaltung vereinfacht.
+Vergleichen Sie die wichtigsten Formatierungseigenschaften jeder Form – Füllung, Linie und Effekte. Stimmen alle entsprechenden Werte überein, können Sie deren Stile als identisch betrachten und die Formen logisch gruppieren, was die spätere Stilverwaltung vereinfacht.
 
-**Kann ich einen Satz benutzerdefinierter Form‑Stile in einer separaten Datei speichern, um ihn in anderen Präsentationen wiederzuverwenden?**
+**Kann ich ein Set benutzerdefinierter Formstile in einer separaten Datei speichern, um es in anderen Präsentationen wiederzuverwenden?**
 
-Ja. Speichern Sie Beispiel‑Formen mit den gewünschten Stilen in einer Vorlagen‑Präsentation oder einer .POTX‑Vorlagendatei. Beim Erstellen einer neuen Präsentation öffnen Sie die Vorlage, klonen die benötigten stilisierten Formen und wenden deren Formatierung dort an, wo sie erforderlich ist.
+Ja. Speichern Sie Beispielformen mit den gewünschten Stilen in einer Vorlagen‑Präsentation oder einer .POTX‑Vorlagendatei. Beim Erstellen einer neuen Präsentation öffnen Sie die Vorlage, klonen die benötigten stilisierten Formen und wenden deren Formatierung dort an, wo sie benötigt wird.

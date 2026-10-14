@@ -1,124 +1,169 @@
 ---
-title: "PowerPoint-dia's naar PNG in Java"
-linktitle: "PowerPoint naar PNG"
+title: PowerPoint‑slides omzetten naar PNG in Java
+linktitle: PowerPoint naar PNG
 type: docs
 weight: 30
 url: /nl/java/convert-powerpoint-to-png/
 keywords:
-- "PowerPoint converteren"
-- "presentatie converteren"
-- "dia converteren"
-- "PPT converteren"
-- "PPTX converteren"
-- "PowerPoint naar PNG"
-- "presentatie naar PNG"
-- "dia naar PNG"
-- "PPT naar PNG"
-- "PPTX naar PNG"
-- "PPT opslaan als PNG"
-- "PPTX opslaan als PNG"
-- "PPT exporteren naar PNG"
-- "PPTX exporteren naar PNG"
+- PowerPoint converteren
+- presentatie converteren
+- slide converteren
+- PPT converteren
+- PPTX converteren
+- PowerPoint naar PNG
+- presentatie naar PNG
+- slide naar PNG
+- PPT naar PNG
+- PPTX naar PNG
+- PPT opslaan als PNG
+- PPTX opslaan als PNG
+- PPT exporteren naar PNG
+- PPTX exporteren naar PNG
 - Java
 - Aspose.Slides
-description: "PowerPoint-presentaties snel omzetten naar hoogwaardige PNG-afbeeldingen met Aspose.Slides voor Java, waarbij nauwkeurige, geautomatiseerde resultaten worden gegarandeerd."
+description: "Converteer PowerPoint‑presentaties snel naar hoogwaardige PNG‑afbeeldingen met Aspose.Slides voor Java, waardoor nauwkeurige, geautomatiseerde resultaten worden gegarandeerd."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u PowerPoint‑presentaties kunt omzetten naar PNG‑afbeeldingen met Aspose.Slides. Het toont hoe u presentaties kunt laden in formaten zoals PPT, PPTX en ODP, dia’s kunt renderen als afbeeldingen en de resultaten kunt opslaan in PNG‑formaat.
+Dit artikel legt uit hoe u presentatieslides kunt converteren naar PNG‑afbeeldingen met Aspose.Slides voor Java. U kunt presentaties laden in formaten zoals PPT, PPTX en ODP, elke slide renderen en opslaan als een afzonderlijke PNG‑afbeelding.
 
-Het artikel laat ook zien hoe u de gegenereerde PNG‑afbeeldingen kunt aanpassen door schaalwaarden in te stellen of de gewenste breedte en hoogte op te geven.
+De onderstaande voorbeelden tonen het renderen op de standaard schaal, het verhogen van de schaal, het specificeren van de uitvoerafmetingen in pixels, en het kiezen van een gradientrenderingsstijl.
 
-## **PowerPoint naar PNG converteren**
+## **PowerPoint converteren naar PNG**
 
-Volg deze stappen:
-
-1. Instantiseer de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Haal het dia‑object op uit de [Presentation.getSlides()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation#getSlides--) collectie via de [ISlide](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ISlide) interface.  
-3. Gebruik de [ISlide.getImage()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ISlide) methode om de miniatuur voor elke dia te verkrijgen.  
-4. Gebruik de [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) methode om de dia‑miniatuur op te slaan in PNG‑formaat.
-
-Deze Java‑code laat zien hoe u een PowerPoint‑presentatie naar PNG converteert:
+Laad een presentatie met de [Presentatie](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class en krijg toegang tot de slides via de [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) collectie. Het voorbeeld rendert elke slide met [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) zonder parameters om een thumbnail te maken. Vervolgens wordt [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) aangeroepen met [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/#Png) om elke gerenderde slide op te slaan als een PNG‑afbeelding.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **PowerPoint naar PNG converteren met aangepaste afmetingen**
+{{% alert color="info" title="Note" %}}
+De parameterloze [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) overload rendert op een schaal van 0.2. Bijvoorbeeld, een slide van 720 × 540 punten levert een thumbnail van 144 × 108 pixels op. Om de uitvoerafmetingen te beheersen, gebruik de overloads met schaalfactoren of een expliciete afbeeldingsgrootte zoals hieronder weergegeven.
+{{% /alert %}}
 
-Als u PNG‑bestanden wilt verkrijgen met een bepaalde schaal, kunt u de waarden voor `desiredX` en `desiredY` instellen, die de afmetingen van de resulterende miniatuur bepalen.
+## **PowerPoint converteren naar PNG met aangepaste afmetingen**
 
-Deze Java‑code demonstreert de beschreven bewerking:
+Geef horizontale en verticale schaalfactoren door aan [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-float-float-) om de gerenderde afmetingen te regelen. In dit voorbeeld zijn beide factoren 2, waardoor een slide van 720 × 540 punten een afbeelding van 1440 × 1080 pixels oplevert. Gelijke schaalfactoren behouden de beeldverhouding van de slide. Elke afbeelding wordt opgeslagen in PNG‑formaat met [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-).
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **PowerPoint naar PNG converteren met aangepaste grootte**
+## **PowerPoint converteren naar PNG met aangepaste grootte**
 
-Als u PNG‑bestanden wilt verkrijgen met een bepaalde grootte, kunt u uw gewenste `width`‑ en `height`‑argumenten doorgeven aan `ImageSize`.
-
-Deze code laat zien hoe u een PowerPoint naar PNG converteert terwijl u de grootte voor de afbeeldingen opgeeft:
+Om de uitvoerafmetingen in pixels te specificeren, geef een grootte door aan [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) in plaats van schaalfactoren. Dit voorbeeld rendert elke slide op 960 × 720 pixels en slaat het resultaat op met [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Kies afmetingen die overeenkomen met de beeldverhouding van de slide om uitrekken van de afbeelding te voorkomen.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Dimension imageSize = new Dimension(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Kies een gradientrenderingsstijl**
+
+Stel dat een slide verlopenvullingen bevat, maar de overgangen in de geëxporteerde PNG lichter of anders lijken dan in PowerPoint. U kunt de [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setGradientStyle-int-) methode, geërfd door [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/), gebruiken om te kiezen hoe de verlopen worden gerenderd.
+
+Download [gradient-styles.pptx](gradient-styles.pptx) en plaats het in de werkmap van de applicatie. De eerste slide bevat twee lineaire verlopen: cyaan naar oranje bovenaan en blauw naar geel onderaan. Elk verloop heeft twee stops, op 0 % en 100 %.
+
+Het volgende voorbeeld laadt deze presentatie en rendert dezelfde eerste slide in beide modi met [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+De onderstaande afbeeldingen tonen de output van dezelfde slide, met beide verlopen in elke afbeelding:
+
+| Standaard | PowerPointUI |
+| --- | --- |
+| ![Cyaan-naar-oranje en blauw-naar-geel verlopen gerenderd met Standaard](gradient-Default.png) | ![Dezelfde verlopen gerenderd met PowerPointUI](gradient-PowerPointUI.png) |
+
+In dit voorbeeld produceert `Standaard` lichtere tussentoonkleuren, terwijl `PowerPointUI` donkerdere tussentoonkleuren produceert. Het verschil hangt af van de kleuren en stops in het verloop.
+
+Kies `Standaard` wanneer de standaard Aspose.Slides output aan uw wensen voldoet. Probeer `PowerPointUI` wanneer uw prioriteit is om de weergave in PowerPoint te evenaren. Vergelijk beide outputs met uw beoogde resultaat; geen van beide modi is universeel beter.
 
 ## **FAQ**
 
-**Hoe kan ik alleen een specifieke vorm (bijv. grafiek of afbeelding) exporteren in plaats van de hele dia?**
+**Hoe kan ik een specifieke vorm, zoals een diagram of afbeelding, exporteren in plaats van de hele slide?**
 
-Aspose.Slides ondersteunt het [genereren van miniaturen voor individuele vormen](/slides/nl/java/create-shape-thumbnails/); u kunt een vorm renderen naar een PNG‑afbeelding.
+Aspose.Slides ondersteunt [het genereren van miniaturen voor individuele vormen](/slides/nl/java/create-shape-thumbnails/), waardoor u een vorm als PNG‑afbeelding kunt renderen.
 
 **Wordt parallelle conversie ondersteund op een server?**
 
-Ja, maar [deel](/slides/nl/java/multithreading/) geen enkele presentatie‑instantie over threads. Gebruik een aparte instantie per thread of proces.
+Ja. Gebruik een afzonderlijke presentatie‑instantie voor elke thread of elk proces; [deel geen enkele instantie over threads](/slides/nl/java/multithreading/).
 
-**Wat zijn de beperkingen van de proefversie bij het exporteren naar PNG?**
+**Wat zijn de evaluatiebeperkingen bij het exporteren naar PNG?**
 
-De evaluatiemodus voegt een watermerk toe aan uitvoerafbeeldingen en handhaaft [andere beperkingen](/slides/nl/java/licensing/) totdat er een licentie is toegepast.
+De evaluatiemodus voegt een watermerk toe aan de uitvoerafbeeldingen en past [andere beperkingen](/slides/nl/java/licensing/) toe totdat een licentie is geïnstalleerd.

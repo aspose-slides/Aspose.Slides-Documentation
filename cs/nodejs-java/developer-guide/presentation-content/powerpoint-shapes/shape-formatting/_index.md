@@ -1,52 +1,52 @@
 ---
-title: Formátování tvarů PowerPoint v JavaScriptu
-linktitle: Formátování tvaru
+title: Formátování tvarů PowerPointu v JavaScriptu
+linktitle: Formátování tvarů
 type: docs
 weight: 20
 url: /cs/nodejs-java/shape-formatting/
 keywords:
-- formát tvaru
-- formát čáry
+- formátovat tvar
+- formátovat čáru
 - skicový efekt
 - skicová čára tvaru
-- formát stylu spojení
-- gradientové vyplnění
-- vzorkové vyplnění
-- obrázkové vyplnění
-- texturové vyplnění
-- jednobarevné vyplnění
+- formátovat styl spoje
+- gradientní výplň
+- vzorová výplň
+- obrázková výplň
+- texturová výplň
+- jednobarevná výplň
 - průhlednost tvaru
-- černobílý rendering tvaru
-- šedotónový rendering tvaru
-- otočení tvaru
+- černobílé vykreslování tvaru
+- vykreslování tvaru v odstínech šedi
+- otočit tvar
 - 3D zkosený efekt
-- 3D rotační efekt
-- reset formátování
+- 3D otáčecí efekt
+- obnovit formátování
 - PowerPoint
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Formátujte tvary PowerPoint v JavaScriptu pomocí Aspose.Slides - nastavte styly výplní, čar a efektů pro soubory PPT, PPTX a ODP s přesností a úplnou kontrolou."
+description: "Formátujte tvary PowerPointu v JavaScriptu pomocí Aspose.Slides — nastavte výplně, čáry a styly efektů pro soubory PPT, PPTX a ODP s přesností a plnou kontrolou."
 ---
 ## **Úvod**
 
-V PowerPointu můžete do snímků přidávat tvary. Protože tvary jsou složeny z čar, můžete je formátovat úpravou nebo použitím efektů na jejich obrysech. Navíc můžete tvary formátovat nastavením, která řídí, jak jsou vyplněny jejich vnitřky.
+V PowerPointu můžete do snímků přidávat tvary. Protože tvary jsou tvořeny čarami, můžete je formátovat úpravou nebo aplikací efektů na jejich obrysy. Navíc můžete formátovat tvary nastavením, která řídí, jak jsou jejich výplně vyplněny.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![formátování-tvaru-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides pro Node.js přes Java poskytuje třídy a metody, které umožňují formátovat tvary pomocí stejných možností, jaké jsou k dispozici v PowerPointu.
+Aspose.Slides pro Node.js via Java poskytuje třídy a metody, které vám umožní formátovat tvary pomocí stejných možností, jaké jsou dostupné v PowerPointu.
 
 ## **Formátování čar**
 
-Pomocí Aspose.Slides můžete pro tvar určit vlastní styl čáry. Následující kroky popisují postup:
+Pomocí Aspose.Slides můžete pro tvar zadat vlastní styl čáry. Postup je následující:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
-1. Nastavte [styl čáry](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/linestyle/) tvaru.
+1. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do snímku.
+1. Nastavte [line style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) tvaru.
 1. Nastavte šířku čáry.
-1. Nastavte [styl čáry](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/linedashstyle/) čáry.
+1. Nastavte [dash style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) čáry.
 1. Nastavte barvu čáry pro tvar.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
@@ -63,13 +63,13 @@ try {
     // Získejte první snímek.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Přidejte automatický tvar typu Obdélník.
+    // Přidejte automatický tvar typu Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
 
     // Odstraňte výplň z obdélníkového tvaru.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // Použijte formátování na čáry obdélníku.
+    // Aplikujte formátování na čáry obdélníku.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
@@ -87,13 +87,13 @@ try {
 
 Výsledek:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![Formátované čáry v prezentaci](formatted-lines.png)
 
 ## **Použití skicových efektů na čáry tvaru**
 
-Skicový efekt způsobí, že čára tvaru vypadá ručně kreslená. Použijte [Shape.getLineFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/) pro přístup k nastavením čáry, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/lineformat/) pro přístup k nastavením skici a [SketchFormat.setSketchType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sketchformat/) pro výběr hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/linesketchtype/).
+Skicový efekt způsobí, že čára tvaru vypadá jako ručně kreslená. Použijte [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) pro přístup k nastavením čáry, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) pro přístup k nastavením skici a [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) pro výběr hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
 
-Následující kód JavaScript ukazuje, jak použít efekt [LineSketchType.Curved](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/linesketchtype/) , přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType.None](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/linesketchtype/):
+Následující JavaScriptový kód ukazuje, jak použít efekt [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/), přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
 
 ```js
 var aspose = aspose || {};
@@ -107,21 +107,21 @@ try {
     // Přístup k formátu čáry tvaru a jeho skicovému formátu.
     let sketchFormat = shape.getLineFormat().getSketchFormat();
 
-    // Aplikujte skicový efekt.
+    // Použijte skicový efekt.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
 
     // Přečtěte skicový efekt přiřazený přímo tvaru.
     let explicitSketchType = sketchFormat.getSketchType();
     console.log("Explicit sketch type: " + explicitSketchType);
 
-    // Odstraňte skicový efekt.
+    // Odeberte skicový efekt.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-Cílí hodnota vrácená metodou [SketchFormat.getSketchType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sketchformat/) představuje nastavení přiřazené přímo tvaru. Pokud lze formátování čáry zdědit z motivu, hlavního snímku nebo rozložení snímku, použijte [LineFormat.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/lineformat/), zavolejte `getSketchFormat` na vráceném objektu a poté jeho metodu `getSketchType`. Efektivní hodnota odráží formátování, které je skutečně použito po vyřešení dědičnosti:
+Hodnota vrácená metodou [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozvržení, použijte [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/), zavolejte `getSketchFormat` na vráceném objektu a poté jeho metodu `getSketchType`. Efektivní hodnota odráží formátování, které je skutečně aplikováno po vyřešení dědičnosti:
 
 ```js
 var aspose = aspose || {};
@@ -147,15 +147,15 @@ try {
 
 Zde jsou tři možnosti typu spojení:
 
-* Kulatý
+* Round
 * Miter
-* Šikmý
+* Bevel
 
-Ve výchozím nastavení, když PowerPoint spojuje dvě čáry pod úhlem (např. na rohu tvaru), používá nastavení **Kulatý**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Miter**.
+Ve výchozím nastavení PowerPoint používá při spojení dvou čar pod úhlem (například v rohu tvaru) nastavení **Round**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Miter**.
 
-![The join style in the presentation](join-style-powerpoint.png)
+![Styl spojení v prezentaci](join-style-powerpoint.png)
 
-Následující kód JavaScript ukazuje, jak byly tři obdélníky (jak je vidět na výše uvedeném obrázku) vytvořeny pomocí nastavení typu spojení Miter, Bevel a Round:
+Následující JavaScriptový kód demonstruje, jak byly vytvořeny tři obdélníky (jak je vidět na obrázku výše) pomocí nastavení spojení Miter, Bevel a Round:
 
 ```js
 var aspose = aspose || {};
@@ -168,7 +168,7 @@ try {
     // Získejte první snímek.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Přidejte tři automatické tvary typu Obdélník.
+    // Přidejte tři automatické tvary typu Rectangle.
     let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
     let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
     let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
@@ -194,7 +194,7 @@ try {
     shape3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Nastavte styl spojení.
+    // Nastavte styl spoje.
     shape1.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
     shape2.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
     shape3.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
@@ -211,18 +211,20 @@ try {
 }
 ```
 
-## **Přechodové vyplnění**
+## **Gradientní výplň**
 
-V PowerPointu je Gradient Fill formátovací volba, která umožňuje aplikovat plynulý přechod barev na tvar. Například můžete použít dvě nebo více barev tak, že jedna postupně přechází v druhou.
+V PowerPointu je Gradientní výplň formátovací možnost, která vám umožní aplikovat plynulé přechody barev na tvar. Například můžete použít dvě či více barev tak, aby se jedna postupně slévala s druhou.
 
-Zde je návod, jak pomocí Aspose.Slides aplikovat přechodové vyplnění na tvar:
+Postup pro aplikaci gradientní výplně na tvar pomocí Aspose.Slides:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/filltype/) tvaru na `Gradient`.
-1. Přidejte své dvě preferované barvy s definovanými pozicemi pomocí metod `add` ze sbírky gradientových stop, kterou vystavuje třída [GradientFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/gradientformat/).
+1. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do snímku.
+1. Nastavte [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) tvaru na `Gradient`.
+1. Přidejte své dva preferované barvy s definovanými pozicemi pomocí metod `add` ze sbírky gradientních zastávek, kterou vystavuje třída [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/).
 1. Uložte upravenou prezentaci jako soubor PPTX.
+
+Následující JavaScriptový kód ukazuje, jak aplikovat efekt gradientní výplně na elipsu:
 
 ```js
 var aspose = aspose || {};
@@ -235,17 +237,17 @@ try {
     // Získejte první snímek.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Přidejte automatický tvar typu Elipsa.
+    // Přidejte automatický tvar typu Ellipse.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Použijte gradientové formátování na elipsu.
+    // Aplikujte gradientní formátování na elipsu.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
 
     // Nastavte směr gradientu.
     shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
 
-    // Přidejte dva gradientové body.
+    // Přidejte dva body gradientu.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
 
@@ -258,24 +260,28 @@ try {
 
 Výsledek:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![Elipsa s gradientní výplní](gradient-fill.png)
 
-## **Vzorkové vyplnění**
+Pokud se gradient v exportovaném obrázku liší od toho, jak vypadá v PowerPointu, viz [Choose a Gradient Rendering Style](/slides/cs/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Můžete vybrat styl vykreslování, aniž byste změnili gradientní výplň uloženou v prezentaci.
 
-V PowerPointu je Pattern Fill formátovací volba, která vám umožní použít dvoubarevný vzor – například tečky, pruhy, křížové šrafování nebo kostkový vzor – na tvar. Můžete si zvolit vlastní barvy pro popředí a pozadí vzoru.
+## **Vzorová výplň**
 
-Aspose.Slides poskytuje více než 45 předdefinovaných stylů vzorů, které můžete aplikovat na tvary pro zvýšení vizuálního dojmu vašich prezentací. I po výběru předdefinovaného vzoru můžete stále určit přesné barvy, které se mají použít.
+V PowerPointu je Vzorová výplň formátovací možnost, která vám umožní aplikovat dvoubarevný design – například tečky, pruhy, křížové šrafování nebo šachovnici – na tvar. Můžete si zvolit vlastní barvy pro popředí a pozadí vzoru.
 
-Zde je návod, jak pomocí Aspose.Slides aplikovat vzorkové vyplnění na tvar:
+Aspose.Slides poskytuje více než 45 předdefinovaných vzorových stylů, které můžete aplikovat na tvary a zvýšit tak vizuální atraktivitu vašich prezentací. I po výběru předdefinovaného vzoru můžete stále určit přesné barvy, které má použít.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+Postup pro aplikaci vzorové výplně na tvar pomocí Aspose.Slides:
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/filltype/) tvaru na `Pattern`.
+1. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do snímku.
+1. Nastavte [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) tvaru na `Pattern`.
 1. Vyberte styl vzoru z předdefinovaných možností.
-1. Nastavte [Background Color](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/patternformat/#getBackColor--) vzoru.
-1. Nastavte [Foreground Color](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/patternformat/#getForeColor--) vzoru.
+1. Nastavte [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) vzoru.
+1. Nastavte [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) vzoru.
 1. Uložte upravenou prezentaci jako soubor PPTX.
+
+Následující JavaScriptový kód ukazuje, jak aplikovat vzorovou výplň na obdélník:
 
 ```js
 var aspose = aspose || {};
@@ -288,10 +294,10 @@ try {
     // Získejte první snímek.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Přidejte automatický tvar typu Obdélník.
+    // Přidejte automatický tvar typu Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Nastavte typ výplně na Vzor.
+    // Nastavte typ výplně na Pattern.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 
     // Nastavte styl vzoru.
@@ -310,26 +316,28 @@ try {
 
 Výsledek:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![Obdélník s vzorovou výplní](pattern-fill.png)
 
-## **Obrázkové vyplnění**
+## **Obrázková výplň**
 
-V PowerPointu je Picture Fill formátovací volba, která vám umožní vložit obrázek uvnitř tvaru – efektivně použít obrázek jako pozadí tvaru.
+V PowerPointu je Obrázková výplň formátovací možnost, která vám umožní vložit obrázek do tvaru – efektivně použít obrázek jako pozadí tvaru.
 
-Zde je postup, jak pomocí Aspose.Slides aplikovat obrázkové vyplnění na tvar:
+Postup pro použití Aspose.Slides k aplikaci obrázkové výplně na tvar:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/filltype/) tvaru na `Picture`.
-1. Nastavte režim obrázkového vyplnění na `Tile` (nebo jiný preferovaný režim).
-1. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/) z obrázku, který chcete použít.
+1. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do snímku.
+1. Nastavte [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) tvaru na `Picture`.
+1. Nastavte režim obrázkové výplně na `Tile` (nebo jiný preferovaný režim).
+1. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) ze souboru obrázku, který chcete použít.
 1. Předávejte obrázek metodě `ISlidesPicture.setImage`.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Předpokládejme, že máme soubor "lotus.png" s následujícím obrázkem:
+Předpokládejme, že máme soubor **lotus.png** s následujícím obrázkem:
 
-![The lotus picture](lotus.png)
+![Obrázek lotosu](lotus.png)
+
+Následující JavaScriptový kód ukazuje, jak vyplnit tvar obrázkem:
 
 ```js
 var aspose = aspose || {};
@@ -342,13 +350,13 @@ try {
     // Získejte první snímek.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Přidejte automatický tvar typu Obdélník.
+    // Přidejte automatický tvar typu Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Nastavte typ výplně na Obrázek.
+    // Nastavte typ výplně na Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // Nastavte režim obrázkového vyplnění.
+    // Nastavte režim obrázkové výplně.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
     // Načtěte obrázek a přidejte jej do zdrojů prezentace.
@@ -368,21 +376,21 @@ try {
 
 Výsledek:
 
-![The shape with picture fill](picture-fill.png)
+![Tvar s obrázkovou výplní](picture-fill.png)
 
-### **Dlaždicovat obrázek jako texturu**
+### **Obrázek jako dlaždice (Tile) – texturování**
 
-Pokud chcete nastavit dlaždicovaný obrázek jako texturu a přizpůsobit chování dlaždicování, můžete použít následující metody třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/):
+Pokud chcete nastavit obrázek jako dlaždici a přizpůsobit chování dlaždic, můžete použít následující metody třídy [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Nastavuje režim obrázkového vyplnění – buď `Tile`, nebo `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Určuje zarovnání dlaždic uvnitř tvaru.
-- [setTileFlip](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Řídí, zda je dlaždice otočena horizontálně, vertikálně nebo obojí.
-- [setTileOffsetX](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Nastavuje vodorovný posun dlaždice (v bodech) od počátku tvaru.
-- [setTileOffsetY](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Nastavuje svislý posun dlaždice (v bodech) od počátku tvaru.
-- [setTileScaleX](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definuje vodorovné měřítko dlaždice v procentech.
-- [setTileScaleY](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definuje svislé měřítko dlaždice v procentech.
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Nastaví režim obrázkové výplně – `Tile` nebo `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Určuje zarovnání dlaždic uvnitř tvaru.
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Řídí, zda se dlaždice převrací horizontálně, vertikálně nebo obojí.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Nastaví horizontální posun dlaždice (v bodech) od počátku tvaru.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Nastaví vertikální posun dlaždice (v bodech) od počátku tvaru.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definuje horizontální měřítko dlaždice v procentech.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definuje vertikální měřítko dlaždice v procentech.
 
-Následující ukázka kódu ukazuje, jak přidat obdélníkový tvar s dlaždicovým obrázkovým vyplněním a nakonfigurovat možnosti dlaždic:
+Následující ukázkový kód ukazuje, jak přidat obdélníkový tvar s dlaždicovou obrázkovou výplní a nakonfigurovat možnosti dlaždic:
 
 ```js
 var aspose = aspose || {};
@@ -395,10 +403,10 @@ try {
     // Získejte první snímek.
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // Přidejte automatický tvar typu Obdélník.
+    // Přidejte automatický tvar typu Rectangle.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Nastavte typ výplně tvaru na Obrázek.
+    // Nastavte typ výplně tvaru na Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
     // Načtěte obrázek a přidejte jej do zdrojů prezentace.
@@ -410,7 +418,7 @@ try {
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Nakonfigurujte režim obrázkového vyplnění a vlastnosti dlaždicování.
+    // Nastavte režim obrázkové výplně a vlastnosti dlaždicování.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -428,20 +436,22 @@ try {
 
 Výsledek:
 
-![The tile options](tile-options.png)
+![Možnosti dlaždic](tile-options.png)
 
-## **Jednobarevné vyplnění**
+## **Jednobarevná výplň**
 
-V PowerPointu je Solid Color Fill formátovací volba, která vyplní tvar jednou, jednotnou barvou. Tato jednobarevná podkladová barva je aplikována bez jakýchkoli přechodů, textur nebo vzorů.
+V PowerPointu je Jednobarevná výplň formátovací možnost, která vyplní tvar jednou rovnoměrnou barvou. Tento jednoduchý podklad se použije bez gradientů, textur nebo vzorů.
 
-Chcete-li pomocí Aspose.Slides aplikovat jednobarevné vyplnění na tvar, postupujte takto:
+Postup pro aplikaci jednobarevné výplně na tvar pomocí Aspose.Slides:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/filltype/) tvaru na `Solid`.
+1. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do snímku.
+1. Nastavte [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) tvaru na `Solid`.
 1. Přiřaďte požadovanou barvu výplně tvaru.
 1. Uložte upravenou prezentaci jako soubor PPTX.
+
+Následující JavaScriptový kód ukazuje, jak aplikovat jednobarevnou výplň na obdélník v PowerPoint snímku:
 
 ```js
 var aspose = aspose || {};
@@ -454,10 +464,10 @@ try {
     // Získejte první snímek.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Přidejte automatický tvar typu Obdélník.
+    // Přidejte automatický tvar typu Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Nastavte typ výplně na jednobarevnou.
+    // Nastavte typ výplně na Solid.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 
     // Nastavte barvu výplně.
@@ -472,20 +482,22 @@ try {
 
 Výsledek:
 
-![The shape with solid color fill](solid-color-fill.png)
+![Tvar s jednobarevnou výplní](solid-color-fill.png)
 
-## **Nastavit průhlednost**
+## **Nastavení průhlednosti**
 
-V PowerPointu, když použijete jednobarevnou, přechodovou, obrázkovou nebo texturovou výplň na tvary, můžete také nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že tvar bude průhlednější a podklad nebo podkladové objekty budou částečně viditelné.
+V PowerPointu můžete při aplikaci jednobarevné, gradientní, obrázkové nebo texturové výplně na tvary nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že tvar bude více průsvitný a podklad či podkladové objekty budou částečně viditelné.
 
 Aspose.Slides umožňuje nastavit úroveň průhlednosti úpravou alfa komponenty barvy použité pro výplň. Postup:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/filltype/) tvaru na `Solid`.
+1. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do snímku.
+1. Nastavte [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) na `Solid`.
 1. Použijte `Color` k definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
 1. Uložte prezentaci.
+
+Následující JavaScriptový kód ukazuje, jak aplikovat průhlednou barvu výplně na obdélník:
 
 ```js
 var aspose = aspose || {};
@@ -498,10 +510,10 @@ try {
     // Získejte první snímek.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Přidejte automatický obdélníkový tvar s plnou výplní.
+    // Přidejte plný obdélníkový automatický tvar.
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Přidejte průhledný obdélníkový automatický tvar nad plný tvar.
+    // Přidejte průhledný obdélníkový automatický tvar přes plný tvar.
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
@@ -515,19 +527,21 @@ try {
 
 Výsledek:
 
-![The transparent shape](shape-transparency.png)
+![Průhledný tvar](shape-transparency.png)
 
-## **Otočit tvary**
+## **Otáčení tvarů**
 
-Aspose.Slides vám umožňuje otáčet tvary v prezentacích PowerPoint. To může být užitečné při umisťování vizuálních prvků s konkrétním zarovnáním nebo designovými požadavky.
+Aspose.Slides vám umožňuje otáčet tvary v PowerPoint prezentacích. To může být užitečné při umisťování vizuálních prvků s konkrétním zarovnáním nebo designovými požadavky.
 
-Chcete-li otočit tvar na snímku, postupujte takto:
+Postup pro otáčení tvaru na snímku:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
+1. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do snímku.
 1. Nastavte vlastnost otáčení tvaru na požadovaný úhel.
 1. Uložte prezentaci.
+
+Následující JavaScriptový kód ukazuje, jak otočit tvar o 5 stupňů:
 
 ```js
 var aspose = aspose || {};
@@ -539,7 +553,7 @@ try {
     // Získejte první snímek.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Přidejte automatický tvar typu Obdélník.
+    // Přidejte automatický tvar typu Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Otočte tvar o 5 stupňů.
@@ -554,19 +568,21 @@ try {
 
 Výsledek:
 
-![The shape rotation](shape-rotation.png)
+![Otáčení tvaru](shape-rotation.png)
 
-## **Přidat 3D zkosené efekty**
+## **Přidání 3D zkosených efektů**
 
-Aspose.Slides umožňuje aplikovat 3D zkosené efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/threedformat/).
+Aspose.Slides umožňuje aplikovat 3D zkosené efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/).
 
-Chcete-li přidat 3D zkosené efekty na tvar, postupujte takto:
+Postup pro přidání 3D zkosených efektů na tvar:
 
-1. Instancujte třídu [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
-1. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/threedformat/) tvaru pro definování nastavení zkosení.
+1. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do snímku.
+1. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) tvaru pro definování nastavení zkosení.
 1. Uložte prezentaci.
+
+Následující JavaScriptový kód ukazuje, jak aplikovat 3D zkosené efekty na tvar:
 
 ```js
 var aspose = aspose || {};
@@ -604,19 +620,21 @@ try {
 
 Výsledek:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![3D efekt zkosení](3D-bevel-effect.png)
 
-## **Přidat 3D rotační efekty**
+## **Přidání 3D otáčecích efektů**
 
-Aspose.Slides umožňuje aplikovat 3D rotační efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/threedformat/).
+Aspose.Slides umožňuje aplikovat 3D otáčecí efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/).
 
-Chcete-li aplikovat 3D otáčení na tvar:
+Postup pro aplikaci 3D otáčení na tvar:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
-1. Použijte [setCameraType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/camera/#setCameraType) a [setLightType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/lightrig/#setLightType) pro definování 3D otáčení.
+1. Přidejte [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do snímku.
+1. Použijte [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) a [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) k definování 3D otáčení.
 1. Uložte prezentaci.
+
+Následující JavaScriptový kód ukazuje, jak aplikovat 3D otáčecí efekty na tvar:
 
 ```js
 var aspose = aspose || {};
@@ -644,15 +662,15 @@ try {
 
 Výsledek:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![3D otáčecí efekt](3D-rotation-effect.png)
 
-## **Ovládání černobílého vykreslování pro tvary**
+## **Řízení černobílého vykreslování pro tvary**
 
-Metoda [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) určuje, jak je jednotlivý tvar vykreslován, když je prezentace zobrazena nebo zpracována v černobílém režimu. Tato metoda sama o sobě neaktivuje černobílý zobrazovací režim a nemění výplň, čáru ani jiné formátování tvaru v normálním barevném režimu.
+Metoda [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) určuje, jak je jednotlivý tvar vykreslován, když je prezentace zobrazována nebo zpracovávána v černobílém režimu. Samotná metoda neumožňuje černobílý režim a nemění výplň, čáru ani jiné formátování tvaru v normálním barevném režimu.
 
-Použijte hodnotu z výčtu [BlackWhiteMode](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/blackwhitemode/) pro výběr požadovaného chování. Například `Automatic` nechá aplikaci pro vykreslování zvolit převod, `Gray` a `LightGray` používají šedé zbarvení, `BlackWhite` používá pouze černou a bílou, `Black` a `White` vynutí jednu barvu, `Color` zachová normální barevnost a `Hidden` vynechá tvar v černobílém režimu. `NotDefined` znamená, že není přiřazen žádný režim na úrovni tvaru.
+Použijte hodnotu z výčtu [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) pro výběr požadovaného chování. Například `Automatic` nechá aplikaci zvolit převod, `Gray` a `LightGray` použijí šedé odstíny, `BlackWhite` použije jen černou a bílou, `Black` a `White` vynutí jednobarevnost, `Color` zachová běžné barvy a `Hidden` skryje tvar v černobílém režimu. `NotDefined` znamená, že není přiřazen žádný režim na úrovni tvaru.
 
-Následující kód JavaScript vytváří barevný tvar a zobrazí jej šedě v černobílém režimu:
+Následující JavaScriptový kód vytvoří barevný tvar a způsobí, že se v černobílém režimu zobrazí šedě:
 
 ```js
 var aspose = aspose || {};
@@ -667,7 +685,7 @@ try {
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
 
-    // Uchovat oranžovou výplň v barevném režimu, ale vykreslit tvar se šedým zbarvením v černobílém režimu.
+    // Uchovejte oranžovou výplň v barevném režimu, ale vykreslete tvar se šedým zbarvením v černobílém režimu.
     shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
 
     presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
@@ -676,11 +694,11 @@ try {
 }
 ```
 
-V normálním barevném režimu si obdélník zachovává oranžovou výplň. V černobílém pracovním postupu používá šedé zbarvení, protože jeho režim je nastaven na `Gray`. To vám umožní zachovat plnobarevný snímek a současně definovat odlišný vzhled pro tisk, náhled nebo jiné workflowy, které respektují nastavení černobílého zobrazování prezentace.
+V normálním barevném režimu si obdélník zachová oranžovou výplň. V pracovním postupu s černobílým zobrazením používá šedé zabarvení, protože je nastavený režim na `Gray`. To vám umožní zachovat plnobarevný snímek a současně definovat odlišný vzhled pro tisk, náhled nebo jiné workflowy, které respektují nastavení černobílého zobrazení prezentace.
 
-## **Resetovat formátování**
+## **Obnovení formátování**
 
-Následující kód JavaScript ukazuje, jak resetovat formátování snímku a vrátit pozici, velikost a formátování všech tvarů s placeholdery na [LayoutSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/) na výchozí nastavení:
+Následující JavaScriptový kód ukazuje, jak obnovit formátování snímku a vrátit pozici, velikost a formátování všech tvarů s zástupci na [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) na jejich výchozí nastavení:
 
 ```js
 var aspose = aspose || {};
@@ -690,7 +708,7 @@ let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // Resetujte každý tvar na snímku, který má zástupný prvek v rozvržení.
+        // Resetujte každý tvar na snímku, který má zástupce v rozvržení.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
@@ -701,14 +719,14 @@ try {
 
 ## **Často kladené otázky**
 
-**Ovlivňuje formátování tvarů konečnou velikost souboru prezentace?**
+**Ovlivňuje formátování tvaru konečnou velikost souboru prezentace?**
 
-Pouze minimálně. Vložené obrázky a média zaujímají většinu místa v souboru, zatímco parametry tvarů jako barvy, efekty a přechody jsou uloženy jako metadata a prakticky nepřidávají žádnou další velikost.
+Pouze nepatrně. Vložené obrázky a média zabírají většinu místa, zatímco parametry tvarů jako barvy, efekty a gradienty jsou uloženy jako metadata a prakticky nepřidávají žádnou další velikost.
 
-**Jak mohu na snímku zjistit tvary, které mají identické formátování, abych je mohl seskupit?**
+**Jak mohu zjistit tvary na snímku, které mají identické formátování, abych je mohl seskupit?**
 
-Porovnejte klíčové vlastnosti formátování každého tvaru – nastavení výplně, čáry a efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte, což usnadní následnou správu stylů.
+Porovnejte klíčové vlastnosti formátování každého tvaru – výplň, čáru a nastavení efektů. Pokud se všechna odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte, což později usnadní správu stylů.
 
 **Mohu uložit sadu vlastních stylů tvarů do samostatného souboru pro opětovné použití v jiných prezentacích?**
 
-Ano. Uložte ukázkové tvary s požadovanými styly do šablony snímků nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, zkopírujte (klonujte) stylované tvary, které potřebujete, a znovu aplikujte jejich formátování tam, kde je to potřeba.
+Ano. Uložte ukázkové tvary s požadovanými styly do šablony prezentace nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, naklonujte potřebné stylované tvary a znovu aplikujte jejich formátování tam, kde je to potřeba.
