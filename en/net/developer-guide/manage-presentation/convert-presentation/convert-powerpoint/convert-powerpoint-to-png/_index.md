@@ -27,104 +27,120 @@ description: "Convert PowerPoint presentations to high-quality PNG images quickl
 
 ## **Overview**
 
-This article explains how to convert PowerPoint presentations to PNG images using Aspose.Slides. It shows how to load presentation files in formats such as PPT, PPTX, and ODP, render slides as images, and save the results in PNG format.
+This article explains how to convert presentation slides to PNG images using Aspose.Slides for .NET. You can load presentations in formats such as PPT, PPTX, and ODP, render each slide, and save it as a separate PNG image.
 
-The article also demonstrates how to customize the generated PNG images by setting scale values or specifying the desired width and height.
+The examples below demonstrate rendering thumbnails, setting scale factors, specifying the output dimensions in pixels, and choosing a gradient rendering style.
 
 ## **Convert PowerPoint to PNG**
 
-Go through these steps:
+Load a presentation with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and access its slides through the [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collection. The example renders every slide with [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) without parameters to create a thumbnail. It then calls [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) with [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) to save each rendered slide as a PNG image.
 
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get the slide object from the [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) collection under the [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) interface. 
-3. Use the [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) method to render each slide at the scale you need. 
-4. Use the [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) method to save the slide thumbnail to the PNG format. 
-
-This C# code shows you how to convert a PowerPoint presentation to PNG. Presentation object can load PPT, PPTX, ODP etc, then each slide in presentation object is converted to PNG format or other images format.
-
-```c#
+```cs
 using Aspose.Slides;
 
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
+using var presentation = new Presentation("presentation.pptx");
 
-        using (IImage image = slide.GetImage(1f, 1f))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
+{
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage();
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-**Note:** The scale arguments `1f, 1f` render each slide at its full size, so a 720×540 pt slide produces a 720×540 px image. The parameterless [GetImage()](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) overload returns a much smaller preview thumbnail instead.
+The parameterless [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) overload renders at a scale of 0.2. For example, a slide measuring 720 × 540 points produces a 144 × 108 pixel thumbnail. To control the output dimensions, use the overloads with scale factors or an explicit image size shown below.
 
-{{% /alert %}} 
+{{% /alert %}}
 
 ## **Convert PowerPoint to PNG With Custom Dimensions**
 
-If you want to obtain PNG files around a certain scale, you can set the values for `desiredX` and `desiredY`, which determine the dimensions of the resulting thumbnail. 
+Pass horizontal and vertical scale factors to [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) to control the rendered dimensions. In this example, both factors are 2, so a slide measuring 720 × 540 points produces a 1440 × 1080 pixel image. Equal scale factors preserve the slide's aspect ratio. Each image is saved in PNG format with [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/).
 
-This code in C# demonstrates the described operation:
-
-```c#
+```cs
 using Aspose.Slides;
 
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    float scaleX = 2f;
-    float scaleY = 2f;
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
+using var presentation = new Presentation("presentation.pptx");
 
-        using (IImage image = slide.GetImage(scaleX, scaleY))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
+{
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
 ## **Convert PowerPoint to PNG With Custom Size**
 
-If you want to obtain PNG files around a certain size, you can pass your preferred `width` and `height` arguments for `imageSize`. 
+To specify output dimensions in pixels, pass a size to [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) instead of scale factors. This example renders every slide at 960 × 720 pixels and saves the result with [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Choose dimensions that match the slide's aspect ratio to avoid stretching the image.
 
-This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
-
-```c#
+```cs
 using System.Drawing;
 using Aspose.Slides;
 
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    Size size = new Size(960, 720);
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
+using var presentation = new Presentation("presentation.pptx");
 
-        using (IImage image = slide.GetImage(size))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+var imageSize = new Size(960, 720);
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
+{
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(imageSize);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+## **Choose a Gradient Rendering Style**
+
+Suppose a slide contains gradient fills, but the transitions in the exported PNG look lighter or otherwise different from what you see in PowerPoint. You can use the [GradientStyle](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/gradientstyle/) property of [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) to choose how the gradients are rendered.
+
+Download [gradient-styles.pptx](gradient-styles.pptx) and place it in the application's working directory. Its first slide contains two linear gradients: cyan to orange at the top and blue to yellow at the bottom. Each gradient has two stops, at 0% and 100%.
+
+The following example loads this presentation and renders the same first slide in both modes with [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/).
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("gradient-styles.pptx");
+var slide = presentation.Slides[0];
+
+var gradientStyles = new[] { GradientStyle.Default, GradientStyle.PowerPointUI };
+foreach (var style in gradientStyles)
+{
+    var options = new RenderingOptions { GradientStyle = style };
+    using var image = slide.GetImage(options, 1f, 1f);
+    image.Save($"gradient-{style}.png", ImageFormat.Png);
+}
+```
+
+The images below show the output from the same slide, with both gradients in each image:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Cyan-to-orange and blue-to-yellow gradients rendered with Default](gradient-Default.png) | ![The same gradients rendered with PowerPointUI](gradient-PowerPointUI.png) |
+
+In this example, `Default` produces lighter intermediate colors, while `PowerPointUI` produces darker intermediate colors. The difference depends on the colors and stops in the gradient.
+
+Choose `Default` when the standard Aspose.Slides output suits your needs. Try `PowerPointUI` when your priority is matching the appearance in PowerPoint. Compare both outputs with your intended result; neither mode is universally preferable.
+
 ## **FAQ**
 
-### How can I export only a specific shape (e.g., chart or picture) rather than the whole slide?
+**How can I export a specific shape, such as a chart or picture, instead of the entire slide?**
 
-Aspose.Slides supports [generating thumbnails for individual shapes](/slides/net/create-shape-thumbnails/); you can render a shape to a PNG image.
+Aspose.Slides supports [generating thumbnails for individual shapes](/slides/net/create-shape-thumbnails/), allowing you to render a shape as a PNG image.
 
-### Is parallel conversion supported on a server?
+**Is parallel conversion supported on a server?**
 
-Yes, but [don’t share](/slides/net/multithreading/) a single presentation instance across threads. Use a separate instance per thread or process.
+Yes. Use a separate presentation instance for each thread or process; [do not share a single instance across threads](/slides/net/multithreading/).
 
-### What are the trial-version limitations when exporting to PNG?
+**What are the evaluation limitations when exporting to PNG?**
 
-The evaluation mode adds a watermark to output images and enforces [other restrictions](/slides/net/licensing/) until a license is applied.
+Evaluation mode adds a watermark to output images and applies [other restrictions](/slides/net/licensing/) until a license is applied.

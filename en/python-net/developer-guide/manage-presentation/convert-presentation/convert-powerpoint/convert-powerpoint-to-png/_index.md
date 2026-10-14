@@ -1,6 +1,6 @@
 ---
 title: Convert PowerPoint Slides to PNG in Python
-linktitle: Slide to PNG
+linktitle: PowerPoint to PNG
 type: docs
 weight: 30
 url: /python-net/convert-powerpoint-to-png/
@@ -24,22 +24,15 @@ description: "Convert PowerPoint and OpenDocument presentations to high-quality 
 
 ## **Overview**
 
-Aspose.Slides for Python via .NET makes it straightforward to convert PowerPoint presentations to PNG. You load a presentation, iterate through its slides, render each one to a raster image, and save the result as PNG files. This is ideal for generating slide previews, embedding slides in web pages, or producing static assets for downstream processing.
+This article explains how to convert presentation slides to PNG images using Aspose.Slides for Python via .NET. You can load presentations in formats such as PPT, PPTX, and ODP, render each slide, and save it as a separate PNG image.
 
-## **Convert Slides to PNG**
+The examples below demonstrate rendering at the default scale, increasing the scale, specifying the output dimensions in pixels, and choosing a gradient rendering style.
 
-This section shows the simplest possible example of converting a PowerPoint presentation to PNG images using Aspose.Slides for Python via .NET.
+## **Convert PowerPoint to PNG**
 
-Go through these steps:
+Load a presentation with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and access its slides through the [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) collection. The example renders every slide with [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) without parameters to create a thumbnail. It then calls [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) with [ImageFormat.PNG](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) to save each rendered slide as a PNG image.
 
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Get a slide from the `Presentation.slides` collection (see the [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) class).
-1. Use the `Slide.get_image` method to generate a thumbnail of the slide.
-1. Use the `IImage.save` method to save the slide thumbnail in PNG format.
-
-This Python code shows how to convert a PowerPoint presentation to PNG:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -48,16 +41,20 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Convert Slides to PNG with Custom Dimensions**
+{{% alert color="info" title="Note" %}}
 
-To export slides to PNG at a custom scale, call `Slide.get_image` with horizontal and vertical scale factors. These multipliers resize the output relative to the slide’s original dimensions—for example, `2.0` doubles both width and height. Use equal values for `scale_x` and `scale_y` to preserve the aspect ratio.
+The parameterless [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) overload renders at a scale of 0.2. For example, a slide measuring 720 × 540 points produces a 144 × 108 pixel thumbnail. To control the output dimensions, use the overloads with scale factors or an explicit image size shown below.
 
-This Python code demonstrates the described operation:
+{{% /alert %}}
 
-```py
+## **Convert PowerPoint to PNG With Custom Dimensions**
+
+Pass horizontal and vertical scale factors to [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) to control the rendered dimensions. In this example, both factors are 2, so a slide measuring 720 × 540 points produces a 1440 × 1080 pixel image. Equal scale factors preserve the slide's aspect ratio. Each image is saved in PNG format with [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/).
+
+```python
 import aspose.slides as slides
 
-scale_x = 2
+scale_x = 2.0
 scale_y = scale_x
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -66,38 +63,64 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Convert Slides to PNG with Custom Size**
+## **Convert PowerPoint to PNG With Custom Size**
 
-If you want to generate PNG files at a specific size, pass your desired `width` and `height` values. The code below shows how to convert a PowerPoint to PNG while specifying the image size: 
+To specify output dimensions in pixels, pass a size to [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) instead of scale factors. This example renders every slide at 960 × 720 pixels and saves the result with [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). Choose dimensions that match the slide's aspect ratio to avoid stretching the image.
 
-```py
+```python
 import aspose.slides as slides
-import aspose.pydrawing as drawing
 
-size = drawing.Size(960, 720)
+image_size = slides.Size(960, 720)
 
 with slides.Presentation("presentation.pptx") as presentation:
     for index, slide in enumerate(presentation.slides):
-        with slide.get_image(size) as image:
+        with slide.get_image(image_size) as image:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-{{% alert title="Tip" color="info" %}}
+## **Choose a Gradient Rendering Style**
 
-You may want to try Aspose’s free **PowerPoint-to-PNG converters**—[PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) and [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). They provide a live implementation of the process described on this page.
+Suppose a slide contains gradient fills, but the transitions in the exported PNG look lighter or otherwise different from what you see in PowerPoint. You can use the [gradient_style](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveoptions/gradient_style/) property of [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/) to choose how the gradients are rendered.
 
-{{% /alert %}}
+Download [gradient-styles.pptx](gradient-styles.pptx) and place it in the application's working directory. Its first slide contains two linear gradients: cyan to orange at the top and blue to yellow at the bottom. Each gradient has two stops, at 0% and 100%.
+
+The following example loads this presentation and renders the same first slide in both modes with [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/).
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("gradient-styles.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    gradient_styles = [slides.GradientStyle.DEFAULT, slides.GradientStyle.POWER_POINT_UI]
+    for style in gradient_styles:
+        options = slides.export.RenderingOptions()
+        options.gradient_style = style
+
+        with slide.get_image(options, 1.0, 1.0) as image:
+            image.save(f"gradient-{style.name}.png", slides.ImageFormat.PNG)
+```
+
+The images below show the output from the same slide, with both gradients in each image:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Cyan-to-orange and blue-to-yellow gradients rendered with Default](gradient-Default.png) | ![The same gradients rendered with PowerPointUI](gradient-PowerPointUI.png) |
+
+In this example, `DEFAULT` produces lighter intermediate colors, while `POWER_POINT_UI` produces darker intermediate colors. The difference depends on the colors and stops in the gradient.
+
+Choose `DEFAULT` when the standard Aspose.Slides output suits your needs. Try `POWER_POINT_UI` when your priority is matching the appearance in PowerPoint. Compare both outputs with your intended result; neither mode is universally preferable.
 
 ## **FAQ**
 
-### How can I export only a specific shape (e.g., chart or picture) rather than the whole slide?
+**How can I export a specific shape, such as a chart or picture, instead of the entire slide?**
 
-Aspose.Slides supports [generating thumbnails for individual shapes](/slides/python-net/create-shape-thumbnails/); you can render a shape to a PNG image.
+Aspose.Slides supports [generating thumbnails for individual shapes](/slides/python-net/create-shape-thumbnails/), allowing you to render a shape as a PNG image.
 
-### Is parallel conversion supported on a server?
+**Is parallel conversion supported on a server?**
 
-Yes, but [don’t share](/slides/python-net/multithreading/) a single presentation instance across threads. Use a separate instance per thread or process.
+Yes. Use a separate presentation instance for each thread or process; [do not share a single instance across threads](/slides/python-net/multithreading/).
 
-### What are the trial-version limitations when exporting to PNG?
+**What are the evaluation limitations when exporting to PNG?**
 
-The evaluation mode adds a watermark to output images and enforces [other restrictions](/slides/python-net/licensing/) until a license is applied.
+Evaluation mode adds a watermark to output images and applies [other restrictions](/slides/python-net/licensing/) until a license is applied.
