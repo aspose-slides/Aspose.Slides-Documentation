@@ -26,107 +26,147 @@ description: "Convert PowerPoint presentations to high-quality PNG images quickl
 
 ## **Overview**
 
-This article explains how to convert PowerPoint presentations to PNG images using Aspose.Slides. It shows how to load presentation files in formats such as PPT, PPTX, and ODP, render slides as images, and save the results in PNG format.
+This article explains how to convert presentation slides to PNG images using Aspose.Slides for Java. You can load presentations in formats such as PPT, PPTX, and ODP, render each slide, and save it as a separate PNG image.
 
-The article also demonstrates how to customize the generated PNG images by setting scale values or specifying the desired width and height.
+The examples below demonstrate rendering at the default scale, increasing the scale, specifying the output dimensions in pixels, and choosing a gradient rendering style.
 
 ## **Convert PowerPoint to PNG**
 
-Go through these steps:
-
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get the slide object from the [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection under the [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) interface. 
-3. Use a [ISlide.getImage()](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) method to get the thumbnail for each slide.
-4. Use the  [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) method to save the slide thumbnail to the PNG format.
-
-This Java code shows you how to convert a PowerPoint presentation to PNG:
+Load a presentation with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and access its slides through the [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) collection. The example renders every slide with [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) without parameters to create a thumbnail. It then calls [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) with [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/#Png) to save each rendered slide as a PNG image.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Convert PowerPoint to PNG with a Custom Scale**
+{{% alert color="info" title="Note" %}}
 
-If you want to obtain PNG files around a certain scale, call the `getImage(float scaleX, float scaleY)` overload. The arguments are scale factors applied to the slide size, so a slide of 720×540 points rendered with `scaleX = 2` and `scaleY = 2` produces a 1440×1080 pixel image. 
+The parameterless [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) overload renders at a scale of 0.2. For example, a slide measuring 720 × 540 points produces a 144 × 108 pixel thumbnail. To control the output dimensions, use the overloads with scale factors or an explicit image size shown below.
 
-This code in Java demonstrates the described operation:
+{{% /alert %}}
+
+## **Convert PowerPoint to PNG With Custom Dimensions**
+
+Pass horizontal and vertical scale factors to [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-float-float-) to control the rendered dimensions. In this example, both factors are 2, so a slide measuring 720 × 540 points produces a 1440 × 1080 pixel image. Equal scale factors preserve the slide's aspect ratio. Each image is saved in PNG format with [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-).
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Convert PowerPoint to PNG with Custom Size**
+## **Convert PowerPoint to PNG With Custom Size**
 
-If you want to obtain PNG files of a certain size, pass a `java.awt.Dimension` with your preferred width and height to the `getImage(Dimension size)` overload. The resulting image has exactly those pixel dimensions. 
-
-This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
+To specify output dimensions in pixels, pass a size to [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) instead of scale factors. This example renders every slide at 960 × 720 pixels and saves the result with [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Choose dimensions that match the slide's aspect ratio to avoid stretching the image.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Dimension;
 
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Dimension imageSize = new Dimension(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Choose a Gradient Rendering Style**
+
+Suppose a slide contains gradient fills, but the transitions in the exported PNG look lighter or otherwise different from what you see in PowerPoint. You can use the [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setGradientStyle-int-) method inherited by [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) to choose how the gradients are rendered.
+
+Download [gradient-styles.pptx](gradient-styles.pptx) and place it in the application's working directory. Its first slide contains two linear gradients: cyan to orange at the top and blue to yellow at the bottom. Each gradient has two stops, at 0% and 100%.
+
+The following example loads this presentation and renders the same first slide in both modes with [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The images below show the output from the same slide, with both gradients in each image:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Cyan-to-orange and blue-to-yellow gradients rendered with Default](gradient-Default.png) | ![The same gradients rendered with PowerPointUI](gradient-PowerPointUI.png) |
+
+In this example, `Default` produces lighter intermediate colors, while `PowerPointUI` produces darker intermediate colors. The difference depends on the colors and stops in the gradient.
+
+Choose `Default` when the standard Aspose.Slides output suits your needs. Try `PowerPointUI` when your priority is matching the appearance in PowerPoint. Compare both outputs with your intended result; neither mode is universally preferable.
+
 ## **FAQ**
 
-### How can I export only a specific shape (e.g., chart or picture) rather than the whole slide?
+**How can I export a specific shape, such as a chart or picture, instead of the entire slide?**
 
-Aspose.Slides supports [generating thumbnails for individual shapes](/slides/java/create-shape-thumbnails/); you can render a shape to a PNG image.
+Aspose.Slides supports [generating thumbnails for individual shapes](/slides/java/create-shape-thumbnails/), allowing you to render a shape as a PNG image.
 
-### Is parallel conversion supported on a server?
+**Is parallel conversion supported on a server?**
 
-Yes, but [don’t share](/slides/java/multithreading/) a single presentation instance across threads. Use a separate instance per thread or process.
+Yes. Use a separate presentation instance for each thread or process; [do not share a single instance across threads](/slides/java/multithreading/).
 
-### What are the trial-version limitations when exporting to PNG?
+**What are the evaluation limitations when exporting to PNG?**
 
-The evaluation mode adds a watermark to output images and enforces [other restrictions](/slides/java/licensing/) until a license is applied.
+Evaluation mode adds a watermark to output images and applies [other restrictions](/slides/java/licensing/) until a license is applied.
