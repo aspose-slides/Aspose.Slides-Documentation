@@ -16,25 +16,20 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Learn how to create and customize pie charts in Python via Java with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
+description: "Create and customize pie charts in Python via Java with Aspose.Slides. Configure secondary plots, display data labels, and apply automatic slice colors in PowerPoint."
 ---
 
 ## **Overview**
 
 This article explains how to work with pie charts in Aspose.Slides. It shows how to configure secondary plot options for Pie of Pie and Bar of Pie charts, and how to enable automatic slice coloring for a standard pie chart.
 
-The examples focus on practical chart customization steps such as adding a chart to a slide, adjusting series and label settings, replacing default chart data with custom categories and values, and saving the updated presentation.
+The examples focus on chart customization tasks such as adding a chart to a slide, adjusting series and label settings, replacing default chart data with custom categories and values, and saving the updated presentation.
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Charts**
 
-Aspose.Slides for Python via Java supports second plot options for Pie of Pie and Bar of Pie charts. This section shows how to specify those options using Aspose.Slides. Follow these steps:
+Aspose.Slides for Python via Java supports secondary plot options for Pie of Pie and Bar of Pie charts. These options control the size of the secondary plot and how data points are split between the two plots.
 
-1. Instantiate a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) object.
-1. Add a chart to the slide.
-1. Specify the chart's second plot options.
-1. Write the presentation to disk.
-
-The following example sets different properties of a Pie of Pie chart.
+The following example creates a Pie of Pie chart in a new presentation and displays data point values as labels. The [setSecondPieSize](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setSecondPieSize) method sets the secondary plot size to 149% of the main plot. [setPieSplitBy](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitBy) selects percentage-based splitting, and [setPieSplitPosition](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) sets the threshold to 53%.
 
 ```python
 import jpype
@@ -45,42 +40,89 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, PieSplitType, Presentation, SaveFormat
 
-# Create an instance of the Presentation class.
 presentation = Presentation()
 try:
-    # Add a chart to the slide.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Set different properties.
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400)
     series = chart.getChartData().getSeries().get_Item(0)
+
+    # Display values and configure the secondary plot.
     series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
     series_group = series.getParentSeriesGroup()
     series_group.setSecondPieSize(149)
     series_group.setPieSplitBy(PieSplitType.ByPercentage)
     series_group.setPieSplitPosition(53)
 
-    # Write the presentation to disk.
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx)
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+### **Select Categories for the Secondary Plot**
+
+Use custom splitting when you want to group specific categories in the secondary plot regardless of their percentage values. For example, a sales report might show Online and Events together so readers can compare these two channels, even though they account for 35% and 10% of total sales.
+
+Call [setPieSplitBy](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitBy) with [PieSplitType.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/piesplittype/#Custom) and select the points through [getPieSplitCustomPoints](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). The collection's [add](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#add) method accepts a zero-based index in the series; use [addItem](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#addItem) to add a data point object. In this example, index 1 selects Online, and the point at index 3 selects Events. Partners is also added temporarily, then excluded using [removeItem](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#removeItem).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, PieSplitType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200)
+
+    # Replace the default data with sales by channel.
+    workbook = chart.getChartData().getChartDataWorkbook()
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.getCell(0, 0, 1, "Sales")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+
+    for i in range(len(category_names)):
+        category_cell = workbook.getCell(0, i + 1, 0, category_names[i])
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, jpype.JInt(values[i]))
+        series.getDataPoints().addDataPointForPieSeries(value_cell)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series_group = series.getParentSeriesGroup()
+    series_group.setPieSplitBy(PieSplitType.Custom)
+    series_group.setColorVaried(True)
+
+    # Select Online by its zero-based index and Events by its data point object.
+    series_group.getPieSplitCustomPoints().add(1)
+    series_group.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3))
+
+    # Exclude Partners from the selection without deleting its source data.
+    series_group.getPieSplitCustomPoints().add(2)
+    series_group.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2))
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Online (35) and Events (10) appear as separate slices in the secondary plot. In the primary plot, they are represented by one combined slice with a value of 45, alongside Retail (40) and Partners (15). Removing Partners from the custom selection keeps it in the primary plot; it does not remove the category or its value from the chart's source data.
+
+The following image shows the saved presentation in PowerPoint:
+
+![Pie of Pie chart with Online and Events in the secondary plot and their combined value of 45 in the primary plot](pie_of_pie_custom.png)
+
 ## **Set Automatic Pie Chart Slice Colors**
 
-Aspose.Slides for Python via Java provides a simple API for setting automatic pie chart slice colors. The following example demonstrates how to apply these settings.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Access the first slide.
-1. Add a chart with default data.
-1. Set the chart title.
-1. Set the index of the chart data worksheet.
-1. Get the chart data workbook.
-1. Delete the default series and categories.
-1. Add new categories.
-1. Add a new series.
-1. Set the new series to show values.
-
-Write the modified presentation to a PPTX file.
+Aspose.Slides for Python via Java can automatically assign different colors to pie chart slices. The following example creates a pie chart with a centered title and replaces the default data with three quarterly categories and their values. The [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) method displays the values 20, 50, and 30 as labels, while [setColorVaried](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setColorVaried) enables a distinct color for each slice.
 
 ```python
 import jpype
@@ -91,63 +133,50 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, NullableBool, Presentation, SaveFormat
 
-# Create an instance of the Presentation class.
 presentation = Presentation()
 try:
-    # Add a chart with default data.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Set the chart title.
+    chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+
+    # Add a centered chart title.
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Set the index of the chart data worksheet.
-    default_worksheet_index = 0
-
-    # Get the chart data workbook.
+    # Replace the default data using the first worksheet.
     workbook = chart.getChartData().getChartDataWorkbook()
-
-    # Delete the default series and categories.
+    worksheet_index = 0
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Add new categories.
-    first_category_cell = workbook.getCell(0, 1, 0, "First Qtr")
-    chart.getChartData().getCategories().add(first_category_cell)
-    second_category_cell = workbook.getCell(0, 2, 0, "2nd Qtr")
-    chart.getChartData().getCategories().add(second_category_cell)
-    third_category_cell = workbook.getCell(0, 3, 0, "3rd Qtr")
-    chart.getChartData().getCategories().add(third_category_cell)
+    for i in range(len(category_names)):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, category_names[i])
+        chart.getChartData().getCategories().add(category_cell)
 
-    # Add a new series.
-    series_cell = workbook.getCell(0, 0, 1, "Series 1")
-    series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+        value_cell = workbook.getCell(worksheet_index, i + 1, 1, jpype.JInt(values[i]))
+        series.getDataPoints().addDataPointForPieSeries(value_cell)
 
-    # Populate the series data.
-    first_value_cell = workbook.getCell(default_worksheet_index, 1, 1, jpype.JInt(20))
-    series.getDataPoints().addDataPointForPieSeries(first_value_cell)
-    second_value_cell = workbook.getCell(default_worksheet_index, 2, 1, jpype.JInt(50))
-    series.getDataPoints().addDataPointForPieSeries(second_value_cell)
-    third_value_cell = workbook.getCell(default_worksheet_index, 3, 1, jpype.JInt(30))
-    series.getDataPoints().addDataPointForPieSeries(third_value_cell)
-
-    # Set the new series to show values.
+    # Show values and assign different colors to the slices.
     series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
-
     series.getParentSeriesGroup().setColorVaried(True)
-    presentation.save("Pie.pptx", SaveFormat.Pptx)
+
+    presentation.save("pie.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **FAQ**
 
-**Are the 'Pie of Pie' and 'Bar of Pie' variations supported?**
+**Are the Pie of Pie and Bar of Pie variations supported?**
 
-Yes, the library [supports](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) a secondary plot for pie charts, including the 'Pie of Pie' and 'Bar of Pie' types.
+Yes, the library [supports](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) a secondary plot for pie charts, including the Pie of Pie and Bar of Pie types.
 
 **Can I export just the chart as an image (for example, PNG)?**
 
-Yes, you can [export the chart itself as an image](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) (such as PNG) without the entire presentation.
+Yes, you can [export the chart itself as an image](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) (such as PNG) without exporting the entire presentation.

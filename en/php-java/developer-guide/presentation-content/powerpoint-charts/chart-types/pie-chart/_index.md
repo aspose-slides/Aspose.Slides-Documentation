@@ -15,106 +15,163 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Learn how to create and customize pie charts with Aspose.Slides for PHP via Java, exportable to PowerPoint, boosting your data storytelling in seconds."
+description: "Create and customize pie charts in PHP with Aspose.Slides. Configure secondary plots, display data labels, and apply automatic slice colors in PowerPoint."
 ---
 
 ## **Overview**
 
 This article explains how to work with pie charts in Aspose.Slides. It shows how to configure secondary plot options for Pie of Pie and Bar of Pie charts, and how to enable automatic slice coloring for a standard pie chart.
 
-The examples focus on practical chart customization steps such as adding a chart to a slide, adjusting series and label settings, replacing default chart data with custom categories and values, and saving the updated presentation.
+The examples focus on chart customization tasks such as adding a chart to a slide, adjusting series and label settings, replacing default chart data with custom categories and values, and saving the updated presentation.
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Charts**
-Aspose.Slides for PHP via Java now supports second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will show you how to specify those options using Aspose.Slides. To specify the properties, do this:
 
-1. Instantiate [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class object.
-1. Add chart on the slide.
-1. Specify the second plot options of chart.
-1. Write presentation to disk.
+Aspose.Slides for PHP via Java supports secondary plot options for Pie of Pie and Bar of Pie charts. These options control the size of the secondary plot and how data points are split between the two plots.
 
-In the example given below, we have set different properties of Pie of Pie chart.
+The following example creates a Pie of Pie chart in a new presentation and displays data point values as labels. The [setSecondPieSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setSecondPieSize) method sets the secondary plot size to 149% of the main plot. [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) selects percentage-based splitting, and [setPieSplitPosition](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) sets the threshold to 53%.
 
 ```php
-  # Create an instance of Presentation class
-  $pres = new Presentation();
-  try {
-    # Add chart on slide
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
-    # Set different properties
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setSecondPieSize(149);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitBy(PieSplitType::ByPercentage);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitPosition(53);
-    # Write presentation to disk
-    $pres->save("SecondPlotOptionsforCharts_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    // Display values and configure the secondary plot.
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setSecondPieSize(149);
+    $seriesGroup->setPieSplitBy(PieSplitType::ByPercentage);
+    $seriesGroup->setPieSplitPosition(53);
+
+    $presentation->save("pie_of_pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Set Automatic Pie Chart Slice Colors**
-Aspose.Slides for PHP via Java provides a simple API for setting automatic pie chart slide colors. The sample code applies setting the above said properties.
+### **Select Categories for the Secondary Plot**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. Access first slide.
-1. Add chart with default data.
-1. Set chart Title.
-1. Set first series to Show Values.
-1. Set the index of chart data sheet.
-1. Getting the chart data worksheet.
-1. Delete default generated series and categories.
-1. Add new categories.
-1. Add new series.
+Use custom splitting when you want to group specific categories in the secondary plot regardless of their percentage values. For example, a sales report might show Online and Events together so readers can compare these two channels, even though they account for 35% and 10% of total sales.
 
-Write the modified presentation to a PPTX file.
+Call [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) with [PieSplitType::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/piesplittype/) and select the points through [getPieSplitCustomPoints](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). The collection's [add](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#add) method accepts a zero-based index in the series; use [addItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#addItem) to add a data point object. In this example, index 1 selects Online, and the point at index 3 selects Events. Partners is also added temporarily, then excluded using [removeItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#removeItem).
 
 ```php
-  # Create an instance of Presentation class
-  $pres = new Presentation();
-  try {
-    # Add chart with default data
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # Setting chart Title
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 200);
+
+    // Replace the default data with sales by channel.
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    $values = [ 40, 35, 15, 10 ];
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Sales");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+    }
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setPieSplitBy(PieSplitType::Custom);
+    $seriesGroup->setColorVaried(true);
+
+    // Select Online by its zero-based index and Events by its data point object.
+    $seriesGroup->getPieSplitCustomPoints()->add(1);
+    $seriesGroup->getPieSplitCustomPoints()->addItem($series->getDataPoints()->get_Item(3));
+
+    // Exclude Partners from the selection without deleting its source data.
+    $seriesGroup->getPieSplitCustomPoints()->add(2);
+    $seriesGroup->getPieSplitCustomPoints()->removeItem($series->getDataPoints()->get_Item(2));
+
+    $presentation->save("pie_of_pie_custom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Online (35) and Events (10) appear as separate slices in the secondary plot. In the primary plot, they are represented by one combined slice with a value of 45, alongside Retail (40) and Partners (15). Removing Partners from the custom selection keeps it in the primary plot; it does not remove the category or its value from the chart's source data.
+
+The following image shows the saved presentation in PowerPoint:
+
+![Pie of Pie chart with Online and Events in the secondary plot and their combined value of 45 in the primary plot](pie_of_pie_custom.png)
+
+## **Set Automatic Pie Chart Slice Colors**
+
+Aspose.Slides for PHP via Java can automatically assign different colors to pie chart slices. The following example creates a pie chart with a centered title and replaces the default data with three quarterly categories and their values. The [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) method displays the values 20, 50, and 30 as labels, while [setColorVaried](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setColorVaried) enables a distinct color for each slice.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
+
+    // Add a centered chart title.
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # Set first series to Show Values
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Setting the index of chart data sheet
-    $defaultWorksheetIndex = 0;
-    # Getting the chart data worksheet
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Delete default generated series and categories
+
+    // Replace the default data using the first worksheet.
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    # Adding new categories
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # Adding new series
-    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # Now populating series data
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getParentSeriesGroup()->setColorVaried(true);
-    $pres->save("Pie.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    $values = [ 20, 50, 30 ];
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
     }
-  }
+
+    // Show values and assign different colors to the slices.
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getParentSeriesGroup()->setColorVaried(true);
+
+    $presentation->save("pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-### Are the 'Pie of Pie' and 'Bar of Pie' variations supported?
+**Are the Pie of Pie and Bar of Pie variations supported?**
 
-Yes, the library [supports](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) a secondary plot for pie charts, including the 'Pie of Pie' and 'Bar of Pie' types.
+Yes, the library [supports](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) a secondary plot for pie charts, including the Pie of Pie and Bar of Pie types.
 
-### Can I export just the chart as an image (for example, PNG)?
+**Can I export just the chart as an image (for example, PNG)?**
 
-Yes, you can [export the chart itself as an image](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) (such as PNG) without the entire presentation.
+Yes, you can [export the chart itself as an image](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) (such as PNG) without exporting the entire presentation.
