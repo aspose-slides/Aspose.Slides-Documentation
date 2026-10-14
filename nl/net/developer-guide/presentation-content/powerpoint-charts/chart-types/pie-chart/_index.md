@@ -1,10 +1,10 @@
 ---
-title: "Cirkeldiagrammen aanpassen in presentaties in .NET"
-linktitle: "Cirkeldiagram"
+title: Pas taartdiagrammen aan in presentaties in .NET
+linktitle: Taartdiagram
 type: docs
 url: /nl/net/pie-chart/
 keywords:
-- cirkeldiagram
+- taartdiagram
 - diagram beheren
 - diagram aanpassen
 - diagramopties
@@ -16,112 +16,149 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe u cirkeldiagrammen maakt en aanpast in .NET met Aspose.Slides, exporteerbaar naar PowerPoint, waardoor uw dataverhaal in enkele seconden wordt verbeterd."
+description: "Maak en pas taartdiagrammen aan in .NET met Aspose.Slides. Configureer secundaire plotten, geef gegevenslabels weer en pas automatische segmentkleuren toe in PowerPoint."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met cirkeldiagrammen werkt in Aspose.Slides. Het laat zien hoe u secundaire plotopties kunt configureren voor Pie of Pie- en Bar of Pie-diagrammen, en hoe u automatische kleuring van segmenten voor een standaard cirkeldiagram kunt inschakelen.
+Dit artikel legt uit hoe je met cirkeldiagrammen in Aspose.Slides werkt. Het laat zien hoe je secundaire plotopties voor Pie of Pie- en Bar of Pie-diagrammen configureert en hoe je automatische kleuring van segmenten inschakelt voor een standaard cirkeldiagram.
 
-De voorbeelden richten zich op praktische stappen voor het aanpassen van diagrammen, zoals een diagram toevoegen aan een dia, series- en labelinstellingen aanpassen, standaard diagramgegevens vervangen door aangepaste categorieën en waarden, en de bijgewerkte presentatie opslaan.
+De voorbeelden richten zich op taken voor diagramaanpassing, zoals het toevoegen van een diagram aan een dia, het aanpassen van serie‑ en labelinstellingen, het vervangen van standaard diagramgegevens door aangepaste categorieën en waarden, en het opslaan van de bijgewerkte presentatie.
 
-## **Secundaire plotopties voor Pie of Pie- en Bar of Pie-diagrammen**
-Aspose.Slides for .NET ondersteunt nu secundaire plotopties voor een Pie of Pie- of Bar of Pie-diagram. In dit onderwerp laten we met een voorbeeld zien hoe deze opties te specificeren met Aspose.Slides. Volg hiervoor de onderstaande stappen:
+## **Opties voor secundaire plot bij Pie of Pie- en Bar of Pie-diagrammen**
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation).
-1. Voeg een diagram toe aan de dia.
-1. Specificeer de secundaire plotopties van het diagram.
-1. Schrijf de presentatie naar schijf.
+Aspose.Slides for .NET ondersteunt secundaire plotopties voor Pie of Pie- en Bar of Pie-diagrammen. Deze opties bepalen de grootte van de secundaire plot en hoe datapunten tussen de twee plotten worden gesplitst.
 
-In het onderstaande voorbeeld hebben we verschillende eigenschappen van een Pie of Pie-diagram ingesteld.
+Het volgende voorbeeld maakt een Pie of Pie-diagram in een nieuwe presentatie en toont datapuntenwaarden als labels. De [SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/)‑eigenschap stelt de grootte van de secundaire plot in op 149 % van de hoofdplot. [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) kiest procentgebaseerd splitsen, en [PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) stelt de drempel in op 53 %.
 
-```c#
-// Maak een instantie van de Presentation-klasse
-Presentation presentation = new Presentation();
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Voeg een diagram toe aan de dia
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// Stel verschillende eigenschappen in
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Schrijf de presentatie naar schijf
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
+
+// Display values and configure the secondary plot.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
-## **Automatische kleuring van cirkeldiagramsegmenten instellen**
-Aspose.Slides for .NET biedt een eenvoudige API voor het instellen van automatische kleuren voor cirkeldiagramsegmenten. De voorbeeldcode past de hierboven genoemde eigenschappen toe.
+### **Selecteer categorieën voor de secundaire plot**
 
-1. Maak een instantie van de Presentation‑klasse.
-1. Navigeer naar de eerste dia.
-1. Voeg een diagram toe met standaardgegevens.
-1. Stel de titel van het diagram in.
-1. Stel de eerste serie in om waarden te tonen.
-1. Stel de index van het gegevensblad van het diagram in.
-1. Haal het werkblad met diagramgegevens op.
-1. Verwijder de standaard gegenereerde series en categorieën.
-1. Voeg nieuwe categorieën toe.
-1. Voeg een nieuwe serie toe.
+Gebruik aangepaste splitsing wanneer je specifieke categorieën in de secundaire plot wilt groeperen, ongeacht hun procentuele waarden. Bijvoorbeeld, een verkooprapport kan Online en Evenementen samen tonen zodat lezers deze twee kanalen kunnen vergelijken, ook al vormen ze respectievelijk 35 % en 10 % van de totale verkoop.
 
-Schrijf de aangepaste presentatie naar een PPTX‑bestand.
+Stel [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) in op [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/) en selecteer de punten via [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/). De [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/)‑methode van de collectie accepteert ofwel een nulgebaseerde index in de serie of een datapuntobject. In dit voorbeeld selecteert index 1 Online, en het punt op index 3 selecteert Evenementen. Partners wordt tijdelijk toegevoegd, daarna uitgesloten met [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/).
 
-```c#
-// Instantie van de Presentation-klasse die een PPTX‑bestand vertegenwoordigt
-using (Presentation presentation = new Presentation())
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+// Vervang de standaardgegevens door verkoop per kanaal.
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// Instantie van de Presentation-klasse die een PPTX‑bestand vertegenwoordigt
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// Toegang tot de eerste dia
-	ISlide slides = presentation.Slides[0];
-
-	// Diagram toevoegen met standaardgegevens
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// Diagramtitel instellen
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// Eerste serie instellen om waarden weer te geven
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// Index van het diagramgegevensblad instellen
-	int defaultWorksheetIndex = 0;
-
-	// Werkblad met diagramgegevens ophalen
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// Standaard gegenereerde series en categorieën verwijderen
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// Nieuwe categorieën toevoegen
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// Nieuwe serie toevoegen
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// Seriesgegevens nu vullen
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// Selecteer Online op basis van zijn nulgebaseerde index en Evenementen op basis van zijn datapuntobject.
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// Sluit Partners uit de selectie zonder de brongegevens te verwijderen.
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
 ```
+
+Online (35) en Evenementen (10) verschijnen als afzonderlijke segmenten in de secundaire plot. In de primaire plot worden ze weergegeven als één gecombineerd segment met een waarde van 45, naast Retail (40) en Partners (15). Het verwijderen van Partners uit de aangepaste selectie houdt het segment in de primaire plot; het verwijdert de categorie of de waarde niet uit de brongegevens van het diagram.
+
+De onderstaande afbeelding toont de opgeslagen presentatie in PowerPoint:
+
+![Pie of Pie chart with Online and Events in the secondary plot and their combined value of 45 in the primary plot](pie_of_pie_custom.png)
+
+## **Stel automatische kleuren voor cirkeldiagramsegmenten in**
+
+Aspose.Slides for .NET kan automatisch verschillende kleuren toewijzen aan segmenten van cirkeldiagrammen. Het volgende voorbeeld maakt een cirkeldiagram met een gecentreerde titel en vervangt de standaardgegevens door drie kwartaalcategorieën en hun waarden. De [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/)‑eigenschap toont de waarden 20, 50 en 30 als labels, terwijl [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) een aparte kleur voor elk segment mogelijk maakt.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// Voeg een gecentreerde diagramtitel toe.
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// Vervang de standaardgegevens met het eerste werkblad.
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+// Toon waarden en wijs verschillende kleuren toe aan de segmenten.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
+```
+
 ## **FAQ**
 
-**Wordt de 'Pie of Pie' en 'Bar of Pie' variant ondersteund?**
+**Worden de Pie of Pie- en Bar of Pie-varianten ondersteund?**
 
-Ja, de bibliotheek [ondersteunt](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/charttype/) een secundaire plot voor cirkeldiagrammen, inclusief de types 'Pie of Pie' en 'Bar of Pie'.
+Ja, de bibliotheek [supports](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) een secundaire plot voor cirkeldiagrammen, inclusief de Pie of Pie‑ en Bar of Pie‑typen.
 
-**Kan ik alleen het diagram exporteren als afbeelding (bijvoorbeeld PNG)?**
+**Kan ik alleen het diagram exporteren als een afbeelding (bijvoorbeeld PNG)?**
 
-Ja, u kunt het diagram zelf [exporteren als afbeelding](https://reference.aspose.com/slides/nl/net/aspose.slides/shape/getimage/) (bijvoorbeeld PNG) zonder de volledige presentatie.
+Ja, je kunt [export the chart itself as an image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (zoals PNG) zonder de volledige presentatie te exporteren.

@@ -1,5 +1,5 @@
 ---
-title: ปรับแต่งแผนภูมิวงกลมในงานนำเสนอด้วย .NET
+title: ปรับแต่งแผนภูมิวงกลมในการนำเสนอด้วย .NET
 linktitle: แผนภูมิวงกลม
 type: docs
 url: /th/net/pie-chart/
@@ -10,121 +10,155 @@ keywords:
 - ตัวเลือกแผนภูมิ
 - การตั้งค่าแผนภูมิ
 - ตัวเลือกการพล็อต
-- สีของส่วนแผนภูมิ
+- สีชิ้นส่วน
 - PowerPoint
 - การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและปรับแต่งแผนภูมิวงกลมใน .NET ด้วย Aspose.Slides ที่สามารถส่งออกเป็น PowerPoint เพื่อเพิ่มประสิทธิภาพการเล่าเรื่องข้อมูลของคุณในไม่กี่วินาที"
+description: "สร้างและปรับแต่งแผนภูมิวงกลมใน .NET ด้วย Aspose.Slides กำหนดค่ากราฟรอง แสดงป้ายข้อมูล และใช้สีชิ้นส่วนอัตโนมัติใน PowerPoint."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับแผนภูมิวงกลมใน Aspose.Slides โดยแสดงวิธีการกำหนดค่าตัวเลือกพล็อตที่สองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie รวมถึงวิธีเปิดใช้งานการจัดสีสไลซ์อัตโนมัติสำหรับแผนภูมิวงกลมมาตรฐาน
+บทความนี้อธิบายวิธีทำงานกับแผนภูมิวงกลมใน Aspose.Slides โดยจะแสดงวิธีกำหนดค่าตัวเลือกกราฟรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie และวิธีเปิดใช้งานการกำหนดสีสลับอัตโนมัติสำหรับแผนภูมิวงกลมมาตรฐาน
 
-ตัวอย่างมุ่งเน้นที่ขั้นตอนการปรับแต่งแผนภูมิอย่างเป็นประโยชน์ เช่น การเพิ่มแผนภูมิลงในสไลด์ การปรับการตั้งค่า series และ label การแทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยหมวดหมู่และค่าแบบกำหนดเอง และการบันทึกงานนำเสนอที่อัปเดต
+ตัวอย่างเหล่านี้มุ่งเน้นที่งานปรับแต่งแผนภูมิเช่น การเพิ่มแผนภูมิลงในสไลด์ การปรับตั้งค่าชุดข้อมูลและป้ายชื่อ การแทนที่ข้อมูลแผนภูมิเบื้องต้นด้วยหมวดหมู่และค่าที่กำหนดเอง และการบันทึกการนำเสนอที่อัปเดต
 
-## **ตัวเลือกแผนภูมิที่สองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie**
+## **ตัวเลือกกราฟรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie**
 
-Aspose.Slides for .NET ตอนนี้รองรับตัวเลือกพล็อตที่สองสำหรับแผนภูมิ Pie of Pie หรือ Bar of Pie ในหัวข้อนี้เราจะดูตัวอย่างวิธีระบุตัวเลือกเหล่านี้โดยใช้ Aspose.Slides เพื่อระบุคุณสมบัติต่าง ๆ โปรดทำตามขั้นตอนด้านล่าง:
+Aspose.Slides for .NET รองรับตัวเลือกกราฟรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie ตัวเลือกเหล่านี้ควบคุมขนาดของกราฟรองและวิธีการแยกจุดข้อมูลระหว่างกราฟสองชุด
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) 
-1. เพิ่มแผนภูมิบนสไลด์
-1. ระบุตัวเลือกพล็อตที่สองของแผนภูมิ
-1. เขียนงานนำเสนอไปยังดิสก์
+ตัวอย่างต่อไปนี้สร้างแผนภูมิ Pie of Pie ในการนำเสนอใหม่และแสดงค่า จุดข้อมูลเป็นป้ายชื่อ คุณสมบัติ [SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/) ตั้งค่าขนาดของกราฟรองเป็น 149% ของกราฟหลัก [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) เลือกการแยกแบบเปอร์เซ็นต์ และ [PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) ตั้งค่าขีดจำกัดที่ 53%.
 
-ในตัวอย่างด้านล่าง เราได้ตั้งค่าคุณสมบัติต่าง ๆ ของแผนภูมิ Pie of Pie
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation presentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// เพิ่มแผนภูมิลงบนสไลด์
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// ตั้งค่าคุณสมบัติต่าง ๆ
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
 
-// บันทึกงานนำเสนอลงดิสก์
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+// Display values and configure the secondary plot.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่าสีของส่วนแผนภูมิวงกลมอัตโนมัติ**
+### **เลือกหมวดหมู่สำหรับกราฟรอง**
 
-Aspose.Slides for .NET มี API อย่างง่ายสำหรับการตั้งค่าสีส่วนแผนภูมิวงกลมอัตโนมัติ ตัวอย่างโค้ดด้านล่างแสดงการตั้งค่าคุณสมบัติดังกล่าว
+ใช้การแยกแบบกำหนดเองเมื่อคุณต้องการจัดกลุ่มหมวดหมู่เฉพาะในกราฟรองโดยไม่คำนึงถึงค่าร้อยละของพวกมัน ตัวอย่างเช่น รายงานการขายอาจแสดง Online และ Events ร่วมกันเพื่อให้ผู้อ่านเปรียบเทียบสองช่องทางนี้ แม้ว่าพวกมันจะเป็น 35% และ 10% ของยอดขายรวม
 
-1. สร้างอินสแตนซ์ของคลาส Presentation
-1. เข้าถึงสไลด์แรก
-1. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้น
-1. ตั้งค่า Title ของแผนภูมิ
-1. ตั้งค่า Series แรกให้แสดงค่า (Show Values)
-1. ตั้งค่าดัชนีของแผ่นงานข้อมูลแผนภูมิ
-1. ดึงแผ่นงานข้อมูลแผนภูมิ
-1. ลบ Series และ Category ที่สร้างโดยอัตโนมัติ
-1. เพิ่ม Category ใหม่
-1. เพิ่ม Series ใหม่
+ตั้งค่า [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) เป็น [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/) แล้วเลือกจุดผ่าน [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/). วิธีการ [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/) ของคอลเลกชันรับทั้งดัชนีที่เริ่มจากศูนย์ในชุดข้อมูลหรืออ็อบเจ็กต์จุดข้อมูล ในตัวอย่างนี้ ดัชนี 1 เลือก Online และจุดที่ดัชนี 3 เลือก Events เพิ่ม Partners ชั่วคราวแล้วลบออกโดยใช้ [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/).
 
-บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+// แทนที่ข้อมูลเริ่มต้นด้วยยอดขายตามช่องทาง.
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// เข้าถึงสไลด์แรก
-	ISlide slides = presentation.Slides[0];
-
-	// เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้น
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// ตั้งค่า Title ของแผนภูมิ
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// ตั้งค่า series แรกให้แสดงค่า
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// ตั้งค่าดัชนีของแผ่นข้อมูลแผนภูมิ
-	int defaultWorksheetIndex = 0;
-
-	// ดึง worksheet ข้อมูลแผนภูมิ
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// ลบ series และ category ที่สร้างโดยอัตโนมัติ
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// เพิ่ม category ใหม่
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// เพิ่ม series ใหม่
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// กำลังใส่ข้อมูลให้ series
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// เลือก Online โดยใช้ดัชนีเริ่มจากศูนย์และ Events โดยใช้วัตถุจุดข้อมูล.
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// ยกเว้น Partners จากการเลือกโดยไม่ลบข้อมูลต้นฉบับของมัน.
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+Online (35) และ Events (10) ปรากฏเป็นชิ้นส่วนแยกในกราฟรอง ในกราฟหลัก พวกมันจะแสดงเป็นชิ้นส่วนรวมหนึ่งชิ้นที่มีค่า 45 พร้อมกับ Retail (40) และ Partners (15) การลบ Partners จากการเลือกแบบกำหนดเองทำให้มันยังคงอยู่ในกราฟหลัก; ไม่ได้ลบหมวดหมู่หรือค่าของมันออกจากข้อมูลต้นฉบับของแผนภูมิ
 
-**รูปแบบ 'Pie of Pie' และ 'Bar of Pie' รองรับหรือไม่?**
+รูปภาพต่อไปนี้แสดงการนำเสนอที่บันทึกใน PowerPoint:
 
-ใช่, ไลบรารี [supports](https://reference.aspose.com/slides/th/net/aspose.slides.charts/charttype/) พล็อตทุติยภูมิสำหรับแผนภูมิวงกลม รวมถึงประเภท 'Pie of Pie' และ 'Bar of Pie'
+![แผนภูมิ Pie of Pie ที่มี Online และ Events ในกราฟรองและค่ารวมของพวกมันเป็น 45 ในกราฟหลัก](pie_of_pie_custom.png)
 
-**ฉันสามารถส่งออกเฉพาะแผนภูมิเป็นภาพ (เช่น PNG) ได้หรือไม่?**
+## **ตั้งค่าสีชิ้นส่วนอัตโนมัติสำหรับแผนภูมิวงกลม**
 
-ใช่, คุณสามารถ [export the chart itself as an image](https://reference.aspose.com/slides/th/net/aspose.slides/shape/getimage/) (เช่น PNG) ได้โดยไม่ต้องรวมการนำเสนอทั้งหมด
+Aspose.Slides for .NET สามารถกำหนดสีที่แตกต่างให้กับชิ้นส่วนของแผนภูมิวงกลมโดยอัตโนมัติ ตัวอย่างต่อไปนี้สร้างแผนภูมวงกลมที่มีหัวเรื่องอยู่กึ่งกลางและแทนที่ข้อมูลเริ่มต้นด้วยสามหมวดไตรมาสและค่าของพวกมัน คุณสมบัติ [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) แสดงค่าที่ 20, 50, และ 30 เป็นป้ายชื่อ ในขณะที่ [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) เปิดใช้งานสีที่แตกต่างสำหรับแต่ละชิ้นส่วน
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// เพิ่มหัวเรื่องของแผนภูมิที่อยู่กึ่งกลาง.
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// แทนที่ข้อมูลเริ่มต้นโดยใช้แผ่นงานแรก.
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+// แสดงค่าและกำหนดสีที่แตกต่างให้กับแต่ละชิ้นส่วน.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
+```
+
+## **คำถามที่พบบ่อย**
+
+**Are the Pie of Pie and Bar of Pie variations supported?**
+
+ใช่, ไลบรารี [supports](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) กราฟรองสำหรับแผนภูมิวงกลม รวมถึงประเภท Pie of Pie และ Bar of Pie
+
+**Can I export just the chart as an image (for example, PNG)?**
+
+ใช่, คุณสามารถ [export the chart itself as an image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (เช่น PNG) โดยไม่ต้องส่งออกการนำเสนอทั้งหมด

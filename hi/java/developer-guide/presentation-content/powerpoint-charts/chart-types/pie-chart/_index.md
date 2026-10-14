@@ -5,124 +5,163 @@ type: docs
 url: /hi/java/pie-chart/
 keywords:
 - पाई चार्ट
-- चार्ट प्रबंधन
-- चार्ट अनुकूलन
+- चार्ट प्रबंधित करें
+- चार्ट को अनुकूलित करें
 - चार्ट विकल्प
 - चार्ट सेटिंग्स
 - प्लॉट विकल्प
 - स्लाइस रंग
-- पावरपॉइंट
+- PowerPoint
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides के साथ जावा में पाई चार्ट बनाना और अनुकूलित करना सीखें, जिसे पावरपॉइंट में निर्यात किया जा सकता है, और कुछ ही सेकंड में आपके डेटा कहानी कहने को बढ़ाता है।"
+description: "जावा के साथ Aspose.Slides में पाई चार्ट बनाएं और अनुकूलित करें। द्वितीयक प्लॉट कॉन्फ़िगर करें, डेटा लेबल प्रदर्शित करें, और PowerPoint में स्वचलित स्लाइस रंग लागू करें।"
 ---
-## **अवलोकन**
+## **सारांश**
 
-यह लेख Aspose.Slides में पाई चार्ट के साथ काम करने के तरीके को समझाता है। यह Pie of Pie और Bar of Pie चार्ट्स के लिए द्वितीयक प्लॉट विकल्पों को कॉन्फ़िगर करने और एक मानक पाई चार्ट के लिए स्वचालित स्लाइस रंगिंग सक्षम करने का तरीका दिखाता है।
+यह लेख Aspose.Slides में पाई चार्ट के साथ काम करने के तरीके को समझाता है। यह Pie of Pie और Bar of Pie चार्ट के लिए द्वितीयक प्लॉट विकल्पों को कॉन्फ़िगर करने और मानक पाई चार्ट के लिए स्वचलित स्लाइस रंग निर्धारण को सक्षम करने का तरीका दिखाता है।
 
-उदाहरण व्यावहारिक चार्ट अनुकूलन चरणों पर केंद्रित हैं, जैसे स्लाइड में चार्ट जोड़ना, सीरीज़ और लेबल सेटिंग्स को समायोजित करना, डिफ़ॉल्ट चार्ट डेटा को कस्टम श्रेणियों और मानों से बदलना, और अद्यतन प्रस्तुति को सहेजना।
+उदाहरण चार्ट कस्टमाइज़ेशन कार्यों पर केंद्रित हैं, जैसे कि स्लाइड में चार्ट जोड़ना, सीरीज़ और लेबल सेटिंग्स को समायोजित करना, डिफ़ॉल्ट चार्ट डेटा को कस्टम श्रेणियों और मानों से बदलना, और अद्यतन प्रस्तुति को सहेजना।
 
-## **Pie of Pie और Bar of Pie चार्ट्स के लिए द्वितीयक प्लॉट विकल्प**
+## **Pie of Pie और Bar of Pie चार्ट के लिए द्वितीयक प्लॉट विकल्प**
 
-अब Aspose.Slides for Java Pie of Pie या Bar of Pie चार्ट के लिए द्वितीयक प्लॉट विकल्पों को समर्थन देता है। इस विषय में, हम आपको Aspose.Slides का उपयोग करके इन विकल्पों को निर्दिष्ट करने का तरीका दिखाएंगे। गुणों को निर्दिष्ट करने के लिए, यह करें:
+Aspose.Slides for Java, Pie of Pie और Bar of Pie चार्ट के लिए द्वितीयक प्लॉट विकल्पों का समर्थन करता है। ये विकल्प द्वितीयक प्लॉट का आकार और दो प्लॉट्स के बीच डेटा बिंदुओं के विभाजन को नियंत्रित करते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास ऑब्जेक्ट को इंस्टेंटिएट करें।
-2. स्लाइड पर चार्ट जोड़ें।
-3. चार्ट के द्वितीयक प्लॉट विकल्प निर्दिष्ट करें।
-4. प्रेजेंटेशन को डिस्क पर लिखें।
-
-नीचे दिए गए उदाहरण में, हमने Pie of Pie चार्ट की विभिन्न गुण सेट किए हैं।
+निम्नलिखित उदाहरण एक नई प्रस्तुति में Pie of Pie चार्ट बनाता है और डेटा बिंदु मानों को लेबल के रूप में प्रदर्शित करता है। [setSecondPieSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setSecondPieSize-int-) मेथड द्वितीयक प्लॉट का आकार मुख्य प्लॉट का 149% सेट करता है। [setPieSplitBy](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) प्रतिशत-आधारित विभाजन का चयन करता है, और [setPieSplitPosition](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitPosition-double-) थ्रेशहोल्ड को 53% पर सेट करता है।
 
 ```java
-// Presentation क्लास का एक इंस्टेंस बनाएं
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // स्लाइड पर चार्ट जोड़ें
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
-    
-    // विभिन्न गुण सेट करें
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    
-    // प्रेजेंटेशन को डिस्क पर लिखें
-    pres.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    // मान प्रदर्शित करें और द्वितीयक प्लॉट को कॉन्फ़िगर करें।
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **स्वचालित पाई चार्ट स्लाइस रंग सेट करें**
+### **द्वितीयक प्लॉट के लिए श्रेणियों का चयन**
 
-Aspose.Slides for Java स्वचालित पाई चार्ट स्लाइड रंग सेट करने के लिए एक सरल API प्रदान करता है। नमूना कोड उपर्युक्त गुणों को लागू करता है।
+कस्टम विभाजन का उपयोग तब करें जब आप द्वितीयक प्लॉट में विशिष्ट श्रेणियों को उनके प्रतिशत मानों की परवाह किए बिना समूहित करना चाहते हैं। उदाहरण के लिए, एक बिक्री रिपोर्ट Online और Events को साथ दिखा सकती है ताकि पाठक इन दो चैनलों की तुलना कर सकें, भले ही वे कुल बिक्री के 35% और 10% के हों।
 
-1. Presentation क्लास की एक इंस्टेंस बनाएं।
-2. पहली स्लाइड तक पहुंचें।
-3. डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ें।
-4. चार्ट शीर्षक सेट करें।
-5. पहली सीरीज़ को मान दिखाने के लिए सेट करें।
-6. चार्ट डेटा शीट का इंडेक्स सेट करें।
-7. चार्ट डेटा वर्कशीट प्राप्त कर रहे हैं।
-8. डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटा दें।
-9. नई श्रेणियां जोड़ें।
-10. नई सीरीज़ जोड़ें।
-
-परिवर्तित प्रेजेंटेशन को PPTX फ़ाइल में लिखें।
+आप [setPieSplitBy](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) को [PieSplitType.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/piesplittype/#Custom) के साथ कॉल करें और बिंदुओं का चयन [getPieSplitCustomPoints](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getPieSplitCustomPoints--) के माध्यम से करें। संग्रह की [add](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#add-int-) मेथड श्रृंखला में शून्य-आधारित इंडेक्स स्वीकार करती है; डेटा बिंदु वस्तु जोड़ने के लिए [addItem](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#addItem-com.aspose.slides.IChartDataPoint-) का उपयोग करें। इस उदाहरण में, इंडेक्स 1 Online को चुनता है, और इंडेक्स 3 पर बिंदु Events को चुनता है। Partners को भी अस्थायी रूप से जोड़ा जाता है, फिर [removeItem](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#removeItem-com.aspose.slides.IChartDataPoint-) का उपयोग करके बाहर किया जाता है।
 
 ```java
-// Presentation क्लास का एक इंस्टेंस बनाएं
-Presentation pres = new Presentation();
-try {
-    // डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ें
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+import com.aspose.slides.*;
 
-    // चार्ट शीर्षक सेट करना
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // डिफ़ॉल्ट डेटा को चैनल द्वारा बिक्री के साथ बदलें।
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "Retail", "Online", "Partners", "Events" };
+    int[] values = { 40, 35, 15, 10 };
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Online को उसके शून्य-आधारित इंडेक्स से और Events को उसके डेटा बिंदु ऑब्जेक्ट से चुनें।
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Partners को चयन से बाहर करें बिना उसके स्रोत डेटा को हटाए।
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Online (35) और Events (10) द्वितीयक प्लॉट में अलग-अलग स्लाइस के रूप में दिखते हैं। प्राथमिक प्लॉट में, वे 45 मान के साथ एक संयुक्त स्लाइस में दर्शाए जाते हैं, साथ ही Retail (40) और Partners (15) भी। कस्टम चयन से Partners को हटाने से वह प्राथमिक प्लॉट में बना रहता है; यह श्रेणी या उसका मान चार्ट के स्रोत डेटा से नहीं हटाता।
+
+निम्नलिखित छवि PowerPoint में सहेजी गई प्रस्तुति को दर्शाती है:
+
+![द्वितीयक प्लॉट में Online और Events के साथ Pie of Pie चार्ट और प्राथमिक प्लॉट में उनका संयुक्त मान 45](pie_of_pie_custom.png)
+
+## **स्वचलित पाई चार्ट स्लाइस रंग सेट करें**
+
+Aspose.Slides for Java पाई चार्ट स्लाइस को स्वचालित रूप से विभिन्न रंग असाइन कर सकता है। निम्नलिखित उदाहरण केंद्रित शीर्षक के साथ एक पाई चार्ट बनाता है और डिफ़ॉल्ट डेटा को तीन तिमाही श्रेणियों और उनके मानों से बदल देता है। [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) मेथड 20, 50 और 30 मानों को लेबल के रूप में प्रदर्शित करता है, जबकि [setColorVaried](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setColorVaried-boolean-) प्रत्येक स्लाइस के लिए अलग रंग सक्षम करता है।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+
+    // एक केंद्रित चार्ट शीर्षक जोड़ें।
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
 
-    // पहली सीरीज़ को मान दिखाने के लिए सेट करें
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-
-    // चार्ट डेटा शीट का इंडेक्स सेट करना
-    int defaultWorksheetIndex = 0;
-
-    // चार्ट डेटा वर्कशीट प्राप्त कर रहे हैं
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-
-    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाएँ
+    // पहले कार्यपत्रक का उपयोग करके डिफ़ॉल्ट डेटा बदलें।
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "First Qtr", "2nd Qtr", "3rd Qtr" };
+    int[] values = { 20, 50, 30 };
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    // नई श्रेणियां जोड़ना
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
 
-    // नई सीरीज़ जोड़ना
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
 
-    // अब सीरीज़ डेटा भर रहे हैं
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-
+    // मान प्रदर्शित करें और स्लाइस को विभिन्न रंग असाइन करें।
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", SaveFormat.Pptx);
+
+    presentation.save("pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या 'Pie of Pie' और 'Bar of Pie' वेरिएंट्स समर्थित हैं?**
+**क्या Pie of Pie और Bar of Pie प्रकार समर्थित हैं?**
 
-हां, लाइब्रेरी पाई चार्ट्स के लिए द्वितीयक प्लॉट को [समर्थन](https://reference.aspose.com/slides/hi/java/com.aspose.slides/charttype/) देती है, जिसमें 'Pie of Pie' और 'Bar of Pie' प्रकार शामिल हैं।
+हाँ, लाइब्रेरी [समर्थन करता है](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) पाई चार्ट के लिए द्वितीयक प्लॉट का, जिसमें Pie of Pie और Bar of Pie प्रकार शामिल हैं।
 
-**क्या मैं केवल चार्ट को एक छवि (उदाहरण के लिए, PNG) के रूप में निर्यात कर सकता हूँ?**
+**क्या मैं केवल चार्ट को चित्र (उदाहरण के लिए, PNG) के रूप में निर्यात कर सकता हूँ?**
 
-हां, आप पूरी प्रस्तुति के बिना चार्ट को स्वयं एक छवि (जैसे PNG) के रूप में [निर्यात कर सकते हैं](https://reference.aspose.com/slides/hi/java/com.aspose.slides/shape/#getImage-int-float-float-).
+हाँ, आप [चार्ट को स्वयं चित्र के रूप में निर्यात करें](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage--) (जैसे PNG) पूरी प्रस्तुति को निर्यात किए बिना कर सकते हैं।

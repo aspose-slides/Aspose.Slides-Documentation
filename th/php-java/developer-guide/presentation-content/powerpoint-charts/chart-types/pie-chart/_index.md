@@ -1,5 +1,5 @@
 ---
-title: ปรับแต่งแผนภูมิวงกลมในงานนำเสนอด้วย PHP
+title: ปรับแต่งแผนภูมิวงกลมในการนำเสนอด้วย PHP
 linktitle: แผนภูมิวงกลม
 type: docs
 url: /th/php-java/pie-chart/
@@ -10,112 +10,167 @@ keywords:
 - ตัวเลือกแผนภูมิ
 - การตั้งค่าแผนภูมิ
 - ตัวเลือกการพล็อต
-- สีสไลซ์
+- สีส่วนแผนภูมิ
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและปรับแต่งแผนภูมิวงกลมด้วย Aspose.Slides สำหรับ PHP ผ่าน Java ที่สามารถส่งออกเป็น PowerPoint ช่วยให้การเล่าเรื่องข้อมูลของคุณเร็วขึ้นในไม่กี่วินาที"
+description: "สร้างและปรับแต่งแผนภูมิวงกลมใน PHP ด้วย Aspose.Slides กำหนดค่าพล็อตรอง แสดงป้ายข้อมูล และใช้สีส่วนอัตโนมัติใน PowerPoint."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับแผนภูมิวงกลมใน Aspose.Slides จะอธิบายวิธีการกำหนดค่าตัวเลือกพล็อตรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie และวิธีเปิดใช้งานการกำหนดสีสไลซ์อัตโนมัติสำหรับแผนภูมิวงกลมมาตรฐาน
+บทความนี้อธิบายวิธีการทำงานกับแผนภูมิวงกลมใน Aspose.Slides โดยแสดงวิธีการกำหนดค่าตัวเลือกการพล็อตรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie รวมถึงวิธีเปิดใช้งานการกำหนดสีอัตโนมัติให้กับส่วนของแผนภูมิวงกลมปกติ.
 
-ตัวอย่างเน้นขั้นตอนการปรับแต่งแผนภูมิอย่างเป็นรูปธรรม เช่น การเพิ่มแผนภูมิลงในสไลด์ การปรับการตั้งค่าชุดข้อมูลและป้ายชื่อ การแทนที่ข้อมูลแผนภูมิมาตรฐานด้วยหมวดหมู่และค่าแบบกำหนดเอง และการบันทึกการนำเสนอที่อัปเดต
+ตัวอย่างจะเน้นที่งานปรับแต่งแผนภูมิเช่น การเพิ่มแผนภูมิลงในสไลด์ การปรับค่า series และการตั้งค่าป้ายกำกับ การเปลี่ยนข้อมูลแผนภูมิเริ่มต้นเป็นหมวดหมู่และค่าที่กำหนดเอง และการบันทึกการนำเสนอที่อัปเดต.
 
-## **ตัวเลือกพล็อตรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie**
+## **ตัวเลือกการพล็อตรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie**
 
-Aspose.Slides for PHP via Java ตอนนี้สนับสนุนตัวเลือกพล็อตรองสำหรับแผนภูมิ Pie of Pie หรือ Bar of Pie ในหัวข้อนี้ เราจะแสดงวิธีกำหนดตัวเลือกเหล่านั้นโดยใช้ Aspose.Slides เพื่อกำหนดคุณสมบัติ ทำตามขั้นตอนดังนี้:
+Aspose.Slides for PHP via Java รองรับตัวเลือกการพล็อตรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie ตัวเลือกเหล่านี้ควบคุมขนาดของพล็อตรองและวิธีการแยกจุดข้อมูลระหว่างพล็อตทั้งสอง.
 
-1. สร้างอ็อบเจกต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)
-2. เพิ่มแผนภูมิลงในสไลด์
-3. กำหนดตัวเลือกพล็อตรองของแผนภูมิ
-4. บันทึกการนำเสนอไปยังดิสก์
-
-ในตัวอย่างด้านล่าง เราได้ตั้งค่าคุณสมบัติต่าง ๆ ของแผนภูมิ Pie of Pie
+ตัวอย่างต่อไปนี้สร้างแผนภูมิ Pie of Pie ในการนำเสนอใหม่และแสดงค่าจุดข้อมูลเป็นป้ายกำกับ. เมธอด [setSecondPieSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setSecondPieSize) กำหนดขนาดพล็อตรองเป็น 149% ของพล็อตหลัก. [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) เลือกการแยกรูปแบบตามเปอร์เซ็นต์ และ [setPieSplitPosition](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) กำหนดค่าขีดจำกัดเป็น 53%.
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation();
-  try {
-    # เพิ่มแผนภูมิบนสไลด์
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
-    # ตั้งค่าคุณสมบัติต่าง ๆ
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setSecondPieSize(149);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitBy(PieSplitType::ByPercentage);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitPosition(53);
-    # เขียนการนำเสนอไปยังดิสก์
-    $pres->save("SecondPlotOptionsforCharts_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    // แสดงค่าและกำหนดค่าพล็อตรอง
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setSecondPieSize(149);
+    $seriesGroup->setPieSplitBy(PieSplitType::ByPercentage);
+    $seriesGroup->setPieSplitPosition(53);
+
+    $presentation->save("pie_of_pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ตั้งค่าสีสไลซ์อัตโนมัติของแผนภูมิวงกลม**
+### **เลือกหมวดหมู่สำหรับพล็อตรอง**
 
-Aspose.Slides for PHP via Java มี API ง่ายสำหรับการตั้งค่าสีสไลซ์อัตโนมัติของแผนภูมิวงกลม ตัวอย่างโค้ดนี้ใช้การตั้งค่าที่กล่าวถึงข้างต้น
+ใช้การแยกแบบกำหนดเองเมื่อคุณต้องการจัดกลุ่มหมวดหมู่เฉพาะในพล็อตรองโดยไม่คำนึงถึงค่าเปอร์เซ็นต์ของพวกมัน. ตัวอย่างเช่น รายงานการขายอาจแสดง Online และ Events ร่วมกันเพื่อให้ผู้อ่านสามารถเปรียบเทียบช่องทางทั้งสอง แม้ว่าพวกมันจะเป็น 35% และ 10% ของยอดขายรวม.
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)
-2. เข้าถึงสไลด์แรก
-3. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้น
-4. ตั้งชื่อแผนภูมิ
-5. ตั้งค่าชุดข้อมูลแรกให้แสดงค่า
-6. ตั้งค่าดัชนีของแผ่นข้อมูลแผนภูมิ
-7. ดึงแผ่นงานข้อมูลแผนภูมิ
-8. ลบชุดข้อมูลและหมวดหมู่ที่สร้างโดยอัตโนมัติ
-9. เพิ่มหมวดหมู่ใหม่
-10. เพิ่มชุดข้อมูลใหม่
-
-บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+เรียกใช้ [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) พร้อมกับ [PieSplitType::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/piesplittype/) และเลือกจุดผ่าน [getPieSplitCustomPoints](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). วิธีการ [add](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#add) ของคอลเลกชันรับดัชนีเริ่มจากศูนย์ใน series; ใช้ [addItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#addItem) เพื่อเพิ่มวัตถุข้อมูลจุด ในตัวอย่างนี้ ดัชนี 1 เลือก Online และจุดที่ดัชนี 3 เลือก Events Partners ถูกเพิ่มชั่วคราวแล้วจึงถูกตัดออกโดยใช้ [removeItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#removeItem).
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation();
-  try {
-    # เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้น
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # ตั้งค่าชื่อแผนภูมิ
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 200);
+
+    // แทนที่ข้อมูลเริ่มต้นด้วยยอดขายตามช่องทาง.
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    $values = [ 40, 35, 15, 10 ];
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Sales");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+    }
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setPieSplitBy(PieSplitType::Custom);
+    $seriesGroup->setColorVaried(true);
+
+    // เลือก Online ตามดัชนีเริ่มจากศูนย์และ Events ตามอ็อบเจกต์จุดข้อมูล.
+    $seriesGroup->getPieSplitCustomPoints()->add(1);
+    $seriesGroup->getPieSplitCustomPoints()->addItem($series->getDataPoints()->get_Item(3));
+
+    // ลบ Partners ออกจากการเลือกโดยไม่ลบข้อมูลต้นทาง.
+    $seriesGroup->getPieSplitCustomPoints()->add(2);
+    $seriesGroup->getPieSplitCustomPoints()->removeItem($series->getDataPoints()->get_Item(2));
+
+    $presentation->save("pie_of_pie_custom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Online (35) และ Events (10) ปรากฏเป็นส่วนแยกในพล็อตรอง ในพล็อตหลัก พวกมันจะรวมเป็นส่วนเดียวที่มีค่า 45 พร้อมกับ Retail (40) และ Partners (15) การลบ Partners จากการเลือกแบบกำหนดเองทำให้มันยังคงอยู่ในพล็อตหลัก; ไม่ได้ลบหมวดหมู่หรือค่าของมันจากข้อมูลต้นฉบับของแผนภูมิ.
+
+ภาพต่อไปนี้แสดงการบันทึกการนำเสนอใน PowerPoint:
+
+![แผนภูมิ Pie of Pie ที่มี Online และ Events ในพล็อตรองและค่ารวมของพวกมันคือ 45 ในพล็อตหลัก](pie_of_pie_custom.png)
+
+## **ตั้งค่าสีส่วนของแผนภูมิวงกลมอัตโนมัติ**
+
+Aspose.Slides for PHP via Java สามารถกำหนดสีที่แตกต่างให้กับส่วนของแผนภูมิวงกลมโดยอัตโนมัติ ตัวอย่างต่อไปนี้สร้างแผนภูมิวงกลมที่มีหัวข้ออยู่กึ่งกลางและแทนที่ข้อมูลเริ่มต้นด้วยสามหมวดไตรมาสและค่าของพวกมัน เมธอด [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) จะแสดงค่าที่ 20, 50, และ 30 เป็นป้ายกำกับ ในขณะที่ [setColorVaried](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setColorVaried) เปิดใช้งานสีที่แตกต่างสำหรับแต่ละส่วน.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
+
+    // เพิ่มหัวเรื่องแผนภูมิที่อยู่กึ่งกลาง.
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # ตั้งค่าชุดข้อมูลแรกให้แสดงค่า
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # ตั้งค่าดัชนีของแผ่นข้อมูลแผนภูมิ
-    $defaultWorksheetIndex = 0;
-    # ดึงแผ่นงานข้อมูลแผนภูมิ
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # ลบชุดข้อมูลและหมวดหมู่ที่สร้างโดยอัตโนมัติ
+
+    // แทนที่ข้อมูลเริ่มต้นโดยใช้แผ่นงานแรก.
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    # เพิ่มหมวดหมู่ใหม่
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # เพิ่มชุดข้อมูลใหม่
-    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # กำลังเติมข้อมูลให้ชุดข้อมูล
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getParentSeriesGroup()->setColorVaried(true);
-    $pres->save("Pie.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    $values = [ 20, 50, 30 ];
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
     }
-  }
+
+    // แสดงค่าและกำหนดสีที่แตกต่างให้กับส่วนต่าง ๆ ของแผนภูมิ.
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getParentSeriesGroup()->setColorVaried(true);
+
+    $presentation->save("pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**รูปแบบ 'Pie of Pie' และ 'Bar of Pie' รองรับหรือไม่?**
+**รองรับรูปแบบ Pie of Pie และ Bar of Pie หรือไม่?**
 
-ใช่ ไลบรารีนี้ [สนับสนุน](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/) พล็อตรองสำหรับแผนภูมิวงกลม รวมถึงประเภท 'Pie of Pie' และ 'Bar of Pie'
+ใช่, ไลบรารี [รองรับ](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) พล็อตรองสำหรับแผนภูมิวงกลมรวมถึงประเภท Pie of Pie และ Bar of Pie.
 
-**ฉันสามารถส่งออกแค่แผนภูมิเป็นภาพ (เช่น PNG) ได้หรือไม่?**
+**ฉันสามารถส่งออกเฉพาะแผนภูมิเป็นภาพ (เช่น PNG) ได้หรือไม่?**
 
-ใช่ คุณสามารถ [ส่งออกแผนภูมิเสียเองเป็นภาพ](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/#getImage) (เช่น PNG) ได้โดยไม่ต้องรวมการนำเสนอทั้งหมด
+ได้, คุณสามารถ [ส่งออกแผนภูมิเป็นภาพ](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) (เช่น PNG) โดยไม่ต้องส่งออกการนำเสนอทั้งหมด.

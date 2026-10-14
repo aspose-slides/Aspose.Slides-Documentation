@@ -1,5 +1,5 @@
 ---
-title: Tùy chỉnh biểu đồ tròn trong bản trình bày .NET
+title: Tùy chỉnh biểu đồ tròn trong bài thuyết trình bằng .NET
 linktitle: Biểu đồ tròn
 type: docs
 url: /vi/net/pie-chart/
@@ -7,124 +7,158 @@ keywords:
 - biểu đồ tròn
 - quản lý biểu đồ
 - tùy chỉnh biểu đồ
-- các tùy chọn biểu đồ
+- tùy chọn biểu đồ
 - cài đặt biểu đồ
-- các tùy chọn vẽ
-- màu lá
+- tùy chọn vẽ
+- màu lát
 - PowerPoint
-- bản trình bày
+- bài thuyết trình
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách tạo và tùy chỉnh biểu đồ tròn trong .NET với Aspose.Slides, có thể xuất ra PowerPoint, nâng cao kể chuyện dữ liệu của bạn trong vài giây."
+description: "Tạo và tùy chỉnh biểu đồ tròn trong .NET với Aspose.Slides. Cấu hình biểu đồ phụ, hiển thị nhãn dữ liệu và áp dụng màu lát tự động trong PowerPoint."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với biểu đồ tròn trong Aspose.Slides. Nó chỉ ra cách cấu hình tùy chọn biểu đồ phụ cho biểu đồ Pie of Pie và Bar of Pie, và cách bật tự động tô màu các lát cho biểu đồ tròn tiêu chuẩn.
+Bài viết này giải thích cách làm việc với biểu đồ tròn trong Aspose.Slides. Nó cho thấy cách cấu hình các tùy chọn biểu đồ phụ cho biểu đồ Pie of Pie và Bar of Pie, và cách bật tính năng tự động tô màu các lát trong biểu đồ tròn tiêu chuẩn.
 
-Các ví dụ tập trung vào các bước tùy chỉnh biểu đồ thực tế như thêm biểu đồ vào slide, điều chỉnh cài đặt chuỗi và nhãn, thay thế dữ liệu biểu đồ mặc định bằng các danh mục và giá trị tùy chỉnh, và lưu bản trình bày đã cập nhật.
+Các ví dụ tập trung vào các nhiệm vụ tùy chỉnh biểu đồ như thêm biểu đồ vào slide, điều chỉnh cài đặt chuỗi và nhãn, thay thế dữ liệu biểu đồ mặc định bằng các danh mục và giá trị tùy chỉnh, và lưu bản trình bày đã cập nhật.
 
-## **Tùy chọn biểu đồ phụ cho Pie of Pie và Bar of Pie**
+## **Tùy chọn biểu đồ phụ cho biểu đồ Pie of Pie và Bar of Pie**
 
-Aspose.Slides cho .NET hiện hỗ trợ tùy chọn biểu đồ phụ cho biểu đồ Pie of Pie hoặc Bar of Pie. Trong chủ đề này, chúng ta sẽ xem qua ví dụ cách chỉ định các tùy chọn này bằng Aspose.Slides. Để chỉ định các thuộc tính, vui lòng thực hiện các bước sau:
+Aspose.Slides for .NET hỗ trợ các tùy chọn biểu đồ phụ cho biểu đồ Pie of Pie và Bar of Pie. Các tùy chọn này kiểm soát kích thước của biểu đồ phụ và cách các điểm dữ liệu được chia giữa hai biểu đồ.
 
-1. Tạo một đối tượng lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation).
-1. Thêm biểu đồ vào slide.
-1. Chỉ định tùy chọn biểu đồ phụ cho biểu đồ.
-1. Ghi bản trình bày ra đĩa.
+Ví dụ sau tạo một biểu đồ Pie of Pie trong một bản trình bày mới và hiển thị giá trị các điểm dữ liệu dưới dạng nhãn. Thuộc tính [SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/) đặt kích thước biểu đồ phụ bằng 149% so với biểu đồ chính. [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) chọn cách phân chia dựa trên phần trăm, và [PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) đặt ngưỡng ở 53%.
 
-Trong ví dụ dưới đây, chúng tôi đã thiết lập các thuộc tính khác nhau của biểu đồ Pie of Pie.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
- // Create an instance of Presentation class
-Presentation presentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Add chart on slide
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// Set different properties
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
 
-// Write presentation to disk
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+// Display values and configure the secondary plot.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
-## **Đặt màu tự động cho các lát của biểu đồ tròn**
+### **Chọn danh mục cho biểu đồ phụ**
 
-Aspose.Slides cho .NET cung cấp API đơn giản để đặt màu tự động cho các lát của biểu đồ tròn. Mã mẫu áp dụng các cài đặt thuộc tính đã nêu ở trên.
+Sử dụng phân chia tùy chỉnh khi bạn muốn nhóm các danh mục cụ thể trong biểu đồ phụ bất kể giá trị phần trăm của chúng. Ví dụ, một báo cáo bán hàng có thể hiển thị Online và Events cùng nhau để người đọc có thể so sánh hai kênh này, mặc dù chúng chiếm 35% và 10% tổng doanh thu.
 
-1. Tạo một instance của lớp Presentation.
-1. Truy cập slide đầu tiên.
-1. Thêm biểu đồ với dữ liệu mặc định.
-1. Đặt tiêu đề cho biểu đồ.
-1. Đặt series đầu tiên hiển thị giá trị.
-1. Đặt chỉ mục của bảng dữ liệu biểu đồ.
-1. Lấy worksheet dữ liệu biểu đồ.
-1. Xóa series và danh mục được tạo mặc định.
-1. Thêm danh mục mới.
-1. Thêm series mới.
+Đặt [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) thành [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/) và chọn các điểm qua [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/). Phương thức [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/) của bộ sưu tập chấp nhận một chỉ số bắt đầu từ 0 trong chuỗi hoặc một đối tượng điểm dữ liệu. Trong ví dụ này, chỉ số 1 chọn Online, và điểm ở chỉ số 3 chọn Events. Partners cũng được thêm tạm thời, sau đó loại bỏ bằng cách sử dụng [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/).
 
-Ghi bản trình bày đã chỉnh sửa vào tệp PPTX.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
- // Khởi tạo lớp Presentation đại diện cho tệp PPTX
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+// Thay thế dữ liệu mặc định bằng doanh số theo kênh.
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// Khởi tạo lớp Presentation đại diện cho tệp PPTX
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// Truy cập slide đầu tiên
-	ISlide slides = presentation.Slides[0];
-
-	// Thêm biểu đồ với dữ liệu mặc định
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// Đặt tiêu đề biểu đồ
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// Đặt series đầu tiên hiển thị giá trị
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// Đặt chỉ mục của bảng dữ liệu biểu đồ
-	int defaultWorksheetIndex = 0;
-
-	// Lấy worksheet dữ liệu biểu đồ
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// Xóa series và danh mục được tạo mặc định
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// Thêm danh mục mới
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// Thêm series mới
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// Bây giờ điền dữ liệu cho series
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// Chọn Online theo chỉ mục bắt đầu từ 0 và Events theo đối tượng điểm dữ liệu.
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// Loại bỏ Partners khỏi lựa chọn mà không xóa dữ liệu nguồn của nó.
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+Online (35) và Events (10) xuất hiện dưới dạng các lát riêng biệt trong biểu đồ phụ. Trong biểu đồ chính, chúng được đại diện bởi một lát kết hợp có giá trị 45, cùng với Retail (40) và Partners (15). Việc loại bỏ Partners khỏi lựa chọn tùy chỉnh giữ nó trong biểu đồ chính; nó không loại bỏ danh mục hoặc giá trị của nó khỏi dữ liệu nguồn của biểu đồ.
 
-**Các biến thể 'Pie of Pie' và 'Bar of Pie' có được hỗ trợ không?**
+Hình ảnh sau đây hiển thị bản trình bày đã lưu trong PowerPoint:
 
-Có, thư viện [hỗ trợ](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/charttype/) biểu đồ phụ cho các biểu đồ tròn, bao gồm các loại 'Pie of Pie' và 'Bar of Pie'.
+![Biểu đồ Pie of Pie với Online và Events trong biểu đồ phụ và giá trị kết hợp của chúng là 45 trong biểu đồ chính](pie_of_pie_custom.png)
 
-**Tôi có thể xuất chỉ biểu đồ dưới dạng hình ảnh (ví dụ, PNG) không?**
+## **Đặt màu tự động cho các lát biểu đồ tròn**
 
-Có, bạn có thể [xuất biểu đồ dưới dạng hình ảnh](https://reference.aspose.com/slides/vi/net/aspose.slides/shape/getimage/) (ví dụ PNG) mà không cần xuất toàn bộ bản trình bày.
+Aspose.Slides for .NET có thể tự động cấp phát các màu khác nhau cho các lát của biểu đồ tròn. Ví dụ sau tạo một biểu đồ tròn với tiêu đề ở giữa và thay thế dữ liệu mặc định bằng ba danh mục quý và giá trị của chúng. Thuộc tính [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) hiển thị các giá trị 20, 50 và 30 dưới dạng nhãn, trong khi [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) bật màu sắc riêng cho mỗi lát.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// Thêm tiêu đề biểu đồ ở giữa.
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// Thay thế dữ liệu mặc định bằng cách sử dụng bảng tính đầu tiên.
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+// Hiển thị giá trị và gán các màu khác nhau cho các lát.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
+```
+
+## **Câu hỏi thường gặp**
+
+**Các biến thể Pie of Pie và Bar of Pie có được hỗ trợ không?**
+
+Có, thư viện [hỗ trợ](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) một biểu đồ phụ cho các biểu đồ tròn, bao gồm các loại Pie of Pie và Bar of Pie.
+
+**Tôi có thể xuất riêng biểu đồ dưới dạng hình ảnh (ví dụ, PNG) không?**
+
+Có, bạn có thể [xuất biểu đồ dưới dạng hình ảnh](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (ví dụ PNG) mà không cần xuất toàn bộ bản trình bày.

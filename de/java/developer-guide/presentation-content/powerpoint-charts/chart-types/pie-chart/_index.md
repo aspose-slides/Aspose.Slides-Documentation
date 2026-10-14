@@ -1,121 +1,167 @@
 ---
-title: Kuchendiagramme in Präsentationen mit Java anpassen
-linktitle: Kuchendiagramm
+title: Anpassen von Kreisdiagrammen in Präsentationen mit Java
+linktitle: Kreisdiagramm
 type: docs
 url: /de/java/pie-chart/
 keywords:
-- Kuchendiagramm
+- Kreisdiagramm
 - Diagramm verwalten
 - Diagramm anpassen
 - Diagrammoptionen
 - Diagrammeinstellungen
 - Plot-Optionen
-- Scheibenfarbe
+- Segmentfarbe
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides in Java Kuchendiagramme erstellen und anpassen, exportierbar nach PowerPoint, und Ihre Datenpräsentation in Sekunden verbessern."
+description: "Erstellen und Anpassen von Kreisdiagrammen in Java mit Aspose.Slides. Sekundäre Diagramme konfigurieren, Datenbeschriftungen anzeigen und automatische Segmentfarben in PowerPoint anwenden."
 ---
+## **Übersicht**
 
-## **Optionen für das zweite Diagramm bei Pie of Pie- und Bar of Pie-Diagrammen**
-Aspose.Slides for Java unterstützt jetzt Optionen für das sekundäre Diagramm bei Pie of Pie- oder Bar of Pie-Diagrammen. In diesem Abschnitt zeigen wir, wie Sie diese Optionen mit Aspose.Slides festlegen. So geben Sie die Eigenschaften an:
+Dieser Artikel erklärt, wie man mit Kreisdiagrammen in Aspose.Slides arbeitet. Er zeigt, wie man sekundäre Diagrammoptionen für Pie‑of‑Pie‑ und Bar‑of‑Pie‑Diagramme konfiguriert und wie man die automatische Farbzuweisung für die Segmente eines Standard‑Kreisdiagramms aktiviert.
 
-1. Instanziieren Sie das [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klassenobjekt.  
-1. Fügen Sie dem Folie ein Diagramm hinzu.  
-1. Geben Sie die Optionen für das sekundäre Diagramm des Diagramms an.  
-1. Speichern Sie die Präsentation auf dem Datenträger.  
+Die Beispiele konzentrieren sich auf Aufgaben zur Diagrammanpassung, wie das Hinzufügen eines Diagramms zu einer Folie, das Anpassen von Reihen‑ und Beschriftungseinstellungen, das Ersetzen der Standarddiagrammdaten durch benutzerdefinierte Kategorien und Werte sowie das Speichern der aktualisierten Präsentation.
 
-Im nachstehenden Beispiel haben wir verschiedene Eigenschaften des Pie of Pie-Diagramms festgelegt.  
+## **Optionen für sekundäre Diagramme bei Pie‑of‑Pie‑ und Bar‑of‑Pie‑Diagrammen**
+
+Aspose.Slides for Java unterstützt sekundäre Diagrammoptionen für Pie‑of‑Pie‑ und Bar‑of‑Pie‑Diagramme. Diese Optionen steuern die Größe des sekundären Diagramms und wie Datenpunkte zwischen den beiden Diagrammen aufgeteilt werden.
+
+Im folgenden Beispiel wird ein Pie‑of‑Pie‑Diagramm in einer neuen Präsentation erstellt und die Werte der Datenpunkte werden als Beschriftungen angezeigt. Die Methode [setSecondPieSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setSecondPieSize-int-) legt die Größe des sekundären Diagramms auf 149 % des Hauptdiagramms fest. [setPieSplitBy](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) wählt die prozentbasierte Aufteilung, und [setPieSplitPosition](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitPosition-double-) setzt die Schwelle auf 53 %.
+
 ```java
-// Instanz der Presentation-Klasse erstellen
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Diagramm zur Folie hinzufügen
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
-    
-    // Verschiedene Eigenschaften festlegen
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    
-    // Präsentation auf die Festplatte schreiben
-    pres.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    // Werte anzeigen und das sekundäre Diagramm konfigurieren.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+### **Auswahl von Kategorien für das sekundäre Diagramm**
 
-## **Automatische Farben für Pie‑Chart‑Scheiben festlegen**
-Aspose.Slides for Java bietet eine einfache API zum Festlegen automatischer Farben für Pie‑Chart‑Folien. Der Beispielcode wendet die oben genannten Eigenschaften an.
+Verwenden Sie benutzerdefinierte Aufteilung, wenn Sie bestimmte Kategorien im sekundären Diagramm gruppieren möchten, unabhängig von ihren prozentualen Werten. Zum Beispiel könnte ein Verkaufsbericht Online und Events zusammen anzeigen, damit die Leser diese beiden Kanäle vergleichen können, obwohl sie 35 % bzw. 10 % des Gesamtumsatzes ausmachen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse.  
-1. Greifen Sie auf die erste Folie zu.  
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu.  
-1. Legen Sie den Diagrammtitel fest.  
-1. Setzen Sie die erste Datenreihe auf 'Werte anzeigen'.  
-1. Legen Sie den Index des Diagrammdatenblatts fest.  
-1. Abrufen des Diagrammdaten‑Arbeitsblatts.  
-1. Löschen Sie die standardmäßig generierten Reihen und Kategorien.  
-1. Fügen Sie neue Kategorien hinzu.  
-1. Fügen Sie neue Reihen hinzu.  
+Rufen Sie [setPieSplitBy](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) mit [PieSplitType.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/piesplittype/#Custom) auf und wählen Sie die Punkte über [getPieSplitCustomPoints](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getPieSplitCustomPoints--). Die [add](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#add-int-)‑Methode der Sammlung akzeptiert einen nullbasierten Index in der Reihe; verwenden Sie [addItem](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#addItem-com.aspose.slides.IChartDataPoint-) zum Hinzufügen eines Datenpunktobjekts. In diesem Beispiel wählt Index 1 Online aus, und der Punkt bei Index 3 wählt Events aus. Partners wird ebenfalls temporär hinzugefügt und dann über [removeItem](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#removeItem-com.aspose.slides.IChartDataPoint-) ausgeschlossen.
 
-Speichern Sie die geänderte Präsentation in einer PPTX-Datei.  
 ```java
-// Instanz der Presentation-Klasse erstellen
-Presentation pres = new Presentation();
-try {
-    // Diagramm mit Standarddaten hinzufügen
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+import com.aspose.slides.*;
 
-    // Diagrammtitel festlegen
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // Ersetze die Standarddaten durch Verkäufe nach Kanal.
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "Retail", "Online", "Partners", "Events" };
+    int[] values = { 40, 35, 15, 10 };
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Wähle Online anhand seines nullbasierten Index und Events anhand seines Datenpunktobjekts aus.
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Schließe Partners von der Auswahl aus, ohne die Quelldaten zu löschen.
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Online (35) und Events (10) erscheinen als separate Segmente im sekundären Diagramm. Im primären Diagramm werden sie durch ein kombiniertes Segment mit dem Wert 45 vertreten, zusammen mit Retail (40) und Partners (15). Das Entfernen von Partners aus der benutzerdefinierten Auswahl lässt es im primären Diagramm erhalten; die Kategorie oder ihr Wert werden nicht aus den Quelldaten des Diagramms entfernt.
+
+Das folgende Bild zeigt die gespeicherte Präsentation in PowerPoint:
+
+![Grafik des Pie of Pie-Diagramms mit Online und Events im sekundären Diagramm und ihrem kombinierten Wert von 45 im primären Diagramm](pie_of_pie_custom.png)
+
+## **Automatisches Zuweisen von Farben zu Kreisdiagramm‑Segmenten**
+
+Aspose.Slides for Java kann automatisch verschiedene Farben zu den Segmenten eines Kreisdiagramms zuweisen. Das folgende Beispiel erstellt ein Kreisdiagramm mit zentriertem Titel und ersetzt die Standarddaten durch drei Quartalskategorien und deren Werte. Die Methode [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) zeigt die Werte 20, 50 und 30 als Beschriftungen an, während [setColorVaried](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setColorVaried-boolean-) für jede Scheibe eine unterschiedliche Farbe aktiviert.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+
+    // Füge einen zentrierten Diagrammtitel hinzu.
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
 
-    // Erste Datenreihe auf Werte anzeigen setzen
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-
-    // Index des Diagrammdatensheets festlegen
-    int defaultWorksheetIndex = 0;
-
-    // Diagrammdatentabelle abrufen
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-
-    // Standardmäßig generierte Reihen und Kategorien löschen
+    // Ersetze die Standarddaten mithilfe des ersten Arbeitsblatts.
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "First Qtr", "2nd Qtr", "3rd Qtr" };
+    int[] values = { 20, 50, 30 };
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    // Neue Kategorien hinzufügen
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
 
-    // Neue Reihe hinzufügen
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
 
-    // Jetzt Reihen-Daten füllen
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-
+    // Werte anzeigen und den Segmenten unterschiedliche Farben zuweisen.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", SaveFormat.Pptx);
+
+    presentation.save("pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **FAQ**
 
-**Werden die Varianten 'Pie of Pie' und 'Bar of Pie' unterstützt?**
+**Werden die Varianten Pie‑of‑Pie und Bar‑of‑Pie unterstützt?**
 
-Ja, die Bibliothek unterstützt ein sekundäres Diagramm für Kuchendiagramme, einschließlich der Typen 'Pie of Pie' und 'Bar of Pie'.  
+Ja, die Bibliothek [unterstützt](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) ein sekundäres Diagramm für Kreisdiagramme, einschließlich der Typen Pie‑of‑Pie und Bar‑of‑Pie.
 
 **Kann ich nur das Diagramm als Bild (z. B. PNG) exportieren?**
 
-Ja, Sie können das Diagramm selbst als Bild (z. B. PNG) exportieren, ohne die gesamte Präsentation.
+Ja, Sie können [das Diagramm selbst als Bild exportieren](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage--) (wie PNG), ohne die gesamte Präsentation zu exportieren.

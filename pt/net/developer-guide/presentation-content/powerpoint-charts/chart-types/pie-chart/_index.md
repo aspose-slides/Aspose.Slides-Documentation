@@ -1,6 +1,6 @@
 ---
 title: Personalizar gráficos de pizza em apresentações no .NET
-linktitle: Gráfico de Pizza
+linktitle: Gráfico de pizza
 type: docs
 url: /pt/net/pie-chart/
 keywords:
@@ -9,123 +9,156 @@ keywords:
 - personalizar gráfico
 - opções de gráfico
 - configurações de gráfico
-- opções de plotagem
+- opções de trama
 - cor da fatia
 - PowerPoint
 - apresentação
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda como criar e personalizar gráficos de pizza no .NET com Aspose.Slides, exportáveis para PowerPoint, impulsionando sua narrativa de dados em segundos."
+description: "Crie e personalize gráficos de pizza no .NET com Aspose.Slides. Configure tramas secundárias, exiba rótulos de dados e aplique cores automáticas nas fatias no PowerPoint."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com gráficos de pizza no Aspose.Slides. Ele mostra como configurar opções de plotagem secundária para gráficos Pie of Pie e Bar of Pie, e como habilitar a coloração automática de fatias para um gráfico de pizza padrão.
+Este artigo explica como trabalhar com gráficos de pizza no Aspose.Slides. Ele mostra como configurar opções de trama secundária para gráficos Pie of Pie e Bar of Pie e como habilitar a coloração automática das fatias para um gráfico de pizza padrão.
 
-Os exemplos focam em etapas práticas de personalização de gráficos, como adicionar um gráfico a um slide, ajustar configurações de séries e rótulos, substituir os dados padrão do gráfico por categorias e valores personalizados e salvar a apresentação atualizada.
+Os exemplos concentram‑se em tarefas de personalização de gráficos, como adicionar um gráfico a um slide, ajustar configurações de séries e rótulos, substituir os dados padrão do gráfico por categorias e valores personalizados e salvar a apresentação atualizada.
 
-## **Opções de segundo plot para gráficos Pie of Pie e Bar of Pie**
-Aspose.Slides for .NET agora oferece suporte a opções de segundo plot para gráficos Pie of Pie ou Bar of Pie. Neste tópico, veremos com um exemplo como especificar essas opções usando Aspose.Slides. Para especificar as propriedades, siga os passos abaixo:
+## **Opções de Trama Secundária para Gráficos Pie of Pie e Bar of Pie**
 
-1. Instanciar o objeto da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation).
-1. Adicionar gráfico ao slide.
-1. Especificar as opções de segundo plot do gráfico.
-1. Gravar a apresentação no disco.
+O Aspose.Slides for .NET oferece suporte a opções de trama secundária para gráficos Pie of Pie e Bar of Pie. Essas opções controlam o tamanho da trama secundária e como os pontos de dados são divididos entre as duas tramas.
 
-No exemplo abaixo, definimos diferentes propriedades do gráfico Pie of Pie.
+O exemplo a seguir cria um gráfico Pie of Pie em uma nova apresentação e exibe os valores dos pontos de dados como rótulos. A propriedade [SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/) define o tamanho da trama secundária para 149 % da trama principal. [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) seleciona a divisão baseada em porcentagem e [PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) define o limiar para 53 %.
 
-```c#
-// Criar uma instância da classe Presentation
-Presentation presentation = new Presentation();
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Adicionar gráfico ao slide
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// Definir propriedades diferentes
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Gravar a apresentação no disco
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
+
+// Display values and configure the secondary plot.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
+### **Selecionar Categorias para a Trama Secundária**
 
+Use divisão personalizada quando quiser agrupar categorias específicas na trama secundária independentemente de seus valores percentuais. Por exemplo, um relatório de vendas pode mostrar Online e Events juntos para que os leitores comparem esses dois canais, mesmo que representem 35 % e 10 % das vendas totais.
 
+Defina [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) como [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/) e selecione os pontos através de [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/). O método [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/) da coleção aceita um índice baseado em zero na série ou um objeto de ponto de dados. Neste exemplo, o índice 1 seleciona Online e o ponto no índice 3 seleciona Events. Partners também é adicionado temporariamente, depois excluído usando [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/).
 
-## **Definir cores automáticas das fatias do gráfico de pizza**
-Aspose.Slides for .NET oferece uma API simples para definir cores automáticas das fatias do gráfico de pizza. O código de exemplo aplica as configurações mencionadas acima.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-1. Criar uma instância da classe Presentation.
-1. Acessar o primeiro slide.
-1. Adicionar gráfico com dados padrão.
-1. Definir o título do gráfico.
-1. Configurar a primeira série para Mostrar Valores.
-1. Definir o índice da planilha de dados do gráfico.
-1. Obter a planilha de dados do gráfico.
-1. Excluir as séries e categorias geradas por padrão.
-1. Adicionar novas categorias.
-1. Adicionar nova série.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-Gravar a apresentação modificada em um arquivo PPTX.
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
 
-```c#
-// Instanciar a classe Presentation que representa o arquivo PPTX
-using (Presentation presentation = new Presentation())
+// Substitua os dados padrão por vendas por canal.
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// Instanciar a classe Presentation que representa o arquivo PPTX
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// Acessar o primeiro slide
-	ISlide slides = presentation.Slides[0];
-
-	// Adicionar gráfico com dados padrão
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// Definir Título do gráfico
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// Definir a primeira série para Mostrar Valores
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// Definir o índice da planilha de dados do gráfico
-	int defaultWorksheetIndex = 0;
-
-	// Obter a planilha de dados do gráfico
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// Excluir as séries e categorias geradas por padrão
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// Adicionar novas categorias
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// Adicionar nova série
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// Agora preenchendo os dados da série
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// Selecione Online pelo seu índice baseado em zero e Events pelo seu objeto de ponto de dados.
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// Exclua Partners da seleção sem excluir seus dados de origem.
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+```
+
+Online (35) e Events (10) aparecem como fatias distintas na trama secundária. Na trama principal, eles são representados por uma única fatia combinada com valor 45, ao lado de Retail (40) e Partners (15). Remover Partners da seleção personalizada mantém‑o na trama principal; não remove a categoria nem seu valor dos dados de origem do gráfico.
+
+A imagem a seguir mostra a apresentação salva no PowerPoint:
+
+![Gráfico Pie of Pie com Online e Events na trama secundária e seu valor combinado de 45 na trama principal](pie_of_pie_custom.png)
+
+## **Definir Cores Automáticas das Fatias do Gráfico de Pizza**
+
+O Aspose.Slides for .NET pode atribuir automaticamente cores diferentes às fatias do gráfico de pizza. O exemplo a seguir cria um gráfico de pizza com um título centralizado e substitui os dados padrão por três categorias trimestrais e seus valores. A propriedade [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) exibe os valores 20, 50 e 30 como rótulos, enquanto [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) habilita uma cor distinta para cada fatia.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// Adicione um título de gráfico centralizado.
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// Substitua os dados padrão usando a primeira planilha.
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+// Exiba valores e atribua cores diferentes às fatias.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**As variações 'Pie of Pie' e 'Bar of Pie' são suportadas?**
+**As variações Pie of Pie e Bar of Pie são suportadas?**
 
-Sim, a biblioteca [suporta](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/charttype/) um plot secundário para gráficos de pizza, incluindo os tipos 'Pie of Pie' e 'Bar of Pie'.
+Sim, a biblioteca [suporta](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) uma trama secundária para gráficos de pizza, incluindo os tipos Pie of Pie e Bar of Pie.
 
 **Posso exportar apenas o gráfico como imagem (por exemplo, PNG)?**
 
-Sim, você pode [exportar o próprio gráfico como imagem](https://reference.aspose.com/slides/pt/net/aspose.slides/shape/getimage/) (por exemplo, PNG) sem a necessidade da apresentação completa.
+Sim, você pode [exportar o próprio gráfico como imagem](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (como PNG) sem exportar a apresentação inteira.

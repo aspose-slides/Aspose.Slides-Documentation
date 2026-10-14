@@ -12,121 +12,145 @@ keywords:
 - opsi plot
 - warna irisan
 - PowerPoint
-- OpenDocument
 - presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari cara membuat dan menyesuaikan diagram lingkaran di Python dengan Aspose.Slides, dapat diekspor ke PowerPoint dan OpenDocument, meningkatkan penceritaan data Anda dalam hitungan detik."
+description: "Buat dan sesuaikan diagram lingkaran di Python dengan Aspose.Slides. Konfigurasikan plot sekunder, tampilkan label data, dan terapkan warna irisan otomatis di PowerPoint."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan diagram lingkaran (pie chart) di Aspose.Slides. Artikel ini menunjukkan cara mengonfigurasi opsi plot sekunder untuk diagram Pie of Pie dan Bar of Pie, serta cara mengaktifkan pewarnaan otomatis irisan pada diagram lingkaran standar.
+Artikel ini menjelaskan cara menggunakan diagram lingkaran di Aspose.Slides. Artikel ini menunjukkan cara mengonfigurasi opsi plot sekunder untuk diagram Pie of Pie dan Bar of Pie, serta cara mengaktifkan pewarnaan irisan otomatis untuk diagram lingkaran standar.
 
-Contoh-contoh berfokus pada langkah-langkah praktis kustomisasi diagram seperti menambahkan diagram ke slide, menyesuaikan pengaturan seri dan label, mengganti data diagram default dengan kategori dan nilai khusus, dan menyimpan presentasi yang telah diperbarui.
+Contoh-contoh berfokus pada tugas penyesuaian diagram seperti menambahkan diagram ke slide, menyesuaikan pengaturan seri dan label, mengganti data diagram bawaan dengan kategori dan nilai khusus, serta menyimpan presentasi yang telah diperbarui.
 
-## **Opsi Plot Kedua untuk Diagram Pie of Pie dan Bar of Pie**
-Aspose.Slides for Python via .NET kini mendukung opsi plot kedua untuk diagram Pie of Pie atau Bar of Pie. Pada topik ini, kita akan melihat contoh cara Menentukan opsi-opsi ini menggunakan Aspose.Slides. Untuk menentukan properti-propertinya, ikuti langkah-langkah di bawah ini:
+## **Opsi Plot Sekunder untuk Diagram Pie of Pie dan Bar of Pie**
 
-1. Instansiasi objek kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
-2. Tambahkan diagram pada slide.
-3. Tentukan opsi plot kedua dari diagram.
-4. Tulis presentasi ke disk.
+Aspose.Slides for Python via .NET mendukung opsi plot sekunder untuk diagram Pie of Pie dan Bar of Pie. Opsi-opsi ini mengontrol ukuran plot sekunder dan cara titik data dibagi antara kedua plot.
 
-Pada contoh di bawah, kami telah mengatur properti yang berbeda dari diagram Pie of Pie.
+Contoh berikut membuat diagram Pie of Pie dalam presentasi baru dan menampilkan nilai titik data sebagai label. Properti [second_pie_size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/second_pie_size/) mengatur ukuran plot sekunder menjadi 149% dari plot utama. [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) memilih pemisahan berbasis persentase, dan [pie_split_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_position/) mengatur ambang batas menjadi 53%.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Buat instance dari kelas Presentation
 with slides.Presentation() as presentation:
-    # Tambahkan diagram pada slide
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
-        
-    # Atur properti yang berbeda
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-    chart.chart_data.series[0].parent_series_group.second_pie_size = 149
-    chart.chart_data.series[0].parent_series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
-    chart.chart_data.series[0].parent_series_group.pie_split_position = 53
+    slide = presentation.slides[0]
 
-    # Simpan presentasi ke disk
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", slides.export.SaveFormat.PPTX)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
+    series = chart.chart_data.series[0]
+
+    # Tampilkan nilai dan konfigurasikan plot sekunder.
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.second_pie_size = 149
+    series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
+    series_group.pie_split_position = 53
+
+    presentation.save("pie_of_pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Pilih Kategori untuk Plot Sekunder**
 
+Gunakan pemisahan khusus ketika Anda ingin mengelompokkan kategori tertentu dalam plot sekunder terlepas dari nilai persentasenya. Misalnya, laporan penjualan dapat menampilkan Online dan Events bersama sehingga pembaca dapat membandingkan dua saluran ini, meskipun mereka masing‑masing menyumbang 35% dan 10% dari total penjualan.
 
+Atur [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) ke [PieSplitType.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplittype/) dan pilih titik melalui [pie_split_custom_points](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_custom_points/). Metode [add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/add/) pada koleksi menerima indeks berbasis nol dalam seri atau objek titik data. Dalam contoh ini, indeks 1 memilih Online, dan titik pada indeks 3 memilih Events. Partners juga ditambahkan sementara, lalu dikeluarkan menggunakan [remove](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/).
 
-## **Atur Warna Irisan Diagram Pie Otomatis**
-Aspose.Slides for Python via .NET menyediakan API sederhana untuk mengatur warna otomatis irisan diagram lingkaran. Kode contoh menerapkan pengaturan properti yang disebutkan di atas.
-
-1. Buat instance dari kelas Presentation.
-2. Akses slide pertama.
-3. Tambahkan diagram dengan data default.
-4. Atur Judul diagram.
-5. Atur seri pertama untuk Menampilkan Nilai.
-6. Atur indeks lembar data diagram.
-7. Dapatkan worksheet data diagram.
-8. Hapus seri dan kategori yang dihasilkan secara default.
-9. Tambahkan kategori baru.
-10. Tambahkan seri baru.
-
-Tulis presentasi yang telah dimodifikasi ke file PPTX.
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# Membuat instance kelas Presentation yang mewakili file PPTX
 with slides.Presentation() as presentation:
-	# Akses slide pertama
-	slide = presentation.slides[0]
+    slide = presentation.slides[0]
 
-	# Tambahkan diagram dengan data default
-	chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 600, 200)
 
-	# Mengatur Judul diagram
-	chart.chart_title.add_text_frame_for_overriding("Sample Title")
-	chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
-	chart.chart_title.height = 20
-	chart.has_title = True
+    # Ganti data bawaan dengan penjualan per saluran.
+    workbook = chart.chart_data.chart_data_workbook
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-	# Atur seri pertama untuk Menampilkan Nilai
-	chart.chart_data.series[0].labels.default_data_label_format.show_value = True
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(0, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
 
-	# Mengatur indeks lembar data diagram
-	defaultWorksheetIndex = 0
+        value_cell = workbook.get_cell(0, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
 
-	# Mendapatkan worksheet data diagram
-	fact = chart.chart_data.chart_data_workbook
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.pie_split_by = charts.PieSplitType.CUSTOM
+    series_group.is_color_varied = True
 
-	# Hapus seri dan kategori yang dihasilkan secara default
-	chart.chart_data.series.clear()
-	chart.chart_data.categories.clear()
+    # Pilih Online berdasarkan indeks nol‑berdasarnya dan Events berdasarkan objek titik datanya.
+    series_group.pie_split_custom_points.add(1)
+    series_group.pie_split_custom_points.add(series.data_points[3])
 
-	# Menambahkan kategori baru
-	chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "First Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "2nd Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "3rd Qtr"))
+    # Kecualikan Partners dari pilihan tanpa menghapus data sumbernya.
+    series_group.pie_split_custom_points.add(2)
+    series_group.pie_split_custom_points.remove(series.data_points[2])
 
-	# Menambahkan seri baru
-	series = chart.chart_data.series.add(fact.get_cell(0, 0, 1, "Series 1"), chart.type)
+    presentation.save("pie_of_pie_custom.pptx", slides.export.SaveFormat.PPTX)
+```
 
-	# Sekarang mengisi data seri
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
+Online (35) dan Events (10) muncul sebagai irisan terpisah di plot sekunder. Di plot utama, keduanya direpresentasikan oleh satu irisan gabungan dengan nilai 45, bersama dengan Retail (40) dan Partners (15). Menghapus Partners dari pilihan khusus menjaga irisan tersebut di plot utama; ini tidak menghapus kategori atau nilainya dari data sumber diagram.
 
-	series.parent_series_group.is_color_varied = True
-	presentation.save("Pie.pptx", slides.export.SaveFormat.PPTX)
+Gambar berikut menunjukkan presentasi yang disimpan di PowerPoint:
+
+![Diagram Pie of Pie dengan Online dan Events di plot sekunder dan nilai gabungan mereka sebesar 45 di plot utama](pie_of_pie_custom.png)
+
+## **Atur Warna Irisan Diagram Lingkaran Otomatis**
+
+Aspose.Slides for Python via .NET dapat secara otomatis menetapkan warna yang berbeda untuk setiap irisan diagram lingkaran. Contoh berikut membuat diagram lingkaran dengan judul terpusat dan mengganti data bawaan dengan tiga kategori kuartalan serta nilainya. Properti [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) menampilkan nilai 20, 50, dan 30 sebagai label, sedangkan [is_color_varied](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/is_color_varied/) mengaktifkan warna yang berbeda untuk setiap irisan.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+
+    # Tambahkan judul diagram yang dipusatkan.
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
+    chart.chart_title.height = 20
+    chart.has_title = True
+
+    # Ganti data bawaan menggunakan lembar kerja pertama.
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
+
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
+
+    # Tampilkan nilai dan tetapkan warna berbeda pada irisan.
+    series.labels.default_data_label_format.show_value = True
+    series.parent_series_group.is_color_varied = True
+
+    presentation.save("pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Apakah variasi 'Pie of Pie' dan 'Bar of Pie' didukung?**
+**Apakah variasi Pie of Pie dan Bar of Pie didukung?**
 
-Ya, pustaka ini [mendukung](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/charttype/) plot sekunder untuk diagram lingkaran, termasuk tipe 'Pie of Pie' dan 'Bar of Pie'.
+Ya, perpustakaan [mendukung](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) plot sekunder untuk diagram lingkaran, termasuk tipe Pie of Pie dan Bar of Pie.
 
-**Bisakah saya mengekspor hanya diagramnya sebagai gambar (misalnya PNG)?**
+**Bisakah saya mengekspor hanya diagram sebagai gambar (misalnya, PNG)?**
 
-Ya, Anda dapat [mengekspor diagram itu sendiri sebagai gambar](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/get_image/) (seperti PNG) tanpa seluruh presentasi.
+Ya, Anda dapat [mengekspor diagram itu sendiri sebagai gambar](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) (seperti PNG) tanpa mengekspor seluruh presentasi.

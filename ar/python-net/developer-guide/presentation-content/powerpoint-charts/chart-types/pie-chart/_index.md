@@ -1,127 +1,156 @@
 ---
-title: تخصيص مخططات الفطيرة في العروض التقديمية باستخدام Python
-linktitle: مخطط الفطيرة
+title: "تخصيص المخططات الدائرية في العروض التقديمية باستخدام بايثون"
+linktitle: "مخطط دائري"
 type: docs
 url: /ar/python-net/pie-chart/
 keywords:
-- مخطط الفطيرة
-- إدارة المخطط
-- تخصيص المخطط
-- خيارات المخطط
-- إعدادات المخطط
-- خيارات الرسم
-- لون الشريحة
-- PowerPoint
-- OpenDocument
-- عرض تقديمي
-- Python
-- Aspose.Slides
-description: "تعرف على كيفية إنشاء وتخصيص مخططات الفطيرة باستخدام Python مع Aspose.Slides، وقابلة للتصدير إلى PowerPoint وOpenDocument، مما يعزز سرد البيانات الخاص بك في ثوانٍ."
+- "مخطط دائري"
+- "إدارة المخطط"
+- "تخصيص المخطط"
+- "خيارات المخطط"
+- "إعدادات المخطط"
+- "خيارات الرسم"
+- "لون الشريحة"
+- "PowerPoint"
+- "عرض تقديمي"
+- "Python"
+- "Aspose.Slides"
+description: "إنشاء وتخصيص المخططات الدائرية في بايثون باستخدام Aspose.Slides. تكوين المخططات الثانوية، عرض تسميات البيانات، وتطبيق ألوان الشرائح التلقائية في PowerPoint."
 ---
+## **نظرة عامة**
 
-## **خيارات الرسم الثانوي لفطيرة الفطيرة وبار الفطيرة**
-Aspose.Slides for Python via .NET الآن يدعم خيارات الرسم الثانوي لمخطط Pie of Pie أو Bar of Pie. في هذا الموضوع، سنستعرض مثالاً يوضح كيفية تحديد هذه الخيارات باستخدام Aspose.Slides. لتحديد الخصائص، يرجى اتباع الخطوات التالية:
+توضح هذه المقالة كيفية العمل مع المخططات الدائرية في Aspose.Slides. تعرض كيفية تكوين خيارات المخطط الثانوي لمخططي Pie of Pie و Bar of Pie، وكيفية تمكين تلوين الشرائح تلقائيًا لمخطط دائري قياسي.
 
-1. إنشاء كائن من فئة [العرض](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-1. إضافة مخطط إلى الشريحة.
-1. تحديد خيارات الرسم الثانوي للمخطط.
-1. كتابة العرض إلى القرص.
+تركز الأمثلة على مهام تخصيص المخطط مثل إضافة مخطط إلى شريحة، ضبط إعدادات السلاسل والملصقات، استبدال بيانات المخطط الافتراضية بفئات وقيم مخصصة، وحفظ العرض التقديمي المحدث.
 
-في المثال أدناه، قمنا بتعيين خصائص مختلفة لمخطط Pie of Pie.
-```py
-import aspose.slides.charts as charts
+## **خيارات المخطط الثانوي لمخططي Pie of Pie و Bar of Pie**
+
+يدعم Aspose.Slides for Python via .NET خيارات المخطط الثانوي لمخططي Pie of Pie و Bar of Pie. تتحكم هذه الخيارات في حجم المخطط الثانوي وكيفية تقسيم نقاط البيانات بين المخططين.
+
+المثال التالي ينشئ مخطط Pie of Pie في عرض تقديمي جديد ويظهر قيم نقاط البيانات كملصقات. الخاصية [second_pie_size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/second_pie_size/) تحدد حجم المخطط الثانوي بنسبة 149 ٪ من المخطط الرئيسي. [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) يختار التقسيم القائم على النسبة المئوية، و[pie_split_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_position/) يحدد العتبة عند 53 ٪.
+
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# إنشاء مثيل لفئة Presentation
 with slides.Presentation() as presentation:
-    # إضافة مخطط إلى الشريحة
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
-        
-    # تعيين خصائص مختلفة
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-    chart.chart_data.series[0].parent_series_group.second_pie_size = 149
-    chart.chart_data.series[0].parent_series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
-    chart.chart_data.series[0].parent_series_group.pie_split_position = 53
+    slide = presentation.slides[0]
 
-    # كتابة العرض إلى القرص
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", slides.export.SaveFormat.PPTX)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
+    series = chart.chart_data.series[0]
+
+    # عرض القيم وتكوين المخطط الثانوي.
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.second_pie_size = 149
+    series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
+    series_group.pie_split_position = 53
+
+    presentation.save("pie_of_pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **تحديد الفئات للمخطط الثانوي**
 
+استخدم التقسيم المخصص عندما تريد تجميع فئات معينة في المخطط الثانوي بغض النظر عن قيم النسبة المئوية الخاصة بها. على سبيل المثال، قد يعرض تقرير المبيعات فئتي Online وEvents معًا حتى يتمكن القراء من مقارنة هذين القنَين، رغم أنهما تمثلان 35 ٪ و10 ٪ من إجمالي المبيعات.
 
+عيّن [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) إلى [PieSplitType.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplittype/) واختر النقاط عبر [pie_split_custom_points](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_custom_points/). طريقة [add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/add/) في المجموعة تقبل إما فهرسًا بصفر أساس في السلسلة أو كائن نقطة بيانات. في هذا المثال، الفهرس 1 يختار Online، والفهرس 3 يختار Events. يتم إضافة Partners مؤقتًا، ثم استثناؤها باستخدام [remove](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/).
 
-
-## **تعيين ألوان شرائح مخطط الفطيرة تلقائيًا**
-Aspose.Slides for Python via .NET توفر واجهة برمجة تطبيقات بسيطة لتعيين ألوان شرائح مخطط الفطيرة تلقائيًا. يطبق رمز العينة الإعدادات المذكورة أعلاه.
-
-1. إنشاء نسخة من فئة Presentation.
-1. الوصول إلى الشريحة الأولى.
-1. إضافة مخطط ببيانات افتراضية.
-1. تعيين عنوان المخطط.
-1. تعيين السلسلة الأولى لعرض القيم.
-1. تعيين فهرس ورقة بيانات المخطط.
-1. الحصول على ورقة بيانات المخطط.
-1. حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا.
-1. إضافة فئات جديدة.
-1. إضافة سلسلة جديدة.
-
-اكتب العرض المعدل إلى ملف PPTX.
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
 with slides.Presentation() as presentation:
-	# الوصول إلى الشريحة الأولى
-	slide = presentation.slides[0]
+    slide = presentation.slides[0]
 
-	# إضافة مخطط ببيانات افتراضية
-	chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 600, 200)
 
-	# تعيين عنوان المخطط
-	chart.chart_title.add_text_frame_for_overriding("Sample Title")
-	chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
-	chart.chart_title.height = 20
-	chart.has_title = True
+    # استبدال البيانات الافتراضية بالمبيعات حسب القناة.
+    workbook = chart.chart_data.chart_data_workbook
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-	# تعيين السلسلة الأولى لعرض القيم
-	chart.chart_data.series[0].labels.default_data_label_format.show_value = True
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(0, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
 
-	# تعيين فهرس ورقة بيانات المخطط
-	defaultWorksheetIndex = 0
+        value_cell = workbook.get_cell(0, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
 
-	# الحصول على ورقة عمل بيانات المخطط
-	fact = chart.chart_data.chart_data_workbook
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.pie_split_by = charts.PieSplitType.CUSTOM
+    series_group.is_color_varied = True
 
-	# حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
-	chart.chart_data.series.clear()
-	chart.chart_data.categories.clear()
+    # اختيار Online حسب فهرسه الصفري و Events حسب كائن نقطة البيانات.
+    series_group.pie_split_custom_points.add(1)
+    series_group.pie_split_custom_points.add(series.data_points[3])
 
-	# إضافة فئات جديدة
-	chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "First Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "2nd Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "3rd Qtr"))
+    # استبعاد Partners من الاختيار دون حذف بيانات المصدر الخاصة به.
+    series_group.pie_split_custom_points.add(2)
+    series_group.pie_split_custom_points.remove(series.data_points[2])
 
-	# إضافة سلسلة جديدة
-	series = chart.chart_data.series.add(fact.get_cell(0, 0, 1, "Series 1"), chart.type)
-
-	# الآن يتم ملء بيانات السلسلة
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
-
-	series.parent_series_group.is_color_varied = True
-	presentation.save("Pie.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("pie_of_pie_custom.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+تظهر Online (35) وEvents (10) كشرائح منفصلة في المخطط الثانوي. في المخطط الأساسي، يتم تمثيلهما بشريحة موحدة بقيمة 45، إلى جانب Retail (40) وPartners (15). إزالة Partners من الاختيار المخصص يبقيها في المخطط الأساسي؛ ولا تُزيل الفئة أو قيمتها من بيانات المصدر للمخطط.
 
-## **الأسئلة الشائعة**
+الصورة التالية تُظهر العرض التقديمي المحفوظ في PowerPoint:
 
-**هل يتم دعم تنويعات 'Pie of Pie' و 'Bar of Pie'؟**
+![مخطط Pie of Pie مع Online وEvents في المخطط الثانوي وقيمتهما المجمعة 45 في المخطط الأساسي](pie_of_pie_custom.png)
 
-نعم، المكتبة [تدعم](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) مخططًا ثانويًا لمخططات الفطيرة، بما في ذلك نوعي 'Pie of Pie' و 'Bar of Pie'.
+## **تعيين ألوان شرائح المخطط الدائري تلقائيًا**
 
-**هل يمكنني تصدير المخطط فقط كصورة (على سبيل المثال PNG)؟**
+يمكن لـ Aspose.Slides for Python via .NET تعيين ألوان مختلفة تلقائيًا لشرائح المخطط الدائري. المثال التالي ينشئ مخططًا دائريًا بعنوان مركزي ويستبدل البيانات الافتراضية بثلاث فئات ربع سنوية وقيمها. الخاصية [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) تعرض القيم 20 و50 و30 كملصقات، بينما تُفعّل الخاصية [is_color_varied](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/is_color_varied/) لونًا مميزًا لكل شريحة.
 
-نعم، يمكنك [تصدير المخطط نفسه كصورة](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) (مثل PNG) دون تصدير العرض بالكامل.
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+
+    # إضافة عنوان مخطط مركزي.
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
+    chart.chart_title.height = 20
+    chart.has_title = True
+
+    # استبدال البيانات الافتراضية باستخدام ورقة العمل الأولى.
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
+
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
+
+    # عرض القيم وتعيين ألوان مختلفة للشرائح.
+    series.labels.default_data_label_format.show_value = True
+    series.parent_series_group.is_color_varied = True
+
+    presentation.save("pie.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **الأسئلة المتكررة**
+
+**هل يتم دعم تنويعات Pie of Pie و Bar of Pie؟**
+
+نعم، المكتبة [supports](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) مخططًا ثانويًا للمخططات الدائرية، بما في ذلك نوعي Pie of Pie و Bar of Pie.
+
+**هل يمكنني تصدير المخطط فقط كصورة (مثلاً PNG)؟**
+
+نعم، يمكنك [export the chart itself as an image](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) (مثل PNG) دون تصدير العرض التقديمي بأكمله.

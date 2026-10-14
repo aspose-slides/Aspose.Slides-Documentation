@@ -9,120 +9,159 @@ keywords:
 - προσαρμογή διαγράμματος
 - επιλογές διαγράμματος
 - ρυθμίσεις διαγράμματος
-- επιλογές απεικόνισης
-- χρώμα φετών
+- επιλογές παραστάσεων
+- χρώμα φέτας
 - PowerPoint
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να δημιουργείτε και να προσαρμόζετε διαγράμματα πίτας σε Java με το Aspose.Slides, εξαγώγιμα σε PowerPoint, ενισχύοντας την αφήγηση των δεδομένων σας μέσα σε δευτερόλεπτα."
+description: "Δημιουργήστε και προσαρμόστε διαγράμματα πίτας σε Java με Aspose.Slides. Ρυθμίστε δευτερεύουσες παραστάσεις, εμφανίστε τις ετικέτες δεδομένων και εφαρμόστε αυτόματα χρώματα φετών σε PowerPoint."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με διαγράμματα πίτας στο Aspose.Slides. Δείχνει πώς να διαμορφώσετε τις επιλογές δευτερεύουσας απεικόνισης για διαγράμματα Pie of Pie και Bar of Pie, και πώς να ενεργοποιήσετε την αυτόματη χρωματισμό των φετών για ένα τυπικό διάγραμμα πίτας.
+Αυτό το άρθρο εξηγεί πώς να δουλέψετε με διαγράμματα πίτας στο Aspose.Slides. Δείχνει πώς να ρυθμίσετε τις επιλογές δευτερεύουσας παράστασης για τα διαγράμματα Pie of Pie και Bar of Pie, καθώς και πώς να ενεργοποιήσετε τον αυτόματο χρωματισμό των φετών για ένα τυπικό διάγραμμα πίτας.
 
-Τα παραδείγματα εστιάζουν σε πρακτικά βήματα προσαρμογής διαγράμματος όπως η προσθήκη διαγράμματος σε διαφάνεια, η προσαρμογή ρυθμίσεων σειρών και ετικετών, η αντικατάσταση των προεπιλεγμένων δεδομένων διαγράμματος με προσαρμοσμένες κατηγορίες και τιμές, και η αποθήκευση της ενημερωμένης παρουσίασης.
+Τα παραδείγματα εστιάζουν σε εργασίες προσαρμογής διαγραμμάτων όπως η προσθήκη ενός διαγράμματος σε μια διαφάνεια, η προσαρμογή των ρυθμίσεων σειράς και ετικέτας, η αντικατάσταση των προεπιλεγμένων δεδομένων διαγράμματος με προσαρμοσμένες κατηγορίες και τιμές, και η αποθήκευση της ενημερωμένης παρουσίασης.
 
-## **Επιλογές Δεύτερης Απεικόνισης για Διαγράμματα Pie of Pie και Bar of Pie**
+## **Δεύτερες Επιλογές Παραστάσεων για Διαγράμματα Pie of Pie και Bar of Pie**
 
-Aspose.Slides for Java τώρα υποστηρίζει επιλογές δεύτερης απεικόνισης για διάγραμμα Pie of Pie ή Bar of Pie. Σε αυτό το θέμα, θα σας δείξουμε πώς να καθορίσετε αυτές τις επιλογές χρησιμοποιώντας το Aspose.Slides. Για να καθορίσετε τις ιδιότητες, κάντε τα εξής:
+Το Aspose.Slides for Java υποστηρίζει επιλογές δευτερεύουσας παράστασης για τα διαγράμματα Pie of Pie και Bar of Pie. Αυτές οι επιλογές ελέγχουν το μέγεθος της δευτερεύουσας παράστασης και πώς τα σημεία δεδομένων χωρίζονται μεταξύ των δύο παραστάσεων.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-1. Προσθέστε διάγραμμα στη διαφάνεια.
-1. Καθορίστε τις επιλογές δεύτερης απεικόνισης του διαγράμματος.
-1. Γράψτε την παρουσίαση στο δίσκο.
-
-Στο παρακάτω παράδειγμα, έχουμε ορίσει διαφορετικές ιδιότητες του διαγράμματος Pie of Pie.
+Το παρακάτω παράδειγμα δημιουργεί ένα διάγραμμα Pie of Pie σε μια νέα παρουσίαση και εμφανίζει τις τιμές των σημείων δεδομένων ως ετικέτες. Η μέθοδος [setSecondPieSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setSecondPieSize-int-) ορίζει το μέγεθος της δευτερεύουσας παράστασης στο 149% της κύριας παράστασης. Η [setPieSplitBy](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) επιλέγει διαίρεση βάσει ποσοστού, και η [setPieSplitPosition](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitPosition-double-) ορίζει το όριο στο 53%.
 
 ```java
-// Δημιουργήστε μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Προσθέστε διάγραμμα στη διαφάνεια
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
-    
-    // Ορίστε διαφορετικές ιδιότητες
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    
-    // Γράψτε την παρουσίαση στο δίσκο
-    pres.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    // Εμφάνιση τιμών και διαμόρφωση της δευτερεύουσας παράστασης.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός Αυτόματων Χρωμάτων Φετών Διαγράμματος Πίτας**
+### **Επιλέξτε Κατηγορίες για τη Δευτερεύουσα Παράσταση**
 
-Aspose.Slides for Java παρέχει ένα απλό API για τον ορισμό αυτόματων χρωμάτων φετών διαγράμματος πίτας. Ο κώδικας παραδείγματος εφαρμόζει τον ορισμό των παραπάνω ιδιοτήτων.
+Χρησιμοποιήστε προσαρμοσμένη διαίρεση όταν θέλετε να ομαδοποιήσετε συγκεκριμένες κατηγορίες στη δευτερεύουσα παράσταση ανεξάρτητα από τις τιμές ποσοστών τους. Για παράδειγμα, μια αναφορά πωλήσεων μπορεί να εμφανίζει το Online και τα Events μαζί ώστε οι αναγνώστες να μπορούν να συγκρίνουν αυτά τα δύο κανάλια, ακόμη κι αν αντιπροσωπεύουν το 35% και το 10% των συνολικών πωλήσεων.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-1. Προσπελάστε την πρώτη διαφάνεια.
-1. Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα.
-1. Ορίστε τον τίτλο του διαγράμματος.
-1. Ορίστε την πρώτη σειρά σε Εμφάνιση Τιμών.
-1. Ορίστε το ευρετήριο του φύλλου δεδομένων διαγράμματος.
-1. Ανάκτηση του φύλλου εργασίας δεδομένων διαγράμματος.
-1. Διαγράψτε τις προεπιλεγμένες παραγόμενες σειρές και κατηγορίες.
-1. Προσθέστε νέες κατηγορίες.
-1. Προσθέστε νέες σειρές.
-
-Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+Καλείτε τη [setPieSplitBy](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) με την [PieSplitType.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/piesplittype/#Custom) και επιλέγετε τα σημεία μέσω της [getPieSplitCustomPoints](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getPieSplitCustomPoints--). Η μέθοδος [add](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#add-int-) της συλλογής δέχεται έναν δείκτη μηδενικής βάσης στη σειρά· χρησιμοποιήστε τη [addItem](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#addItem-com.aspose.slides.IChartDataPoint-) για να προσθέσετε ένα αντικείμενο σημείου δεδομένων. Σε αυτό το παράδειγμα, ο δείκτης 1 επιλέγει το Online, και το σημείο στη θέση 3 επιλέγει το Events. Το Partners προστίθεται επίσης προσωρινά, στη συνέχεια αποκλείεται χρησιμοποιώντας τη [removeItem](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#removeItem-com.aspose.slides.IChartDataPoint-).
 
 ```java
-// Δημιουργήστε μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation();
-try {
-    // Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+import com.aspose.slides.*;
 
-    // Ορισμός τίτλου διαγράμματος
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // Αντικατάσταση των προεπιλεγμένων δεδομένων με τις πωλήσεις ανά κανάλι.
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "Retail", "Online", "Partners", "Events" };
+    int[] values = { 40, 35, 15, 10 };
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Επιλέξτε Online με τον δείκτη μηδενικής βάσης του και Events με το αντικείμενο σημείου δεδομένων.
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Αποκλείστε το Partners από την επιλογή χωρίς να διαγράψετε τα πηγαία δεδομένα του.
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το Online (35) και τα Events (10) εμφανίζονται ως ξεχωριστές φέτες στη δευτερεύουσα παράσταση. Στην κύρια παράσταση, αντιπροσωπεύονται από μία συνδυασμένη φέτα με τιμή 45, μαζί με το Retail (40) και το Partners (15). Η αφαίρεση του Partners από την προσαρμοσμένη επιλογή το κρατά στην κύρια παράσταση· δεν αφαιρεί την κατηγορία ή την τιμή της από τα δεδομένα προέλευσης του διαγράμματος.
+
+Η παρακάτω εικόνα δείχνει την αποθηκευμένη παρουσίαση στο PowerPoint:
+
+![Διάγραμμα Pie of Pie με Online και Events στη δευτερεύουσα παράσταση και την συνδυασμένη τιμή τους 45 στην κύρια παράσταση](pie_of_pie_custom.png)
+
+## **Ορισμός Αυτόματων Χρωμάτων Φετών Διαγράμματος Πίτας**
+
+Το Aspose.Slides for Java μπορεί αυτόματα να αναθέσει διαφορετικά χρώματα στις φέτες του διαγράμματος πίτας. Το παρακάτω παράδειγμα δημιουργεί ένα διάγραμμα πίτας με κεντραρισμένο τίτλο και αντικαθιστά τα προεπιλεγμένα δεδομένα με τρεις τριμηνιαίες κατηγορίες και τις τιμές τους. Η μέθοδος [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) εμφανίζει τις τιμές 20, 50 και 30 ως ετικέτες, ενώ η [setColorVaried](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setColorVaried-boolean-) ενεργοποιεί διαφορετικό χρώμα για κάθε φέτα.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+
+    // Προσθήκη κεντραρισμένου τίτλου διαγράμματος.
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
 
-    // Ορίστε την πρώτη σειρά σε Εμφάνιση Τιμών
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-
-    // Ορισμός του δείκτη φύλλου δεδομένων διαγράμματος
-    int defaultWorksheetIndex = 0;
-
-    // Λήψη του φύλλου εργασίας δεδομένων διαγράμματος
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-
-    // Διαγραφή των προεπιλεγμένων παραγόμενων σειρών και κατηγοριών
+    // Αντικατάσταση των προεπιλεγμένων δεδομένων χρησιμοποιώντας το πρώτο φύλλο εργασίας.
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "First Qtr", "2nd Qtr", "3rd Qtr" };
+    int[] values = { 20, 50, 30 };
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    // Προσθήκη νέων κατηγοριών
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
 
-    // Προσθήκη νέων σειρών
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
 
-    // Τώρα γεμίζουμε τα δεδομένα της σειράς
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-
+    // Εμφάνιση τιμών και ανάθεση διαφορετικών χρωμάτων στις φέτες.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", SaveFormat.Pptx);
+
+    presentation.save("pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές Ερωτήσεις**
 
-**Υποστηρίζονται οι παραλλαγές 'Pie of Pie' και 'Bar of Pie';**
+**Υποστηρίζονται οι παραλλαγές Pie of Pie και Bar of Pie;**
 
-Ναι, η βιβλιοθήκη [υποστηρίζει](https://reference.aspose.com/slides/el/java/com.aspose.slides/charttype/) μια δευτερεύουσα απεικόνιση για διαγράμματα πίτας, συμπεριλαμβανομένων των τύπων 'Pie of Pie' και 'Bar of Pie'.
+Ναι, η βιβλιοθήκη [supports](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) μια δευτερεύουσα παράσταση για διαγράμματα πίτας, συμπεριλαμβανομένων των τύπων Pie of Pie και Bar of Pie.
 
-**Μπορώ να εξάγω μόνο το διάγραμμα ως εικόνα (π.χ., PNG);**
+**Μπορώ να εξάγω μόνο το διάγραμμα ως εικόνα (για παράδειγμα, PNG);**
 
-Ναι, μπορείτε να [εξάγετε το ίδιο το διάγραμμα ως εικόνα](https://reference.aspose.com/slides/el/java/com.aspose.slides/shape/#getImage-int-float-float-) (όπως PNG) χωρίς ολόκληρη την παρουσίαση.
+Ναι, μπορείτε να [export the chart itself as an image](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage--) (όπως PNG) χωρίς να εξάγετε ολόκληρη την παρουσίαση.

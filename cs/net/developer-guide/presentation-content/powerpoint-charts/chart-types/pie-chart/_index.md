@@ -16,116 +16,149 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se vytvářet a přizpůsobovat koláčové grafy v .NET pomocí Aspose.Slides, exportovatelné do PowerPointu, a během několik vteřin vylepšit vyprávění vašich dat."
+description: "Vytvářejte a přizpůsobujte koláčové grafy v .NET s Aspose.Slides. Konfigurujte sekundární grafy, zobrazujte popisky dat a aplikujte automatické barvy výsečí v PowerPointu."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s koláčovými grafy v Aspose.Slides. Ukazuje, jak nastavit možnosti sekundárního vykreslení pro grafy Pie of Pie a Bar of Pie a jak povolit automatické barevné odlíšení výsečů pro standardní koláčový graf.
+Tento článek vysvětluje, jak pracovat s koláčovými grafy v Aspose.Slides. Ukazuje, jak nakonfigurovat možnosti sekundárního grafu pro grafy Pie of Pie a Bar of Pie a jak povolit automatické barvení výsečů pro standardní koláčový graf.
 
-Příklady se zaměřují na praktické kroky přizpůsobení grafu, jako je přidání grafu na snímek, úprava nastavení řad a štítků, nahrazení výchozích dat grafu vlastními kategoriemi a hodnotami a uložení aktualizované prezentace.
+Příklady se zaměřují na úkoly přizpůsobení grafu, jako je přidání grafu na snímek, úprava nastavení sérií a popisků, nahrazení výchozích dat grafu vlastními kategoriemi a hodnotami a uložení aktualizované prezentace.
 
-## **Možnosti sekundárního vykreslení pro grafy Pie of Pie a Bar of Pie**
-Aspose.Slides pro .NET nyní podporuje možnosti sekundárního vykreslení pro grafy Pie of Pie nebo Bar of Pie. V tomto tématu si ukážeme na příkladu, jak tyto možnosti specifikovat pomocí Aspose.Slides. Pro zadání vlastností postupujte podle níže uvedených kroků:
+## **Možnosti sekundárního grafu pro grafy Pie of Pie a Bar of Pie**
 
-1. Instanciovat objekt třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-1. Přidejte graf na snímek.
-1. Zadejte možnosti sekundárního vykreslení grafu.
-1. Uložte prezentaci na disk.
+Aspose.Slides pro .NET podporuje možnosti sekundárního grafu pro grafy Pie of Pie a Bar of Pie. Tyto možnosti řídí velikost sekundárního grafu a způsob, jakým jsou datové body rozděleny mezi oba grafy.
 
-V níže uvedeném příkladu jsme nastavili různé vlastnosti grafu Pie of Pie.
+Následující příklad vytvoří graf Pie of Pie v nové prezentaci a zobrazí hodnoty datových bodů jako popisky. Vlastnost [SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/) nastaví velikost sekundárního grafu na 149 % hlavního grafu. [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) vybírá rozdělení založené na procentech a [PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) nastavuje práh na 53 %.
 
-```c#
-// Vytvořte instanci třídy Presentation
-Presentation presentation = new Presentation();
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Přidejte graf na snímek
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// Nastavte různé vlastnosti
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Uložte prezentaci na disk
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
+
+// Display values and configure the secondary plot.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
+### **Vybrat kategorie pro sekundární graf**
 
+Použijte vlastní rozdělení, pokud chcete seskupit konkrétní kategorie v sekundárním grafu bez ohledu na jejich procentuální hodnoty. Například prodejní zpráva může zobrazovat Online a Events společně, aby si čtenáři mohli porovnat tyto dva kanály, i když představují 35 % a 10 % celkových prodejů.
 
+Nastavte [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) na [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/) a vyberte body pomocí [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/). Metoda [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/) kolekce přijímá buď nulově indexovaný index v sérii, nebo objekt datového bodu. V tomto příkladu index 1 vybírá Online a bod s indexem 3 vybírá Events. Partners je také dočasně přidán a poté vyloučen pomocí [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/).
 
-## **Nastavte automatické barvy výsečí koláčového grafu**
-Aspose.Slides pro .NET poskytuje jednoduché rozhraní API pro nastavení automatických barev výsečí koláčového grafu. Ukázkový kód aplikuje výše uvedená nastavení.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-1. Vytvořte instanci třídy Presentation.
-1. Získejte první snímek.
-1. Přidejte graf s výchozími daty.
-1. Nastavte titulek grafu.
-1. Nastavte první řadu, aby zobrazovala hodnoty.
-1. Nastavte index listu s daty grafu.
-1. Získání listu s daty grafu.
-1. Odstraňte výchozí generované řady a kategorie.
-1. Přidejte nové kategorie.
-1. Přidejte nové řady.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-Uložte upravenou prezentaci do souboru PPTX.
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
 
-```c#
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-using (Presentation presentation = new Presentation())
+// Nahraďte výchozí data prodeji podle kanálu.
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// Získejte první snímek
-	ISlide slides = presentation.Slides[0];
-
-	// Přidejte graf s výchozími daty
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// Nastavení titulku grafu
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// Nastavte první řadu, aby zobrazovala hodnoty
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// Nastavení indexu listu s daty grafu
-	int defaultWorksheetIndex = 0;
-
-	// Získání listu s daty grafu
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// Odstraňte výchozí generované řady a kategorie
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// Přidání nových kategorií
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// Přidání nové řady
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// Nyní naplňujeme data řady
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// Vyberte Online pomocí jeho nulově založeného indexu a Events pomocí objektu datového bodu.
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// Vylučte Partners ze výběru bez smazání jeho zdrojových dat.
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+```
+
+Online (35) a Events (10) se zobrazují jako samostatné výseče v sekundárním grafu. V hlavním grafu jsou představovány jednou spojenou výsečí s hodnotou 45, spolu s Retail (40) a Partners (15). Odebrání Partners z vlastní volby jej ponechá v hlavním grafu; neodstraní kategorii ani její hodnotu ze zdrojových dat grafu.
+
+Následující obrázek ukazuje uloženou prezentaci v PowerPointu:
+
+![Graf Pie of Pie s Online a Events v sekundárním grafu a jejich spojenou hodnotou 45 v hlavním grafu](pie_of_pie_custom.png)
+
+## **Nastavit automatické barvy výsečů koláčového grafu**
+
+Aspose.Slides pro .NET může automaticky přiřadit různé barvy výsečím koláčového grafu. Následující příklad vytvoří koláčový graf se středovým nadpisem a nahradí výchozí data třemi čtvrtletními kategoriemi a jejich hodnotami. Vlastnost [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) zobrazí hodnoty 20, 50 a 30 jako popisky, zatímco [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) umožňuje odlišnou barvu pro každou výseč.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// Přidejte středový název grafu.
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// Nahraďte výchozí data pomocí prvního listu.
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+// Zobrazte hodnoty a přiřaďte výsečím různé barvy.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Jsou podporovány varianty „Pie of Pie“ a „Bar of Pie“?**
+**Jsou podporovány varianty Pie of Pie a Bar of Pie?**
 
-Ano, knihovna [podporuje](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/charttype/) sekundární vykreslení pro koláčové grafy, včetně typů „Pie of Pie“ a „Bar of Pie“.
+Ano, knihovna [supports](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) sekundární graf pro koláčové grafy, včetně typů Pie of Pie a Bar of Pie.
 
-**Mohu exportovat jen graf jako obrázek (např. PNG)?**
+**Mohu exportovat pouze graf jako obrázek (například PNG)?**
 
-Ano, můžete [exportovat samotný graf jako obrázek](https://reference.aspose.com/slides/cs/net/aspose.slides/shape/getimage/) (např. PNG) bez celé prezentace.
+Ano, můžete [export the chart itself as an image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (například PNG) bez exportu celé prezentace.

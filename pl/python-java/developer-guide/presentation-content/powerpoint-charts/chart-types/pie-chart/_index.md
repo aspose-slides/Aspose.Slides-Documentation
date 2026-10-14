@@ -1,5 +1,5 @@
 ---
-title: Dostosowywanie wykresów kołowych w prezentacjach przy użyciu Pythona via Java
+title: Dostosowywanie wykresów kołowych w prezentacjach przy użyciu Python via Java
 linktitle: Wykres kołowy
 type: docs
 url: /pl/python-java/pie-chart/
@@ -9,31 +9,26 @@ keywords:
 - dostosowywanie wykresu
 - opcje wykresu
 - ustawienia wykresu
-- opcje wykreślania
-- kolor segmentu
+- opcje wykresu
+- kolor wycinka
 - PowerPoint
 - prezentacja
 - Python
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i dostosowywać wykresy kołowe w Pythonie via Java przy użyciu Aspose.Slides, które można eksportować do PowerPointa, zwiększając skuteczność prezentacji danych w kilka sekund."
+description: "Utwórz i dostosuj wykresy kołowe w Python via Java przy użyciu Aspose.Slides. Skonfiguruj wykresy drugorzędne, wyświetlaj etykiety danych i zastosuj automatyczne kolory wycinków w PowerPoint."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z wykresami kołowymi w Aspose.Slides. Pokazuje, jak skonfigurować opcje drugiego wykresu dla wykresów Pie of Pie i Bar of Pie oraz jak włączyć automatyczne kolorowanie segmentów dla standardowego wykresu kołowego.
+Ten artykuł wyjaśnia, jak pracować z wykresami kołowymi w Aspose.Slides. Pokazuje, jak skonfigurować opcje drugorzędnego wykresu dla wykresów Pie of Pie i Bar of Pie oraz jak włączyć automatyczne kolorowanie wycinków w standardowym wykresie kołowym.
 
-Przykłady koncentrują się na praktycznych krokach dostosowywania wykresu, takich jak dodanie wykresu do slajdu, regulacja ustawień serii i etykiet, zastąpienie domyślnych danych wykresu własnymi kategoriami i wartościami oraz zapis zaktualizowanej prezentacji.
+Przykłady koncentrują się na zadaniach dostosowywania wykresu, takich jak dodawanie wykresu do slajdu, dostosowywanie ustawień serii i etykiet, zastępowanie domyślnych danych wykresu własnymi kategoriami i wartościami oraz zapisywanie zaktualizowanej prezentacji.
 
 ## **Opcje drugiego wykresu dla wykresów Pie of Pie i Bar of Pie**
 
-Aspose.Slides for Python via Java obsługuje opcje drugiego wykresu dla wykresów Pie of Pie i Bar of Pie. Ten rozdział pokazuje, jak określić te opcje przy użyciu Aspose.Slides. Postępuj zgodnie z poniższymi krokami:
+Aspose.Slides for Python via Java obsługuje opcje drugorzędnego wykresu dla wykresów Pie of Pie i Bar of Pie. Opcje te kontrolują rozmiar wykresu drugiego oraz sposób podziału punktów danych pomiędzy dwa wykresy.
 
-1. Utwórz obiekt [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) .
-2. Dodaj wykres do slajdu.
-3. Określ drugie opcje wykresu.
-4. Zapisz prezentację na dysku.
-
-Poniższy przykład ustawia różne właściwości wykresu typu Pie of Pie.
+Poniższy przykład tworzy wykres Pie of Pie w nowej prezentacji i wyświetla wartości punktów danych jako etykiety. Metoda [setSecondPieSize](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setSecondPieSize) ustawia rozmiar drugiego wykresu na 149% głównego wykresu, [setPieSplitBy](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitBy) wybiera podział oparty na procentach, a [setPieSplitPosition](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) ustawia próg na 53%.
 
 ```python
 import jpype
@@ -44,42 +39,30 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, PieSplitType, Presentation, SaveFormat
 
-# Utwórz instancję klasy Presentation.
 presentation = Presentation()
 try:
-    # Dodaj wykres do slajdu.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Ustaw różne właściwości.
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400)
     series = chart.getChartData().getSeries().get_Item(0)
+
+    # Wyświetl wartości i skonfiguruj wykres drugorzędny.
     series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
     series_group = series.getParentSeriesGroup()
     series_group.setSecondPieSize(149)
     series_group.setPieSplitBy(PieSplitType.ByPercentage)
     series_group.setPieSplitPosition(53)
 
-    # Zapisz prezentację na dysku.
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx)
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Ustaw automatyczne kolory fragmentów wykresu kołowego**
+### **Wybierz kategorie dla drugiego wykresu**
 
-Aspose.Slides for Python via Java udostępnia prosty interfejs API do ustawiania automatycznych kolorów segmentów wykresu kołowego. Poniższy przykład pokazuje, jak zastosować te ustawienia.
+Użyj podziału niestandardowego, gdy chcesz grupować określone kategorie w drugorzędnym wykresie bez względu na ich wartości procentowe. Na przykład raport sprzedaży może wyświetlać Online i Events razem, aby czytelnicy mogli porównać te dwa kanały, mimo że stanowią one 35% i 10% całkowitej sprzedaży.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) .
-2. Uzyskaj dostęp do pierwszego slajdu.
-3. Dodaj wykres z domyślnymi danymi.
-4. Ustaw tytuł wykresu.
-5. Ustaw indeks arkusza danych wykresu.
-6. Pobierz skoroszyt danych wykresu.
-7. Usuń domyślne serie i kategorie.
-8. Dodaj nowe kategorie.
-9. Dodaj nową serię.
-10. Ustaw, aby nowa seria wyświetlała wartości.
-
-Zapisz zmodyfikowaną prezentację do pliku PPTX.
+Wywołaj [setPieSplitBy](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitBy) z [PieSplitType.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/piesplittype/#Custom) i wybierz punkty za pomocą [getPieSplitCustomPoints](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). Metoda [add](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#add) kolekcji przyjmuje indeks zerowy w serii; użyj [addItem](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#addItem), aby dodać obiekt punktu danych. W tym przykładzie indeks 1 wybiera Online, a punkt o indeksie 3 wybiera Events. Partners jest również dodany tymczasowo, a następnie wykluczony przy użyciu [removeItem](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#removeItem).
 
 ```python
 import jpype
@@ -88,65 +71,111 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, NullableBool, Presentation, SaveFormat
+from asposeslides.api import ChartType, PieSplitType, Presentation, SaveFormat
 
-# Utwórz instancję klasy Presentation.
 presentation = Presentation()
 try:
-    # Dodaj wykres z domyślnymi danymi.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Ustaw tytuł wykresu.
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200)
+
+    # Zastąp domyślne dane sprzedażą według kanału.
+    workbook = chart.getChartData().getChartDataWorkbook()
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.getCell(0, 0, 1, "Sales")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+
+    for i in range(len(category_names)):
+        category_cell = workbook.getCell(0, i + 1, 0, category_names[i])
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, jpype.JInt(values[i]))
+        series.getDataPoints().addDataPointForPieSeries(value_cell)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series_group = series.getParentSeriesGroup()
+    series_group.setPieSplitBy(PieSplitType.Custom)
+    series_group.setColorVaried(True)
+
+    # Wybierz Online według jego indeksu zerowego oraz Events według obiektu punktu danych.
+    series_group.getPieSplitCustomPoints().add(1)
+    series_group.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3))
+
+    # Wyklucz Partners z wyboru bez usuwania jego danych źródłowych.
+    series_group.getPieSplitCustomPoints().add(2)
+    series_group.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2))
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Online (35) i Events (10) pojawiają się jako osobne wycinki w drugorzędnym wykresie. W głównym wykresie są reprezentowane przez jeden połączony wycinek o wartości 45, obok Retail (40) i Partners (15). Usunięcie Partners z wyboru niestandardowego pozostawia go w głównym wykresie; nie usuwa to kategorii ani jej wartości z danych źródłowych wykresu.
+
+Poniższy obrazek przedstawia zapisaną prezentację w programie PowerPoint:
+
+![Pie of Pie chart with Online and Events in the secondary plot and their combined value of 45 in the primary plot](pie_of_pie_custom.png)
+
+## **Ustaw automatyczne kolory wycinków wykresu kołowego**
+
+Aspose.Slides for Python via Java może automatycznie przydzielać różne kolory wycinkom wykresu kołowego. Poniższy przykład tworzy wykres kołowy z wyśrodkowanym tytułem i zastępuje domyślne dane trzema kwartalnymi kategoriami oraz ich wartościami. Metoda [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) wyświetla wartości 20, 50 i 30 jako etykiety, natomiast [setColorVaried](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setColorVaried) włącza odrębny kolor dla każdego wycinka.
+
+```python
+import jpype
+import asposeslides
+
+if not jpame.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, NullableBool, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+
+    # Dodaj wyśrodkowany tytuł wykresu.
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Ustaw indeks arkusza danych wykresu.
-    default_worksheet_index = 0
-
-    # Pobierz skoroszyt danych wykresu.
+    # Zastąp domyślne dane, używając pierwszego arkusza.
     workbook = chart.getChartData().getChartDataWorkbook()
-
-    # Usuń domyślne serie i kategorie.
+    worksheet_index = 0
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Dodaj nowe kategorie.
-    first_category_cell = workbook.getCell(0, 1, 0, "First Qtr")
-    chart.getChartData().getCategories().add(first_category_cell)
-    second_category_cell = workbook.getCell(0, 2, 0, "2nd Qtr")
-    chart.getChartData().getCategories().add(second_category_cell)
-    third_category_cell = workbook.getCell(0, 3, 0, "3rd Qtr")
-    chart.getChartData().getCategories().add(third_category_cell)
+    for i in range(len(category_names)):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, category_names[i])
+        chart.getChartData().getCategories().add(category_cell)
 
-    # Dodaj nową serię.
-    series_cell = workbook.getCell(0, 0, 1, "Series 1")
-    series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+        value_cell = workbook.getCell(worksheet_index, i + 1, 1, jpype.JInt(values[i]))
+        series.getDataPoints().addDataPointForPieSeries(value_cell)
 
-    # Wypełnij dane serii.
-    first_value_cell = workbook.getCell(default_worksheet_index, 1, 1, jpype.JInt(20))
-    series.getDataPoints().addDataPointForPieSeries(first_value_cell)
-    second_value_cell = workbook.getCell(default_worksheet_index, 2, 1, jpype.JInt(50))
-    series.getDataPoints().addDataPointForPieSeries(second_value_cell)
-    third_value_cell = workbook.getCell(default_worksheet_index, 3, 1, jpype.JInt(30))
-    series.getDataPoints().addDataPointForPieSeries(third_value_cell)
-
-    # Ustaw, aby nowa seria wyświetlała wartości.
+    # Pokaż wartości i przydziel różne kolory wycinkom.
     series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
-
     series.getParentSeriesGroup().setColorVaried(True)
-    presentation.save("Pie.pptx", SaveFormat.Pptx)
+
+    presentation.save("pie.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **FAQ**
 
-**Czy warianty „Pie of Pie” i „Bar of Pie” są obsługiwane?**
+**Czy warianty Pie of Pie i Bar of Pie są obsługiwane?**
 
-Tak, biblioteka [obsługuje](https://reference.aspose.com/slides/pl/python-java/aspose.slides/charttype/) drugi wykres dla wykresów kołowych, w tym typy „Pie of Pie” i „Bar of Pie”.
+Tak, biblioteka [obsługuje](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) drugorzędny wykres dla wykresów kołowych, w tym typy Pie of Pie i Bar of Pie.
 
 **Czy mogę wyeksportować sam wykres jako obraz (na przykład PNG)?**
 
-Tak, możesz [wyeksportować sam wykres jako obraz](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getImage) (np. PNG) bez całej prezentacji.
+Tak, możesz [wyeksportować sam wykres jako obraz](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) (np. PNG) bez eksportowania całej prezentacji.

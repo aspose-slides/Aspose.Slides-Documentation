@@ -1,5 +1,5 @@
 ---
-title: Dostosowywanie wykresów kołowych w prezentacjach przy użyciu Java
+title: Dostosowywanie wykresów kołowych w prezentacjach przy użyciu Javy
 linktitle: Wykres kołowy
 type: docs
 url: /pl/java/pie-chart/
@@ -9,118 +9,159 @@ keywords:
 - dostosowywanie wykresu
 - opcje wykresu
 - ustawienia wykresu
-- opcje wykreślania
-- kolor segmentu
+- opcje wykresu
+- kolor fragmentu
 - PowerPoint
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i dostosowywać wykresy kołowe w Javie za pomocą Aspose.Slides, które można wyeksportować do PowerPoint, zwiększając siłę opowiadania danych w kilka sekund."
+description: "Twórz i dostosowuj wykresy kołowe w Javie przy użyciu Aspose.Slides. Konfiguruj drugorzędne wykresy, wyświetlaj etykiety danych i stosuj automatyczne kolory fragmentów w PowerPoint."
 ---
-## **Przegląd**
+## **Omówienie**
 
-Ten artykuł wyjaśnia, jak pracować z wykresami kołowymi w Aspose.Slides. Pokazuje, jak skonfigurować opcje drugiego wykresu dla wykresów Pie of Pie i Bar of Pie oraz jak włączyć automatyczne kolorowanie segmentów dla standardowego wykresu kołowego.
+Ten artykuł wyjaśnia, jak pracować z wykresami kołowymi w Aspose.Slides. Pokazuje, jak skonfigurować opcje drugorzędnego wykresu dla wykresów Pie of Pie i Bar of Pie oraz jak włączyć automatyczne kolorowanie fragmentów dla standardowego wykresu kołowego.
 
-Przykłady koncentrują się na praktycznych krokach dostosowywania wykresów, takich jak dodawanie wykresu do slajdu, dostosowywanie ustawień serii i etykiet, zastępowanie domyślnych danych wykresu własnymi kategoriami i wartościami oraz zapisywanie zaktualizowanej prezentacji.
+Przykłady koncentrują się na zadaniach związanych z dostosowywaniem wykresu, takich jak dodawanie wykresu do slajdu, dostosowywanie ustawień serii i etykiet, zastępowanie domyślnych danych wykresu własnymi kategoriami i wartościami oraz zapisywanie zaktualizowanej prezentacji.
 
-## **Opcje drugiego wykresu dla wykresów Pie of Pie i Bar of Pie**
-Aspose.Slides for Java now supports second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will show you how to specify those options using Aspose.Slides. To specify the properties, do this:
+## **Opcje drugorzędnego wykresu dla wykresów Pie of Pie i Bar of Pie**
 
-1. Utwórz obiekt klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Dodaj wykres na slajdzie.
-1. Określ opcje drugiego wykresu wykresu.
-1. Zapisz prezentację na dysku.
+Aspose.Slides for Java obsługuje opcje drugorzędnego wykresu dla wykresów Pie of Pie i Bar of Pie. Opcje te kontrolują rozmiar drugorzędnego wykresu oraz sposób podziału punktów danych między dwoma wykresami.
 
-W poniższym przykładzie ustawiliśmy różne właściwości wykresu Pie of Pie.
+Poniższy przykład tworzy wykres Pie of Pie w nowej prezentacji i wyświetla wartości punktów danych jako etykiety. The [setSecondPieSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setSecondPieSize-int-) method sets the secondary plot size to 149% of the main plot. [setPieSplitBy](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) selects percentage-based splitting, and [setPieSplitPosition](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitPosition-double-) sets the threshold to 53%.
 
 ```java
-// Utwórz instancję klasy Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Dodaj wykres na slajdzie
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
-    
-    // Ustaw różne właściwości
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    
-    // Zapisz prezentację na dysku
-    pres.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    // Wyświetl wartości i skonfiguruj drugorzędny wykres.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ustaw automatyczne kolory segmentów wykresu kołowego**
-Aspose.Slides for Java provides a simple API for setting automatic pie chart slide colors. The sample code applies setting the above said properties.
+### **Wybierz kategorie dla drugorzędnego wykresu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Dodaj wykres z domyślnymi danymi.
-1. Ustaw tytuł wykresu.
-1. Ustaw pierwszą serię, aby wyświetlała wartości.
-1. Ustaw indeks arkusza danych wykresu.
-1. Pobierz arkusz danych wykresu.
-1. Usuń domyślnie wygenerowane serie i kategorie.
-1. Dodaj nowe kategorie.
-1. Dodaj nowe serie.
+Użyj własnego podziału, gdy chcesz grupować określone kategorie w drugorzędnym wykresie niezależnie od ich wartości procentowych. Na przykład raport sprzedaży może wyświetlać Online i Events razem, aby czytelnicy mogli porównać te dwa kanały, mimo że stanowią 35% i 10% całkowitej sprzedaży.
 
-Zapisz zmodyfikowaną prezentację do pliku PPTX.
+Wywołaj [setPieSplitBy](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) z [PieSplitType.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/piesplittype/#Custom) i wybierz punkty za pomocą [getPieSplitCustomPoints](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getPieSplitCustomPoints--). Metoda [add](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#add-int-) kolekcji przyjmuje indeks zerowy w serii; użyj [addItem](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#addItem-com.aspose.slides.IChartDataPoint-) , aby dodać obiekt punktu danych. W tym przykładzie indeks 1 wybiera Online, a punkt pod indeksem 3 wybiera Events. Partners jest również dodany tymczasowo, a następnie usunięty przy użyciu [removeItem](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#removeItem-com.aspose.slides.IChartDataPoint-).
 
 ```java
-// Utwórz instancję klasy Presentation
-Presentation pres = new Presentation();
-try {
-    // Dodaj wykres z domyślnymi danymi
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+import com.aspose.slides.*;
 
-    // Ustawianie tytułu wykresu
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // Zastąp domyślne dane sprzedażą według kanału.
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "Retail", "Online", "Partners", "Events" };
+    int[] values = { 40, 35, 15, 10 };
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Wybierz Online według indeksu zerowego i Events według obiektu punktu danych.
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Wyklucz Partners z wyboru bez usuwania jego danych źródłowych.
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Online (35) i Events (10) pojawiają się jako oddzielne fragmenty w drugorzędnym wykresie. W wykresie głównym są one reprezentowane jedną połączoną częścią o wartości 45, obok Retail (40) i Partners (15). Usunięcie Partners z własnego wyboru pozostawia go w wykresie głównym; nie usuwa kategorii ani jej wartości z danych źródłowych wykresu.
+
+Poniższy obrazek pokazuje zapisaną prezentację w PowerPoint:
+
+![Wykres Pie of Pie z Online i Events w drugorzędnym wykresie oraz ich łączną wartością 45 w wykresie głównym](pie_of_pie_custom.png)
+
+## **Ustaw automatyczne kolory fragmentów wykresu kołowego**
+
+Aspose.Slides for Java może automatycznie przypisywać różne kolory fragmentom wykresu kołowego. Poniższy przykład tworzy wykres kołowy z wyśrodkowanym tytułem i zastępuje domyślne dane trzema kwartalnymi kategoriami oraz ich wartościami. Metoda [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) wyświetla wartości 20, 50 i 30 jako etykiety, natomiast [setColorVaried](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setColorVaried-boolean-) umożliwia nadanie odrębnego koloru każdemu fragmentowi.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+
+    // Dodaj wyśrodkowany tytuł wykresu.
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
 
-    // Ustaw pierwszą serię, aby wyświetlała wartości
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-
-    // Ustawianie indeksu arkusza danych wykresu
-    int defaultWorksheetIndex = 0;
-
-    // Pobieranie arkusza danych wykresu
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-
-    // Usuń domyślnie wygenerowane serie i kategorie
+    // Zastąp domyślne dane, używając pierwszego arkusza.
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "First Qtr", "2nd Qtr", "3rd Qtr" };
+    int[] values = { 20, 50, 30 };
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    // Dodawanie nowych kategorii
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
 
-    // Dodawanie nowych serii
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
 
-    // Teraz wypełnianie danych serii
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-
+    // Pokaż wartości i przypisz różne kolory fragmentom.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", SaveFormat.Pptx);
+
+    presentation.save("pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Czy warianty 'Pie of Pie' i 'Bar of Pie' są obsługiwane?**
+**Czy warianty Pie of Pie i Bar of Pie są obsługiwane?**
 
-Tak, biblioteka [obsługuje](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/) drugi wykres dla wykresów kołowych, w tym typy 'Pie of Pie' i 'Bar of Pie'.
+Tak, biblioteka [supports](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) drugorzędny wykres dla wykresów kołowych, w tym typy Pie of Pie i Bar of Pie.
 
 **Czy mogę wyeksportować sam wykres jako obraz (na przykład PNG)?**
 
-Tak, możesz [wyeksportować sam wykres jako obraz](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shape/#getImage-int-float-float-) (na przykład PNG) bez całej prezentacji.
+Tak, możesz [export the chart itself as an image](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage--) (np. PNG) bez eksportowania całej prezentacji.

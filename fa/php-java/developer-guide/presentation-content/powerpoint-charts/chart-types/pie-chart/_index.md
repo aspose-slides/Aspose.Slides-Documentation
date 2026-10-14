@@ -1,5 +1,5 @@
 ---
-title: سفارشی‌سازی نمودارهای دایره‌ای در ارائه‌ها با استفاده از PHP
+title: سفارشی‌سازی نمودارهای دایره‌ای در ارائه‌ها با PHP
 linktitle: نمودار دایره‌ای
 type: docs
 url: /fa/php-java/pie-chart/
@@ -15,105 +15,162 @@ keywords:
 - ارائه
 - PHP
 - Aspose.Slides
-description: "بیاموزید چگونه نمودارهای دایره‌ای را با Aspose.Slides برای PHP از طریق Java ایجاد و سفارشی کنید، قابل صادرات به PowerPoint، و در چند ثانیه روایت داده‌های خود را تقویت کنید."
+description: "نمودارهای دایره‌ای را در PHP با Aspose.Slides ایجاد و سفارشی‌سازی کنید. نمودارهای ثانویه را پیکربندی کنید، برچسب‌های داده را نمایش دهید و رنگ‌های خودکار برش‌ها را در PowerPoint اعمال کنید."
 ---
-## **بررسی کلی**
+## **مرور کلی**
 
-این مقاله نحوه کار با نمودارهای دایره‌ای در Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه گزینه‌های نمودار دوم را برای نمودارهای Pie of Pie و Bar of Pie پیکربندی کنید و چگونه رنگ خودکار برش‌ها را برای یک نمودار دایره‌ای استاندارد فعال کنید.
+این مقاله توضیح می‌دهد که چگونه با نمودارهای دایره‌ای در Aspose.Slides کار کنید. این مقاله نشان می‌دهد چگونه گزینه‌های نمودار ثانویه را برای نمودارهای Pie of Pie و Bar of Pie پیکربندی کنید و همچنین چگونه رنگ‌رنگی خودکار برش‌ها را برای یک نمودار دایره‌ای استاندارد فعال کنید.
 
-مثال‌ها بر گام‌های عملی سفارشی‌سازی نمودار متمرکز هستند، از جمله افزودن نمودار به یک اسلاید، تنظیم سری‌ها و برچسب‌ها، جایگزینی داده‌های پیش‌فرض نمودار با دسته‌ها و مقادیر سفارشی، و ذخیره‌ی ارائه به‌روزشده.
+مثال‌ها بر وظایف سفارشی‌سازی نمودار متمرکز هستند، از جمله افزودن نمودار به یک اسلاید، تنظیم سری‌ها و برچسب‌ها، جایگزینی داده‌های پیش‌فرض نمودار با دسته‌ها و مقادیر سفارشی، و ذخیرهٔ ارائه به‌روزشده.
 
-## **گزینه‌های نمودار دوم برای نمودارهای Pie of Pie و Bar of Pie**
-Aspose.Slides for PHP via Java اکنون گزینه‌های نمودار دوم را برای نمودارهای Pie of Pie یا Bar of Pie پشتیبانی می‌کند. در این بخش، نحوهٔ مشخص کردن این گزینه‌ها با استفاده از Aspose.Slides را نشان می‌دهیم. برای تعیین ویژگی‌ها، مراحل زیر را انجام دهید:
+## **گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie**
 
-1. یک شیء کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) را ایجاد کنید.
-1. نمودار را به اسلاید اضافه کنید.
-1. گزینه‌های نمودار دوم را مشخص کنید.
-1. ارائه را بر روی دیسک بنویسید.
+Aspose.Slides for PHP via Java گزینه‌های نمودار ثانویه را برای نمودارهای Pie of Pie و Bar of Pie پشتیبانی می‌کند. این گزینه‌ها اندازهٔ نمودار ثانویه و نحوهٔ تقسیم نقاط داده بین دو نمودار را کنترل می‌کنند.
 
-در مثال زیر، ویژگی‌های مختلف نمودار Pie of Pie تنظیم شده‌اند.
+مثال زیر یک نمودار Pie of Pie را در یک ارائهٔ جدید ایجاد می‌کند و مقادیر نقاط داده را به‌صورت برچسب نمایش می‌دهد. متد [setSecondPieSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setSecondPieSize) اندازهٔ نمودار ثانویه را برابر 149٪ نمودار اصلی تنظیم می‌کند. [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) تقسیم بر پایهٔ درصد را انتخاب می‌کند و [setPieSplitPosition](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) آستانه را بر 53٪ تنظیم می‌نماید.
 
 ```php
-  # یک نمونه از کلاس Presentation ایجاد کنید
-  $pres = new Presentation();
-  try {
-    # نمودار را به اسلاید اضافه کنید
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
-    # ویژگی‌های مختلف را تنظیم کنید
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setSecondPieSize(149);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitBy(PieSplitType::ByPercentage);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitPosition(53);
-    # ارائه را بر روی دیسک بنویسید
-    $pres->save("SecondPlotOptionsforCharts_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    // مقدارها را نمایش داده و نمودار ثانویه را پیکربندی کنید.
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setSecondPieSize(149);
+    $seriesGroup->setPieSplitBy(PieSplitType::ByPercentage);
+    $seriesGroup->setPieSplitPosition(53);
+
+    $presentation->save("pie_of_pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **تنظیم رنگ‌های خودکار برش‌های نمودار دایره‌ای**
-Aspose.Slides for PHP via Java یک API ساده برای تنظیم رنگ‌های خودکار برش‌های نمودار دایره‌ای فراهم می‌کند. کد نمونه ویژگی‌های ذکر شده را اعمال می‌کند.
+### **انتخاب دسته‌ها برای نمودار ثانویه**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید.
-1. به اولین اسلاید دسترسی پیدا کنید.
-1. نمودار را با داده‌های پیش‌فرض اضافه کنید.
-1. عنوان نمودار را تنظیم کنید.
-1. اولین سری را به «نمایش مقادیر» تنظیم کنید.
-1. شاخص صفحه داده‌های نمودار را تنظیم کنید.
-1. ورق‌کار داده‌های نمودار را دریافت کنید.
-1. سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف کنید.
-1. دسته‌های جدید را اضافه کنید.
-1. سری‌های جدید را اضافه کنید.
+از تقسیم سفارشی استفاده کنید وقتی می‌خواهید دسته‌های خاصی را در نمودار ثانویه گروه‌بندی کنید بدون توجه به مقادیر درصدی آن‌ها. برای مثال، یک گزارش فروش ممکن است Online و Events را با هم نمایش دهد تا خوانندگان بتوانند این دو کانال را مقایسه کنند، حتی اگر این دو 35٪ و 10٪ از کل فروش را تشکیل دهند.
 
-ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
+متد [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) را با [PieSplitType::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/piesplittype/) صدا بزنید و نقاط را از طریق [getPieSplitCustomPoints](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints) انتخاب کنید. متد [add](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#add) این مجموعه یک شاخص صفر‑پایه در سری می‌پذیرد؛ برای افزودن یک شیء نقطه داده از [addItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#addItem) استفاده کنید. در این مثال، شاخص 1 Online را انتخاب می‌کند و نقطهٔ شاخص 3 Events را انتخاب می‌کند. Partners نیز به‌صورت موقت اضافه می‌شود و سپس با استفاده از [removeItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#removeItem) حذف می‌گردد.
 
 ```php
-  # یک نمونه از کلاس Presentation ایجاد کنید
-  $pres = new Presentation();
-  try {
-    # افزودن نمودار با داده‌های پیش‌فرض
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # تنظیم عنوان نمودار
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 200);
+
+    // داده‌های پیش‌فرض را با فروش بر حسب کانال جایگزین کنید.
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    $values = [ 40, 35, 15, 10 ];
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Sales");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+    }
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setPieSplitBy(PieSplitType::Custom);
+    $seriesGroup->setColorVaried(true);
+
+    // Online را با شاخص صفرپایه و Events را با شیء نقطه داده انتخاب کنید.
+    $seriesGroup->getPieSplitCustomPoints()->add(1);
+    $seriesGroup->getPieSplitCustomPoints()->addItem($series->getDataPoints()->get_Item(3));
+
+    // Partners را از انتخاب حذف کنید بدون حذف داده منبع آن.
+    $seriesGroup->getPieSplitCustomPoints()->add(2);
+    $seriesGroup->getPieSplitCustomPoints()->removeItem($series->getDataPoints()->get_Item(2));
+
+    $presentation->save("pie_of_pie_custom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Online (35) و Events (10) به‌صورت برش‌های جداگانه در نمودار ثانویه ظاهر می‌شوند. در نمودار اصلی، آن‌ها با یک برش ترکیب‌شده با مقدار 45 نمایش داده می‌شوند، به‌همراه Retail (40) و Partners (15). حذف Partners از انتخاب سفارشی آن را در نمودار اصلی نگه می‌دارد؛ این عمل دسته یا مقدار آن را از دادهٔ منبع نمودار حذف نمی‌کند.
+
+تصویر زیر ارائهٔ ذخیره‌شده را در PowerPoint نشان می‌دهد:
+
+![نمودار Pie of Pie با Online و Events در نمودار ثانویه و مقدار ترکیبی 45 آن‌ها در نمودار اصلی](pie_of_pie_custom.png)
+
+## **تنظیم رنگ‌های خودکار برش‌های نمودار دایره‌ای**
+
+Aspose.Slides for PHP via Java می‌تواند به‌صورت خودکار برای هر برش نمودار دایره‌ای رنگ متفاوتی اختصاص دهد. مثال زیر یک نمودار دایره‌ای با عنوان مرکزی ایجاد می‌کند و داده‌های پیش‌فرض را با سه دستهٔ فصلی و مقادیر مربوطه جایگزین می‌نماید. متد [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) مقادیر 20، 50 و 30 را به‌صورت برچسب نشان می‌دهد، در حالی که [setColorVaried](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setColorVaried) رنگ متمایز برای هر برش را فعال می‌کند.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
+
+    // یک عنوان نمودار مرکز‌گذاری‌شده اضافه کنید.
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # تنظیم اولین سری برای نمایش مقادیر
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # تنظیم شاخص صفحه‌کار داده‌های نمودار
-    $defaultWorksheetIndex = 0;
-    # دریافت صفحه‌کار داده‌های نمودار
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # حذف سری‌ها و دسته‌های پیش‌فرض تولید شده
+
+    // داده‌های پیش‌فرض را با استفاده از اولین شیت کار جایگزین کنید.
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    # افزودن دسته‌های جدید
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # افزودن سری جدید
-    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # اکنون پر کردن داده‌های سری
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getParentSeriesGroup()->setColorVaried(true);
-    $pres->save("Pie.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    $values = [ 20, 50, 30 ];
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
     }
-  }
+
+    // مقدارها را نمایش دهید و رنگ‌های مختلفی به برش‌ها اختصاص دهید.
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getParentSeriesGroup()->setColorVaried(true);
+
+    $presentation->save("pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **پرسش‌های متداول**
+## **FAQ**
 
-**آیا انواع 'Pie of Pie' و 'Bar of Pie' پشتیبانی می‌شوند؟**
+**آیا انواع Pie of Pie و Bar of Pie پشتیبانی می‌شوند؟**
 
-بله، کتابخانه [پشتیبانی می‌کند](https://reference.aspose.com/slides/fa/php-java/aspose.slides/charttype/) از نمودار ثانویه برای نمودارهای دایره‌ای، از جمله انواع 'Pie of Pie' و 'Bar of Pie'.
+بله، کتابخانه [پشتیبانی می‌کند](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) یک نمودار ثانویه برای نمودارهای دایره‌ای، از جمله انواع Pie of Pie و Bar of Pie.
 
-**آیا می‌توانم تنها نمودار را به‌عنوان تصویر (مثلاً PNG) صادر کنم؟**
+**آیا می‌توانم فقط نمودار را به‌عنوان تصویر (برای مثال PNG) استخراج کنم؟**
 
-بله، می‌توانید خود نمودار را به‌عنوان تصویر (مانند PNG) بدون کل ارائه صادر کنید.
+بله، می‌توانید [صادرات نمودار به‌عنوان تصویر](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) (مانند PNG) را بدون استخراج کل ارائه انجام دهید.

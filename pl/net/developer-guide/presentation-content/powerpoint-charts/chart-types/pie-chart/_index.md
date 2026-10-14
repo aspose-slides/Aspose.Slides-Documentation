@@ -1,5 +1,5 @@
 ---
-title: Dostosowywanie wykresów kołowych w prezentacjach w .NET
+title: Dostosuj wykresy kołowe w prezentacjach w .NET
 linktitle: Wykres kołowy
 type: docs
 url: /pl/net/pie-chart/
@@ -9,122 +9,156 @@ keywords:
 - dostosowywanie wykresu
 - opcje wykresu
 - ustawienia wykresu
-- opcje rysowania
-- kolor wycinka
+- opcje wykresu
+- kolor fragmentu
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i dostosowywać wykresy kołowe w .NET przy użyciu Aspose.Slides, eksportowalne do PowerPoint, przyspieszając opowiadanie historii danych w kilka sekund."
+description: "Twórz i dostosowuj wykresy kołowe w .NET przy użyciu Aspose.Slides. Konfiguruj drugorzędne wykresy, wyświetlaj etykiety danych i stosuj automatyczne kolory fragmentów w programie PowerPoint."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z wykresami kołowymi w Aspose.Slides. Pokazuje, jak skonfigurować opcje drugiego wykresu dla wykresów Pie of Pie i Bar of Pie oraz jak włączyć automatyczne kolorowanie wycinków w standardowym wykresie kołowym.
+Ten artykuł wyjaśnia, jak pracować z wykresami kołowymi w Aspose.Slides. Pokazuje, jak skonfigurować opcje drugorzędnego wykresu dla wykresów Pie of Pie i Bar of Pie oraz jak włączyć automatyczne kolorowanie fragmentów w standardowym wykresie kołowym.
 
-Przykłady koncentrują się na praktycznych krokach dostosowywania wykresu, takich jak dodawanie wykresu do slajdu, dostosowywanie ustawień serii i etykiet, zastępowanie domyślnych danych wykresu własnymi kategoriami i wartościami oraz zapisywanie zaktualizowanej prezentacji.
+Przykłady koncentrują się na zadaniach związanych z dostosowywaniem wykresów, takich jak dodawanie wykresu na slajd, modyfikowanie ustawień serii i etykiet, zastępowanie domyślnych danych wykresu własnymi kategoriami i wartościami oraz zapisywanie zaktualizowanej prezentacji.
 
-## **Opcje drugiego wykresu dla wykresów Pie of Pie i Bar of Pie**
+## **Opcje drugorzędnego wykresu dla wykresów Pie of Pie i Bar of Pie**
 
-Aspose.Slides for .NET obsługuje teraz opcje drugiego wykresu dla wykresów Pie of Pie lub Bar of Pie. W tym temacie zobaczymy na przykładzie, jak określić te opcje przy użyciu Aspose.Slides. Aby określić właściwości, postępuj zgodnie z poniższymi krokami:
+Aspose.Slides dla .NET obsługuje opcje drugorzędnego wykresu dla wykresów Pie of Pie i Bar of Pie. Opcje te kontrolują rozmiar drugorzędnego wykresu oraz sposób podziału punktów danych pomiędzy dwa wykresy.
 
-1. Utwórz obiekt klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Dodaj wykres na slajdzie.
-1. Określ opcje drugiego wykresu.
-1. Zapisz prezentację na dysku.
+Poniższy przykład tworzy wykres Pie of Pie w nowej prezentacji i wyświetla wartości punktów danych jako etykiety. Właściwość [SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/) ustawia rozmiar drugorzędnego wykresu na 149 % głównego wykresu. [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) wybiera podział oparty na procentach, a [PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) ustawia próg na 53 %.
 
-W poniższym przykładzie ustawiliśmy różne właściwości wykresu Pie of Pie.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-// Utwórz instancję klasy Presentation
-Presentation presentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Dodaj wykres na slajdzie
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// Ustaw różne właściwości
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
 
-// Zapisz prezentację na dysku
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+// Display values and configure the secondary plot.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
-## **Ustaw automatyczne kolory wycinków wykresu kołowego**
+### **Wybierz kategorie dla drugorzędnego wykresu**
 
-Aspose.Slides for .NET udostępnia prosty interfejs API do ustawiania automatycznych kolorów wycinków wykresu kołowego. Przykładowy kod zastosowuje ustawienie wyżej wspomnianych właściwości.
+Użyj własnego podziału, gdy chcesz grupować określone kategorie w drugorzędnym wykresie niezależnie od ich wartości procentowych. Na przykład raport sprzedaży może pokazywać Online i Events razem, aby czytelnicy mogli porównać te dwa kanały, mimo że stanowią one 35 % i 10 % całkowitej sprzedaży.
 
-1. Utwórz instancję klasy Presentation.
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Dodaj wykres z domyślnymi danymi.
-1. Ustaw tytuł wykresu.
-1. Ustaw pierwszą serię na Pokazywanie wartości.
-1. Ustaw indeks arkusza danych wykresu.
-1. Pobierz arkusz danych wykresu.
-1. Usuń domyślnie wygenerowane serie i kategorie.
-1. Dodaj nowe kategorie.
-1. Dodaj nowe serie.
+Ustaw [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) na [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/) i wybierz punkty za pomocą [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/). Metoda [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/) kolekcji akceptuje albo indeks zerowy w serii, albo obiekt punktu danych. W tym przykładzie indeks 1 wybiera Online, a punkt pod indeksem 3 wybiera Events. Partners jest również dodany tymczasowo, a następnie wykluczony przy użyciu [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/).
 
-Zapisz zmodyfikowaną prezentację do pliku PPTX.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-// Utwórz instancję klasy Presentation reprezentującej plik PPTX
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+// Zastąp domyślne dane sprzedażą wg kanału.
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// Utwórz instancję klasy Presentation reprezentującej plik PPTX
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// Uzyskaj dostęp do pierwszego slajdu
-	ISlide slides = presentation.Slides[0];
-
-	// Dodaj wykres z domyślnymi danymi
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// Ustawienie tytułu wykresu
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// Ustaw pierwszą serię na Pokazywanie wartości
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// Ustawienie indeksu arkusza danych wykresu
-	int defaultWorksheetIndex = 0;
-
-	// Pobieranie arkusza danych wykresu
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// Usuń domyślnie wygenerowane serie i kategorie
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// Dodawanie nowych kategorii
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// Dodawanie nowych serii
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// Teraz wypełnianie danych serii
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// Wybierz Online według jego indeksu zerowego oraz Events według obiektu punktu danych.
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// Wyklucz Partners z wyboru bez usuwania jego danych źródłowych.
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+```
+
+Online (35) i Events (10) pojawiają się jako osobne fragmenty w drugorzędnym wykresie. W głównym wykresie są reprezentowane jedną połączoną częścią o wartości 45, obok Retail (40) i Partners (15). Usunięcie Partners z własnego wyboru pozostawia go w głównym wykresie; nie usuwa to kategorii ani jej wartości z danych źródłowych wykresu.
+
+Poniższy obrazek przedstawia zapisaną prezentację w programie PowerPoint:
+
+![Pie of Pie chart with Online and Events in the secondary plot and their combined value of 45 in the primary plot](pie_of_pie_custom.png)
+
+## **Ustaw automatyczne kolory fragmentów wykresu kołowego**
+
+Aspose.Slides dla .NET może automatycznie przypisywać różne kolory fragmentom wykresu kołowego. Poniższy przykład tworzy wykres kołowy z wyśrodkowanym tytułem i zastępuje domyślne dane trzema kwartalnymi kategoriami oraz ich wartościami. Właściwość [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) wyświetla wartości 20, 50 i 30 jako etykiety, natomiast [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) umożliwia nadanie odrębnego koloru każdemu fragmentowi.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// Dodaj wyśrodkowany tytuł wykresu.
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// Zastąp domyślne dane używając pierwszego arkusza.
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+// Pokaż wartości i przypisz różne kolory fragmentom.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Czy warianty 'Pie of Pie' i 'Bar of Pie' są obsługiwane?**
+**Czy warianty Pie of Pie i Bar of Pie są obsługiwane?**
 
-Tak, biblioteka [obsługuje](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/charttype/) dodatkowy wykres dla wykresów kołowych, w tym typy 'Pie of Pie' i 'Bar of Pie'.
+Tak, biblioteka [obsługuje](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) drugorzędny wykres dla wykresów kołowych, w tym typy Pie of Pie i Bar of Pie.
 
 **Czy mogę wyeksportować sam wykres jako obraz (na przykład PNG)?**
 
-Tak, możesz [wyeksportować sam wykres jako obraz](https://reference.aspose.com/slides/pl/net/aspose.slides/shape/getimage/) (np. PNG) bez całej prezentacji.
+Tak, możesz [wyeksportować sam wykres jako obraz](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (takie jak PNG) bez eksportowania całej prezentacji.

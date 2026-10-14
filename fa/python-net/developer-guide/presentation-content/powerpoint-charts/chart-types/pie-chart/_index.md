@@ -1,129 +1,156 @@
 ---
-title: سفارشی‌سازی نمودارهای پای در ارائه‌ها با پایتون
-linktitle: نمودار پای
+title: سفارشی‌سازی نمودارهای دایره‌ای در ارائه‌ها با پایتون
+linktitle: نمودار دایره‌ای
 type: docs
 url: /fa/python-net/pie-chart/
 keywords:
-- نمودار پای
+- نمودار دایره‌ای
 - مدیریت نمودار
 - سفارشی‌سازی نمودار
 - گزینه‌های نمودار
 - تنظیمات نمودار
 - گزینه‌های ترسیم
-- رنگ قطعه
+- رنگ برش
 - PowerPoint
-- OpenDocument
 - ارائه
 - Python
 - Aspose.Slides
-description: "بیاموزید چگونه نمودارهای پای را در پایتون با Aspose.Slides ایجاد و سفارشی کنید، قابل صادرات به PowerPoint و OpenDocument، و در چند ثانیه روایت داده‌های خود را تقویت کنید."
+description: "نمودارهای دایره‌ای را در پایتون با Aspose.Slides ایجاد و سفارشی کنید. نمودارهای ثانویه را پیکربندی کنید، برچسب‌های داده را نمایش دهید و رنگ‌های خودکار برش‌ها را در PowerPoint اعمال کنید."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه با نمودارهای پای در Aspose.Slides کار کنیم. نحوه پیکربندی گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie و همچنین فعال‌سازی رنگ‌آمیزی خودکار قطعات برای یک نمودار پای استاندارد نشان داده می‌شود.
+این مقاله توضیح می‌دهد که چگونه با نمودارهای دایره‌ای در Aspose.Slides کار کنید. این مقاله نشان می‌دهد که چگونه گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie را پیکربندی کنید و چگونه رنگ‌آمیزی خودکار برش‌ها را برای یک نمودار دایره‌ای استاندارد فعال کنید.
 
-مثال‌ها بر گام‌های عملی سفارشی‌سازی نمودار متمرکز هستند، مانند افزودن نمودار به یک اسلاید، تنظیم سری‌ها و برچسب‌ها، جایگزینی داده‌های پیش‌فرض نمودار با دسته‌ها و مقادیر سفارشی، و ذخیره ارائه به‌روز شده.
+مثال‌ها بر روی وظایف سفارشی‌سازی نمودار مانند افزودن نمودار به یک اسلاید، تنظیم سری و ویژگی‌های برچسب، جایگزینی داده‌های پیش‌فرض نمودار با دسته‌ها و مقادیر سفارشی، و ذخیره ارائه به‌روز شده متمرکز هستند.
 
 ## **گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie**
-Aspose.Slides برای Python از طریق .NET اکنون گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie یا Bar of Pie را پشتیبانی می‌کند. در این بخش، با مثال نشان می‌دهیم چگونه این گزینه‌ها را با استفاده از Aspose.Slides مشخص کنیم. برای مشخص کردن ویژگی‌ها، لطفاً مراحل زیر را دنبال کنید:
 
-1. یک نمونه از شی کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
-2. نمودار را به اسلاید اضافه کنید.  
-3. گزینه‌های نمودار ثانویه را مشخص کنید.  
-4. ارائه را روی دیسک ذخیره کنید.  
+Aspose.Slides for Python via .NET از گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie پشتیبانی می‌کند. این گزینه‌ها اندازه نمودار ثانویه و نحوه تقسیم نقاط داده بین دو نمودار را کنترل می‌کنند.
 
-در مثال زیر، ویژگی‌های مختلفی از نمودار Pie of Pie را تنظیم کرده‌ایم.
+مثال زیر یک نمودار Pie of Pie در یک ارائه جدید ایجاد می‌کند و مقادیر نقاط داده را به‌صورت برچسب نمایش می‌دهد. ویژگی [second_pie_size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/second_pie_size/) اندازه نمودار ثانویه را به 149٪ از نمودار اصلی تنظیم می‌کند. [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) تقسیم بر پایه درصد را انتخاب می‌کند و [pie_split_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_position/) آستانه را روی 53٪ تنظیم می‌کند.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# یک نمونه از کلاس Presentation ایجاد کنید
 with slides.Presentation() as presentation:
-    # افزودن نمودار به اسلاید
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
-        
-    # تنظیم ویژگی‌های مختلف
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-    chart.chart_data.series[0].parent_series_group.second_pie_size = 149
-    chart.chart_data.series[0].parent_series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
-    chart.chart_data.series[0].parent_series_group.pie_split_position = 53
+    slide = presentation.slides[0]
 
-    # ذخیره ارائه روی دیسک
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", slides.export.SaveFormat.PPTX)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
+    series = chart.chart_data.series[0]
+
+    # نمایش مقادیر و پیکربندی نمودار ثانویه.
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.second_pie_size = 149
+    series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
+    series_group.pie_split_position = 53
+
+    presentation.save("pie_of_pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تنظیم خودکار رنگ قطعات نمودار پای**
-Aspose.Slides برای Python از طریق .NET یک API ساده برای تنظیم رنگ‌های خودکار قطعات نمودار پای فراهم می‌کند. کد نمونه تنظیم ویژگی‌های مذکور را اعمال می‌کند.
+### **انتخاب دسته‌ها برای نمودار ثانویه**
 
-1. یک نمونه از کلاس Presentation ایجاد کنید.  
-2. به اولین اسلاید دسترسی پیدا کنید.  
-3. نمودار را با داده پیش‌فرض اضافه کنید.  
-4. عنوان نمودار را تنظیم کنید.  
-5. سری اول را برای نمایش مقادیر تنظیم کنید.  
-6. نمایه‌ی برگه داده‌های نمودار را تنظیم کنید.  
-7. دریافت برگه کاری داده‌های نمودار.  
-8. سری‌ها و دسته‌های پیش‌فرض ایجاد شده را حذف کنید.  
-9. دسته‌های جدید اضافه کنید.  
-10. سری‌های جدید اضافه کنید.  
+از تقسیم سفارشی استفاده کنید زمانی که می‌خواهید دسته‌های خاصی را در نمودار ثانویه گروه‌بندی کنید بدون توجه به مقادیر درصدی آنها. به عنوان مثال، یک گزارش فروش ممکن است Online و Events را کنار هم نشان دهد تا خوانندگان بتوانند این دو کانال را مقایسه کنند، حتی اگر هرکدام 35٪ و 10٪ از کل فروش را تشکیل دهند.
 
-ارائهٔ اصلاح‌شده را در یک فایل PPTX ذخیره کنید.
+[pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) را روی [PieSplitType.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplittype/) تنظیم کنید و نقاط را از طریق [pie_split_custom_points](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_custom_points/) انتخاب کنید. متد [add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/add/) این مجموعه می‌تواند یا یک ایندکس صفر‑پایه در سری یا یک شیء نقطه داده را بپذیرد. در این مثال، ایندکس 1 Online را انتخاب می‌کند و نقطه‌ای با ایندکس 3 Events را. Partners نیز به‌صورت موقت اضافه می‌شود، سپس با استفاده از [remove](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/) حذف می‌شود.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# ایجاد یک نمونه از کلاس Presentation که فایل PPTX را نشان می‌دهد
 with slides.Presentation() as presentation:
-	# دسترسی به اولین اسلاید
-	slide = presentation.slides[0]
+    slide = presentation.slides[0]
 
-	# افزودن نمودار با داده‌های پیش‌فرض
-	chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 600, 200)
 
-	# تنظیم عنوان نمودار
-	chart.chart_title.add_text_frame_for_overriding("Sample Title")
-	chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
-	chart.chart_title.height = 20
-	chart.has_title = True
+    # جایگزین کردن داده‌های پیش‌فرض با فروش بر اساس کانال.
+    workbook = chart.chart_data.chart_data_workbook
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-	# تنظیم سری اول برای نمایش مقادیر
-	chart.chart_data.series[0].labels.default_data_label_format.show_value = True
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(0, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
 
-	# تنظیم شاخص برگه داده‌های نمودار
-	defaultWorksheetIndex = 0
+        value_cell = workbook.get_cell(0, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
 
-	# دریافت برگه کاری داده‌های نمودار
-	fact = chart.chart_data.chart_data_workbook
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.pie_split_by = charts.PieSplitType.CUSTOM
+    series_group.is_color_varied = True
 
-	# حذف سری‌ها و دسته‌های پیش‌فرض تولید شده
-	chart.chart_data.series.clear()
-	chart.chart_data.categories.clear()
+    # انتخاب Online با ایندکس صفر‑پایه و Events با شیء نقطه داده.
+    series_group.pie_split_custom_points.add(1)
+    series_group.pie_split_custom_points.add(series.data_points[3])
 
-	# افزودن دسته‌های جدید
-	chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "First Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "2nd Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "3rd Qtr"))
+    # حذف Partners از انتخاب بدون حذف داده منبع آن.
+    series_group.pie_split_custom_points.add(2)
+    series_group.pie_split_custom_points.remove(series.data_points[2])
 
-	# افزودن سری جدید
-	series = chart.chart_data.series.add(fact.get_cell(0, 0, 1, "Series 1"), chart.type)
-
-	# حالا پرکردن داده‌های سری
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
-
-	series.parent_series_group.is_color_varied = True
-	presentation.save("Pie.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("pie_of_pie_custom.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **سؤال‌های متداول**
+Online (35) و Events (10) به‌صورت برش‌های جداگانه در نمودار ثانویه ظاهر می‌شوند. در نمودار اصلی، آن‌ها توسط یک برش ترکیبی با مقدار 45 نشان داده می‌شوند، همراه با Retail (40) و Partners (15). حذف Partners از انتخاب سفارشی آن را در نمودار اصلی نگه می‌دارد؛ این عمل دسته یا مقدار آن را از داده منبع نمودار حذف نمی‌کند.
 
-**آیا انواع 'Pie of Pie' و 'Bar of Pie' پشتیبانی می‌شوند؟**
+تصویر زیر ارائه ذخیره‌شده را در PowerPoint نشان می‌دهد:
 
-بله، کتابخانه از نمودار ثانویه برای نمودارهای پای، شامل انواع 'Pie of Pie' و 'Bar of Pie' پشتیبانی می‌کند.
+![نمودار Pie of Pie با Online و Events در نمودار ثانویه و مقدار ترکیبی آنها 45 در نمودار اصلی](pie_of_pie_custom.png)
 
-**آیا می‌توانم فقط نمودار را به‌ عنوان تصویر (مثلاً PNG) صادرات کنم؟**
+## **تنظیم رنگ خودکار برش‌های نمودار دایره‌ای**
 
-بله، می‌توانید خود نمودار را به‌ عنوان تصویر (مانند PNG) بدون کل ارائه صادر کنید.
+Aspose.Slides for Python via .NET می‌تواند به‌صورت خودکار رنگ‌های متفاوتی به برش‌های نمودار دایره‌ای اختصاص دهد. مثال زیر یک نمودار دایره‌ای با عنوان مرکزی ایجاد می‌کند و داده‌های پیش‌فرض را با سه دسته فصلی و مقادیرشان جایگزین می‌کند. ویژگی [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) مقادیر 20، 50 و 30 را به‌عنوان برچسب نمایش می‌دهد، در حالی که [is_color_varied](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/is_color_varied/) رنگ متمایزی برای هر برش فعال می‌کند.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+
+    # افزودن عنوان نمودار در مرکز.
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
+    chart.chart_title.height = 20
+    chart.has_title = True
+
+    # جایگزین کردن داده‌های پیش‌فرض با استفاده از اولین برگه کاری.
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
+
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
+
+    # نمایش مقادیر و اختصاص رنگ‌های متفاوت به برش‌ها.
+    series.labels.default_data_label_format.show_value = True
+    series.parent_series_group.is_color_varied = True
+
+    presentation.save("pie.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **سوالات متداول**
+
+**آیا انواع Pie of Pie و Bar of Pie پشتیبانی می‌شوند؟**
+
+بله، کتابخانه [پشتیبانی می‌کند](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) از نمودار ثانویه برای نمودارهای دایره‌ای، شامل انواع Pie of Pie و Bar of Pie.
+
+**آیا می‌توانم فقط نمودار را به‌صورت تصویر (مثلاً PNG) صادرات کنم؟**
+
+بله، می‌توانید [نمودار را به‌عنوان تصویر صادر کنید](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) (مانند PNG) بدون اینکه کل ارائه را صادر کنید.

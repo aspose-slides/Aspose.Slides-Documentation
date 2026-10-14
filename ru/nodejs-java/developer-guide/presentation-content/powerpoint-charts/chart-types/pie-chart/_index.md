@@ -1,100 +1,169 @@
 ---
-title: Круговая диаграмма
+title: Настройка круговых диаграмм в презентациях с использованием JavaScript
+linktitle: Круговая диаграмма
 type: docs
 url: /ru/nodejs-java/pie-chart/
+keywords:
+- круговая диаграмма
+- управление диаграммой
+- настройка диаграммы
+- параметры диаграммы
+- настройки диаграммы
+- параметры построения
+- цвет секторов
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Создавайте и настраивайте круговые диаграммы в JavaScript с помощью Aspose.Slides для Node.js via Java. Настраивайте вторичные построения, отображайте подписи данных и применяйте автоматическое цветовое оформление секторов в PowerPoint."
 ---
+## **Обзор**
 
-## **Параметры вторичного построения для диаграмм 'Круг в круге' и 'Бар в круге'**
-Aspose.Slides for Node.js via Java теперь поддерживает параметры вторичного построения для диаграмм 'Круг в круге' или 'Бар в круге'. В этой статье мы покажем, как задать эти параметры с помощью Aspose.Slides. Чтобы задать свойства, выполните следующее:
+Эта статья объясняет, как работать с круговыми диаграммами в Aspose.Slides. Она показывает, как настроить параметры вторичного построения для диаграмм Pie of Pie и Bar of Pie, а также как включить автоматическое присваивание цветов секторам стандартной круговой диаграммы.
 
-1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Добавьте диаграмму на слайд.
-1. Укажите параметры вторичного построения диаграммы.
-1. Сохраните презентацию на диск.
+Примеры сосредоточены на задачах настройки диаграмм, таких как добавление диаграммы на слайд, настройка параметров рядов и подписей, замена данных диаграммы по умолчанию на пользовательские категории и значения, а также сохранение обновлённой презентации.
 
-В приведённом ниже примере мы задали различные свойства диаграммы 'Круг в круге'.
+## **Параметры вторичного построения для диаграмм Pie of Pie и Bar of Pie**
+
+Aspose.Slides for Node.js via Java поддерживает параметры вторичного построения для диаграмм Pie of Pie и Bar of Pie. Эти параметры управляют размером вторичного построения и тем, как точки данных распределяются между двумя построениями.
+
+В следующем примере создаётся диаграмма Pie of Pie в новой презентации и отображаются значения точек данных в виде подписей. Метод [setSecondPieSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setSecondPieSize) задаёт размер вторичного построения 149 % от основного. [setPieSplitBy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitBy) выбирает разбиение по процентам, а [setPieSplitPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) устанавливает порог 53 %.
+
 ```javascript
-// Создать экземпляр класса Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Добавить диаграмму на слайд
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
-    // Установить разные свойства
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    // Сохранить презентацию на диск
-    pres.save("SecondPlotOptionsforCharts_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    // Отображать значения и настроить вторичное построение.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    const seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **Выберите категории для вторичного построения**
 
-## **Установить автоматические цвета секторов круговой диаграммы**
-Aspose.Slides for Node.js via Java предоставляет простой API для установки автоматических цветов секторов круговой диаграммы. Пример кода применяет указанные выше свойства.
+Используйте пользовательское разбиение, когда необходимо сгруппировать определённые категории во вторичном построении независимо от их процентных значений. Например, в отчёте о продажах могут отображаться Online и Events вместе, чтобы читатели могли сравнить эти два канала, хотя они составляют 35 % и 10 % от общего объёма продаж.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Получите доступ к первому слайду.
-1. Добавьте диаграмму с данными по умолчанию.
-1. Установите заголовок диаграммы.
-1. Установите отображение значений для первой серии.
-1. Установите индекс листа данных диаграммы.
-1. Получите лист данных диаграммы.
-1. Удалите сгенерированные по умолчанию серии и категории.
-1. Добавьте новые категории.
-1. Добавьте новую серию.
+Вызовите [setPieSplitBy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitBy) с параметром [PieSplitType.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplittype/#Custom) и выберите точки через [getPieSplitCustomPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). Метод коллекции [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#add) принимает нулевой индекс в ряду; используйте [addItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#addItem) для добавления объекта точки данных. В этом примере индекс 1 выбирает Online, а точка с индексом 3 — Events. Partners также временно добавляется, затем исключается с помощью [removeItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#removeItem).
 
-Сохраните изменённую презентацию в файл PPTX.
 ```javascript
-// Создать экземпляр класса Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Добавить диаграмму с данными по умолчанию
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // Установка заголовка диаграммы
-    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
-    chart.getChartTitle().setHeight(20);
-    chart.setTitle(true);
-    // Установить отображение значений для первой серии
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Установка индекса листа данных диаграммы
-    var defaultWorksheetIndex = 0;
-    // Получение листа данных диаграммы
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Удалить автоматически сгенерированные серии и категории
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // Заменить данные по умолчанию продажами по каналам.
+    const workbook = chart.getChartData().getChartDataWorkbook();
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // Добавление новых категорий
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    // Добавление новой серии
-    var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // Заполнение данных серии
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    const values = [ 40, 35, 15, 10 ];
+    const seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    const series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (let i = 0; i < categoryNames.length; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
     }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    const seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(aspose.slides.PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Выбрать Online по его нулевому индексу и Events по объекту точки данных.
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Исключить Partners из выбора без удаления его исходных данных.
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
+Online (35) и Events (10) отображаются как отдельные сектора во вторичном построении. В основном построении они представлены одним объединённым сектором со значением 45, рядом с Retail (40) и Partners (15). Удаление Partners из пользовательского выбора сохраняет его в основном построении; категория и её значение не удаляются из исходных данных диаграммы.
 
-## **FAQ**
+Следующее изображение показывает сохранённую презентацию в PowerPoint:
 
-**Поддерживаются ли варианты 'Круг в круге' и 'Бар в круге'?**
+![Диаграмма Pie of Pie с Online и Events во вторичном построении и их объединённым значением 45 в основном построении](pie_of_pie_custom.png)
 
-Да, библиотека [supports](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) вторичное построение для круговых диаграмм, включая типы 'Круг в круге' и 'Бар в круге'.
+## **Установить автоматическое окрашивание секторов круговой диаграммы**
 
-**Могу ли я экспортировать только диаграмму как изображение (например, PNG)?**
+Aspose.Slides for Node.js via Java может автоматически назначать разные цвета секторам круговой диаграммы. В следующем примере создаётся круговая диаграмма с центрированным заголовком и заменяется набор данных по умолчанию на три квартальных категории и их значения. Метод [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) отображает значения 20, 50 и 30 в виде подписей, а [setColorVaried](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setColorVaried) включает различный цвет для каждого сектора.
 
-Да, вы можете [export the chart itself as an image](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) (например, PNG) без всей презентации.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
+
+    // Добавить центрированный заголовок диаграммы.
+    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
+    chart.getChartTitle().setHeight(20);
+    chart.setTitle(true);
+
+    // Заменить данные по умолчанию, используя первый лист.
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    const categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    const values = [ 20, 50, 30 ];
+    const seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    const series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (let i = 0; i < categoryNames.length; i++) {
+        const categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    // Отображать значения и назначать разные цвета секторам.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getParentSeriesGroup().setColorVaried(true);
+
+    presentation.save("pie.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Часто задаваемые вопросы**
+
+**Поддерживаются ли варианты Pie of Pie и Bar of Pie?**
+
+Да, библиотека [поддерживает](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) вторичное построение для круговых диаграмм, включая типы Pie of Pie и Bar of Pie.
+
+**Можно ли экспортировать только диаграмму как изображение (например, PNG)?**
+
+Да, вы можете [экспортировать саму диаграмму как изображение](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) (например, PNG) без экспорта всей презентации.

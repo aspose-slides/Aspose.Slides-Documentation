@@ -1,5 +1,5 @@
 ---
-title: Kördiagramok testreszabása prezentációkban Python használatával
+title: Kördiagramok testreszabása prezentációkban Python segítségével
 linktitle: Kördiagram
 type: docs
 url: /hu/python-net/pie-chart/
@@ -9,124 +9,148 @@ keywords:
 - diagram testreszabása
 - diagram opciók
 - diagram beállítások
-- ábrázolási beállítások
+- ábrázolási opciók
 - szelet szín
 - PowerPoint
-- OpenDocument
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és testreszabhat kördiagramokat Pythonban az Aspose.Slides használatával, exportálható PowerPoint és OpenDocument formátumba, és növelje adatmesélését néhány másodperc alatt."
+description: "Készítsen és testreszabjon kördiagramokat Pythonban az Aspose.Slides segítségével. Konfigurálja a másodlagos ábrákat, jelenítse meg az adatcímkéket, és alkalmazzon automatikus szelet színeket a PowerPointban."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan dolgozzunk kördiagramokkal az Aspose.Slides-ban. Megmutatja, hogyan állítható be a másodlagos ábrázolási beállítás a Pie of Pie és Bar of Pie diagramoknál, valamint hogyan engedélyezhető az automatikus szeletszínezés egy szokásos kördiagramhoz.
+Ez a cikk bemutatja, hogyan dolgozhatunk kördiagramokkal az Aspose.Slides-ban. Megmutatja, hogyan lehet beállítani a másodlagos ábra opciókat a Pie of Pie és Bar of Pie diagramokhoz, valamint hogyan lehet engedélyezni az automatikus szelet színezést egy szabványos kördiagramnál.
 
-A példák gyakorlati diagram testreszabási lépésekre fókuszálnak, mint például a diagram hozzáadása egy diára, a sorozat- és címke beállítások módosítása, az alapértelmezett diagramadatok helyettesítése egyéni kategóriákkal és értékekkel, valamint a frissített prezentáció mentése.
+A példák a diagram testreszabására irányuló feladatokra összpontosítanak, például diagram hozzáadása egy diára, sorok és címkék beállításának módosítása, az alapértelmezett diagram adatok helyettesítése egyéni kategóriákkal és értékekkel, valamint a frissített bemutató mentése.
 
-## **Másodlagos ábrázolási beállítások a Pie of Pie és Bar of Pie diagramokhoz**
-Az Aspose.Slides for Python via .NET most már támogatja a másodlagos ábrázolási beállításokat a Pie of Pie vagy Bar of Pie diagramoknál. Ebben a témában egy példán keresztül mutatjuk be, hogyan lehet ezeket a beállításokat megadni az Aspose.Slides használatával. A tulajdonságok megadásához kövesse az alábbi lépéseket:
+## **Másodlagos ábra opciók a Pie of Pie és Bar of Pie diagramokhoz**
 
-1. Példányosítsa a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályt.
-1. Adjon diagramot a diára.
-1. Adja meg a diagram másodlagos ábrázolási beállításait.
-1. Írja a prezentációt lemezre.
+Aspose.Slides for Python via .NET támogatja a másodlagos ábra opciókat a Pie of Pie és Bar of Pie diagramokhoz. Ezek az opciók vezérlik a másodlagos ábra méretét és azt, hogy az adatpontok hogyan oszlanak el a két ábra között.
 
-Az alább bemutatott példában a Pie of Pie diagram különböző tulajdonságait állítottuk be.
+A következő példa egy Pie of Pie diagramot hoz létre egy új prezentációban, és megjeleníti az adatpontok értékeit címkeként. A [second_pie_size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/second_pie_size/) tulajdonság a másodlagos ábra méretét a fő ábra 149%-ára állítja. A [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) százalékos felosztást választja, és a [pie_split_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_position/) a küszöböt 53%-ra állítja.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Hozzon létre egy példányt a Presentation osztályból
 with slides.Presentation() as presentation:
-    # Adjon diagramot a diára
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
-        
-    # Állítson be különböző tulajdonságokat
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-    chart.chart_data.series[0].parent_series_group.second_pie_size = 149
-    chart.chart_data.series[0].parent_series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
-    chart.chart_data.series[0].parent_series_group.pie_split_position = 53
+    slide = presentation.slides[0]
 
-    # Mentse a prezentációt lemezre
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", slides.export.SaveFormat.PPTX)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
+    series = chart.chart_data.series[0]
+
+    # Értékek megjelenítése és a másodlagos ábra konfigurálása.
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.second_pie_size = 149
+    series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
+    series_group.pie_split_position = 53
+
+    presentation.save("pie_of_pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Válasszon kategóriákat a másodlagos ábrához**
 
+Egyéni felosztást használjon, amikor bizonyos kategóriákat szeretne csoportosítani a másodlagos ábrában a százalékos értékek függetlenül. Például egy értékesítési jelentésben az Online és az Events kategóriákat együtt jelenítheti meg, hogy az olvasók összehasonlíthassák ezt a két csatornát, még ha azok az összes eladás 35%-át és 10%-át teszik ki.
 
+Állítsa a [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) értékét [PieSplitType.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplittype/) -ra, és válassza ki a pontokat a [pie_split_custom_points](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_custom_points/) segítségével. A gyűjtemény [add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/add/) metódusa elfogadja vagy a sorozat nulla alapú indexét, vagy egy adatpont objektumot. Ebben a példában az 1-es index az Online-ot választja, a 3-as index az Events-et. A Partners kategóriát is ideiglenesen hozzáadják, majd a [remove](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/) használatával kizárják.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 600, 200)
+
+    # Cserélje le az alapértelmezett adatokat a csatornák szerinti értékesítéssel.
+    workbook = chart.chart_data.chart_data_workbook
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
+
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(0, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(0, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
+
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.pie_split_by = charts.PieSplitType.CUSTOM
+    series_group.is_color_varied = True
+
+    # Válassza ki az Online-t a nulla-alapú indexe alapján, és az Events-et az adatpont objektuma alapján.
+    series_group.pie_split_custom_points.add(1)
+    series_group.pie_split_custom_points.add(series.data_points[3])
+
+    # Zárja ki a Partners-t a kiválasztásból anélkül, hogy törölné a forrásadatait.
+    series_group.pie_split_custom_points.add(2)
+    series_group.pie_split_custom_points.remove(series.data_points[2])
+
+    presentation.save("pie_of_pie_custom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Az Online (35) és az Events (10) külön szeletekként jelennek meg a másodlagos ábrában. Az elsődleges ábrában egy közös szelettel 45 értékkel vannak ábrázolva, mellette a Retail (40) és a Partners (15). A Partners eltávolítása az egyéni kiválasztásból az elsődleges ábrában marad; nem távolítja el a kategóriát vagy annak értékét a diagram forrásadataiból.
+
+A következő kép mutatja a mentett prezentációt a PowerPointban:
+
+![Pie of Pie diagram Online és Events elemekkel a másodlagos ábrában, valamint a 45-ös összértékük az elsődleges ábrában](pie_of_pie_custom.png)
 
 ## **Automatikus kördiagram szelet színek beállítása**
-Az Aspose.Slides for Python via .NET egyszerű API-t biztosít az automatikus kördiagram szelet színek beállításához. A minta kód a fent említett tulajdonságok beállítását valósítja meg.
 
-1. Hozzon létre egy példányt a Presentation osztályból.
-1. Hozzáférés az első diához.
-1. Adjon diagramot az alapértelmezett adatokkal.
-1. Állítsa be a diagram címét.
-1. Állítsa az első sorozatot a Értékek megjelenítésére.
-1. Állítsa be a diagram adatlap indexét.
-1. Szerezze meg a diagram adatlap munkalapját.
-1. Törölje az alapértelmezett generált sorozatokat és kategóriákat.
-1. Adjon új kategóriákat.
-1. Adjon új sorozatot.
+Az Aspose.Slides for Python via .NET automatikusan különböző színeket rendelhet a kördiagram szeleteihez. A következő példa egy középre igazított címmel rendelkező kördiagramot hoz létre, és az alapértelmezett adatokat három negyedéves kategóriával és azok értékeivel helyettesíti. A [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) tulajdonság megjeleníti a 20, 50 és 30 értékeket címkeként, míg az [is_color_varied](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/is_color_varied/) egyedi színt biztosít minden szeletnek.
 
-Mentse a módosított prezentációt egy PPTX fájlba.
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# Példányosítsa a Presentation osztályt, amely egy PPTX fájlt képvisel
 with slides.Presentation() as presentation:
-	# Első dia elérése
-	slide = presentation.slides[0]
+    slide = presentation.slides[0]
 
-	# Diagram hozzáadása alapértelmezett adatokkal
-	chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
 
-	# Diagram címének beállítása
-	chart.chart_title.add_text_frame_for_overriding("Sample Title")
-	chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
-	chart.chart_title.height = 20
-	chart.has_title = True
+    # Középre igazított diagramcím hozzáadása.
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
+    chart.chart_title.height = 20
+    chart.has_title = True
 
-	# Az első sorozat beállítása Értékek megjelenítésére
-	chart.chart_data.series[0].labels.default_data_label_format.show_value = True
+    # Az alapértelmezett adatok lecserélése az első munkalap használatával.
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-	# A diagram adatlap indexének beállítása
-	defaultWorksheetIndex = 0
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
 
-	# A diagram adatlap munkalapjának lekérése
-	fact = chart.chart_data.chart_data_workbook
+        value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
 
-	# Alapértelmezett generált sorozatok és kategóriák törlése
-	chart.chart_data.series.clear()
-	chart.chart_data.categories.clear()
+    # Értékek megjelenítése és a szeleteknek különböző színek hozzárendelése.
+    series.labels.default_data_label_format.show_value = True
+    series.parent_series_group.is_color_varied = True
 
-	# Új kategóriák hozzáadása
-	chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "First Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "2nd Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "3rd Qtr"))
-
-	# Új sorozat hozzáadása
-	series = chart.chart_data.series.add(fact.get_cell(0, 0, 1, "Series 1"), chart.type)
-
-	# Sorozat adatok feltöltése
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
-
-	series.parent_series_group.is_color_varied = True
-	presentation.save("Pie.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **GYIK**
+## **Gyakran Ismételt Kérdések**
 
-**Támogatja a 'Pie of Pie' és a 'Bar of Pie' változatokat?**
+**Támogatottak a Pie of Pie és Bar of Pie változatok?**
 
-Igen, a könyvtár [támogatja](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/charttype/) a kördiagramok másodlagos ábrázolását, beleértve a 'Pie of Pie' és a 'Bar of Pie' típusokat.
+Igen, a könyvtár [támogat](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) egy másodlagos ábrát a kördiagramokhoz, beleértve a Pie of Pie és Bar of Pie típusokat.
 
-**Exportálhatom a diagramot csak képként (például PNG)?**
+**Exportálhatom csak a diagramot képként (például PNG)?**
 
-Igen, [exportálja a diagramot képként](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chart/get_image/) (például PNG) a teljes prezentáció nélkül.
+Igen, a [exportálja a diagramot képként](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) (például PNG) exportálása nélkül a teljes prezentáció.

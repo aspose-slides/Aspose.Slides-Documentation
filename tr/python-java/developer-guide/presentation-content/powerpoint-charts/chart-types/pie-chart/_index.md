@@ -1,39 +1,34 @@
 ---
-title: Python via Java Kullanarak Sunumlarda Pasta Grafiklerini Özelleştirme
-linktitle: Pasta Grafik
+title: Python via Java kullanarak Sunumlarda Pasta Grafiklerini Özelleştirme
+linktitle: Pasta Grafiği
 type: docs
 url: /tr/python-java/pie-chart/
 keywords:
-- pasta grafik
-- grafik yönetin
-- grafiği özelleştirin
+- pasta grafiği
+- grafik yönetimi
+- grafik özelleştirme
 - grafik seçenekleri
 - grafik ayarları
-- grafik çizim seçenekleri
+- çizim seçenekleri
 - dilim rengi
 - PowerPoint
 - sunum
 - Python
 - Java
 - Aspose.Slides
-description: "Python via Java ile Aspose.Slides kullanarak pasta grafikler oluşturmayı ve özelleştirmeyi öğrenin, PowerPoint'e aktarılabilir, verilerinizi saniyeler içinde anlatımını güçlendirir."
+description: "Aspose.Slides ile Python üzerinden Java kullanarak pasta grafiklerini oluşturun ve özelleştirin. İkincil grafikleri yapılandırın, veri etiketlerini gösterin ve PowerPoint'te otomatik dilim renklerini uygulayın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde pasta grafikleriyle nasıl çalışılacağını açıklar. Pie of Pie ve Bar of Pie grafikleri için ikincil çizim seçeneklerini nasıl yapılandıracağınızı ve standart bir pasta grafik için otomatik dilim renklendirmeyi nasıl etkinleştireceğinizi gösterir.
+Bu makale, Aspose.Slides içinde pasta grafikleriyle nasıl çalışılacağını açıklar. Pie of Pie ve Bar of Pie grafikleri için ikincil grafik seçeneklerinin nasıl yapılandırılacağını ve standart bir pasta grafiği için otomatik dilim renklerinin nasıl etkinleştirileceğini gösterir.
 
-Örnekler, bir slayta grafik ekleme, seri ve etiket ayarlarını düzenleme, varsayılan grafik verilerini özel kategoriler ve değerlerle değiştirme ve güncellenen sunumu kaydetme gibi pratik grafik özelleştirme adımlarına odaklanır.
+Örnekler, bir slayta grafik ekleme, seriler ve etiket ayarlarını düzenleme, varsayılan grafik verilerini özel kategoriler ve değerlerle değiştirme ve güncellenen sunumu kaydetme gibi grafik özelleştirme görevlerine odaklanır.
 
-## **Pie of Pie ve Bar of Pie Grafikleri için İkinci Çizim Seçenekleri**
+## **Pie of Pie ve Bar of Pie Grafikleri İçin İkincil Grafik Seçenekleri**
 
-Aspose.Slides for Python via Java, Pie of Pie ve Bar of Pie grafikleri için ikinci çizim seçeneklerini destekler. Bu bölüm, bu seçenekleri Aspose.Slides kullanarak nasıl belirteceğinizi gösterir. Aşağıdaki adımları izleyin:
+Aspose.Slides for Python via Java, Pie of Pie ve Bar of Pie grafikleri için ikincil grafik seçeneklerini destekler. Bu seçenekler, ikincil grafiğin boyutunu ve veri noktalarının iki grafik arasında nasıl bölündüğünü kontrol eder.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) nesnesi oluşturun.
-1. Slayta bir grafik ekleyin.
-1. Grafiğin ikinci çizim seçeneklerini belirtin.
-1. Sunumu diske yazın.
-
-Aşağıdaki örnek, bir Pie of Pie grafiğinin farklı özelliklerini ayarlar.
+Aşağıdaki örnek, yeni bir sunumda bir Pie of Pie grafiği oluşturur ve veri noktası değerlerini etiket olarak gösterir. [setSecondPieSize](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setSecondPieSize) yöntemi, ikincil grafik boyutunu ana grafiğin %149'una ayarlar. [setPieSplitBy](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitBy) yüzde tabanlı bölmeyi seçer ve [setPieSplitPosition](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) eşik değerini %53 olarak belirler.
 
 ```python
 import jpype
@@ -44,42 +39,88 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, PieSplitType, Presentation, SaveFormat
 
-# Presentation sınıfının bir örneğini oluşturun.
 presentation = Presentation()
 try:
-    # Slayta bir grafik ekleyin.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Farklı özellikleri ayarlayın.
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400)
     series = chart.getChartData().getSeries().get_Item(0)
+
+    # Değerleri göster ve ikincil grafiği yapılandır.
     series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
     series_group = series.getParentSeriesGroup()
     series_group.setSecondPieSize(149)
     series_group.setPieSplitBy(PieSplitType.ByPercentage)
     series_group.setPieSplitPosition(53)
 
-    # Sunumu diske yazın.
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx)
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Otomatik Pasta Grafik Dilim Renklerini Ayarlama**
+### **İkincil Grafik İçin Kategorileri Seçin**
 
-Aspose.Slides for Python via Java, otomatik pasta grafik dilim renklerini ayarlamak için basit bir API sağlar. Aşağıdaki örnek, bu ayarların nasıl uygulanacağını gösterir.
+Yüzde değerlerinden bağımsız olarak belirli kategorileri ikincil grafikte gruplayarak özel bölme kullanın. Örneğin, bir satış raporu Online ve Events'i birlikte gösterebilir, böylece okuyucular bu iki kanalı karşılaştırabilir; bunlar toplam satışın %35 ve %10'unu oluşturmasına rağmen.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İlk slayta erişin.
-1. Varsayılan veriyle bir grafik ekleyin.
-1. Grafik başlığını ayarlayın.
-1. Grafik veri çalışma sayfasının dizinini ayarlayın.
-1. Grafik veri çalışma kitabını alın.
-1. Varsayılan serileri ve kategorileri silin.
-1. Yeni kategoriler ekleyin.
-1. Yeni bir seri ekleyin.
-1. Yeni serinin değerleri göstermesini ayarlayın.
+Bu örnekte, [setPieSplitBy](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitBy) yöntemini [PieSplitType.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/piesplittype/#Custom) ile çağırın ve noktaları [getPieSplitCustomPoints](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints) aracılığıyla seçin. Koleksiyonun [add](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#add) yöntemi, seride sıfır tabanlı bir indeks kabul eder; bir veri noktası nesnesi eklemek için [addItem](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#addItem) kullanın. Bu örnekte, indeks 1 Online'ı, indeks 3 ise Events'i seçer. Partners da geçici olarak eklenir ve ardından [removeItem](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#removeItem) kullanılarak çıkarılır.
 
-Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, PieSplitType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200)
+
+    # Varsayılan verileri kanal bazında satışlarla değiştir.
+    workbook = chart.getChartData().getChartDataWorkbook()
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.getCell(0, 0, 1, "Sales")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+
+    for i in range(len(category_names)):
+        category_cell = workbook.getCell(0, i + 1, 0, category_names[i])
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, jpype.JInt(values[i]))
+        series.getDataPoints().addDataPointForPieSeries(value_cell)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series_group = series.getParentSeriesGroup()
+    series_group.setPieSplitBy(PieSplitType.Custom)
+    series_group.setColorVaried(True)
+
+    # Online'ı sıfır tabanlı indeks ile ve Events'i veri noktası nesnesiyle seç.
+    series_group.getPieSplitCustomPoints().add(1)
+    series_group.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3))
+
+    # Partners'ı seçmeden, kaynak verilerini silmeden hariç tut.
+    series_group.getPieSplitCustomPoints().add(2)
+    series_group.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2))
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Online (35) ve Events (10), ikincil grafikte ayrı dilimler olarak görünür. Birincil grafikte, Retail (40) ve Partners (15) ile birlikte 45 değerinde tek bir birleşik dilim olarak temsil edilirler. Partners'ı özel seçimden kaldırmak, onu birincil grafikte tutar; kategoriyi veya değerini grafik kaynak verilerinden kaldırmaz.
+
+Aşağıdaki resim, kaydedilen sunumu PowerPoint'te gösterir:
+![İkincil grafikte Online ve Events bulunan Pie of Pie grafiği ve birincil grafikte birleşik 45 değeri](pie_of_pie_custom.png)
+
+## **Pasta Grafiği Dilim Renklerini Otomatik Olarak Ayarlama**
+
+Aspose.Slides for Python via Java, pasta grafiği dilimlerine otomatik olarak farklı renkler atayabilir. Aşağıdaki örnek, ortalanmış bir başlıkla bir pasta grafiği oluşturur ve varsayılan verileri üç çeyrek kategorisi ve değerleriyle değiştirir. [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) yöntemi 20, 50 ve 30 değerlerini etiket olarak gösterirken, [setColorVaried](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setColorVaried) her dilim için ayrı bir renk etkinleştirir.
 
 ```python
 import jpype
@@ -90,63 +131,50 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, NullableBool, Presentation, SaveFormat
 
-# Presentation sınıfının bir örneğini oluşturun.
 presentation = Presentation()
 try:
-    # Varsayılan veriyle bir grafik ekleyin.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Grafik başlığını ayarlayın.
+    chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+
+    # Ortalanmış bir grafik başlığı ekle.
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Grafik veri çalışma sayfasının dizinini ayarlayın.
-    default_worksheet_index = 0
-
-    # Grafik veri çalışma kitabını alın.
+    # İlk çalışma sayfasını kullanarak varsayılan verileri değiştir.
     workbook = chart.getChartData().getChartDataWorkbook()
-
-    # Varsayılan serileri ve kategorileri silin.
+    worksheet_index = 0
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Yeni kategoriler ekleyin.
-    first_category_cell = workbook.getCell(0, 1, 0, "First Qtr")
-    chart.getChartData().getCategories().add(first_category_cell)
-    second_category_cell = workbook.getCell(0, 2, 0, "2nd Qtr")
-    chart.getChartData().getCategories().add(second_category_cell)
-    third_category_cell = workbook.getCell(0, 3, 0, "3rd Qtr")
-    chart.getChartData().getCategories().add(third_category_cell)
+    for i in range(len(category_names)):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, category_names[i])
+        chart.getChartData().getCategories().add(category_cell)
 
-    # Yeni bir seri ekleyin.
-    series_cell = workbook.getCell(0, 0, 1, "Series 1")
-    series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+        value_cell = workbook.getCell(worksheet_index, i + 1, 1, jpype.JInt(values[i]))
+        series.getDataPoints().addDataPointForPieSeries(value_cell)
 
-    # Seri verilerini doldurun.
-    first_value_cell = workbook.getCell(default_worksheet_index, 1, 1, jpype.JInt(20))
-    series.getDataPoints().addDataPointForPieSeries(first_value_cell)
-    second_value_cell = workbook.getCell(default_worksheet_index, 2, 1, jpype.JInt(50))
-    series.getDataPoints().addDataPointForPieSeries(second_value_cell)
-    third_value_cell = workbook.getCell(default_worksheet_index, 3, 1, jpype.JInt(30))
-    series.getDataPoints().addDataPointForPieSeries(third_value_cell)
-
-    # Yeni serinin değerleri göstermesini ayarlayın.
+    # Değerleri göster ve dilimlere farklı renkler ata.
     series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
-
     series.getParentSeriesGroup().setColorVaried(True)
-    presentation.save("Pie.pptx", SaveFormat.Pptx)
+
+    presentation.save("pie.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **SSS**
 
-**'Pie of Pie' ve 'Bar of Pie' varyasyonları destekleniyor mu?**
+**Pie of Pie ve Bar of Pie varyasyonları destekleniyor mu?**
 
-Evet, kütüphane, 'Pie of Pie' ve 'Bar of Pie' tipleri dahil olmak üzere pasta grafikler için ikincil bir çizimi [destekler](https://reference.aspose.com/slides/tr/python-java/aspose.slides/charttype/).
+Evet, kütüphane [destekler](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) pasta grafikleri için ikincil bir grafik, Pie of Pie ve Bar of Pie türleri dahil olmak üzere.
 
-**Grafiği yalnızca bir görüntü olarak (örneğin PNG) dışa aktarabilir miyim?**
+**Sadece grafiği bir görüntü (örneğin PNG) olarak dışa aktarabilir miyim?**
 
-Evet, tüm sunumu dışarı almadan grafiği doğrudan bir görüntü (örneğin PNG) olarak [dışa aktarabilirsiniz](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shape/#getImage).
+Evet, tüm sunumu dışa aktarmadan grafiği bir görüntü (örneğin PNG) olarak [grafiği bir görüntü olarak dışa aktar](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) yapabilirsiniz.

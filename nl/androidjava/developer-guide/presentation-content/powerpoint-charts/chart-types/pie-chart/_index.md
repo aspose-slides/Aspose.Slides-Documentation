@@ -1,6 +1,6 @@
 ---
-title: Aanpassen van taartdiagrammen in presentaties op Android
-linktitle: Taartdiagram
+title: "Pas taartdiagrammen aan in presentaties op Android"
+linktitle: "Taartdiagram"
 type: docs
 url: /nl/androidjava/pie-chart/
 keywords:
@@ -16,112 +16,153 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Leer hoe u taartdiagrammen kunt maken en aanpassen in Java met Aspose.Slides voor Android, exporteerbaar naar PowerPoint, waardoor u in enkele seconden uw dataverhaal kunt versterken."
+description: "Maak en pas taartdiagrammen aan op Android met Aspose.Slides for Android via Java. Configureer secundaire plots, geef gegevenslabels weer en pas automatische segmentkleuren toe in PowerPoint."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met taartdiagrammen in Aspose.Slides werkt. Het laat zien hoe u secundaire plotopties voor Pie of Pie- en Bar of Pie-diagrammen configureert en hoe u automatische segmentkleuring voor een standaard taartdiagram inschakelt.
+Dit artikel legt uit hoe u werkt met taartdiagrammen in Aspose.Slides. Het laat zien hoe u secundaire plotopties voor Pie of Pie- en Bar of Pie-diagrammen kunt configureren en hoe u automatische kleuring van taartpunten voor een standaard taartdiagram kunt inschakelen.
 
-De voorbeelden richten zich op praktische stappen voor diagramaanpassing, zoals het toevoegen van een diagram aan een dia, het aanpassen van serie‑ en labelinstellingen, het vervangen van standaarddiagramgegevens door aangepaste categorieën en waarden, en het opslaan van de bijgewerkte presentatie.
+De voorbeelden richten zich op taken voor het aanpassen van diagrammen, zoals een diagram aan een dia toevoegen, series‑ en labelinstellingen aanpassen, standaard diagramgegevens vervangen door aangepaste categorieën en waarden, en de bijgewerkte presentatie opslaan.
 
-## **Tweede plotopties voor Pie of Pie- en Bar of Pie-diagrammen**
-Aspose.Slides voor Android via Java ondersteunt nu tweede plotopties voor Pie of Pie‑ of Bar of Pie‑diagrammen. In dit onderwerp laten we u zien hoe u die opties specificeert met Aspose.Slides. Om de eigenschappen te specificeren, doet u het volgende:
+## **Secundaire plotopties voor Pie of Pie‑ en Bar of Pie‑diagrammen**
 
-1. Instantieer het [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation)‑klasse‑object.
-1. Voeg een diagram toe aan de dia.
-1. Geef de tweede plotopties van het diagram op.
-1. Schrijf de presentatie naar schijf.
+Aspose.Slides for Android via Java ondersteunt secundaire plotopties voor Pie of Pie‑ en Bar of Pie‑diagrammen. Deze opties bepalen de grootte van de secundaire plot en hoe gegevenspunten tussen de twee plots worden verdeeld.
 
-In het onderstaande voorbeeld hebben we verschillende eigenschappen van een Pie of Pie‑diagram ingesteld.
+Het volgende voorbeeld maakt een Pie of Pie‑diagram in een nieuwe presentatie en toont gegevenspuntwaarden als labels. De [setSecondPieSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setSecondPieSize-int-) methode stelt de grootte van de secundaire plot in op 149 % van de hoofdplot. [setPieSplitBy](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) selecteert procentgebaseerde splitsing, en [setPieSplitPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setPieSplitPosition-double-) stelt de drempel in op 53 %.
 
 ```java
-// Maak een instantie van de Presentation-klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Voeg een diagram toe aan de dia
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
-    
-    // Stel verschillende eigenschappen in
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    
-    // Schrijf de presentatie naar schijf
-    pres.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    // Waarden weergeven en de secundaire plot configureren.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Stel automatische kleuren voor taartdiagramsegmenten in**
-Aspose.Slides voor Android via Java biedt een eenvoudige API om automatische kleuren voor taartdiagramsegmenten in te stellen. De voorbeeldcode past de bovengenoemde eigenschappen toe.
+### **Selecteer categorieën voor de secundaire plot**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation)‑klasse.
-1. Open de eerste dia.
-1. Voeg een diagram toe met standaardgegevens.
-1. Stel de titel van het diagram in.
-1. Stel de eerste serie in om waarden weer te geven.
-1. Stel de index van het diagramdatablad in.
-1. Haal het werkblad met diagramgegevens op.
-1. Verwijder de automatisch gegenereerde series en categorieën.
-1. Voeg nieuwe categorieën toe.
-1. Voeg een nieuwe serie toe.
+Gebruik aangepaste splitsing wanneer u specifieke categorieën in de secundaire plot wilt groeperen, ongeacht hun procentwaarden. Een verkooprapport zou bijvoorbeeld Online en Events samen kunnen tonen zodat lezers deze twee kanalen kunnen vergelijken, ook al vertegenwoordigen ze 35 % en 10 % van de totale omzet.
 
-Schrijf de aangepaste presentatie naar een PPTX‑bestand.
+Roep [setPieSplitBy](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) aan met [PieSplitType.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/piesplittype/#Custom) en selecteer de punten via [getPieSplitCustomPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getPieSplitCustomPoints--). De [add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/piesplitcustompointcollection/#add-int-)‑methode van de collectie accepteert een nul‑gebaseerde index in de serie; gebruik [addItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/piesplitcustompointcollection/#addItem-com.aspose.slides.IChartDataPoint-) om een gegevenspuntobject toe te voegen. In dit voorbeeld selecteert index 1 Online, en index 3 selecteert Events. Partners wordt ook tijdelijk toegevoegd en daarna uitgesloten met [removeItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/piesplitcustompointcollection/#removeItem-com.aspose.slides.IChartDataPoint-).
 
 ```java
-// Maak een instantie van de Presentation-klasse
-Presentation pres = new Presentation();
-try {
-    // Voeg een diagram toe met standaardgegevens
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+import com.aspose.slides.*;
 
-    // Instellen van diagramtitel
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // Vervang de standaardgegevens door verkoop per kanaal.
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "Retail", "Online", "Partners", "Events" };
+    int[] values = { 40, 35, 15, 10 };
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Selecteer Online op basis van zijn nul-gebaseerde index en Events via zijn gegevenspuntobject.
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Sluit Partners uit de selectie zonder de brongegevens te verwijderen.
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Online (35) en Events (10) verschijnen als afzonderlijke delen in de secundaire plot. In de primaire plot worden ze weergegeven als één gecombineerd deel met een waarde van 45, naast Retail (40) en Partners (15). Het verwijderen van Partners uit de aangepaste selectie houdt het in de primaire plot; het verwijdert de categorie of de waarde niet uit de brongegevens van het diagram.
+
+De volgende afbeelding toont de opgeslagen presentatie in PowerPoint:
+
+![Pie of Pie-diagram met Online en Events in de secundaire plot en hun gecombineerde waarde van 45 in de primaire plot](pie_of_pie_custom.png)
+
+## **Stel automatische kleuren voor taartdiagrampunten in**
+
+Aspose.Slides for Android via Java kan automatisch verschillende kleuren toewijzen aan taartdiagrampunten. Het volgende voorbeeld maakt een taartdiagram met een gecentreerde titel en vervangt de standaardgegevens door drie kwartaalcategoriën en hun waarden. De [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) methode toont de waarden 20, 50 en 30 als labels, terwijl [setColorVaried](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setColorVaried-boolean-) een aparte kleur voor elk punt mogelijk maakt.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+
+    // Voeg een gecentreerde diagramtitel toe.
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
 
-    // Stel de eerste serie in om waarden weer te geven
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-
-    // Instellen van de index van het diagramdatablad
-    int defaultWorksheetIndex = 0;
-
-    // Het diagramdatablad ophalen
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-
-    // Verwijder standaardgegenereerde series en categorieën
+    // Vervang de standaardgegevens met gebruik van het eerste werkblad.
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "First Qtr", "2nd Qtr", "3rd Qtr" };
+    int[] values = { 20, 50, 30 };
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    // Nieuwe categorieën toevoegen
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
 
-    // Nieuwe serie toevoegen
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
 
-    // Nu de seriesgegevens vullen
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-
+    // Toon waarden en wijs verschillende kleuren toe aan de segmenten.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", SaveFormat.Pptx);
+
+    presentation.save("pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Worden de 'Pie of Pie' en 'Bar of Pie' varianten ondersteund?**
+**Worden de varianten Pie of Pie en Bar of Pie ondersteund?**
 
-Ja, de bibliotheek [ondersteunt](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/charttype/) een secundaire plot voor taartdiagrammen, inclusief de 'Pie of Pie' en 'Bar of Pie'-typen.
+Ja, de bibliotheek [ondersteunt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) een secundaire plot voor taartdiagrammen, inclusief de typen Pie of Pie en Bar of Pie.
 
 **Kan ik alleen het diagram exporteren als afbeelding (bijvoorbeeld PNG)?**
 
-Ja, u kunt het diagram zelf [exporteren als afbeelding](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) (bijvoorbeeld PNG) zonder de volledige presentatie.
+Ja, u kunt [het diagram zelf exporteren als een afbeelding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage--) (bijvoorbeeld PNG) zonder de volledige presentatie te exporteren.

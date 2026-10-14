@@ -1,10 +1,10 @@
 ---
-title: تخصيص مخططات الفطيرة في العروض التقديمية في .NET
-linktitle: مخطط الفطيرة
+title: تخصيص المخططات الدائرية في العروض التقديمية في .NET
+linktitle: المخطط الدائري
 type: docs
 url: /ar/net/pie-chart/
 keywords:
-- مخطط الفطيرة
+- مخطط دائري
 - إدارة المخطط
 - تخصيص المخطط
 - خيارات المخطط
@@ -12,115 +12,153 @@ keywords:
 - خيارات الرسم
 - لون الشريحة
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تعرف على كيفية إنشاء وتخصيص مخططات الفطيرة في .NET باستخدام Aspose.Slides، القابلة للتصدير إلى PowerPoint، مما يعزز سرد بياناتك في ثوانٍ."
+description: "إنشاء وتخصيص المخططات الدائرية في .NET باستخدام Aspose.Slides. قم بتكوين الرسوم الثانوية، وعرض تسميات البيانات، وتطبيق ألوان شرائح تلقائية في PowerPoint."
 ---
+## **نظرة عامة**
 
-## **خيارات الرسم الثانوي لمخططات فطيرة داخل فطيرة وشريط داخل فطيرة**
-تدعم Aspose.Slides for .NET الآن خيارات الرسم الثانوي لمخططات فطيرة داخل فطيرة أو شريط داخل فطيرة. في هذا الموضوع، سنرى من خلال مثال كيفية تحديد هذه الخيارات باستخدام Aspose.Slides. لتحديد الخصائص، يرجى اتباع الخطوات التالية:
+هذه المقالة توضح كيفية العمل مع المخططات الدائرية في Aspose.Slides. تُظهر كيفية تكوين خيارات الرسم الثانوي لمخططات Pie of Pie و Bar of Pie، وكيفية تمكين تلوين الشرائح تلقائيًا لمخطط دائري قياسي.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. إضافة مخطط إلى الشريحة.
-1. تحديد خيارات الرسم الثانوي للمخطط.
-1. كتابة العرض التقديمي إلى القرص.
+تركّز الأمثلة على مهام تخصيص المخططات مثل إضافة مخطط إلى شريحة، تعديل إعدادات السلاسل والملصقات، استبدال بيانات المخطط الافتراضية بفئات وقيم مخصصة، وحفظ العرض التقديمي المحدث.
 
-في المثال أدناه، قمنا بتعيين خصائص مختلفة لمخطط فطيرة داخل فطيرة.
-```c#
-// إنشاء نسخة من فئة Presentation
-Presentation presentation = new Presentation();
+## **خيارات الرسم الثانوي لمخططات Pie of Pie و Bar of Pie**
 
-// إضافة مخطط إلى الشريحة
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// تعيين خصائص مختلفة
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+يدعم Aspose.Slides for .NET خيارات الرسم الثانوي لمخططات Pie of Pie و Bar of Pie. تتحكم هذه الخيارات في حجم الرسم الثانوي وكيفية توزيع نقاط البيانات بين الرسمين.
 
-// كتابة العرض التقديمي إلى القرص
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+المثال التالي ينشئ مخطط Pie of Pie في عرض تقديمي جديد ويعرض قيم نقاط البيانات كملصقات. الخاصية [SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/) تحدد حجم الرسم الثانوي بنسبة 149% من الرسم الرئيسي. [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) يختار التقسيم القائم على النسبة المئوية، و[PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) يحدد العتبة إلى 53%.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
+
+// Display values and configure the secondary plot.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
+### **تحديد الفئات للرسم الثانوي**
 
+استخدم التقسيم المخصص عندما تريد تجميع فئات معينة في الرسم الثانوي بغض النظر عن قيم النسبة المئوية الخاصة بها. على سبيل المثال، قد يُظهر تقرير مبيعات Online و Events معًا حتى يتمكن القارئ من مقارنة هاتين القناتين، على الرغم من أنهما تمثلان 35% و10% من إجمالي المبيعات.
 
+قم بتعيين [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) إلى [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/) واختر النقاط عبر [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/). طريقة [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/) في المجموعة تقبل إما فهرسًا يبدأ من الصفر داخل السلسلة أو كائن نقطة بيانات. في هذا المثال، الفهرس 1 يحدد Online، والنقطة في الفهرس 3 تحدد Events. يتم إضافة Partners مؤقتًا، ثم استثناؤه باستخدام [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/).
 
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-## **تعيين ألوان شرائح مخطط الفطيرة تلقائيًا**
-توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لتعيين ألوان شرائح مخطط الفطيرة تلقائيًا. يطبق الكود النموذجي إعداد الخصائص المذكورة أعلاه.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-1. إنشاء نسخة من فئة Presentation.
-1. الوصول إلى الشريحة الأولى.
-1. إضافة مخطط ببيانات افتراضية.
-1. تعيين عنوان المخطط.
-1. تعيين السلسلة الأولى لإظهار القيم.
-1. تعيين فهرس ورقة بيانات المخطط.
-1. الحصول على ورقة بيانات المخطط.
-1. حذف السلاسل والفئات التي تم توليدها افتراضيًا.
-1. إضافة فئات جديدة.
-1. إضافة سلسلة جديدة.
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
 
-اكتب العرض التقديمي المعدل إلى ملف PPTX.
-```c#
-// إنشاء نسخة من فئة Presentation التي تمثل ملف PPTX
-using (Presentation presentation = new Presentation())
+// استبدل البيانات الافتراضية بمبيعات حسب القناة.
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// إنشاء نسخة من فئة Presentation التي تمثل ملف PPTX
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// الوصول إلى الشريحة الأولى
-	ISlide slides = presentation.Slides[0];
-
-	// إضافة مخطط ببيانات افتراضية
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// تعيين عنوان المخطط
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// تعيين السلسلة الأولى لإظهار القيم
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// تعيين فهرس ورقة بيانات المخطط
-	int defaultWorksheetIndex = 0;
-
-	// الحصول على ورقة عمل بيانات المخطط
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// حذف السلاسل والفئات المُنشأة افتراضيًا
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// إضافة فئات جديدة
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// إضافة سلسلة جديدة
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// الآن ملء بيانات السلسلة
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// حدد Online بحسب الفهرس الصفري و Events بواسطة كائن نقطة البيانات.
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// استبعد Partners من الاختيار دون حذف بياناته المصدر.
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
 ```
 
+تظهر Online (35) و Events (10) كشرائح منفصلة في الرسم الثانوي. في الرسم الأساسي، يتم تمثيلهما بشريحة موحدة بقيمة 45، إلى جانب Retail (40) و Partners (15). إزالة Partners من الاختيار المخصص يبقيها في الرسم الأساسي؛ ولا يزيل الفئة أو قيمتها من بيانات مصدر المخطط.
 
-## **الأسئلة المتداولة**
+الصورة التالية توضح العرض التقديمي المحفوظ في PowerPoint:
 
-**هل يتم دعم تنويعات 'فطيرة داخل فطيرة' و'شريط داخل فطيرة'؟**
+![مخطط Pie of Pie مع Online و Events في الرسم الثانوي وقيمتهما المجمعة 45 في الرسم الأساسي](pie_of_pie_custom.png)
 
-نعم، المكتبة [تدعم](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) رسمًا ثانويًا لمخططات الفطيرة، بما في ذلك النوعين 'فطيرة داخل فطيرة' و'شريط داخل فطيرة'.
+## **تعيين ألوان شرائح المخطط الدائري تلقائيًا**
 
-**هل يمكنني تصدير المخطط فقط كصورة (مثلاً PNG)؟**
+يمكن لـ Aspose.Slides for .NET تعيين ألوان مختلفة تلقائيًا لشرائح المخطط الدائري. المثال التالي ينشئ مخططًا دائريًا بعنوان مركزي ويستبدل البيانات الافتراضية بثلاث فئات ربع سنوية وقيمها. الخاصية [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) تعرض القيم 20 و 50 و 30 كملصقات، بينما [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) تمكّن لونًا مميزًا لكل شريحة.
 
-نعم، يمكنك [تصدير المخطط نفسه كصورة](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (مثل PNG) دون الحاجة إلى تصدير العرض التقديمي بالكامل.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// إضافة عنوان مخطط مركّز.
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// استبدل البيانات الافتراضية باستخدام ورقة العمل الأولى.
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+// إظهار القيم وتعيين ألوان مختلفة للشرائح.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
+```
+
+## **FAQ**
+
+**هل يتم دعم تنويعات Pie of Pie و Bar of Pie؟**
+
+نعم، المكتبة [يدعم](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) مخططًا ثانويًا للمخططات الدائرية، بما في ذلك نوعي Pie of Pie و Bar of Pie.
+
+**هل يمكنني تصدير المخطط فقط كصورة (على سبيل المثال PNG)؟**
+
+نعم، يمكنك [تصدير المخطط نفسه كصورة](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (مثل PNG) دون تصدير العرض التقديمي بالكامل.

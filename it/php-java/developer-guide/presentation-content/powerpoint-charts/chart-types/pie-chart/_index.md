@@ -7,113 +7,170 @@ keywords:
 - grafico a torta
 - gestire grafico
 - personalizzare grafico
-- opzioni grafico
-- impostazioni grafico
-- opzioni di tracciamento
+- opzioni del grafico
+- impostazioni del grafico
+- opzioni del tracciato
 - colore della fetta
 - PowerPoint
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Scopri come creare e personalizzare i grafici a torta con Aspose.Slides per PHP via Java, esportabili in PowerPoint, potenziando la narrazione dei tuoi dati in pochi secondi."
+description: "Crea e personalizza grafici a torta in PHP con Aspose.Slides. Configura tracciati secondari, visualizza le etichette dei dati e applica colori automatici alle fette in PowerPoint."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con i grafici a torta in Aspose.Slides. Mostra come configurare le opzioni del grafico secondario per i grafici Pie of Pie e Bar of Pie e come abilitare la colorazione automatica delle fette per un grafico a torta standard.
+Questo articolo spiega come lavorare con i grafici a torta in Aspose.Slides. Mostra come configurare le opzioni del tracciato secondario per i grafici Pie of Pie e Bar of Pie, e come abilitare la colorazione automatica delle fette per un grafico a torta standard.
 
-Gli esempi si concentrano su passaggi pratici di personalizzazione dei grafici, come aggiungere un grafico a una diapositiva, regolare le impostazioni delle serie e delle etichette, sostituire i dati predefiniti del grafico con categorie e valori personalizzati e salvare la presentazione aggiornata.
+Gli esempi si concentrano su attività di personalizzazione dei grafici, come aggiungere un grafico a una diapositiva, regolare le impostazioni della serie e delle etichette, sostituire i dati predefiniti del grafico con categorie e valori personalizzati e salvare la presentazione aggiornata.
 
-## **Opzioni del secondo grafico per i grafici Pie of Pie e Bar of Pie**
-Aspose.Slides per PHP via Java ora supporta le opzioni del grafico secondario per i grafici Pie of Pie o Bar of Pie. In questo argomento, ti mostreremo come specificare tali opzioni usando Aspose.Slides. Per specificare le proprietà, procedi così:
+## **Opzioni del Tracciato Secondario per i Grafici Pie of Pie e Bar of Pie**
 
-1. Crea un'istanza dell'oggetto classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation).
-1. Aggiungi un grafico alla diapositiva.
-1. Specifica le opzioni del secondo grafico.
-1. Scrivi la presentazione su disco.
+Aspose.Slides per PHP via Java supporta le opzioni del tracciato secondario per i grafici Pie of Pie e Bar of Pie. Queste opzioni controllano la dimensione del tracciato secondario e come i punti dati vengono suddivisi tra i due tracciati.
 
-Nell'esempio riportato di seguito, abbiamo impostato diverse proprietà del grafico Pie of Pie.
+L'esempio seguente crea un grafico Pie of Pie in una nuova presentazione e visualizza i valori dei punti dati come etichette. Il metodo [setSecondPieSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setSecondPieSize) imposta la dimensione del tracciato secondario al 149% del tracciato principale. [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) seleziona la suddivisione basata sulla percentuale, e [setPieSplitPosition](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) imposta la soglia al 53%.
 
 ```php
-  # Crea un'istanza della classe Presentation
-  $pres = new Presentation();
-  try {
-    # Aggiungi un grafico alla diapositiva
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
-    # Imposta diverse proprietà
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setSecondPieSize(149);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitBy(PieSplitType::ByPercentage);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitPosition(53);
-    # Scrivi la presentazione su disco
-    $pres->save("SecondPlotOptionsforCharts_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    // Visualizza i valori e configura il tracciato secondario.
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setSecondPieSize(149);
+    $seriesGroup->setPieSplitBy(PieSplitType::ByPercentage);
+    $seriesGroup->setPieSplitPosition(53);
+
+    $presentation->save("pie_of_pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Imposta i colori automatici delle fette del grafico a torta**
-Aspose.Slides per PHP via Java fornisce una semplice API per impostare i colori automatici delle fette di un grafico a torta. Il codice di esempio applica le impostazioni sopra descritte.
+### **Selezionare le Categorie per il Tracciato Secondario**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation).
-1. Accedi alla prima diapositiva.
-1. Aggiungi un grafico con dati predefiniti.
-1. Imposta il titolo del grafico.
-1. Imposta la prima serie per mostrare i valori.
-1. Imposta l'indice del foglio dati del grafico.
-1. Recupera il foglio di lavoro dei dati del grafico.
-1. Elimina le serie e le categorie generate di default.
-1. Aggiungi nuove categorie.
-1. Aggiungi nuove serie.
+Utilizza la suddivisione personalizzata quando desideri raggruppare categorie specifiche nel tracciato secondario indipendentemente dai loro valori percentuali. Per esempio, un rapporto di vendite potrebbe mostrare Online e Events insieme in modo che i lettori possano confrontare questi due canali, anche se rappresentano il 35% e il 10% delle vendite totali.
 
-Scrivi la presentazione modificata in un file PPTX.
+Chiama [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) con [PieSplitType::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/piesplittype/) e seleziona i punti tramite [getPieSplitCustomPoints](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). Il metodo [add](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#add) della collezione accetta un indice basato su zero nella serie; usa [addItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#addItem) per aggiungere un oggetto punto dati. In questo esempio, l'indice 1 seleziona Online, e il punto all'indice 3 seleziona Events. Partners viene anche aggiunto temporaneamente, poi escluso usando [removeItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#removeItem).
 
 ```php
-  # Crea un'istanza della classe Presentation
-  $pres = new Presentation();
-  try {
-    # Aggiungi un grafico con dati predefiniti
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # Impostazione del titolo del grafico
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 200);
+
+    // Sostituisci i dati predefiniti con le vendite per canale.
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    $values = [ 40, 35, 15, 10 ];
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Sales");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+    }
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setPieSplitBy(PieSplitType::Custom);
+    $seriesGroup->setColorVaried(true);
+
+    // Seleziona Online per il suo indice basato su zero ed Events per il suo oggetto punto dati.
+    $seriesGroup->getPieSplitCustomPoints()->add(1);
+    $seriesGroup->getPieSplitCustomPoints()->addItem($series->getDataPoints()->get_Item(3));
+
+    // Escludi Partners dalla selezione senza eliminare i suoi dati di origine.
+    $seriesGroup->getPieSplitCustomPoints()->add(2);
+    $seriesGroup->getPieSplitCustomPoints()->removeItem($series->getDataPoints()->get_Item(2));
+
+    $presentation->save("pie_of_pie_custom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Online (35) e Events (10) appaiono come fette separate nel tracciato secondario. Nel tracciato principale, sono rappresentati da una singola fetta combinata con un valore di 45, insieme a Retail (40) e Partners (15). Rimuovere Partners dalla selezione personalizzata lo mantiene nel tracciato principale; non rimuove la categoria o il suo valore dai dati di origine del grafico.
+
+L'immagine seguente mostra la presentazione salvata in PowerPoint:
+
+![Grafico Pie of Pie con Online ed Events nel tracciato secondario e il loro valore combinato di 45 nel tracciato principale](pie_of_pie_custom.png)
+
+## **Impostare i Colori Automatici delle Fette del Grafico a Torta**
+
+Aspose.Slides per PHP via Java può assegnare automaticamente colori diversi alle fette del grafico a torta. L'esempio seguente crea un grafico a torta con un titolo centrato e sostituisce i dati predefiniti con tre categorie trimestrali e i loro valori. Il metodo [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) visualizza i valori 20, 50 e 30 come etichette, mentre [setColorVaried](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setColorVaried) abilita un colore distinto per ogni fetta.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
+
+    // Aggiungi un titolo di grafico centrato.
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # Imposta la prima serie per mostrare i valori
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Impostazione dell'indice del foglio dati del grafico
-    $defaultWorksheetIndex = 0;
-    # Recupero del foglio di lavoro dei dati del grafico
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Elimina le serie e le categorie generate di default
+
+    // Sostituisci i dati predefiniti usando il primo foglio di lavoro.
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    # Aggiunta di nuove categorie
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # Aggiunta di una nuova serie
-    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # Ora popolamento dei dati della serie
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getParentSeriesGroup()->setColorVaried(true);
-    $pres->save("Pie.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    $values = [ 20, 50, 30 ];
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
     }
-  }
+
+    // Mostra i valori e assegna colori diversi alle fette.
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getParentSeriesGroup()->setColorVaried(true);
+
+    $presentation->save("pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Le varianti 'Pie of Pie' e 'Bar of Pie' sono supportate?**
+**Sono supportate le varianti Pie of Pie e Bar of Pie?**
 
-Sì, la libreria [supporta](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/) un grafico secondario per i grafici a torta, comprese le tipologie 'Pie of Pie' e 'Bar of Pie'.
+Sì, la libreria [supporta](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) un tracciato secondario per i grafici a torta, inclusi i tipi Pie of Pie e Bar of Pie.
 
 **Posso esportare solo il grafico come immagine (ad esempio, PNG)?**
 
-Sì, è possibile [esportare il grafico stesso come immagine](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/#getImage) (ad esempio PNG) senza l'intera presentazione.
+Sì, è possibile [esportare il grafico stesso come immagine](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) (ad esempio PNG) senza esportare l'intera presentazione.
