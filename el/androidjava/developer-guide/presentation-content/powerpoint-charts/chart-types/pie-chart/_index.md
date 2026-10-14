@@ -1,127 +1,168 @@
----  
-title: Προσαρμογή διαγραμμάτων πίτας σε παρουσιάσεις στο Android  
-linktitle: Διάγραμμα Πίτας  
-type: docs  
-url: /el/androidjava/pie-chart/  
-keywords:  
-- διάγραμμα πίτας  
-- διαχείριση διαγράμματος  
-- προσαρμογή διαγράμματος  
-- επιλογές διαγράμματος  
-- ρυθμίσεις διαγράμματος  
-- επιλογές απεικόνισης  
-- χρώμα φέτας  
-- PowerPoint  
-- παρουσίαση  
-- Android  
-- Java  
-- Aspose.Slides  
-description: "Μάθετε πώς να δημιουργείτε και να προσαρμόζετε διαγράμματα πίτας σε Java με το Aspose.Slides για Android, εξαγώγιμα σε PowerPoint, ενισχύοντας την αφήγηση των δεδομένων σας σε δευτερόλεπτα."  
+---
+title: Προσαρμογή Διαγραμμάτων Πίτας σε Παρουσιάσεις στο Android
+linktitle: Διάγραμμα Πίτας
+type: docs
+url: /el/androidjava/pie-chart/
+keywords:
+- διάγραμμα πίτας
+- διαχείριση διαγράμματος
+- προσαρμογή διαγράμματος
+- επιλογές διαγράμματος
+- ρυθμίσεις διαγράμματος
+- επιλογές απεικόνισης
+- χρώμα φέτας
+- PowerPoint
+- παρουσίαση
+- Android
+- Java
+- Aspose.Slides
+description: "Δημιουργήστε και προσαρμόστε διαγράμματα πίτας στο Android με το Aspose.Slides for Android via Java. Διαμορφώστε δευτερεύουσες απεικονίσεις, εμφανίστε ετικέτες δεδομένων και εφαρμόστε αυτόματη χρωματική απόδοση φετών στο PowerPoint."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με διαγράμματα πίτας στο Aspose.Slides. Εμφανίζει πώς να διαμορφώσετε τις επιλογές δευτερεύουσας σειράς για διαγράμματα Pie of Pie και Bar of Pie, και πώς να ενεργοποιήσετε τον αυτόματο χρωματισμό των φετών σε ένα τυπικό διάγραμμα πίτας.
+Αυτό το άρθρο εξηγεί πώς να εργάζεστε με διαγράμματα πίτας στο Aspose.Slides. Δείχνει πώς να διαμορφώσετε τις επιλογές δευτερεύουσας απεικόνισης για διαγράμματα Pie of Pie και Bar of Pie, και πώς να ενεργοποιήσετε την αυτόματη χρωματική απόδοση των φετών για ένα τυπικό διάγραμμα πίτας.
 
-Τα παραδείγματα επικεντρώνονται σε πρακτικά βήματα προσαρμογής διαγράμματος όπως η προσθήκη διαγράμματος σε διαφάνεια, η ρύθμιση σειρών και ετικετών, η αντικατάσταση των προεπιλεγμένων δεδομένων διαγράμματος με προσαρμοσμένες κατηγορίες και τιμές, και η αποθήκευση της ενημερωμένης παρουσίασης.
+Τα παραδείγματα εστιάζουν σε εργασίες προσαρμογής διαγράμματος, όπως η προσθήκη διαγράμματος σε διαφάνεια, η ρύθμιση σειρών και ετικετών, η αντικατάσταση των προεπιλεγμένων δεδομένων διαγράμματος με προσαρμοσμένες κατηγορίες και τιμές, και η αποθήκευση της ενημερωμένης παρουσίασης.
 
-## **Επιλογές Δευτερεύουσας Σειράς για Διαγράμματα Pie of Pie και Bar of Pie**
-Το Aspose.Slides για Android μέσω Java υποστηρίζει πλέον επιλογές δευτερεύουσας σειράς για το διάγραμμα Pie of Pie ή Bar of Pie. Σε αυτό το θέμα, θα σας δείξουμε πώς να καθορίσετε αυτές τις επιλογές χρησιμοποιώντας το Aspose.Slides. Για να καθορίσετε τις ιδιότητες, κάντε το εξής:
+## **Δευτερεύουσες Επιλογές Απεικόνισης για Διαγράμματα Pie of Pie και Bar of Pie**
 
-1. Δημιουργήστε ένα αντικείμενο κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Προσθέστε γράφημα στη διαφάνεια.
-1. Καθορίστε τις επιλογές δευτερεύουσας σειράς του γραφήματος.
-1. Αποθηκεύστε την παρουσίαση στο δίσκο.
+Το Aspose.Slides for Android μέσω Java υποστηρίζει επιλογές δευτερεύουσας απεικόνισης για διαγράμματα Pie of Pie και Bar of Pie. Αυτές οι επιλογές ελέγχουν το μέγεθος της δευτερεύουσας απεικόνισης και τον τρόπο διαχωρισμού των σημείων δεδομένων μεταξύ των δύο απεικονίσεων.
 
-Στο παρακάτω παράδειγμα, έχουμε ορίσει διαφορετικές ιδιότητες του διαγράμματος Pie of Pie.
+Το ακόλουθο παράδειγμα δημιουργεί ένα διάγραμμα Pie of Pie σε μια νέα παρουσίαση και εμφανίζει τις τιμές των σημείων δεδομένων ως ετικέτες. Η [setSecondPieSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setSecondPieSize-int-) μέθοδος ορίζει το μέγεθος της δευτερεύουσας απεικόνισης στο 149% της κύριας απεικόνισης. Η [setPieSplitBy](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) επιλέγει διαχωρισμό βάσει ποσοστών, και η [setPieSplitPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setPieSplitPosition-double-) ορίζει το όριο στο 53%.
 
 ```java
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Προσθέστε διάγραμμα στη διαφάνεια
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
-    
-    // Ορίστε διαφορετικές ιδιότητες
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    
-    // Αποθηκεύστε την παρουσίαση στο δίσκο
-    pres.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    // Εμφάνιση τιμών και διαμόρφωση της δευτερεύουσας απεικόνισης.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός Αυτόματων Χρωμάτων Φέτας σε Διάγραμμα Πίτας**
-Το Aspose.Slides για Android μέσω Java παρέχει ένα απλό API για τον ορισμό αυτόματων χρωμάτων φέτας σε διάγραμμα πίτας. Ο κώδικας παραδείγματος εφαρμόζει τον ορισμό των παραπάνω ιδιοτήτων.
+### **Επιλογή Κατηγοριών για τη Δευτερεύουσα Απεικόνιση**
 
-1. Δημιουργήστε ένα παράδειγμα της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Προσθέστε γράφημα με προεπιλεγμένα δεδομένα.
-1. Ορίστε τον τίτλο του γραφήματος.
-1. Ορίστε την πρώτη σειρά σε Εμφάνιση Τιμών.
-1. Ορίστε το δείκτη του φύλλου δεδομένων του γραφήματος.
-1. Λήψη του φύλλου εργασίας δεδομένων του γραφήματος.
-1. Διαγράψτε τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες.
-1. Προσθέστε νέες κατηγορίες.
-1. Προσθέστε νέες σειρές.
+Χρησιμοποιήστε προσαρμοσμένο διαχωρισμό όταν θέλετε να ομαδοποιήσετε συγκεκριμένες κατηγορίες στη δευτερεύουσα απεικόνιση ανεξάρτητα από τα ποσοστά τους. Για παράδειγμα, μια αναφορά πωλήσεων μπορεί να εμφανίζει τα Online και Events μαζί ώστε οι αναγνώστες να μπορούν να συγκρίνουν αυτά τα δύο κανάλια, παρόλο που αντιστοιχούν σε 35% και 10% των συνολικών πωλήσεων.
 
-Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+Καλέστε τη [setPieSplitBy](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) με την [PieSplitType.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/piesplittype/#Custom) και επιλέξτε τα σημεία μέσω της [getPieSplitCustomPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getPieSplitCustomPoints--). Η μέθοδος [add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/piesplitcustompointcollection/#add-int-) της συλλογής δέχεται έναν δείκτη που ξεκινά από το μηδέν στη σειρά· χρησιμοποιήστε τη [addItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/piesplitcustompointcollection/#addItem-com.aspose.slides.IChartDataPoint-) για να προσθέσετε ένα αντικείμενο σημείου δεδομένων. Σε αυτό το παράδειγμα, ο δείκτης 1 επιλέγει Online και το σημείο με δείκτη 3 επιλέγει Events. Η κατηγορία Partners προστίθεται επίσης προσωρινά, και στη συνέχεια εξαιρείται χρησιμοποιώντας τη [removeItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/piesplitcustompointcollection/#removeItem-com.aspose.slides.IChartDataPoint-).
 
 ```java
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation
-Presentation pres = new Presentation();
-try {
-    // Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+import com.aspose.slides.*;
 
-    // Ορίζοντας τον τίτλο του διαγράμματος
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // Αντικατάσταση των προεπιλεγμένων δεδομένων με πωλήσεις ανά κανάλι.
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "Retail", "Online", "Partners", "Events" };
+    int[] values = { 40, 35, 15, 10 };
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Επίλεξε το Online με τον μηδενικό του δείκτη και τα Events με το αντικείμενο σημείου δεδομένων.
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Εξαίρεση των Partners από την επιλογή χωρίς διαγραφή των δεδομένων προέλευσής τους.
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το Online (35) και τα Events (10) εμφανίζονται ως ξεχωριστές φέτες στη δευτερεύουσα απεικόνιση. Στην κύρια απεικόνιση, αντιπροσωπεύονται από μία ενιαία φέτα με τιμή 45, μαζί με το Retail (40) και τους Partners (15). Η αφαίρεση των Partners από την προσαρμοσμένη επιλογή τα διατηρεί στην κύρια απεικόνιση· δεν αφαιρεί την κατηγορία ή την τιμή της από τα δεδομένα προέλευσης του διαγράμματος.
+
+Η ακόλουθη εικόνα δείχνει την αποθηκευμένη παρουσίαση στο PowerPoint:
+
+![Διάγραμμα Pie of Pie με Online και Events στη δευτερεύουσα απεικόνιση και τη συνδυασμένη τιμή τους 45 στην κύρια απεικόνιση](pie_of_pie_custom.png)
+
+## **Ρύθμιση Αυτόματων Χρωμάτων Φετών Διαγράμματος Πίτας**
+
+Το Aspose.Slides for Android μέσω Java μπορεί αυτόματα να αντιστοιχίσει διαφορετικά χρώματα στις φέτες του διαγράμματος πίτας. Το παρακάτω παράδειγμα δημιουργεί ένα διάγραμμα πίτας με κεντρικό τίτλο και αντικαθιστά τα προεπιλεγμένα δεδομένα με τρεις τριμηνιαίες κατηγορίες και τις τιμές τους. Η [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) μέθοδος εμφανίζει τις τιμές 20, 50 και 30 ως ετικέτες, ενώ η [setColorVaried](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setColorVaried-boolean-) ενεργοποιεί διαφορετικό χρώμα για κάθε φέτα.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+
+    // Προσθήκη κεντραρισμένου τίτλου διαγράμματος.
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
 
-    // Ορίστε την πρώτη σειρά για Εμφάνιση Τιμών
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-
-    // Ορισμός του δείκτη του φύλλου δεδομένων του διαγράμματος
-    int defaultWorksheetIndex = 0;
-
-    // Λήψη του φύλλου εργασίας δεδομένων του διαγράμματος
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-
-    // Διαγραφή των προεπιλεγμένα δημιουργημένων σειρών και κατηγοριών
+    // Αντικατάσταση των προεπιλεγμένων δεδομένων χρησιμοποιώντας το πρώτο φύλλο εργασίας.
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "First Qtr", "2nd Qtr", "3rd Qtr" };
+    int[] values = { 20, 50, 30 };
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    // Προσθήκη νέων κατηγοριών
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
 
-    // Προσθήκη νέων σειρών
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
 
-    // Τώρα συμπλήρωση δεδομένων σειράς
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-
+    // Εμφάνιση τιμών και ανάθεση διαφορετικών χρωμάτων στις φέτες.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", SaveFormat.Pptx);
+
+    presentation.save("pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Συχνές Ερωτήσεις**
 
-**Υποστηρίζονται οι παραλλαγές 'Pie of Pie' και 'Bar of Pie';**
+**Υποστηρίζονται οι παραλλαγές Pie of Pie και Bar of Pie;**
 
-Ναι, η βιβλιοθήκη [υποστηρίζει](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/) μια δευτερεύουσα σειρά για διαγράμματα πίτας, συμπεριλαμβανομένων των τύπων 'Pie of Pie' και 'Bar of Pie'.
+Ναι, η βιβλιοθήκη [υποστηρίζει](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) μια δευτερεύουσα απεικόνιση για διαγράμματα πίτας, συμπεριλαμβανομένων των τύπων Pie of Pie και Bar of Pie.
 
-**Μπορώ να εξάγω μόνο το γράφημα ως εικόνα (π.χ., PNG);**
+**Μπορώ να εξάγω μόνο το διάγραμμα ως εικόνα (π.χ., PNG);**
 
-Ναι, μπορείτε να [εξάγετε το ίδιο το γράφημα ως εικόνα](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) (π.χ. PNG) χωρίς ολόκληρη την παρουσίαση.
+Ναι, μπορείτε να [εξάγετε το ίδιο το διάγραμμα ως εικόνα](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage--) (π.χ. PNG) χωρίς να εξάγετε ολόκληρη την παρουσίαση.

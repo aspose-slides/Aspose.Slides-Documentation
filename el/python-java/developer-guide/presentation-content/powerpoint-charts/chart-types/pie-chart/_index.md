@@ -1,5 +1,5 @@
 ---
-title: Προσαρμογή διαγραμμάτων πίτας σε παρουσιάσεις χρησιμοποιώντας Python μέσω Java
+title: Προσαρμογή Διαγραμμάτων Πίτας σε Παρουσιάσεις χρησιμοποιώντας Python μέσω Java
 linktitle: Διάγραμμα Πίτας
 type: docs
 url: /el/python-java/pie-chart/
@@ -9,31 +9,26 @@ keywords:
 - προσαρμογή διαγράμματος
 - επιλογές διαγράμματος
 - ρυθμίσεις διαγράμματος
-- επιλογές απεικόνισης
-- χρώμα τμήματος
+- επιλογές γραφήματος
+- χρώμα φέτας
 - PowerPoint
 - παρουσίαση
 - Python
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να δημιουργείτε και να προσαρμόζετε διαγράμματα πίτας σε Python μέσω Java με Aspose.Slides, εξαγώγιμα σε PowerPoint, ενισχύοντας την αφήγηση των δεδομένων σας σε λίγα δευτερόλεπτα."
+description: "Δημιουργήστε και προσαρμόστε διαγράμματα πίτας σε Python μέσω Java με Aspose.Slides. Διαμορφώστε δευτερεύοντα γραφήματα, εμφανίστε ετικέτες δεδομένων και εφαρμόστε αυτόματο χρώμα φετών στο PowerPoint."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με διαγράμματα πίτας στο Aspose.Slides. Εμφανίζει πώς να διαμορφώσετε τις επιλογές δευτερεύουσας απεικόνισης για τα διαγράμματα Pie of Pie και Bar of Pie, καθώς και πώς να ενεργοποιήσετε την αυτόματη χρωματιστική των τμημάτων για ένα τυπικό διάγραμμα πίτας.
+Αυτό το άρθρο εξηγεί πώς να εργαστείτε με διαγράμματα πίτας στο Aspose.Slides. Δείχνει πώς να διαμορφώσετε τις επιλογές δευτείου διαγράμματος για διαγράμματα Pie of Pie και Bar of Pie, καθώς και πώς να ενεργοποιήσετε την αυτόματη χρωματική απόδοση των φετών για ένα τυπικό διάγραμμα πίτας.
 
-Τα παραδείγματα εστιάζουν σε πρακτικά βήματα προσαρμογής διαγράμματος, όπως η προσθήκη διαγράμματος σε μια διαφάνεια, η προσαρμογή των σειρών και των ρυθμίσεων ετικετών, η αντικατάσταση των προεπιλεγμένων δεδομένων διαγράμματος με προσαρμοσμένες κατηγορίες και τιμές, και η αποθήκευση της ενημερωμένης παρουσίασης.
+Τα παραδείγματα εστιάζουν σε εργασίες προσαρμογής διαγράμματος όπως η προσθήκη ενός διαγράμματος σε μια διαφάνεια, η ρύθμιση των σειρών και των ετικετών, η αντικατάσταση των προεπιλεγμένων δεδομένων διαγράμματος με προσαρμοσμένες κατηγορίες και τιμές, και η αποθήκευση της ενημερωμένης παρουσίασης.
 
-## **Δευτερεύουσες Επιλογές Απεικόνισης για Διαγράμματα Pie of Pie και Bar of Pie**
+## **Επιλογές Δευτερεύοντος Διαγράμματος για Διαγράμματα Pie of Pie και Bar of Pie**
 
-Aspose.Slides for Python via Java υποστηρίζει δευτερεύουσες επιλογές απεικόνισης για τα διαγράμματα Pie of Pie και Bar of Pie. Αυτή η ενότητα δείχνει πώς να καθορίσετε αυτές τις επιλογές χρησιμοποιώντας το Aspose.Slides. Ακολουθήστε τα παρακάτω βήματα:
+Το Aspose.Slides for Python μέσω Java υποστηρίζει επιλογές δευτερεύοντος διαγράμματος για διαγράμματα Pie of Pie και Bar of Pie. Αυτές οι επιλογές ελέγχουν το μέγεθος του δευτερεύοντος διαγράμματος και τον τρόπο με τον οποίο τα σημεία δεδομένων διαχωρίζονται μεταξύ των δύο διαγραμμάτων.
 
-1. Δημιουργήστε ένα αντικείμενο [Παρουσίαση](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Προσθέστε ένα διάγραμμα στη διαφάνεια.
-3. Καθορίστε τις δευτερεύουσες επιλογές απεικόνισης του διαγράμματος.
-4. Γράψτε την παρουσίαση στο δίσκο.
-
-Το παρακάτω παράδειγμα ορίζει διαφορετικές ιδιότητες ενός διαγράμματος Pie of Pie.
+Το ακόλουθο παράδειγμα δημιουργεί ένα διάγραμμα Pie of Pie σε μια νέα παρουσίαση και εμφανίζει τις τιμές των σημείων δεδομένων ως ετικέτες. Η μέθοδος [setSecondPieSize](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setSecondPieSize) ορίζει το μέγεθος του δευτερεύοντος διαγράμματος στο 149 % του κύριου διαγράμματος. Η [setPieSplitBy](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitBy) επιλέγει διαίρεση βάσει ποσοστού, και η [setPieSplitPosition](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) ορίζει το όριο στο 53 %.
 
 ```python
 import jpype
@@ -44,108 +39,143 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, PieSplitType, Presentation, SaveFormat
 
-    # Δημιουργήστε ένα στιγμιότυπο της κλάσης Presentation.
 presentation = Presentation()
 try:
-    # Προσθέστε ένα διάγραμμα στη διαφάνεια.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Ορίστε διαφορετικές ιδιότητες.
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400)
     series = chart.getChartData().getSeries().get_Item(0)
+
+    # Εμφάνιση τιμών και ρύθμιση του δευτερεύοντος διαγράμματος.
     series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
     series_group = series.getParentSeriesGroup()
     series_group.setSecondPieSize(149)
     series_group.setPieSplitBy(PieSplitType.ByPercentage)
     series_group.setPieSplitPosition(53)
 
-    # Αποθηκεύστε την παρουσίαση στο δίσκο.
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx)
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Ορισμός Αυτόματων Χρωμάτων Τμημάτων Διαγράμματος Πίτας**
+### **Επιλογή Κατηγοριών για το Δευτερεύον Διάγραμμα**
 
-Το Aspose.Slides for Python via Java παρέχει ένα απλό API για τον ορισμό αυτόματων χρωμάτων τμημάτων διαγράμματος πίτας. Το παρακάτω παράδειγμα δείχνει πώς να εφαρμόσετε αυτές τις ρυθμίσεις.
+Χρησιμοποιήστε προσαρμοσμένη διαίρεση όταν θέλετε να ομαδοποιήσετε συγκεκριμένες κατηγορίες στο δευτερεύον διάγραμμα ανεξάρτητα από τις τιμές ποσοστών τους. Για παράδειγμα, μια έκθεση πωλήσεων μπορεί να εμφανίζει το Online και τα Events μαζί ώστε οι αναγνώστες να μπορούν να συγκρίνουν αυτά τα δύο κανάλια, ακόμη και αν αποτελούν το 35 % και το 10 % των συνολικών πωλήσεων.
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Προσπελάστε την πρώτη διαφάνεια.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα.
-4. Ορίστε τον τίτλο του διαγράμματος.
-5. Ορίστε το ευρετήριο του φύλλου εργασίας δεδομένων του διαγράμματος.
-6. Αποκτήστε το βιβλίο εργασίας δεδομένων του διαγράμματος.
-7. Διαγράψτε τις προεπιλεγμένες σειρές και κατηγορίες.
-8. Προσθέστε νέες κατηγορίες.
-9. Προσθέστε μια νέα σειρά.
-10. Ορίστε η νέα σειρά να εμφανίζει τιμές.
-11. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+Καλέστε τη [setPieSplitBy](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitBy) με το [PieSplitType.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/piesplittype/#Custom) και επιλέξτε τα σημεία μέσω της [getPieSplitCustomPoints](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). Η μέθοδος [add](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#add) της συλλογής δέχεται έναν δείκτη μηδενικής βάσης στη σειρά· χρησιμοποιήστε την [addItem](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#addItem) για να προσθέσετε ένα αντικείμενο σημείου δεδομένων. Σε αυτό το παράδειγμα, ο δείκτης 1 επιλέγει το Online, και το σημείο με δείκτη 3 επιλέγει τα Events. Το Partners προστίθεται προσωρινά, έπειτα αποκλείεται χρησιμοποιώντας την [removeItem](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#removeItem).
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpime.startJVM()
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, PieSplitType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200)
+
+    # Αντικατάσταση των προεπιλεγμένων δεδομένων με πωλήσεις ανά κανάλι.
+    workbook = chart.getChartData().getChartDataWorkbook()
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.getCell(0, 0, 1, "Sales")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+
+    for i in range(len(category_names)):
+        category_cell = workbook.getCell(0, i + 1, 0, category_names[i])
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, jpype.JInt(values[i]))
+        series.getDataPoints().addDataPointForPieSeries(value_cell)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series_group = series.getParentSeriesGroup()
+    series_group.setPieSplitBy(PieSplitType.Custom)
+    series_group.setColorVaried(True)
+
+    # Επιλογή του Online βάσει του μηδενικού ευρετηρίου του και των Events βάσει του αντικειμένου σημείου δεδομένων.
+    series_group.getPieSplitCustomPoints().add(1)
+    series_group.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3))
+
+    # Αποκλεισμός του Partners από την επιλογή χωρίς διαγραφή των δεδομένων προέλευσης.
+    series_group.getPieSplitCustomPoints().add(2)
+    series_group.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2))
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Το Online (35) και τα Events (10) εμφανίζονται ως ξεχωριστές φέτες στο δευτερεύον διάγραμμα. Στο κύριο διάγραμμα, αντιπροσωπεύονται από μία συνδυασμένη φέτα με τιμή 45, μαζί με το Retail (40) και το Partners (15). Η αφαίρεση του Partners από την προσαρμοσμένη επιλογή το διατηρεί στο κύριο διάγραμμα· δεν αφαιρεί την κατηγορία ή την τιμή της από τα δεδομένα πηγής του διαγράμματος.
+
+Η παρακάτω εικόνα δείχνει την αποθηκευμένη παρουσίαση στο PowerPoint:
+
+![Διάγραμμα Pie of Pie με Online και Events στο δευτερεύον διάγραμμα και την συνδυασμένη τους τιμή 45 στο κύριο διάγραμμα](pie_of_pie_custom.png)
+
+## **Ορισμός Αυτόματων Χρωμάτων Φετών σε Διάγραμμα Πίτας**
+
+Το Aspose.Slides for Python μέσω Java μπορεί αυτόματα να αναθέτει διαφορετικά χρώματα στις φέτες ενός διαγράμματος πίτας. Το ακόλουθο παράδειγμα δημιουργεί ένα διάγραμμα πίτας με τίτλο στο κέντρο και αντικαθιστά τα προεπιλεγμένα δεδομένα με τρεις τριμηνιαίες κατηγορίες και τις τιμές τους. Η μέθοδος [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) εμφανίζει τις τιμές 20, 50 και 30 ως ετικέτες, ενώ η [setColorVaried](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setColorVaried) ενεργοποιεί διαφορετικό χρώμα για κάθε φέτα.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import ChartType, NullableBool, Presentation, SaveFormat
 
-# Δημιουργήστε ένα στιγμιότυπο της κλάσης Presentation.
 presentation = Presentation()
 try:
-    # Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Ορίστε τον τίτλο του διαγράμματος.
+    chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+
+    # Προσθήκη κεντραρισμένου τίτλου διαγράμματος.
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # Ορίστε το ευρετήριο του φύλλου εργασίας δεδομένων του διαγράμματος.
-    default_worksheet_index = 0
-
-    # Αποκτήστε το βιβλίο εργασίας δεδομένων του διαγράμματος.
+    # Αντικατάσταση των προεπιλεγμένων δεδομένων χρησιμοποιώντας το πρώτο φύλλο εργασίας.
     workbook = chart.getChartData().getChartDataWorkbook()
-
-    # Διαγράψτε τις προεπιλεγμένες σειρές και κατηγορίες.
+    worksheet_index = 0
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # Προσθέστε νέες κατηγορίες.
-    first_category_cell = workbook.getCell(0, 1, 0, "First Qtr")
-    chart.getChartData().getCategories().add(first_category_cell)
-    second_category_cell = workbook.getCell(0, 2, 0, "2nd Qtr")
-    chart.getChartData().getCategories().add(second_category_cell)
-    third_category_cell = workbook.getCell(0, 3, 0, "3rd Qtr")
-    chart.getChartData().getCategories().add(third_category_cell)
+    for i in range(len(category_names)):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, category_names[i])
+        chart.getChartData().getCategories().add(category_cell)
 
-    # Προσθέστε μια νέα σειρά.
-    series_cell = workbook.getCell(0, 0, 1, "Series 1")
-    series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+        value_cell = workbook.getCell(worksheet_index, i + 1, 1, jpype.JInt(values[i]))
+        series.getDataPoints().addDataPointForPieSeries(value_cell)
 
-    # Συμπληρώστε τα δεδομένα της σειράς.
-    first_value_cell = workbook.getCell(default_worksheet_index, 1, 1, jpype.JInt(20))
-    series.getDataPoints().addDataPointForPieSeries(first_value_cell)
-    second_value_cell = workbook.getCell(default_worksheet_index, 2, 1, jpype.JInt(50))
-    series.getDataPoints().addDataPointForPieSeries(second_value_cell)
-    third_value_cell = workbook.getCell(default_worksheet_index, 3, 1, jpype.JInt(30))
-    series.getDataPoints().addDataPointForPieSeries(third_value_cell)
-
-    # Ορίστε τη νέα σειρά να εμφανίζει τιμές.
+    # Εμφάνιση τιμών και ανάθεση διαφορετικών χρωμάτων στις φέτες.
     series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
-
     series.getParentSeriesGroup().setColorVaried(True)
-    presentation.save("Pie.pptx", SaveFormat.Pptx)
+
+    presentation.save("pie.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Συχνές Ερωτήσεις**
 
-**Υποστηρίζονται οι παραλλαγές 'Pie of Pie' και 'Bar of Pie';**
+**Υποστηρίζονται οι παραλλαγές Pie of Pie και Bar of Pie;**
 
-Ναι, η βιβλιοθήκη [υποστηρίζει](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/) μια δευτερεύουσα απεικόνιση για διαγράμματα πίτας, περιλαμβανομένων των τύπων 'Pie of Pie' και 'Bar of Pie'.
+Ναι, η βιβλιοθήκη [υποστηρίζει](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) ένα δευτερεύον διάγραμμα για διαγράμματα πίτας, συμπεριλαμβανομένων των τύπων Pie of Pie και Bar of Pie.
 
 **Μπορώ να εξάγω μόνο το διάγραμμα ως εικόνα (π.χ., PNG);**
 
-Ναι, μπορείτε να [εξάγετε το ίδιο το διάγραμμα ως εικόνα](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getImage) (π.χ. PNG) χωρίς ολόκληρη την παρουσίαση.
+Ναι, μπορείτε να [εξάγετε το ίδιο το διάγραμμα ως εικόνα](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) (όπως PNG) χωρίς να εξάγετε ολόκληρη την παρουσίαση.

@@ -5,125 +5,152 @@ type: docs
 url: /it/python-net/pie-chart/
 keywords:
 - grafico a torta
-- gestire il grafico
-- personalizzare il grafico
-- opzioni del grafico
-- impostazioni del grafico
-- opzioni di tracciato
-- colore della fetta
+- gestione grafico
+- personalizzazione grafico
+- opzioni grafico
+- impostazioni grafico
+- opzioni tracciato
+- colore fetta
 - PowerPoint
-- OpenDocument
 - presentazione
 - Python
 - Aspose.Slides
-description: "Scopri come creare e personalizzare i grafici a torta in Python con Aspose.Slides, esportabili in PowerPoint e OpenDocument, migliorando la narrazione dei tuoi dati in pochi secondi."
+description: "Crea e personalizza grafici a torta in Python con Aspose.Slides. Configura tracciati secondari, visualizza le etichette dei dati e applica colori automatici alle fette in PowerPoint."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con i grafici a torta in Aspose.Slides. Mostra come configurare le opzioni di tracciato secondario per i grafici Pie of Pie e Bar of Pie, e come abilitare la colorazione automatica delle fette per un grafico a torta standard.
+Questo articolo spiega come lavorare con i grafici a torta in Aspose.Slides. Mostra come configurare le opzioni del tracciato secondario per i grafici Pie of Pie e Bar of Pie, e come abilitare la colorazione automatica delle fette per un grafico a torta standard.
 
-Gli esempi si concentrano su passaggi pratici di personalizzazione del grafico, come aggiungere un grafico a una diapositiva, regolare le impostazioni delle serie e delle etichette, sostituire i dati di default del grafico con categorie e valori personalizzati e salvare la presentazione aggiornata.
+Gli esempi si concentrano su attività di personalizzazione dei grafici, come aggiungere un grafico a una diapositiva, regolare le impostazioni delle serie e delle etichette, sostituire i dati di default del grafico con categorie e valori personalizzati e salvare la presentazione aggiornata.
 
-## **Opzioni di Tracciato Secondario per i Grafici Pie of Pie e Bar of Pie**
-Aspose.Slides for Python via .NET ora supporta le opzioni di tracciato secondario per i grafici Pie of Pie o Bar of Pie. In questo argomento, vedremo con un esempio come specificare queste opzioni utilizzando Aspose.Slides. Per specificare le proprietà, seguite i passaggi seguenti:
+## **Opzioni del Tracciato Secondario per i Grafici Pie of Pie e Bar of Pie**
 
-1. Istanziare l'oggetto di classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Aggiungere un grafico alla diapositiva.
-1. Specificare le opzioni di tracciato secondario del grafico.
-1. Scrivere la presentazione su disco.
+Aspose.Slides for Python via .NET supporta le opzioni del tracciato secondario per i grafici Pie of Pie e Bar of Pie. Queste opzioni controllano la dimensione del tracciato secondario e come i punti dati vengono suddivisi tra i due tracciati.
 
-Nell'esempio riportato di seguito, abbiamo impostato diverse proprietà del grafico Pie of Pie.
+Il seguente esempio crea un grafico Pie of Pie in una nuova presentazione e visualizza i valori dei punti dati come etichette. La proprietà [second_pie_size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/second_pie_size/) imposta la dimensione del tracciato secondario al 149% del tracciato principale. [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) seleziona la suddivisione basata sulla percentuale, e [pie_split_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_position/) imposta la soglia al 53%.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Crea un'istanza della classe Presentation
 with slides.Presentation() as presentation:
-    # Aggiungi un grafico alla diapositiva
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
-        
-    # Imposta diverse proprietà
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-    chart.chart_data.series[0].parent_series_group.second_pie_size = 149
-    chart.chart_data.series[0].parent_series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
-    chart.chart_data.series[0].parent_series_group.pie_split_position = 53
+    slide = presentation.slides[0]
 
-    # Salva la presentazione su disco
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", slides.export.SaveFormat.PPTX)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
+    series = chart.chart_data.series[0]
+
+    # Visualizza i valori e configura il tracciato secondario.
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.second_pie_size = 149
+    series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
+    series_group.pie_split_position = 53
+
+    presentation.save("pie_of_pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Impostare i Colori Automatici delle Fette del Grafico a Torta**
-Aspose.Slides per Python via .NET fornisce un'API semplice per impostare i colori automatici delle fette del grafico a torta. Il codice di esempio applica l'impostazione delle proprietà sopra citate.
+### **Seleziona le Categorie per il Tracciato Secondario**
 
-1. Creare un'istanza della classe Presentation.
-1. Accedere alla prima diapositiva.
-1. Aggiungere un grafico con i dati predefiniti.
-1. Impostare il titolo del grafico.
-1. Impostare la prima serie su Mostra valori.
-1. Impostare l'indice del foglio dati del grafico.
-1. Ottenere il foglio di lavoro dei dati del grafico.
-1. Eliminare le serie e le categorie generate di default.
-1. Aggiungere nuove categorie.
-1. Aggiungere nuove serie.
+Utilizza la suddivisione personalizzata quando desideri raggruppare categorie specifiche nel tracciato secondario indipendentemente dai loro valori percentuali. Ad esempio, un report di vendite potrebbe mostrare Online e Events insieme in modo che i lettori possano confrontare questi due canali, anche se rappresentano il 35% e il 10% delle vendite totali.
 
-Scrivere la presentazione modificata in un file PPTX.
+Imposta [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) a [PieSplitType.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplittype/) e seleziona i punti tramite [pie_split_custom_points](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_custom_points/). Il metodo [add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/add/) della collezione accetta sia un indice basato su zero nella serie sia un oggetto punto dati. In questo esempio, l'indice 1 seleziona Online, e il punto all'indice 3 seleziona Events. Partners viene aggiunto temporaneamente, poi escluso usando [remove](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/).
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# Istanzia la classe Presentation che rappresenta il file PPTX
 with slides.Presentation() as presentation:
-	# Accedi alla prima diapositiva
-	slide = presentation.slides[0]
+    slide = presentation.slides[0]
 
-	# Aggiungi un grafico con dati predefiniti
-	chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 600, 200)
 
-	# Imposta il titolo del grafico
-	chart.chart_title.add_text_frame_for_overriding("Sample Title")
-	chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
-	chart.chart_title.height = 20
-	chart.has_title = True
+    # Sostituisci i dati predefiniti con le vendite per canale.
+    workbook = chart.chart_data.chart_data_workbook
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-	# Imposta la prima serie per mostrare i valori
-	chart.chart_data.series[0].labels.default_data_label_format.show_value = True
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(0, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
 
-	# Imposta l'indice del foglio dati del grafico
-	defaultWorksheetIndex = 0
+        value_cell = workbook.get_cell(0, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
 
-	# Ottieni il foglio dati del grafico
-	fact = chart.chart_data.chart_data_workbook
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.pie_split_by = charts.PieSplitType.CUSTOM
+    series_group.is_color_varied = True
 
-	# Elimina le serie e le categorie generate di default
-	chart.chart_data.series.clear()
-	chart.chart_data.categories.clear()
+    # Seleziona Online tramite il suo indice basato su zero ed Events tramite il suo oggetto punto dati.
+    series_group.pie_split_custom_points.add(1)
+    series_group.pie_split_custom_points.add(series.data_points[3])
 
-	# Aggiungi nuove categorie
-	chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "First Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "2nd Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "3rd Qtr"))
+    # Escludi Partners dalla selezione senza eliminare i dati di origine.
+    series_group.pie_split_custom_points.add(2)
+    series_group.pie_split_custom_points.remove(series.data_points[2])
 
-	# Aggiungi nuove serie
-	series = chart.chart_data.series.add(fact.get_cell(0, 0, 1, "Series 1"), chart.type)
-
-	# Ora popola i dati della serie
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
-
-	series.parent_series_group.is_color_varied = True
-	presentation.save("Pie.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("pie_of_pie_custom.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+Online (35) ed Events (10) appaiono come fette separate nel tracciato secondario. Nel tracciato principale, sono rappresentati da una sola fetta combinata con valore 45, insieme a Retail (40) e Partners (15). Rimuovere Partners dalla selezione personalizzata lo mantiene nel tracciato principale; non rimuove la categoria o il suo valore dai dati di origine del grafico.
 
-**Le varianti 'Pie of Pie' e 'Bar of Pie' sono supportate?**
+L'immagine seguente mostra la presentazione salvata in PowerPoint:
 
-Sì, la libreria [supporta](https://reference.aspose.com/slides/it/python-net/aspose.slides.charts/charttype/) un tracciato secondario per i grafici a torta, comprese le tipologie 'Pie of Pie' e 'Bar of Pie'.
+![Grafico Pie of Pie con Online ed Events nel tracciato secondario e il loro valore combinato di 45 nel tracciato principale](pie_of_pie_custom.png)
+
+## **Imposta i Colori Automatici delle Fette del Grafico a Torta**
+
+Aspose.Slides per Python via .NET può assegnare automaticamente colori diversi alle fette del grafico a torta. Il seguente esempio crea un grafico a torta con un titolo centrato e sostituisce i dati di default con tre categorie trimestrali e i loro valori. La proprietà [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) visualizza i valori 20, 50 e 30 come etichette, mentre [is_color_varied](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/is_color_varied/) abilita un colore distinto per ogni fetta.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+
+    # Aggiungi un titolo centrato al grafico.
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
+    chart.chart_title.height = 20
+    chart.has_title = True
+
+    # Sostituisci i dati predefiniti usando il primo foglio di lavoro.
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
+
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
+
+    # Mostra i valori assegna colori diversi alle fette.
+    series.labels.default_data_label_format.show_value = True
+    series.parent_series_group.is_color_varied = True
+
+    presentation.save("pie.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Domande frequenti**
+
+**Le varianti Pie of Pie e Bar of Pie sono supportate?**
+
+Sì, la libreria [supporta](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) un tracciato secondario per i grafici a torta, includendo i tipi Pie of Pie e Bar of Pie.
 
 **Posso esportare solo il grafico come immagine (ad esempio, PNG)?**
 
-Sì, è possibile [esportare il grafico stesso come immagine](https://reference.aspose.com/slides/it/python-net/aspose.slides.charts/chart/get_image/) (ad esempio PNG) senza l'intera presentazione.
+Sì, è possibile [esportare il grafico stesso come immagine](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) (ad esempio PNG) senza esportare l'intera presentazione.

@@ -9,112 +9,161 @@ keywords:
 - dostosowywanie wykresu
 - opcje wykresu
 - ustawienia wykresu
-- opcje rysowania
-- kolor wycinków
+- opcje wykresu
+- kolor fragmentu
 - PowerPoint
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i dostosowywać wykresy kołowe w JavaScript przy użyciu Aspose.Slides dla Node.js, eksportowalne do PowerPoint, zwiększając opowieść o danych w kilka sekund."
+description: "Twórz i dostosowuj wykresy kołowe w JavaScript przy użyciu Aspose.Slides for Node.js via Java. Konfiguruj drugorzędne wykresy, wyświetlaj etykiety danych i stosuj automatyczne kolory fragmentów w PowerPoint."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z wykresami kołowymi w Aspose.Slides. Pokazuje, jak skonfigurować opcje drugorzędnego wykresu dla wykresów Pie of Pie i Bar of Pie oraz jak włączyć automatyczne kolorowanie wycinków w standardowym wykresie kołowym.
+Ten artykuł wyjaśnia, jak pracować z wykresami kołowymi w Aspose.Slides. Pokazuje, jak skonfigurować opcje drugorzędnego wykresu dla wykresów Pie of Pie i Bar of Pie oraz jak włączyć automatyczne kolorowanie fragmentów w standardowym wykresie kołowym.
 
-Przykłady koncentrują się na praktycznych krokach dostosowywania wykresu, takich jak dodawanie wykresu do slajdu, dostosowywanie ustawień serii i etykiet, zastępowanie domyślnych danych wykresu własnymi kategoriami i wartościami oraz zapisywanie zaktualizowanej prezentacji.
+Przykłady koncentrują się na zadaniach dostosowywania wykresu, takich jak dodawanie wykresu do slajdu, dostosowywanie ustawień serii i etykiet, zastępowanie domyślnych danych wykresu własnymi kategoriami i wartościami oraz zapisywanie zaktualizowanej prezentacji.
 
 ## **Opcje drugiego wykresu dla wykresów Pie of Pie i Bar of Pie**
 
-Aspose.Slides for Node.js via Java obsługuje teraz opcje drugiego wykresu dla wykresów Pie of Pie lub Bar of Pie. W tym temacie pokażemy, jak określić te opcje przy użyciu Aspose.Slides. Aby określić właściwości, wykonaj następujące kroki:
+Aspose.Slides for Node.js via Java obsługuje opcje drugiego wykresu dla wykresów Pie of Pie i Bar of Pie. Opcje te kontrolują rozmiar drugorzędnego wykresu oraz sposób podziału punktów danych pomiędzy dwoma wykresami.
 
-1. Utwórz obiekt klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-1. Dodaj wykres na slajdzie.
-1. Określ opcje drugiego wykresu dla wykresu.
-1. Zapisz prezentację na dysku.
+Poniższy przykład tworzy wykres Pie of Pie w nowej prezentacji i wyświetla wartości punktów danych jako etykiety. Metoda [setSecondPieSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setSecondPieSize) ustawia rozmiar drugorzędnego wykresu na 149% głównego wykresu. [setPieSplitBy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitBy) wybiera podział oparty na procentach, a [setPieSplitPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) ustawia próg na 53%.
 
 ```javascript
-// Utwórz instancję klasy Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Dodaj wykres na slajdzie
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
-    // Ustaw różne własności
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    // Zapisz prezentację na dysku
-    pres.save("SecondPlotOptionsforCharts_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    // Wyświetl wartości i skonfiguruj drugorzędny wykres.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    const seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ustaw automatyczne kolory wycinków wykresu kołowego**
+### **Wybierz kategorie dla drugiego wykresu**
 
-Aspose.Slides for Node.js via Java udostępnia prosty interfejs API do ustawiania automatycznych kolorów wycinków wykresu kołowego. Przykładowy kod stosuje ustawienie wyżej wymienionych właściwości.
+Użyj podziału niestandardowego, gdy chcesz grupować określone kategorie w drugorzędnym wykresie niezależnie od ich wartości procentowych. Na przykład raport sprzedaży może wyświetlać Online i Events razem, aby czytelnicy mogli porównać te dwa kanały, mimo że stanowią 35% i 10% całkowitej sprzedaży.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Dodaj wykres z domyślnymi danymi.
-1. Ustaw tytuł wykresu.
-1. Ustaw pierwszą serię na wyświetlanie wartości.
-1. Ustaw indeks arkusza danych wykresu.
-1. Pobierz arkusz danych wykresu.
-1. Usuń domyślnie wygenerowane serie i kategorie.
-1. Dodaj nowe kategorie.
-1. Dodaj nowe serie.
-
-Zapisz zmodyfikowaną prezentację do pliku PPTX.
+Wywołaj [setPieSplitBy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitBy) z [PieSplitType.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplittype/#Custom), aby wybrać punkty przy pomocy [getPieSplitCustomPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). Metoda [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#add) kolekcji przyjmuje indeks zerowy w serii; użyj [addItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#addItem), aby dodać obiekt punktu danych. W tym przykładzie indeks 1 wybiera Online, a punkt o indeksie 3 wybiera Events. Partners jest również dodany tymczasowo, a następnie wykluczony przy użyciu [removeItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#removeItem).
 
 ```javascript
-// Utwórz instancję klasy Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Dodaj wykres z domyślnymi danymi
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // Ustawianie tytułu wykresu
-    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
-    chart.getChartTitle().setHeight(20);
-    chart.setTitle(true);
-    // Ustaw pierwszą serię na wyświetlanie wartości
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Ustawianie indeksu arkusza danych wykresu
-    var defaultWorksheetIndex = 0;
-    // Pobieranie arkusza danych wykresu
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Usuń domyślnie wygenerowane serie i kategorie
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // Zamień domyślne dane na sprzedaż według kanału.
+    const workbook = chart.getChartData().getChartDataWorkbook();
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // Dodawanie nowych kategorii
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    // Dodawanie nowych serii
-    var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // Teraz wypełnianie danych serii
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    const values = [ 40, 35, 15, 10 ];
+    const seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    const series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (let i = 0; i < categoryNames.length; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
     }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    const seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(aspose.slides.PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Wybierz Online według jego indeksu zerowego i Events według obiektu punktu danych.
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Wyklucz Partners z wyboru bez usuwania jego danych źródłowych.
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Online (35) i Events (10) pojawiają się jako oddzielne fragmenty w drugorzędnym wykresie. W wykresie głównym są przedstawione jako jeden połączony fragment o wartości 45, obok Retail (40) i Partners (15). Usunięcie Partners z niestandardowego wyboru pozostawia go w wykresie głównym; nie usuwa kategorii ani jej wartości z danych źródłowych wykresu.
+
+Na poniższym obrazie widać zapisaną prezentację w programie PowerPoint:
+
+![Wykres Pie of Pie z Online i Events w drugorzędnym wykresie i ich łączną wartością 45 w wykresie głównym](pie_of_pie_custom.png)
+
+## **Ustaw automatyczne kolory fragmentów wykresu kołowego**
+
+Aspose.Slides for Node.js via Java może automatycznie przypisywać różne kolory fragmentom wykresu kołowego. Poniższy przykład tworzy wykres kołowy z wyśrodkowanym tytułem i zastępuje domyślne dane trzema kwartalnymi kategoriami oraz ich wartościami. Metoda [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) wyświetla wartości 20, 50 i 30 jako etykiety, a [setColorVaried](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setColorVaried) włącza odrębny kolor dla każdego fragmentu.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
+
+    // Dodaj wyśrodkowany tytuł wykresu.
+    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
+    chart.getChartTitle().setHeight(20);
+    chart.setTitle(true);
+
+    // Zamień domyślne dane przy użyciu pierwszego arkusza.
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    const categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    const values = [ 20, 50, 30 ];
+    const seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    const series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (let i = 0; i < categoryNames.length; i++) {
+        const categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    // Pokaż wartości i przypisz różne kolory fragmentom.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getParentSeriesGroup().setColorVaried(true);
+
+    presentation.save("pie.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Czy warianty 'Pie of Pie' i 'Bar of Pie' są obsługiwane?**
+**Czy warianty Pie of Pie i Bar of Pie są obsługiwane?**
 
-Tak, biblioteka [obsługuje](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/) drugorzędny wykres dla wykresów kołowych, w tym typy 'Pie of Pie' i 'Bar of Pie'.
+Tak, biblioteka [obsługuje](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) drugorzędny wykres dla wykresów kołowych, w tym typy Pie of Pie i Bar of Pie.
 
 **Czy mogę wyeksportować sam wykres jako obraz (na przykład PNG)?**
 
-Tak, możesz [wyeksportować sam wykres jako obraz](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/#getImage) (np. PNG) bez całej prezentacji.
+Tak, możesz [wyeksportować sam wykres jako obraz](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) (np. PNG) bez eksportowania całej prezentacji.

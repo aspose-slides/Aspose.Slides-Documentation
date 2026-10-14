@@ -1,5 +1,5 @@
 ---
-title: JavaScript Kullanarak Sunumlarda Pasta Grafikleri Özelleştirme
+title: JavaScript Kullanarak Sunumlarda Pasta Grafiklerini Özelleştirme
 linktitle: Pasta Grafiği
 type: docs
 url: /tr/nodejs-java/pie-chart/
@@ -16,107 +16,154 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript ile Aspose.Slides for Node.js kullanarak pasta grafikleri oluşturmayı ve özelleştirmeyi öğrenin, PowerPoint'e aktarılabilir, verilerinizi saniyeler içinde hikayeleştirmenizi artırır."
+description: "JavaScript ile Aspose.Slides for Node.js via Java kullanarak pasta grafiklerini oluşturun ve özelleştirin. İkincil grafikler yapılandırın, veri etiketlerini gösterin ve PowerPoint'te otomatik dilim renkleri uygulayın."
 ---
 ## **Genel Bakış**
 
-Bu makale Aspose.Slides'te pasta grafikleriyle nasıl çalışılacağını açıklar. Pie of Pie ve Bar of Pie grafikleri için ikincil çizim seçeneklerini nasıl yapılandırılacağını ve standart bir pasta grafiği için otomatik dilim renklendirmesinin nasıl etkinleştirileceğini gösterir.
+Bu makale Aspose.Slides'te pasta grafikleriyle nasıl çalışılacağını açıklar. Pie of Pie ve Bar of Pie grafikleri için ikincil grafik seçeneklerini nasıl yapılandıracağınızı ve standart bir pasta grafik için otomatik dilim renklendirmeyi nasıl etkinleştireceğinizi gösterir.
 
-Örnekler, bir slayta grafik ekleme, seriler ve etiket ayarlarını düzenleme, varsayılan grafik verilerini özel kategoriler ve değerlerle değiştirme ve güncellenmiş sunumu kaydetme gibi pratik grafik özelleştirme adımlarına odaklanır.
+Örnekler, bir grafiği slayta ekleme, seri ve etiket ayarlarını düzenleme, varsayılan grafik verilerini özel kategoriler ve değerlerle değiştirme ve güncellenmiş sunumu kaydetme gibi grafik özelleştirme görevlerine odaklanır.
 
-## **Pie of Pie ve Bar of Pie Grafiği için İkincil Çizim Seçenekleri**
+## **Pie of Pie ve Bar of Pie Grafikleri için İkincil Grafik Seçenekleri**
 
-Aspose.Slides for Node.js via Java artık Pie of Pie ya da Bar of Pie grafiği için ikincil çizim seçeneklerini destekliyor. Bu başlıkta, bu seçenekleri Aspose.Slides kullanarak nasıl belirteceğinizi göstereceğiz. Özellikleri belirtmek için şu adımları izleyin:
+Node.js için Java üzerinden Aspose.Slides, Pie of Pie ve Bar of Pie grafikleri için ikincil grafik seçeneklerini destekler. Bu seçenekler, ikincil grafiğin boyutunu ve veri noktalarının iki grafik arasında nasıl bölüneceğini kontrol eder.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfı nesnesini örnekleyin.  
-2. Slayta bir grafik ekleyin.  
-3. Grafiğin ikincil çizim seçeneklerini belirtin.  
-4. Sunumu diske yazın.  
-
-Aşağıdaki örnekte, Pie of Pie grafiğinin farklı özelliklerini ayarladık.
+Aşağıdaki örnek, yeni bir sunumda Pie of Pie grafiği oluşturur ve veri noktası değerlerini etiket olarak gösterir. [setSecondPieSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setSecondPieSize) yöntemi ikincil grafik boyutunu ana grafiğin %149'una ayarlar. [setPieSplitBy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitBy) yüzde tabanlı bölmeyi seçer ve [setPieSplitPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) eşik değerini %53 olarak belirler.
 
 ```javascript
-// Presentation sınıfının bir örneğini oluştur
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Slayta grafik ekle
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
-    // Farklı özellikleri ayarla
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    // Sunumu diske kaydet
-    pres.save("SecondPlotOptionsforCharts_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    // Değerleri göster ve ikincil grafiği yapılandır.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    const seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Otomatik Pasta Grafiği Dilim Renklerini Ayarlama**
+### **İkincil Grafik İçin Kategorileri Seçme**
 
-Aspose.Slides for Node.js via Java, otomatik pasta grafiği dilim renklerini ayarlamak için basit bir API sağlar. Örnek kod, yukarıda belirtilen özelliklerin uygulanmasını gösterir.
+Özel bölme, belirli kategorileri yüzde değerleri ne olursa olsun ikincil grafikte gruplayarak göstermek istediğinizde kullanılır. Örneğin, bir satış raporu Online ve Events'i birlikte göstererek okuyucuların bu iki kanalı karşılaştırmasını sağlayabilir; bunlar toplam satışın %35 ve %10'unu oluşturur.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. İlk slayta erişin.  
-3. Varsayılan verilerle bir grafik ekleyin.  
-4. Grafiğin başlığını ayarlayın.  
-5. İlk seriyi Değerleri Göster olarak ayarlayın.  
-6. Grafik veri sayfasının indeksini ayarlayın.  
-7. Grafik veri çalışma sayfasını alın.  
-8. Varsayılan oluşturulan serileri ve kategorileri silin.  
-9. Yeni kategoriler ekleyin.  
-10. Yeni seri ekleyin.  
-
-Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+[setPieSplitBy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitBy) yöntemini [PieSplitType.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplittype/#Custom) ile çağırın ve noktaları [getPieSplitCustomPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints) ile seçin. Koleksiyonun [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#add) yöntemi seride sıfır‑bazlı bir indeks alır; bir veri noktası nesnesi eklemek için [addItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#addItem) kullanın. Bu örnekte indeks 1 Online'ı, indeks 3 ise Events'i seçer. Partners da geçici olarak eklenir, ardından [removeItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#removeItem) ile çıkarılır.
 
 ```javascript
-// Presentation sınıfının bir örneğini oluştur
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Varsayılan veriyle grafik ekle
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // Grafik başlığını ayarlama
-    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
-    chart.getChartTitle().setHeight(20);
-    chart.setTitle(true);
-    // İlk seriyi Değerleri Göster olarak ayarla
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Grafik veri sayfasının indeksini ayarlama
-    var defaultWorksheetIndex = 0;
-    // Grafik veri çalışma sayfasını alma
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Varsayılan oluşturulan serileri ve kategorileri sil
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // Varsayılan verileri kanal bazında satışlarla değiştir.
+    const workbook = chart.getChartData().getChartDataWorkbook();
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // Yeni kategoriler ekleme
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    // Yeni seri ekleme
-    var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // Şimdi seri verilerini dolduruyoruz
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    const values = [ 40, 35, 15, 10 ];
+    const seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    const series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (let i = 0; i < categoryNames.length; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
     }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    const seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(aspose.slides.PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Online'ı sıfır‑bazlı indeksiyle ve Events'i veri noktası nesnesiyle seç.
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Partners'ı seçimin dışına çıkar, kaynak verisini silmeden.
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Online (35) ve Events (10) ikincil grafikte ayrı dilimler olarak görünür. Birincil grafikte ise 45 değerinde birleşik bir dilim, Retail (40) ve Partners (15) ile birlikte gösterilir. Partners'ın özel seçimden kaldırılması, onu birincil grafikte tutar; kategori ya da değeri grafik kaynak verilerinden silmez.
+
+Aşağıdaki görsel, PowerPoint'te kaydedilen sunumu gösterir:
+
+![Pie of Pie chart with Online and Events in the secondary plot and their combined value of 45 in the primary plot](pie_of_pie_custom.png)
+
+## **Otomatik Pasta Grafiği Dilim Renklerini Ayarlama**
+
+Node.js için Java üzerinden Aspose.Slides, pasta grafik dilimlerine otomatik olarak farklı renkler atayabilir. Aşağıdaki örnek, ortalanmış bir başlıkla pasta grafiği oluşturur ve varsayılan verileri üç çeyrek kategorisi ve değerleriyle değiştirir. [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) yöntemi 20, 50 ve 30 değerlerini etiket olarak gösterirken, [setColorVaried](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setColorVaried) her dilim için farklı bir renk sağlar.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
+
+    // Ortalanmış bir grafik başlığı ekle.
+    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
+    chart.getChartTitle().setHeight(20);
+    chart.setTitle(true);
+
+    // Varsayılan verileri ilk çalışma sayfasını kullanarak değiştir.
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    const categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    const values = [ 20, 50, 30 ];
+    const seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    const series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (let i = 0; i < categoryNames.length; i++) {
+        const categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    // Değerleri göster ve dilimlere farklı renkler ata.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getParentSeriesGroup().setColorVaried(true);
+
+    presentation.save("pie.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **SSS**
 
-**'Pie of Pie' ve 'Bar of Pie' varyasyonları destekleniyor mu?**
+**Pie of Pie ve Bar of Pie varyasyonları destekleniyor mu?**
 
-Evet, kütüphane pasta grafikleri için ikincil bir çizimi, 'Pie of Pie' ve 'Bar of Pie' tipleri dahil, [destekler](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/).
+Evet, kütüphane [destekler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) pasta grafikleri için ikincil grafik, Pie of Pie ve Bar of Pie tipleri dahil.
 
-**Grafiği yalnızca bir görüntü (örneğin PNG) olarak dışa aktarabilir miyim?**
+**Grafiği yalnızca bir resim (örneğin PNG) olarak dışa aktarabilir miyim?**
 
-Evet, tüm sunumu dışarı almadan grafiği kendisini bir görüntü olarak (örneğin PNG) [dışa aktarabilirsiniz](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#getImage).
+Evet, [grafiği doğrudan bir resim olarak dışa aktarabilirsiniz](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) (örneğin PNG) bütün sunumu dışa aktarmadan.

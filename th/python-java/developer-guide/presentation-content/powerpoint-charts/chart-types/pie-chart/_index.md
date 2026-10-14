@@ -1,39 +1,34 @@
 ---
-title: ปรับแต่งแผนภูมิวงกลมในการนำเสนอด้วย Python ผ่าน Java
-linktitle: แผนภูมิวงกลม
+title: ปรับแต่งแผนภูมิกวงในงานนำเสนอโดยใช้ Python ผ่าน Java
+linktitle: แผนภูมิกวง
 type: docs
 url: /th/python-java/pie-chart/
 keywords:
-- แผนภูมิวงกลม
+- แผนภูมิกวง
 - จัดการแผนภูมิ
 - ปรับแต่งแผนภูมิ
 - ตัวเลือกแผนภูมิ
 - การตั้งค่าแผนภูมิ
 - ตัวเลือกการพล็อต
-- สีชิ้นส่วน
+- สีของสไลซ์
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและปรับแต่งแผนภูมิวงกลมใน Python ผ่าน Java ด้วย Aspose.Slides ที่สามารถส่งออกเป็น PowerPoint เพื่อเสริมสร้างการเล่าเรื่องข้อมูลของคุณในไม่กี่วินาที"
+description: "สร้างและปรับแต่งแผนภูมิกวงใน Python ผ่าน Java ด้วย Aspose.Slides. กำหนดค่าพล็อตรอง, แสดงป้ายกำกับข้อมูล, และใช้สีสไลซ์อัตโนมัติใน PowerPoint."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับแผนภูมิวงกลม (pie chart) ใน Aspose.Slides โดยแสดงวิธีการกำหนดตัวเลือกพล็อตที่สองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie รวมถึงวิธีการเปิดใช้งานการกำหนดสีอัตโนมัติสำหรับชิ้นส่วนของแผนภูมิวงกลมมาตรฐาน
+บทความนี้อธิบายวิธีการทำงานกับแผนภูมิกวงใน Aspose.Slides. แสดงวิธีกำหนดค่าตัวเลือกพล็อตรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie, และวิธีเปิดใช้งานการทำสีสไลซ์อัตโนมัติสำหรับแผนภูมิกวงมาตรฐาน.
 
-ตัวอย่างมุ่งเน้นขั้นตอนการปรับแต่งแผนภูมิในเชิงปฏิบัติเช่น การเพิ่มแผนภูมิลงในสไลด์ การปรับค่า series และ label การแทนที่ข้อมูลแผนภูมิเบื้องต้นด้วยประเภทและค่าแบบกำหนดเอง และการบันทึกงานนำเสนอที่อัปเดต
+ตัวอย่างเน้นที่งานปรับแต่งแผนภูมิเช่น การเพิ่มแผนภูมิลงสไลด์, การปรับตั้งค่าซีรีส์และป้ายกำกับ, การแทนที่ข้อมูลแผนภูมิดีฟอลต์ด้วยหมวดหมู่และค่าแบบกำหนดเอง, และการบันทึกการนำเสนอที่อัปเดต.
 
-## **ตัวเลือกการพล็อตที่สองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie**
+## **ตัวเลือกพล็อตรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie**
 
-Aspose.Slides for Python via Java รองรับตัวเลือกการพล็อตที่สองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie ส่วนนี้แสดงวิธีระบุตัวเลือกเหล่านั้นด้วย Aspose.Slides ให้ทำตามขั้นตอนต่อไปนี้
+Aspose.Slides for Python via Java รองรับตัวเลือกพล็อตรองสำหรับแผนภูมิ Pie of Pie และ Bar of Pie. ตัวเลือกเหล่านี้ควบคุมขนาดของพล็อตรองและวิธีการแบ่งจุดข้อมูลระหว่างพล็อตทั้งสอง.
 
-1. สร้างอ็อบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/)​
-2. เพิ่มแผนภูมิลงในสไลด์​
-3. ระบุตัวเลือกการพล็อตที่สองของแผนภูมิ​
-4. เขียนงานนำเสนอออกไปยังดิสก์​
-
-ตัวอย่างต่อไปนี้ตั้งค่าคุณสมบัติต่าง ๆ ของแผนภูมิ Pie of Pie
+ตัวอย่างต่อไปนี้สร้างแผนภูมิ Pie of Pie ในการนำเสนอใหม่และแสดงค่าจุดข้อมูลเป็นป้ายกำกับ. วิธี [setSecondPieSize](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setSecondPieSize) ตั้งค่าขนาดพล็อตรองเป็น 149% ของพล็อตหลัก. [setPieSplitBy](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitBy) เลือกการแบ่งตามเปอร์เซ็นต์, และ [setPieSplitPosition](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) ตั้งค่าค่ากำหนดเป็น 53%.
 
 ```python
 import jpype
@@ -44,42 +39,89 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, PieSplitType, Presentation, SaveFormat
 
-# สร้างอินสแตนซ์ของคลาส Presentation.
 presentation = Presentation()
 try:
-    # เพิ่มแผนภูมิลงในสไลด์.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # ตั้งค่าคุณสมบัติต่าง ๆ.
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400)
     series = chart.getChartData().getSeries().get_Item(0)
+
+    # แสดงค่าและกำหนดค่าพล็อตรอง.
     series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
     series_group = series.getParentSeriesGroup()
     series_group.setSecondPieSize(149)
     series_group.setPieSplitBy(PieSplitType.ByPercentage)
     series_group.setPieSplitPosition(53)
 
-    # บันทึกงานนำเสนอลงดิสก์.
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx)
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **กำหนดสีอัตโนมัติให้กับชิ้นส่วนของแผนภูมิวงกลม**
+### **เลือกหมวดหมู่สำหรับพล็อตรอง**
 
-Aspose.Slides for Python via Java มี API อย่างง่ายสำหรับการตั้งค่าสีอัตโนมัติให้กับชิ้นส่วนของแผนภูมิวงกลม ตัวอย่างต่อไปนี้แสดงวิธีนำการตั้งค่าเหล่านี้ไปใช้
+ใช้การแบ่งแบบกำหนดเองเมื่อคุณต้องการจัดกลุ่มหมวดหมู่เฉพาะในพล็อตรองโดยไม่คำนึงถึงค่าเปอร์เซ็นต์ของพวกมัน. ตัวอย่างเช่น รายงานการขายอาจแสดง Online และ Events ร่วมกันเพื่อให้ผู้อ่านเปรียบเทียบสองช่องทางนี้ แม้ว่าพวกมันจะคิดเป็น 35% และ 10% ของยอดขายรวม.
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/)​
-2. เข้าถึงสไลด์แรก​
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น​
-4. ตั้งชื่อแผนภูมิ​
-5. ตั้งดัชนีของแผนภูมิใน Worksheet ของข้อมูล​
-6. รับ Workbook ของข้อมูลแผนภูมิ​
-7. ลบ series และ categories เริ่มต้น​
-8. เพิ่ม categories ใหม่​
-9. เพิ่ม series ใหม่​
-10. ตั้งค่า series ใหม่ให้แสดงค่า​
+เรียก [setPieSplitBy](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setPieSplitBy) พร้อมกับ [PieSplitType.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/piesplittype/#Custom) และเลือกจุดผ่าน [getPieSplitCustomPoints](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). วิธีของคอลเลคชั่น [add](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#add) รับดัชนีเริ่มจากศูนย์ในซีรีส์; ใช้ [addItem](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#addItem) เพื่อเพิ่มอ็อบเจกต์จุดข้อมูล. ในตัวอย่างนี้ ดัชนี 1 เลือก Online, และจุดที่ดัชนี 3 เลือก Events. Partners ถูกเพิ่มชั่วคราว, จากนั้นลบออกโดยใช้ [removeItem](https://reference.aspose.com/slides/python-java/aspose.slides/piesplitcustompointcollection/#removeItem).
 
-เขียนงานนำเสนอที่แก้ไขแล้วเป็นไฟล์ PPTX
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, PieSplitType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200)
+
+    # แทนที่ข้อมูลเริ่มต้นด้วยยอดขายตามช่องทาง.
+    workbook = chart.getChartData().getChartDataWorkbook()
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.getCell(0, 0, 1, "Sales")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
+
+    for i in range(len(category_names)):
+        category_cell = workbook.getCell(0, i + 1, 0, category_names[i])
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, jpype.JInt(values[i]))
+        series.getDataPoints().addDataPointForPieSeries(value_cell)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series_group = series.getParentSeriesGroup()
+    series_group.setPieSplitBy(PieSplitType.Custom)
+    series_group.setColorVaried(True)
+
+    # เลือก Online ตามดัชนีเริ่มจากศูนย์และ Events ตามอ็อบเจกต์จุดข้อมูล.
+    series_group.getPieSplitCustomPoints().add(1)
+    series_group.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3))
+
+    # เว้น Partners ออกจากการเลือกโดยไม่ลบข้อมูลต้นฉบับของมัน.
+    series_group.getPieSplitCustomPoints().add(2)
+    series_group.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2))
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Online (35) และ Events (10) ปรากฏเป็นสไลซ์แยกในพล็อตรอง. ในพล็อตหลัก, พวกมันถูกแทนด้วยสไลซ์รวมค่าที่ 45, ร่วมกับ Retail (40) และ Partners (15). การลบ Partners ออกจากการเลือกแบบกำหนดเองทำให้มันยังคงอยู่ในพล็อตหลัก; ไม่ได้ลบหมวดหมู่หรือค่าของมันจากข้อมูลต้นแหล่งของแผนภูมิ.
+
+ภาพต่อไปนี้แสดงการบันทึกการนำเสนอใน PowerPoint:
+
+![แผนภูมิ Pie of Pie ที่มี Online และ Events ในพล็อตรองและค่ารวมของพวกมันคือ 45 ในพล็อตหลัก](pie_of_pie_custom.png)
+
+## **ตั้งค่าสีสไลซ์อัตโนมัติสำหรับแผนภูมิวงกลม**
+
+Aspose.Slides for Python via Java สามารถกำหนดสีที่แตกต่างให้กับสไลซ์ของแผนภูมิกวงโดยอัตโนมัติ. ตัวอย่างต่อไปนี้สร้างแผนภูมิกวงพร้อมหัวเรื่องอยู่ตรงกลางและแทนที่ข้อมูลเดิมด้วยสามหมวดไตรมาสพร้อมค่าของพวกมัน. วิธี [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) แสดงค่าที่ 20, 50, และ 30 เป็นป้ายกำกับ, ขณะที่ [setColorVaried](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setColorVaried) เปิดใช้งานสีที่แตกต่างสำหรับแต่ละสไลซ์.
 
 ```python
 import jpype
@@ -90,63 +132,50 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, NullableBool, Presentation, SaveFormat
 
-# สร้างอินสแตนซ์ของคลาส Presentation.
 presentation = Presentation()
 try:
-    # เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้น.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # ตั้งค่าชื่อแผนภูมิ.
+    chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400)
+
+    # เพิ่มหัวเรื่องแผนภูมิที่จัดกึ่งกลาง.
     chart.getChartTitle().addTextFrameForOverriding("Sample Title")
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True_)
     chart.getChartTitle().setHeight(20)
     chart.setTitle(True)
 
-    # ตั้งดัชนีของ worksheet ข้อมูลแผนภูมิ.
-    default_worksheet_index = 0
-
-    # รับ workbook ของข้อมูลแผนภูมิ.
+    # แทนที่ข้อมูลเริ่มต้นโดยใช้แผ่นงานแรก.
     workbook = chart.getChartData().getChartDataWorkbook()
-
-    # ลบ series และ categories เริ่มต้น.
+    worksheet_index = 0
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
+    series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    # เพิ่ม categories ใหม่.
-    first_category_cell = workbook.getCell(0, 1, 0, "First Qtr")
-    chart.getChartData().getCategories().add(first_category_cell)
-    second_category_cell = workbook.getCell(0, 2, 0, "2nd Qtr")
-    chart.getChartData().getCategories().add(second_category_cell)
-    third_category_cell = workbook.getCell(0, 3, 0, "3rd Qtr")
-    chart.getChartData().getCategories().add(third_category_cell)
+    for i in range(len(category_names)):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, category_names[i])
+        chart.getChartData().getCategories().add(category_cell)
 
-    # เพิ่ม series ใหม่.
-    series_cell = workbook.getCell(0, 0, 1, "Series 1")
-    series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+        value_cell = workbook.getCell(worksheet_index, i + 1, 1, jpype.JInt(values[i]))
+        series.getDataPoints().addDataPointForPieSeries(value_cell)
 
-    # เติมข้อมูลให้ series.
-    first_value_cell = workbook.getCell(default_worksheet_index, 1, 1, jpype.JInt(20))
-    series.getDataPoints().addDataPointForPieSeries(first_value_cell)
-    second_value_cell = workbook.getCell(default_worksheet_index, 2, 1, jpype.JInt(50))
-    series.getDataPoints().addDataPointForPieSeries(second_value_cell)
-    third_value_cell = workbook.getCell(default_worksheet_index, 3, 1, jpype.JInt(30))
-    series.getDataPoints().addDataPointForPieSeries(third_value_cell)
-
-    # ตั้งค่า series ใหม่ให้แสดงค่า.
+    # แสดงค่าและกำหนดสีที่แตกต่างให้กับสไลซ์.
     series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
-
     series.getParentSeriesGroup().setColorVaried(True)
-    presentation.save("Pie.pptx", SaveFormat.Pptx)
+
+    presentation.save("pie.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**รูปแบบ 'Pie of Pie' และ 'Bar of Pie' ได้รับการสนับสนุนหรือไม่?**
+**Are the Pie of Pie and Bar of Pie variations supported?**
 
-ใช่ ไลบรารีนี้ [รองรับ](https://reference.aspose.com/slides/th/python-java/aspose.slides/charttype/) การพล็อตที่สองสำหรับแผนภูมิวงกลม รวมถึงประเภท 'Pie of Pie' และ 'Bar of Pie' ด้วย
+ใช่, ไลบรารี [supports](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) พล็อตรองสำหรับแผนภูมิกวง, รวมถึงประเภท Pie of Pie และ Bar of Pie.
 
-**ฉันสามารถส่งออกเฉพาะแผนภูมิเป็นภาพ (เช่น PNG) ได้หรือไม่?**
+**Can I export just the chart as an image (for example, PNG)?**
 
-ใช่ คุณสามารถ [ส่งออกแผนภูมิเป็นภาพ](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getImage) (เช่น PNG) ได้โดยไม่ต้องส่งออกงานนำเสนอทั้งหมด
+ใช่, คุณสามารถ [export the chart itself as an image](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) (เช่น PNG) ได้โดยไม่ต้องส่งออกการนำเสนอทั้งหมด.

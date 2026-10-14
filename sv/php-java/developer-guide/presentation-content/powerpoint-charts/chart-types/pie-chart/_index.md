@@ -9,109 +9,168 @@ keywords:
 - anpassa diagram
 - diagramalternativ
 - diagraminställningar
-- plotalternativ
+- grafalternativ
 - segmentfärg
 - PowerPoint
 - presentation
 - PHP
 - Aspose.Slides
-description: "Lär dig hur du skapar och anpassar pajdiagram med Aspose.Slides för PHP via Java, exporterar till PowerPoint, och förbättrar din databerättelse på sekunder."
+description: "Skapa och anpassa pajdiagram i PHP med Aspose.Slides. Konfigurera sekundära diagram, visa dataetiketter och tillämpa automatiska segmentfärger i PowerPoint."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med pajdiagram i Aspose.Slides. Den visar hur man konfigurerar sekundära plotalternativ för Pie of Pie- och Bar of Pie-diagram, samt hur man aktiverar automatisk färgläggning av segment för ett standardpajdiagram.
+Den här artikeln förklarar hur man arbetar med pajdiagram i Aspose.Slides. Den visar hur man konfigurerar alternativ för sekundär graf för Pie of Pie‑ och Bar of Pie‑diagram samt hur man aktiverar automatisk färgläggning av segment för ett standardpajdiagram.
 
-Exemplen fokuserar på praktiska anpassningssteg för diagram, såsom att lägga till ett diagram på en bild, justera serier och etikettinställningar, ersätta standarddiagramdata med anpassade kategorier och värden, samt spara den uppdaterade presentationen.
+Exemplen fokuserar på anpassningsuppgifter för diagram, såsom att lägga till ett diagram på en bild, justera serier och etikettinställningar, ersätta standarddiagramdata med egna kategorier och värden samt spara den uppdaterade presentationen.
 
-## **Alternativ för sekundär plot för Pie of Pie- och Bar of Pie-diagram**
-Aspose.Slides for PHP via Java stödjer nu alternativ för sekundär plot för Pie of Pie- eller Bar of Pie-diagram. I det här avsnittet visar vi hur du specificerar dessa alternativ med Aspose.Slides. För att specificera egenskaperna gör du följande:
+## **Alternativ för sekundär graf för Pie of Pie‑ och Bar of Pie‑diagram**
 
-1. Skapa ett objekt av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-1. Lägg till diagram på bilden.
-1. Specificera diagrammets sekundära plotalternativ.
-1. Skriv presentationen till disk.
+Aspose.Slides för PHP via Java stöder alternativ för sekundär graf för Pie of Pie‑ och Bar of Pie‑diagram. Dessa alternativ styr storleken på den sekundära grafen och hur datapunkter fördelas mellan de två graferna.
+
+Följande exempel skapar ett Pie of Pie‑diagram i en ny presentation och visar datapunktvärden som etiketter. Metoden [setSecondPieSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setSecondPieSize) ställer in storleken på den sekundära grafen till 149% av huvudgrafen. Metoden [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) väljer procentbaserad uppdelning, och [setPieSplitPosition](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) sätter tröskeln till 53%.
 
 ```php
-  # Skapa en instans av Presentation-klassen
-  $pres = new Presentation();
-  try {
-    # Lägg till diagram på bilden
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
-    # Ange olika egenskaper
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setSecondPieSize(149);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitBy(PieSplitType::ByPercentage);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitPosition(53);
-    # Skriv presentation till disk
-    $pres->save("SecondPlotOptionsforCharts_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    // Visa värden och konfigurera den sekundära grafen.
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setSecondPieSize(149);
+    $seriesGroup->setPieSplitBy(PieSplitType::ByPercentage);
+    $seriesGroup->setPieSplitPosition(53);
+
+    $presentation->save("pie_of_pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Ställ in automatiska färger för segment i pajdiagram**
-Aspose.Slides for PHP via Java tillhandahåller ett enkelt API för att ange automatiska färger för segment i pajdiagram. Exempelkoden tillämpar inställning av de ovan nämnda egenskaperna.
+### **Välj kategorier för den sekundära grafen**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-1. Åtkomst till den första bilden.
-1. Lägg till diagram med standarddata.
-1. Ange diagramtitel.
-1. Ställ in den första serien till Visa värden.
-1. Ange indexet för diagrammets datablad.
-1. Hämta diagrammets dataarbetsblad.
-1. Ta bort standardgenererade serier och kategorier.
-1. Lägg till nya kategorier.
-1. Lägg till ny serie.
+Använd anpassad uppdelning när du vill gruppera specifika kategorier i den sekundära grafen oavsett deras procentsatser. Till exempel kan en försäljningsrapport visa Online och Evenemang tillsammans så att läsarna kan jämföra dessa två kanaler, även om de står för 35% respektive 10% av den totala försäljningen.
 
-Spara den modifierade presentationen till en PPTX-fil.
+Anropa [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) med [PieSplitType::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/piesplittype/) och välj punkterna via [getPieSplitCustomPoints](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). Kollektionsmetoden [add](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#add) accepterar ett nollbaserat index i serien; använd [addItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#addItem) för att lägga till ett datapunktobjekt. I det här exemplet väljer index 1 Online, och punkten vid index 3 väljer Evenemang. Partners läggs också till tillfälligt och tas sedan bort med [removeItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#removeItem).
 
 ```php
-  # Skapa en instans av Presentation-klassen
-  $pres = new Presentation();
-  try {
-    # Lägg till diagram med standarddata
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # Ställer in diagramtitel
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 200);
+
+    // Ersätt standarddata med försäljning per kanal.
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    $values = [ 40, 35, 15, 10 ];
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Sales");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+    }
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setPieSplitBy(PieSplitType::Custom);
+    $seriesGroup->setColorVaried(true);
+
+    // Välj Online med dess nollbaserade index och Events med dess datapunktobjekt.
+    $seriesGroup->getPieSplitCustomPoints()->add(1);
+    $seriesGroup->getPieSplitCustomPoints()->addItem($series->getDataPoints()->get_Item(3));
+
+    // Exkludera Partners från urvalet utan att radera dess källdata.
+    $seriesGroup->getPieSplitCustomPoints()->add(2);
+    $seriesGroup->getPieSplitCustomPoints()->removeItem($series->getDataPoints()->get_Item(2));
+
+    $presentation->save("pie_of_pie_custom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Online (35) och Evenemang (10) visas som separata segment i den sekundära grafen. I huvudgrafen representeras de av ett kombinerat segment med värdet 45, tillsammans med Retail (40) och Partners (15). Att ta bort Partners från den anpassade urvalet behåller det i huvudgrafen; det tar inte bort kategorin eller dess värde från diagrammets källdata.
+
+Följande bild visar den sparade presentationen i PowerPoint:
+
+![Pie of Pie‑diagram med Online och Evenemang i den sekundära grafen och deras kombinerade värde 45 i huvudgrafen](pie_of_pie_custom.png)
+
+## **Ställ in automatiska färger för pajdiagramsegment**
+
+Aspose.Slides för PHP via Java kan automatiskt tilldela olika färger till segment i ett pajdiagram. Följande exempel skapar ett pajdiagram med en centrerad titel och ersätter standarddata med tre kvartalskategorier och deras värden. Metoden [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) visar värdena 20, 50 och 30 som etiketter, medan [setColorVaried](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setColorVaried) aktiverar en distinkt färg för varje segment.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
+
+    // Lägg till en centrerad diagramrubrik.
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # Ställ in första serien till Visa värden
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Ställer in indexet för diagrammets datasblad
-    $defaultWorksheetIndex = 0;
-    # Hämtar diagrammets dataarbetsblad
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Ta bort standardgenererade serier och kategorier
+
+    // Ersätt standarddata med hjälp av det första kalkylbladet.
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    # Lägger till nya kategorier
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # Lägger till ny serie
-    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # Nu fyller vi i serie data
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getParentSeriesGroup()->setColorVaried(true);
-    $pres->save("Pie.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    $values = [ 20, 50, 30 ];
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
     }
-  }
+
+    // Visa värden och tilldela olika färger till segmenten.
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getParentSeriesGroup()->setColorVaried(true);
+
+    $presentation->save("pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Stöds varianterna 'Pie of Pie' och 'Bar of Pie'?**
+**Stöds variationerna Pie of Pie och Bar of Pie?**
 
-Ja, biblioteket [stöder](https://reference.aspose.com/slides/sv/php-java/aspose.slides/charttype/) en sekundär plot för pajdiagram, inklusive typerna 'Pie of Pie' och 'Bar of Pie'.
+Ja, biblioteket [stöder](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) en sekundär graf för pajdiagram, inklusive typerna Pie of Pie och Bar of Pie.
 
-**Kan jag exportera bara diagrammet som en bild (till exempel PNG)?**
+**Kan jag exportera endast diagrammet som en bild (t.ex. PNG)?**
 
-Ja, du kan [exportera diagrammet som en bild](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/#getImage) (t.ex. PNG) utan hela presentationen.
+Ja, du kan [exportera diagrammet som en bild](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) (t.ex. PNG) utan att exportera hela presentationen.

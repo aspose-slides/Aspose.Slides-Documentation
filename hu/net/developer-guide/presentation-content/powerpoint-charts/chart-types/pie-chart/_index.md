@@ -1,5 +1,5 @@
 ---
-title: Kördiagramok testreszabása a prezentációkban .NET-ben
+title: Kördiagramok testreszabása prezentációkban .NET-ben
 linktitle: Kördiagram
 type: docs
 url: /hu/net/pie-chart/
@@ -7,124 +7,158 @@ keywords:
 - kördiagram
 - diagram kezelése
 - diagram testreszabása
-- diagram beállítások
+- diagram beállításai
 - diagram beállítások
 - ábrázolási beállítások
-- szelet szín
+- szelet színe
 - PowerPoint
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és testreszabhat kördiagramokat .NET-ben az Aspose.Slides segítségével, PowerPoint-ba exportálhatóan, és ezáltal másodpercek alatt fokozhatja adatmesélését."
+description: "Kördiagramok létrehozása és testreszabása .NET-ben az Aspose.Slides használatával. Másodlagos ábrákat konfigurál, adatcímkéket jelenít meg, és automatikus szelet színeket alkalmaz a PowerPointban."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan dolgozhatsz kördiagramokkal az Aspose.Slides-ben. Bemutatja, hogyan konfigurálhatók a másodlagos ábrázolási beállítások a Pie of Pie és a Bar of Pie diagramokhoz, valamint hogyan engedélyezhető az automatikus szelet-színezés egy szabványos kördiagram esetén.
+Ez a cikk bemutatja, hogyan dolgozhatunk kördiagramokkal az Aspose.Slides alkalmazásban. Bemutatja, hogyan lehet konfigurálni a másodlagos ábrázolási beállításokat a Pie of Pie és Bar of Pie diagramokhoz, valamint hogyan engedélyezhető az automatikus szelet‑színezés egy szabványos kördiagramon.
 
-A példák a gyakorlati diagramtestreszabási lépésekre összpontosítanak, például diagram hozzáadására egy diára, sorozatok és címkék beállításának módosítására, az alapértelmezett diagramadatok egyéni kategóriákkal és értékekkel történő helyettesítésére, valamint a frissített bemutató mentésére.
+Az példák a diagram testreszabási feladatokra összpontosítanak, mint például diagram hozzáadása egy diára, sorozatok és címkék beállításainak módosítása, az alapértelmezett diagramadatok helyettesítése egyéni kategóriákkal és értékekkel, valamint a módosított bemutató mentése.
 
-## **Másodlagos ábrázolási beállítások a Pie of Pie és Bar of Pie diagramokhoz**
+## **Másodlagos ábra beállítások a Pie of Pie és Bar of Pie diagramokhoz**
 
-Az Aspose.Slides for .NET most már támogatja a másodlagos ábrázolási beállításokat a Pie of Pie vagy Bar of Pie diagramokhoz. Ebben a témában példán keresztül megmutatjuk, hogyan adhatók meg ezek a beállítások az Aspose.Slides használatával. Kérjük, kövesd az alábbi lépéseket:
+Aspose.Slides for .NET támogatja a Pie of Pie és Bar of Pie diagramok másodlagos ábrázolási beállításait. Ezek a beállítások szabályozzák a másodlagos ábra méretét és azt, hogy a adatpontok hogyan oszlanak meg a két ábra között.
 
-1. Hozz létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztálypéldányt.
-2. Adj hozzá egy diagramot a diára.
-3. Állítsd be a diagram másodlagos ábrázolási beállításait.
-4. Írd a bemutatót a lemezre.
+Az alábbi példa egy Pie of Pie diagramot hoz létre egy új bemutatóban, és az adatpont értékeket címkeként jeleníti meg. A [SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/) tulajdonság a másodlagos ábra méretét a fő ábra 149%-ára állítja. A [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) százalék‑alapú felosztást választ, és a [PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) a küszöböt 53%-ra állítja.
 
-Az alábbi példában különböző tulajdonságokat állítottunk be a Pie of Pie diagramhoz.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-// Hozzon létre egy Presentation osztály példányt
-Presentation presentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Adjon hozzá egy diagramot a diára
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-//     Állítson be különböző tulajdonságokat
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
 
-// Mentse a prezentációt a lemezre
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+// Display values and configure the secondary plot.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
-## **Automatikus kördiagram-szelet színek beállítása**
+### **Válassza ki a kategóriákat a másodlagos ábrához**
 
-Az Aspose.Slides for .NET egyszerű API-t biztosít az automatikus kördiagram-szelet színek beállításához. A mintakód alkalmazza a fent említett beállításokat.
+Használjon egyéni felosztást, ha bizonyos kategóriákat a másodlagos ábrában szeretne csoportosítani a százalékos értékük függetlenül. Például egy értékesítési jelentésben az Online és az Events csatornákat együtt jelenítheti meg, így az olvasók összehasonlíthatják ezt a két csatornát, még ha a teljes értékesítés 35%-át és 10%-át teszik ki is.
 
-1. Hozz létre egy Presentation osztálypéldányt.
-2. Érj el az első diát.
-3. Adj hozzá egy diagramot alapértelmezett adatokkal.
-4. Állítsd be a diagram címét.
-5. Állítsd be az első sorozatot az Értékek megjelenítésére.
-6. Állítsd be a diagram adatlap indexét.
-7. Szerezd meg a diagram adatlap munkafüzetét.
-8. Töröld az alapértelmezett generált sorozatokat és kategóriákat.
-9. Adj hozzá új kategóriákat.
-10. Adj hozzá új sorozatot.
+Állítsa a [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) értékét [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/)-ra, és válassza ki a pontokat a [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/) segítségével. A gyűjtemény [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/) metódusa vagy a sorozat nulla‑alapú indexét, vagy egy adatpont objektumot fogad el. Ebben a példában az 1‑es index az Online‑t választja, a 3‑as index az Events‑et. A Partners is ideiglenesen hozzá van adva, majd a [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/) használatával kizárásra kerül.
 
-Írd a módosított bemutatót egy PPTX fájlba.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-// Hozzon létre egy Presentation osztály példányt, amely PPTX fájlt képvisel
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+// Cserélje le az alapértelmezett adatokat a csatornák szerinti értékesítéssel.
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// Hozzon létre egy Presentation osztály példányt, amely PPTX fájlt képvisel
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// Első dia elérése
-	ISlide slides = presentation.Slides[0];
-
-	// Diagram hozzáadása alapértelmezett adatokkal
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// Diagram címének beállítása
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// Első sorozat beállítása az Értékek megjelenítésére
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// Diagram adatlap indexének beállítása
-	int defaultWorksheetIndex = 0;
-
-	// Diagram adatlap munkafüzetének lekérése
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// Alapértelmezett generált sorozatok és kategóriák törlése
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// Új kategóriák hozzáadása
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// Új sorozat hozzáadása
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// Sorozat adatainak feltöltése most
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// Válassza ki az Online-ot a nulla alapú indexe szerint, és az Events-et az adatpont objektuma alapján.
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// Zárja ki a Partners-et a kijelölésből, anélkül hogy törölné a forrásadatait.
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+```
+
+Az Online (35) és az Events (10) külön szeletekként jelenik meg a másodlagos ábrában. Az elsődleges ábrában egy közös szeletként, 45 értékkel képviseltetik őket, a Retail (40) és a Partners (15) mellett. A Partners eltávolítása az egyéni kiválasztásból az elsődleges ábrában marad; nem távolítja el a kategóriát vagy az értékét a diagram forrásadataiból.
+
+A következő kép a mentett bemutatót mutatja PowerPointban:
+
+![Pie of Pie diagram az Online és Events szeletekkel a másodlagos ábrában, és azok kombinált 45-ös értéke az elsődleges ábrában](pie_of_pie_custom.png)
+
+## **Állítsa be az automatikus kördiagram szelet színeket**
+
+Aspose.Slides for .NET képes automatikusan különböző színeket rendelni a kördiagram szeleteihez. Az alábbi példa egy középre igazított címmel rendelkező kördiagramot hoz létre, és az alapértelmezett adatokat három negyedéves kategóriával és azok értékeivel helyettesíti. A [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) tulajdonság a 20, 50 és 30 értékeket jeleníti meg címkeként, míg az [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) engedélyezi, hogy minden szeletnek eltérő színe legyen.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// Add a centered chart title.
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// Replace the default data using the first worksheet.
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+// Show values and assign different colors to the slices.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
 ```
 
 ## **GYIK**
 
-**Támogatottak a 'Pie of Pie' és 'Bar of Pie' változatok?**
+**Támogatottak a Pie of Pie és Bar of Pie változatok?**
 
-Igen, a könyvtár [támogatja](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/charttype/) a másodlagos ábrázolást kördiagramoknál, beleértve a 'Pie of Pie' és a 'Bar of Pie' típusokat.
+Igen, a könyvtár [supports](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) egy másodlagos ábrát a kördiagramokhoz, beleértve a Pie of Pie és Bar of Pie típusokat.
 
 **Exportálhatom csak a diagramot képként (például PNG)?**
 
-Igen, [exportálhatod a diagramot képként](https://reference.aspose.com/slides/hu/net/aspose.slides/shape/getimage/) (például PNG) a teljes bemutató nélkül.
+Igen, a [exportálhatja a diagramot képként](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (például PNG) anélkül, hogy az egész bemutatót exportálná.

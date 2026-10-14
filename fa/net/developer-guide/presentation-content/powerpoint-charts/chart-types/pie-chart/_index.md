@@ -1,131 +1,163 @@
 ---
-title: سفارشی‌سازی نمودارهای دایره‌ای در ارائه‌ها با .NET
-linktitle: نمودار دایره‌ای
+title: "سفارشی‌سازی نمودارهای دایره‌ای در ارائه‌ها در .NET"
+linktitle: "نمودار دایره‌ای"
 type: docs
 url: /fa/net/pie-chart/
 keywords:
-- نمودار دایره‌ای
-- مدیریت نمودار
-- سفارشی‌سازی نمودار
-- گزینه‌های نمودار
-- تنظیمات نمودار
-- گزینه‌های طرح
-- رنگ برش
-- PowerPoint
-- ارائه
-- .NET
-- C#
-- Aspose.Slides
-description: "بیاموزید چگونه نمودارهای دایره‌ای را در .NET با Aspose.Slides ایجاد و سفارشی کنید، قابل صادرات به PowerPoint، و روایت داده‌های خود را در ثانیه‌ها تقویت کنید."
+- "نمودار دایره‌ای"
+- "مدیریت نمودار"
+- "سفارشی‌سازی نمودار"
+- "گزینه‌های نمودار"
+- "تنظیمات نمودار"
+- "گزینه‌های ترسیم"
+- "رنگ برش"
+- "PowerPoint"
+- "ارائه"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "ایجاد و سفارشی‌سازی نمودارهای دایره‌ای در .NET با Aspose.Slides. پیکربندی نمودارهای ثانویه، نمایش برچسب‌های داده و اعمال رنگ‌های خودکار برش در PowerPoint."
 ---
 ## **بررسی کلی**
 
-این مقاله نحوه کار با نمودارهای دایره‌ای در Aspose.Slides را توضیح می‌دهد. همچنین نشان می‌دهد چگونه گزینه‌های نمودار ثانوی برای نمودارهای Pie of Pie و Bar of Pie را پیکربندی کنید و چگونه رنگ‌گذاری خودکار برش‌ها را برای یک نمودار دایره‌ای استاندارد فعال کنید.
+این مقاله نحوه کار با نمودارهای دایره‌ای در Aspose.Slides را توضیح می‌دهد. این مقاله نحوه پیکربندی گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie را نشان می‌دهد و چگونگی فعال‌سازی رنگ‌آمیزی خودکار برش‌ها برای یک نمودار دایره‌ای استاندارد را شرح می‌دهد.
 
-مثال‌ها بر گام‌های عملی سفارشی‌سازی نمودار متمرکز هستند، از جمله افزودن نمودار به اسلاید، تنظیم تنظیمات سری و برچسب، جایگزینی داده‌های پیش‌فرض نمودار با دسته‌ها و مقادیر سفارشی، و ذخیره ارائه به‌روز شده.
+مثال‌ها بر روی وظایف سفارشی‌سازی نمودار مانند افزودن یک نمودار به اسلاید، تنظیم سری‌ها و برچسب‌ها، جایگزینی داده‌های پیش‌فرض نمودار با دسته‌ها و مقادیر سفارشی، و ذخیره‌سازی ارائه به‌روز شده تمرکز دارند.
 
-## **گزینه‌های نمودار ثانوی برای نمودارهای Pie of Pie و Bar of Pie**
-Aspose.Slides for .NET اکنون پشتیبانی از گزینه‌های نمودار ثانوی برای نمودارهای Pie of Pie یا Bar of Pie را فراهم کرده است. در این بخش، با مثال نشان می‌دهیم چگونه این گزینه‌ها را با استفاده از Aspose.Slides مشخص کنیم. برای تعیین ویژگی‌ها، لطفاً مراحل زیر را دنبال کنید:
+## **گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie**
 
-1. یک شیء کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.
-1. نمودار را به اسلاید اضافه کنید.
-1. گزینه‌های نمودار ثانوی را مشخص کنید.
-1. ارائه را در دیسک بنویسید.
+Aspose.Slides for .NET گزینه‌های نمودار ثانویه را برای نمودارهای Pie of Pie و Bar of Pie پشتیبانی می‌کند. این گزینه‌ها اندازه نمودار ثانویه و نحوه تقسیم نقاط داده بین دو نمودار را کنترل می‌کنند.
 
-در مثال زیر، ما ویژگی‌های مختلف نمودار Pie of Pie را تنظیم کرده‌ایم.
+مثال زیر یک نمودار Pie of Pie در یک ارائهٔ جدید ایجاد می‌کند و مقادیر نقاط داده را به عنوان برچسب نمایش می‌دهد. ویژگی [SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/) اندازهٔ نمودار ثانویه را روی 149٪ نمودار اصلی تنظیم می‌کند. [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) تقسیم‌بندی مبتنی بر درصد را انتخاب می‌کند و [PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) آستانه را روی 53٪ تنظیم می‌کند.
 
-```c#
-// یک نمونه از کلاس Presentation ایجاد کنید
-Presentation presentation = new Presentation();
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// یک نمودار را به اسلاید اضافه کنید
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// ویژگی‌های مختلف را تنظیم کنید
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// ارائه را روی دیسک ذخیره کنید
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
+
+// مقادیر را نمایش دهید و نمودار ثانویه را پیکربندی کنید.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
+### **انتخاب دسته‌ها برای نمودار ثانویه**
 
+از تقسیم‌بندی سفارشی استفاده کنید وقتی می‌خواهید دسته‌های خاصی را در نمودار ثانویه گروه‌بندی کنید بدون در نظر گرفتن مقدار درصدی آنها. به عنوان مثال، یک گزارش فروش ممکن است Online و Events را همراه هم نشان دهد تا خوانندگان بتوانند این دو کانال را مقایسه کنند، حتی اگر این دو به ترتیب 35٪ و 10٪ از مجموع فروش را تشکیل دهند.
 
+ویژگی [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) را روی [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/) تنظیم کنید و نقاط را از طریق [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/) انتخاب کنید. متد [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/) این مجموعه می‌تواند یک ایندکس صفر مبنا در سری یا یک شیء نقطه داده را بپذیرد. در این مثال، ایندکس 1 Online را انتخاب می‌کند و نقطهٔ ایندکس 3 Events را انتخاب می‌کند. Partners نیز به‌صورت موقت اضافه می‌شود و سپس با استفاده از [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/) حذف می‌شود.
 
-## **تنظیم رنگ‌های خودکار برش‌های نمودار دایره‌ای**
-Aspose.Slides for .NET یک API ساده برای تنظیم رنگ‌های خودکار برش‌های نمودار دایره‌ای ارائه می‌دهد. کد نمونه ویژگی‌های مذکور را اعمال می‌کند.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-1. یک نمونه از کلاس Presentation ایجاد کنید.
-1. به اولین اسلاید دسترسی پیدا کنید.
-1. نمودار را با داده‌های پیش‌فرض اضافه کنید.
-1. عنوان نمودار را تنظیم کنید.
-1. سری اول را به نمایش مقادیر تنظیم کنید.
-1. اندیس شیت داده‌های نمودار را تنظیم کنید.
-1. برگه کاری داده‌های نمودار را دریافت کنید.
-1. سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف کنید.
-1. دسته‌های جدید اضافه کنید.
-1. سری جدید اضافه کنید.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-ارائه اصلاح شده را در یک فایل PPTX بنویسید.
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
 
-```c#
-// نمونه‌ای از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد کنید
-using (Presentation presentation = new Presentation())
+// داده‌های پیش‌فرض را با فروش بر حسب کانال جایگزین کنید.
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// نمونه‌ای از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد کنید
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// دسترسی به اولین اسلاید
-	ISlide slides = presentation.Slides[0];
-
-	// اضافه کردن نمودار با داده‌های پیش‌فرض
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// تنظیم عنوان نمودار
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// سری اول را برای نمایش مقادیر تنظیم کنید
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// تنظیم اندیس شیت داده‌های نمودار
-	int defaultWorksheetIndex = 0;
-
-	// دریافت برگه کاری داده‌های نمودار
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// حذف سری‌ها و دسته‌های پیش‌فرض تولید شده
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// افزودن دسته‌های جدید
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// افزودن سری جدید
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// در حال پر کردن داده‌های سری
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// Online را با ایندکس صفر مبنا و Events را با شیء نقطه داده‌ای انتخاب کنید.
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// Partners را از انتخاب حذف کنید بدون اینکه داده منبع آن را حذف کنید.
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
 ```
 
-## **پرسش‌های متداول**
+Online (35) و Events (10) به عنوان برش‌های جداگانه در نمودار ثانویه ظاهر می‌شوند. در نمودار اصلی، آنها توسط یک برش ترکیبی با مقدار 45 همراه با Retail (40) و Partners (15) نشان داده می‌شوند. حذف Partners از انتخاب سفارشی آن را در نمودار اصلی نگه می‌دارد؛ این کار دسته یا مقدار آن را از داده منبع نمودار حذف نمی‌کند.
 
-**آیا انواع 'Pie of Pie' و 'Bar of Pie' پشتیبانی می‌شوند؟**
+تصویر زیر ارائهٔ ذخیره‌شده در PowerPoint را نشان می‌دهد:
+![نمودار Pie of Pie با Online و Events در نمودار ثانویه و مقدار ترکیبی 45 آن در نمودار اصلی](pie_of_pie_custom.png)
 
-بله، کتابخانه [پشتیبانی](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/charttype/) از یک نمودار ثانوی برای نمودارهای دایره‌ای، از جمله انواع 'Pie of Pie' و 'Bar of Pie' را دارد.
+## **تنظیم رنگ‌گذاری خودکار برش‌های نمودار دایره‌ای**
 
-**آیا می‌توانم فقط نمودار را به‌عنوان تصویر (مثلاً PNG) استخراج کنم؟**
+Aspose.Slides for .NET می‌تواند به‌صورت خودکار رنگ‌های متفاوتی به برش‌های نمودار دایره‌ای اختصاص دهد. مثال زیر یک نمودار دایره‌ای با عنوان مرکزی ایجاد می‌کند و داده‌های پیش‌فرض را با سه دستهٔ فصلی و مقادیرشان جایگزین می‌نماید. ویژگی [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) مقادیر 20، 50 و 30 را به عنوان برچسب نمایش می‌دهد، در حالی که [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) رنگ متمایزی برای هر برش فعال می‌کند.
 
-بله، می‌توانید [نمودار را به‌عنوان تصویر استخراج کنید](https://reference.aspose.com/slides/fa/net/aspose.slides/shape/getimage/) (مانند PNG) بدون نیاز به استخراج کل ارائه.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// یک عنوان نمودار را به صورت مرکزچین اضافه کنید.
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// داده‌های پیش‌فرض را با استفاده از اولین برگه کاری جایگزین کنید.
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+// مقادیر را نمایش دهید و رنگ‌های متفاوتی به برش‌ها اختصاص دهید.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
+```
+
+## **سوالات متداول**
+
+**آیا انواع Pie of Pie و Bar of Pie پشتیبانی می‌شوند؟**
+
+بله، کتابخانه یک نمودار ثانویه برای نمودارهای دایره‌ای، شامل انواع Pie of Pie و Bar of Pie، [پشتیبانی می‌کند](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/).
+
+**آیا می‌توانم فقط نمودار را به عنوان تصویر (مثلاً PNG) صادر کنم؟**
+
+بله، می‌توانید [نمودار را به عنوان تصویر صادر کنید](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (مانند PNG) بدون اینکه کل ارائه را صادر کنید.

@@ -1,118 +1,169 @@
 ---
-title: Anpassa pajdiagram i presentationer med JavaScript
-linktitle: Pajdiagram
+title: Anpassa cirkeldiagram i presentationer med JavaScript
+linktitle: Cirkeldiagram
 type: docs
 url: /sv/nodejs-java/pie-chart/
 keywords:
-- pajdiagram
+- cirkeldiagram
 - hantera diagram
 - anpassa diagram
 - diagramalternativ
 - diagraminställningar
-- plot-alternativ
+- plotalternativ
 - segmentfärg
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig hur du skapar och anpassar pajdiagram i JavaScript med Aspose.Slides för Node.js, exportera till PowerPoint och förbättra din databerättelse på sekunder."
+description: "Skapa och anpassa cirkeldiagram i JavaScript med Aspose.Slides för Node.js via Java. Konfigurera sekundära diagram, visa dataetiketter och tillämpa automatiska segmentfärger i PowerPoint."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med pajdiagram i Aspose.Slides. Den visar hur man konfigurerar sekundära diagramalternativ för Pie of Pie- och Bar of Pie-diagram, och hur man aktiverar automatisk färgning av segment för ett standardpajdiagram. Exemplen fokuserar på praktiska anpassningssteg för diagram, såsom att lägga till ett diagram på en bild, justera serier och etikettinställningar, ersätta standarddiagramdata med anpassade kategorier och värden, samt spara den uppdaterade presentationen.
+Den här artikeln förklarar hur man arbetar med cirkeldiagram i Aspose.Slides. Den visar hur man konfigurerar sekundära diagramalternativ för Pie of Pie- och Bar of Pie-diagram, samt hur man aktiverar automatisk färgläggning av segment för ett standardcirkeldiagram.
 
-## **Andra diagramalternativ för Pie of Pie- och Bar of Pie-diagram**
-Aspose.Slides för Node.js via Java stöder nu sekundära diagramalternativ för Pie of Pie- eller Bar of Pie-diagram. I det här avsnittet visar vi hur du anger dessa alternativ med Aspose.Slides. För att ange egenskaperna gör du så här:
+Exemplen fokuserar på anpassningsuppgifter för diagram, såsom att lägga till ett diagram på en bild, justera serier och etikettinställningar, ersätta standarddiagramdata med egna kategorier och värden, samt spara den uppdaterade presentationen.
 
-1. Instansiera [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation) klassobjekt.
-1. Lägg till diagram på bilden.
-1. Ange diagrammets sekundära diagramalternativ.
-1. Skriv presentationen till disk.
+## **Sekundära diagramalternativ för Pie of Pie- och Bar of Pie-diagram**
 
-I exemplet nedan har vi ställt in olika egenskaper för Pie of Pie-diagrammet.
+Aspose.Slides för Node.js via Java stöder sekundära diagramalternativ för Pie of Pie- och Bar of Pie-diagram. Dessa alternativ styr storleken på det sekundära diagrammet och hur datapunkter fördelas mellan de två diagrammen.
+
+Följande exempel skapar ett Pie of Pie-diagram i en ny presentation och visar datapunktvärden som etiketter. Metoden [setSecondPieSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setSecondPieSize) ställer in storleken på det sekundära diagrammet till 149% av huvuddiagrammet. [setPieSplitBy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitBy) väljer procentbaserad uppdelning, och [setPieSplitPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) sätter tröskeln till 53%.
 
 ```javascript
-// Skapa en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lägg till diagram på bilden
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
-    // Ställ in olika egenskaper
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    // Skriv presentation till disk
-    pres.save("SecondPlotOptionsforCharts_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    // Visa värden och konfigurera det sekundära diagrammet.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    const seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ange automatisk färgning av segment i pajdiagram**
-Aspose.Slides för Node.js via Java tillhandahåller ett enkelt API för att ställa in automatiska färger för segment i pajdiagram. Exempelkoden tillämpar inställningen av de nämnda egenskaperna.
+### **Välj kategorier för det sekundära diagrammet**
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation) klassen.
-1. Åtkomst till första bilden.
-1. Lägg till diagram med standarddata.
-1. Ange diagramrubrik.
-1. Ställ in första serien på Visa värden.
-1. Ange indexet för diagrammets datablad.
-1. Hämta diagrammets datablad.
-1. Ta bort standardgenererade serier och kategorier.
-1. Lägg till nya kategorier.
-1. Lägg till nya serier.
+Använd anpassad uppdelning när du vill gruppera specifika kategorier i det sekundära diagrammet oavsett deras procentvärden. Till exempel kan en försäljningsrapport visa Online och Events tillsammans så att läsarna kan jämföra dessa två kanaler, även om de utgör 35% respektive 10% av den totala försäljningen.
 
-Skriv den modifierade presentationen till en PPTX‑fil.
+Anropa [setPieSplitBy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitBy) med [PieSplitType.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplittype/#Custom) och välj punkterna via [getPieSplitCustomPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). Samlingens [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#add)-metod accepterar ett nollbaserat index i serien; använd [addItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#addItem) för att lägga till ett datapunktobjekt. I detta exempel väljer index 1 Online, och punkten på index 3 väljer Events. Partners läggs också till tillfälligt, och tas sedan bort med [removeItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#removeItem).
 
 ```javascript
-// Skapa en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lägg till diagram med standarddata
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // Ställer in diagramrubrik
-    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
-    chart.getChartTitle().setHeight(20);
-    chart.setTitle(true);
-    // Ställ in första serien på Visa värden
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Ställer in indexet för diagrammets datablad
-    var defaultWorksheetIndex = 0;
-    // Hämtar diagrammets dataarbetsblad
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Ta bort standardgenererade serier och kategorier
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // Ersätt standarddata med försäljning per kanal.
+    const workbook = chart.getChartData().getChartDataWorkbook();
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // Lägger till nya kategorier
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    // Lägger till ny serie
-    var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // Fyller nu i seriedata
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    const values = [ 40, 35, 15, 10 ];
+    const seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    const series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (let i = 0; i < categoryNames.length; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
     }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    const seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(aspose.slides.PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Välj Online med dess nollbaserade index och Events med dess datapunktobjekt.
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Exkludera Partners från urvalet utan att ta bort dess källdata.
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Vanliga frågor**
+Online (35) och Events (10) visas som separata segment i det sekundära diagrammet. I huvuddiagrammet representeras de av ett kombinerat segment med värdet 45, tillsammans med Retail (40) och Partners (15). Att ta bort Partners från den anpassade urvalet behåller det i huvuddiagrammet; det tar inte bort kategorin eller dess värde från diagrammets källdata.
 
-**Stöds 'Pie of Pie' och 'Bar of Pie' varianterna?**
+Följande bild visar den sparade presentationen i PowerPoint:
 
-Ja, biblioteket [stöder](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/charttype/) ett sekundärt diagram för pajdiagram, inklusive typerna 'Pie of Pie' och 'Bar of Pie'.
+![Pie of Pie-diagram med Online och Events i det sekundära diagrammet och deras kombinerade värde 45 i huvuddiagrammet](pie_of_pie_custom.png)
 
-**Kan jag exportera bara diagrammet som en bild (till exempel PNG)?**
+## **Ställ in automatisk färgläggning av cirkeldiagramsegment**
 
-Ja, du kan [exportera diagrammet som en bild](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/#getImage) (t.ex. PNG) utan hela presentationen.
+Aspose.Slides för Node.js via Java kan automatiskt tilldela olika färger till cirkeldiagramsegment. Följande exempel skapar ett cirkeldiagram med en centrerad titel och ersätter standarddata med tre kvartalskategorier och deras värden. Metoden [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) visar värdena 20, 50 och 30 som etiketter, medan [setColorVaried](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setColorVaried) möjliggör en unik färg för varje segment.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
+
+    // Lägg till en centrerad diagramtitel.
+    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
+    chart.getChartTitle().setHeight(20);
+    chart.setTitle(true);
+
+    // Ersätt standarddata med det första kalkylbladet.
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    const categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    const values = [ 20, 50, 30 ];
+    const seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    const series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (let i = 0; i < categoryNames.length; i++) {
+        const categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    // Visa värden och tilldela olika färger till segmenten.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getParentSeriesGroup().setColorVaried(true);
+
+    presentation.save("pie.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **FAQ**
+
+**Stöds variationerna Pie of Pie och Bar of Pie?**
+
+Ja, biblioteket [stöder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) ett sekundärt diagram för cirkeldiagram, inklusive typerna Pie of Pie och Bar of Pie.
+
+**Kan jag exportera bara diagrammet som en bild (t.ex. PNG)?**
+
+Ja, du kan [exportera diagrammet som en bild](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) (t.ex. PNG) utan att exportera hela presentationen.

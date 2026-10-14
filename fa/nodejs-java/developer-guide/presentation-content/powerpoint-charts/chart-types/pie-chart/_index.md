@@ -9,112 +9,161 @@ keywords:
 - سفارشی‌سازی نمودار
 - گزینه‌های نمودار
 - تنظیمات نمودار
-- گزینه‌های طرح
+- گزینه‌های ترسیم
 - رنگ برش
 - PowerPoint
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "یاد بگیرید چگونه نمودارهای دایره‌ای را با JavaScript و Aspose.Slides برای Node.js ایجاد و سفارشی کنید، به‌صورت قابل استخراج به PowerPoint، و در چنده ثانیه داستان‌گویی داده‌های خود را ارتقا دهید."
+description: "ایجاد و سفارشی‌سازی نمودارهای دایره‌ای در JavaScript با Aspose.Slides برای Node.js از طریق Java. تنظیم نمودارهای ثانویه، نمایش برچسب‌های داده، و اعمال رنگ‌های خودکار برش در PowerPoint."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-این مقاله نحوه کار با نمودارهای دایره‌ای در Aspose.Slides را توضیح می‌دهد. در آن نشان داده می‌شود چگونه گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie را پیکربندی کنید و چگونه رنگ‌گذاری خودکار برش‌ها را برای یک نمودار دایره‌ای استاندارد فعال کنید.
+این مقاله توضیح می‌دهد که چگونه با نمودارهای دایره‌ای در Aspose.Slides کار کنید. نشان می‌دهد چگونه گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie را پیکربندی کنید و چگونه رنگ‌گذاری خودکار برش‌ها را برای یک نمودار دایره‌ای استاندارد فعال کنید.
 
-مثال‌ها بر روی گام‌های عملی سفارشی‌سازی نمودار تمرکز دارند، مانند اضافه کردن نمودار به یک اسلاید، تنظیم سری‌ها و برچسب‌ها، جایگزینی داده‌های پیش‌فرض نمودار با دسته‌ها و مقادیر سفارشی، و ذخیره ارائه بروز شده.
+مثال‌ها بر روی وظایف سفارشی‌سازی نمودار متمرکز هستند، مانند افزودن یک نمودار به اسلاید، تنظیم تنظیمات سری و برچسب، جایگزینی داده‌های پیش‌فرض نمودار با دسته‌ها و مقادیر سفارشی، و ذخیره ارائه به‌روز شده.
 
 ## **گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie**
-Aspose.Slides for Node.js via Java اکنون از گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie یا Bar of Pie پشتیبانی می‌کند. در این بخش نشان می‌دهیم چگونه این گزینه‌ها را با استفاده از Aspose.Slides مشخص کنید. برای تعیین ویژگی‌ها، مراحل زیر را انجام دهید:
 
-1. نمونه‌ای از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-1. نمودار را به اسلاید اضافه کنید.
-1. گزینه‌های نمودار ثانویه را مشخص کنید.
-1. ارائه را روی دیسک بنویسید.
+Aspose.Slides for Node.js via Java از گزینه‌های نمودار ثانویه برای نمودارهای Pie of Pie و Bar of Pie پشتیبانی می‌کند. این گزینه‌ها اندازه نمودار ثانویه و چگونگی تقسیم نقاط داده بین دو نمودار را کنترل می‌کنند.
 
-در مثال زیر، ویژگی‌های مختلف نمودار Pie of Pie را تنظیم کرده‌ایم.
+مثال زیر یک نمودار Pie of Pie در یک ارائه جدید ایجاد می‌کند و مقادیر نقاط داده را به‌عنوان برچسب نمایش می‌دهد. متد [setSecondPieSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setSecondPieSize) اندازه نمودار ثانویه را به 149٪ از نمودار اصلی تنظیم می‌کند. [setPieSplitBy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitBy) تقسیم بر مبنای درصد را انتخاب می‌کند و [setPieSplitPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) آستانه را به 53٪ تنظیم می‌کند.
 
 ```javascript
-// ایجاد یک نمونه از کلاس Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // افزودن نمودار به اسلاید
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
-    // تنظیم ویژگی‌های مختلف
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    // نوشتن ارائه روی دیسک
-    pres.save("SecondPlotOptionsforCharts_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    // مقادیر را نمایش داده و نمودار ثانویه را پیکربندی کنید.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    const seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **تنظیم خودکار رنگ‌های برش‌های نمودار دایره‌ای**
-Aspose.Slides for Node.js via Java یک API ساده برای تنظیم خودکار رنگ‌های برش‌های نمودار دایره‌ای ارائه می‌دهد. کد نمونه تنظیم ویژگی‌های مذکور را اعمال می‌کند.
+### **انتخاب دسته‌ها برای نمودار ثانویه**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-1. به اولین اسلاید دسترسی پیدا کنید.
-1. نمودار را با داده‌های پیش‌فرض اضافه کنید.
-1. عنوان نمودار را تنظیم کنید.
-1. سری اول را برای نمایش مقادیر تنظیم کنید.
-1. اندیس صفحه‌کار داده‌های نمودار را تنظیم کنید.
-1. دریافت صفحه‌کار داده‌های نمودار.
-1. حذف سری‌ها و دسته‌های تولید شده پیش‌فرض.
-1. دسته‌های جدید را اضافه کنید.
-1. سری جدید اضافه کنید.
+از تقسیم سفارشی زمانی استفاده کنید که بخواهید دسته‌های خاصی را در نمودار ثانویه گروه‌بندی کنید بدون توجه به مقادیر درصدی آن‌ها. برای مثال، یک گزارش فروش ممکن است Online و Events را با هم نشان دهد تا خوانندگان بتوانند این دو کانال را مقایسه کنند، حتی اگر هر کدام 35٪ و 10٪ از کل فروش را تشکیل دهند.
 
-ارائه اصلاح‌شده را به یک فایل PPTX بنویسید.
+متد [setPieSplitBy](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setPieSplitBy) را با [PieSplitType.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplittype/#Custom) فراخوانی کنید و نقاط را از طریق [getPieSplitCustomPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints) انتخاب کنید. متد [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#add) مجموعه یک شاخص صفر‑محور در سری می‌پذیرد؛ برای افزودن شیء نقطه داده از [addItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#addItem) استفاده کنید. در این مثال، شاخص 1 Online را انتخاب می‌کند و نقطه در شاخص 3 Events را انتخاب می‌کند. Partners نیز به‌طور موقت افزوده می‌شود، سپس با استفاده از [removeItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/piesplitcustompointcollection/#removeItem) حذف می‌شود.
 
 ```javascript
-// یک نمونه از کلاس Presentation ایجاد کنید
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // افزودن نمودار با داده‌های پیش‌فرض
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // تنظیم عنوان نمودار
-    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
-    chart.getChartTitle().setHeight(20);
-    chart.setTitle(true);
-    // تنظیم سری اول برای نمایش مقادیر
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // تنظیم اندیس صفحه‌کار داده‌های نمودار
-    var defaultWorksheetIndex = 0;
-    // دریافت صفحه‌کار داده‌های نمودار
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // حذف سری‌ها و دسته‌های تولید شده پیش‌فرض
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // داده‌های پیش‌فرض را با فروش بر حسب کانال جایگزین کنید.
+    const workbook = chart.getChartData().getChartDataWorkbook();
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // افزودن دسته‌های جدید
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    // افزودن سری جدید
-    var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // اکنون پر کردن داده‌های سری
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    const values = [ 40, 35, 15, 10 ];
+    const seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    const series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (let i = 0; i < categoryNames.length; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
     }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    const seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(aspose.slides.PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Online را با استفاده از شاخص صفر-محور و Events را با شیء نقطه داده انتخاب کنید.
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Partners را از انتخاب حذف کنید بدون اینکه داده منبع آن را حذف کنید.
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **پرسش‌های متداول**
+Online (35) و Events (10) به‌عنوان برش‌های جداگانه در نمودار ثانویه ظاهر می‌شوند. در نمودار اصلی، آن‌ها توسط یک برش ترکیبی با مقدار 45، به‌همراه Retail (40) و Partners (15) نشان داده می‌شوند. حذف Partners از انتخاب سفارشی باعث می‌شود در نمودار اصلی باقی بماند؛ این حذف دسته یا مقدار آن را از داده‌های منبع نمودار حذف نمی‌کند.
 
-**آیا انواع 'Pie of Pie' و 'Bar of Pie' پشتیبانی می‌شوند؟**
+تصویر زیر ارائه ذخیره‌شده را در PowerPoint نشان می‌دهد:
 
-بله، کتابخانه [از](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/charttype/) نمودار ثانویه برای نمودارهای دایره‌ای، از جمله انواع 'Pie of Pie' و 'Bar of Pie' پشتیبانی می‌کند.
+![نمودار Pie of Pie با Online و Events در نمودار ثانویه و مقدار ترکیبی 45 آن‌ها در نمودار اصلی](pie_of_pie_custom.png)
 
-**آیا می‌توانم فقط نمودار را به عنوان تصویر (مثلاً PNG) استخراج کنم؟**
+## **تنظیم رنگ خودکار برش‌های نمودار دایره‌ای**
 
-بله، می‌توانید [نمودار را به عنوان تصویر استخراج کنید](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/#getImage) (مانند PNG) بدون استخراج کل ارائه.
+Aspose.Slides for Node.js via Java می‌تواند به‌صورت خودکار رنگ‌های متفاوتی به برش‌های نمودار دایره‌ای اختصاص دهد. مثال زیر یک نمودار دایره‌ای با عنوان مرکزیت‌یافته ایجاد می‌کند و داده‌های پیش‌فرض را با سه دسته فصلی و مقادیرشان جایگزین می‌کند. متد [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) مقادیر 20، 50 و 30 را به‌عنوان برچسب نشان می‌دهد، در حالی که [setColorVaried](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setColorVaried) رنگ متمایزی برای هر برش فعال می‌کند.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
+
+    // افزودن عنوان مرکزی به نمودار.
+    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
+    chart.getChartTitle().setHeight(20);
+    chart.setTitle(true);
+
+    // جایگزین کردن داده‌های پیش‌فرض با استفاده از اولین برگه کاری.
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    const categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    const values = [ 20, 50, 30 ];
+    const seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    const series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (let i = 0; i < categoryNames.length; i++) {
+        const categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    // مقادیر را نشان دهید و رنگ‌های متفاوتی به برش‌ها اختصاص دهید.
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getParentSeriesGroup().setColorVaried(true);
+
+    presentation.save("pie.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **سؤالات متداول**
+
+**آیا انواع Pie of Pie و Bar of Pie پشتیبانی می‌شوند؟**
+
+بله، کتابخانه [supports](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) یک نمودار ثانویه برای نمودارهای دایره‌ای، شامل انواع Pie of Pie و Bar of Pie را دارد.
+
+**آیا می‌توانم فقط نمودار را به‌صورت تصویر (مثلاً PNG) استخراج کنم؟**
+
+بله، می‌توانید [export the chart itself as an image](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) (مانند PNG) را بدون استخراج کل ارائه انجام دهید.

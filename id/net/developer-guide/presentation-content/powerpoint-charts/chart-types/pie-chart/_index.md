@@ -6,7 +6,7 @@ url: /id/net/pie-chart/
 keywords:
 - diagram lingkaran
 - kelola diagram
-- sesuaikan diagram
+- kustomisasi diagram
 - opsi diagram
 - pengaturan diagram
 - opsi plot
@@ -16,116 +16,149 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari cara membuat dan menyesuaikan diagram lingkaran di .NET dengan Aspose.Slides, dapat diekspor ke PowerPoint, meningkatkan cara Anda menceritakan data dalam hitungan detik."
+description: "Buat dan sesuaikan diagram lingkaran di .NET dengan Aspose.Slides. Konfigurasikan plot sekunder, tampilkan label data, dan terapkan warna irisan otomatis di PowerPoint."
 ---
 ## **Gambaran Umum**
 
 Artikel ini menjelaskan cara bekerja dengan diagram lingkaran di Aspose.Slides. Artikel ini menunjukkan cara mengonfigurasi opsi plot sekunder untuk diagram Pie of Pie dan Bar of Pie, serta cara mengaktifkan pewarnaan irisan otomatis untuk diagram lingkaran standar.
 
-Contoh-contoh berfokus pada langkah-langkah penyesuaian diagram yang praktis seperti menambahkan diagram ke slide, menyesuaikan pengaturan seri dan label, mengganti data diagram default dengan kategori dan nilai khusus, serta menyimpan presentasi yang telah diperbarui.
+Contoh-contoh berfokus pada tugas penyesuaian diagram seperti menambahkan diagram ke slide, menyesuaikan pengaturan seri dan label, mengganti data diagram bawaan dengan kategori dan nilai khusus, serta menyimpan presentasi yang diperbarui.
 
 ## **Opsi Plot Sekunder untuk Diagram Pie of Pie dan Bar of Pie**
 
-Aspose.Slides untuk .NET kini mendukung opsi plot sekunder untuk diagram Pie of Pie atau Bar of Pie. Dalam topik ini, kita akan melihat contoh cara menentukan opsi ini menggunakan Aspose.Slides. Ikuti langkah-langkah berikut:
+Aspose.Slides for .NET mendukung opsi plot sekunder untuk diagram Pie of Pie dan Bar of Pie. Opsi-opsi ini mengontrol ukuran plot sekunder dan cara titik data dibagi antara dua plot.
 
-1. Membuat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-1. Tambahkan diagram pada slide.
-1. Tentukan opsi plot sekunder untuk diagram.
-1. Simpan presentasi ke disk.
+Contoh berikut membuat diagram Pie of Pie dalam presentasi baru dan menampilkan nilai titik data sebagai label. Properti [SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/) mengatur ukuran plot sekunder menjadi 149% dari plot utama. [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) memilih pemisahan berbasis persentase, dan [PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) mengatur ambang batas menjadi 53%.
 
-Dalam contoh di bawah ini, kami telah mengatur berbagai properti diagram Pie of Pie.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-// Buat instance kelas Presentation
-Presentation presentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Tambahkan diagram pada slide
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// Atur properti yang berbeda
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
 
-// Simpan presentasi ke disk
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+// Display values and configure the secondary plot.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
+### **Pilih Kategori untuk Plot Sekunder**
+
+Gunakan pemisahan kustom ketika Anda ingin mengelompokkan kategori tertentu dalam plot sekunder tanpa mempedulikan nilai persentasenya. Misalnya, laporan penjualan mungkin menampilkan Online dan Events bersama-sama sehingga pembaca dapat membandingkan dua saluran ini, meskipun mereka menyumbang 35% dan 10% dari total penjualan.
+
+Setel [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) ke [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/) dan pilih titik melalui [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/). Metode [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/) pada koleksi menerima baik indeks berbasis nol dalam seri maupun objek titik data. Dalam contoh ini, indeks 1 memilih Online, dan titik pada indeks 3 memilih Events. Partners juga ditambahkan sementara, kemudian dikeluarkan menggunakan [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/).
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+// Ganti data default dengan penjualan per saluran.
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// Pilih Online berdasarkan indeks nol dan Events berdasarkan objek titik data.
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// Kecualikan Partners dari pemilihan tanpa menghapus data sumbernya.
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+```
+
+Online (35) dan Events (10) muncul sebagai irisan terpisah di plot sekunder. Di plot utama, mereka diwakili oleh satu irisan gabungan dengan nilai 45, bersama dengan Retail (40) dan Partners (15). Menghapus Partners dari pilihan kustom mempertahankannya di plot utama; itu tidak menghapus kategori atau nilainya dari data sumber diagram.
+
+Gambar berikut menunjukkan presentasi yang disimpan di PowerPoint:
+
+![Diagram Pie of Pie dengan Online dan Events di plot sekunder dan nilai gabungan mereka 45 di plot utama](pie_of_pie_custom.png)
 
 ## **Atur Warna Irisan Diagram Lingkaran Otomatis**
 
-Aspose.Slides untuk .NET menyediakan API sederhana untuk mengatur warna irisan diagram lingkaran secara otomatis. Kode contoh menerapkan pengaturan properti yang disebutkan di atas.
+Aspose.Slides for .NET dapat secara otomatis menetapkan warna berbeda ke irisan diagram lingkaran. Contoh berikut membuat diagram lingkaran dengan judul terpusat dan mengganti data bawaan dengan tiga kategori kuartalan serta nilai-nilainya. Properti [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) menampilkan nilai 20, 50, dan 30 sebagai label, sementara [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) mengaktifkan warna yang berbeda untuk setiap irisan.
 
-1. Buat instance kelas Presentation.
-2. Akses slide pertama.
-3. Tambahkan diagram dengan data default.
-4. Atur Judul diagram.
-5. Atur seri pertama untuk Menampilkan Nilai.
-6. Atur indeks lembar data diagram.
-7. Dapatkan lembar kerja data diagram.
-8. Hapus seri dan kategori yang dihasilkan secara default.
-9. Tambahkan kategori baru.
-10. Tambahkan seri baru.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-Simpan presentasi yang dimodifikasi ke file PPTX.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-// Instansiasi kelas Presentation yang mewakili file PPTX
-using (Presentation presentation = new Presentation())
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// Tambahkan judul diagram yang dipusatkan.
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// Ganti data default menggunakan lembar kerja pertama.
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// Instansiasi kelas Presentation yang mewakili file PPTX
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// Akses slide pertama
-	ISlide slides = presentation.Slides[0];
-
-	// Tambahkan diagram dengan data default
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// Mengatur Judul diagram
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// Atur seri pertama untuk Menampilkan Nilai
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// Mengatur indeks lembar data diagram
-	int defaultWorksheetIndex = 0;
-
-	// Mendapatkan lembar kerja data diagram
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// Hapus seri dan kategori yang dihasilkan secara default
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// Menambahkan kategori baru
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// Menambahkan seri baru
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// Sekarang mengisi data seri
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+// Tampilkan nilai dan tetapkan warna berbeda untuk setiap irisan.
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apakah variasi 'Pie of Pie' dan 'Bar of Pie' didukung?**
+**Apakah variasi Pie of Pie dan Bar of Pie didukung?**
 
-Ya, pustaka [mendukung](https://reference.aspose.com/slides/id/net/aspose.slides.charts/charttype/) plot sekunder untuk diagram lingkaran, termasuk tipe 'Pie of Pie' dan 'Bar of Pie'.
+Ya, perpustakaan [mendukung](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) plot sekunder untuk diagram lingkaran, termasuk tipe Pie of Pie dan Bar of Pie.
 
 **Apakah saya dapat mengekspor hanya diagram sebagai gambar (misalnya, PNG)?**
 
-Ya, Anda dapat [mengekspor diagram itu sendiri sebagai gambar](https://reference.aspose.com/slides/id/net/aspose.slides/shape/getimage/) (seperti PNG) tanpa seluruh presentasi.
+Ya, Anda dapat [mengekspor diagram itu sendiri sebagai gambar](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (seperti PNG) tanpa mengekspor seluruh presentasi.

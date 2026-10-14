@@ -1,121 +1,161 @@
 ---
-title: Javaを使用したプレゼンテーションの円グラフカスタマイズ
+title: Java を使用してプレゼンテーションの円グラフをカスタマイズする
 linktitle: 円グラフ
 type: docs
 url: /ja/java/pie-chart/
 keywords:
 - 円グラフ
-- グラフ管理
-- グラフカスタマイズ
+- グラフの管理
+- グラフのカスタマイズ
 - グラフオプション
 - グラフ設定
 - プロットオプション
-- スライスカラー
+- スライスの色
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slidesを使用してJavaで円グラフを作成・カスタマイズし、PowerPointへエクスポートできる方法を学び、数秒でデータストーリーテリングを強化します。"
+description: "Aspose.Slides を使用して Java で円グラフを作成およびカスタマイズします。二次プロットを構成し、データラベルを表示し、PowerPoint で自動スライス色を適用します。"
 ---
+## **概要**
 
-## **パイ・オブ・パイ および バー・オブ・パイ チャートの第二プロットオプション**
-Aspose.Slides for Java は、パイ・オブ・パイまたはバー・オブ・パイチャートの第二プロットオプションをサポートします。このトピックでは、Aspose.Slides を使用してこれらのオプションを指定する方法を示します。プロパティを指定するには、次の手順を実行します。
+この記事では、Aspose.Slides の円グラフの使用方法について説明します。Pie of Pie および Bar of Pie グラフの二次プロットオプションの設定方法と、標準の円グラフに自動スライス着色を有効にする方法を示します。  
+例では、スライドへのグラフ追加、系列やラベル設定の調整、デフォルトのグラフデータをカスタムのカテゴリと値に置き換えること、そして更新されたプレゼンテーションの保存といったグラフカスタマイズタスクに焦点を当てています。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのオブジェクトをインスタンス化します。
-1. スライドにチャートを追加します。
-1. チャートの第二プロットオプションを指定します。
-1. プレゼンテーションをディスクに書き込みます。
+## **Pie of Pie および Bar of Pie グラフの二次プロットオプション**
 
-以下の例では、パイ・オブ・パイチャートのさまざまなプロパティを設定しています。
+Aspose.Slides for Java は、Pie of Pie および Bar of Pie グラフの二次プロットオプションをサポートしています。このオプションは二次プロットのサイズと、データポイントが二つのプロット間でどのように分割されるかを制御します。  
+次の例は、新しいプレゼンテーションに Pie of Pie グラフを作成し、データポイントの値をラベルとして表示します。[setSecondPieSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setSecondPieSize-int-) メソッドは二次プロットのサイズをメインプロットの 149% に設定します。[setPieSplitBy](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) はパーセンテージベースの分割を選択し、[setPieSplitPosition](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitPosition-double-) はしきい値を 53% に設定します。
+
 ```java
-// Presentation クラスのインスタンスを作成します
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // スライドにチャートを追加します
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
-    
-    // さまざまなプロパティを設定します
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
-    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-    
-    // プレゼンテーションをディスクに保存します
-    pres.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    // 値を表示し、二次プロットを構成します。
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setSecondPieSize(149);
+    seriesGroup.setPieSplitBy(PieSplitType.ByPercentage);
+    seriesGroup.setPieSplitPosition(53);
+
+    presentation.save("pie_of_pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+### **二次プロット用カテゴリの選択**
 
-## **自動パイチャートスライスカラーの設定**
-Aspose.Slides for Java は、パイチャートのスライスカラーを自動的に設定する簡単な API を提供します。サンプルコードは、上記プロパティの設定を適用しています。
+二次プロットで特定のカテゴリをパーセンテージに関係なくグループ化したい場合は、カスタム分割を使用します。例えば、売上レポートで Online と Events をまとめて表示すれば、読者はこの二つのチャネルを比較でき、合計売上の 35% と 10% を占めていても問題ありません。  
+[setPieSplitBy](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setPieSplitBy-int-) に [PieSplitType.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/piesplittype/#Custom) を指定して呼び出し、[getPieSplitCustomPoints](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getPieSplitCustomPoints--) でポイントを選択します。コレクションの [add](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#add-int-) メソッドは系列内のゼロベースインデックスを受け取り、データポイントオブジェクトを追加するには [addItem](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#addItem-com.aspose.slides.IChartDataPoint-) を使用します。この例ではインデックス 1 が Online を選択し、インデックス 3 のポイントが Events を選択します。Partners も一時的に追加され、[removeItem](https://reference.aspose.com/slides/java/com.aspose.slides/piesplitcustompointcollection/#removeItem-com.aspose.slides.IChartDataPoint-) で除外されます。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-1. 最初のスライドにアクセスします。
-1. デフォルトデータでチャートを追加します。
-1. チャートのタイトルを設定します。
-1. 最初の系列の「値を表示」を設定します。
-1. チャートデータシートのインデックスを設定します。
-1. チャートデータワークシートを取得します。
-1. デフォルトで生成された系列とカテゴリを削除します。
-1. 新しいカテゴリを追加します。
-1. 新しい系列を追加します。
-
-変更されたプレゼンテーションを PPTX ファイルに書き込みます。
 ```java
-// Presentation クラスのインスタンスを作成します
-Presentation pres = new Presentation();
-try {
-    // デフォルトデータでチャートを追加します
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+import com.aspose.slides.*;
 
-    // チャートタイトルを設定します
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+    // デフォルトのデータをチャネル別の売上に置き換えます。
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "Retail", "Online", "Partners", "Events" };
+    int[] values = { 40, 35, 15, 10 };
+    IChartDataCell seriesNameCell = workbook.getCell(0, 0, 1, "Sales");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+    seriesGroup.setPieSplitBy(PieSplitType.Custom);
+    seriesGroup.setColorVaried(true);
+
+    // Online をゼロベースのインデックスで、Events をデータポイントオブジェクトで選択します。
+    seriesGroup.getPieSplitCustomPoints().add(1);
+    seriesGroup.getPieSplitCustomPoints().addItem(series.getDataPoints().get_Item(3));
+
+    // Partners を選択から除外します（ソースデータは削除しません）。
+    seriesGroup.getPieSplitCustomPoints().add(2);
+    seriesGroup.getPieSplitCustomPoints().removeItem(series.getDataPoints().get_Item(2));
+
+    presentation.save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Online (35) と Events (10) は二次プロットで別々のスライスとして表示されます。一次プロットでは、Retail (40) と Partners (15) とともに、これらが 45 の値を持つ 1 つの結合スライスとして表されます。カスタム選択から Partners を除外しても、一次プロットには残り、カテゴリやその値がグラフの元データから削除されることはありません。  
+以下の画像は PowerPoint で保存されたプレゼンテーションを示しています。
+
+![二次プロットに Online と Events があり、一次プロットで合計値 45 となる Pie of Pie グラフ](pie_of_pie_custom.png)
+
+## **自動円グラフスライス色の設定**
+
+Aspose.Slides for Java は、円グラフのスライスに自動的に異なる色を割り当てることができます。次の例は、タイトルを中央に配置した円グラフを作成し、デフォルトデータを 3 つの四半期カテゴリとその値に置き換えます。[setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) メソッドは 20、50、30 の値をラベルとして表示し、[setColorVaried](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setColorVaried-boolean-) は各スライスに異なる色を有効にします。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
+
+    // 中央揃えのチャートタイトルを追加します。
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
 
-    // 最初の系列に値の表示を設定します
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-
-    // チャートデータシートのインデックスを設定します
-    int defaultWorksheetIndex = 0;
-
-    // チャートデータのワークシートを取得します
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-
-    // デフォルトで生成された系列とカテゴリを削除します
+    // 最初のワークシートを使用してデフォルトデータを置き換えます。
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
+    String[] categoryNames = { "First Qtr", "2nd Qtr", "3rd Qtr" };
+    int[] values = { 20, 50, 30 };
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    // 新しいカテゴリを追加します
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
+    for (int i = 0; i < categoryNames.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+        chart.getChartData().getCategories().add(categoryCell);
 
-    // 新しい系列を追加します
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForPieSeries(valueCell);
+    }
 
-    // 系列データを設定します
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-
+    // 値を表示し、スライスに異なる色を割り当てます。
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("Pie.pptx", SaveFormat.Pptx);
+
+    presentation.save("pie.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **FAQ**
 
-## **よくある質問**
+**Pie of Pie および Bar of Pie のバリエーションはサポートされていますか？**  
+はい、ライブラリは [サポートしています](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) ピーグラフの二次プロットを提供し、Pie of Pie と Bar of Pie のタイプを含みます。
 
-**「パイ・オブ・パイ」および「バー・オブ・パイ」バリエーションはサポートされていますか？**
-
-はい、ライブラリは[パイチャートの第二プロット](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)（「パイ・オブ・パイ」および「バー・オブ・パイ」タイプを含む）をサポートしています。
-
-**チャートだけを画像（たとえば PNG）としてエクスポートできますか？**
-
-はい、プレゼンテーション全体ではなく、チャート自体を画像（PNG など）として[エクスポート](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-)できます。
+**チャートだけを画像（例: PNG）としてエクスポートできますか？**  
+はい、[チャート自体を画像としてエクスポート](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage--)（PNG など）することができ、プレゼンテーション全体をエクスポートする必要はありません。

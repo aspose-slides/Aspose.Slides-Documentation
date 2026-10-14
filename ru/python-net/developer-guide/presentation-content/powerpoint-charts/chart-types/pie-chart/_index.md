@@ -7,121 +7,150 @@ keywords:
 - круговая диаграмма
 - управление диаграммой
 - настройка диаграммы
-- опции диаграммы
+- параметры диаграммы
 - настройки диаграммы
 - параметры построения
 - цвет сектора
 - PowerPoint
-- OpenDocument
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как создавать и настраивать круговые диаграммы в Python с помощью Aspose.Slides, экспортировать их в PowerPoint и OpenDocument, ускоряя рассказ о данных за считанные секунды."
+description: "Создавайте и настраивайте круговые диаграммы в Python с помощью Aspose.Slides. Настраивайте вторичные графики, отображайте подписи данных и применяйте автоматическое раскрашивание секторов в PowerPoint."
 ---
+## **Обзор**
 
-## **Вторичные параметры построения для диаграмм «Круг в круге» и «Бар в круге»**
-Aspose.Slides for Python via .NET теперь поддерживает вторичные параметры построения для диаграмм «Круг в круге» и «Бар в круге». В этой статье мы посмотрим на пример, как задавать эти параметры с помощью Aspose.Slides. Чтобы задать свойства, выполните следующие шаги:
+Эта статья объясняет, как работать с круговыми диаграммами в Aspose.Slides. Она показывает, как настроить параметры вторичного графика для диаграмм Pie of Pie и Bar of Pie, а также как включить автоматическое раскрашивание секторов для обычной круговой диаграммы.
 
-1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Добавьте диаграмму на слайд.
-1. Укажите вторичные параметры построения диаграммы.
-1. Запишите презентацию на диск.
+Примеры сосредоточены на задачах настройки диаграмм, таких как добавление диаграммы на слайд, изменение настроек серий и меток, замена данных диаграммы по умолчанию на пользовательские категории и значения, а также сохранение обновлённой презентации.
 
-В приведённом ниже примере мы задали различные свойства диаграммы «Круг в круге».
-```py
-import aspose.slides.charts as charts
+## **Параметры вторичного графика для диаграмм Pie of Pie и Bar of Pie**
+
+Aspose.Slides for Python via .NET поддерживает параметры вторичного графика для диаграмм Pie of Pie и Bar of Pie. Эти параметры управляют размером вторичного графика и тем, как точки данных распределяются между двумя графиками.
+
+Следующий пример создает диаграмму Pie of Pie в новой презентации и отображает значения точек данных в виде меток. Свойство [second_pie_size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/second_pie_size/) задает размер вторичного графика 149% от основного графика. [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) выбирает разбиение по процентам, а [pie_split_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_position/) устанавливает пороговое значение 53%.
+
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Создать экземпляр класса Presentation
 with slides.Presentation() as presentation:
-    # Добавить диаграмму на слайд
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
-        
-    # Установить различные свойства
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-    chart.chart_data.series[0].parent_series_group.second_pie_size = 149
-    chart.chart_data.series[0].parent_series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
-    chart.chart_data.series[0].parent_series_group.pie_split_position = 53
+    slide = presentation.slides[0]
 
-    # Сохранить презентацию на диск
-    presentation.save("SecondPlotOptionsforCharts_out.pptx", slides.export.SaveFormat.PPTX)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
+    series = chart.chart_data.series[0]
+
+    # Отображать значения и настроить вторичный график.
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.second_pie_size = 149
+    series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
+    series_group.pie_split_position = 53
+
+    presentation.save("pie_of_pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Выбор категорий для вторичного графика**
 
+Используйте пользовательское разбиение, когда необходимо сгруппировать определённые категории во вторичном графике независимо от их процентных значений. Например, в отчёте о продажах могут быть сгруппированы Online и Events, чтобы читатели могли сравнить эти два канала, хотя они составляют 35% и 10% от общей суммы продаж.
 
+Установите [pie_split_by](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_by/) в значение [PieSplitType.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplittype/) и выберите точки через [pie_split_custom_points](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/pie_split_custom_points/). Метод коллекции [add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/add/) принимает либо нулевой индекс в серии, либо объект точки данных. В этом примере индекс 1 выбирает Online, а точка с индексом 3 выбирает Events. Partners также временно добавляется, затем исключается с помощью [remove](https://reference.aspose.com/slides/python-net/aspose.slides.charts/piesplitcustompointcollection/).
 
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 600, 200)
+
+    # Заменить данные по умолчанию данными о продажах по каналам.
+    workbook = chart.chart_data.chart_data_workbook
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["Retail", "Online", "Partners", "Events"]
+    values = [40, 35, 15, 10]
+    series_name_cell = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
+
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(0, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(0, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
+
+    series.labels.default_data_label_format.show_value = True
+    series_group = series.parent_series_group
+    series_group.pie_split_by = charts.PieSplitType.CUSTOM
+    series_group.is_color_varied = True
+
+    # Выбрать Online по его нулевому индексу и Events по объекту точки данных.
+    series_group.pie_split_custom_points.add(1)
+    series_group.pie_split_custom_points.add(series.data_points[3])
+
+    # Исключить Partners из выбора без удаления его исходных данных.
+    series_group.pie_split_custom_points.add(2)
+    series_group.pie_split_custom_points.remove(series.data_points[2])
+
+    presentation.save("pie_of_pie_custom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Online (35) и Events (10) отображаются как отдельные сектора во вторичном графике. В основном графике они представлены одним объединённым сектором со значением 45, вместе с Retail (40) и Partners (15). Удаление Partners из пользовательского выбора оставляет её в основном графике; категория и её значение не удаляются из исходных данных диаграммы.
+
+Следующее изображение показывает сохранённую презентацию в PowerPoint:
+
+![Диаграмма Pie of Pie с Online и Events во вторичном графике и их объединённым значением 45 в основном графике](pie_of_pie_custom.png)
 
 ## **Установка автоматических цветов секторов круговой диаграммы**
-Aspose.Slides for Python via .NET предоставляет простой API для установки автоматических цветов секторов круговой диаграммы. Пример кода применяет указанные выше свойства.
 
-1. Создайте экземпляр класса Presentation.
-1. Получите первый слайд.
-1. Добавьте диаграмму с данными по умолчанию.
-1. Установите заголовок диаграммы.
-1. Настройте первый ряд для отображения значений.
-1. Установите индекс листа данных диаграммы.
-1. Получите лист данных диаграммы.
-1. Удалите автоматически сгенерированные ряды и категории.
-1. Добавьте новые категории.
-1. Добавьте новые ряды.
+Aspose.Slides for Python via .NET может автоматически назначать разные цвета секторам круговой диаграммы. Следующий пример создаёт круговую диаграмму с заголовком по центру и заменяет данные по умолчанию на три квартальные категории и их значения. Свойство [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) отображает значения 20, 50 и 30 в виде меток, а [is_color_varied](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/is_color_varied/) включает различный цвет для каждого сектора.
 
-Запишите изменённую презентацию в файл PPTX.
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# Создать экземпляр класса Presentation, представляющего файл PPTX
 with slides.Presentation() as presentation:
-	# Получить первый слайд
-	slide = presentation.slides[0]
+    slide = presentation.slides[0]
 
-	# Добавить диаграмму с данными по умолчанию
-	chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
 
-	# Установка заголовка диаграммы
-	chart.chart_title.add_text_frame_for_overriding("Sample Title")
-	chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
-	chart.chart_title.height = 20
-	chart.has_title = True
+    # Добавить центрированный заголовок диаграммы.
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
+    chart.chart_title.height = 20
+    chart.has_title = True
 
-	# Установить отображение значений для первого ряда
-	chart.chart_data.series[0].labels.default_data_label_format.show_value = True
+    # Заменить данные по умолчанию, используя первый лист.
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    category_names = ["First Qtr", "2nd Qtr", "3rd Qtr"]
+    values = [20, 50, 30]
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-	# Установка индекса листа данных диаграммы
-	defaultWorksheetIndex = 0
+    for i, category_name in enumerate(category_names):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
 
-	# Получение листа данных диаграммы
-	fact = chart.chart_data.chart_data_workbook
+        value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_pie_series(value_cell)
 
-	# Удалить автоматически сгенерированные ряды и категории
-	chart.chart_data.series.clear()
-	chart.chart_data.categories.clear()
+    # Показать значения и назначить разные цвета секторам.
+    series.labels.default_data_label_format.show_value = True
+    series.parent_series_group.is_color_varied = True
 
-	# Добавление новых категорий
-	chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "First Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "2nd Qtr"))
-	chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "3rd Qtr"))
-
-	# Добавление нового ряда
-	series = chart.chart_data.series.add(fact.get_cell(0, 0, 1, "Series 1"), chart.type)
-
-	# Теперь заполняем данные ряда
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
-	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
-
-	series.parent_series_group.is_color_varied = True
-	presentation.save("Pie.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Вопросы и ответы**
 
-## **FAQ**
+**Поддерживаются ли варианты Pie of Pie и Bar of Pie?**
 
-**Поддерживаются ли варианты «Круг в круге» и «Бар в круге»?**
-
-Да, библиотека [поддерживает](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) вторичное построение для круговых диаграмм, включая типы «Круг в круге» и «Бар в круге».
+Да, библиотека [supports](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) вторичный график для круговых диаграмм, включая типы Pie of Pie и Bar of Pie.
 
 **Могу ли я экспортировать только диаграмму как изображение (например, PNG)?**
 
-Да, вы можете [экспортировать саму диаграмму как изображение](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) (например, PNG) без всей презентации.
+Да, вы можете [export the chart itself as an image](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) (например PNG) без экспорта всей презентации.

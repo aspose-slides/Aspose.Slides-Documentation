@@ -11,109 +11,166 @@ keywords:
 - चार्ट सेटिंग्स
 - प्लॉट विकल्प
 - स्लाइस रंग
-- PowerPoint
+- पावरपॉइंट
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java का उपयोग करके पाई चार्ट बनाना और अनुकूलित करना सीखें, जिसे PowerPoint में निर्यात किया जा सकता है, और कुछ ही सेकंड में आपके डेटा कहानी कहने को बढ़ावा देता है।"
+description: "Aspose.Slides के साथ PHP में पाई चार्ट बनाएं और अनुकूलित करें। द्वितीय प्लॉट कॉन्फ़िगर करें, डेटा लेबल प्रदर्शित करें, और PowerPoint में स्वचालित स्लाइस रंग लागू करें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-यह लेख Aspose.Slides में पाई चार्ट के साथ काम करने के तरीके को समझाता है। यह Pie of Pie और Bar of Pie चार्ट के लिए द्वितीय प्लॉट विकल्पों को कॉन्फ़िगर करने तथा मानक पाई चार्ट के लिए स्वचालित स्लाइस रंग सक्षम करने का प्रदर्शन करता है।
+यह लेख Aspose.Slides में पाई चार्ट के साथ काम करने के तरीके को समझाता है। यह Pie of Pie और Bar of Pie चार्ट्स के लिए द्वितीय प्लॉट विकल्पों को कॉन्फ़िगर करने तथा एक मानक पाई चार्ट के लिए स्वचालित स्लाइस रंगिंग सक्षम करने का प्रदर्शन करता है।
 
-उदाहरण व्यावहारिक चार्ट अनुकूलन चरणों पर केंद्रित हैं जैसे स्लाइड में चार्ट जोड़ना, श्रृंखला और लेबल सेटिंग्स समायोजित करना, डिफ़ॉल्ट चार्ट डेटा को कस्टम श्रेणियों और मानों से बदलना, और अद्यतन प्रस्तुति को सहेजना।
+उदाहरण चार्ट अनुकूलन कार्यों पर केंद्रित हैं, जैसे कि स्लाइड में चार्ट जोड़ना, श्रृंखला और लेबल सेटिंग्स को समायोजित करना, डिफ़ॉल्ट चार्ट डेटा को कस्टम श्रेणियों और मानों से बदलना, और अपडेटेड प्रस्तुति को सहेजना।
 
-## **Pie of Pie और Bar of Pie चार्ट के लिए द्वितीय प्लॉट विकल्प**
-Aspose.Slides for PHP via Java अब Pie of Pie या Bar of Pie चार्ट के लिए द्वितीय प्लॉट विकल्पों को समर्थन देता है। इस विषय में हम दिखाएँगे कि Aspose.Slides का उपयोग करके इन विकल्पों को कैसे निर्दिष्ट किया जाए। गुणों को निर्दिष्ट करने के लिए निम्न चरणों का पालन करें:
+## **पाई ऑफ पाई और बार ऑफ पाई चार्ट्स के लिए द्वितीय प्लॉट विकल्प**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास ऑब्जेक्ट बनाएं।
-1. स्लाइड पर चार्ट जोड़ें।
-1. चार्ट के द्वितीय प्लॉट विकल्प निर्दिष्ट करें।
-1. प्रस्तुति को डिस्क पर लिखें।
+Aspose.Slides for PHP via Java Pie of Pie और Bar of Pie चार्ट्स के लिए द्वितीय प्लॉट विकल्पों का समर्थन करता है। ये विकल्प द्वितीय प्लॉट का आकार और दो प्लॉट्स के बीच डेटा पॉइंट्स के विभाजन को नियंत्रित करते हैं।
 
-नीचे दिए गए उदाहरण में हमने Pie of Pie चार्ट की विभिन्न गुणों को सेट किया है।
+निम्न उदाहरण एक नई प्रस्तुति में Pie of Pie चार्ट बनाता है और डेटा पॉइंट मूल्यों को लेबल के रूप में प्रदर्शित करता है। [setSecondPieSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setSecondPieSize) मेथड मुख्य प्लॉट के 149% के रूप में द्वितीय प्लॉट आकार सेट करता है। [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) प्रतिशत-आधारित विभाजन चुनता है, और [setPieSplitPosition](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) थ्रेशोल्ड को 53% सेट करता है।
 
 ```php
-  # Presentation क्लास का एक इंस्टेंस बनाएं
-  $pres = new Presentation();
-  try {
-    # स्लाइड पर चार्ट जोड़ें
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
-    # विभिन्न गुण सेट करें
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setSecondPieSize(149);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitBy(PieSplitType::ByPercentage);
-    $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitPosition(53);
-    # प्रस्तुति को डिस्क पर लिखें
-    $pres->save("SecondPlotOptionsforCharts_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 500, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    // मान दर्शाएँ और द्वितीय प्लॉट कॉन्फ़िगर करें।
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setSecondPieSize(149);
+    $seriesGroup->setPieSplitBy(PieSplitType::ByPercentage);
+    $seriesGroup->setPieSplitPosition(53);
+
+    $presentation->save("pie_of_pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **स्वचालित पाई चार्ट स्लाइस रंग सेट करें**
-Aspose.Slides for PHP via Java स्वचालित पाई चार्ट स्लाइस रंग सेट करने के लिए एक सरल API प्रदान करता है। नमूना कोड ऊपर बताए गए गुणों को लागू करता है।
+### **द्वितीय प्लॉट के लिए श्रेणियां चुनें**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का इंस्टेंस बनाएं।
-1. पहली स्लाइड तक पहुँचें।
-1. डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ें।
-1. चार्ट शीर्षक सेट करें।
-1. पहली श्रृंखला को मान दिखाने के लिए सेट करें।
-1. चार्ट डेटा शीट का इंडेक्स सेट करें।
-1. चार्ट डेटा कार्यपत्रक प्राप्त करें।
-1. डिफ़ॉल्ट उत्पन्न श्रृंखलाओं और श्रेणियों को हटाएँ।
-1. नई श्रेणियां जोड़ें।
-1. नई श्रृंखला जोड़ें।
+जब आप द्वितीय प्लॉट में विशिष्ट श्रेणियों को उनके प्रतिशत मानों की परवाह किए बिना समूहित करना चाहते हैं, तब कस्टम स्प्लिटिंग का उपयोग करें। उदाहरण के लिए, एक बिक्री रिपोर्ट में Online और Events को साथ में दिखाया जा सकता है जिससे पाठक इन दो चैनलों की तुलना कर सकें, हालांकि वे कुल बिक्री के 35% और 10% के प्रतिनिधित्व करते हैं।
 
-संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
+Call [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) के साथ [PieSplitType::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/piesplittype/) का उपयोग करें और [getPieSplitCustomPoints](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints) के माध्यम से पॉइंट चुनें। कलेक्शन का [add](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#add) मेथड श्रृंखला में शून्य-आधारित इंडेक्स स्वीकार करता है; डेटा पॉइंट ऑब्जेक्ट जोड़ने के लिए [addItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#addItem) का उपयोग करें। इस उदाहरण में, इंडेक्स 1 Online को चुनता है, और इंडेक्स 3 पर का पॉइंट Events को चुनता है। Partners को भी अस्थायी रूप से जोड़ा गया है, फिर उसे [removeItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#removeItem) का उपयोग करके बाहर किया गया है।
 
 ```php
-  # Presentation क्लास का एक इंस्टेंस बनाएं
-  $pres = new Presentation();
-  try {
-    # डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ें
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # चार्ट शीर्षक सेट करना
+use aspose\slides\ChartType;
+use aspose\slides\PieSplitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 200);
+
+    // डिफ़ॉल्ट डेटा को चैनल द्वारा बिक्री के साथ बदलें।
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $categoryNames = [ "Retail", "Online", "Partners", "Events" ];
+    $values = [ 40, 35, 15, 10 ];
+    $seriesNameCell = $workbook->getCell(0, 0, 1, "Sales");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
+    }
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $seriesGroup = $series->getParentSeriesGroup();
+    $seriesGroup->setPieSplitBy(PieSplitType::Custom);
+    $seriesGroup->setColorVaried(true);
+
+    // Online को उसके शून्य-आधारित इंडेक्स द्वारा और Events को उसके डेटा पॉइंट ऑब्जेक्ट द्वारा चुनें।
+    $seriesGroup->getPieSplitCustomPoints()->add(1);
+    $seriesGroup->getPieSplitCustomPoints()->addItem($series->getDataPoints()->get_Item(3));
+
+    // स्रोत डेटा को हटाए बिना चयन से Partners को बाहर करें।
+    $seriesGroup->getPieSplitCustomPoints()->add(2);
+    $seriesGroup->getPieSplitCustomPoints()->removeItem($series->getDataPoints()->get_Item(2));
+
+    $presentation->save("pie_of_pie_custom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Online (35) और Events (10) द्वितीय प्लॉट में अलग-अलग स्लाइस के रूप में दिखते हैं। प्राथमिक प्लॉट में, वे 45 मान वाले एक संयुक्त स्लाइस द्वारा प्रतिनिधित्व किए जाते हैं, साथ ही Retail (40) और Partners (15) भी। कस्टम चयन से Partners को हटाने से वह प्राथमिक प्लॉट में रहता है; यह श्रेणी या उसके मान को चार्ट के स्रोत डेटा से नहीं हटाता।
+
+निम्न छवि PowerPoint में सहेजी गई प्रस्तुति को दर्शाती है:
+
+![द्वितीय प्लॉट में Online और Events के साथ Pie of Pie चार्ट और प्राथमिक प्लॉट में उनका संयुक्त मान 45](pie_of_pie_custom.png)
+
+## **स्वचालित पाई चार्ट स्लाइस रंग सेट करें**
+
+Aspose.Slides for PHP via Java पाई चार्ट स्लाइस को स्वचालित रूप से विभिन्न रंग असाइन कर सकता है। निम्न उदाहरण केंद्रित शीर्षक के साथ एक पाई चार्ट बनाता है और डिफ़ॉल्ट डेटा को तीन त्रैमासिक श्रेणियों और उनके मानों से बदलता है। [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) मेथड मान 20, 50 और 30 को लेबल के रूप में दर्शाता है, जबकि [setColorVaried](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setColorVaried) प्रत्येक स्लाइस के लिए एक विशिष्ट रंग सक्षम करता है।
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
+
+    // एक केंद्रित चार्ट शीर्षक जोड़ें।
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # पहली श्रृंखला को मान दिखाने के लिए सेट करें
-    $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # चार्ट डेटा शीट का इंडेक्स सेट करना
-    $defaultWorksheetIndex = 0;
-    # चार्ट डेटा कार्यपत्रक प्राप्त करना
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # डिफ़ॉल्ट उत्पन्न श्रृंखलाएं और श्रेणियां हटाएं
+
+    // पहले कार्यपत्रक का उपयोग करके डिफ़ॉलट डेटा बदलें।
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    # नई श्रेणियां जोड़ना
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # नई श्रृंखला जोड़ना
-    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # अब श्रृंखला डेटा भरना
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getParentSeriesGroup()->setColorVaried(true);
-    $pres->save("Pie.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $categoryNames = [ "First Qtr", "2nd Qtr", "3rd Qtr" ];
+    $values = [ 20, 50, 30 ];
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    for ($i = 0; $i < count($categoryNames); $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, $categoryNames[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForPieSeries($valueCell);
     }
-  }
+
+    // मान दिखाएँ और स्लाइसों को विभिन्न रंग आवंटित करें।
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getParentSeriesGroup()->setColorVaried(true);
+
+    $presentation->save("pie.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या 'Pie of Pie' और 'Bar of Pie' वैरिएंट्स समर्थित हैं?**
+**क्या Pie of Pie और Bar of Pie वेरिएंट्स समर्थित हैं?**
 
-हाँ, लाइब्रेरी एक द्वितीय प्लॉट को [समर्थित](https://reference.aspose.com/slides/hi/php-java/aspose.slides/charttype/) करती है, जिसमें 'Pie of Pie' और 'Bar of Pie' प्रकार शामिल हैं।
+हाँ, लाइब्रेरी [समर्थित करता है](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) पाई चार्ट्स के लिए द्वितीय प्लॉट का समर्थन करती है, जिसमें Pie of Pie और Bar of Pie प्रकार शामिल हैं।
 
-**क्या मैं केवल चार्ट को छवि (उदाहरण के लिए, PNG) के रूप में निर्यात कर सकता हूँ?**
+**क्या मैं केवल चार्ट को एक छवि (उदाहरण के लिए, PNG) के रूप में निर्यात कर सकता हूँ?**
 
-हाँ, आप पूरी प्रस्तुति के बिना केवल चार्ट को छवि के रूप में [निर्यात](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/#getImage) कर सकते हैं (जैसे PNG)।
+हाँ, आप पूरे प्रस्तुति को निर्यात किए बिना [चार्ट को स्वयं एक छवि के रूप में निर्यात करना](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) (जैसे PNG) को एक छवि के रूप में निर्यात कर सकते हैं।

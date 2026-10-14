@@ -16,111 +16,149 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides 在 .NET 中创建和自定义饼图，可导出至 PowerPoint，瞬间提升您的数据叙事效果。"
+description: "使用 Aspose.Slides 在 .NET 中创建并自定义饼图。配置次要绘图，显示数据标签，并在 PowerPoint 中应用自动切片颜色。"
 ---
+## **概述**
 
-## **饼图中的饼图和条形饼图的第二绘图选项**
-Aspose.Slides for .NET 现在支持饼图中的饼图或条形饼图的第二绘图选项。在本章节中，我们将通过示例演示如何使用 Aspose.Slides 指定这些选项。请按照以下步骤操作：
+本文介绍了如何在 Aspose.Slides 中使用饼图。它展示了如何为 Pie of Pie 和 Bar of Pie 图表配置次要绘图选项，以及如何为标准饼图启用自动切片着色。
 
-1. 实例化 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类对象。
-1. 在幻灯片上添加图表。
-1. 指定图表的第二绘图选项。
-1. 将演示文稿写入磁盘。
+示例侧重于图表自定义任务，例如向幻灯片添加图表、调整系列和标签设置、用自定义类别和值替换默认图表数据，并保存更新后的演示文稿。
 
-在下面的示例中，我们设置了饼图中的饼图的不同属性。
-```c#
-// 创建 Presentation 类的实例
-Presentation presentation = new Presentation();
+## **Pie of Pie 和 Bar of Pie 图表的次要绘图选项**
 
-// 在幻灯片上添加图表
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// 设置不同的属性
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+Aspose.Slides for .NET 支持 Pie of Pie 和 Bar of Pie 图表的次要绘图选项。这些选项控制次要绘图的大小以及数据点在两个绘图之间的划分方式。
 
-// 将演示文稿写入磁盘
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+以下示例在新演示文稿中创建一个 Pie of Pie 图表并将数据点值显示为标签。[SecondPieSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/secondpiesize/) 属性将次要绘图的大小设置为主绘图的 149%。[PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitby/) 选择基于百分比的划分，且 [PieSplitPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/piesplitposition/) 将阈值设为 53%。
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+var series = chart.ChartData.Series[0];
+
+// 显示数值并配置次要绘图。
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.SecondPieSize = 149;
+seriesGroup.PieSplitBy = PieSplitType.ByPercentage;
+seriesGroup.PieSplitPosition = 53;
+
+presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
+### **为次要绘图选择类别**
 
+当您希望在次要绘图中对特定类别进行分组且不考虑其百分比值时，可使用自定义划分。例如，销售报告可能将 Online 和 Events 放在一起，以便读者比较这两个渠道，尽管它们分别占总销售额的 35% 和 10%。
 
+将 [PieSplitBy](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitby/) 设置为 [PieSplitType.Custom](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplittype/) 并通过 [PieSplitCustomPoints](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseriesgroup/piesplitcustompoints/) 选择点。集合的 [Add](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/add/) 方法接受系列中的零基索引或数据点对象。在本例中，索引 1 选择 Online，索引 3 处的点选择 Events。Partners 也被临时添加，然后使用 [Remove](https://reference.aspose.com/slides/net/aspose.slides.charts/piesplitcustompointcollection/remove/) 将其排除。
 
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 200);
+
+// 替换默认数据为渠道销售。
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "Retail", "Online", "Partners", "Events" };
+var values = new[] { 40, 35, 15, 10 };
+var seriesNameCell = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
+}
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+var seriesGroup = series.ParentSeriesGroup;
+seriesGroup.PieSplitBy = PieSplitType.Custom;
+seriesGroup.IsColorVaried = true;
+
+// 通过其零基索引选择 Online，并通过其数据点对象选择 Events。
+seriesGroup.PieSplitCustomPoints.Add(1);
+seriesGroup.PieSplitCustomPoints.Add(series.DataPoints[3]);
+
+// 从选择中排除 Partners，但不删除其源数据。
+seriesGroup.PieSplitCustomPoints.Add(2);
+seriesGroup.PieSplitCustomPoints.Remove(series.DataPoints[2]);
+
+presentation.Save("pie_of_pie_custom.pptx", SaveFormat.Pptx);
+```
+
+Online (35) 和 Events (10) 在次要绘图中显示为独立的切片。在主绘图中，它们以一个合并切片的形式出现，值为 45，另外还有 Retail (40) 和 Partners (15)。从自定义选择中移除 Partners 会使其仍保留在主绘图中；它不会从图表的源数据中删除该类别或其值。
+
+以下图片显示了在 PowerPoint 中保存的演示文稿：
+
+![Pie of Pie 图表，在次要绘图中显示 Online 和 Events，在主绘图中其合并值为 45](pie_of_pie_custom.png)
 
 ## **设置自动饼图切片颜色**
-Aspose.Slides for .NET 提供了一个用于设置自动饼图切片颜色的简易 API。示例代码演示了上述属性的设置。
 
-1. 创建 Presentation 类的实例。
-1. 访问第一张幻灯片。
-1. 添加带有默认数据的图表。
-1. 设置图表标题。
-1. 将第一系列设置为显示数值。
-1. 设置图表数据表的索引。
-1. 获取图表数据工作表。
-1. 删除默认生成的系列和类别。
-1. 添加新类别。
-1. 添加新系列。
+Aspose.Slides for .NET 可以自动为饼图切片分配不同的颜色。以下示例创建一个带居中标题的饼图，并用三个季度类别及其数值替换默认数据。[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) 属性将数值 20、50 和 30 显示为标签，而 [IsColorVaried](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/iscolorvaried/) 则为每个切片启用不同的颜色。
 
-将修改后的演示文稿写入 PPTX 文件。
-```c#
-// 实例化表示 PPTX 文件的 Presentation 类
-using (Presentation presentation = new Presentation())
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+// 添加居中的图表标题。
+chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+chart.ChartTitle.Height = 20;
+chart.HasTitle = true;
+
+// 使用第一个工作表替换默认数据。
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+var categoryNames = new[] { "First Qtr", "2nd Qtr", "3rd Qtr" };
+var values = new[] { 20, 50, 30 };
+var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 1, "Series 1");
+var series = chart.ChartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var i = 0; i < categoryNames.Length; i++)
 {
-	// 实例化表示 PPTX 文件的 Presentation 类
-	Presentation presentation = new Presentation();
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, categoryNames[i]);
+    chart.ChartData.Categories.Add(categoryCell);
 
-	// 访问第一张幻灯片
-	ISlide slides = presentation.Slides[0];
-
-	// 添加带默认数据的图表
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-	// 设置图表标题
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
-
-	// 将第一系列设置为显示数值
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-	// 设置图表数据工作表的索引
-	int defaultWorksheetIndex = 0;
-
-	// 获取图表数据工作表
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-	// 删除默认生成的系列和类别
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
-	// 添加新类别
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
-
-	// 添加新系列
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-	// 现在填充系列数据
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForPieSeries(valueCell);
 }
+
+// 显示数值并为切片分配不同的颜色。
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.ParentSeriesGroup.IsColorVaried = true;
+
+presentation.Save("pie.pptx", SaveFormat.Pptx);
 ```
 
+## **常见问题**
 
-## **FAQ**
+**是否支持 Pie of Pie 和 Bar of Pie 变体？**
 
-**是否支持‘饼图中的饼图’和‘条形饼图’变体？**
-
-是的，库 [supports](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 支持饼图的第二绘图，包括 ‘Pie of Pie’ 和 ‘Bar of Pie’ 类型。
+是的，库[支持](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)饼图的次要绘图，包括 Pie of Pie 和 Bar of Pie 类型。
 
 **我可以仅将图表导出为图像（例如 PNG）吗？**
 
-是的，您可以 [export the chart itself as an image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/)（例如 PNG），而无需整个演示文稿。
+是的，您可以[将图表本身导出为图像](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/)（例如 PNG），而无需导出整个演示文稿。
