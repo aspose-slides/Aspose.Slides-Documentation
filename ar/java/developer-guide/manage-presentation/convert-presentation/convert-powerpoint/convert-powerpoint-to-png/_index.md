@@ -21,104 +21,149 @@ keywords:
 - تصدير PPTX إلى PNG
 - Java
 - Aspose.Slides
-description: "حوّل عروض PowerPoint التقديمية إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides لـ Java، مع ضمان نتائج دقيقة ومؤتمتة."
+description: "تحويل عروض PowerPoint إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides for Java، مع ضمان نتائج دقيقة ومؤتمتة."
 ---
+## **نظرة عامة**
 
-## **حول تحويل PowerPoint إلى PNG**
+توضح هذه المقالة كيفية تحويل شرائح العرض إلى صور PNG باستخدام Aspose.Slides for Java. يمكنك تحميل العروض التقديمية بالصيغات مثل PPT و PPTX و ODP، وتصيير كل شريحة، وحفظها كصورة PNG منفصلة.
 
-تنسيق PNG (Portable Network Graphics) ليس شائعًا كما هو JPEG (Joint Photographic Experts Group)، لكنه لا يزال شائعًا جدًا.
-
-**حالة الاستخدام:** عندما يكون لديك صورة معقدة ولا يعتبر الحجم مشكلة، يكون PNG تنسيق صورة أفضل من JPEG.
-
-{{% alert title="Tip" color="primary" %}} قد ترغب في الاطلاع على محولات Aspose المجانية **PowerPoint إلى PNG**: [PPTX إلى PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و [PPT إلى PNG](https://products.aspose.app/slides/conversion/ppt-to-png). إنها تنفيذ حي للعملية الموضحة في هذه الصفحة. {{% /alert %}}
+تظهر الأمثلة أدناه كيفية التصيير بالمقياس الافتراضي، وزيادة المقياس، وتحديد أبعاد الإخراج بالبكسل، واختيار نمط تصيير التدرج.
 
 ## **تحويل PowerPoint إلى PNG**
 
-اتبع الخطوات التالية:
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. احصل على كائن الشريحة من مجموعة [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) تحت الواجهة [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide).
-3. استخدم طريقة [ISlide.getImage()](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) للحصول على صورة مصغرة لكل شريحة.
-4. استخدم طريقة [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) لحفظ الصورة المصغرة للشفريحة بتنسيق PNG.
+حمّل عرضًا تقديميًا باستخدام الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) والوصول إلى شرائحه عبر مجموعة [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) . يُظهر المثال كل شريحة باستخدام [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) بدون معلمات لإنشاء صورة مصغرة. ثم يُستدعى [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) مع [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/#Png) لحفظ كل شريحة مُصَّورة كصورة PNG.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+طريقة التحميل بدون معلمات لـ[ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) تُصّر على مقياس 0.2. على سبيل المثال، شريحة قياسها 720 × 540 نقطة تُنتج صورة مصغرة بحجم 144 × 108 بكسل. للتحكم بأبعاد الإخراج، استخدم التحميلات بمعاملات المقياس أو بحجم صورة صريح كما هو موضح أدناه.
+{{% /alert %}}
 
 ## **تحويل PowerPoint إلى PNG بأبعاد مخصصة**
 
-إذا كنت ترغب في الحصول على ملفات PNG بمقياس معين، يمكنك ضبط القيم لـ `desiredX` و `desiredY`، التي تحدد أبعاد الصورة المصغرة الناتجة.
+مرّر عوامل المقياس الأفقية والعمودية إلى [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-float-float-) للتحكم بأبعاد التصيير. في هذا المثال، كلا العاملين يساويان 2، لذا شريحة قياسها 720 × 540 نقطة تُنتج صورة بحجم 1440 × 1080 بكسل. عوامل المقياس المتساوية تحافظ على نسبة العرض إلى الارتفاع للشريحة. تُحفظ كل صورة بصيغة PNG باستخدام [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-).
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **تحويل PowerPoint إلى PNG بحجم مخصص**
 
-إذا كنت ترغب في الحصول على ملفات PNG بحجم معين، يمكنك تمرير القيم المفضلة لـ `width` و `height` في `ImageSize`.
+لتحديد أبعاد الإخراج بالبكسل، مرّر حجمًا إلى [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) بدلاً من عوامل المقياس. يُظهر هذا المثال كل شريحة بحجم 960 × 720 بكسل ويحفظ النتيجة باستخدام [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). اختر أبعادًا تتطابق مع نسبة عرض الشريحة لتجنب تمديد الصورة.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Dimension imageSize = new Dimension(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **اختيار نمط تصيير التدرج**
+
+افترض أن شريحة تحتوي على تعبئة بالتدرج، لكن الانتقالات في صورة PNG المصدرة تبدو أخف أو مختلفة عما تراه في PowerPoint. يمكنك استخدام الطريقة [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setGradientStyle-int-) الموروثة من [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) لاختيار كيفية تصيير التدرجات.
+
+حمّل الملف [gradient-styles.pptx](gradient-styles.pptx) وضعه في دليل العمل الخاص بالتطبيق. تحتوي شريحته الأولى على تدرجين خطيين: من السماوي إلى البرتقالي في الأعلى ومن الأزرق إلى الأصفر في الأسفل. كل تدرج يحتوي على نقطتي توقف عند 0% و100%.
+
+المثال التالي يحمل هذا العرض ويصير الشريحة الأولى بنفس الطريقة في الوضعين باستخدام [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+تظهر الصور أدناه النتيجة من نفس الشريحة، مع وجود التدرجين في كل صورة:
+
+| الافتراضي | PowerPointUI |
+| --- | --- |
+| ![التدرجات من السماوي إلى البرتقالي ومن الأزرق إلى الأصفر مُصَرة باستخدام الوضع الافتراضي](gradient-Default.png) | ![نفس التدرجات مُصَرة باستخدام PowerPointUI](gradient-PowerPointUI.png) |
+
+في هذا المثال، ينتج `Default` ألوانًا وسيطة أكثر خفة، بينما ينتج `PowerPointUI` ألوانًا وسيطة أغمق. يعتمد الاختلاف على الألوان ونقاط التوقف في التدرج.
+
+اختر `Default` عندما يناسبك الناتج القياسي من Aspose.Slides. جرّب `PowerPointUI` عندما تكون الأولوية هي مطابقة الشكل في PowerPoint. قارن كلا الناتجين مع النتيجة المطلوبة؛ لا أحد من الوضعين مفضل عالميًا.
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني استخراج شكل محدد فقط (مثل مخطط أو صورة) بدلاً من الشريحة بأكملها؟**
+**كيف يمكنني تصدير شكل محدد، مثل مخطط أو صورة، بدلاً من الشريحة بأكملها؟**
 
-يدعم Aspose.Slides [إنشاء صور مصغرة للأشكال الفردية](/slides/ar/java/create-shape-thumbnails/); يمكنك تحويل شكل إلى صورة PNG.
+يدعم Aspose.Slides [إنشاء صور مصغرة لأشكال فردية](/slides/ar/java/create-shape-thumbnails/)، مما يتيح لك تصيير شكل كصورة PNG.
 
-**هل يتم دعم التحويل المتوازي على الخادم؟**
+**هل يدعم التحويل المتوازي على الخادم؟**
 
-نعم، ولكن لا يجب [مشاركة](/slides/ar/java/multithreading/) نسخة واحدة من العرض عبر الخيوط. استخدم نسخة منفصلة لكل خيط أو عملية.
+نعم. استخدم نسخة عرض تقديمية منفصلة لكل خيط أو عملية؛ [لا تشارك نسخة واحدة عبر الخيوط](/slides/ar/java/multithreading/).
 
-**ما هي قيود نسخة التجريب عند التصدير إلى PNG؟**
+**ما هي قيود التقييم عند التصدير إلى PNG؟**
 
-يضيف وضع التقييم علامة مائية إلى الصور الناتجة ويفرض [قيودًا أخرى](/slides/ar/java/licensing/) حتى يتم تطبيق ترخيص.
+يضيف وضع التقييم علامة مائية إلى الصور الناتجة ويطبّق [قيودًا أخرى](/slides/ar/java/licensing/) حتى يتم تطبيق ترخيص.

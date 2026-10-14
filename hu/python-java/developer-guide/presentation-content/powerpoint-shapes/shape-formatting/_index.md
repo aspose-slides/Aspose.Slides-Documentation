@@ -1,5 +1,5 @@
 ---
-title: PowerPoint alakzatok formázása Pythonban Java-n keresztül
+title: PowerPoint alakzatok formázása Pythonon keresztül Java-val
 linktitle: Alakzat formázása
 type: docs
 weight: 20
@@ -7,50 +7,50 @@ url: /hu/python-java/shape-formatting/
 keywords:
 - alakzat formázása
 - vonal formázása
-- vázlat hatás
-- vázlatos alakzatvonal
-- csatlózási stílus formázása
+- vázlat effektus
+- alakzat vonal vázlat
+- csatlakozási stílus formázása
 - színátmenetes kitöltés
-- mintás kitöltés
-- képkitetés
-- textúrakitöltés
+- minta kitöltés
+- kép kitöltés
+- textúra kitöltés
 - egyszínű kitöltés
 - alakzat átlátszósága
-- fekete-fehér alakzat renderelés
-- szürkeárnyalatos alakzat renderelés
+- fekete-fehér alakzat megjelenítés
+- szürkeárnyalatos alakzat megjelenítés
 - alakzat forgatása
-- 3D rézsút hatás
-- 3D forgatási hatás
+- 3D vágás effektus
+- 3D forgatás effektus
 - formázás visszaállítása
 - PowerPoint
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan formázhatja a PowerPoint alakzatokat Pythonban Java-n keresztül az Aspose.Slides segítségével—állítsa be a kitöltés, vonal és effektus stílusait PPT, PPTX és ODP fájlokhoz pontosan és teljes kontrollal."
+description: "Ismerje meg, hogyan formázhatja a PowerPoint alakzatokat Pythonon keresztül Java-val az Aspose.Slides használatával—állítson be kitöltés, vonal és effektus stílusokat PPT, PPTX és ODP fájlokhoz precízen és teljes kontrollal."
 ---
 ## **Bevezetés**
 
-A PowerPointban alakzatokat adhat hozzá a diákhoz. Mivel az alakzatok vonalakból állnak, formázhatja őket a körvonalak módosításával vagy hatások alkalmazásával. Továbbá beállíthatja az alakzatok kitöltését úgy, hogy meghatározza, hogyan legyenek kitöltve a belső részek.
+A PowerPointban alakzatokat adhat a diákhoz. Mivel az alakzatok vonalakból állnak, formázhatja őket a körvonalak módosításával vagy effektusok alkalmazásával. Ezenkívül az alakzatokat olyan beállítások megadásával formázhatja, amelyek szabályozzák, hogyan töltődnek ki a belsejük.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![alakzat_formázása_powerpoint](format-shape-powerpoint.png)
 
-Az Aspose.Slides for Python via Java osztályokat és metódusokat biztosít, amelyekkel a PowerPointban elérhető ugyanazokkal a lehetőségekkel formázhatja az alakzatokat.
+Az Aspose.Slides for Python via Java osztályokat és metódusokat biztosít, amelyek lehetővé teszik az alakzatok formázását a PowerPointban elérhető ugyanazokkal a beállításokkal.
 
 ## **Vonalak formázása**
 
-Az Aspose.Slides segítségével egyedi vonalstílust adhat meg egy alakzathoz. Az alábbi lépések ismertetik a folyamatot:
+Az Aspose.Slides használatával egy alakzatra egyéni vonalstílust adhat meg. Az alábbi lépések ismertetik az eljárást:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) elemet a diához.
-1. Állítsa be az alakzat [vonalstílus](https://reference.aspose.com/slides/hu/python-java/aspose.slides/linestyle/) értékét.
-1. Állítsa be a vonal vastagságát.
-1. Állítsa be a vonal [szaggatott stílus](https://reference.aspose.com/slides/hu/python-java/aspose.slides/linedashstyle/) értékét.
-1. Állítsa be az alakzat vonalszínét.
-1. Mentse a módosított bemutatót PPTX fájlként.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet a diához.
+4. Állítsa be az alakzat [vonalstílus](https://reference.aspose.com/slides/python-java/aspose.slides/linestyle/) tulajdonságát.
+5. Állítsa be a vonal vastagságát.
+6. Állítsa be a vonal [szaggatott stílus](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) tulajdonságát.
+7. Állítsa be a vonal színét az alakzatra.
+8. Mentse a módosított prezentációt PPTX fájlként.
 
-Az alábbi kód bemutatja, hogyan formázhat egy téglalap [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) :
+Az alábbi kód bemutatja, hogyan formázhat egy téglalap [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/)-t:
 
 ```python
 import jpype
@@ -62,13 +62,13 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, LineDashStyle, LineStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Hozza létre a Presentation osztályt, amely egy prezentáció fájlt képvisel.
+# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 presentation = Presentation()
 try:
     # Szerezze meg az első diát.
     slide = presentation.getSlides().get_Item(0)
 
-    # Adjon hozzá egy Rectangle típusú automatikus alakzatot.
+    # Adjon hozzá egy téglalap típusú automatikus alakzatot.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75)
 
     # Állítsa be a téglalap alakzat kitöltő színét.
@@ -83,7 +83,7 @@ try:
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    # Mentse a PPTX fájlt a lemezre.
+    # Mentse a PPTX fájlt a lemezen.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -91,13 +91,13 @@ finally:
 
 Az eredmény:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![A formázott vonalak a prezentációban](formatted-lines.png)
 
-## **Vázlatos hatások alkalmazása alakzatvonalakra**
+## **Vázlatolási effektusok alkalmazása az alakzat vonalaira**
 
-A vázlat hatás úgy jeleníti meg a vonalat, mintha kézzel rajzolták volna. Használja a [Shape.getLineFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getLineFormat) metódust a vonal beállításainak eléréséhez, a [LineFormat.getSketchFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/lineformat/#getSketchFormat) metódust a vázlat beállításainak eléréséhez, és a [SketchFormat.setSketchType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sketchformat/#setSketchType) metódust a [LineSketchType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/linesketchtype/) felsorolásból való érték kiválasztásához.
+A vázlatolási effektus azt az eredményt adja, hogy az alakzat vonala kézzel rajzoltként jelenik meg. Használja a [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) metódust a vonalbeállítások eléréséhez, a [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) metódust a vázlat beállítások eléréséhez, és a [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) metódust a [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) felsorolásból egy érték kiválasztásához.
 
-Az alábbi Python kód megmutatja, hogyan alkalmazzon egy [LineSketchType.Curved](https://reference.aspose.com/slides/hu/python-java/aspose.slides/linesketchtype/#Curved) hatást, hogyan olvassa ki a kifejezetten hozzárendelt értéket, és hogyan távolítsa el a hatást a [LineSketchType.None_](https://reference.aspose.com/slides/hu/python-java/aspose.slides/linesketchtype/#None) használatával:
+Az alábbi Python kód azt mutatja, hogyan alkalmazhat egy [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#Curved) effektust, hogyan olvasható ki a kifejezetten hozzárendelt érték, és hogyan távolítható el az effektus a [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#None) használatával.
 
 ```python
 import jpype
@@ -116,20 +116,20 @@ try:
     # Hozzáférés az alakzat vonalformátumához és annak vázlatformátumához.
     sketch_format = shape.getLineFormat().getSketchFormat()
 
-    # Vázlat hatás alkalmazása.
+    # Vázlat effektus alkalmazása.
     sketch_format.setSketchType(LineSketchType.Curved)
 
-    # A alakzatra közvetlenül hozzárendelt vázlat hatás kiolvasása.
+    # A forma közvetlenül hozzárendelt vázlat effektusának olvasása.
     explicit_sketch_type = sketch_format.getSketchType()
     print(f"Explicit sketch type: {explicit_sketch_type}")
 
-    # A vázlat hatás eltávolítása.
+    # Vázlat effektus eltávolítása.
     sketch_format.setSketchType(LineSketchType.None_)
 finally:
     presentation.dispose()
 ```
 
-A [SketchFormat.getSketchType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sketchformat/#getSketchType) által visszaadott érték azt a beállítást képviseli, amely közvetlenül az alakzatra van alkalmazva. Ha a vonal formázása öröklődik egy témából, mester-diából vagy elrendezés-diából, használja a [LineFormat.getEffective](https://reference.aspose.com/slides/hu/python-java/aspose.slides/lineformat/#getEffective) metódust, érje el a `LineFormatEffectiveData.getSketchFormat` értéket, és olvassa ki a `SketchFormatEffectiveData.getSketchType` értéket. Az effektív érték azt a formázást tükrözi, amely ténylegesen alkalmazásra kerül az öröklődés feloldása után:
+A [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) által visszaadott érték a közvetlenül az alakzatra beállított formázást jelenti. Ha a vonalformázás öröklődik egy témából, mester diából vagy elrendezési diából, használja a [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) metódust, érje el a `LineFormatEffectiveData.getSketchFormat`-ot, és olvassa ki a `SketchFormatEffectiveData.getSketchType`-ot. A hatékony érték azt a formázást tükrözi, amely ténylegesen alkalmazásra kerül az öröklődés feloldása után:
 
 ```python
 import jpype
@@ -155,19 +155,19 @@ finally:
     presentation.dispose()
 ```
 
-## **Csatlózási stílusok formázása**
+## **Csatlakozási stílusok formázása**
 
-A három csatlózási típus lehetősége:
+Az alábbiak a három csatlakozási típus opciója:
 
 * Kerek
+* Éles
 * Vágott
-* Levágott
 
-Alapértelmezés szerint, amikor a PowerPoint két vonalat csatlakoztat szögnél (például egy alakzat sarkán), a **Kerek** beállítást használja. Ha azonban éles szögekkel rendelkező alakzatot rajzol, a **Vágott** opció előnyösebb lehet.
+Alapértelmezés szerint, amikor a PowerPoint két vonalat összekapcsol szögnél (például egy alakzat sarkán), a **Kerek** beállítást használja. Ha azonban éles szögekkel rendelkező alakzatot rajzol, előnyben részesítheti a **Éles** opciót.
 
-![The join style in the presentation](join-style-powerpoint.png)
+![A csatlakozási stílus a prezentációban](join-style-powerpoint.png)
 
-Az alábbi Python kód bemutatja, hogyan hoztak létre három téglalapot (az előző képen látható módon) a Vágott, Levágott és Kerek csatlózási típus beállításokkal:
+Az alábbi Python kód bemutatja, hogyan hoztak létre három téglalapot (amint a fenti képen látható) a Miter, Bevel és Round csatlakozási típus beállítások használatával:
 
 ```python
 import jpype
@@ -179,18 +179,18 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, LineJoinStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Példányosítsa a Presentation osztályt, amely egy prezentáció fájlt képvisel.
+# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 presentation = Presentation()
 try:
     # Szerezze meg az első diát.
     slide = presentation.getSlides().get_Item(0)
 
-    # Adjon hozzá három automatikus alakzatot Rectangle típusban.
+    # Adjon hozzá három téglalap típusú automatikus alakzatot.
     miter_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75)
     bevel_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75)
     round_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75)
 
-    # Állítsa be a kitöltő színt minden téglalap alakzatra.
+    # Állítsa be minden téglalap alakzat kitöltő színét.
     miter_shape.getFillFormat().setFillType(FillType.Solid)
     miter_shape.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     bevel_shape.getFillFormat().setFillType(FillType.Solid)
@@ -198,12 +198,12 @@ try:
     round_shape.getFillFormat().setFillType(FillType.Solid)
     round_shape.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 
-    # Állítsa be a vonalvastagságot.
+    # Állítsa be a vonal vastagságát.
     miter_shape.getLineFormat().setWidth(15)
     bevel_shape.getLineFormat().setWidth(15)
     round_shape.getLineFormat().setWidth(15)
 
-    # Állítsa be a vonal színét minden téglalaphoz.
+    # Állítsa be minden téglalap vonalának színét.
     miter_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     miter_shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     bevel_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
@@ -211,7 +211,7 @@ try:
     round_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     round_shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    # Állítsa be a csatlózási stílust.
+    # Állítsa be a csatlakozási stílust.
     miter_shape.getLineFormat().setJoinStyle(LineJoinStyle.Miter)
     bevel_shape.getLineFormat().setJoinStyle(LineJoinStyle.Bevel)
     round_shape.getLineFormat().setJoinStyle(LineJoinStyle.Round)
@@ -221,7 +221,7 @@ try:
     bevel_shape.getTextFrame().setText("Bevel Join Style")
     round_shape.getTextFrame().setText("Round Join Style")
 
-    # Mentse a PPTX fájlt a lemezre.
+    # Mentse a PPTX fájlt a lemezen.
     presentation.save("join_styles.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -229,18 +229,16 @@ finally:
 
 ## **Színátmenetes kitöltés**
 
-A PowerPointban a Színátmenetes kitöltés egy olyan formázási lehetőség, amely lehetővé teszi, hogy egy alakzatra folyamatos színátmenetet alkalmazzon. Például két vagy több színt alkalmazhat úgy, hogy az egyik fokozatosan átlékonyan átmenjen a másikba.
+A PowerPointban a Színátmenetes kitöltés egy formázási lehetőség, amely lehetővé teszi, hogy folyamatos színkeverést alkalmazzon egy alakzatra. Például két vagy több színt alkalmazhat úgy, hogy az egyik fokozatosan elhalványul a másikba.
 
-Az alábbi lépések mutatják be, hogyan alkalmazzon színátmenetes kitöltést egy alakzatra az Aspose.Slides segítségével:
+Az alábbiakban bemutatjuk, hogyan alkalmazzon színátmenetes kitöltést egy alakzatra az Aspose.Slides használatával:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) elemet a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/filltype/) értékét `Gradient`‑re.
-1. A [GradientFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/gradientformat/) osztály által kiírt gradient‑stop kollekció [addPresetColor](https://reference.aspose.com/slides/hu/python-java/aspose.slides/gradientstopcollection/#addPresetColor) metódusával adja hozzá a kívánt két színt meghatározott pozíciókkal.
-1. Mentse a módosított bemutatót PPTX fájlként.
-
-Az alábbi Python kód egy ellipszist mutat be, amelyre színátmenetes kitöltést alkalmaz:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet a diához.
+4. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) értékét `Gradient`-re.
+5. Adja hozzá a két kívánt színt a meghatározott pozíciókkal a [addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) metódussal, amely a [GradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/) osztály által biztosított színátmenet‑állomás-gyűjteményben érhető el.
+6. Mentse a módosított prezentációt PPTX fájlként.
 
 ```python
 import jpype
@@ -252,54 +250,52 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, GradientDirection, GradientShape, Presentation, PresetColor, SaveFormat, ShapeType
 from java.awt import Color
 
-    # Példányosítja a Presentation osztályt, amely egy prezentáció fájlt képvisel.
-    presentation = Presentation()
-    try:
-        # Beszerzi az első diát.
-        slide = presentation.getSlides().get_Item(0)
+# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
+presentation = Presentation()
+try:
+    # Szerezze meg az első diát.
+    slide = presentation.getSlides().get_Item(0)
 
-        # Hozzáad egy automatikus alakzatot Ellipse típusban.
-        shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75)
+    # Adjon hozzá egy Ellipse típusú automatikus alakzatot.
+    shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75)
 
-        # Alkalmazza a színátmenet formázást az ellipszisre.
-        shape.getFillFormat().setFillType(FillType.Gradient)
-        shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear)
+    # Alkalmazzon színátmenetes formázást az ellipszisre.
+    shape.getFillFormat().setFillType(FillType.Gradient)
+    shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear)
 
-        # Beállítja a színátmenet irányát.
-        shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2)
+    # Állítsa be a színátmenet irányát.
+    shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2)
 
-        # Két színátmeneti pontot ad hozzá.
-        shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, PresetColor.Purple)
-        shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, PresetColor.Red)
+    # Adjon hozzá két színátmenet‑állomást.
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, PresetColor.Purple)
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, PresetColor.Red)
 
-        # Mentse a PPTX fájlt a lemezre.
-        presentation.save("gradient_fill.pptx", SaveFormat.Pptx)
-    finally:
-        presentation.dispose()
+    # Mentse a PPTX fájlt a lemezen.
+    presentation.save("gradient_fill.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
 ```
 
-Az eredmény:
+![Az ellipszis színátmenetes kitöltéssel](gradient-fill.png)
 
-![The ellipse with gradient fill](gradient-fill.png)
+Ha egy színátmenet másként jelenik meg egy exportált képen, mint a PowerPointban, lásd a [Choose a Gradient Rendering Style](/slides/hu/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) oldalt. Kiválaszthat egy renderelési stílust anélkül, hogy megváltoztatná a prezentációban tárolt színátmenetes kitöltést.
 
 ## **Minta kitöltés**
 
-A PowerPointban a Minta kitöltés egy olyan formázási lehetőség, amely lehetővé teszi, hogy két‑színű mintát – például pontokat, csíkokat, keresztmintákat vagy négyzeteket – alkalmazzon egy alakzatra. A minta előtér‑ és háttérszínét egyedi színekre állíthatja be.
+A PowerPointban a Minta kitöltés egy formázási lehetőség, amely lehetővé teszi, hogy egy két színű mintát – például pöttyöket, csíkokat, keresztvonalakat vagy sakktáblát – alkalmazzon egy alakzatra. A minta elő- és háttérszínére egyéni színeket választhat.
 
-Az Aspose.Slides több mint 45 előre definiált mintastílust biztosít, amelyeket alakzatokra alkalmazhat a prezentációk vizuális hatásának fokozására. Még előre definiált mintát választva is megadhatja a pontos színeket, amelyeket a minta használjon.
+Az Aspose.Slides több mint 45 előre definiált minta stílust kínál, amelyeket alakzatokra alkalmazhat a prezentációk vizuális vonzerejének növelésére. Még előre definiált minta kiválasztása után is megadhatja a pontos színeket, amelyeket használni kell.
 
 Az alábbiakban bemutatjuk, hogyan alkalmazzon minta kitöltést egy alakzatra az Aspose.Slides használatával:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) elemet a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/filltype/) értékét `Pattern`‑re.
-1. Válasszon egy mintastílust az előre definiált lehetőségek közül.
-1. Állítsa be a minta [Background Color](https://reference.aspose.com/slides/hu/python-java/aspose.slides/patternformat/#getBackColor) értékét.
-1. Állítsa be a minta [Foreground Color](https://reference.aspose.com/slides/hu/python-java/aspose.slides/patternformat/#getForeColor) értékét.
-1. Mentse a módosított bemutatót PPTX fájlként.
-
-Az alábbi Python kód bemutatja, hogyan alkalmazzon minta kitöltést egy téglalapra:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet a diához.
+4. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) értékét `Pattern`-re.
+5. Válasszon egy minta stílust az előre definiált lehetőségek közül.
+6. Állítsa be a minta [Background Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) értékét.
+7. Állítsa be a minta [Foreground Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) értékét.
+8. Mentse a módosított prezentációt PPTX fájlként.
 
 ```python
 import jpype
@@ -311,58 +307,54 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, PatternStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Példányosítja a Presentation osztályt, amely egy prezentáció fájlt képvisel.
+# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 presentation = Presentation()
 try:
-    # Lekéri az első diát.
+    # Szerezze meg az első diát.
     slide = presentation.getSlides().get_Item(0)
 
-    # Hozzáad egy Rectangle típusú automatikus alakzatot.
+    # Adjon hozzá egy Rectangle típusú automatikus alakzatot.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
-    # Beállítja a kitöltés típusát Pattern-re.
+    # Állítsa be a kitöltés típusát Pattern-re.
     shape.getFillFormat().setFillType(FillType.Pattern)
 
-    # Beállítja a minta stílusát.
+    # Állítsa be a minta stílusát.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis)
 
-    # Beállítja a minta háttér- és előtérszíneit.
+    # Állítsa be a minta háttér- és előtérszíneit.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY)
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW)
 
-    # Mentse a PPTX fájlt a lemezre.
+    # Mentse a PPTX fájlt a lemezen.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Az eredmény:
-
-![The rectangle with pattern fill](pattern-fill.png)
+![A téglalap minta kitöltéssel](pattern-fill.png)
 
 ## **Kép kitöltés**
 
-A PowerPointban a Kép kitöltés olyan formázási lehetőség, amely lehetővé teszi, hogy egy képet helyezzen el egy alakzat belsejében – a képet hatékonyan az alakzat háttérként használva.
+A PowerPointban a Kép kitöltés egy formázási lehetőség, amely lehetővé teszi, hogy egy képet helyezzen el egy alakzat belsejében – hatékonyan a képet az alakzat háttérként használva.
 
-Az alábbiakban bemutatjuk, hogyan alkalmazzon képkitetést egy alakzatra az Aspose.Slides segítségével:
+Az alábbiakban bemutatjuk, hogyan használhatja az Aspose.Slides-t kép kitöltés alkalmazásához egy alakzatra:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) elemet a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/filltype/) értékét `Picture`‑re.
-1. Állítsa be a képkitetés módját `Tile`‑ra (vagy más kívánt módra).
-1. Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/ppimage/) objektumot a használni kívánt képből.
-1. Adja át a képet a `SlidesPicture.setImage` metódusnak.
-1. Mentse a módosított bemutatót PPTX fájlként.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet a diához.
+4. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) értékét `Picture`-re.
+5. Állítsa be a kép kitöltési módot `Tile`-re (vagy egy másik preferált módra).
+6. Hozzon létre egy [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) objektumot a használni kívánt képből.
+7. Adja át a képet a `SlidesPicture.setImage` metódusnak.
+8. Mentse a módosított prezentációt PPTX fájlként.
 
-Tegyük fel, hogy van egy **lotus.png** nevű fájlunk a következő képpel:
+Tegyük fel, hogy van egy "lotus.png" fájl a következő képpel:
 
-![The lotus picture](lotus.png)
-
-Az alábbi Python kód bemutatja, hogyan töltsön ki egy alakzatot a képpel:
+![A lotus kép](lotus.png)
 
 ```python
-import jpage
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -370,52 +362,48 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import FillType, Images, PictureFillMode, Presentation, SaveFormat, ShapeType
 
-# Példányosítja a Presentation osztályt, amely egy prezentáció fájlt képvisel.
+# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 presentation = Presentation()
 try:
-    # Lekéri az első diát.
+    # Szerezze meg az első diát.
     slide = presentation.getSlides().get_Item(0)
 
-    # Hozzáad egy Rectangle típusú automatikus alakzatot.
+    # Adjon hozzá egy Rectangle típusú automatikus alakzatot.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130)
     
-    # Beállítja a kitöltés típusát Picture-re.
+    # Állítsa be a kitöltés típusát Picture-re.
     shape.getFillFormat().setFillType(FillType.Picture)
 
-    # Beállítja a kép kitöltési módot.
+    # Állítsa be a kép kitöltési módot.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile)
 
-    # Betölt egy képet és hozzáadja a prezentáció erőforrásaihoz.
+    # Töltsön be egy képet, és adja hozzá a prezentáció erőforrásaihoz.
     image = Images.fromFile("lotus.png")
     picture = presentation.getImages().addImage(image)
     image.dispose()
 
-    # Beállítja a képet.
+    # Állítsa be a képet.
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
 
-    # Mentse a PPTX fájlt a lemezre.
+    # Mentse a PPTX fájlt a lemezen.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Az eredmény:
+![A forma kép kitöltéssel](picture-fill.png)
 
-![The shape with picture fill](picture-fill.png)
+### **Képet csempeként textúrához**
 
-### **Kép téglalapokként textúra**
+Ha csempézett képet szeretne beállítani textúrának és testre szabni a csempézés viselkedését, a [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) osztály következő metódusait használhatja:
 
-Ha téglalapozott képet szeretne textúraként beállítani, és testreszabni a csempe‑viselkedést, használhatja a [PictureFillFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picturefillformat/) osztály következő metódusait:
-
-- [setPictureFillMode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Beállítja a képkitetés módját – `Tile` vagy `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picturefillformat/#setTileAlignment): Megadja a csempék igazítását az alakzaton belül.
-- [setTileFlip](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picturefillformat/#setTileFlip): Meghatározza, hogy a csempe vízszintesen, függőlegesen vagy mindkettőre legyen tükrözve.
-- [setTileOffsetX](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Beállítja a csempe vízszintes eltolását (pontban) az alakzat origójától.
-- [setTileOffsetY](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Beállítja a csempe függőleges eltolását (pontban) az alakzat origójától.
-- [setTileScaleX](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picturefillformat/#setTileScaleX): Meghatározza a csempe vízszintes méretezését százalékban.
-- [setTileScaleY](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picturefillformat/#setTileScaleY): Meghatározza a csempe függőleges méretezését százalékban.
-
-Az alábbi kódrészlet bemutatja, hogyan adjon hozzá egy téglalap alakzatot csempézett képkitetéssel, és hogyan állítsa be a csempe‑opciókat:
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Beállítja a képkitöltési módot – `Tile` vagy `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): Meghatározza a csempék igazítását az alakzaton belül.
+- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): Ellenőrzi, hogy a csempe vízszintesen, függőlegesen vagy mindkettőre legyen-e tükrözve.
+- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Beállítja a csempe vízszintes eltolását (pontban) az alakzat kiindulási pontjától.
+- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Beállítja a csempe függőleges eltolását (pontban) az alakzat kiindulási pontjától.
+- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): Meghatározza a csempe vízszintes méretezését százalékban.
+- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): Meghatározza a csempe függőleges méretezését százalékban.
 
 ```python
 import jpype
@@ -426,28 +414,28 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import FillType, Images, PictureFillMode, Presentation, RectangleAlignment, SaveFormat, ShapeType, TileFlip
 
-# Példányosítja a Presentation osztályt, amely egy prezentáció fájlt képvisel.
+# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 presentation = Presentation()
 try:
-    # Lekéri az első diát.
+    # Szerezze meg az első diát.
     first_slide = presentation.getSlides().get_Item(0)
 
-    # Hozzáad egy téglalap automatikus alakzatot.
+    # Adjon hozzá egy téglalap automatikus alakzatot.
     shape = first_slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95)
 
-    # Beállítja az alakzat kitöltés típusát Picture-re.
+    # Állítsa be az alakzat kitöltés típusát Picture-re.
     shape.getFillFormat().setFillType(FillType.Picture)
 
-    # Betölti a képet és hozzáadja a prezentáció erőforrásaihoz.
+    # Töltsön be egy képet, és adja hozzá a prezentáció erőforrásaihoz.
     source_image = Images.fromFile("lotus.png")
     presentation_image = presentation.getImages().addImage(source_image)
     source_image.dispose()
 
-    # Hozzáadja a képet az alakzathoz.
+    # Rendelje hozzá a képet az alakzathoz.
     picture_fill_format = shape.getFillFormat().getPictureFillFormat()
     picture_fill_format.getPicture().setImage(presentation_image)
 
-    # Beállítja a kép kitöltési módot és a csempe tulajdonságait.
+    # Állítsa be a kép kitöltési módot és a csempézés tulajdonságait.
     picture_fill_format.setPictureFillMode(PictureFillMode.Tile)
     picture_fill_format.setTileOffsetX(-32)
     picture_fill_format.setTileOffsetY(-32)
@@ -456,30 +444,26 @@ try:
     picture_fill_format.setTileAlignment(RectangleAlignment.BottomRight)
     picture_fill_format.setTileFlip(TileFlip.FlipBoth)
 
-    # Mentse a PPTX fájlt a lemezre.
+    # Mentse a PPTX fájlt a lemezen.
     presentation.save("tile.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Az eredmény:
-
-![The tile options](tile-options.png)
+![A csempe beállítások](tile-options.png)
 
 ## **Egyszínű kitöltés**
 
-A PowerPointban az Egyszínű kitöltés egy olyan formázási lehetőség, amely egyetlen, egységes színnel tölti ki az alakzatot. Ez a egyszerű háttérszín gradiensek, textúrák vagy minták nélkül kerül alkalmazásra.
+A PowerPointban az Egyszínű kitöltés egy formázási lehetőség, amely egyetlen, egységes színnel tölti ki az alakzatot. Ez az egyszerű háttérszín gradient, textúra vagy minta nélkül kerül alkalmazásra.
 
-Az egyszínű kitöltés alkalmazásához a következő lépéseket kövesse:
+Az egyszínű kitöltés alkalmazásához egy alakzatra az Aspose.Slides segítségével, kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) elemet a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/filltype/) értékét `Solid`‑ra.
-1. Rendelje hozzá a kívánt kitöltőszínt az alakzathoz.
-1. Mentse a módosított bemutatót PPTX fájlként.
-
-Az alábbi Python kód bemutatja, hogyan alkalmazzon egyszínű kitöltést egy téglalapra egy PowerPoint dián:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet a diához.
+4. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) értékét `Solid`-ra.
+5. Rendelje hozzá a kívánt kitöltő színt az alakzathoz.
+6. Mentse a módosított prezentációt PPTX fájlként.
 
 ```python
 import jpype
@@ -491,48 +475,44 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Példányosítja a Presentation osztályt, amely egy prezentáció fájlt képvisel.
+# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 presentation = Presentation()
 try:
-    # Lekéri az első diát.
+    # Szerezze meg az első diát.
     slide = presentation.getSlides().get_Item(0)
 
-    # Hozzáad egy Rectangle típusú automatikus alakzatot.
+    # Adjon hozzá egy Rectangle típusú automatikus alakzatot.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
-    # Beállítja a kitöltés típusát Solid-ra.
+    # Állítsa be a kitöltés típusát Solid-re.
     shape.getFillFormat().setFillType(FillType.Solid)
 
-    # Beállítja a kitöltő színt.
+    # Állítsa be a kitöltő színt.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
 
-    # Mentse a PPTX fájlt a lemezre.
+    # Mentse a PPTX fájlt a lemezen.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Az eredmény:
-
-![The shape with solid color fill](solid-color-fill.png)
+![A forma egyszínű kitöltéssel](solid-color-fill.png)
 
 ## **Átlátszóság beállítása**
 
-A PowerPointban, ha egyszínű, színátmenetes, kép‑ vagy textúrakitetést alkalmaz egy alakzatra, beállíthatja az átlátszóság szintjét is, amely a kitöltés átlátszatlanságát szabályozza. A magasabb átlátszósági érték átlátszóbbá teszi az alakzatot, így a háttér vagy az alatta lévő objektumok részben láthatóvá válnak.
+A PowerPointban, amikor egyszínű, színátmenetes, képes vagy textúrás kitöltést alkalmaz a alakzatokra, beállíthatja az átlátszósági szintet is a kitöltés átlátszóságának szabályozásához. A magasabb átlátszósági érték átlátszóbbá teszi az alakzatot, lehetővé téve, hogy a háttér vagy a mögöttes objektumok részben láthatóak legyenek.
 
-Az Aspose.Slides lehetővé teszi az átlátszóság szintjének beállítását a kitöltéshez használt szín alfa komponensének módosításával. Így teheti:
+Az Aspose.Slides lehetővé teszi az átlátszósági szint beállítását a kitöltéshez használt szín alfa értékének módosításával. Íme, hogyan tehető ez:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) elemet a diához.
-1. Állítsa be a [FillType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/filltype/) értékét `Solid`‑ra.
-1. Használja a [Color](https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Color.html) osztályt olyan szín meghatározására, amely átlátszósággal rendelkezik (az `alpha` komponens vezérli az átlátszóságot).
-1. Mentse a bemutatót.
-
-Az alábbi Python kód megmutatja, hogyan alkalmazzon átlátszó kitöltőszínt egy téglalapra:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet a diához.
+4. Állítsa be a [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) értékét `Solid`-ra.
+5. Használja a [Color](https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Color.html) osztályt egy átlátszó szín definiálásához (az `alpha` komponens szabályozza az átlátszóságot).
+6. Mentse a prezentációt.
 
 ```python
-import jpage
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -541,44 +521,40 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Példányosítja a Presentation osztályt, amely egy prezentáció fájlt képvisel.
+# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 presentation = Presentation()
 try:
-    # Beszerzi az első diát.
+    # Szerezze meg az első diát.
     slide = presentation.getSlides().get_Item(0)
 
-    # Hozzáad egy szilárd téglalap automatikus alakzatot.
+    # Adjon hozzá egy szilárd téglalap automatikus alakzatot.
     solid_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
-    # Hozzáad egy átlátszó téglalap automatikus alakzatot a szilárd alakzat felett.
+    # Adjon hozzá egy átlátszó téglalap automatikus alakzatot a szilárd alakzat fölé.
     transparent_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75)
     transparent_shape.getFillFormat().setFillType(FillType.Solid)
     transparent_color = Color(255, 255, 0, 204)
     transparent_shape.getFillFormat().getSolidFillColor().setColor(transparent_color)
 
-    # Mentse a PPTX fájlt a lemezre.
+    # Mentse a PPTX fájlt a lemezen.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Az eredmény:
-
-![The transparent shape](shape-transparency.png)
+![Az átlátszó alakzat](shape-transparency.png)
 
 ## **Alakzatok forgatása**
 
-Az Aspose.Slides lehetővé teszi alakzatok forgatását PowerPoint‑prezentációkban. Ez hasznos lehet a vizuális elemek meghatározott igazítású vagy tervezési igényű elhelyezésénél.
+Az Aspose.Slides lehetővé teszi az alakzatok forgatását a PowerPoint prezentációkban. Ez hasznos lehet a vizuális elemek meghatározott igazítási vagy tervezési igényeinek elhelyezésénél.
 
-Egy alakzat forgatásához a dián kövesse az alábbi lépéseket:
+Az alakzat forgatásához egy dián, kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) elemet a diához.
-1. Állítsa be az alakzat forgatási tulajdonságát a kívánt szögre.
-1. Mentse a bemutatót.
-
-Az alábbi Python kód bemutatja, hogyan forgasson egy alakzatot 5 fokkal:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet a diához.
+4. Állítsa be az alakzat forgatási tulajdonságát a kívánt szögre.
+5. Mentse a prezentációt.
 
 ```python
 import jpype
@@ -589,41 +565,37 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-    # Példányosítja a Presentation osztályt, amely egy prezentáció fájlt képvisel.
-    presentation = Presentation()
-    try:
-        # Lekéri az első diát.
-        slide = presentation.getSlides().get_Item(0)
+# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
+presentation = Presentation()
+try:
+    # Szerezze meg az első diát.
+    slide = presentation.getSlides().get_Item(0)
 
-        # Hozzáad egy Rectangle típusú automatikus alakzatot.
-        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
+    # Adjon hozzá egy Rectangle típusú automatikus alakzatot.
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
-        # Forgatja az alakzatot 5 fokkal.
-        shape.setRotation(5)
+    # Forgassa el az alakzatot 5 fokkal.
+    shape.setRotation(5)
 
-        # Mentse a PPTX fájlt a lemezre.
-        presentation.save("shape_rotation.pptx", SaveFormat.Pptx)
-    finally:
-        presentation.dispose()
+    # Mentse a PPTX fájlt a lemezen.
+    presentation.save("shape_rotation.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
 ```
 
-Az eredmény:
+![Az alakzat forgatása](shape-rotation.png)
 
-![The shape rotation](shape-rotation.png)
+## **3D vágás effektusok hozzáadása**
 
-## **3D rézsút hatások hozzáadása**
+Az Aspose.Slides lehetővé teszi 3D vágás (bevel) effektusok alkalmazását az alakzatokra a [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) tulajdonságainak konfigurálásával.
 
-Az Aspose.Slides lehetővé teszi 3D rézsút hatások alkalmazását alakzatokra, a [ThreeDFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/threedformat/) tulajdonságainak konfigurálásával.
+3D vágás effektusok hozzáadásához egy alakzatra, kövesse az alábbi lépéseket:
 
-Egy 3D rézsút hatás hozzáadásához egy alakzathoz kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) elemet a diához.
-1. Állítsa be az alakzat [ThreeDFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/threedformat/) tulajdonságait a rézsút beállításainak meghatározásához.
-1. Mentse a bemutatót.
-
-Az alábbi Python kód bemutatja, hogyan alkalmazzon 3D rézsút hatásokat egy alakzatra:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet a diához.
+4. Állítsa be az alakzat [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) paramétereit a vágás beállításához.
+5. Mentse a prezentációt.
 
 ```python
 import jpype
@@ -640,7 +612,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Adjunk hozzá egy alakzatot a diához.
+    # Add a shape to the slide.
     shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100)
     shape.getFillFormat().setFillType(FillType.Solid)
     shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN)
@@ -648,7 +620,7 @@ try:
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
     shape.getLineFormat().setWidth(2.0)
 
-    # Állítsa be az alakzat ThreeDFormat tulajdonságait.
+    # Set the shape's ThreeDFormat properties.
     shape.getThreeDFormat().setDepth(4)
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
     shape.getThreeDFormat().getBevelTop().setHeight(6)
@@ -657,29 +629,25 @@ try:
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt)
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
 
-    # Mentse a prezentációt PPTX fájlként.
+    # Save the presentation as a PPTX file.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Az eredmény:
+![A 3D vágás effektus](3D-bevel-effect.png)
 
-![The 3D bevel effect](3D-bevel-effect.png)
+## **3D forgatási effektusok hozzáadása**
 
-## **3D forgatási hatások hozzáadása**
-
-Az Aspose.Slides lehetővé teszi 3D forgatási hatások alkalmazását alakzatokra, a [ThreeDFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/threedformat/) tulajdonságainak konfigurálásával.
+Az Aspose.Slides lehetővé teszi 3D forgatási effektusok alkalmazását az alakzatokra a [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) tulajdonságainak konfigurálásával.
 
 3D forgatás alkalmazásához egy alakzatra:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) elemet a diához.
-1. A [setCameraType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/camera/#setCameraType) és a [setLightType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/lightrig/#setLightType) metódusok használatával határozza meg a 3D forgatást.
-1. Mentse a bemutatót.
-
-Az alábbi Python kód bemutatja, hogyan alkalmazzon 3D forgatási hatásokat egy alakzatra:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztályból.
+2. Szerezzen hivatkozást egy diára az indexe alapján.
+3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet a diához.
+4. Használja a [setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) és a [setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) metódusokat a 3D forgatás meghatározásához.
+5. Mentse a prezentációt.
 
 ```python
 import jpype
@@ -709,17 +677,15 @@ finally:
     presentation.dispose()
 ```
 
-Az eredmény:
+![A 3D forgatási effektus](3D-rotation-effect.png)
 
-![The 3D rotation effect](3D-rotation-effect.png)
+## **Fekete-fehér megjelenítés vezérlése az alakzatoknál**
 
-## **Fekete-fehér megjelenítés vezérlése alakzatoknál**
+A [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) metódus meghatározza, hogyan jelenik meg egy adott alakzat, amikor a prezentáció fekete-fehér módban kerül megtekintésre vagy feldolgozásra. Ez önmagában nem kapcsol be fekete-fehér megjelenítést, és nem változtatja meg az alakzat kitöltését, vonalát vagy egyéb formázását normál színmódban.
 
-A [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#setBlackWhiteMode) metódus határozza meg, hogyan legyen egy adott alakzat renderelve, amikor a bemutatót fekete‑fehér módban tekintik vagy dolgozzák fel. A metódus önmagában nem kapcsol be fekete‑fehér megjelenítést, és nem változtatja meg az alakzat kitöltését, vonalát vagy egyéb formázását normál színmódban.
+Használjon egy értéket a [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) osztályból a kívánt viselkedés kiválasztásához. Például a `Automatic` a renderelő alkalmazásnak hagyja a konverziót, a `Gray` és `LightGray` szürke színezést alkalmaz, a `BlackWhite` csak feketét és fehéret használ, a `Black` és `White` egyetlen színt kényszerít, a `Color` megőrzi a normál színezést, a `Hidden` elrejti az alakzatot fekete-fehér módban. A `NotDefined` azt jelenti, hogy nincs alakzatszintű mód beállítva.
 
-A [BlackWhiteMode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/blackwhitemode/) osztály értékét használva válassza ki a kívánt viselkedést. Például az `Automatic` lehetővé teszi a megjelenítő alkalmazásnak a konverzió kiválasztását, a `Gray` és a `LightGray` szürke árnyalatot alkalmaz, a `BlackWhite` csak feketét és fehéret használ, a `Black` és a `White` egyetlen színt kényszerít ki, a `Color` megőrzi a normál színezést, a `Hidden` elrejti az alakzatot fekete‑fehér módban, a `NotDefined` pedig azt jelenti, hogy nincs hozzárendelt alakzat‑szintű mód.
-
-Az alábbi Python kód létrehoz egy színes alakzatot, és szürkévé teszi azt a fekete‑fehér megjelenítési mód során:
+Az alábbi Python kód létrehoz egy színes alakzatot, és fekete-fehér megjelenítési módban szürke színűvé teszi:
 
 ```python
 import jpype
@@ -739,7 +705,7 @@ try:
     shape.getFillFormat().setFillType(FillType.Solid)
     shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
 
-    # Tartsa a narancssárga kitöltést színes módban, de jelenítse meg az alakzatot szürke színnel fekete-fehér módban.
+    # Tartsa meg a narancssárga kitöltést szín módban, de a alakzatot szürke színnel jelenítse meg fekete-fehér módban.
     shape.setBlackWhiteMode(BlackWhiteMode.Gray)
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx)
@@ -747,11 +713,11 @@ finally:
     presentation.dispose()
 ```
 
-Normál színmódban a téglalap megtartja narancssárga kitöltését. Fekete‑fehér megjelenítés esetén a mód `Gray`‑re van állítva, ezért a téglalap szürke színnel jelenik meg, ami lehetővé teszi, hogy a teljes színű diát megtartsa, miközben a nyomtatáshoz, előnézethez vagy egyéb, a fekete‑fehér beállításokat tiszteletben tartó munkafolyamatokhoz külön megjelenítést definiáljon.
+Normál színmódban a téglalap megtartja narancssárga kitöltését. Egy fekete-fehér megjelenítési munkafolyamatban szürke színnel jelenik meg, mert a módja `Gray`-re van állítva. Ez lehetővé teszi, hogy megőrizze a teljes színű diát, miközben meghatároz egy eltérő megjelenést a nyomtatáshoz, előnézethez vagy egyéb munkafolyamatokhoz, amelyek a prezentáció fekete-fehér beállításait tiszteletben tartják.
 
 ## **Formázás visszaállítása**
 
-Az alábbi Python kód bemutatja, hogyan állítsa vissza egy dia formázását, és hogyan állítsa alaphelyzetbe a [LayoutSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/) helyőrzőkkel rendelkező összes alakzat pozícióját, méretét és formázását:
+Az alábbi Python kód bemutatja, hogyan állítható vissza egy dia formázása, és hogyan állítható vissza az összes placeholderrel rendelkező alakzat pozíciója, mérete és formázása a [LayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/layoutslide/) alapértelmezett beállításaira:
 
 ```python
 import jpype
@@ -765,7 +731,7 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("sample.pptx")
 try:
     for slide in presentation.getSlides():
-        # Állítsa vissza a dián lévő minden alakzatot, amelynek helyőrzője van az elrendezésben.
+        # Visszaállítja a dián lévő minden alakzatot, amelynek a layouton helyőrzője van.
         slide.reset()
 
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx)
@@ -775,14 +741,14 @@ finally:
 
 ## **GYIK**
 
-**Érint-e az alakzat formázása a végleges bemutató fájlméretét?**
+**A formázás befolyásolja a végleges prezentáció fájlméretét?**
 
-Csak minimálisan. A beágyazott képek és média foglalja a fájl legtöbb helyét, míg a színek, effektusok és színátmenetek paraméterei metaadata‑ként tárolódnak, és gyakorlatilag nem növelik a méretet.
+Csak minimálisan. A beágyazott képek és médiafájlok foglalják a fájl helyének a legtöbb részét, míg az alakzatparaméterek, mint a színek, effektusok és színátmenetek metaadatként tárolódnak, és gyakorlatilag nem növelik a méretet.
 
-**Hogyan tudok olyan alakzatokat észlelni egy dián, amelyek azonos formázást használnak, hogy csoportosíthassam őket?**
+**Hogyan tudok azonos formázású alakzatokat egy dián felderíteni, hogy csoportosíthassam őket?**
 
-Hasonlítsa össze az egyes alakzatok kulcsfontosságú formázási tulajdonságait – a kitöltés, vonal és effektus beállításait. Ha minden megfelelő érték megegyezik, tekintse a stílusokat azonosnak, és logikailag csoportosítsa az alakzatokat, ami megkönnyíti a későbbi stíluskezelést.
+Hasonlítsa össze minden alakzat kulcsfontosságú formázási tulajdonságait – kitöltés, vonal és effektus beállítások. Ha minden megfelelő érték megegyezik, tekintse a stílusokat azonosnak, és logikailag csoportosítsa ezeket az alakzatokat, ami megkönnyíti a későbbi stíluskezelést.
 
-**Menthetek‑e egy egyedi alakzat‑stíluskészletet egy külön fájlba, hogy más prezentációkban újra felhasználjam?**
+**Menthetek egy egyéni alakzatstílus-készletet egy külön fájlba, hogy más prezentációkban is felhasználhassam?**
 
-Igen. Tárolja a kívánt stílusokkal ellátott mintaalakzatokat egy sablon‑diakészletben vagy egy .POTX sablonfájlban. Új prezentáció létrehozásakor nyissa meg a sablont, klónozza a szükséges stílusú alakzatokat, és alkalmazza a formázásukat a szükséges helyeken.
+Igen. Tároljon például alakzatokat a kívánt stílusokkal egy sablon diakészletben vagy .POTX sablonfájlban. Új prezentáció létrehozásakor nyissa meg a sablont, klónozza a szükséges stílusú alakzatokat, és alkalmazza újra a formázásukat a szükséges helyeken.

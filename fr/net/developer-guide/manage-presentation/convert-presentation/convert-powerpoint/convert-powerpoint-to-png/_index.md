@@ -1,5 +1,5 @@
 ---
-title: Convertir les diapositives PowerPoint en PNG dans .NET
+title: Convertir les diapositives PowerPoint en PNG avec .NET
 linktitle: PowerPoint en PNG
 type: docs
 weight: 30
@@ -22,114 +22,120 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Convertissez les présentations PowerPoint en images PNG de haute qualité rapidement avec Aspose.Slides pour .NET, garantissant des résultats précis et automatisés."
+description: "Convertir rapidement des présentations PowerPoint en images PNG de haute qualité avec Aspose.Slides pour .NET, garantissant des résultats précis et automatisés."
 ---
-
 ## **Vue d'ensemble**
 
-Cet article explique comment convertir une présentation PowerPoint au format PNG en utilisant C#. Il couvre les sujets suivants.
+Cet article explique comment convertir des diapositives de présentation en images PNG à l'aide d'Aspose.Slides pour .NET. Vous pouvez charger des présentations dans des formats tels que PPT, PPTX et ODP, rendre chaque diapositive et l'enregistrer en tant qu'image PNG distincte.
 
-- [Convertir PowerPoint en PNG en C#](#convert-powerpoint-to-png)
-- [Convertir PPT en PNG en C#](#convert-powerpoint-to-png)
-- [Convertir PPTX en PNG en C#](#convert-powerpoint-to-png)
-- [Convertir ODP en PNG en C#](#convert-powerpoint-to-png)
-- [Convertir une diapositive PowerPoint en image en C#](#convert-powerpoint-to-png)
-
-## **PowerPoint en PNG avec .NET**
-
-Pour le code d’exemple C# qui convertit PowerPoint en PNG, voir la section ci‑dessous, c’est‑à‑dire [Convertir PowerPoint en PNG](#convert-powerpoint-to-png). Le code peut charger plusieurs formats comme PPT, PPTX et ODP dans l’objet Presentation, puis enregistrer la miniature de chaque diapositive au format PNG. Les autres conversions PowerPoint en image similaires, telles que JPG, BMP, TIFF et SVG, sont abordées dans ces articles.
-
-- [C# PowerPoint en JPG](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint en BMP](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint en TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
-- [C# PowerPoint en SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
-
-## **À propos de la conversion PowerPoint en PNG**
-
-Le format PNG (Portable Network Graphics) n’est pas aussi répandu que le JPEG (Joint Photographic Experts Group), mais il reste très populaire.  
-
-**Cas d’utilisation :** lorsqu’une image est complexe et que la taille n’est pas un problème, le PNG est un meilleur format d’image que le JPEG.  
-
-{{% alert title="Tip" color="primary" %}} Vous pouvez consulter les convertisseurs gratuits PowerPoint en PNG d’Aspose :**PowerPoint to PNG Converters** : [PPTX en PNG](https://products.aspose.app/slides/conversion/pptx-to-png) et [PPT en PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Ils illustrent concrètement le processus décrit sur cette page. {{% /alert %}}
+Les exemples ci-dessous montrent le rendu de miniatures, la définition des facteurs d'échelle, la spécification des dimensions de sortie en pixels et le choix d'un style de rendu de dégradé.
 
 ## **Convertir PowerPoint en PNG**
 
-Suivez ces étapes :
+Chargez une présentation avec la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) et accédez à ses diapositives via la collection [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). L'exemple rend chaque diapositive avec [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) sans paramètres pour créer une miniature. Il appelle ensuite [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) avec [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) pour enregistrer chaque diapositive rendue en tant qu'image PNG.
 
-1. Instancier la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Récupérer l’objet diapositive depuis la collection [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) via l’interface [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide).
-3. Utiliser la méthode [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) pour obtenir la miniature de chaque diapositive.
-4. Utiliser la méthode [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) pour enregistrer la miniature de la diapositive au format PNG.
+```cs
+using Aspose.Slides;
 
-Ce code C# montre comment convertir une présentation PowerPoint en PNG. L’objet Presentation peut charger PPT, PPTX, ODP, etc., puis chaque diapositive est convertie au format PNG ou dans d’autres formats d’image.
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage())
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage();
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+La surcharge sans paramètre de [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) rend à une échelle de 0,2. Par exemple, une diapositive mesurant 720 × 540 points produit une miniature de 144 × 108 pixels. Pour contrôler les dimensions de sortie, utilisez les surcharges avec des facteurs d'échelle ou une taille d'image explicite ci-dessous.
+{{% /alert %}}
 
 ## **Convertir PowerPoint en PNG avec des dimensions personnalisées**
 
-Si vous souhaitez obtenir des fichiers PNG à une échelle précise, vous pouvez définir les valeurs de `desiredX` et `desiredY`, qui déterminent les dimensions de la miniature résultante.  
+Passez des facteurs d'échelle horizontaux et verticaux à [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) pour contrôler les dimensions rendues. Dans cet exemple, les deux facteurs sont égaux à 2, ainsi une diapositive mesurant 720 × 540 points produit une image de 1440 × 1080 pixels. Des facteurs d'échelle égaux conservent le rapport d'aspect de la diapositive. Chaque image est enregistrée au format PNG avec [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/).
 
-Ce code C# illustre l’opération décrite :
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    float scaleX = 2f;
-    float scaleY = 2f;
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(scaleX, scaleY))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
-
 
 ## **Convertir PowerPoint en PNG avec une taille personnalisée**
 
-Si vous voulez obtenir des fichiers PNG d’une taille donnée, vous pouvez transmettre vos paramètres préférés `width` et `height` à `imageSize`.  
+Pour spécifier les dimensions de sortie en pixels, transmettez une taille à [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) au lieu des facteurs d'échelle. Cet exemple rend chaque diapositive à 960 × 720 pixels et enregistre le résultat avec [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Choisissez des dimensions qui correspondent au rapport d'aspect de la diapositive afin d'éviter d'étirer l'image.
 
-Ce code montre comment convertir un PowerPoint en PNG en spécifiant la taille des images :
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var imageSize = new Size(960, 720);
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    Size size = new Size(960, 720);
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(size))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(imageSize);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+## **Choisir un style de rendu de dégradé**
+
+Supposons qu'une diapositive contienne des remplissages en dégradé, mais que les transitions dans le PNG exporté apparaissent plus claires ou autrement différentes de ce que vous voyez dans PowerPoint. Vous pouvez utiliser la propriété [GradientStyle](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/gradientstyle/) de [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) pour choisir la façon dont les dégradés sont rendus.
+
+Téléchargez [gradient-styles.pptx](gradient-styles.pptx) et placez-le dans le répertoire de travail de l'application. Sa première diapositive contient deux dégradés linéaires : du cyan à l'orange en haut et du bleu au jaune en bas. Chaque dégradé possède deux arrêts, à 0 % et 100 %.
+
+L'exemple suivant charge cette présentation et rend la même première diapositive dans les deux modes avec [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/).
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("gradient-styles.pptx");
+var slide = presentation.Slides[0];
+
+var gradientStyles = new[] { GradientStyle.Default, GradientStyle.PowerPointUI };
+foreach (var style in gradientStyles)
+{
+    var options = new RenderingOptions { GradientStyle = style };
+    using var image = slide.GetImage(options, 1f, 1f);
+    image.Save($"gradient-{style}.png", ImageFormat.Png);
+}
+```
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Dégradés cyan à orange et bleu à jaune rendus avec Default](gradient-Default.png) | ![Les mêmes dégradés rendus avec PowerPointUI](gradient-PowerPointUI.png) |
+
+Dans cet exemple, `Default` produit des couleurs intermédiaires plus claires, tandis que `PowerPointUI` produit des couleurs intermédiaires plus sombres. La différence dépend des couleurs et des arrêts dans le dégradé.
+
+Choisissez `Default` lorsque la sortie standard d'Aspose.Slides correspond à vos besoins. Essayez `PowerPointUI` si votre priorité est de reproduire l'apparence dans PowerPoint. Comparez les deux sorties avec le résultat souhaité ; aucun des deux modes n'est universellement préférable.
 
 ## **FAQ**
 
-**Comment exporter uniquement une forme spécifique (par exemple, un graphique ou une image) plutôt que la diapositive entière ?**  
-Aspose.Slides prend en charge [la génération de miniatures pour des formes individuelles](/slides/fr/net/create-shape-thumbnails/) ; vous pouvez rendre une forme en image PNG.
+**Comment puis-je exporter une forme spécifique, telle qu'un graphique ou une image, au lieu de toute la diapositive ?**
 
-**La conversion parallèle est‑elle supportée sur un serveur ?**  
-Oui, mais [ne partagez pas](/slides/fr/net/multithreading/) une même instance de présentation entre plusieurs threads. Utilisez une instance séparée par thread ou par processus.
+Aspose.Slides prend en charge la [génération de miniatures pour des formes individuelles](/slides/fr/net/create-shape-thumbnails/), vous permettant de rendre une forme sous forme d'image PNG.
 
-**Quelles sont les limitations de la version d’évaluation lors de l’exportation en PNG ?**  
-Le mode d’évaluation ajoute un filigrane aux images de sortie et impose [d’autres restrictions](/slides/fr/net/licensing/) tant qu’une licence n’est pas appliquée.
+**La conversion parallèle est-elle prise en charge sur un serveur ?**
+
+Oui. Utilisez une instance de présentation distincte pour chaque fil d'exécution ou processus ; [ne partagez pas une même instance entre les fils](/slides/fr/net/multithreading/).
+
+**Quelles sont les limitations de la version d'évaluation lors de l'exportation en PNG ?**
+
+Le mode d'évaluation ajoute un filigrane aux images de sortie et applique [d'autres restrictions](/slides/fr/net/licensing/) jusqu'à ce qu'une licence soit appliquée.

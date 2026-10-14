@@ -1,55 +1,55 @@
 ---
-title: C++ में PowerPoint शकलें स्वरूपित करें
-linktitle: शकल स्वरूपण
+title: "C++ में PowerPoint आकारों को स्वरूपित करें"
+linktitle: "आकार स्वरूपण"
 type: docs
 weight: 20
 url: /hi/cpp/shape-formatting/
 keywords:
-- शकल स्वरूपित करें
-- रेखा स्वरूपित करें
-- स्केच प्रभाव
-- स्केच शकल रेखा
-- जॉइन स्टाइल स्वरूपित करें
-- ग्रेडिएंट फिल
-- पैटर्न फिल
-- पिक्चर फिल
-- टेक्सचर फिल
-- सॉलिड रंग फिल
-- शकल पारदर्शिता
-- काली-सफ़ेद शकल रेंडरिंग
-- ग्रेस्केल शकल रेंडरिंग
-- शकल घुमाएँ
-- 3D बिवेल प्रभाव
-- 3D घुमाव प्रभाव
-- स्वरूपण रीसेट करें
-- PowerPoint
-- प्रेजेंटेशन
-- C++
-- Aspose.Slides
-description: "Aspose.Slides का उपयोग करके C++ में PowerPoint शकलों को कैसे स्वरूपित करें सीखें—PPT, PPTX और ODP फाइलों के लिए भराव, रेखा और प्रभाव शैलियों को सटीकता और पूर्ण नियंत्रण के साथ सेट करें।"
+- "आकार स्वरूपण"
+- "रेखा स्वरूपण"
+- "स्केच प्रभाव"
+- "स्केच आकार रेखा"
+- "जॉइन शैली स्वरूपण"
+- "ग्रेडिएंट भराव"
+- "पैटर्न भराव"
+- "चित्र भराव"
+- "टेक्सचर भराव"
+- "एकरंगी रंग भराव"
+- "आकार पारदर्शिता"
+- "काले-सफ़ेद आकार रेंडरिंग"
+- "ग्रेस्केल आकार रेंडरिंग"
+- "आकार घुमाना"
+- "3D बिवेल प्रभाव"
+- "3D घुमाव प्रभाव"
+- "स्वरूपण रीसेट"
+- "PowerPoint"
+- "प्रस्तुति"
+- "C++"
+- "Aspose.Slides"
+description: "Aspose.Slides का उपयोग करके C++ में PowerPoint आकारों को स्वरूपित करना सीखें—PPT, PPTX और ODP फ़ाइलों के लिए भराव, रेखा और प्रभाव शैलियों को सटीकता और पूर्ण नियंत्रण के साथ सेट करें।"
 ---
 ## **परिचय**
 
-PowerPoint में, आप स्लाइड में शकलें (shapes) जोड़ सकते हैं। चूंकि शकलें रेखाओं से बनी होती हैं, आप उनकी रूपरेखा (outline) को संशोधित या प्रभाव लागू करके स्वरूपित कर सकते हैं। अतिरिक्त रूप से, आप शकल के आंतरिक भाग को कैसे भरा जाए, यह नियंत्रित करने वाली सेटिंग्स को निर्दिष्ट करके शकल को स्वरूपित कर सकते हैं।
+PowerPoint में आप स्लाइड्स में आकार जोड़ सकते हैं। चूँकि आकार रेखाओं से बने होते हैं, आप उनकी रूपरेखा को संशोधित करके या उस पर इफ़ेक्ट्स लागू करके उनका स्वरूपण कर सकते हैं। अतिरिक्त रूप से, आप आकारों का स्वरूपण ऐसे सेटिंग्स निर्दिष्ट करके कर सकते हैं जो नियंत्रित करता है कि उनका आंतरिक भाग कैसे भरा जाता है।
 
-![PowerPoint में शकल स्वरूपण](format-shape-powerpoint.png)
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ ऐसे इंटरफ़ेस और मेथड प्रदान करता है जो PowerPoint में उपलब्ध समान विकल्पों का उपयोग करके शकलों को स्वरूपित करने की अनुमति देते हैं।
+Aspose.Slides for C++ इंटरफ़ेस और मेथड्स प्रदान करता है जो आपको PowerPoint में उपलब्ध समान विकल्पों का उपयोग करके आकारों को स्वरूपित करने की अनुमति देता है।
 
-## **रेखाएँ स्वरूपित करें**
+## **रेखाओं का स्वरूपण**
 
-Aspose.Slides का उपयोग करके आप किसी शकल के लिए कस्टम लाइन स्टाइल निर्दिष्ट कर सकते हैं। निम्नलिखित कदम प्रक्रिया को दर्शाते हैं:
+Aspose.Slides का उपयोग करके आप आकार के लिए कस्टम लाइन शैली निर्दिष्ट कर सकते हैं। नीचे दी गई चरण‑बद्ध प्रक्रिया इसे दर्शाती है:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) to the slide.
-1. Set the [line style](https://reference.aspose.com/slides/hi/cpp/aspose.slides/linestyle/) of the shape.
-1. Set the line width.
-1. Set the [dash style](https://reference.aspose.com/slides/hi/cpp/aspose.slides/linedashstyle/) of the line.
-1. Set the line color for the shape.
-1. Save the modified presentation as a PPTX file.
+1. [प्रेजेंटेशन](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
+1. उसके इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
+1. आकार की [लाइन शैली](https://reference.aspose.com/slides/cpp/aspose.slides/linestyle/) सेट करें।
+1. लाइन की चौड़ाई सेट करें।
+1. लाइन की [डैश शैली](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) सेट करें।
+1. आकार के लिए लाइन का रंग सेट करें।
+1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-निम्न कोड दिखाता है कि एक आयताकार `AutoShape` की रेखाओं को कैसे स्वरूपित किया जाता है:
+आयत `AutoShape` को स्वरूपित करने वाला कोड इस प्रकार है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -72,28 +72,28 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// एक प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएँ।
+// Instantiate the Presentation class that represents a presentation file.
 auto presentation = MakeObject<Presentation>();
 
-// पहली स्लाइड प्राप्त करें।
+// Get the first slide.
 auto slide = presentation->get_Slide(0);
 
-// Rectangle प्रकार की एक ऑटो शकल जोड़ें।
+// Add an auto shape of the Rectangle type.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-// आयताकार शकल के लिए फिल रंग सेट करें।
+// Set the fill color for the rectangle shape.
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// आयताकार की रेखाओं पर स्वरूपण लागू करें।
+// Apply formatting to the rectangle's lines.
 shape->get_LineFormat()->set_Style(LineStyle::ThickThin);
 shape->get_LineFormat()->set_Width(7);
 shape->get_LineFormat()->set_DashStyle(LineDashStyle::Dash);
 
-// आयताकार की रेखा के लिए रंग सेट करें।
+// Set the color for the rectangle's line.
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// PPTX फ़ाइल को डिस्क पर सहेजें।
+// Save the PPTX file to disk.
 presentation->Save(u"formatted_lines.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
@@ -102,11 +102,11 @@ presentation->Dispose();
 
 ![प्रेजेंटेशन में स्वरूपित रेखाएँ](formatted-lines.png)
 
-## **शकल रेखाओं पर स्केच प्रभाव लागू करें**
+## **आकार रेखाओं पर स्केच प्रभाव लागू करना**
 
-स्केच प्रभाव शकल की रेखा को हाथ से खींची हुई जैसा बनाता है। रेखा सेटिंग तक पहुँचने के लिए [IShape::get_LineFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/get_lineformat/) का उपयोग करें, स्केच सेटिंग तक पहुँचने के लिए [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilineformat/get_sketchformat/) का उपयोग करें, और [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isketchformat/set_sketchtype/) से [LineSketchType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/linesketchtype/) सूची से मान चुनें।
+स्केच प्रभाव आकार की रेखा को हाथ से लिखी हुई जैसा बनाता है। लाइन सेटिंग्स तक पहुंचने के लिए [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) का उपयोग करें, स्केच सेटिंग्स तक पहुंचने के लिए [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) का उपयोग करें, और [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) से [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) एन्हुमरेशन में से मान चुनें।
 
-निम्न C++ कोड दर्शाता है कि कैसे [LineSketchType::Curved](https://reference.aspose.com/slides/hi/cpp/aspose.slides/linesketchtype/) प्रभाव लागू किया जाता है, स्पष्ट रूप से असाइन किया गया मान पढ़ा जाता है, और [LineSketchType::None](https://reference.aspose.com/slides/hi/cpp/aspose.slides/linesketchtype/) से प्रभाव हटाया जाता है:
+नीचे दिया गया C++ कोड दिखाता है कि कैसे [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) प्रभाव लागू किया जाता है, मान पढ़ा जाता है, और [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) से प्रभाव हटाया जाता है:
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -130,7 +130,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-[ISketchFormat::get_SketchType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isketchformat/get_sketchtype/) द्वारा लौटाया गया मान शकल को सीधे असाइन की गई सेटिंग को दर्शाता है। यदि रेखा स्वरूपण थीम, मास्टर स्लाइड या लेआउट स्लाइड से विरासत में मिल सकता है, तो [ILineFormat::GetEffective](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilineformat/geteffective/) का उपयोग करें, [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) तक पहुँचें, और [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) पढ़ें। प्रभावी मान वह स्वरूपण दर्शाता है जो विरासत समाधान के बाद वास्तविक रूप से लागू होता है:
+[ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) द्वारा लौटाया गया मान सीधे आकार को असाइन किए गए सेटिंग को दर्शाता है। यदि लाइन स्वरूपण थीम, मास्टर स्लाइड या लेआउट स्लाइड से विरासत में मिल सकता है, तो [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/) का उपयोग करें, [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) तक पहुंचें, और [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) पढ़ें। प्रभावी मान वह स्वरूपण दर्शाता है जो विरासत के समाधान के बाद वास्तव में लागू होता है:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"presentation.pptx");
@@ -148,19 +148,19 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **जॉइन स्टाइल स्वरूपित करें**
+## **जॉइन शैली स्वरूपण**
 
-यहाँ तीन जॉइन प्रकार विकल्प हैं:
+तीन जॉइन प्रकार विकल्प हैं:
 
-* Round
-* Miter
-* Bevel
+* गोल
+* मिटर
+* बीवल
 
-डिफ़ॉल्ट रूप से, जब PowerPoint दो रेखाओं को कोण पर जोड़ता है (जैसे शकल के कोने पर), वह **Round** सेटिंग का उपयोग करता है। हालांकि, यदि आप तीखे कोण वाली शकल बना रहे हैं, तो आप **Miter** विकल्प को प्राथमिकता दे सकते हैं।
+डिफ़ॉल्ट रूप से, जब PowerPoint दो रेखाओं को कोण पर जोड़ता है (जैसे आकार के कोने पर), वह **गोल** सेटिंग का उपयोग करता है। हालांकि, यदि आप तीव्र कोण वाले आकार बनाते हैं, तो आप **मिटर** विकल्प को पसंद कर सकते हैं।
 
-![प्रेजेंटेशन में जॉइन स्टाइल](join-style-powerpoint.png)
+![प्रेजेंटेशन में जॉइन शैली](join-style-powerpoint.png)
 
-निम्न C++ कोड दर्शाता है कि ऊपर दिखाए गए चित्र में Miter, Bevel, और Round जॉइन टाइप सेटिंग्स का उपयोग करके तीन आयतें कैसे बनाई गईं:
+नीचे दिया गया C++ कोड दर्शाता है कि ऊपर दिखाए गए चित्र की तरह तीन आयतों को मिटर, बीवल और गोल जॉइन शैली सेटिंग्स के साथ कैसे बनाया गया:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -183,18 +183,18 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// एक प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएँ।
+// Presentation क्लास का एक इंस्टेंस बनाएं जो प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करता है।
 auto presentation = MakeObject<Presentation>();
 
 // पहली स्लाइड प्राप्त करें।
 auto slide = presentation->get_Slide(0);
 
-// Rectangle प्रकार की तीन ऑटो शकलें जोड़ें।
+// Rectangle प्रकार के तीन ऑटो शैप्स जोड़ें।
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
 auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
 auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-// प्रत्येक आयताकार शकल के लिए फिल रंग सेट करें।
+// प्रत्येक आयत आकार के भराव रंग को सेट करें।
 shape1->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape2->get_FillFormat()->set_FillType(FillType::Solid);
@@ -207,7 +207,7 @@ shape1->get_LineFormat()->set_Width(15);
 shape2->get_LineFormat()->set_Width(15);
 shape3->get_LineFormat()->set_Width(15);
 
-// प्रत्येक आयताकार की रेखा के लिए रंग सेट करें।
+// प्रत्येक आयत की रेखा का रंग सेट करें।
 shape1->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 shape2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -215,12 +215,12 @@ shape2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Colo
 shape3->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// जॉइन स्टाइल सेट करें।
+// जॉइन शैली सेट करें।
 shape1->get_LineFormat()->set_JoinStyle(LineJoinStyle::Miter);
 shape2->get_LineFormat()->set_JoinStyle(LineJoinStyle::Bevel);
 shape3->get_LineFormat()->set_JoinStyle(LineJoinStyle::Round);
 
-// प्रत्येक आयताकार में पाठ जोड़ें।
+// प्रत्येक आयत में टेक्स्ट जोड़ें।
 shape1->get_TextFrame()->set_Text(u"Miter Join Style");
 shape2->get_TextFrame()->set_Text(u"Bevel Join Style");
 shape3->get_TextFrame()->set_Text(u"Round Join Style");
@@ -230,20 +230,20 @@ presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ग्रेडिएंट फिल**
+## **ग्रेडिएंट भराव**
 
-PowerPoint में, ग्रेडिएंट फिल एक स्वरूपण विकल्प है जो आपको शकल पर निरंतर रंगों के मिश्रण को लागू करने देता है। उदाहरण के लिए, आप दो या अधिक रंगों को इस तरह लागू कर सकते हैं कि एक धीरे‑धीरे दूसरे में घुलता जाए।
+PowerPoint में ग्रेडिएंट भराव एक स्वरूपण विकल्प है जो आपको आकार पर निरंतर रंग मिश्रण लागू करने की अनुमति देता है। उदाहरण के लिए, आप दो या अधिक रंग इस प्रकार लागू कर सकते हैं कि एक धीरे‑धीरे दूसरे में बदलता रहे।
 
-Aspose.Slides का उपयोग करके शकल पर ग्रेडिएंट फिल लागू करने के चरण इस प्रकार हैं:
+Aspose.Slides का उपयोग करके आकार पर ग्रेडिएंट भराव लागू करने के चरण इस प्रकार हैं:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) to the slide.
-1. Set the shape's [FillType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/filltype/) to `Gradient`.
-1. Add your two preferred colors with defined positions using the `Add` methods of the gradient stop collection exposed by the [IGradientFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/igradientformat/) interface.
-1. Save the modified presentation as a PPTX file.
+1. [प्रेजेंटेशन](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
+1. उसके इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
+1. आकार की [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) को `Gradient` सेट करें।
+1. [IGradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/) इंटरफ़ेस द्वारा प्रदान किए गए ग्रेडिएंट स्टॉप कलेक्शन की `Add` विधियों का उपयोग करके दो वांछित रंग तथा उनकी स्थितियों को परिभाषित करें।
+1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-निम्न C++ कोड दिखाता है कि कैसे एक अण्डाकार में ग्रेडिएंट फिल प्रभाव लागू किया जाता है:
+नीचे दिया गया C++ कोड दिखाता है कि कैसे एक दीर्घवृत्त पर ग्रेडिएंट भराव प्रभाव लागू किया जाता है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -264,16 +264,16 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
+// Presentation क्लास का एक इंस्टेंस बनाएं जो प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करता है।
 auto presentation = MakeObject<Presentation>();
 
 // पहली स्लाइड प्राप्त करें।
 auto slide = presentation->get_Slide(0);
 
-// Ellipse प्रकार की एक ऑटो शकल जोड़ें।
+// Ellipse प्रकार का एक ऑटो शैप जोड़ें।
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-// अण्डाकार पर ग्रेडिएंट स्वरूपण लागू करें।
+// एलीप्स पर ग्रेडिएंट स्वरूपण लागू करें।
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
 shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
 
@@ -291,26 +291,28 @@ presentation->Dispose();
 
 परिणाम:
 
-![ग्रेडिएंट फिल वाली अण्डाकार](gradient-fill.png)
+![ग्रेडिएंट भराव वाला दीर्घवृत्त](gradient-fill.png)
 
-## **पैटर्न फिल**
+यदि ग्रेडिएंट निर्यातित छवि में PowerPoint की तुलना में अलग दिखता है, तो देखें [Choose a Gradient Rendering Style](/slides/hi/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style)। आप प्रस्तुतिकरण में संग्रहीत ग्रेडिएंट भराव को बदले बिना रेंडरिंग शैली चुन सकते हैं।
 
-PowerPoint में, पैटर्न फिल एक स्वरूपण विकल्प है जो आपको शकल पर दो‑रंगीय डिज़ाइन—जैसे बिंदु, धारियां, क्रॉसहैच या चेक—लागू करने देता है। आप पैटर्न के अग्रभूमि और पृष्ठभूमि रंग को कस्टमाइज़ कर सकते हैं।
+## **पैटर्न भराव**
 
-Aspose.Slides 45 से अधिक पूर्वनिर्धारित पैटर्न शैलियाँ प्रदान करता है जिन्हें आप शकलों पर लागू करके अपनी प्रेजेंटेशन की दृश्य आकर्षण बढ़ा सकते हैं। पूर्वनिर्धारित पैटर्न चुनने के बाद भी आप सटीक रंग निर्दिष्ट कर सकते हैं।
+PowerPoint में पैटर्न भराव एक स्वरूपण विकल्प है जो आपको दो‑रंग डिज़ाइन—जैसे बिंदु, धारियां, क्रॉसहैच या चेक—आकार पर लागू करने देता है। आप पैटर्न के अग्रभूमि और पृष्ठभूमि के लिए कस्टम रंग चुन सकते हैं।
 
-Aspose.Slides का उपयोग करके शकल पर पैटर्न फिल लागू करने के चरण इस प्रकार हैं:
+Aspose.Slides 45 से अधिक पूर्वनिर्धारित पैटर्न शैलियाँ प्रदान करता है जिन्हें आप आकारों पर लागू करके अपनी प्रस्तुतियों की दृश्य आकर्षकता बढ़ा सकते हैं। पूर्वनिर्धारित पैटर्न चुनने के बाद भी आप सटीक रंग निर्धारित कर सकते हैं।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) to the slide.
-1. Set the shape’s [FillType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/filltype/) to `Pattern`.
-1. Choose a pattern style from the predefined options.
-1. Set the [Background Color](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipatternformat/get_backcolor/) of the pattern.
-1. Set the [Foreground Color](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipatternformat/get_forecolor/) of the pattern.
-1. Save the modified presentation as a PPTX file.
+Aspose.Slides का उपयोग करके आकार पर पैटर्न भराव लागू करने के चरण इस प्रकार हैं:
 
-निम्न C++ कोड दिखाता है कि कैसे एक आयत में पैटर्न फिल लागू किया जाता है:
+1. [प्रेजेंटेशन](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
+1. उसके इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
+1. आकार की [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) को `Pattern` सेट करें।
+1. पूर्वनिर्धारित विकल्पों में से एक पैटर्न शैली चुनें।
+1. पैटर्न की [Background Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) सेट करें।
+1. पैटर्न की [Foreground Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) सेट करें।
+1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+
+नीचे दिया गया C++ कोड दर्शाता है कि कैसे एक आयत पर पैटर्न भराव लागू किया जाता है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -331,19 +333,19 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
+// Presentation क्लास का एक इंस्टेंस बनाएं जो प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करता है।
 auto presentation = MakeObject<Presentation>();
 
 // पहली स्लाइड प्राप्त करें।
 auto slide = presentation->get_Slide(0);
 
-// आयताकार प्रकार की एक ऑटो शकल जोड़ें।
+// Rectangle प्रकार का एक ऑटो शैप जोड़ें।
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// फिल प्रकार को Pattern सेट करें।
+// भरण प्रकार को Pattern सेट करें।
 shape->get_FillFormat()->set_FillType(FillType::Pattern);
 
-// पैटर्न स्टाइल सेट करें।
+// पैटर्न शैली सेट करें।
 shape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
 
 // पैटर्न की पृष्ठभूमि और अग्रभूमि रंग सेट करें।
@@ -357,28 +359,28 @@ presentation->Dispose();
 
 परिणाम:
 
-![पैटर्न फिल वाली आयत](pattern-fill.png)
+![पैटर्न भराव वाला आयत](pattern-fill.png)
 
-## **पिक्चर फिल**
+## **चित्र भराव**
 
-PowerPoint में, पिक्चर फिल एक स्वरूपण विकल्प है जो आपको शकल के अंदर एक छवि सम्मिलित करने देता है—वास्तव में छवि को शकल की पृष्ठभूमि के रूप में उपयोग किया जाता है।
+PowerPoint में चित्र भराव एक स्वरूपण विकल्प है जो आपको आकार के भीतर एक छवि डालने की अनुमति देता है—वास्तव में छवि को आकार की पृष्ठभूमि बनाते हुए।
 
-Aspose.Slides का उपयोग करके शकल पर पिक्चर फिल लागू करने के चरण इस प्रकार हैं:
+Aspose.Slides का उपयोग करके आकार पर चित्र भराव लागू करने के चरण इस प्रकार हैं:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) to the slide.
-1. Set the shape's [FillType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/filltype/) to `Picture`.
-1. Set the picture fill mode to `Tile` (or another preferred mode).
-1. Create an [IPPImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ippimage/) object from the image you want to use.
-1. Pass the image to the `ISlidesPicture.set_Image` method.
-1. Save the modified presentation as a PPTX file.
+1. [प्रेजेंटेशन](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
+1. उसके इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
+1. आकार की [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) को `Picture` सेट करें।
+1. चित्र भराव मोड को `Tile` (या कोई अन्य वांछित मोड) सेट करें।
+1. उपयोग करने वाली छवि से एक [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) ऑब्जेक्ट बनाएं।
+1. छवि को `ISlidesPicture.set_Image` मेथड में पास करें।
+1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-मान लीजिए हमारे पास "lotus.png" फ़ाइल निम्न चित्र के साथ है:
+मान लें कि हमारे पास "lotus.png" फ़ाइल है जिसके साथ निम्न चित्र जुड़ा है:
 
 ![लोटस चित्र](lotus.png)
 
-निम्न C++ कोड दिखाता है कि कैसे पिक्चर के साथ शकल को भरा जाता है:
+नीचे दिया गया C++ कोड दर्शाता है कि कैसे आकार को चित्र से भरा जाता है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -400,22 +402,22 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएँ।
+// Presentation क्लास का एक इंस्टेंस बनाएं जो प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करता है।
 auto presentation = MakeObject<Presentation>();
 
 // पहली स्लाइड प्राप्त करें।
 auto slide = presentation->get_Slide(0);
 
-// Rectangle प्रकार की एक ऑटो शकल जोड़ें।
+// Rectangle प्रकार का एक ऑटो शैप जोड़ें।
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-// फ़िल प्रकार को Picture सेट करें।
+// भरण प्रकार को Picture सेट करें।
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// पिक्चर फ़िल मोड सेट करें।
+// चित्र भराव मोड सेट करें।
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
-// एक छवि लोड करें और उसे प्रस्तुति संसाधनों में जोड़ें।
+// एक छवि लोड करें और उसे प्रेजेंटेशन संसाधनों में जोड़ें।
 auto image = Images::FromFile(u"lotus.png");
 auto picture = presentation->get_Images()->AddImage(image);
 image->Dispose();
@@ -430,21 +432,21 @@ presentation->Dispose();
 
 परिणाम:
 
-![पिक्चर फिल वाली शकल](picture-fill.png)
+![चित्र भराव वाला आकार](picture-fill.png)
 
-### **टाइल पिक्चर को टेक्सचर के रूप में उपयोग करें**
+### **टाइल चित्र को बनावट के रूप में उपयोग करना**
 
-यदि आप टाइल्ड पिक्चर को टेक्सचर के रूप में सेट करना चाहते हैं और टाइलिंग व्यवहार को कस्टमाइज़ करना चाहते हैं, तो आप [IPictureFillFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/) इंटरफ़ेस और [PictureFillFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/picturefillformat/) क्लास के निम्न मेथड्स का उपयोग कर सकते हैं:
+यदि आप टाइल किए गए चित्र को बनावट के रूप में सेट करना और टाइलिंग व्यवहार को अनुकूलित करना चाहते हैं, तो आप [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) इंटरफ़ेस और [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) क्लास की निम्न विधियों का उपयोग कर सकते हैं:
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): पिक्चर फिल मोड को `Tile` या `Stretch` सेट करता है।
-- [set_TileAlignment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): शकल के भीतर टाइल की संरेखण निर्दिष्ट करता है।
-- [set_TileFlip](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/set_tileflip/): टाइल को क्षैतिज, लंबवत या दोनों दिशाओं में फ़्लिप करने को नियंत्रित करता है।
-- [set_TileOffsetX](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): शकल की मूल बिंदु से टाइल का क्षैतिज ऑफ़सेट (पॉइंट में) निर्धारित करता है।
-- [set_TileOffsetY](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): शकल की मूल बिंदु से टाइल का लंबवत ऑफ़सेट (पॉइंट में) निर्धारित करता है।
-- [set_TileScaleX](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): प्रतिशत में टाइल का क्षैतिज स्केल निर्धारित करता है।
-- [set_TileScaleY](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): प्रतिशत में टाइल का लंबवत स्केल निर्धारित करता है।
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): चित्र भराव मोड `Tile` या `Stretch` सेट करता है।
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): आकार के भीतर टाइल की संरेखण निर्दिष्ट करता है।
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): टाइल को क्षैतिज, लंबवत या दोनों दिशाओं में उलटने को नियंत्रित करता है।
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): आकार की मूल बिंदु से टाइल के क्षैतिज ऑफ़सेट (पॉइंट में) स्थापित करता है।
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): आकार की मूल बिंदु से टाइल के लंबवत ऑफ़सेट (पॉइंट में) स्थापित करता है।
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): टाइल के क्षैतिज स्केल को प्रतिशत में परिभाषित करता है।
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): टाइल के लंबवत स्केल को प्रतिशत में परिभाषित करता है।
 
-निम्न कोड उदाहरण दिखाता है कि कैसे टाइल्ड पिक्चर फिल के साथ एक आयत शकल जोड़ी जाती है और टाइल विकल्पों को कॉन्फ़िगर किया जाता है:
+नीचे दिया गया कोड उदाहरण दिखाता है कि कैसे एक आयत आकार में टाइल चित्र भराव जोड़कर टाइल विकल्प कॉन्फ़िगर किए जाते हैं:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -468,28 +470,28 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
+// Presentation क्लास का एक इंस्टेंस बनाएं जो प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करता है।
 auto presentation = MakeObject<Presentation>();
 
 // पहली स्लाइड प्राप्त करें।
 auto firstSlide = presentation->get_Slide(0);
 
-// एक आयताकार ऑटो शकल जोड़ें।
+// एक आयत ऑटो शैप जोड़ें।
 auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-// शकल का फिल प्रकार Picture सेट करें।
+// आकार का भराव प्रकार Picture सेट करें।
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// छवि लोड करें और उसे प्रस्तुति संसाधनों में जोड़ें।
+// छवि लोड करें और उसे प्रेजेंटेशन संसाधनों में जोड़ें।
 auto sourceImage = Images::FromFile(u"lotus.png");
 auto presentationImage = presentation->get_Images()->AddImage(sourceImage);
 sourceImage->Dispose();
 
-// छवि को शकल को असाइन करें।
+// छवि को आकार को असाइन करें।
 auto pictureFillFormat = shape->get_FillFormat()->get_PictureFillFormat();
 pictureFillFormat->get_Picture()->set_Image(presentationImage);
 
-// पिक्चर फिल मोड और टाइलिंग गुणों को कॉन्फ़िगर करें।
+// चित्र भराव मोड और टाइलिंग गुण कॉन्फ़िगर करें।
 pictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
 pictureFillFormat->set_TileOffsetX(-32);
 pictureFillFormat->set_TileOffsetY(-32);
@@ -507,20 +509,20 @@ presentation->Dispose();
 
 ![टाइल विकल्प](tile-options.png)
 
-## **सॉलिड कलर फिल**
+## **एकरंगी रंग भराव**
 
-PowerPoint में, सॉलिड कलर फिल एक स्वरूपण विकल्प है जो शकल को एकल, समान रंग से भरता है। यह साधारण पृष्ठभूमि रंग ग्रेडिएंट, टेक्सचर या पैटर्न के बिना लागू किया जाता है।
+PowerPoint में एकरंगी रंग भराव एक स्वरूपण विकल्प है जो आकार को एक समान रंग से भरता है। यह साधारण पृष्ठभूमि रंग बिना किसी ग्रेडिएंट, बनावट या पैटर्न के लागू होता है।
 
-Aspose.Slides का उपयोग करके शकल पर सॉलिड कलर फिल लागू करने के चरण इस प्रकार हैं:
+Aspose.Slides का उपयोग करके आकार पर एकरंगी रंग भराव लागू करने के चरण इस प्रकार हैं:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) to the slide.
-1. Set the shape’s [FillType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/filltype/) to `Solid`.
-1. Assign your preferred fill color to the shape.
-1. Save the modified presentation as a PPTX file.
+1. [प्रेजेंटेशन](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
+1. उसके इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
+1. आकार की [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) को `Solid` सेट करें।
+1. आकार को अपनी इच्छित भराव रंग असाइन करें।
+1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 
-निम्न C++ कोड दिखाता है कि कैसे PowerPoint स्लाइड में एक आयत पर सॉलिड कलर फिल लागू किया जाता है:
+नीचे दिया गया C++ कोड दर्शाता है कि कैसे PowerPoint स्लाइड में एक आयत पर एकरंगी रंग भराव लागू किया जाता है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -539,19 +541,19 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
+// Presentation क्लास का एक इंस्टेंस बनाएं जो प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करता है।
 auto presentation = MakeObject<Presentation>();
 
 // पहली स्लाइड प्राप्त करें।
 auto slide = presentation->get_Slide(0);
 
-// Rectangle प्रकार की एक ऑटो शकल जोड़ें।
+// Rectangle प्रकार का एक ऑटो शैप जोड़ें।
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// फ़िल प्रकार को Solid सेट करें।
+// भरण प्रकार को Solid सेट करें।
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 
-// फ़िल रंग सेट करें।
+// भरण रंग सेट करें।
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
 
 // PPTX फ़ाइल को डिस्क पर सहेजें।
@@ -561,22 +563,22 @@ presentation->Dispose();
 
 परिणाम:
 
-![सॉलिड कलर फिल वाली शकल](solid-color-fill.png)
+![एकरंगी रंग भराव वाला आकार](solid-color-fill.png)
 
-## **पारदर्शिता सेट करें**
+## **पारदर्शिता सेट करना**
 
-PowerPoint में, जब आप शकलों पर सॉलिड कलर, ग्रेडिएंट, पिक्चर या टेक्सचर फिल लागू करते हैं, तो आप पारदर्शिता स्तर भी निर्धारित कर सकते हैं ताकि फिल की अपारदर्शिता को नियंत्रित किया जा सके। उच्च पारदर्शिता मान शकल को अधिक पारदर्शी बनाता है, जिससे पृष्ठभूमि या नीचे की वस्तुएँ भागिक रूप से दिखती हैं।
+PowerPoint में, जब आप आकार पर एकरंगी, ग्रेडिएंट, चित्र या बनावट भराव लागू करते हैं, तो आप भराव की अपारदर्शिता स्तर भी सेट कर सकते हैं जिससे भराव की पारदर्शिता नियंत्रित होती है। अधिक पारदर्शिता मान आकार को अधिक पारदर्शी बनाता है, जिससे पृष्ठभूमि या नीचे के वस्तुएँ आंशिक रूप से दिखाई देती हैं।
 
-Aspose.Slides आपको फिल के लिए उपयोग किए गए रंग में अल्फा मान समायोजित करके पारदर्शिता स्तर सेट करने की अनुमति देता है। ऐसा करने के चरण इस प्रकार हैं:
+Aspose.Slides आपको भराव के लिए उपयोग किए गए रंग में अल्फा मान समायोजित करके पारदर्शिता स्तर सेट करने देता है। इसे करने के चरण इस प्रकार हैं:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) to the slide.
-1. Set the [FillType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/filltype/) to `Solid`.
-1. Use `Color` to define a color with transparency (the `alpha` component controls transparency).
-1. Save the presentation.
+1. [प्रेजेंटेशन](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
+1. उसके इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
+1. [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) को `Solid` सेट करें।
+1. `Color` का उपयोग करके पारदर्शिता (अल्फा घटक) वाले रंग को परिभाषित करें।
+1. प्रेजेंटेशन को सहेजें।
 
-निम्न C++ कोड दिखाता है कि कैसे एक आयत पर पारदर्शी फिल रंग लागू किया जाता है:
+नीचे दिया गया C++ कोड दर्शाता है कि कैसे एक आयत पर पारदर्शी भराव रंग लागू किया जाता है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -595,42 +597,42 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// प्रेज़ेंटेशन फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
+// Presentation क्लास का एक इंस्टेंस बनाएं जो प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करता है।
 auto presentation = MakeObject<Presentation>();
 
-// पहली स्लाइड प्राप्त करें.
+// पहली स्लाइड प्राप्त करें।
 auto slide = presentation->get_Slide(0);
 
-// एक ठोस आयताकार ऑटो शकल जोड़ें.
+// एक ठोस आयत ऑटो शैप जोड़ें।
 auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// ठोस शकल के ऊपर एक पारदर्शी आयताकार ऑटो शकल जोड़ें.
+// ठोस आकार के ऊपर एक पारदर्शी आयत ऑटो शैप जोड़ें।
 auto transparentShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
 transparentShape->get_FillFormat()->set_FillType(FillType::Solid);
 transparentShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(204, 255, 255, 0));
 
-// PPTX फ़ाइल को डिस्क पर सहेजें.
+// PPTX फ़ाइल को डिस्क पर सहेजें।
 presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 परिणाम:
 
-![पारदर्शी शकल](shape-transparency.png)
+![पारदर्शी आकार](shape-transparency.png)
 
-## **शकलों को घुमाएँ**
+## **आकारों को घुमाना**
 
-Aspose.Slides आपको PowerPoint प्रेजेंटेशन में शकलों को घुमाने की सुविधा देता है। यह विशिष्ट संरेखण या डिज़ाइन आवश्यकताओं के साथ दृश्य तत्वों को स्थित करने में उपयोगी हो सकता है।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में आकारों को घुमाने की सुविधा देता है। यह दृश्य तत्वों को विशेष संरेखण या डिज़ाइन आवश्यकता के साथ स्थित करने के लिए उपयोगी हो सकता है।
 
-किसी स्लाइड पर शकल को घुमाने के चरण इस प्रकार हैं:
+स्लाइड पर एक आकार को घुमाने के चरण इस प्रकार हैं:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) to the slide.
-1. Set the shape’s rotation property to the desired angle.
-1. Save the presentation.
+1. [प्रेजेंटेशन](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
+1. उसके इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
+1. आकार की घुमाव प्रॉपर्टी को वांछित कोण पर सेट करें।
+1. प्रेजेंटेशन को सहेजें।
 
-निम्न C++ कोड दिखाता है कि कैसे शकल को 5 डिग्री तक घुमाया जाता है:
+नीचे दिया गया C++ कोड दिखाता है कि कैसे आकार को 5 डिग्री घुमाया जाता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -644,16 +646,16 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// प्रेज़ेंटेशन फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
+// Presentation क्लास का एक इंस्टेंस बनाएं जो प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करता है।
 auto presentation = MakeObject<Presentation>();
 
 // पहली स्लाइड प्राप्त करें।
 auto slide = presentation->get_Slide(0);
 
-// Rectangle प्रकार की एक ऑटो शकल जोड़ें।
+// Rectangle प्रकार का एक ऑटो शैप जोड़ें।
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// शकल को 5 डिग्री घुमाएँ।
+// आकार को 5 डिग्री घुमाएं।
 shape->set_Rotation(5);
 
 // PPTX फ़ाइल को डिस्क पर सहेजें।
@@ -663,21 +665,21 @@ presentation->Dispose();
 
 परिणाम:
 
-![शकल घुमाव](shape-rotation.png)
+![आकार घुमाव](shape-rotation.png)
 
-## **3D बिवेल प्रभाव जोड़ें**
+## **3D बिवेल प्रभाव जोड़ना**
 
-Aspose.Slides आपको शकलों पर 3D बिवेल प्रभाव लागू करने की अनुमति देता है, जिसके लिए आप उनकी [ThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/threedformat/) प्रॉपर्टीज़ को कॉन्फ़िगर करते हैं।
+Aspose.Slides आपको आकारों पर 3D बिवेल प्रभाव लागू करने की अनुमति देता है, जिसके लिए आप उनके [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) प्रॉपर्टी को कॉन्फ़िगर करते हैं।
 
-3D बिवेल प्रभाव जोड़ने के चरण इस प्रकार हैं:
+एक आकार पर 3D बिवेल प्रभाव जोड़ने के चरण इस प्रकार हैं:
 
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) to the slide.
-1. Configure the shape’s [ThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/threedformat/) to define bevel settings.
-1. Save the presentation.
+1. [प्रेजेंटेशन](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास को इंस्टैंशिएट करें।
+1. उसके इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
+1. आकार की [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) को बिवेल सेटिंग्स परिभाषित करने के लिए कॉन्फ़िगर करें।
+1. प्रेजेंटेशन को सहेजें।
 
-निम्न C++ कोड दिखाता है कि कैसे शकल पर 3D बिवेल प्रभाव लागू किया जाता है:
+नीचे दिया गया C++ कोड दिखाता है कि कैसे आकार पर 3D बिवेल प्रभाव लागू किया जाता है:
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -706,12 +708,12 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// Presentation क्लास का एक उदाहरण बनाएं।
+// Presentation क्लास का एक इंस्टेंस बनाएं।
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
 
-// स्लाइड पर एक शकल जोड़ें।
+// स्लाइड में एक आकार जोड़ें।
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Green());
@@ -719,7 +721,7 @@ shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 shape->get_LineFormat()->set_Width(2.0);
 
-// शकल की ThreeDFormat प्रॉपर्टीज़ सेट करें।
+// आकार की ThreeDFormat प्रॉपर्टीज सेट करें।
 shape->get_ThreeDFormat()->set_Depth(4.0);
 shape->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
 shape->get_ThreeDFormat()->get_BevelTop()->set_Height(6);
@@ -737,19 +739,19 @@ presentation->Dispose();
 
 ![3D बिवेल प्रभाव](3D-bevel-effect.png)
 
-## **3D घुमाव प्रभाव जोड़ें**
+## **3D घुमाव प्रभाव जोड़ना**
 
-Aspose.Slides आपको शकलों पर 3D घुमाव प्रभाव लागू करने की सुविधा देता है, जिसके लिए आप उनकी [ThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/threedformat/) प्रॉपर्टीज़ को कॉन्फ़िगर करते हैं।
+Aspose.Slides आपको आकारों पर 3D घुमाव प्रभाव लागू करने की सुविधा देता है, जिसके लिए आप उनके [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) प्रॉपर्टी को कॉन्फ़िगर करते हैं।
 
-3D घुमाव लागू करने के चरण इस प्रकार हैं:
+आकार पर 3D घुमाव लागू करने के चरण इस प्रकार हैं:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) to the slide.
-1. Use the [set_CameraType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icamera/set_cameratype/) and [set_LightType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilightrig/set_lighttype/) to define the 3D rotation.
-1. Save the presentation.
+1. [प्रेजेंटेशन](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएं।
+1. उसके इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
+1. [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) और [set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) का उपयोग करके 3D घुमाव परिभाषित करें।
+1. प्रेजेंटेशन को सहेजें।
 
-निम्न C++ कोड दिखाता है कि कैसे शकल पर 3D घुमाव प्रभाव लागू किया जाता है:
+नीचे दिया गया C++ कोड दर्शाता है कि कैसे आकार पर 3D घुमाव प्रभाव लागू किया जाता है:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -769,7 +771,7 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Create an instance of the Presentation class.
+// Presentation क्लास का एक इंस्टेंस बनाएं।
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -782,7 +784,7 @@ shape->get_ThreeDFormat()->get_Camera()->SetRotation(40, 35, 20);
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::IsometricLeftUp);
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
 
-// Save the presentation as a PPTX file.
+// प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
 presentation->Save(u"3D_rotation_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
@@ -791,13 +793,13 @@ presentation->Dispose();
 
 ![3D घुमाव प्रभाव](3D-rotation-effect.png)
 
-## **शकलों के लिए काली‑सफ़ेद रेंडरिंग नियंत्रित करें**
+## **आकारों के लिए काले‑सफ़ेद रेंडरिंग नियंत्रित करना**
 
-[IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/set_blackwhitemode/) मेथड निर्दिष्ट करता है कि जब प्रेजेंटेशन काली‑सफ़ेद मोड में देखा या प्रोसेस किया जाए तो व्यक्तिगत शकल कैसे रेंडर की जाएगी। यह स्वयं काली‑सफ़ेद डिस्प्ले को सक्षम नहीं करता, और सामान्य रंग मोड में शकल की फिल, रेखा या अन्य स्वरूपण को नहीं बदलता।
+[IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) मेथड निर्धारित करता है कि जब प्रस्तुति को काले‑सफ़ेद मोड में देखा या प्रोसेस किया जाता है तो व्यक्तिगत आकार कैसे रेंडर किया जाता है। यह स्वयं काले‑सफ़ेद प्रदर्शन को सक्षम नहीं करता और न ही सामान्य रंग मोड में आकार की भराव, रेखा या अन्य स्वरूपण को बदलता है।
 
-वांछित व्यवहार चुनने के लिए [BlackWhiteMode](https://reference.aspose.com/slides/hi/cpp/aspose.slides/blackwhitemode/) सूची से एक मान उपयोग करें। उदाहरण के लिये, `Automatic` रेंडरिंग एप्लिकेशन को रूपांतरण चुनने देता है, `Gray` और `LightGray` ग्रे रंग उपयोग करते हैं, `BlackWhite` केवल काला‑सफ़ेद उपयोग करता है, `Black` और `White` एकल रंग लागू करते हैं, `Color` सामान्य रंग बनाए रखता है, और `Hidden` काली‑सफ़ेद मोड में शकल को हटाता है। `NotDefined` का अर्थ है कि शकल‑स्तर मोड नहीं निर्धारित किया गया।
+वांछित व्यवहार चुनने के लिए आप [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) एन्हुमरेशन से मान उपयोग कर सकते हैं। उदाहरण के लिए, `Automatic` रेंडरिंग एप्लिकेशन को परिवर्तन चुनने देता है, `Gray` और `LightGray` ग्रे रंग उपयोग करते हैं, `BlackWhite` केवल काला‑सफ़ेद उपयोग करता है, `Black` और `White` एकल रंग लागू करते हैं, `Color` सामान्य रंग संरक्षित रखता है, और `Hidden` काले‑सफ़ेद मोड में आकार को हटाता है। `NotDefined` का अर्थ है कि कोई आकार‑स्तर मोड असाइन नहीं किया गया है।
 
-निम्न C++ कोड एक रंगीन शकल बनाता है और काली‑सफ़ेद डिस्प्ले मोड में इसे ग्रे दिखाता है:
+नीचे दिया गया C++ कोड एक रंगीन आकार बनाता है और इसे काले‑सफ़ेद प्रदर्शन मोड में ग्रे दिखाता है:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -824,18 +826,18 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 200
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 
-// Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
+// रंग मोड में नारंगी भराव रखें, लेकिन काले-सफ़ेद मोड में आकार को ग्रे रंग में रेंडर करें.
 shape->set_BlackWhiteMode(BlackWhiteMode::Gray);
 
 presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-सामान्य रंग मोड में, आयत अपनी नारंगी फ़िल बनाए रखती है। काली‑सफ़ेद डिस्प्ले कार्यप्रवाह में, क्योंकि उसका मोड `Gray` पर सेट है, यह ग्रे रंग उपयोग करती है। यह आपको पूर्ण‑रंग स्लाइड को संरक्षित रखने और प्रिंटिंग, प्री‑व्यू या अन्य कार्यप्रवाहों के लिए अलग दिखावट परिभाषित करने की अनुमति देता है जो प्रेजेंटेशन की काली‑सफ़ेद डिस्प्ले सेटिंग को सम्मानित करते हैं।
+सामान्य रंग मोड में, आयत का नारंगी भराव बना रहता है। काले‑सफ़ेद प्रदर्शन वर्कफ़्लो में, यह ग्रे दिखता है क्योंकि उसका मोड `Gray` पर सेट है। यह आपको पूर्ण‑रंग स्लाइड को संरक्षित रखने की अनुमति देता है, जबकि प्रिंट, प्री‑व्यू या अन्य वर्कफ़्लो के लिए अलग दृश्य परिभाषित करता है जो प्रस्तुति के काले‑सफ़ेद प्रदर्शन सेटिंग्स का सम्मान करते हैं।
 
-## **स्वरूपण रीसेट करें**
+## **स्वरूपण रीसेट करना**
 
-निम्न C++ कोड दर्शाता है कि कैसे एक स्लाइड का स्वरूपण रीसेट किया जाता है और [LayoutSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/layoutslide/) पर सभी प्लेसहोल्डर शकलों की स्थिति, आकार और स्वरूपण को उनके डिफ़ॉल्ट सेटिंग्स पर पुनर्स्थापित किया जाता है:
+नीचे दिया गया C++ कोड दिखाता है कि कैसे स्लाइड का स्वरूपण रीसेट किया जाए और [LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) पर सभी प्लेसहोल्डर वाले आकारों की स्थिति, आकार और स्वरूपण को उनकी डिफ़ॉल्ट सेटिंग्स पर वापस लाया जाए:
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -852,7 +854,7 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 {
-    // लेआउट में प्लेसहोल्डर वाले स्लाइड पर प्रत्येक शकल को रीसेट करें।
+    // लेआउट पर प्लेसहोल्डर वाले स्लाइड में सभी आकार को रीसेट करें।
     slide->Reset();
 }
 
@@ -860,16 +862,16 @@ presentation->Save(u"reset_formatting.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **अधिक पूछे जाने वाले प्रश्न**
 
-**क्या शकल स्वरूपण अंतिम प्रेजेंटेशन फ़ाइल के आकार को प्रभावित करता है?**
+**क्या आकार स्वरूपण अंतिम प्रस्तुति फ़ाइल आकार को प्रभावित करता है?**
 
-केवल न्यूनतम रूप से। एम्बेडेड छवियाँ और मीडिया फ़ाइलें अधिकांश स्थान घेरती हैं, जबकि शकल पैरामीटर जैसे रंग, प्रभाव और ग्रेडिएंट मेटा­डेटा के रूप में संग्रहीत होते हैं और लगभग कोई अतिरिक्त आकार नहीं जोड़ते।
+केवल न्यूनतम रूप से। एम्बेडेड छवियों और मीडिया फ़ाइलों का आकार अधिकांश फ़ाइल स्पेस लेता है, जबकि रंग, इफ़ेक्ट और ग्रेडिएंट जैसे आकार पैरामीटर मेटाडेटा के रूप में संग्रहीत होते हैं और व्यावहारिक रूप से अतिरिक्त आकार नहीं जोड़ते।
 
-**मैं कैसे उन शकलों को पहचानूँ जो समान स्वरूपण साझा करती हैं ताकि उन्हें समूहबद्ध कर सकूँ?**
+**मैं कैसे पता लगा सकता हूँ कि स्लाइड पर कौन‑से आकार समान स्वरूपण साझा करते हैं ताकि मैं उन्हें समूहित कर सकूँ?**
 
-प्रत्येक शकल की प्रमुख स्वरूपण प्रॉपर्टीज़—फिल, रेखा और प्रभाव सेटिंग्स—की तुलना करें। यदि सभी संबंधित मान मेल खाते हैं, तो उनकी शैलियों को समान मानें और तर्कसंगत रूप से उन शकलों को समूहबद्ध करें, जिससे बाद में शैली प्रबंधन आसान हो जाता है।
+प्रत्येक आकार के प्रमुख स्वरूपण गुणों—भरण, रेखा और इफ़ेक्ट सेटिंग्स—की तुलना करें। यदि सभी संबंधित मान मेल खाते हैं, तो उनके शैलियों को समान मानें और उन आकारों को तार्किक रूप से समूहित करें, जिससे आगे के शैली प्रबंधन को सरल बनाया जा सके।
 
-**क्या मैं कस्टम शकल शैलियों का सेट अलग फ़ाइल में सहेज कर अन्य प्रेजेंटेशन में पुनः उपयोग कर सकता हूँ?**
+**क्या मैं कस्टम आकार शैलियों का सेट अलग फ़ाइल में सहेज कर अन्य प्रस्तुतियों में दोबारा उपयोग कर सकता हूँ?**
 
-हां। इच्छित शैलियों के साथ नमूना शकलों को टेम्प्लेट स्लाइड डेक या .POTX टेम्प्लेट फ़ाइल में सहेजें। नई प्रेजेंटेशन बनाते समय टेम्प्लेट खोलें, आवश्यक शैली वाली शकलों को क्लोन करें, और जहाँ‑जहाँ चाहिए वहाँ उनका स्वरूपण पुनः लागू करें।
+हाँ। वांछित शैलियों वाले नमूना आकारों को एक टेम्प्लेट स्लाइड डेक या .POTX टेम्प्लेट फ़ाइल में स्टोर करें। नई प्रस्तुति बनाते समय टेम्प्लेट खोलें, आवश्यक शैली वाले आकारों को क्लोन करें, और जहाँ‑जहाँ आवश्यक हो उनके स्वरूपण को दोबारा लागू करें।

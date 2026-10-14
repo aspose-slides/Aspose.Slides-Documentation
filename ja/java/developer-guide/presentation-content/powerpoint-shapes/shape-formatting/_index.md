@@ -5,11 +5,11 @@ type: docs
 weight: 20
 url: /ja/java/shape-formatting/
 keywords:
-- 図形のフォーマット
-- 線のフォーマット
+- 図形の書式設定
+- 線の書式設定
 - スケッチ効果
-- 図形線のスケッチ
-- 結合スタイルのフォーマット
+- スケッチ図形線
+- 結合スタイルの書式設定
 - グラデーション塗りつぶし
 - パターン塗りつぶし
 - 画像塗りつぶし
@@ -21,47 +21,47 @@ keywords:
 - 図形の回転
 - 3Dベベル効果
 - 3D回転効果
-- 書式設定のリセット
+- 書式のリセット
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides を使用して Java で PowerPoint の図形をフォーマットする方法を学びます—PPT、PPTX、ODP ファイル向けに塗りつぶし、線、効果のスタイルを正確に、完全にコントロールして設定できます。"
+description: "Aspose.Slides を使用して Java で PowerPoint の図形をフォーマットする方法を学びます。PPT、PPTX、ODP ファイルに対して、塗り、線、効果のスタイルを正確に、完全に制御して設定できます。"
 ---
-## **概要**
+## **はじめに**
 
-PowerPoint では、スライドに図形を追加できます。図形は線で構成されているため、アウトラインを変更したり効果を適用したりして線の書式設定が可能です。また、内部の塗りつぶし方法を指定して図形をフォーマットすることもできます。
+PowerPoint では、スライドに図形を追加できます。図形は線で構成されているため、アウトラインに対して変更や効果の適用で書式設定できます。また、内部の塗りつぶし方法を指定して図形をフォーマットすることもできます。
 
-![PowerPointの図形書式設定](format-shape-powerpoint.png)
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Java は、PowerPoint で利用できるのと同じオプションを使用して図形の書式設定を行うためのインターフェイスとメソッドを提供します。
+Aspose.Slides for Java は、PowerPoint で利用できるオプションと同じ方法で図形をフォーマットするインターフェイスとメソッドを提供します。
 
 ## **線の書式設定**
 
 Aspose.Slides を使用すると、図形にカスタムの線スタイルを指定できます。手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) を追加します。
-1. 図形の [line style](https://reference.aspose.com/slides/ja/java/com.aspose.slides/linestyle/) を設定します。
-1. 線幅を設定します。
-1. 線の [dash style](https://reference.aspose.com/slides/ja/java/com.aspose.slides/linedashstyle/) を設定します。
-1. 図形の線色を設定します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+1. 図形の [line style](https://reference.aspose.com/slides/java/com.aspose.slides/linestyle/) を設定します。
+1. 線の幅を設定します。
+1. 線の [dash style](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) を設定します。
+1. 図形の線の色を設定します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-次のコードは、矩形の `AutoShape` の線を書式設定する方法を示しています。
+次のコードは、矩形 `AutoShape` の書式設定方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation();
 try {
     // 最初のスライドを取得します。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを追加します。
+    // 矩形タイプのオートシェイプを追加します。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
     // 矩形シェイプの塗りつぶし色を設定します。
@@ -87,11 +87,11 @@ try {
 
 ![プレゼンテーション内の書式設定された線](formatted-lines.png)
 
-## **図形の線にスケッチ効果を適用**
+## **図形の線にスケッチ効果を適用する**
 
-スケッチ効果を使用すると、図形の線を手描き風に見せることができます。`[IShape.getLineFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/)` で線設定にアクセスし、`[ILineFormat.getSketchFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilineformat/)` でスケッチ設定にアクセスし、`[ISketchFormat.setSketchType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/isketchformat/)` で `[LineSketchType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/linesketchtype/)` 列挙体の値を選択します。
+スケッチ効果は、図形の線を手描き風に見せます。`[IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)` で線設定にアクセスし、`[ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/)` でスケッチ設定にアクセスし、`[ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/)` で [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) 列挙体から値を選択します。
 
-次の Java コードは、`[LineSketchType.Curved](https://reference.aspose.com/slides/ja/java/com.aspose.slides/linesketchtype/)` 効果を適用し、明示的に設定された値を取得し、`[LineSketchType.None](https://reference.aspose.com/slides/ja/java/com.aspose.slides/linesketchtype/)` で効果を削除する方法を示しています。
+次の Java コードは、[LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) 効果を適用し、明示的に割り当てられた値を取得し、[LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) で効果を削除する方法を示しています。
 
 ```java
 Presentation presentation = new Presentation();
@@ -99,7 +99,7 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // 図形の線の書式とそのスケッチ書式にアクセスします。
+    // 図形の線書式とそのスケッチ書式にアクセスします。
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
 
     // スケッチ効果を適用します。
@@ -116,7 +116,7 @@ try {
 }
 ```
 
-`[ISketchFormat.getSketchType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/isketchformat/)` が返す値は、図形に直接割り当てられた設定を表します。線の書式設定がテーマ、マスタースライド、あるいはレイアウトスライドから継承される可能性がある場合は、`[ILineFormat.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilineformat/)` を使用して `[ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilineformateffectivedata/)` にアクセスし、`[ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/isketchformateffectivedata/)` を読み取ります。実効値は、継承が解決された後に実際に適用される書式設定を反映します。
+`[ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/)` が返す値は、図形に直接割り当てられた設定を表します。テーマ、マスタースライド、レイアウトスライドから継承できる場合は、`[ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/)` を使用し、`[ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/)` にアクセスして、`[ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/)` を読み取ります。継承が解決された後に実際に適用される書式が有効値として返されます。
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -137,17 +137,17 @@ try {
 
 ## **結合スタイルの書式設定**
 
-結合タイプのオプションは次の 3 つです。
+次の 3 つの結合タイプオプションがあります。
 
 * Round
 * Miter
 * Bevel
 
-PowerPoint では、2 本の線を角度のある位置（例えば図形のコーナー）で結合する場合、デフォルトで **Round** が使用されます。ただし、鋭角の形状を描く場合は **Miter** の方が好ましいことがあります。
+PowerPoint では、2 本の線を角度で結合するとき（図形の隅など）デフォルトで **Round** が使用されます。ただし、鋭角の図形を描く場合は **Miter** を選択した方が適しています。
 
 ![プレゼンテーション内の結合スタイル](join-style-powerpoint.png)
 
-次の Java コードは、上図のように Miter、Bevel、Round の結合タイプ設定を使用して 3 つの矩形を作成した例です。
+次の Java コードは、上図のように Miter、Bevel、Round の結合タイプ設定で 3 つの矩形を作成した例です。
 
 ```java
 import com.aspose.slides.*;
@@ -159,7 +159,7 @@ try {
     // 最初のスライドを取得します。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを3つ追加します。
+    // 矩形タイプのオートシェイプを 3 つ追加します。
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
@@ -172,7 +172,7 @@ try {
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // 線幅を設定します。
+    // 線の幅を設定します。
     shape1.getLineFormat().setWidth(15);
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
@@ -202,31 +202,31 @@ try {
 }
 ```
 
-## **グラデーション塗りつぶし**
+## **グラデーション 塗りつぶし**
 
-PowerPoint のグラデーション塗りつぶしは、形状に連続した色のブレンドを適用できる書式設定オプションです。たとえば、2 色以上を徐々にフェードさせる形で適用できます。
+PowerPoint のグラデーション 塗りつぶしは、図形に連続的な色のブレンドを適用できる書式オプションです。たとえば、2 色以上を徐々に変化させながら適用できます。
 
-Aspose.Slides を使用して形状にグラデーション塗りつぶしを適用する手順は次のとおりです。
+Aspose.Slides を使用して図形にグラデーション 塗りつぶしを適用する手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) を追加します。
-1. 図形の [FillType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/filltype/) を `Gradient` に設定します。
-1. `[IGradientFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/igradientformat/)` インターフェイスが提供するグラデーション ストップ コレクションの `add` メソッドを使用して、位置を指定した 2 つ以上の色を追加します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+1. 図形の [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) を `Gradient` に設定します。
+1. [IGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/) インターフェイスが提供するグラデーション ストップ コレクションの `add` メソッドを使用し、位置を指定した 2 色以上を追加します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-次の Java コードは、楕円にグラデーション塗りつぶし効果を適用する例です。
+次の Java コードは、楕円にグラデーション 塗りつぶし効果を適用する例です。
 
 ```java
 import com.aspose.slides.*;
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation();
 try {
     // 最初のスライドを取得します。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ellipse タイプのオートシェイプを追加します。
+    // 楕円タイプのオートシェイプを追加します。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
     // 楕円にグラデーション書式設定を適用します。
@@ -236,7 +236,7 @@ try {
     // グラデーションの方向を設定します。
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
-    // グラデーション ストップを2つ追加します。
+    // 2 つのグラデーションストップを追加します。
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
@@ -249,38 +249,40 @@ try {
 
 結果:
 
-![グラデーション塗りつぶしが適用された楕円](gradient-fill.png)
+![グラデーション塗りつぶしされた楕円](gradient-fill.png)
 
-## **パターン塗りつぶし**
+エクスポートした画像でグラデーションが PowerPoint と異なる場合は、[Choose a Gradient Rendering Style](/slides/ja/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) を参照してください。プレゼンテーションに保存されたグラデーション 塗りつぶしを変更せずに、レンダリング スタイルを選択できます。
 
-PowerPoint のパターン塗りつぶしは、ドット、ストライプ、クロスハッチ、チェックなどの 2 色デザインを図形に適用できる書式設定オプションです。パターンの前景色と背景色はカスタムで指定できます。
+## **パターン 塗りつぶし**
 
-Aspose.Slides は、プレゼンテーションの視覚的魅力を高めるために、45 種類以上の事前定義パターンスタイルを提供します。事前定義パターンを選択した後でも、使用する正確な色を指定できます。
+PowerPoint のパターン 塗りつぶしは、2 色のデザイン（ドット、ストライプ、クロスハッチ、チェックなど）を図形に適用できる書式オプションです。パターンの前景色と背景色をカスタムで設定できます。
 
-Aspose.Slides を使用して図形にパターン塗りつぶしを適用する手順は次のとおりです。
+Aspose.Slides は、45 以上の事前定義パターン スタイルを提供し、プレゼンテーションの視覚的魅力を高めるために図形に適用できます。事前定義パターンを選択した後でも、使用する正確な色を指定できます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+次の手順で Aspose.Slides を使用して図形にパターン 塗りつぶしを適用します。
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) を追加します。
-1. 図形の [FillType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/filltype/) を `Pattern` に設定します。
-1. 事前定義オプションからパターンスタイルを選択します。
-1. パターンの [Background Color](https://reference.aspose.com/slides/ja/java/com.aspose.slides/patternformat/#getBackColor--) を設定します。
-1. パターンの [Foreground Color](https://reference.aspose.com/slides/ja/java/com.aspose.slides/patternformat/#getForeColor--) を設定します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+1. 図形の [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) を `Pattern` に設定します。
+1. 事前定義オプションからパターン スタイルを選択します。
+1. パターンの [Background Color](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getBackColor--) を設定します。
+1. パターンの [Foreground Color](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getForeColor--) を設定します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-次の Java コードは、矩形にパターン塗りつぶしを適用する例です。
+次の Java コードは、矩形にパターン 塗りつぶしを適用する例です。
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation();
 try {
     // 最初のスライドを取得します。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを追加します。
+    // 矩形タイプのオートシェイプを追加します。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // 塗りつぶしタイプを Pattern に設定します。
@@ -302,48 +304,48 @@ try {
 
 結果:
 
-![パターン塗りつぶしが適用された矩形](pattern-fill.png)
+![パターン塗りつぶしされた矩形](pattern-fill.png)
 
-## **画像塗りつぶし**
+## **画像 塗りつぶし**
 
-PowerPoint の画像塗りつぶしは、画像を図形の内部に挿入し、画像を図形の背景として使用できる書式設定オプションです。
+PowerPoint の画像 塗りつぶしは、図形の内部に画像を挿入し、画像を図形の背景として使用できる書式オプションです。
 
-Aspose.Slides を使用して図形に画像塗りつぶしを適用する手順は次のとおりです。
+Aspose.Slides を使用して図形に画像 塗りつぶしを適用する手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) を追加します。
-1. 図形の [FillType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/filltype/) を `Picture` に設定します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+1. 図形の [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) を `Picture` に設定します。
 1. 画像塗りつぶしモードを `Tile`（または他の希望モード）に設定します。
-1. 使用したい画像から `[IPPImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ippimage/)` オブジェクトを作成します。
+1. 使用したい画像から [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) オブジェクトを作成します。
 1. 画像を `ISlidesPicture.setImage` メソッドに渡します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-例として、以下の「lotus.png」画像があります。
+以下は「lotus.png」という画像を使用した例です。
 
-![ロータス画像](lotus.png)
+![ロータスの画像](lotus.png)
 
-次の Java コードは、図形に画像塗りつぶしを適用する例です。
+次の Java コードは、画像で図形を塗りつぶす方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation();
 try {
     // 最初のスライドを取得します。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを追加します。
+    // 矩形タイプのオートシェイプを追加します。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
     // 塗りつぶしタイプを Picture に設定します。
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // ピクチャー塗りつぶしモードを設定します。
+    // 画像塗りつぶしモードを設定します。
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // 画像をロードし、プレゼンテーションのリソースに追加します。
+    // 画像を読み込み、プレゼンテーションのリソースに追加します。
     IImage image = Images.fromFile("lotus.png");
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
@@ -360,38 +362,38 @@ try {
 
 結果:
 
-![画像塗りつぶしが適用された図形](picture-fill.png)
+![画像塗りつぶしされた図形](picture-fill.png)
 
-### **テクスチャとしてタイル画像を使用**
+### **テクスチャとしてタイル状画像を使用する**
 
-タイル画像をテクスチャとして設定し、タイル化の動作をカスタマイズしたい場合は、`[IPictureFillFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipicturefillformat/)` インターフェイスおよび `[PictureFillFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/picturefillformat/)` クラスの次のメソッドを使用します。
+タイル状の画像をテクスチャとして設定し、タイルの動作をカスタマイズしたい場合は、[IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) インターフェイスと [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) クラスの次のメソッドを使用できます。
 
-- `[setPictureFillMode](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-)` : `Tile` または `Stretch` のいずれかで画像塗りつぶしモードを設定します。
-- `[setTileAlignment](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-)` : 図形内でタイルの配置を指定します。
-- `[setTileFlip](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-)` : タイルを水平、垂直、またはその両方で反転させるかを制御します。
-- `[setTileOffsetX](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-)` : 図形の原点からタイルの水平オフセット（ポイント単位）を設定します。
-- `[setTileOffsetY](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-)` : 図形の原点からタイルの垂直オフセット（ポイント単位）を設定します。
-- `[setTileScaleX](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-)` : タイルの水平スケールをパーセンテージで定義します。
-- `[setTileScaleY](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-)` : タイルの垂直スケールをパーセンテージで定義します。
+- [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): 画像塗りつぶしモード（`Tile` または `Stretch`）を設定します。
+- [setTileAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): 図形内のタイルの配置を指定します。
+- [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): タイルを水平、垂直、または両方に反転させるかを制御します。
+- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): 図形の基準点からタイルの水平オフセット（ポイント）を設定します。
+- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): 図形の基準点からタイルの垂直オフセット（ポイント）を設定します。
+- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): タイルの水平スケールをパーセンテージで定義します。
+- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): タイルの垂直スケールをパーセンテージで定義します。
 
-次のコードは、タイル画像塗りつぶしを持つ矩形を追加し、タイルオプションを構成するサンプルです。
+次のコード サンプルは、タイル状画像塗りつぶしを持つ矩形を追加し、タイルオプションを構成する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation();
 try {
     // 最初のスライドを取得します。
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // 矩形のオートシェイプを追加します。
+    // 矩形オートシェイプを追加します。
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
     // 図形の塗りつぶしタイプを Picture に設定します。
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // 画像をロードし、プレゼンテーションのリソースに追加します。
+    // 画像を読み込み、プレゼンテーションのリソースに追加します。
     IImage sourceImage = Images.fromFile("lotus.png");
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
@@ -418,19 +420,19 @@ try {
 
 結果:
 
-![タイルオプションのプレビュー](tile-options.png)
+![タイルオプションの設定](tile-options.png)
 
 ## **単色塗りつぶし**
 
-PowerPoint の単色塗りつぶしは、図形を単一の均一な色で塗りつぶす書式設定オプションです。グラデーション、テクスチャ、パターンなどは使用せず、純粋な背景色が適用されます。
+PowerPoint の単色塗りつぶしは、図形を単一の均一な色で塗りつぶす書式オプションです。グラデーション、テクスチャ、パターンなどを使用せず、単色の背景色が適用されます。
 
 Aspose.Slides を使用して図形に単色塗りつぶしを適用する手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) を追加します。
-1. 図形の [FillType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/filltype/) を `Solid` に設定します。
-1. 好みの塗りつぶし色を図形に割り当てます。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+1. 図形の [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) を `Solid` に設定します。
+1. 好みの塗りつぶし色を図形に設定します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 次の Java コードは、スライド上の矩形に単色塗りつぶしを適用する例です。
@@ -439,19 +441,19 @@ Aspose.Slides を使用して図形に単色塗りつぶしを適用する手順
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation();
 try {
     // 最初のスライドを取得します。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを追加します。
+    // 矩形タイプのオートシェイプを追加します。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // 塗りつぶしタイプを Solid に設定します。
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // 塗りつぶし色を設定します。
+    // 塗りつぶしの色を設定します。
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
     // PPTX ファイルをディスクに保存します。
@@ -463,34 +465,34 @@ try {
 
 結果:
 
-![単色塗りつぶしが適用された図形](solid-color-fill.png)
+![単色塗りつぶしされた図形](solid-color-fill.png)
 
 ## **透明度の設定**
 
-PowerPoint では、単色、グラデーション、画像、テクスチャのいずれかで塗りつぶした図形に対して透明度を設定し、塗りつぶしの不透明度を調整できます。透明度の値が大きいほど、図形は透けて背景や下にあるオブジェクトが部分的に見えるようになります。
+PowerPoint では、図形に単色、グラデーション、画像、テクスチャのいずれかの塗りつぶしを適用する際に、透明度を設定して塗りつぶしの不透明度を制御できます。透明度の値が高いほど図形が透けて見え、背景や下のオブジェクトが部分的に表示されます。
 
-Aspose.Slides では、塗りつぶしに使用する色のアルファ値を調整することで透明度を設定できます。手順は次のとおりです。
+Aspose.Slides は、塗りつぶしに使用する色のアルファ値を調整することで透明度を設定できます。手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) を追加します。
-1. [FillType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/filltype/) を `Solid` に設定します。
-1. `Color` を使用して透明度（アルファ成分）を持つ色を定義します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+1. [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) を `Solid` に設定します。
+1. `Color` を使用して透明度を持つ色を定義します（`alpha` 成分が透明度を制御します）。
 1. プレゼンテーションを保存します。
 
-次の Java コードは、矩形に透明塗りつぶし色を適用する例です。
+次の Java コードは、矩形に透明な塗りつぶし色を適用する例です。
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation();
 try {
     // 最初のスライドを取得します。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // ソリッドな矩形オートシェイプを追加します。
+    // ソリッド矩形オートシェイプを追加します。
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // ソリッドシェイプの上に透明な矩形オートシェイプを追加します。
@@ -511,13 +513,13 @@ try {
 
 ## **図形の回転**
 
-Aspose.Slides を使用すると、PowerPoint プレゼンテーション内の図形を回転させることができます。特定の配置やデザイン要件に合わせてビジュアル要素を回転させる際に便利です。
+Aspose.Slides は、PowerPoint プレゼンテーション内の図形を回転させることができます。特定の配置やデザイン要件に合わせて視覚要素を回転させる際に便利です。
 
 スライド上の図形を回転させる手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) を追加します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
 1. 図形の回転プロパティに目的の角度を設定します。
 1. プレゼンテーションを保存します。
 
@@ -526,16 +528,16 @@ Aspose.Slides を使用すると、PowerPoint プレゼンテーション内の�
 ```java
 import com.aspose.slides.*;
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation();
 try {
     // 最初のスライドを取得します。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを追加します。
+    // 矩形タイプのオートシェイプを追加します。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // 図形を5度回転させます。
+    // 図形を 5 度回転させます。
     shape.setRotation(5);
 
     // PPTX ファイルをディスクに保存します。
@@ -551,14 +553,14 @@ try {
 
 ## **3D ベベル効果の追加**
 
-Aspose.Slides では、図形の `[ThreeDFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/threedformat/)` プロパティを構成することで 3D ベベル効果を適用できます。
+Aspose.Slides は、図形の [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) プロパティを構成することで、3D ベベル効果を適用できます。
 
 図形に 3D ベベル効果を追加する手順は次のとおりです。
 
-1. `[Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/)` クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに `[IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/)` を追加します。
-1. 図形の `[ThreeDFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/threedformat/)` を設定してベベルを定義します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+1. 図形の [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) を設定してベベル設定を定義します。
 1. プレゼンテーションを保存します。
 
 次の Java コードは、図形に 3D ベベル効果を適用する例です。
@@ -598,18 +600,18 @@ try {
 
 結果:
 
-![3D ベベル効果のプレビュー](3D-bevel-effect.png)
+![3D ベベル効果](3D-bevel-effect.png)
 
 ## **3D 回転効果の追加**
 
-Aspose.Slides では、図形の `[ThreeDFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/threedformat/)` プロパティを構成することで 3D 回転効果を適用できます。
+Aspose.Slides は、図形の [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) プロパティを構成することで、3D 回転効果を適用できます。
 
 図形に 3D 回転を適用する手順は次のとおりです。
 
-1. `[Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/)` クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに `[IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/)` を追加します。
-1. `[setCameraType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icamera/#setCameraType-int-)` と `[setLightType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilightrig/#setLightType-int-)` を使用して 3D 回転を定義します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+1. `[setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-)` と `[setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-)` を使用して 3D 回転を定義します。
 1. プレゼンテーションを保存します。
 
 次の Java コードは、図形に 3D 回転効果を適用する例です。
@@ -639,15 +641,15 @@ try {
 
 結果:
 
-![3D 回転効果のプレビュー](3D-rotation-effect.png)
+![3D 回転効果](3D-rotation-effect.png)
 
-## **図形の白黒表示制御**
+## **図形の白黒レンダリング制御**
 
-`[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-)` メソッドは、プレゼンテーションが白黒モードで表示または処理される際に、個々の図形がどのように描画されるかを指定します。このメソッドだけで白黒表示が有効になるわけではなく、通常のカラー表示時の塗りつぶし・線・その他の書式設定は変更されません。
+`[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-)` メソッドは、プレゼンテーションが白黒モードで表示または処理されるときに個々の図形のレンダリング方法を指定します。このメソッドだけで白黒表示が有効になるわけではなく、通常のカラー表示時の塗り、線、その他の書式設定は変更されません。
 
-`[BlackWhiteMode](https://reference.aspose.com/slides/ja/java/com.aspose.slides/blackwhitemode/)` クラスの値を使用して動作を選択します。例として、`Automatic` はアプリケーションに変換を委任し、`Gray` と `LightGray` はグレー表示、`BlackWhite` は黒と白のみ、`Black` と `White` は単一色、`Color` はカラーを保持、`Hidden` は白黒モードで図形を非表示にします。`NotDefined` は図形レベルでモードが設定されていないことを意味します。
+`[BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/)` クラスの値を使用して目的の動作を選択します。例として、`Automatic` はレンダリング アプリケーションに変換を委ね、`Gray` と `LightGray` は灰色で、`BlackWhite` は黒と白のみ、`Black` と `White` は単一色、`Color` は通常のカラーを保持し、`Hidden` は白黒モードで図形を省略します。`NotDefined` は図形レベルのモードが割り当てられていないことを意味します。
 
-次の Java コードは、カラーの図形を作成し、白黒表示モードでグレーとして表示させる例です。
+次の Java コードは、カラー図形を作成し、白黒表示モードで灰色に表示させる例です。
 
 ```java
 import com.aspose.slides.*;
@@ -661,7 +663,7 @@ try {
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
 
-    // カラーモードではオレンジの塗りつぶしを保持し、白黒モードでは図形をグレーで描画します。
+    // カラーモードではオレンジの塗りつぶしを保持し、白黒モードでは図形をグレーカラーでレンダリングします。
     shape.setBlackWhiteMode(BlackWhiteMode.Gray);
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
@@ -670,11 +672,11 @@ try {
 }
 ```
 
-通常のカラー表示では、矩形はオレンジの塗りつぶしが保持されます。白黒表示のワークフローでは、モードが `Gray` に設定されているためグレーで表示されます。これにより、フルカラー スライドを維持しつつ、印刷やプレビューなど黒白表示を尊重するワークフローで別の外観を定義できます。
+通常カラー表示では矩形はオレンジの塗りつぶしを保持しますが、白黒表示のワークフローではモードが `Gray` に設定されているため灰色で表示されます。これにより、フルカラーのスライドを保持しつつ、印刷やプレビューなどの白黒表示設定を尊重するワークフローで別の外観を定義できます。
 
-## **書式設定のリセット**
+## **書式のリセット**
 
-次の Java コードは、スライドの書式設定をリセットし、`[LayoutSlide](https://reference.aspose.com/slides/ja/java/com.aspose.slides/layoutslide/)` 上のプレースホルダー付きすべての図形の位置、サイズ、書式設定をデフォルトに戻す方法を示しています。
+次の Java コードは、スライドの書式をリセットし、[LayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/) 上のプレースホルダーを持つすべての図形の位置、サイズ、書式をデフォルト設定に戻す方法を示します。
 
 ```java
 import com.aspose.slides.*;
@@ -682,7 +684,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // レイアウトにプレースホルダーがあるスライド上の各シェイプをリセットします。
+        // レイアウト上にプレースホルダーがあるスライド上の各図形をリセットします。
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -693,14 +695,14 @@ try {
 
 ## **FAQ**
 
-**図形の書式設定は最終的なプレゼンテーション ファイル サイズに影響しますか？**
+**図形の書式設定は最終的なプレゼンテーション ファイルサイズに影響しますか？**
 
-ほとんど影響しません。埋め込み画像やメディアがファイルサイズの大部分を占め、色や効果、グラデーションなどの図形パラメータはメタデータとして保存されるため、実質的なサイズ増加はほぼありません。
+影響は最小限です。埋め込まれた画像やメディアがファイルサイズの大部分を占め、色や効果、グラデーションなどの図形パラメータはメタデータとして保存され、実質的なサイズ増加はほとんどありません。
 
-**同じ書式設定を持つ図形をスライド上で検出してグループ化するにはどうすればよいですか？**
+**同一の書式設定を共有するスライド上の図形を検出してグループ化するにはどうすればよいですか？**
 
-各図形の主要な書式プロパティ（塗りつぶし、線、効果設定）を比較します。すべての対応する値が一致すれば、スタイルが同一とみなし、論理的にグループ化できます。これにより、後続のスタイル管理が容易になります。
+各図形の主要な書式プロパティ（塗り、線、効果設定）を比較します。すべての対応する値が一致すれば、そのスタイルは同一とみなし、論理的にグループ化します。これにより、後のスタイル管理が簡素化されます。
 
 **カスタム図形スタイルのセットを別ファイルに保存し、他のプレゼンテーションで再利用できますか？**
 
-可能です。目的のスタイルを持つサンプル図形をテンプレート スライド デックまたは .POTX テンプレート ファイルに保存します。新規プレゼンテーション作成時にテンプレートを開き、必要なスタイルの図形をクローンして、必要な場所で書式設定を再適用します。
+可能です。目的のスタイルを持つサンプル図形をテンプレート スライド デッキまたは .POTX テンプレート ファイルに保存します。新しいプレゼンテーションを作成する際にテンプレートを開き、必要なスタイルの図形をクローンして、必要な場所で書式を再適用します。

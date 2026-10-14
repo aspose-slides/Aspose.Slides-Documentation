@@ -22,113 +22,153 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js を使用して、JavaScript で PowerPoint プレゼンテーションを高品質な PNG 画像に迅速に変換し、正確で自動化された結果を実現します。"
+description: Aspose.Slides for Node.js を使用して、JavaScript で PowerPoint プレゼンテーションを高品質な PNG 画像に迅速に変換し、正確で自動化された結果を保証します。
 ---
+## **概要**
 
-## **PowerPoint から PNG への変換について**
+この記事では、Aspose.Slides for Node.js via Java を使用してプレゼンテーションスライドを PNG 画像に変換する方法を説明します。PPT、PPTX、ODP などの形式でプレゼンテーションをロードし、各スライドをレンダリングして、個別の PNG 画像として保存できます。
 
-PNG（Portable Network Graphics）形式は JPEG（Joint Photographic Experts Group）ほど一般的ではありませんが、依然として非常に人気があります。
-
-**Use case:** 複雑な画像でサイズが問題にならない場合、PNG は JPEG よりも優れた画像形式です。
-
-{{% alert title="Tip" color="primary" %}} Aspose の無料 **PowerPoint to PNG Converters** を確認したいかもしれません: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) と [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png)。これらはこのページで説明したプロセスの実際の実装です。 {{% /alert %}}
+以下の例では、デフォルトスケールでのレンダリング、スケールの拡大、ピクセル単位での出力サイズの指定、そしてグラデーションレンダリングスタイルの選択を示します。
 
 ## **PowerPoint を PNG に変換**
 
-以下の手順に従ってください：
+プレゼンテーションは [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスでロードし、[Presentation.getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) コレクションからスライドにアクセスします。例では、パラメータなしで [Slide.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage) を呼び出してサムネイルを作成し、各スライドをレンダリングします。その後、[IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) に [ImageFormat.Png](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imageformat/#Png) を指定して、レンダリングしたスライドを PNG 画像として保存します。
 
-1. インスタンス化する [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラス。
-2. [Presentation.getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) メソッドが返すコレクションからスライドオブジェクトを取得し、[Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) クラスで使用します。
-3. [Slide.getImage()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) メソッドを使用して各スライドのサムネイルを取得します。
-4. [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) メソッドを使用してスライドサムネイルを PNG 形式で保存します。
-
-この JavaScript コードは PowerPoint プレゼンテーションを PNG に変換する方法を示しています：
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    for (var index = 0; index < pres.getSlides().size(); index++) {
-        var slide = pres.getSlides().get_Item(index);
-        var slideImage = slide.getImage();
+    let slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        let slide = presentation.getSlides().get_Item(index);
+        let image = slide.getImage();
         try {
-            slideImage.save(("image_java_" + index) + ".png", aspose.slides.ImageFormat.Png);
+            image.save("slide_" + index + ".png", aspose.slides.ImageFormat.Png);
         } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+パラメータなしの [Slide.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage) オーバーロードはスケール 0.2 でレンダリングします。たとえば、720 × 540 ポイントのスライドは 144 × 108 ピクセルのサムネイルを生成します。出力サイズを制御するには、以下に示すようにスケール係数を使用するオーバーロードまたは明示的な画像サイズを使用してください。
+{{% /alert %}}
 
 ## **カスタム寸法で PowerPoint を PNG に変換**
 
-特定のスケールの PNG ファイルを取得したい場合、結果のサムネイルの寸法を決定する `desiredX` と `desiredY` の値を設定できます。
+水平および垂直のスケール係数を [Slide.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage) に渡すことで、レンダリングサイズを制御できます。この例では、両方の係数が 2 で、720 × 540 ポイントのスライドは 1440 × 1080 ピクセルの画像になります。スケール係数が同じ場合、スライドのアスペクト比が保持されます。各画像は [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) を使用して PNG 形式で保存されます。
 
-この JavaScript コードは上記の操作を示しています：
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var scaleX = 2.0;
-    var scaleY = 2.0;
-    for (var index = 0; index < pres.getSlides().size(); index++) {
-        var slide = pres.getSlides().get_Item(index);
-        var slideImage = slide.getImage(scaleX, scaleY);
+    let scaleX = 2.0;
+    let scaleY = scaleX;
+
+    let slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        let slide = presentation.getSlides().get_Item(index);
+        let image = slide.getImage(scaleX, scaleY);
         try {
-            slideImage.save(("image_java_" + index) + ".png", aspose.slides.ImageFormat.Png);
+            image.save("slide_" + index + ".png", aspose.slides.ImageFormat.Png);
         } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **カスタムサイズで PowerPoint を PNG に変換**
 
-特定のサイズの PNG ファイルを取得したい場合、`ImageSize` のために希望する `width` と `height` の引数を渡すことができます。
+ピクセル単位で出力サイズを指定するには、スケール係数の代わりにサイズを [Slide.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage) に渡します。この例では、すべてのスライドを 960 × 720 ピクセルでレンダリングし、結果を [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) で保存します。画像が伸びるのを防ぐため、スライドのアスペクト比に合わせたサイズを選択してください。
 
-このコードは画像のサイズを指定しながら PowerPoint を PNG に変換する方法を示しています：
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var size = java.newInstanceSync("java.awt.Dimension", 960, 720);
-    for (var index = 0; index < pres.getSlides().size(); index++) {
-        var slide = pres.getSlides().get_Item(index);
-        var slideImage = slide.getImage(size);
+    let imageSize = java.newInstanceSync("java.awt.Dimension", 960, 720);
+
+    let slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        let slide = presentation.getSlides().get_Item(index);
+        let image = slide.getImage(imageSize);
         try {
-            slideImage.save(("image_java_" + index) + ".png", aspose.slides.ImageFormat.Png);
+            image.save("slide_" + index + ".png", aspose.slides.ImageFormat.Png);
         } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **グラデーションレンダリングスタイルの選択**
 
-## **FAQ**
+スライドにグラデーション塗りが含まれているが、エクスポートされた PNG の遷移が PowerPoint で見るものよりも明るい、あるいは異なる場合があります。[RenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/renderingoptions/) が継承する [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setGradientStyle) メソッドを使用して、グラデーションのレンダリング方法を選択できます。
 
-**スライド全体ではなく、特定のシェイプ（例: チャートや画像）だけをエクスポートするにはどうすればよいですか？**  
-Aspose.Slides は [個々のシェイプのサムネイル生成](/slides/ja/nodejs-java/create-shape-thumbnails/) をサポートしており、シェイプを PNG 画像としてレンダリングできます。
+[gradient-styles.pptx](gradient-styles.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置します。最初のスライドには、上部がシアンからオレンジ、下部が青から黄色へ変化する 2 つの線形グラデーションが含まれています。各グラデーションは 0% と 100% の 2 つのストップを持ちます。
 
-**サーバー上で並列変換はサポートされていますか？**  
-はい、ただしスレッド間で単一のプレゼンテーション インスタンスを [共有しない](/slides/ja/nodejs-java/multithreading/) でください。スレッドまたはプロセスごとに別々のインスタンスを使用します。
+以下の例では、このプレゼンテーションをロードし、[Slide.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage) を使用して同じ最初のスライドを両方のモードでレンダリングします。
 
-**PNG へのエクスポート時の体験版の制限は何ですか？**  
-評価モードでは出力画像に透かしが追加され、ライセンスが適用されるまで [その他の制限](/slides/ja/nodejs-java/licensing/) が適用されます。
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("gradient-styles.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let gradientStyles = [aspose.slides.GradientStyle.Default, aspose.slides.GradientStyle.PowerPointUI];
+    for (let style of gradientStyles) {
+        let options = new aspose.slides.RenderingOptions();
+        options.setGradientStyle(style);
+
+        let styleName = style == aspose.slides.GradientStyle.Default ? "Default" : "PowerPointUI";
+        let image = slide.getImage(options, 1.0, 1.0);
+        try {
+            image.save("gradient-" + styleName + ".png", aspose.slides.ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+以下の画像は同じスライドの出力を示しており、各画像に両方のグラデーションが含まれています。
+
+| デフォルト | PowerPointUI |
+| --- | --- |
+| ![デフォルトでレンダリングされたシアンからオレンジ、青から黄色へのグラデーション](gradient-Default.png) | ![PowerPointUI でレンダリングされた同じグラデーション](gradient-PowerPointUI.png) |
+
+この例では、`Default` は中間色がより明るくなり、`PowerPointUI` は中間色がより暗くなります。違いはグラデーションの色とストップに依存します。
+
+標準の Aspose.Slides 出力が要件に合う場合は `Default` を選択してください。PowerPoint の外観と一致させることが優先事項の場合は `PowerPointUI` を試してください。両方の出力を目的の結果と比較してください。どちらのモードも普遍的に優れているわけではありません。
+
+## **よくある質問**
+
+**スライド全体ではなく、チャートや画像などの特定のシェイプだけをエクスポートするにはどうすればよいですか？**
+
+Aspose.Slides は、[個別シェイプのサムネイル生成](/slides/ja/nodejs-java/create-shape-thumbnails/) をサポートしており、シェイプを PNG 画像としてレンダリングできます。
+
+**サーバーで並列変換はサポートされていますか？**
+
+はい。各スレッドまたはプロセスごに個別のプレゼンテーション インスタンスを使用してください；[スレッド間で単一のインスタンスを共有しないでください](/slides/ja/nodejs-java/multithreading/)。
+
+**PNG へエクスポートする際の評価版の制限は何ですか？**
+
+評価モードでは、出力画像に透かしが追加され、[その他の制限](/slides/ja/nodejs-java/licensing/) がライセンスが適用されるまで適用されます。

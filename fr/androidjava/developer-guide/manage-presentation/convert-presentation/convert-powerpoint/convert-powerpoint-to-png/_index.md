@@ -1,13 +1,13 @@
 ---
-title: Convertir des diapositives PowerPoint en PNG sur Android
+title: Convertir les diapositives PowerPoint en PNG sur Android
 linktitle: PowerPoint en PNG
 type: docs
 weight: 30
 url: /fr/androidjava/convert-powerpoint-to-png/
 keywords:
 - convertir PowerPoint
-- convertir présentation
-- convertir diapositive
+- convertir une présentation
+- convertir une diapositive
 - convertir PPT
 - convertir PPTX
 - PowerPoint en PNG
@@ -22,107 +22,147 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Convertissez les présentations PowerPoint en images PNG de haute qualité rapidement avec Aspose.Slides pour Android via Java, en assurant des résultats précis et automatisés."
+description: "Convertir les présentations PowerPoint en images PNG de haute qualité rapidement avec Aspose.Slides pour Android via Java, garantissant des résultats précis et automatisés."
 ---
+## **Aperçu**
 
-## **À propos de la conversion PowerPoint en PNG**
+Cet article explique comment convertir des diapositives de présentation en images PNG en utilisant Aspose.Slides pour Android via Java. Vous pouvez charger des présentations dans des formats tels que PPT, PPTX et ODP, rendre chaque diapositive et l’enregistrer comme une image PNG distincte.
 
-Le format PNG (Portable Network Graphics) n'est pas aussi populaire que le JPEG (Joint Photographic Experts Group), mais il reste très populaire. 
-
-**Cas d'utilisation :** Lorsque vous avez une image complexe et que la taille n'est pas un problème, le PNG est un meilleur format d'image que le JPEG. 
-
-{{% alert title="Tip" color="primary" %}} Vous voudrez peut-être consulter les convertisseurs PowerPoint en PNG gratuits d'Aspose :**PowerPoint to PNG Converters** : [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) et [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Ce sont une implémentation en direct du processus décrit sur cette page. {{% /alert %}}
+Les exemples ci‑dessus montrent le rendu à l’échelle par défaut, l’augmentation de l’échelle, la spécification des dimensions de sortie en pixels et le choix d’un style de rendu de dégradé.
 
 ## **Convertir PowerPoint en PNG**
 
-Suivez ces étapes:
+Chargez une présentation avec la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) et accédez à ses diapositives via la collection [Presentation.getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--). L’exemple rend chaque diapositive avec [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage--) sans paramètres pour créer une miniature. Il appelle ensuite [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) avec [ImageFormat.Png](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/#Png) afin d’enregistrer chaque diapositive rendue en tant qu’image PNG.
 
-1. Instanciez la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Récupérez l'objet diapositive à partir de la collection [Presentation.getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) sous l'interface [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide).
-3. Utilisez la méthode [ISlide.getImage()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide) pour obtenir la miniature de chaque diapositive.
-4. Utilisez la méthode [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IImage#save(String%20formatName,%20int%20imageFormat)) pour enregistrer la miniature de la diapositive au format PNG.
-
-Ce code Java montre comment convertir une présentation PowerPoint en PNG:
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+La surcharge de [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage--) sans paramètres rend à une échelle de 0,2. Par exemple, une diapositive mesurant 720 × 540 points produit une miniature de 144 × 108 pixels. Pour contrôler les dimensions de sortie, utilisez les surcharges avec des facteurs d’échelle ou une taille d’image explicite montrée ci‑dessous.
+{{% /alert %}}
 
 ## **Convertir PowerPoint en PNG avec dimensions personnalisées**
 
-Si vous souhaitez obtenir des fichiers PNG à une certaine échelle, vous pouvez définir les valeurs `desiredX` et `desiredY`, qui déterminent les dimensions de la miniature résultante. 
+Passez des facteurs d’échelle horizontaux et verticaux à [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-float-float-) pour contrôler les dimensions rendues. Dans cet exemple, les deux facteurs sont 2, ainsi une diapositive mesurant 720 × 540 points produit une image de 1440 × 1080 pixels. Des facteurs d’échelle égaux conservent le ratio d’aspect de la diapositive. Chaque image est enregistrée au format PNG avec [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-).
 
-Ce code Java démontre l'opération décrite :
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Convertir PowerPoint en PNG avec taille personnalisée**
 
-Si vous souhaitez obtenir des fichiers PNG d'une certaine taille, vous pouvez fournir vos arguments préférés `width` et `height` pour `ImageSize`. 
+Pour spécifier les dimensions de sortie en pixels, transmettez une taille à [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) au lieu des facteurs d’échelle. Cet exemple rend chaque diapositive à 960 × 720 pixels et enregistre le résultat avec [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Choisissez des dimensions qui correspondent au ratio d’aspect de la diapositive afin d’éviter d’étirer l’image.
 
-Ce code montre comment convertir un PowerPoint en PNG tout en spécifiant la taille des images :
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Size imageSize = new Size(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Choisir un style de rendu de dégradé**
+
+Supposons qu’une diapositive contienne des remplissages en dégradé, mais que les transitions dans le PNG exporté apparaissent plus claires ou différemment de ce que vous voyez dans PowerPoint. Vous pouvez utiliser la méthode [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setGradientStyle-int-) héritée par [RenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/renderingoptions/) pour choisir la façon dont les dégradés sont rendus.
+
+Téléchargez [gradient-styles.pptx](gradient-styles.pptx) et placez‑le dans le répertoire de travail de l’application. Sa première diapositive contient deux dégradés linéaires : cyan vers orange en haut et bleu vers jaune en bas. Chaque dégradé possède deux arrêts, à 0 % et 100 %.
+
+L’exemple suivant charge cette présentation et rend la même première diapositive dans les deux modes avec [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Dégradés cyan-orange et bleu-jaune rendus avec Default](gradient-Default.png) | ![Les mêmes dégradés rendus avec PowerPointUI](gradient-PowerPointUI.png) |
+
+Dans cet exemple, `Default` produit des couleurs intermédiaires plus claires, tandis que `PowerPointUI` produit des couleurs intermédiaires plus sombres. La différence dépend des couleurs et des arrêts du dégradé.
+
+Choisissez `Default` lorsque la sortie standard d’Aspose.Slides répond à vos besoins. Optez pour `PowerPointUI` lorsque votre priorité est de correspondre à l’apparence dans PowerPoint. Comparez les deux sorties avec le résultat souhaité ; aucun des deux modes n’est universellement préférable.
 
 ## **FAQ**
 
-**Comment puis‑je exporter uniquement une forme spécifique (par ex. un graphique ou une image) plutôt que la diapositive entière ?**
+**Comment puis‑je exporter une forme spécifique, comme un graphique ou une image, au lieu de toute la diapositive ?**
 
-Aspose.Slides prend en charge la [génération de vignettes pour des formes individuelles](/slides/fr/androidjava/create-shape-thumbnails/) ; vous pouvez rendre une forme en image PNG.
+Aspose.Slides prend en charge la [génération de miniatures pour des formes individuelles](/slides/fr/androidjava/create-shape-thumbnails/), vous permettant de rendre une forme en tant qu’image PNG.
 
 **La conversion parallèle est‑elle prise en charge sur un serveur ?**
 
-Oui, mais [ne partagez pas](/slides/fr/androidjava/multithreading/) une même instance de présentation entre plusieurs threads. Utilisez une instance distincte par thread ou processus.
+Oui. Utilisez une instance de présentation distincte pour chaque thread ou processus ; [ne partagez pas une même instance entre les threads](/slides/fr/androidjava/multithreading/).
 
-**Quelles sont les limitations de la version d'essai lors de l'exportation en PNG ?**
+**Quelles sont les limitations de l’évaluation lors de l’exportation vers PNG ?**
 
-Le mode d'évaluation ajoute un filigrane aux images de sortie et applique [d'autres restrictions](/slides/fr/androidjava/licensing/) jusqu'à ce qu'une licence soit appliquée.
+Le mode d’évaluation ajoute un filigrane aux images de sortie et applique les [autres restrictions](/slides/fr/androidjava/licensing/) jusqu’à ce qu’une licence soit appliquée.

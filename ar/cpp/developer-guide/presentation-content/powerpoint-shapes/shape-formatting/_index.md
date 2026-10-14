@@ -1,55 +1,55 @@
 ---
-title: تنسيق أشكال PowerPoint في C++
-linktitle: تنسيق الشكل
+title: "تنسيق أشكال PowerPoint في C++"
+linktitle: "تنسيق الشكل"
 type: docs
 weight: 20
 url: /ar/cpp/shape-formatting/
 keywords:
-- تنسيق الشكل
-- تنسيق الخط
-- تأثير الرسم التخطيطي
-- خط الشكل الرسومي
-- تنسيق نمط الوصل
-- ملء متدرج
-- ملء نمطي
-- ملء صورة
-- ملء نقش
-- ملء لون صلب
-- شفافية الشكل
-- عرض الشكل بالأبيض والأسود
-- عرض الشكل بالرمادي
-- تدوير الشكل
-- تأثير حافة ثلاثية الأبعاد
-- تأثير دوران ثلاثي الأبعاد
-- إعادة تعيين التنسيق
-- PowerPoint
-- عرض تقديمي
-- C++
-- Aspose.Slides
-description: "تعرّف على كيفية تنسيق أشكال PowerPoint في C++ باستخدام Aspose.Slides—حدد أنماط الملء، الخط، والتأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
+- "تنسيق الشكل"
+- "تنسيق الخط"
+- "تأثير التخطيط"
+- "خط الشكل المخطط"
+- "تنسيق نمط الوصل"
+- "ملء التدرج اللوني"
+- "ملء النمط"
+- "ملء الصورة"
+- "ملء الملمس"
+- "ملء اللون الصلب"
+- "شفافية الشكل"
+- "عرض الشكل بالأبيض والأسود"
+- "عرض الشكل بدرجة الرمادي"
+- "تدوير الشكل"
+- "تأثير الحافة ثلاثية الأبعاد"
+- "تأثير التدوير ثلاثي الأبعاد"
+- "إعادة تعيين التنسيق"
+- "PowerPoint"
+- "العرض التقديمي"
+- "C++"
+- "Aspose.Slides"
+description: "تعرف على كيفية تنسيق أشكال PowerPoint في C++ باستخدام Aspose.Slides—ضبط أنماط التعبئة والخط والتأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
 ---
-## **مقدمة**
+## **المقدمة**
 
-في PowerPoint، يمكنك إضافة أشكال إلى الشرائح. بما أن الأشكال تتكون من خطوط، يمكنك تنسيقها عن طريق تعديل أو تطبيق التأثيرات على حدودها. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال عن طريق تحديد الإعدادات التي تتحكم في طريقة ملئها الداخلي.
+في PowerPoint، يمكنك إضافة الأشكال إلى الشرائح. بما أن الأشكال تتكون من خطوط، يمكنك تنسيقها عن طريق تعديل أو تطبيق تأثيرات على حدودها. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال عن طريق تحديد إعدادات تتحكم في كيفية تعبئة داخلها.
 
-![تنسيق الشكل في PowerPoint](format-shape-powerpoint.png)
+![تنسيق-شكل-PowerPoint](format-shape-powerpoint.png)
 
-توفر Aspose.Slides للغة C++ واجهات وطرق تسمح لك بتنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
+توفر Aspose.Slides للـ C++ واجهات وطرق تسمح لك بتنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
 
 ## **تنسيق الخطوط**
 
-باستخدام Aspose.Slides، يمكنك تحديد نمط خط مخصص لشكل. الخطوات التالية توضح الإجراء:
+باستخدام Aspose.Slides، يمكنك تحديد نمط خط مخصص لشكل. توضح الخطوات التالية الإجراء:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة بواسطة فهرستها.
-1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) إلى الشريحة.
-1. تعيين [line style](https://reference.aspose.com/slides/ar/cpp/aspose.slides/linestyle/) للشكل.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة حسب الفهرس الخاص بها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) إلى الشريحة.
+1. تعيين [line style](https://reference.aspose.com/slides/cpp/aspose.slides/linestyle/) للشكل.
 1. تعيين عرض الخط.
-1. تعيين [dash style](https://reference.aspose.com/slides/ar/cpp/aspose.slides/linedashstyle/) للخط.
+1. تعيين [dash style](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) للخط.
 1. تعيين لون الخط للشكل.
 1. حفظ العرض المعدل كملف PPTX.
 
-الكود التالي يوضح كيفية تنسيق مستطيل `AutoShape`:
+الكود التالي يوضح كيفية تنسيق `AutoShape` على شكل مستطيل:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -72,7 +72,7 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
 auto presentation = MakeObject<Presentation>();
 
 // الحصول على الشريحة الأولى.
@@ -84,7 +84,7 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 15
 // تعيين لون التعبئة لشكل المستطيل.
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// تطبيق التنسيق على خطوط المستطيل.
+// تطبيق تنسيق على خطوط المستطيل.
 shape->get_LineFormat()->set_Style(LineStyle::ThickThin);
 shape->get_LineFormat()->set_Width(7);
 shape->get_LineFormat()->set_DashStyle(LineDashStyle::Dash);
@@ -102,11 +102,11 @@ presentation->Dispose();
 
 ![الخطوط المنسقة في العرض](formatted-lines.png)
 
-## **تطبيق تأثيرات الرسم التخطيطي على خطوط الشكل**
+## **تطبيق تأثيرات الرسم على خطوط الشكل**
 
-يُضفي تأثير الرسم التخطيطي مظهرًا يدويًا على خط الشكل. استخدم [IShape::get_LineFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_lineformat/) للوصول إلى إعدادات الخط، و[ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilineformat/get_sketchformat/) للوصول إلى إعدادات التخطيط، و[ISketchFormat::set_SketchType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isketchformat/set_sketchtype/) لتحديد قيمة من تعداد [LineSketchType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/linesketchtype/).
+يُضفي تأثير الرسم مظهر الخط وكأنه مرسوم يدوياً. استخدم [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) للوصول إلى إعدادات الخط، [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) للوصول إلى إعدادات الرسم، و[ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) لاختيار قيمة من تعداد [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/).
 
-الكود التالي بلغة C++ يوضح كيفية تطبيق تأثير [LineSketchType::Curved](https://reference.aspose.com/slides/ar/cpp/aspose.slides/linesketchtype/) ، وقراءة القيمة المُعيَّنة صراحةً، وإزالة التأثير باستخدام [LineSketchType::None](https://reference.aspose.com/slides/ar/cpp/aspose.slides/linesketchtype/):
+الكود التالي بلغة C++ يوضح كيفية تطبيق تأثير [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) ، قراءة القيمة المحددة صراحةً، وإزالة التأثير باستخدام [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -130,7 +130,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-القيمة التي تُرجعها الدالة [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isketchformat/get_sketchtype/) تمثل الإعداد المعين مباشرةً للشكل. إذا كان تنسيق الخط يمكن وراثته من موضوع أو شريحة رئيسية أو شريحة تخطيط، استخدم [ILineFormat::GetEffective](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilineformat/geteffective/)، وصول إلى [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/)، وقراءة [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). القيمة الفعلية تعكس التنسيق الذي يتم تطبيقه فعليًا بعد حل الوراثة:
+القيمة التي تُرجعها الدالة [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) تمثل الإعداد المعين مباشرةً للشكل. إذا كان يمكن وراثة تنسيق الخط من سمة أو شريحة رئيسية أو شريحة تخطيط، استخدم [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/)، وصول إلى [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/)، وقراءة [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). القيمة الفعّالة تعكس التنسيق الذي يتم تطبيقه فعلياً بعد حل الوراثة:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"presentation.pptx");
@@ -150,17 +150,17 @@ presentation->Dispose();
 
 ## **تنسيق أنماط الوصل**
 
-فيما يلي ثلاثة خيارات لأنواع الوصل:
+فيما يلي خيارات ثلاثة لأنواع الوصل:
 
-* دوري
-* قاطع
-* مشطوف
+* مستدير
+* حاد
+* مقعر
 
-بشكل افتراضي، عندما يقوم PowerPoint بدمج خطين بزاوية (مثلًا عند زاوية الشكل)، يستخدم إعداد **دوري**. ومع ذلك، إذا كنت ترسم شكلًا بزاويات حادة، قد تفضّل خيار **قاطع**.
+بشكل افتراضي، عندما يقوم PowerPoint بضم خطين بزاوية (مثل زاوية شكل)، يستخدم إعداد **مستدير**. ومع ذلك، إذا كنت ترسم شكلاً بزوايا حادة، قد تفضل خيار **حاد**.
 
 ![نمط الوصل في العرض](join-style-powerpoint.png)
 
-الكود التالي بلغة C++ يوضح كيف تم إنشاء ثلاثة مستطيلات (كما هو موضح في الصورة أعلاه) باستخدام إعدادات نوع الوصل Miter وBevel وRound:
+الكود التالي بلغة C++ يوضح كيفية إنشاء ثلاثة مستطيلات (كما هو موضح في الصورة أعلاه) باستخدام إعدادات نوع الوصل Miter وBevel وRound:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -183,7 +183,7 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
 auto presentation = MakeObject<Presentation>();
 
 // الحصول على الشريحة الأولى.
@@ -230,18 +230,20 @@ presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ملء متدرج**
+## **ملء تدرج اللون**
 
-في PowerPoint، تُعد خاصية الملء المتدرج خيارًا تنسيقيًا يتيح لك تطبيق تدرج مستمر من الألوان على الشكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر بحيث يتلاشى أحدهما تدريجيًا إلى الآخر.
+في PowerPoint، يُعد ملء التدرج خيار تنسيق يتيح لك تطبيق مزيج مستمر من الألوان على الشكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر بطريقة يتلاشى أحدهما تدريجياً إلى الآخر.
 
-إليك طريقة تطبيق ملء متدرج على شكل باستخدام Aspose.Slides:
+إليك طريقة تطبيق ملء تدرج على شكل باستخدام Aspose.Slides:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة بواسطة فهرستها.
-1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) إلى الشريحة.
-1. تعيين [FillType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/filltype/) الخاص بالشكل إلى `Gradient`.
-1. إضافة اللونين المفضّلين لديك مع تحديد المواقع باستخدام طرق `Add` لمجموعة نقاط التدرج التي تُعرض عبر الواجهة [IGradientFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/igradientformat/).
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة حسب الفهرس الخاص بها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) إلى الشريحة.
+1. تعيين [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) الخاص بالشكل إلى `Gradient`.
+1. إضافة اللونين المفضلين لديك مع تحديد المواضع باستخدام طرق `Add` لمجموعة نقاط التدرج التي يقدمها واجهة [IGradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/) .
 1. حفظ العرض المعدل كملف PPTX.
+
+الكود التالي بلغة C++ يوضح كيفية تطبيق تأثير ملء تدرج على إهليلج:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -262,7 +264,7 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
 auto presentation = MakeObject<Presentation>();
 
 // الحصول على الشريحة الأولى.
@@ -271,7 +273,7 @@ auto slide = presentation->get_Slide(0);
 // إضافة شكل تلقائي من النوع Ellipse.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-// تطبيق تنسيق تدرج لبيضاوي.
+// تطبيق تنسيق التدرج على الشكل الإهليلجي.
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
 shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
 
@@ -289,23 +291,25 @@ presentation->Dispose();
 
 النتيجة:
 
-![الإهليلج بملء متدرج](gradient-fill.png)
+![الإهليلج بملء التدرج](gradient-fill.png)
 
-## **ملء نمطي**
+إذا كان التدرج يظهَر بشكل مختلف في صورة مُصدَّرة مقارنةً بما هو عليه في PowerPoint، راجع [Choose a Gradient Rendering Style](/slides/ar/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). يمكنك اختيار نمط العرض دون تغيير ملء التدرج المخزن في العرض.
 
-في PowerPoint، يتيح لك ملء النمط خيار تنسيق يسمح بتطبيق تصميم ذو لونين—مثل النقاط أو الخطوط المتوازية أو التظليل المتقاطع أو المربعات—على الشكل. يمكنك اختيار ألوان مخصصة لخلفية ونص النمط.
+## **ملء النمط**
 
-توفر Aspose.Slides أكثر من 45 نمطًا مُعرّفًا مسبقًا يمكنك تطبيقها على الأشكال لتعزيز الجاذبية البصرية لعروضك التقديمية. حتى بعد اختيار نمط مُعرّف مسبقًا، لا يزال بإمكانك تحديد الألوان الدقيقة التي سيستخدمها.
+في PowerPoint، يُعد ملء النمط خيار تنسيق يتيح لك تطبيق تصميم ثنائي اللون—مثل النقاط أو الخطوط أو التعرجات المتقاطعة أو المربعات—على الشكل. يمكنك اختيار ألوان مخصصة للواجهة الخلفية والواجهة الأمامية للنمط.
 
-لتطبيق ملء نمط على شكل باستخدام Aspose.Slides:
+توفر Aspose.Slides أكثر من 45 نمط نمط مُعرَّف مسبقاً يمكنك تطبيقه على الأشكال لتحسين المظهر البصري للعروض التقديمية. حتى بعد اختيار نمط مُعرَّف مسبقاً، يمكنك تحديد الألوان الدقيقة التي يجب استخدامها.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة بواسطة فهرستها.
-1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) إلى الشريحة.
-1. تعيين [FillType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/filltype/) الخاص بالشكل إلى `Pattern`.
-1. اختيار نمط نمطي من الخيارات المعرّفة مسبقًا.
-1. تعيين [Background Color](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipatternformat/get_backcolor/) للنمط.
-1. تعيين [Foreground Color](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipatternformat/get_forecolor/) للنمط.
+إليك طريقة تطبيق ملء النمط على شكل باستخدام Aspose.Slides:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة حسب الفهرس الخاص بها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) إلى الشريحة.
+1. تعيين [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) الخاص بالشكل إلى `Pattern`.
+1. اختر نمط النمط من الخيارات المُعرَّفة مسبقاً.
+1. عيّن [Background Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) للنمط.
+1. عيّن [Foreground Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) للنمط.
 1. حفظ العرض المعدل كملف PPTX.
 
 ```cpp
@@ -327,7 +331,7 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
 auto presentation = MakeObject<Presentation>();
 
 // الحصول على الشريحة الأولى.
@@ -339,10 +343,10 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150
 // تعيين نوع التعبئة إلى Pattern.
 shape->get_FillFormat()->set_FillType(FillType::Pattern);
 
-// تعيين نمط النمط.
+// تعيين نمط النقش.
 shape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
 
-// تعيين لون الخلفية ولون المقدمة للنمط.
+// تعيين ألوان الخلفية والواجهة الأمامية للنقش.
 shape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_LightGray());
 shape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
 
@@ -353,26 +357,26 @@ presentation->Dispose();
 
 النتيجة:
 
-![المستطيل بملء نمطي](pattern-fill.png)
+![المستطيل بملء النمط](pattern-fill.png)
 
-## **ملء صورة**
+## **ملء الصورة**
 
-في PowerPoint، يُعد ملء الصورة خيارًا تنسيقيًا يتيح لك إدراج صورة داخل الشكل—مستخدمًا الصورة كخلفية للشكل.
+في PowerPoint، يُعد ملء الصورة خيار تنسيق يسمح لك بإدراج صورة داخل الشكل—بالتالي تستخدم الصورة كخلفية للشكل.
 
-إليك طريقة تطبيق ملء صورة على شكل باستخدام Aspose.Slides:
+إليك طريقة استخدام Aspose.Slides لتطبيق ملء صورة على شكل:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة بواسطة فهرستها.
-1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) إلى الشريحة.
-1. تعيين [FillType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/filltype/) الخاص بالشكل إلى `Picture`.
-1. تعيين وضع ملء الصورة إلى `Tile` (أو أي وضع مفضَّل آخر).
-1. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ippimage/) من الصورة التي تريد استخدامها.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة حسب الفهرس الخاص بها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) إلى الشريحة.
+1. تعيين [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) الخاص بالشكل إلى `Picture`.
+1. تعيين وضع ملء الصورة إلى `Tile` (أو أي وضع مفضل آخر).
+1. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) من الصورة التي تريد استخدامها.
 1. تمرير الصورة إلى طريقة `ISlidesPicture.set_Image`.
 1. حفظ العرض المعدل كملف PPTX.
 
-لنفترض أن لدينا ملف "lotus.png" بالصورة التالية:
-
 ![صورة اللوتس](lotus.png)
+
+الكود التالي بلغة C++ يوضح كيفية تعبئة شكل بالصورة:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -406,10 +410,10 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 255
 // تعيين نوع التعبئة إلى Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// تعيين وضع ملء الصورة.
+// تعيين وضع تعبئة الصورة.
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
-// تحميل صورة وإضافتها إلى موارد العرض.
+// تحميل صورة وإضافتها إلى موارد العرض التقديمي.
 auto image = Images::FromFile(u"lotus.png");
 auto picture = presentation->get_Images()->AddImage(image);
 image->Dispose();
@@ -424,21 +428,19 @@ presentation->Dispose();
 
 النتيجة:
 
-![الشكل بملء صورة](picture-fill.png)
+![الشكل بملء الصورة](picture-fill.png)
 
-### **بلاط الصورة كنقش**
+### **استخدام صورة مكررة كملمس**
 
-إذا كنت ترغب في ضبط صورة مبلطة كنقش وتخصيص سلوك البلاط، يمكنك استخدام الطرق التالية من واجهة [IPictureFillFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipicturefillformat/) والفئة [PictureFillFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/picturefillformat/):
+إذا كنت تريد تعيين صورة مكررة كملس وتخصيص سلوك التكرار، يمكنك استخدام الطرق التالية من واجهة [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) والصف [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) :
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): تُحدد وضع ملء الصورة — إما `Tile` أو `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): تحدد محاذاة البلاطات داخل الشكل.
-- [set_TileFlip](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipicturefillformat/set_tileflip/): تتحكم فيما إذا كان البلاط يُقلب أفقياً أو عمودياً أو كليهما.
-- [set_TileOffsetX](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): تحدد الإزاحة الأفقية للبلاط (بالنقطة) من أصل الشكل.
-- [set_TileOffsetY](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): تحدد الإزاحة العمودية للبلاط (بالنقطة) من أصل الشكل.
-- [set_TileScaleX](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): تعرّف مقياس البلاط الأفقي كنسبة مئوية.
-- [set_TileScaleY](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): تعرّف مقياس البلاط العمودي كنسبة مئوية.
-
-الكود التالي يوضح كيفية إضافة شكل مستطيل بملء صورة مبلّط وتكوين خيارات البلاط:
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): يحدد وضع ملء الصورة — إما `Tile` أو `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): يحدد محاذاة البلاط داخل الشكل.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): يتحكم في ما إذا كان البلاط يُقَلَّب أفقيًا أو عموديًا أو كليهما.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): يحدد الإزاحة الأفقية للبلاط (بنقاط) من أصل الشكل.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): يحدد الإزاحة العمودية للبلاط (بنقاط) من أصل الشكل.
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): يعّرف مقياس البلاط الأفقي كنسبة مئوية.
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): يعّرف مقياس البلاط العمودي كنسبة مئوية.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -468,22 +470,22 @@ auto presentation = MakeObject<Presentation>();
 // الحصول على الشريحة الأولى.
 auto firstSlide = presentation->get_Slide(0);
 
-// إضافة شكل تلقائي من نوع المستطيل.
+// إضافة شكل تلقائي من النوع Rectangle.
 auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
 // تعيين نوع التعبئة للشكل إلى Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// تحميل الصورة وإضافتها إلى موارد العرض.
+// تحميل الصورة وإضافتها إلى موارد العرض التقديمي.
 auto sourceImage = Images::FromFile(u"lotus.png");
 auto presentationImage = presentation->get_Images()->AddImage(sourceImage);
 sourceImage->Dispose();
 
-// إسناد الصورة إلى الشكل.
+// تعيين الصورة إلى الشكل.
 auto pictureFillFormat = shape->get_FillFormat()->get_PictureFillFormat();
 pictureFillFormat->get_Picture()->set_Image(presentationImage);
 
-// تكوين وضع ملء الصورة وخصائص التجانب.
+// تهيئة وضع تعبئة الصورة وخصائص التبليط.
 pictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
 pictureFillFormat->set_TileOffsetX(-32);
 pictureFillFormat->set_TileOffsetY(-32);
@@ -499,19 +501,17 @@ presentation->Dispose();
 
 النتيجة:
 
-![خيارات البلاط](tile-options.png)
+![خيارات التكرار](tile-options.png)
 
 ## **ملء بلون صلب**
 
-في PowerPoint، يُعد ملء اللون الصلب خيارًا تنسيقيًا يملأ الشكل بلون موحد واحد. يتم تطبيق هذا اللون الخلفي البسيط دون أي تدرجات أو نقوش أو أنماط.
+في PowerPoint، يُعد ملء اللون الصلب خيارًا تنسيقيًا يملأ الشكل بلون موحد واحد. يتم تطبيق هذا اللون الخلفي البسيط دون أي تدرجات أو ملمس أو نمط.
 
-لتطبيق ملء بلون صلب على شكل باستخدام Aspose.Slides، اتبع الخطوات التالية:
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة بواسطة فهرستها.
-1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) إلى الشريحة.
-1. تعيين [FillType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/filltype/) الخاص بالشكل إلى `Solid`.
-1. تعيين اللون المفضّل للملء للشكل.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة حسب الفهرس الخاص بها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) إلى الشريحة.
+1. تعيين [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) الخاص بالشكل إلى `Solid`.
+1. تعيين اللون المملوء المفضل للشكل.
 1. حفظ العرض المعدل كملف PPTX.
 
 ```cpp
@@ -555,17 +555,15 @@ presentation->Dispose();
 
 ![الشكل بملء لون صلب](solid-color-fill.png)
 
-## **تعيين الشفافية**
+## **ضبط الشفافية**
 
-في PowerPoint، عند تطبيق ملء بلون صلب أو تدرج أو صورة أو نقش على الأشكال، يمكنك أيضًا تعيين مستوى الشفافية للتحكم في شفافية الملء. قيمة شفافية أعلى تجعل الشكل أكثر شفافية، مما يسمح لل背景 أو الكائنات التحتية أن تكون مرئية جزئيًا.
+في PowerPoint، عند تطبيق ملء بلون صلب أو تدرج أو صورة أو ملمس على الأشكال، يمكنك أيضًا ضبط مستوى الشفافية للتحكم في شفافية الملء. قيمة شفافية أعلى تجعل الشكل أكثر شفافية، مما يسمح برؤية الخلفية أو الكائنات السفلية جزئياً.
 
-تتيح لك Aspose.Slides تعيين مستوى الشفافية عن طريق تعديل قيمة الـ alpha في اللون المستخدم للملء. إليك الطريقة:
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة بواسطة فهرستها.
-1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) إلى الشريحة.
-1. تعيين [FillType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/filltype/) إلى `Solid`.
-1. استخدام `Color` لتحديد لون مع شفافية (مكوّن `alpha` يتحكم في الشفافية).
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة حسب الفهرس الخاص بها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) إلى الشريحة.
+1. تعيين [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) إلى `Solid`.
+1. استخدم `Color` لتحديد لون مع شفافية (مكون `alpha` يتحكم في الشفافية).
 1. حفظ العرض.
 
 ```cpp
@@ -585,16 +583,16 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 auto presentation = MakeObject<Presentation>();
 
 // الحصول على الشريحة الأولى.
 auto slide = presentation->get_Slide(0);
 
-// إضافة شكل مستطيل صلب تلقائي.
+// إضافة شكل تلقائي مستطيل صلب.
 auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// إضافة شكل مستطيل شفاف تلقائي فوق الشكل الصلب.
+// إضافة شكل تلقائي مستطيل شفاف فوق الشكل الصلب.
 auto transparentShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
 transparentShape->get_FillFormat()->set_FillType(FillType::Solid);
 transparentShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(204, 255, 255, 0));
@@ -610,14 +608,12 @@ presentation->Dispose();
 
 ## **تدوير الأشكال**
 
-تتيح لك Aspose.Slides تدوير الأشكال في عروض PowerPoint. يمكن أن يكون ذلك مفيدًا عند وضع العناصر البصرية مع احتياجات محاذاة أو تصميم معينة.
+تتيح لك Aspose.Slides تدوير الأشكال في عروض PowerPoint. يمكن أن يكون ذلك مفيدًا عند وضع العناصر البصرية بمواضع محددة أو لتلبية احتياجات التصميم.
 
-لتدوير شكل على شريحة، اتبع الخطوات التالية:
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة بواسطة فهرستها.
-1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) إلى الشريحة.
-1. تعيين خاصية دوران الشكل إلى الزاوية المطلوبة.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة حسب الفهرس الخاص بها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) إلى الشريحة.
+1. تعيين خاصية تدوير الشكل إلى الزاوية المطلوبة.
 1. حفظ العرض.
 
 ```cpp
@@ -641,7 +637,7 @@ auto slide = presentation->get_Slide(0);
 // إضافة شكل تلقائي من النوع Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// تدوير الشكل بمقدار 5 درجات.
+// تدوير الشكل بزاوية 5 درجات.
 shape->set_Rotation(5);
 
 // حفظ ملف PPTX إلى القرص.
@@ -651,18 +647,16 @@ presentation->Dispose();
 
 النتيجة:
 
-![دوران الشكل](shape-rotation.png)
+![تدوير الشكل](shape-rotation.png)
 
-## **إضافة تأثيرات الحافة ثلاثية الأبعاد**
+## **إضافة تأثيرات الحواف ثلاثية الأبعاد**
 
-تسمح لك Aspose.Slides بتطبيق تأثيرات حافة ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائصها [ThreeDFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/threedformat/).
+تتيح لك Aspose.Slides تطبيق تأثيرات الحواف ثلاثية الأبعاد على الأشكال من خلال تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/).
 
-لإضافة تأثيرات حافة ثلاثية الأبعاد إلى شكل، اتبع الخطوات التالية:
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة بواسطة فهرستها.
-1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) إلى الشريحة.
-1. تكوين [ThreeDFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/threedformat/) الخاص بالشكل لتحديد إعدادات الحافة.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة حسب الفهرس الخاص بها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) إلى الشريحة.
+1. تكوين [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) لتحديد إعدادات الحافة.
 1. حفظ العرض.
 
 ```cpp
@@ -692,7 +686,7 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
 
-// إنشاء كائن من فئة Presentation.
+// إنشاء مثيل من فئة Presentation.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -705,7 +699,7 @@ shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 shape->get_LineFormat()->set_Width(2.0);
 
-// Set the shape's ThreeDFormat properties.
+// تعيين خصائص ThreeDFormat للشكل.
 shape->get_ThreeDFormat()->set_Depth(4.0);
 shape->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
 shape->get_ThreeDFormat()->get_BevelTop()->set_Height(6);
@@ -721,18 +715,16 @@ presentation->Dispose();
 
 النتيجة:
 
-![تأثير الحافة ثلاثية الأبعاد](3D-bevel-effect.png)
+![تأثير الحافة ثلاثي الأبعاد](3D-bevel-effect.png)
 
-## **إضافة تأثيرات الدوران ثلاثية الأبعاد**
+## **إضافة تأثيرات تدوير ثلاثية الأبعاد**
 
-تسمح لك Aspose.Slides بتطبيق تأثيرات الدوران ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائصها [ThreeDFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/threedformat/).
+تتيح لك Aspose.Slides تطبيق تأثيرات تدوير ثلاثية الأبعاد على الأشكال من خلال تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/).
 
-لتطبيق دوران ثلاثي الأبعاد على شكل:
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة بواسطة فهرستها.
-1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) إلى الشريحة.
-1. استخدام [set_CameraType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icamera/set_cameratype/) و[set_LightType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilightrig/set_lighttype/) لتحديد دوران ثلاثي الأبعاد.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة حسب الفهرس الخاص بها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) إلى الشريحة.
+1. استخدم [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) و[set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) لتحديد التدوير ثلاثي الأبعاد.
 1. حفظ العرض.
 
 ```cpp
@@ -753,7 +745,7 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// إنشاء كائن من الفئة Presentation.
+// إنشاء مثيل من فئة Presentation.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -773,15 +765,15 @@ presentation->Dispose();
 
 النتيجة:
 
-![تأثير الدوران ثلاثي الأبعاد](3D-rotation-effect.png)
+![تأثير التدوير ثلاثي الأبعاد](3D-rotation-effect.png)
 
-## **التحكم في عرض أبيض-أسود للأشكال**
+## **التحكم في العرض بالأبيض والأسود للأشكال**
 
-طريقة [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/set_blackwhitemode/) تحدد كيفية عرض شكل فردي عندما يُعرض أو يُعالج العرض في وضع أبيض-أسود. لا تُفعّل العرض بالأبيض-الأسود بحد ذاتها، ولا تغير ملء الشكل أو خطه أو تنسيقه الآخر في وضع اللون العادي.
+طريقة [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) تحدد كيفية عرض شكل منفرد عندما يتم عرض أو معالجة العرض بالأبيض والأسود. لا تقوم هذه الطريقة بتمكين العرض بالأبيض والأسود بحد ذاته، ولا تغير ملء الشكل أو خطه أو تنسيقه في وضع الألوان العادية.
 
-استخدم قيمة من تعداد [BlackWhiteMode](https://reference.aspose.com/slides/ar/cpp/aspose.slides/blackwhitemode/) لاختيار السلوك المطلوب. على سبيل المثال، `Automatic` يترك تطبيق العرض يختار التحويل، و`Gray` و`LightGray` يستخدمان اللون الرمادي، و`BlackWhite` يستخدم فقط الأسود والأبيض، و`Black` و`White` يفرضان لونًا واحدًا، و`Color` يحافظ على اللون الطبيعي، و`Hidden` يُخفِي الشكل في وضع أبيض-أسود. `NotDefined` يعني عدم تعيين وضع على مستوى الشكل.
+استخدم قيمة من تعداد [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) لتحديد السلوك المطلوب. على سبيل المثال، `Automatic` يترك التطبيق يختار التحويل، `Gray` و `LightGray` يستخدمان اللون الرمادي، `BlackWhite` يستخدم الأسود والأبيض فقط، `Black` و `White` يجبران على لون واحد، `Color` يحافظ على الألوان الطبيعية، و `Hidden` يخفي الشكل في وضع الأبيض والأسود. `NotDefined` يعني عدم تعيين وضع على مستوى الشكل.
 
-الكود التالي يخلق شكلًا ملونًا ويظهره رماديًا في وضع العرض بالأبيض-أسود:
+الكود التالي بلغة C++ ينشئ شكلاً ملونًا ويجعله يظهر باللون الرمادي في وضع العرض بالأبيض والأسود:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -808,18 +800,18 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 200
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 
-// الحفاظ على التعبئة البرتقالية في وضع الألوان، ولكن عرض الشكل بتلوين رمادي في وضع أبيض-أسود.
+// احتفظ بملء البرتقالي في وضع اللون، ولكن اعرض الشكل بتلوين رمادي في وضع الأسود والأبيض.
 shape->set_BlackWhiteMode(BlackWhiteMode::Gray);
 
 presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-في وضع اللون العادي، يحتفظ المستطيل بملء برتقالي. في سير عمل عرض أبيض-أسود، يستخدم اللون الرمادي لأن وضعه تم تعيينه إلى `Gray`. يتيح لك ذلك الحفاظ على شريحة ملونة بالكامل مع تحديد مظهر مميز للطباعة أو المعاينة أو غيرها من سير العمل التي تحترم إعدادات العرض بالأبيض-أسود.
+في وضع الألوان العادية، يحتفظ المستطيل بملئه البرتقالي. في سير عمل العرض بالأبيض والأسود، يستخدم اللون الرمادي لأن وضعه مضبوط على `Gray`. يتيح لك هذا الحفاظ على شريحة ملونة بالكامل مع تحديد مظهر مميز للطباعة أو المعاينة أو أي سير عمل يراعي إعدادات العرض بالأبيض والأسود.
 
 ## **إعادة تعيين التنسيق**
 
-الكود التالي بلغة C++ يوضح كيفية إعادة تعيين تنسيق شريحة وإرجاع موقع وحجم وتنسيق جميع الأشكال ذات العنصر النائب على [LayoutSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/layoutslide/) إلى إعداداتها الافتراضية:
+الكود التالي بلغة C++ يوضح كيفية إعادة تعيين تنسيق شريحة وإرجاع الموقع والحجم وتنسيق جميع الأشكال ذات المواضع النائبة على [LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) إلى إعداداتها الافتراضية:
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -836,7 +828,7 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 {
-    // إعادة ضبط كل شكل على الشريحة التي تحتوي على عنصر نائب في التخطيط.
+    // إعادة تعيين كل شكل على الشريحة الذي يحتوي على عنصر نائب في التخطيط.
     slide->Reset();
 }
 
@@ -844,16 +836,16 @@ presentation->Save(u"reset_formatting.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يؤثر تنسيق الشكل على حجم ملف العرض النهائي؟**
+**هل يؤثر تنسيق الشكل على حجم الملف النهائي للعرض التقديمي؟**
 
-بشكل طفيف فقط. الصور والوسائط المضمنة تشغل معظم مساحة الملف، بينما معلمات الشكل مثل الألوان والتأثيرات والتدرجات تُخزن كبيانات وصفية وتضيف تقريبًا لا شيء إلى الحجم.
+فقط بشكل طفيف. تحتل الصور والوسائط المضمّنة معظم مساحة الملف، بينما تُخزن معلمات الشكل مثل الألوان والتأثيرات والتدرجات كبيانات وصفية ولا تضيف أي حجم إضافي تقريبًا.
 
-**كيف يمكنني اكتشاف الأشكال في شريحة التي تشترك في تنسيق متطابق حتى أتمكن من تجميعها؟**
+**كيف يمكنني اكتشاف الأشكال على شريحة التي تشترك في تنسيق متماثل حتى أتمكن من تجميعها؟**
 
-قارن خصائص التنسيق الرئيسية لكل شكل — إعدادات الملء، الخط، والتأثيرات. إذا تطابقت جميع القيم المقابلة، اعتبر أن أنماطها متطابقة وقم بتجميع تلك الأشكال منطقياً، مما يبسط إدارة الأنماط لاحقًا.
+قارن خصائص التنسيق الرئيسية لكل شكل — إعدادات التعبئة، الخط، والتأثيرات. إذا كانت جميع القيم المطابقة متساوية، اعتبر أن أنماطها متطابقة وقم بتجميع تلك الأشكال منطقيًا، مما يبسط إدارة الأنماط لاحقًا.
 
-**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة في ملف منفصل لإعادة استخدامها في عروض أخرى؟**
+**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة إلى ملف منفصل لإعادة استخدامها في عروض تقديمية أخرى؟**
 
-نعم. احفظ الأشكال النموذجية ذات الأنماط المطلوبة في شريحة قالب أو ملف .POTX. عند إنشاء عرض جديد، افتح القالب، استنسخ الأشكال ذات الأنماط التي تحتاجها، وأعد تطبيق تنسيقها حسب الحاجة.
+نعم. احفظ أشكالًا نموذجية ذات الأنماط المطلوبة في شريحة قالب أو ملف قالب .POTX. عند إنشاء عرض تقديمي جديد، افتح القالب، استنسخ الأشكال المصممة التي تحتاجها، وأعد تطبيق تنسيقها حيثما دُعيت.

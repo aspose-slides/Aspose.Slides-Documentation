@@ -1,6 +1,6 @@
 ---
 title: Formatowanie kształtów PowerPoint w Pythonie
-linktitle: Formatowanie kształtów
+linktitle: Formatowanie kształtu
 type: docs
 weight: 20
 url: /pl/python-net/shape-formatting/
@@ -8,48 +8,48 @@ keywords:
 - formatowanie kształtu
 - formatowanie linii
 - efekt szkicu
-- linia szkicu kształtu
+- szkic linii kształtu
 - formatowanie stylu łączenia
-- wypełnienie gradientowe
+- wypełnienie gradientem
 - wypełnienie wzorem
 - wypełnienie obrazem
 - wypełnienie teksturą
-- jednolite wypełnienie kolorem
+- wypełnienie kolorem stałym
 - przezroczystość kształtu
-- renderowanie kształtu czarno-biały
+- renderowanie kształtu czarno-białe
 - renderowanie kształtu w odcieniach szarości
-- obrót kształtu
-- efekt fazowania 3D
-- efekt obrotu 3D
+- obrócenie kształtu
+- efekt 3d bevel
+- efekt 3d rotacji
 - resetowanie formatowania
 - PowerPoint
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak formatować kształty PowerPoint w Pythonie przy użyciu Aspose.Slides — ustawiaj style wypełnienia, linii i efektów dla plików PPT, PPTX i ODP z precyzją i pełną kontrolą."
+description: "Dowiedz się, jak formatować kształty PowerPoint w Pythonie przy użyciu Aspose.Slides — ustaw style wypełnienia, linii i efektów dla plików PPT, PPTX i ODP z precyzją i pełną kontrolą."
 ---
 ## **Wprowadzenie**
 
-W programie PowerPoint możesz dodawać kształty do slajdów. Ponieważ kształty składają się z linii, możesz je formatować, modyfikując lub stosując efekty na ich konturach. Dodatkowo możesz formatować kształty, określając ustawienia kontrolujące wypełnienie ich wnętrz.
+W programie PowerPoint można dodawać kształty do slajdów. Ponieważ kształty składają się z linii, można je formatować, modyfikując lub stosując efekty do ich obrysów. Dodatkowo można formatować kształty, określając ustawienia kontrolujące sposób wypełniania ich wnętrz.
 
 ![formatowanie-kształtu-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Python udostępnia klasy i właściwości, które pozwalają formatować kształty przy użyciu tych samych opcji dostępnych w PowerPoint.
+Aspose.Slides for Python udostępnia klasy i właściwości, które pozwalają formatować kształty przy użyciu tych samych opcji dostępnych w programie PowerPoint.
 
 ## **Formatowanie linii**
 
-Przy użyciu Aspose.Slides możesz określić własny styl linii dla kształtu. Poniżej opisano kolejne kroki:
+Korzystając z Aspose.Slides, możesz określić niestandardowy styl linii dla kształtu. Poniższe kroki opisują procedurę:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
-1. Ustaw [styl linii](https://reference.aspose.com/slides/pl/python-net/aspose.slides/linestyle/) kształtu.
-1. Ustaw szerokość linii.
-1. Ustaw [styl kreskowania](https://reference.aspose.com/slides/pl/python-net/aspose.slides/linedashstyle/) kształtu.
-1. Ustaw kolor linii kształtu.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [styl linii](https://reference.aspose.com/slides/python-net/aspose.slides/linestyle/) kształtu.
+5. Ustaw szerokość linii.
+6. Ustaw [styl kreskowania](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) kształtu.
+7. Ustaw kolor linii dla kształtu.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Poniższy kod Pythona pokazuje, jak sformatować prostokąt `AutoShape`:
+Poniższy kod w języku Python pokazuje, jak sformatować prostokątny `AutoShape`:
 
 ```python
 import aspose.slides as slides
@@ -84,11 +84,11 @@ Wynik:
 
 ![Sformatowane linie w prezentacji](formatted-lines.png)
 
-## **Zastosowanie efektu szkicu do linii kształtu**
+## **Zastosuj efekty szkicu do linii kształtu**
 
-Efekt szkicu sprawia, że linia kształtu wygląda jak odręczna. Użyj [Shape.line_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/line_format/) do uzyskania dostępu do ustawień linii, [LineFormat.sketch_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/lineformat/sketch_format/) do ustawień szkicu oraz [SketchFormat.sketch_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/sketchformat/sketch_type/) aby wybrać wartość z wyliczenia [LineSketchType](https://reference.aspose.com/slides/pl/python-net/aspose.slides/linesketchtype/).
+Efekt szkicu sprawia, że linia kształtu wygląda jak narysowana odręcznie. Użyj [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) aby uzyskać dostęp do ustawień linii, [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) aby uzyskać dostęp do ustawień szkicu oraz [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) aby wybrać wartość z wyliczenia [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/).
 
-Poniższy kod Pythona pokazuje, jak zastosować efekt [LineSketchType.CURVED](https://reference.aspose.com/slides/pl/python-net/aspose.slides/linesketchtype/), odczytać jawnie przypisaną wartość i usunąć efekt przy użyciu [LineSketchType.NONE](https://reference.aspose.com/slides/pl/python-net/aspose.slides/linesketchtype/):
+Poniższy kod w Pythonie pokazuje, jak zastosować efekt [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/), odczytać wyraźnie przypisaną wartość oraz usunąć efekt za pomocą [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/):
 
 ```python
 import aspose.slides as slides
@@ -111,7 +111,7 @@ with slides.Presentation() as presentation:
     sketch_format.sketch_type = slides.LineSketchType.NONE
 ```
 
-Wartość zwrócona przez `SketchFormat.sketch_type` reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu głównego lub slajdu układu, użyj [LineFormat.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/lineformat/get_effective/), uzyskaj właściwość `sketch_format` zwróconego obiektu i odczytaj jego właściwość `sketch_type`. Wartość efektywna odzwierciedla formatowanie faktycznie zastosowane po rozwiązaniu dziedziczenia:
+Wartość zwracana przez `SketchFormat.sketch_type` reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu wzorcowego lub slajdu układu, użyj [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/), uzyskaj dostęp do właściwości `sketch_format` zwróconego obiektu i odczytaj jego właściwość `sketch_type`. Wartość efektywna odzwierciedla formatowanie faktycznie zastosowane po rozwiązaniu dziedziczenia:
 
 ```python
 import aspose.slides as slides
@@ -128,19 +128,19 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(f"Effective sketch type: {effective_sketch_type}")
 ```
 
-## **Formatowanie stylów łączenia**
+## **Formatowanie stylów łączeń**
 
-Oto trzy dostępne opcje typów łączenia:
+Oto trzy dostępne opcje typu łączenia:
 
 * Zaokrąglony
 * Kątowy
 * Fazowany
 
-Domyślnie, gdy PowerPoint łączy dwie linie pod kątem (na przykład w rogu kształtu), używa ustawienia **Zaokrąglony**. Jednak przy rysowaniu kształtu o ostrych kątach możesz woleć opcję **Kątowy**.
+Domyślnie, gdy PowerPoint łączy dwie linie pod kątem (np. w narożniku kształtu), używa ustawienia **Zaokrąglony**. Jednak przy rysowaniu kształtu z ostrymi kątami możesz preferować opcję **Kątowy**.
 
 ![Styl łączenia w prezentacji](join-style-powerpoint.png)
 
-Poniższy kod Pythona pokazuje, jak trzy prostokąty (widoczne na powyższym obrazku) zostały utworzone przy użyciu ustawień Kątowy, Fazowany i Zaokrąglony:
+Poniższy kod w Pythonie pokazuje, jak trzy prostokąty (jak na powyższym obrazie) zostały utworzone przy użyciu ustawień typów łączeń Miter, Bevel i Round:
 
 ```python
 import aspose.slides as slides
@@ -192,20 +192,18 @@ with slides.Presentation() as presentation:
 	presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Wypełnienie gradientowe**
+## **Wypełnienie gradientem**
 
-W programie PowerPoint wypełnienie gradientowe to opcja formatowania, która pozwala zastosować ciągłe przejście kolorów w kształcie. Na przykład możesz zastosować dwa lub więcej kolorów w taki sposób, że jeden stopniowo przechodzi w drugi.
+W programie PowerPoint wypełnienie gradientem to opcja formatowania, która pozwala zastosować ciągłe przejście kolorów w kształcie. Na przykład można zastosować dwa lub więcej kolorów w taki sposób, że jeden stopniowo przekształca się w drugi.
 
-Jak zastosować wypełnienie gradientowe do kształtu przy użyciu Aspose.Slides:
+Oto, jak zastosować wypełnienie gradientem do kształtu przy użyciu Aspose.Slides:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/pl/python-net/aspose.slides/filltype/) kształtu na `GRADIENT`.
-1. Dodaj dwa wybrane kolory z określonymi pozycjami, używając metod `add` kolekcji `gradient_stops` udostępnianej przez klasę [GradientFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/gradientformat/).
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod Pythona pokazuje, jak zastosować efekt wypełnienia gradientowego do elipsy:
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) kształtu na `GRADIENT`.
+5. Dodaj dwie wybrane przez siebie barwy z określonymi pozycjami, używając metod `add` kolekcji `gradient_stops` udostępnianej przez klasę [GradientFormat](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/).
+6. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 ```python
 import aspose.slides as slides
@@ -238,24 +236,24 @@ Wynik:
 
 ![Elipsa z wypełnieniem gradientowym](gradient-fill.png)
 
+Jeśli gradient wygląda inaczej w wyeksportowanym obrazie niż w programie PowerPoint, zobacz [Wybierz styl renderowania gradientu](/slides/pl/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Możesz wybrać styl renderowania bez zmiany gradientu zapisanego w prezentacji.
+
 ## **Wypełnienie wzorem**
 
-W programie PowerPoint wypełnienie wzorem to opcja formatowania, która pozwala zastosować dwukolorowy wzór — np. kropki, paski, krzyżowanie lub szachownicę — do kształtu. Możesz wybrać własne kolory dla pierwszego planu i tła wzoru.
+W programie PowerPoint wypełnienie wzorem to opcja formatowania, która pozwala zastosować dwukolorowy wzór — np. kropki, paski, krzyżowe kreski lub kratkę — do kształtu. Możesz wybrać własne kolory pierwszego planu i tła wzoru.
 
-Aspose.Slides udostępnia ponad 45 wstępnie zdefiniowanych stylów wzorów, które możesz zastosować do kształtów, aby zwiększyć atrakcyjność wizualną prezentacji. Nawet po wybraniu wstępnego wzoru możesz precyzyjnie określić, jakie kolory mają być użyte.
+Aspose.Slides udostępnia ponad 45 predefiniowanych stylów wzorów, które możesz zastosować do kształtów, aby zwiększyć atrakcyjność wizualną prezentacji. Nawet po wybraniu predefiniowanego wzoru możesz nadal określić dokładne kolory, które mają być użyte.
 
-Jak zastosować wypełnienie wzorem do kształtu przy użyciu Aspose.Slides:
+Oto, jak zastosować wypełnienie wzorem do kształtu przy użyciu Aspose.Slides:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/pl/python-net/aspose.slides/filltype/) kształtu na `PATTERN`.
-1. Wybierz styl wzoru spośród dostępnych opcji.
-1. Ustaw [back_color](https://reference.aspose.com/slides/pl/python-net/aspose.slides/patternformat/back_color/) wzoru.
-1. Ustaw [fore_color](https://reference.aspose.com/slides/pl/python-net/aspose.slides/patternformat/fore_color/) wzoru.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod Pythona pokazuje, jak zastosować wypełnienie wzorem do prostokąta:
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) kształtu na `PATTERN`.
+5. Wybierz styl wzoru spośród predefiniowanych opcji.
+6. Ustaw [back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) wzoru.
+7. Ustaw [fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) wzoru.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 ```python
 import aspose.slides as slides
@@ -270,13 +268,13 @@ with slides.Presentation() as presentation:
     # Dodaj automatyczny kształt typu Prostokąt.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Ustaw typ wypełnienia na Wzór.
+    # Ustaw typ wypełnienia na wzór.
     shape.fill_format.fill_type = slides.FillType.PATTERN
 
     # Ustaw styl wzoru.
     shape.fill_format.pattern_format.pattern_style = slides.PatternStyle.TRELLIS
 
-    # Ustaw kolory tła i pierwszego planu wzoru.
+    # Ustaw tło i kolor pierwszego planu wzoru.
     shape.fill_format.pattern_format.back_color.color = draw.Color.light_gray
     shape.fill_format.pattern_format.fore_color.color = draw.Color.yellow
 
@@ -284,30 +282,26 @@ with slides.Presentation() as presentation:
     presentation.save("pattern_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
-
 ![Prostokąt z wypełnieniem wzorem](pattern-fill.png)
 
 ## **Wypełnienie obrazem**
 
-W programie PowerPoint wypełnienie obrazem to opcja formatowania, która pozwala wstawić obraz wewnątrz kształtu — efektywnie używając obrazu jako tła kształtu.
+W programie PowerPoint wypełnienie obrazem to opcja formatowania, która umożliwia wstawienie obrazu wewnątrz kształtu — efektywnie używając obrazu jako tła kształtu.
 
-Jak używać Aspose.Slides do zastosowania wypełnienia obrazem w kształcie:
+Oto, jak użyć Aspose.Slides do zastosowania wypełnienia obrazem w kształcie:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/pl/python-net/aspose.slides/filltype/) kształtu na `PICTURE`.
-1. Ustaw tryb wypełnienia obrazem na `TILE` (lub inny preferowany tryb).
-1. Utwórz obiekt [PPImage](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ppimage/) z obrazu, którego chcesz użyć.
-1. Przypisz ten obraz do właściwości `picture.image` formatu wypełnienia obrazu kształtu (`picture_fill_format`).
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) kształtu na `PICTURE`.
+5. Ustaw tryb wypełnienia obrazem na `TILE` (lub inny preferowany tryb).
+6. Utwórz obiekt [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) z obrazu, którego chcesz użyć.
+7. Przypisz ten obraz do właściwości `picture.image` w `picture_fill_format` kształtu.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Załóżmy, że mamy plik „lotus.png” z następującym obrazem:
 
 ![Obraz lotosu](lotus.png)
-
-Poniższy kod Pythona pokazuje, jak wypełnić kształt obrazem:
 
 ```python
 import aspose.slides as slides
@@ -327,7 +321,7 @@ with slides.Presentation() as presentation:
     # Ustaw tryb wypełnienia obrazem.
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
 
-    # Załaduj obraz i dodaj go do zasobów prezentacji.
+    # Wczytaj obraz i dodaj go do zasobów prezentacji.
     with slides.Images.from_file("lotus.png") as image:
         presentation_image = presentation.images.add_image(image)
 
@@ -338,23 +332,19 @@ with slides.Presentation() as presentation:
     presentation.save("picture_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
-
 ![Kształt z wypełnieniem obrazem](picture-fill.png)
 
-### **Obraz kafelkowy jako tekstura**
+### **Użyj obrazu jako tekstury kafelkowej**
 
-Jeśli chcesz ustawić obraz kafelkowy jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących właściwości klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/picturefillformat/):
+Jeśli chcesz ustawić obraz w trybie kafelkowym jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących właściwości klasy [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/):
 
-- [picture_fill_mode](https://reference.aspose.com/slides/pl/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Ustawia tryb wypełnienia obrazem — `TILE` lub `STRETCH`.
-- [tile_alignment](https://reference.aspose.com/slides/pl/python-net/aspose.slides/picturefillformat/tile_alignment/): Określa wyrównanie kafelków w obrębie kształtu.
-- [tile_flip](https://reference.aspose.com/slides/pl/python-net/aspose.slides/picturefillformat/tile_flip/): Kontroluje, czy kafelek jest odbity poziomo, pionowo, czy w obu kierunkach.
-- [tile_offset_x](https://reference.aspose.com/slides/pl/python-net/aspose.slides/picturefillformat/tile_offset_x/): Ustawia poziomy offset kafelka (w punktach) od początku kształtu.
-- [tile_offset_y](https://reference.aspose.com/slides/pl/python-net/aspose.slides/picturefillformat/tile_offset_y/): Ustawia pionowy offset kafelka (w punktach) od początku kształtu.
-- [tile_scale_x](https://reference.aspose.com/slides/pl/python-net/aspose.slides/picturefillformat/tile_scale_x/): Definiuje poziomą skalę kafelka jako procent.
-- [tile_scale_y](https://reference.aspose.com/slides/pl/python-net/aspose.slides/picturefillformat/tile_scale_y/): Definiuje pionową skalę kafelka jako procent.
-
-Poniższy przykład kodu pokazuje, jak dodać prostokątny kształt z kafelkowym wypełnieniem obrazem i skonfigurować opcje kafelkowania:
+- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Ustawia tryb wypełnienia obrazem — `TILE` lub `STRETCH`.
+- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): Określa wyrównanie kafelków w obrębie kształtu.
+- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): Steruje, czy kafelek jest odbijany poziomo, pionowo, czy obu kierunkach.
+- [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/): Ustawia poziomy offset kafelka (w punktach) od punktu początkowego kształtu.
+- [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/): Ustawia pionowy offset kafelka (w punktach) od punktu początkowego kształtu.
+- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): Definiuje poziomą skalę kafelka w procentach.
+- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): Definiuje pionową skalę kafelka w procentach.
 
 ```py
 import aspose.slides as slides
@@ -365,13 +355,13 @@ with slides.Presentation() as presentation:
     # Pobierz pierwszy slajd.
     first_slide = presentation.slides[0]
 
-    # Dodaj automatyczny kształt typu Prostokąt.
+    # Dodaj automatyczny prostokątny kształt.
     shape = first_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 190, 95)
 
     # Ustaw typ wypełnienia kształtu na Obraz.
     shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # Załaduj obraz i dodaj go do zasobów prezentacji.
+    # Wczytaj obraz i dodaj go do zasobów prezentacji.
     with slides.Images.from_file("lotus.png") as source_image:
         presentation_image = presentation.images.add_image(source_image)
 
@@ -392,24 +382,20 @@ with slides.Presentation() as presentation:
     presentation.save("tile.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
-
 ![Opcje kafelkowania](tile-options.png)
 
-## **Jednolite wypełnienie kolorem**
+## **Wypełnienie kolorem stałym**
 
-W programie PowerPoint jednolite wypełnienie kolorem to opcja formatowania, która wypełnia kształt jednym, jednolitym kolorem. Ten prosty kolor tła jest stosowany bez gradientów, tekstur ani wzorów.
+W programie PowerPoint wypełnienie kolorem stałym to opcja formatowania, która wypełnia kształt jednym, jednolitym kolorem. Ten jednolity kolor tła jest stosowany bez gradientów, tekstur ani wzorów.
 
-Aby zastosować jednolite wypełnienie kolorem do kształtu przy użyciu Aspose.Slides, wykonaj następujące kroki:
+Aby zastosować wypełnienie kolorem stałym do kształtu przy użyciu Aspose.Slides, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/pl/python-net/aspose.slides/filltype/) kształtu na `SOLID`.
-1. Przypisz preferowany kolor wypełnienia do kształtu.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod Pythona pokazuje, jak zastosować jednolite wypełnienie kolorem do prostokąta w slajdzie PowerPoint:
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) kształtu na `SOLID`.
+5. Przypisz wybrany kolor wypełnienia do kształtu.
+6. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 ```python
 import aspose.slides as slides
@@ -424,7 +410,7 @@ with slides.Presentation() as presentation:
     # Dodaj automatyczny kształt typu Prostokąt.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Ustaw typ wypełnienia na SOLID.
+    # Ustaw typ wypełnienia na Stały.
     shape.fill_format.fill_type = slides.FillType.SOLID
 
     # Ustaw kolor wypełnienia.
@@ -434,24 +420,20 @@ with slides.Presentation() as presentation:
     presentation.save("solid_color_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
+![Kształt z wypełnieniem kolorem stałym](solid-color-fill.png)
 
-![Kształt z jednolitym wypełnieniem kolorem](solid-color-fill.png)
+## **Ustaw przezroczystość**
 
-## **Ustawianie przezroczystości**
+W programie PowerPoint, gdy stosujesz wypełnienie kolorem stałym, gradientem, obrazem lub teksturą do kształtów, możesz także ustawić poziom przezroczystości, aby kontrolować nieprzezroczystość wypełnienia. Wyższa wartość przezroczystości sprawia, że kształt jest bardziej przejrzysty, pozwalając na częściowe widzenie tła lub znajdujących się pod nim obiektów.
 
-W programie PowerPoint, gdy stosujesz jednolity kolor, gradient, obraz lub wypełnienie teksturą do kształtów, możesz także ustawić poziom przezroczystości, aby kontrolować nieprzezroczystość wypełnienia. Wyższa wartość przezroczystości sprawia, że kształt jest bardziej przezroczysty, umożliwiając częściowe widzenie tła lub obiektów pod nim.
+Aspose.Slides umożliwia ustawienie poziomu przezroczystości poprzez dostosowanie wartości alfa w kolorze używanym do wypełnienia. Oto, jak to zrobić:
 
-Aspose.Slides pozwala ustawić poziom przezroczystości, dostosowując wartość alfa w kolorze używanym do wypełnienia. Oto jak to zrobić:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
-1. Ustaw typ wypełnienia na `SOLID`.
-1. Użyj `Color.from_argb`, aby zdefiniować kolor z przezroczystością (składnik `alpha` steruje przezroczystością).
-1. Zapisz prezentację.
-
-Poniższy kod Pythona pokazuje, jak zastosować przezroczysty kolor wypełnienia do prostokąta:
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) do slajdu.
+4. Ustaw typ wypełnienia na `SOLID`.
+5. Użyj `Color.from_argb`, aby zdefiniować kolor z przezroczystością (komponent `alpha` steruje przezroczystością).
+6. Zapisz prezentację.
 
 ```python
 import aspose.pydrawing as draw
@@ -463,10 +445,10 @@ with slides.Presentation() as presentation:
     # Pobierz pierwszy slajd.
     slide = presentation.slides[0]
     
-    # Dodaj automatyczny kształt prostokątny wypełniony.
+    # Dodaj prostokątny kształt automatyczny z wypełnieniem stałym.
     slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Dodaj przezroczysty prostokątny kształt automatyczny nad wypełnionym kształtem.
+    # Dodaj przezroczysty prostokątny kształt automatyczny nad stałym kształtem.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 150, 75)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.from_argb(128, 204, 102, 0)
@@ -474,23 +456,19 @@ with slides.Presentation() as presentation:
     presentation.save("shape_transparency.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
-
 ![Przezroczysty kształt](shape-transparency.png)
 
 ## **Obracanie kształtów**
 
-Aspose.Slides umożliwia obracanie kształtów w prezentacjach PowerPoint. Może to być przydatne przy ustawianiu elementów wizualnych z określonym wyrównaniem lub wymaganiami projektowymi.
+Aspose.Slides umożliwia obracanie kształtów w prezentacjach PowerPoint. Może to być przydatne przy pozycjonowaniu elementów wizualnych wymagających określonego wyrównania lub projektu.
 
 Aby obrócić kształt na slajdzie, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
-1. Ustaw właściwość `rotation` kształtu na żądany kąt.
-1. Zapisz prezentację.
-
-Poniższy kod Pythona pokazuje, jak obrócić kształt o 5 stopni:
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) do slajdu.
+4. Ustaw właściwość `rotation` kształtu na żądany kąt.
+5. Zapisz prezentację.
 
 ```python
 import aspose.slides as slides
@@ -511,23 +489,19 @@ with slides.Presentation() as presentation:
     presentation.save("shape_rotation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
-
 ![Obrót kształtu](shape-rotation.png)
 
-## **Dodawanie efektów fazowania 3D**
+## **Dodaj efekty 3D Bevel**
 
-Aspose.Slides pozwala zastosować efekty fazowania 3D do kształtów, konfigurując ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/threedformat/).
+Aspose.Slides pozwala na zastosowanie efektów 3D Bevel do kształtów poprzez konfigurowanie ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/).
 
-Aby dodać efekty fazowania 3D do kształtu, wykonaj następujące kroki:
+Aby dodać efekty 3D Bevel do kształtu, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
-1. Skonfiguruj [ThreeDFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/threedformat/) kształtu, aby określić ustawienia fazowania.
-1. Zapisz prezentację.
-
-Poniższy kod Pythona pokazuje, jak zastosować efekty fazowania 3D do kształtu:
+1. Zainstaluj klasę [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) do slajdu.
+4. Skonfiguruj [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) kształtu, aby określić ustawienia bevel.
+5. Zapisz prezentację.
 
 ```python
 import aspose.slides as slides
@@ -559,23 +533,19 @@ with slides.Presentation() as presentation:
     presentation.save("3D_bevel_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
+![Efekt 3D Bevel](3D-bevel-effect.png)
 
-![Efekt fazowania 3D](3D-bevel-effect.png)
+## **Dodaj efekty rotacji 3D**
 
-## **Dodawanie efektów obrotu 3D**
+Aspose.Slides pozwala na zastosowanie rotacji 3D do kształtów poprzez konfigurowanie ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/).
 
-Aspose.Slides pozwala zastosować efekty obrotu 3D do kształtów, konfigurując ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/threedformat/).
+Aby zastosować rotację 3D do kształtu:
 
-Aby zastosować obrót 3D do kształtu:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu.
-1. Ustaw [camera_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/camera/camera_type/) i [light_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/lightrig/light_type/) kształtu, aby określić obrót 3D.
-1. Zapisz prezentację.
-
-Poniższy kod Pythona pokazuje, jak zastosować efekty obrotu 3D do kształtu:
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) i [light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/) kształtu, aby określić rotację 3D.
+5. Zapisz prezentację.
 
 ```python
 import aspose.slides as slides
@@ -593,21 +563,19 @@ with slides.Presentation() as presentation:
     auto_shape.three_d_format.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
     auto_shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
 
-    # Zapisz prezentację jako plik PPTX.
+    # Zapisz prezentację jako plik PPTX.      
     presentation.save("3D_rotation_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
-
-![Efekt obrotu 3D](3D-rotation-effect.png)
+![Efekt rotacji 3D](3D-rotation-effect.png)
 
 ## **Kontrola renderowania czarno-białego dla kształtów**
 
-Właściwość [Shape.black_white_mode](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/black_white_mode/) określa, jak pojedynczy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno-białym. Nie włącza ona samej czarno-białej prezentacji i nie zmienia wypełnienia, linii ani innych formatowań w normalnym trybie kolorowym.
+Właściwość [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) określa, jak pojedynczy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno-białym. Nie włącza ona samego wyświetlania czarno-białego i nie zmienia wypełnienia, linii ani innych formatowań kształtu w normalnym trybie kolorowym.
 
-Użyj wartości z wyliczenia [BlackWhiteMode](https://reference.aspose.com/slides/pl/python-net/aspose.slides/blackwhitemode/), aby wybrać pożądane zachowanie. Na przykład `AUTOMATIC` pozwala aplikacji renderującej wybrać konwersję, `GRAY` i `LIGHT_GRAY` używają odcieni szarości, `BLACK_WHITE` używa tylko czerni i bieli, `BLACK` i `WHITE` wymuszają pojedynczy kolor, `COLOR` zachowuje normalne kolory, a `HIDDEN` pomija kształt w trybie czarno-białym. `NOT_DEFINED` oznacza, że nie przypisano trybu na poziomie kształtu.
+Użyj wartości z wyliczenia [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/), aby wybrać pożądane zachowanie. Na przykład `AUTOMATIC` pozwala aplikacji renderującej wybrać konwersję, `GRAY` i `LIGHT_GRAY` używają szarego koloru, `BLACK_WHITE` używa wyłącznie czerni i bieli, `BLACK` i `WHITE` wymuszają pojedynczy kolor, `COLOR` zachowuje normalne kolory, a `HIDDEN` pomija kształt w trybie czarno-białym. `NOT_DEFINED` oznacza brak przypisanego trybu na poziomie kształtu.
 
-Poniższy kod Pythona tworzy kolorowy kształt i sprawia, że w trybie wyświetlania czarno-białego pojawia się jako szary:
+Poniższy kod w Pythonie tworzy kolorowy kształt i sprawia, że w trybie wyświetlania czarno-białego wygląda na szary:
 
 ```python
 import aspose.slides as slides
@@ -626,11 +594,11 @@ with slides.Presentation() as presentation:
     presentation.save("shape_black_white_mode.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-W normalnym trybie kolorowym prostokąt zachowuje pomarańczowe wypełnienie. W trybie czarno-białym wyświetla się w odcieniach szarości, ponieważ jego tryb jest ustawiony na `GRAY`. Dzięki temu możesz zachować slajd w pełnym kolorze, definiując jednocześnie odrębny wygląd dla druku, podglądu lub innych przepływów, które respektują ustawienia wyświetlania czarno-białego prezentacji.
+W normalnym trybie kolorowym prostokąt zachowuje pomarańczowe wypełnienie. W workflowie wyświetlania czarno-białego używa szarego koloru, ponieważ jego tryb jest ustawiony na `GRAY`. Dzięki temu można zachować slajd w pełnym kolorze, definiując jednocześnie odrębny wygląd dla drukowania, podglądu lub innych procesów honorujących ustawienia czarno-białego wyświetlania prezentacji.
 
 ## **Resetowanie formatowania**
 
-Poniższy kod Pythona pokazuje, jak zresetować formatowanie slajdu i przywrócić pozycję, rozmiar oraz formatowanie wszystkich kształtów z placeholderami na [LayoutSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/) do ustawień domyślnych:
+Poniższy kod w Pythonie pokazuje, jak zresetować formatowanie slajdu i przywrócić pozycję, rozmiar oraz formatowanie wszystkich kształtów z symbolami zastępczymi na [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/) do ich domyślnych ustawień:
 
 ```python
 import aspose.slides as slides
@@ -638,7 +606,7 @@ import aspose.slides as slides
 with slides.Presentation("sample.pptx") as presentation:
 
     for slide in presentation.slides:
-        # Zresetuj każdy kształt na slajdzie, który ma placeholder na układzie.
+        # Zresetuj każdy kształt na slajdzie, który ma symbol zastępczy w układzie.
         slide.reset()
 
     presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
@@ -646,14 +614,14 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **FAQ**
 
-**Czy formatowanie kształtów wpływa na ostateczny rozmiar pliku prezentacji?**
+**Czy formatowanie kształtu wpływa na końcowy rozmiar pliku prezentacji?**
 
-Tylko w niewielkim stopniu. Osadzone obrazy i multimedia zajmują większość miejsca w pliku, natomiast parametry kształtów, takie jak kolory, efekty i gradienty, są przechowywane jako metadane i praktycznie nie zwiększają rozmiaru.
+Tylko w niewielkim stopniu. Osadzone obrazy i media zajmują większość miejsca w pliku, podczas gdy parametry kształtów, takie jak kolory, efekty i gradienty, są przechowywane jako metadane i nie zwiększają praktycznie rozmiaru.
 
-**Jak mogę wykryć kształty na slajdzie o identycznym formatowaniu, aby je pogrupować?**
+**Jak mogę wykrywać kształty na slajdzie, które mają identyczne formatowanie, aby je grupować?**
 
-Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linię i ustawienia efektów. Jeśli wszystkie odpowiadające sobie wartości są zgodne, traktuj ich style jako identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
+Porównaj kluczowe właściwości formatowania każdego kształtu — ustawienia wypełnienia, linii i efektów. Jeśli wszystkie odpowiadające sobie wartości są zgodne, traktuj ich style jako identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
 
 **Czy mogę zapisać zestaw niestandardowych stylów kształtów do osobnego pliku w celu ponownego użycia w innych prezentacjach?**
 
-Tak. Przechowuj przykładowe kształty z pożądanymi stylami w szablonie prezentacji lub pliku szablonu .POTX. Podczas tworzenia nowej prezentacji otwórz szablon, sklonuj potrzebne stylowe kształty i ponownie zastosuj ich formatowanie w wybranych miejscach.
+Tak. Przechowuj przykładowe kształty z pożądanymi stylami w szablonie zestawu slajdów lub w pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylizowane kształty i ponownie zastosuj ich formatowanie w wybranych miejscach.

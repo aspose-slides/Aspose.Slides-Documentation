@@ -7,57 +7,57 @@ url: /th/net/shape-formatting/
 keywords:
 - จัดรูปแบบรูปร่าง
 - จัดรูปแบบเส้น
-- เอฟเฟคต์สเก็ตช์
+- เอฟเฟกต์สเก็ตช์
 - เส้นรูปร่างสเก็ตช์
-- จัดรูปแบบสไตล์จอยน์
-- การเติมสีไล่โทน
+- จัดรูปแบบสไตล์การเชื่อมต่อ
+- การเติมไล่สี
 - การเติมลวดลาย
-- การเติมรูปภาพ
-- การเติมพื้นผิว
+- การเติมภาพ
+- การเติมเทกซ์เจอร์
 - การเติมสีทึบ
-- ความโปร่งใสของรูปร่าง
-- การเรนเดอร์รูปร่างสีขาว-ดำ
-- การเรนเดอร์รูปร่างระดับสีเทา
+- ความโปร่งแสงของรูปร่าง
+- การแสดงผลรูปร่างขาว-ดำ
+- การแสดงผลรูปร่างในโทนสีเทา
 - หมุนรูปร่าง
-- เอฟเฟคต์ bevel 3 มิติ
-- เอฟเฟคต์การหมุน 3 มิติ
+- เอฟเฟกต์บีเวล 3 มิติ
+- เอฟเฟกต์การหมุน 3 มิติ
 - รีเซ็ตการจัดรูปแบบ
 - PowerPoint
 - การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint ด้วย C# และ Aspose.Slides—ตั้งค่าการเติม, เส้น, และสไตล์เอฟเฟกต์สำหรับไฟล์ PPT และ PPTX อย่างแม่นยำและควบคุมเต็มที่"
+description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint ด้วย C# โดยใช้ Aspose.Slides—กำหนดการเติม, เส้นและสไตล์เอฟเฟกต์สำหรับไฟล์ PPT และ PPTX อย่างแม่นยำและควบคุมเต็มที่"
 ---
 ## **บทนำ**
 
-ใน PowerPoint คุณสามารถเพิ่มรูปร่างลงในสไลด์ได้ เนื่องจากรูปร่างประกอบด้วยเส้น คุณสามารถจัดรูปแบบได้โดยการแก้ไขหรือใช้เอฟเฟกต์กับโครงร่างของพวกมัน นอกจากนี้คุณยังสามารถจัดรูปแบบรูปร่างโดยระบุการตั้งค่าที่ควบคุมวิธีที่ส่วนภายในของรูปร่างถูกเติมสีได้
+ใน PowerPoint คุณสามารถเพิ่มรูปร่างลงในสไลด์ได้ เนื่องจากรูปร่างประกอบด้วยเส้น คุณจึงสามารถจัดรูปแบบโดยการแก้ไขหรือใช้เอฟเฟกต์กับเส้นขอบของมัน นอกจากนี้ คุณยังสามารถจัดรูปแบบรูปร่างโดยระบุการตั้งค่าที่ควบคุมการเติมสีภายในของรูปร่างได้
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for .NET มีอินเทอร์เฟซและคุณสมบัติที่อนุญาตให้คุณจัดรูปแบบรูปร่างโดยใช้ตัวเลือกเดียวกันที่มีใน PowerPoint
+Aspose.Slides for .NET ให้ส่วนติดต่อและคุณสมบัติที่ช่วยให้คุณจัดรูปแบบรูปร่างโดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
 
 ## **จัดรูปแบบเส้น**
 
-โดยใช้ Aspose.Slides คุณสามารถระบุสไตล์เส้นที่กำหนดเองสำหรับรูปร่าง ขั้นตอนต่อไปนี้สรุปกระบวนการ:
+โดยใช้ Aspose.Slides คุณสามารถระบุสไตล์เส้นแบบกำหนดเองสำหรับรูปร่าง ขั้นตอนต่อไปนี้อธิบายกระบวนการ:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
 1. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [line style](https://reference.aspose.com/slides/th/net/aspose.slides/linestyle/) ของรูปร่าง
-1. ตั้งความกว้างของเส้น
-1. ตั้งค่า [dash style](https://reference.aspose.com/slides/th/net/aspose.slides/linedashstyle/) ของเส้น
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ไปยังสไลด์
+1. ตั้งค่า [line style](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) ของรูปร่าง
+1. ตั้งค่าความกว้างของเส้น
+1. ตั้งค่า [dash style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) ของเส้น
 1. ตั้งค่าสีของเส้นสำหรับรูปร่าง
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+1. บันทึกพรเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# ด้านล่างแสดงวิธีการจัดรูปแบบ `AutoShape` รูปสี่เหลี่ยม:
+โค้ด C# ต่อไปนี้แสดงวิธีจัดรูปแบบ `AutoShape` รูปสี่เหลี่ยม:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 using (Presentation presentation = new Presentation())
 {
     // รับสไลด์แรก
@@ -78,20 +78,20 @@ using (Presentation presentation = new Presentation())
     shape.LineFormat.FillFormat.FillType = FillType.Solid;
     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![เส้นที่จัดรูปแบบในงานนำเสนอ](formatted-lines.png)
+![เส้นที่จัดรูปแบบในพรีเซนเทชัน](formatted-lines.png)
 
 ## **ใช้เอฟเฟกต์สเก็ตช์กับเส้นของรูปร่าง**
 
-เอฟเฟกต์สเก็ตช์ทำให้เส้นของรูปร่างดูเหมือนวาดมือ ใช้ [IShape.LineFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/lineformat/) เพื่อเข้าถึงการตั้งค่าเส้น, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ilineformat/sketchformat/) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [ISketchFormat.SketchType](https://reference.aspose.com/slides/th/net/aspose.slides/isketchformat/sketchtype/) เพื่อเลือกค่าจาก enumeration [LineSketchType](https://reference.aspose.com/slides/th/net/aspose.slides/linesketchtype/)
+เอฟเฟกต์สเก็ตช์ทำให้เส้นของรูปร่างดูเหมือนถูกวาดด้วยมือ ใช้ [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) เพื่อเข้าถึงการตั้งค่าเส้น, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) เพื่อเลือกค่าจาก enumeration [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/)
 
-โค้ด C# ด้านล่างแสดงวิธีการใช้เอฟเฟกต์ [LineSketchType.Curved](https://reference.aspose.com/slides/th/net/aspose.slides/linesketchtype/) อ่านค่าที่กำหนดโดยตรงและลบเอฟเฟกต์ด้วย [LineSketchType.None](https://reference.aspose.com/slides/th/net/aspose.slides/linesketchtype/):
+โค้ด C# ต่อไปนี้แสดงวิธีใช้เอฟเฟกต์ [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) อ่านค่าที่กำหนดโดยเฉพาะ และลบเอฟเฟกต์ด้วย [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
 
 ```csharp
 using Aspose.Slides;
@@ -115,7 +115,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-ค่าที่คืนโดย `ISketchFormat.SketchType` แทนการตั้งค่าที่กำหนดโดยตรงให้กับรูปร่าง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม, มาสเตอร์สไลด์ หรือเลย์เอาต์สไลด์ ให้ใช้ [ILineFormat.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/ilineformat/geteffective/), เข้าถึง [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ilineformateffectivedata/sketchformat/), และอ่านค่า [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/th/net/aspose.slides/isketchformateffectivedata/sketchtype/). ค่าที่มีผลสะท้อนการจัดรูปแบบที่ใช้จริงหลังจากการสืบทอดได้รับการแก้ไขแล้ว:
+ค่าที่ `ISketchFormat.SketchType` คืนมาจะเป็นการตั้งค่าที่กำหนดโดยตรงให้กับรูปร่าง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม, มาสเตอร์สไลด์ หรือเลเอาต์สไลด์ให้ใช้ [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), เข้าถึง [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), และอ่าน [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). ค่าที่มีประสิทธิภาพจะแสดงการจัดรูปแบบที่ใช้จริงหลังจากการสืบทอดได้รับการแก้ไข:
 
 ```csharp
 using Aspose.Slides;
@@ -133,37 +133,37 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 ```
 
-## **จัดรูปแบบสไตล์จอยน์**
+## **จัดรูปแบบสไตล์การเชื่อมต่อ**
 
-ต่อไปนี้เป็นตัวเลือกสามประเภทของจอยน์:
+นี่คือสามตัวเลือกประเภทการเชื่อมต่อ:
 
-* กลม
-* มิเชอร์
-* บีเวล
+* Round
+* Miter
+* Bevel
 
-โดยค่าเริ่มต้น เมื่อ PowerPoint จอยน์เส้นสองเส้นที่มุม (เช่นที่มุมของรูปร่าง) จะใช้การตั้งค่า **กลม** อย่างไรก็ตาม หากคุณวาดรูปร่างที่มีมุมแหลม คุณอาจต้องการตัวเลือก **มิเชอร์** แทน
+โดยค่าเริ่มต้น PowerPoint จะเชื่อมต่อสองเส้นที่มุม (เช่นที่มุมของรูปร่าง) โดยใช้การตั้งค่า **Round** อย่างไรก็ตาม หากคุณกำลังวาดรูปร่างที่มีมุมคม คุณอาจต้องการเลือกตัวเลือก **Miter**
 
-![สไตล์จอยน์ในงานนำเสนอ](join-style-powerpoint.png)
+![สไตล์การเชื่อมต่อในพรีเซนเทชัน](join-style-powerpoint.png)
 
-โค้ด C# ด้านล่างแสดงวิธีการสร้างสี่เหลี่ยมสามรูป (ตามภาพด้านบน) โดยใช้การตั้งค่าจอยน์แบบ มิเชอร์, บีเวล, และ กลม:
+โค้ด C# ต่อไปนี้แสดงว่ารูปสี่เหลี่ยมสามรูป (ตามที่แสดงในภาพด้านบน) ถูกสร้างด้วยการตั้งค่า Miter, Bevel, และ Round:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 using (Presentation presentation = new Presentation())
 {
     // รับสไลด์แรก
     ISlide slide = presentation.Slides[0];
 
-    // เพิ่มรูปร่างอัตโนมัติประเภทสี่เหลี่ยมจำนวนสามรูป
+    // เพิ่มรูปร่างอัตโนมัติสามอันประเภทสี่เหลี่ยม
     IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // ตั้งค่าสีเติมสำหรับรูปร่างสี่เหลี่ยมแต่ละรูป
+    // ตั้งค่าสีเติมสำหรับแต่ละรูปร่างสี่เหลี่ยม
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.Color = Color.Black;
     shape2.FillFormat.FillType = FillType.Solid;
@@ -176,7 +176,7 @@ using (Presentation presentation = new Presentation())
     shape2.LineFormat.Width = 15;
     shape3.LineFormat.Width = 15;
 
-    // ตั้งค่าสีสำหรับเส้นของสี่เหลี่ยมแต่ละรูป
+    // ตั้งค่าสีสำหรับเส้นของแต่ละสี่เหลี่ยม
     shape1.LineFormat.FillFormat.FillType = FillType.Solid;
     shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     shape2.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -184,94 +184,96 @@ using (Presentation presentation = new Presentation())
     shape3.LineFormat.FillFormat.FillType = FillType.Solid;
     shape3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // ตั้งค่าสไตล์จอยน์
+    // ตั้งค่าสไตล์การเชื่อมต่อ
     shape1.LineFormat.JoinStyle = LineJoinStyle.Miter;
     shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
     shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
 
-    // เพิ่มข้อความให้กับสี่เหลี่ยมแต่ละรูป
+    // เพิ่มข้อความลงในแต่ละสี่เหลี่ยม
     shape1.TextFrame.Text = "Miter Join Style";
     shape2.TextFrame.Text = "Bevel Join Style";
     shape3.TextFrame.Text = "Round Join Style";
 
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **การเติมสีไล่โทน**
+## **การเติมไล่สี**
 
-ใน PowerPoint การเติมสีไล่โทนเป็นตัวเลือกการจัดรูปแบบที่ให้คุณเติมสีต่อเนื่องหลายสีลงในรูปร่าง ตัวอย่างเช่น คุณสามารถใช้สองสีหรือมากกว่านั้นโดยที่สีหนึ่งค่อย ๆ จางลงสู่สีอีกสีหนึ่ง
+ใน PowerPoint การเติมไล่สีเป็นตัวเลือกการจัดรูปแบบที่ทำให้คุณสามารถใช้การผสมสีอย่างต่อเนื่องกับรูปร่างได้ ตัวอย่างเช่น คุณสามารถใช้สองสีหรือมากกว่าที่สีหนึ่งค่อยๆ จางลงสู่สีอื่น
 
-วิธีการใช้การเติมสีไล่โทนในรูปร่างด้วย Aspose.Slides:
+วิธีใช้การเติมไล่สีกับรูปร่างโดยใช้ Aspose.Slides:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
 1. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/) ของรูปร่างเป็น `Gradient`
-1. เพิ่มสีที่คุณต้องการสองสีพร้อมตำแหน่งที่กำหนดโดยใช้เมธอด `Add` ของคอลเลกชัน gradient stop ที่เปิดให้ใช้งานโดยอินเทอร์เฟซ [IGradientFormat](https://reference.aspose.com/slides/th/net/aspose.slides/igradientformat/)
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ไปยังสไลด์
+1. ตั้งค่า [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) ของรูปร่างเป็น `Gradient`
+1. เพิ่มสีสองสีที่คุณต้องการพร้อมตำแหน่งที่กำหนดโดยใช้เมธอด `Add` ของคอลเลกชัน gradient stop ที่เปิดให้เข้าถึงโดยอินเทอร์เฟซ [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/)
+1. บันทึกพรเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# ด้านล่างแสดงวิธีการใช้เอฟเฟกต์การเติมสีไล่โทนบนวงรี:
+โค้ด C# ต่อไปนี้แสดงวิธีใช้เอฟเฟกต์การเติมไล่สีกับวงรี:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 using (Presentation presentation = new Presentation())
 {
     // รับสไลด์แรก
     ISlide slide = presentation.Slides[0];
 
-    // เพิ่มรูปร่างอัตโนมัติประเภทวงรี
+    // เพิ่มรูปร่างอัตโนมัติประเภท Ellipse
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // ใช้การจัดรูปแบบไล่โทนกับวงรี
+    // ใช้การจัดรูปแบบไล่สีกับวงรี
     shape.FillFormat.FillType = FillType.Gradient;
     shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
-    // ตั้งค่าทิศทางของไล่โทน
+    // ตั้งทิศทางของไล่สี
     shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
 
-    // เพิ่มจุดหยุดไล่โทนสองจุด
+    // เพิ่มจุดหยุดไล่สีสองจุด
     shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
     shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
 
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![วงรอบที่เติมสีไล่โทน](gradient-fill.png)
+![รูปวงรีที่มีการเติมแบบไล่สี](gradient-fill.png)
+
+หากการไล่สีดูแตกต่างในภาพที่ส่งออกเมื่อเทียบกับ PowerPoint ให้ดูที่ [Choose a Gradient Rendering Style](/slides/th/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) คุณสามารถเลือกสไตล์การเรนเดอร์โดยไม่ต้องเปลี่ยนการเติมไล่สีที่เก็บไว้ในพรเซนเทชัน
 
 ## **การเติมลวดลาย**
 
-ใน PowerPoint การเติมลวดลายเป็นตัวเลือกการจัดรูปแบบที่ให้คุณเติมการออกแบบสองสี—เช่น จุด, ลายเส้น, เส้นตัดกัน หรือการตรวจสอบ—ลงในรูปร่าง คุณสามารถเลือกสีที่กำหนดเองสำหรับพื้นหน้าลวดลายและพื้นหลังได้
+ใน PowerPoint การเติมลวดลายเป็นตัวเลือกการจัดรูปแบบที่ให้คุณใช้การออกแบบสองสี—เช่นจุด, ลายเส้น, ขีดครอส หรือเช็ค—กับรูปร่าง คุณสามารถเลือกสีกำหนดเองสำหรับพื้นหน้าและพื้นหลังของลวดลายได้
 
-Aspose.Slides มีลักษณะลวดลายพร้อมใช้งานมากกว่า 45 แบบที่คุณสามารถนำไปใช้กับรูปร่างเพื่อเพิ่มความสวยงามให้กับการนำเสนอของคุณ แม้หลังจากเลือกลวดลายที่กำหนดไว้ล่วงหน้าแล้ว คุณยังสามารถระบุสีที่แน่นอนที่ลวดลายควรใช้ได้
+Aspose.Slides มีรูปแบบลวดลายที่กำหนดล่วงหน้ากว่า 45 แบบที่คุณสามารถใช้กับรูปร่างเพื่อทำให้การนำเสนอของคุณดูสวยงามยิ่งขึ้น แม้คุณจะเลือกลวดลายที่กำหนดล่วงหน้าแล้ว คุณยังสามารถระบุสีที่ต้องการให้ลวดลายใช้ได้
 
-วิธีการใช้การเติมลวดลายบนรูปร่างด้วย Aspose.Slides:
+วิธีใช้การเติมลวดลายกับรูปร่างโดยใช้ Aspose.Slides:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
 1. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/) ของรูปร่างเป็น `Pattern`
-1. เลือกสไตล์ลวดลายจากตัวเลือกที่กำหนดไว้ล่วงหน้า
-1. ตั้งค่า [Background Color](https://reference.aspose.com/slides/th/net/aspose.slides/ipatternformat/backcolor/) ของลวดลาย
-1. ตั้งค่า [Foreground Color](https://reference.aspose.com/slides/th/net/aspose.slides/ipatternformat/forecolor/) ของลวดลาย
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ไปยังสไลด์
+1. ตั้งค่า [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) ของรูปร่างเป็น `Pattern`
+1. เลือกรูปแบบลวดลายจากตัวเลือกที่กำหนดล่วงหน้า
+1. ตั้งค่า [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) ของลวดลาย
+1. ตั้งค่า [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) ของลวดลาย
+1. บันทึกพรเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# ด้านล่างแสดงวิธีการใช้การเติมลวดลายบนสี่เหลี่ยม:
+โค้ด C# ต่อไปนี้แสดงวิธีใช้การเติมลวดลายกับสี่เหลี่ยม:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 using (Presentation presentation = new Presentation())
 {
     // รับสไลด์แรก
@@ -280,51 +282,51 @@ using (Presentation presentation = new Presentation())
     // เพิ่มรูปร่างอัตโนมัติประเภทสี่เหลี่ยม
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // ตั้งค่าประเภทการเติมเป็นลวดลาย
+    // ตั้งค่าชนิดการเติมเป็น Pattern
     shape.FillFormat.FillType = FillType.Pattern;
 
     // ตั้งค่าสไตล์ลวดลาย
     shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
 
-    // ตั้งค่าสีพื้นหลังและสีหน้าของลวดลาย
+    // ตั้งค่าสีพื้นหลังและสีพื้นหน้า ของลวดลาย
     shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
     shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
 
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![สี่เหลี่ยมที่เติมลวดลาย](pattern-fill.png)
+![สี่เหลี่ยมที่มีการเติมลวดลาย](pattern-fill.png)
 
-## **การเติมรูปภาพ**
+## **การเติมภาพ**
 
-ใน PowerPoint การเติมรูปภาพเป็นตัวเลือกการจัดรูปแบบที่ให้คุณแทรกรูปภาพภายในรูปร่าง—โดยใช้รูปภาพเป็นพื้นหลังของรูปร่างได้อย่างมีประสิทธิภาพ
+ใน PowerPoint การเติมภาพเป็นตัวเลือกการจัดรูปแบบที่ให้คุณแทรกรูปภาพเข้าไปในรูปร่าง—โดยใช้รูปภาพเป็นพื้นหลังของรูปร่าง
 
-วิธีการใช้ Aspose.Slides เพื่อเติมรูปภาพบนรูปร่าง:
+วิธีใช้ Aspose.Slides เพื่อเติมภาพในรูปร่าง:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
 1. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/) ของรูปร่างเป็น `Picture`
-1. ตั้งค่าโหมดการเติมรูปภาพเป็น `Tile` (หรือโหมดที่คุณต้องการอื่น)
-1. สร้างอ็อบเจกต์ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) จากรูปภาพที่คุณต้องการใช้
-1. กำหนดภาพนี้ให้กับคุณสมบัติ `Picture.Image` ของ `PictureFillFormat` ของรูปร่าง
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ไปยังสไลด์
+1. ตั้งค่า [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) ของรูปร่างเป็น `Picture`
+1. ตั้งค่าโหมดการเติมภาพเป็น `Tile` (หรือโหมดอื่นที่ต้องการ)
+1. สร้างอ็อบเจกต์ [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) จากรูปภาพที่ต้องการใช้
+1. กำหนดรูปภาพนี้ให้กับคุณสมบัติ `Picture.Image` ของ `PictureFillFormat` ของรูปร่าง
+1. บันทึกพรเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-สมมุติว่าเรามีไฟล์ "lotus.png" ที่มีรูปภาพต่อไปนี้:
+สมมติว่าเรามีไฟล์ "lotus.png" พร้อมรูปภาพต่อไปนี้:
 
-![รูปภาพดอกบัว](lotus.png)
+![รูปภาพบัว](lotus.png)
 
-โค้ด C# ด้านล่างแสดงวิธีการเติมรูปภาพลงในรูปร่าง:
+โค้ด C# ต่อไปนี้แสดงวิธีเติมรูปร่างด้วยภาพ:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 using (Presentation presentation = new Presentation())
 {
     // รับสไลด์แรก
@@ -333,69 +335,69 @@ using (Presentation presentation = new Presentation())
     // เพิ่มรูปร่างอัตโนมัติประเภทสี่เหลี่ยม
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
 
-    // ตั้งค่าประเภทการเติมเป็นรูปภาพ
+    // ตั้งค่าชนิดการเติมเป็น Picture
     shape.FillFormat.FillType = FillType.Picture;
 
-    // ตั้งค่าโหมดการเติมรูปภาพ
+    // ตั้งค่าโหมดการเติมภาพ
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // โหลดรูปภาพและเพิ่มเข้าไปในทรัพยากรของงานนำเสนอ
+    // โหลดภาพและเพิ่มลงในทรัพยากรของพรีเซนเทชัน
     IImage image = Images.FromFile("lotus.png");
     IPPImage presentationImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // ตั้งค่ารูปภาพ
+    // ตั้งค่าภาพ
     shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
 
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![รูปร่างที่เติมรูปภาพ](picture-fill.png)
+![รูปร่างที่เติมด้วยภาพ](picture-fill.png)
 
-### **ต่อภาพเป็นพื้นผิว**
+### **ปูกระเบื้องภาพเป็นพื้นผิว**
 
-หากคุณต้องการตั้งค่าภาพต่อเป็นพื้นผิวและกำหนดพฤติกรรมการต่อ คุณสามารถใช้คุณสมบัติต่อไปนี้ของอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/picturefillformat/):
+หากต้องการตั้งค่าภาพเป็นเทกซ์เจอร์แบบปูกระเบื้องและปรับพฤติกรรมการปูกระเบื้อง คุณสามารถใช้คุณสมบัติดังต่อไปนี้ของอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/):
 
-- [PictureFillMode](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/picturefillmode/): ตั้งค่าโหมดการเติมรูปภาพ—`Tile` หรือ `Stretch`
-- [TileAlignment](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/tilealignment/): ระบุมาตรฐานการจัดตำแหน่งของไทล์ภายในรูปร่าง
-- [TileFlip](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/tileflip/): ควบคุมว่าภาพไทล์จะพลิกแนวนอน แนวตั้ง หรือทั้งสองอย่างหรือไม่
-- [TileOffsetX](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/tileoffsetx/): ตั้งค่าการเยื้องแนวนอนของไทล์ (เป็นพอยต์) จากจุดกำเนิดของรูปร่าง
-- [TileOffsetY](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/tileoffsety/): ตั้งค่าการเยื้องแนวตั้งของไทล์ (เป็นพอยต์) จากจุดกำเนิดของรูปร่าง
-- [TileScaleX](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/tilescalex/): กำหนดสเกลแนวนอนของไทล์เป็นเปอร์เซ็นต์
-- [TileScaleY](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/tilescaley/): กำหนดสเกลแนวตั้งของไทล์เป็นเปอร์เซ็นต์
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): ตั้งค่าโหมดการเติมภาพ—`Tile` หรือ `Stretch`
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): ระบุการจัดตำแหน่งของกระเบื้องภายในรูปร่าง
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): ควบคุมว่ากระเบื้องจะพลิกแนวนอน แนวตั้ง หรือทั้งสองแบบ
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): ตั้งค่าการเลื่อนแนวนอนของกระเบื้อง (จุด) จากจุดกำเนิดของรูปร่าง
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): ตั้งค่าการเลื่อนแนวตั้งของกระเบื้อง (จุด) จากจุดกำเนิดของรูปร่าง
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): กำหนดสเกลแนวนอนของกระเบื้องเป็นเปอร์เซ็นต์
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): กำหนดสเกลแนวตั้งของกระเบื้องเป็นเปอร์เซ็นต์
 
-โค้ดตัวอย่างด้านล่างแสดงวิธีการเพิ่มรูปร่างสี่เหลี่ยมที่มีการเติมรูปภาพแบบต่อและกำหนดตัวเลือกไทล์:
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีเพิ่มรูปร่างสี่เหลี่ยมที่มีการเติมภาพแบบปูกระเบื้องและกำหนดตัวเลือกกระเบื้อง:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน.
 using (Presentation presentation = new Presentation())
 {
-    // รับสไลด์แรก
+    // รับสไลด์แรก.
     ISlide firstSlide = presentation.Slides[0];
 
-    // เพิ่มรูปร่างอัตโนมัติประเภทสี่เหลี่ยม
+    // เพิ่มรูปร่างอัตโนมัติสี่เหลี่ยม.
     IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // ตั้งค่าประเภทการเติมของรูปร่างเป็นรูปภาพ
+    // ตั้งค่าชนิดการเติมของรูปร่างเป็น Picture.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // โหลดรูปภาพและเพิ่มเข้าไปในทรัพยากรของงานนำเสนอ
+    // โหลดภาพและเพิ่มลงในทรัพยากรของพรีเซนเทชัน.
     IPPImage presentationImage;
     using (IImage sourceImage = Images.FromFile("lotus.png"))
         presentationImage = presentation.Images.AddImage(sourceImage);
 
-    // กำหนดรูปภาพให้กับรูปร่าง
+    // กำหนดภาพให้กับรูปร่าง.
     IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
     pictureFillFormat.Picture.Image = presentationImage;
 
-    // กำหนดค่าโหมดการเติมรูปภาพและคุณสมบัติการต่อภาพ
+    // กำหนดค่าโหมดการเติมภาพและคุณสมบัติการปูกระเบื้อง.
     pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     pictureFillFormat.TileOffsetX = -32;
     pictureFillFormat.TileOffsetY = -32;
@@ -404,51 +406,51 @@ using (Presentation presentation = new Presentation())
     pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
     pictureFillFormat.TileFlip = TileFlip.FlipBoth;
 
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
+    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.Save("tile.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![ตัวเลือกไทล์](tile-options.png)
+![ตัวเลือกการปูกระเบื้อง](tile-options.png)
 
 ## **การเติมสีทึบ**
 
-ใน PowerPoint การเติมสีทึบเป็นตัวเลือกการจัดรูปแบบที่เติมสีเดียวที่เป็นสีสม่ำเสมอบนรูปร่าง สีพื้นหลังแบบเรียบนี้จะไม่มีการไล่โทน พื้นผิว หรือลวดลายใด ๆ
+ใน PowerPoint การเติมสีทึบเป็นตัวเลือกการจัดรูปแบบที่ทำให้รูปร่างเติมด้วยสีเดียวที่สม่ำเสมอ สีพื้นหลังทั่วไปนี้จะถูกใช้โดยไม่มีการไล่สี, เทกซ์เจอร์หรือรูปแบบลวดลายใดๆ
 
-วิธีการใช้ Aspose.Slides เพื่อเติมสีทึบบนรูปร่าง:
+วิธีเติมสีทึบให้กับรูปร่างโดยใช้ Aspose.Slides ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
 1. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/) ของรูปร่างเป็น `Solid`
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ไปยังสไลด์
+1. ตั้งค่า [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) ของรูปร่างเป็น `Solid`
 1. กำหนดสีเติมที่คุณต้องการให้กับรูปร่าง
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+1. บันทึกพรเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# ด้านล่างแสดงวิธีการเติมสีทึบบนสี่เหลี่ยมในสไลด์ PowerPoint:
+โค้ด C# ต่อไปนี้แสดงวิธีเติมสีทึบให้กับสี่เหลี่ยมในสไลด์ PowerPoint:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน.
 using (Presentation presentation = new Presentation())
 {
-    // รับสไลด์แรก
+    // รับสไลด์แรก.
     ISlide slide = presentation.Slides[0];
 
-    // เพิ่มรูปร่างอัตโนมัติประเภทสี่เหลี่ยม
+    // เพิ่มรูปร่างอัตโนมัติประเภทสี่เหลี่ยม.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // ตั้งค่าประเภทการเติมเป็นสีทึบ
+    // ตั้งค่าชนิดการเติมเป็น Solid.
     shape.FillFormat.FillType = FillType.Solid;
 
-    // ตั้งค่าสีเติม
+    // ตั้งค่าสีเติม.
     shape.FillFormat.SolidFillColor.Color = Color.Yellow;
 
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
+    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
 }
 ```
@@ -457,20 +459,20 @@ using (Presentation presentation = new Presentation())
 
 ![รูปร่างที่เติมสีทึบ](solid-color-fill.png)
 
-## **ตั้งค่าความโปร่งใส**
+## **ตั้งค่าการโปร่งแสง**
 
-ใน PowerPoint เมื่อคุณเติมสีทึบ, ไล่โทน, รูปภาพ หรือพื้นผิวบนรูปร่าง คุณยังสามารถตั้งค่าระดับความโปร่งใสเพื่อควบคุมความทึบของการเติม สีที่มีค่าความโปร่งใสสูงทำให้รูปร่างดูโปร่งใสมากขึ้นและทำให้พื้นหลังหรือวัตถุที่อยู่ด้านล่างมองเห็นได้บางส่วน
+ใน PowerPoint เมื่อคุณเติมสีทึบ, ไล่สี, ภาพ หรือเทกซ์เจอร์ให้กับรูปร่าง คุณยังสามารถตั้งค่าระดับการโปร่งแสงเพื่อควบคุมความทึบของสีเติมได้ ค่าการโปร่งแสงที่สูงจะทำให้รูปร่างดูโปร่งแสงมากขึ้น ทำให้พื้นหลังหรือวัตถุที่อยู่ด้านล่างมองเห็นได้บางส่วน
 
-Aspose.Slides ให้คุณตั้งค่าระดับความโปร่งใสโดยการปรับค่าอัลфаในสีที่ใช้สำหรับการเติม วิธีทำดังนี้:
+Aspose.Slides ให้คุณตั้งค่าการโปร่งแสงโดยปรับค่าอัลฟ่าในสีที่ใช้สำหรับการเติม วิธีทำดังต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
 1. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/) เป็น `Solid`
-1. ใช้ `Color.FromArgb(alpha, baseColor)` เพื่อกำหนดสีที่มีความโปร่งใส (ส่วน `alpha` ควบคุมความโปร่งใส)
-1. บันทึกงานนำเสนอ
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ไปยังสไลด์
+1. ตั้งค่า [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) เป็น `Solid`
+1. ใช้ `Color.FromArgb(alpha, baseColor)` เพื่อกำหนดสีที่มีการตั้งค่าการโปร่งแสง (ส่วน `alpha` ควบคุมระดับการโปร่งแสง)
+1. บันทึกพรเซนเทชัน
 
-โค้ด C# ด้านล่างแสดงวิธีการใช้สีเติมที่มีความโปร่งใสบนสี่เหลี่ยม:
+โค้ด C# ต่อไปนี้แสดงวิธีเติมสีโปร่งแสงให้กับสี่เหลี่ยม:
 
 ```c#
 using System.Drawing;
@@ -479,93 +481,93 @@ using Aspose.Slides.Export;
 
 const int alpha = 128;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน.
 using (Presentation presentation = new Presentation())
 {
-    // รับสไลด์แรก
+    // รับสไลด์แรก.
     ISlide slide = presentation.Slides[0];
 
-    // เพิ่มรูปร่างอัตโนมัติสี่เหลี่ยมสีทึบ
+    // เพิ่มรูปร่างอัตโนมัติสี่เหลี่ยมแบบทึบ.
     IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // เพิ่มรูปร่างอัตโนมัติสี่เหลี่ยมโปร่งใสเหนือรูปร่างสีทึบ
+    // เพิ่มรูปร่างอัตโนมัติสี่เหลี่ยมโปร่งแสงเหนือรูปร่างทึบ.
     IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.FillFormat.FillType = FillType.Solid;
     transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
 
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
+    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![รูปร่างที่โปร่งใส](shape-transparency.png)
+![รูปร่างโปร่งแสง](shape-transparency.png)
 
 ## **หมุนรูปร่าง**
 
-Aspose.Slides ให้คุณหมุนรูปร่างในงานนำเสนอ PowerPoint ซึ่งมีประโยชน์เมื่อกำหนดตำแหน่งองค์ประกอบภาพตามการจัดแนวหรือความต้องการออกแบบเฉพาะ
+Aspose.Slides ให้คุณหมุนรูปร่างในพรีเซนเทชัน PowerPoint ซึ่งเป็นประโยชน์เมื่อกำหนดตำแหน่งองค์ประกอบภาพโดยต้องการการจัดแนวหรือการออกแบบเฉพาะ
 
 ขั้นตอนการหมุนรูปร่างบนสไลด์:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
 1. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่าคุณสมบัติ `Rotation` ของรูปร่างเป็นมุมที่ต้องการ
-1. บันทึกงานนำเสนอ
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ไปยังสไลด์
+1. ตั้งค่า `Rotation` ของรูปร่างเป็นมุมที่ต้องการ
+1. บันทึกพรเซนเทชัน
 
-โค้ด C# ด้านล่างแสดงวิธีการหมุนรูปร่างด้วยมุม 5 องศา:
+โค้ด C# ต่อไปนี้แสดงวิธีหมุนรูปร่าง 5 องศา:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน.
 using (Presentation presentation = new Presentation())
 {
-    // รับสไลด์แรก
+    // รับสไลด์แรก.
     ISlide slide = presentation.Slides[0];
 
-    // เพิ่มรูปร่างอัตโนมัติประเภทสี่เหลี่ยม
+    // เพิ่มรูปร่างอัตโนมัติประเภทสี่เหลี่ยม.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // หมุนรูปร่างด้วยมุม 5 องศา
+    // หมุนรูปร่าง 5 องศา.
     shape.Rotation = 5;
 
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
+    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![การหมุนของรูปร่าง](shape-rotation.png)
+![การหมุนรูปร่าง](shape-rotation.png)
 
-## **เพิ่มเอฟเฟกต์ bevel 3D**
+## **เพิ่มเอฟเฟกต์บีเวล 3 มิติ**
 
-Aspose.Slides อนุญาตให้คุณใช้เอฟเฟกต์ bevel 3D กับรูปร่างโดยกำหนดค่าคุณสมบัติ [ThreeDFormat](https://reference.aspose.com/slides/th/net/aspose.slides/threedformat/)
+Aspose.Slides อนุญาตให้คุณใช้เอฟเฟกต์บีเวล 3 มิติกับรูปร่างโดยการกำหนดคุณสมบัติของ [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/)
 
-ขั้นตอนการเพิ่มเอฟเฟกต์ bevel 3D ให้กับรูปร่าง:
+ขั้นตอนการเพิ่มเอฟเฟกต์บีเวล 3 มิติให้กับรูปร่าง:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
 1. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์
-1. กำหนดค่า [ThreeDFormat](https://reference.aspose.com/slides/th/net/aspose.slides/threedformat/) ของรูปร่างเพื่อระบุการตั้งค่า bevel
-1. บันทึกงานนำเสนอ
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ไปยังสไลด์
+1. กำหนดค่า [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) ของรูปร่างเพื่อกำหนดการตั้งค่าบีเวล
+1. บันทึกพรเซนเทชัน
 
-โค้ด C# ด้านล่างแสดงวิธีการใช้เอฟเฟกต์ bevel 3D กับรูปร่าง:
+โค้ด C# ต่อไปนี้แสดงวิธีใช้เอฟเฟกต์บีเวล 3 มิติกับรูปร่าง:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation
+// สร้างอินสแตนซ์ของคลาส Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // เพิ่มรูปร่างลงในสไลด์
+    // เพิ่มรูปร่างลงในสไลด์.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.FillFormat.FillType = FillType.Solid;
     shape.FillFormat.SolidFillColor.Color = Color.Green;
@@ -573,7 +575,7 @@ using (Presentation presentation = new Presentation())
     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
     shape.LineFormat.Width = 2.0;
 
-    // ตั้งค่าคุณสมบัติ ThreeDFormat ของรูปร่าง
+    // ตั้งค่าคุณสมบัติ ThreeDFormat ของรูปร่าง.
     shape.ThreeDFormat.Depth = 4;
     shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
     shape.ThreeDFormat.BevelTop.Height = 6;
@@ -582,28 +584,28 @@ using (Presentation presentation = new Presentation())
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
 
-    // บันทึกงานนำเสนอเป็นไฟล์ PPTX
+    // บันทึกพรีเซนเทชันเป็นไฟล์ PPTX.
     presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![เอฟเฟกต์ bevel 3D](3D-bevel-effect.png)
+![เอฟเฟ็กต์บีเวล 3 มิติ](3D-bevel-effect.png)
 
-## **เพิ่มเอฟเฟกต์การหมุน 3D**
+## **เพิ่มเอฟเฟกต์การหมุน 3 มิติ**
 
-Aspose.Slides อนุญาตให้คุณใช้เอฟเฟกต์การหมุน 3D กับรูปร่างโดยกำหนดค่าคุณสมบัติ [ThreeDFormat](https://reference.aspose.com/slides/th/net/aspose.slides/threedformat/)
+Aspose.Slides อนุญาตให้คุณใช้เอฟเฟกต์การหมุน 3 มิติกับรูปร่างโดยการกำหนดคุณสมบัติของ [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/)
 
-ขั้นตอนการใช้การหมุน 3D กับรูปร่าง:
+ขั้นตอนการใช้การหมุน 3 มิติกับรูปร่าง:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
 1. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [CameraType](https://reference.aspose.com/slides/th/net/aspose.slides/icamera/cameratype/) และ [LightType](https://reference.aspose.com/slides/th/net/aspose.slides/ilightrig/lighttype/) ของรูปร่างเพื่อกำหนดการหมุน 3D
-1. บันทึกงานนำเสนอ
+1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ไปยังสไลด์
+1. ตั้งค่า [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) และ [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) ของรูปร่างเพื่อกำหนดการหมุน 3 มิติ
+1. บันทึกพรเซนเทชัน
 
-โค้ด C# ด้านล่างแสดงวิธีการใช้เอฟเฟกต์การหมุน 3D กับรูปร่าง:
+โค้ด C# ต่อไปนี้แสดงวิธีใช้เอฟเฟกต์การหมุน 3 มิติกับรูปร่าง:
 
 ```c#
 using Aspose.Slides;
@@ -621,22 +623,22 @@ using (Presentation presentation = new Presentation())
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
 
-    // บันทึกงานนำเสนอเป็นไฟล์ PPTX.
+    // บันทึกพรีเซนเทชันเป็นไฟล์ PPTX.
     presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![เอฟเฟกต์การหมุน 3D](3D-rotation-effect.png)
+![เอฟเฟ็กต์การหมุน 3 มิติ](3D-rotation-effect.png)
 
-## **ควบคุมการเรนเดอร์สีขาว-ดำสำหรับรูปร่าง**
+## **ควบคุมการแสดงผลขาว-ดำสำหรับรูปร่าง**
 
-คุณสมบัติ [IShape.BlackWhiteMode](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/blackwhitemode/) ระบุวิธีการที่รูปร่างแต่ละชิ้นจะถูกเรนเดอร์เมื่อการนำเสนอถูกดูหรือประมวลผลในโหมดสีขาว-ดำ ซึ่งไม่ทำให้โหมดสีขาว-ดำเปิดใช้งานโดยอัตโนมัติและไม่ได้เปลี่ยนการเติม, เส้น หรือการจัดรูปแบบอื่น ๆ ของรูปร่างในโหมดสีปกติ
+คุณสมบัติ [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) ระบุว่ารูปร่างแต่ละอันจะแสดงผลอย่างไรเมื่อพรีเซนเทชันถูกดูหรือประมวลผลในโหมดขาว-ดำ มันไม่ได้เปิดใช้งานการแสดงผลขาว-ดำโดยอัตโนมัติและไม่ได้เปลี่ยนการเติมสี, เส้น หรือการจัดรูปแบบอื่นในโหมดสีปกติ
 
-ใช้ค่าจาก enumeration [BlackWhiteMode](https://reference.aspose.com/slides/th/net/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันที่ทำการเรนเดอร์เลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและสีขาว, `Black` และ `White` บังคับให้เป็นสีเดียว, `Color` รักษาสีปกติ, และ `Hidden` ไม่แสดงรูปร่างในโหมดสีขาว-ดำ, `NotDefined` หมายถึงไม่มีการกำหนดโหมดระดับรูปร่าง
+ใช้ค่าจาก enumeration [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันเรนเดอร์เลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและขาว, `Black` และ `White` บังคับเป็นสีเดียว, `Color` คงสีปกติ, `Hidden` ไม่แสดงรูปร่างในโหมดขาว-ดำ, `NotDefined` หมายถึงไม่มีการกำหนดโหมดระดับรูปร่าง
 
-โค้ด C# ด้านล่างสร้างรูปร่างสีและทำให้มันแสดงเป็นสีเทาในโหมดแสดงผลสีขาว-ดำ:
+โค้ด C# ต่อไปนี้สร้างรูปร่างสีและทำให้แสดงเป็นสีเทาในโหมดแสดงผลขาว-ดำ:
 
 ```csharp
 using System.Drawing;
@@ -650,17 +652,17 @@ var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.Color = Color.Orange;
 
-// คงสีเติมส้มไว้ในโหมดสี แต่เรนเดอร์รูปร่างด้วยสีเทาในโหมดสีขาว-ดำ
+// Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
 shape.BlackWhiteMode = BlackWhiteMode.Gray;
 
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-ในโหมดสีปกติ สี่เหลี่ยมจะคงสีส้มของมันไว้ ในกระบวนการแสดงผลสีขาว-ดำ มันจะใช้สีเทาเพราะโหมดถูกตั้งเป็น `Gray` ซึ่งทำให้คุณสามารถเก็บสไลด์สีเต็มไว้ขณะกำหนดการแสดงผลที่แตกต่างสำหรับการพิมพ์, การดูตัวอย่าง หรือกระบวนการอื่น ๆ ที่เคารพการตั้งค่าแสดงผลสีขาว-ดำของงานนำเสนอ
+ในโหมดสีปกติ สี่เหลี่ยมคงสีเติมส้มไว้ ส่วนในเวิร์กโฟลว์แสดงผลขาว-ดำ จะใช้สีเทาเนื่องจากโหมดตั้งเป็น `Gray` ซึ่งช่วยให้คุณรักษาสไลด์สีเต็มในขณะกำหนดลักษณะการแสดงผลสำหรับการพิมพ์, การพรีวิว หรือเวิร์กโฟลว์อื่นที่เคารพการตั้งค่าการแสดงผลขาว-ดำของพรีเซนเทชัน
 
 ## **รีเซ็ตการจัดรูปแบบ**
 
-โค้ด C# ด้านล่างแสดงวิธีการรีเซ็ตการจัดรูปแบบของสไลด์และคืนตำแหน่ง, ขนาด, และการจัดรูปแบบของรูปร่างทั้งหมดที่มี placeholders บน [LayoutSlide](https://reference.aspose.com/slides/th/net/aspose.slides/layoutslide/) ไปยังการตั้งค่าเริ่มต้นของพวกมัน:
+โค้ด C# ต่อไปนี้แสดงวิธีรีเซ็ตการจัดรูปแบบของสไลด์และคืนตำแหน่ง, ขนาด, และการจัดรูปแบบของรูปร่างทั้งหมดที่มี placeholders บน [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) ไปยังการตั้งค่าเริ่มต้น:
 
 ```c#
 using Aspose.Slides;
@@ -670,7 +672,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // รีเซ็ตรูปร่างแต่ละอันบนสไลด์ที่มี placeholder บนเลย์เอาต์.
+        // รีเซ็ตแต่ละรูปร่างบนสไลด์ที่มี placeholder บนเลเอาต์.
         slide.Reset();
     }
 
@@ -678,16 +680,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**การจัดรูปแบบรูปร่างมีผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
+**การจัดรูปแบบรูปร่างส่งผลต่อขนาดไฟล์พรีเซนเทชันสุดท้ายหรือไม่?**
 
-ผลกระทบค่อนข้างน้อย ภาพและสื่อที่ฝังอยู่ใช้พื้นที่ไฟล์ส่วนใหญ่ ส่วนพารามิเตอร์ของรูปร่าง เช่น สี, เอฟเฟกต์, และไล่โทนถูกบันทึกเป็นเมทาดาต้าและไม่เพิ่มขนาดไฟล์อย่างมีนัยสำคัญ
+ผลกระทบมีเพียงเล็กน้อย ภาพและสื่อที่ฝังอยู่เป็นส่วนใหญ่ของขนาดไฟล์ ส่วนพารามิเตอร์ของรูปร่าง เช่น สี, เอฟเฟกต์, และการไล่สีถูกเก็บเป็นเมตาดาต้าและไม่เพิ่มขนาดอย่างมีนัยสำคัญ
 
-**ฉันจะตรวจจับรูปร่างบนสไลด์ที่มีการจัดรูปแบบเดียวกันทั้งหมดเพื่อที่จะจัดกลุ่มได้อย่างไร?**
+**ฉันจะตรวจจับรูปร่างบนสไลด์ที่มีการจัดรูปแบบเหมือนกันเพื่อที่จะจัดกลุ่มได้อย่างไร?**
 
-เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปร่าง—การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าตรงกันทั้งหมด ให้ถือว่าสไตล์เดียวกันและกลุ่มรูปร่างนั้น ๆ อย่างเชิงตรรกะ ซึ่งทำให้การจัดการสไตล์ภายหลังง่ายขึ้น
+เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปร่าง—การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าทั้งหมดตรงกันให้ถือว่าสไตล์เหมือนกันและจัดกลุ่มรูปร่างเหล่านั้นแบบตรรกะ ซึ่งจะทำให้การจัดการสไตล์ในภายหลังง่ายขึ้น
 
-**ฉันสามารถบันทึกชุดสไตล์รูปร่างแบบกำหนดเองลงในไฟล์แยกเพื่อใช้ซ้ำในงานนำเสนออื่นได้หรือไม่?**
+**ฉันสามารถบันทึกชุดสไตล์รูปร่างแบบกำหนดเองเป็นไฟล์แยกเพื่อใช้ซ้ำในพรีเซนเทชันอื่นได้หรือไม่?**
 
-ได้ คุณสามารถเก็บรูปร่างตัวอย่างที่มีสไตล์ที่ต้องการไว้ในเทมเพลตสไลด์เด็คหรือไฟล์เทมเพลต .POTX เมื่อต้องสร้างงานนำเสนอใหม่ ให้เปิดเทมเพลต คัดลอกรูปร่างที่สไตล์ต้องการและนำไปใช้ใหม่ตามที่ต้องการ
+ได้ คุณสามารถเก็บรูปร่างตัวอย่างที่มีสไตล์ที่ต้องการในสไลด์เทมเพลตหรือไฟล์เทมเพลต .POTX เมื่อต้องการสร้างพรีเซนเทชันใหม่ เปิดเทมเพลต, คัดลอกรูปร่างที่สไตล์ต้องการและนำการจัดรูปแบบของมันไปใช้ใหม่ตามที่ต้องการ.

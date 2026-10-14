@@ -21,83 +21,171 @@ keywords:
 - PPTX exporteren naar PNG
 - C++
 - Aspose.Slides
-description: "Converteer PowerPoint-presentaties snel naar hoogwaardige PNG-afbeeldingen met Aspose.Slides voor C++, waardoor nauwkeurige, geautomatiseerde resultaten gegarandeerd worden."
+description: "Converteer PowerPoint-presentaties snel naar PNG-afbeeldingen van hoge kwaliteit met Aspose.Slides voor C++, met nauwkeurige, geautomatiseerde resultaten."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u PowerPoint‑presentaties kunt omzetten naar PNG‑afbeeldingen met Aspose.Slides. Het laat zien hoe u presentaties kunt laden in formaten zoals PPT, PPTX en ODP, dia’s kunt renderen als afbeeldingen en de resultaten kunt opslaan in PNG‑formaat.
+Dit artikel legt uit hoe u presentatie‑dia's kunt converteren naar PNG‑afbeeldingen met Aspose.Slides voor C++. U kunt presentaties laden in formaten zoals PPT, PPTX en ODP, elke dia renderen en opslaan als een afzonderlijke PNG‑afbeelding.
 
-Het artikel laat ook zien hoe u de gegenereerde PNG‑afbeeldingen kunt aanpassen door schaalwaarden in te stellen of de gewenste breedte en hoogte op te geven.
+De onderstaande voorbeelden demonstreren renderen op de standaard schaal, het verhogen van de schaal, het specificeren van de uitvoerafmetingen in pixels, en het kiezen van een gradiënten‑renderingsstijl.
 
-## **PowerPoint naar PNG converteren**
+## **PowerPoint converteren naar PNG**
 
-Doorloop de volgende stappen:
-
-1. Instantieer de [Presentatie](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation)‑klasse.  
-2. Haalt het dia‑object op uit de Presentation::get_Slides()-collectie via de [ISlide](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_slide)‑interface.  
-3. Gebruik de [ISlide::GetImage()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/getimage)‑methode om de thumbnail voor elke dia op te halen.  
-4. Gebruik de [IImage::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/save/#iimagesavesystemstring-imageformat-method)‑methode om de dia‑thumbnail op te slaan in PNG‑formaat.  
-
-Deze C++‑code laat zien hoe u een PowerPoint‑presentatie naar PNG kunt omzetten:
+Laad een presentatie met de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑klasse en krijg toegang tot de dia's via de [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/)‑accessor. Het voorbeeld rendert elke dia met [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) zonder parameters om een miniatuur te maken. Vervolgens wordt [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) aangeroepen met [ImageFormat::Png](https://reference.aspose.com/slides/cpp/aspose.slides/imageformat/) om elke gerenderde dia op te slaan als een PNG‑afbeelding.
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-    
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage()->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage();
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **PowerPoint naar PNG converteren met aangepaste afmetingen**
+{{% alert color="info" title="Note" %}}
+De parameterloze overload van [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) rendert op een schaal van 0.2. Bijvoorbeeld, een dia van 720 × 540 punten produceert een miniatuur van 144 × 108 pixels. Om de uitvoerafmetingen te beheersen, gebruik de overloads met schaalfactoren of een expliciete afbeeldingsgrootte zoals hieronder weergegeven.
+{{% /alert %}}
 
-Als u PNG‑bestanden wilt verkrijgen met een bepaalde schaal, kunt u de waarden voor `desiredX` en `desiredY` instellen, die de afmetingen van de resulterende thumbnail bepalen.  
+## **PowerPoint converteren naar PNG met aangepaste afmetingen**
 
-Deze C++‑code demonstreert de beschreven handeling:
+Geef horizontale en verticale schaalfactoren door aan [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) om de gerenderde afmetingen te bepalen. In dit voorbeeld zijn beide factoren 2, waardoor een dia van 720 × 540 punten een afbeelding van 1440 × 1080 pixels oplevert. Gelijke schaalfactoren behouden de beeldverhouding van de dia. Elke afbeelding wordt opgeslagen in PNG‑formaat met [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/).
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
 
-float scaleX = 2.f;
-float scaleY = 2.f;
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto scaleX = 2.f;
+auto scaleY = scaleX;
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage(scaleX, scaleY)->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **PowerPoint naar PNG converteren met aangepaste grootte**
+## **PowerPoint converteren naar PNG met aangepaste grootte**
 
-Als u PNG‑bestanden wilt verkrijgen met een bepaalde grootte, kunt u uw gewenste `width`‑ en `height`‑argumenten doorgeven voor `ImageSize`.  
-
-Deze code laat zien hoe u een PowerPoint naar PNG kunt omzetten terwijl u de grootte van de afbeeldingen opgeeft: 
+Om uitvoerafmetingen in pixels te specificeren, geef een grootte door aan [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) in plaats van schaalfactoren. Dit voorbeeld rendert elke dia op 960 × 720 pixels en slaat het resultaat op met [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). Kies afmetingen die overeenkomen met de beeldverhouding van de dia om uitrekken van de afbeelding te voorkomen.
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-    
-Size size(960, 720);
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+#include <drawing/size.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto imageSize = System::Drawing::Size(960, 720);
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage(size)->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(imageSize);
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **FAQ**
+## **Een gradiënt‑renderingsstijl kiezen**
 
-**Hoe kan ik alleen een specifieke vorm (bijv. grafiek of afbeelding) exporteren in plaats van de hele dia?**
+Stel dat een dia gradiëntvullingen bevat, maar de overgangen in de geëxporteerde PNG lichter of anders lijken dan in PowerPoint. U kunt de methode [SaveOptions::set_GradientStyle](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_gradientstyle/) van [RenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/renderingoptions/) gebruiken om te bepalen hoe de gradiënten worden gerenderd.
 
-Aspose.Slides ondersteunt het [miniaturen voor individuele vormen genereren](/slides/nl/cpp/create-shape-thumbnails/); u kunt een vorm renderen naar een PNG‑afbeelding.
+Download [gradient-styles.pptx](gradient-styles.pptx) en plaats dit in de werkmap van de applicatie. De eerste dia bevat twee lineaire gradiënten: cyaan naar oranje bovenaan en blauw naar geel onderaan. Elke gradiënt heeft twee stops op 0% en 100%.
+
+Het volgende voorbeeld laadt deze presentatie en rendert dezelfde eerste dia in beide modi met [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/).
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+#include <DOM/GradientStyle.h>
+#include <Export/RenderingOptions.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"gradient-styles.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto gradientStyles = { GradientStyle::Default, GradientStyle::PowerPointUI };
+for (auto style : gradientStyles)
+{
+    auto options = MakeObject<RenderingOptions>();
+    options->set_GradientStyle(style);
+
+    auto image = slide->GetImage(options, 1.f, 1.f);
+    auto styleName = style == GradientStyle::Default ? u"Default" : u"PowerPointUI";
+    image->Save(String::Format(u"gradient-{0}.png", styleName), ImageFormat::Png);
+    image->Dispose();
+}
+
+presentation->Dispose();
+```
+
+De onderstaande afbeeldingen tonen de uitvoer van dezelfde dia, met beide gradiënten in elke afbeelding:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Cyaan-naar-oranje en blauw-naar-geel gradiënten gerenderd met Default](gradient-Default.png) | ![Dezelfde gradiënten gerenderd met PowerPointUI](gradient-PowerPointUI.png) |
+
+In dit voorbeeld levert `Default` lichtere tussenkleuren op, terwijl `PowerPointUI` donkerdere tussenkleuren oplevert. Het verschil hangt af van de kleuren en stops in de gradiënt.
+
+Kies `Default` wanneer de standaarduitvoer van Aspose.Slides aan uw behoeften voldoet. Probeer `PowerPointUI` wanneer uw prioriteit is om de weergave in PowerPoint te evenaren. Vergelijk beide uitvoer met uw beoogde resultaat; geen van beide modi is in alle gevallen te verkiezen.
+
+## **Veelgestelde vragen**
+
+**Hoe kan ik een specifiek object, zoals een diagram of afbeelding, exporteren in plaats van de volledige dia?**
+
+Aspose.Slides ondersteunt het [genereren van miniaturen voor individuele vormen](/slides/nl/cpp/shape-thumbnails/), waardoor u een vorm kunt renderen als een PNG‑afbeelding.
 
 **Wordt parallelle conversie ondersteund op een server?**
 
-Ja, maar [deel niet](/slides/nl/cpp/multithreading/) een enkele presentatie‑instantie over meerdere threads. Gebruik een aparte instantie per thread of proces.
+Ja. Gebruik een aparte presentatie‑instantie voor elke thread of elk proces; [deel geen enkele instantie over threads](/slides/nl/cpp/multithreading/).
 
-**Wat zijn de beperkingen van de proefversie bij het exporteren naar PNG?**
+**Wat zijn de evaluatiebeperkingen bij het exporteren naar PNG?**
 
-De evaluatiemodus voegt een watermerk toe aan de uitvoerafbeeldingen en handhaaft [andere beperkingen](/slides/nl/cpp/licensing/) totdat een licentie is toegepast.
+De evaluatiemodus voegt een watermerk toe aan de uitvoerafbeeldingen en past [andere beperkingen](/slides/nl/cpp/licensing/) toe totdat een licentie is geactiveerd.

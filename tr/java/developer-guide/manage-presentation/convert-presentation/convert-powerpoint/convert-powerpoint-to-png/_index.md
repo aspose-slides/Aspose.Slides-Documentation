@@ -5,120 +5,162 @@ type: docs
 weight: 30
 url: /tr/java/convert-powerpoint-to-png/
 keywords:
-- PowerPoint dönüştür
+- PowerPoint'ı dönüştür
 - sunumu dönüştür
 - slaytı dönüştür
-- PPT dönüştür
-- PPTX dönüştür
+- PPT'yi dönüştür
+- PPTX'i dönüştür
 - PowerPoint'ten PNG'ye
-- sunumdan PNG'ye
-- slayttan PNG'ye
-- PPT'den PNG'ye
-- PPTX'den PNG'ye
+- sunumu PNG'ye
+- slaytı PNG'ye
+- PPT'yi PNG'ye
+- PPTX'i PNG'ye
 - PPT'yi PNG olarak kaydet
 - PPTX'i PNG olarak kaydet
 - PPT'yi PNG'ye dışa aktar
 - PPTX'i PNG'ye dışa aktar
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint sunumlarını yüksek kaliteli PNG görüntülerine hızlı bir şekilde dönüştürerek, kesin ve otomatik sonuçlar elde edin."
+description: "Aspose.Slides for Java ile PowerPoint sunumlarını yüksek kaliteli PNG görüntülerine hızlı bir şekilde dönüştürün, kesin ve otomatik sonuçlar elde edin."
 ---
 ## **Genel Bakış**
 
-Bu makale Aspose.Slides kullanarak PowerPoint sunumlarını PNG görüntülerine dönüştürmenin nasıl yapılacağını açıklar. PPT, PPTX ve ODP gibi formatlardaki sunum dosyalarını nasıl yükleyeceğinizi, slaytları görüntü olarak nasıl render edeceğinizi ve sonuçları PNG formatında nasıl kaydedeceğinizi gösterir.
+Bu makale, Aspose.Slides for Java kullanarak sunum slaytlarını PNG görüntülerine nasıl dönüştüreceğinizi açıklar. PPT, PPTX ve ODP gibi formatlarda sunumları yükleyebilir, her slaytı işleyebilir ve ayrı bir PNG görüntüsü olarak kaydedebilirsiniz.
 
-Makale ayrıca ölçek değerlerini ayarlayarak veya istenen genişlik ve yüksekliği belirterek oluşturulan PNG görüntülerini nasıl özelleştirebileceğinizi gösterir.
+Aşağıdaki örnekler, varsayılan ölçekle işleme, ölçeği artırma, çıktının boyutlarını piksel olarak belirtme ve bir gradient işleme stilini seçme konularını gösterir.
 
 ## **PowerPoint'i PNG'ye Dönüştür**
 
-Bu adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. [Presentation.getSlides()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation#getSlides--) koleksiyonundan [ISlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ISlide) arayüzü altında slayt nesnesini alın. 
-3. Her slayt için thumbnail (önizleme) almak üzere [ISlide.getImage()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ISlide) metodunu kullanın.
-4. Slide thumbnail'ını PNG formatında kaydetmek için [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) metodunu kullanın.
-
-Bu Java kodu, bir PowerPoint sunumunu PNG'ye nasıl dönüştüreceğinizi gösterir:
+Bir sunumu [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfı ile yükleyin ve slaytlarına [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) koleksiyonu aracılığıyla erişin. Örnek, her slaytı parametresiz olarak [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) çağırarak bir önizleme oluşturur. Ardından, her işlenen slaytı PNG görüntüsü olarak kaydetmek için [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) metodunu [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/#Png) ile çağırır.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Özel Boyutlarla PowerPoint'i PNG'ye Dönüştür**
+{{% alert color="info" title="Note" %}}
+Parametresiz [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) aşırı yüklemesi 0,2 ölçeğinde işler. Örneğin, 720 × 540 puan ölçüsündeki bir slayt 144 × 108 piksel önizleme üretir. Çıktı boyutlarını kontrol etmek için aşağıda gösterildiği gibi ölçek faktörleriyle veya açık bir görüntü boyutu ile aşırı yüklemeleri kullanın.
+{{% /alert %}}
 
-Belirli bir ölçeğe göre PNG dosyaları elde etmek istiyorsanız, sonuç thumbnail'ının boyutlarını belirleyen `desiredX` ve `desiredY` değerlerini ayarlayabilirsiniz. 
+## **PowerPoint'i Özel Boyutlarla PNG'ye Dönüştür**
 
-Bu Java kodu, açıklanan işlemi gösterir:
-
+Yatay ve dikey ölçek faktörlerini [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-float-float-) metoduna geçirerek işlenen boyutları kontrol edin. Bu örnekte, her iki faktör de 2 olduğundan, 720 × 540 puan ölçüsündeki bir slayt 1440 × 1080 piksel görüntü üretir. Eşit ölçek faktörleri slaytın en‑boy oranını korur. Her görüntü, [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) ile PNG formatında kaydedilir.
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Özel Boyutla PowerPoint'i PNG'ye Dönüştür**
+## **PowerPoint'i Özel Boyutla PNG'ye Dönüştür**
 
-Belirli bir boyuta göre PNG dosyaları elde etmek istiyorsanız, `ImageSize` için tercih ettiğiniz `width` ve `height` argümanlarını geçirebilirsiniz. 
-
-Bu kod, görüntüler için boyutu belirterek bir PowerPoint'i PNG'ye nasıl dönüştüreceğinizi gösterir: 
-
+Çıktı boyutlarını piksel olarak belirtmek için ölçek faktörleri yerine [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) metoduna bir boyut gönderin. Bu örnek, her slaytı 960 × 720 piksel olarak işler ve sonucu [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) ile kaydeder. Slaytın en‑boy oranına uygun boyutlar seçin, aksi takdirde görüntü uzar.
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Dimension imageSize = new Dimension(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Bir Gradient İşleme Stili Seçin**
+
+Bir slayt gradient doldurmalar içerdiğini ve dışa aktarılan PNG'deki geçişlerin PowerPoint'te gördüklerinizden daha açık veya farklı göründüğünü varsayalım. [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) tarafından devralınan [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setGradientStyle-int-) metodunu kullanarak gradientlerin nasıl işleneceğini seçebilirsiniz.
+
+[gradient-styles.pptx](gradient-styles.pptx) dosyasını indirin ve uygulamanın çalışma dizinine koyun. İlk slaytı, üstte camgöbeği‑turuncu ve altta mavi‑sarı olmak üzere iki lineer gradient içerir. Her gradientin iki durağı vardır: %0 ve %100.
+
+Aşağıdaki örnek bu sunumu yükler ve aynı ilk slaytı iki modda da [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) ile işler.
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Aşağıdaki görüntüler aynı slayttan alınan çıktıyı gösterir, her görüntüde her iki gradient de vardır:
+
+| Varsayılan | PowerPointUI |
+| --- | --- |
+| ![Varsayılan ile işlenmiş camgöbeği‑turuncu ve mavi‑sarı gradientler](gradient-Default.png) | ![PowerPointUI ile işlenmiş aynı gradientler](gradient-PowerPointUI.png) |
+
+Bu örnekte, `Default` daha açık ara renkler üretirken, `PowerPointUI` daha koyu ara renkler üretir. Fark, gradientin renklerine ve duraklarına bağlıdır.
+
+`Default` seçin, eğer standart Aspose.Slides çıktısı ihtiyaçlarınıza uygunsa. Görünümün PowerPoint ile eşleşmesi önceliğinizse `PowerPointUI` deneyin. Her iki çıktıyı da hedefinizle karşılaştırın; hiçbir mod evrensel olarak tercih edilebilir değildir.
 
 ## **SSS**
 
-**Bir slaytı tümü yerine yalnızca belirli bir şekli (ör. grafik veya resim) dışa aktarmak nasıl mümkün?**
+**Bir slaytın tamamı yerine bir grafik veya resim gibi belirli bir şekli nasıl dışa aktarabilirim?**
 
-Aspose.Slides, [bireysel şekiller için thumbnail oluşturmayı](/slides/tr/java/create-shape-thumbnails/) destekler; bir şekli PNG görüntüsü olarak render edebilirsiniz.
+Aspose.Slides, [bireysel şekiller için önizleme oluşturmayı](/slides/tr/java/create-shape-thumbnails/) destekler; bu sayede bir şekli PNG görüntüsü olarak işleyebilirsiniz.
 
 **Sunucuda paralel dönüşüm destekleniyor mu?**
 
-Evet, ancak tek bir sunum örneğini thread'ler arasında [paylaşmayın](/slides/tr/java/multithreading/). Her thread veya işlem için ayrı bir örnek kullanın.
+Evet. Her iş parçacığı veya işlem için ayrı bir sunum örneği kullanın; [tek bir örneği iş parçacıkları arasında paylaşmayın](/slides/tr/java/multithreading/).
 
-**PNG'ye dışa aktarırken deneme sürümü sınırlamaları nelerdir?**
+**PNG olarak dışa aktarırken değerlendirme sınırlamaları nelerdir?**
 
-Değerlendirme modu, çıktı görüntülerine bir filigran ekler ve lisans uygulanana kadar [diğer kısıtlamaları](/slides/tr/java/licensing/) uygular.
+Değerlendirme modu, çıktı görüntülerine bir filigran ekler ve bir lisans uygulanana kadar [diğer kısıtlamaları](/slides/tr/java/licensing/) uygular.

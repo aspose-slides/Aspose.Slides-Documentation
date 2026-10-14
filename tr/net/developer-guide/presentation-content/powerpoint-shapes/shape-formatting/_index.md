@@ -5,93 +5,93 @@ type: docs
 weight: 20
 url: /tr/net/shape-formatting/
 keywords:
-- şekli biçimlendir
-- çizgiyi biçimlendir
+- şekil biçimlendirme
+- çizgi biçimlendirme
 - eskiz efekti
-- eskiz şekil çizgisi
-- birleştirme stilini biçimlendir
-- gradyan doldurma
+- şekil çizgi eskizi
+- bağlantı stili biçimlendirme
+- degrade doldurma
 - desen doldurma
 - resim doldurma
 - doku doldurma
-- düz renk doldurma
+- katı renk doldurma
 - şekil şeffaflığı
-- siyah-beyaz şekil işleme
-- gri tonlu şekil işleme
-- şekli döndür
-- 3d kemer efekti
-- 3d döndürme efekti
+- siyah beyaz şekil işleme
+- gri tonlamalı şekil işleme
+- şekil döndürme
+- 3B keskinlik efekti
+- 3B döndürme efekti
 - biçimlendirmeyi sıfırla
 - PowerPoint
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides kullanarak C# ile PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT ve PPTX dosyaları için doldurma, çizgi ve efekt stillerini hassasiyet ve tam kontrol ile ayarlayın."
+description: "Aspose.Slides kullanarak C# ile PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT ve PPTX dosyaları için doldurma, çizgi ve efekt stillerini hassasiyetle ve tam kontrolle ayarlayın."
 ---
 ## **Giriş**
 
-PowerPoint'ta slaytlara şekiller ekleyebilirsiniz. Şekiller çizgilerden oluştuğu için, kenar çizgilerine etkiler uygulayarak veya değiştirerek biçimlendirebilirsiniz. Ayrıca, şekillerin içlerinin nasıl doldurulacağını kontrol eden ayarları belirterek şekilleri biçimlendirebilirsiniz.
+PowerPoint'te slaytlara şekil ekleyebilirsiniz. Şekiller çizgilerden oluştuğu için, kenarlıklarına değişiklik yaparak veya efektler uygulayarak biçimlendirebilirsiniz. Ayrıca, şekillerin iç kısımlarının nasıl doldurulacağını kontrol eden ayarları belirleyerek şekilleri biçimlendirebilirsiniz.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![format-şekli-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for .NET, PowerPoint'ta mevcut olan aynı seçenekleri kullanarak şekilleri biçimlendirmenizi sağlayan arabirimler ve özellikler sunar.
+Aspose.Slides for .NET, PowerPoint'te mevcut olan aynı seçenekleri kullanarak şekilleri biçimlendirmenizi sağlayan arabirimler ve özellikler sunar.
 
 ## **Çizgi Biçimlendirme**
 
-Aspose.Slides kullanarak bir şekil için özel bir çizgi stili belirleyebilirsiniz. Aşağıdaki adımlar prosedürü özetlemektedir:
+Aspose.Slides kullanarak bir şekil için özel bir çizgi stili belirleyebilirsiniz. Aşağıdaki adımlar bu prosedürü özetler:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slayta indeksine göre referans alın.  
-3. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.  
-4. Şeklin [line style](https://reference.aspose.com/slides/tr/net/aspose.slides/linestyle/) özelliğini ayarlayın.  
-5. Çizgi genişliğini ayarlayın.  
-6. Çizginin [dash style](https://reference.aspose.com/slides/tr/net/aspose.slides/linedashstyle/) özelliğini ayarlayın.  
-7. Şeklin çizgi rengini ayarlayın.  
-8. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
+1. İndeksine göre bir slayta referans alın.  
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ekleyin.  
+1. Şeklin [çizgi stilini](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) ayarlayın.  
+1. Çizgi kalınlığını belirleyin.  
+1. Çizginin [kesikli stilini](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) ayarlayın.  
+1. Şeklin çizgi rengini belirleyin.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
-Örnek C# kodu, bir dikdörtgen `AutoShape`'i nasıl biçimlendireceğinizi gösterir:
+Aşağıdaki C# kodu bir dikdörtgen `AutoShape`i nasıl biçimlendireceğinizi gösterir:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfının örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slaytı alın.
+    // İlk slaytı al.
     ISlide slide = presentation.Slides[0];
 
-    // Rectangle (dikdörtgen) tipinde bir otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) türünde bir otomatik şekil ekle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Dikdörtgen şeklinin dolgu rengini ayarlayın.
+    // Dikdörtgen şeklinin doldurma rengini ayarla.
     shape.FillFormat.FillType = FillType.NoFill;
 
-    // Dikdörtgenin çizgilerine biçimlendirme uygulayın.
+    // Dikdörtgenin çizgilerine biçimlendirme uygula.
     shape.LineFormat.Style = LineStyle.ThickThin;
     shape.LineFormat.Width = 7;
     shape.LineFormat.DashStyle = LineDashStyle.Dash;
 
-    // Dikdörtgenin çizgi rengini ayarlayın.
+    // Dikdörtgenin çizgi rengini ayarla.
     shape.LineFormat.FillFormat.FillType = FillType.Solid;
     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // PPTX dosyasını diske kaydedin.
+    // PPTX dosyasını diske kaydet.
     presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![Sunumdaki biçimlendirilmiş çizgiler](formatted-lines.png)
 
 ## **Şekil Çizgilerine Eskiz Efektleri Uygulama**
 
-Eskiz efekti, bir şekil çizgisini el çizimi gibi gösterir. Çizgi ayarlarına erişmek için [IShape.LineFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/lineformat/) , eskiz ayarlarına erişmek için [ILineFormat.SketchFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ilineformat/sketchformat/) , ve [ISketchFormat.SketchType](https://reference.aspose.com/slides/tr/net/aspose.slides/isketchformat/sketchtype/) üzerinden [LineSketchType](https://reference.aspose.com/slides/tr/net/aspose.slides/linesketchtype/) adlı enum değerini seçmek için kullanın.
+Eskiz efekti, bir şekil çizgisinin el çizimi gibi görünmesini sağlar. Çizgi ayarlarına erişmek için [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) kullanın, eskiz ayarlarına erişmek için [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) ve [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) ile [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) enum değerlerinden birini seçin.
 
-Aşağıdaki C# kodu, bir [LineSketchType.Curved](https://reference.aspose.com/slides/tr/net/aspose.slides/linesketchtype/) efekti nasıl uygulanır, açıkça atanmış değer nasıl okunur ve [LineSketchType.None](https://reference.aspose.com/slides/tr/net/aspose.slides/linesketchtype/) ile efekt nasıl kaldırılır gösterir:
+Aşağıdaki C# kodu, bir [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) etkisini nasıl uygulayacağınızı, açıkça atanmış değeri nasıl okuyacağınızı ve [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) ile etkisini nasıl kaldıracağınızı gösterir:
 
 ```csharp
 using Aspose.Slides;
@@ -115,7 +115,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-`ISketchFormat.SketchType` tarafından döndürülen değer, şekle doğrudan atanmış ayarı temsil eder. Çizgi biçimlendirmesi tema, ana slayt veya düzen slaytından devralınabiliyorsa, [ILineFormat.GetEffective](https://reference.aspose.com/slides/tr/net/aspose.slides/ilineformat/geteffective/) , [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ilineformateffectivedata/sketchformat/) ve [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/tr/net/aspose.slides/isketchformateffectivedata/sketchtype/) kullanın. Etkili değer, kalıtım çözüldükten sonra gerçekte uygulanan biçimlendirmeyi yansıtır:
+`ISketchFormat.SketchType` tarafından döndürülen değer, şekle doğrudan atanmış ayarı temsil eder. Çizgi biçimlendirmesi bir temadan, ana slayttan veya düzen slaydından devralınabiliyorsa, [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/) kullanın, [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/) öğesine erişin ve [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/) değerini okuyun. Etkili değer, miras çözülüp uygulanmış gerçek biçimlendirmeyi yansıtır:
 
 ```csharp
 using Aspose.Slides;
@@ -133,37 +133,37 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 ```
 
-## **Birleştirme Stilleri Biçimlendirme**
+## **Bağlantı Stilleri Biçimlendirme**
 
-İşte üç birleştirme tipi seçeneği:
+Üç bağlantı tipi seçeneği vardır:
 
 * Yuvarlak
-* Kiriş
+* Miter
 * Köşe
 
-Varsayılan olarak, PowerPoint iki çizgiyi bir açıda (örneğin bir şeklin köşesinde) birleştirirken **Yuvarlak** ayarını kullanır. Ancak, keskin açıları olan bir şekil çiziyorsanız **Kiriş** seçeneğini tercih edebilirsiniz.
+Varsayılan olarak, PowerPoint iki çizgiyi bir açıda (örneğin bir şeklin köşesinde) birleştirirken **Yuvarlak** ayarını kullanır. Ancak, keskin açıları olan bir şekil çizerken **Miter** seçeneğini tercih edebilirsiniz.
 
-![The join style in the presentation](join-style-powerpoint.png)
+![Sunumdaki bağlantı stili](join-style-powerpoint.png)
 
-Aşağıdaki C# kodu, yukarıdaki resimde gösterildiği gibi üç dikdörtgenin Miter, Köşe ve Yuvarlak birleştirme tipi ayarları kullanılarak nasıl oluşturulduğunu gösterir:
+Aşağıdaki C# kodu, yukarıdaki görselde gösterildiği gibi Miter, Bevel ve Round bağlantı stili ayarlarıyla üç dikdörtgenin nasıl oluşturulduğunu gösterir:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Bir sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfının örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slaytı alın.
+    // İlk slaytı al.
     ISlide slide = presentation.Slides[0];
 
-    // Rectangle (dikdörtgen) tipinde üç otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) türünde üç otomatik şekil ekle.
     IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Her dikdörtgen şeklinin dolgu rengini ayarlayın.
+    // Her dikdörtgen şeklinin doldurma rengini ayarla.
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.Color = Color.Black;
     shape2.FillFormat.FillType = FillType.Solid;
@@ -171,12 +171,12 @@ using (Presentation presentation = new Presentation())
     shape3.FillFormat.FillType = FillType.Solid;
     shape3.FillFormat.SolidFillColor.Color = Color.Black;
 
-    // Çizgi kalınlığını ayarlayın.
+    // Çizgi kalınlığını ayarla.
     shape1.LineFormat.Width = 15;
     shape2.LineFormat.Width = 15;
     shape3.LineFormat.Width = 15;
 
-    // Her dikdörtgenin çizgi rengini ayarlayın.
+    // Her dikdörtgenin çizgi rengini ayarla.
     shape1.LineFormat.FillFormat.FillType = FillType.Solid;
     shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     shape2.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -184,212 +184,220 @@ using (Presentation presentation = new Presentation())
     shape3.LineFormat.FillFormat.FillType = FillType.Solid;
     shape3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Birleştirme stilini ayarlayın.
+    // Bağlantı stilini ayarla.
     shape1.LineFormat.JoinStyle = LineJoinStyle.Miter;
     shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
     shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
 
-    // Her dikdörtgene metin ekleyin.
+    // Her dikdörtgene metin ekle.
     shape1.TextFrame.Text = "Miter Join Style";
     shape2.TextFrame.Text = "Bevel Join Style";
     shape3.TextFrame.Text = "Round Join Style";
 
-    // PPTX dosyasını diske kaydedin.
+    // PPTX dosyasını diske kaydet.
     presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Gradyan Doldurma**
+## **Degrade Doldurma**
 
-PowerPoint'ta Gradyan Doldurma, bir şekle sürekli bir renk geçişi uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Örneğin, iki veya daha fazla rengi birinin diğerine yavaşça geçecek şekilde uygulayabilirsiniz.
+PowerPoint'te Degrade Doldurma, bir şekle sürekli bir renk karışımı uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Örneğin, iki ya da daha fazla renk ekleyerek birinin yavaşça diğerine geçmesini sağlayabilirsiniz.
 
-Aspose.Slides kullanarak bir şekle gradyan doldurma uygulamanın yolu:
+Aspose.Slides kullanarak bir şekle degrade doldurma uygulamanın adımları:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slayta indeksine göre referans alın.  
-3. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.  
-4. Şeklin [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) özelliğini `Gradient` olarak ayarlayın.  
-5. [IGradientFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/igradientformat/) arabirimi tarafından sağlanan gradyan durak koleksiyonunun `Add` metodlarını kullanarak, belirli konumlarla iki tercih ettiğiniz rengi ekleyin.  
-6. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
+1. İndeksine göre bir slayta referans alın.  
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ekleyin.  
+1. Şeklin [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) özelliğini `Gradient` olarak ayarlayın.  
+1. [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/) arabiriminin degrade durak koleksiyonunun `Add` metodlarını kullanarak iki tercih ettiğiniz rengi tanımlı konumlarla ekleyin.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
+
+Aşağıdaki C# kodu, bir elips üzerine degrade doldurma etkisinin nasıl uygulanacağını gösterir:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slaytı alın.
+    // İlk slaytı al.
     ISlide slide = presentation.Slides[0];
 
-    // Ellipse tipinde bir otomatik şekil ekleyin.
+    // Ellipse (elips) türünde bir otomatik şekil ekle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Elipseye gradyan biçimlendirmesi uygulayın.
+    // Elipseye degrade biçimlendirme uygula.
     shape.FillFormat.FillType = FillType.Gradient;
     shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
-    // Gradyanın yönünü ayarlayın.
+    // Degrade yönünü ayarla.
     shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
 
-    // İki gradyan durak ekleyin.
+    // İki degrade durak noktasını ekle.
     shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
     shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
 
-    // PPTX dosyasını diske kaydedin.
+    // PPTX dosyasını diske kaydet.
     presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![Degrade doldurulmuş elips](gradient-fill.png)
+
+Degrade, dışa aktarılan bir görüntüde PowerPoint'tekinden farklı görünüyorsa, [Bir Degrade İşleme Stili Seçin](/slides/tr/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) bölümüne bakın. Sunumda saklanan degrade doldurmayı değiştirmeden bir işleme stili seçebilirsiniz.
 
 ## **Desen Doldurma**
 
-PowerPoint'ta Desen Doldurma, bir şekle iki renkli bir tasarım (nokta, çizgi, çapraz tarama veya kare gibi) uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Desenin ön plan ve arka plan renklerini özelleştirebilirsiniz.
+PowerPoint'te Desen Doldurma, iki renkli bir tasarımı (nokta, şerit, çapraz çizgiler veya kareler gibi) bir şekle uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Desenin ön plan ve arka plan renklerini özelleştirebilirsiniz.
 
-Aspose.Slides, sunumlarınıza görsel çekicilik katmak için 45'ten fazla ön tanımlı desen stilini sunar. Ön tanımlı bir desen seçtikten sonra bile, kullanılacak renkleri kesin olarak belirleyebilirsiniz.
+Aspose.Slides, sunularınızın görsel çekiciliğini artırmak için şekillere uygulayabileceğiniz 45'ten fazla ön tanımlı desen stili sunar. Ön tanımlı bir deseni seçtikten sonra bile, kullanılacak tam renkleri belirleyebilirsiniz.
 
-Aspose.Slides kullanarak bir şekle desen doldurma uygulamanın yolu:
+Aspose.Slides kullanarak bir şekle desen doldurma uygulamanın adımları:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slayta indeksine göre referans alın.  
-3. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.  
-4. Şeklin [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) özelliğini `Pattern` olarak ayarlayın.  
-5. Ön tanımlı seçeneklerden bir desen stilini seçin.  
-6. Desenin [Background Color](https://reference.aspose.com/slides/tr/net/aspose.slides/ipatternformat/backcolor/) özelliğini ayarlayın.  
-7. Desenin [Foreground Color](https://reference.aspose.com/slides/tr/net/aspose.slides/ipatternformat/forecolor/) özelliğini ayarlayın.  
-8. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
+1. İndeksine göre bir slayta referans alın.  
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ekleyin.  
+1. Şeklin [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) özelliğini `Pattern` olarak ayarlayın.  
+1. Ön tanımlı seçenekler arasından bir desen stili seçin.  
+1. Desenin [Arka Plan Rengini](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) ayarlayın.  
+1. Desenin [Ön Plan Rengini](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) ayarlayın.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
+
+Aşağıdaki C# kodu, bir dikdörtgene desen doldurma uygulamanın nasıl yapılacağını gösterir:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slaytı alın.
+    // İlk slaytı al.
     ISlide slide = presentation.Slides[0];
 
-    // Rectangle tipinde bir otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) türünde bir otomatik şekil ekle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Doldurma tipini Pattern olarak ayarlayın.
+    // Doldurma türünü Pattern olarak ayarla.
     shape.FillFormat.FillType = FillType.Pattern;
 
-    // Desen stilini ayarlayın.
+    // Desen stilini ayarla.
     shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
 
-    // Desenin arka plan ve ön plan renklerini ayarlayın.
+    // Desenin arka plan ve ön plan renklerini ayarla.
     shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
     shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
 
-    // PPTX dosyasını diske kaydedin.
+    // PPTX dosyasını diske kaydet.
     presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![Desen doldurulmuş dikdörtgen](pattern-fill.png)
 
 ## **Resim Doldurma**
 
-PowerPoint'ta Resim Doldurma, bir şeklin içine bir resim eklemenizi sağlayan bir biçimlendirme seçeneğidir; böylece resim şeklin arka planı gibi kullanılır.
+PowerPoint'te Resim Doldurma, bir şeklin içine bir görüntü yerleştirmenizi sağlayan bir biçimlendirme seçeneğidir; böylece görüntü şeklin arka planı gibi davranır.
 
-Aspose.Slides kullanarak bir şekle resim doldurma uygulamanın yolu:
+Aspose.Slides kullanarak bir şekle resim doldurma uygulamanın adımları:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slayta indeksine göre referans alın.  
-3. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.  
-4. Şeklin [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) özelliğini `Picture` olarak ayarlayın.  
-5. Resim doldurma kipini `Tile` (veya tercih ettiğiniz başka bir kip) olarak ayarlayın.  
-6. Kullanmak istediğiniz görüntüden bir [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) nesnesi oluşturun.  
-7. Bu görüntüyü şeklin `PictureFillFormat` üzerindeki `Picture.Image` özelliğine atayın.  
-8. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
+1. İndeksine göre bir slayta referans alın.  
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ekleyin.  
+1. Şeklin [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) özelliğini `Picture` olarak ayarlayın.  
+1. Resim doldurma modunu `Tile` (veya tercih ettiğiniz başka bir mod) olarak ayarlayın.  
+1. Kullanmak istediğiniz görüntüden bir [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) nesnesi oluşturun.  
+1. Bu görüntüyü şeklin `PictureFillFormat` özelliğindeki `Picture.Image` özelliğine atayın.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
 
-Örneğin aşağıdaki resimle bir "lotus.png" dosyamız olduğunu varsayalım:
+Aşağıdaki görüntü "lotus.png" adlı dosyayı göstermektedir:
 
-![The lotus picture](lotus.png)
+![Lotus resmi](lotus.png)
+
+Aşağıdaki C# kodu, bir şekle resim doldurma nasıl yapılacağını gösterir:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slaytı alın.
+    // İlk slaytı al.
     ISlide slide = presentation.Slides[0];
 
-    // Rectangle tipinde bir otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) türünde bir otomatik şekil ekle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
 
-    // Doldurma tipini Picture olarak ayarlayın.
+    // Doldurma türünü Picture olarak ayarla.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // Resim doldurma kipini ayarlayın.
+    // Resim doldurma modunu ayarla.
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // Bir görüntü yükleyin ve sunum kaynaklarına ekleyin.
+    // Bir görüntü yükle ve sunum kaynaklarına ekle.
     IImage image = Images.FromFile("lotus.png");
     IPPImage presentationImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // Resmi ayarlayın.
+    // Resmi ayarla.
     shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
 
-    // PPTX dosyasını diske kaydedin.
+    // PPTX dosyasını diske kaydet.
     presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![The shape with picture fill](picture-fill.png)
+![Resim doldurulmuş şekil](picture-fill.png)
 
-### **Döşeme Resmini Doku Olarak Kullanma**
+### **Doku Olarak Döşeme Resmi**
 
-Eğer döşeme bir resmi doku olarak ayarlamak ve döşeme davranışını özelleştirmek istiyorsanız, aşağıdaki [IPictureFillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/) arabirimi ve [PictureFillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/picturefillformat/) sınıfı özelliklerini kullanabilirsiniz:
+Döşeli bir resmi doku olarak ayarlamak ve döşeme davranışını özelleştirmek istiyorsanız, aşağıdaki [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) arabirimi ve [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) sınıfının özelliklerini kullanabilirsiniz:
 
-- [PictureFillMode](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/picturefillmode/): Resim doldurma kipini ayarlar — `Tile` veya `Stretch`.  
-- [TileAlignment](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/tilealignment/): Döşemelerin şekil içinde hizalamasını belirtir.  
-- [TileFlip](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/tileflip/): Döşemenin yatay, dikey veya her iki yönde ters çevrilip çevrilmeyeceğini kontrol eder.  
-- [TileOffsetX](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/tileoffsetx/): Döşemenin şeklin orijinalinden yatay ofsetini (point cinsinden) ayarlar.  
-- [TileOffsetY](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/tileoffsety/): Döşemenin şeklin orijinalinden düşey ofsetini (point cinsinden) ayarlar.  
-- [TileScaleX](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/tilescalex/): Döşemenin yatay ölçeğini yüzde olarak tanımlar.  
-- [TileScaleY](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/tilescaley/): Döşemenin düşey ölçeğini yüzde olarak tanımlar.
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Resim doldurma modunu `Tile` ya da `Stretch` olarak ayarlar.  
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Döşemelerin şekil içinde hizalanmasını belirler.  
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Döşemenin yatay, dikey ya da her iki yönde çevrilip çevrilmeyeceğini kontrol eder.  
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Döşemenin yatay kaymasını (puan cinsinden) şeklin orijinalinden ayarlar.  
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Döşemenin dikey kaymasını (puan cinsinden) şeklin orijinalinden ayarlar.  
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Döşemenin yatay ölçeğini yüzde olarak tanımlar.  
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Döşemenin dikey ölçeğini yüzde olarak tanımlar.
 
-Aşağıdaki kod örneği, döşemeli resim doldurmasıyla bir dikdörtgen şekil eklemeyi ve döşeme seçeneklerini yapılandırmayı gösterir:
+Aşağıdaki kod örneği, bir dikdörtgen şekle döşeli resim doldurma ekleyip döşeme seçeneklerini yapılandırmayı gösterir:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slaytı alın.
+    // İlk slaytı al.
     ISlide firstSlide = presentation.Slides[0];
 
-    // Bir dikdörtgen otomatik şekil ekleyin.
+    // Bir dikdörtgen otomatik şekil ekle.
     IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Şeklin doldurma tipini Picture olarak ayarlayın.
+    // Şeklin doldurma türünü Picture olarak ayarla.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // Görseli yükleyin ve sunum kaynaklarına ekleyin.
+    // Görüntüyü yükle ve sunum kaynaklarına ekle.
     IPPImage presentationImage;
     using (IImage sourceImage = Images.FromFile("lotus.png"))
         presentationImage = presentation.Images.AddImage(sourceImage);
 
-    // Görseli şekle atayın.
+    // Görüntüyü şekle ata.
     IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
     pictureFillFormat.Picture.Image = presentationImage;
 
-    // Resim doldurma kipini ve döşeme özelliklerini yapılandırın.
+    // Resim doldurma modunu ve döşeme özelliklerini yapılandır.
     pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     pictureFillFormat.TileOffsetX = -32;
     pictureFillFormat.TileOffsetY = -32;
@@ -398,69 +406,73 @@ using (Presentation presentation = new Presentation())
     pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
     pictureFillFormat.TileFlip = TileFlip.FlipBoth;
 
-    // PPTX dosyasını diske kaydedin.
+    // PPTX dosyasını diske kaydet.
     presentation.Save("tile.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![The tile options](tile-options.png)
+![Döşeme seçenekleri](tile-options.png)
 
-## **Düz Renk Doldurma**
+## **Katı Renk Doldurma**
 
-PowerPoint'ta Düz Renk Doldurma, bir şekli tek ve tekdüze bir renk ile dolduran bir biçimlendirme seçeneğidir. Bu sade arka plan rengi, gradeler, dokular veya desenler olmadan uygulanır.
+PowerPoint'te Katı Renk Doldurma, bir şekli tek bir, aynı renkle dolduran bir biçimlendirme seçeneğidir. Bu düz arka plan rengi, degrade, doku ya da desen olmadan uygulanır.
 
-Aspose.Slides kullanarak bir şekle düz renk doldurma uygulamak için şu adımları izleyin:
+Aspose.Slides kullanarak bir şekle katı renk doldurma uygulamak için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slayta indeksine göre referans alın.  
-3. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.  
-4. Şeklin [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.  
-5. Şekle tercih ettiğiniz doldurma rengini atayın.  
-6. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+1. Bir [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
+1. İndeksine göre bir slayta referans alın.  
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ekleyin.  
+1. Şeklin [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.  
+1. İstediğiniz doldurma rengini şekle atayın.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
+
+Aşağıdaki C# kodu, bir PowerPoint slaydındaki bir dikdörtgene katı renk doldurma nasıl uygulanır gösterir:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slaytı alın.
+    // İlk slaytı al.
     ISlide slide = presentation.Slides[0];
 
-    // Rectangle tipinde bir otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) türünde bir otomatik şekil ekle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Doldurma tipini Solid olarak ayarlayın.
+    // Doldurma türünü Solid olarak ayarla.
     shape.FillFormat.FillType = FillType.Solid;
 
-    // Doldurma rengini ayarlayın.
+    // Doldurma rengini ayarla.
     shape.FillFormat.SolidFillColor.Color = Color.Yellow;
 
-    // PPTX dosyasını diske kaydedin.
+    // PPTX dosyasını diske kaydet.
     presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![The shape with solid color fill](solid-color-fill.png)
+![Katı renk doldurulmuş şekil](solid-color-fill.png)
 
 ## **Şeffaflık Ayarlama**
 
-PowerPoint'ta bir şekle düz renk, gradyan, resim veya doku doldurması uyguladığınızda, doldurmanın opaklığını kontrol etmek için bir şeffaflık seviyesi de ayarlayabilirsiniz. Daha yüksek şeffaflık değeri, şeklin daha geçirgen olmasını sağlar ve arka plan ya da alt nesnelerin kısmen görülmesine izin verir.
+PowerPoint'te bir şekle katı renk, degrade, resim ya da doku doldurma uyguladığınızda, doldurmanın opaklığını kontrol etmek için şeffaflık seviyesini de ayarlayabilirsiniz. Yüksek şeffaflık değeri, şeklin daha çok görünür olmasını sağlar; arka plan ya da alttaki nesneler kısmen görülür.
 
-Aspose.Slides, doldurma için kullanılan renkteki alfa değerini ayarlayarak şeffaflık seviyesini belirlemenizi sağlar. İşte nasıl yapılacağı:
+Aspose.Slides, doldurma için kullanılan rengin alfa değerini ayarlayarak şeffaflık seviyesini belirlemenize olanak tanır. İşte nasıl yapılacağı:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slayta indeksine göre referans alın.  
-3. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.  
-4. [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.  
-5. `Color.FromArgb(alpha, baseColor)` kullanarak şeffaf bir renk tanımlayın (`alpha` bileşeni şeffaflığı kontrol eder).  
-6. Sunumu kaydedin.
+1. Bir [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
+1. İndeksine göre bir slayta referans alın.  
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ekleyin.  
+1. [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.  
+1. `Color.FromArgb(alpha, baseColor)` kullanarak şeffaflığa sahip bir renk tanımlayın (`alpha` bileşeni şeffaflığı kontrol eder).  
+1. Sunumu kaydedin.
+
+Aşağıdaki C# kodu, bir dikdörtgene şeffaf bir doldurma renginin nasıl uygulanacağını gösterir:
 
 ```c#
 using System.Drawing;
@@ -469,89 +481,93 @@ using Aspose.Slides.Export;
 
 const int alpha = 128;
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slaytı alın.
+    // İlk slaytı al.
     ISlide slide = presentation.Slides[0];
 
-    // Katı bir dikdörtgen otomatik şekil ekleyin.
+    // Katı bir dikdörtgen otomatik şekil ekle.
     IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Katı şeklin üzerine şeffaf bir dikdörtgen otomatik şekil ekleyin.
+    // Katı şeklin üzerine şeffaf bir dikdörtgen otomatik şekil ekle.
     IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.FillFormat.FillType = FillType.Solid;
     transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
 
-    // PPTX dosyasını diske kaydedin.
+    // PPTX dosyasını diske kaydet.
     presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![The transparent shape](shape-transparency.png)
+![Şeffaf şekil](shape-transparency.png)
 
 ## **Şekilleri Döndürme**
 
-Aspose.Slides, PowerPoint sunumlarında şekilleri döndürmenizi sağlar. Bu, görsel öğeleri belirli hizalama veya tasarım gereksinimleriyle konumlandırırken faydalı olabilir.
+Aspose.Slides, PowerPoint sunumlarındaki şekilleri döndürmenizi sağlar. Bu, görsel öğeleri belirli hizalama ya da tasarım ihtiyaçlarıyla konumlandırırken faydalı olabilir.
 
-Bir slayt üzerindeki bir şekli döndürmek için şu adımları izleyin:
+Bir slayttaki şekli döndürmek için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slayta indeksine göre referans alın.  
-3. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.  
-4. Şeklin `Rotation` özelliğini istenen açıya ayarlayın.  
-5. Sunumu kaydedin.
+1. Bir [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
+1. İndeksine göre bir slayta referans alın.  
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ekleyin.  
+1. Şeklin `Rotation` özelliğini istenen açıya ayarlayın.  
+1. Sunumu kaydedin.
+
+Aşağıdaki C# kodu, bir şekli 5 derece döndürmeyi gösterir:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slaytı alın.
+    // İlk slaytı al.
     ISlide slide = presentation.Slides[0];
 
-    // Rectangle tipinde bir otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) türünde bir otomatik şekil ekle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Şekli 5 derece döndürün.
+    // Şekli 5 derece döndür.
     shape.Rotation = 5;
 
-    // PPTX dosyasını diske kaydedin.
+    // PPTX dosyasını diske kaydet.
     presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![The shape rotation](shape-rotation.png)
+![Şekil döndürülmesi](shape-rotation.png)
 
-## **3D Kemer Efektleri Ekleme**
+## **3B Keskinlik Efektleri Ekleme**
 
-Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/threedformat/) özelliklerini yapılandırarak 3D kemer efektleri uygulamanıza olanak tanır.
+Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) özelliklerini yapılandırarak 3B keskinlik efektleri eklemenizi sağlar.
 
-Bir şekle 3D kemer etkileri eklemek için şu adımları izleyin:
+Bir şekle 3B keskinlik efekti eklemek için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slayta indeksine göre referans alın.  
-3. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.  
-4. Şeklin [ThreeDFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/threedformat/) özelliğini kemer ayarlarını tanımlamak için yapılandırın.  
-5. Sunumu kaydedin.
+1. [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. İndeksine göre bir slayta referans alın.  
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ekleyin.  
+1. Şeklin [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) özelliğini ayarlayarak keskinlik ayarlarını tanımlayın.  
+1. Sunumu kaydedin.
+
+Aşağıdaki C# kodu, bir şekle 3B keskinlik efektinin nasıl uygulanacağını gösterir:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Presentation sınıfının bir örneğini oluşturun.
+// Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Slayta bir şekil ekleyin.
+    // Slayta bir şekil ekle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.FillFormat.FillType = FillType.Solid;
     shape.FillFormat.SolidFillColor.Color = Color.Green;
@@ -559,7 +575,7 @@ using (Presentation presentation = new Presentation())
     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
     shape.LineFormat.Width = 2.0;
 
-    // Şeklin ThreeDFormat özelliklerini ayarlayın.
+    // Şeklin ThreeDFormat özelliklerini ayarla.
     shape.ThreeDFormat.Depth = 4;
     shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
     shape.ThreeDFormat.BevelTop.Height = 6;
@@ -568,32 +584,34 @@ using (Presentation presentation = new Presentation())
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
 
-    // Sunumu PPTX dosyası olarak kaydedin.
+    // Sunumu bir PPTX dosyası olarak kaydet.
     presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![3B keskinlik etkisi](3D-bevel-effect.png)
 
-## **3D Döndürme Efektleri Ekleme**
+## **3B Döndürme Efektleri Ekleme**
 
-Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/threedformat/) özelliklerini yapılandırarak 3D döndürme efektleri uygulamanıza olanak tanır.
+Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) özelliklerini yapılandırarak 3B döndürme efektleri eklemenizi sağlar.
 
-Bir şekle 3D döndürme uygulamak için:
+Bir şekle 3B döndürme uygulamak için:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slayta indeksine göre referans alın.  
-3. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ekleyin.  
-4. Şeklin [CameraType](https://reference.aspose.com/slides/tr/net/aspose.slides/icamera/cameratype/) ve [LightType](https://reference.aspose.com/slides/tr/net/aspose.slides/ilightrig/lighttype/) özelliklerini ayarlayarak 3D döndürmeyi tanımlayın.  
-5. Sunumu kaydedin.
+1. Bir [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
+1. İndeksine göre bir slayta referans alın.  
+1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ekleyin.  
+1. Şeklin [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) ve [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) özelliklerini ayarlayarak 3B döndürmeyi tanımlayın.  
+1. Sunumu kaydedin.
+
+Aşağıdaki C# kodu, bir şekle 3B döndürme efektinin nasıl uygulanacağını gösterir:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Presentation sınıfının bir örneğini oluşturun.
+// Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -605,20 +623,20 @@ using (Presentation presentation = new Presentation())
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
 
-    // Sunumu PPTX dosyası olarak kaydedin.
+    // Sunumu bir PPTX dosyası olarak kaydet.
     presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![3B döndürme etkisi](3D-rotation-effect.png)
 
-## **Şekiller İçin Siyah-Beyaz İşleme Kontrolü**
+## **Şekiller İçin Siyah‑Beyaz Rendering Kontrolü**
 
-[IShape.BlackWhiteMode](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/blackwhitemode/) özelliği, bir sunum siyah‑beyaz modunda görüntülendiğinde veya işlenirken bireysel bir şeklin nasıl işlendiğini belirtir. Bu özellik tek başına siyah‑beyaz görüntüyü etkinleştirmez ve normal renk modundaki şeklin doldurmasını, çizgisini veya diğer biçimlendirmelerini değiştirmez.
+[IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) özelliği, bir sunum siyah‑beyaz modunda görüntülendiğinde ya da işlendiğinde bireysel bir şeklin nasıl render edileceğini belirtir. Bu özellik tek başına siyah‑beyaz görüntülemeyi etkinleştirmez ve normal renk modundaki şeklin doldurma, çizgi veya diğer biçimlendirmelerini değiştirmez.
 
-İstenilen davranışı seçmek için [BlackWhiteMode](https://reference.aspose.com/slides/tr/net/aspose.slides/blackwhitemode/) enum değerlerinden birini kullanın. Örneğin, `Automatic` render uygulamasının dönüşümü seçmesine izin verir, `Gray` ve `LightGray` gri renklendirme kullanır, `BlackWhite` yalnızca siyah ve beyazı, `Black` ve `White` tek bir rengi zorlar, `Color` normal renklendirmeyi korur ve `Hidden` siyah‑beyaz modunda şekli gizler. `NotDefined` ise şekil seviyesinde bir mod atanmadığını gösterir.
+İstediğiniz davranışı seçmek için [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) enumundan bir değer kullanın. Örneğin, `Automatic` render uygulamasının dönüşümü seçmesine izin verir, `Gray` ve `LightGray` gri renkleme kullanır, `BlackWhite` sadece siyah ve beyazı, `Black` ve `White` tek renk zorlar, `Color` normal renklemeyi korur ve `Hidden` siyah‑beyaz modunda şekli gizler. `NotDefined` ise şekil‑seviyesi bir modun atanmadığını gösterir.
 
 Aşağıdaki C# kodu, renkli bir şekil oluşturur ve siyah‑beyaz görüntüleme modunda gri görünmesini sağlar:
 
@@ -634,17 +652,17 @@ var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.Color = Color.Orange;
 
-// Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
+// Renk modunda turuncu doldurmayı tut, ancak siyah-beyaz modunda şekli gri renkle render et.
 shape.BlackWhiteMode = BlackWhiteMode.Gray;
 
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-Normal renk modunda, dikdörtgen turuncu doldurmasını korur. Siyah‑beyaz görüntüleme sürecinde, modu `Gray` olarak ayarlandığı için gri renklendirme kullanır. Bu, tam renkli bir slaytı korurken, baskı, ön izleme veya sunumun siyah‑beyaz görüntüleme ayarlarını dikkate alan diğer süreçler için ayrı bir görünüm tanımlamanıza olanak tanır.
+Normal renk modunda, dikdörtgen turuncu doldurmasını korur. Siyah‑beyaz görüntüleme akışında, modu `Gray` olarak ayarlandığı için gri renkle gösterilir. Bu, tam renkli bir slaytı korurken, baskı, ön izleme veya sunumun siyah‑beyaz görüntüleme ayarlarını dikkate alan diğer akışlar için ayrı bir görünüm tanımlamanıza olanak verir.
 
 ## **Biçimlendirmeyi Sıfırlama**
 
-Aşağıdaki C# kodu, bir slaydın biçimlendirmesini nasıl sıfırlayacağınızı ve [LayoutSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutslide/) üzerindeki yer tutuculu tüm şekillerin konum, boyut ve biçimlendirmesini varsayılan ayarlarına nasıl geri döndüreceğinizi gösterir:
+Aşağıdaki C# kodu, bir slaydın biçimlendirmesini sıfırlamayı ve [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) üzerindeki tüm yer tutucu şekillerin konum, boyut ve biçimlendirmesini varsayılan ayarlara geri getirmeyi gösterir:
 
 ```c#
 using Aspose.Slides;
@@ -654,7 +672,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // Yer tutucuya sahip düzen slaydındaki her şekli sıfırla.
+        // Düzende yer tutucu bulunan slayttaki her şekli sıfırla.
         slide.Reset();
     }
 
@@ -664,14 +682,14 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **SSS**
 
-**Şekil biçimlendirmesi son sunum dosya boyutunu etkiler mi?**
+**Şekil biçimlendirmesi nihai sunum dosya boyutunu etkiler mi?**
 
-Sadece çok az. Gömülü görüntüler ve medya dosyaları dosyanın büyük bölümünü kaplar, şekil parametreleri (renkler, efektler, gradyanlar vb.) meta veri olarak saklanır ve neredeyse ek bir boyut eklemez.
+Yalnızca çok az etkiler. Gömülü görüntüler ve medya dosyaları dosya alanının büyük bir kısmını oluştururken, renkler, efektler ve degrade gibi şekil parametreleri meta veri olarak saklanır ve neredeyse ek bir boyut katmaz.
 
-**Bir slaytta aynı biçimlendirmeyi paylaşan şekilleri nasıl tespit edip gruplayabilirim?**
+**Aynı biçimlendirmeye sahip şekilleri tespit edip gruplamak nasıl yapılır?**
 
-Her şeklin temel biçimlendirme özelliklerini—doldurma, çizgi ve efekt ayarlarını—karşılaştırın. Tüm ilgili değerler eşleşiyorsa, stillerini aynı olarak kabul edin ve bu şekilleri mantıksal olarak gruplayın; bu, sonraki stil yönetimini basitleştirir.
+Her şeklin temel biçimlendirme özelliklerini—doldurma, çizgi ve efekt ayarlarını—karşılaştırın. Tüm ilgili değerler eşleşiyorsa, stillerini aynı olarak kabul edin ve bu şekilleri mantıksal olarak gruplayın; bu, daha sonraki stil yönetimini basitleştirir.
 
-**Özel şekil stillerinin bir setini ayrı bir dosyada saklayıp diğer sunumlarda yeniden kullanabilir miyim?**
+**Özel şekil stillerini başka sunumlarda tekrar kullanmak üzere ayrı bir dosyaya kaydedebilir miyim?**
 
-Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt paketi veya .POTX şablon dosyasında saklayın. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stil verilmiş şekilleri klonlayın ve gerektiği yerde biçimlendirmelerini yeniden uygulayın.
+Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt destesi ya da .POTX şablon dosyasında saklayın. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stilize şekilleri klonlayın ve gerektiği yerde biçimlendirmelerini yeniden uygulayın.

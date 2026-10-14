@@ -8,49 +8,49 @@ keywords:
 - formatowanie kształtu
 - formatowanie linii
 - efekt szkicu
-- linia szkicu kształtu
+- szkic linii kształtu
 - formatowanie stylu połączenia
 - wypełnienie gradientowe
 - wypełnienie wzorem
 - wypełnienie obrazem
 - wypełnienie teksturą
-- wypełnienie kolorem stałym
+- wypełnienie jednolitym kolorem
 - przezroczystość kształtu
-- renderowanie kształtu w czerni i bieli
+- renderowanie kształtu czarno-białe
 - renderowanie kształtu w odcieniach szarości
 - obracanie kształtu
-- efekt 3D podcięcia
-- efekt 3D rotacji
+- efekt 3D fazowania
+- efekt rotacji 3D
 - resetowanie formatowania
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak formatować kształty PowerPoint w C# przy użyciu Aspose.Slides — ustawiaj style wypełnienia, linii i efektów dla plików PPT i PPTX z precyzją i pełną kontrolą."
+description: "Dowiedz się, jak formatować kształty PowerPoint w języku C# przy użyciu Aspose.Slides — ustawiaj style wypełnienia, linii i efektów dla plików PPT i PPTX z precyzją i pełną kontrolą."
 ---
 ## **Wprowadzenie**
 
-W programie PowerPoint możesz dodawać kształty do slajdów. Ponieważ kształty składają się z linii, możesz formatować je, modyfikując lub stosując efekty na ich konturach. Dodatkowo możesz formatować kształty, określając ustawienia kontrolujące wypełnienie ich wnętrz.
+W programie PowerPoint możesz dodawać kształty do slajdów. Ponieważ kształty składają się z linii, możesz je formatować, modyfikując lub nakładając efekty na ich kontury. Dodatkowo możesz formatować kształty, określając ustawienia kontrolujące wypełnienie ich wnętrza.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![formatowanie-kształtu-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for .NET udostępnia interfejsy i właściwości, które pozwalają formatować kształty przy użyciu tych samych opcji dostępnych w programie PowerPoint.
+Aspose.Slides for .NET udostępnia interfejsy i właściwości, które pozwalają formatować kształty przy użyciu tych samych opcji, które są dostępne w programie PowerPoint.
 
 ## **Formatowanie linii**
 
-Korzystając z Aspose.Slides, możesz określić niestandardowy styl linii dla kształtu. Poniżej przedstawiono kolejne kroki procedury:
+Korzystając z Aspose.Slides, możesz określić własny styl linii dla kształtu. Poniżej opisano kolejne kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [line style](https://reference.aspose.com/slides/pl/net/aspose.slides/linestyle/) kształtu.
-1. Ustaw szerokość linii.
-1. Ustaw [dash style](https://reference.aspose.com/slides/pl/net/aspose.slides/linedashstyle/) linii.
+1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Pobierz odwołanie do slajdu według jego indeksu.
+1. Dodaj [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) do slajdu.
+1. Ustaw [styl linii](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) kształtu.
+1. Ustaw grubość linii.
+1. Ustaw [styl kreski](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) linii.
 1. Ustaw kolor linii dla kształtu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Poniższy kod C# przedstawia, jak sformatować prostokąt `AutoShape`:
+Poniższy kod C# pokazuje, jak sformatować prostokąt typu `AutoShape`:
 
 ```c#
 using System.Drawing;
@@ -63,10 +63,10 @@ using (Presentation presentation = new Presentation())
     // Pobierz pierwszy slajd.
     ISlide slide = presentation.Slides[0];
 
-    // Dodaj auto‑kształt typu Rectangle.
+    // Dodaj automatyczny kształt typu Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Ustaw kolor wypełnienia dla prostokątnego kształtu.
+    // Ustaw kolor wypełnienia dla kształtu prostokątnego.
     shape.FillFormat.FillType = FillType.NoFill;
 
     // Zastosuj formatowanie do linii prostokąta.
@@ -85,13 +85,13 @@ using (Presentation presentation = new Presentation())
 
 Wynik:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![Sformatowane linie w prezentacji](formatted-lines.png)
 
-## **Zastosowanie efektów szkicu do linii kształtu**
+## **Zastosowanie efektu szkicu do linii kształtu**
 
-Efekt szkicu sprawia, że linia kształtu wygląda jak odręcznie narysowana. Użyj [IShape.LineFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/lineformat/) aby uzyskać dostęp do ustawień linii, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ilineformat/sketchformat/) aby uzyskać dostęp do ustawień szkicu oraz [ISketchFormat.SketchType](https://reference.aspose.com/slides/pl/net/aspose.slides/isketchformat/sketchtype/) aby wybrać wartość z wyliczenia [LineSketchType](https://reference.aspose.com/slides/pl/net/aspose.slides/linesketchtype/) .
+Efekt szkicu sprawia, że linia kształtu wygląda na odręczną. Użyj [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/), aby uzyskać dostęp do ustawień linii, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/), aby uzyskać dostęp do ustawień szkicu, oraz [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/), aby wybrać wartość z wyliczenia [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/).
 
-Poniższy kod C# pokazuje, jak zastosować efekt [LineSketchType.Curved](https://reference.aspose.com/slides/pl/net/aspose.slides/linesketchtype/) , odczytać jawnie przypisaną wartość i usunąć efekt za pomocą [LineSketchType.None](https://reference.aspose.com/slides/pl/net/aspose.slides/linesketchtype/) :
+Poniższy kod C# pokazuje, jak zastosować efekt [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/), odczytać przypisaną wartość oraz usunąć efekt przy użyciu [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
 
 ```csharp
 using Aspose.Slides;
@@ -101,21 +101,21 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-// Uzyskaj dostęp do formatu linii kształtu i jego formatu szkicu.
+// Access the shape's line format and its sketch format.
 var sketchFormat = shape.LineFormat.SketchFormat;
 
-// Zastosuj efekt szkicu.
+// Apply a sketch effect.
 sketchFormat.SketchType = LineSketchType.Curved;
 
-// Odczytaj efekt szkicu przypisany bezpośrednio do kształtu.
+// Read the sketch effect assigned directly to the shape.
 var explicitSketchType = sketchFormat.SketchType;
 Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 
-// Usuń efekt szkicu.
+// Remove the sketch effect.
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-Wartość zwracana przez `ISketchFormat.SketchType` reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu nadrzędnego lub slajdu układu, użyj [ILineFormat.GetEffective](https://reference.aspose.com/slides/pl/net/aspose.slides/ilineformat/geteffective/) , uzyskaj dostęp do [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ilineformateffectivedata/sketchformat/) i odczytaj [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/pl/net/aspose.slides/isketchformateffectivedata/sketchtype/) . Wartość efektywna odzwierciedla formatowanie rzeczywiście zastosowane po rozwiązaniu dziedziczenia:
+Wartość zwracana przez `ISketchFormat.SketchType` reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu nadrzędnego lub slajdu układu, użyj [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), uzyskaj dostęp do [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), oraz odczytaj [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). Wartość efektywna odzwierciedla formatowanie, które faktycznie zostaje zastosowane po rozwiązaniu dziedziczenia:
 
 ```csharp
 using Aspose.Slides;
@@ -135,17 +135,17 @@ Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 
 ## **Formatowanie stylów połączeń**
 
-Oto trzy dostępne opcje typów połączeń:
+Oto trzy dostępne opcje typu połączenia:
 
 * Zaokrąglony
 * Kątowy
-* Ścięty
+* Fazowany
 
-Domyślnie, gdy PowerPoint łączy dwie linie pod kątem (np. w rogu kształtu), używa ustawienia **Zaokrąglony**. Jednakże, jeśli rysujesz kształt z ostrymi kątami, możesz preferować opcję **Kątowy**.
+Domyślnie, gdy PowerPoint łączy dwie linie pod kątem (np. w rogu kształtu), używa ustawienia **Zaokrąglony**. Jednak przy rysowaniu kształtu o ostrych kątach możesz preferować opcję **Kątowy**.
 
-![The join style in the presentation](join-style-powerpoint.png)
+![Styl połączenia w prezentacji](join-style-powerpoint.png)
 
-Poniższy kod C# pokazuje, jak trzy prostokąty (jak na powyższym obrazku) zostały utworzone przy użyciu ustawień typów połączeń Miter, Bevel i Round:
+Poniższy kod C# demonstruje, jak trzy prostokąty (jak na powyższym obrazku) zostały utworzone przy użyciu ustawień połączeń Kątowy, Fazowany i Zaokrąglony:
 
 ```c#
 using System.Drawing;
@@ -158,7 +158,7 @@ using (Presentation presentation = new Presentation())
     // Pobierz pierwszy slajd.
     ISlide slide = presentation.Slides[0];
 
-    // Dodaj trzy auto‑kształty typu Rectangle.
+    // Dodaj trzy automatyczne kształty typu Rectangle.
     IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
@@ -176,7 +176,7 @@ using (Presentation presentation = new Presentation())
     shape2.LineFormat.Width = 15;
     shape3.LineFormat.Width = 15;
 
-    // Ustaw kolor linii każdego prostokąta.
+    // Ustaw kolor linii dla każdego prostokąta.
     shape1.LineFormat.FillFormat.FillType = FillType.Solid;
     shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     shape2.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -199,20 +199,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Wypełnienie gradientowe**
+## **Gradient Fill**
 
-W programie PowerPoint wypełnienie gradientowe jest opcją formatowania, która pozwala na zastosowanie płynnego przejścia kolorów w kształcie. Na przykład możesz zastosować dwa lub więcej kolorów tak, aby jeden stopniowo przechodził w drugi.
+W programie PowerPoint wypełnienie gradientowe jest opcją formatowania, która pozwala na zastosowanie płynnego przejścia kilku kolorów w kształcie. Na przykład możesz zastosować dwa lub więcej kolorów w taki sposób, że jeden stopniowo przechodzi w drugi.
 
-Oto, jak zastosować wypełnienie gradientowe do kształtu przy użyciu Aspose.Slides:
+Oto jak zastosować wypełnienie gradientowe do kształtu przy użyciu Aspose.Slides:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-1. Ustaw właściwość [FillType](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/) kształtu na `Gradient`.
-1. Dodaj dwa wybrane kolory z określonymi pozycjami, używając metod `Add` kolekcji punktów gradientu udostępnianej przez interfejs [IGradientFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/igradientformat/) .
+1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Pobierz odwołanie do slajdu według jego indeksu.
+1. Dodaj [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) do slajdu.
+1. Ustaw właściwość [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) kształtu na `Gradient`.
+1. Dodaj dwie wybrane przez siebie kolory wraz z określonymi pozycjami, używając metod `Add` z kolekcji przystanków gradientu udostępnianej przez interfejs [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/).
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Poniższy kod C# przedstawia, jak zastosować efekt wypełnienia gradientowego do elipsy:
+Poniższy kod C# pokazuje, jak zastosować efekt gradientu do elipsy:
 
 ```c#
 using Aspose.Slides;
@@ -224,7 +224,7 @@ using (Presentation presentation = new Presentation())
     // Pobierz pierwszy slajd.
     ISlide slide = presentation.Slides[0];
 
-    // Dodaj auto‑kształt typu Ellipse.
+    // Dodaj automatyczny kształt typu Ellipse.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
     // Zastosuj formatowanie gradientowe do elipsy.
@@ -234,7 +234,7 @@ using (Presentation presentation = new Presentation())
     // Ustaw kierunek gradientu.
     shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
 
-    // Dodaj dwa punkty gradientu.
+    // Dodaj dwa przystanki gradientu.
     shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
     shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
 
@@ -245,26 +245,28 @@ using (Presentation presentation = new Presentation())
 
 Wynik:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![Elipsa z wypełnieniem gradientowym](gradient-fill.png)
 
-## **Wypełnienie wzorem**
+Jeśli gradient wygląda inaczej w wyeksportowanym obrazie niż w programie PowerPoint, zobacz [Wybór stylu renderowania gradientu](/slides/pl/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Możesz wybrać styl renderowania bez zmiany samego wypełnienia gradientowego zapisanego w prezentacji.
 
-W programie PowerPoint wypełnienie wzorem jest opcją formatowania, która pozwala zastosować dwukolorowy wzór — np. kropki, paski, krzyżówki lub kratkę — do kształtu. Możesz wybrać własne kolory dla pierwszego planu i tła wzoru.
+## **Pattern Fill**
 
-Aspose.Slides udostępnia ponad 45 wstępnie zdefiniowanych stylów wzorów, które możesz zastosować do kształtów, aby zwiększyć atrakcyjność wizualną prezentacji. Nawet po wybraniu wstępnego wzoru możesz określić dokładne kolory, które mają być użyte.
+W programie PowerPoint wypełnienie wzorem jest opcją formatowania, która pozwala zastosować dwukolorowy wzór — np. kropki, paski, krzyżowania lub szachownicę — do kształtu. Możesz wybrać własne kolory dla pierwszego planu i tła wzoru.
 
-Oto, jak zastosować wypełnienie wzorem do kształtu przy użyciu Aspose.Slides:
+Aspose.Slides udostępnia ponad 45 predefiniowanych stylów wzorów, które możesz zastosować do kształtów, aby zwiększyć atrakcyjność wizualną swoich prezentacji. Nawet po wybraniu predefiniowanego wzoru możesz określić dokładne kolory, jakich ma używać.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/) kształtu na `Pattern`.
-1. Wybierz styl wzoru z dostępnych opcji.
-1. Ustaw [Background Color](https://reference.aspose.com/slides/pl/net/aspose.slides/ipatternformat/backcolor/) wzoru.
-1. Ustaw [Foreground Color](https://reference.aspose.com/slides/pl/net/aspose.slides/ipatternformat/forecolor/) wzoru.
+Oto jak zastosować wypełnienie wzorem do kształtu przy użyciu Aspose.Slides:
+
+1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Pobierz odwołanie do slajdu według jego indeksu.
+1. Dodaj [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) do slajdu.
+1. Ustaw właściwość [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) kształtu na `Pattern`.
+1. Wybierz styl wzoru z predefiniowanych opcji.
+1. Ustaw [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) wzoru.
+1. Ustaw [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) wzoru.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Poniższy kod C# przedstawia, jak zastosować wypełnienie wzorem do prostokąta:
+Poniższy kod C# demonstruje, jak zastosować wypełnienie wzorem do prostokąta:
 
 ```c#
 using System.Drawing;
@@ -277,7 +279,7 @@ using (Presentation presentation = new Presentation())
     // Pobierz pierwszy slajd.
     ISlide slide = presentation.Slides[0];
 
-    // Dodaj auto‑kształt typu Rectangle.
+    // Dodaj automatyczny kształt typu Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Ustaw typ wypełnienia na Pattern.
@@ -297,26 +299,28 @@ using (Presentation presentation = new Presentation())
 
 Wynik:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![Prostokąt z wypełnieniem wzorem](pattern-fill.png)
 
-## **Wypełnienie obrazem**
+## **Picture Fill**
 
 W programie PowerPoint wypełnienie obrazem jest opcją formatowania, która pozwala wstawić obraz wewnątrz kształtu — skutecznie używając obrazu jako tła kształtu.
 
-Oto, jak użyć Aspose.Slides do zastosowania wypełnienia obrazem w kształcie:
+Oto jak przy użyciu Aspose.Slides zastosować wypełnienie obrazem do kształtu:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/) kształtu na `Picture`.
-1. Ustaw tryb wypełnienia obrazem na `Tile` (lub inny preferowany tryb).
-1. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) z obrazu, którego chcesz użyć.
-1. Przypisz ten obraz do właściwości `Picture.Image` formatu wypełnienia obrazem (`PictureFillFormat`) kształtu.
+1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Pobierz odwołanie do slajdu według jego indeksu.
+1. Dodaj [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) do slajdu.
+1. Ustaw właściwość [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) kształtu na `Picture`.
+1. Ustaw tryb wypełnienia obrazu na `Tile` (lub inny wybrany).
+1. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) z obrazu, którego chcesz użyć.
+1. Przypisz ten obraz do właściwości `Picture.Image` formatu wypełnienia obrazu (`PictureFillFormat`) kształtu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-![The lotus picture](lotus.png)
+Załóżmy, że mamy plik **lotus.png** o następującym obrazie:
 
-Poniższy kod C# przedstawia, jak wypełnić kształt obrazem:
+![Obraz lotosu](lotus.png)
+
+Poniższy kod C# pokazuje, jak wypełnić kształt tym obrazem:
 
 ```c#
 using Aspose.Slides;
@@ -328,13 +332,13 @@ using (Presentation presentation = new Presentation())
     // Pobierz pierwszy slajd.
     ISlide slide = presentation.Slides[0];
 
-    // Dodaj auto‑kształt typu Rectangle.
+    // Dodaj automatyczny kształt typu Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
 
     // Ustaw typ wypełnienia na Picture.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // Ustaw tryb wypełnienia obrazem.
+    // Ustaw tryb wypełnienia obrazu.
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
     // Wczytaj obraz i dodaj go do zasobów prezentacji.
@@ -352,21 +356,21 @@ using (Presentation presentation = new Presentation())
 
 Wynik:
 
-![The shape with picture fill](picture-fill.png)
+![Kształt z wypełnieniem obrazu](picture-fill.png)
 
-## **Układanie obrazu jako tekstury**
+### **Tile Picture As Texture**
 
-Jeśli chcesz ustawić obraz w trybie kafelkowania jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących właściwości interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/) i klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat/) :
+Jeśli chcesz ustawić obraz jako teksturę w trybie kafelkowania i dostosować zachowanie kafelkowania, możesz użyć następujących właściwości interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) oraz klasy [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/):
 
-- [PictureFillMode](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/picturefillmode/) : Ustawia tryb wypełnienia obrazem — `Tile` lub `Stretch`.
-- [TileAlignment](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/tilealignment/) : Określa wyrównanie kafelków w obrębie kształtu.
-- [TileFlip](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/tileflip/) : Kontroluje, czy kafelek jest odwrócony w poziomie, w pionie lub w oba kierunki.
-- [TileOffsetX](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/tileoffsetx/) : Ustawia poziomy offset kafelka (w punktach) względem początku kształtu.
-- [TileOffsetY](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/tileoffsety/) : Ustawia pionowy offset kafelka (w punktach) względem początku kształtu.
-- [TileScaleX](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/tilescalex/) : Definiuje poziomą skalę kafelka w procentach.
-- [TileScaleY](https://reference.aspose.com/slides/pl/net/aspose.slides/ipicturefillformat/tilescaley/) : Definiuje pionową skalę kafelka w procentach.
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): określa tryb wypełnienia obrazu — `Tile` lub `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): określa wyrównanie kafelków wewnątrz kształtu.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): kontroluje, czy kafelek jest odbity w poziomie, w pionie lub w obu kierunkach.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): ustawia poziomy offset kafelka (w punktach) względem początku kształtu.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): ustawia pionowy offset kafelka (w punktach) względem początku kształtu.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): definiuje poziomą skalę kafelka w procentach.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): definiuje pionową skalę kafelka w procentach.
 
-Poniższy fragment kodu pokazuje, jak dodać prostokątny kształt z kafelkowanym wypełnieniem obrazem i skonfigurować opcje kafelkowania:
+Poniższy przykład kodu pokazuje, jak dodać prostokąt z wypełnieniem obrazu kafelkowanym i skonfigurować opcje kafelkowania:
 
 ```c#
 using Aspose.Slides;
@@ -378,7 +382,7 @@ using (Presentation presentation = new Presentation())
     // Pobierz pierwszy slajd.
     ISlide firstSlide = presentation.Slides[0];
 
-    // Dodaj prostokątny auto‑kształt.
+    // Dodaj automatyczny kształt prostokątny.
     IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
     // Ustaw typ wypełnienia kształtu na Picture.
@@ -393,7 +397,7 @@ using (Presentation presentation = new Presentation())
     IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
     pictureFillFormat.Picture.Image = presentationImage;
 
-    // Skonfiguruj tryb wypełnienia obrazem oraz właściwości kafelkowania.
+    // Skonfiguruj tryb wypełnienia obrazu i właściwości kafelkowania.
     pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     pictureFillFormat.TileOffsetX = -32;
     pictureFillFormat.TileOffsetY = -32;
@@ -409,22 +413,22 @@ using (Presentation presentation = new Presentation())
 
 Wynik:
 
-![The tile options](tile-options.png)
+![Opcje kafelkowania](tile-options.png)
 
-## **Wypełnienie kolorem stałym**
+## **Solid Color Fill**
 
-W programie PowerPoint wypełnienie kolorem stałym jest opcją formatowania, która wypełnia kształt jednym jednolitym kolorem. Ten jednolity kolor tła jest stosowany bez gradientów, tekstur ani wzorów.
+W programie PowerPoint wypełnienie jednolitym kolorem jest opcją formatowania, która wypełnia kształt jednym, jednolitym kolorem. Ten prosty kolor tła jest stosowany bez gradientów, tekstur ani wzorów.
 
-Aby zastosować wypełnienie kolorem stałym do kształtu przy użyciu Aspose.Slides, wykonaj następujące kroki:
+Aby zastosować wypełnienie jednolitym kolorem do kształtu przy użyciu Aspose.Slides, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/) kształtu na `Solid`.
+1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Pobierz odwołanie do slajdu według jego indeksu.
+1. Dodaj [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) do slajdu.
+1. Ustaw właściwość [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) kształtu na `Solid`.
 1. Przypisz wybrany kolor wypełnienia do kształtu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Poniższy kod C# przedstawia, jak zastosować wypełnienie kolorem stałym do prostokąta w slajdzie PowerPoint:
+Poniższy kod C# demonstruje, jak zastosować wypełnienie jednolitym kolorem do prostokąta w slajdzie PowerPoint:
 
 ```c#
 using System.Drawing;
@@ -437,7 +441,7 @@ using (Presentation presentation = new Presentation())
     // Pobierz pierwszy slajd.
     ISlide slide = presentation.Slides[0];
 
-    // Dodaj auto-kształt typu Rectangle.
+    // Dodaj automatyczny kształt typu Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Ustaw typ wypełnienia na Solid.
@@ -453,22 +457,22 @@ using (Presentation presentation = new Presentation())
 
 Wynik:
 
-![The shape with solid color fill](solid-color-fill.png)
+![Kształt z jednolitym wypełnieniem kolorem](solid-color-fill.png)
 
 ## **Ustawienie przezroczystości**
 
-W programie PowerPoint, gdy stosujesz wypełnienie kolorem stałym, gradientem, obrazem lub teksturą do kształtów, możesz także ustawić poziom przezroczystości, aby kontrolować nieprzezroczystość wypełnienia. Wyższa wartość przezroczystości sprawia, że kształt jest bardziej przejrzysty, umożliwiając częściowe widzenie tła lub obiektów pod nim.
+W programie PowerPoint, gdy zastosujesz wypełnienie jednolitym kolorem, gradientem, obrazem lub teksturą do kształtów, możesz również określić poziom przezroczystości, aby kontrolować krycie wypełnienia. Wyższa wartość przezroczystości sprawia, że kształt jest bardziej przejrzysty, co pozwala częściowo widzieć tło lub obiekty pod nim.
 
-Aspose.Slides pozwala ustawić poziom przezroczystości, modyfikując wartość alfa w kolorze używanym do wypełnienia. Oto, jak to zrobić:
+Aspose.Slides umożliwia ustawienie poziomu przezroczystości poprzez dostosowanie wartości alfa w kolorze używanym do wypełnienia. Oto jak to zrobić:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/) kształtu na `Solid`.
+1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Pobierz odwołanie do slajdu według jego indeksu.
+1. Dodaj [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) do slajdu.
+1. Ustaw [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) na `Solid`.
 1. Użyj `Color.FromArgb(alpha, baseColor)`, aby zdefiniować kolor z przezroczystością (składnik `alpha` steruje przezroczystością).
 1. Zapisz prezentację.
 
-Poniższy kod C# przedstawia, jak zastosować przezroczyste wypełnienie do prostokąta:
+Poniższy kod C# pokazuje, jak zastosować przezroczysty kolor wypełnienia do prostokąta:
 
 ```c#
 using System.Drawing;
@@ -483,10 +487,10 @@ using (Presentation presentation = new Presentation())
     // Pobierz pierwszy slajd.
     ISlide slide = presentation.Slides[0];
 
-    // Dodaj solidny prostokątny auto‑kształt.
+    // Dodaj automatyczny prostokąt wypełniony.
     IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Dodaj przezroczysty prostokątny auto‑kształt nad solidnym kształtem.
+    // Dodaj przezroczysty prostokąt automatyczny nad wypełnionym kształtem.
     IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.FillFormat.FillType = FillType.Solid;
     transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
@@ -498,21 +502,21 @@ using (Presentation presentation = new Presentation())
 
 Wynik:
 
-![The transparent shape](shape-transparency.png)
+![Kształt z przezroczystością](shape-transparency.png)
 
 ## **Obracanie kształtów**
 
-Aspose.Slides pozwala obracać kształty w prezentacjach PowerPoint. Może to być przydatne przy pozycjonowaniu elementów wizualnych wymagających określonego wyrównania lub projektu.
+Aspose.Slides umożliwia obracanie kształtów w prezentacjach PowerPoint. Może to być przydatne przy pozycjonowaniu elementów wizualnych z określonym wyrównaniem lub wymaganiami projektowymi.
 
 Aby obrócić kształt na slajdzie, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
+1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Pobierz odwołanie do slajdu według jego indeksu.
+1. Dodaj [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) do slajdu.
 1. Ustaw właściwość `Rotation` kształtu na żądany kąt.
 1. Zapisz prezentację.
 
-Poniższy kod C# przedstawia, jak obrócić kształt o 5 stopni:
+Poniższy kod C# demonstruje, jak obrócić kształt o 5 stopni:
 
 ```c#
 using Aspose.Slides;
@@ -524,7 +528,7 @@ using (Presentation presentation = new Presentation())
     // Pobierz pierwszy slajd.
     ISlide slide = presentation.Slides[0];
 
-    // Dodaj auto‑kształt typu Rectangle.
+    // Dodaj automatyczny kształt typu Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Obróć kształt o 5 stopni.
@@ -537,21 +541,21 @@ using (Presentation presentation = new Presentation())
 
 Wynik:
 
-![The shape rotation](shape-rotation.png)
+![Obrót kształtu](shape-rotation.png)
 
 ## **Dodawanie efektów 3D Bevel**
 
-Aspose.Slides umożliwia zastosowanie efektów 3D Bevel do kształtów poprzez konfigurowanie ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/threedformat/) .
+Aspose.Slides pozwala na zastosowanie efektów 3D Bevel do kształtów poprzez konfigurację ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/).
 
 Aby dodać efekty 3D Bevel do kształtu, wykonaj następujące kroki:
 
-1. Stwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-1. Skonfiguruj [ThreeDFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/threedformat/) kształtu, aby określić ustawienia podcięcia.
+1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Pobierz odwołanie do slajdu według jego indeksu.
+1. Dodaj [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) do slajdu.
+1. Skonfiguruj właściwość [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) kształtu, aby określić ustawienia bevel.
 1. Zapisz prezentację.
 
-Poniższy kod C# pokazuje, jak zastosować efekty 3D Bevel do kształtu:
+Poniższy kod C# pokazuje, jak zastosować efekt 3D Bevel do kształtu:
 
 ```c#
 using System.Drawing;
@@ -587,21 +591,21 @@ using (Presentation presentation = new Presentation())
 
 Wynik:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![Efekt 3D Bevel](3D-bevel-effect.png)
 
-## **Dodawanie efektów 3D rotacji**
+## **Dodawanie efektów 3D Rotation**
 
-Aspose.Slides umożliwia zastosowanie efektów 3D rotacji do kształtów poprzez konfigurowanie ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/threedformat/) .
+Aspose.Slides pozwala na zastosowanie efektów 3D Rotation do kształtów poprzez konfigurację ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/).
 
-Aby zastosować 3D rotację do kształtu:
+Aby zastosować rotację 3D do kształtu:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-1. Uzyskaj odniesienie do slajdu według jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [CameraType](https://reference.aspose.com/slides/pl/net/aspose.slides/icamera/cameratype/) i [LightType](https://reference.aspose.com/slides/pl/net/aspose.slides/ilightrig/lighttype/) kształtu, aby określić rotację 3D.
+1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Pobierz odwołanie do slajdu według jego indeksu.
+1. Dodaj [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) do slajdu.
+1. Ustaw [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) i [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) kształtu, aby zdefiniować rotację 3D.
 1. Zapisz prezentację.
 
-Poniższy kod C# przedstawia, jak zastosować efekty 3D rotacji do kształtu:
+Poniższy kod C# demonstruje, jak zastosować efekt 3D Rotation do kształtu:
 
 ```c#
 using Aspose.Slides;
@@ -626,15 +630,15 @@ using (Presentation presentation = new Presentation())
 
 Wynik:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![Efekt 3D Rotation](3D-rotation-effect.png)
 
-## **Kontrola renderowania czarno-białego dla kształtów**
+## **Kontrola renderowania czarno‑białego dla kształtów**
 
-Właściwość [IShape.BlackWhiteMode](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/blackwhitemode/) określa, jak pojedynczy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno-białym. Nie włącza ona samej w sobie wyświetlania czarno-białego i nie zmienia wypełnienia, linii ani innych formatowań kształtu w normalnym trybie kolorowym.
+Właściwość [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) określa, w jaki sposób pojedynczy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno‑białym. Nie włącza ona samego trybu czarno‑białego i nie zmienia wypełnienia, linii ani innych formatowań w normalnym trybie kolorowym.
 
-Użyj wartości z wyliczenia [BlackWhiteMode](https://reference.aspose.com/slides/pl/net/aspose.slides/blackwhitemode/) aby wybrać pożądane zachowanie. Na przykład `Automatic` pozwala aplikacji renderującej wybrać konwersję, `Gray` i `LightGray` używają szarego koloru, `BlackWhite` używa tylko czerni i bieli, `Black` i `White` wymuszają pojedynczy kolor, `Color` zachowuje normalne kolory, a `Hidden` pomija kształt w trybie czarno-białym. `NotDefined` oznacza, że nie ustawiono trybu dla tego kształtu.
+Użyj wartości z wyliczenia [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/), aby wybrać pożądane zachowanie. Na przykład `Automatic` pozwala aplikacji renderującej wybrać konwersję, `Gray` i `LightGray` używają odcieni szarości, `BlackWhite` używa wyłącznie czerni i bieli, `Black` i `White` wymuszają jednolity kolor, `Color` zachowuje normalne kolory, a `Hidden` pomija kształt w trybie czarno‑białym. `NotDefined` oznacza, że nie przypisano trybu na poziomie kształtu.
 
-Poniższy kod C# tworzy kolorowy kształt i sprawia, że w trybie wyświetlania czarno-białego jest on wyświetlany szaro:
+Poniższy kod C# tworzy kolorowy kształt i sprawia, że w trybie czarno‑białym jest on wyświetlany jako szary:
 
 ```csharp
 using System.Drawing;
@@ -648,17 +652,17 @@ var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.Color = Color.Orange;
 
-// Zachowaj pomarańczowe wypełnienie w trybie kolorowym, ale renderuj kształt w szarym kolorze w trybie czarno-białym.
+// Zachowaj pomarańczowe wypełnienie w trybie kolorowym, ale renderuj kształt w odcieniach szarości w trybie czarno-białym.
 shape.BlackWhiteMode = BlackWhiteMode.Gray;
 
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-W normalnym trybie kolorowym prostokąt zachowuje pomarańczowe wypełnienie. W workflowie czarno-białym używa szarego koloru, ponieważ jego tryb jest ustawiony na `Gray`. Dzięki temu możesz zachować pełnokolorowy slajd, definiując jednocześnie odrębny wygląd dla druku, podglądu lub innych procesów honorujących ustawienia wyświetlania czarno-białego prezentacji.
+W normalnym trybie kolorowym prostokąt zachowuje pomarańczowe wypełnienie. W trybie czarno‑białym używa szarości, ponieważ jego tryb został ustawiony na `Gray`. Dzięki temu możesz zachować pełnokolorowy slajd, jednocześnie definiując odrębny wygląd dla druku, podglądu lub innych procesów, które respektują ustawienia wyświetlania czarno‑białego prezentacji.
 
 ## **Resetowanie formatowania**
 
-Poniższy kod C# pokazuje, jak zresetować formatowanie slajdu i przywrócić pozycję, rozmiar oraz formatowanie wszystkich kształtów z placeholderami na [LayoutSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/layoutslide/) do ich domyślnych ustawień:
+Poniższy kod C# pokazuje, jak zresetować formatowanie slajdu i przywrócić pozycję, rozmiar oraz formatowanie wszystkich kształtów z placeholderami na [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) do ich domyślnych ustawień:
 
 ```c#
 using Aspose.Slides;
@@ -678,14 +682,14 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **FAQ**
 
-**Czy formatowanie kształtów wpływa na rozmiar końcowego pliku prezentacji?**
+**Czy formatowanie kształtu wpływa na ostateczny rozmiar pliku prezentacji?**
 
-Tylko w minimalnym stopniu. Osadzone obrazy i multimedia zajmują większość miejsca w pliku, natomiast parametry kształtów, takie jak kolory, efekty i gradienty, są przechowywane jako metadane i praktycznie nie zwiększają rozmiaru.
+Tylko minimalnie. Osadzone obrazy i multimedia zajmują większość miejsca, podczas gdy parametry kształtu, takie jak kolory, efekty i gradienty, są przechowywane jako metadane i praktycznie nie zwiększają rozmiaru.
 
 **Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby je pogrupować?**
 
-Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linię i ustawienia efektów. Jeśli wszystkie odpowiadające wartości są identyczne, traktuj ich style jako takie same i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
+Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linię i ustawienia efektów. Jeśli wszystkie odpowiadające sobie wartości są równe, traktuj ich style jako identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
 
-**Czy mogę zapisać zestaw niestandardowych stylów kształtów do osobnego pliku, aby ponownie używać ich w innych prezentacjach?**
+**Czy mogę zapisać zestaw własnych stylów kształtów w oddzielnym pliku, aby ponownie używać ich w innych prezentacjach?**
 
-Tak. Przechowuj przykładowe kształty z pożądanymi stylami w szablonie prezentacji lub pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylowane kształty i ponownie zastosuj ich formatowanie w wybranych miejscach.
+Tak. Przechowuj przykładowe kształty z pożądanymi stylami w szablonie prezentacji lub pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylowe kształty i ponownie zastosuj ich formatowanie tam, gdzie jest to wymagane.

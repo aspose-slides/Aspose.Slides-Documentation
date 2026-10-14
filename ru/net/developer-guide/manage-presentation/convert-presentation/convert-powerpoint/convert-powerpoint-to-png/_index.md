@@ -22,115 +22,122 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Преобразуйте презентации PowerPoint в высококачественные PNG‑изображения быстро с помощью Aspose.Slides для .NET, обеспечивая точные, автоматизированные результаты."
+description: "Быстро преобразуйте презентации PowerPoint в качественные изображения PNG с помощью Aspose.Slides для .NET, обеспечивая точные, автоматизированные результаты."
 ---
-
 ## **Обзор**
 
-В этой статье объясняется, как преобразовать презентацию PowerPoint в формат PNG с помощью C#. Она охватывает следующие темы.
+В этой статье объясняется, как преобразовать слайды презентаций в изображения PNG с помощью Aspose.Slides для .NET. Вы можете загружать презентации в форматах PPT, PPTX и ODP, отрисовывать каждый слайд и сохранять его как отдельное изображение PNG.
 
-- [Преобразовать PowerPoint в PNG на C#](#convert-powerpoint-to-png)
-- [Преобразовать PPT в PNG на C#](#convert-powerpoint-to-png)
-- [Преобразовать PPTX в PNG на C#](#convert-powerpoint-to-png)
-- [Преобразовать ODP в PNG на C#](#convert-powerpoint-to-png)
-- [Преобразовать слайд PowerPoint в изображение на C#](#convert-powerpoint-to-png)
-
-## **PowerPoint в PNG в .NET**
-
-Для примера кода на C# по преобразованию PowerPoint в PNG смотрите раздел ниже, а именно [Преобразовать PowerPoint в PNG](#convert-powerpoint-to-png). Код может загружать различные форматы, такие как PPT, PPTX и ODP, в объект Presentation, а затем сохранять миниатюру слайда в формате PNG. Другие преобразования PowerPoint в изображения, аналогичные JPG, BMP, TIFF и SVG, рассматриваются в следующих статьях.
-
-- [C# PowerPoint в JPG](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint в BMP](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint в TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
-- [C# PowerPoint в SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
-
-## **О преобразовании PowerPoint в PNG**
-
-Формат PNG (Portable Network Graphics) не так популярен, как JPEG (Joint Photographic Experts Group), но все равно очень популярен.
-
-**Сценарий использования:** Когда у вас сложное изображение и размер не является проблемой, PNG — лучший формат изображения по сравнению с JPEG.
-
-{{% alert title="Tip" color="primary" %}} Вы можете захотеть посмотреть бесплатные конвертеры Aspose **Конвертеры PowerPoint в PNG**: [PPTX в PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT в PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Они являются живой реализацией процесса, описанного на этой странице. {{% /alert %}}
+Приведённые ниже примеры демонстрируют создание миниатюр, установку коэффициентов масштабирования, указание размеров вывода в пикселях и выбор стиля рендеринга градиентов.
 
 ## **Преобразовать PowerPoint в PNG**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите объект слайда из коллекции [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) под интерфейсом [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide).
-3. Вызовите метод [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) для получения миниатюры каждого слайда.
-4. Используйте метод [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) для сохранения миниатюры слайда в формате PNG.
+Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) и получите доступ к её слайдам через коллекцию [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). В примере каждый слайд отрисовывается с помощью [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) без параметров для создания миниатюры. Затем вызывается [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) с [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) для сохранения каждого отрисованного слайда в виде изображения PNG.
 
-Этот код на C# показывает, как преобразовать презентацию PowerPoint в PNG. Объект Presentation может загружать PPT, PPTX, ODP и др., после чего каждый слайд в объекте Presentation преобразуется в формат PNG или другие форматы изображений.
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage())
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage();
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+Перегрузка [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) без параметров отрисовывается с масштабом 0.2. Например, слайд размером 720 × 540 пунктов даёт миниатюру 144 × 108 пикселей. Чтобы контролировать размеры вывода, используйте перегрузки с коэффициентами масштабирования или явным указанием размера изображения, как показано ниже.
+{{% /alert %}}
 
 ## **Преобразовать PowerPoint в PNG с пользовательскими размерами**
 
-Если вы хотите получить файлы PNG определённого масштаба, вы можете установить значения `desiredX` и `desiredY`, которые определяют размеры получаемой миниатюры.
+Передайте горизонтальные и вертикальные коэффициенты масштабирования в [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) для контроля размеров отрисовки. В этом примере оба коэффициента равны 2, поэтому слайд размером 720 × 540 пунктов даёт изображение 1440 × 1080 пикселей. Одинаковые коэффициенты сохраняют соотношение сторон слайда. Каждое изображение сохраняется в формате PNG с помощью [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/).
 
-Этот код на C# демонстрирует описанную операцию:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    float scaleX = 2f;
-    float scaleY = 2f;
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(scaleX, scaleY))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
-
 
 ## **Преобразовать PowerPoint в PNG с пользовательским размером**
 
-Если вы хотите получить файлы PNG определённого размера, вы можете передать желаемые аргументы `width` и `height` для `imageSize`.
+Для указания размеров вывода в пикселях передайте размер в [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) вместо коэффициентов масштабирования. Этот пример отрисовывает каждый слайд размером 960 × 720 пикселей и сохраняет результат с помощью [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Выбирайте размеры, соответствующие соотношению сторон слайда, чтобы избежать растягивания изображения.
 
-Этот код показывает, как преобразовать PowerPoint в PNG, указывая размер изображений:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var imageSize = new Size(960, 720);
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    Size size = new Size(960, 720);
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(size))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(imageSize);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+## **Выбрать стиль рендеринга градиентов**
 
-## **Вопросы и ответы**
+Предположим, что слайд содержит градиентные заливки, но переходы в экспортированном PNG выглядят светлее или иначе, чем в PowerPoint. Вы можете использовать свойство [GradientStyle](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/gradientstyle/) класса [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) для выбора способа рендеринга градиентов.
 
-**Как экспортировать только конкретную форму (например, диаграмму или изображение), а не весь слайд?**
+Скачайте файл [gradient-styles.pptx](gradient-styles.pptx) и поместите его в рабочий каталог приложения. Первый слайд содержит два линейных градиента: от цианового к оранжевому вверху и от синего к жёлтому внизу. Каждый градиент имеет две остановки — на 0 % и 100 %.
 
-Aspose.Slides поддерживает [создание миниатюр для отдельных фигур](/slides/ru/net/create-shape-thumbnails/); вы можете отобразить форму в PNG‑изображение.
+Следующий пример загружает эту презентацию и отрисовывает первый слайд в обоих режимах с помощью [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/).
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("gradient-styles.pptx");
+var slide = presentation.Slides[0];
+
+var gradientStyles = new[] { GradientStyle.Default, GradientStyle.PowerPointUI };
+foreach (var style in gradientStyles)
+{
+    var options = new RenderingOptions { GradientStyle = style };
+    using var image = slide.GetImage(options, 1f, 1f);
+    image.Save($"gradient-{style}.png", ImageFormat.Png);
+}
+```
+
+Ниже показаны изображения вывода одного и того же слайда, где каждый градиент присутствует на каждом изображении:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Градиенты от цианового к оранжевому и от синего к жёлтому, отрисованные с Default](gradient-Default.png) | ![Те же градиенты, отрисованные с PowerPointUI](gradient-PowerPointUI.png) |
+
+В этом примере `Default` генерирует более светлые промежуточные цвета, тогда как `PowerPointUI` — более тёмные. Разница зависит от цветов и остановок в градиенте.
+
+Выбирайте `Default`, когда стандартный вывод Aspose.Slides отвечает вашим требованиям. Пробуйте `PowerPointUI`, если приоритет — соответствие внешнему виду в PowerPoint. Сравните оба вывода с желаемым результатом; ни один из режимов не является универсально лучшим.
+
+## **Часто задаваемые вопросы**
+
+**Как экспортировать конкретную форму, например диаграмму или изображение, вместо всего слайда?**
+
+Aspose.Slides поддерживает [создание миниатюр для отдельных фигур](/slides/ru/net/create-shape-thumbnails/), позволяя отрисовать форму в виде изображения PNG.
 
 **Поддерживается ли параллельное преобразование на сервере?**
 
-Да, но [не делитесь](/slides/ru/net/multithreading/) одной экземпляром презентации между потоками. Используйте отдельный экземпляр для каждого потока или процесса.
+Да. Используйте отдельный экземпляр презентации для каждого потока или процесса; [не делите один экземпляр между потоками](/slides/ru/net/multithreading/).
 
-**Каковы ограничения пробной версии при экспорте в PNG?**
+**Каковы ограничения оценочной версии при экспорте в PNG?**
 
-Режим оценки добавляет водяной знак к выходным изображениям и применяет [прочие ограничения](/slides/ru/net/licensing/), пока не будет применена лицензия.
+Режим оценки добавляет водяной знак к выходным изображениям и применяет [другие ограничения](/slides/ru/net/licensing/), пока лицензия не будет активирована.

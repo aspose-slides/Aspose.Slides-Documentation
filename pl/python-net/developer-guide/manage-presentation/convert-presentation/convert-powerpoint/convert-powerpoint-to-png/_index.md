@@ -1,44 +1,37 @@
 ---
-title: Konwertowanie slajdów PowerPoint na PNG w Pythonie
-linktitle: Slajd do PNG
+title: Konwertuj slajdy PowerPoint na PNG w Pythonie
+linktitle: PowerPoint na PNG
 type: docs
 weight: 30
 url: /pl/python-net/convert-powerpoint-to-png/
 keywords:
-- konwertować PowerPoint do PNG
-- konwertować prezentację do PNG
-- konwertować slajd do PNG
-- konwertować PPT do PNG
-- konwertować PPTX do PNG
-- konwertować ODP do PNG
-- PowerPoint do PNG
-- prezentacja do PNG
-- slajd do PNG
-- PPT do PNG
-- PPTX do PNG
-- ODP do PNG
+- konwertuj PowerPoint na PNG
+- konwertuj prezentację na PNG
+- konwertuj slajd na PNG
+- konwertuj PPT na PNG
+- konwertuj PPTX na PNG
+- konwertuj ODP na PNG
+- PowerPoint na PNG
+- prezentacja na PNG
+- slajd na PNG
+- PPT na PNG
+- PPTX na PNG
+- ODP na PNG
 - Python
 - Aspose.Slides
-description: "Konwertuj prezentacje PowerPoint i OpenDocument na wysokiej jakości obrazy PNG szybko przy użyciu Aspose.Slides for Python via .NET, zapewniając precyzyjne, zautomatyzowane wyniki."
+description: "Szybko konwertuj prezentacje PowerPoint i OpenDocument na wysokiej jakości obrazy PNG przy użyciu Aspose.Slides dla Pythona w .NET, zapewniając precyzyjne, zautomatyzowane wyniki."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Python via .NET umożliwia prostą konwersję prezentacji PowerPoint do formatu PNG. Ładujesz prezentację, przechodzisz przez jej slajdy, renderujesz każdy z nich do obrazu rastrowego i zapisujesz wynik jako pliki PNG. Jest to idealne rozwiązanie do generowania podglądów slajdów, osadzania slajdów na stronach internetowych lub tworzenia statycznych zasobów do dalszego przetwarzania.
+Ten artykuł wyjaśnia, jak przekonwertować slajdy prezentacji na obrazy PNG przy użyciu Aspose.Slides dla Pythona w .NET. Możesz ładować prezentacje w formatach takich jak PPT, PPTX i ODP, renderować każdy slajd i zapisywać go jako oddzielny obraz PNG.
 
-## **Konwertowanie slajdów do PNG**
+Poniższe przykłady pokazują renderowanie w domyślnej skali, zwiększanie skali, określanie wymiarów wyjściowych w pikselach oraz wybór stylu renderowania gradientu.
 
-Ta sekcja prezentuje najprostszy możliwy przykład konwersji prezentacji PowerPoint do obrazów PNG przy użyciu Aspose.Slides for Python via .NET.
+## **Konwertuj PowerPoint na PNG**
 
-Wykonaj następujące kroki:
+Załaduj prezentację za pomocą klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) i uzyskaj dostęp do jej slajdów przez kolekcję [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/). Przykład renderuje każdy slajd przy użyciu [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) bez parametrów, aby utworzyć miniaturę. Następnie wywołuje [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) z [ImageFormat.PNG](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/), aby zapisać każdy renderowany slajd jako obraz PNG.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-2. Pobierz slajd z kolekcji `Presentation.slides` (zobacz klasę [Slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/)).
-3. Użyj metody `Slide.get_image`, aby wygenerować miniaturę slajdu.
-4. Użyj metody `Presentation.save`, aby zapisać miniaturę slajdu w formacie PNG.
-
-Ten kod w Pythonie pokazuje, jak przekonwertować prezentację PowerPoint do PNG:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -47,16 +40,18 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Konwertowanie slajdów do PNG z niestandardowymi wymiarami**
+{{% alert color="info" title="Note" %}}
+Przeciążenie [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) bez parametrów renderuje w skali 0.2. Na przykład slajd o wymiarach 720 × 540 punktów generuje miniaturę 144 × 108 pikseli. Aby kontrolować wymiary wyjściowe, użyj przeciążeń ze współczynnikami skalowania lub explicite określonym rozmiarem obrazu, jak pokazano poniżej.
+{{% /alert %}}
 
-Aby wyeksportować slajdy do PNG w niestandardowej skali, wywołaj `Slide.get_image` z poziomymi i pionowymi współczynnikami skali. Te mnożniki zmieniają rozmiar wyjścia względem oryginalnych wymiarów slajdu — na przykład `2.0` podwaja zarówno szerokość, jak i wysokość. Użyj równych wartości dla `scale_x` i `scale_y`, aby zachować proporcje.
+## **Konwertuj PowerPoint na PNG z własnymi wymiarami**
 
-Ten kod w Pythonie demonstruje opisane działanie:
+Przekaż poziome i pionowe współczynniki skalowania do [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/), aby kontrolować renderowane wymiary. W tym przykładzie oba współczynniki wynoszą 2, więc slajd o wymiarach 720 × 540 punktów generuje obraz 1440 × 1080 pikseli. Równe współczynniki skalowania zachowują proporcje slajdu. Każdy obraz jest zapisywany w formacie PNG przy użyciu [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/).
 
-```py
+```python
 import aspose.slides as slides
 
-scale_x = 2
+scale_x = 2.0
 scale_y = scale_x
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -65,36 +60,64 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Konwertowanie slajdów do PNG z niestandardowym rozmiarem**
+## **Konwertuj PowerPoint na PNG z własnym rozmiarem**
 
-Jeśli chcesz generować pliki PNG o określonym rozmiarze, przekaż żądane wartości `width` i `height`. Poniższy kod pokazuje, jak przekonwertować prezentację PowerPoint do PNG, określając rozmiar obrazu:
+Aby określić wymiary wyjściowe w pikselach, przekaż rozmiar do [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) zamiast współczynników skalowania. Ten przykład renderuje każdy slajd w rozdzielczości 960 × 720 pikseli i zapisuje wynik przy użyciu [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). Wybierz wymiary odpowiadające proporcjom slajdu, aby uniknąć rozciągania obrazu.
 
-```py
+```python
 import aspose.slides as slides
-import aspose.pydrawing as drawing
 
-size = drawing.Size(960, 720)
+image_size = slides.Size(960, 720)
 
 with slides.Presentation("presentation.pptx") as presentation:
     for index, slide in enumerate(presentation.slides):
-        with slide.get_image(size) as image:
+        with slide.get_image(image_size) as image:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Możesz wypróbować darmowe konwertery **PowerPoint-to-PNG** firmy Aspose — [PPTX to PNG](https://products.aspose.app/slides/pl/conversion/pptx-to-png) i [PPT to PNG](https://products.aspose.app/slides/pl/conversion/ppt-to-png). Udostępniają one działającą implementację procesu opisanego na tej stronie.
-{{% /alert %}}
+## **Wybierz styl renderowania gradientu**
+
+Załóżmy, że slajd zawiera wypełnienia gradientowe, ale przejścia w wyeksportowanym pliku PNG wyglądają jaśniej lub inaczej niż w PowerPoint. Możesz użyć właściwości [gradient_style](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveoptions/gradient_style/) klasy [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/), aby wybrać sposób renderowania gradientów.
+
+Pobierz [gradient-styles.pptx](gradient-styles.pptx) i umieść go w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera dwa gradienty liniowe: od cyjanu do pomarańczu na górze oraz od niebieskiego do żółci na dole. Każdy gradient ma dwa przystanki, w 0% i 100%.
+
+Poniższy przykład ładuje tę prezentację i renderuje ten sam pierwszy slajd w obu trybach przy użyciu [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/).
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("gradient-styles.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    gradient_styles = [slides.GradientStyle.DEFAULT, slides.GradientStyle.POWER_POINT_UI]
+    for style in gradient_styles:
+        options = slides.export.RenderingOptions()
+        options.gradient_style = style
+
+        with slide.get_image(options, 1.0, 1.0) as image:
+            image.save(f"gradient-{style.name}.png", slides.ImageFormat.PNG)
+```
+
+Poniższe obrazy przedstawiają wynik tego samego slajdu, z oboma gradientami w każdym obrazie:
+
+| Domyślny | PowerPointUI |
+| --- | --- |
+| ![Gradienty od cyjanu do pomarańczu oraz od niebieskiego do żółci renderowane przy użyciu domyślnego](gradient-Default.png) | ![Te same gradienty renderowane przy użyciu PowerPointUI](gradient-PowerPointUI.png) |
+
+W tym przykładzie `DEFAULT` generuje jaśniejsze pośrednie kolory, podczas gdy `POWER_POINT_UI` generuje ciemniejsze pośrednie kolory. Różnica zależy od kolorów i przystanków w gradiencie.
+
+Wybierz `DEFAULT`, gdy standardowy wynik Aspose.Slides spełnia Twoje potrzeby. Wypróbuj `POWER_POINT_UI`, gdy priorytetem jest dopasowanie wyglądu do PowerPoint. Porównaj oba wyniki z oczekiwanym rezultatem; żaden tryb nie jest uniwersalnie lepszy.
 
 ## **FAQ**
 
-**Jak mogę wyeksportować tylko określony kształt (np. wykres lub obraz) zamiast całego slajdu?**
+**Jak mogę wyeksportować konkretny kształt, taki jak wykres lub obraz, zamiast całego slajdu?**
 
-Aspose.Slides obsługuje [generowanie miniatur pojedynczych kształtów](/slides/pl/python-net/create-shape-thumbnails/); możesz wyrenderować kształt do obrazu PNG.
+Aspose.Slides obsługuje [generowanie miniatur dla pojedynczych kształtów](/slides/pl/python-net/create-shape-thumbnails/), umożliwiając renderowanie kształtu jako obrazu PNG.
 
 **Czy konwersja równoległa jest obsługiwana na serwerze?**
 
-Tak, ale [nie udostępniaj](/slides/pl/python-net/multithreading/) jednej instancji prezentacji wielu wątkom. Użyj osobnej instancji na każdy wątek lub proces.
+Tak. Używaj osobnej instancji prezentacji dla każdego wątku lub procesu; [nie udostępniaj jednej instancji między wątkami](/slides/pl/python-net/multithreading/).
 
-**Jakie są ograniczenia wersji próbnej przy eksporcie do PNG?**
+**Jakie są ograniczenia wersji ewaluacyjnej przy eksporcie do PNG?**
 
-Tryb ewaluacji dodaje znak wodny do wygenerowanych obrazów i wymusza [inne ograniczenia](/slides/pl/python-net/licensing/), dopóki nie zostanie zastosowana licencja.
+Tryb ewaluacyjny dodaje znak wodny do obrazów wyjściowych i stosuje [inne ograniczenia](/slides/pl/python-net/licensing/), dopóki nie zostanie zastosowana licencja.

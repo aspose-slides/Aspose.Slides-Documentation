@@ -1,6 +1,6 @@
 ---
 title: Μετατροπή διαφανειών PowerPoint σε PNG με Python
-linktitle: Διαφάνεια σε PNG
+linktitle: PowerPoint σε PNG
 type: docs
 weight: 30
 url: /el/python-net/convert-powerpoint-to-png/
@@ -19,26 +19,19 @@ keywords:
 - ODP σε PNG
 - Python
 - Aspose.Slides
-description: "Μετατρέψτε παρουσιάσεις PowerPoint και OpenDocument σε εικόνες PNG υψηλής ποιότητας γρήγορα με Aspose.Slides για Python μέσω .NET, εξασφαλίζοντας ακριβή, αυτοματοποιημένα αποτελέσματα."
+description: "Μετατρέψτε παρουσιάσεις PowerPoint και OpenDocument σε εικόνες PNG υψηλής ποιότητας γρήγορα με το Aspose.Slides για Python μέσω .NET, εξασφαλίζοντας ακριβή, αυτόματα αποτελέσματα."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for Python μέσω .NET κάνει εύκολη τη μετατροπή παρουσιάσεων PowerPoint σε PNG. Φορτώνετε μια παρουσίαση, διατρέχετε τις διαφάνειές της, αποδίδετε καθεμία σε εικόνα raster και αποθηκεύετε το αποτέλεσμα ως αρχεία PNG. Αυτό είναι ιδανικό για τη δημιουργία προεπισκοπήσεων διαφανειών, την ενσωμάτωση διαφανειών σε ιστοσελίδες ή την παραγωγή στατικών πόρων για επακόλουθη επεξεργασία.
+Αυτό το άρθρο εξηγεί πώς να μετατρέψετε διαφάνειες παρουσίασης σε εικόνες PNG χρησιμοποιώντας το Aspose.Slides για Python μέσω .NET. Μπορείτε να φορτώσετε παρουσιάσεις σε μορφές όπως PPT, PPTX και ODP, να αποδώσετε κάθε διαφάνεια και να την αποθηκεύσετε ως ξεχωριστή εικόνα PNG.
 
-## **Μετατροπή Διαφανειών σε PNG**
+Τα παρακάτω παραδείγματα δείχνουν απόδοση στην προεπιλεγμένη κλίμακα, αύξηση της κλίμακας, καθορισμό των διαστάσεων εξόδου σε εικονοστοιχεία και επιλογή στυλ απόδοσης gradient.
 
-Αυτή η ενότητα δείχνει το πιο απλό δυνατό παράδειγμα μετατροπής μιας παρουσίασης PowerPoint σε εικόνες PNG χρησιμοποιώντας το Aspose.Slides for Python μέσω .NET.
+## **Μετατροπή PowerPoint σε PNG**
 
-Ακολουθήστε τα παρακάτω βήματα:
+Φορτώστε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) και αποκτήστε πρόσβαση στις διαφάνειές της μέσω της συλλογής [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/). Το παράδειγμα αποδίδει κάθε διαφάνεια με το [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) χωρίς παραμέτρους για να δημιουργήσει μια μικρογραφία. Στη συνέχεια καλεί το [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) με το [ImageFormat.PNG](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) για να αποθηκεύσει κάθε αποδοθείσα διαφάνεια ως εικόνα PNG.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-1. Αποκτήστε μια διαφάνεια από τη συλλογή `Presentation.slides` (δείτε την κλάση [Slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/)).
-1. Χρησιμοποιήστε τη μέθοδο `Slide.get_image` για να δημιουργήσετε μια μικρογραφία της διαφάνειας.
-1. Χρησιμοποιήστε τη μέθοδο `Presentation.save` για να αποθηκεύσετε τη μικρογραφία της διαφάνειας σε μορφή PNG.
-
-Αυτός ο κώδικας Python δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε PNG:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -47,16 +40,18 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Μετατροπή Διαφανειών σε PNG με Προσαρμοσμένες Διαστάσεις**
+{{% alert color="info" title="Note" %}}
+Η υπερφόρτωση [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) χωρίς παραμέτρους αποδίδει σε κλίμακα 0.2. Για παράδειγμα, μια διαφάνεια διαστάσεων 720 × 540 σημεία παράγει μικρογραφία 144 × 108 εικονοστοιχεία. Για να ελέγχετε τις διαστάσεις εξόδου, χρησιμοποιήστε τις υπερφορτώσεις με παράγοντες κλίμακας ή ένα ρητό μέγεθος εικόνας όπως φαίνεται παρακάτω.
+{{% /alert %}}
 
-Για να εξαγάγετε διαφάνειες σε PNG με προσαρμοσμένη κλίμακα, καλέστε τη `Slide.get_image` με οριζόντιους και κάθετους παράγοντες κλίμακας. Αυτοί οι πολλαπλασιαστές αλλάζουν το μέγεθος της εξόδου σε σχέση με τις αρχικές διαστάσεις της διαφάνειας — για παράδειγμα, το `2.0` διπλασιάζει τόσο το πλάτος όσο και το ύψος. Χρησιμοποιήστε ίσες τιμές για `scale_x` και `scale_y` ώστε να διατηρήσετε την αναλογία διαστάσεων.
+## **Μετατροπή PowerPoint σε PNG με προσαρμοσμένες διαστάσεις**
 
-Αυτός ο κώδικας Python επιδεικνύει τη περιγραφείσα λειτουργία:
+Περάστε οριζόντιους και κατακόρυφους παράγοντες κλίμακας στο [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) για να ελέγξετε τις αποδοθείσες διαστάσεις. Σε αυτό το παράδειγμα, και οι δύο παράγοντες είναι 2, έτσι μια διαφάνεια διαστάσεων 720 × 540 σημεία παράγει εικόνα 1440 × 1080 εικονοστοιχεία. Ισόπαλοι παράγοντες κλίμακας διατηρούν την αναλογική αναλογία της διαφάνειας. Κάθε εικόνα αποθηκεύεται σε μορφή PNG με το [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/).
 
-```py
+```python
 import aspose.slides as slides
 
-scale_x = 2
+scale_x = 2.0
 scale_y = scale_x
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -65,36 +60,64 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Μετατροπή Διαφανειών σε PNG με Προσαρμοσμένο Μέγεθος**
+## **Μετατροπή PowerPoint σε PNG με προσαρμοσμένο μέγεθος**
 
-Αν θέλετε να δημιουργήσετε αρχεία PNG σε συγκεκριμένο μέγεθος, περάστε τις επιθυμητές τιμές `width` και `height`. Ο παρακάτω κώδικας δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε PNG καθορίζοντας το μέγεθος της εικόνας:
+Για να καθορίσετε τις διαστάσεις εξόδου σε εικονοστοιχεία, περάστε ένα μέγεθος στο [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) αντί για παράγοντες κλίμακας. Αυτό το παράδειγμα αποδίδει κάθε διαφάνεια στα 960 × 720 εικονοστοιχεία και αποθηκεύει το αποτέλεσμα με το [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). Επιλέξτε διαστάσεις που ταιριάζουν στην αναλογική αναλογία της διαφάνειας ώστε να αποφύγετε το τράβηγμα της εικόνας.
 
-```py
+```python
 import aspose.slides as slides
-import aspose.pydrawing as drawing
 
-size = drawing.Size(960, 720)
+image_size = slides.Size(960, 720)
 
 with slides.Presentation("presentation.pptx") as presentation:
     for index, slide in enumerate(presentation.slides):
-        with slide.get_image(size) as image:
+        with slide.get_image(image_size) as image:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Μπορεί να θέλετε να δοκιμάσετε τους δωρεάν **μετατροπείς PowerPoint‑σε‑PNG** του Aspose—[PPTX σε PNG](https://products.aspose.app/slides/el/conversion/pptx-to-png) και [PPT σε PNG](https://products.aspose.app/slides/el/conversion/ppt-to-png). Παρέχουν μια ζωντανή υλοποίηση της διαδικασίας που περιγράφεται σε αυτή τη σελίδα.
-{{% /alert %}}
+## **Επιλογή στυλ απόδοσης gradient**
 
-## **Συχνές ερωτήσεις**
+Υποθέστε ότι μια διαφάνεια περιέχει γεμίσματα gradient, αλλά οι μεταβάσεις στην εξαχθείσα PNG φαίνονται πιο ανοιχτές ή διαφορετικές από ό,τι βλέπετε στο PowerPoint. Μπορείτε να χρησιμοποιήσετε την ιδιότητα [gradient_style](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveoptions/gradient_style/) του [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/) για να επιλέξετε πώς θα αποδίδονται τα gradients.
 
-**Πώς μπορώ να εξάγω μόνο ένα συγκεκριμένο σχήμα (π.χ. γράφημα ή εικόνα) αντί για ολόκληρη τη διαφάνεια;**
+Κατεβάστε το [gradient-styles.pptx](gradient-styles.pptx) και τοποθετήστε το στον φάκελο εργασίας της εφαρμογής. Η πρώτη του διαφάνεια περιέχει δύο γραμμικά gradients: κυανό προς πορτοκαλί στην κορυφή και μπλε προς κίτρινο στο κάτω μέρος. Κάθε gradient έχει δύο στάσεις, στο 0% και στο 100%.
 
-Το Aspose.Slides υποστηρίζει [δημιουργία μικρογραφιών για μεμονωμένα σχήματα](/slides/el/python-net/create-shape-thumbnails/); μπορείτε να αποδώσετε ένα σχήμα σε εικόνα PNG.
+Το παρακάτω παράδειγμα φορτώνει αυτήν την παρουσίαση και αποδίδει την ίδια πρώτη διαφάνεια και στις δύο λειτουργίες με το [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/).
 
-**Υποστηρίζεται η παράλληλη μετατροπή σε διακομιστή;**
+```python
+import aspose.slides as slides
 
-Ναι, αλλά [μην μοιράζεστε](/slides/el/python-net/multithreading/) ένα μοναδικό αντικείμενο παρουσίασης μεταξύ νημάτων. Χρησιμοποιήστε ξεχωριστό αντικείμενο ανά νήμα ή διαδικασία.
+with slides.Presentation("gradient-styles.pptx") as presentation:
+    slide = presentation.slides[0]
 
-**Ποιες είναι οι περιορισμοί της δοκιμαστικής έκδοσης κατά την εξαγωγή σε PNG;**
+    gradient_styles = [slides.GradientStyle.DEFAULT, slides.GradientStyle.POWER_POINT_UI]
+    for style in gradient_styles:
+        options = slides.export.RenderingOptions()
+        options.gradient_style = style
 
-Η λειτουργία αξιολόγησης προσθέτει υδατογράφημα στις εικόνες εξόδου και επιβάλλει [άλλους περιορισμούς](/slides/el/python-net/licensing/) μέχρι να εφαρμοστεί άδεια.
+        with slide.get_image(options, 1.0, 1.0) as image:
+            image.save(f"gradient-{style.name}.png", slides.ImageFormat.PNG)
+```
+
+Οι εικόνες παρακάτω δείχνουν το αποτέλεσμα από την ίδια διαφάνεια, με και τα δύο gradients σε κάθε εικόνα:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Gradient από κυανό σε πορτοκαλί και από μπλε σε κίτρινο αποτυπωμένο με Default](gradient-Default.png) | ![Τα ίδια gradients αποτυπωμένα με PowerPointUI](gradient-PowerPointUI.png) |
+
+Σε αυτό το παράδειγμα, το `DEFAULT` παράγει πιο φωτεινά ενδιάμεσα χρώματα, ενώ το `POWER_POINT_UI` παράγει πιο σκούρα ενδιάμεσα χρώματα. Η διαφορά εξαρτάται από τα χρώματα και τις στάσεις στο gradient.
+
+Επιλέξτε το `DEFAULT` όταν η προεπιλεγμένη έξοδος του Aspose.Slides καλύπτει τις ανάγκες σας. Δοκιμάστε το `POWER_POINT_UI` όταν η προτεραιότητά σας είναι η αντιστοίχιση της εμφάνισης στο PowerPoint. Συγκρίνετε και τα δύο αποτελέσματα με το επιθυμητό σας αποτέλεσμα· κανένας τρόπος δεν είναι καθολικά προτιμότερος.
+
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+
+**Πώς μπορώ να εξάγω ένα συγκεκριμένο σχήμα, όπως γράφημα ή εικόνα, αντί για ολόκληρη τη διαφάνεια;**
+
+Το Aspose.Slides υποστηρίζει τη [δημιουργία μικρογραφιών για μεμονωμένα σχήματα](/slides/el/python-net/create-shape-thumbnails/), επιτρέποντάς σας να αποδώσετε ένα σχήμα ως εικόνα PNG.
+
+**Υποστηρίζεται παράλληλη μετατροπή σε διακομιστή;**
+
+Ναι. Χρησιμοποιήστε ένα ξεχωριστό αντικείμενο παρουσίασης για κάθε νήμα ή διεργασία· [μην μοιράζεστε ένα ενιαίο αντικείμενο μεταξύ νημάτων](/slides/el/python-net/multithreading/).
+
+**Ποιες είναι οι περιορισμοί αξιολόγησης κατά την εξαγωγή σε PNG;**
+
+Η λειτουργία αξιολόγησης προσθέτει υδατογράφημα στις εικόνες εξόδου και εφαρμόζει [άλλους περιορισμούς](/slides/el/python-net/licensing/) μέχρι να εφαρμοστεί άδεια.

@@ -1,80 +1,80 @@
 ---
-title: Διαμόρφωση Σχημάτων PowerPoint σε .NET
-linktitle: Διαμόρφωση Σχήματος
+title: Μορφοποίηση Σχημάτων PowerPoint σε .NET
+linktitle: Μορφοποίηση Σχήματος
 type: docs
 weight: 20
 url: /el/net/shape-formatting/
 keywords:
 - μορφοποίηση σχήματος
 - μορφοποίηση γραμμής
-- εφέ σκίτσου
-- γραμμή σκίτσου σχήματος
+- εφέ σκίτσο
+- γραμμή σχήματος σκίτσο
 - μορφοποίηση στυλ σύνδεσης
-- γέμιση διαβάθμισης
-- γέμιση μοτίβου
-- γέμιση εικόνας
-- γέμιση υφής
-- συμπαγής γέμιση χρώματος
+- γέμισμα διαβάθμισης
+- γέμισμα σχεδίου
+- γέμισμα εικόνας
+- γέμισμα υφής
+- γέμισμα στερεού χρώματος
 - διαφάνεια σχήματος
-- απόδοση σχήματος σε μαύρο-λευκό
+- μαυροάσπρος αποτύπωση σχήματος
 - απόδοση σχήματος σε γκρι κλίμακα
 - περιστροφή σχήματος
-- εφέ λοξότμησης 3Δ
-- εφέ περιστροφής 3Δ
+- εφέ 3D κεφαλής
+- εφέ 3D περιστροφής
 - επαναφορά μορφοποίησης
 - PowerPoint
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Μάθετε πώς να διαμορφώνετε σχήματα PowerPoint σε C# χρησιμοποιώντας το Aspose.Slides—ορίστε στυλ γεμίσματος, γραμμής και εφέ για αρχεία PPT και PPTX με ακρίβεια και πλήρη έλεγχο."
+description: "Μάθετε πώς να μορφοποιείτε σχήματα PowerPoint σε C# χρησιμοποιώντας το Aspose.Slides—ορίστε στυλ γέμισματος, γραμμής και εφέ για αρχεία PPT και PPTX με ακρίβεια και πλήρη έλεγχο."
 ---
 ## **Εισαγωγή**
 
-Στο PowerPoint, μπορείτε να προσθέσετε σχήματα στις διαφάνειες. Επειδή τα σχήματα αποτελούνται από γραμμές, μπορείτε να τα μορφοποιήσετε τροποποιώντας ή εφαρμόζοντας εφέ στα περιγράμματά τους. Επιπλέον, μπορείτε να μορφοποιήσετε τα σχήματα καθορίζοντας ρυθμίσεις που ελέγχουν πώς γεμίζουν τα εσωτερικά τους.
+Στο PowerPoint, μπορείτε να προσθέσετε σχήματα στις διαφάνειες. Επειδή τα σχήματα αποτελούνται από γραμμές, μπορείτε να μορφοποιήσετε τις γραμμές τους τροποποιώντας ή εφαρμόζοντας εφέ στα περιγράμματά τους. Επιπλέον, μπορείτε να μορφοποιήσετε τα σχήματα καθορίζοντας ρυθμίσεις που ελέγχουν το πώς γεμίζουν τα εσωτερικά τους.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![μορφοποίηση-σχήματος-powerpoint](format-shape-powerpoint.png)
 
-Το Aspose.Slides for .NET παρέχει διεπαφές και ιδιότητες που σας επιτρέπουν να μορφοποιήσετε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που είναι διαθέσιμες στο PowerPoint.
+Το Aspose.Slides for .NET παρέχει διεπαφές και ιδιότητες που σας επιτρέπουν να μορφοποιήσετε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που διατίθενται στο PowerPoint.
 
-## **Διαμόρφωση Γραμμών**
+## **Μορφοποίηση Γραμμών**
 
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να ορίσετε προσαρμοσμένο στυλ γραμμής για ένα σχήμα. Τα παρακάτω βήματα περιγράφουν τη διαδικασία:
+Χρησιμοποιώντας το Aspose.Slides, μπορείτε να καθορίσετε προσαρμοσμένο στυλ γραμμής για ένα σχήμα. Τα παρακάτω βήματα περιγράφουν τη διαδικασία:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στην διαφάνεια.
-1. Ορίστε το [line style](https://reference.aspose.com/slides/el/net/aspose.slides/linestyle/) του σχήματος.
-1. Ορίστε το πλάτος της γραμμής.
-1. Ορίστε το [dash style](https://reference.aspose.com/slides/el/net/aspose.slides/linedashstyle/) της γραμμής.
-1. Ορίστε το χρώμα γραμμής για το σχήμα.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [line style](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) του σχήματος.
+1. Ορίστε το πάχος της γραμμής.
+1. Ορίστε το [dash style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) της γραμμής.
+1. Ορίστε το χρώμα της γραμμής για το σχήμα.
+1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
 
-Ο παρακάτω κώδικας C# δείχνει πώς να μορφοποιήσετε ένα `AutoShape` ορθογώνιο:
+Ο παρακάτω κώδικας C# δείχνει πώς να μορφοποιήσετε ένα ορθογώνιο `AutoShape`:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+// Δημιουργήστε το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
-    // Αποκτήστε την πρώτη διαφάνεια.
+    // Λάβετε την πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
-    // Προσθέστε μια αυτόματη μορφή τύπου Rectangle.
+    // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Ορίστε το χρώμα γεμίσματος για το σχήμα rectangle.
+    // Ορίστε το χρώμα γεμίσματος για το σχήμα Rectangle.
     shape.FillFormat.FillType = FillType.NoFill;
 
-    // Εφαρμόστε μορφοποίηση στις γραμμές του rectangle.
+    // Εφαρμόστε μορφοποίηση στις γραμμές του Rectangle.
     shape.LineFormat.Style = LineStyle.ThickThin;
     shape.LineFormat.Width = 7;
     shape.LineFormat.DashStyle = LineDashStyle.Dash;
 
-    // Ορίστε το χρώμα για τη γραμμή του rectangle.
+    // Ορίστε το χρώμα για τη γραμμή του Rectangle.
     shape.LineFormat.FillFormat.FillType = FillType.Solid;
     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
@@ -85,13 +85,13 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![Οι μορφοποιημένες γραμμές στην παρουσίαση](formatted-lines.png)
 
-## **Εφαρμογή Σχεδίου Εφέ σε Γραμμές Σχήματος**
+## **Εφαρμογή Σχεδίου Εφέ στις Γραμμές Σχήματος**
 
-Ένα εφέ σκίτσο κάνει τη γραμμή ενός σχήματος να φαίνεται σχεδιασμένη με το χέρι. Χρησιμοποιήστε το [IShape.LineFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/lineformat/) για πρόσβαση στις ρυθμίσεις γραμμής, το [ILineFormat.SketchFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ilineformat/sketchformat/) για πρόσβαση στις ρυθμίσεις σκίτσο, και το [ISketchFormat.SketchType](https://reference.aspose.com/slides/el/net/aspose.slides/isketchformat/sketchtype/) για επιλογή τιμής από την απαρίθμηση [LineSketchType](https://reference.aspose.com/slides/el/net/aspose.slides/linesketchtype/).
+Ένα εφέ σχεδίου κάνει τη γραμμή ενός σχήματος να φαίνεται σχεδιασμένη με το χέρι. Χρησιμοποιήστε το [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) για πρόσβαση στις ρυθμίσεις γραμμής, το [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) για τις ρυθμίσεις σχεδίου, και το [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) για να επιλέξετε μια τιμή από την απαρίθμηση [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/).
 
-Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType.Curved](https://reference.aspose.com/slides/el/net/aspose.slides/linesketchtype/), να διαβάσετε την ρητά ανατεθειμένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType.None](https://reference.aspose.com/slides/el/net/aspose.slides/linesketchtype/):
+Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/), να διαβάσετε την ρητά ορισμένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
 
 ```csharp
 using Aspose.Slides;
@@ -115,7 +115,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-Η τιμή που επιστρέφει το `ISketchFormat.SketchType` αντιπροσωπεύει τη ρύθμιση που έχει ανατεθεί άμεσα στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληρονομηθεί από θέμα, κύρια διαφάνεια ή διάταξη, χρησιμοποιήστε το [ILineFormat.GetEffective](https://reference.aspose.com/slides/el/net/aspose.slides/ilineformat/geteffective/), προσπελάστε το [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ilineformateffectivedata/sketchformat/), και διαβάστε το [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/el/net/aspose.slides/isketchformateffectivedata/sketchtype/). Η αποτελεσματική τιμή αντικατοπτρίζει τη μορφοποίηση που εφαρμόζεται μετά την επίλυση της κληρονομίας:
+Η τιμή που επιστρέφει το `ISketchFormat.SketchType` αντιπροσωπεύει τη ρύθμιση που έχει οριστεί άμεσα στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληρονομηθεί από ένα θέμα, τη ματρική διαφάνεια ή τη διάταξη διαφάνειας, χρησιμοποιήστε το [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), αποκτήστε πρόσβαση στο [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), και διαβάστε το [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). Η αποτελεσματική τιμή αντανακλά τη μορφοποίηση που εφαρμόζεται πραγματικά μετά την επίλυση της κληρονόμησης:
 
 ```csharp
 using Aspose.Slides;
@@ -133,29 +133,29 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 ```
 
-## **Διαμόρφωση Στυλ Συνδέσεων**
+## **Μορφοποίηση Στυλ Συνδέσμων**
 
-Αυτές είναι οι τρεις επιλογές τύπου σύνδεσης:
+Τα τρία διαθέσιμα στυλ σύνδεσης είναι:
 
 * Στρογγυλό
-* Μυτερό
-* Λοξότμητο
+* Οξυγώνιο
+* Κωνικό
 
-Από προεπιλογή, όταν το PowerPoint συνδέει δύο γραμμές υπό γωνία (όπως στη γωνία ενός σχήματος), χρησιμοποιεί τη ρύθμιση **Στρογγυλό**. Ωστόσο, εάν σχεδιάζετε σχήμα με οξυγόνες γωνίες, μπορεί να προτιμήσετε την επιλογή **Μυτερό**.
+Από προεπιλογή, όταν το PowerPoint συνδέει δύο γραμμές σε γωνία (όπως στην γωνία ενός σχήματος), χρησιμοποιεί τη ρύθμιση **Στρογγυλό**. Ωστόσο, εάν σχεδιάζετε ένα σχήμα με οξυγώνιες γωνίες, μπορεί να προτιμήσετε την επιλογή **Οξυγώνιο**.
 
-![The join style in the presentation](join-style-powerpoint.png)
+![Το στυλ σύνδεσης στην παρουσίαση](join-style-powerpoint.png)
 
-Ο παρακάτω κώδικας C# δείχνει πώς δημιουργήθηκαν τρία ορθογώνια (όπως φαίνονται στην εικόνα παραπάνω) χρησιμοποιώντας τις ρυθμίσεις τύπου σύνδεσης Μυτερό, Λοξότμητο και Στρογγυλό:
+Ο παρακάτω κώδικας C# δείχνει πώς δημιουργήθηκαν τρία ορθογώνια (όπως φαίνονται στην εικόνα παραπάνω) χρησιμοποιώντας τις ρυθμίσεις στυλ σύνδεσης Οξυγώνιο, Κωνικό και Στρογγυλό:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
-    // Αποκτήστε την πρώτη διαφάνεια.
+    // Λάβετε την πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
     // Προσθέστε τρία αυτόματα σχήματα τύπου Rectangle.
@@ -163,7 +163,7 @@ using (Presentation presentation = new Presentation())
     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Ορίστε το χρώμα γεμίσματος για κάθε σχήμα rectangle.
+    // Ορίστε το χρώμα γεμίσματος για κάθε σχήμα Rectangle.
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.Color = Color.Black;
     shape2.FillFormat.FillType = FillType.Solid;
@@ -176,7 +176,7 @@ using (Presentation presentation = new Presentation())
     shape2.LineFormat.Width = 15;
     shape3.LineFormat.Width = 15;
 
-    // Ορίστε το χρώμα για τη γραμμή κάθε rectangle.
+    // Ορίστε το χρώμα για τη γραμμή κάθε Rectangle.
     shape1.LineFormat.FillFormat.FillType = FillType.Solid;
     shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     shape2.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -189,7 +189,7 @@ using (Presentation presentation = new Presentation())
     shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
     shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
 
-    // Προσθέστε κείμενο σε κάθε rectangle.
+    // Προσθέστε κείμενο σε κάθε Rectangle.
     shape1.TextFrame.Text = "Miter Join Style";
     shape2.TextFrame.Text = "Bevel Join Style";
     shape3.TextFrame.Text = "Round Join Style";
@@ -199,42 +199,42 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Γέμιση Διαβάθμισης**
+## **Γέμισμα Διαβάθμισης**
 
-Στο PowerPoint, η Γέμιση Διαβάθμισης είναι μια επιλογή μορφοποίησης που επιτρέπει την εφαρμογή συνεχούς μίξης χρωμάτων σε ένα σχήμα. Για παράδειγμα, μπορείτε να εφαρμόσετε δύο ή περισσότερα χρώματα με τρόπο που το ένα να εξασθένει σταδιακά στο άλλο.
+Στο PowerPoint, το Γέμισμα Διαβάθμισης είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε μια συνεχόμενη ανάμειξη χρωμάτων σε ένα σχήμα. Για παράδειγμα, μπορείτε να εφαρμόσετε δύο ή περισσότερα χρώματα με τέτοιο τρόπο που το ένα να εξασθενεί σταδιακά στο άλλο.
 
-Ακολουθεί ο τρόπος εφαρμογής γέμισης διαβάθμισης σε σχήμα με χρήση του Aspose.Slides:
+Ακολουθεί ο τρόπος εφαρμογής γέμισης διαβάθμισης σε σχήμα χρησιμοποιώντας το Aspose.Slides:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στην διαφάνεια.
-1. Ορίστε το [FillType](https://reference.aspose.com/slides/el/net/aspose.slides/filltype/) του σχήματος σε `Gradient`.
-1. Προσθέστε τα δύο προτιμώμενα χρώματά σας με καθορισμένες θέσεις χρησιμοποιώντας τις μεθόδους `Add` της συλλογής διαβάθμισης που εκτίθεται από τη διεπαφή [IGradientFormat](https://reference.aspose.com/slides/el/net/aspose.slides/igradientformat/).
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) του σχήματος σε `Gradient`.
+1. Προσθέστε τα δύο προτιμώμενα χρώματά σας με καθορισμένες θέσεις χρησιμοποιώντας τις μεθόδους `Add` της συλλογής διαβάθμισης που εκτίθενται από τη διεπαφή [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/).
+1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
 
-Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε το εφέ γέμισης διαβάθμισης σε μια έλλειψη:
+Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε το εφέ γέμισης διαβάθμισης σε μία έλλειψη:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
-    // Αποκτήστε την πρώτη διαφάνεια.
+    // Λάβετε την πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
     // Προσθέστε ένα αυτόματο σχήμα τύπου Ellipse.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Εφαρμόστε μορφοποίηση διαβάθμισης στην έλλειψη.
+    // Εφαρμόστε μορφοποίηση διαβάθμισης στην Ellipse.
     shape.FillFormat.FillType = FillType.Gradient;
     shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
     // Ορίστε την κατεύθυνση της διαβάθμισης.
     shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
 
-    // Προσθέστε δύο σημείο διαβάθμισης.
+    // Προσθέστε δύο στάσεις διαβάθμισης.
     shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
     shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
 
@@ -245,36 +245,38 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![Η έλλειψη με γέμισμα διαβάθμισης](gradient-fill.png)
 
-## **Γέμιση Μοτίβου**
+Εάν μια διαβάθμιση φαίνεται διαφορετική σε μια εξαγόμενη εικόνα σε σχέση με το PowerPoint, δείτε το άρθρο [Choose a Gradient Rendering Style](/slides/el/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε ένα στυλ απόδοσης χωρίς να αλλάξετε το γέμισμα διαβάθμισης που αποθηκεύεται στην παρουσίαση.
 
-Στο PowerPoint, η Γέμιση Μοτίβου είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε σχεδίαση δύο χρωμάτων—όπως κουκκίδες, λωρίδες, σταυρογραμμές ή σκαναρίσματα—σε ένα σχήμα. Μπορείτε να επιλέξετε προσαρμοσμένα χρώματα για το προσκήνιο και το παρασκήνιο του μοτίβου.
+## **Γέμισμα Σχεδίου**
 
-Το Aspose.Slides παρέχει πάνω από 45 προεπιλεγμένα στυλ μοτίβου που μπορείτε να εφαρμόσετε σε σχήματα για να βελτιώσετε την οπτική ελκυστικότητα των παρουσιάσεών σας. Ακόμη και μετά την επιλογή ενός προεπιλεγμένου μοτίβου, μπορείτε να καθορίσετε τα ακριβή χρώματα που θα χρησιμοποιηθούν.
+Στο PowerPoint, το Γέμισμα Σχεδίου είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε ένα σχέδιο δύο χρωμάτων—όπως κουκκίδες, λωρίδες, σταυρόγραφα ή σκακιές—σε ένα σχήμα. Μπορείτε να επιλέξετε προσαρμοσμένα χρώματα για το προσκήνιο και το φόντο του σχεδίου.
 
-Ακολουθεί η διαδικασία για την εφαρμογή γέμισης μοτίβου σε σχήμα με χρήση του Aspose.Slides:
+Το Aspose.Slides παρέχει πάνω από 45 προεγκατεστημένα στυλ σχεδίου που μπορείτε να εφαρμόσετε σε σχήματα για να ενισχύσετε την οπτική ελκυστικότητα των παρουσιάσεών σας. Ακόμη και μετά την επιλογή ενός προκαθορισμένου σχεδίου, μπορείτε να καθορίσετε τα ακριβή χρώματα που θα χρησιμοποιηθούν.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στην διαφάνεια.
-1. Ορίστε το [FillType](https://reference.aspose.com/slides/el/net/aspose.slides/filltype/) του σχήματος σε `Pattern`.
-1. Επιλέξτε ένα στυλ μοτίβου από τις προεπιλογές.
-1. Ορίστε το [Background Color](https://reference.aspose.com/slides/el/net/aspose.slides/ipatternformat/backcolor/) του μοτίβου.
-1. Ορίστε το [Foreground Color](https://reference.aspose.com/slides/el/net/aspose.slides/ipatternformat/forecolor/) του μοτίβου.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Ακολουθεί ο τρόπος εφαρμογής γέμισματος σχεδίου σε σχήμα χρησιμοποιώντας το Aspose.Slides:
 
-Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε γέμιση μοτίβου σε ένα ορθογώνιο:
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) του σχήματος σε `Pattern`.
+1. Επιλέξτε ένα στυλ σχεδίου από τις προκαθορισμένες επιλογές.
+1. Ορίστε το [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) του σχεδίου.
+1. Ορίστε το [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) του σχεδίου.
+1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+
+Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε γέμισμα σχεδίου σε ένα ορθογώνιο:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
-    // Αποκτήστε την πρώτη διαφάνεια.
+    // Λάβετε την πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
     // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
@@ -283,10 +285,10 @@ using (Presentation presentation = new Presentation())
     // Ορίστε τον τύπο γεμίσματος σε Pattern.
     shape.FillFormat.FillType = FillType.Pattern;
 
-    // Ορίστε το στυλ μοτίβου.
+    // Ορίστε το στυλ του προτύπου.
     shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
 
-    // Ορίστε τα χρώματα φόντου και προσκηνίου του μοτίβου.
+    // Ορίστε τα χρώματα φόντου και προσκηνίου του προτύπου.
     shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
     shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
 
@@ -297,26 +299,26 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![Το ορθογώνιο με γέμισμα σχεδίου](pattern-fill.png)
 
-## **Γέμιση Εικόνας**
+## **Γέμισμα Εικόνας**
 
-Στο PowerPoint, η Γέμιση Εικόνας είναι μια επιλογή μορφοποίησης που επιτρέπει την εισαγωγή μιας εικόνας μέσα σε σχήμα—χρησιμοποιώντας ουσιαστικά την εικόνα ως φόντο του σχήματος.
+Στο PowerPoint, το Γέμισμα Εικόνας είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εισάγετε μια εικόνα μέσα σε ένα σχήμα—χρησιμοποιώντας ουσιαστικά την εικόνα ως φόντο του σχήματος.
 
-Ακολουθεί ο τρόπος χρήσης του Aspose.Slides για την εφαρμογή γέμισης εικόνας σε σχήμα:
+Ακολουθεί ο τρόπος χρήσης του Aspose.Slides για να εφαρμόσετε γέμισμα εικόνας σε σχήμα:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στην διαφάνεια.
-1. Ορίστε το [FillType](https://reference.aspose.com/slides/el/net/aspose.slides/filltype/) του σχήματος σε `Picture`.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) του σχήματος σε `Picture`.
 1. Ορίστε τη λειτουργία γέμισης εικόνας σε `Tile` (ή άλλη προτιμώμενη λειτουργία).
-1. Δημιουργήστε ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/) από την εικόνα που θέλετε να χρησιμοποιήσετε.
-1. Εκχωρήστε αυτήν την εικόνα στην ιδιότητα `Picture.Image` του `PictureFillFormat` του σχήματος.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) από την εικόνα που θέλετε να χρησιμοποιήσετε.
+1. Αναθέστε αυτήν την εικόνα στην ιδιότητα `Picture.Image` του `PictureFillFormat` του σχήματος.
+1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
 
-Ας πούμε ότι έχουμε το αρχείο «lotus.png» με την παρακάτω εικόνα:
+Ας πούμε ότι έχουμε ένα αρχείο "lotus.png" με την παρακάτω εικόνα:
 
-![The lotus picture](lotus.png)
+![Η εικόνα λωτού](lotus.png)
 
 Ο παρακάτω κώδικας C# δείχνει πώς να γεμίσετε ένα σχήμα με την εικόνα:
 
@@ -324,10 +326,10 @@ using (Presentation presentation = new Presentation())
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
-    // Αποκτήστε την πρώτη διαφάνεια.
+    // Λάβετε την πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
     // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
@@ -336,7 +338,7 @@ using (Presentation presentation = new Presentation())
     // Ορίστε τον τύπο γεμίσματος σε Picture.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // Ορίστε τη λειτουργία γεμίσματος εικόνας.
+    // Ορίστε τη λειτουργία γέμισης εικόνας.
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
     // Φορτώστε μια εικόνα και προσθέστε την στους πόρους της παρουσίασης.
@@ -354,33 +356,33 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![The shape with picture fill](picture-fill.png)
+![Το σχήμα με γέμισμα εικόνας](picture-fill.png)
 
-### **Πλακίδιο Εικόνας ως Υφή**
+### **Τίλ ταινισμένη Εικόνα ως Υφή**
 
-Εάν θέλετε να ορίσετε μια παρναρισμένη εικόνα ως υφή και να προσαρμόσετε τη συμπεριφορά του παρναρισμού, μπορείτε να χρησιμοποιήσετε τις παρακάτω ιδιότητες της διεπαφής [IPictureFillFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/) και της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/el/net/aspose.slides/picturefillformat/):
+Αν θέλετε να ορίσετε μια επαναλαμβανόμενη εικόνα ως υφή και να προσαρμόσετε τη συμπεριφορά της επαναφοράς, μπορείτε να χρησιμοποιήσετε τις παρακάτω ιδιότητες της διεπαφής [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) και της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) :
 
-- [PictureFillMode](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/picturefillmode/): Ορίζει τη λειτουργία γεμίσματος εικόνας—είτε `Tile` είτε `Stretch`.
-- [TileAlignment](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/tilealignment/): Καθορίζει την ευθυγράμμιση των πλακιδίων μέσα στο σχήμα.
-- [TileFlip](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/tileflip/): Ελέγχει εάν το πλακίδιο θα αναστραφεί οριζόντια, κάθετα ή και τα δύο.
-- [TileOffsetX](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/tileoffsetx/): Ορίζει την οριζόντια μετατόπιση του πλακιδίου (σε points) από το σημείο προέλευσης του σχήματος.
-- [TileOffsetY](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/tileoffsety/): Ορίζει την κάθετη μετατόπιση του πλακιδίου (σε points) από το σημείο προέλευσης του σχήματος.
-- [TileScaleX](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/tilescalex/): Ορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
-- [TileScaleY](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/tilescaley/): Ορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Ορίζει τη λειτουργία γέμισης εικόνας—είτε `Tile` είτε `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Καθορίζει την ευθυγράμμιση των πλακιδίων μέσα στο σχήμα.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Ελέγχει αν το πλακίδιο αναστρέφεται οριζόντια, κάθετα ή και τα δύο.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Ορίζει τη λοξή μετατόπιση του πλακιδίου (σε σημεία) από την αρχή του σχήματος.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Ορίζει την κατακόρυφη μετατόπιση του πλακιδίου (σε σημεία) από την αρχή του σχήματος.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Ορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Ορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
 
-Ο παρακάτω κώδικας δείχνει πώς να προσθέσετε ένα ορθογώνιο σχήμα με γέμισμα εικόνας σε μορφή παρναρισμού και να ρυθμίσετε τις επιλογές παρναρισμού:
+Ο παρακάτω δείγμα κώδικα δείχνει πώς να προσθέσετε ένα ορθογώνιο σχήμα με επαναλαμβανόμενο γέμισμα εικόνας και να ρυθμίσετε τις επιλογές πλακιδίων:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
-    // Αποκτήστε την πρώτη διαφάνεια.
+    // Λάβετε την πρώτη διαφάνεια.
     ISlide firstSlide = presentation.Slides[0];
 
-    // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
+    // Προσθέστε ένα αυτόματο σχήμα Rectangle.
     IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
     // Ορίστε τον τύπο γεμίσματος του σχήματος σε Picture.
@@ -391,11 +393,11 @@ using (Presentation presentation = new Presentation())
     using (IImage sourceImage = Images.FromFile("lotus.png"))
         presentationImage = presentation.Images.AddImage(sourceImage);
 
-    // Εκχωρήστε την εικόνα στο σχήμα.
+    // Αναθέστε την εικόνα στο σχήμα.
     IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
     pictureFillFormat.Picture.Image = presentationImage;
 
-    // Διαμορφώστε τη λειτουργία γεμίσματος εικόνας και τις ιδιότητες παρναρισμού.
+    // Διαμορφώστε τη λειτουργία γέμισης εικόνας και τις ιδιότητες επικάλυψης.
     pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     pictureFillFormat.TileOffsetX = -32;
     pictureFillFormat.TileOffsetY = -32;
@@ -411,32 +413,32 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![The tile options](tile-options.png)
+![Οι επιλογές πλακιδίων](tile-options.png)
 
-## **Συμπαγής Γέμιση Χρώματος**
+## **Γέμισμα Στερεού Χρώματος**
 
-Στο PowerPoint, η Συμπαγής Γέμιση Χρώματος είναι μια επιλογή μορφοποίησης που γεμίζει ένα σχήμα με ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το απλό χρώμα φόντου εφαρμόζεται χωρίς διαβαθμίσεις, υφές ή μοτίβα.
+Στο PowerPoint, το Γέμισμα Στερεού Χρώματος είναι μια επιλογή μορφοποίησης που γεμίζει ένα σχήμα με ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το απλό χρώμα φόντου εφαρμόζεται χωρίς διαβαθμίσεις, υφές ή σχέδια.
 
-Για να εφαρμόσετε συμπαγή γέμιση χρώματος σε σχήμα με χρήση του Aspose.Slides, ακολουθήστε τα παρακάτω βήματα:
+Για να εφαρμόσετε γέμισμα στερεού χρώματος σε σχήμα χρησιμοποιώντας το Aspose.Slides, ακολουθήστε τα εξής βήματα:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στην διαφάνεια.
-1. Ορίστε το [FillType](https://reference.aspose.com/slides/el/net/aspose.slides/filltype/) του σχήματος σε `Solid`.
-1. Εκχωρήστε το επιθυμητό χρώμα γεμίσματος στο σχήμα.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) του σχήματος σε `Solid`.
+1. Αναθέστε το προτιμώμενο χρώμα γέμισης στο σχήμα.
+1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
 
-Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε συμπαγή γέμιση χρώματος σε ένα ορθογώνιο σε διαφάνεια PowerPoint:
+Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε γέμισμα στερεού χρώματος σε ένα ορθογώνιο σε διαφάνεια PowerPoint:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
-    // Αποκτήστε την πρώτη διαφάνεια.
+    // Λάβετε την πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
     // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
@@ -455,20 +457,20 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![The shape with solid color fill](solid-color-fill.png)
+![Το σχήμα με στερεό χρώμα γέμισης](solid-color-fill.png)
 
 ## **Ορισμός Διαφάνειας**
 
-Στο PowerPoint, όταν εφαρμόζετε συμπαγές χρώμα, διαβάθμιση, εικόνα ή υφή σε σχήματα, μπορείτε επίσης να ορίσετε επίπεδο διαφάνειας για να ελέγξετε την αδιαφάνεια του γεμίσματος. Μια μεγαλύτερη τιμή διαφάνειας κάνει το σχήμα πιο διαφανές, επιτρέποντας στο φόντο ή στα υποκείμενα αντικείμενα να φαίνονται εν μέρει.
+Στο PowerPoint, όταν εφαρμόζετε στερεό χρώμα, διαβάθμιση, εικόνα ή υφή σε σχήματα, μπορείτε επίσης να ορίσετε ένα επίπεδο διαφάνειας για να ελέγξετε την αδιαφάνεια του γεμίσματος. Ένα υψηλότερο επίπεδο διαφάνειας κάνει το σχήμα πιο διάφανο, επιτρέποντας στο παρασκήνιο ή στα υποκείμενα αντικείμενα να είναι μερικώς ορατά.
 
-Το Aspose.Slides επιτρέπει τον καθορισμό του επιπέδου διαφάνειας προσαρμόζοντας την τιμή alpha στο χρώμα που χρησιμοποιείται για το γέμισμα. Δείτε πώς:
+Το Aspose.Slides σας επιτρέπει να ορίσετε το επίπεδο διαφάνειας ρυθμίζοντας την τιμή alpha στο χρώμα που χρησιμοποιείται για το γέμισμα. Ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στην διαφάνεια.
-1. Ορίστε το [FillType](https://reference.aspose.com/slides/el/net/aspose.slides/filltype/) σε `Solid`.
-1. Χρησιμοποιήστε `Color.FromArgb(alpha, baseColor)` για να ορίσετε ένα χρώμα με διαφάνεια (το στοιχείο `alpha` ελέγχει τη διαφάνεια).
-1. Αποθηκεύστε την παρουσίαση.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) σε `Solid`.
+1. Χρησιμοποιήστε `Color.FromArgb(alpha, baseColor)` για να ορίσετε ένα χρώμα με διαφάνεια (το συστατικό `alpha` ελέγχει τη διαφάνεια).
+1. Αποθηκεύστε την παρουσία.
 
 Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε χρώμα γεμίσματος με διαφάνεια σε ένα ορθογώνιο:
 
@@ -479,16 +481,16 @@ using Aspose.Slides.Export;
 
 const int alpha = 128;
 
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
-    // Αποκτήστε την πρώτη διαφάνεια.
+    // Λάβετε την πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
-    // Προσθέστε ένα συμπαγό αυτόματο σχήμα τύπου Rectangle.
+    // Προσθέστε ένα στερεό αυτόματο σχήμα Rectangle.
     IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Προσθέστε ένα διαφανές αυτόματο σχήμα τύπου Rectangle πάνω από το συμπαγές σχήμα.
+    // Προσθέστε ένα διαφανές αυτόματο σχήμα Rectangle πάνω στο στερεό σχήμα.
     IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.FillFormat.FillType = FillType.Solid;
     transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
@@ -500,19 +502,19 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![The transparent shape](shape-transparency.png)
+![Το διαφανές σχήμα](shape-transparency.png)
 
 ## **Περιστροφή Σχημάτων**
 
-Το Aspose.Slides σας επιτρέπει να περιστρέφετε σχήματα σε παρουσιάσεις PowerPoint. Αυτό μπορεί να είναι χρήσιμο όταν τοποθετείτε οπτικά στοιχεία με συγκεκριμένη στοίχιση ή σχεδιαστικές ανάγκες.
+Το Aspose.Slides σας επιτρέπει να περιστρέψετε σχήματα σε παρουσιάσεις PowerPoint. Αυτό μπορεί να είναι χρήσιμο όταν τοποθετείτε οπτικά στοιχεία με συγκεκριμένη ευθυγράμμιση ή σχεδιαστικές απαιτήσεις.
 
 Για να περιστρέψετε ένα σχήμα σε μια διαφάνεια, ακολουθήστε τα βήματα:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στην διαφάνεια.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
 1. Ορίστε την ιδιότητα `Rotation` του σχήματος στην επιθυμητή γωνία.
-1. Αποθηκεύστε την παρουσίαση.
+1. Αποθηκεύστε την παρουσία.
 
 Ο παρακάτω κώδικας C# δείχνει πώς να περιστρέψετε ένα σχήμα κατά 5 μοίρες:
 
@@ -520,10 +522,10 @@ using (Presentation presentation = new Presentation())
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
-    // Αποκτήστε την πρώτη διαφάνεια.
+    // Λάβετε την πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
     // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
@@ -539,33 +541,33 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![The shape rotation](shape-rotation.png)
+![Η περιστροφή του σχήματος](shape-rotation.png)
 
-## **Προσθήκη 3Δ Εφέ Λοξότμησης**
+## **Προσθήκη Εφέ 3D Κεφαλής**
 
-Το Aspose.Slides επιτρέπει την εφαρμογή 3Δ εφέ λοξότμησης σε σχήματα διαμορφώνοντας τις ιδιότητες του [ThreeDFormat](https://reference.aspose.com/slides/el/net/aspose.slides/threedformat/).
+Το Aspose.Slides σας επιτρέπει να εφαρμόζετε εφέ 3Δ κεφαλής σε σχήματα ρυθμίζοντας τις ιδιότητες του [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) .
 
-Για να προσθέσετε 3Δ εφέ λοξότμησης σε ένα σχήμα, ακολουθήστε τα βήματα:
+Για να προσθέσετε εφέ 3D κεφαλής σε ένα σχήμα, ακολουθήστε τα βήματα:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στην διαφάνεια.
-1. Διαμορφώστε το [ThreeDFormat](https://reference.aspose.com/slides/el/net/aspose.slides/threedformat/) του σχήματος για να ορίσετε τις ρυθμίσεις λοξότμησης.
-1. Αποθηκεύστε την παρουσίαση.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ρυθμίστε το [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) του σχήματος για να ορίσετε τις παραμέτρους κεφαλής.
+1. Αποθηκεύστε την παρουσία.
 
-Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε 3Δ εφέ λοξότμησης σε ένα σχήμα:
+Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε εφέ 3D κεφαλής σε ένα σχήμα:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργήστε ένα στιγμιότυπο της κλάσης Presentation.
+// Δημιουργία ενός αντικειμένου της κλάσης Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Προσθέστε ένα σχήμα στη διαφάνεια.
+    // Προσθήκη σχήματος στη διαφάνεια.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.FillFormat.FillType = FillType.Solid;
     shape.FillFormat.SolidFillColor.Color = Color.Green;
@@ -573,7 +575,7 @@ using (Presentation presentation = new Presentation())
     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
     shape.LineFormat.Width = 2.0;
 
-    // Ορίστε τις ιδιότητες ThreeDFormat του σχήματος.
+    // Ορισμός ιδιοτήτων ThreeDFormat του σχήματος.
     shape.ThreeDFormat.Depth = 4;
     shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
     shape.ThreeDFormat.BevelTop.Height = 6;
@@ -582,34 +584,34 @@ using (Presentation presentation = new Presentation())
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
 
-    // Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
+    // Αποθήκευση της παρουσίασης ως αρχείο PPTX.
     presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
 Το αποτέλεσμα:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![Το εφέ 3D κεφαλής](3D-bevel-effect.png)
 
-## **Προσθήκη 3Δ Εφέ Περιστροφής**
+## **Προσθήκη Εφέ 3D Περιστροφής**
 
-Το Aspose.Slides επιτρέπει την εφαρμογή 3Δ εφέ περιστροφής σε σχήματα διαμορφώνοντας τις ιδιότητες του [ThreeDFormat](https://reference.aspose.com/slides/el/net/aspose.slides/threedformat/).
+Το Aspose.Slides σας επιτρέπει να εφαρμόζετε εφέ 3D περιστροφής σε σχήματα ρυθμίζοντας τις ιδιότητες του [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) .
 
-Για να εφαρμόσετε 3Δ περιστροφή σε ένα σχήμα:
+Για να εφαρμόσετε 3D περιστροφή σε ένα σχήμα:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) στην διαφάνεια.
-1. Ορίστε τις ιδιότητες [CameraType](https://reference.aspose.com/slides/el/net/aspose.slides/icamera/cameratype/) και [LightType](https://reference.aspose.com/slides/el/net/aspose.slides/ilightrig/lighttype/) του σχήματος για να ορίσετε την 3Δ περιστροφή.
-1. Αποθηκεύστε την παρουσίαση.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) και το [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) του σχήματος για να ορίσετε την 3D περιστροφή.
+1. Αποθηκεύστε την παρουσία.
 
-Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε 3Δ εφέ περιστροφής σε ένα σχήμα:
+Ο παρακάτω κώδικας C# δείχνει πώς να εφαρμόσετε εφέ 3D περιστροφής σε ένα σχήμα:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργήστε ένα στιγμιότυπο της κλάσης Presentation.
+// Δημιουργία ενός αντικειμένου της κλάσης Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -621,22 +623,22 @@ using (Presentation presentation = new Presentation())
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
 
-    // Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
+    // Αποθήκευση της παρουσίασης ως αρχείο PPTX.
     presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
 Το αποτέλεσμα:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![Το εφέ 3D περιστροφής](3D-rotation-effect.png)
 
-## **Έλεγχος Μαύρο-Λευκής Απόδοσης για Σχήματα**
+## **Έλεγχος Μαυρισμού-Ασπρόμαυρης Απόδοσης για Σχήματα**
 
-Η ιδιότητα [IShape.BlackWhiteMode](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/blackwhitemode/) καθορίζει πώς αποδίδεται ένα ατομικό σχήμα όταν η παρουσίαση προβάλλεται ή υποβάλλεται σε επεξεργασία σε μαύρο-λευκό τρόπο. Δεν ενεργοποιεί αυτόματα την εμφάνιση σε μαύρο-λευκό και δεν αλλάζει τη γέμιση, τη γραμμή ή άλλες μορφοποιήσεις του σχήματος σε κανονική έγχρωμη λειτουργία.
+Η ιδιότητα [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) καθορίζει πώς αποδίδεται ένα μεμονωμένο σχήμα όταν μια παρουσία προβάλλεται ή επεξεργάζεται σε μαυρισμό-ασπρόμαυρη λειτουργία. Η ιδιότητα αυτή δεν ενεργοποιεί μόνο η μαυρισμός-ασπρόμαυρη προβολή· δεν αλλάζει το γέμισμα, τη γραμμή ή άλλες μορφοποιήσεις του σχήματος σε κανονική λειτουργία χρώματος.
 
-Χρησιμοποιήστε μια τιμή από την απαρίθμηση [BlackWhiteMode](https://reference.aspose.com/slides/el/net/aspose.slides/blackwhitemode/) για να επιλέξετε τη συμπεριφορά. Για παράδειγμα, το `Automatic` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, τα `Gray` και `LightGray` χρησιμοποιούν γκρι χρωματική απόδοση, το `BlackWhite` χρησιμοποιεί μόνο μαύρο και λευκό, τα `Black` και `White` επιβάλλουν ένα ενιαίο χρώμα, το `Color` διατηρεί το κανονικό χρώμα, και το `Hidden` αποκρύπτει το σχήμα σε μαύρο-λευκό τρόπο. Το `NotDefined` σημαίνει ότι δεν έχει οριστεί λειτουργία σε επίπεδο σχήματος.
+Χρησιμοποιήστε μια τιμή από την απαρίθμηση [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) για να επιλέξετε τη συμπεριφορά που επιθυμείτε. Για παράδειγμα, το `Automatic` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, τα `Gray` και `LightGray` χρησιμοποιούν γκριχρώματα, το `BlackWhite` χρησιμοποιεί μόνο μαύρο και άσπρο, τα `Black` και `White` επιβάλλουν ένα ενιαίο χρώμα, το `Color` διατηρεί το κανονικό χρώμα, ενώ το `Hidden` αποκρύπτει το σχήμα στη μαυρισμό-ασπρόμαυρη λειτουργία. Το `NotDefined` σημαίνει ότι δεν έχει οριστεί λειτουργία σε επίπεδο σχήματος.
 
-Ο παρακάτω κώδικας C# δημιουργεί ένα χρωματιστό σχήμα και το κάνει να εμφανίζεται γκρι σε μαύρο-λευκό τρόπο εμφάνισης:
+Ο παρακάτω κώδικας C# δημιουργεί ένα χρωματιστό σχήμα και το εμφανίζει γκρι σε μαυρισμό-ασπρόμαυρη προβολή:
 
 ```csharp
 using System.Drawing;
@@ -650,17 +652,17 @@ var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.Color = Color.Orange;
 
-// Διατηρήστε το πορτοκαλί γέμισμα σε έγχρωμη λειτουργία, αλλά αποδώστε το σχήμα με γκρι χρωματισμό σε λειτουργία μαύρο-λευκό.
+// Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
 shape.BlackWhiteMode = BlackWhiteMode.Gray;
 
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-Σε κανονική έγχρωμη λειτουργία, το ορθογώνιο διατηρεί τη ντομάτα-πορτοκαλί γέμιση του. Σε ροή εργασίας εμφάνισης μαύρο-λευκού, χρησιμοποιεί γκρι χρώμα επειδή η λειτουργία του είναι ορισμένη σε `Gray`. Αυτό σας επιτρέπει να διατηρήσετε μια πλήρως έγχρωμη διαφάνεια ενώ ορίζετε ξεχωριστή εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές εργασίας που σέβονται τις ρυθμίσεις μαύρο-λευκής εμφάνισης της παρουσίασης.
+Σε κανονική λειτουργία χρώματος, το ορθογώνιο διατηρεί το πορτοκαλί γέμισμά του. Σε ροή εργασίας μαυρισμού-ασπρόμαυρης προβολής, εμφανίζεται με γκρι χρώμα επειδή το mode του έχει οριστεί σε `Gray`. Αυτό σας επιτρέπει να διατηρήσετε μια πλήρως έγχρωμη διαφάνεια, ορίζοντας ταυτόχρονα μια ξεχωριστή εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές εργασίας που λαμβάνουν υπόψη τις ρυθμίσεις μαυρισμού-ασπρόμαυρης προβολής της παρουσίασης.
 
 ## **Επαναφορά Μορφοποίησης**
 
-Ο παρακάτω κώδικας C# δείχνει πώς να επαναφέρετε τη μορφοποίηση μιας διαφάνειας και να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση όλων των σχημάτων με placeholders στο [LayoutSlide](https://reference.aspose.com/slides/el/net/aspose.slides/layoutslide/) στις προεπιλεγμένες ρυθμίσεις τους:
+Ο παρακάτω κώδικας C# δείχνει πώς να επαναφέρετε τη μορφοποίηση μιας διαφάνειας και να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση όλων των σχημάτων με σύμβολα στην [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) στις προεπιλεγμένες ρυθμίσεις τους:
 
 ```c#
 using Aspose.Slides;
@@ -670,7 +672,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // Επαναφορά κάθε σχήματος στη διαφάνεια που έχει placeholder στην διάταξη.
+        // Επαναφορά κάθε σχήματος στη διαφάνεια που έχει σύμβολο κράτησης θέσης στη διάταξη.
         slide.Reset();
     }
 
@@ -678,16 +680,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Επιφέρει η μορφοποίηση των σχημάτων στο τελικό μέγεθος του αρχείου παρουσίασης;**
+**Επηρεάζει η μορφοποίηση σχήματος το τελικό μέγεθος του αρχείου παρουσίασης;**
 
-Μόνο ελάχιστα. Οι ενσωματωμένες εικόνες και τα πολυμέσα καταλαμβάνουν το μεγαλύτερο μέρος του αρχείου, ενώ οι παράμετροι σχήματος όπως χρώματα, εφέ και διαβαθμίσεις αποθηκεύονται ως μεταδεδομένα και προσθέτουν πρακτικά μηδενικό επιπλέον μέγεθος.
+Μόνο ελάχιστα. Οι ενσωματωμένες εικόνες και τα μέσα καταλαμβάνουν το μεγαλύτερο μέρος του χώρου, ενώ οι παράμετροι σχήματος όπως χρώματα, εφέ και διαβαθμίσεις αποθηκεύονται ως μεταδεδομένα και δεν προσθέτουν ουσιαστικά επιπλέον μέγεθος.
 
-**Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που μοιράζονται την ίδια μορφοποίηση ώστε να τα ομαδοποιήσω;**
+**Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που μοιράζονται ταυτόσημη μορφοποίηση ώστε να τα ομαδοποιήσω;**
 
-Συγκρίνετε τις βασικές ιδιότητες μορφοποίησης κάθε σχήματος—γέμισμα, γραμμή και ρυθμίσεις εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε τα στυλ ως τα ίδια και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλουστεύει τη μετέπειτα διαχείριση στυλ.
+Συγκρίνετε τις κύριες ιδιότητες μορφοποίησης κάθε σχήματος—ρυθμίσεις γέμισης, γραμμής και εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε ότι τα στυλ είναι ταυτόσημα και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη μετέπειτα διαχείριση στυλ.
 
-**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχήματος σε ξεχωριστό αρχείο για επαναχρησιμοποίηση σε άλλες παρουσιάσεις;**
+**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχήματος σε ξεχωριστό αρχείο για επαναχρήση σε άλλες παρουσιάσεις;**
 
-Ναι. Αποθηκεύστε δείγματα σχημάτων με τα επιθυμητά στυλ σε ένα πρότυπο σετ διαφανειών ή σε αρχείο προτύπου .POTX. Κατά τη δημιουργία νέας παρουσίασης, ανοίξτε το πρότυπο, κλωνοποιήστε τα στυλιζαρισμένα σχήματα που χρειάζεστε και επαναεφαρμόστε τη μορφοποίησή τους όπου απαιτείται.
+Ναι. Αποθηκεύστε δείγμα σχήματος με τα επιθυμητά στυλ σε μια διαφάνεια προτύπου ή σε αρχείο .POTX. Όταν δημιουργείτε νέα παρουσίαση, ανοίξτε το πρότυπο, κλωνοποιήστε τα σχήματα που χρειάζεστε και εφαρμόστε ξανά τη μορφοποίησή τους όπου απαιτείται.

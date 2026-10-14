@@ -21,83 +21,171 @@ keywords:
 - ekspor PPTX ke PNG
 - C++
 - Aspose.Slides
-description: "Konversi presentasi PowerPoint ke gambar PNG berkualitas tinggi dengan cepat menggunakan Aspose.Slides untuk C++, memastikan hasil yang tepat dan otomatis."
+description: "Konversi presentasi PowerPoint menjadi gambar PNG berkualitas tinggi dengan cepat menggunakan Aspose.Slides untuk C++, memastikan hasil yang tepat dan otomatis."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengonversi presentasi PowerPoint ke gambar PNG menggunakan Aspose.Slides. Artikel ini menunjukkan cara memuat file presentasi dalam format seperti PPT, PPTX, dan ODP, merender slide sebagai gambar, dan menyimpan hasilnya dalam format PNG.
+Artikel ini menjelaskan cara mengonversi slide presentasi menjadi gambar PNG menggunakan Aspose.Slides untuk C++. Anda dapat memuat presentasi dalam format seperti PPT, PPTX, dan ODP, merender tiap slide, dan menyimpannya sebagai gambar PNG terpisah.
 
-Artikel ini juga memperlihatkan cara menyesuaikan gambar PNG yang dihasilkan dengan mengatur nilai skala atau menentukan lebar dan tinggi yang diinginkan.
+Contoh di bawah menunjukkan cara merender dengan skala default, meningkatkan skala, menentukan dimensi output dalam piksel, dan memilih gaya render gradien.
 
-## **Konversi PowerPoint ke PNG**
+## **Mengonversi PowerPoint ke PNG**
 
-Ikuti langkah-langkah berikut:
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-2. Dapatkan objek slide dari koleksi [Presentation::get_Slides()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) di bawah antarmuka [ISlide](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_slide).
-3. Gunakan metode [ISlide::GetImage()](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/getimage) untuk mendapatkan thumbnail setiap slide.
-4. Gunakan metode [IImage::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/save/#iimagesavesystemstring-imageformat-method) untuk menyimpan thumbnail slide ke format PNG.
-
-Kode C++ berikut menunjukkan cara mengonversi presentasi PowerPoint ke PNG:
+Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) dan akses slidennya melalui accessor [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/). Contoh ini merender setiap slide dengan [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) tanpa parameter untuk membuat thumbnail. Kemudian memanggil [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) dengan [ImageFormat::Png](https://reference.aspose.com/slides/cpp/aspose.slides/imageformat/) untuk menyimpan tiap slide yang sudah dirender sebagai gambar PNG.
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-    
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage()->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage();
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **Konversi PowerPoint ke PNG dengan Dimensi Kustom**
+{{% alert color="info" title="Note" %}}
+Pemanggilan overload [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) tanpa parameter merender dengan skala 0,2. Misalnya, slide berukuran 720 × 540 poin menghasilkan thumbnail berukuran 144 × 108 piksel. Untuk mengontrol dimensi output, gunakan overload dengan faktor skala atau ukuran gambar eksplisit seperti yang ditunjukkan di bawah.
+{{% /alert %}}
 
-Jika Anda ingin memperoleh file PNG dengan skala tertentu, Anda dapat mengatur nilai `desiredX` dan `desiredY`, yang menentukan dimensi thumbnail yang dihasilkan.
+## **Mengonversi PowerPoint ke PNG dengan Dimensi Kustom**
 
-Kode C++ di bawah ini mendemonstrasikan operasi tersebut:
+Berikan faktor skala horizontal dan vertikal ke [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) untuk mengontrol dimensi hasil render. Pada contoh ini, kedua faktor adalah 2, sehingga slide berukuran 720 × 540 poin menghasilkan gambar 1440 × 1080 piksel. Faktor skala yang sama menjaga rasio aspek slide. Setiap gambar disimpan dalam format PNG dengan [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/).
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
 
-float scaleX = 2.f;
-float scaleY = 2.f;
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto scaleX = 2.f;
+auto scaleY = scaleX;
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage(scaleX, scaleY)->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **Konversi PowerPoint ke PNG dengan Ukuran Kustom**
+## **Mengonversi PowerPoint ke PNG dengan Ukuran Kustom**
 
-Jika Anda ingin memperoleh file PNG dengan ukuran tertentu, Anda dapat memberi argumen `width` dan `height` yang diinginkan untuk `ImageSize`.
-
-Kode berikut menunjukkan cara mengonversi PowerPoint ke PNG sambil menentukan ukuran gambar:
+Untuk menentukan dimensi output dalam piksel, berikan ukuran ke [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) alih-alih faktor skala. Contoh ini merender setiap slide pada 960 × 720 piksel dan menyimpan hasilnya dengan [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). Pilih dimensi yang cocok dengan rasio aspek slide agar tidak terjadi pemanjangan gambar.
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-    
-Size size(960, 720);
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+#include <drawing/size.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto imageSize = System::Drawing::Size(960, 720);
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage(size)->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(imageSize);
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **FAQ**
+## **Pilih Gaya Rendering Gradien**
 
-**Bagaimana cara mengekspor hanya bentuk tertentu (misalnya diagram atau gambar) bukan seluruh slide?**
+Misalkan sebuah slide berisi isian gradien, namun transisi pada PNG yang diekspor terlihat lebih terang atau berbeda dari yang Anda lihat di PowerPoint. Anda dapat menggunakan metode [SaveOptions::set_GradientStyle](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_gradientstyle/) dari [RenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/renderingoptions/) untuk memilih cara gradien dirender.
 
-Aspose.Slides mendukung [generating thumbnails for individual shapes](/slides/id/cpp/create-shape-thumbnails/); Anda dapat merender sebuah bentuk ke gambar PNG.
+Unduh [gradient-styles.pptx](gradient-styles.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi dua gradien linear: cyan ke oranye di bagian atas dan biru ke kuning di bagian bawah. Setiap gradien memiliki dua stop, pada 0 % dan 100 %.
+
+Contoh berikut memuat presentasi ini dan merender slide pertama yang sama dalam kedua mode dengan [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/).
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+#include <DOM/GradientStyle.h>
+#include <Export/RenderingOptions.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"gradient-styles.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto gradientStyles = { GradientStyle::Default, GradientStyle::PowerPointUI };
+for (auto style : gradientStyles)
+{
+    auto options = MakeObject<RenderingOptions>();
+    options->set_GradientStyle(style);
+
+    auto image = slide->GetImage(options, 1.f, 1.f);
+    auto styleName = style == GradientStyle::Default ? u"Default" : u"PowerPointUI";
+    image->Save(String::Format(u"gradient-{0}.png", styleName), ImageFormat::Png);
+    image->Dispose();
+}
+
+presentation->Dispose();
+```
+
+Gambar di bawah menunjukkan hasil dari slide yang sama, dengan kedua gradien di tiap gambar:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Gradien cyan-ke-oranye dan biru-ke-kuning dirender dengan Default](gradient-Default.png) | ![Gradien yang sama dirender dengan PowerPointUI](gradient-PowerPointUI.png) |
+
+Pada contoh ini, `Default` menghasilkan warna antara yang lebih terang, sementara `PowerPointUI` menghasilkan warna antara yang lebih gelap. Perbedaan tergantung pada warna dan stop dalam gradien.
+
+Pilih `Default` ketika output standar Aspose.Slides sudah memenuhi kebutuhan Anda. Gunakan `PowerPointUI` bila prioritas Anda adalah mencocokkan tampilan di PowerPoint. Bandingkan kedua output dengan hasil yang Anda inginkan; tidak ada mode yang secara universal lebih baik.
+
+## **Tanya Jawab**
+
+**Bagaimana cara mengekspor bentuk tertentu, seperti diagram atau gambar, alih-alih seluruh slide?**
+
+Aspose.Slides mendukung [generating thumbnails for individual shapes](/slides/id/cpp/shape-thumbnails/), memungkinkan Anda merender sebuah bentuk sebagai gambar PNG.
 
 **Apakah konversi paralel didukung pada server?**
 
-Ya, tetapi [don’t share](/slides/id/cpp/multithreading/) satu instance presentasi di antara thread. Gunakan instance terpisah per thread atau proses.
+Ya. Gunakan instance presentasi terpisah untuk setiap thread atau proses; [do not share a single instance across threads](/slides/id/cpp/multithreading/).
 
-**Apa saja batasan versi percobaan saat mengekspor ke PNG?**
+**Apa batasan evaluasi saat mengekspor ke PNG?**
 
-Mode evaluasi menambahkan watermark pada gambar output dan memberlakukan [other restrictions](/slides/id/cpp/licensing/) sampai lisensi diterapkan.
+Mode evaluasi menambahkan watermark pada gambar output dan menerapkan [other restrictions](/slides/id/cpp/licensing/) hingga lisensi diterapkan.

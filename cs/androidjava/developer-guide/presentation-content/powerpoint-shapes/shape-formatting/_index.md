@@ -5,52 +5,52 @@ type: docs
 weight: 20
 url: /cs/androidjava/shape-formatting/
 keywords:
-- formátování tvaru
-- formátování čáry
+- formátovat tvar
+- formátovat čáru
 - skicový efekt
-- skicová čára tvaru
-- formátování stylu spojení
-- gradientní výplň
+- skicovat čáru tvaru
+- formátovat styl spojení
+- gradientová výplň
 - vzorná výplň
-- obrázková výplň
-- texturová výplň
-- jednobarevná výplň
+- vyplnění obrázkem
+- texturovaná výplň
+- vyplnění jednou barvou
 - průhlednost tvaru
 - černobílé vykreslování tvaru
-- šedotónové vykreslování tvaru
-- otočení tvaru
-- 3D obrušovací efekt
+- vykreslení tvaru v odstínech šedi
+- otočit tvar
+- 3D zkosený efekt
 - 3D rotační efekt
-- resetování formátování
+- obnovit formátování
 - PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se, jak formátovat tvary PowerPointu na Androidu pomocí Aspose.Slides — nastavte výplně, čáry a styly efektů pro soubory PPT, PPTX a ODP s přesností a plnou kontrolou."
+description: "Naučte se, jak formátovat tvary PowerPointu na Androidu pomocí Aspose.Slides — nastavení výplní, čar a stylů efektů pro soubory PPT, PPTX a ODP s precizností a úplnou kontrolou."
 ---
 ## **Úvod**
 
-V PowerPointu můžete do snímků přidávat tvary. Protože tvary jsou složeny z čar, můžete je formátovat úpravou nebo aplikací efektů na jejich obrysy. Navíc můžete tvary formátovat nastavením, které řídí, jak jsou jejich vnitřky vyplněny.
+V PowerPointu můžete do snímků přidávat tvary. Jelikož jsou tvary složeny z čar, můžete je formátovat úpravou nebo použitím efektů na jejich obrysy. Navíc můžete tvary formátovat nastavením, které řídí, jak jsou jejich vnitřky vyplněny.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![formátování tvaru v PowerPointu](format-shape-powerpoint.png)
 
-Aspose.Slides pro Android prostřednictvím Javy poskytuje rozhraní a metody, které vám umožňují formátovat tvary pomocí stejných možností, jaké jsou dostupné v PowerPointu.
+Aspose.Slides for Android via Java poskytuje rozhraní a metody, které vám umožňují formátovat tvary pomocí stejných možností, jaké jsou k dispozici v PowerPointu.
 
-## **Formátovat čáry**
+## **Formátování čar**
 
 Pomocí Aspose.Slides můžete pro tvar určit vlastní styl čáry. Následující kroky popisují postup:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
-1. Nastavte [line style](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/linestyle/) tvaru.
+1. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+1. Nastavte [styl čáry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linestyle/) tvaru.
 1. Nastavte šířku čáry.
-1. Nastavte [dash style](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/linedashstyle/) čáry.
+1. Nastavte [styl čerchování](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) čáry.
 1. Nastavte barvu čáry pro tvar.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Následující kód ukazuje, jak naformátovat obdélníkový `AutoShape`:
+Následující kód ukazuje, jak formátovat obdélník `AutoShape`:
 
 ```java
 import com.aspose.slides.*;
@@ -65,7 +65,7 @@ try {
     // Přidejte automatický tvar typu Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Odstraňte výplň z obdélníkového tvaru, aby byly viditelné jen jeho čáry.
+    // Odstraňte výplň z obdélníkového tvaru, aby byly viditelné pouze jeho čáry.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
     // Aplikujte formátování na čáry obdélníku.
@@ -84,15 +84,15 @@ try {
 }
 ```
 
-Výsledek:
+**Výsledek:**
 
 ![Formátované čáry v prezentaci](formatted-lines.png)
 
-## **Použít skicové efekty na čáry tvaru**
+## **Použití skicových efektů na čáry tvarů**
 
-Skicový efekt způsobí, že čára tvaru vypadá ručně kresleně. Použijte [IShape.getLineFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/) k přístupu k nastavením čáry, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilineformat/) k přístupu k nastavením skici a [ISketchFormat.setSketchType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isketchformat/) k výběru hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/linesketchtype/).
+Skicový efekt způsobí, že čára tvaru vypadá ručně kresleně. Použijte [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) pro přístup k nastavením čáry, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/) pro přístup k nastavením skicy a [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/) pro výběr hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/).
 
-Následující Java kód ukazuje, jak aplikovat efekt [LineSketchType.Curved](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/linesketchtype/) , přečíst explicitně přiřazenou hodnotu a odebrat efekt pomocí [LineSketchType.None](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/linesketchtype/):
+Následující kód v jazyce Java ukazuje, jak použít efekt [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) , jak přečíst explicitně přiřazenou hodnotu a jak odebrat efekt pomocí [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
 
 ```java
 import com.aspose.slides.*;
@@ -105,7 +105,7 @@ try {
     // Získejte formát čáry tvaru a jeho skicový formát.
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
 
-    // Aplikujte skicový efekt.
+    // Použijte skicový efekt.
     sketchFormat.setSketchType(LineSketchType.Curved);
 
     // Přečtěte skicový efekt přiřazený přímo tvaru.
@@ -119,7 +119,7 @@ try {
 }
 ```
 
-Hodnota vrácená metodou [ISketchFormat.getSketchType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isketchformat/) představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozložení snímku, použijte [ILineFormat.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilineformat/), přistupujte k [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilineformateffectivedata/) a přečtěte [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isketchformateffectivedata/). Efektivní hodnota odráží formátování, které je skutečně použito po vyřešení dědičnosti:
+Hodnota vrácená metodou [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/) představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozložení snímku, použijte [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/), přistupte k [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/), a přečtěte [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/). Efektivní hodnota odráží skutečné formátování po vyřešení zdědění:
 
 ```java
 import com.aspose.slides.*;
@@ -140,19 +140,17 @@ try {
 }
 ```
 
-## **Formátovat styly spojení**
+## **Formátování stylů spojení**
 
 Zde jsou tři možnosti typu spojení:
 
 * Kulatý
-* Miter
-* Bevel
+* Šikmý
+* Sražený
 
-Ve výchozím nastavení, když PowerPoint spojuje dvě čáry pod úhlem (například na rohu tvaru), používá nastavení **Kulatý**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Miter**.
+Ve výchozím nastavení PowerPoint při spojení dvou čar pod úhlem (například v rohu tvaru) používá nastavení **Kulatý**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostňovat možnost **Šikmý**.
 
 ![Styl spojení v prezentaci](join-style-powerpoint.png)
-
-Následující Java kód ukazuje, jak byly vytvořeny tři obdélníky (jak je vidět na obrázku výše) pomocí nastavení typu spojení Miter, Bevel a Round:
 
 ```java
 import com.aspose.slides.*;
@@ -207,17 +205,17 @@ try {
 }
 ```
 
-## **Gradientní výplň**
+## **Gradientové výplně**
 
-V PowerPointu je Gradientní výplň formátovací možnost, která umožňuje aplikovat plynulý přechod barev na tvar. Například můžete použít dvě nebo více barev tak, že jedna postupně přechází v druhou.
+V PowerPointu je Gradient Fill formátovací možnost, která vám umožňuje aplikovat plynulé prolínání barev na tvar. Například můžete použít dvě nebo více barev tak, aby se jedna postupně přecházela v druhou.
 
-Zde je postup, jak aplikovat gradientní výplň na tvar pomocí Aspose.Slides:
+Zde je návod, jak pomocí Aspose.Slides aplikovat gradientovou výplň na tvar:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) tvaru na `Gradient`.
-1. Přidejte dvě preferované barvy s definovanými pozicemi pomocí metod `add` kolekce gradientových zastávek, kterou vystavuje rozhraní [IGradientFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igradientformat/).
+1. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+1. Nastavte [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) tvaru na `Gradient`.
+1. Přidejte své dvě preferované barvy s definovanými pozicemi pomocí metod `add` kolekce gradientových zastávek, kterou poskytuje rozhraní [IGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/).
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
 ```java
@@ -232,14 +230,14 @@ try {
     // Přidejte automatický tvar typu Ellipse.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Aplikujte gradientní formátování na elipsu.
+    // Aplikujte gradientové formátování na elipsu.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
     // Nastavte směr gradientu.
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
-    // Přidejte dva gradientové zastávky.
+    // Přidejte dva gradientové zastavení.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
@@ -250,25 +248,27 @@ try {
 }
 ```
 
-Výsledek:
+**Výsledek:**
 
-![Elipsa s gradientní výplní](gradient-fill.png)
+![Elipsa s gradientovou výplní](gradient-fill.png)
 
-## **Vzorová výplň**
+Pokud se gradient v exportovaném obrázku liší od toho v PowerPointu, podívejte se na [Vyberte styl vykreslování gradientu](/slides/cs/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Můžete vybrat styl vykreslování, aniž byste měnili gradientovou výplň uloženou v prezentaci.
 
-V PowerPointu je Vzorová výplň formátovací možnost, která umožňuje aplikovat dvoubarevný design – například tečky, pruhy, šrafování nebo šachovnici – na tvar. Můžete zvolit vlastní barvy pro popředí a pozadí vzoru.
+## **Vyplňování vzorem**
 
-Aspose.Slides poskytuje více než 45 předdefinovaných vzorových stylů, které můžete aplikovat na tvary a zvýšit tak vizuální atraktivitu svých prezentací. I po výběru předdefinovaného vzoru můžete stále určit přesné barvy, které se mají použít.
+V PowerPointu je Pattern Fill formátovací možnost, která vám umožňuje použít dvoubarevný návrh – například tečky, pruhy, křížové šrafování nebo šachovnici – na tvar. Můžete zvolit vlastní barvy pro popředí a pozadí vzoru.
 
-Zde je postup, jak aplikovat vzorovou výplň na tvar pomocí Aspose.Slides:
+Aspose.Slides poskytuje více než 45 předdefinovaných stylů vzorů, které můžete aplikovat na tvary a zvýšit tak vizuální atraktivitu prezentací. I po výběru předdefinovaného vzoru můžete přesně určit barvy, které má použít.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+Zde je návod, jak pomocí Aspose.Slides aplikovat výplň vzorem na tvar:
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) tvaru na `Pattern`.
-1. Vyberte vzorový styl z předdefinovaných možností.
-1. Nastavte [Background Color](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/patternformat/#getBackColor--) vzoru.
-1. Nastavte [Foreground Color](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/patternformat/#getForeColor--) vzoru.
+1. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+1. Nastavte [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) tvaru na `Pattern`.
+1. Vyberte styl vzoru z předdefinovaných možností.
+1. Nastavte [Background Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/patternformat/#getBackColor--) vzoru.
+1. Nastavte [Foreground Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/patternformat/#getForeColor--) vzoru.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
 ```java
@@ -301,28 +301,28 @@ try {
 }
 ```
 
-Výsledek:
+**Výsledek:**
 
-![Obdélník s vzorovou výplní](pattern-fill.png)
+![Obdélník s výplní vzorem](pattern-fill.png)
 
-## **Obrázková výplň**
+## **Vyplnění obrázkem**
 
-V PowerPointu je Obrázková výplň formátovací možnost, která umožňuje vložit obrázek dovnitř tvaru – efektivně používá obrázek jako pozadí tvaru.
+V PowerPointu je Picture Fill formátovací možnost, která vám umožňuje vložit obrázek do tvaru – efektivně použít obrázek jako pozadí tvaru.
 
-Zde je postup, jak pomocí Aspose.Slides aplikovat obrázkovou výplň na tvar:
+Zde je návod, jak pomocí Aspose.Slides aplikovat vyplnění obrázkem na tvar:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) tvaru na `Picture`.
-1. Nastavte režim obrázkové výplně na `Tile` (nebo jiný preferovaný režim).
-1. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) z obrázku, který chcete použít.
+1. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+1. Nastavte [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) tvaru na `Picture`.
+1. Nastavte režim vyplnění obrázkem na `Tile` (nebo jiný preferovaný režim).
+1. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) z obrázku, který chcete použít.
 1. Předávejte obrázek metodě `ISlidesPicture.setImage`.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
-![Obrázek lotosu](lotus.png)
+Řekněme, že máme soubor „lotus.png“ s následujícím obrázkem:
 
-Následující Java kód ukazuje, jak vyplnit tvar obrázkem:
+![Obrázek lotusu](lotus.png)
 
 ```java
 import com.aspose.slides.*;
@@ -339,10 +339,10 @@ try {
     // Nastavte typ výplně na Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Nastavte režim obrázkové výplně.
+    // Nastavte režim vyplnění obrázkem.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Nahrajte obrázek a přidejte jej do zdrojů prezentace.
+    // Načtěte obrázek a přidejte jej k prostředkům prezentace.
     IImage image = Images.fromFile("lotus.png");
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
@@ -357,23 +357,23 @@ try {
 }
 ```
 
-Výsledek:
+**Výsledek:**
 
-![Tvar s obrázkovou výplní](picture-fill.png)
+![Tvar s vyplněním obrázkem](picture-fill.png)
 
 ### **Dlaždicovat obrázek jako texturu**
 
-Pokud chcete nastavit obrázek jako dlaždicovou texturu a přizpůsobit chování dlaždicování, můžete použít následující metody rozhraní [IPictureFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/) a třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/picturefillformat/):
+Pokud chcete nastavit dlaždicovaný obrázek jako texturu a přizpůsobit chování dlaždic, můžete použít následující metody rozhraní [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) a třídy [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Nastavuje režim obrázkové výplně – buď `Tile` nebo `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Určuje zarovnání dlaždic uvnitř tvaru.
-- [setTileFlip](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Ovládá, zda je dlaždice převrácena horizontálně, vertikálně nebo obojí.
-- [setTileOffsetX](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Nastavuje horizontální posun dlaždice (v bodech) od počátku tvaru.
-- [setTileOffsetY](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Nastavuje vertikální posun dlaždice (v bodech) od počátku tvaru.
-- [setTileScaleX](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definuje horizontální měřítko dlaždice v procentech.
-- [setTileScaleY](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definuje vertikální měřítko dlaždice v procentech.
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Nastavuje režim vyplnění obrázkem – buď `Tile`, nebo `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Určuje zarovnání dlaždic uvnitř tvaru.
+- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Řídí, zda je dlaždice otočena horizontálně, vertikálně nebo oběma způsoby.
+- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Nastavuje horizontální odsazení dlaždice (v bodech) od počátku tvaru.
+- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Nastavuje vertikální odsazení dlaždice (v bodech) od počátku tvaru.
+- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definuje horizontální měřítko dlaždice v procentech.
+- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definuje vertikální měřítko dlaždice v procentech.
 
-Následující ukázka kódu ukazuje, jak přidat obdélníkový tvar s dlaždicovou obrázkovou výplní a nakonfigurovat možnosti dlaždic:
+Následující ukázka kódu ukazuje, jak přidat obdélníkový tvar s dlaždicovou výplní obrázkem a nakonfigurovat možnosti dlaždic:
 
 ```java
 import com.aspose.slides.*;
@@ -384,13 +384,13 @@ try {
     // Získejte první snímek.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // Přidejte automatický tvar typu Rectangle.
+    // Přidejte automatický tvar obdélníku.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
     // Nastavte typ výplně tvaru na Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Načtěte obrázek a přidejte jej do zdrojů prezentace.
+    // Načtěte obrázek a přidejte jej k prostředkům prezentace.
     IImage sourceImage = Images.fromFile("lotus.png");
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
@@ -399,7 +399,7 @@ try {
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Nakonfigurujte režim obrázkové výplně a vlastnosti dlaždicování.
+    // Nakonfigurujte režim vyplnění obrázkem a vlastnosti dlaždic.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -415,21 +415,21 @@ try {
 }
 ```
 
-Výsledek:
+**Výsledek:**
 
 ![Možnosti dlaždic](tile-options.png)
 
-## **Jednobarevná výplň**
+## **Vyplnění jednou barvou**
 
-V PowerPointu je Jednobarevná výplň formátovací možnost, která vyplní tvar jednou rovnoměrnou barvou. Toto ploché pozadí se použije bez jakýchkoli gradientů, textur či vzorů.
+V PowerPointu je Solid Color Fill formátovací možnost, která vyplní tvar jednou jednotnou barvou. Toto jednoduché pozadí se použije bez gradientů, textur či vzorů.
 
-Postup pro aplikaci jednobarevné výplně na tvar pomocí Aspose.Slides:
+Chcete-li pomocí Aspose.Slides aplikovat výplň jednou barvou na tvar, postupujte takto:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) tvaru na `Solid`.
-1. Přiřaďte preferovanou barvu výplně tvaru.
+1. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+1. Nastavte [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) tvaru na `Solid`.
+1. Přiřaďte požadovanou barvu výplně tvaru.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
 ```java
@@ -458,21 +458,21 @@ try {
 }
 ```
 
-Výsledek:
+**Výsledek:**
 
-![Tvar s jednobarevnou výplní](solid-color-fill.png)
+![Tvar s výplní jednou barvou](solid-color-fill.png)
 
-## **Nastavit průhlednost**
+## **Nastavení průhlednosti**
 
-V PowerPointu, když aplikujete jednobarevnou, gradientní, obrázkovou nebo texturovou výplň na tvary, můžete také nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že tvar bude více průhledný a podklad nebo podkladové objekty budou částečně viditelné.
+V PowerPointu, když aplikujete výplň jednou barvou, gradientovou, obrázkovou nebo texturální, můžete také nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že je tvar průhlednější a pozadí nebo podkladové objekty jsou částečně viditelné.
 
-Aspose.Slides umožňuje nastavit úroveň průhlednosti úpravou alfa komponenty barvy použité pro výplň. Postup:
+Aspose.Slides umožňuje nastavit úroveň průhlednosti úpravou alfa složky barvy použité pro výplň. Postupujte takto:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) na `Solid`.
-1. Použijte `Color` pro definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
+1. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+1. Nastavte [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) na `Solid`.
+1. Použijte `Color` k definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
 1. Uložte prezentaci.
 
 ```java
@@ -485,10 +485,10 @@ try {
     // Získejte první snímek.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Přidejte plný obdélníkový automatický tvar.
+    // Přidejte automatický obdélníkový tvar s plnou výplní.
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Přidejte průhledný obdélníkový automatický tvar nad pevný tvar.
+    // Přidejte transparentní obdélníkový automatický tvar nad plný tvar.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
@@ -500,20 +500,20 @@ try {
 }
 ```
 
-Výsledek:
+**Výsledek:**
 
 ![Průhledný tvar](shape-transparency.png)
 
-## **Otočit tvary**
+## **Otáčení tvarů**
 
-Aspose.Slides umožňuje otáčet tvary v prezentacích PowerPoint. To může být užitečné při umisťování vizuálních prvků s konkrétním zarovnáním nebo designovým požadavkem.
+Aspose.Slides vám umožňuje otáčet tvary v prezentacích PowerPoint. To může být užitečné při umisťování vizuálních elementů s konkrétním zarovnáním nebo designovými požadavky.
 
-Postup pro otočení tvaru na snímku:
+Chcete‑li otočit tvar na snímku, postupujte podle následujících kroků:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
-1. Nastavte vlastnost rotace tvaru na požadovaný úhel.
+1. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+1. Nastavte vlastnost otáčení tvaru na požadovaný úhel.
 1. Uložte prezentaci.
 
 ```java
@@ -538,20 +538,20 @@ try {
 }
 ```
 
-Výsledek:
+**Výsledek:**
 
 ![Otáčení tvaru](shape-rotation.png)
 
-## **Přidat 3D obrušovací efekty**
+## **Přidání 3D zkosených efektů**
 
-Aspose.Slides vám umožňuje aplikovat 3D obrušovací efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/threedformat/).
+Aspose.Slides umožňuje aplikovat 3D zkosené efekty na tvary konfigurováním jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/).
 
-Postup pro přidání 3D obrušovacích efektů na tvar:
+Chcete‑li přidat 3D zkosené efekty na tvar, postupujte takto:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+1. Instanciujte třídu [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
-1. Konfigurujte [ThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/threedformat/) tvaru pro definování nastavení obroušení.
+1. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+1. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/) tvaru pro definování nastavení zkosení.
 1. Uložte prezentaci.
 
 ```java
@@ -587,20 +587,20 @@ try {
 }
 ```
 
-Výsledek:
+**Výsledek:**
 
-![3D obrušovací efekt](3D-bevel-effect.png)
+![3D zkosený efekt](3D-bevel-effect.png)
 
-## **Přidat 3D rotační efekty**
+## **Přidání 3D rotačních efektů**
 
-Aspose.Slides vám umožňuje aplikovat 3D rotační efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/threedformat/).
+Aspose.Slides umožňuje aplikovat 3D rotační efekty na tvary konfigurováním jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/).
 
-Postup pro aplikaci 3D rotace na tvar:
+Chcete‑li aplikovat 3D rotaci na tvar:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
-1. Použijte [setCameraType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icamera/#setCameraType-int-) a [setLightType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) pro definování 3D rotace.
+1. Přidejte na snímek [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+1. Použijte [setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) a [setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) pro definování 3D rotace.
 1. Uložte prezentaci.
 
 ```java
@@ -626,17 +626,17 @@ try {
 }
 ```
 
-Výsledek:
+**Výsledek:**
 
 ![3D rotační efekt](3D-rotation-effect.png)
 
-## **Ovládání černobílého vykreslování tvarů**
+## **Řízení černobílého vykreslování pro tvary**
 
-Metoda [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) určuje, jak se jednotlivý tvar vykreslí, když je prezentace zobrazována nebo zpracovávána v černobílém režimu. Neaktivuje černobílý režim sama o sobě a nemění výplň, čáru nebo jiné formátování tvaru v normálním barevném režimu.
+Metoda [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) určuje, jak se jednotlivý tvar vykresluje, když je prezentace zobrazována nebo zpracovávána v černobílém režimu. Tato metoda sama o sobě neaktivuje černobílý režim a nemění výplň, čáru ani jiné formátování tvaru v normálním barevném režimu.
 
-Pro výběr požadovaného chování použijte hodnotu ze třídy [BlackWhiteMode](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/blackwhitemode/). Například `Automatic` nechá aplikaci zvolit převod, `Gray` a `LightGray` používají šedé zabarvení, `BlackWhite` používá jen černou a bílou, `Black` a `White` vynutí jednu barvu, `Color` zachová normální barvy a `Hidden` vynechá tvar v černobílém režimu. `NotDefined` znamená, že není přiřazen žádný režim na úrovni tvaru.
+Použijte hodnotu ze třídy [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) pro výběr požadovaného chování. Například `Automatic` nechá renderovací aplikaci zvolit konverzi, `Gray` a `LightGray` používají šedé zabarvení, `BlackWhite` používá pouze černou a bílou, `Black` a `White` vynutí jedinou barvu, `Color` zachová normální barvy, `Hidden` vynechá tvar v černobílém režimu a `NotDefined` znamená, že nebyl přiřazen žádný režim na úrovni tvaru.
 
-Následující Java kód vytvoří barevný tvar a způsobí, že se v černobílém zobrazovacím režimu zobrazí šedě:
+Následující kód v jazyce Java vytvoří barevný tvar a způsobí, že se v černobílém zobrazovacím režimu zobrazí šedě:
 
 ```java
 import com.aspose.slides.*;
@@ -650,7 +650,7 @@ try {
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
 
-    // Zachovat oranžovou výplň v barevném režimu, ale vykreslit tvar se šedým zbarvením v černobílém režimu.
+    // Uchovejte oranžovou výplň v barevném režimu, ale vykreslete tvar se šedým zabarvením v černobílém režimu.
     shape.setBlackWhiteMode(BlackWhiteMode.Gray);
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
@@ -659,11 +659,11 @@ try {
 }
 ```
 
-V normálním barevném režimu si obdélník zachovává oranžovou výplň. V pracovním postupu s černobílým zobrazením používá šedé zabarvení, protože jeho režim je nastaven na `Gray`. To vám umožní zachovat plnobarevný snímek a zároveň definovat odlišný vzhled pro tisk, náhled či jiné postupy, které respektují nastavení černobílého zobrazení prezentace.
+V normálním barevném režimu si obdélník zachová oranžovou výplň. V pracovním postupu černobílého zobrazení používá šedé zbarvení, protože jeho režim je nastaven na `Gray`. To vám umožní zachovat plnobarevný snímek a zároveň definovat odlišný vzhled pro tisk, náhled nebo jiné pracovní postupy, které respektují nastavení černobílého zobrazení prezentace.
 
-## **Obnovit formátování**
+## **Obnovení formátování**
 
-Následující Java kód ukazuje, jak obnovit formátování snímku a vrátit pozici, velikost a formátování všech tvarů s zástupci na [LayoutSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/layoutslide/) na jejich výchozí nastavení:
+Následující kód v jazyce Java ukazuje, jak obnovit formátování snímku a vrátit pozici, velikost a formátování všech tvarů s placeholdery na [LayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/) na jejich výchozí nastavení:
 
 ```java
 import com.aspose.slides.*;
@@ -671,7 +671,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Resetujte každý tvar na snímku, který má zástupce v rozložení.
+        // Resetujte každý tvar na snímku, který má placeholder v rozložení.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -684,12 +684,12 @@ try {
 
 **Ovlivňuje formátování tvarů konečnou velikost souboru prezentace?**
 
-Pouze minimálně. Vložení obrázků a médií zabírá většinu místa v souboru, zatímco parametry tvarů jako barvy, efekty a gradienty jsou uloženy jako metadata a prakticky nezvyšují velikost souboru.
+Pouze nepatrně. Vložené obrázky a média zabírají většinu prostoru souboru, zatímco parametry tvarů, jako jsou barvy, efekty a gradienty, jsou uloženy jako metadata a téměř nepřidávají žádnou velikost.
 
-**Jak mohu na snímku detekovat tvary, které mají identické formátování, aby bylo možné je seskupit?**
+**Jak mohu detekovat tvary na snímku, které mají identické formátování, abych je mohl seskupit?**
 
-Porovnejte klíčové vlastnosti formátování každého tvaru – výplň, čáru a nastavení efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte, což usnadní následnou správu stylů.
+Porovnejte klíčové vlastnosti formátování každého tvaru – výplň, čáru a nastavení efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte, což usnadní pozdější správu stylů.
 
 **Mohu uložit sadu vlastních stylů tvarů do samostatného souboru pro opětovné použití v jiných prezentacích?**
 
-Ano. Uložte vzorové tvary s požadovanými styly do šablonového balíku snímků nebo souboru šablony .POTX. Při vytváření nové prezentace otevřete šablonu, naklonujte stylované tvary, které potřebujete, a znovu aplikujte jejich formátování kdekoliv je to nutné.
+Ano. Uložte ukázkové tvary s požadovanými styly do šablony snímků nebo souboru .POTX. Při tvorbě nové prezentace otevřete šablonu, klonujte potřebné stylované tvary a znovu použijte jejich formátování tam, kde je to potřeba.

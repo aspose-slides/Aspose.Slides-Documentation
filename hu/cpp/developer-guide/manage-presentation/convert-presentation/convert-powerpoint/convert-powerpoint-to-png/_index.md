@@ -1,17 +1,17 @@
 ---
-title: PowerPoint diák konvertálása PNG formátumba C++-ban
+title: PowerPoint diák PNG-re konvertálása C++-ban
 linktitle: PowerPoint PNG-re
 type: docs
 weight: 30
 url: /hu/cpp/convert-powerpoint-to-png/
 keywords:
-- PowerPoint konvertálása
-- prezentáció konvertálása
-- dia konvertálása
-- PPT konvertálása
-- PPTX konvertálása
+- PowerPoint átalakítása
+- bemutató átalakítása
+- dia átalakítása
+- PPT átalakítása
+- PPTX átalakítása
 - PowerPoint PNG-re
-- prezentáció PNG-re
+- bemutató PNG-re
 - dia PNG-re
 - PPT PNG-re
 - PPTX PNG-re
@@ -25,79 +25,160 @@ description: "Konvertálja a PowerPoint prezentációkat gyorsan magas minőség
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet a PowerPoint bemutatókat PNG képekké konvertálni az Aspose.Slides használatával. Megmutatja, hogyan tölthetőek be a bemutató fájlok PPT, PPTX és ODP formátumokban, hogyan jeleníthetők meg a diák képként, és hogyan menthetők a PNG formátumban.
+Ez a cikk bemutatja, hogyan lehet a bemutató diákot PNG képekké konvertálni az Aspose.Slides for C++ használatával. Betöltheti a prezentációkat olyan formátumokban, mint a PPT, PPTX és ODP, renderelheti az egyes diát, és külön PNG képként mentheti el.  
+Az alábbi példák bemutatják a renderelést alapértelmezett méretezésben, a méretek növelését, a kimeneti méretek pixelben való megadását, valamint egy gradient renderelési stílus kiválasztását.
 
-A cikk azt is bemutatja, hogyan testreszabhatók a létrehozott PNG képek méretezési értékek beállításával vagy a kívánt szélesség és magasság megadásával.
+## **PowerPoint konvertálása PNG-be**
 
-## **PowerPoint konvertálása PNG formátumba**
-
-Kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) példányt.
-2. Szerezze be a dia objektumot a [Presentation::get_Slides()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) gyűjteményből az [ISlide](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_slide) felület alatt.
-3. Használja az [ISlide::GetImage()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/getimage) metódust az egyes diák előnézeti képének létrehozásához.
-4. Használja az [IImage::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/save/#iimagesavesystemstring-imageformat-method) metódust a dia előnézeti kép PNG formátumba mentéséhez.
-
-Ez a C++ kód megmutatja, hogyan konvertálhat egy PowerPoint bemutatót PNG formátumba:
+Töltsön be egy prezentációt a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) osztállyal, és a diákhoz a [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) accessoron keresztül férhet hozzá. A példa minden diát a [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) paraméter nélküli hívásával rendereli, hogy bélyegkép készüljön. Ezután meghívja a [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) metódust a [ImageFormat::Png](https://reference.aspose.com/slides/cpp/aspose.slides/imageformat/) értékkel, hogy minden renderelt diát PNG képként mentse.
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-    
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage()->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage();
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **PowerPoint konvertálása PNG formátumba egyedi méretekkel**
+{{% alert color="info" title="Note" %}}
+A paraméter nélküli [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) túlterhelés 0,2-s méretezésben renderel. Például egy 720 × 540 pont méretű dia 144 × 108 pixeles bélyegképet eredményez. A kimeneti méretek szabályozásához használja a méretarányokkal vagy egy explicit képmérettel ellátott túlterheléseket, ahogy alább látható.
+{{% /alert %}}
 
-Ha egy adott méretarányú PNG fájlokat szeretne kapni, beállíthatja a `desiredX` és `desiredY` értékeket, amelyek meghatározzák a létrejövő előnézeti kép méreteit.
+## **PowerPoint konvertálása PNG-be egyéni méretekkel**
 
-Ez a C++ kód bemutatja a leírt műveletet:
-
+Adja meg a vízszintes és függőleges méretarányokat a [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) hívásakor a renderelt méretek szabályozásához. Ebben a példában mindkét arány 2, így egy 720 × 540 pont méretű dia 1440 × 1080 pixeles képet eredményez. Azonos méretarányok megőrzik a dia képarányát. Minden kép PNG formátumban kerül mentésre az [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) metódussal.
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
 
-float scaleX = 2.f;
-float scaleY = 2.f;
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto scaleX = 2.f;
+auto scaleY = scaleX;
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage(scaleX, scaleY)->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **PowerPoint konvertálása PNG formátumba egyedi mérettel**
+## **PowerPoint konvertálása PNG-be egyéni mérettel**
 
-Ha egy adott méretű PNG fájlokat szeretne, megadhatja a kívánt `width` és `height` paramétereket az `ImageSize` számára.
-
-Ez a kód megmutatja, hogyan konvertálhat egy PowerPointot PNG formátumba a képek méretének megadásával:
-
+A kimeneti méretek pixelben való megadásához egy méretet adjon át a [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) hívásakor a méretarányok helyett. Ez a példa minden diát 960 × 720 pixelben renderel, és az eredményt az [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) metódussal menti. Válasszon olyan méreteket, amelyek a dia képarányával megegyeznek, hogy elkerülje a kép nyújtását.
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-    
-Size size(960, 720);
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+#include <drawing/size.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto imageSize = System::Drawing::Size(960, 720);
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage(size)->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(imageSize);
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **Gyakran Ismételt Kérdések**
+## **Gradient renderelési stílus választása**
 
-**Hogyan exportálhatok csak egy adott alakzatot (például diagramot vagy képet) a teljes dia helyett?**
+Tegyük fel, hogy egy dián gradient kitöltések vannak, de az exportált PNG-ben a átmenetek világosabbak vagy másképp néznek ki, mint a PowerPointban. A [SaveOptions::set_GradientStyle](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_gradientstyle/) metódust a [RenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/renderingoptions/) osztályon keresztül használhatja arra, hogy kiválassza, hogyan kerülnek renderelésre a gradientek.  
 
-Az Aspose.Slides támogatja az [egyedi alakzatok előnézeti képeinek generálását](/slides/hu/cpp/create-shape-thumbnails/); egy alakzatot PNG képpé renderelhet.
+Töltse le a [gradient-styles.pptx](gradient-styles.pptx) fájlt, és helyezze el az alkalmazás munkakönyvtárában. Az első dián két lineáris gradient található: a tetején ciánból narancssárgába, az alján kékről sárgára. Minden gradient két színtű állomást (stop) tartalmaz, 0 % és 100 % pozícióban.  
 
-**Támogatott-e a párhuzamos konvertálás egy szerveren?**
+A következő példában betölti ezt a prezentációt, és a [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) metódussal a két módon rendereli ugyanazt az első diát.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+#include <DOM/GradientStyle.h>
+#include <Export/RenderingOptions.h>
 
-Igen, de [ne ossza meg](/slides/hu/cpp/multithreading/) egyetlen bemutató példányt a szálak között. Használjon külön példányt szálanként vagy folyamatként.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-**Mik a próbaverzió korlátozásai PNG exportáláskor?**
+auto presentation = MakeObject<Presentation>(u"gradient-styles.pptx");
+auto slide = presentation->get_Slide(0);
 
-Az értékelő mód vízjelet helyez a kimeneti képekre, és [más korlátozásokat](/slides/hu/cpp/licensing/) alkalmaz, amíg licencet nem adnak meg.
+auto gradientStyles = { GradientStyle::Default, GradientStyle::PowerPointUI };
+for (auto style : gradientStyles)
+{
+    auto options = MakeObject<RenderingOptions>();
+    options->set_GradientStyle(style);
+
+    auto image = slide->GetImage(options, 1.f, 1.f);
+    auto styleName = style == GradientStyle::Default ? u"Default" : u"PowerPointUI";
+    image->Save(String::Format(u"gradient-{0}.png", styleName), ImageFormat::Png);
+    image->Dispose();
+}
+
+presentation->Dispose();
+```
+
+A lenti képek az ugyanabból a diából származó kimenetet mutatják, mindkét gradienttel minden képen:
+
+| Alapértelmezett | PowerPointUI |
+| --- | --- |
+| ![Cián-narancssárga és kék-sárga gradientek alapértelmezett rendereléssel](gradient-Default.png) | ![Ugyanazok a gradientek PowerPointUI-val renderelve](gradient-PowerPointUI.png) |
+
+Ebben a példában a `Default` világosabb köztes színeket eredményez, míg a `PowerPointUI` sötétebb köztes színeket. A különbség a gradient színeitől és állomásaitól függ.  
+
+Válassza a `Default` beállítást, ha a szabványos Aspose.Slides kimenet megfelel az igényeinek. Próbálja ki a `PowerPointUI` beállítást, ha az a prioritás, hogy a megjelenés megegyezzen a PowerPointtal. Hasonlítsa össze mindkét kimenetet a kívánt eredménnyel; egyik mód sem általánosan előnyösebb.
+
+## **Gyakran ismételt kérdések**
+
+**Hogyan exportálhatok egy adott alakzatot, például diagramot vagy képet, a teljes dia helyett?**  
+Az Aspose.Slides támogatja az [egyéni alakzatok bélyegképének generálását](/slides/hu/cpp/shape-thumbnails/), amely lehetővé teszi egy alakzat PNG képként történő renderelését.
+
+**Támogatott a párhuzamos konvertálás szerveren?**  
+Igen. Használjon külön prezentációs példányt minden szálhoz vagy folyamathoz; [ne osszon meg egyetlen példányt a szálak között](/slides/hu/cpp/multithreading/).
+
+**Mik a kiértékelési korlátozások PNG exportálásakor?**  
+Az értékelési mód vízjelet helyez a kimeneti képekre, és [egyéb korlátozásokat](/slides/hu/cpp/licensing/) alkalmaz, amíg a licenc nincs aktiválva.

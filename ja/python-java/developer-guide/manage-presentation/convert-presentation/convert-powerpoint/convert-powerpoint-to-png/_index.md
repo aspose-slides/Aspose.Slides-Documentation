@@ -22,22 +22,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Python (via Java) で PowerPoint スライドを PNG 画像に変換します。カスタムスケールまたは正確な画像サイズで PPT、PPTX、ODP プレゼンテーションをエクスポートします。"
+description: "Python（via Java）で PowerPoint スライドを PNG 画像に変換します。カスタムスケールまたは正確な画像サイズで PPT、PPTX、ODP プレゼンテーションをエクスポートします。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for Python via Java を使用して PowerPoint プレゼンテーションを PNG 画像に変換する方法を説明します。PPT、PPTX、ODP ファイルを読み込み、各スライドをレンダリングし、個別の PNG 画像として保存できます。
+この記事では、Aspose.Slides for Python via Java を使用してプレゼンテーションスライドを PNG 画像に変換する方法を説明します。PPT、PPTX、ODP などの形式のプレゼンテーションを読み込み、各スライドをレンダリングし、個別の PNG 画像として保存できます。
 
-例では、スケール係数または正確な幅と高さを使用して出力寸法を制御する方法も示しています。各例は必要に応じて Java 仮想マシンを起動し、使用後にプレゼンテーションと画像のリソースを解放します。
+以下の例では、デフォルトのスケールでのレンダリング、スケールの拡大、ピクセル単位で出力サイズを指定する方法、およびグラデーション描画スタイルの選択を示します。
 
 ## **PowerPoint を PNG に変換**
 
-1. 入力ファイルを [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスで読み込みます。  
-2. [Presentation.getSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getSlides) を使用してスライドを取得します。  
-3. [Slide.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/#getImage) を使用して各スライドをレンダリングします。  
-4. [ImageFormat.Png](https://reference.aspose.com/slides/ja/python-java/aspose.slides/imageformat/#Png) で各レンダリング画像を保存し、リソースを解放します。
-
-以下の Python の例は、すべてのスライドをデフォルトサイズでエクスポートします。
+プレゼンテーションは [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) クラスで読み込み、[Presentation.getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) コレクションを介してスライドにアクセスします。例では、パラメータなしで [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) を使用して各スライドをサムネイルとしてレンダリングします。その後、[IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) を [ImageFormat.Png](https://reference.aspose.com/slides/python-java/aspose.slides/imageformat/#Png) とともに呼び出し、レンダリングされた各スライドを PNG 画像として保存します。
 
 ```python
 import jpype
@@ -50,21 +45,23 @@ from asposeslides.api import ImageFormat, Presentation
 
 presentation = Presentation("presentation.pptx")
 try:
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage()
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage()
         try:
-            slide_image.save(f"slide_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
-## **カスタム スケールで PowerPoint を PNG に変換**
+{{% alert color="info" title="Note" %}}
+パラメータなしの [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) オーバーロードはスケール 0.2 でレンダリングします。たとえば、720 × 540 ポイントのスライドは 144 × 108 ピクセルのサムネイルを生成します。出力サイズを制御するには、以下に示すスケール係数を使用したオーバーロードまたは明示的な画像サイズを使用してください。
+{{% /alert %}}
 
-出力寸法を拡大または縮小するには、[Slide.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/#getImage) に水平および垂直のスケール係数を渡します。例えば、720 × 540 ポイントのスライドを両軸でスケール係数 2 でレンダリングすると、1440 × 1080 ピクセルの画像が生成されます。
+## **カスタム寸法で PowerPoint を PNG に変換**
 
-等しいスケール係数を使用すると、スライドのアスペクト比を維持できます。異なる係数を使用すると、スライドが水平または垂直に伸びます。
+水平および垂直のスケール係数を [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) に渡して、レンダリングサイズを制御します。この例では両方の係数が 2 で、720 × 540 ポイントのスライドは 1440 × 1080 ピクセルの画像を生成します。スケール係数を等しくすると、スライドのアスペクト比が維持されます。各レンダリング画像は PNG 形式で保存されます。
 
 ```python
 import jpype
@@ -78,22 +75,21 @@ from asposeslides.api import ImageFormat, Presentation
 presentation = Presentation("presentation.pptx")
 try:
     scale_x = 2.0
-    scale_y = 2.0
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage(scale_x, scale_y)
+    scale_y = scale_x
+
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage(scale_x, scale_y)
         try:
-            slide_image.save(f"slide_scaled_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
-## **カスタム サイズで PowerPoint を PNG に変換**
+## **カスタムサイズで PowerPoint を PNG に変換**
 
-正確なピクセル寸法を指定するには、希望の幅と高さを持つ Java の `Dimension` オブジェクトを [Slide.getImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/#getImage) に渡します。元のスライドと同じアスペクト比の寸法を選択して、歪みを防ぎます。
-
-以下の例は、各スライドを 960 × 720 ピクセルの PNG 画像として保存します。
+ピクセル単位で出力サイズを指定するには、スケール係数の代わりにサイズを [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) に渡します。この例では、すべてのスライドを 960 × 720 ピクセルでレンダリングし、結果を PNG 形式で保存します。画像が伸びるのを防ぐため、スライドのアスペクト比に合わせたサイズを選択してください。
 
 ```python
 import jpype
@@ -108,23 +104,73 @@ from java.awt import Dimension
 presentation = Presentation("presentation.pptx")
 try:
     image_size = Dimension(960, 720)
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage(image_size)
+
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage(image_size)
         try:
-            slide_image.save(f"slide_sized_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
+## **グラデーション描画スタイルの選択**
+
+スライドにグラデーション塗りが含まれているが、エクスポートされた PNG の遷移が PowerPoint で見えるものよりも明るくなる、あるいは異なる場合があります。そのような場合、[RenderingOptions](https://reference.aspose.com/slides/python-java/aspose.slides/renderingoptions/) が継承する [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setGradientStyle) メソッドを使用して、グラデーションの描画方法を選択できます。
+
+[gradient‑styles.pptx](gradient-styles.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置します。最初のスライドには 2 つの線形グラデーションがあり、上部はシアンからオレンジ、下部は青から黄へと変化します。各グラデーションは 0% と 100% の 2 つのストップを持ちます。
+
+以下の例では、このプレゼンテーションを読み込み、[Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) を使用して同じ最初のスライドを両モードでレンダリングします。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import GradientStyle, ImageFormat, Presentation, RenderingOptions
+
+presentation = Presentation("gradient-styles.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    gradient_styles = (GradientStyle.Default, GradientStyle.PowerPointUI)
+    for style in gradient_styles:
+        options = RenderingOptions()
+        options.setGradientStyle(style)
+
+        style_name = "Default" if style == GradientStyle.Default else "PowerPointUI"
+        image = slide.getImage(options, 1.0, 1.0)
+        try:
+            image.save(f"gradient-{style_name}.png", ImageFormat.Png)
+        finally:
+            image.dispose()
+finally:
+    presentation.dispose()
+```
+
+以下の画像は同じスライドの出力を示し、各画像に両方のグラデーションが含まれています。
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Default でレンダリングされたシアンからオレンジ、青から黄へのグラデーション](gradient-Default.png) | ![PowerPointUI でレンダリングされた同じグラデーション](gradient-PowerPointUI.png) |
+
+この例では、`Default` は中間色が明るくなり、`PowerPointUI` は中間色が暗くなります。差異はグラデーションの色とストップに依存します。
+
+`Default` を選択すると、標準の Aspose.Slides の出力が要件に合致します。PowerPoint の外観と一致させることが優先であれば `PowerPointUI` を試してください。両方の出力を目的の結果と比較し、どちらのモードが常に優れているというわけではありません。
+
 ## **よくある質問**
 
-**スライド全体ではなく、チャートや画像などの個々のシェイプをエクスポートできますか？**  
-はい。Aspose.Slides は個々のシェイプのサムネイル生成をサポートしており、[generating thumbnails for individual shapes](/slides/ja/python-java/create-shape-thumbnails/) を使用して PNG 画像として保存できます。
+**スライド全体ではなく、チャートや画像などの特定のシェイプをエクスポートするにはどうすればよいですか？**
 
-**サーバー上でプレゼンテーションを並列に変換できますか？**  
-各スレッドまたはプロセスごとに個別の Presentation インスタンスを使用し、ファイルが上書きされないようにユニークな出力パスを使用してください。スレッド間で Presentation インスタンスを共有しないでください。詳細は [Multithreading](/slides/ja/python-java/multithreading/) を参照してください。
+Aspose.Slides は [個々のシェイプ用サムネイルの生成](/slides/ja/python-java/create-shape-thumbnails/) をサポートしており、シェイプを PNG 画像としてレンダリングできます。
 
-**PNG へエクスポートする際の評価版の制限は何ですか？**  
-評価モードでは出力画像に透かしが追加され、[other restrictions](/slides/ja/python-java/licensing/) が適用されます。ライセンスを適用するとこれらの制限を解除できます。
+**サーバーでの並列変換はサポートされていますか？**
+
+はい。各スレッドまたはプロセスごとに別々のプレゼンテーション インスタンスを使用してください；[スレッド間で単一インスタンスを共有しないでください](/slides/ja/python-java/multithreading/)。
+
+**PNG へのエクスポート時の評価版の制限は何ですか？**
+
+評価モードでは、出力画像に透かしが追加され、[その他の制限](/slides/ja/python-java/licensing/) がライセンスが適用されるまで適用されます。

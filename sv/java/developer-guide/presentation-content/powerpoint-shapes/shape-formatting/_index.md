@@ -1,5 +1,5 @@
 ---
-title: Formatera PowerPoint-former i Java
+title: Formatera PowerPoint‑former i Java
 linktitle: Formatering av former
 type: docs
 weight: 20
@@ -8,29 +8,29 @@ keywords:
 - formatera form
 - formatera linje
 - skiss‑effekt
-- skiss av formlinje
-- formatera sammanfogningsstil
+- skisslinje för form
+- formatera fogstil
 - gradientfyllning
 - mönsterfyllning
 - bildfyllning
 - texturfyllning
-- solid färgfyllning
+- enfärgsfyllning
 - formtransparens
-- svart‑vit rendering av form
-- gråskala rendering av form
+- svart‑vitt formrendering
+- gråskalaformrendering
 - rotera form
-- 3D fasadeffekt
-- 3D roteringseffekt
+- 3D‑avfasningseffekt
+- 3D‑roteringseffekt
 - återställ formatering
 - PowerPoint
 - presentation
 - Java
 - Aspose.Slides
-description: "Lär dig hur du formaterar PowerPoint‑former i Java med Aspose.Slides—ange fyllnings‑, linje‑ och effektstilar för PPT-, PPTX‑ och ODP‑filer med precision och full kontroll."
+description: "Lär dig hur du formaterar PowerPoint‑former i Java med Aspose.Slides—sätt fyllnings‑, linje‑ och effektstilar för PPT-, PPTX- och ODP‑filer med precision och full kontroll."
 ---
 ## **Introduktion**
 
-I PowerPoint kan du lägga till former på bilder. Eftersom former består av linjer kan du formatera dem genom att ändra eller tillämpa effekter på deras konturer. Dessutom kan du formatera former genom att ange inställningar som styr hur deras inre fylls.
+I PowerPoint kan du lägga till former på bilder. Eftersom former består av linjer kan du formatera dem genom att ändra eller applicera effekter på deras konturer. Dessutom kan du formatera former genom att ange inställningar som styr hur deras inre fylls.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
@@ -40,43 +40,43 @@ Aspose.Slides for Java tillhandahåller gränssnitt och metoder som låter dig f
 
 Med Aspose.Slides kan du ange en anpassad linjestil för en form. Följande steg beskriver proceduren:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/) på bilden.
-1. Ställ in [line style](https://reference.aspose.com/slides/sv/java/com.aspose.slides/linestyle/) för formen.
-1. Ange linjebredden.
-1. Ställ in [dash style](https://reference.aspose.com/slides/sv/java/com.aspose.slides/linedashstyle/) för linjen.
-1. Ange linjefärgen för formen.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) på bilden.
+1. Ställ in [linjestil](https://reference.aspose.com/slides/java/com.aspose.slides/linestyle/) för formen.
+1. Ställ in linjebredden.
+1. Ställ in [streckstil](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) för linjen.
+1. Ställ in linjefärgen för formen.
 1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Följande kod visar hur du formaterar en rektangel‑`AutoShape`:
+Följande kod visar hur du formaterar en rektangel `AutoShape`:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation‑klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Rectangle.
+    // Lägg till en autoshape av typen Rektangel.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Ange fyllningsfärgen för rektangelformen.
+    // Ställ in fyllningsfärgen för rektangel‑formen.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
-    // Tillämpa formatering på rektangelns linjer.
+    // Applicera formatering på rektangelns linjer.
     shape.getLineFormat().setStyle(LineStyle.ThickThin);
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
 
-    // Ange färgen för rektangelns linje.
+    // Ställ in färgen för rektangelns linje.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Spara PPTX-filen till disk.
+    // Spara PPTX‑filen till disk.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -87,11 +87,11 @@ Resultatet:
 
 ![De formaterade linjerna i presentationen](formatted-lines.png)
 
-## **Applicera skiss‑effekter på formens linjer**
+## **Applicera skiss‑effekter på form‑linjer**
 
-En skiss‑effekt får en formlinje att se handritad ut. Använd [IShape.getLineFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) för att komma åt linjeinställningarna, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ilineformat/) för att komma åt skiss‑inställningarna och [ISketchFormat.setSketchType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isketchformat/) för att välja ett värde från uppräkningen [LineSketchType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/linesketchtype/).
+En skiss‑effekt får en form‑linje att se handritad ut. Använd [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) för att komma åt linjeinställningarna, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/) för att komma åt skissinställningarna och [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/) för att välja ett värde från uppräkningen [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/).
 
-Följande Java‑kod visar hur du applicerar en [LineSketchType.Curved](https://reference.aspose.com/slides/sv/java/com.aspose.slides/linesketchtype/)‑effekt, läser det uttryckligen tilldelade värdet och tar bort effekten med [LineSketchType.None](https://reference.aspose.com/slides/sv/java/com.aspose.slides/linesketchtype/):
+Följande Java‑kod visar hur du applicerar en [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/)‑effekt, läser det explicit tilldelade värdet och tar bort effekten med [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/):
 
 ```java
 Presentation presentation = new Presentation();
@@ -102,21 +102,21 @@ try {
     // Åtkomst till formens linjeformat och dess skissformat.
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
 
-    // Tillämpa en skiss‑effekt.
+    // Applicera en skisseffekt.
     sketchFormat.setSketchType(LineSketchType.Curved);
 
-    // Läs den skiss‑effekt som tilldelats direkt till formen.
+    // Läs den skisseffekt som tilldelats direkt till formen.
     int explicitSketchType = sketchFormat.getSketchType();
     System.out.println("Explicit sketch type: " + explicitSketchType);
 
-    // Ta bort skiss‑effekten.
+    // Ta bort skisseffekten.
     sketchFormat.setSketchType(LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-Värdet som returneras av [ISketchFormat.getSketchType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isketchformat/) representerar inställningen som tilldelats direkt till formen. Om linjeformateringen kan ärvas från ett tema, en master‑bild eller en layout‑bild, använd [ILineFormat.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ilineformat/), kom åt [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ilineformateffectivedata/), och läs [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isketchformateffectivedata/). Det effektiva värdet speglar den formatering som faktiskt tillämpas efter arv har lösts:
+Det värde som returneras av [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/) representerar den inställning som tilldelats direkt till formen. Om linjeformateringen kan ärvas från ett tema, en master‑bild eller en layout‑bild, använd [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/), nå [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/), och läs [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/). Det effektiva värdet återspeglar den formatering som faktiskt tillämpas efter att arv har lösts:
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -135,36 +135,36 @@ try {
 }
 ```
 
-## **Formatera kopplingstyper**
+## **Formatera fogstilar**
 
-Här är de tre alternativen för kopplingstyp:
+Här är de tre alternativen för fogtyp:
 
-* Round
+* Rund
 * Miter
 * Bevel
 
-Som standard använder PowerPoint **Round**‑inställningen när två linjer möts i en vinkel (t.ex. i ett hörn på en form). Om du däremot ritar en form med skarpa vinklar kan du föredra alternativet **Miter**.
+Som standard använder PowerPoint **Round**‑inställningen när två linjer förenas i en vinkel (t.ex. vid en formens hörn). Men om du ritar en form med skarpa vinklar kan du föredra **Miter**‑alternativet.
 
-![Kopplingstypen i presentationen](join-style-powerpoint.png)
+![Fogstilen i presentationen](join-style-powerpoint.png)
 
-Följande Java‑kod demonstrerar hur tre rektanglar (som visas i bilden ovan) skapades med Miter‑, Bevel‑ och Round‑kopplingstyper:
+Följande Java‑kod demonstrerar hur tre rektanglar (som visas på bilden ovan) skapades med Miter‑, Bevel‑ och Round‑inställningarna för fogtyp:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation‑klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till tre automatiska former av typen Rectangle.
+    // Lägg till tre autosformer av typen Rektangel.
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Ange fyllningsfärgen för varje rektangelform.
+    // Ställ in fyllningsfärgen för varje rektangelform.
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -172,12 +172,12 @@ try {
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Ange linjebredden.
+    // Ställ in linjebredden.
     shape1.getLineFormat().setWidth(15);
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // Ange färgen för varje rektangels linje.
+    // Ställ in färgen för varje rektangels linje.
     shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
@@ -185,7 +185,7 @@ try {
     shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Ange sammanfogningsstilen.
+    // Ställ in fogstilen.
     shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
     shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
     shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
@@ -195,7 +195,7 @@ try {
     shape2.getTextFrame().setText("Bevel Join Style");
     shape3.getTextFrame().setText("Round Join Style");
 
-    // Spara PPTX-filen till disk.
+    // Spara PPTX‑filen till disk.
     presentation.save("join_styles.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -204,143 +204,135 @@ try {
 
 ## **Gradientfyllning**
 
-I PowerPoint är Gradient Fill ett formateringsalternativ som låter dig applicera en kontinuerlig färgblandning på en form. Till exempel kan du applicera två eller fler färger på ett sätt så att den ena gradvis tonas in i den andra.
+I PowerPoint är Gradientfyllning ett formateringsalternativ som låter dig applicera en kontinuerlig färgblandning på en form. Till exempel kan du använda två eller flera färger så att den ena gradvis tonar in i den andra.
 
 Så här applicerar du en gradientfyllning på en form med Aspose.Slides:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/filltype/) till `Gradient`.
-1. Lägg till dina två föredragna färger med definierade positioner med hjälp av `add`‑metoderna i gradient‑stopp‑samlingen som exponeras av gränssnittet [IGradientFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/igradientformat/).
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) på bilden.
+1. Ställ in formens [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) till `Gradient`.
+1. Lägg till dina två önskade färger med definierade positioner med hjälp av `add`‑metoderna i gradientstopp‑samlingen som exponeras av gränssnittet [IGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/).
 1. Spara den ändrade presentationen som en PPTX‑fil.
-
-Följande Java‑kod visar hur du applicerar en gradientfyllning på en ellips:
 
 ```java
 import com.aspose.slides.*;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation‑klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Ellipse.
+    // Lägg till en autosform av typen Ellipse.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Applicera gradientformattering på ellipsen.
+    // Applicera gradientformatering på ellipsen.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // Ange gradientens riktning.
+    // Ställ in gradientens riktning.
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
     // Lägg till två gradientstopp.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
-    // Spara PPTX-filen till disk.
+    // Spara PPTX‑filen till disk.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Resultatet:
-
 ![Ellipsen med gradientfyllning](gradient-fill.png)
+
+Om en gradient ser annorlunda ut i en exporterad bild jämfört med hur den ser ut i PowerPoint, se [Välj en gradientrenderingsstil](/slides/sv/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Du kan välja en renderingsstil utan att ändra gradientfyllningen som lagras i presentationen.
 
 ## **Mönsterfyllning**
 
-I PowerPoint är Pattern Fill ett formateringsalternativ som låter dig applicera ett tvåfärgs‑mönster – t.ex. prickar, ränder, korsstreck eller schackrutor – på en form. Du kan välja egna färger för mönstrets förgrund och bakgrund.
+I PowerPoint är Mönsterfyllning ett formateringsalternativ som låter dig applicera ett tvåfärgsdesign—t.ex. prickar, ränder, korsningar eller rutmönster—på en form. Du kan välja egna färger för mönstrets förgrund och bakgrund.
 
-Aspose.Slides erbjuder över 45 fördefinierade mönsterstilar som du kan applicera på former för att förbättra den visuella attraktiviteten i dina presentationer. Även efter att du har valt ett fördefinierat mönster kan du ange de exakta färgerna som ska användas.
+Aspose.Slides erbjuder mer än 45 fördefinierade mönsterstilar som du kan applicera på former för att förbättra presentationernas visuella intryck. Även efter att ha valt ett fördefinierat mönster kan du fortfarande ange exakt vilka färger det ska använda.
 
 Så här applicerar du en mönsterfyllning på en form med Aspose.Slides:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/filltype/) till `Pattern`.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) på bilden.
+1. Ställ in formens [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) till `Pattern`.
 1. Välj en mönsterstil från de fördefinierade alternativen.
-1. Ställ in [Background Color](https://reference.aspose.com/slides/sv/java/com.aspose.slides/patternformat/#getBackColor--) för mönstret.
-1. Ställ in [Foreground Color](https://reference.aspose.com/slides/sv/java/com.aspose.slides/patternformat/#getForeColor--) för mönstret.
+1. Ställ in [Bakgrundsfärg](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getBackColor--) för mönstret.
+1. Ställ in [Förgrundsfärg](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getForeColor--) för mönstret.
 1. Spara den ändrade presentationen som en PPTX‑fil.
-
-Följande Java‑kod visar hur du applicerar en mönsterfyllning på en rektangel:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation‑klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Rectangle.
+    // Lägg till en autosform av typen Rektangel.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Ange fyllningstypen till Pattern.
+    // Ställ in fyllningstypen till Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern);
 
-    // Ange mönsterstil.
+    // Ställ in mönsterstilen.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
-    // Ange mönstrets bakgrunds- och förgrundsfärger.
+    // Ställ in mönstrets bakgrunds- och förgrundsfärger.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
-    // Spara PPTX-filen till disk.
+    // Spara PPTX‑filen till disk.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Resultatet:
-
 ![Rektangeln med mönsterfyllning](pattern-fill.png)
 
 ## **Bildfyllning**
 
-I PowerPoint är Picture Fill ett formateringsalternativ som låter dig infoga en bild i en form – i praktiken använder du bilden som formens bakgrund.
+I PowerPoint är Bildfyllning ett formateringsalternativ som låter dig infoga en bild i en form—effektivt använda bilden som formens bakgrund.
 
 Så här använder du Aspose.Slides för att applicera en bildfyllning på en form:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/filltype/) till `Picture`.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) på bilden.
+1. Ställ in formens [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) till `Picture`.
 1. Ställ in bildfyllningsläget till `Tile` (eller ett annat föredraget läge).
-1. Skapa ett [IPPImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ippimage/)‑objekt från den bild du vill använda.
+1. Skapa ett [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/)‑objekt från den bild du vill använda.
 1. Skicka bilden till metoden `ISlidesPicture.setImage`.
 1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Låt säga att vi har en fil **lotus.png** med följande bild:
+Anta att vi har en fil "lotus.png" med följande bild:
 
 ![Lotus‑bilden](lotus.png)
-
-Följande Java‑kod demonstrerar hur du fyller en form med bilden:
 
 ```java
 import com.aspose.slides.*;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation‑klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Rectangle.
+    // Lägg till en autosform av typen Rektangel.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Ange fyllningstypen till Picture.
+    // Ställ in fyllningstypen till Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Ange bildfyllningsläget.
+    // Ställ in bildfyllningsläget.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
     // Läs in en bild och lägg till den i presentationens resurser.
@@ -348,47 +340,43 @@ try {
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
 
-    // Ange bilden.
+    // Ställ in bilden.
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Spara PPTX-filen till disk.
+    // Spara PPTX‑filen till disk.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Resultatet:
-
 ![Formen med bildfyllning](picture-fill.png)
 
-### **Tile Picture As Texture**
+### **Tile Bild Som Textur**
 
-Om du vill använda en tegel‑bild som textur och anpassa tegel‑beteendet kan du använda följande metoder i gränssnittet [IPictureFillFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/) och klassen [PictureFillFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/picturefillformat/):
+Om du vill ställa in en plattad bild som en textur och anpassa plattningsbeteendet kan du använda följande metoder i gränssnittet [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) och klassen [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Anger bildfyllningsläget – antingen `Tile` eller `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Specificerar justeringen av tegel inom formen.
-- [setTileFlip](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Styr om teglet flippar horisontellt, vertikalt eller båda.
-- [setTileOffsetX](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Anger den horisontella förskjutningen av teglet (i punkter) från formens ursprung.
-- [setTileOffsetY](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Anger den vertikala förskjutningen av teglet (i punkter) från formens ursprung.
-- [setTileScaleX](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definierar den horisontella skalan av teglet i procent.
-- [setTileScaleY](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definierar den vertikala skalan av teglet i procent.
-
-Följande kodexempel visar hur du lägger till en rektangulär form med en tegel‑bildfyllning och konfigurerar tegel‑alternativen:
+- [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Ställer in bildfyllningsläget—antingen `Tile` eller `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Anger justeringen av plattorna inom formen.
+- [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Styr huruvida plattan vänds horisontellt, vertikalt eller båda.
+- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Ställer in den horisontella förskjutningen av plattan (i punkter) från formens ursprung.
+- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Ställer in den vertikala förskjutningen av plattan (i punkter) från formens ursprung.
+- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definierar den horisontella skalan av plattan som en procentandel.
+- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definierar den vertikala skalan av plattan som en procentandel.
 
 ```java
 import com.aspose.slides.*;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation‑klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en rektangel‑autoform.
+    // Lägg till en rektangel‑autosform.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Ange fyllningstypen för formen till Picture.
+    // Ställ in fyllningstypen för formen till Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
     // Läs in bilden och lägg till den i presentationens resurser.
@@ -400,7 +388,7 @@ try {
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Konfigurera bildfyllningsläget och tegel‑egenskaperna.
+    // Konfigurera bildfyllningsläget och plattningsinställningarna.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -409,165 +397,149 @@ try {
     pictureFillFormat.setTileAlignment(RectangleAlignment.BottomRight);
     pictureFillFormat.setTileFlip(TileFlip.FlipBoth);
 
-    // Spara PPTX-filen till disk.
+    // Spara PPTX‑filen till disk.
     presentation.save("tile.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Resultatet:
+![Plattalternativen](tile-options.png)
 
-![Tegel‑alternativen](tile-options.png)
+## **Enfärgsfyllning**
 
-## **Solid Color Fill**
+I PowerPoint är Enfärgsfyllning ett formateringsalternativ som fyller en form med en enda, enhetlig färg. Denna enkla bakgrundsfärg appliceras utan några gradienter, texturer eller mönster.
 
-I PowerPoint är Solid Color Fill ett formateringsalternativ som fyller en form med en enda, enhetlig färg. Denna enkla bakgrundsfärg appliceras utan några gradienter, texturer eller mönster.
+Så här applicerar du en enfärgsfyllning på en form med Aspose.Slides:
 
-För att applicera en solid färgfyllning på en form med Aspose.Slides, följ dessa steg:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/filltype/) till `Solid`.
-1. Tilldela din föredragna fyllningsfärg till formen.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) på bilden.
+1. Ställ in formens [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) till `Solid`.
+1. Tilldela den önskade fyllningsfärgen till formen.
 1. Spara den ändrade presentationen som en PPTX‑fil.
-
-Följande Java‑kod demonstrerar hur du applicerar en solid färgfyllning på en rektangel i en PowerPoint‑bild:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation‑klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Rectangle.
+    // Lägg till en autosform av typen Rektangel.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Ange fyllningstypen till Solid.
+    // Ställ in fyllningstypen till Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // Ange fyllningsfärgen.
+    // Ställ in fyllningsfärgen.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-    // Spara PPTX-filen till disk.
+    // Spara PPTX‑filen till disk.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Resultatet:
-
-![Formen med solid färgfyllning](solid-color-fill.png)
+![Formen med enfärgsfyllning](solid-color-fill.png)
 
 ## **Ställ in transparens**
 
-I PowerPoint kan du, när du använder en solid färg, gradient, bild eller texturfyllning på former, också ange en transparensnivå för att styra fyllningens opacitet. Ett högre transparensvärde gör formen mer genomskinlig, så att bakgrunden eller underliggande objekt delvis syns.
+I PowerPoint kan du när du applicerar en enfärgs‑, gradient‑, bild‑ eller texturfyllning på former även ange en transparensnivå för att kontrollera fyllningens opacitet. Ett högre transparensvärde gör formen mer genomskinlig, så att bakgrunden eller underliggande objekt delvis syns.
 
-Aspose.Slides låter dig ställa in transparensnivån genom att justera alfa‑värdet i den färg som används för fyllningen. Så här gör du:
+Aspose.Slides låter dig ange transparensnivån genom att justera alfa‑värdet i färgen som används för fyllningen. Så här gör du:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/) på bilden.
-1. Ställ in [FillType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/filltype/) till `Solid`.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) på bilden.
+1. Ställ in [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) till `Solid`.
 1. Använd `Color` för att definiera en färg med transparens (alfa‑komponenten styr transparensen).
 1. Spara presentationen.
-
-Följande Java‑kod visar hur du applicerar en transparent fyllningsfärg på en rektangel:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation‑klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en solid rektangel‑autoform.
+    // Lägg till en solid rektangel‑autosform.
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Lägg till en transparent rektangel‑autoform ovanpå den solida formen.
+    // Lägg till en transparent rektangel‑autosform ovanpå den solida formen.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
 
-    // Spara PPTX-filen till disk.
+    // Spara PPTX‑filen till disk.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Resultatet:
-
 ![Den transparenta formen](shape-transparency.png)
 
 ## **Rotera former**
 
-Aspose.Slides låter dig rotera former i PowerPoint‑presentationer. Detta kan vara användbart när du placerar visuella element med specifik justering eller design.
+Aspose.Slides låter dig rotera former i PowerPoint‑presentationer. Detta kan vara användbart när du placerar visuella element med specifik justering eller designbehov.
 
 För att rotera en form på en bild, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/) på bilden.
-1. Ställ in formens rotations‑egenskap till önskad vinkel.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) på bilden.
+1. Ställ in formens rotations‑property till önskad vinkel.
 1. Spara presentationen.
-
-Följande Java‑kod demonstrerar hur du roterar en form med 5 grader:
 
 ```java
 import com.aspose.slides.*;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation‑klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Rectangle.
+    // Lägg till en autosform av typen Rektangel.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Rotera formen med 5 grader.
     shape.setRotation(5);
 
-    // Spara PPTX-filen till disk.
+    // Spara PPTX‑filen till disk.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Resultatet:
-
 ![Formens rotation](shape-rotation.png)
 
-## **Lägg till 3D‑fasadeffekter**
+## **Lägg till 3D-avfasningseffekter**
 
-Aspose.Slides låter dig applicera 3D‑fasadeffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/threedformat/)-egenskaper.
+Aspose.Slides tillåter dig att applicera 3D‑avfasningseffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/)‑egenskaper.
 
-För att lägga till 3D‑fasadeffekter på en form, följ dessa steg:
+För att lägga till 3D‑avfasningseffekter på en form, följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Instansiera klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/) på bilden.
-1. Konfigurera formens [ThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/threedformat/) för att definiera fasadeinställningarna.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) på bilden.
+1. Konfigurera formens [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) för att definiera avfasningsinställningarna.
 1. Spara presentationen.
-
-Följande Java‑kod visar hur du applicerar 3D‑fasadeffekter på en form:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Skapa en instans av Presentation-klassen.
+// Skapa en instans av Presentation‑klassen.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -596,28 +568,24 @@ try {
 }
 ```
 
-Resultatet:
+![3D-avfasningseffekten](3D-bevel-effect.png)
 
-![3D‑fasadeffekten](3D-bevel-effect.png)
+## **Lägg till 3D-roteringseffekter**
 
-## **Lägg till 3D‑roteringseffekter**
-
-Aspose.Slides låter dig applicera 3D‑roteringseffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/threedformat/)-egenskaper.
+Aspose.Slides tillåter dig att applicera 3D‑roteringseffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/)‑egenskaper.
 
 För att applicera 3D‑rotering på en form:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 1. Hämta en referens till en bild efter dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/) på bilden.
-1. Använd [setCameraType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icamera/#setCameraType-int-) och [setLightType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ilightrig/#setLightType-int-) för att definiera 3D‑roteringen.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) på bilden.
+1. Använd [setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) och [setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-) för att definiera 3D‑roteringen.
 1. Spara presentationen.
-
-Följande Java‑kod demonstrerar hur du applicerar 3D‑roteringseffekter på en form:
 
 ```java
 import com.aspose.slides.*;
 
-// Skapa en instans av Presentation-klassen.
+// Skapa en instans av Presentation‑klassen.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -630,24 +598,22 @@ try {
     autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
     autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
 
-    // Spara presentationen som en PPTX-fil.
+    // Spara presentationen som en PPTX‑fil.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Resultatet:
+![3D-roteringseffekten](3D-rotation-effect.png)
 
-![3D‑roteringseffekten](3D-rotation-effect.png)
+## **Styr svart‑vitt‑rendering för former**
 
-## **Styr svart‑vit rendering av former**
+Metoden [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) specificerar hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vitt‑läge. Den aktiverar inte svart‑vitt‑visning i sig och ändrar inte formens fyllning, linje eller annan formatering i normalt färgläge.
 
-Metoden [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) anger hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vit läge. Den aktiverar inte svart‑vit visning i sig och ändrar inte formens fyllning, linje eller annan formatering i normalt färgläge.
+Använd ett värde från klassen [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) för att välja önskat beteende. Till exempel låter `Automatic` renderingsprogrammet välja konverteringen, `Gray` och `LightGray` använder grå färgning, `BlackWhite` använder endast svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färgning, och `Hidden` utesluter formen i svart‑vitt‑läge. `NotDefined` betyder att inget form‑nivå‑läge har tilldelats.
 
-Använd ett värde från klassen [BlackWhiteMode](https://reference.aspose.com/slides/sv/java/com.aspose.slides/blackwhitemode/) för att välja önskat beteende. Till exempel låter `Automatic` renderingsprogrammet välja konvertering, `Gray` och `LightGray` använder gråtoner, `BlackWhite` använder endast svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färg, och `Hidden` utesluter formen i svart‑vit läge. `NotDefined` betyder att inget form‑specifikt läge är tilldelat.
-
-Följande Java‑kod skapar en färgad form och får den att visas grå i svart‑vit display‑läge:
+Följande Java‑kod skapar en färgad form och får den att visas grå i svart‑vitt‑visningsläge:
 
 ```java
 import com.aspose.slides.*;
@@ -661,7 +627,7 @@ try {
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
 
-    // Behåll den orange fyllningen i färgläge, men rendera formen med grå färg i svart‑vitt läge.
+    // Behåll den orange fyllningen i färgläge, men rendera formen med grå färgning i svart-vitt läge.
     shape.setBlackWhiteMode(BlackWhiteMode.Gray);
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
@@ -670,11 +636,11 @@ try {
 }
 ```
 
-I normalt färgläge behåller rektangeln sin orange fyllning. I ett arbetsflöde med svart‑vit display använder den grå färg eftersom dess läge är satt till `Gray`. Detta låter dig bevara en full‑färgs‑bild medan du definierar ett särskilt utseende för utskrift, förhandsgranskning eller andra arbetsflöden som respekterar presentationens svart‑vita visningsinställningar.
+I normalt färgläge behåller rektangeln sin orange fyllning. I ett arbetsflöde med svart‑vitt‑visning använder den grå färgning eftersom dess läge är satt till `Gray`. Detta låter dig bevara en färgrik bild medan du definierar ett tydligt utseende för utskrift, förhandsgranskning eller andra arbetsflöden som respekterar presentationens svart‑vitt‑visningsinställningar.
 
 ## **Återställ formatering**
 
-Följande Java‑kod visar hur du återställer formateringen av en bild och återställer position, storlek och formatering för alla former med platshållare på [LayoutSlide](https://reference.aspose.com/slides/sv/java/com.aspose.slides/layoutslide/) till deras standardinställningar:
+Följande Java‑kod visar hur du återställer formateringen av en bild och återställer position, storlek och formatering av alla former med platshållare på [LayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/) till deras standardinställningar:
 
 ```java
 import com.aspose.slides.*;
@@ -693,14 +659,14 @@ try {
 
 ## **FAQ**
 
-**Påverkar formatering av former den slutliga filstorleken för presentationen?**
+**Påverkar formatering av former den slutgiltiga filstorleken för presentationen?**
 
-Endast marginellt. Inbäddade bilder och media tar upp största delen av filstorleken, medan formparametrar som färger, effekter och gradienter lagras som metadata och tillför praktiskt taget ingen extra storlek.
+Endast marginellt. Inbäddade bilder och media upptar största delen av filutrymmet, medan formparametrar såsom färger, effekter och gradienter lagras som metadata och bidrar praktiskt taget inte till någon extra storlek.
 
-**Hur kan jag upptäcka former på en bild som har identisk formatering så att jag kan gruppera dem?**
+**Hur kan jag identifiera former på en bild som delar identisk formatering så att jag kan gruppera dem?**
 
-Jämför varje forms nyckelformaterings‑egenskaper – fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
+Jämför varje formes nyckelformaterings‑egenskaper—fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
 
 **Kan jag spara en uppsättning anpassade formstilar i en separat fil för återanvändning i andra presentationer?**
 
-Ja. Spara exempelformer med önskade stilar i ett mall‑bildspel eller en .POTX‑mallfil. När du skapar en ny presentation, öppna mallen, klona de stiliserade former du behöver och applicera deras formatering där de krävs.
+Ja. Spara exempelformer med önskade stilar i en mall‑bildspel eller en .POTX‑mallfil. När du skapar en ny presentation öppnar du mallen, klonar de stilade formerna du behöver och återapplicerar deras formatering där det krävs.

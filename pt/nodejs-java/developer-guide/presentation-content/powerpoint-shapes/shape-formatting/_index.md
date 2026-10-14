@@ -1,37 +1,37 @@
 ---
 title: "Formatar Formas do PowerPoint em JavaScript"
-linktitle: "Formatação de Formas"
+linktitle: "Formatação de Forma"
 type: docs
 weight: 20
 url: /pt/nodejs-java/shape-formatting/
 keywords:
-- formatar forma
-- formatar linha
-- efeito de esboço
-- linha de forma esboçada
-- formatar estilo de junção
-- preenchimento gradiente
-- preenchimento de padrão
-- preenchimento de imagem
-- preenchimento de textura
-- preenchimento de cor sólida
-- transparência de forma
-- renderização de forma em preto e branco
-- renderização de forma em tons de cinza
-- rotacionar forma
-- efeito de bisel 3D
-- efeito de rotação 3D
-- redefinir formatação
-- PowerPoint
-- apresentação
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Formate formas do PowerPoint em JavaScript usando Aspose.Slides—defina estilos de preenchimento, linha e efeito para arquivos PPT, PPTX e ODP com precisão e total controle."
+  - formatar forma
+  - formatar linha
+  - efeito de esboço
+  - linha de forma esboçada
+  - formatar estilo de junção
+  - preenchimento em gradiente
+  - preenchimento de padrão
+  - preenchimento por imagem
+  - preenchimento de textura
+  - preenchimento de cor sólida
+  - transparência da forma
+  - renderização de forma em preto e branco
+  - renderização de forma em escala de cinza
+  - rotacionar forma
+  - efeito de bisel 3D
+  - efeito de rotação 3D
+  - redefinir formatação
+  - PowerPoint
+  - apresentação
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "Formate formas do PowerPoint em JavaScript usando Aspose.Slides—defina preenchimento, linha e estilos de efeito para arquivos PPT, PPTX e ODP com precisão e controle total."
 ---
 ## **Introdução**
 
-No PowerPoint, você pode adicionar formas aos slides. Como as formas são compostas por linhas, você pode formatá‑las modificando ou aplicando efeitos em seus contornos. Além disso, é possível formatar formas especificando configurações que controlam como seus interiores são preenchidos.
+No PowerPoint, você pode adicionar formas aos slides. Como as formas são compostas por linhas, você pode formatá‑las modificando ou aplicando efeitos aos seus contornos. Além disso, você pode formatar formas especificando configurações que controlam como seus interiores são preenchidos.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
@@ -39,18 +39,18 @@ Aspose.Slides for Node.js via Java fornece classes e métodos que permitem forma
 
 ## **Formatar Linhas**
 
-Usando Aspose.Slides, você pode especificar um estilo de linha personalizado para uma forma. As etapas a seguir descrevem o procedimento:
+Usando Aspose.Slides, você pode especificar um estilo de linha personalizado para uma forma. Os passos a seguir descrevem o procedimento:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [estilo de linha](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/linestyle/) da forma.
-1. Defina a largura da linha.
-1. Defina o [estilo de traço](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/linedashstyle/) da linha.
-1. Defina a cor da linha para a forma.
-1. Salve a apresentação modificada como um arquivo PPTX.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Obtenha uma referência a um slide pelo seu índice.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ao slide.
+4. Defina o [estilo de linha](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) da forma.
+5. Defina a largura da linha.
+6. Defina o [estilo de traço](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) da linha.
+7. Defina a cor da linha para a forma.
+8. Salve a apresentação modificada como um arquivo PPTX.
 
-O código a seguir demonstra como formatar um `AutoShape` retangular:
+O código a seguir demonstra como formatar um retângulo `AutoShape`:
 
 ```js
 var aspose = aspose || {};
@@ -63,18 +63,18 @@ try {
     // Obter o primeiro slide.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Adicionar uma forma automática do tipo Rectangle.
+    // Adicionar uma forma automática do tipo Retângulo.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Remover o preenchimento da forma rectangle.
+    // Remover o preenchimento da forma retângulo.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // Aplicar formatação às linhas do rectangle.
+    // Aplicar formatação às linhas do retângulo.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
 
-    // Definir a cor da linha do rectangle.
+    // Definir a cor da linha do retângulo.
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
@@ -89,11 +89,11 @@ O resultado:
 
 ![As linhas formatadas na apresentação](formatted-lines.png)
 
-## **Aplicar Efeitos de Esboço nas Linhas de Forma**
+## **Aplicar Efeitos de Esboço às Linhas de Forma**
 
-Um efeito de esboço faz com que a linha da forma pareça desenhada à mão. Use [Shape.getLineFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/shape/) para acessar as configurações de linha, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/lineformat/) para acessar as configurações de esboço e [SketchFormat.setSketchType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/sketchformat/) para selecionar um valor da enumeração [LineSketchType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/linesketchtype/).
+Um efeito de esboço faz com que a linha de uma forma pareça desenhada à mão. Use [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) para acessar as configurações da linha, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) para acessar as configurações de esboço e [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) para selecionar um valor da enumeração [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
 
-O código JavaScript a seguir mostra como aplicar o efeito [LineSketchType.Curved](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/linesketchtype/), ler o valor atribuído explicitamente e remover o efeito com [LineSketchType.None](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/linesketchtype/):
+O código JavaScript a seguir mostra como aplicar o efeito [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/), ler o valor atribuído explicitamente e remover o efeito com [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
 
 ```js
 var aspose = aspose || {};
@@ -121,7 +121,7 @@ try {
 }
 ```
 
-O valor retornado por [SketchFormat.getSketchType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/sketchformat/) representa a configuração atribuída diretamente à forma. Se a formatação da linha puder ser herdada de um tema, slide mestre ou slide de layout, use [LineFormat.getEffective](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/lineformat/), chame `getSketchFormat` no objeto retornado e, em seguida, chame seu método `getSketchType`. O valor efetivo reflete a formatação realmente aplicada após a resolução da herança:
+O valor retornado por [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) representa a configuração atribuída diretamente à forma. Se a formatação da linha puder ser herdada de um tema, slide mestre ou slide de layout, use [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/), chame `getSketchFormat` no objeto retornado e, em seguida, chame seu método `getSketchType`. O valor efetivo reflete a formatação realmente aplicada após a resolução da herança:
 
 ```js
 var aspose = aspose || {};
@@ -151,11 +151,11 @@ Aqui estão as três opções de tipo de junção:
 * Miter
 * Bevel
 
-Por padrão, quando o PowerPoint une duas linhas em um ângulo (como no canto de uma forma), ele usa a configuração **Round**. No entanto, se você estiver desenhando uma forma com ângulos agudos, pode preferir a opção **Miter**.
+Por padrão, quando o PowerPoint une duas linhas em um ângulo (por exemplo, no canto de uma forma), ele usa a configuração **Round**. No entanto, se você estiver desenhando uma forma com ângulos agudos, pode preferir a opção **Miter**.
 
 ![O estilo de junção na apresentação](join-style-powerpoint.png)
 
-O código JavaScript a seguir demonstra como três retângulos (conforme mostrados na imagem acima) foram criados usando as configurações de tipo de junção Miter, Bevel e Round:
+O código JavaScript a seguir demonstra como três retângulos (conforme a imagem acima) foram criados usando as configurações de tipo de junção Miter, Bevel e Round:
 
 ```js
 var aspose = aspose || {};
@@ -168,7 +168,7 @@ try {
     // Obter o primeiro slide.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Adicionar três formas automáticas do tipo Rectangle.
+    // Adicionar três formas automáticas do tipo Retângulo.
     let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
     let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
     let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
@@ -211,20 +211,20 @@ try {
 }
 ```
 
-## **Preenchimento Gradiente**
+## **Preenchimento em Gradiente**
 
-No PowerPoint, Preenchimento Gradiente é uma opção de formatação que permite aplicar uma mescla contínua de cores a uma forma. Por exemplo, você pode aplicar duas ou mais cores de modo que uma vá gradualmente desaparecendo na outra.
+No PowerPoint, Preenchimento em Gradiente é uma opção de formatação que permite aplicar uma mescla contínua de cores a uma forma. Por exemplo, você pode aplicar duas ou mais cores de modo que uma se dissolva gradualmente na outra.
 
-Veja como aplicar um preenchimento gradiente a uma forma usando Aspose.Slides:
+Aqui está como aplicar um preenchimento em gradiente a uma forma usando Aspose.Slides:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [FillType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/filltype/) da forma como `Gradient`.
-1. Adicione suas duas cores preferidas com posições definidas usando os métodos `add` da coleção de paradas de gradiente exposta pela classe [GradientFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/gradientformat/).
-1. Salve a apresentação modificada como um arquivo PPTX.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Obtenha uma referência a um slide pelo seu índice.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ao slide.
+4. Defina o [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) da forma como `Gradient`.
+5. Adicione suas duas cores preferidas com posições definidas usando os métodos `add` da coleção de paradas de gradiente exposta pela classe [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/).
+6. Salve a apresentação modificada como um arquivo PPTX.
 
-O código JavaScript a seguir demonstra como aplicar um efeito de preenchimento gradiente a uma elipse:
+O código JavaScript a seguir demonstra como aplicar um efeito de preenchimento em gradiente a uma elipse:
 
 ```js
 var aspose = aspose || {};
@@ -237,10 +237,10 @@ try {
     // Obter o primeiro slide.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Adicionar uma forma automática do tipo Ellipse.
+    // Adicionar uma forma automática do tipo Elipse.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Aplicar formatação gradiente à elipse.
+    // Aplicar formatação de gradiente à elipse.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
 
@@ -260,24 +260,26 @@ try {
 
 O resultado:
 
-![A elipse com preenchimento gradiente](gradient-fill.png)
+![A elipse com preenchimento em gradiente](gradient-fill.png)
+
+Se um gradiente parecer diferente em uma imagem exportada do que no PowerPoint, veja [Choose a Gradient Rendering Style](/slides/pt/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Você pode selecionar um estilo de renderização sem alterar o preenchimento em gradiente armazenado na apresentação.
 
 ## **Preenchimento de Padrão**
 
-No PowerPoint, Preenchimento de Padrão é uma opção de formatação que permite aplicar um design de duas cores — como pontos, listras, hachuras ou xadrez — a uma forma. Você pode escolher cores personalizadas para o primeiro plano e o plano de fundo do padrão.
+No PowerPoint, Preenchimento de Padrão é uma opção de formatação que permite aplicar um design de duas cores — como pontos, listras, cruzes ou quadriculados — a uma forma. Você pode escolher cores personalizadas para o primeiro plano e o plano de fundo do padrão.
 
-Aspose.Slides fornece mais de 45 estilos de padrão predefinidos que podem ser aplicados a formas para melhorar a aparência visual de suas apresentações. Mesmo após selecionar um padrão predefinido, ainda é possível especificar as cores exatas que ele deve usar.
+Aspose.Slides fornece mais de 45 estilos de padrão predefinidos que você pode aplicar a formas para melhorar a aparência visual de suas apresentações. Mesmo após selecionar um padrão pré‑definido, ainda pode especificar as cores exatas que ele deve usar.
 
-Veja como aplicar um preenchimento de padrão a uma forma usando Aspose.Slides:
+Aqui está como aplicar um preenchimento de padrão a uma forma usando Aspose.Slides:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [FillType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/filltype/) da forma como `Pattern`.
-1. Escolha um estilo de padrão dentre as opções predefinidas.
-1. Defina a [Background Color](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/patternformat/#getBackColor--) do padrão.
-1. Defina a [Foreground Color](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/patternformat/#getForeColor--) do padrão.
-1. Salve a apresentação modificada como um arquivo PPTX.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Obtenha uma referência a um slide pelo seu índice.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ao slide.
+4. Defina o [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) da forma como `Pattern`.
+5. Escolha um estilo de padrão entre as opções predefinidas.
+6. Defina a [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) do padrão.
+7. Defina a [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) do padrão.
+8. Salve a apresentação modificada como um arquivo PPTX.
 
 O código JavaScript a seguir demonstra como aplicar um preenchimento de padrão a um retângulo:
 
@@ -292,10 +294,10 @@ try {
     // Obter o primeiro slide.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Adicionar uma forma automática do tipo Rectangle.
+    // Adicionar uma forma automática do tipo Retângulo.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Definir o tipo de preenchimento como Pattern.
+    // Definir o tipo de preenchimento como Padrão.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 
     // Definir o estilo do padrão.
@@ -316,22 +318,22 @@ O resultado:
 
 ![O retângulo com preenchimento de padrão](pattern-fill.png)
 
-## **Preenchimento de Imagem**
+## **Preenchimento por Imagem**
 
-No PowerPoint, Preenchimento de Imagem é uma opção de formatação que permite inserir uma imagem dentro de uma forma — efetivamente usando a imagem como plano de fundo da forma.
+No PowerPoint, Preenchimento por Imagem é uma opção de formatação que permite inserir uma imagem dentro de uma forma — usando efetivamente a imagem como plano de fundo da forma.
 
-Veja como usar Aspose.Slides para aplicar um preenchimento de imagem a uma forma:
+Aqui está como usar Aspose.Slides para aplicar um preenchimento por imagem a uma forma:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [FillType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/filltype/) da forma como `Picture`.
-1. Defina o modo de preenchimento de imagem como `Tile` (ou outro modo preferido).
-1. Crie um objeto [PPImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ppimage/) a partir da imagem que deseja usar.
-1. Passe a imagem para o método `ISlidesPicture.setImage`.
-1. Salve a apresentação modificada como um arquivo PPTX.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Obtenha uma referência a um slide pelo seu índice.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ao slide.
+4. Defina o [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) da forma como `Picture`.
+5. Defina o modo de preenchimento da imagem como `Tile` (ou outro modo preferido).
+6. Crie um objeto [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) a partir da imagem que deseja usar.
+7. Passe a imagem para o método `ISlidesPicture.setImage`.
+8. Salve a apresentação modificada como um arquivo PPTX.
 
-Suponha que temos um arquivo "lotus.png" com a seguinte imagem:
+Vamos supor que temos um arquivo "lotus.png" com a seguinte imagem:
 
 ![A imagem lotus](lotus.png)
 
@@ -348,10 +350,10 @@ try {
     // Obter o primeiro slide.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Adicionar uma forma automática do tipo Rectangle.
+    // Adicionar uma forma automática do tipo Retângulo.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Definir o tipo de preenchimento como Picture.
+    // Definir o tipo de preenchimento como Imagem.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
     // Definir o modo de preenchimento da imagem.
@@ -374,21 +376,21 @@ try {
 
 O resultado:
 
-![A forma com preenchimento de imagem](picture-fill.png)
+![A forma com preenchimento por imagem](picture-fill.png)
 
 ### **Imagem em Tile como Textura**
 
-Se desejar definir uma imagem em tile como textura e personalizar o comportamento do tile, use os seguintes métodos da classe [PictureFillFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/):
+Se você quiser definir uma imagem em mosaico como textura e personalizar o comportamento de repetição, pode usar os seguintes métodos da classe [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): define o modo de preenchimento da imagem — `Tile` ou `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): especifica o alinhamento dos tiles dentro da forma.
-- [setTileFlip](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): controla se o tile é invertido horizontalmente, verticalmente ou em ambos.
-- [setTileOffsetX](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): define o deslocamento horizontal do tile (em pontos) a partir da origem da forma.
-- [setTileOffsetY](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): define o deslocamento vertical do tile (em pontos) a partir da origem da forma.
-- [setTileScaleX](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): define a escala horizontal do tile como porcentagem.
-- [setTileScaleY](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): define a escala vertical do tile como porcentagem.
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Define o modo de preenchimento da imagem — `Tile` ou `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Especifica o alinhamento dos blocos dentro da forma.
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Controla se o bloco é espelhado horizontalmente, verticalmente ou ambos.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Define o deslocamento horizontal do bloco (em pontos) a partir da origem da forma.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Define o deslocamento vertical do bloco (em pontos) a partir da origem da forma.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Define a escala horizontal do bloco como porcentagem.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Define a escala vertical do bloco como porcentagem.
 
-O exemplo de código a seguir mostra como adicionar uma forma retangular com preenchimento de imagem em tile e configurar as opções de tile:
+O exemplo de código a seguir mostra como adicionar uma forma retangular com preenchimento de imagem em mosaico e configurar as opções de bloco:
 
 ```js
 var aspose = aspose || {};
@@ -404,7 +406,7 @@ try {
     // Adicionar uma forma automática retangular.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Definir o tipo de preenchimento da forma como Picture.
+    // Definir o tipo de preenchimento da forma como Imagem.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
     // Carregar a imagem e adicioná‑la aos recursos da apresentação.
@@ -416,7 +418,7 @@ try {
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Configurar o modo de preenchimento da imagem e as propriedades de tiling.
+    // Configurar o modo de preenchimento da imagem e as propriedades de repetição.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -436,20 +438,20 @@ O resultado:
 
 ![As opções de tile](tile-options.png)
 
-## **Preenchimento de Cor Sólida**
+## **Preenchimento com Cor Sólida**
 
-No PowerPoint, Preenchimento de Cor Sólida é uma opção de formatação que preenche uma forma com uma única cor uniforme. Essa cor de fundo simples é aplicada sem gradientes, texturas ou padrões.
+No PowerPoint, Preenchimento com Cor Sólida é uma opção de formatação que preenche uma forma com uma única cor uniforme. Essa cor de fundo simples é aplicada sem gradientes, texturas ou padrões.
 
-Para aplicar um preenchimento de cor sólida a uma forma usando Aspose.Slides, siga estas etapas:
+Para aplicar um preenchimento com cor sólida a uma forma usando Aspose.Slides, siga estas etapas:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [FillType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/filltype/) da forma como `Solid`.
-1. Atribua a cor de preenchimento desejada à forma.
-1. Salve a apresentação modificada como um arquivo PPTX.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Obtenha uma referência a um slide pelo seu índice.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ao slide.
+4. Defina o [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) da forma como `Solid`.
+5. Atribua a cor de preenchimento desejada à forma.
+6. Salve a apresentação modificada como um arquivo PPTX.
 
-O código JavaScript a seguir demonstra como aplicar um preenchimento de cor sólida a um retângulo em um slide do PowerPoint:
+O código JavaScript a seguir demonstra como aplicar um preenchimento de cor sólida a um retângulo em um slide PowerPoint:
 
 ```js
 var aspose = aspose || {};
@@ -462,7 +464,7 @@ try {
     // Obter o primeiro slide.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Adicionar uma forma automática do tipo Rectangle.
+    // Adicionar uma forma automática do tipo Retângulo.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Definir o tipo de preenchimento como Solid.
@@ -484,16 +486,16 @@ O resultado:
 
 ## **Definir Transparência**
 
-No PowerPoint, ao aplicar um preenchimento de cor sólida, gradiente, imagem ou textura a formas, você também pode definir um nível de transparência para controlar a opacidade do preenchimento. Um valor de transparência maior deixa a forma mais translúcida, permitindo que o plano de fundo ou objetos subjacentes sejam parcialmente visíveis.
+No PowerPoint, ao aplicar um preenchimento de cor sólida, gradiente, imagem ou textura a formas, você também pode definir um nível de transparência para controlar a opacidade do preenchimento. Um valor de transparência mais alto torna a forma mais translúcida, permitindo que o plano de fundo ou objetos subjacentes fiquem parcialmente visíveis.
 
 Aspose.Slides permite definir o nível de transparência ajustando o valor alfa na cor usada para o preenchimento. Veja como fazer:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [FillType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/filltype/) como `Solid`.
-1. Use `Color` para definir uma cor com transparência (o componente `alpha` controla a transparência).
-1. Salve a apresentação.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Obtenha uma referência a um slide pelo seu índice.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ao slide.
+4. Defina o [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) como `Solid`.
+5. Use `Color` para definir uma cor com transparência (o componente `alpha` controla a transparência).
+6. Salve a apresentação.
 
 O código JavaScript a seguir demonstra como aplicar uma cor de preenchimento transparente a um retângulo:
 
@@ -529,15 +531,15 @@ O resultado:
 
 ## **Rotacionar Formas**
 
-Aspose.Slides permite rotacionar formas em apresentações do PowerPoint. Isso pode ser útil ao posicionar elementos visuais com necessidades específicas de alinhamento ou design.
+Aspose.Slides permite rotacionar formas em apresentações PowerPoint. Isso pode ser útil ao posicionar elementos visuais com necessidades específicas de alinhamento ou design.
 
 Para rotacionar uma forma em um slide, siga estas etapas:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) ao slide.
-1. Defina a propriedade de rotação da forma para o ângulo desejado.
-1. Salve a apresentação.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Obtenha uma referência a um slide pelo seu índice.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ao slide.
+4. Defina a propriedade de rotação da forma para o ângulo desejado.
+5. Salve a apresentação.
 
 O código JavaScript a seguir demonstra como rotacionar uma forma em 5 graus:
 
@@ -551,7 +553,7 @@ try {
     // Obter o primeiro slide.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Adicionar uma forma automática do tipo Rectangle.
+    // Adicionar uma forma automática do tipo Retângulo.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Rotacionar a forma em 5 graus.
@@ -570,15 +572,15 @@ O resultado:
 
 ## **Adicionar Efeitos de Bisel 3D**
 
-Aspose.Slides permite aplicar efeitos de bisel 3D a formas configurando suas propriedades [ThreeDFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/threedformat/).
+Aspose.Slides permite aplicar efeitos de bisel 3D a formas configurando as propriedades do [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/).
 
 Para adicionar efeitos de bisel 3D a uma forma, siga estas etapas:
 
-1. Instancie a classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) ao slide.
-1. Configure o [ThreeDFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/threedformat/) da forma para definir as configurações de bisel.
-1. Salve a apresentação.
+1. Instancie a classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Obtenha uma referência a um slide pelo seu índice.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ao slide.
+4. Configure o [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) da forma para definir as configurações de bisel.
+5. Salve a apresentação.
 
 O código JavaScript a seguir mostra como aplicar efeitos de bisel 3D a uma forma:
 
@@ -622,15 +624,15 @@ O resultado:
 
 ## **Adicionar Efeitos de Rotação 3D**
 
-Aspose.Slides permite aplicar efeitos de rotação 3D a formas configurando suas propriedades [ThreeDFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/threedformat/).
+Aspose.Slides permite aplicar efeitos de rotação 3D a formas configurando as propriedades do [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/).
 
 Para aplicar rotação 3D a uma forma:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/autoshape/) ao slide.
-1. Use [setCameraType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/camera/#setCameraType) e [setLightType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/lightrig/#setLightType) para definir a rotação 3D.
-1. Salve a apresentação.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Obtenha uma referência a um slide pelo seu índice.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ao slide.
+4. Use [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) e [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) para definir a rotação 3D.
+5. Salve a apresentação.
 
 O código JavaScript a seguir demonstra como aplicar efeitos de rotação 3D a uma forma:
 
@@ -662,13 +664,13 @@ O resultado:
 
 ![O efeito de rotação 3D](3D-rotation-effect.png)
 
-## **Controlar Renderização em Preto e Branco para Formas**
+## **Controlar Renderização em Preto-e-Branco para Formas**
 
-O método [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) especifica como uma forma individual é renderizada quando uma apresentação é visualizada ou processada em modo preto e branco. Ele não habilita a exibição em preto e branco por si só e não altera o preenchimento, a linha ou outras formatações da forma no modo de cor normal.
+O método [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) especifica como uma forma individual é renderizada quando uma apresentação é visualizada ou processada em modo preto-e-branco. Ele não ativa a exibição em preto‑e‑branco por si só e não altera o preenchimento, a linha ou outra formatação da forma no modo de cor normal.
 
-Use um valor da enumeração [BlackWhiteMode](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/blackwhitemode/) para selecionar o comportamento desejado. Por exemplo, `Automatic` permite que o aplicativo de renderização escolha a conversão, `Gray` e `LightGray` usam coloração cinza, `BlackWhite` usa apenas preto e branco, `Black` e `White` forçam uma cor única, `Color` preserva a coloração normal e `Hidden` omite a forma no modo preto e branco. `NotDefined` significa que nenhum modo de nível de forma foi atribuído.
+Use um valor da enumeração [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) para selecionar o comportamento desejado. Por exemplo, `Automatic` permite que o aplicativo de renderização escolha a conversão, `Gray` e `LightGray` usam coloração em tons de cinza, `BlackWhite` usa apenas preto e branco, `Black` e `White` forçam uma cor única, `Color` preserva a coloração normal e `Hidden` omite a forma no modo preto‑e‑branco. `NotDefined` significa que nenhum modo ao nível da forma foi atribuído.
 
-O código JavaScript a seguir cria uma forma colorida e faz com que ela apareça cinza no modo de exibição preto e branco:
+O código JavaScript a seguir cria uma forma colorida e faz com que ela apareça em cinza no modo de exibição preto‑e‑branco:
 
 ```js
 var aspose = aspose || {};
@@ -683,7 +685,7 @@ try {
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
 
-    // Manter o preenchimento laranja no modo de cor, mas renderizar a forma com coloração cinza no modo preto e branco.
+    // Mantenha o preenchimento laranja no modo colorido, mas renderize a forma com coloração cinza no modo preto e branco.
     shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
 
     presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
@@ -692,11 +694,11 @@ try {
 }
 ```
 
-No modo de cor normal, o retângulo mantém seu preenchimento laranja. No fluxo de trabalho de exibição em preto e branco, ele usa coloração cinza porque seu modo está definido como `Gray`. Isso permite que você preserve um slide em cores completas ao definir uma aparência distinta para impressão, visualização ou outros fluxos que respeitam as configurações de exibição preto e branco da apresentação.
+No modo de cor normal, o retângulo mantém seu preenchimento laranja. Em um fluxo de trabalho de exibição em preto‑e‑branco, ele usa coloração cinza porque seu modo está definido como `Gray`. Isso permite que você preserve um slide em cores completas enquanto define uma aparência distinta para impressão, visualização ou outros fluxos de trabalho que respeitam as configurações de exibição em preto‑e‑branco da apresentação.
 
 ## **Redefinir Formatação**
 
-O código JavaScript a seguir mostra como redefinir a formatação de um slide e restaurar a posição, tamanho e formatação de todas as formas com marcadores no [LayoutSlide](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslide/) para suas configurações padrão:
+O código JavaScript a seguir mostra como redefinir a formatação de um slide e reverter a posição, tamanho e formatação de todas as formas com marcadores no [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) para suas configurações padrão:
 
 ```js
 var aspose = aspose || {};
@@ -706,7 +708,7 @@ let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // Redefinir cada forma no slide que tem um placeholder no layout.
+        // Redefinir cada forma no slide que possui um placeholder no layout.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
@@ -715,16 +717,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Perguntas Frequentes**
 
-**A formatação de forma afeta o tamanho final do arquivo da apresentação?**
+**A formatação de formas afeta o tamanho final do arquivo da apresentação?**
 
-Apenas minimamente. Imagens e mídias incorporadas ocupam a maior parte do espaço do arquivo, enquanto parâmetros de forma como cores, efeitos e gradientes são armazenados como metadados e quase não adicionam tamanho extra.
+Apenas minimamente. Imagens e mídia incorporadas ocupam a maior parte do espaço do arquivo, enquanto parâmetros de forma como cores, efeitos e gradientes são armazenados como metadados e praticamente não adicionam tamanho extra.
 
-**Como posso detectar formas em um slide que compartilham formatação idêntica para agrupá‑las?**
+**Como posso detectar formas em um slide que compartilham formatação idêntica para que eu possa agrupá‑las?**
 
-Compare as principais propriedades de formatação de cada forma — preenchimento, linha e configurações de efeito. Se todos os valores correspondentes coincidirem, trate seus estilos como idênticos e agrupe logicamente essas formas, simplificando o gerenciamento de estilo posterior.
+Compare as principais propriedades de formatação de cada forma — preenchimento, linha e configurações de efeito. Se todos os valores correspondentes coincidirem, trate seus estilos como idênticos e agrupe logicamente essas formas, o que simplifica o gerenciamento de estilos posteriormente.
 
 **Posso salvar um conjunto de estilos de forma personalizados em um arquivo separado para reutilização em outras apresentações?**
 
-Sim. Armazene formas de exemplo com os estilos desejados em um slide‑modelo ou em um arquivo de modelo .POTX. Ao criar uma nova apresentação, abra o modelo, clone as formas estilizadas necessárias e reaplique sua formatação onde for preciso.
+Sim. Armazene formas de exemplo com os estilos desejados em um slide‑modelo ou em um arquivo de modelo .POTX. Ao criar uma nova apresentação, abra o modelo, clone as formas estilizadas que precisar e reaplique sua formatação onde for necessário.

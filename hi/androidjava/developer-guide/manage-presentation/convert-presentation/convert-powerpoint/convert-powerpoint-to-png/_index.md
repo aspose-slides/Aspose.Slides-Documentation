@@ -5,13 +5,13 @@ type: docs
 weight: 30
 url: /hi/androidjava/convert-powerpoint-to-png/
 keywords:
-- PowerPoint को बदलें
-- प्रस्तुतीकरण को बदलें
-- स्लाइड को बदलें
-- PPT को बदलें
-- PPTX को बदलें
+- PowerPoint को परिवर्तित करें
+- प्रस्तुति को परिवर्तित करें
+- स्लाइड को परिवर्तित करें
+- PPT को परिवर्तित करें
+- PPTX को परिवर्तित करें
 - PowerPoint से PNG
-- प्रस्तुतीकरण से PNG
+- प्रस्तुति से PNG
 - स्लाइड से PNG
 - PPT से PNG
 - PPTX से PNG
@@ -22,104 +22,146 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android द्वारा Java के माध्यम से PowerPoint प्रस्तुतियों को तेज़ी से उच्च-गुणवत्ता वाले PNG छवियों में बदलें, सटीक और स्वचालित परिणाम सुनिश्चित करते हुए।"
+description: "Aspose.Slides for Android via Java का उपयोग करके PowerPoint प्रस्तुतियों को उच्च‑गुणवत्ता वाले PNG छवियों में तेज़ी से बदलें, जिससे सटीक और स्वचालित परिणाम सुनिश्चित हों।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतीकरण को PNG छवियों में बदलने के तरीके को समझाता है। यह दिखाता है कि PPT, PPTX और ODP जैसे स्वरूपों में प्रस्तुतीकरण फ़ाइलों को कैसे लोड किया जाए, स्लाइडों को छवियों के रूप में रेंडर किया जाए, और परिणामों को PNG स्वरूप में कैसे सहेजा जाए।
+यह लेख समझाता है कि Aspose.Slides for Android via Java का उपयोग करके प्रेजेंटेशन स्लाइड्स को PNG छवियों में कैसे बदलें। आप PPT, PPTX और ODP जैसे फ़ॉर्मैट में प्रस्तुतियों को लोड कर सकते हैं, प्रत्येक स्लाइड को रेंडर कर सकते हैं, और इसे अलग‑अलग PNG छवि के रूप में सहेज सकते हैं।
 
-लेख यह भी दर्शाता है कि उत्पन्न PNG छवियों को स्केल मान सेट करके या वांछित चौड़ाई और ऊँचाई निर्दिष्ट करके कैसे अनुकूलित किया जा सकता है।
+नीचे के उदाहरण डिफ़ॉल्ट स्केल पर रेंडरिंग, स्केल बढ़ाने, पिक्सेल में आउटपुट आयाम निर्धारित करने, और ग्रेडिएंट रेंडरिंग शैली चुनने को दर्शाते हैं।
 
-## **PowerPoint को PNG में बदलें**
+## **PowerPoint को PNG में परिवर्तित करें**
 
-Go through these steps:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक उदाहरण बनाएँ।
-2. [Presentation.getSlides()](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation#getSlides--) संग्रह से स्लाइड ऑब्जेक्ट प्राप्त करें, जो [ISlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ISlide) इंटरफ़ेस के अंतर्गत है।
-3. प्रत्येक स्लाइड के थंबनेल को प्राप्त करने के लिए [ISlide.getImage()](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ISlide) मेथड का उपयोग करें।
-4. स्लाइड थंबनेल को PNG स्वरूप में सहेजने के लिए [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IImage#save(String formatName, int imageFormat)) मेथड का उपयोग करें।
-
-यह Java कोड दिखाता है कि PowerPoint प्रस्तुतीकरण को PNG में कैसे बदलें:
+एक प्रस्तुति को [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) क्लास से लोड करें और उसके स्लाइड्स को [Presentation.getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) संग्रह के माध्यम से पहुँचें। उदाहरण प्रत्येक स्लाइड को [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage--) (कोई पैरामीटर नहीं) से थंबनेल बनाता है। फिर यह प्रत्येक रेंडर की गई स्लाइड को PNG छवि के रूप में सहेजने के लिए [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) को [ImageFormat.Png](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/#Png) के साथ कॉल करता है।
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **कस्टम आयामों के साथ PowerPoint को PNG में बदलें**
+{{% alert color="info" title="Note" %}}
+पैरामीटर‑लेस [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage--) ओवरलोड 0.2 स्केल पर रेंडर करता है। उदाहरण के लिए, 720 × 540 पॉइंट्स वाली स्लाइड 144 × 108 पिक्सेल का थंबनेल बनाती है। आउटपुट आयाम को नियंत्रित करने के लिए नीचे दिखाए गए स्केल फ़ैक्टर या स्पष्ट छवि आकार वाले ओवरलोड का उपयोग करें।
+{{% /alert %}}
 
-यदि आप किसी विशिष्ट स्केल के आधार पर PNG फ़ाइलें प्राप्त करना चाहते हैं, तो आप `desiredX` और `desiredY` मान सेट कर सकते हैं, जो उत्पन्न थंबनेल के आयाम निर्धारित करते हैं। 
+## **PowerPoint को PNG में कस्टम आयामों के साथ परिवर्तित करें**
 
-यह कोड Java में वर्णित ऑपरेशन को प्रदर्शित करता है:
+हॉरिज़ोंटल और वर्टिकल स्केल फ़ैक्टर को [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-float-float-) में पास करें ताकि रेंडर किए गए आयाम नियंत्रित हो सकें। इस उदाहरण में दोनों फ़ैक्टर 2 हैं, इसलिए 720 × 540 पॉइंट्स वाली स्लाइड 1440 × 1080 पिक्सेल की छवि बनाती है। समान स्केल फ़ैक्टर स्लाइड का अनुपात बनाए रखते हैं। प्रत्येक छवि को PNG फ़ॉर्मेट में [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) से सहेजा जाता है।
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **कस्टम आकार के साथ PowerPoint को PNG में बदलें**
+## **PowerPoint को PNG में कस्टम आकार के साथ परिवर्तित करें**
 
-यदि आप किसी विशिष्ट आकार की PNG फ़ाइलें प्राप्त करना चाहते हैं, तो आप `ImageSize` के लिए अपनी इच्छित `width` और `height` तर्क पास कर सकते हैं। 
-
-यह कोड दिखाता है कि PowerPoint को PNG में बदलते समय छवियों के आकार को कैसे निर्दिष्ट किया जाए: 
+आउटपुट आयाम पिक्सेल में निर्दिष्ट करने के लिए स्केल फ़ैक्टर की बजाय एक आकार को [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) में पास करें। यह उदाहरण प्रत्येक स्लाइड को 960 × 720 पिक्सेल पर रेंडर करता है और परिणाम को [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) से सहेजता है। छवि को खींचने से बचने के लिए स्लाइड के अनुपात से मेल खाने वाले आयाम चुनें।
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Size imageSize = new Size(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **ग्रेडिएंट रेंडरिंग शैली चुनें**
+
+मान लें कि एक स्लाइड में ग्रेडिएंट फिल हैं, लेकिन निर्यात की गई PNG में ट्रांज़िशन PowerPoint में दिखने से हल्की या अलग दिखती हैं। आप [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setGradientStyle-int-) मेथड (जो [RenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/renderingoptions/) से विरासत में मिला है) का उपयोग करके ग्रेडिएंट रेंडरिंग को नियंत्रित कर सकते हैं।
+
+डाउनलोड [gradient-styles.pptx](gradient-styles.pptx) और इसे एप्लिकेशन की कार्यशील निर्देशिका में रखें। इसकी पहली स्लाइड में दो लाइनर ग्रेडिएंट हैं: ऊपर सायन से ऑरेंज और नीचे ब्लू से येलो। प्रत्येक ग्रेडिएंट में दो स्टॉप हैं, 0 % और 100 % पर।
+
+निम्न उदाहरण इस प्रस्तुति को लोड करता है और दोनों मोड में वही पहली स्लाइड को [ISlide.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) से रेंडर करता है।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+नीचे की छवियों में एक ही स्लाइड के आउटपुट को दिखाया गया है, प्रत्येक छवि में दोनों ग्रेडिएंट्स के साथ:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![डिफ़ॉल्ट के साथ रेंडर किए गए सायन‑से‑ऑरेंज और ब्लू‑से‑येलो ग्रेडिएंट्स](gradient-Default.png) | ![PowerPointUI के साथ रेंडर किए गए समान ग्रेडिएंट्स](gradient-PowerPointUI.png) |
+
+इस उदाहरण में `Default` मध्यम रंगों को हल्का बनाता है, जबकि `PowerPointUI` उन्हें गहरा बनाता है। अंतर ग्रेडिएंट के रंगों और स्टॉप पर निर्भर करता है।
+
+जब Aspose.Slides का मानक आउटपुट आपकी जरूरतों को पूरा करता है, तब `Default` चुनें। यदि आपका प्राथमिक लक्ष्य PowerPoint में दिखने वाले स्वरूप से मेल खाना है, तो `PowerPointUI` आज़माएँ। दोनों आउटपुट की अपनी‑अपनी अपेक्षित परिणाम के साथ तुलना करें; कोई भी मोड सार्वभौमिक रूप से श्रेष्ठ नहीं है।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं पूरे स्लाइड की बजाय केवल एक विशिष्ट आकार (जैसे चार्ट या चित्र) को कैसे निर्यात कर सकता हूँ?**
+**मैं पूरी स्लाइड के बजाय कोई विशेष आकार, जैसे चार्ट या चित्र, कैसे निर्यात करूँ?**  
+Aspose.Slides [individual shapes के लिए थंबनेल जेनरेट करने](/slides/hi/androidjava/create-shape-thumbnails/) का समर्थन करता है, जिससे आप किसी आकार को PNG छवि के रूप में रेंडर कर सकते हैं।
 
-Aspose.Slides [व्यक्तिगत आकारों के लिए थंबनेल बनाने](/slides/hi/androidjava/create-shape-thumbnails/) का समर्थन करता है; आप किसी आकार को PNG छवि में रेंडर कर सकते हैं।
+**क्या सर्वर पर समानांतर रूपांतरण समर्थित है?**  
+हाँ। प्रत्येक थ्रेड या प्रोसेस के लिए एक अलग प्रस्तुति इंस्टैंस का उपयोग करें; [थ्रेड्स के बीच एक ही इंस्टैंस साझा न करें](/slides/hi/androidjava/multithreading/)।
 
-**क्या सर्वर पर समानांतर रूपांतरण समर्थित है?**
-
-हाँ, लेकिन एक ही प्रस्तुतीकरण इंस्टेंस को थ्रेड्स के बीच [साझा न करें](/slides/hi/androidjava/multithreading/); प्रत्येक थ्रेड या प्रक्रिया के लिए अलग इंस्टेंस उपयोग करें।
-
-**PNG निर्यात करते समय परीक्षण संस्करण की सीमाएँ क्या हैं?**
-
-मूल्यांकन मोड आउटपुट छवियों पर वॉटरमार्क जोड़ता है और लाइसेंस लागू होने तक [अन्य प्रतिबंध](/slides/hi/androidjava/licensing/) लागू करता है।
+**PNG निर्यात के दौरान मूल्यांकन मोड की क्या सीमाएँ हैं?**  
+मूल्यांकन मोड आउटपुट छवियों पर वॉटरमार्क जोड़ता है और [अन्य प्रतिबंध](/slides/hi/androidjava/licensing/) लागू करता है, जब तक कि लाइसेंस लागू न किया जाए।

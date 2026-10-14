@@ -21,116 +21,154 @@ keywords:
 - PPTX nach PNG exportieren
 - PHP
 - Aspose.Slides
-description: "PowerPoint-Präsentationen schnell in hochwertige PNG-Bilder konvertieren mit Aspose.Slides für PHP über Java, wobei präzise, automatisierte Ergebnisse gewährleistet werden."
+description: "PowerPoint-Präsentationen schnell in hochwertige PNG-Bilder konvertieren mit Aspose.Slides für PHP über Java, wobei präzise, automatisierte Ergebnisse sichergestellt werden."
 ---
+## **Übersicht**
 
-## **Über die PowerPoint-zu-PNG-Konvertierung**
+Dieser Artikel erklärt, wie man Präsentationsfolien mithilfe von Aspose.Slides für PHP über Java in PNG‑Bilder konvertiert. Sie können Präsentationen in Formaten wie PPT, PPTX und ODP laden, jede Folie rendern und als separates PNG‑Bild speichern.
 
-Das PNG (Portable Network Graphics)-Format ist nicht so populär wie JPEG (Joint Photographic Experts Group), ist aber weiterhin sehr beliebt. 
-
-**Anwendungsfall:** Wenn Sie ein komplexes Bild haben und die Größe kein Problem darstellt, ist PNG ein besseres Bildformat als JPEG. 
-
-{{% alert title="Tipp" color="primary" %}} Vielleicht möchten Sie die kostenlosen Aspose **PowerPoint-zu-PNG-Konverter** ansehen: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) und [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Sie sind eine Live‑Umsetzung des auf dieser Seite beschriebenen Prozesses. {{% /alert %}}
+Die nachstehenden Beispiele demonstrieren das Rendern in der Standardskala, das Erhöhen der Skalierung, das Festlegen der Ausgabedimensionen in Pixeln und das Auswählen eines Gradient‑Render‑Stils.
 
 ## **PowerPoint in PNG konvertieren**
 
-Gehen Sie wie folgt vor:
+Laden Sie eine Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) und greifen Sie über die Sammlung [Presentation::getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) auf die Folien zu. Das Beispiel rendert jede Folie mit [Slide::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) ohne Parameter, um ein Miniaturbild zu erzeugen. Anschließend wird [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) mit [ImageFormat::Png](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/#Png) aufgerufen, um jede gerenderte Folie als PNG‑Bild zu speichern.
 
-1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
-2. Rufen Sie das Folienobjekt aus der [Presentation.getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) Sammlung der [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) Klasse ab.
-3. Verwenden Sie die Methode [Slide.getImage()](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage), um die Miniaturansicht für jede Folie zu erhalten.
-4. Verwenden Sie die Methode [IImage.save(String formatName, int imageFormat)](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save), um die Folien‑Miniaturansicht im PNG-Format zu speichern.
-
-Dieser PHP-Code zeigt, wie Sie eine PowerPoint-Präsentation in PNG konvertieren:
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
-      $slide = $pres->getSlides()->get_Item($index);
-      $slideImage = $slide->getImage();
-      try {
-        $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage();
+        try {
+            $image->save("slide_" . $index . ".png", ImageFormat::Png);
+        } finally {
+            $image->dispose();
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+{{% alert color="info" title="Note" %}}
+Der parameterlose [Slide::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) Überladung rendert mit einer Skalierung von 0,2. Zum Beispiel erzeugt eine Folie mit den Maßen 720 × 540 Points ein Miniaturbild von 144 × 108 Pixel. Um die Ausgabedimensionen zu steuern, verwenden Sie die Überladungen mit Skalierungsfaktoren oder einer expliziten Bildgröße, wie unten gezeigt.
+{{% /alert %}}
 
 ## **PowerPoint in PNG mit benutzerdefinierten Abmessungen konvertieren**
 
-Wenn Sie PNG-Dateien in einem bestimmten Maßstab erhalten möchten, können Sie die Werte für `desiredX` und `desiredY` festlegen, die die Abmessungen der resultierenden Miniaturansicht bestimmen. 
+Geben Sie horizontale und vertikale Skalierungsfaktoren an [Slide::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage), um die gerenderten Abmessungen zu steuern. In diesem Beispiel sind beide Faktoren 2, sodass eine Folie mit den Maßen 720 – 540 Points ein Bild von 1440 – 1080 Pixel erzeugt. Gleiche Skalierungsfaktoren erhalten das Seitenverhältnis der Folie. Jedes Bild wird im PNG‑Format mit [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) gespeichert.
 
-Dieser Code demonstriert die beschriebene Vorgehensweise:
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $scaleX = 2.0;
-    $scaleY = 2.0;
-    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
-      $slide = $pres->getSlides()->get_Item($index);
-      $slideImage = $slide->getImage($scaleX, $scaleY);
-      try {
-        $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
-        }
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
 
+$presentation = new Presentation("presentation.pptx");
+try {
+    $scaleX = 2.0;
+    $scaleY = $scaleX;
+
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage($scaleX, $scaleY);
+        try {
+            $image->save("slide_" . $index . ".png", ImageFormat::Png);
+        } finally {
+            $image->dispose();
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **PowerPoint in PNG mit benutzerdefinierter Größe konvertieren**
 
-Wenn Sie PNG-Dateien in einer bestimmten Größe erhalten möchten, können Sie Ihre bevorzugten `width`‑ und `height`‑Argumente für `ImageSize` übergeben. 
+Um die Ausgabedimensionen in Pixeln anzugeben, übergeben Sie eine Größe an [Slide::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) anstelle von Skalierungsfaktoren. Dieses Beispiel rendert jede Folie mit 960 – 720 Pixel und speichert das Ergebnis mit [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). Wählen Sie Abmessungen, die dem Seitenverhältnis der Folie entsprechen, um ein Dehnen des Bildes zu vermeiden.
 
-Dieser Code zeigt, wie Sie ein PowerPoint in PNG konvertieren und dabei die Bildgröße angeben: 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $size = new Java("java.awt.Dimension", 960, 720);
-    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
-      $slide = $pres->getSlides()->get_Item($index);
-      $slideImage = $slide->getImage($size);
-      try {
-        $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $imageSize = new Java("java.awt.Dimension", 960, 720);
+
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage($imageSize);
+        try {
+            $image->save("slide_" . $index . ".png", ImageFormat::Png);
+        } finally {
+            $image->dispose();
         }
-      }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Wählen Sie einen Gradient‑Render‑Stil**
+
+Angenommen, eine Folie enthält Farbverläufe, aber die Übergänge im exportierten PNG erscheinen heller oder anders als in PowerPoint. Sie können die Methode [SaveOptions::setGradientStyle](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setGradientStyle) verwenden, die von [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/) geerbt wird, um festzulegen, wie die Verläufe gerendert werden.
+
+Laden Sie [gradient-styles.pptx](gradient-styles.pptx) herunter und legen Sie sie im Arbeitsverzeichnis der Anwendung ab. Die erste Folie enthält zwei lineare Verläufe: Cyan zu Orange oben und Blau zu Gelb unten. Jeder Verlauf hat zwei Stopps bei 0 % und 100 %.
+
+Das folgende Beispiel lädt diese Präsentation und rendert die gleiche erste Folie in beiden Modi mit [Slide::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage).
+
+```php
+use aspose\slides\GradientStyle;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\RenderingOptions;
+
+$presentation = new Presentation("gradient-styles.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $gradientStyles = [GradientStyle::Default, GradientStyle::PowerPointUI];
+    foreach ($gradientStyles as $style) {
+        $options = new RenderingOptions();
+        $options->setGradientStyle($style);
+
+        $styleName = $style == GradientStyle::Default ? "Default" : "PowerPointUI";
+        $image = $slide->getImage($options, 1.0, 1.0);
+        try {
+            $image->save("gradient-" . $styleName . ".png", ImageFormat::Png);
+        } finally {
+            $image->dispose();
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Die Bilder unten zeigen die Ausgabe derselben Folie, mit beiden Verläufen in jedem Bild:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Cyan-zu-Orange- und Blau-zu-Gelb-Verläufe gerendert mit Default](gradient-Default.png) | ![Die gleichen Verläufe gerendert mit PowerPointUI](gradient-PowerPointUI.png) |
+
+In diesem Beispiel erzeugt `Default` hellere Zwischenfarben, während `PowerPointUI` dunklere Zwischenfarben erzeugt. Der Unterschied hängt von den Farben und Stopps im Verlauf ab.
+
+Wählen Sie `Default`, wenn die Standardausgabe von Aspose.Slides Ihren Anforderungen entspricht. Verwenden Sie `PowerPointUI`, wenn Ihre Priorität darin besteht, das Aussehen in PowerPoint zu reproduzieren. Vergleichen Sie beide Ausgaben mit dem gewünschten Ergebnis; kein Modus ist allgemein vorzuziehen.
 
 ## **FAQ**
 
-**Wie kann ich nur eine bestimmte Form (z. B. Diagramm oder Bild) anstatt der gesamten Folie exportieren?**
+**Wie kann ich eine bestimmte Form, z. B. ein Diagramm oder Bild, statt der gesamten Folie exportieren?**
 
-Aspose.Slides unterstützt das [Erzeugen von Miniaturansichten für einzelne Formen](/slides/de/php-java/create-shape-thumbnails/); Sie können eine Form als PNG‑Bild rendern.
+Aspose.Slides unterstützt das [Erzeugen von Miniaturansichten für einzelne Formen](/slides/de/php-java/create-shape-thumbnails/), wodurch Sie eine Form als PNG‑Bild rendern können.
 
-**Wird eine Parallelkonvertierung auf einem Server unterstützt?**
+**Wird die parallele Konvertierung auf einem Server unterstützt?**
 
-Ja, jedoch sollten Sie keine einzelne Präsentationsinstanz über Threads hinweg [teilen](/slides/de/php-java/multithreading/). Verwenden Sie pro Thread oder Prozess eine separate Instanz.
+Ja. Verwenden Sie für jeden Thread oder Prozess eine separate Präsentationsinstanz; [teilen Sie keine einzelne Instanz über Threads hinweg](/slides/de/php-java/multithreading/).
 
-**Welche Einschränkungen gibt es in der Testversion beim Export nach PNG?**
+**Welche Einschränkungen gelten im Evaluierungsmodus beim Exportieren nach PNG?**
 
-Der Evaluierungsmodus fügt den Ausgabebildern ein Wasserzeichen hinzu und erzwingt [weitere Einschränkungen](/slides/de/php-java/licensing/), bis eine Lizenz aktiviert wird.
+Der Evaluierungsmodus fügt den Ausgabebildern ein Wasserzeichen hinzu und wendet [weitere Einschränkungen](/slides/de/php-java/licensing/) an, bis eine Lizenz aktiviert ist.

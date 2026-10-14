@@ -1,17 +1,17 @@
 ---
-title: C++ में PowerPoint स्लाइड्स को PNG में परिवर्तित करें
-linktitle: PowerPoint को PNG में बदलें
+title: C++ में PowerPoint स्लाइड्स को PNG में बदलें
+linktitle: PowerPoint से PNG
 type: docs
 weight: 30
 url: /hi/cpp/convert-powerpoint-to-png/
 keywords:
-- PowerPoint परिवर्तित करें
-- प्रेजेंटेशन परिवर्तित करें
-- स्लाइड परिवर्तित करें
-- PPT परिवर्तित करें
-- PPTX परिवर्तित करें
+- PowerPoint बदलें
+- प्रस्तुति रूपांतरित करें
+- स्लाइड रूपांतरित करें
+- PPT बदलें
+- PPTX बदलें
 - PowerPoint से PNG
-- प्रेजेंटेशन से PNG
+- प्रस्तुति से PNG
 - स्लाइड से PNG
 - PPT से PNG
 - PPTX से PNG
@@ -21,83 +21,171 @@ keywords:
 - PPTX को PNG में निर्यात करें
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ के साथ PowerPoint प्रस्तुतियों को उच्च-गुणवत्ता वाले PNG चित्रों में तेज़ी से परिवर्तित करें, सटीक और स्वचालित परिणाम सुनिश्चित करते हुए।"
+description: "Aspose.Slides for C++ के साथ PowerPoint प्रस्तुतियों को तेज़ी से उच्च-गुणवत्ता वाली PNG छवियों में बदलें, सटीक और स्वचालित परिणाम सुनिश्चित करते हुए।"
 ---
 ## **सारांश**
 
-यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों को PNG छवियों में बदलने के तरीके को समझाता है। यह दिखाता है कि PPT, PPTX, और ODP जैसे स्वरूपों में प्रस्तुति फ़ाइलों को कैसे लोड करें, स्लाइड्स को छवियों के रूप में रेंडर करें, और परिणामों को PNG स्वरूप में सहेजें।
+यह लेख Aspose.Slides for C++ का उपयोग करके प्रस्तुति स्लाइड्स को PNG छवियों में बदलने की विधि समझाता है। आप PPT, PPTX और ODP जैसे फ़ॉर्मेट की प्रस्तुतियों को लोड कर सकते हैं, प्रत्येक स्लाइड को रेंडर कर सकते हैं, और इसे अलग‑अलग PNG छवि के रूप में सहेज सकते हैं।
 
-यह लेख यह भी दर्शाता है कि स्केल मान सेट करके या वांछित चौड़ाई और ऊँचाई निर्दिष्ट करके उत्पन्न PNG छवियों को कैसे अनुकूलित किया जाए।
+नीचे दिए गए उदाहरण डिफ़ॉल्ट स्केल पर रेंडरिंग, स्केल बढ़ाने, पिक्सल में आउटपुट आयाम निर्धारित करने, और ग्रेडिएंट रेंडरिंग शैली चुनने को दर्शाते हैं।
 
 ## **PowerPoint को PNG में बदलें**
 
-इन चरणों का पालन करें:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का उदाहरण बनाएं।
-2. [Presentation::get_Slides()](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) संग्रह से [ISlide](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_slide) इंटरफ़ेस के तहत स्लाइड ऑब्जेक्ट प्राप्त करें। 
-3. प्रत्येक स्लाइड के थंबनेल के लिए [ISlide::GetImage()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/getimage) मेथड का उपयोग करें। 
-4. स्लाइड थंबनेल को PNG स्वरूप में सहेजने के लिए [IImage::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iimage/save/#iimagesavesystemstring-imageformat-method) मेथड का उपयोग करें। 
-
-यह C++ कोड आपको दिखाता है कि PowerPoint प्रस्तुति को PNG में कैसे बदलें:
+Load a presentation with the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class and access its slides through the [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) accessor. The example renders every slide with [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) without parameters to create a thumbnail. It then calls [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) with [ImageFormat::Png](https://reference.aspose.com/slides/cpp/aspose.slides/imageformat/) to save each rendered slide as a PNG image.
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-    
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage()->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage();
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **कस्टम आयामों के साथ PowerPoint को PNG में बदलें**
+{{% alert color="info" title="Note" %}}
+पैरामीटर‑रहित [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) ओवरलोड 0.2 के स्केल पर रेंडर करता है। उदाहरण के लिए, 720 × 540 पॉइंट की स्लाइड 144 × 108 पिक्सल की थंबनेल उत्पन्न करती है। आउटपुट आयाम को नियंत्रित करने के लिए नीचे दिखाए गए स्केल फ़ैक्टर या स्पष्ट इमेज आकार वाले ओवरलोड का उपयोग करें।
+{{% /alert %}}
 
-यदि आप किसी निश्चित स्केल के आसपास PNG फ़ाइलें प्राप्त करना चाहते हैं, तो आप `desiredX` और `desiredY` मान सेट कर सकते हैं, जो परिणामी थंबनेल के आयाम निर्धारित करते हैं। 
+## **PowerPoint को PNG में कस्टम आयामों के साथ बदलें**
 
-यह C++ कोड वर्णित ऑपरेशन को दर्शाता है:
+Pass horizontal and vertical scale factors to [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) to control the rendered dimensions. In this example, both factors are 2, so a slide measuring 720 × 540 points produces a 1440 × 1080 pixel image. Equal scale factors preserve the slide's aspect ratio. Each image is saved in PNG format with [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/).
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
 
-float scaleX = 2.f;
-float scaleY = 2.f;
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto scaleX = 2.f;
+auto scaleY = scaleX;
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage(scaleX, scaleY)->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
 
-## **कस्टम आकार के साथ PowerPoint को PNG में बदलें**
+## **PowerPoint को PNG में कस्टम आकार के साथ बदलें**
 
-यदि आप किसी निश्चित आकार के आसपास PNG फ़ाइलें प्राप्त करना चाहते हैं, तो आप `ImageSize` के लिए अपने इच्छित `width` और `height` तर्क पास कर सकते हैं। 
-
-यह कोड आपको दिखाता है कि छवियों के आकार को निर्दिष्ट करते हुए PowerPoint को PNG में कैसे बदलें: 
+To specify output dimensions in pixels, pass a size to [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) instead of scale factors. This example renders every slide at 960 × 720 pixels and saves the result with [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). Choose dimensions that match the slide's aspect ratio to avoid stretching the image.
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-    
-Size size(960, 720);
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+#include <drawing/size.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto imageSize = System::Drawing::Size(960, 720);
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (auto index = 0; index < slideCount; index++)
 {
-    auto slide = pres->get_Slides()->idx_get(index);
-    auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetImage(size)->Save(fileName, ImageFormat::Png);
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(imageSize);
+    image->Save(String::Format(u"slide_{0}.png", index), ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
+
+## **ग्रेडिएंट रेंडरिंग शैली चुनें**
+
+Suppose a slide contains gradient fills, but the transitions in the exported PNG look lighter or otherwise different from what you see in PowerPoint. You can use the [SaveOptions::set_GradientStyle](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_gradientstyle/) method of [RenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/renderingoptions/) to choose how the gradients are rendered.
+
+Download [gradient-styles.pptx](gradient-styles.pptx) and place it in the application's working directory. Its first slide contains two linear gradients: cyan to orange at the top and blue to yellow at the bottom. Each gradient has two stops, at 0% and 100%.
+
+The following example loads this presentation and renders the same first slide in both modes with [ISlide::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/).
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/string.h>
+#include <DOM/GradientStyle.h>
+#include <Export/RenderingOptions.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"gradient-styles.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto gradientStyles = { GradientStyle::Default, GradientStyle::PowerPointUI };
+for (auto style : gradientStyles)
+{
+    auto options = MakeObject<RenderingOptions>();
+    options->set_GradientStyle(style);
+
+    auto image = slide->GetImage(options, 1.f, 1.f);
+    auto styleName = style == GradientStyle::Default ? u"Default" : u"PowerPointUI";
+    image->Save(String::Format(u"gradient-{0}.png", styleName), ImageFormat::Png);
+    image->Dispose();
+}
+
+presentation->Dispose();
+```
+
+The images below show the output from the same slide, with both gradients in each image:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Default के साथ रेंडर किए गए स्यान‑से‑ऑरेंज और ब्लू‑से‑येलो ग्रेडिएंट](gradient-Default.png) | ![PowerPointUI के साथ रेंडर किए गए समान ग्रेडिएंट](gradient-PowerPointUI.png) |
+
+In this example, `Default` produces lighter intermediate colors, while `PowerPointUI` produces darker intermediate colors. The difference depends on the colors and stops in the gradient.
+
+Choose `Default` when the standard Aspose.Slides output suits your needs. Try `PowerPointUI` when your priority is matching the appearance in PowerPoint. Compare both outputs with your intended result; neither mode is universally preferable.
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं पूरे स्लाइड के बजाय केवल किसी विशिष्ट आकार (जैसे चार्ट या चित्र) को कैसे निर्यात कर सकता हूँ?**
+**मैं पूरी स्लाइड के बजाय कोई विशिष्ट आकार, जैसे चार्ट या चित्र, को कैसे निर्यात करूँ?**
 
-Aspose.Slides [व्यक्तिगत आकृतियों के लिए थंबनेल जनरेट करना](/slides/hi/cpp/create-shape-thumbnails/) का समर्थन करता है; आप एक आकृति को PNG छवि में रेंडर कर सकते हैं।
+Aspose.Slides supports [व्यक्तिगत आकृतियों के लिए थंबनेल उत्पन्न करना](/slides/hi/cpp/shape-thumbnails/), allowing you to render a shape as a PNG image.
 
 **क्या सर्वर पर समानांतर रूपांतरण समर्थित है?**
 
-हाँ, लेकिन [एक ही प्रस्तुति इंस्टेंस को थ्रेड्स के बीच साझा न करें](/slides/hi/cpp/multithreading/); प्रत्येक थ्रेड या प्रक्रिया के लिए अलग इंस्टेंस उपयोग करें।
+Yes. Use a separate presentation instance for each thread or process; [थ्रेड्स के बीच एक ही उदाहरण साझा न करें](/slides/hi/cpp/multithreading/).
 
-**PNG निर्यात करते समय ट्रायल‑वर्जन की सीमाएँ क्या हैं?**
+**PNG निर्यात करते समय मूल्यांकन सीमाएँ क्या हैं?**
 
-मूल्यांकन मोड आउटपुट छवियों में वाटरमार्क जोड़ता है और लाइसेंस लागू होने तक [अन्य प्रतिबंध](/slides/hi/cpp/licensing/) लागू करता है।
+Evaluation mode adds a watermark to output images and applies [अन्य प्रतिबंध](/slides/hi/cpp/licensing/) until a license is applied.

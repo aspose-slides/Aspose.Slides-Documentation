@@ -1,44 +1,37 @@
 ---
-title: PowerPoint Slaytlarını Python’da PNG’ye Dönüştürme
-linktitle: Slayt PNG’ye
+title: PowerPoint Slaytlarını Python'da PNG'ye Dönüştür
+linktitle: PowerPoint'ten PNG'ye
 type: docs
 weight: 30
 url: /tr/python-net/convert-powerpoint-to-png/
 keywords:
-- PowerPoint'i PNG’ye dönüştür
-- Sunumu PNG’ye dönüştür
-- Slaytı PNG’ye dönüştür
-- PPT'yi PNG’ye dönüştür
-- PPTX'i PNG’ye dönüştür
-- ODP'yi PNG’ye dönüştür
-- PowerPoint PNG’ye
-- Sunum PNG’ye
-- Slayt PNG’ye
-- PPT PNG’ye
-- PPTX PNG’ye
-- ODP PNG’ye
+- PowerPoint'i PNG'ye dönüştür
+- sunumu PNG'ye dönüştür
+- slaytı PNG'ye dönüştür
+- PPT'yi PNG'ye dönüştür
+- PPTX'i PNG'ye dönüştür
+- ODP'yi PNG'ye dönüştür
+- PowerPoint'ten PNG'ye
+- sunumu PNG'ye
+- slaytı PNG'ye
+- PPT'yi PNG'ye
+- PPTX'i PNG'ye
+- ODP'yi PNG'ye
 - Python
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument sunumlarını Aspose.Slides for Python via .NET ile hızlıca yüksek kaliteli PNG görüntülerine dönüştürün, kesin ve otomatik sonuçlar sağlayarak."
+description: "PowerPoint ve OpenDocument sunumlarını Aspose.Slides for Python via .NET ile yüksek kaliteli PNG görüntülerine hızlıca dönüştürün, kesin ve otomatik sonuçlar elde edin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Python via .NET, PowerPoint sunumlarını PNG’ye dönüştürmeyi kolaylaştırır. Bir sunumu yüklersiniz, slaytlarını döngüyle gezersiniz, her birini raster görüntüye renderlersiniz ve sonucu PNG dosyaları olarak kaydedersiniz. Bu, slayt önizlemeleri oluşturmak, slaytları web sayfalarına gömmek veya sonraki işlem adımları için sabit varlıklar üretmek için idealdir.
+Bu makale, Aspose.Slides for Python via .NET kullanarak sunum slaytlarını PNG görüntülerine dönüştürmeyi açıklar. PPT, PPTX ve ODP gibi formatlarda sunumları yükleyebilir, her slaytı işleyebilir ve ayrı bir PNG görüntüsü olarak kaydedebilirsiniz.
 
-## **Slaytları PNG’ye Dönüştürme**
+Aşağıdaki örnekler, varsayılan ölçekte işleme, ölçeği artırma, çıkış boyutlarını piksel olarak belirleme ve bir gradyan işleme stilini seçme konularını gösterir.
 
-Bu bölüm, Aspose.Slides for Python via .NET kullanarak bir PowerPoint sunumunu PNG görüntülerine dönüştürmenin mümkün olan en basit örneğini gösterir.
+## **PowerPoint'i PNG'ye Dönüştür**
 
-Şu adımları izleyin:
+Bir sunumu [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) sınıfı ile yükleyin ve slaytlarına [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) koleksiyonu aracılığıyla erişin. Örnek, her slaytı parametresiz [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) ile işleyerek bir küçük resim oluşturur. Ardından, [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) metodunu [ImageFormat.PNG](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) ile çağırarak işlenen her slaytı PNG görüntüsü olarak kaydeder.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfını örnekleyin.
-1. `Presentation.slides` koleksiyonundan bir slayt alın (bkz. [Slide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slide/) sınıfı).
-1. Slaytın küçük resmini oluşturmak için `Slide.get_image` metodunu kullanın.
-1. Slayt küçük resmini PNG formatında kaydetmek için `Presentation.save` metodunu kullanın.
-
-Bu Python kodu, bir PowerPoint sunumunu PNG’ye nasıl dönüştüreceğinizi gösterir:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -47,16 +40,18 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Özel Boyutlarda PNG’ye Slayt Dönüştürme**
+{{% alert color="info" title="Note" %}}
+Parametresiz [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) aşırı yüklemesi 0.2 ölçekle işler. Örneğin, 720 × 540 puan ölçüsündeki bir slayt 144 × 108 piksel bir küçük resim üretir. Çıkış boyutlarını kontrol etmek için aşağıda gösterildiği gibi ölçek faktörleriyle veya açık bir görüntü boyutuyla aşırı yüklemeleri kullanın.
+{{% /alert %}}
 
-Slaytları özel bir ölçekle PNG’ye aktarmak için `Slide.get_image` metodunu yatay ve dikey ölçek faktörleriyle çağırın. Bu çarpanlar, çıktıyı slaytın orijinal boyutlarına göre yeniden boyutlandırır—örneğin `2.0`, hem genişliği hem de yüksekliği iki katına çıkar. En boy oranını korumak için `scale_x` ve `scale_y` değerlerini eşit tutun.
+## **PowerPoint'i PNG'ye Özel Boyutlarla Dönüştür**
 
-Bu Python kodu, açıklanan işlemi gösterir:
+İşlenen boyutları kontrol etmek için yatay ve dikey ölçek faktörlerini [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) metoduna gönderin. Bu örnekte, her iki faktör de 2'dir, bu yüzden 720 × 540 puan ölçüsündeki bir slayt 1440 × 1080 piksel bir görüntü üretir. Eşit ölçek faktörleri slaytın en‑boy oranını korur. Her görüntü, [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) ile PNG formatında kaydedilir.
 
-```py
+```python
 import aspose.slides as slides
 
-scale_x = 2
+scale_x = 2.0
 scale_y = scale_x
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -65,38 +60,62 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Özel Boyutta PNG’ye Slayt Dönüştürme**
+## **PowerPoint'i PNG'ye Özel Boyutla Dönüştür**
 
-Belirli bir boyutta PNG dosyaları oluşturmak istiyorsanız, istediğiniz `width` ve `height` değerlerini geçin. Aşağıdaki kod, bir PowerPoint’i PNG’ye dönüştürürken görüntü boyutunu nasıl belirleyeceğinizi gösterir:
+Çıkış boyutlarını piksel olarak belirtmek için ölçek faktörleri yerine bir boyut değerini [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) metoduna gönderin. Bu örnek, her slaytı 960 × 720 piksel olarak işler ve sonucu [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) ile kaydeder. Görüntünün uzamasını önlemek için slaytın en‑boy oranına uygun boyutları seçin.
 
-```py
+```python
 import aspose.slides as slides
-import aspose.pydrawing as drawing
 
-size = drawing.Size(960, 720)
+image_size = slides.Size(960, 720)
 
 with slides.Presentation("presentation.pptx") as presentation:
     for index, slide in enumerate(presentation.slides):
-        with slide.get_image(size) as image:
+        with slide.get_image(image_size) as image:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-{{% alert title="Tip" color="primary" %}}
+## **Bir Gradyan İşleme Stili Seçin**
 
-Aspose’un ücretsiz **PowerPoint‑to‑PNG dönüştürücülerini** deneyebilirsiniz—[PPTX to PNG](https://products.aspose.app/slides/tr/conversion/pptx-to-png) ve [PPT to PNG](https://products.aspose.app/slides/tr/conversion/ppt-to-png). Bu araçlar, bu sayfada açıklanan sürecin canlı bir uygulamasını sunar.
+Bir slaytta gradyan dolgu bulunduğunu ve dışa aktarılan PNG'deki geçişlerin PowerPoint'te gördüklerinizden daha açık ya da farklı göründüğünü varsayalım. Gradyanların nasıl işleneceğini seçmek için [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/) sınıfının [gradient_style](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveoptions/gradient_style/) özelliğini kullanabilirsiniz.
 
-{{% /alert %}}
+[gradient-styles.pptx](gradient-styles.pptx) dosyasını indirin ve uygulamanın çalışma dizinine yerleştirin. İlk slaytı, üstte cyan‑tan‑turuncuya ve altta mavi‑tan‑sarıya iki lineer gradyan içerir. Her gradyanın iki durak noktası vardır: %0 ve %100.
+
+Aşağıdaki örnek bu sunumu yükler ve aynı ilk slaytı her iki modda da [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) ile işler.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("gradient-styles.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    gradient_styles = [slides.GradientStyle.DEFAULT, slides.GradientStyle.POWER_POINT_UI]
+    for style in gradient_styles:
+        options = slides.export.RenderingOptions()
+        options.gradient_style = style
+
+        with slide.get_image(options, 1.0, 1.0) as image:
+            image.save(f"gradient-{style.name}.png", slides.ImageFormat.PNG)
+```
+
+| Varsayılan | PowerPointUI |
+| --- | --- |
+| ![Cyan'dan turuncuya ve mavi'dan sarıya gradyanlar Varsayılan ile render edildi](gradient-Default.png) | ![Aynı gradyanlar PowerPointUI ile render edildi](gradient-PowerPointUI.png) |
+
+Bu örnekte, `DEFAULT` daha açık ara renkler üretirken, `POWER_POINT_UI` daha koyu ara renkler üretir. Fark, gradyandaki renkler ve durak noktalara bağlıdır.
+
+İhtiyaçlarınıza uygun standart Aspose.Slides çıktısı gerektiğinde `DEFAULT` seçin. Önceliğiniz PowerPoint'teki görünümle eşleşmekse `POWER_POINT_UI` deneyin. Her iki çıktıyı da istediğiniz sonuçla karşılaştırın; hiçbir mod evrensel olarak tercih edilebilir değildir.
 
 ## **SSS**
 
-**Yalnızca belirli bir şekli (ör. grafik veya resim) tüm slayt yerine nasıl dışa aktarabilirim?**
+**Bir grafik veya resim gibi belirli bir şekli, tüm slayt yerine nasıl dışa aktarabilirim?**
 
-Aspose.Slides, [tek tek şekiller için küçük resim oluşturmayı](/slides/tr/python-net/create-shape-thumbnails/) destekler; bir şekli PNG görüntüsü olarak renderlayabilirsiniz.
+Aspose.Slides, [tekil şekiller için küçük resimler oluşturma](/slides/tr/python-net/create-shape-thumbnails/) özelliğini destekler; bu sayede bir şekli PNG görüntüsü olarak işleyebilirsiniz.
 
 **Sunucuda paralel dönüşüm destekleniyor mu?**
 
-Evet, ancak bir sunum örneğini iş parçacıkları arasında **paylaşmayın**(/slides/tr/python-net/multithreading/). Her iş parçacığı veya süreç için ayrı bir örnek kullanın.
+Evet. Her iş parçacığı veya süreç için ayrı bir sunum örneği kullanın; [tek bir örneği iş parçacıkları arasında paylaşmayın](/slides/tr/python-net/multithreading/).
 
-**PNG’ye dışa aktarırken deneme sürümü kısıtlamaları nelerdir?**
+**PNG olarak dışa aktarırken değerlendirme sınırlamaları nelerdir?**
 
-Değerlendirme modu, çıkış görüntülerine bir filigran ekler ve bir lisans uygulanana kadar [diğer kısıtlamaları](/slides/tr/python-net/licensing/) uygular.
+Değerlendirme modunda, çıktı görüntülerine bir filigran eklenir ve lisans uygulanana kadar [diğer kısıtlamalar](/slides/tr/python-net/licensing/) uygulanır.

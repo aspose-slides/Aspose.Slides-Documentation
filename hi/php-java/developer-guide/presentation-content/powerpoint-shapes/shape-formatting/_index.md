@@ -1,75 +1,75 @@
 ---
-title: PHP में PowerPoint शैपे फ़ॉर्मेट करें
-linktitle: शैपे फ़ॉर्मेटिंग
+title: PHP में PowerPoint शैलियों को स्वरूपित करें
+linktitle: आकृति स्वरूपण
 type: docs
 weight: 20
 url: /hi/php-java/shape-formatting/
 keywords:
-- शैपे फ़ॉर्मेट
-- लाइन फ़ॉर्मेट
+- आकार स्वरूपण
+- रेखा स्वरूपण
 - स्केच प्रभाव
-- स्केच शैपे लाइन
-- जॉइन शैली फ़ॉर्मेट
-- ग्रेडिएंट फ़िल
-- पैटर्न फ़िल
-- पिक्चर फ़िल
-- टेक्सचर फ़िल
-- सॉलिड कलर फ़िल
-- शैपे पारदर्शिता
-- ब्लैक‑एंड‑व्हाइट शैपे रेंडरिंग
-- ग्रेस्केल शैपे रेंडरिंग
-- शैपे घुमाएँ
+- स्केच आकार रेखा
+- जॉइन शैली स्वरूपण
+- ग्रेडिएंट भराव
+- पैटर्न भराव
+- चित्र भराव
+- टेक्सचर भराव
+- एकरंगी भराव
+- आकार ट्रांसपैरेंसी
+- ब्लैक-एंड-व्हाइट आकार रेंडरिंग
+- ग्रेस्केल आकार रेंडरिंग
+- आकार घुमाएँ
 - 3D बिवेल प्रभाव
-- 3D घुमाव प्रभाव
+- 3D घूर्णन प्रभाव
 - फ़ॉर्मेट रीसेट
 - PowerPoint
-- प्रेज़ेंटेशन
+- प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides का उपयोग करके PHP में PowerPoint शैपे को फ़ॉर्मेट करना सीखें—PPT, PPTX और ODP फ़ाइलों के लिए फ़िल, लाइन और इफ़ेक्ट शैलियों को सटीकता और पूर्ण नियंत्रण के साथ सेट करें।"
+description: "Aspose.Slides का उपयोग करके PHP में PowerPoint शकलों को स्वरूपित करना सीखें—PPT, PPTX और ODP फ़ाइलों के लिये भराव, रेखा और प्रभाव शैलियों को सटीकता और पूर्ण नियंत्रण के साथ सेट करें।"
 ---
 ## **परिचय**
 
-PowerPoint में आप स्लाइड्स में शैपे जोड़ सकते हैं। चूंकि शैपे रेखाओं से बनी होती हैं, आप उनके रूपरेखा को संशोधित कर या प्रभाव लागू कर स्वरूपित कर सकते हैं। अतिरिक्त रूप से, आप शैपे को इस तरह सेट कर सकते हैं कि उनके आंतरिक भाग कैसे भरे जाएँ, इसे नियंत्रित करने वाले सेटिंग्स निर्दिष्ट करके।
+PowerPoint में, आप स्लाइड में शकलें जोड़ सकते हैं। चूँकि शकलें लाइनों से बनी होती हैं, आप उनकी रूपरेखा को परिवर्तित करके या प्रभाव लगाकर स्वरूपित कर सकते हैं। अतिरिक्त रूप से, आप शकलों को इस प्रकार सेटिंग्स निर्दिष्ट करके स्वरूपित कर सकते हैं जो नियंत्रित करती हैं कि उनके अंदरूनी भाग को कैसे भरा जाए।
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for PHP via Java क्लास और मेथड प्रदान करता है जो आपको PowerPoint में उपलब्ध समान विकल्पों का उपयोग करके शैपे स्वरूपित करने की अनुमति देता है।
+Aspose.Slides for PHP via Java क्लास और मेथड प्रदान करता है जो आपको PowerPoint में उपलब्ध वही विकल्पों का उपयोग करके शकलें स्वरूपित करने की अनुमति देते हैं।
 
-## **रेखाओं को स्वरूपित करें**
+## **लाइन स्वरूपित करें**
 
-Aspose.Slides का उपयोग करके आप किसी शैपे के लिए एक कस्टम लाइन स्टाइल निर्दिष्ट कर सकते हैं। नीचे दी गई चरणों में प्रक्रिया दर्शाई गई है:
+Aspose.Slides का उपयोग करके, आप किसी शकल के लिये कस्टम लाइन शैली निर्दिष्ट कर सकते हैं। निम्नलिखित चरण प्रक्रिया को रेखांकित करते हैं:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. उसके इंडेक्स द्वारा एक स्लाइड का रेफ़रेंस प्राप्त करें।  
-1. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।  
-1. शैपे की [line style](https://reference.aspose.com/slides/hi/php-java/aspose.slides/linestyle/) सेट करें।  
-1. लाइन की चौड़ाई सेट करें।  
-1. लाइन की [dash style](https://reference.aspose.com/slides/hi/php-java/aspose.slides/linedashstyle/) सेट करें।  
-1. शैपे के लिए लाइन का रंग सेट करें।  
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to a slide by its index.
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Set the [line style](https://reference.aspose.com/slides/php-java/aspose.slides/linestyle/) of the shape.
+5. Set the line width.
+6. Set the [dash style](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) of the line.
+7. Set the line color for the shape.
+8. Save the modified presentation as a PPTX file.
 
-नीचे दिया गया PHP कोड एक आयताकार `AutoShape` को स्वरूपित करने का तरीका दर्शाता है:
+The following PHP code demonstrates how to format a rectangle `AutoShape`:
 
 ```php
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करें।
 $presentation = new Presentation();
 try {
-    // पहला स्लाइड प्राप्त करें।
+    // पहली स्लाइड प्राप्त करें।
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Rectangle प्रकार का ऑटो शैपे जोड़ें।
+    // Rectangle प्रकार की एक ऑटो शकल जोड़ें।
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-    // आयताकार शैपे के लिए फ़िल रंग सेट करें।
+    // Rectangle शकल के लिए भराव रंग सेट करें।
     $shape->getFillFormat()->setFillType(FillType::NoFill);
 
-    // आयताकार की लाइनों पर फ़ॉर्मेटिंग लागू करें।
+    // Rectangle की लाइनों पर स्वरूपण लागू करें।
     $shape->getLineFormat()->setStyle(LineStyle::ThickThin);
     $shape->getLineFormat()->setWidth(7);
     $shape->getLineFormat()->setDashStyle(LineDashStyle::Dash);
 
-    // आयताकार की लाइन के लिए रंग सेट करें।
+    // Rectangle की रेखा का रंग सेट करें।
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
@@ -82,13 +82,13 @@ try {
 
 परिणाम:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![प्रस्तुति में स्वरूपित लाइन्स](formatted-lines.png)
 
-## **शैपे रेखाओं पर स्केच प्रभाव लागू करें**
+## **आकार लाइनों पर स्केच प्रभाव लागू करें**
 
-एक स्केच प्रभाव शैपे लाइन को हाथ से खींचा हुआ दिखाता है। रेखा सेटिंग्स तक पहुंचने के लिए [Shape.getLineFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) का उपयोग करें, स्केच सेटिंग्स तक पहुंचने के लिए [LineFormat.getSketchFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/lineformat/) का उपयोग करें, और [SketchFormat.setSketchType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sketchformat/) का उपयोग करके [LineSketchType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/linesketchtype/) एन्ह्यूमरेशन से मान चुनें।
+स्केच प्रभाव किसी शकल की लाइन को हाथ‑से‑खींचा हुआ दिखाता है। लाइन सेटिंग्स तक पहुँचने के लिए [Shape.getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) का उपयोग करें, स्केच सेटिंग्स तक पहुँचने के लिये [LineFormat.getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) का उपयोग करें, और [SketchFormat.setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) का उपयोग करके [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) एन्ह्यूमरेशन से मान चुनें।
 
-नीचे दिया गया PHP कोड एक [LineSketchType.Curved](https://reference.aspose.com/slides/hi/php-java/aspose.slides/linesketchtype/) प्रभाव लागू करने, स्पष्ट रूप से असाइन किया गया मान पढ़ने, और [LineSketchType.None](https://reference.aspose.com/slides/hi/php-java/aspose.slides/linesketchtype/) के साथ प्रभाव हटाने का तरीका दिखाता है:
+निम्न PHP कोड दर्शाता है कि कैसे [LineSketchType.Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) प्रभाव लागू किया जाए, स्पष्ट रूप से निर्धारित मान पढ़ा जाए, और [LineSketchType.None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) के साथ प्रभाव हटाया जाए:
 
 ```php
 $presentation = new Presentation();
@@ -96,13 +96,13 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
 
-    // शैपे के लाइन फ़ॉर्मेट और उसके स्केच फ़ॉर्मेट तक पहुंचें।
+    // शकल के लाइन फ़ॉर्मेट और उसके स्केच फ़ॉर्मेट तक पहुँचें।
     $sketchFormat = $shape->getLineFormat()->getSketchFormat();
 
     // एक स्केच प्रभाव लागू करें।
     $sketchFormat->setSketchType(LineSketchType::Curved);
 
-    // शैपे को सीधे असाइन किए गए स्केच प्रभाव को पढ़ें।
+    // शकल को सीधे सौंपे गए स्केच प्रभाव को पढ़ें।
     $explicitSketchType = $sketchFormat->getSketchType();
     echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
 
@@ -113,7 +113,7 @@ try {
 }
 ```
 
-[SketchFormat.getSketchType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sketchformat/) द्वारा लौटाया गया मान शैपे को सीधे असाइन किए गए सेटिंग को दर्शाता है। यदि लाइन फ़ॉर्मेटिंग थीम, मास्टर स्लाइड, या लेआउट स्लाइड से विरासत में ली जा सकती है, तो [LineFormat.getEffective](https://reference.aspose.com/slides/hi/php-java/aspose.slides/lineformat/) का उपयोग करें, लौटाए गए ऑब्जेक्ट की `getSketchFormat` मेथड को कॉल करें, और उसका `getSketchType` मान पढ़ें। प्रभावी मान वह फ़ॉर्मेटिंग दर्शाता है जो विरासत हल होने के बाद वास्तव में लागू होता है:
+[SketchFormat.getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) द्वारा लौटाया गया मान शकल को सीधे सौंपे गए सेटिंग को दर्शाता है। यदि लाइन फ़ॉर्मेट थीम, मास्टर स्लाइड या लेआउट स्लाइड से विरासत में मिला हो, तो [LineFormat.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) का उपयोग करें, लौटाए गये ऑब्जेक्ट की `getSketchFormat` मेथड को एक्सेस करें, और उसके `getSketchType` मान को पढ़ें। प्रभावी मान उस फ़ॉर्मेट को दर्शाता है जो विरासत के हल होने के बाद वास्तविक रूप से लागू होता है:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -132,33 +132,33 @@ try {
 }
 ```
 
-## **जॉइन स्टाइल स्वरूपित करें**
+## **जॉइन शैलियों को स्वरूपित करें**
 
 तीन जॉइन प्रकार विकल्प हैं:
 
-* Round  
-* Miter  
-* Bevel  
+* Round
+* Miter
+* Bevel
 
-डिफ़ॉल्ट रूप से, जब PowerPoint दो रेखाओं को कोण पर जोड़ता है (जैसे शैपे के कोने पर), यह **Round** सेटिंग का उपयोग करता है। हालांकि, यदि आप तीखे कोण वाले शैपे बना रहे हैं, तो आप **Miter** विकल्प को पसंद कर सकते हैं।
+डिफ़ॉल्ट रूप से, जब PowerPoint दो लाइनों को कोण पर (जैसे शकल के कोने पर) जोड़ता है, तो यह **Round** सेटिंग का उपयोग करता है। हालांकि, यदि आप तीखे कोण वाली शकल बना रहे हैं, तो आप **Mitter** विकल्प को प्राथमिकता दे सकते हैं।
 
-![The join style in the presentation](join-style-powerpoint.png)
+![प्रस्तुति में जॉइन स्टाइल](join-style-powerpoint.png)
 
-नीचे दिया गया PHP कोड दिखाता है कि ऊपर दी गई छवि में दिखाए गए तीन आयताकार (Miter, Bevel, और Round जॉइन प्रकार सेटिंग्स) कैसे बनाए गए:
+निम्न PHP कोड दर्शाता है कि ऊपर दिखाए गए चित्र में Miter, Bevel, और Round जॉइन प्रकार सेटिंग्स का उपयोग करके तीन आयतें कैसे बनाई गईं:
 
 ```php
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करें।
 $presentation = new Presentation();
 try {
-    // पहला स्लाइड प्राप्त करें।
+    // पहली स्लाइड प्राप्त करें।
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Rectangle प्रकार के तीन ऑटो शैपे जोड़ें।
+    // Rectangle प्रकार की तीन ऑटो शकलें जोड़ें।
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-    // प्रत्येक आयताकार शैपे के लिए फ़िल रंग सेट करें।
+    // प्रत्येक आयत शकल के लिए भराव रंग सेट करें।
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
@@ -166,12 +166,12 @@ try {
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
 
-    // लाइन की चौड़ाई सेट करें।
+    // रेखा की चौड़ाई सेट करें।
     $shape1->getLineFormat()->setWidth(15);
     $shape2->getLineFormat()->setWidth(15);
     $shape3->getLineFormat()->setWidth(15);
 
-    // प्रत्येक आयताकार की लाइन के लिए रंग सेट करें।
+    // प्रत्येक आयत की रेखा का रंग सेट करें।
     $shape1->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $shape2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -184,7 +184,7 @@ try {
     $shape2->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
     $shape3->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
 
-    // प्रत्येक आयताकार में टेक्स्ट जोड़ें।
+    // प्रत्येक आयत में टेक्स्ट जोड़ें।
     $shape1->getTextFrame()->setText("Miter Join Style");
     $shape2->getTextFrame()->setText("Bevel Join Style");
     $shape3->getTextFrame()->setText("Round Join Style");
@@ -198,30 +198,30 @@ try {
 
 ## **ग्रेडिएंट फ़िल**
 
-PowerPoint में ग्रेडिएंट फ़िल एक फ़ॉर्मेटिंग विकल्प है जो आपको शैपे पर लगातार रंग मिश्रण लागू करने देता है। उदाहरण के तौर पर, आप दो या अधिक रंग इस प्रकार लागू कर सकते हैं कि एक धीरे‑धीरे दूसरे में मिलते जाए।
+PowerPoint में, Gradient Fill एक फ़ॉर्मेटिंग विकल्प है जो आपको शकल पर निरन्तर रंग मिश्रण लागू करने की अनुमति देता है। उदाहरण के लिये, आप दो या अधिक रंग इस प्रकार लागू कर सकते हैं कि एक धीरे‑धीरे दूसरे में मिल जाए।
 
-Aspose.Slides का उपयोग करके शैपे पर ग्रेडिएंट फ़िल लागू करने के चरण:
+Aspose.Slides का उपयोग करके शकल पर ग्रेडिएंट फ़िल लागू करने के लिये:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. उसके इंडेक्स द्वारा एक स्लाइड का रेफ़रेंस प्राप्त करें।  
-1. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।  
-1. शैपे की [FillType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/filltype/) को `Gradient` सेट करें।  
-1. ग्रेडिएंट स्टॉप कलेक्शन द्वारा प्रदान किए गए `add` मेथड का उपयोग करके दो इच्छित रंगों को परिभाषित स्थितियों के साथ जोड़ें, जिसे [GradientFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/gradientformat/) क्लास एक्सपोज़ करता है।  
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to a slide by its index.
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Set the shape's [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) to `Gradient`.
+5. Add your two preferred colors with defined positions using the `add` methods of the gradient stop collection exposed by the [GradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/) class.
+6. Save the modified presentation as a PPTX file.
 
-नीचे दिया गया PHP कोड एक दीर्घवृत्त पर ग्रेडिएंट फ़िल प्रभाव लागू करने का तरीका दर्शाता है:
+निम्न PHP कोड दर्शाता है कि कैसे एक दीर्घवृत्त पर ग्रेडिएंट फ़िल प्रभाव लागू किया जाए:
 
 ```php
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करें।
 $presentation = new Presentation();
 try {
-    // पहला स्लाइड प्राप्त करें।
+    // पहली स्लाइड प्राप्त करें।
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Ellipse प्रकार का ऑटो शैपे जोड़ें।
+    // Ellipse प्रकार की एक ऑटो शकल जोड़ें।
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-    // एलिप्स पर ग्रेडिएंट फ़ॉर्मेटिंग लागू करें।
+    // दीर्घवृत्त पर ग्रेडिएंट फ़ॉर्मेटिंग लागू करें।
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape::Linear);
 
@@ -241,38 +241,40 @@ try {
 
 परिणाम:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![ग्रेडिएंट फ़िल वाले दीर्घवृत्त](gradient-fill.png)
+
+यदि ग्रेडिएंट निर्यातित चित्र में PowerPoint की तुलना में अलग दिखता है, तो देखें [Choose a Gradient Rendering Style](/slides/hi/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style)। आप प्रस्तुति में संग्रहीत ग्रेडिएंट फ़िल को बदले बिना रेंडरिंग शैली चुन सकते हैं।
 
 ## **पैटर्न फ़िल**
 
-PowerPoint में पैटर्न फ़िल एक फ़ॉर्मेटिंग विकल्प है जो आपको दो‑रंगी डिज़ाइन—जैसे बिंदु, स्ट्राइप, क्रॉसहैच, या चेक—शैपे पर लागू करने देता है। आप पैटर्न के अग्रभूमि और पृष्ठभूमि के लिए कस्टम रंग चुन सकते हैं।
+PowerPoint में, Pattern Fill एक फ़ॉर्मेटिंग विकल्प है जो आपको दो‑रंग की डिज़ाइन—जैसे डॉट्स, स्ट्राइप्स, क्रॉसहैचेज़ या चेक्स—शकल पर लागू करने देता है। आप पैटर्न के अग्रभूमि और पृष्ठभूमि के लिये कस्टम रंग चुन सकते हैं।
 
-Aspose.Slides 45 से अधिक पूर्वनिर्धारित पैटर्न स्टाइल प्रदान करता है जिन्हें आप शैपे पर लागू करके अपनी प्रस्तुतियों की दृश्य आकर्षण बढ़ा सकते हैं। पूर्वनिर्धारित पैटर्न चुनने के बाद भी आप उसे प्रयोग करने वाले सटीक रंग निर्दिष्ट कर सकते हैं।
+Aspose.Slides 45 से अधिक पूर्वनिर्धारित पैटर्न शैलियों को प्रदान करता है जिन्हें आप शकलों पर लागू करके प्रस्तुति की दृश्य आकर्षण बढ़ा सकते हैं। पूर्वनिर्धारित पैटर्न चुनने के बाद भी, आप सटीक रंग निर्दिष्ट कर सकते हैं।
 
-निचे दिया गया चरणों में पैटर्न फ़िल लागू करने का तरीका है:
+शकल पर पैटर्न फ़िल लागू करने के लिये:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. उसके इंडेक्स द्वारा एक स्लाइड का रेफ़रेंस प्राप्त करें।  
-1. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।  
-1. शैпе की [FillType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/filltype/) को `Pattern` सेट करें।  
-1. पूर्वनिर्धारित विकल्पों में से एक पैटर्न स्टाइल चुनें।  
-1. पैटर्न की [Background Color](https://reference.aspose.com/slides/hi/php-java/aspose.slides/patternformat/#getBackColor) सेट करें।  
-1. पैटर्न की [Foreground Color](https://reference.aspose.com/slides/hi/php-java/aspose.slides/patternformat/#getForeColor) सेट करें।  
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to a slide by its index.
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Set the shape’s [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) to `Pattern`.
+5. Choose a pattern style from the predefined options.
+6. Set the [Background Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) of the pattern.
+7. Set the [Foreground Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) of the pattern.
+8. Save the modified presentation as a PPTX file.
 
-नीचे दिया गया PHP कोड एक आयत पर पैटर्न फ़िल लागू करने का तरीका दर्शाता है:
+निम्न PHP कोड दर्शाता है कि कैसे एक आयत पर पैटर्न फ़िल लागू किया जाए:
 
 ```php
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करें।
 $presentation = new Presentation();
 try {
-    // पहला स्लाइड प्राप्त करें।
+    // पहली स्लाइड प्राप्त करें।
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Rectangle प्रकार का ऑटो शैपे जोड़ें।
+    // Rectangle प्रकार की एक ऑटो शकल जोड़ें।
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // फ़िल प्रकार को Pattern पर सेट करें।
+    // भरण प्रकार को Pattern सेट करें।
     $shape->getFillFormat()->setFillType(FillType::Pattern);
 
     // पैटर्न शैली सेट करें।
@@ -291,43 +293,43 @@ try {
 
 परिणाम:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![पैटर्न फ़िल वाली आयत](pattern-fill.png)
 
-## **पिक्चर फ़िल**
+## **चित्र फ़िल**
 
-PowerPoint में पिक्चर फ़िल एक फ़ॉर्मेटिंग विकल्प है जो आपको शैपे के अंदर एक छवि सम्मिलित करने देता है—व्यावहारिक रूप से छवि को शैपे की पृष्ठभूमि के रूप में उपयोग करता है।
+PowerPoint में, Picture Fill एक फ़ॉर्मेटिंग विकल्प है जो आपको शकल के भीतर चित्र डालने की अनुमति देता है—वास्तव में चित्र को शकल की पृष्ठभूमि के रूप में उपयोग करता है।
 
-Aspose.Slides का उपयोग करके शैपे पर पिक्चर फ़िल लागू करने के चरण:
+Aspose.Slides का उपयोग करके शकल पर पिक्चर फ़िल लागू करने के लिये:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. उसके इंडेक्स द्वारा एक स्लाइड का रेफ़रेंस प्राप्त करें।  
-1. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।  
-1. शैपे की [FillType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/filltype/) को `Picture` सेट करें।  
-1. पिक्चर फ़िल मोड को `Tile` (या कोई अन्य पसंदीदा मोड) सेट करें।  
-1. उपयोग करने वाली छवि से एक [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं।  
-1. छवि को `SlidesPicture.setImage` मेथड को पास करें।  
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to a slide by its index.
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Set the shape's [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) to `Picture`.
+5. Set the picture fill mode to `Tile` (or another preferred mode).
+6. Create an [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) object from the image you want to use.
+7. Pass the image to the `SlidesPicture.setImage` method.
+8. Save the modified presentation as a PPTX file.
 
-मान लें कि हमारे पास "lotus.png" फ़ाइल है जिसमें निम्नलिखित चित्र है:
+मान लें कि हमारे पास "lotus.png" फ़ाइल है जिसमें यह चित्र है:
 
-![The lotus picture](lotus.png)
+![लोटस चित्र](lotus.png)
 
-नीचे दिया गया PHP कोड शैपे को पिक्चर से भरने का तरीका दिखाता है:
+निम्न PHP कोड दर्शाता है कि कैसे शकल को चित्र से भरा जाए:
 
 ```php
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करें।
 $presentation = new Presentation();
 try {
-    // पहला स्लाइड प्राप्त करें।
+    // पहली स्लाइड प्राप्त करें।
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Rectangle प्रकार का ऑटो शैपे जोड़ें।
+    // Rectangle प्रकार की एक ऑटो शकल जोड़ें।
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-    // फ़िल प्रकार को Picture पर सेट करें।
+    // भरण प्रकार को Picture सेट करें।
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // पिक्चर फ़िल मोड सेट करें।
+    // चित्र भराव मोड सेट करें।
     $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Tile);
 
     // एक चित्र लोड करें और इसे प्रस्तुति संसाधनों में जोड़ें।
@@ -347,45 +349,45 @@ try {
 
 परिणाम:
 
-![The shape with picture fill](picture-fill.png)
+![चित्र फ़िल वाला शकल](picture-fill.png)
 
-### **टाइल पिक्चर को टेक्सचर के रूप में उपयोग करें**
+### **टाइल चित्र को टेक्सचर के रूप में उपयोग करें**
 
-यदि आप टाइल्ड पिक्चर को टेक्सचर के रूप में सेट करना और टाइलिंग व्यवहार को अनुकूलित करना चाहते हैं, तो आप [PictureFillFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/) क्लास की निम्नलिखित मेथड का उपयोग कर सकते हैं:
+यदि आप टाइल्ड चित्र को टेक्सचर के रूप में सेट करना और टाइलिंग व्यवहार को अनुकूलित करना चाहते हैं, तो आप [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) क्लास की निम्न विधियों का उपयोग कर सकते हैं:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#setPictureFillMode): पिक्चर फ़िल मोड सेट करता है—`Tile` या `Stretch`।  
-- [setTileAlignment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#setTileAlignment): शैपे के भीतर टाइल की संरेखण निर्दिष्ट करता है।  
-- [setTileFlip](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#setTileFlip): टाइल को क्षैतिज, लंबवत या दोनों दिशा में फ़्लिप करने को नियंत्रित करता है।  
-- [setTileOffsetX](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#setTileOffsetX): शैपे के मूल बिंदु से टाइल का क्षैतिज ऑफ़सेट (पॉइंट्स में) सेट करता है।  
-- [setTileOffsetY](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#setTileOffsetY): शैपे के मूल बिंदु से टाइल का लंबवत ऑफ़सेट (पॉइंट्स में) सेट करता है।  
-- [setTileScaleX](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#setTileScaleX): टाइल का क्षैतिज स्केल प्रतिशत में परिभाषित करता है।  
-- [setTileScaleY](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#setTileScaleY): टाइल का लंबवत स्केल प्रतिशत में परिभाषित करता है।
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): टाइलिंग मोड सेट करता है—`Tile` या `Stretch`।
+- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): शकल के भीतर टाइलों की संरेखण निर्धारित करता है।
+- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): टाइल को क्षैतिज, ऊर्ध्वाधर या दोनों दिशा में फ्लिप करने को नियंत्रित करता है।
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): शकल की मूल बिंदु से टाइल का क्षैतिज ऑफ़सेट सेट करता है (पॉइंट्स में)।
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): शकल की मूल बिंदु से टाइल का ऊर्ध्वाधर ऑफ़सेट सेट करता है (पॉइंट्स में)।
+- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): टाइल का क्षैतिज स्केल प्रतिशत में परिभाषित करता है।
+- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): टाइल का ऊर्ध्वाधर स्केल प्रतिशत में परिभाषित करता है।
 
-नीचे दिया गया कोड नमूना टाइल्ड पिक्चर फ़िल के साथ एक आयत शैपे जोड़ने और टाइल विकल्पों को कॉन्फ़िगर करने का तरीका दर्शाता है:
+निम्न कोड नमूना दिखाता है कि कैसे एक आयत शकल को टाइल्ड चित्र फ़िल के साथ जोड़ें और टाइल विकल्प कॉन्फ़िगर करें:
 
 ```php
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करें।
 $presentation = new Presentation();
 try {
-    // पहला स्लाइड प्राप्त करें।
+    // पहली स्लाइड प्राप्त करें।
     $firstSlide = $presentation->getSlides()->get_Item(0);
 
-    // एक आयताकार ऑटो शैपे जोड़ें।
+    // एक आयत ऑटो शकल जोड़ें।
     $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-    // शैपे का फ़िल प्रकार Picture पर सेट करें।
+    // शकल के भरण प्रकार को Picture सेट करें।
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // छवि लोड करें और इसे प्रस्तुति संसाधनों में जोड़ें।
+    // चित्र लोड करें और इसे प्रस्तुति संसाधनों में जोड़ें।
     $sourceImage = Images::fromFile("lotus.png");
     $presentationImage = $presentation->getImages()->addImage($sourceImage);
     $sourceImage->dispose();
 
-    // छवि को शैपे को असाइन करें।
+    // चित्र को शकल में असाइन करें।
     $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
     $pictureFillFormat->getPicture()->setImage($presentationImage);
 
-    // पिक्चर फ़िल मोड और टाइलिंग गुण कॉन्फ़िगर करें।
+    // चित्र भराव मोड और टाइलिंग गुण कॉन्फ़िगर करें।
     $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
     $pictureFillFormat->setTileOffsetX(-32);
     $pictureFillFormat->setTileOffsetY(-32);
@@ -403,37 +405,37 @@ try {
 
 परिणाम:
 
-![The tile options](tile-options.png)
+![टाइल विकल्प](tile-options.png)
 
-## **सॉलिड कलर फ़िल**
+## **एकरंगी फ़िल**
 
-PowerPoint में सॉलिड कलर फ़िल एक फ़ॉर्मेटिंग विकल्प है जो शैपे को एकल समान रंग से भरता है। यह साधारण पृष्ठभूमि रंग बिना किसी ग्रेडिएंट, टेक्सचर या पैटर्न के लागू किया जाता है।
+PowerPoint में, Solid Color Fill एक फ़ॉर्मेटिंग विकल्प है जो शकल को एक ही समान रंग से भरता है। यह साधारण पृष्ठभूमि रंग बिना किसी ग्रेडिएंट, टेक्सचर या पैटर्न के लागू किया जाता है।
 
-Aspose.Slides का उपयोग करके शैपे पर सॉलिड कलर फ़िल लागू करने के चरण:
+Aspose.Slides का उपयोग करके शकल पर एकरंगी फ़िल लागू करने के लिये, नीचे दिए गये चरणों का पालन करें:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. उसके इंडेक्स द्वारा एक स्लाइड का रेफ़रेंस प्राप्त करें।  
-1. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।  
-1. शैपे की [FillType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/filltype/) को `Solid` सेट करें।  
-1. शैपे को अपनी पसंदीदा फ़िल रंग सौंपें।  
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to a slide by its index.
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Set the shape’s [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) to `Solid`.
+5. Assign your preferred fill color to the shape.
+6. Save the modified presentation as a PPTX file.
 
-नीचे दिया गया PHP कोड PowerPoint स्लाइड में एक आयत पर सॉलिड कलर फ़िल लागू करने का तरीका दर्शाता है:
+निम्न PHP कोड दर्शाता है कि कैसे एक आयत पर एकरंगी फ़िल लागू किया जाए:
 
 ```php
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करें।
 $presentation = new Presentation();
 try {
-    // पहला स्लाइड प्राप्त करें।
+    // पहली स्लाइड प्राप्त करें।
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Rectangle प्रकार का ऑटो शैपे जोड़ें।
+    // Rectangle प्रकार की एक ऑटो शकल जोड़ें।
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // फ़िल प्रकार को Solid पर सेट करें।
+    // भरण प्रकार को Solid सेट करें।
     $shape->getFillFormat()->setFillType(FillType::Solid);
 
-    // फ़िल रंग सेट करें।
+    // भरण रंग सेट करें।
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
 
     // PPTX फ़ाइल को डिस्क पर सहेजें।
@@ -445,34 +447,34 @@ try {
 
 परिणाम:
 
-![The shape with solid color fill](solid-color-fill.png)
+![एकरंगी फ़िल वाला शकल](solid-color-fill.png)
 
-## **पारदर्शिता सेट करें**
+## **ट्रांसपैरेंसी सेट करें**
 
-PowerPoint में जब आप शैपे पर सॉलिड कलर, ग्रेडिएंट, पिक्चर या टेक्सचर फ़िल लागू करते हैं, तो आप फ़िल की अपारदर्शिता को नियंत्रित करने के लिए एक पारदर्शिता स्तर भी सेट कर सकते हैं। अधिक पारदर्शिता मान शैपे को अधिक पारदर्शी बनाता है, जिससे पृष्ठभूमि या नीचे मौजूद वस्तुएँ आंशिक रूप से दिखाई देती हैं।
+PowerPoint में, जब आप शकलों पर सॉलिड रंग, ग्रेडिएंट, चित्र या टेक्सचर फ़िल लागू करते हैं, तो आप फ़िल की अपारदर्शिता स्तर को सेट करके उसकी पारदर्शिता नियंत्रित कर सकते हैं। उच्च ट्रांसपैरेंसी मान शकल को अधिक पारदर्शी बनाता है, जिससे पृष्ठभूमि या नीचे की वस्तुएँ आंशिक रूप से दिखाई देती हैं।
 
-Aspose.Slides आपको फ़िल के लिए उपयोग किए गए रंग के अल्फा मान को समायोजित करके पारदर्शिता स्तर सेट करने देता है। तरीका इस प्रकार है:
+Aspose.Slides आपको फ़िल के लिये उपयोग किए गए रंग के अल्फा मान को समायोजित करके ट्रांसपैरेंसी स्तर सेट करने की अनुमति देता है। यह करने के लिए:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. उसके इंडेक्स द्वारा एक स्लाइड का रेफ़रेंस प्राप्त करें।  
-1. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।  
-1. [FillType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/filltype/) को `Solid` सेट करें।  
-1. `Color` का उपयोग करके एक ऐसा रंग परिभाषित करें जिसमें पारदर्शिता (alpha घटक) हो।  
-1. प्रस्तुति को सहेजें।
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to a slide by its index.
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Set the [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) to `Solid`.
+5. Use `Color` to define a color with transparency (the `alpha` component controls transparency).
+6. Save the presentation.
 
-नीचे दिया गया PHP कोड एक आयत पर पारदर्शी फ़िल रंग लागू करने का तरीका दर्शाता है:
+निम्न PHP कोड दर्शाता है कि कैसे एक आयत पर पारदर्शी फ़िल रंग लागू किया जाए:
 
 ```php
-// प्रेज़ेंटेशन फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करें।
 $presentation = new Presentation();
 try {
-    // पहला स्लाइड प्राप्त करें।
+    // पहली स्लाइड प्राप्त करें।
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // एक ठोस आयताकार ऑटो शैपे जोड़ें।
+    // एक सॉलिड आयत ऑटो शकल जोड़ें।
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // ठोस शैपे के ऊपर एक पारदर्शी आयताकार ऑटो शैपे जोड़ें।
+    // सॉलिड शकल के ऊपर एक पारदर्शी आयत ऑटो शकल जोड़ें।
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
     $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
@@ -486,33 +488,33 @@ try {
 
 परिणाम:
 
-![The transparent shape](shape-transparency.png)
+![पारदर्शी शकल](shape-transparency.png)
 
-## **शैपे घुमाएँ**
+## **शकलें घुमाएँ**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में शैपे को घुमाने की सुविधा देता है। यह उन दृश्य तत्वों को विशिष्ट संरेखन या डिज़ाइन आवश्यकताओं के साथ स्थिति देने में उपयोगी हो सकता है।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में शकलों को घुमाने की सुविधा देता है। यह विशिष्ट संरेखण या डिज़ाइन आवश्यकताओं के साथ दृश्य तत्वों को स्थान देने में उपयोगी हो सकता है।
 
-किसी स्लाइड पर शैपे को घुमाने के चरण:
+किसी स्लाइड पर शकल को घुमाने के लिये, नीचे दिए गये चरणों का पालन करें:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. उसके इंडेक्स द्वारा एक स्लाइड का रेफ़रेंस प्राप्त करें।  
-1. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।  
-1. शैपे की घुमाव प्रॉपर्टी को इच्छित डिग्री पर सेट करें।  
-1. प्रस्तुति को सहेजें।
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to a slide by its index.
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Set the shape’s rotation property to the desired angle.
+5. Save the presentation.
 
-नीचे दिया गया PHP कोड शैपे को 5 डिग्री से घुमाने का तरीका दर्शाता है:
+निम्न PHP कोड दर्शाता है कि कैसे शकल को 5 डिग्री घुमाया जाए:
 
 ```php
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करें।
 $presentation = new Presentation();
 try {
-    // पहला स्लाइड प्राप्त करें।
+    // पहली स्लाइड प्राप्त करें।
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Rectangle प्रकार का ऑटो शैपे जोड़ें।
+    // Rectangle प्रकार की एक ऑटो शकल जोड़ें।
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // शैपे को 5 डिग्री घुमाएँ।
+    // शकल को 5 डिग्री घुमाएँ।
     $shape->setRotation(5);
 
     // PPTX फ़ाइल को डिस्क पर सहेजें।
@@ -524,29 +526,29 @@ try {
 
 परिणाम:
 
-![The shape rotation](shape-rotation.png)
+![शकल का रोटेशन](shape-rotation.png)
 
-## **3D बिवेल प्रभाव जोड़ें**
+## **3D बिवेल इफ़ेक्ट जोड़ें**
 
-Aspose.Slides आपको शैपे पर 3D बिवेल प्रभाव लागू करने की अनुमति देता है, जिसके लिए आप उनके [ThreeDFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/threedformat/) प्रॉपर्टी को कॉन्फ़िगर करते हैं।
+Aspose.Slides आपको शकलों पर 3D बिवेल प्रभाव लागू करने की अनुमति देता है, जिसके लिये आप उनके [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) गुणों को कॉन्फ़िगर करते हैं।
 
-3D बिवेल प्रभाव जोड़ने के चरण:
+शकल पर 3D बिवेल प्रभाव जोड़ने के लिये, नीचे दिए गये चरणों का पालन करें:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. उसके इंडेक्स द्वारा एक स्लाइड का रेफ़रेंस प्राप्त करें।  
-1. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।  
-1. शैपे के [ThreeDFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/threedformat/) को कॉन्फ़िगर करके बिवेल सेटिंग्स परिभाषित करें।  
-1. प्रस्तुति को सहेजें।
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to a slide by its index.
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Configure the shape’s [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) to define bevel settings.
+5. Save the presentation.
 
-नीचे दिया गया PHP कोड शैपे पर 3D बिवेल प्रभाव लागू करने का तरीका दर्शाता है:
+निम्न PHP कोड दर्शाता है कि कैसे शकल पर 3D बिवेल प्रभाव लागू किया जाए:
 
 ```php
-// Presentation क्लास का इंस्टेंस बनाएं।
+// Presentation क्लास का एक इंस्टेंस बनाएं।
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // स्लाइड में एक शैपे जोड़ें।
+    // स्लाइड में एक शकल जोड़ें।
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
@@ -554,7 +556,7 @@ try {
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $shape->getLineFormat()->setWidth(2.0);
 
-    // शैपे के ThreeDFormat गुण सेट करें।
+    // शकल की ThreeDFormat गुण सेट करें।
     $shape->getThreeDFormat()->setDepth(4);
     $shape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
     $shape->getThreeDFormat()->getBevelTop()->setHeight(6);
@@ -563,7 +565,7 @@ try {
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::ThreePt);
     $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
 
-    // प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+    // प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
     $presentation->save("3D_bevel_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -572,24 +574,24 @@ try {
 
 परिणाम:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![3D बिवेल प्रभाव](3D-bevel-effect.png)
 
-## **3D घुमाव प्रभाव जोड़ें**
+## **3D रोटेशन इफ़ेक्ट जोड़ें**
 
-Aspose.Slides आपको शैपे पर 3D घुमाव प्रभाव लागू करने की अनुमति देता है, जिसके लिए आप उनके [ThreeDFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/threedformat/) प्रॉपर्टी को कॉन्फ़िगर करते हैं।
+Aspose.Slides आपको शकलों पर 3D रोटेशन प्रभाव लागू करने की अनुमति देता है, जिसके लिये आप उनके [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) गुणों को कॉन्फ़िगर करते हैं।
 
-3D घुमाव लागू करने के चरण:
+शकल पर 3D रोटेशन लागू करने के लिये:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. उसके इंडेक्स द्वारा एक स्लाइड का रेफ़रेंस प्राप्त करें।  
-1. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।  
-1. 3D घुमाव को परिभाषित करने के लिए [setCameraType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/camera/#setCameraType) और [setLightType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/lightrig/#setLightType) का उपयोग करें।  
-1. प्रस्तुति को सहेजें।
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to a slide by its index.
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Use the [setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) and [setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType) to define the 3D rotation.
+5. Save the presentation.
 
-नीचे दिया गया PHP कोड शैपे पर 3D घुमाव प्रभाव लागू करने का तरीका दर्शाता है:
+निम्न PHP कोड दर्शाता है कि कैसे शकल पर 3D रोटेशन प्रभाव लागू किया जाए:
 
 ```php
-// Presentation क्लास का इंस्टेंस बनाएं।
+// Presentation क्लास का एक इंस्टेंस बनाएं।
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
@@ -602,7 +604,7 @@ try {
     $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::IsometricLeftUp);
     $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
 
-    // प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+    // प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
     $presentation->save("3D_rotation_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -611,15 +613,15 @@ try {
 
 परिणाम:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![3D रोटेशन प्रभाव](3D-rotation-effect.png)
 
-## **शैपे के लिए काला‑सफ़ेद रेंडरिंग नियंत्रित करें**
+## **शकलों के लिए ब्लैक-एंड-व्हाइट रेंडरिंग नियंत्रित करें**
 
-[Shape::setBlackWhiteMode](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/#setBlackWhiteMode) मेथड तय करता है कि जब प्रस्तुति को काला‑सफ़ेद मोड में देखा या प्रोसेस किया जाता है, तो व्यक्तिगत शैपे कैसे रेंडर किया जाए। यह स्वयं काला‑सफ़ेद डिस्प्ले को सक्षम नहीं करता, और यह सामान्य रंग मोड में शैपे के फ़िल, लाइन या अन्य फ़ॉर्मेटिंग को नहीं बदलता।
+[Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) मेथड यह निर्दिष्ट करता है कि जब प्रस्तुति को ब्लैक‑एंड‑व्हाइट मोड में देखा या प्रोसेस किया जाता है तो व्यक्तिगत शकल कैसे रेंडर की जाती है। यह स्वयं ब्लैक‑एंड‑व्हाइट डिस्प्ले सक्षम नहीं करता, और सामान्य रंग मोड में शकल की फ़िल, लाइन या अन्य फ़ॉर्मेटिंग को नहीं बदलता।
 
-वांछित व्यवहार चुनने के लिए आप [BlackWhiteMode](https://reference.aspose.com/slides/hi/php-java/aspose.slides/blackwhitemode/) क्लास के मान का उपयोग कर सकते हैं। उदाहरण के लिए, `Automatic` रेंडरिंग एप्लिकेशन को रूपांतरण चुनने देता है, `Gray` और `LightGray` ग्रे रंग का उपयोग करते हैं, `BlackWhite` केवल काला और सफ़ेद इस्तेमाल करता है, `Black` और `White` एक ही रंग को मजबूर करते हैं, `Color` सामान्य रंग बनाए रखता है, और `Hidden` काला‑सफ़ेद मोड में शैपे को छोड़ देता है। `NotDefined` का अर्थ है कि शैपे‑स्तर का कोई मोड असाइन नहीं किया गया है।
+इच्छित व्यवहार चुनने के लिये आप [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) क्लास के मान का उपयोग कर सकते हैं। उदाहरण के लिये, `Automatic` रेंडरिंग एप्लिकेशन को रूपांतरण चुनने देता है, `Gray` और `LightGray` ग्रे रंग का उपयोग करते हैं, `BlackWhite` केवल काली और सफेद का उपयोग करता है, `Black` और `White` एकल रंग को लागू करते हैं, `Color` सामान्य रंग बनाए रखता है, और `Hidden` ब्लैक‑एंड‑व्हाइट मोड में शकल को छोड़ देता है। `NotDefined` का अर्थ है कि शकल‑स्तर का कोई मोड निर्धारित नहीं है।
 
-नीचे दिया गया PHP कोड एक रंगीन शैपे बनाता है और काला‑सफ़ेद डिस्प्ले मोड में उसे ग्रे दिखाता है:
+निम्न PHP कोड एक रंगीन शकल बनाता है और ब्लैक‑एंड‑व्हाइट डिस्प्ले मोड में इसे ग्रे दिखाता है:
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -637,7 +639,7 @@ try {
     $orange = new Java("java.awt.Color", 255, 165, 0);
     $shape->getFillFormat()->getSolidFillColor()->setColor($orange);
 
-    // रंग मोड में नारंगी फ़िल को रखें, लेकिन काला-सफ़ेद मोड में शैपे को ग्रे रंग में रेंडर करें।
+    // रंग मोड में नारंगी भराव रखें, लेकिन ब्लैक-एंड-व्हाइट मोड में शकल को ग्रे रंग में रेंडर करें।
     $shape->setBlackWhiteMode(BlackWhiteMode::Gray);
 
     $presentation->save("shape_black_white_mode.pptx", SaveFormat::Pptx);
@@ -646,18 +648,18 @@ try {
 }
 ```
 
-सामान्य रंग मोड में आयत का नारंगी फ़िल बना रहता है। काला‑सफ़ेद डिस्प्ले वर्कफ़्लो में, इसका रंग ग्रे दिखता है क्योंकि उसका मोड `Gray` पर सेट है। यह आपको पूर्ण‑रंग स्लाइड को संरक्षित रखने और प्रिंटिंग, प्रीव्यू या अन्य वर्कफ़्लो के लिए अलग‑अलग दिखावट परिभाषित करने देता है जो काला‑सफ़ेद डिस्प्ले सेटिंग्स का सम्मान करता है।
+सामान्य रंग मोड में, आयत अपनी नारंगी फ़िल बरकरार रखती है। ब्लैक‑एंड‑व्हाइट डिस्प्ले वर्कफ़्लो में, इसका मोड `Gray` होने के कारण यह ग्रे रंग दिखाता है। यह आपको पूर्ण‑रंग स्लाइड बनाए रखने और प्रिंटिंग, प्रीव्यू या अन्य वर्कफ़्लो में अलग दिखावट परिभाषित करने की सुविधा देता है।
 
 ## **फ़ॉर्मेट रीसेट करें**
 
-नीचे दिया गया Java कोड दिखाता है कि कैसे स्लाइड की फ़ॉर्मेटिंग रीसेट की जाए और [LayoutSlide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslide/) पर सभी प्लेसहोल्डर वाले शैपतों की स्थिति, आकार और फ़ॉर्मेटिंग को उनके डिफ़ॉल्ट सेटिंग्स पर लाया जाए:
+निम्न Java कोड दिखाता है कि कैसे स्लाइड का फ़ॉर्मेट रीसेट किया जाए और [LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) पर प्लेसहोल्डर वाले सभी शकलों की स्थिति, आकार और फ़ॉर्मेट को उनकी डिफ़ॉल्ट सेटिंग्स पर वापस लाया जाए:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
     for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
         $slide = $presentation->getSlides()->get_Item($i);
-        // लेआउट में प्लेसहोल्डर वाले स्लाइड पर प्रत्येक शैपे को रीसेट करें।
+        // लेआउट पर प्लेसहोल्डर वाला स्लाइड में प्रत्येक शकल को रीसेट करें।
         $slide->reset();
     }
     $presentation->save("reset_formatting.pptx", SaveFormat::Pptx);
@@ -666,16 +668,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या शैपे फ़ॉर्मेटिंग अंतिम प्रस्तुति फ़ाइल आकार को प्रभावित करती है?**
+**क्या शकल फ़ॉर्मेटिंग अंतिम प्रस्तुति फ़ाइल आकार को प्रभावित करती है?**
 
-बहुत कम। एम्बेडेड छवियाँ और मीडिया फ़ाइलें अधिकांश स्थान लेती हैं, जबकि शैपे पैरामीटर जैसे रंग, प्रभाव और ग्रेडिएंट मेटा‑डेटा के रूप में संग्रहीत होते हैं और लगभग कोई अतिरिक्त आकार नहीं जोड़ते।
+केवल न्यूनतम रूप से। एम्बेडेड छवियों और मीडिया फ़ाइलें अधिकांश स्थान लेती हैं, जबकि शकल पैरामीटर जैसे रंग, प्रभाव और ग्रेडिएंट मेटाडेटा के रूप में संग्रहीत होते हैं और लगभग कोई अतिरिक्त आकार नहीं जोड़ते।
 
-**मैं कैसे उन शैपतों का पता लगा सकता हूँ जो एक ही फ़ॉर्मेटिंग साझा करते हैं ताकि उन्हें समूहित कर सकूँ?**
+**मैं कैसे उन शकलों का पता लगा सकता हूँ जो स्लाइड पर समान फ़ॉर्मेटिंग साझा करती हैं ताकि मैं उन्हें समूहित कर सकूँ?**
 
-प्रत्येक शैपे की प्रमुख फ़ॉर्मेटिंग प्रॉपर्टीज़—फ़िल, लाइन और इफ़ेक्ट सेटिंग्स—की तुलना करें। यदि सभी संबंधित मान मेल खाते हैं, तो उनकी शैली को समान मानें और तर्कसंगत रूप से उन शैपतों को समूहित करें, जिससे बाद में शैली प्रबंधन सरल हो जाता है।
+प्रत्येक शकल के मुख्य फ़ॉर्मेटिंग गुण—फ़िल, लाइन और प्रभाव सेटिंग्स—की तुलना करें। यदि सभी संबंधित मान मेल खाते हैं, तो उनके स्टाइल को समान मानें और उन शकलों को तर्कसंगत रूप से समूहित करें, जिससे बाद में स्टाइल प्रबंधन आसान हो जाता है।
 
-**क्या मैं कस्टम शैपे स्टाइल का एक सेट अलग फ़ाइल में सहेज कर अन्य प्रस्तुतियों में पुनः उपयोग कर सकता हूँ?**
+**क्या मैं कस्टम शकल शैलियों का एक सेट अलग फ़ाइल में सहेज सकता हूँ ताकि अन्य प्रस्तुतियों में पुनः उपयोग किया जा सके?**
 
-हाँ। इच्छित शैलियों वाले नमूना शैपे को एक टेम्पलेट स्लाइड डेक या .POTX टेम्पलेट फ़ाइल में सहेजें। नई प्रस्तुति बनाते समय टेम्पलेट खोलें, आवश्यक शैपे को क्लोन करें, और जहाँ भी आवश्यक हो उनके फ़ॉर्मेटिंग को पुनः लागू करें।
+हां। वांछित शैलियों वाले नमूना शकलों को टेम्पलेट स्लाइड डेक या .POTX टेम्पलेट फ़ाइल में संग्रहीत करें। नया प्रस्तुति बनाते समय टेम्पलेट खोलें, आवश्यक शैलियों वाले शकलों को क्लोन करें, और जहाँ आवश्यक हो फ़ॉर्मेटिंग पुनः लागू करें।

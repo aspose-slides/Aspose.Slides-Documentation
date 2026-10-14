@@ -1,6 +1,6 @@
 ---
 title: تنسيق أشكال PowerPoint في Python عبر Java
-linktitle: تنسيق الأشكال
+linktitle: تنسيق الشكل
 type: docs
 weight: 20
 url: /ar/python-java/shape-formatting/
@@ -8,49 +8,49 @@ keywords:
 - تنسيق الشكل
 - تنسيق الخط
 - تأثير الرسم التخطيطي
-- خط شكل رسومي تخطيطي
-- تنسيق نمط الوصلة
-- تعبئة متدرجة
-- تعبئة بنمط
-- تعبئة بصورة
-- تعبئة بنقشة
+- خط شكل مخطّط
+- تنسيق نمط الوصل
+- تعبئة تدرجية
+- تعبئة نمطية
+- تعبئة صورة
+- تعبئة نسيج
 - تعبئة بلون صلب
 - شفافية الشكل
 - عرض الشكل بالأبيض والأسود
-- عرض الشكل بتدرج الرمادي
+- عرض الشكل بالدرجات الرمادية
 - تدوير الشكل
-- تأثير بيفيل ثلاثي الأبعاد
+- تأثير بروز ثلاثي الأبعاد
 - تأثير دوران ثلاثي الأبعاد
 - إعادة تعيين التنسيق
 - PowerPoint
-- عرض تقديمي
+- العرض
 - Python
 - Java
 - Aspose.Slides
-description: "تعلم كيفية تنسيق أشكال PowerPoint في Python عبر Java باستخدام Aspose.Slides — اضبط أنماط التعبئة والخط والتأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
+description: "تعلم كيفية تنسيق أشكال PowerPoint في Python عبر Java باستخدام Aspose.Slides—حدد أنماط التعبئة والخط والتأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
 ---
-## **المقدمة**
+## **مقدمة**
 
-في PowerPoint، يمكنك إضافة أشكال إلى الشرائح. بما أن الأشكال تتكون من خطوط، يمكنك تنسيقها عن طريق تعديل أو تطبيق تأثيرات على حدودها. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال بتحديد إعدادات تتحكم في كيفية تعبئة داخلها.
+في PowerPoint، يمكنك إضافة أشكال إلى الشرائح. نظرًا لأن الأشكال تتكون من خطوط، يمكنك تنسيقها عن طريق تعديل أو تطبيق تأثيرات على حدودها. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال بتحديد إعدادات تتحكم في كيفية تعبئة داخلها.
 
-![تنسيق الشكل في PowerPoint](format-shape-powerpoint.png)
+![تنسيق-الشكل-في-PowerPoint](format-shape-powerpoint.png)
 
-توفر Aspose.Slides للغة Python عبر Java فئات وأساليب تتيح لك تنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
+Aspose.Slides for Python via Java يوفر فئات وطرق تتيح لك تنسيق الأشكال باستخدام نفس الخيارات المتوفرة في PowerPoint.
 
 ## **تنسيق الخطوط**
 
 باستخدام Aspose.Slides، يمكنك تحديد نمط خط مخصص لشكل. توضح الخطوات التالية الإجراء:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة بحسب مؤشرها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) إلى الشريحة.
-1. ضبط [line style](https://reference.aspose.com/slides/ar/python-java/aspose.slides/linestyle/) للشكل.
-1. تعيين عرض الخط.
-1. ضبط [dash style](https://reference.aspose.com/slides/ar/python-java/aspose.slides/linedashstyle/) للخط.
-1. ضبط لون الخط للشكل.
-1. حفظ العرض المُعدَّل كملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى الشريحة بواسطة فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين [line style](https://reference.aspose.com/slides/python-java/aspose.slides/linestyle/) للشكل.
+1. ضبط عرض الخط.
+1. تعيين [dash style](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) للخط.
+1. تعيين لون الخط للشكل.
+1. حفظ العرض المعدل كملف PPTX.
 
-الشفرة التالية توضح كيفية تنسيق مستطيل [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) :
+الكود التالي يوضح كيفية تنسيق مستطيل [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) :
 
 ```python
 import jpype
@@ -68,22 +68,22 @@ try:
     # الحصول على الشريحة الأولى.
     slide = presentation.getSlides().get_Item(0)
 
-    # إضافة شكل تلقائي من النوع Rectangle.
+    # إضافة شكل تلقائي من نوع المستطيل.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75)
 
-    # تعيين لون التعبئة لشكل المستطيل.
+    # تعيين لون التعبئة للشكل المستطيل.
     shape.getFillFormat().setFillType(FillType.NoFill)
 
-    # تطبيق التنسيق على خطوط المستطيل.
+    # تطبيق تنسيق على خطوط المستطيل.
     shape.getLineFormat().setStyle(LineStyle.ThickThin)
     shape.getLineFormat().setWidth(7)
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash)
 
-    # تعيين اللون لخط المستطيل.
+    # تعيين لون خط المستطيل.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    # حفظ ملف PPTX إلى القرص.
+    # حفظ ملف PPTX على القرص.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -95,9 +95,9 @@ finally:
 
 ## **تطبيق تأثيرات الرسم التخطيطي على خطوط الشكل**
 
-يُظهر تأثير الرسم التخطيطي أن خط الشكل يبدو كأنه مرسوم يدوياً. استخدم [Shape.getLineFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getLineFormat) للوصول إلى إعدادات الخط، و[LineFormat.getSketchFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/lineformat/#getSketchFormat) للوصول إلى إعدادات الرسم التخطيطي، و[SketchFormat.setSketchType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sketchformat/#setSketchType) لاختيار قيمة من تعداد [LineSketchType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/linesketchtype/) .
+تجعل تأثيرات الرسم التخطيطي خط الشكل يبدو مرسومًا يدويًا. استخدم [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) للوصول إلى إعدادات الخط، و[LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) للوصول إلى إعدادات الرسم التخطيطي، و[SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) لاختيار قيمة من تعداد [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) .
 
-الشفرة بايثون التالية توضح كيفية تطبيق تأثير [LineSketchType.Curved](https://reference.aspose.com/slides/ar/python-java/aspose.slides/linesketchtype/#Curved) ، قراءة القيمة المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType.None_](https://reference.aspose.com/slides/ar/python-java/aspose.slides/linesketchtype/#None) :
+الكود التالي بلغة Python يوضح كيفية تطبيق تأثير [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#Curved) ، وقراءة القيمة المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#None) :
 
 ```python
 import jpype
@@ -129,7 +129,7 @@ finally:
     presentation.dispose()
 ```
 
-القيمة التي تُرجِعها [SketchFormat.getSketchType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sketchformat/#getSketchType) تمثل الإعداد المعين مباشرةً للشكل. إذا كان تنسيق الخط يمكن وراثته من سمة أو شريحة رئيسية أو شريحة تخطيط، استخدم [LineFormat.getEffective](https://reference.aspose.com/slides/ar/python-java/aspose.slides/lineformat/#getEffective)، وابدأ بـ `LineFormatEffectiveData.getSketchFormat`، ثم اقرأ `SketchFormatEffectiveData.getSketchType`. القيمة الفعّالة تعكس التنسيق المطبق فعلياً بعد حل الوراثة:
+القيمة التي تُرجعها الدالة [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) تمثل الإعداد المعين مباشرةً للشكل. إذا كان يمكن توريث تنسيق الخط من سمة أو شريحة رئيسية أو شريحة تخطيط، استخدم [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective)، وادخل إلى `LineFormatEffectiveData.getSketchFormat`، وقراءة `SketchFormatEffectiveData.getSketchType`. القيمة الفعلية تعكس التنسيق المطبق فعليًا بعد حل الوراثة:
 
 ```python
 import jpype
@@ -157,24 +157,24 @@ finally:
 
 ## **تنسيق أنماط الوصلات**
 
-فيما يلي ثلاثة خيارات لنوع الوصلات:
+إليك ثلاثة خيارات لأنواع الوصلات:
 
-* مستديرة
-* مِيتَر
-* منحدر
+* Round
+* Miter
+* Bevel
 
-افتراضيًا، عندما يجمع PowerPoint خطين بزاوية (مثل زاوية الشكل)، يستخدم الإعداد **مستديرة**. ومع ذلك، إذا كنت ترسم شكلاً بزاويا حادة، قد تفضّل خيار **مِيتَر**.
+بشكل افتراضي، عندما يجمع PowerPoint خطين بزاوية (مثلًا عند زاوية الشكل)، يستخدم الإعداد **Round**. مع ذلك، إذا كنت ترسم شكلًا بزاويا حادة، قد تفضّل خيار **Miter**.
 
 ![نمط الوصلة في العرض](join-style-powerpoint.png)
 
-الشفرة بايثون التالية توضح كيفية إنشاء ثلاثة مستطيلات (كما هو موضح في الصورة أعلاه) باستخدام إعدادات نوع الوصلة مِيتَر، منحدر، ومستديرة:
+الكود التالي بلغة Python يوضح كيفية إنشاء ثلاثة مستطيلات (كما في الصورة أعلاه) باستخدام إعدادات نوع الوصلة Miter وBevel وRound :
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpade.startJVM()
 
 from asposeslides.api import FillType, LineJoinStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
@@ -185,7 +185,7 @@ try:
     # الحصول على الشريحة الأولى.
     slide = presentation.getSlides().get_Item(0)
 
-    # إضافة ثلاثة أشكال تلقائية من النوع Rectangle.
+    # إضافة ثلاثة أشكال تلقائية من نوع المستطيل.
     miter_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75)
     bevel_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75)
     round_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75)
@@ -203,7 +203,7 @@ try:
     bevel_shape.getLineFormat().setWidth(15)
     round_shape.getLineFormat().setWidth(15)
 
-    # تعيين اللون لخط كل مستطيل.
+    # تعيين لون خط كل مستطيل.
     miter_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     miter_shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     bevel_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
@@ -221,26 +221,26 @@ try:
     bevel_shape.getTextFrame().setText("Bevel Join Style")
     round_shape.getTextFrame().setText("Round Join Style")
 
-    # حفظ ملف PPTX إلى القرص.
+    # حفظ ملف PPTX على القرص.
     presentation.save("join_styles.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **تعبئة متدرجة**
+## **تعبئة تدرجية**
 
-في PowerPoint، تُعد تعبئة المتدرجة خيار تنسيق يتيح لك تطبيق تدرج مستمر من الألوان على الشكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر بطريقة يتلاشى فيها أحدهما تدريجياً في الآخر.
+في PowerPoint، تعبئة التدرج اللوني هي خيار تنسيق يتيح لك تطبيق مزيج مستمر من الألوان على الشكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر بحيث يتلاشى أحدهما تدريجيًا إلى الآخر.
 
-إليك كيفية تطبيق تعبئة متدرجة على شكل باستخدام Aspose.Slides:
+إليك كيفية تطبيق تعبئة تدرجية على شكل باستخدام Aspose.Slides:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة بحسب مؤشرها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) إلى الشريحة.
-1. ضبط [FillType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/filltype/) للشكل إلى `Gradient`.
-1. إضافة اللونين المفضلين مع تحديد المواقع باستخدام طريقة [addPresetColor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/gradientstopcollection/#addPresetColor) لمجموعة نقاط التوقف المتدرجة التي تُعرض عبر فئة [GradientFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/gradientformat/) .
-1. حفظ العرض المُعدَّل كملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى الشريحة بواسطة فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين الخاصية [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) للشكل إلى `Gradient`.
+1. إضافة لونين مفضلين مع مواقع محددة باستخدام طريقة [addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) من مجموعة التدرجات التي يعرضها الفصل [GradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/) .
+1. حفظ العرض المعدل كملف PPTX.
 
-الشفرة بايثون التالية توضح كيفية تطبيق تأثير تعبئة متدرجة على قطع ناقص:
+الكود التالي بلغة Python يوضح كيفية تطبيق تأثير تعبئة تدرجية على قطع بيضاوية:
 
 ```python
 import jpype
@@ -258,21 +258,21 @@ try:
     # الحصول على الشريحة الأولى.
     slide = presentation.getSlides().get_Item(0)
 
-    # إضافة شكل تلقائي من النوع Ellipse.
+    # إضافة شكل تلقائي من نوع Ellipse.
     shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75)
 
-    # تطبيق تنسيق تدرج على الشكل البيضاوي.
+    # تطبيق تنسيق تدرج على القطعة البيضاوية.
     shape.getFillFormat().setFillType(FillType.Gradient)
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear)
 
-    # تحديد اتجاه التدرج.
+    # تعيين اتجاه التدرج.
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2)
 
-    # إضافة نقطتي توقف للمتدرج.
+    # إضافة نقطتي توقف للتدرج.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, PresetColor.Purple)
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, PresetColor.Red)
 
-    # حفظ ملف PPTX إلى القرص.
+    # حفظ ملف PPTX على القرص.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -280,26 +280,28 @@ finally:
 
 النتيجة:
 
-![القطع الناقص مع تعبئة متدرجة](gradient-fill.png)
+![القطع الإهليلجي مع تعبئة تدرجية](gradient-fill.png)
 
-## **تعبئة بنمط**
+إذا كان التدرج يبدو مختلفًا في الصورة المصدَّرة مقارنةً بما هو عليه في PowerPoint، راجع [Choose a Gradient Rendering Style](/slides/ar/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). يمكنك اختيار نمط العرض دون تغيير تعبئة التدرج المخزَّنة في العرض.
 
-في PowerPoint، تُعد تعبئة بنمط خيار تنسيق يسمح لك بتطبيق تصميم ثنائي اللون—مثل النقاط أو الشرائط أو المتعرجات المتقاطعة أو المربعات—على شكل. يمكنك اختيار ألوان مخصصة لمقدمة النمط وخلفيته.
+## **تعبئة نمطية**
 
-توفر Aspose.Slides أكثر من 45 نمطًا مسبقًا يمكنك تطبيقه على الأشكال لتعزيز جاذبية عروضك البصرية. حتى بعد اختيار نمط مسبق، يمكنك تحديد الألوان الدقيقة التي سيستخدمها.
+في PowerPoint، تعبئة نمطية هي خيار تنسيق يتيح لك تطبيق تصميم بلونين—مثل النقاط أو الخطوط أو التعرجات أو المربعات—على الشكل. يمكنك اختيار ألوان مخصصة لخلفية النمط واللون الأمامي.
 
-إليك كيفية تطبيق تعبئة بنمط على شكل باستخدام Aspose.Slides:
+Aspose.Slides يقدم أكثر من 45 نمطًا نمطيًا مسبقًا يمكنك تطبيقها على الأشكال لتعزيز الجاذبية البصرية لعرضك. حتى بعد اختيار نمط مسبق، يمكنك تحديد الألوان الدقيقة التي يجب أن يستخدمها.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة بحسب مؤشرها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) إلى الشريحة.
-1. ضبط [FillType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/filltype/) للشكل إلى `Pattern`.
-1. اختيار نمط نمط من الخيارات المسبقة.
-1. ضبط [Background Color](https://reference.aspose.com/slides/ar/python-java/aspose.slides/patternformat/#getBackColor) للنمط.
-1. ضبط [Foreground Color](https://reference.aspose.com/slides/ar/python-java/aspose.slides/patternformat/#getForeColor) للنمط.
-1. حفظ العرض المُعدَّل كملف PPTX.
+إليك كيفية تطبيق تعبئة نمطية على شكل باستخدام Aspose.Slides:
 
-الشفرة بايثون التالية توضح كيفية تطبيق تعبئة بنمط على مستطيل:
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى الشريحة بواسطة فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين الخاصية [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) للشكل إلى `Pattern`.
+1. اختيار نمط نمطي من الخيارات المسبقة.
+1. تعيين [Background Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) للخلفية.
+1. تعيين [Foreground Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) للون الأمامي.
+1. حفظ العرض المعدل كملف PPTX.
+
+الكود التالي بلغة Python يوضح كيفية تطبيق تعبئة نمطية على مستطيل:
 
 ```python
 import jpype
@@ -317,20 +319,20 @@ try:
     # الحصول على الشريحة الأولى.
     slide = presentation.getSlides().get_Item(0)
 
-    # إضافة شكل تلقائي من النوع Rectangle.
+    # إضافة شكل تلقائي من نوع المستطيل.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
-    # تعيين نوع التعبئة إلى Pattern.
+    # تعيين نوع التعبئة إلى نمط.
     shape.getFillFormat().setFillType(FillType.Pattern)
 
-    # تعيين نمط النقشة.
+    # تعيين نمط النمط.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis)
 
-    # تعيين ألوان الخلفية والواجهة للنقشة.
+    # تعيين ألوان الخلفية والواجهة للنمط.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY)
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW)
 
-    # حفظ ملف PPTX إلى القرص.
+    # حفظ ملف PPTX على القرص.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -338,35 +340,35 @@ finally:
 
 النتيجة:
 
-![المستطيل مع تعبئة بنمط](pattern-fill.png)
+![المستطيل مع تعبئة نمطية](pattern-fill.png)
 
 ## **تعبئة صورة**
 
-في PowerPoint، تُعد تعبئة الصورة خيار تنسيق يسمح لك بإدراج صورة داخل شكل—أي استخدام الصورة كخلفية للشكل.
+في PowerPoint، تعبئة صورة هي خيار تنسيق يسمح لك بإدراج صورة داخل الشكل—وبالتالي استخدام الصورة كخلفية للشكل.
 
 إليك كيفية استخدام Aspose.Slides لتطبيق تعبئة صورة على شكل:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة بحسب مؤشرها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) إلى الشريحة.
-1. ضبط [FillType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/filltype/) للشكل إلى `Picture`.
-1. ضبط وضعية تعبئة الصورة إلى `Tile` (أو وضعية أخرى مفضلة).
-1. إنشاء كائن [PPImage](https://reference.aspose.com/slides/ar/python-java/aspose.slides/ppimage/) من الصورة التي تريد استخدامها.
-1. تمرير الصورة إلى طريقة `SlidesPicture.setImage` .
-1. حفظ العرض المُعدَّل كملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى الشريحة بواسطة فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين الخاصية [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) للشكل إلى `Picture`.
+1. تعيين وضعية تعبئة الصورة إلى `Tile` (أو وضعية مفضلة أخرى).
+1. إنشاء كائن [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) من الصورة التي تريد استخدامها.
+1. تمرير الصورة إلى طريقة `SlidesPicture.setImage`.
+1. حفظ العرض المعدل كملف PPTX.
 
 لنفترض أن لدينا ملف "lotus.png" بالصورة التالية:
 
 ![صورة اللوتس](lotus.png)
 
-الشفرة بايثون التالية توضح كيفية تعبئة شكل بالصورة:
+الكود التالي بلغة Python يوضح كيفية تعبئة الشكل بالصورة:
 
 ```python
-import jpway
+import jpype
 import asposeslides
 
-if not jpway.isJVMStarted():
-    jpway.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import FillType, Images, PictureFillMode, Presentation, SaveFormat, ShapeType
 
@@ -376,16 +378,16 @@ try:
     # الحصول على الشريحة الأولى.
     slide = presentation.getSlides().get_Item(0)
 
-    # إضافة شكل تلقائي من النوع Rectangle.
+    # إضافة شكل تلقائي من نوع المستطيل.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130)
     
-    # تعيين نوع التعبئة إلى Picture.
+    # تعيين نوع التعبئة إلى صورة.
     shape.getFillFormat().setFillType(FillType.Picture)
 
-    # تعيين وضعية تعبئة الصورة.
+    # تعيين وضع تعبئة الصورة.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile)
 
-    # تحميل صورة وإضافتها إلى موارد العرض التقديمي.
+    # تحميل صورة وإضافتها إلى موارد العرض.
     image = Images.fromFile("lotus.png")
     picture = presentation.getImages().addImage(image)
     image.dispose()
@@ -393,7 +395,7 @@ try:
     # تعيين الصورة.
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
 
-    # حفظ ملف PPTX إلى القرص.
+    # حفظ ملف PPTX على القرص.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -403,19 +405,19 @@ finally:
 
 ![الشكل مع تعبئة صورة](picture-fill.png)
 
-### **تكرار الصورة كنقش**
+### **تعيين صورة متكررة كملمس**
 
-إذا رغبت في تعيين صورة مكررة كنقش وتخصيص سلوك التكرار، يمكنك استخدام الأساليب التالية من فئة [PictureFillFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/picturefillformat/) :
+إذا أردت تعيين صورة متكررة كملمس وتخصيص سلوك التكرار، يمكنك استخدام الطرق التالية من فصل [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) :
 
-- [setPictureFillMode](https://reference.aspose.com/slides/ar/python-java/aspose.slides/picturefillformat/#setPictureFillMode): يضبط وضعية تعبئة الصورة—إما `Tile` أو `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/picturefillformat/#setTileAlignment): يحدد محاذاة المربعات داخل الشكل.
-- [setTileFlip](https://reference.aspose.com/slides/ar/python-java/aspose.slides/picturefillformat/#setTileFlip): يتحكم ما إذا كان المربع يُقلب أفقياً أو عمودياً أو كلياً.
-- [setTileOffsetX](https://reference.aspose.com/slides/ar/python-java/aspose.slides/picturefillformat/#setTileOffsetX): يضبط الإزاحة الأفقية للمربع (بالنقاط) من أصل الشكل.
-- [setTileOffsetY](https://reference.aspose.com/slides/ar/python-java/aspose.slides/picturefillformat/#setTileOffsetY): يضبط الإزاحة العمودية للمربع (بالنقاط) من أصل الشكل.
-- [setTileScaleX](https://reference.aspose.com/slides/ar/python-java/aspose.slides/picturefillformat/#setTileScaleX): يحدد النسبة المئوية لتوسيع المربع أفقياً.
-- [setTileScaleY](https://reference.aspose.com/slides/ar/python-java/aspose.slides/picturefillformat/#setTileScaleY): يحدد النسبة المئوية لتوسيع المربع عمودياً.
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): يحدد وضعية تعبئة الصورة—إما `Tile` أو `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): يحدد محاذاة المربعات داخل الشكل.
+- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): يتحكم فيما إذا كان المربع يُقلب أفقيًا أو عموديًا أو كليًا.
+- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): يحدد الإزاحة الأفقية للمربع (بوحدات النقاط) من أصل الشكل.
+- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): يحدد الإزاحة الرأسية للمربع (بوحدات النقاط) من أصل الشكل.
+- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): يحدد مقياس المربع الأفقي كنسبة مئوية.
+- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): يحدد مقياس المربع الرأسي كنسبة مئوية.
 
-الشفرة التالية توضح كيفية إضافة شكل مستطيل مع تعبئة صورة مكررة وتكوين خيارات المربعات:
+العينة التالية تُظهر كيفية إضافة شكل مستطيل بتعبئة صورة متكررة وتكوين خيارات التكرار:
 
 ```python
 import jpype
@@ -432,13 +434,13 @@ try:
     # الحصول على الشريحة الأولى.
     first_slide = presentation.getSlides().get_Item(0)
 
-    # إضافة شكل تلقائي من النوع Rectangle.
+    # إضافة شكل تلقائي من نوع المستطيل.
     shape = first_slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95)
 
-    # تعيين نوع التعبئة للشكل إلى Picture.
+    # تعيين نوع التعبئة للشكل إلى صورة.
     shape.getFillFormat().setFillType(FillType.Picture)
 
-    # تحميل الصورة وإضافتها إلى موارد العرض التقديمي.
+    # تحميل الصورة وإضافتها إلى موارد العرض.
     source_image = Images.fromFile("lotus.png")
     presentation_image = presentation.getImages().addImage(source_image)
     source_image.dispose()
@@ -447,7 +449,7 @@ try:
     picture_fill_format = shape.getFillFormat().getPictureFillFormat()
     picture_fill_format.getPicture().setImage(presentation_image)
 
-    # تكوين وضعية تعبئة الصورة وخصائص التبليط.
+    # تكوين وضع تعبئة الصورة وخصائص التبليط.
     picture_fill_format.setPictureFillMode(PictureFillMode.Tile)
     picture_fill_format.setTileOffsetX(-32)
     picture_fill_format.setTileOffsetY(-32)
@@ -456,7 +458,7 @@ try:
     picture_fill_format.setTileAlignment(RectangleAlignment.BottomRight)
     picture_fill_format.setTileFlip(TileFlip.FlipBoth)
 
-    # حفظ ملف PPTX إلى القرص.
+    # حفظ ملف PPTX على القرص.
     presentation.save("tile.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -468,18 +470,18 @@ finally:
 
 ## **تعبئة بلون صلب**
 
-في PowerPoint، تُعد تعبئة بلون صلب خيار تنسيق يملأ الشكل بلون موحد واحد. يُطبق هذا اللون الخلفي البسيط دون أي تدرجات أو نقوش أو أنماط.
+في PowerPoint، تعبئة بلون صلب هي خيار تنسيق يملأ الشكل بلون موحد واحد. يُطبق هذا اللون الخلفي البسيط بدون أي تدرجات أو أقمشة أو أنماط.
 
 لتطبيق تعبئة بلون صلب على شكل باستخدام Aspose.Slides، اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة بحسب مؤشرها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) إلى الشريحة.
-1. ضبط [FillType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/filltype/) للشكل إلى `Solid`.
-1. تعيين لون التعبئة المفضل للشكل.
-1. حفظ العرض المُعدَّل كملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى الشريحة بواسطة فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين الخاصية [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) للشكل إلى `Solid`.
+1. تعيين اللون الصلب المفضل كملء للشكل.
+1. حفظ العرض المعدل كملف PPTX.
 
-الشفرة بايثون التالية توضح كيفية تطبيق تعبئة بلون صلب على مستطيل في شريحة PowerPoint:
+الكود التالي بلغة Python يوضح كيفية تطبيق تعبئة بلون صلب على مستطيل في شريحة PowerPoint:
 
 ```python
 import jpype
@@ -497,7 +499,7 @@ try:
     # الحصول على الشريحة الأولى.
     slide = presentation.getSlides().get_Item(0)
 
-    # إضافة شكل تلقائي من النوع Rectangle.
+    # إضافة شكل تلقائي من نوع المستطيل.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
     # تعيين نوع التعبئة إلى Solid.
@@ -506,7 +508,7 @@ try:
     # تعيين لون التعبئة.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
 
-    # حفظ ملف PPTX إلى القرص.
+    # حفظ ملف PPTX على القرص.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -514,22 +516,22 @@ finally:
 
 النتيجة:
 
-![الشكل مع تعبئة لون صلب](solid-color-fill.png)
+![الشكل مع تعبئة بلون صلب](solid-color-fill.png)
 
-## **ضبط الشفافية**
+## **تعيين الشفافية**
 
-في PowerPoint، عند تطبيق تعبئة بلون صلب أو متدرجة أو صورة أو نقش على الأشكال، يمكنك أيضًا ضبط مستوى الشفافية للتحكم في مدى وضوح التعبئة. كلما ارتفعت قيمة الشفافية، أصبح الشكل أكثر شفافية، مما يسمح للعنصر الخلفي أو الكائنات السفلية بأن تكون مرئية جزئياً.
+في PowerPoint، عندما تطبق تعبئة بلون صلب أو تدرج أو صورة أو نسيج على الأشكال، يمكنك أيضًا تعيين مستوى شفافية للتحكم في شفافية التعبئة. القيمة الأعلى للشفافية تجعل الشكل أكثر شفافية، مما يسمح بخلفية أو كائنات تحتية بأن تظهر جزئيًا.
 
-تتيح لك Aspose.Slides ضبط مستوى الشفافية عن طريق تعديل قيمة ألفا في اللون المستخدم للتعبئة. إليك الطريقة:
+Aspose.Slides يتيح لك تعيين مستوى الشفافية عبر ضبط قيمة ألفا في اللون المستخدم للتعبئة. إليك الطريقة:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة بحسب مؤشرها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) إلى الشريحة.
-1. ضبط [FillType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/filltype/) إلى `Solid`.
-1. استخدم [Color](https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Color.html) لتعريف لون بشفافية (مكوّن `alpha` يتحكم في الشفافية).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى الشريحة بواسطة فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين الخاصية [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) إلى `Solid`.
+1. استخدام [Color](https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Color.html) لتعريف لون بشفافية (مكون `alpha` يتحكم في الشفافية).
 1. حفظ العرض.
 
-الشفرة بايثون التالية توضح كيفية تطبيق لون تعبئة شفاف على مستطيل:
+الكود التالي بلغة Python يوضح كيفية تطبيق لون تعبئة شفاف على مستطيل:
 
 ```python
 import jpype
@@ -547,16 +549,16 @@ try:
     # الحصول على الشريحة الأولى.
     slide = presentation.getSlides().get_Item(0)
 
-    # إضافة شكل مستطيل صلب تلقائي.
+    # إضافة شكل تلقائي مستطيل صلب.
     solid_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
-    # إضافة شكل مستطيل شفاف تلقائي فوق الشكل الصلب.
+    # إضافة شكل تلقائي مستطيل شفاف فوق الشكل الصلب.
     transparent_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75)
     transparent_shape.getFillFormat().setFillType(FillType.Solid)
     transparent_color = Color(255, 255, 0, 204)
     transparent_shape.getFillFormat().getSolidFillColor().setColor(transparent_color)
 
-    # حفظ ملف PPTX إلى القرص.
+    # حفظ ملف PPTX على القرص.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -568,17 +570,17 @@ finally:
 
 ## **تدوير الأشكال**
 
-تتيح لك Aspose.Slides تدوير الأشكال في عروض PowerPoint. يمكن أن يكون هذا مفيدًا عند وضع العناصر البصرية بمواضع تحتاج إلى محاذاة أو تصميم معين.
+Aspose.Slides يتيح لك تدوير الأشكال في عروض PowerPoint. يمكن أن يكون ذلك مفيدًا عند وضع العناصر البصرية مع متطلبات محاذاة أو تصميم معينة.
 
 لتدوير شكل على شريحة، اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة بحسب مؤشرها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) إلى الشريحة.
-1. ضبط خاصية الدوران للشكل إلى الزاوية المطلوبة.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى الشريحة بواسطة فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين خاصية تدوير الشكل إلى الزاوية المطلوبة.
 1. حفظ العرض.
 
-الشفرة بايثون التالية توضح كيفية تدوير شكل بمقدار 5 درجات:
+الكود التالي بلغة Python يوضح كيفية تدوير شكل بزاوية 5 درجات:
 
 ```python
 import jpype
@@ -595,13 +597,13 @@ try:
     # الحصول على الشريحة الأولى.
     slide = presentation.getSlides().get_Item(0)
 
-    # إضافة شكل تلقائي من النوع Rectangle.
+    # إضافة شكل تلقائي من نوع المستطيل.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
-    # تدوير الشكل بمقدار 5 درجات.
+    # تدوير الشكل بزاوية 5 درجات.
     shape.setRotation(5)
 
-    # حفظ ملف PPTX إلى القرص.
+    # حفظ ملف PPTX على القرص.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -609,21 +611,21 @@ finally:
 
 النتيجة:
 
-![دوران الشكل](shape-rotation.png)
+![تدوير الشكل](shape-rotation.png)
 
-## **إضافة تأثيرات بيفيل ثلاثية الأبعاد**
+## **إضافة تأثيرات بروز ثلاثية الأبعاد**
 
-تسمح لك Aspose.Slides بتطبيق تأثيرات بيفيل ثلاثية الأبعاد على الأشكال من خلال تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/) الخاصة بها.
+Aspose.Slides يسمح لك بتطبيق تأثيرات بروز ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) الخاصة بها.
 
-لإضافة تأثيرات بيفيل ثلاثية الأبعاد إلى شكل، اتبع الخطوات التالية:
+لإضافة تأثيرات بروز ثلاثية الأبعاد إلى شكل، اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة بحسب مؤشرها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) إلى الشريحة.
-1. تكوين [ThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/) للشكل لتحديد إعدادات البيفيل.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى الشريحة بواسطة فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تكوين [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) لتحديد إعدادات البروز.
 1. حفظ العرض.
 
-الشفرة بايثون التالية توضح كيفية تطبيق تأثيرات بيفيل ثلاثية الأبعاد على شكل:
+الكود التالي بلغة Python يوضح كيفية تطبيق تأثير بروز ثلاثي الأبعاد على شكل:
 
 ```python
 import jpype
@@ -640,7 +642,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # إضافة شكل إلى الشريحة.
+    # Add a shape to the slide.
     shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100)
     shape.getFillFormat().setFillType(FillType.Solid)
     shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN)
@@ -648,7 +650,7 @@ try:
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
     shape.getLineFormat().setWidth(2.0)
 
-    # تعيين خصائص ThreeDFormat للشكل.
+    # Set the shape's ThreeDFormat properties.
     shape.getThreeDFormat().setDepth(4)
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
     shape.getThreeDFormat().getBevelTop().setHeight(6)
@@ -657,7 +659,7 @@ try:
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt)
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
 
-    # حفظ العرض التقديمي كملف PPTX.
+    # Save the presentation as a PPTX file.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -665,21 +667,21 @@ finally:
 
 النتيجة:
 
-![تأثير البيفيل ثلاثي الأبعاد](3D-bevel-effect.png)
+![تأثير البروز ثلاثي الأبعاد](3D-bevel-effect.png)
 
-## **إضافة تأثيرات دوران ثلاثية الأبعاد**
+## **إضافة تأثيرات تدوير ثلاثية الأبعاد**
 
-تسمح لك Aspose.Slides بتطبيق تأثيرات دوران ثلاثية الأبعاد على الأشكال من خلال تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/) الخاصة بها.
+Aspose.Slides يسمح لك بتطبيق تأثيرات تدوير ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) الخاصة بها.
 
-لتطبيق دوران ثلاثي الأبعاد على شكل:
+لتطبيق تدوير ثلاثي الأبعاد على شكل:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-1. الحصول على مرجع إلى شريحة بحسب مؤشرها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) إلى الشريحة.
-1. استخدم الطريقتين [setCameraType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/camera/#setCameraType) و[setLightType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/lightrig/#setLightType) لتحديد دوران ثلاثي الأبعاد.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى الشريحة بواسطة فهرستها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) إلى الشريحة.
+1. استخدام الطريقتين [setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) و[setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) لتحديد التدوير ثلاثي الأبعاد.
 1. حفظ العرض.
 
-الشفرة بايثون التالية توضح كيفية تطبيق تأثيرات دوران ثلاثية الأبعاد على شكل:
+الكود التالي بلغة Python يوضح كيفية تطبيق تأثيرات تدوير ثلاثية الأبعاد على شكل:
 
 ```python
 import jpype
@@ -703,7 +705,7 @@ try:
     auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp)
     auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
 
-    # حفظ العرض التقديمي كملف PPTX.
+    # حفظ العرض كملف PPTX.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -711,18 +713,18 @@ finally:
 
 النتيجة:
 
-![تأثير الدوران ثلاثي الأبعاد](3D-rotation-effect.png)
+![تأثير التدوير ثلاثي الأبعاد](3D-rotation-effect.png)
 
-## **التحكم في العرض بالأبيض والأسود للأشكال**
+## **التحكم في عرض أبيض وأسود للأشكال**
 
-تحدد الطريقة [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#setBlackWhiteMode) كيفية عرض شكل فردي عندما يُعرض أو يُعالج عرضاً بوضع الأبيض والأسود. لا تقوم هذه الطريقة بتمكين العرض بالأبيض والأسود بحد ذاتها، ولا تغيّر تعبئة الشكل أو حدوده أو تنسيقه في وضع اللون العادي.
+طريقة [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) تحدد كيف يتم عرض شكل مفرد عندما يُعرض أو يُعالج العرض بوضع الأبيض والأسود. لا تقوم بتمكين وضع الأبيض والأسود بحد ذاتها، ولا تغير تعبئة الشكل أو خطه أو تنسيقه في وضع اللون العادي.
 
-استخدم قيمة من فئة [BlackWhiteMode](https://reference.aspose.com/slides/ar/python-java/aspose.slides/blackwhitemode/) لاختيار السلوك المطلوب. على سبيل المثال، `Automatic` يترك تطبيق العرض يختار التحويل، و`Gray` و`LightGray` يستخدمان اللون الرمادي، و`BlackWhite` يستخدم فقط الأسود والأبيض، و`Black` و`White` يفرضان لونًا واحدًا، و`Color` يحافظ على الألوان العادية، و`Hidden` يزيل الشكل في وضع الأبيض والأسود. `NotDefined` يعني عدم تعيين وضع على مستوى الشكل.
+استخدم قيمة من فئة [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) لتحديد السلوك المطلوب. على سبيل المثال، `Automatic` يترك التطبيق يختار التحويل، و`Gray` و`LightGray` يستخدمان اللون الرمادي، و`BlackWhite` يستخدم فقط الأسود والأبيض، و`Black` و`White` يجبران اللون الواحد، و`Color` يحافظ على الألوان الطبيعية، و`Hidden` يحذف الشكل في وضع الأبيض والأسود. `NotDefined` يعني أنه لم يُعيّن وضع على مستوى الشكل.
 
-الشفرة بايثون التالية تنشئ شكلاً ملونًا وتجعله يظهر باللون الرمادي في وضع العرض بالأبيض والأسود:
+الكود التالي بلغة Python ينشئ شكلًا ملونًا ويجعله يظهر باللون الرمادي في وضع عرض أبيض وأسود:
 
 ```python
-import jpype
+import jpage
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -739,7 +741,7 @@ try:
     shape.getFillFormat().setFillType(FillType.Solid)
     shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
 
-    # احتفظ بالتعبئة البرتقالية في وضع اللون، ولكن اعرض الشكل بلون رمادي في وضع الأسود والأبيض.
+    # احتفظ بتعبئة اللون البرتقالي في وضع اللون، ولكن اعرض الشكل بتلوين رمادي في وضع الأبيض والأسود.
     shape.setBlackWhiteMode(BlackWhiteMode.Gray)
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx)
@@ -747,11 +749,11 @@ finally:
     presentation.dispose()
 ```
 
-في وضع اللون العادي، يحتفظ المستطيل بتعبئته البرتقالية. في سير عمل العرض بالأبيض والأسود، يستخدم اللون الرمادي لأن وضعه محدد إلى `Gray`. يتيح لك ذلك الحفاظ على شريحة ملونة بالكامل مع تحديد مظهر مميز للطباعة أو المعاينة أو أي سير عمل آخر يحترم إعدادات العرض بالأبيض والأسود للعرض.
+في وضع اللون العادي، يحتفظ المستطيل بتعبئته البرتقالية. في سير عمل عرض أبيض وأسود، يستخدم اللون الرمادي لأن وضعه مضبوط على `Gray`. يتيح لك ذلك الحفاظ على شريحة ملونة بالكامل مع تحديد مظهر مميز للطباعة أو المعاينة أو أي سير عمل يراعي إعدادات عرض الأبيض والأسود.
 
 ## **إعادة تعيين التنسيق**
 
-الشفرة بايثون التالية توضح كيفية إعادة تعيين تنسيق شريحة وإرجاع الموقع والحجم وتنسيق جميع الأشكال التي بها عناصر نائب إلى إعداداتهم الافتراضية على [LayoutSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/) :
+الكود التالي بلغة Python يوضح كيفية إعادة تعيين تنسيق شريحة وإرجاع الموضع والحجم وتنسيق جميع الأشكال ذات العناصر النائبة على [LayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/layoutslide/) إلى إعداداتها الافتراضية:
 
 ```python
 import jpype
@@ -777,12 +779,12 @@ finally:
 
 **هل يؤثر تنسيق الشكل على حجم ملف العرض النهائي؟**
 
-بشكل طفيف فقط. الصور والوسائط المدمجة تشغل الجزء الأكبر من حجم الملف، بينما معلمات الشكل مثل الألوان وال تأثيرات والتدرجات تُخزن كبيانات وصفية وتضيف حجمًا ضئيلًا تقريبًا.
+بصفة طفيفة فقط. الصور والوسائط المضمَّنة تشغل معظم مساحة الملف، بينما معلمات الشكل مثل الألوان والتأثيرات والتدرجات تُخزن كبيانات تعريفية ولا تضيف حجمًا كبيرًا.
 
-**كيف يمكنني اكتشاف الأشكال على شريحة التي تشترك في تنسيق متماثل لتجميعها؟**
+**كيف يمكنني اكتشاف الأشكال على شريحة التي تشترك في نفس التنسيق لكي أجمعها؟**
 
-قارن الخصائص التنسيقية الرئيسية لكل شكل—التعبئة، الخط، وإعدادات التأثير. إذا تطابقت جميع القيم المقابلة، اعتبر أن أنماطها متماثلة وقم بتجميع تلك الأشكال منطقيًا، ما يبسط إدارة الأنماط لاحقًا.
+قارن خصائص التنسيق الرئيسية لكل شكل—التعبئة، الخط، وإعدادات التأثير. إذا كانت جميع القيم مطابقة، اعتبر أن أنماطها متماثلة وامجموعها منطقيًا، مما يبسط إدارة الأنماط لاحقًا.
 
-**هل يمكنني حفظ مجموعة من أنماط الشكل المخصص في ملف منفصل لإعادة استخدامها في عروض أخرى؟**
+**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة في ملف منفصل لإعادة استخدامها في عروض أخرى؟**
 
-نعم. احفظ أشكالًا عينة ذات الأنماط المطلوبة في شريحة قالب أو ملف قالب .POTX. عند إنشاء عرض جديد، افتح القالب، استنسخ الأشكال ذات التنسيق المطلوب، وأعد تطبيق تنسيقها حسب الحاجة.
+نعم. احفظ الأشكال النموذجية ذات الأنماط المطلوبة في شريحة قالب أو ملف قالب .POTX. عند إنشاء عرض جديد، افتح القالب، استنسخ الأشكال المنسقة التي تحتاجها، وأعد تطبيق تنسيقها حيثما دعت الحاجة.

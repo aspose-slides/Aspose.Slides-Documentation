@@ -9,47 +9,47 @@ keywords:
 - lijn opmaken
 - schets effect
 - schets vormlijn
-- joinstijl opmaken
+- samenvoegstijl opmaken
 - verloopvulling
 - patroonvulling
 - afbeeldingsvulling
 - textuurvulling
-- effenkleurvulling
-- vormtransparantie
-- zwart-wit vormrendering
-- grijstint vormrendering
+- effen kleurvulling
+- vorm doorzichtigheid
+- zwart-wit weergave van vorm
+- grijswaarden weergave van vorm
 - vorm roteren
-- 3D schuineffect
-- 3D roteffect
-- opmaak resetten
+- 3D-bevel effect
+- 3D-rotatie effect
+- opmaak herstellen
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Leer hoe u PowerPoint-vormen kunt opmaken in PHP met Aspose.Slides—stel vul-, lijn- en effectstijlen in voor PPT-, PPTX- en ODP-bestanden met precisie en volledige controle."
+description: "Leer hoe u PowerPoint-vormen kunt opmaken in PHP met Aspose.Slides - stel vul-, lijn- en effectstijlen in voor PPT-, PPTX- en ODP-bestanden met precisie en volledige controle."
 ---
-## **Inleiding**
+## **Introductie**
 
-In PowerPoint kun je vormen aan dia's toevoegen. Aangezien vormen uit lijnen bestaan, kun je ze opmaken door de omtrek aan te passen of effecten toe te passen. Bovendien kun je vormen opmaken door instellingen op te geven die bepalen hoe de binnenkant wordt gevuld.
+In PowerPoint kun je vormen aan dia's toevoegen. Omdat vormen bestaan uit lijnen, kun je ze opmaken door de contouren te wijzigen of er effecten op toe te passen. Daarnaast kun je vormen opmaken door instellingen op te geven die bepalen hoe hun binnenkant wordt gevuld.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for PHP via Java biedt klassen en methoden waarmee je vormen kunt opmaken met dezelfde opties die beschikbaar zijn in PowerPoint.
+Aspose.Slides for PHP via Java biedt klassen en methoden waarmee je vormen kunt opmaken met dezelfde opties die in PowerPoint beschikbaar zijn.
 
-## **Lijnen opmaken**
+## **Lijnen Opmaken**
 
 Met Aspose.Slides kun je een aangepaste lijnstijl voor een vorm opgeven. De volgende stappen beschrijven de procedure:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [lijnstijl](https://reference.aspose.com/slides/nl/php-java/aspose.slides/linestyle/) van de vorm in.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse.
+1. Haal een referentie op naar een dia op basis van de index.
+1. Voeg een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) toe aan de dia.
+1. Stel de [line style](https://reference.aspose.com/slides/php-java/aspose.slides/linestyle/) van de vorm in.
 1. Stel de lijndikte in.
-1. Stel de [streepstijl](https://reference.aspose.com/slides/nl/php-java/aspose.slides/linedashstyle/) van de lijn in.
-1. Stel de lijnkleur van de vorm in.
-1. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Stel de [dash style](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) van de lijn in.
+1. Stel de lijnkleur voor de vorm in.
+1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-De volgende PHP‑code laat zien hoe je een rechthoekige `AutoShape` opmaakt:
+De volgende PHP‑code laat zien hoe je een rechthoekige `AutoShape` kunt opmaken:
 
 ```php
 // Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
@@ -73,7 +73,7 @@ try {
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // Sla het PPTX-bestand op op schijf.
+    // Sla het PPTX-bestand op schijf.
     $presentation->save("formatted_lines.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -84,11 +84,11 @@ Het resultaat:
 
 ![The formatted lines in the presentation](formatted-lines.png)
 
-## **Schets‑effecten toepassen op vormlijnen**
+## **Schets‑effecten Toepassen op Vormlijnen**
 
-Een schets‑effect laat een vormlijn eruitzien alsof deze met de hand is getekend. Gebruik [Shape.getLineFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/) om de lijninstellingen te benaderen, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/lineformat/) om de schetsinstellingen te benaderen, en [SketchFormat.setSketchType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sketchformat/) om een waarde uit de [LineSketchType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/linesketchtype/)‑enumeratie te selecteren.
+Een schets‑effect maakt dat een vormlijn handgetekend lijkt. Gebruik [Shape.getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) om de lijninstellingen te benaderen, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) om de schetseigenschappen te benaderen, en [SketchFormat.setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) om een waarde uit de enumeratie [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) te selecteren.
 
-De volgende PHP‑code toont hoe je een [LineSketchType.Curved](https://reference.aspose.com/slides/nl/php-java/aspose.slides/linesketchtype/)‑effect toepast, de expliciet toegewezen waarde uitleest, en het effect verwijdert met [LineSketchType.None](https://reference.aspose.com/slides/nl/php-java/aspose.slides/linesketchtype/):
+De volgende PHP‑code toont hoe je een [LineSketchType.Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/)-effect toepast, de expliciet toegewezen waarde uitleest, en het effect verwijdert met [LineSketchType.None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
 
 ```php
 $presentation = new Presentation();
@@ -96,13 +96,13 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
 
-    // Toegang tot de lijnopmaak van de vorm en het schetsformaat.
+    // Toegang tot de lijnopmaak van de vorm en de schetsopmaak.
     $sketchFormat = $shape->getLineFormat()->getSketchFormat();
 
     // Pas een schetseffect toe.
     $sketchFormat->setSketchType(LineSketchType::Curved);
 
-    // Lees het schetseffect dat direct aan de vorm is toegewezen.
+    // Lees het schetseffect dat rechtstreeks aan de vorm is toegewezen.
     $explicitSketchType = $sketchFormat->getSketchType();
     echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
 
@@ -113,7 +113,7 @@ try {
 }
 ```
 
-De waarde die wordt geretourneerd door [SketchFormat.getSketchType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sketchformat/) vertegenwoordigt de instelling die rechtstreeks aan de vorm is toegewezen. Als de lijnopmaak kan worden geërfd van een thema, masterdia of lay‑outdia, gebruik dan [LineFormat.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/lineformat/), benader de `getSketchFormat`‑methode van het geretourneerde object en lees de `getSketchType`‑waarde. De effectieve waarde weerspiegelt de opmaak die daadwerkelijk wordt toegepast na het oplossen van de erfenis:
+De waarde die wordt geretourneerd door [SketchFormat.getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) vertegenwoordigt de instelling die rechtstreeks aan de vorm is toegewezen. Als de lijnopmaak kan worden geërfd van een thema, master‑dia of layout‑dia, gebruik dan [LineFormat.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/), benader de `getSketchFormat`‑methode van het geretourneerde object en lees de `getSketchType`‑waarde. De effectieve waarde weerspiegelt de opmaak die daadwerkelijk wordt toegepast nadat de overerving is opgelost:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -132,19 +132,19 @@ try {
 }
 ```
 
-## **Join‑stijlen opmaken**
+## **Samenvoeg‑Stijlen Opmaken**
 
-Dit zijn de drie opties voor het type join:
+Hier zijn de drie opties voor het type samenvoeging:
 
-* Rond
-* Schuin
-* Afgeschuind
+* Round
+* Miter
+* Bevel
 
-Standaard, wanneer PowerPoint twee lijnen onder een hoek (bijvoorbeeld op een hoek van een vorm) verbindt, wordt de **Rond**‑instelling gebruikt. Als je echter een vorm met scherpe hoeken tekent, kun je de **Schuin**‑optie verkiezen.
+Standaard gebruikt PowerPoint de instelling **Round** wanneer twee lijnen onder een hoek (bijvoorbeeld op een hoek van een vorm) worden samengevoegd. Als je echter een vorm met scherpe hoeken tekent, kun je de optie **Miter** verkiezen.
 
 ![The join style in the presentation](join-style-powerpoint.png)
 
-De volgende PHP‑code laat zien hoe drie rechthoeken (zoals afgebeeld in de afbeelding hierboven) werden gemaakt met de Miter, Bevel en Round join‑type‑instellingen:
+De volgende PHP‑code laat zien hoe drie rechthoeken (zoals in de afbeelding hierboven) werden gemaakt met de Miter‑, Bevel‑ en Round‑instellingen:
 
 ```php
 // Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
@@ -179,7 +179,7 @@ try {
     $shape3->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // Stel de join‑stijl in.
+    // Stel de samenvoegstijl in.
     $shape1->getLineFormat()->setJoinStyle(LineJoinStyle::Miter);
     $shape2->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
     $shape3->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
@@ -189,27 +189,27 @@ try {
     $shape2->getTextFrame()->setText("Bevel Join Style");
     $shape3->getTextFrame()->setText("Round Join Style");
 
-    // Sla het PPTX‑bestand op op schijf.
+    // Sla het PPTX-bestand op schijf.
     $presentation->save("join_styles.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Gradiëntvulling**
+## **Verloopvulling**
 
-In PowerPoint is Gradiëntvulling een opmaakoptie waarmee je een continue kleurverloop op een vorm kunt toepassen. Je kunt bijvoorbeeld twee of meer kleuren gebruiken zodat de ene geleidelijk in de andere overloopt.
+In PowerPoint is Verloopvulling een opmaakoptie waarmee je een continue kleurovergang op een vorm kunt toepassen. Je kunt bijvoorbeeld twee of meer kleuren zo combineren dat de ene geleidelijk in de andere overloopt.
 
-Zo pas je een gradiëntvulling toe op een vorm met Aspose.Slides:
+Zo pas je een verloopvulling toe op een vorm met Aspose.Slides:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/filltype/) van de vorm in op `Gradient`.
-1. Voeg je twee gewenste kleuren met gedefinieerde posities toe via de `add`‑methoden van de gradiënt‑stop‑collectie die wordt blootgesteld door de [GradientFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/gradientformat/) klasse.
-1. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse.
+1. Haal een referentie op naar een dia op basis van de index.
+1. Voeg een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) toe aan de dia.
+1. Stel de [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) van de vorm in op `Gradient`.
+1. Voeg je twee voorkeurskleuren toe met gedefinieerde posities via de `add`‑methoden van de verzameling gradientstops die wordt blootgesteld door de [GradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/)‑klasse.
+1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-De volgende PHP‑code laat zien hoe je een ellipse een gradiëntvulling geeft:
+De volgende PHP‑code laat zien hoe je een verloopvulling toepast op een ellips:
 
 ```php
 // Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
@@ -221,18 +221,18 @@ try {
     // Voeg een auto shape van het type Ellipse toe.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-    // Pas gradiëntopmaak toe op de ellipse.
+    // Pas verloopopmaak toe op de ellips.
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape::Linear);
 
-    // Stel de richting van de gradiënt in.
+    // Stel de richting van het verloop in.
     $shape->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection::FromCorner2);
 
-    // Voeg twee gradiëntstops toe.
+    // Voeg twee verloopstops toe.
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(1.0, PresetColor::Purple);
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0, PresetColor::Red);
 
-    // Sla het PPTX-bestand op op schijf.
+    // Sla het PPTX-bestand op schijf.
     $presentation->save("gradient_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -243,24 +243,26 @@ Het resultaat:
 
 ![The ellipse with gradient fill](gradient-fill.png)
 
+Als een verloop er in een geëxporteerde afbeelding anders uitziet dan in PowerPoint, zie dan [Choose a Gradient Rendering Style](/slides/nl/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Je kunt een render‑stijl selecteren zonder de opgeslagen verloopvulling in de presentatie te wijzigen.
+
 ## **Patroonvulling**
 
-In PowerPoint is Patroonvulling een opmaakoptie waarmee je een tweekleurig ontwerp—zoals stippen, strepen, kruislijnen of raster—op een vorm kunt toepassen. Je kunt aangepaste kleuren kiezen voor de voor‑ en achtergrond van het patroon.
+In PowerPoint is Patroonvulling een opmaakoptie waarmee je een tweekleurig ontwerp—zoals stippen, strepen, kruislings of geruite patronen—op een vorm kunt toepassen. Je kunt aangepaste kleuren kiezen voor de voor‑ en achtergrond van het patroon.
 
-Aspose.Slides biedt meer dan 45 vooraf gedefinieerde patroonstijlen die je op vormen kunt toepassen om de visuele aantrekkingskracht van je presentaties te vergroten. Zelfs nadat je een vooraf gedefinieerd patroon hebt gekozen, kun je de exacte kleuren die het moet gebruiken nog steeds specificeren.
+Aspose.Slides biedt meer dan 45 vooraf gedefinieerde patroonstijlen die je kunt toepassen op vormen om de visuele uitstraling van je presentaties te verbeteren. Zelfs nadat je een voorgedefinieerd patroon hebt gekozen, kun je de exacte kleuren die moeten worden gebruikt nog steeds opgeven.
 
 Zo pas je een patroonvulling toe op een vorm met Aspose.Slides:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/filltype/) van de vorm in op `Pattern`.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse.
+1. Haal een referentie op naar een dia op basis van de index.
+1. Voeg een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) toe aan de dia.
+1. Stel de [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) van de vorm in op `Pattern`.
 1. Kies een patroonstijl uit de vooraf gedefinieerde opties.
-1. Stel de [Background Color](https://reference.aspose.com/slides/nl/php-java/aspose.slides/patternformat/#getBackColor) van het patroon in.
-1. Stel de [Foreground Color](https://reference.aspose.com/slides/nl/php-java/aspose.slides/patternformat/#getForeColor) van het patroon in.
-1. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Stel de [Background Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) van het patroon in.
+1. Stel de [Foreground Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) van het patroon in.
+1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-De volgende PHP‑code laat zien hoe je een rechthoek een patroonvulling geeft:
+De volgende PHP‑code laat zien hoe je een patroonvulling toepast op een rechthoek:
 
 ```php
 // Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
@@ -282,7 +284,7 @@ try {
     $shape->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
     $shape->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->YELLOW);
 
-    // Sla het PPTX-bestand op op schijf.
+    // Sla het PPTX-bestand op schijf.
     $presentation->save("pattern_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -295,18 +297,18 @@ Het resultaat:
 
 ## **Afbeeldingsvulling**
 
-In PowerPoint is Afbeeldingsvulling een opmaakoptie waarmee je een afbeelding in een vorm kunt invoegen—effectief de afbeelding als achtergrond van de vorm gebruiken.
+In PowerPoint is Afbeeldingsvulling een opmaakoptie waarmee je een afbeelding in een vorm kunt invoegen—de afbeelding fungeert dan als achtergrond van de vorm.
 
 Zo gebruik je Aspose.Slides om een afbeeldingvulling op een vorm toe te passen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/filltype/) van de vorm in op `Picture`.
-1. Stel de afbeeldingvullingsmodus in op `Tile` (of een andere gewenste modus).
-1. Maak een [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/) object aan van de afbeelding die je wilt gebruiken.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse.
+1. Haal een referentie op naar een dia op basis van de index.
+1. Voeg een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) toe aan de dia.
+1. Stel de [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) van de vorm in op `Picture`.
+1. Stel de afbeeldingvulling‑modus in op `Tile` (of een andere gewenste modus).
+1. Maak een [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)‑object van de afbeelding die je wilt gebruiken.
 1. Geef de afbeelding door aan de `SlidesPicture.setImage`‑methode.
-1. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
 Stel dat we een bestand “lotus.png” hebben met de volgende afbeelding:
 
@@ -327,10 +329,10 @@ try {
     // Stel het vultype in op Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // Stel de picture fill-modus in.
+    // Stel de afbeeldingvullingsmodus in.
     $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Tile);
 
-    // Laad een afbeelding en voeg deze toe aan de presentatieresources.
+    // Laad een afbeelding en voeg deze toe aan de presentatie-bronnen.
     $image = Images::fromFile("lotus.png");
     $picture = $presentation->getImages()->addImage($image);
     $image->dispose();
@@ -338,7 +340,7 @@ try {
     // Stel de afbeelding in.
     $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 
-    // Sla het PPTX-bestand op op schijf.
+    // Sla het PPTX-bestand op schijf.
     $presentation->save("picture_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -349,19 +351,19 @@ Het resultaat:
 
 ![The shape with picture fill](picture-fill.png)
 
-### **Afbeelding tegelen als textuur**
+### **Afbeelding Tegelen Als Textuur**
 
-Als je een getegelde afbeelding als tekstuur wilt instellen en het tegelgedrag wilt aanpassen, kun je de volgende methoden van de [PictureFillFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/) klasse gebruiken:
+Als je een getegelde afbeelding als textuur wilt instellen en het tegelgedrag wilt aanpassen, kun je de volgende methoden van de [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/)‑klasse gebruiken:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Stelt de picture fill‑modus in — `Tile` of `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#setTileAlignment): Bepaalt de uitlijning van de tegels binnen de vorm.
-- [setTileFlip](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#setTileFlip): Bepaalt of de tegel horizontaal, verticaal of beide kanten wordt gespiegeld.
-- [setTileOffsetX](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Stelt de horizontale offset van de tegel (in points) ten opzichte van de oorsprong van de vorm in.
-- [setTileOffsetY](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Stelt de verticale offset van de tegel (in points) ten opzichte van de oorsprong van de vorm in.
-- [setTileScaleX](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#setTileScaleX): Definieert de horizontale schaal van de tegel als percentage.
-- [setTileScaleY](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#setTileScaleY): Definieert de verticale schaal van de tegel als percentage.
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Stelt de afbeeldingvulling‑modus in—`Tile` of `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): Bepaalt de uitlijning van de tegels binnen de vorm.
+- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): Bepaalt of de tegel horizontaal, verticaal of beide keren wordt gespiegeld.
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Stelt de horizontale offset van de tegel (in points) ten opzichte van de oorsprong van de vorm in.
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Stelt de verticale offset van de tegel (in points) ten opzichte van de oorsprong van de vorm in.
+- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): Definieert de horizontale schaal van de tegel als een percentage.
+- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): Definieert de verticale schaal van de tegel als een percentage.
 
-De volgende code‑voorbeeld laat zien hoe je een rechthoekige vorm toevoegt met een getegelde afbeeldingvulling en de tegelopties configureert:
+De volgende codevoorbeeld toont hoe je een rechthoekige vorm toevoegt met een getegelde afbeeldingvulling en tegel‑opties configureert:
 
 ```php
 // Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
@@ -376,7 +378,7 @@ try {
     // Stel het vultype van de vorm in op Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // Laad de afbeelding en voeg deze toe aan de presentatieresources.
+    // Laad de afbeelding en voeg deze toe aan de presentatie-bronnen.
     $sourceImage = Images::fromFile("lotus.png");
     $presentationImage = $presentation->getImages()->addImage($sourceImage);
     $sourceImage->dispose();
@@ -385,7 +387,7 @@ try {
     $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
     $pictureFillFormat->getPicture()->setImage($presentationImage);
 
-    // Configureer de picture fill-modus en tegel‑eigenschappen.
+    // Configureer de afbeeldingvullingsmodus en tegel-eigenschappen.
     $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
     $pictureFillFormat->setTileOffsetX(-32);
     $pictureFillFormat->setTileOffsetY(-32);
@@ -394,7 +396,7 @@ try {
     $pictureFillFormat->setTileAlignment(RectangleAlignment::BottomRight);
     $pictureFillFormat->setTileFlip(TileFlip::FlipBoth);
 
-    // Sla het PPTX‑bestand op op schijf.
+    // Sla het PPTX-bestand op schijf.
     $presentation->save("tile.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -405,20 +407,20 @@ Het resultaat:
 
 ![The tile options](tile-options.png)
 
-## **Effenkleurvulling**
+## **Vulling Met Effen Kleur**
 
-In PowerPoint is Effenkleurvulling een opmaakoptie die een vorm vult met één enkele, uniforme kleur. Deze egale achtergrondkleur wordt toegepast zonder gradaties, texturen of patronen.
+In PowerPoint is Vulling Met Effen Kleur een opmaakoptie die een vorm vult met één uniforme kleur. Deze eenvoudige achtergrondkleur wordt toegepast zonder verlopen, texturen of patronen.
 
-Om een effenkleurvulling toe te passen op een vorm met Aspose.Slides, volg je deze stappen:
+Zo pas je een effen kleurvulling toe op een vorm met Aspose.Slides:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/filltype/) van de vorm in op `Solid`.
-1. Wijs je voorkeursvulkleur toe aan de vorm.
-1. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse.
+1. Haal een referentie op naar een dia op basis van de index.
+1. Voeg een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) toe aan de dia.
+1. Stel de [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) van de vorm in op `Solid`.
+1. Wijs je gewenste vulkleur toe aan de vorm.
+1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-De volgende PHP‑code laat zien hoe je een rechthoek in een PowerPoint‑dia een effenkleurvulling geeft:
+De volgende PHP‑code laat zien hoe je een effen kleurvulling toepast op een rechthoek in een PowerPoint‑dia:
 
 ```php
 // Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
@@ -436,7 +438,7 @@ try {
     // Stel de vulkleur in.
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
 
-    // Sla het PPTX-bestand op op schijf.
+    // Sla het PPTX-bestand op schijf.
     $presentation->save("solid_color_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -447,20 +449,20 @@ Het resultaat:
 
 ![The shape with solid color fill](solid-color-fill.png)
 
-## **Transparantie instellen**
+## **Doorzichtigheid Instellen**
 
-In PowerPoint kun je bij het toepassen van een effen kleur, gradiënt, afbeelding of textuurvulling op vormen ook een transparantieniveau instellen om de dekking van de vulling te controleren. Een hogere transparantiewaarde maakt de vorm transparanter, waardoor de achtergrond of onderliggende objecten gedeeltelijk zichtbaar worden.
+In PowerPoint kun je, naast een effen kleur, een verloop‑, afbeelding‑ of textuurvulling, ook de doorzichtigheid instellen om de opaciteit van de vulling te regelen. Een hogere doorzichtigheidswaarde maakt de vorm meer doorschijnend, zodat de achtergrond of onderliggende objecten gedeeltelijk zichtbaar worden.
 
-Aspose.Slides maakt het mogelijk de transparantiewaarde in te stellen door de alfa‑waarde van de gebruikte kleur voor de vulling aan te passen. Zo doe je dat:
+Aspose.Slides laat je de doorzichtigheidswaarde aanpassen door de alfa‑waarde van de gebruikte kleur voor de vulling te wijzigen. Zo doe je dat:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/filltype/) in op `Solid`.
-1. Gebruik `Color` om een kleur met transparantie te definiëren (de `alpha`‑component regelt de transparantie).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse.
+1. Haal een referentie op naar een dia op basis van de index.
+1. Voeg een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) toe aan de dia.
+1. Stel de [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) in op `Solid`.
+1. Gebruik `Color` om een kleur met doorzichtigheid te definiëren (de `alpha`‑component bepaalt de doorzichtigheid).
 1. Sla de presentatie op.
 
-De volgende PHP‑code laat zien hoe je een transparante vulkleur toepast op een rechthoek:
+De volgende PHP‑code laat zien hoe je een doorzichtige vulkleur toepast op een rechthoek:
 
 ```php
 // Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
@@ -469,15 +471,15 @@ try {
     // Haal de eerste dia op.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Voeg een effen rechthoekige auto shape toe.
+    // Voeg een solide rechthoekige auto shape toe.
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Voeg een transparante rechthoekige auto shape toe boven de effen vorm.
+    // Voeg een transparante rechthoekige auto shape toe boven de solide vorm.
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
     $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
 
-    // Sla het PPTX-bestand op op schijf.
+    // Sla het PPTX-bestand op schijf.
     $presentation->save("shape_transparency.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -488,19 +490,19 @@ Het resultaat:
 
 ![The transparent shape](shape-transparency.png)
 
-## **Vormen roteren**
+## **Vormen Roteren**
 
-Aspose.Slides maakt het mogelijk om vormen in PowerPoint‑presentaties te roteren. Dit kan handig zijn bij het positioneren van visuele elementen met specifieke uitlijning‑ of ontwerpeisen.
+Aspose.Slides maakt het mogelijk om vormen in PowerPoint‑presentaties te roteren. Dit is handig bij het positioneren van visuele elementen met specifieke uitlijning‑ of ontwerpvereisten.
 
 Om een vorm op een dia te roteren, volg je deze stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de dia.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse.
+1. Haal een referentie op naar een dia op basis van de index.
+1. Voeg een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) toe aan de dia.
 1. Stel de rotatie‑eigenschap van de vorm in op de gewenste hoek.
 1. Sla de presentatie op.
 
-De volgende PHP‑code laat zien hoe je een vorm 5 graden draait:
+De volgende PHP‑code toont hoe je een vorm 5 graden draait:
 
 ```php
 // Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
@@ -515,7 +517,7 @@ try {
     // Roteer de vorm met 5 graden.
     $shape->setRotation(5);
 
-    // Sla het PPTX-bestand op op schijf.
+    // Sla het PPTX-bestand op schijf.
     $presentation->save("shape_rotation.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -526,19 +528,19 @@ Het resultaat:
 
 ![The shape rotation](shape-rotation.png)
 
-## **3D‑schuineffecten toevoegen**
+## **3D‑Schuine Effecten Toevoegen**
 
-Aspose.Slides stelt je in staat 3D‑schuineffecten toe te passen op vormen door de eigenschappen van hun [ThreeDFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/threedformat/) te configureren.
+Aspose.Slides stelt je in staat om 3D‑schuine (bevel) effecten toe te passen op vormen door hun [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/)‑eigenschappen te configureren.
 
-Om 3D‑schuineffecten aan een vorm toe te voegen, volg je deze stappen:
+Om 3D‑schuine effecten aan een vorm toe te voegen, volg je deze stappen:
 
-1. Instantieer de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de dia.
-1. Configureer de [ThreeDFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/threedformat/) van de vorm om de schuine‑instellingen te definiëren.
+1. Instantieer de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse.
+1. Haal een referentie op naar een dia op basis van de index.
+1. Voeg een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) toe aan de dia.
+1. Configureer de [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) van de vorm om de schuine instellingen te definiëren.
 1. Sla de presentatie op.
 
-De volgende PHP‑code toont hoe je 3D‑schuineffecten op een vorm toepast:
+De volgende PHP‑code laat zien hoe je 3D‑schuine effecten toepast op een vorm:
 
 ```php
 // Maak een instantie van de Presentation-klasse.
@@ -554,7 +556,7 @@ try {
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $shape->getLineFormat()->setWidth(2.0);
 
-    // Stel de ThreeDFormat‑eigenschappen van de vorm in.
+    // Stel de ThreeDFormat-eigenschappen van de vorm in.
     $shape->getThreeDFormat()->setDepth(4);
     $shape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
     $shape->getThreeDFormat()->getBevelTop()->setHeight(6);
@@ -563,7 +565,7 @@ try {
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::ThreePt);
     $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
 
-    // Sla de presentatie op als een PPTX‑bestand.
+    // Sla de presentatie op als een PPTX-bestand.
     $presentation->save("3D_bevel_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -574,19 +576,19 @@ Het resultaat:
 
 ![The 3D bevel effect](3D-bevel-effect.png)
 
-## **3D‑rotatie‑effecten toevoegen**
+## **3D‑Rotatie‑Effecten Toevoegen**
 
-Aspose.Slides maakt het mogelijk 3D‑rotatie‑effecten toe te passen op vormen door hun [ThreeDFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/threedformat/) eigenschappen te configureren.
+Aspose.Slides maakt het mogelijk om 3D‑rotatie‑effecten toe te passen op vormen door hun [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/)‑eigenschappen te configureren.
 
 Om 3D‑rotatie op een vorm toe te passen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/) toe aan de dia.
-1. Gebruik [setCameraType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/camera/#setCameraType) en [setLightType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/lightrig/#setLightType) om de 3D‑rotatie te definiëren.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse.
+1. Haal een referentie op naar een dia op basis van de index.
+1. Voeg een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) toe aan de dia.
+1. Gebruik [setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) en [setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType) om de 3D‑rotatie te definiëren.
 1. Sla de presentatie op.
 
-De volgende PHP‑code laat zien hoe je 3D‑rotatie‑effecten op een vorm toepast:
+De volgende PHP‑code toont hoe je 3D‑rotatie‑effecten toepast op een vorm:
 
 ```php
 // Maak een instantie van de Presentation-klasse.
@@ -602,7 +604,7 @@ try {
     $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::IsometricLeftUp);
     $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
 
-    // Sla de presentatie op als een PPTX‑bestand.
+    // Sla de presentatie op als een PPTX-bestand.
     $presentation->save("3D_rotation_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -613,13 +615,13 @@ Het resultaat:
 
 ![The 3D rotation effect](3D-rotation-effect.png)
 
-## **Zwart‑wit weergave voor vormen beheren**
+## **Zwart‑Wit‑Weergave voor Vormen Beheren**
 
-De methode [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#setBlackWhiteMode) geeft aan hoe een individuele vorm wordt gerenderd wanneer een presentatie wordt bekeken of verwerkt in zwart‑wit‑modus. De methode activeert niet zelf een zwart‑wit‑weergave en verandert de vul‑, lijn‑ of andere opmaak niet in de normale kleurenmodus.
+De methode [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) bepaalt hoe een individuele vorm wordt weergegeven wanneer een presentatie wordt bekeken of verwerkt in zwart‑wit‑modus. De methode activeert de zwart‑wit‑weergave niet zelf en wijzigt de vul‑, lijn‑ of andere opmaak van de vorm niet in de normale kleermodus.
 
-Gebruik een waarde uit de klasse [BlackWhiteMode](https://reference.aspose.com/slides/nl/php-java/aspose.slides/blackwhitemode/) om het gewenste gedrag te selecteren. Bijvoorbeeld, `Automatic` laat de render‑applicatie de conversie kiezen, `Gray` en `LightGray` gebruiken grijstinten, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` dwingen één kleur, `Color` behoudt normale kleuring, en `Hidden` laat de vorm weg in zwart‑wit‑modus. `NotDefined` betekent dat er geen vorm‑specifieke modus is toegewezen.
+Gebruik een waarde uit de klasse [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) om het gewenste gedrag te selecteren. Bijvoorbeeld, `Automatic` laat de render‑applicatie de conversie kiezen, `Gray` en `LightGray` gebruiken grijstinten, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` dwingen één enkele kleur, `Color` behoudt de normale kleuring, en `Hidden` laat de vorm weg in zwart‑wit‑modus. `NotDefined` betekent dat er geen modus op vorm‑niveau is toegewezen.
 
-De volgende PHP‑code maakt een gekleurde vorm en zorgt ervoor dat deze grijs wordt weergegeven in de zwart‑wit‑weergavemodus:
+De volgende PHP‑code maakt een gekleurde vorm aan en laat deze grijs verschijnen in de zwart‑wit‑weergavemode:
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -637,7 +639,7 @@ try {
     $orange = new Java("java.awt.Color", 255, 165, 0);
     $shape->getFillFormat()->getSolidFillColor()->setColor($orange);
 
-    // Behoud de oranje vulling in kleurmodus, maar geef de vorm weer met een grijze kleur in zwart-wit-modus.
+    // Behoud de oranje vulling in kleermodus, maar geef de vorm een grijze kleur in zwart-wit-modus.
     $shape->setBlackWhiteMode(BlackWhiteMode::Gray);
 
     $presentation->save("shape_black_white_mode.pptx", SaveFormat::Pptx);
@@ -646,18 +648,18 @@ try {
 }
 ```
 
-In de normale kleurenmodus behoudt de rechthoek zijn oranje vulkleur. In een zwart‑wit‑workflow gebruikt hij grijze kleuring omdat de modus is ingesteld op `Gray`. Hierdoor kun je een volledige‑kleur dia behouden terwijl je een aparte weergave definieert voor afdrukken, preview of andere workflows die de zwart‑wit‑instellingen van de presentatie respecteren.
+In de normale kleermodus behoudt de rechthoek zijn oranje vulling. In een zwart‑wit‑workflow wordt hij grijs weergegeven omdat de modus is ingesteld op `Gray`. Zo kun je een volledige‑kleur slide behouden terwijl je een aparte weergave definieert voor afdrukken, preview‑scenario’s of andere workflows die rekening houden met de zwart‑wit‑instellingen van de presentatie.
 
-## **Opmaak resetten**
+## **Opmaak Resetten**
 
-De volgende Java‑code toont hoe je de opmaak van een dia reset en de positie, grootte en opmaak van alle vormen met place‑holders op de [LayoutSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/) terugzet naar hun standaardinstellingen:
+De volgende Java‑code laat zien hoe je de opmaak van een dia reset en de positie, grootte en opmaak van alle vormen met placeholders op de [LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) terugzet naar de standaardinstellingen:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
     for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
         $slide = $presentation->getSlides()->get_Item($i);
-        // Reset elke vorm op de dia die een placeholder op de lay-out heeft.
+        // Reset elke vorm op de dia die een placeholder in de lay-out heeft.
         $slide->reset();
     }
     $presentation->save("reset_formatting.pptx", SaveFormat::Pptx);
@@ -668,14 +670,14 @@ try {
 
 ## **FAQ**
 
-**Heeft het opmaken van vormen invloed op de uiteindelijke bestandsgrootte van de presentatie?**
+**Heeft de opmaak van vormen invloed op de uiteindelijke bestandsgrootte van de presentatie?**
 
-Alleen minimaal. Ingesloten afbeeldingen en media nemen het grootste deel van de bestandsruimte in beslag, terwijl vormparameters zoals kleuren, effecten en gradaties als metadata worden opgeslagen en praktisch geen extra grootte toevoegen.
+Alleen minimaal. Ingevoegde afbeeldingen en media nemen het grootste deel van de opslagruimte in beslag, terwijl vormparameters zoals kleuren, effecten en verlopen als metadata worden opgeslagen en vrijwel geen extra grootte toevoegen.
 
-**Hoe kan ik vormen op een dia detecteren die identieke opmaak delen zodat ik ze kan groeperen?**
+**Hoe kan ik vormen op een dia detecteren die identieke opmaak hebben zodat ik ze kan groeperen?**
 
-Vergelijk de belangrijkste opmaak‑eigenschappen van elke vorm—vullings‑, lijn‑ en effectinstellingen. Als alle overeenkomstige waarden kloppen, beschouw je de stijlen als identiek en groepeer je die vormen logisch, wat later het beheer van stijlen vereenvoudigt.
+Vergelijk de sleutel‑opmaak‑eigenschappen van elke vorm—vulling, lijn en effectinstellingen. Als alle overeenkomstige waarden gelijk zijn, beschouw je hun stijlen als identiek en groepeer je die vormen logisch, wat later beheer van stijlen vereenvoudigt.
 
 **Kan ik een set aangepaste vormstijlen opslaan in een apart bestand voor hergebruik in andere presentaties?**
 
-Ja. Sla voorbeeldvormen met de gewenste stijlen op in een template‑dia of een .POTX‑templatebestand. Wanneer je een nieuwe presentatie maakt, open je de template, kloon je de gestylede vormen die je nodig hebt, en pas je hun opmaak opnieuw toe waar nodig.
+Ja. Bewaar voorbeeldvormen met de gewenste stijlen in een template‑presentatie of een .POTX‑templatebestand. Wanneer je een nieuwe presentatie maakt, open je de template, kloont u de gestileerde vormen die je nodig hebt, en pas je hun opmaak toe waar nodig.

@@ -1,6 +1,6 @@
 ---
 title: تبدیل اسلایدهای PowerPoint به PNG در Python
-linktitle: اسلاید به PNG
+linktitle: PowerPoint به PNG
 type: docs
 weight: 30
 url: /fa/python-net/convert-powerpoint-to-png/
@@ -19,26 +19,19 @@ keywords:
 - ODP به PNG
 - Python
 - Aspose.Slides
-description: "تبدیل ارائه‌های PowerPoint و OpenDocument به تصاویر PNG با کیفیت بالا به‌سرعت با Aspose.Slides for Python via .NET، تضمین نتایج دقیق و خودکار."
+description: "ارائه‌های PowerPoint و OpenDocument را به سرعت به تصاویر PNG با کیفیت بالا تبدیل کنید با Aspose.Slides برای Python از طریق .NET، به‌طوری که نتایج دقیق و خودکار به‌دست آید."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-Aspose.Slides for Python via .NET تبدیل ارائه‌های PowerPoint به PNG را به سادگی انجام می‌دهد. شما یک ارائه را بارگذاری می‌کنید، از اسلایدهای آن عبور می‌کنید، هر اسلاید را به تصویر راستری رندر می‌کنید و نتیجه را به‌صورت فایل‌های PNG ذخیره می‌کنید. این برای ایجاد پیش‌نمایش اسلایدها، قرار دادن اسلایدها در صفحات وب، یا تولید دارایی‌های ثابت برای پردازش‌های بعدی ایده‌آل است.
+این مقاله توضیح می‌دهد که چگونه اسلایدهای ارائه را به تصاویر PNG تبدیل کنید با استفاده از Aspose.Slides برای Python از طریق .NET. می‌توانید ارائه‌ها را در قالب‌هایی مانند PPT، PPTX و ODP بارگذاری کنید، هر اسلاید را رندر کنید و به عنوان تصویر PNG جداگانه ذخیره کنید.
 
-## **تبدیل اسلایدها به PNG**
+مثال‌های زیر نمایش می‌دهند که چگونه رندر کردن با مقیاس پیش‌فرض، افزایش مقیاس، تعیین ابعاد خروجی به پیکسل و انتخاب سبک رندر گرادیان.
 
-این بخش ساده‌ترین مثال ممکن برای تبدیل یک ارائه PowerPoint به تصاویر PNG با استفاده از Aspose.Slides for Python via .NET را نشان می‌دهد.
+## **تبدیل PowerPoint به PNG**
 
-مراحل زیر را دنبال کنید:
+یک ارائه را با کلاس [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) بارگذاری کنید و از طریق مجموعه [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) به اسلایدهای آن دسترسی پیدا کنید. مثال هر اسلاید را با استفاده از [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) بدون پارامتر برای ایجاد تصویر بندانگشتی رندر می‌کند. سپس با فراخوانی [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) همراه با [ImageFormat.PNG](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) هر اسلاید رندر شده را به عنوان تصویر PNG ذخیره می‌کند.
 
-1. یک شی از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. `Presentation.slides` را از مجموعه دریافت کنید (کلاس [Slide](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/) را ببینید).
-1. از متد `Slide.get_image` برای ایجاد تصویر بندانگشتی اسلاید استفاده کنید.
-1. از متد `Presentation.save` برای ذخیره تصویر بندانگشتی اسلاید در قالب PNG استفاده کنید.
-
-این کد Python نشان می‌دهد چگونه یک ارائه PowerPoint را به PNG تبدیل کنیم:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -47,16 +40,17 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **تبدیل اسلایدها به PNG با ابعاد سفارشی**
+{{% alert color="info" title="Note" %}}
+بارگذاری بدون پارامتر [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) با مقیاس 0.2 رندر می‌کند. به‌عنوان مثال، اسلایدی با اندازه 720 × 540 نقطه یک تصویر بندانگشتی 144 × 108 پیکسل تولید می‌کند. برای کنترل ابعاد خروجی، از بارگذاری‌های با عوامل مقیاس یا اندازه تصویر صریح که در زیر نشان داده شده استفاده کنید.
+{{% /alert %}}
 
-برای استخراج اسلایدها به PNG با مقیاس سفارشی، `Slide.get_image` را با فاکتورهای مقیاس افقی و عمودی فراخوانی کنید. این ضریبها خروجی را نسبت به ابعاد اصلی اسلاید تغییر اندازه می‌دهند—به‌عنوان مثال، `2.0` عرض و ارتفاع را دو برابر می‌کند. برای حفظ نسبت تصویر از مقادیر برابر برای `scale_x` و `scale_y` استفاده کنید.
+## **تبدیل PowerPoint به PNG با ابعاد سفارشی**
 
-این کد Python عملیات توضیح داده شده را نشان می‌دهد:
-
-```py
+عامل‌های مقیاس افقی و عمودی را به [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) پاس می‌دهید تا ابعاد رندر شده را کنترل کنید. در این مثال، هر دو عامل برابر ۲ هستند، بنابراین اسلایدی با اندازه 720 × 540 نقطه تصویر 1440 × 1080 پیکسل تولید می‌کند. عوامل مقیاس برابر نسبت تصویر اسلاید را حفظ می‌کنند. هر تصویر با استفاده از [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) در قالب PNG ذخیره می‌شود.
+```python
 import aspose.slides as slides
 
-scale_x = 2
+scale_x = 2.0
 scale_y = scale_x
 
 with slides.Presentation("presentation.pptx") as presentation:
@@ -65,33 +59,62 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **تبدیل اسلایدها به PNG با اندازه سفارشی**
+## **تبدیل PowerPoint به PNG با اندازه سفارشی**
 
-اگر می‌خواهید فایل‌های PNG را با اندازه مشخصی تولید کنید، مقادیر `width` و `height` دلخواه خود را پاس کنید. کد زیر نشان می‌دهد چگونه یک PowerPoint را به PNG تبدیل کرده و اندازه تصویر را مشخص کنید:
-
-```py
+برای تعیین ابعاد خروجی برحسب پیکسل، به جای عوامل مقیاس یک اندازه را به [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) پاس می‌دهید. این مثال هر اسلاید را در 960 × 720 پیکسل رندر می‌کند و نتیجه را با [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) ذخیره می‌نماید. ابعادی را انتخاب کنید که نسبت تصویر اسلاید را حفظ کنند تا از کشیده شدن تصویر جلوگیری شود.
+```python
 import aspose.slides as slides
-import aspose.pydrawing as drawing
 
-size = drawing.Size(960, 720)
+image_size = slides.Size(960, 720)
 
 with slides.Presentation("presentation.pptx") as presentation:
     for index, slide in enumerate(presentation.slides):
-        with slide.get_image(size) as image:
+        with slide.get_image(image_size) as image:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-ممکن است بخواهید مبدل‌های رایگان **PowerPoint-to-PNG** Aspose را امتحان کنید—[PPTX to PNG](https://products.aspose.app/slides/fa/conversion/pptx-to-png) و [PPT to PNG](https://products.aspose.app/slides/fa/conversion/ppt-to-png). این ابزارها پیاده‌سازی زنده‌ای از فرایند شرح داده شده در این صفحه را ارائه می‌دهند.
-{{% /alert %}}
+## **انتخاب سبک رندر گرادیان**
 
-## **سوالات متداول**
+فرض کنید اسلایدی دارای پرکن‌های گرادیان باشد، اما انتقال‌ها در PNG استخراج شده روشن‌تر یا متفاوت از آنچه در PowerPoint می‌بینید است. می‌توانید از ویژگی [gradient_style](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveoptions/gradient_style/) کلاس [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/) برای انتخاب نحوه رندر کردن گرادیان‌ها استفاده کنید.
 
-**چگونه می‌توانم فقط یک شکل خاص (مانند نمودار یا تصویر) را به‌جای کل اسلاید صادر کنم؟**  
-Aspose.Slides از [تولید تصویر بندانگشتی برای اشکال جداگانه](/slides/fa/python-net/create-shape-thumbnails/) پشتیبانی می‌کند؛ می‌توانید یک شکل را به تصویر PNG رندر کنید.
+فایل [gradient-styles.pptx](gradient-styles.pptx) را دانلود کنید و در پوشه کاری برنامه قرار دهید. اولین اسلاید آن شامل دو گرادیان خطی است: از فیروزه‌ای به نارنجی در بالا و از آبی به زرد در پایین. هر گرادیان دو توقف دارد، در 0٪ و 100٪.
 
-**آیا تبدیل موازی بر روی سرور پشتیبانی می‌شود؟**  
-بله، اما [نهاده اشتراک‌گذاری](/slides/fa/python-net/multithreading/) یک نمونه ارائه در بین چند رشته توصیه نمی‌شود. برای هر رشته یا پردازش یک نمونه جداگانه استفاده کنید.
+مثال زیر این ارائه را بارگذاری می‌کند و همان اسلاید اول را در هر دو حالت با استفاده از [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) رندر می‌نماید.
+```python
+import aspose.slides as slides
 
-**محدودیت‌های نسخه آزمایشی هنگام صادرات به PNG چیست؟**  
-حالت ارزیابی یک واترمارک به تصاویر خروجی اضافه می‌کند و تا اعمال یک لایسنس، [محدودیت‌های دیگر](/slides/fa/python-net/licensing/) را اعمال می‌نماید.
+with slides.Presentation("gradient-styles.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    gradient_styles = [slides.GradientStyle.DEFAULT, slides.GradientStyle.POWER_POINT_UI]
+    for style in gradient_styles:
+        options = slides.export.RenderingOptions()
+        options.gradient_style = style
+
+        with slide.get_image(options, 1.0, 1.0) as image:
+            image.save(f"gradient-{style.name}.png", slides.ImageFormat.PNG)
+```
+
+تصاویر زیر خروجی اسلاید یکسان را نشان می‌دهند، با هر دو گرادیان در هر تصویر:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![گرادیان‌های فیروزه‌ای به نارنجی و آبی به زرد رندر شده با Default](gradient-Default.png) | ![همان گرادیان‌ها رندر شده با PowerPointUI](gradient-PowerPointUI.png) |
+
+در این مثال، `DEFAULT` رنگ‌های میانی روشن‌تری تولید می‌کند، در حالی که `POWER_POINT_UI` رنگ‌های میانی تیره‌تری تولید می‌کند. تفاوت بستگی به رنگ‌ها و توقف‌ها در گرادیان دارد.
+
+زمانی که خروجی استاندارد Aspose.Slides نیازهای شما را برآورده می‌کند، `DEFAULT` را انتخاب کنید. وقتی اولویت شما تطابق ظاهر در PowerPoint است، `POWER_POINT_UI` را امتحان کنید. هر دو خروجی را با نتیجه مورد نظر مقایسه کنید؛ هیچ‌یک از حالت‌ها به‌صورت کلی برتر نیستند.
+
+## **پرسش‌های متداول**
+
+**چگونه می‌توانم یک شکل خاص، مانند یک نمودار یا تصویر، به‌جای کل اسلاید صادر کنم؟**
+
+Aspose.Slides از [تولید تصویر بندانگشتی برای اشکال فردی](/slides/fa/python-net/create-shape-thumbnails/) پشتیبانی می‌کند و به شما اجازه می‌دهد یک شکل را به‌عنوان تصویر PNG رندر کنید.
+
+**آیا تبدیل موازی در سرور پشتیبانی می‌شود؟**
+
+بله. برای هر رشته یا پردازش یک نمونه ارائه جداگانه استفاده کنید؛ [از به‌اشتراک‌گذاری یک نمونه بین رشته‌ها خودداری کنید](/slides/fa/python-net/multithreading/).
+
+**محدودیت‌های حالت ارزیابی هنگام خروجی به PNG چیست؟**
+
+حالت ارزیابی یک واترمارک به تصاویر خروجی اضافه می‌کند و تا اعمال یک لایسنس [محدودیت‌های دیگر](/slides/fa/python-net/licensing/) را اعمال می‌نماید.

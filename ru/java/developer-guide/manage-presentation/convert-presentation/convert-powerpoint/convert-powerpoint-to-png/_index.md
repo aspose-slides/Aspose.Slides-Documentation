@@ -1,5 +1,5 @@
 ---
-title: Конвертировать слайды PowerPoint в PNG на Java
+title: Преобразовать слайды PowerPoint в PNG на Java
 linktitle: PowerPoint в PNG
 type: docs
 weight: 30
@@ -21,107 +21,146 @@ keywords:
 - экспортировать PPTX в PNG
 - Java
 - Aspose.Slides
-description: "Конвертировать презентации PowerPoint в высококачественные PNG‑изображения быстро с помощью Aspose.Slides для Java, обеспечивая точные, автоматизированные результаты."
+description: "Конвертировать презентации PowerPoint в высококачественные PNG‑изображения быстро с помощью Aspose.Slides for Java, обеспечивая точные, автоматические результаты."
 ---
+## **Обзор**
 
-## **О преобразовании PowerPoint в PNG**
+В этой статье объясняется, как преобразовать слайды презентаций в PNG‑изображения с помощью Aspose.Slides for Java. Вы можете загружать презентации в форматах PPT, PPTX и ODP, рендерить каждый слайд и сохранять его как отдельное PNG‑изображение.
 
-Формат PNG (Portable Network Graphics) не так популярен, как JPEG (Joint Photographic Experts Group), но всё равно очень популярен. 
+Приведённые ниже примеры демонстрируют рендеринг с масштабом по умолчанию, увеличение масштаба, указание выходных размеров в пикселях и выбор стиля рендеринга градиента.
 
-**Случай использования:** Когда у вас сложное изображение и размер не важен, PNG является лучшим форматом изображений, чем JPEG. 
+## **Преобразовать PowerPoint в PNG**
 
-{{% alert title="Tip" color="primary" %}} Возможно, вам стоит посмотреть бесплатные конвертеры Aspose **PowerPoint в PNG**: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Они являются живой реализацией процесса, описанного на этой странице. {{% /alert %}}
+Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и получите доступ к её слайдам через коллекцию [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) . Пример рендерит каждый слайд с помощью [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) без параметров, создавая миниатюру. Затем вызывается [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) с [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/#Png) для сохранения каждого отрисованного слайда в виде PNG‑изображения.
 
-## **Преобразование PowerPoint в PNG**
-
-Выполните следующие шаги:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Получите объект слайда из коллекции [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) под интерфейсом [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide).
-3. Вызовите метод [ISlide.getImage()](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) чтобы получить миниатюру для каждого слайда.
-4. Воспользуйтесь методом [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) чтобы сохранить миниатюру слайда в формате PNG.
-
-Этот Java‑код показывает, как преобразовать презентацию PowerPoint в PNG:
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+Перегрузка [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) без параметров рендерит с масштабом 0.2. Например, слайд размером 720 × 540 пунктов создаёт миниатюру 144 × 108 пикселей. Чтобы управлять выходными размерами, используйте перегрузки с коэффициентами масштабирования или явным размером изображения, показанным ниже.
+{{% /alert %}}
 
-## **Преобразование PowerPoint в PNG с пользовательскими размерами**
+## **Преобразовать PowerPoint в PNG с пользовательскими размерами**
 
-Если вы хотите получить PNG‑файлы определённого масштаба, вы можете установить значения `desiredX` и `desiredY`, которые определяют размеры результирующей миниатюры. 
+Передайте горизонтальные и вертикальные коэффициенты масштабирования в [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-float-float-), чтобы управлять размерами отрисовки. В этом примере оба коэффициента равны 2, поэтому слайд размером 720 × 540 пунктов создаёт изображение 1440 × 1080 пикселей. Равные коэффициенты сохраняют пропорции слайда. Каждое изображение сохраняется в формате PNG с помощью [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-).
 
-Этот код на Java демонстрирует описанную операцию:
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Преобразовать PowerPoint в PNG с пользовательским размером**
 
-## **Преобразование PowerPoint в PNG с пользовательским размером**
+Чтобы указать выходные размеры в пикселях, передайте объект размера в [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) вместо коэффициентов масштабирования. Этот пример отрисовывает каждый слайд в размере 960 × 720 пикселей и сохраняет результат с помощью [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Выбирайте размеры, соответствующие пропорциям слайда, чтобы избежать растягивания изображения.
 
-Если вы хотите получить PNG‑файлы определённого размера, вы можете передать желаемые аргументы `width` и `height` для `ImageSize`. 
-
-Этот код показывает, как преобразовать PowerPoint в PNG, задавая размер изображений: 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Dimension imageSize = new Dimension(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Выбрать стиль рендеринга градиента**
+
+Предположим, что слайд содержит градиентные заливки, но переходы в экспортированном PNG выглядят светлее или иначе, чем в PowerPoint. Вы можете использовать метод [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setGradientStyle-int-), унаследованный от [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/), чтобы выбрать способ рендеринга градиентов.
+
+Скачайте [gradient-styles.pptx](gradient-styles.pptx) и поместите его в рабочий каталог приложения. Первый слайд содержит два линейных градиента: от цианового к оранжевому вверху и от синего к жёлтому внизу. Каждый градиент имеет две стоп‑точки: 0 % и 100 %.
+
+Следующий пример загружает эту презентацию и рендерит первый слайд в обоих режимах с помощью [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Ниже изображения показывают вывод одного и того же слайда, с обоими градиентами на каждом изображении:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Градиенты от цианового к оранжевому и от синего к жёлтому, отрендеренные с Default](gradient-Default.png) | ![Те же градиенты, отрендеренные с PowerPointUI](gradient-PowerPointUI.png) |
+
+В этом примере `Default` создаёт более светлые промежуточные цвета, тогда как `PowerPointUI` — более тёмные. Разница зависит от цветов и точек остановки в градиенте.
+
+Выберите `Default`, если стандартный вывод Aspose.Slides подходит вам. Попробуйте `PowerPointUI`, если ваша цель — соответствие внешнему виду в PowerPoint. Сравните оба вывода с ожидаемым результатом; ни один режим не является универсально лучшим.
 
 ## **FAQ**
 
-**Как экспортировать только определённую форму (например, диаграмму или изображение), а не весь слайд?**
+**Как экспортировать конкретную форму, например диаграмму или изображение, вместо всего слайда?**  
+Aspose.Slides поддерживает [создание миниатюр для отдельных фигур](/slides/ru/java/create-shape-thumbnails/), позволяя отрисовать форму как PNG‑изображение.
 
-Aspose.Slides поддерживает [создание миниатюр для отдельных фигур](/slides/ru/java/create-shape-thumbnails/); вы можете отрисовать форму в PNG‑изображение.
+**Поддерживается ли параллельное преобразование на сервере?**  
+Да. Используйте отдельный экземпляр презентации для каждого потока или процесса; [не делите один экземпляр между потоками](/slides/ru/java/multithreading/).
 
-**Поддерживается ли параллельное преобразование на сервере?**
-
-Да, но [не делитесь](/slides/ru/java/multithreading/) одной экземпляром презентации между потоками. Используйте отдельный экземпляр для каждого потока или процесса.
-
-**Какие ограничения версии trial при экспорте в PNG?**
-
-Режим оценки добавляет водяной знак к выводимым изображениям и вводит [другие ограничения](/slides/ru/java/licensing/) до применения лицензии.
+**Каковы ограничения оценочной версии при экспорте в PNG?**  
+Режим оценки добавляет водяной знак к экспортируемым изображениям и применяет [другие ограничения](/slides/ru/java/licensing/), пока лицензия не будет применена.

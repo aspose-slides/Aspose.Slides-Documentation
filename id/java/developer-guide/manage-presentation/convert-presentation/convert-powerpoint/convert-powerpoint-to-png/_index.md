@@ -1,5 +1,5 @@
 ---
-title: Konversi Slide PowerPoint ke PNG dengan Java
+title: Mengonversi Slide PowerPoint ke PNG dalam Java
 linktitle: PowerPoint ke PNG
 type: docs
 weight: 30
@@ -21,104 +21,149 @@ keywords:
 - ekspor PPTX ke PNG
 - Java
 - Aspose.Slides
-description: "Konversi presentasi PowerPoint ke gambar PNG berkualitas tinggi dengan cepat menggunakan Aspose.Slides untuk Java, memastikan hasil yang tepat dan otomatis."
+description: "Mengonversi presentasi PowerPoint menjadi gambar PNG berkualitas tinggi dengan cepat menggunakan Aspose.Slides untuk Java, memastikan hasil yang tepat dan otomatis."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Artikel ini menjelaskan cara mengonversi presentasi PowerPoint menjadi gambar PNG menggunakan Aspose.Slides. Artikel ini menunjukkan cara memuat file presentasi dalam format seperti PPT, PPTX, dan ODP, merender slide sebagai gambar, dan menyimpan hasilnya dalam format PNG.
+Artikel ini menjelaskan cara mengonversi slide presentasi menjadi gambar PNG menggunakan Aspose.Slides untuk Java. Anda dapat memuat presentasi dalam format seperti PPT, PPTX, dan ODP, merender setiap slide, dan menyimpannya sebagai gambar PNG terpisah.
 
-Artikel ini juga menunjukkan cara menyesuaikan gambar PNG yang dihasilkan dengan mengatur nilai skala atau menentukan lebar dan tinggi yang diinginkan.
+Contoh di bawah ini menunjukkan cara merender dengan skala default, meningkatkan skala, menentukan dimensi output dalam piksel, dan memilih gaya rendering gradien.
 
-## **Ubah PowerPoint ke PNG**
+## **Konversi PowerPoint ke PNG**
 
-Ikuti langkah‑langkah berikut:
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
-2. Dapatkan objek slide dari koleksi [Presentation.getSlides()](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation#getSlides--) di bawah antarmuka [ISlide](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISlide).
-3. Gunakan metode [ISlide.getImage()](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISlide) untuk mendapatkan thumbnail setiap slide.
-4. Gunakan metode [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) untuk menyimpan thumbnail slide ke format PNG.
-
-Kode Java berikut menunjukkan cara mengonversi presentasi PowerPoint ke PNG:
+Muat sebuah presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) dan akses slidennya melalui koleksi [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) . Contoh ini merender setiap slide dengan [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) tanpa parameter untuk membuat thumbnail. Kemudian memanggil [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) dengan [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/#Png) untuk menyimpan setiap slide yang dirender sebagai gambar PNG.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ubah PowerPoint ke PNG dengan Dimensi Kustom**
+{{% alert color="info" title="Note" %}}
+Overload [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) tanpa parameter merender pada skala 0,2. Misalnya, slide berukuran 720 × 540 poin menghasilkan thumbnail 144 × 108 piksel. Untuk mengontrol dimensi output, gunakan overload dengan faktor skala atau ukuran gambar eksplisit yang ditampilkan di bawah.
+{{% /alert %}}
 
-Jika Anda ingin memperoleh file PNG dengan skala tertentu, Anda dapat mengatur nilai `desiredX` dan `desiredY`, yang menentukan dimensi thumbnail yang dihasilkan.
+## **Konversi PowerPoint ke PNG dengan Dimensi Kustom**
 
-Kode berikut dalam Java mendemonstrasikan operasi yang dijelaskan:
+Berikan faktor skala horizontal dan vertikal ke [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-float-float-) untuk mengontrol dimensi yang dirender. Pada contoh ini, kedua faktor adalah 2, sehingga slide berukuran 720 × 540 poin menghasilkan gambar 1440 × 1080 piksel. Faktor skala yang sama mempertahankan rasio aspek slide. Setiap gambar disimpan dalam format PNG dengan [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-).
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ubah PowerPoint ke PNG dengan Ukuran Kustom**
+## **Konversi PowerPoint ke PNG dengan Ukuran Kustom**
 
-Jika Anda ingin memperoleh file PNG dengan ukuran tertentu, Anda dapat memberikan argumen `width` dan `height` yang diinginkan untuk `ImageSize`.
-
-Kode ini menunjukkan cara mengonversi PowerPoint ke PNG sambil menentukan ukuran gambar:
+Untuk menentukan dimensi output dalam piksel, berikan ukuran ke [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) alih-alih faktor skala. Contoh ini merender setiap slide pada 960 × 720 piksel dan menyimpan hasilnya dengan [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Pilih dimensi yang sesuai dengan rasio aspek slide untuk menghindari perenggangan gambar.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Dimension imageSize = new Dimension(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Pilih Gaya Rendering Gradien**
 
-**Bagaimana saya dapat mengekspor hanya bentuk tertentu (misalnya diagram atau gambar) bukan seluruh slide?**
+Misalkan sebuah slide berisi isi gradien, tetapi transisi pada PNG yang diekspor tampak lebih terang atau berbeda dari yang Anda lihat di PowerPoint. Anda dapat menggunakan metode [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setGradientStyle-int-) yang diwarisi oleh [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) untuk memilih cara gradien dirender.
 
-Aspose.Slides mendukung [pembuatan thumbnail untuk bentuk individu](/slides/id/java/create-shape-thumbnails/); Anda dapat merender bentuk ke gambar PNG.
+Unduh [gradient-styles.pptx](gradient-styles.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi dua gradien linier: cyan ke oranye di bagian atas dan biru ke kuning di bagian bawah. Setiap gradien memiliki dua titik henti, pada 0% dan 100%.
 
-**Apakah konversi paralel didukung di server?**
+Contoh berikut memuat presentasi ini dan merender slide pertama yang sama dalam kedua mode dengan [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-).
 
-Ya, tetapi [jangan berbagi](/slides/id/java/multithreading/) satu instance presentasi di antara thread. Gunakan instance terpisah per thread atau proses.
+```java
+import com.aspose.slides.*;
 
-**Apa saja keterbatasan versi percobaan saat mengekspor ke PNG?**
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-Mode evaluasi menambahkan watermark pada gambar keluaran dan memberlakukan [pembatasan lain](/slides/id/java/licensing/) hingga lisensi diterapkan.
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Gambar di bawah menunjukkan output dari slide yang sama, dengan kedua gradien di setiap gambar:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Gradien cyan-ke-oranye dan biru-ke-kuning yang dirender dengan Default](gradient-Default.png) | ![Gradien yang sama dirender dengan PowerPointUI](gradient-PowerPointUI.png) |
+
+Pada contoh ini, `Default` menghasilkan warna antara yang lebih terang, sedangkan `PowerPointUI` menghasilkan warna antara yang lebih gelap. Perbedaannya bergantung pada warna dan titik henti dalam gradien.
+
+Pilih `Default` ketika output standar Aspose.Slides sudah memenuhi kebutuhan Anda. Coba `PowerPointUI` ketika prioritas Anda adalah mencocokkan tampilan di PowerPoint. Bandingkan kedua output dengan hasil yang Anda inginkan; tidak ada mode yang secara universal lebih baik.
+
+## **Tanya Jawab**
+
+**Bagaimana saya dapat mengekspor bentuk spesifik, seperti bagan atau gambar, alih-alih seluruh slide?**
+
+Aspose.Slides mendukung [pembuatan thumbnail untuk bentuk individual](/slides/id/java/create-shape-thumbnails/), memungkinkan Anda merender sebuah bentuk sebagai gambar PNG.
+
+**Apakah konversi paralel didukung pada server?**
+
+Ya. Gunakan instance presentasi terpisah untuk setiap thread atau proses; [jangan bagikan satu instance di antara thread](/slides/id/java/multithreading/).
+
+**Apa batasan evaluasi saat mengekspor ke PNG?**
+
+Mode evaluasi menambahkan watermark pada gambar output dan menerapkan [pembatasan lain](/slides/id/java/licensing/) sampai lisensi diterapkan.

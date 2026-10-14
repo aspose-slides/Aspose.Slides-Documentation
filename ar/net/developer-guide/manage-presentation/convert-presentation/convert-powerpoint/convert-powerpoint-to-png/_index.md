@@ -15,121 +15,129 @@ keywords:
 - الشريحة إلى PNG
 - PPT إلى PNG
 - PPTX إلى PNG
-- حفظ PPT ك PNG
-- حفظ PPTX ك PNG
+- حفظ PPT كـ PNG
+- حفظ PPTX كـ PNG
 - تصدير PPT إلى PNG
 - تصدير PPTX إلى PNG
 - .NET
 - C#
 - Aspose.Slides
-description: "تحويل عروض PowerPoint التقديمية إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides لـ .NET، مما يضمن نتائج دقيقة ومؤتمتة."
+description: "قم بتحويل عروض PowerPoint التقديمية إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides for .NET، مما يضمن نتائج دقيقة ومُؤتمتة."
 ---
-
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تحويل عرض تقديمي PowerPoint إلى صيغة PNG باستخدام C#. تغطي المواضيع التالية.
+تشرح هذه المقالة كيفية تحويل شرائح العروض التقديمية إلى صور PNG باستخدام Aspose.Slides for .NET. يمكنك تحميل العروض بصيغ مثل PPT و PPTX و ODP، تصيير كل شريحة، وحفظها كصورة PNG منفصلة.
 
-- [تحويل PowerPoint إلى PNG في C#](#convert-powerpoint-to-png)
-- [تحويل PPT إلى PNG في C#](#convert-powerpoint-to-png)
-- [تحويل PPTX إلى PNG في C#](#convert-powerpoint-to-png)
-- [تحويل ODP إلى PNG في C#](#convert-powerpoint-to-png)
-- [تحويل شريحة PowerPoint إلى صورة في C#](#convert-powerpoint-to-png)
-
-## **PowerPoint إلى PNG في .NET**
-
-للحصول على عينة كود C# لتحويل PowerPoint إلى PNG، يرجى مراجعة القسم أدناه أي [Convert PowerPoint to PNG](#convert-powerpoint-to-png). يمكن للكود تحميل عدد من الصيغ مثل PPT وPPTX وODP في كائن Presentation ثم حفظ صورة مصغرة للشريحة بصيغة PNG. التحويلات الأخرى من PowerPoint إلى صور مثل JPG وBMP وTIFF وSVG يتم مناقشتها في هذه المقالات.
-
-- [C# PowerPoint إلى JPG](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint إلى BMP](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint إلى TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
-- [C# PowerPoint إلى SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
-
-## **حول تحويل PowerPoint إلى PNG**
-
-صيغة PNG (Portable Network Graphics) ليست شائعة مثل JPEG (Joint Photographic Experts Group)، لكنها لا تزال شائعة جدًا.
-
-**حالة الاستخدام:** عندما يكون لديك صورة معقدة ولا يعتبر الحجم مشكلة، فإن PNG يعتبر تنسيق صورة أفضل من JPEG.
-
-{{% alert title="Tip" color="primary" %}} قد ترغب في إلقاء نظرة على محولات Aspose المجانية **PowerPoint إلى PNG**: [PPTX إلى PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و[PPT إلى PNG](https://products.aspose.app/slides/conversion/ppt-to-png). هذه هي تطبيق مباشر للعملية الموضحة في هذه الصفحة. {{% /alert %}}
+تُظهر الأمثلة أدناه تصيير الصور المصغرة، ضبط عوامل المقياس، تحديد أبعاد الإخراج بالبكسل، واختيار نمط تصيير التدرج.
 
 ## **تحويل PowerPoint إلى PNG**
 
-اتبع الخطوات التالية:
+قم بتحميل عرض تقديمي باستخدام فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) والوصول إلى شرائحه عبر مجموعة [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/). يقوم المثال بتصييـر كل شريحة باستخدام [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) بدون معلمات لإنشاء صورة مصغرة. ثم يستدعي [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) مع [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) لحفظ كل شريحة مصيرة كصورة PNG.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. احصل على كائن الشريحة من مجموعة [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) تحت واجهة [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide).
-3. استخدم طريقة [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) للحصول على الصورة المصغرة لكل شريحة.
-4. استخدم طريقة [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) لحفظ الصورة المصغرة للشريحة بصيغة PNG.
+```cs
+using Aspose.Slides;
 
-يعرض هذا الكود C# كيفية تحويل عرض تقديمي PowerPoint إلى PNG. يمكن لكائن Presentation تحميل PPT وPPTX وODP وغيرها، ثم يتم تحويل كل شريحة في كائن العرض إلى صيغة PNG أو صيغ صور أخرى.
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage())
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage();
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+التحميل بدون معلمات لـ[ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) يصيّر بمقياس 0.2. على سبيل المثال، شريحة قياس 720 × 540 نقطة تنتج صورة مصغرة بحجم 144 × 108 بكسل. للتحكم بأبعاد الإخراج، استخدم التحميلات ذات عوامل المقياس أو حجم الصورة الصريح الموضح أدناه.
+{{% /alert %}}
 
 ## **تحويل PowerPoint إلى PNG بأبعاد مخصصة**
 
-إذا كنت تريد الحصول على ملفات PNG بأبعاد معينة، يمكنك تعيين القيم لـ `desiredX` و `desiredY`، والتي تحدد أبعاد الصورة المصغرة الناتجة.
+مرّر عوامل المقياس الأفقية والعمودية إلى [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) للتحكم بأبعاد التصيير. في هذا المثال، كلا العاملين يساويان 2، لذا شريحة قياس 720 × 540 نقطة تنتج صورة بحجم 1440 × 1080 بكسل. الحفاظ على عوامل مقياس متساوية يحافظ على نسبة أبعاد الشريحة. تُحفظ كل صورة بصيغة PNG باستخدام [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/).
 
-هذا الكود في C# يوضح العملية الموصوفة:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    float scaleX = 2f;
-    float scaleY = 2f;
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(scaleX, scaleY))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
-
 
 ## **تحويل PowerPoint إلى PNG بحجم مخصص**
 
-إذا كنت ترغب في الحصول على ملفات PNG بحجم محدد، يمكنك تمرير قيم `width` و `height` المفضلة لك إلى المتغير `imageSize`.
+لتحديد أبعاد الإخراج بالبكسل، مرّر حجمًا إلى [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) بدلاً من عوامل المقياس. يقوم هذا المثال بتصيير كل شريحة بحجم 960 × 720 بكسل ويحفظ النتيجة باستخدام [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). اختر الأبعاد التي تطابق نسبة أبعاد الشريحة لتجنب تمديد الصورة.
 
-هذا الكود يوضح كيفية تحويل PowerPoint إلى PNG مع تحديد حجم الصور:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var imageSize = new Size(960, 720);
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    Size size = new Size(960, 720);
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(size))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(imageSize);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
+## **اختيار نمط تصيير التدرج**
 
-## **الأسئلة الشائعة**
+افترض أن شريحة تحتوي على تعبئات تدرجية، لكن الانتقالات في PNG المُصدَّر تظهر أخف أو مختلفة عن ما تراه في PowerPoint. يمكنك استعمال خاصية [GradientStyle](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/gradientstyle/) من [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) لاختيار طريقة تصيير التدرجات.
 
-**كيف يمكنني تصدير شكل محدد فقط (مثل مخطط أو صورة) بدلاً من كامل الشريحة؟**  
-يدعم Aspose.Slides [إنشاء صور مصغرة لأشكال منفردة](/slides/ar/net/create-shape-thumbnails/); يمكنك تحويل الشكل إلى صورة PNG.
+قم بتحميل [gradient-styles.pptx](gradient-styles.pptx) وضعه في دليل عمل التطبيق. تحتوي شريحته الأولى على تدرجين خطيين: من السماوي إلى البرتقالي في الأعلى ومن الأزرق إلى الأصفر في الأسفل. لكل تدرج نقطتا توقف عند 0٪ و100٪.
 
-**هل يدعم التحويل المتوازي على الخادم؟**  
-نعم، ولكن لا يجب [مشاركة](/slides/ar/net/multithreading/) كائن Presentation واحد عبر الخيوط. استخدم كائنًا منفصلًا لكل خيط أو عملية.
+المثال التالي يحمل هذا العرض ويصِّر الشريحة الأولى نفسها في الوضعين باستخدام [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/).
 
-**ما هي قيود نسخة التجربة عند التصدير إلى PNG؟**  
-يضيف وضع التقييم علامة مائية إلى الصور الناتجة ويطبق [قيودًا أخرى](/slides/ar/net/licensing/) حتى يتم تطبيق ترخيص.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("gradient-styles.pptx");
+var slide = presentation.Slides[0];
+
+var gradientStyles = new[] { GradientStyle.Default, GradientStyle.PowerPointUI };
+foreach (var style in gradientStyles)
+{
+    var options = new RenderingOptions { GradientStyle = style };
+    using var image = slide.GetImage(options, 1f, 1f);
+    image.Save($"gradient-{style}.png", ImageFormat.Png);
+}
+```
+
+الصور أدناه تُظهر ناتج الشريحة نفسها، مع وجود كلا التدرجين في كل صورة:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![التدرجات من السماوي إلى البرتقالي والأزرق إلى الأصفر تم تصييرها باستخدام Default](gradient-Default.png) | ![نفس التدرجات تم تصييرها باستخدام PowerPointUI](gradient-PowerPointUI.png) |
+
+في هذا المثال، `Default` ينتج ألوانًا وسطية أفتح، بينما `PowerPointUI` ينتج ألوانًا وسطية أغمق. الاختلاف يعتمد على الألوان ونقاط التوقف في التدرج.
+
+اختر `Default` عندما يكون إخراج Aspose.Slides القياسي مناسبًا لاحتياجاتك. جرب `PowerPointUI` عندما يكون أولويتك مطابقة المظهر في PowerPoint. قارن كلا الناتجين مع النتيجة المطلوبة؛ لا يُعتبر أي وضع مفضلًا عالميًا على الآخر.
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني تصدير شكل معين، مثل مخطط أو صورة، بدلاً من كامل الشريحة؟**
+
+يدعم Aspose.Slides [generating thumbnails for individual shapes](/slides/ar/net/create-shape-thumbnails/)، مما يتيح لك تصيير شكل كصورة PNG.
+
+**هل يُدعم التحويل المتوازي على الخادم؟**
+
+نعم. استخدم نسخة عرض تقديمي منفصلة لكل خيط أو عملية؛ [do not share a single instance across threads](/slides/ar/net/multithreading/).
+
+**ما هي قيود التقييم عند التصدير إلى PNG؟**
+
+وضع التقييم يضيف علامة مائية إلى الصور الناتجة ويطبق [other restrictions](/slides/ar/net/licensing/) حتى يتم تطبيق ترخيص.

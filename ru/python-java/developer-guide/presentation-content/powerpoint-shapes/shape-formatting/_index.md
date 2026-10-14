@@ -7,20 +7,20 @@ url: /ru/python-java/shape-formatting/
 keywords:
 - форматирование фигуры
 - форматирование линии
-- эффект скетч
-- скетч линии фигуры
-- форматирование стиля соединения
+- эффект наброска
+- набросок линии фигуры
+- форматировать стиль соединения
 - градиентная заливка
 - заливка узором
 - заливка изображением
 - заливка текстурой
-- сплошная цветная заливка
+- заливка сплошным цветом
 - прозрачность фигуры
-- чёрно‑белое отображение фигуры
+- чёрно‑белая отрисовка фигуры
 - отображение фигуры в градациях серого
-- повернуть фигуру
-- 3D‑фасковый эффект
-- 3D‑эффект вращения
+- поворот фигуры
+- 3D-скошенный эффект
+- 3D-эффект вращения
 - сброс форматирования
 - PowerPoint
 - презентация
@@ -31,26 +31,26 @@ description: "Узнайте, как форматировать фигуры Pow
 ---
 ## **Введение**
 
-В PowerPoint можно добавлять фигуры на слайды. Поскольку фигуры состоят из линий, их можно форматировать, изменяя или применяя эффекты к контуру. Кроме того, можно задавать параметры заливки, определяющие, как будет заполнено внутреннее пространство фигур.
+В PowerPoint вы можете добавлять фигуры на слайды. Поскольку фигуры состоят из линий, их можно форматировать, изменяя или применяя эффекты к контуру. Кроме того, вы можете форматировать фигуры, указывая параметры, которые контролируют заполнение их внутренней части.
 
-![формат-формы-powerpoint](format-shape-powerpoint.png)
+![форматирование-фигур-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Python via Java предоставляет классы и методы, позволяющие форматировать фигуры с использованием тех же параметров, что доступны в PowerPoint.
+Aspose.Slides for Python via Java предоставляет классы и методы, позволяющие форматировать фигуры с теми же параметрами, что доступны в PowerPoint.
 
 ## **Форматирование линий**
 
-С помощью Aspose.Slides можно задать пользовательский стиль линии для фигуры. Ниже перечислены шаги процедуры:
+С помощью Aspose.Slides вы можете указать пользовательский стиль линии для фигуры. Ниже приведена последовательность шагов:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) на слайд.
-1. Установите [line style](https://reference.aspose.com/slides/ru/python-java/aspose.slides/linestyle/) фигуры.
-1. Задайте толщину линии.
-1. Установите [dash style](https://reference.aspose.com/slides/ru/python-java/aspose.slides/linedashstyle/) линии.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) на слайд.
+1. Установите [line style](https://reference.aspose.com/slides/python-java/aspose.slides/linestyle/) фигуры.
+1. Установите ширину линии.
+1. Установите [dash style](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) линии.
 1. Установите цвет линии для фигуры.
-1. Сохраните измененную презентацию в файл PPTX.
+1. Сохраните изменённую презентацию как файл PPTX.
 
-Ниже приведён код, демонстрирующий, как отформатировать прямоугольник [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/):
+Следующий код демонстрирует, как отформатировать прямоугольник [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/):
 
 ```python
 import jpype
@@ -71,7 +71,7 @@ try:
     # Добавить автофигуру типа Rectangle.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75)
 
-    # Установить цвет заливки для прямоугольника.
+    # Установить цвет заливки для прямоугольной фигуры.
     shape.getFillFormat().setFillType(FillType.NoFill)
 
     # Применить форматирование к линиям прямоугольника.
@@ -93,18 +93,18 @@ finally:
 
 ![Отформатированные линии в презентации](formatted-lines.png)
 
-## **Применение эффектов «скетч» к линиям фигур**
+## **Применение эффектов наброска к линиям фигур**
 
-Эффект «скетч» делает линию фигуры выглядящей нарисованной от руки. Используйте [Shape.getLineFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shape/#getLineFormat) для доступа к параметрам линии, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/lineformat/#getSketchFormat) для доступа к настройкам скетча и [SketchFormat.setSketchType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/sketchformat/#setSketchType) для выбора значения из перечисления [LineSketchType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/linesketchtype/).
+Эффект наброска делает линию фигуры выглядящей как нарисованную от руки. Используйте [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) для доступа к настройкам линии, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) для доступа к настройкам наброска и [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) для выбора значения из перечисления [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/).
 
-Ниже показан Python‑код, который применяет эффект [LineSketchType.Curved](https://reference.aspose.com/slides/ru/python-java/aspose.slides/linesketchtype/#Curved), считывает явно заданное значение и удаляет эффект с помощью [LineSketchType.None_](https://reference.aspose.com/slides/ru/python-java/aspose.slides/linesketchtype/#None):
+Следующий Python‑код показывает, как применить эффект [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#Curved), прочитать явно назначенное значение и удалить эффект с помощью [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#None):
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpime.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import LineSketchType, Presentation, ShapeType
 
@@ -113,23 +113,23 @@ try:
     slide = presentation.getSlides().get_Item(0)
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100)
 
-    #     Получить формат линии фигуры и её скетч‑формат.
+    # Получить формат линии фигуры и её формат наброска.
     sketch_format = shape.getLineFormat().getSketchFormat()
 
-    #     Применить эффект скетч.
+    # Применить эффект наброска.
     sketch_format.setSketchType(LineSketchType.Curved)
 
-    #     Прочитать эффект скетч, назначенный непосредственно фигуре.
+    # Прочитать эффект наброска, назначенный напрямую фигуре.
     explicit_sketch_type = sketch_format.getSketchType()
     print(f"Explicit sketch type: {explicit_sketch_type}")
 
-    #     Удалить эффект скетч.
+    # Удалить эффект наброска.
     sketch_format.setSketchType(LineSketchType.None_)
 finally:
     presentation.dispose()
 ```
 
-Значение, возвращаемое [SketchFormat.getSketchType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/sketchformat/#getSketchType), представляет настройку, непосредственно присвоенную фигуре. Если форматирование линии может наследоваться от темы, мастер‑слайда или макета, используйте [LineFormat.getEffective](https://reference.aspose.com/slides/ru/python-java/aspose.slides/lineformat/#getEffective), доступ к `LineFormatEffectiveData.getSketchFormat` и чтение `SketchFormatEffectiveData.getSketchType`. Эффективное значение отражает фактическое форматирование после разрешения наследования:
+Значение, возвращаемое [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType), представляет настройку, присвоенную непосредственно фигуре. Если форматирование линии может быть унаследовано от темы, мастер‑слайда или макета, используйте [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective), обращайтесь к `LineFormatEffectiveData.getSketchFormat` и читайте `SketchFormatEffectiveData.getSketchType`. Эффективное значение отражает фактическое форматирование после разрешения наследования:
 
 ```python
 import jpype
@@ -157,17 +157,17 @@ finally:
 
 ## **Форматирование стилей соединений**
 
-Существует три варианта типа соединения:
+Вот три варианта типа соединения:
 
 * Round
 * Miter
 * Bevel
 
-По умолчанию, когда PowerPoint соединяет две линии под углом (например, в углу фигуры), используется настройка **Round**. Однако при рисовании фигур с острыми углами может быть предпочтительнее вариант **Miter**.
+По умолчанию, когда PowerPoint соединяет две линии под углом (например, в углу фигуры), используется настройка **Round**. Однако если вы рисуете фигуру с острыми углами, вам может подойти вариант **Miter**.
 
 ![Стиль соединения в презентации](join-style-powerpoint.png)
 
-Ниже приведён Python‑код, демонстрирующий, как три прямоугольника (как показано на изображении выше) были созданы с использованием настроек соединений Miter, Bevel и Round:
+Следующий Python‑код демонстрирует, как были созданы три прямоугольника (как показано на изображении выше) с настройками соединения Miter, Bevel и Round:
 
 ```python
 import jpype
@@ -198,7 +198,7 @@ try:
     round_shape.getFillFormat().setFillType(FillType.Solid)
     round_shape.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 
-    # Установить толщину линии.
+    # Установить ширину линии.
     miter_shape.getLineFormat().setWidth(15)
     bevel_shape.getLineFormat().setWidth(15)
     round_shape.getLineFormat().setWidth(15)
@@ -229,18 +229,16 @@ finally:
 
 ## **Градиентная заливка**
 
-В PowerPoint градиентная заливка — это параметр форматирования, позволяющий применить к фигуре плавный переход цветов. Например, можно задать два и более цветов так, чтобы один постепенно переходил в другой.
+В PowerPoint градиентная заливка — это параметр форматирования, позволяющий применить непрерывный переход цветов к фигуре. Например, можно задать два и более цветов так, чтобы один постепенно переходил в другой.
 
-Как применить градиентную заливку к фигуре с помощью Aspose.Slides:
+Вот как применить градиентную заливку к фигуре с помощью Aspose.Slides:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) на слайд.
-1. Установите у фигуры [FillType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/filltype/) в значение `Gradient`.
-1. Добавьте два предпочтительных цвета с определёнными позициями, используя метод [addPresetColor](https://reference.aspose.com/slides/ru/python-java/aspose.slides/gradientstopcollection/#addPresetColor) коллекции градиентных остановок, предоставленной классом [GradientFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/gradientformat/).
-1. Сохраните изменённую презентацию в файл PPTX.
-
-Ниже показан Python‑код, демонстрирующий, как применить градиентную заливку к эллипсу:
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) фигуры в `Gradient`.
+1. Добавьте два предпочтительных цвета с определёнными позициями, используя метод [addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) коллекции градиентных остановок, предоставляемой классом [GradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/).
+1. Сохраните изменённую презентацию как файл PPTX.
 
 ```python
 import jpype
@@ -282,24 +280,24 @@ finally:
 
 ![Эллипс с градиентной заливкой](gradient-fill.png)
 
-## **Заливка узором**
+Если градиент выглядит иначе в экспортированном изображении, чем в PowerPoint, см. [Choose a Gradient Rendering Style](/slides/ru/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Вы можете выбрать стиль рендеринга без изменения градиентной заливки, хранящейся в презентации.
 
-В PowerPoint заливка узором — это параметр форматирования, который позволяет применить к фигуре двухцветный шаблон (точки, полосы, штриховка или шахматный узор). Вы можете задать собственные цвета для переднего и фонового плана узора.
+## **Заполнение узором**
 
-Aspose.Slides предоставляет более 45 предопределённых стилей узоров, которые можно применять к фигурам для улучшения визуального восприятия презентаций. Даже после выбора предопределённого узора можно указать точные цвета, которые он будет использовать.
+В PowerPoint заполнение узором — это параметр форматирования, позволяющий применить двухцветный дизайн — например, точки, полосы, перекрёстные линии или шахматы — к фигуре. Вы можете выбрать пользовательские цвета для переднего и заднего плана узора.
 
-Как применить заливку узором к фигуре с помощью Aspose.Slides:
+Aspose.Slides предоставляет более 45 предопределённых стилей узора, которые можно применять к фигурам для улучшения визуального восприятия презентаций. Даже после выбора предопределённого узора вы можете указать точные цвета, которые он будет использовать.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+Вот как применить заполнение узором к фигуре с помощью Aspose.Slides:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) на слайд.
-1. Установите у фигуры [FillType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/filltype/) в значение `Pattern`.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) фигуры в `Pattern`.
 1. Выберите стиль узора из предопределённых вариантов.
-1. Установите [Background Color](https://reference.aspose.com/slides/ru/python-java/aspose.slides/patternformat/#getBackColor) узора.
-1. Установите [Foreground Color](https://reference.aspose.com/slides/ru/python-java/aspose.slides/patternformat/#getForeColor) узора.
-1. Сохраните изменённую презентацию в файл PPTX.
-
-Ниже показан Python‑код, демонстрирующий, как применить заливку узором к прямоугольнику:
+1. Установите [Background Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) узора.
+1. Установите [Foreground Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) узора.
+1. Сохраните изменённую презентацию как файл PPTX.
 
 ```python
 import jpype
@@ -326,7 +324,7 @@ try:
     # Установить стиль узора.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis)
 
-    # Установить фон и передний цвет узора.
+    # Установить фоновые и передние цвета узора.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY)
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW)
 
@@ -338,28 +336,28 @@ finally:
 
 Результат:
 
-![Прямоугольник с заливкой узором](pattern-fill.png)
+![Прямоугольник с узорчатой заливкой](pattern-fill.png)
 
-## **Заливка изображением**
+## **Заполнение изображением**
 
-В PowerPoint заливка изображением — это параметр форматирования, позволяющий вставить изображение внутри фигуры, фактически используя его как фон фигуры.
+В PowerPoint заполнение изображением — это параметр форматирования, позволяющий вставить изображение внутри фигуры, фактически используя его в качестве фона фигуры.
 
-Как использовать Aspose.Slides для применения заливки изображением к фигуре:
+Вот как с помощью Aspose.Slides применить заполнение изображением к фигуре:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) на слайд.
-1. Установите у фигуры [FillType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/filltype/) в значение `Picture`.
-1. Установите режим заливки изображения в `Tile` (или любой другой предпочтительный режим).
-1. Создайте объект [PPImage](https://reference.aspose.com/slides/ru/python-java/aspose.slides/ppimage/) из изображения, которое хотите использовать.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) фигуры в `Picture`.
+1. Установите режим заполнения изображением в `Tile` (или другой предпочитаемый режим).
+1. Создайте объект [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) из изображения, которое хотите использовать.
 1. Передайте изображение методу `SlidesPicture.setImage`.
-1. Сохраните изменённую презентацию в файл PPTX.
+1. Сохраните изменённую презентацию как файл PPTX.
 
-Предположим, у нас есть файл «lotus.png» со следующим изображением:
+Допустим, у нас есть файл «lotus.png» со следующим изображением:
 
 ![Изображение лотоса](lotus.png)
 
-Ниже показан Python‑код, демонстрирующий, как заполнить фигуру изображением:
+Следующий Python‑код демонстрирует, как заполнить фигуру изображением:
 
 ```python
 import jpype
@@ -401,21 +399,21 @@ finally:
 
 Результат:
 
-![Фигура с заливкой изображением](picture-fill.png)
+![Фигура с заполнением изображением](picture-fill.png)
 
-### **Картинка‑тайл как текстура**
+### **Замостить изображение как текстуру**
 
-Если требуется задать тайловое изображение в качестве текстуры и настроить поведение тайлинга, можно использовать следующие методы класса [PictureFillFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/picturefillformat/):
+Если вы хотите задать замощённое изображение в качестве текстуры и настроить поведение замощения, можете использовать следующие методы класса [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/ru/python-java/aspose.slides/picturefillformat/#setPictureFillMode): задаёт режим заливки изображением — `Tile` или `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/ru/python-java/aspose.slides/picturefillformat/#setTileAlignment): задаёт выравнивание тайлов внутри фигуры.
-- [setTileFlip](https://reference.aspose.com/slides/ru/python-java/aspose.slides/picturefillformat/#setTileFlip): управляет зеркальным отражением тайла по горизонтали, вертикали или обеим осям.
-- [setTileOffsetX](https://reference.aspose.com/slides/ru/python-java/aspose.slides/picturefillformat/#setTileOffsetX): задаёт горизонтальное смещение тайла (в пунктах) от исходной точки фигуры.
-- [setTileOffsetY](https://reference.aspose.com/slides/ru/python-java/aspose.slides/picturefillformat/#setTileOffsetY): задаёт вертикальное смещение тайла (в пунктах) от исходной точки фигуры.
-- [setTileScaleX](https://reference.aspose.com/slides/ru/python-java/aspose.slides/picturefillformat/#setTileScaleX): определяет горизонтальный масштаб тайла в процентах.
-- [setTileScaleY](https://reference.aspose.com/slides/ru/python-java/aspose.slides/picturefillformat/#setTileScaleY): определяет вертикальный масштаб тайла в процентах.
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): задаёт режим заполнения изображением — `Tile` или `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): определяет выравнивание плиток внутри фигуры.
+- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): управляет тем, будет ли плитка отражена по горизонтали, вертикали или обеим осям.
+- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): задаёт горизонтальное смещение плитки (в пунктах) от начала фигуры.
+- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): задаёт вертикальное смещение плитки (в пунктах) от начала фигуры.
+- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): определяет горизонтальный масштаб плитки в процентах.
+- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): определяет вертикальный масштаб плитки в процентах.
 
-Ниже приведён пример кода, показывающий, как добавить прямоугольник с тайловой заливкой изображением и настроить параметры тайлов:
+Следующий пример кода показывает, как добавить прямоугольник с замощённой заливкой изображением и настроить параметры плитки:
 
 ```python
 import jpype
@@ -443,11 +441,11 @@ try:
     presentation_image = presentation.getImages().addImage(source_image)
     source_image.dispose()
 
-    # Присвоить изображение фигуре.
+    # Назначить изображение фигуре.
     picture_fill_format = shape.getFillFormat().getPictureFillFormat()
     picture_fill_format.getPicture().setImage(presentation_image)
 
-    # Настроить режим заливки изображением и свойства тайлинга.
+    # Настроить режим заливки изображением и свойства замощения.
     picture_fill_format.setPictureFillMode(PictureFillMode.Tile)
     picture_fill_format.setTileOffsetX(-32)
     picture_fill_format.setTileOffsetY(-32)
@@ -464,22 +462,20 @@ finally:
 
 Результат:
 
-![Параметры тайлов](tile-options.png)
+![Параметры замощения](tile-options.png)
 
-## **Сплошная цветная заливка**
+## **Заливка сплошным цветом**
 
-В PowerPoint сплошная цветная заливка — это параметр форматирования, заполняющий фигуру одним ровным цветом. Этот простой фон применяется без градиентов, текстур или узоров.
+В PowerPoint сплошная заливка — это параметр форматирования, заполняющий фигуру одним равномерным цветом. Этот простой фон применяется без градиентов, текстур или узоров.
 
-Чтобы применить сплошную цветную заливку к фигуре с помощью Aspose.Slides, выполните следующие шаги:
+Чтобы применить сплошную заливку к фигуре с помощью Aspose.Slides, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) на слайд.
-1. Установите у фигуры [FillType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/filltype/) в значение `Solid`.
-1. Укажите желаемый цвет заливки для фигуры.
-1. Сохраните изменённую презентацию в файл PPTX.
-
-Ниже показан Python‑код, демонстрирующий, как применить сплошную цветную заливку к прямоугольнику в слайде PowerPoint:
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) фигуры в `Solid`.
+1. Назначьте предпочитаемый цвет заливки фигуре.
+1. Сохраните изменённую презентацию как файл PPTX.
 
 ```python
 import jpype
@@ -514,22 +510,20 @@ finally:
 
 Результат:
 
-![Фигура со сплошной цветной заливкой](solid-color-fill.png)
+![Фигура со сплошной заливкой](solid-color-fill.png)
 
 ## **Установка прозрачности**
 
-В PowerPoint, применяя сплошную, градиентную, картинную или текстурную заливку к фигурам, можно также задать уровень прозрачности, контролирующий непрозрачность заливки. Большое значение прозрачности делает фигуру более просвечивающей, позволяя видеть фон или объекты под ней.
+В PowerPoint, когда вы применяете сплошной цвет, градиент, изображение или текстуру к фигурам, можно также задать уровень прозрачности, контролирующий непрозрачность заливки. Чем выше значение прозрачности, тем более «прозрачной» выглядит фигура, позволяя частично видеть фон или находящиеся под ней объекты.
 
-Aspose.Slides позволяет задавать уровень прозрачности, изменяя альфа‑компонент цвета, используемого для заливки. Как это сделать:
+Aspose.Slides позволяет установить уровень прозрачности, изменяя альфа‑компонент в цвете, используемом для заливки. Вот как это сделать:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) на слайд.
-1. Установите [FillType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/filltype/) в значение `Solid`.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) в `Solid`.
 1. Используйте [Color](https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Color.html) для определения цвета с прозрачностью (компонент `alpha` управляет прозрачностью).
 1. Сохраните презентацию.
-
-Ниже показан Python‑код, демонстрирующий, как применить прозрачный цвет заливки к прямоугольнику:
 
 ```python
 import jpype
@@ -568,17 +562,15 @@ finally:
 
 ## **Поворот фигур**
 
-Aspose.Slides позволяет вращать фигуры в презентациях PowerPoint. Это может быть полезно при размещении визуальных элементов с определённым выравниванием или дизайнерскими требованиями.
+Aspose.Slides позволяет поворачивать фигуры в презентациях PowerPoint. Это может быть полезно при размещении визуальных элементов с определённым выравниванием или дизайнерскими требованиями.
 
 Чтобы повернуть фигуру на слайде, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) на слайд.
-1. Установите свойство вращения фигуры в нужный угол.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) на слайд.
+1. Установите свойство вращения фигуры в требуемый угол.
 1. Сохраните презентацию.
-
-Ниже показан Python‑код, демонстрирующий, как повернуть фигуру на 5 градусов:
 
 ```python
 import jpype
@@ -611,19 +603,17 @@ finally:
 
 ![Поворот фигуры](shape-rotation.png)
 
-## **Добавление 3D‑масштабных эффектов**
+## **Добавление 3D-скошенных эффектов**
 
-Aspose.Slides позволяет применять к фигурам 3D‑масштабные эффекты, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/threedformat/).
+Aspose.Slides позволяет применять 3D-скошенные эффекты к фигурам, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/).
 
-Чтобы добавить 3D‑масштабный эффект к фигуре, выполните следующие шаги:
+Чтобы добавить 3D-скошенные эффекты к фигуре, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) на слайд.
-1. Настройте [ThreeDFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/threedformat/) фигуры, указав параметры фаски.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) на слайд.
+1. Настройте свойство [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) фигуры, определив параметры скоса.
 1. Сохраните презентацию.
-
-Ниже показан Python‑код, демонстрирующий, как применить 3D‑масштабный эффект к фигуре:
 
 ```python
 import jpype
@@ -648,7 +638,7 @@ try:
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
     shape.getLineFormat().setWidth(2.0)
 
-    # Установите свойства ThreeDFormat фигуры.
+    # Set the shape's ThreeDFormat properties.
     shape.getThreeDFormat().setDepth(4)
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
     shape.getThreeDFormat().getBevelTop().setHeight(6)
@@ -657,7 +647,7 @@ try:
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt)
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
 
-    # Сохраните презентацию в файл PPTX.
+    # Save the presentation as a PPTX file.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -665,21 +655,19 @@ finally:
 
 Результат:
 
-![Эффект 3D‑масштабирования](3D-bevel-effect.png)
+![Эффект 3D-скошения](3D-bevel-effect.png)
 
-## **Добавление 3D‑вращения**
+## **Добавление 3D-вращения**
 
-Aspose.Slides позволяет применять к фигурам 3D‑вращение, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/threedformat/).
+Aspose.Slides позволяет применять 3D-вращение к фигурам, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/).
 
-Чтобы применить 3D‑вращение к фигуре:
+Чтобы применить 3D-вращение к фигуре:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) на слайд.
-1. Используйте методы [setCameraType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/camera/#setCameraType) и [setLightType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/lightrig/#setLightType) для определения 3D‑вращения.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) на слайд.
+1. Используйте методы [setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) и [setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) для определения 3D‑вращения.
 1. Сохраните презентацию.
-
-Ниже показан Python‑код, демонстрирующий, как применить 3D‑вращение к фигуре:
 
 ```python
 import jpype
@@ -703,7 +691,7 @@ try:
     auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp)
     auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
 
-    # Сохраните презентацию в файл PPTX.
+    # Сохраните презентацию как файл PPTX.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -711,15 +699,13 @@ finally:
 
 Результат:
 
-![Эффект 3D‑вращения](3D-rotation-effect.png)
+![Эффект 3D-вращения](3D-rotation-effect.png)
 
-## **Управление чёрно‑белым отображением фигур**
+## **Управление черно-белой отрисовкой фигур**
 
-Метод [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shape/#setBlackWhiteMode) задаёт, как отдельная фигура будет отрисована при просмотре или обработке презентации в чёрно‑белом режиме. Он не включает чёрно‑белый режим сам по себе и не меняет заливку, линию или другие параметры форматирования в обычном цветном режиме.
+Метод [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) задаёт, как отдельная фигура будет отрисовываться, когда презентация просматривается или обрабатывается в черно‑белом режиме. Этот метод сам по себе не включает черно‑белый режим и не меняет заполнение, линии или другое форматирование фигуры в обычном цветном режиме.
 
-Для выбора желаемого поведения используйте значение из класса [BlackWhiteMode](https://reference.aspose.com/slides/ru/python-java/aspose.slides/blackwhitemode/). Например, `Automatic` позволяет приложению выбора конвертацию, `Gray` и `LightGray` используют серый цвет, `BlackWhite` используют только чёрный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в чёрно‑белом режиме. `NotDefined` означает, что режим для фигуры не задан.
-
-Ниже Python‑код, создающий цветную фигуру и заставляющий её отображаться серой в чёрно‑белом режиме:
+Используйте значение из класса [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) для выбора нужного поведения. Например, `Automatic` позволяет приложению‑отображателю выбрать способ конвертации, `Gray` и `LightGray` используют серую окраску, `BlackWhite` оставляет только черный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в черно‑белом режиме. `NotDefined` означает, что режим для фигуры не задан.
 
 ```python
 import jpype
@@ -739,7 +725,7 @@ try:
     shape.getFillFormat().setFillType(FillType.Solid)
     shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
 
-    # Оставьте оранжевую заливку в цветном режиме, но отобразите фигуру серой окраской в черно-белом режиме.
+    # Сохранить оранжевую заливку в цветном режиме, но отрисовать фигуру серым цветом в черно‑белом режиме.
     shape.setBlackWhiteMode(BlackWhiteMode.Gray)
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx)
@@ -747,11 +733,11 @@ finally:
     presentation.dispose()
 ```
 
-В обычном цветном режиме прямоугольник сохраняет оранжевую заливку. При работе в чёрно‑белом режиме он отображается серым, потому что его режим установлен в `Gray`. Это позволяет сохранять полноцветный слайд, одновременно определяя отдельный вид для печати, предварительного просмотра или иных процессов, учитывающих настройки чёрно‑белого отображения презентации.
+В обычном цветовом режиме прямоугольник сохраняет оранжевую заливку. В рабочем процессе черно‑белого отображения он использует серую окраску, потому что его режим установлен в `Gray`. Это позволяет сохранить слайд с полным спектром цветов, задав отдельный вид для печати, предварительного просмотра или других процессов, учитывающих настройки черно‑белого отображения презентации.
 
 ## **Сброс форматирования**
 
-Ниже Python‑код, показывающий, как сбросить форматирование слайда и вернуть позицию, размер и параметры всех фигур‑заполнителей на [LayoutSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/) к их значениям по умолчанию:
+Следующий Python‑код показывает, как сбросить форматирование слайда и вернуть положение, размер и форматирование всех фигур с заполнителями на [LayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/layoutslide/) к их значениям по умолчанию:
 
 ```python
 import jpype
@@ -765,7 +751,7 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("sample.pptx")
 try:
     for slide in presentation.getSlides():
-        # Сбросить каждую фигуру на слайде, имеющую заполнитель в макете.
+        # Сбросить каждую фигуру на слайде, у которой есть заполнитель в макете.
         slide.reset()
 
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx)
@@ -775,14 +761,14 @@ finally:
 
 ## **FAQ**
 
-**Влияет ли форматирование фигур на итоговый размер файла презентации?**
+**Влияет ли форматирование фигур на конечный размер файла презентации?**
 
-Только незначительно. Встроенные изображения и медиа‑файлы занимают большую часть объёма, тогда как параметры фигур (цвета, эффекты, градиенты) хранятся как метаданные и почти не увеличивают размер файла.
+Только минимально. Встроенные изображения и медиа‑файлы занимают большую часть объёма, тогда как параметры фигур, такие как цвета, эффекты и градиенты, хранятся как метаданные и почти не увеличивают размер файла.
 
-**Как обнаружить на слайде фигуры с идентичным форматированием, чтобы их сгруппировать?**
+**Как определить фигуры на слайде, имеющие одинаковое форматирование, чтобы сгруппировать их?**
 
-Сравните ключевые свойства форматирования каждой фигуры — параметры заливки, линии и эффектов. Если все соответствующие значения совпадают, можно считать их стили одинаковыми и логически сгруппировать такие фигуры, что упростит последующее управление стилями.
+Сравните ключевые свойства форматирования каждой фигуры — заполнение, линии и эффекты. Если все соответствующие значения совпадают, рассматривайте их стили как идентичные и логически группируйте такие фигуры, что упрощает последующее управление стилями.
 
-**Можно ли сохранить набор пользовательских стилей фигур во внешнем файле для повторного использования в других презентациях?**
+**Можно ли сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
 
-Да. Сохраните образцы фигур с нужными стилями в шаблонный набор слайдов или в файл шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте необходимые стилизованные фигуры и повторно примените их форматирование там, где это требуется.
+Да. Сохраните образцы фигур с нужными стилями в шаблонном наборе слайдов или файле шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте необходимые стилизованные фигуры и снова примените их форматирование там, где требуется.

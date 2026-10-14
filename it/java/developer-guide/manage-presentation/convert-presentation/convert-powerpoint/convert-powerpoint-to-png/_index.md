@@ -21,102 +21,149 @@ keywords:
 - esporta PPTX in PNG
 - Java
 - Aspose.Slides
-description: "Converte le presentazioni PowerPoint in immagini PNG di alta qualità rapidamente con Aspose.Slides per Java, garantendo risultati precisi e automatizzati."
+description: "Converti le presentazioni PowerPoint in immagini PNG di alta qualità rapidamente con Aspose.Slides per Java, garantendo risultati precisi e automatizzati."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come convertire le presentazioni PowerPoint in immagini PNG utilizzando Aspose.Slides. Mostra come caricare file di presentazione in formati come PPT, PPTX e ODP, renderizzare le diapositive come immagini e salvare i risultati in formato PNG.
+Questo articolo spiega come convertire le diapositive di presentazione in immagini PNG utilizzando Aspose.Slides per Java. È possibile caricare presentazioni in formati come PPT, PPTX e ODP, renderizzare ogni diapositiva e salvarla come immagine PNG separata.
 
-L'articolo dimostra inoltre come personalizzare le immagini PNG generate impostando i valori di scala o specificando la larghezza e l'altezza desiderate.
+Gli esempi di seguito mostrano il rendering alla scala predefinita, l'aumento della scala, la specifica delle dimensioni di output in pixel e la scelta di uno stile di rendering a gradiente.
 
 ## **Convertire PowerPoint in PNG**
 
-Segui questi passaggi:
-
-1. Istanzia la classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni l'oggetto diapositiva dalla collezione [Presentation.getSlides()](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation#getSlides--) sotto l'interfaccia [ISlide](https://reference.aspose.com/slides/it/java/com.aspose.slides/ISlide).
-3. Usa il metodo [ISlide.getImage()](https://reference.aspose.com/slides/it/java/com.aspose.slides/ISlide) per ottenere la miniatura di ogni diapositiva.
-4. Usa il metodo [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/it/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) per salvare la miniatura della diapositiva in formato PNG.
+Carica una presentazione con la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) e accedi alle sue diapositive tramite la raccolta [Presentation.getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--). L'esempio rende ogni diapositiva con [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) senza parametri per creare una miniatura. Quindi chiama [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) con [ImageFormat.Png](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/#Png) per salvare ogni diapositiva renderizzata come immagine PNG.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage();
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+L'overload di [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage--) senza parametri rende a una scala di 0.2. Per esempio, una diapositiva di 720 × 540 punti produce una miniatura di 144 × 108 pixel. Per controllare le dimensioni di output, usa gli overload con fattori di scala o una dimensione dell'immagine esplicita mostrata di seguito.
+{{% /alert %}}
+
 ## **Convertire PowerPoint in PNG con Dimensioni Personalizzate**
 
-Se desideri ottenere file PNG con una certa scala, puoi impostare i valori per `desiredX` e `desiredY`, che determinano le dimensioni della miniatura risultante.
-
-Questo codice in Java dimostra l'operazione descritta:
+Passa fattori di scala orizzontale e verticale a [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-float-float-) per controllare le dimensioni renderizzate. In questo esempio, entrambi i fattori sono 2, quindi una diapositiva di 720 × 540 punti produce un'immagine di 1440 × 1080 pixel. Fattori di scala uguali preservano il rapporto d'aspetto della diapositiva. Ogni immagine viene salvata in formato PNG con [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-).
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
     float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
+    float scaleY = scaleX;
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Convertire PowerPoint in PNG con Dimensione Personalizzata**
 
-Se desideri ottenere file PNG con una certa dimensione, puoi passare i parametri `width` e `height` desiderati per `ImageSize`.
-
-Questo codice mostra come convertire un PowerPoint in PNG specificando la dimensione delle immagini:
+Per specificare le dimensioni di output in pixel, passa una dimensione a [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) anziché ai fattori di scala. Questo esempio rende ogni diapositiva a 960 × 720 pixel e salva il risultato con [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Scegli dimensioni che corrispondono al rapporto d'aspetto della diapositiva per evitare lo stiramento dell'immagine.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
+    Dimension imageSize = new Dimension(960, 720);
+
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(imageSize);
         try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
+            image.save("slide_" + index + ".png", ImageFormat.Png);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Domande frequenti**
+## **Scegliere uno Stile di Rendering a Gradiente**
 
-**Come posso esportare solo una forma specifica (ad esempio, un grafico o un'immagine) anziché l'intera diapositiva?**
+Supponiamo che una diapositiva contenga riempimenti a gradiente, ma le transizioni nel PNG esportato appaiano più chiare o altrimenti diverse da quelle visualizzate in PowerPoint. È possibile utilizzare il metodo [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setGradientStyle-int-) ereditato da [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) per scegliere come vengono renderizzati i gradienti.
 
-Aspose.Slides supporta la [generazione di miniature per forme individuali](/slides/it/java/create-shape-thumbnails/); è possibile renderizzare una forma in un'immagine PNG.
+Scarica [gradient-styles.pptx](gradient-styles.pptx) e posizionalo nella directory di lavoro dell'applicazione. La sua prima diapositiva contiene due gradienti lineari: ciano a arancione in alto e blu a giallo in basso. Ogni gradiente ha due fermate, allo 0% e al 100%.
+
+L'esempio seguente carica questa presentazione e renderizza la stessa prima diapositiva in entrambi i modi con [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-float-float-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("gradient-styles.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int[] gradientStyles = { GradientStyle.Default, GradientStyle.PowerPointUI };
+    for (int style : gradientStyles) {
+        RenderingOptions options = new RenderingOptions();
+        options.setGradientStyle(style);
+
+        String styleName = style == GradientStyle.Default ? "Default" : "PowerPointUI";
+        IImage image = slide.getImage(options, 1f, 1f);
+        try {
+            image.save("gradient-" + styleName + ".png", ImageFormat.Png);
+        } finally {
+            image.dispose();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Le immagini sottostanti mostrano l'output della stessa diapositiva, con entrambi i gradienti in ogni immagine:
+
+| Predefinito | PowerPointUI |
+| --- | --- |
+| ![Gradienti dal ciano all'arancione e dal blu al giallo renderizzati con Predefinito](gradient-Default.png) | ![Gli stessi gradienti renderizzati con PowerPointUI](gradient-PowerPointUI.png) |
+
+In questo esempio, `Predefinito` produce colori intermedi più chiari, mentre `PowerPointUI` produce colori intermedi più scuri. La differenza dipende dai colori e dalle fermate nel gradiente.
+
+Scegli `Predefinito` quando l'output standard di Aspose.Slides soddisfa le tue esigenze. Prova `PowerPointUI` quando la tua priorità è corrispondere all'aspetto in PowerPoint. Confronta entrambi gli output con il risultato desiderato; nessuna modalità è universalmente preferibile.
+
+## **FAQ**
+
+**Come posso esportare una forma specifica, ad esempio un grafico o un'immagine, invece dell'intera diapositiva?**
+
+Aspose.Slides supporta [la generazione di miniature per forme individuali](/slides/it/java/create-shape-thumbnails/), consentendo di renderizzare una forma come immagine PNG.
 
 **La conversione parallela è supportata su un server?**
 
-Sì, ma [non condividere](/slides/it/java/multithreading/) un'unica istanza di presentazione tra thread. Usa un'istanza separata per ogni thread o processo.
+Sì. Utilizza un'istanza di presentazione separata per ogni thread o processo; [non condividere una singola istanza tra thread](/slides/it/java/multithreading/).
 
-**Quali sono le limitazioni della versione di prova quando si esporta in PNG?**
+**Quali sono le limitazioni della valutazione quando si esporta in PNG?**
 
-La modalità di valutazione aggiunge una filigrana alle immagini in output e impone [altre restrizioni](/slides/it/java/licensing/) fino a quando non viene applicata una licenza.
+La modalità di valutazione aggiunge una filigrana alle immagini di output e applica [altre restrizioni](/slides/it/java/licensing/) fino a quando non viene applicata una licenza.

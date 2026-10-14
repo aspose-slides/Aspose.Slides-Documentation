@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-dia's converteren naar PNG in .NET
+title: PowerPoint-dia's naar PNG converteren in .NET
 linktitle: PowerPoint naar PNG
 type: docs
 weight: 30
@@ -22,95 +22,122 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Converteer PowerPoint-presentaties snel naar PNG-afbeeldingen van hoge kwaliteit met Aspose.Slides voor .NET, waardoor nauwkeurige, geautomatiseerde resultaten gegarandeerd zijn."
+description: "PowerPoint-presentaties snel omzetten naar hoogwaardige PNG-afbeeldingen met Aspose.Slides voor .NET, met nauwkeurige, geautomatiseerde resultaten."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je PowerPoint-presentaties naar PNG-afbeeldingen kunt converteren met Aspose.Slides. Het laat zien hoe je presentatiedossiers in formaten zoals PPT, PPTX en ODP kunt laden, dia's kunt renderen als afbeeldingen, en de resultaten kunt opslaan in PNG-formaat.
+Dit artikel legt uit hoe u presentatie‑dia’s kunt omzetten naar PNG‑afbeeldingen met Aspose.Slides voor .NET. U kunt presentaties laden in formaten zoals PPT, PPTX en ODP, elke dia renderen en opslaan als een afzonderlijke PNG‑afbeelding.
 
-Het artikel laat ook zien hoe je de gegenereerde PNG-afbeeldingen kunt aanpassen door schaalwaarden in te stellen of de gewenste breedte en hoogte op te geven.
+De onderstaande voorbeelden tonen het renderen van miniaturen, het instellen van schaalfactoren, het specificeren van de uitvoerdimensies in pixels, en het kiezen van een gradient‑renderingsstijl.
+
+```cs
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
+{
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage();
+    image.Save($"slide_{index}.png", ImageFormat.Png);
+}
+```
+
+{{% alert color="info" title="Note" %}}
+De parameterloze overload van [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) rendert met een schaal van 0,2. Een dia van 720 × 540 points levert bijvoorbeeld een miniatuur van 144 × 108 pixels op. Om de uitvoerdimensies te beheersen, gebruikt u de overloads met schaalfactoren of een expliciete afbeeldingsgrootte zoals hieronder weergegeven.
+{{% /alert %}}
 
 ## **PowerPoint naar PNG converteren**
 
-Volg deze stappen:
+Laad een presentatie met de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑klasse en benader de dia’s via de [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/)‑collectie. Het voorbeeld rendert elke dia met [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) zonder parameters om een miniatuur te maken. Daarna wordt [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) aangeroepen met [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) om elke gerenderde dia op te slaan als een PNG‑afbeelding.
 
-1. Instantieser de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse.
-2. Haal het dia-object op uit de [Presentation.Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/properties/slides) collectie via de [ISlide](https://reference.aspose.com/slides/nl/net/aspose.slides/islide) interface.
-3. Gebruik de [ISlide.GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/) methode om de miniatuur van elke dia te verkrijgen.
-4. Gebruik de [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.ipresentation/save/methods/5) methode om de dia-miniatuur op te slaan in PNG-formaat.
+```cs
+using Aspose.Slides;
 
-Deze C#-code laat zien hoe je een PowerPoint-presentatie naar PNG converteert. Het Presentation-object kan PPT, PPTX, ODP etc. laden; elke dia in het Presentation-object wordt vervolgens omgezet naar PNG-formaat of een ander afbeeldingsformaat.
+using var presentation = new Presentation("presentation.pptx");
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage())
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
 ## **PowerPoint naar PNG converteren met aangepaste afmetingen**
 
-Als je PNG-bestanden wilt verkrijgen met een bepaalde schaal, kun je de waarden voor `desiredX` en `desiredY` instellen, die de afmetingen van de resulterende miniatuur bepalen.
+Geef horizontale en verticale schaalfactoren door aan [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) om de gerenderde afmetingen te bepalen. In dit voorbeeld zijn beide factoren 2, waardoor een dia van 720 × 540 points een afbeelding van 1440 × 1080 pixels oplevert. Gelijke schaalfactoren behouden de beeldverhouding van de dia. Iedere afbeelding wordt in PNG‑formaat opgeslagen met [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/).
 
-Deze C#-code demonstreert de beschreven bewerking:
+```cs
+using System.Drawing;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("presentation.pptx");
+
+var imageSize = new Size(960, 720);
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    float scaleX = 2f;
-    float scaleY = 2f;
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(scaleX, scaleY))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(imageSize);
+    image.Save($"slide_{index}.png", ImageFormat.Png);
 }
 ```
 
 ## **PowerPoint naar PNG converteren met aangepaste grootte**
 
-Als je PNG-bestanden wilt verkrijgen met een bepaalde grootte, kun je je gewenste `width`- en `height`-argumenten doorgeven voor `imageSize`.
+Om de uitvoerdimensies in pixels op te geven, geeft u een grootte door aan [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) in plaats van schaalfactoren. Dit voorbeeld rendert elke dia op 960 × 720 pixels en slaat het resultaat op met [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Kies afmetingen die overeenkomen met de beeldverhouding van de dia om uitrekking van de afbeelding te voorkomen.
 
-Deze code laat zien hoe je een PowerPoint naar PNG converteert terwijl je de grootte van de afbeeldingen opgeeft:
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("gradient-styles.pptx");
+var slide = presentation.Slides[0];
+
+var gradientStyles = new[] { GradientStyle.Default, GradientStyle.PowerPointUI };
+foreach (var style in gradientStyles)
 {
-    Size size = new Size(960, 720);
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-
-        using (IImage image = slide.GetImage(size))
-        {
-            image.Save($"slide_{index}.png", ImageFormat.Png);
-        }
-    }
+    var options = new RenderingOptions { GradientStyle = style };
+    using var image = slide.GetImage(options, 1f, 1f);
+    image.Save($"gradient-{style}.png", ImageFormat.Png);
 }
 ```
 
-## **FAQ**
+## **Kies een gradient‑renderingsstijl**
 
-**Hoe kan ik alleen een specifieke vorm (bijv. diagram of afbeelding) exporteren in plaats van de hele dia?**
+Stel dat een dia gradientvullingen bevat, maar de overgangen in de geëxporteerde PNG lichter of anders lijken dan in PowerPoint. U kunt de eigenschap [GradientStyle](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/gradientstyle/) van [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) gebruiken om te bepalen hoe de gradients worden gerenderd.
 
-Aspose.Slides ondersteunt [het genereren van miniaturen voor individuele vormen](/slides/nl/net/create-shape-thumbnails/); je kunt een vorm renderen naar een PNG-afbeelding.
+Download [gradient-styles.pptx](gradient-styles.pptx) en plaats het in de werkmap van de applicatie. De eerste dia bevat twee lineaire gradients: cyaan naar oranje bovenaan en blauw naar geel onderaan. Elke gradient heeft twee stops, bij 0% en 100%.
+
+Het volgende voorbeeld laadt deze presentatie en rendert dezelfde eerste dia in beide modi met [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/).
+
+De onderstaande afbeeldingen tonen de output van dezelfde dia, met beide gradients in elke afbeelding:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Cyaan-naar-oranje en blauw-naar-geel gradients gerenderd met Default](gradient-Default.png) | ![Dezelfde gradients gerenderd met PowerPointUI](gradient-PowerPointUI.png) |
+
+In dit voorbeeld levert `Default` lichtere tussenkleuren op, terwijl `PowerPointUI` donkerdere tussenkleuren oplevert. Het verschil hangt af van de kleuren en stops in de gradient.
+
+Kies `Default` wanneer de standaarduitvoer van Aspose.Slides aan uw behoeften voldoet. Probeer `PowerPointUI` wanneer uw prioriteit is om de weergave in PowerPoint te evenaren. Vergelijk beide outputs met uw gewenste resultaat; geen van beide modi is in alle gevallen de voorkeur.
+
+## **Veelgestelde vragen**
+
+**Hoe kan ik een specifiek vorm, zoals een diagram of afbeelding, exporteren in plaats van de hele dia?**
+
+Aspose.Slides ondersteunt het [genereren van miniaturen voor individuele vormen](/slides/nl/net/create-shape-thumbnails/), waardoor u een vorm als PNG‑afbeelding kunt renderen.
 
 **Wordt parallelle conversie ondersteund op een server?**
 
-Ja, maar [deel](/slides/nl/net/multithreading/) geen enkele presentation-instantie over threads. Gebruik een aparte instantie per thread of proces.
+Ja. Gebruik een aparte Presentatie‑instantie voor elke thread of elk proces; [deel geen enkele instantie tussen threads](/slides/nl/net/multithreading/).
 
-**Wat zijn de beperkingen van de proefversie bij het exporteren naar PNG?**
+**Wat zijn de evaluatiebeperkingen bij het exporteren naar PNG?**
 
-De evaluatiemodus voegt een watermerk toe aan de uitvoerafbeeldingen en handhaaft [andere beperkingen](/slides/nl/net/licensing/) totdat er een licentie is toegepast.
+De evaluatiemodus voegt een watermerk toe aan de output‑afbeeldingen en past [andere beperkingen](/slides/nl/net/licensing/) toe totdat een licentie is geïnstalleerd.

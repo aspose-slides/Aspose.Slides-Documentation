@@ -1,25 +1,25 @@
 ---
 title: Định dạng các hình dạng PowerPoint trong .NET
-linktitle: Định dạng Hình dạng
+linktitle: Định dạng hình dạng
 type: docs
 weight: 20
 url: /vi/net/shape-formatting/
 keywords:
-- định dạng hình
+- định dạng hình dạng
 - định dạng đường
-- hiệu ứng phác thảo
-- đường hình phác thảo
+- hiệu ứng sketch
+- đường nét hình dạng sketch
 - định dạng kiểu nối
 - đổ màu gradient
-- đổ hoạ tiết
+- đổ mẫu
 - đổ hình ảnh
-- đổ kết cấu
-- đổ màu đơn
+- đổ họa tiết
+- đổ màu đặc
 - độ trong suốt hình dạng
-- hiển thị hình dạng đen-trắng
-- hiển thị hình dạng xám
+- kết xuất hình dạng đen-trắng
+- kết xuất hình dạng xám
 - xoay hình dạng
-- hiệu ứng cham 3D
+- hiệu ứng Bo góc 3D
 - hiệu ứng xoay 3D
 - đặt lại định dạng
 - PowerPoint
@@ -27,54 +27,54 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách định dạng các hình dạng PowerPoint trong C# bằng Aspose.Slides—đặt kiểu tô, đường viền và hiệu ứng cho các tệp PPT và PPTX một cách chính xác và kiểm soát toàn diện."
+description: "Tìm hiểu cách định dạng các hình dạng PowerPoint trong C# bằng Aspose.Slides—đặt các kiểu tô, đường và hiệu ứng cho các tệp PPT và PPTX một cách chính xác và kiểm soát hoàn toàn."
 ---
 ## **Giới thiệu**
 
-Trong PowerPoint, bạn có thể thêm các hình dạng vào các slide. Vì các hình dạng được tạo nên từ các đường nét, bạn có thể định dạng chúng bằng cách chỉnh sửa hoặc áp dụng hiệu ứng cho đường viền. Ngoài ra, bạn có thể định dạng các hình dạng bằng cách chỉ định các cài đặt kiểm soát cách tô nền bên trong của chúng.
+Trong PowerPoint, bạn có thể thêm các hình dạng vào các slide. Vì các hình dạng được tạo thành từ các đường, bạn có thể định dạng chúng bằng cách sửa đổi hoặc áp dụng hiệu ứng lên đường viền. Ngoài ra, bạn có thể định dạng các hình dạng bằng cách chỉ định các cài đặt kiểm soát cách phần bên trong của chúng được tô màu.
 
-![Định dạng hình trong PowerPoint](format-shape-powerpoint.png)
+![định dạng hình dạng trong PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for .NET cung cấp các giao diện và thuộc tính cho phép bạn định dạng hình dạng bằng các tùy chọn giống như trong PowerPoint.
+Aspose.Slides for .NET cung cấp các giao diện và thuộc tính cho phép bạn định dạng các hình dạng bằng các tùy chọn giống như trong PowerPoint.
 
 ## **Định dạng Đường**
 
 Sử dụng Aspose.Slides, bạn có thể chỉ định kiểu đường tùy chỉnh cho một hình dạng. Các bước sau mô tả quy trình:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào slide.
-1. Đặt [line style](https://reference.aspose.com/slides/vi/net/aspose.slides/linestyle/) cho hình dạng.
-1. Đặt độ rộng đường.
-1. Đặt [dash style](https://reference.aspose.com/slides/vi/net/aspose.slides/linedashstyle/) cho đường.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) vào slide.
+1. Đặt [line style](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) cho hình dạng.
+1. Đặt độ rộng của đường.
+1. Đặt [dash style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) cho đường.
 1. Đặt màu đường cho hình dạng.
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+1. Lưu bản trình chiếu đã sửa đổi dưới dạng tệp PPTX.
 
-Mã C# sau đây minh họa cách định dạng một `AutoShape` hình chữ nhật:
+Đoạn mã C# sau minh họa cách định dạng một hình chữ nhật `AutoShape`:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu.
 using (Presentation presentation = new Presentation())
 {
     // Lấy slide đầu tiên.
     ISlide slide = presentation.Slides[0];
 
-    // Thêm một auto shape loại Rectangle.
+    // Thêm một auto shape loại Hình chữ nhật.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Đặt màu tô cho hình dạng rectangle.
+    // Đặt màu nền cho hình dạng hình chữ nhật.
     shape.FillFormat.FillType = FillType.NoFill;
 
-    // Áp dụng định dạng cho các đường của rectangle.
+    // Áp dụng định dạng cho các đường của hình chữ nhật.
     shape.LineFormat.Style = LineStyle.ThickThin;
     shape.LineFormat.Width = 7;
     shape.LineFormat.DashStyle = LineDashStyle.Dash;
 
-    // Đặt màu cho đường của rectangle.
+    // Đặt màu cho đường của hình chữ nhật.
     shape.LineFormat.FillFormat.FillType = FillType.Solid;
     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
@@ -87,11 +87,11 @@ Kết quả:
 
 ![Các đường đã định dạng trong bản trình chiếu](formatted-lines.png)
 
-## **Áp dụng Hiệu ứng Vẽ Phác thảo cho Đường của Hình**
+## **Áp dụng Hiệu ứng Sketch cho Đường hình dạng**
 
-Hiệu ứng phác thảo làm cho đường của hình trông như được vẽ tay. Sử dụng [IShape.LineFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/lineformat/) để truy cập cài đặt đường, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ilineformat/sketchformat/) để truy cập cài đặt phác thảo, và [ISketchFormat.SketchType](https://reference.aspose.com/slides/vi/net/aspose.slides/isketchformat/sketchtype/) để chọn một giá trị từ liệt kê [LineSketchType](https://reference.aspose.com/slides/vi/net/aspose.slides/linesketchtype/) .
+Hiệu ứng sketch làm cho đường của hình dạng trông như được vẽ tay. Sử dụng [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) để truy cập các cài đặt đường, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) để truy cập các cài đặt sketch, và [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) để chọn một giá trị từ enumeration [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/).
 
-Mã C# sau đây cho thấy cách áp dụng hiệu ứng [LineSketchType.Curved](https://reference.aspose.com/slides/vi/net/aspose.slides/linesketchtype/) , đọc giá trị được gán rõ ràng, và loại bỏ hiệu ứng bằng [LineSketchType.None](https://reference.aspose.com/slides/vi/net/aspose.slides/linesketchtype/) :
+Đoạn mã C# sau cho thấy cách áp dụng hiệu ứng [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) , đọc giá trị được gán trực tiếp, và xóa hiệu ứng bằng [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
 
 ```csharp
 using Aspose.Slides;
@@ -115,7 +115,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-Giá trị trả về bởi `ISketchFormat.SketchType` đại diện cho cài đặt được gán trực tiếp cho hình dạng. Nếu việc định dạng đường có thể được kế thừa từ một chủ đề, slide chủ, hoặc slide bố cục, hãy sử dụng [ILineFormat.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/ilineformat/geteffective/) , truy cập [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ilineformateffectivedata/sketchformat/) , và đọc [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/vi/net/aspose.slides/isketchformateffectivedata/sketchtype/) . Giá trị hiệu quả phản ánh định dạng thực tế được áp dụng sau khi kế thừa được giải quyết:
+Giá trị trả về bởi `ISketchFormat.SketchType` đại diện cho cài đặt được gán trực tiếp cho hình dạng. Nếu định dạng đường có thể được kế thừa từ theme, master slide hoặc layout slide, hãy sử dụng [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), truy cập [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), và đọc [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). Giá trị effective phản ánh định dạng thực tế được áp dụng sau khi kế thừa được giải quyết:
 
 ```csharp
 using Aspose.Slides;
@@ -137,33 +137,33 @@ Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 
 Dưới đây là ba tùy chọn kiểu nối:
 
-* Tròn
+* Round
 * Miter
 * Bevel
 
-Theo mặc định, khi PowerPoint nối hai đường ở một góc (ví dụ như ở góc của hình), nó sử dụng cài đặt **Round**. Tuy nhiên, nếu bạn đang vẽ một hình có các góc nhọn, bạn có thể ưu tiên tùy chọn **Miter**.
+Mặc định, khi PowerPoint nối hai đường ở một góc (ví dụ tại góc của một hình dạng), nó sử dụng cài đặt **Round**. Tuy nhiên, nếu bạn đang vẽ một hình dạng có các góc nhọn, bạn có thể ưu tiên tùy chọn **Miter**.
 
 ![Kiểu nối trong bản trình chiếu](join-style-powerpoint.png)
 
-Mã C# sau đây minh họa cách ba hình chữ nhật (như trong hình trên) được tạo bằng cách sử dụng các cài đặt kiểu nối Miter, Bevel và Round:
+Đoạn mã C# sau minh họa cách ba hình chữ nhật (như trong hình trên) được tạo bằng các cài đặt kiểu nối Miter, Bevel và Round:
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu.
 using (Presentation presentation = new Presentation())
 {
     // Lấy slide đầu tiên.
     ISlide slide = presentation.Slides[0];
 
-    // Thêm ba auto shape loại Rectangle.
+    // Thêm ba auto shape loại Hình chữ nhật.
     IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Đặt màu tô cho mỗi hình chữ nhật.
+    // Đặt màu nền cho mỗi hình chữ nhật.
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.Color = Color.Black;
     shape2.FillFormat.FillType = FillType.Solid;
@@ -171,7 +171,7 @@ using (Presentation presentation = new Presentation())
     shape3.FillFormat.FillType = FillType.Solid;
     shape3.FillFormat.SolidFillColor.Color = Color.Black;
 
-    // Đặt độ rộng của đường.
+    // Đặt độ rộng đường.
     shape1.LineFormat.Width = 15;
     shape2.LineFormat.Width = 15;
     shape3.LineFormat.Width = 15;
@@ -201,22 +201,22 @@ using (Presentation presentation = new Presentation())
 
 ## **Đổ màu Gradient**
 
-Trong PowerPoint, Đổ màu Gradient là một tùy chọn định dạng cho phép bạn áp dụng sự pha trộn liên tục của các màu vào một hình dạng. Ví dụ, bạn có thể áp dụng hai hoặc nhiều màu sao cho một màu dần dần chuyển sang màu khác.
+Trong PowerPoint, Gradient Fill là một tùy chọn định dạng cho phép bạn áp dụng một pha màu liên tục lên một hình dạng. Ví dụ, bạn có thể áp dụng hai hoặc nhiều màu sao cho một màu dần chuyển sang màu khác.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) của hình dạng thành `Gradient` .
-1. Thêm hai màu bạn muốn với vị trí đã định nghĩa bằng các phương thức `Add` của bộ sưu tập gradient stop được cung cấp bởi giao diện [IGradientFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/igradientformat/) .
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+Dưới đây là cách áp dụng gradient fill cho một hình dạng bằng Aspose.Slides:
 
-Mã C# sau đây minh họa cách áp dụng hiệu ứng đổ màu gradient cho một hình ellipse:
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) vào slide.
+1. Đặt [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) của hình dạng thành `Gradient`.
+1. Thêm hai màu ưa thích của bạn với vị trí đã định nghĩa bằng các phương thức `Add` của bộ sưu tập gradient stop được khai thác qua giao diện [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/).
+1. Lưu bản trình chiếu đã sửa đổi dưới dạng tệp PPTX.
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu.
 using (Presentation presentation = new Presentation())
 {
     // Lấy slide đầu tiên.
@@ -225,14 +225,14 @@ using (Presentation presentation = new Presentation())
     // Thêm một auto shape loại Ellipse.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Áp dụng định dạng gradient cho ellipse.
+    // Áp dụng định dạng gradient cho hình ellipse.
     shape.FillFormat.FillType = FillType.Gradient;
     shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
     // Đặt hướng của gradient.
     shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
 
-    // Thêm hai gradient stop.
+    // Thêm hai điểm dừng gradient.
     shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
     shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
 
@@ -243,31 +243,33 @@ using (Presentation presentation = new Presentation())
 
 Kết quả:
 
-![Hình ellipse với đổ màu gradient](gradient-fill.png)
+![Ellipse với độ đổ màu gradient](gradient-fill.png)
 
-## **Đổ Màu Hoạ Tiết**
+Nếu một gradient trông khác biệt trong ảnh xuất ra so với trong PowerPoint, xem [Choose a Gradient Rendering Style](/slides/vi/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Bạn có thể chọn kiểu kết xuất mà không thay đổi gradient fill được lưu trong bản trình chiếu.
 
-Trong PowerPoint, Đổ màu Hoạ tiết là một tùy chọn định dạng cho phép bạn áp dụng một thiết kế hai màu — chẳng hạn như chấm, sọc, vệt chéo, hoặc caro — vào một hình dạng. Bạn có thể chọn màu tùy chỉnh cho tiền cảnh và nền của hoạ tiết.
+## **Đổ mẫu**
 
-Aspose.Slides cung cấp hơn 45 kiểu hoạ tiết được định nghĩa sẵn mà bạn có thể áp dụng cho các hình dạng để tăng tính thẩm mỹ cho bản trình chiếu. Ngay cả khi đã chọn một hoạ tiết có sẵn, bạn vẫn có thể chỉ định màu chính xác mà nó sẽ sử dụng.
+Trong PowerPoint, Pattern Fill là một tùy chọn định dạng cho phép bạn áp dụng một thiết kế hai màu—như chấm, sọc, vằn chéo hoặc ô vuông—cho một hình dạng. Bạn có thể chọn màu tùy chỉnh cho tiền cảnh và nền của mẫu.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) của hình dạng thành `Pattern` .
-1. Chọn một kiểu hoạ tiết từ các tùy chọn đã định sẵn.
-1. Đặt [Background Color](https://reference.aspose.com/slides/vi/net/aspose.slides/ipatternformat/backcolor/) cho hoạ tiết.
-1. Đặt [Foreground Color](https://reference.aspose.com/slides/vi/net/aspose.slides/ipatternformat/forecolor/) cho hoạ tiết.
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+Aspose.Slides cung cấp hơn 45 kiểu mẫu được định nghĩa trước mà bạn có thể áp dụng cho các hình dạng để nâng cao tính thẩm mỹ của bản trình chiếu. Ngay cả sau khi chọn một mẫu đã định nghĩa, bạn vẫn có thể chỉ định màu chính xác mà nó sẽ sử dụng.
 
-Mã C# sau đây minh họa cách áp dụng hoạ tiết cho một hình chữ nhật:
+Dưới đây là cách áp dụng pattern fill cho một hình dạng bằng Aspose.Slides:
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) vào slide.
+1. Đặt [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) của hình dạng thành `Pattern`.
+1. Chọn một kiểu mẫu từ các tùy chọn đã định nghĩa trước.
+1. Đặt [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) của mẫu.
+1. Đặt [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) của mẫu.
+1. Lưu bản trình chiếu đã sửa đổi dưới dạng tệp PPTX.
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu.
 using (Presentation presentation = new Presentation())
 {
     // Lấy slide đầu tiên.
@@ -276,13 +278,13 @@ using (Presentation presentation = new Presentation())
     // Thêm một auto shape loại Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Đặt kiểu tô là Pattern.
+    // Đặt loại fill thành Pattern.
     shape.FillFormat.FillType = FillType.Pattern;
 
-    // Đặt kiểu hoạ tiết.
+    // Đặt kiểu mẫu.
     shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
 
-    // Đặt màu nền và màu tiền cảnh cho hoạ tiết.
+    // Đặt màu nền và màu tiền cảnh cho mẫu.
     shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
     shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
 
@@ -293,32 +295,32 @@ using (Presentation presentation = new Presentation())
 
 Kết quả:
 
-![Hình chữ nhật với đổ hoạ tiết](pattern-fill.png)
+![Hình chữ nhật với đổ mẫu](pattern-fill.png)
 
-## **Đổ Hình Ảnh**
+## **Đổ Hình ảnh**
 
-Trong PowerPoint, Đổ hình ảnh là một tùy chọn định dạng cho phép bạn chèn một hình ảnh vào bên trong một hình dạng — thực tế sử dụng hình ảnh làm nền cho hình dạng.
+Trong PowerPoint, Picture Fill là một tùy chọn định dạng cho phép bạn chèn một hình ảnh vào bên trong một hình dạng—thực chất sử dụng hình ảnh làm nền cho hình dạng.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) của hình dạng thành `Picture` .
-1. Đặt chế độ đổ hình ảnh thành `Tile` (hoặc chế độ khác bạn muốn).
-1. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) từ hình ảnh bạn muốn sử dụng.
+Dưới đây là cách sử dụng Aspose.Slides để áp dụng picture fill cho một hình dạng:
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) vào slide.
+1. Đặt [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) của hình dạng thành `Picture`.
+1. Đặt chế độ picture fill thành `Tile` (hoặc chế độ ưa thích khác).
+1. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) từ hình ảnh bạn muốn sử dụng.
 1. Gán hình ảnh này cho thuộc tính `Picture.Image` của `PictureFillFormat` của hình dạng.
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+1. Lưu bản trình chiếu đã sửa đổi dưới dạng tệp PPTX.
 
 Giả sử chúng ta có tệp "lotus.png" với hình ảnh sau:
 
-![Hình ảnh bông sen](lotus.png)
-
-Mã C# sau đây minh họa cách đổ hình ảnh vào một hình dạng:
+![Hình ảnh lotus](lotus.png)
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu.
 using (Presentation presentation = new Presentation())
 {
     // Lấy slide đầu tiên.
@@ -327,13 +329,13 @@ using (Presentation presentation = new Presentation())
     // Thêm một auto shape loại Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
 
-    // Đặt kiểu tô là Picture.
+    // Đặt loại fill thành Picture.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // Đặt chế độ đổ hình ảnh.
+    // Đặt chế độ picture fill.
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // Tải một hình ảnh và thêm nó vào tài nguyên của bản trình chiếu.
+    // Tải ảnh và thêm vào tài nguyên của bản trình chiếu.
     IImage image = Images.FromFile("lotus.png");
     IPPImage presentationImage = presentation.Images.AddImage(image);
     image.Dispose();
@@ -350,46 +352,46 @@ Kết quả:
 
 ![Hình dạng với đổ hình ảnh](picture-fill.png)
 
-### **Lát Hình Ảnh Như Kết Cấu**
+### **Gạch Hình ảnh Thành Kết cấu**
 
-Nếu bạn muốn đặt một hình ảnh lát làm kết cấu và tùy chỉnh hành vi lát, bạn có thể sử dụng các thuộc tính sau của giao diện [IPictureFillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/) và lớp [PictureFillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/picturefillformat/) :
+Nếu bạn muốn đặt một hình ảnh dạng gạch làm kết cấu và tùy chỉnh hành vi gạch, bạn có thể sử dụng các thuộc tính sau của giao diện [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) và lớp [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/):
 
-- [PictureFillMode](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/picturefillmode/) : Đặt chế độ đổ hình ảnh — hoặc `Tile` hoặc `Stretch` .
-- [TileAlignment](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/tilealignment/) : Xác định căn chỉnh của các ô trong hình dạng.
-- [TileFlip](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/tileflip/) : Kiểm soát việc lật ô theo chiều ngang, dọc, hoặc cả hai.
-- [TileOffsetX](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/tileoffsetx/) : Đặt độ lệch ngang của ô (theo điểm) so với gốc của hình dạng.
-- [TileOffsetY](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/tileoffsety/) : Đặt độ lệch dọc của ô (theo điểm) so với gốc của hình dạng.
-- [TileScaleX](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/tilescalex/) : Xác định tỷ lệ ngang của ô dưới dạng phần trăm.
-- [TileScaleY](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/tilescaley/) : Xác định tỷ lệ dọc của ô dưới dạng phần trăm.
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Đặt chế độ đổ hình ảnh—hoặc `Tile` hoặc `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Xác định cách căn chỉnh các ô gạch trong hình dạng.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Kiểm soát việc lật ô gạch theo chiều ngang, chiều dọc hoặc cả hai.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Đặt khoảng dịch chuyển ngang của ô gạch (đơn vị điểm) so với gốc của hình dạng.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Đặt khoảng dịch chuyển dọc của ô gạch (đơn vị điểm) so với gốc của hình dạng.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Xác định tỷ lệ ngang của ô gạch dưới dạng phần trăm.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Xác định tỷ lệ dọc của ô gạch dưới dạng phần trăm.
 
-Mã mẫu sau cho thấy cách thêm một hình chữ nhật với đổ hình ảnh lát và cấu hình các tùy chọn lát:
+Đoạn mã mẫu sau cho thấy cách thêm một hình chữ nhật với picture fill dạng gạch và cấu hình các tùy chọn gạch:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu.
 using (Presentation presentation = new Presentation())
 {
     // Lấy slide đầu tiên.
     ISlide firstSlide = presentation.Slides[0];
 
-    // Thêm một auto shape dạng Rectangle.
+    // Thêm một auto shape hình chữ nhật.
     IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Đặt kiểu tô của hình dạng thành Picture.
+    // Đặt loại fill của hình dạng thành Picture.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // Tải hình ảnh và thêm nó vào tài nguyên của bản trình chiếu.
+    // Tải ảnh và thêm vào tài nguyên của bản trình chiếu.
     IPPImage presentationImage;
     using (IImage sourceImage = Images.FromFile("lotus.png"))
         presentationImage = presentation.Images.AddImage(sourceImage);
 
-    // Gán hình ảnh cho hình dạng.
+    // Gán ảnh cho hình dạng.
     IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
     pictureFillFormat.Picture.Image = presentationImage;
 
-    // Cấu hình chế độ đổ hình ảnh và các thuộc tính lát.
+    // Cấu hình chế độ picture fill và các thuộc tính gạch.
     pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     pictureFillFormat.TileOffsetX = -32;
     pictureFillFormat.TileOffsetY = -32;
@@ -405,27 +407,27 @@ using (Presentation presentation = new Presentation())
 
 Kết quả:
 
-![Các tùy chọn lát](tile-options.png)
+![Các tùy chọn gạch](tile-options.png)
 
-## **Đổ Màu Đơn**
+## **Đổ màu Đặc**
 
-Trong PowerPoint, Đổ màu Đơn là một tùy chọn định dạng làm đầy một hình dạng bằng một màu duy nhất, đồng nhất. Nền màu đơn này được áp dụng mà không có gradient, kết cấu hay hoạ tiết nào.
+Trong PowerPoint, Solid Color Fill là một tùy chọn định dạng cho phép bạn tô màu một hình dạng bằng một màu duy nhất, đồng nhất. Màu nền đơn giản này được áp dụng mà không có gradient, texture hay pattern nào.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) của hình dạng thành `Solid` .
-1. Gán màu tô bạn muốn cho hình dạng.
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+Để áp dụng solid color fill cho một hình dạng bằng Aspose.Slides, làm theo các bước sau:
 
-Mã C# sau đây minh họa cách áp dụng đổ màu đơn cho một hình chữ nhật trong slide PowerPoint:
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) vào slide.
+1. Đặt [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) của hình dạng thành `Solid`.
+1. Gán màu fill ưa thích của bạn cho hình dạng.
+1. Lưu bản trình chiếu đã sửa đổi dưới dạng tệp PPTX.
 
 ```c#
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu.
 using (Presentation presentation = new Presentation())
 {
     // Lấy slide đầu tiên.
@@ -434,10 +436,10 @@ using (Presentation presentation = new Presentation())
     // Thêm một auto shape loại Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Đặt kiểu tô thành Solid.
+    // Đặt loại fill thành Solid.
     shape.FillFormat.FillType = FillType.Solid;
 
-    // Đặt màu tô.
+    // Đặt màu fill.
     shape.FillFormat.SolidFillColor.Color = Color.Yellow;
 
     // Lưu tệp PPTX vào đĩa.
@@ -447,22 +449,20 @@ using (Presentation presentation = new Presentation())
 
 Kết quả:
 
-![Hình dạng với đổ màu đơn](solid-color-fill.png)
+![Hình dạng với đổ màu đặc](solid-color-fill.png)
 
-## **Đặt Độ Trong Suốt**
+## **Đặt Độ trong suốt**
 
-Trong PowerPoint, khi bạn áp dụng màu đơn, gradient, hình ảnh hoặc kết cấu cho các hình dạng, bạn cũng có thể đặt mức độ trong suốt để kiểm soát độ mờ của lớp tô. Giá trị trong suốt cao hơn làm cho hình dạng trong suốt hơn, cho phép nền hoặc các đối tượng bên dưới hiển thị một phần.
+Trong PowerPoint, khi bạn áp dụng solid color, gradient, picture hoặc texture fill cho các hình dạng, bạn cũng có thể đặt mức độ trong suốt để kiểm soát độ mờ của fill. Giá trị trong suốt cao hơn làm cho hình dạng trong suốt hơn, cho phép nền hoặc các đối tượng bên dưới hiển thị một phần.
 
-Aspose.Slides cho phép bạn đặt mức độ trong suốt bằng cách điều chỉnh giá trị alpha trong màu được dùng để tô. Cách thực hiện như sau:
+Aspose.Slides cho phép bạn thiết lập mức độ trong suốt bằng cách điều chỉnh giá trị alpha trong màu được sử dụng cho fill. Dưới đây là cách thực hiện:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) thành `Solid` .
-1. Sử dụng `Color.FromArgb(alpha, baseColor)` để định nghĩa một màu với độ trong suốt (thành phần `alpha` kiểm soát độ trong suốt) .
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) vào slide.
+1. Đặt [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) thành `Solid`.
+1. Sử dụng `Color.FromArgb(alpha, baseColor)` để định nghĩa màu có độ trong suốt (thành phần `alpha` kiểm soát độ trong suốt).
 1. Lưu bản trình chiếu.
-
-Mã C# sau đây minh họa cách áp dụng màu tô trong suốt cho một hình chữ nhật:
 
 ```c#
 using System.Drawing;
@@ -471,16 +471,16 @@ using Aspose.Slides.Export;
 
 const int alpha = 128;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu.
 using (Presentation presentation = new Presentation())
 {
     // Lấy slide đầu tiên.
     ISlide slide = presentation.Slides[0];
 
-    // Thêm một auto shape hình chữ nhật rắn.
+    // Thêm một auto shape hình chữ nhật đặc.
     IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Thêm một auto shape hình chữ nhật trong suốt lên trên hình rắn.
+    // Thêm một auto shape hình chữ nhật trong suốt lên trên hình dạng đặc.
     IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.FillFormat.FillType = FillType.Solid;
     transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
@@ -494,25 +494,23 @@ Kết quả:
 
 ![Hình dạng trong suốt](shape-transparency.png)
 
-## **Xoay Hình Dạng**
+## **Xoay Hình dạng**
 
-Aspose.Slides cho phép bạn xoay các hình dạng trong bản trình chiếu PowerPoint. Điều này hữu ích khi đặt các yếu tố hình ảnh với yêu cầu căn chỉnh hoặc thiết kế cụ thể.
+Aspose.Slides cho phép bạn xoay các hình dạng trong bản trình chiếu PowerPoint. Điều này hữu ích khi định vị các yếu tố trực quan với yêu cầu căn chỉnh hoặc thiết kế cụ thể.
 
 Để xoay một hình dạng trên slide, thực hiện các bước sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào slide.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) vào slide.
 1. Đặt thuộc tính `Rotation` của hình dạng thành góc mong muốn.
 1. Lưu bản trình chiếu.
-
-Mã C# sau đây minh họa cách xoay một hình dạng 5 độ:
 
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu.
 using (Presentation presentation = new Presentation())
 {
     // Lấy slide đầu tiên.
@@ -533,19 +531,17 @@ Kết quả:
 
 ![Xoay hình dạng](shape-rotation.png)
 
-## **Thêm Hiệu Ứng Cham 3D**
+## **Thêm hiệu ứng Bo góc 3D**
 
-Aspose.Slides cho phép bạn áp dụng hiệu ứng cham 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/threedformat/) của chúng.
+Aspose.Slides cho phép bạn áp dụng hiệu ứng Bo góc 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) của chúng.
 
-Để thêm hiệu ứng cham 3D vào một hình dạng, thực hiện các bước sau:
+Để thêm hiệu ứng Bo góc 3D cho một hình dạng, thực hiện các bước sau:
 
-1. Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào slide.
-1. Cấu hình [ThreeDFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/threedformat/) của hình dạng để xác định các cài đặt cham.
+1. Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) vào slide.
+1. Cấu hình [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) của hình dạng để xác định cài đặt Bo góc.
 1. Lưu bản trình chiếu.
-
-Mã C# sau đây cho thấy cách áp dụng hiệu ứng cham 3D cho một hình dạng:
 
 ```c#
 using System.Drawing;
@@ -581,21 +577,19 @@ using (Presentation presentation = new Presentation())
 
 Kết quả:
 
-![Hiệu ứng cham 3D](3D-bevel-effect.png)
+![Hiệu ứng Bo góc 3D](3D-bevel-effect.png)
 
-## **Thêm Hiệu Ứng Xoay 3D**
+## **Thêm hiệu ứng Xoay 3D**
 
-Aspose.Slides cho phép bạn áp dụng hiệu ứng xoay 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/threedformat/) của chúng.
+Aspose.Slides cho phép bạn áp dụng hiệu ứng Xoay 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) của chúng.
 
-Để áp dụng xoay 3D cho một hình dạng:
+Để áp dụng Xoay 3D cho một hình dạng:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) vào slide.
-1. Đặt [CameraType](https://reference.aspose.com/slides/vi/net/aspose.slides/icamera/cameratype/) và [LightType](https://reference.aspose.com/slides/vi/net/aspose.slides/ilightrig/lighttype/) của hình dạng để xác định xoay 3D.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+1. Thêm một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) vào slide.
+1. Đặt [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) và [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) của hình dạng để xác định Xoay 3D.
 1. Lưu bản trình chiếu.
-
-Mã C# sau đây minh họa cách áp dụng hiệu ứng xoay 3D cho một hình dạng:
 
 ```c#
 using Aspose.Slides;
@@ -620,15 +614,15 @@ using (Presentation presentation = new Presentation())
 
 Kết quả:
 
-![Hiệu ứng xoay 3D](3D-rotation-effect.png)
+![Hiệu ứng Xoay 3D](3D-rotation-effect.png)
 
-## **Kiểm Soát Định Dạng Đen-Trắng cho Hình Dạng**
+## **Điều khiển Kết xuất Đen-Trắng cho Hình dạng**
 
-Thuộc tính [IShape.BlackWhiteMode](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/blackwhitemode/) chỉ định cách một hình dạng riêng lẻ được hiển thị khi bản trình chiếu được xem hoặc xử lý ở chế độ đen‑trắng. Thuộc tính này không tự động bật chế độ hiển thị đen‑trắng và không thay đổi màu nền, đường viền hoặc các định dạng khác của hình dạng trong chế độ màu bình thường.
+Thuộc tính [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) xác định cách một hình dạng riêng lẻ được kết xuất khi bản trình chiếu được xem hoặc xử lý ở chế độ đen-trắng. Thuộc tính này không tự kích hoạt chế độ hiển thị đen-trắng và không thay đổi fill, line hoặc các định dạng khác trong chế độ màu bình thường.
 
-Sử dụng một giá trị trong liệt kê [BlackWhiteMode](https://reference.aspose.com/slides/vi/net/aspose.slides/blackwhitemode/) để chọn hành vi mong muốn. Ví dụ, `Automatic` để ứng dụng hiển thị tự chọn cách chuyển đổi, `Gray` và `LightGray` dùng màu xám, `BlackWhite` chỉ dùng màu đen và trắng, `Black` và `White` buộc một màu duy nhất, `Color` giữ nguyên màu bình thường, và `Hidden` bỏ qua hình dạng trong chế độ đen‑trắng. `NotDefined` có nghĩa là không có chế độ ở cấp độ hình dạng được gán.
+Sử dụng một giá trị từ enumeration [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) để chọn hành vi mong muốn. Ví dụ, `Automatic` để ứng dụng quyết định chuyển đổi, `Gray` và `LightGray` sử dụng màu xám, `BlackWhite` chỉ dùng đen và trắng, `Black` và `White` buộc một màu duy nhất, `Color` giữ nguyên màu bình thường, và `Hidden` loại bỏ hình dạng trong chế độ đen-trắng. `NotDefined` có nghĩa là không có chế độ ở mức hình dạng được gán.
 
-Mã C# sau tạo một hình dạng màu và làm cho nó hiển thị màu xám trong chế độ hiển thị đen‑trắng:
+Đoạn mã C# sau tạo một hình dạng màu và khiến nó hiển thị màu xám trong chế độ hiển thị đen-trắng:
 
 ```csharp
 using System.Drawing;
@@ -642,17 +636,17 @@ var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.Color = Color.Orange;
 
-// Giữ màu nền cam ở chế độ màu, nhưng hiển thị hình dạng với màu xám trong chế độ đen-trắng.
+// Giữ màu đổ cam ở chế độ màu, nhưng kết xuất hình dạng với màu xám ở chế độ đen-trắng.
 shape.BlackWhiteMode = BlackWhiteMode.Gray;
 
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-Trong chế độ màu bình thường, hình chữ nhật giữ màu nền cam. Trong quy trình hiển thị đen‑trắng, nó sử dụng màu xám vì chế độ của nó được đặt thành `Gray`. Điều này cho phép bạn giữ slide màu đầy đủ trong khi định nghĩa cách hiển thị riêng cho việc in, xem trước, hoặc các quy trình khác tuân thủ cài đặt hiển thị đen‑trắng của bản trình chiếu.
+Trong chế độ màu bình thường, hình chữ nhật giữ màu nền cam. Trong quy trình hiển thị đen-trắng, nó sử dụng màu xám vì chế độ đã được đặt thành `Gray`. Điều này cho phép bạn giữ slide màu đầy đủ trong khi định nghĩa một dạng hiển thị riêng cho việc in, xem trước hoặc các quy trình khác tôn trọng cài đặt hiển thị đen-trắng của bản trình chiếu.
 
-## **Đặt Lại Định Dạng**
+## **Đặt lại Định dạng**
 
-Mã C# sau cho thấy cách đặt lại định dạng của một slide và khôi phục vị trí, kích thước và định dạng của tất cả các hình dạng có placeholder trên [LayoutSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutslide/) về các cài đặt mặc định của chúng:
+Đoạn mã C# sau cho thấy cách đặt lại định dạng của một slide và khôi phục vị trí, kích thước và định dạng của tất cả các hình dạng có placeholder trên [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) về thiết lập mặc định:
 
 ```c#
 using Aspose.Slides;
@@ -662,7 +656,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // Đặt lại mỗi hình dạng trên slide có placeholder trên bố cục.
+        // Đặt lại mỗi hình dạng trên slide có placeholder trên layout.
         slide.Reset();
     }
 
@@ -670,16 +664,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Định dạng hình dạng có ảnh hưởng đến kích thước cuối cùng của tệp bản trình chiếu không?**
+**Does shape formatting affect the final presentation file size?**
 
-Chỉ ảnh hưởng rất ít. Các hình ảnh và phương tiện nhúng chiếm phần lớn dung lượng tệp, trong khi các tham số hình dạng như màu, hiệu ứng và gradient được lưu dưới dạng siêu dữ liệu và hầu như không tăng thêm kích thước.
+Chỉ ảnh hưởng tối thiểu. Các hình ảnh và phương tiện nhúng chiếm phần lớn dung lượng tệp, trong khi các tham số hình dạng như màu, hiệu ứng và gradient được lưu dưới dạng siêu dữ liệu và hầu như không làm tăng kích thước.
 
-**Làm thế nào tôi có thể phát hiện các hình dạng trên một slide có cùng định dạng để nhóm chúng lại?**
+**How can I detect shapes on a slide that share identical formatting so I can group them?**
 
-So sánh các thuộc tính định dạng chính của mỗi hình dạng — cài đặt fill, line và effect. Nếu tất cả các giá trị tương ứng khớp nhau, coi các kiểu của chúng là giống nhau và nhóm các hình dạng đó lại, giúp việc quản lý kiểu sau này trở nên đơn giản hơn.
+So sánh các thuộc tính định dạng chính của mỗi hình dạng—các thiết lập fill, line và effect. Nếu tất cả các giá trị tương ứng khớp nhau, coi chúng là có cùng kiểu và nhóm logic các hình dạng đó, giúp việc quản lý kiểu sau này trở nên đơn giản hơn.
 
-**Tôi có thể lưu một bộ các kiểu hình dạng tùy chỉnh vào một tệp riêng để tái sử dụng trong các bản trình chiếu khác không?**
+**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
 
-Có. Lưu các hình mẫu với các kiểu mong muốn trong một slide mẫu hoặc một tệp mẫu .POTX. Khi tạo bản trình chiếu mới, mở mẫu, sao chép các hình dạng đã được định dạng mà bạn cần, và áp dụng lại định dạng của chúng ở nơi cần thiết.
+Có. Lưu các hình mẫu với kiểu mong muốn trong một slide mẫu hoặc tệp mẫu .POTX. Khi tạo bản trình chiếu mới, mở mẫu, sao chép các hình dạng đã được định dạng và áp dụng lại định dạng của chúng ở bất kỳ nơi nào cần thiết.

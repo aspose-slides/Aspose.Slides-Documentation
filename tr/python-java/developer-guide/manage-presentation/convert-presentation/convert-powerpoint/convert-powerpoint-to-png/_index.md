@@ -1,43 +1,38 @@
 ---
-title: "PowerPoint Slaytlarını Python'da PNG'ye Dönüştür"
-linktitle: "PowerPoint'ten PNG'ye"
+title: Python'da PowerPoint Slaytlarını PNG'ye Dönüştür
+linktitle: PowerPoint'ten PNG'ye
 type: docs
 weight: 30
 url: /tr/python-java/convert-powerpoint-to-png/
 keywords:
-- "PowerPoint dönüştür"
-- "sunumu dönüştür"
-- "slaytı dönüştür"
-- "PPT dönüştür"
-- "PPTX dönüştür"
-- "PowerPoint'ten PNG'ye"
-- "sunumu PNG'ye"
-- "slaytı PNG'ye"
-- "PPT'den PNG'ye"
-- "PPTX'ten PNG'ye"
-- "PPT'yi PNG olarak kaydet"
-- "PPTX'i PNG olarak kaydet"
-- "PPT'yi PNG'ye aktar"
-- "PPTX'i PNG'ye aktar"
+- PowerPoint'i dönüştür
+- sunumu dönüştür
+- slaytı dönüştür
+- PPT'yi dönüştür
+- PPTX'i dönüştür
+- PowerPoint'ten PNG'ye
+- sunumu PNG'ye
+- slaytı PNG'ye
+- PPT'yi PNG'ye
+- PPTX'i PNG'ye
+- PPT'yi PNG olarak kaydet
+- PPTX'i PNG olarak kaydet
+- PPT'yi PNG'ye dışa aktar
+- PPTX'i PNG'ye dışa aktar
 - Python
 - Java
 - Aspose.Slides
-description: "PowerPoint slaytlarını Python üzerinden Java ile PNG görüntülerine dönüştürün. PPT, PPTX ve ODP sunumlarını özel ölçeklerle veya kesin görüntü boyutlarıyla dışa aktarın."
+description: "Python üzerinden Java ile PowerPoint slaytlarını PNG görüntülerine dönüştürün. PPT, PPTX ve ODP sunumlarını özel ölçeklerle ya da tam görüntü boyutlarıyla dışa aktarın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Python via Java kullanarak PowerPoint sunumlarını PNG görüntülerine dönüştürmeyi açıklar. PPT, PPTX ve ODP dosyalarını yükleyebilir, her slaytı renderleyebilir ve ayrı bir PNG görüntüsü olarak kaydedebilirsiniz.
+Bu makale, Aspose.Slides for Python via Java kullanarak sunum slaytlarını PNG görüntülerine dönüştürmeyi açıklar. PPT, PPTX ve ODP gibi formatlarda sunumları yükleyebilir, her slaytı renderlayabilir ve ayrı bir PNG görüntüsü olarak kaydedebilirsiniz.
 
-Örnekler ayrıca ölçek faktörleriyle veya kesin genişlik ve yükseklikle çıktının boyutlarını nasıl kontrol edileceğini gösterir. Her örnek gerektiğinde Java sanal makinesini başlatır ve kullanım sonrası sunum ve görüntü kaynaklarını serbest bırakır.
+Aşağıdaki örnekler, varsayılan ölçekte renderleme, ölçeği artırma, çıkış boyutlarını piksel olarak belirtme ve bir degrade renderleme stilini seçme işlemlerini göstermektedir.
 
 ## **PowerPoint'i PNG'ye Dönüştür**
 
-1. Giriş dosyasını [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfı ile yükleyin.
-2. Slaytları [Presentation.getSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSlides) kullanarak alın.
-3. Her slaytı [Slide.getImage](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slide/#getImage) ile renderleyin.
-4. [ImageFormat.Png](https://reference.aspose.com/slides/tr/python-java/aspose.slides/imageformat/#Png) kullanarak her renderlenen görüntüyü kaydedin, ardından kaynaklarını serbest bırakın.
-
-Aşağıdaki Python örneği tüm slaytları varsayılan boyutlarında dışa aktarır:
+Bir sunumu [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) sınıfı ile yükleyin ve slaytlarına [Presentation.getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) koleksiyonu aracılığıyla erişin. Örnek, her slaytı parametresiz olarak [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) ile renderlayarak bir küçük resim oluşturur. Ardından, her renderlanan slaytı PNG görüntüsü olarak kaydetmek için [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) ile [ImageFormat.Png](https://reference.aspose.com/slides/python-java/aspose.slides/imageformat/#Png) çağırır.
 
 ```python
 import jpype
@@ -50,21 +45,23 @@ from asposeslides.api import ImageFormat, Presentation
 
 presentation = Presentation("presentation.pptx")
 try:
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage()
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage()
         try:
-            slide_image.save(f"slide_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
-## **PowerPoint'i Özel Ölçekle PNG'ye Dönüştür**
+{{% alert color="info" title="Note" %}}
+Parametresiz [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) aşırı yüklemesi 0,2 ölçeğinde renderlar. Örneğin, 720 × 540 puan ölçüsündeki bir slayt 144 × 108 piksel bir küçük resim üretir. Çıkış boyutlarını kontrol etmek için aşağıda gösterildiği gibi ölçek faktörleriyle veya açık bir görüntü boyutuyla aşırı yüklemeleri kullanın.
+{{% /alert %}}
 
-Çıktı boyutlarını artırmak veya azaltmak için [Slide.getImage](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slide/#getImage) metoduna yatay ve dikey ölçek faktörleri gönderin. Örneğin, 720 × 540 puanlık bir slayt, her iki eksende 2 ölçek faktörüyle renderlendiğinde 1440 × 1080 piksel bir görüntü üretir.
+## **PowerPoint'i Özel Boyutlarla PNG'ye Dönüştür**
 
-Aynı ölçek faktörlerini kullanarak slaytın en/boy oranını koruyun. Farklı faktörler slaytı yatay ya da dikey olarak uzatır.
+Renderlanan boyutları kontrol etmek için [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) yöntemine yatay ve dikey ölçek faktörlerini geçirin. Bu örnekte, her iki faktör de 2'dir, bu nedenle 720 × 540 puan ölçüsündeki bir slayt 1440 × 1080 piksel bir görüntü üretir. Eşit ölçek faktörleri slaytın en‑boy oranını korur. Her renderlanan görüntü PNG formatında kaydedilir.
 
 ```python
 import jpype
@@ -78,22 +75,21 @@ from asposeslides.api import ImageFormat, Presentation
 presentation = Presentation("presentation.pptx")
 try:
     scale_x = 2.0
-    scale_y = 2.0
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage(scale_x, scale_y)
+    scale_y = scale_x
+
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage(scale_x, scale_y)
         try:
-            slide_image.save(f"slide_scaled_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
 ## **PowerPoint'i Özel Boyutla PNG'ye Dönüştür**
 
-Kesin piksel boyutlarını belirtmek için istediğiniz genişlik ve yükseklik değerleriyle bir Java `Dimension` nesnesi oluşturup [Slide.getImage](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slide/#getImage) metoduna geçirin. Kaynağın slaytıyla aynı en/boy oranını seçin, aksi takdirde bozulma olur.
-
-Aşağıdaki örnek her slaytı 960 × 720 piksel PNG görüntüsü olarak kaydeder:
+Çıkış boyutlarını piksel olarak belirtmek için ölçek faktörleri yerine bir boyut [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) yöntemine geçirin. Bu örnek, her slaytı 960 × 720 pikselde renderlayıp sonucu PNG formatında kaydeder. Görüntünün uzamasını önlemek için slaytın en‑boy oranına uyan boyutları seçin.
 
 ```python
 import jpype
@@ -108,26 +104,73 @@ from java.awt import Dimension
 presentation = Presentation("presentation.pptx")
 try:
     image_size = Dimension(960, 720)
-    for index, slide in enumerate(presentation.getSlides(), start=1):
-        slide_image = slide.getImage(image_size)
+
+    for index, slide in enumerate(presentation.getSlides()):
+        image = slide.getImage(image_size)
         try:
-            slide_image.save(f"slide_sized_{index}.png", ImageFormat.Png)
+            image.save(f"slide_{index}.png", ImageFormat.Png)
         finally:
-            slide_image.dispose()
+            image.dispose()
 finally:
     presentation.dispose()
 ```
 
+## **Bir Degrade Renderleme Stili Seçin**
+
+Bir slaytın degrade doldurmaları olduğunu varsayalım, ancak dışa aktarılan PNG'deki geçişler PowerPoint'te gördüklerinizden daha açık veya farklı görünebilir. Degradelerin nasıl renderlanacağını seçmek için [RenderingOptions](https://reference.aspose.com/slides/python-java/aspose.slides/renderingoptions/) tarafından miras alınan [SaveOptions.setGradientStyle](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setGradientStyle) yöntemini kullanabilirsiniz.
+
+Uygulamanın çalışma dizinine [gradient-styles.pptx](gradient-styles.pptx) dosyasını indirin ve yerleştirin. İlk slaytı iki lineer degrade içerir: üstte camgöbeğinden turuncuya ve altta maviden sarıya. Her degrade iki durak içerir, %0 ve %100'de.
+
+Aşağıdaki örnek bu sunumu yükler ve aynı ilk slaytı iki modda [Slide.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getImage) ile renderlar.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import GradientStyle, ImageFormat, Presentation, RenderingOptions
+
+presentation = Presentation("gradient-styles.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    gradient_styles = (GradientStyle.Default, GradientStyle.PowerPointUI)
+    for style in gradient_styles:
+        options = RenderingOptions()
+        options.setGradientStyle(style)
+
+        style_name = "Default" if style == GradientStyle.Default else "PowerPointUI"
+        image = slide.getImage(options, 1.0, 1.0)
+        try:
+            image.save(f"gradient-{style_name}.png", ImageFormat.Png)
+        finally:
+            image.dispose()
+finally:
+    presentation.dispose()
+```
+
+Aşağıdaki görüntüler aynı slayttan çıkan sonuçları gösterir, her görüntüde her iki degrade de vardır:
+
+| Default | PowerPointUI |
+| --- | --- |
+| ![Varsayılan ile renderlanan camgöbeğinden turuncuya ve maviden sarıya degradeler](gradient-Default.png) | ![Aynı degradeler PowerPointUI ile renderlanmıştır](gradient-PowerPointUI.png) |
+
+Bu örnekte, `Default` daha açık ara renkler üretirken, `PowerPointUI` daha koyu ara renkler üretir. Fark, degrade içindeki renkler ve duraklara bağlıdır.
+
+`Default` seçin, çünkü standart Aspose.Slides çıktısı ihtiyaçlarınıza uygunsa. Görünümün PowerPoint ile eşleşmesi önceliğinizse `PowerPointUI` deneyin. Her iki çıktıyı hedeflediğiniz sonuçla karşılaştırın; hiçbir mod evrensel olarak tercih edilebilir değildir.
+
 ## **SSS**
 
-**Bir grafik veya resim gibi tek bir şekli, tüm slayt yerine dışa aktarabilir miyim?**
+**Bir slaytın tamamı yerine belirli bir şekli, örneğin bir grafik veya resim, nasıl dışa aktarabilirim?**
 
-Evet. Aspose.Slides, tek tek şekiller için [küçük resim oluşturmayı](/slides/tr/python-java/create-shape-thumbnails/) destekler; bunları PNG görüntüsü olarak kaydedebilirsiniz.
+Aspose.Slides, [generating thumbnails for individual shapes](/slides/tr/python-java/create-shape-thumbnails/) özelliğiyle, bir şekli PNG görüntüsü olarak renderlamanıza olanak tanır.
 
-**Sunucuda sunumları paralel olarak dönüştürebilir miyim?**
+**Sunucuda paralel dönüştürme destekleniyor mu?**
 
-Her iş parçacığı veya süreç için ayrı bir sunum örneği kullanın ve dosyaların üzerine yazılmasını önlemek için benzersiz çıktı yolları belirleyin. İş parçacıkları arasında bir sunum örneğini paylaşmayın. Bkz. [Multithreading](/slides/tr/python-java/multithreading/).
+Evet. Her iş parçacığı veya süreç için ayrı bir sunum örneği kullanın; [iş parçacıkları arasında tek bir örnek paylaşmayın](/slides/tr/python-java/multithreading/).
 
-**PNG olarak dışa aktarırken deneme sürümü sınırlamaları nelerdir?**
+**PNG'ye dışa aktarırken değerlendirme sınırlamaları nelerdir?**
 
-Değerlendirme modu, çıktı görüntülerine bir filigran ekler ve [diğer kısıtlamaları](/slides/tr/python-java/licensing/) uygular. Bu sınırlamaları kaldırmak için bir lisans uygulayın.
+Değerlendirme modu, çıktı görüntülerine bir filigran ekler ve lisans uygulanana kadar [diğer kısıtlamalar](/slides/tr/python-java/licensing/) uygular.
