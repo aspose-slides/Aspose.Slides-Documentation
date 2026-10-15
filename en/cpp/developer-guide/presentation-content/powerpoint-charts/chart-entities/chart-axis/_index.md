@@ -96,6 +96,82 @@ chart->get_ChartData()->SwitchRowColumn();
 presentation->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Reverse the Plotting Order of an Axis**
+
+Use [set_IsPlotOrderReversed](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isplotorderreversed/) to reverse a category or value axis. For example, a horizontal bar chart can show project stages from top to bottom in the same order as the worksheet: Planning, Development, Testing. Reversing an axis changes the plotting direction; it does not sort or rearrange the workbook data. By comparison, [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) exchanges the roles of series and categories.
+
+The following example creates a horizontal bar chart with three stages and one series. It saves a presentation with three slides: normal order, reversed categories, and reversed values. Each copy uses the same dataset, and only one axis is reversed on each copy.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/CrossesType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredBar, 50, 40, 620, 320);
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::ClusteredBar);
+auto stages = std::array<System::String, 3>{u"Planning", u"Development", u"Testing"};
+auto values = std::array<int, 3>{10, 30, 20};
+for (auto i = 0; i < stages.size(); i++)
+{
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(stages[i]));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+// Slide 2: display the first category at the top.
+auto categorySlide = presentation->get_Slides()->AddClone(slide);
+auto categoryChart = System::ExplicitCast<IChart>(categorySlide->get_Shape(0));
+categoryChart->get_Axes()->get_VerticalAxis()->set_IsPlotOrderReversed(true);
+// Keep the horizontal value axis at the bottom.
+categoryChart->get_Axes()->get_VerticalAxis()->set_CrossType(CrossesType::Maximum);
+
+// Slide 3: reverse only the horizontal numeric scale.
+auto valueSlide = presentation->get_Slides()->AddClone(slide);
+auto valueChart = System::ExplicitCast<IChart>(valueSlide->get_Shape(0));
+valueChart->get_Axes()->get_HorizontalAxis()->set_IsPlotOrderReversed(true);
+
+presentation->Save(u"ReversedAxes.pptx", SaveFormat::Pptx);
+```
+
+Reversing an axis can also move the perpendicular axis to the opposite side of the plot. [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) controls where the other axis crosses the axis being configured. In slide 2, setting it to `Maximum` on the reversed category axis keeps the horizontal value axis at the bottom. For a specific crossing point, use [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Check the crossing settings when changing direction, especially if the chart already has a custom crossing point. Call `set_IsPlotOrderReversed` with `false` to restore the normal plotting direction; crossing settings are separate.
+
+| Normal order (slide 1) | Reversed categories (slide 2) | Reversed values (slide 3) |
+| --- | --- | --- |
+| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
+| Categories run from bottom to top; values increase from left to right. | Planning, Development, and Testing run from top to bottom. Values and workbook row order are unchanged. | Categories retain their normal order; values increase from right to left. The category axis crosses at zero on the right. |
+
 ## **Disable the Vertical Axis for Line Charts**
 
 Use [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) with `false` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
