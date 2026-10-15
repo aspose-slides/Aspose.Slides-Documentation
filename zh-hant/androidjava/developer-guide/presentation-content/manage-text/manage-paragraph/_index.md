@@ -1,5 +1,5 @@
 ---
-title: 管理 Android 上的 PowerPoint 文字段落
+title: 在 Android 上管理 PowerPoint 文字段落
 linktitle: 管理段落
 type: docs
 weight: 40
@@ -30,33 +30,25 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Android via Java 建立與格式化段落、部份、項目符號、編號清單、縮排、HTML 內容，以及段落影像。"
+description: "了解如何使用 Aspose.Slides for Android via Java 建立與格式化段落、字串、項目符號、編號清單、縮排、HTML 內容與段落影像。"
 ---
-## **概觀**
+## **概述**
 
-Aspose.Slides for Android via Java 將文字表示為文字框、段落和部份的層次結構：
+Aspose.Slides for Android via Java 將文字表示為文字框、段落與字串的層次結構：
 
-* [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) 代表形狀中的文字容器，並提供存取其段落集合的功能。
-* [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) 代表文字框中的一個段落，並提供存取其部份及段落層級格式設定的功能。
-* [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) 代表段落中的文字執行。每個部份可以有自己的文字和字元層級格式設定。
+* [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) 表示形狀中的文字容器，並提供對其段落集合的存取。
+* [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) 代表文字框中的一個段落，並提供對其字串與段落層級格式的存取。
+* [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) 代表段落內的文字執行。每個字串可以有自己的文字與字元層級格式。
 
-因此，段落可以透過使用多個部份，包含不同字型、顏色、大小和其他格式的文字。
+因此，一個段落可以透過使用多個字串來包含不同字型、顏色、大小和其他格式的文字。
 
-## **建立並格式化段落**
+## **建立與格式化段落**
 
-### **建立包含多個部份的段落**
+在形狀的文字框中建立段落，並使用字串來格式化單一文字執行。本節說明如何在每個段落內結合多個字串，並套用不同的顏色、字型大小與樣式。
 
-以下步驟會建立一個文字框，內含三個段落，每個段落都有三個部份：
+### **建立含多個字串的段落**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 類別的實例。
-2. 透過索引存取相關投影片。
-3. 在投影片上新增一個矩形的 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)。
-4. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)。
-5. 使用預設段落，並向文字框中新增另外兩個 [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) 物件。
-6. 為每個段落新增足夠的 [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) 物件，使其包含三個部份。預設段落已包含一個空的部份。
-7. 設定每個部份的文字。
-8. 透過 [IPortion.getPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getPortionFormat--) 套用字元層級的格式設定。
-9. 儲存已修改的簡報。
+下列 Android via Java 範例建立三個段落，每個段落在由 [IParagraph.getPortions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getPortions--) 取得的集合中包含三個文字執行。它重新使用預設段落及其空白字串，然後加入其餘的段落與字串。格式化透過 [IPortion.getPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getPortionFormat--) 完成：每個段落的第一個字串為紅色、粗體且 15 點；第二個為藍色、斜體且 18 點。第三個字串保留預設格式：
 
 ```java
 import com.aspose.slides.*;
@@ -65,6 +57,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
     ITextFrame textFrame = shape.getTextFrame();
 
@@ -114,22 +107,13 @@ try {
 
 ## **建立項目符號與編號清單**
 
+將段落文字組織成符號、編號或自訂圖片的清單。本節的範例涵蓋項目符號格式、多層清單以及自訂起始編號。
+
 ### **建立項目符號或編號清單**
 
-項目符號與編號可讓相關項目更易於掃描。在 Aspose.Slides 中，清單設定是透過 [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/) 定義的。
+項目符號與編號讓相關項目更易於檢視。在 Aspose.Slides 中，清單設定透過 [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/) 定義。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 類別的實例。
-2. 透過索引存取相關投影片。
-3. 在選取的投影片上新增一個 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)。
-4. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)。
-5. 從文字框中移除預設段落。
-6. 為符號項目符號建立一個 [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/)。
-7. 將 [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) 設為 [BulletType.Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/) 並指定項目符號字元。
-8. 設定段落文字、縮排、項目符號顏色與項目符號高度。
-9. 將段落加入文字框。
-10. 建立第二個段落，並將 [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) 設為 [BulletType.Numbered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/)。
-11. 設定編號項目符號樣式，並將段落加入文字框。
-12. 儲存簡報。
+此 Android via Java 範例在同一文字框中加入符號項目符號與編號項目。 [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) 選擇項目符號類型，[IBulletFormat.setChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setChar-char-) 提供符號，且 [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) 選擇編號樣式。兩個項目皆使用黑色項目符號，比例為 100%，段落縮排為 25 點：
 
 ```java
 import com.aspose.slides.*;
@@ -138,6 +122,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -172,18 +157,9 @@ try {
 
 ### **使用圖片項目符號**
 
-圖片項目符號允許您使用自訂圖片取代符號或編號。
+圖片項目符號允許使用自訂圖片取代符號或編號。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 類別的實例。
-2. 透過索引存取相關投影片。
-3. 新增一個 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) 並取得其 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)。
-4. 從文字框中移除預設段落。
-5. 載入項目符號圖片，並以 [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) 的形式加入簡報的影像集合中。
-6. 建立一個 [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) 並設定其文字。
-7. 將 [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) 設為 [BulletType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/)。
-8. 透過 [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--) 指定圖片，並設定項目符號高度。
-9. 將段落加入文字框。
-10. 儲存已修改的簡報。
+此 Android via Java 範例將圖像加入簡報的圖像集合，作為 [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/)，並將其用作段落項目符號。它呼叫 [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) 使用圖片項目符號，並透過 [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--) 指派圖像。[IBulletFormat.setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setHeight-float-) 設為 100% 以相對段落文字調整項目符號大小：
 
 ```java
 import com.aspose.slides.*;
@@ -218,15 +194,11 @@ try {
 }
 ```
 
-### **建立多層次清單**
+### **建立多層清單**
 
-將 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) 設為不同值，可將段落放置於清單的不同層級。最高層的深度為 `0`。
+設定 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) 以將段落放在清單的不同層級。最高層的深度為 `0`。
 
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 並存取投影片。
-2. 新增一個 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)，並清除其文字框中的預設段落。
-3. 建立四個段落並設定其項目符號字元。
-4. 將它們的 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) 值分別設為 `0`、`1`、`2`、`3`。
-5. 將段落加入文字框並儲存簡報。
+此 Android via Java 範例將 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) 的值從 0 設為 3，套用於四個段落，於同一文字框內建立層級結構。每個段落使用符號項目符號，且 [IBulletFormat.setChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setChar-char-) 在圓形項目符號與連字號之間交替，以區分相鄰層級：
 
 ```java
 import com.aspose.slides.*;
@@ -235,6 +207,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -282,15 +255,11 @@ try {
 }
 ```
 
-### **將編號清單項目的起始值設為自訂**
+### **自訂編號起始值**
 
-使用 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 可設定編號段落顯示的起始數字。
+使用 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 設定編號段落的起始編號。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 並在投影片上新增一個 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)。
-2. 清除形狀文字框中的預設段落。
-3. 建立三個編號段落。
-4. 將 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 分別設定為 `2`、`3`、`7`。
-5. 將段落加入文字框並儲存簡報。
+此 Android via Java 範例將 [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) 設為編號，並為三個段落分別指定 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 的值為 2、3 與 7。每個段落的起始值獨立設定，使顯示的編號可跳過：
 
 ```java
 import com.aspose.slides.*;
@@ -298,6 +267,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -326,23 +296,17 @@ try {
 }
 ```
 
-## **控制段落版面配置與結束屬性**
+## **控制段落版面與結尾屬性**
+
+調整段落邊距與縮排，以控制第一行與換行行的位置。您也可以將段落結尾標記的格式與可見文字的字串分開設定。
 
 ### **設定首行縮排**
 
-使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 來控制段落的首行縮排。此方法僅會移動首行相對於段落左邊界的距離。正值會將首行向右移動，而其餘行則保持與段落正文對齊。
+使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 方法控制段落的首行縮排。此設定僅移動第一行相對於段落左邊界的距離。正值會將第一行向右移，剩餘行則保持與段落本體對齊。
 
-需要移動整個段落時，請使用 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。需要僅移動首行時，請使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)。
+若需移動整段落，請使用 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。若只需移動首行，請使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)。
 
-以下範例建立多個段落，並套用不同的 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 值，以示範首行縮排如何影響段落版面。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 類別的實例。
-2. 存取目標投影片。
-3. 在投影片上新增一個矩形的 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)。
-4. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) 並移除預設段落。
-5. 建立多個段落，並為它們設定不同的 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 值。
-6. 將段落加入文字框。
-7. 儲存已修改的簡報。
+以下範例將三個段落的 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 設為 20 點，且 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 分別為 0、20、40 點。第一行的起始位置依次遞增，而換行行保留相同的左邊界：
 
 ```java
 import com.aspose.slides.*;
@@ -398,20 +362,13 @@ try {
 
 ### **設定懸掛縮排**
 
-懸掛縮排是一種段落版面配置，首行位於其餘行的左側。在 Aspose.Slides 中，您可以使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 並傳入負值，以使首行相對於段落正文向左移動。
+懸掛縮排是一種段落版面配置，第一行位於其餘行的左側。在 Aspose.Slides 中，可透過 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 屬性實現。將 `Indent` 設為負值，即可使第一行相對於段落本體向左移動。
 
-實務上，[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 定義段落正文的左側位置，而 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 定義首行相對於該左側的偏移。若要產生懸掛縮排，請對 `setMarginLeft` 傳入正值，並對 `setIndent` 傳入負值。
+實務上，[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 定義段落本體的左側位置，而 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 定義第一行相對於該邊界的位置。要建立懸掛縮排，請將 `MarginLeft` 設為正值，`Indent` 設為負值。
 
-此格式特別適用於書目、参考文獻、詞彙表項目等需要讓換行行首對齊於段落正文而非首行第一個字元的情況。
+此格式常用於書目、參考文獻、詞彙表條目等需要讓換行行對齊於段落本體而非第一行第一個字元的情況。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 類別的實例。
-2. 存取目標投影片。
-3. 在投影片上新增一個矩形的 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)。
-4. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) 並移除預設段落。
-5. 建立段落，並為每個段落傳入正值給 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。
-6. 傳入負值給 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 以產生懸掛縮排效果。
-7. 將段落加入文字框。
-8. 儲存已修改的簡報。
+以下 Android via Java 範例將 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 設為 40 與 60 點，並將 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 設為 -20 與 -30 點。每個段落的第一行皆位於換行行左側；第二個段落的懸掛縮排更深：
 
 ```java
 import com.aspose.slides.*;
@@ -459,14 +416,7 @@ try {
 
 ### **設定段落結尾執行屬性**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 控制段落結尾標記的格式設定。以下範例將字型大小與 Latin 字型套用到第二個段落的結尾標記：
-
-1. 載入一個 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 並存取投影片。
-2. 新增一個 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) 並清除其預設段落。
-3. 建立兩個段落並向其加入文字部份。
-4. 為第二個段落的結尾標記建立 [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/)。
-5. 設定 [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) 與 [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-)。
-6. 使用 [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 指定格式，並儲存簡報。
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 方法控制段落結尾標記的格式。以下範例建立一個 [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/) ，將 [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) 設為 48 點，並將 [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) 設為 Times New Roman。然後將此格式套用至第二段落的結尾標記，保持可見文字字串不變：
 
 ```java
 import com.aspose.slides.*;
@@ -474,6 +424,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("Test.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -500,13 +451,13 @@ try {
 
 ## **計算呈現行數**
 
-若需了解會影響自動換行與行尾標點的段落規則，請參閱 [控制換行](/slides/zh-hant/androidjava/text-formatting/#control-line-breaking) 與 [控制懸掛標點](/slides/zh-hant/androidjava/text-formatting/#control-hanging-punctuation)。
+若需了解會影響自動換行與行尾標點的段落規則，請參閱 [Control Line Breaking](/slides/zh-hant/androidjava/text-formatting/#control-line-breaking) 與 [Control Hanging Punctuation](/slides/zh-hant/androidjava/text-formatting/#control-hanging-punctuation)。
 
-使用 [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) 可計算段落在文字排版後佔用的行數（包含自動換行）。在檢查簡報範本的文字長度與版面時，此功能非常有用。
+使用 [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) 可取得段落在文字佈局後所佔的行數，包含自動換行。此功能在檢查投影片範本中文本長度與版面時相當有用。
 
-段落是 [ITextFrame.getParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParagraphs--) 中的單一項目，且可能佔用多行。段落內的顯式換行會強制換行而不會產生新段落。自動換行會根據可用寬度產生新行，而不會在文字中插入顯式換行字元。因此，僅計算段落或換行字元並不能得到實際的呈現行數。
+段落是 [ITextFrame.getParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParagraphs--) 中的一個項目，且可能佔多行已呈現的行。段落內的顯式換行會強制產生新行，卻不會產生新段落。自動換行則根據可用寬度產生行，且不會在文字中插入換行字元。因此，僅計算段落或換行字元無法得到實際呈現的行數。
 
-以下範例建立一個文字形狀，計算其行數，縮小形狀寬度，然後以較短的字串取代文字。範例啟用了換行且停用自動適應，讓形狀寬度決定換行，而不會自動縮小文字或調整形狀大小。形狀尺寸以點為單位。最後，範例再加入另一個段落，並將整個文字框的行數相加。
+以下範例建立一個文字形狀，計算其行數，縮小形狀後再以較短的字串取代文字。範例透過 [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) 開啟換行，並使用 [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) 停用自動適應，讓形狀寬度控制換行而不會自動縮小文字或調整形狀大小。每一次測量均使用 [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--)。形狀尺寸以點為單位。最後，範例再加入另一個段落，並將整個文字框的行數加總。
 
 ```java
 import com.aspose.slides.*;
@@ -546,22 +497,19 @@ try {
 }
 ```
 
-使用此文字與尺寸時，縮小形狀會增加行數，而以較短字串取代文字則會減少行數。實際行數可能因字型可用性與替代、字型大小、邊距、縮排、換行與自動適應設定而有所不同。檢查範本時請使用目標環境所預期的字型與版面設定。
+在此文字與這些尺寸下，縮小形狀會增加行數，而將文字換成短字串則會減少行數。實際行數可能因字型可用性與替代、字型大小、邊距、縮排、換行與自動適應設定而有所不同；請使用目標環境的字型與版面設定進行檢查。
 
-僅依行數無法判斷文字是否溢出容器。可用高度、行高、段落與行間距以及自動適應行為也會影響，即使是單行，在停用換行時也可能超出可用寬度。
+僅憑行數無法判斷文字是否超出容器。可用的高度、行高、段落與行距，以及自動適應行為同樣重要；即使是單行文字，若關閉換行功能，也可能超出可用寬度。
 
 ## **匯入與匯出段落內容**
 
+使用 HTML 將文字匯入簡報，或將現有段落匯出供外部使用。本節亦示範如何將個別段落渲染為影像，包含表格儲存格中的段落。
+
 ### **將 HTML 文字匯入段落**
 
-使用 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) 可將 HTML 標記轉換為文字框中的段落與部份。
+使用 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) 將 HTML 標記轉換為文字框內的段落與字串。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 類別的實例。
-2. 存取投影片並新增一個 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)。
-3. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) 並清除預設段落。
-4. 讀取來源 HTML 檔案。
-5. 將 HTML 字串傳遞給 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)。
-6. 儲存已修改的簡報。
+此 Android via Java 範例從檔案讀取 HTML，並將標記傳遞給 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)。它會清除文字框的預設段落，使框中僅保留匯入的內容。矩形形狀在投影片四周保留 10 點的邊距：
 
 ```java
 import com.aspose.slides.*;
@@ -573,6 +521,7 @@ import java.nio.file.Paths;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
     float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -594,13 +543,16 @@ try {
 
 ### **將段落文字匯出為 HTML**
 
-使用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 可將選取的段落範圍匯出為 HTML。
+使用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 匯出選取的段落範圍為 HTML。當在網站上重新使用簡報文字時，您可能只想保留局部強調，而不帶入簡報的字型、大小或文字方塊樣式。請將 [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) 設為適當值，以控制匯出器沿用格式的層級深度。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 類別的實例，並載入所需的簡報。
-2. 存取投影片，並找到包含文字的 [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)。
-3. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)。
-4. 呼叫 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-)，傳入起始段落索引與要匯出的段落數量。
-5. 將回傳的 HTML 字串寫入檔案。
+下載 [範例簡報](text-inheritance.pptx) 並放置於應用程式工作目錄。其第一張投影片包含一個文字形狀，文字為「Inherited text; explicit red 18pt」。輸入特意使用了多層格式：
+
+- 簡報的預設文字樣式提供 Calibri，尺寸為 28 pt。
+- 文字框的第一層文字樣式提供藍色文字與斜體。
+- 段落明確設定為粗體。
+- 第二個字串「explicit red 18pt」明確設定為紅色文字，尺寸為 18 pt。
+
+以下完整範例將相同段落匯出三次。它將 [TextToHtmlConversionOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/texttohtmlconversionoptions/) 傳遞給匯出方法，並將每個結果寫入獨立的 UTF-8 HTML 檔案：
 
 ```java
 import com.aspose.slides.*;
@@ -609,7 +561,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-Presentation presentation = new Presentation("ExportingHTMLText.pptx");
+Presentation presentation = new Presentation("text-inheritance.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -618,11 +570,21 @@ try {
         ITextFrame textFrame = textShape.getTextFrame();
         if (textFrame != null) {
             IParagraphCollection paragraphs = textFrame.getParagraphs();
-            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            try {
-                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
-            } catch (IOException exception) {
-                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            
+            int[] modes = { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+            String[] fileNames = { "All.html", "TextBox.html", "ParagraphOnly.html" };
+
+            for (int i = 0; i < modes.length; i++) {
+                TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                byte[] htmlBytes = html.getBytes(StandardCharsets.UTF_8);
+                try {
+                    Files.write(Paths.get(fileNames[i]), htmlBytes);
+                } catch (IOException exception) {
+                    System.out.println("The HTML file could not be written: " + exception.getMessage());
+                }
             }
         } else {
             System.out.println("The first shape does not contain a text frame.");
@@ -635,19 +597,31 @@ try {
 }
 ```
 
-### **將段落呈現為影像**
+產生的 HTML 為第一字串「Inherited text; 」包含以下 CSS。表格列出相關宣告，其他產生的屬性為簡化說明已省略。
 
-[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) 直接呈現單一段落，並回傳一個 [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/)。可使用 [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 將結果儲存為檔案或串流。無需呈現包含的形狀或手動裁切位圖。
+| 輸出 | 首個字串的相關 CSS | 外觀 |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | 藍色、粗體、斜體文字，字型為 Calibri，大小 28 pt（若系統有此字型）。 |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | 藍色、粗體、斜體文字；字型與大小由頁面或瀏覽器提供。 |
+| `ParagraphOnly.html` | `font-weight:bold` | 粗體文字；字型、大小、顏色與斜體樣式由頁面或瀏覽器提供。 |
 
-如果段落在其父集合中找不到、沒有有效的呈現邊界，或無法呈現，則 [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) 可能回傳 `null`。請在儲存前檢查結果，使用完畢後釋放回傳的影像。
+第二個字串在所有三個輸出中皆保留 `color:#ff0000`、`font-size:18pt` 與 `font-weight:bold`，且在 `All` 與 `TextBox` 中保留斜體，在 `ParagraphOnly` 中則無。限制繼承不會移除明確指派給段落或字串的格式。
 
-#### **以預設比例呈現段落**
+在相同瀏覽器中開啟這些檔案以比較。於受限模式下，省略的 CSS 屬性會由目標頁面的樣式或瀏覽器預設補足，最終呈現取決於 HTML 使用的環境。
 
-假設我們有一個名為 sample.pptx 的簡報檔案，只有一張投影片，且第一個形狀是一個包含三個段落的文字方塊。
+### **將段落渲染為影像**
+
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) 直接渲染單一段落，並傳回 [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/)。可使用 [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 將結果儲存至檔案或串流。無需渲染包含的形狀或手動裁切影像。
+
+若段落在其父集合中找不到、沒有有效的呈現邊界，或無法渲染，則 [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) 可能回傳 `null`。請在儲存前檢查結果，並於使用完畢後釋放返回的影像。
+
+#### **以預設比例渲染段落**
+
+範例使用一個投影片，第一個形狀為包含三個段落的文字方塊。
 
 ![包含三個段落的文字方塊](paragraph_to_image_input.png)
 
-以下範例在預設比例下將第二個段落於一般文字形狀中呈現，並以 PNG 格式儲存回傳的影像。`finally` 區塊確保影像正確釋放。
+以下範例選取索引為 1 的第二段落，呼叫 [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--)（未傳遞比例參數），檢查形狀是否包含所需段落，且渲染返回影像後，使用 [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 以 PNG 格式儲存。`finally` 區塊在使用完畢後釋放影像。
 
 ```java
 import com.aspose.slides.*;
@@ -687,9 +661,9 @@ try {
 
 ![段落影像](paragraph_to_image_output.png)
 
-#### **在表格儲存格中以縮放呈現段落**
+#### **在表格儲存格中以比例渲染段落**
 
-使用接受 `float scaleX` 與 `float scaleY` 參數的 [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) 重載，以設定水平與垂直縮放係數。以下範例建立表格，並在第一個儲存格中以兩倍寬高的預設比例呈現段落，最後將結果儲存為 PNG 影像。
+使用接受 `float scaleX` 與 `float scaleY` 參數的 [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) 版本，設定水平與垂直比例因子。以下範例建立表格，於其第一個儲存格內以兩倍寬度與高度渲染段落，並以 PNG 影像儲存。
 
 ```java
 import com.aspose.slides.*;
@@ -700,6 +674,7 @@ float scaleY = 2f;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
     IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
     paragraph.setText("Text in a table cell");
@@ -719,26 +694,26 @@ try {
 }
 ```
 
-縮放係數 `1` 表示該軸保持預設像素大小。例如，兩個係數皆為 `2` 時，產生的影像寬高大約為預設的兩倍，像素數量約為四倍。較大的係數通常可在放大或高解析度輸出時產生更銳利的文字，但也會增加記憶體使用與檔案大小。係數低於 `1` 會產生較小且細節較少的影像。使用相同的係數可保留段落的長寬比；不同的水平與垂直係數會獨立拉伸輸出。
+比例因子 `1` 代表該軸保持預設像素大小。例如，兩個因子皆為 `2` 時，影像的寬度與高度約為預設的兩倍，像素數量為四倍。較大的因子通常在縮放或高解析度輸出時產生較銳利的文字，但同時會增加記憶體使用與檔案大小。因子小於 `1` 會產生較小且細節較少的影像。使用相同的因子可保留段落的長寬比；不同的水平與垂直因子會分別拉伸輸出。
 
-當需要包含形狀的填充、邊框或其他視覺上下文時，仍可使用 [IShape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getImage--) 來呈現整個形狀。若僅需段落影像，請使用 [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--)。
+在需要包含形狀填色、邊框或其他視覺上下文時，仍可使用 [IShape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getImage--) 來渲染整個形狀。若僅需段落影像，請使用 [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--)。
 
 ## **常見問題**
 
 **我可以完全停用文字框內的換行嗎？**
 
-是的。將 [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) 設為停用，即可關閉換行，使行不會在文字框邊緣斷開。
+可以。將 [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) 設為停用，即可防止換行，使行不會在文字框邊緣斷開。
 
 **如何取得特定段落在投影片上的精確邊界？**
 
-使用 [IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getRect--) 取得段落的邊界矩形。[IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getRect--) 可取得單一部份的邊界。
+使用 [IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getRect--) 取得段落的邊界矩形。[IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getRect--) 提供單一字串的邊界。
 
 **段落對齊（左、右、置中或兩端對齊）在哪裡設定？**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) 為段落層級設定，會套用至整個段落，與個別部份的格式無關。
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) 為段落層級設定，會套用於整個段落，與個別字串的格式無關。
 
-若需在每行內垂直對齊不同字型大小的部份，請參閱 [對齊行內字型](/slides/zh-hant/androidjava/text-formatting/#align-fonts-within-a-line)。
+若要在每行內垂直對齊不同字型大小的字串，請參閱 [Align Fonts Within a Line](/slides/zh-hant/androidjava/text-formatting/#align-fonts-within-a-line)。
 
-**我可以為段落的一部分設定校對語言嗎？**
+**我可以為段落的部分文字設定校對語言嗎？**
 
-可以。對個別部份使用 [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)，即可讓同一段落包含多種語言的文字。
+可以。對個別字串使用 [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)，即可在同一段落中包含多種語言的文字。

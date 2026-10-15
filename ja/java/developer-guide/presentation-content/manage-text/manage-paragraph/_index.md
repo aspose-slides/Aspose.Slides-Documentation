@@ -1,5 +1,5 @@
 ---
-title: JavaでPowerPointテキスト段落を管理する
+title: Java で PowerPoint テキスト段落を管理する
 linktitle: 段落の管理
 type: docs
 weight: 40
@@ -8,56 +8,46 @@ aliases:
   - /java/paragraph/
   - /java/portion/
 keywords:
-- テキストを追加
-- 段落を追加
-- テキストを管理
-- 段落を管理
-- 箇条書きを管理
-- 段落インデント
-- ぶら下げインデント
-- 段落箇条書き
-- 番号付きリスト
-- 箇条書きリスト
-- 段落プロパティ
-- HTML をインポート
-- テキストを HTML に変換
-- 段落を HTML に変換
-- 段落を画像に変換
-- テキストを画像に変換
-- 段落をエクスポート
-- PowerPoint
-- プレゼンテーション
-- Java
-- Aspose.Slides
+  - テキストを追加
+  - 段落を追加
+  - テキストを管理
+  - 段落を管理
+  - 箇条書きを管理
+  - 段落インデント
+  - ハンギングインデント
+  - 段落の箇条書き
+  - 番号付きリスト
+  - 箇条書きリスト
+  - 段落プロパティ
+  - HTML のインポート
+  - テキストから HTML へ
+  - 段落から HTML へ
+  - 段落から画像へ
+  - テキストから画像へ
+  - 段落をエクスポート
+  - PowerPoint
+  - プレゼンテーション
+  - Java
+  - Aspose.Slides
 description: "Aspose.Slides for Java を使用して、段落、ポーション、箇条書き、番号付きリスト、インデント、HTML コンテンツ、段落画像の作成と書式設定方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for Java はテキストをテキストフレーム、段落、ポーションの階層として表現します。
+Aspose.Slides for Java はテキストをテキストフレーム、段落、ポーションの階層として表します：
 
-* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) はシェイプ内のテキストコンテナを表し、段落コレクションへのアクセスを提供します。
-* [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) はテキストフレーム内の 1 つの段落を表し、ポーションと段落レベルの書式設定へのアクセスを提供します。
+* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) はシェイプ内のテキスト コンテナを表し、段落コレクションへのアクセスを提供します。
+* [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) はテキストフレーム内の段落を表し、ポーションおよび段落レベルの書式設定へのアクセスを提供します。
 * [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) は段落内のテキスト ランを表します。各ポーションは独自のテキストと文字レベルの書式設定を持つことができます。
 
-そのため、段落は複数のポーションを使用して、フォント、色、サイズ、その他の書式が異なるテキストを含めることができます。
+したがって、段落は複数のポーションを使用して、フォント、色、サイズ、その他の書式設定が異なるテキストを含めることができます。
 
 ## **段落の作成と書式設定**
 
+シェイプのテキストフレーム内で段落を作成し、ポーションを使用して個々のテキスト ランの書式設定を行います。このセクションでは、各段落内で�数のポーションを組み合わせ、異なる色、フォントサイズ、スタイルを適用する方法を示します。
+
 ### **複数のポーションを持つ段落の作成**
 
-以下の手順は、3 つの段落を持ち、各段落に 3 つのポーションを含むテキストフレームを作成します。
-
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用して対象のスライドにアクセスします。
-3. スライドに矩形の [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
-4. シェイプの [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスします。
-5. デフォルトの段落を使用し、テキストフレームにさらに 2 つの [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) オブジェクトを追加します。
-6. 各段落に 3 つのポーションを含めるのに十分な数の [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) オブジェクトを追加します。デフォルトの段落にはすでに空のポーションが 1 つ含まれています。
-7. 各ポーションのテキストを設定します。
-8. [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) を使用して文字レベルの書式設定を適用します。
-9. 変更されたプレゼンテーションを保存します。
-
-この Java の例は手順を実装しています：
+以下の Java の例は、[IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) コレクションで返されるコレクションに含まれる 3 つのテキスト ランをそれぞれ持つ 3 つの段落を作成します。デフォルトの段落と空のポーションを再利用し、残りの段落とポーションを追加します。書式設定は [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) を通じて適用されます。各段落の最初のポーションは赤、太字、15 ポイント、2 番目は青、斜体、18 ポイントです。3 番目のポーションはデフォルトの書式設定のままです：
 
 ```java
 import com.aspose.slides.*;
@@ -66,6 +56,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
     ITextFrame textFrame = shape.getTextFrame();
 
@@ -115,24 +106,13 @@ try {
 
 ## **箇条書きと番号付きリストの作成**
 
+段落テキストを記号、番号、またはカスタム画像のリストに整理します。このセクションの例では、箇条書きの書式設定、階層リスト、カスタム開始番号を取り上げます。
+
 ### **箇条書きまたは番号付きリストの作成**
 
-箇条書きと番号付けにより、関連項目を簡単に参照できます。Aspose.Slides では、リスト設定は [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/) を介して定義されます。
+箇条書きと番号付けは関連項目の把握を容易にします。Aspose.Slides では、[IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/) によりリスト設定が定義されます。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用して対象のスライドにアクセスします。
-3. 選択したスライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
-4. シェイプの [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスします。
-5. テキストフレームからデフォルトの段落を削除します。
-6. シンボル箇条書き用に [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) を作成します。
-7. [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) を [BulletType.Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/) に設定し、箇条書き文字を指定します。
-8. 段落テキスト、インデント、箇条書きの色、箇条書きの高さを設定します。
-9. 段落をテキストフレームに追加します。
-10. 2 番目の段落を作成し、[IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) を [BulletType.Numbered](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/) に設定します。
-11. 番号付き箇条書きのスタイルを構成し、段落をテキストフレームに追加します。
-12. プレゼンテーションを保存します。
-
-この Java の例はシンボル箇条書きと番号付き箇条書きを作成します：
+この Java の例は、同じテキストフレームにシンボル箇条書きと番号付き項目を追加します。[IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) は箇条書きのタイプを選択し、[IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) は記号を指定し、[IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) は番号付けスタイルを選択します。両方の項目は高さ 100% の黒い箇条書きを使用し、段落インデントは 25 ポイントです：
 
 ```java
 import com.aspose.slides.*;
@@ -141,6 +121,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -175,20 +156,9 @@ try {
 
 ### **画像箇条書きの使用**
 
-画像箇条書きでは、シンボルや番号の代わりにカスタム画像を使用できます。
+画像箇条書きを使用すると、記号や番号の代わりにカスタム画像を使用できます。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用して対象のスライドにアクセスします。
-3. [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加し、その [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスします。
-4. テキストフレームからデフォルトの段落を削除します。
-5. 箇条書き画像を読み込み、プレゼンテーションの画像コレクションに [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) として追加します。
-6. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) を作成し、テキストを設定します。
-7. [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) を [BulletType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/) に設定します。
-8. [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) で画像を割り当て、箇条書きの高さを設定します。
-9. 段落をテキストフレームに追加します。
-10. 変更されたプレゼンテーションを保存します。
-
-この Java の例は画像箇条書きを作成します：
+この Java の例は、プレゼンテーションの画像コレクションに画像を [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) として追加し、段落箇条書きとして使用します。[IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) を呼び出して画像箇条書きを設定し、画像は [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) で割り当てます。[IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) を 100% に設定し、段落テキストに対する箇条書きのサイズを指定します：
 
 ```java
 import com.aspose.slides.*;
@@ -223,17 +193,11 @@ try {
 }
 ```
 
-### **多層リストの作成**
+### **階層リストの作成**
 
-[IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) を設定して、段落をリストの異なるレベルに配置します。最上位レベルの深さは `0` です。
+[IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) を設定して、リストの異なるレベルに段落を配置します。最上位レベルの深さは `0` です。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) を作成し、スライドにアクセスします。
-2. [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加し、テキストフレームからデフォルトの段落をクリアします。
-3. 4 つの段落を作成し、箇条書き記号を構成します。
-4. それぞれの [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) 値を `0`、`1`、`2`、`3` に設定します。
-5. 段落をテキストフレームに追加し、プレゼンテーションを保存します。
-
-この Java の例は 4 レベルの箇条書きリストを作成します：
+この Java の例は、[IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) の値を 0 から 3 までの 4 つの段落に割り当て、1 つのテキストフレーム内に階層を作成します。各段落は記号箇条書きを使用し、[IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) を使用して丸い箇条書きとハイフンを交互に設定し、隣接レベルを区別します：
 
 ```java
 import com.aspose.slides.*;
@@ -242,6 +206,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -289,17 +254,11 @@ try {
 }
 ```
 
-### **番号付きリスト項目をカスタム開始値で開始**
+### **番号付きリスト項目の開始値をカスタムに設定**
 
 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) を使用して、番号付き段落の最初に表示される番号を設定します。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) を作成し、スライドに [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
-2. シェイプのテキストフレームからデフォルトの段落をクリアします。
-3. 3 つの番号付き段落を作成します。
-4. 各段落に対して、[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) をそれぞれ `2`、`3`、`7` に設定します。
-5. 段落をテキストフレームに追加し、プレゼンテーションを保存します。
-
-この Java の例は各段落にカスタム開始番号を割り当てます：
+この Java の例は、3 つの段落に対して [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) を設定し、番号付けを使用します。また、[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) に 2、3、7 の値を割り当てます。開始値は各段落ごとに個別に設定され、表示される番号は値を飛ばすことができます：
 
 ```java
 import com.aspose.slides.*;
@@ -307,6 +266,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -337,23 +297,15 @@ try {
 
 ## **段落のレイアウトと終端プロパティの制御**
 
-### **先頭行インデントの設定**
+段落の余白とインデントを調整して、最初の行と折り返し行の位置を制御します。また、可視テキストのポーションとは別に段落の終端記号の書式設定も可能です。
 
-[IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) を使用して段落の先頭行インデントを制御します。このメソッドは段落の左余白に対して最初の行だけを移動させます。正の値は先頭行を右にシフトし、残りの行は段落本文に揃ったままです。
+### **最初の行のインデントを設定**
 
-段落全体を移動する必要がある場合は [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) を使用し、先頭行だけを移動する場合は [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) を使用します。
+[IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) メソッドを使用して段落の最初の行のインデントを制御します。この設定は段落の左余白に対して最初の行だけを移動させます。正の値は最初の行を右にシフトし、残りの行は段落本体に揃ったままです。
 
-以下の例は複数の段落を作成し、異なる [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 値を適用して、先頭行インデントが段落レイアウトに与える影響を示します。
+段落全体を移動する必要がある場合は [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) を使用します。最初の行だけを移動したい場合は [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) を使用します。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. 対象のスライドにアクセスします。
-3. スライドに矩形の [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
-4. シェイプの [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスし、デフォルトの段落を削除します。
-5. 複数の段落を作成し、各段落に異なる [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 値を設定します。
-6. 段落をテキストフレームに追加します。
-7. 変更されたプレゼンテーションを保存します。
-
-このコードは段落インデントの設定方法を示します：
+次の例は、3 つの段落に同じ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 20 ポイントの余白と、[IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) の値をそれぞれ 0、20、40 ポイントに設定します。最初の行は徐々に大きなオフセットで開始し、折り返し行は同じ左余白を保持します：
 
 ```java
 import com.aspose.slides.*;
@@ -407,24 +359,15 @@ try {
 
 ![段落の先頭行インデント](first_line_indent.png)
 
-### **ぶら下げインデントの設定**
+### **ハンギングインデントの設定**
 
-ぶら下げインデントは、最初の行が残りの行より左に開始する段落レイアウトです。Aspose.Slides では [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) に負の値を指定して、段落本文に対して最初の行を左に移動させます。
+ハンギングインデントは、最初の行が残りの行より左に開始する段落レイアウトです。Aspose.Slides では、[IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) プロパティでこの効果を実現します。`Indent` に負の値を設定すると、段落本体に対して最初の行が左に移動します。
 
-実際には、[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) が段落本文の左位置を定義し、[IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) がその余白に対する最初の行の位置を定義します。ぶら下げインデントを作成するには、`setMarginLeft` に正の値を、`setIndent` に負の値を渡します。
+実際には、[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) が段落本体の左位置を定義し、[IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) がその余白に対する最初の行の位置を定義します。ハンギングインデントを作成するには、正の `MarginLeft` 値と負の `Indent` 値を設定します。
 
-この書式は、参考文献、文献リスト、用語集エントリ、その他の段落で、折り返し行が段落本文の下に揃う必要がある場合に便利です。
+この書式設定は、参考文献、引用、用語集エントリ、その他折り返し行が段落本体の下に揃える必要がある段落で役立ちます。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. 対象のスライドにアクセスします。
-3. スライドに矩形の [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
-4. シェイプの [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスし、デフォルトの段落を削除します。
-5. 各段落に対して、[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) に正の値を設定します。
-6. [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) に負の値を渡して、ぶら下げインデント効果を作成します。
-7. 段落をテキストフレームに追加します。
-8. 変更されたプレゼンテーションを保存します。
-
-このコードは段落のぶら下げインデントの設定方法を示します：
+以下の Java の例は、[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) の値 40 と 60 ポイントに対し、[IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) の値 -20 と -30 ポイントを組み合わせます。各段落で最初の行は折り返し行の左側に開始し、2 番目の段落はより深いハンギングインデントになります：
 
 ```java
 import com.aspose.slides.*;
@@ -468,18 +411,11 @@ try {
 
 結果：
 
-![段落のぶら下げインデント](hanging_indent.png)
+![段落のハンギングインデント](hanging_indent.png)
 
-### **段落終端の実行プロパティの設定**
+### **段落終端ランのプロパティ設定**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) は段落終端マークの書式設定を制御します。以下の例は、2 番目の段落の終端マークにフォントサイズとラテン文字フォントを割り当てます。
-
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) をロードし、スライドにアクセスします。
-2. [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加し、デフォルトの段落をクリアします。
-3. 2 つの段落を作成し、テキストポーションを追加します。
-4. 2 番目の段落の終端マーク用に [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) を作成します。
-5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) と [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) を設定します。
-6. [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) で書式を割り当て、プレゼンテーションを保存します。
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) メソッドは段落終端記号の書式設定を制御します。以下の例では、[PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) を作成し、[IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) を 48 ポイント、[IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) を Times New Roman に設定します。この書式を第2段落の終端記号に割り当て、可視テキストのポーションは変更しません：
 
 ```java
 import com.aspose.slides.*;
@@ -487,6 +423,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("Test.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -511,15 +448,15 @@ try {
 }
 ```
 
-## **描画された行数のカウント**
+## **描画行数のカウント**
 
-段落の自動折り返しや行末句読点に影響する規則については、[Control Line Breaking](/slides/ja/java/text-formatting/#control-line-breaking) と [Control Hanging Punctuation](/slides/ja/java/text-formatting/#control-hanging-punctuation) を参照してください。
+段落の自動折り返しや行末の句読点に影響するルールについては、[Control Line Breaking](/slides/ja/java/text-formatting/#control-line-breaking) および [Control Hanging Punctuation](/slides/ja/java/text-formatting/#control-hanging-punctuation) を参照してください。
 
-[IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) を使用して、テキストレイアウト後に段落が占める行数をカウントできます。自動折り返しを含むため、テンプレートでテキスト長とレイアウトをチェックする際に便利です。
+[IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) を使用して、テキストレイアウト後の段落が占める行数（自動折り返しを含む）をカウントします。これは、プレゼンテーションテンプレートでテキストの長さやレイアウトを確認する際に便利です。
 
-段落は [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--) の 1 アイテムであり、複数の描画行を占めることがあります。段落内の明示的な改行は新しい行を強制しますが、別の段落は作成しません。自動折り返しは利用可能な幅に基づいて行を生成し、テキストに明示的な改行文字を挿入しません。そのため、段落数や改行文字のカウントだけでは描画行数は得られません。
+段落は [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--) の 1 つの項目であり、複数の描画行を占めることがあります。段落内の明示的な改行は新しい行を強制しますが、別の段落は作成しません。自動折り返しは利用可能な幅に基づいて行を作成し、テキストに明示的な改行文字を挿入しません。そのため、段落や改行文字の数を数えても描画行数は得られません。
 
-以下の例はテキストシェイプを作成し、行数をカウントし、シェイプを狭めてからテキストを短い文字列に置き換えます。折り返しは有効で、オートフィットは無効にしているため、シェイプの幅で折り返しが制御され、テキストやシェイプの自動縮小は行われません。シェイプの寸法はポイント単位です。最後に、別の段落を追加し、テキストフレーム全体の行数を合計します。
+以下の例はテキストシェイプを作成し、行数をカウントし、シェイプを狭くした後、テキストを短い文字列に置き換えます。この例は [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) で折り返しを有効にし、[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) で自動フィットを無効にして、シェイプ幅が折り返しを制御し、テキストやシェイプの自動縮小を防ぎます。各測定は [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) を使用します。シェイプの寸法はポイント単位です。最後に、別の段落を追加し、テキストフレーム全体の行数を合計します。
 
 ```java
 import com.aspose.slides.*;
@@ -559,24 +496,19 @@ try {
 }
 ```
 
-このテキストと寸法では、シェイプを狭めると行数が増加し、短い文字列に置き換えると行数が減少します。フォントの可用性や置換、フォントサイズ、余白、インデント、折り返し、オートフィット設定により正確なカウントは変動します。テンプレートをチェックする際は、対象環境で使用するフォントとレイアウト設定を使用してください。
+このテキストとこれらの寸法でシェイプを狭めると行数が増加し、短い文字列に置き換えると減少します。正確な行数はフォントの可用性と代替、フォントサイズ、余白、インデント、折り返し、オートフィット設定により変わります。テンプレートをチェックする際は、対象環境で使用するフォントとレイアウト設定を使用してください。
 
-行数だけでテキストがコンテナからはみ出すかは判断できません。利用可能な高さ、行高、段落間および行間の設定、オートフィット動作も考慮する必要があります。折り返しが無効の場合、1 行でも利用可能な幅を超えることがあります。
+行数だけではテキストがコンテナを超えているかは判断できません。利用可能な高さ、行の高さ、段落と行間、オートフィットの動作も重要で、折り返しが無効な場合、単一行でも利用可能幅を超えることがあります。
 
 ## **段落コンテンツのインポートとエクスポート**
 
-### **HTML テキストを段落にインポート**
+HTML を使用してテキストをプレゼンテーションに取り込んだり、既存の段落を外部で使用できるようにエクスポートしたりします。このセクションでは、テーブルセル内の段落を含む、個々の段落を画像としてレンダリングする方法も示します。
+
+### **HTML テキストの段落へのインポート**
 
 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) を使用して、HTML マークアップをテキストフレーム内の段落とポーションに変換します。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. スライドにアクセスし、[IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
-3. シェイプの [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスし、デフォルトの段落をクリアします。
-4. ソース HTML ファイルを読み取ります。
-5. HTML 文字列を [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) に渡します。
-6. 変更されたプレゼンテーションを保存します。
-
-この Java の例は HTML をテキストフレームにインポートします：
+この Java の例はファイルから HTML を読み取り、そのマークアップを [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) に渡します。テキストフレームのデフォルト段落をクリアし、フレームにインポートされたコンテンツのみが含まれるようにします。矩形シェイプはスライドの各側に 10 ポイントの余白を残します：
 
 ```java
 import com.aspose.slides.*;
@@ -588,6 +520,7 @@ import java.nio.file.Paths;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
     float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -607,17 +540,18 @@ try {
 }
 ```
 
-### **段落テキストを HTML にエクスポート**
+### **段落テキストの HTML へのエクスポート**
 
-[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) を使用して、選択した範囲の段落を HTML としてエクスポートします。
+[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) を使用して、選択した段落範囲を HTML としてエクスポートします。ウェブサイトでプレゼンテーションのテキストを再利用する際、フォントやサイズ、テキストボックスのスタイルを持ち込まずにローカルの強調表示を保持したい場合があります。エクスポート時の書式継承の深さを制御するには、[TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) を設定します。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) のインスタンスを作成し、目的のプレゼンテーションをロードします。
-2. スライドにアクセスし、テキストを含む [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を見つけます。
-3. シェイプの [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスします。
-4. 開始段落インデックスとエクスポートする段落数を指定して、[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) を呼び出します。
-5. 返された HTML 文字列をファイルに書き込みます。
+[サンプル プレゼンテーション](text-inheritance.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置します。最初のスライドにはテキスト "Inherited text; explicit red 18pt" を含むテキストシェイプが 1 つあります。入力は意図的に複数の書式レベルを使用しています：
 
-この Java の例は最初のテキストシェイプのすべての段落をエクスポートします：
+- プレゼンテーションのデフォルトテキストスタイルは Calibri フォントと 28pt のサイズを供給します。
+- テキストフレームの第一レベルテキストスタイルは青色テキストと斜体を供給します。
+- 段落は太字テキストを明示的に設定します。
+- 第二ポーション "explicit red 18pt" は赤色テキストと 18pt のサイズを明示的に設定します。
+
+以下の完全な例は、同じ段落を 3 回エクスポートします。[TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) をエクスポートメソッドに渡し、各結果を別々の UTF-8 HTML ファイルとして書き出します：
 
 ```java
 import com.aspose.slides.*;
@@ -626,7 +560,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-Presentation presentation = new Presentation("ExportingHTMLText.pptx");
+Presentation presentation = new Presentation("text-inheritance.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -635,11 +569,21 @@ try {
         ITextFrame textFrame = textShape.getTextFrame();
         if (textFrame != null) {
             IParagraphCollection paragraphs = textFrame.getParagraphs();
-            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            try {
-                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
-            } catch (IOException exception) {
-                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            
+            int[] modes = { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+            String[] fileNames = { "All.html", "TextBox.html", "ParagraphOnly.html" };
+
+            for (int i = 0; i < modes.length; i++) {
+                TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                byte[] htmlBytes = html.getBytes(StandardCharsets.UTF_8);
+                try {
+                    Files.write(Paths.get(fileNames[i]), htmlBytes);
+                } catch (IOException exception) {
+                    System.out.println("The HTML file could not be written: " + exception.getMessage());
+                }
             }
         } else {
             System.out.println("The first shape does not contain a text frame.");
@@ -652,19 +596,31 @@ try {
 }
 ```
 
+生成された HTML には最初のポーション "Inherited text; " 用の以下の CSS が含まれます。表は関連する宣言を一覧にし、他の生成されたプロパティは簡潔にするため省略されています。
+
+| 出力 | 最初のポーションの関連 CSS | 外観 |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Calibri が利用可能な場合、28pt の Calibri で青色、太字、斜体のテキスト。 |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | 青色、太字、斜体のテキスト；フォントファミリとサイズは周囲のページまたはブラウザが提供します。 |
+| `ParagraphOnly.html` | `font-weight:bold` | 太字テキスト；フォントファミリ、サイズ、色、斜体スタイルは周囲のページまたはブラウザが提供します。 |
+
+第二ポーションはすべての出力で `color:#ff0000`、`font-size:18pt`、`font-weight:bold` を保持します。`All` と `TextBox` ではイタリックも保持されますが、`ParagraphOnly` では保持されません。継承を制限しても、段落やポーションに明示的に割り当てられた書式は削除されません。
+
+同じブラウザでファイルを開いて比較してください。2 つの制限モードでは、省略された CSS プロパティは宛先ページのスタイルまたはブラウザのデフォルトで解決されるため、最終的な外観は HTML の使用場所によって変わります。
+
 ### **段落を画像としてレンダリング**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) は個々の段落を直接レンダリングし、[IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) を返します。結果は [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) を使用してファイルまたはストリームに保存できます。シェイプ全体をレンダリングしたり、ビットマップを手動で切り取る必要はありません。
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) は個々の段落を直接レンダリングし、[IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) を返します。結果は [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) でファイルまたはストリームに保存できます。包含するシェイプをレンダリングしたり、ビットマップを手動でトリミングしたりする必要はありません。
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) は、段落が親コレクションに見つからない、または有効なレンダリング境界がない、あるいはレンダリングできない場合に `null` を返すことがあります。保存する前に結果を確認し、使用後は画像を破棄してください。
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) は、段落が親コレクションに見つからない、または有効なレンダリング境界がない、あるいはレンダリングできない場合に `null` を返すことがあります。保存する前に結果を確認し、使用後は返された画像を破棄してください。
 
 #### **デフォルトスケールで段落をレンダリング**
 
-サンプルとして、`sample.pptx` というプレゼンテーション ファイルが 1 枚のスライドを持ち、最初のシェイプが 3 つの段落を含むテキスト ボックスであるとします。
+この例は、最初のシェイプが 3 つの段落を含むテキストボックスである 1 枚のスライドを持つプレゼンテーションを使用します。
 
-![3 つの段落を含むテキストボックス](paragraph_to_image_input.png)
+![3 段落を含むテキストボックス](paragraph_to_image_input.png)
 
-以下の例は、通常のテキストシェイプ内の 2 番目の段落をデフォルトスケールでレンダリングし、PNG 形式で保存します。`finally` ブロックで画像の破棄を確実に行います。
+以下の例はインデックス 1 の第2段落を選択し、スケールパラメータなしで [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) を呼び出します。シェイプに必要な段落が含まれているか確認し、レンダリングが画像を返すことを確認した上で、[IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) で PNG 形式で保存します。`finally` ブロックで使用後に画像を破棄します。
 
 ```java
 import com.aspose.slides.*;
@@ -702,11 +658,11 @@ try {
 
 結果：
 
-![段落の画像](paragraph_to_image_output.png)
+![段落画像](paragraph_to_image_output.png)
 
 #### **テーブルセル内の段落をスケーリングしてレンダリング**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) のオーバーロードを使用して、`float scaleX` と `float scaleY` パラメーターで水平・垂直のスケール係数を指定します。以下の例はテーブルを作成し、最初のセル内の段落をデフォルト幅と高さの 2 倍でレンダリングし、PNG 画像として保存します。
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) のオーバーロードを使用し、`float scaleX` と `float scaleY` パラメータで水平・垂直スケール係数を設定します。以下の例はテーブルを作成し、最初のセルの段落をデフォルト幅と高さの 2 倍でレンダリングし、PNG 画像として保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -717,6 +673,7 @@ float scaleY = 2f;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
     IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
     paragraph.setText("Text in a table cell");
@@ -736,26 +693,26 @@ try {
 }
 ```
 
-スケール係数 `1` はその軸をデフォルトのピクセルサイズに保ちます。たとえば、両方の係数を `2` にすると、幅と高さが約 2 倍になり、ピクセル数は 4 倍になります。大きな係数はズームや高解像度出力でテキストをより鮮明にしますが、メモリ使用量とファイルサイズも増加します。`1` 未満の係数は詳細が少ない小さな画像を生成します。アスペクト比を保つには同じ係数を使用し、水平と垂直で異なる係数を設定すると出力が個別に伸縮します。
+`1` のスケール係数はその軸をデフォルトのピクセルサイズのままにします。たとえば、両方を `2` にすると幅と高さが約 2 倍になり、ピクセル数は 4 倍になります。大きな係数はズームや高解像度出力でテキストをより鮮明にしますが、メモリ使用量とファイルサイズも増加します。`1` 未満の係数は詳細が少ない小さな画像を生成します。アスペクト比を保つには同等の係数を使用し、水平と垂直の係数を異にすると出力が個別に伸びます。
 
-シェイプ全体を画像化するには [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) が有用です。段落だけの画像が必要な場合は [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) を使用してください。
+[IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) でシェイプ全体をレンダリングすることは、シェイプの塗りつぶし、枠線、その他の視覚コンテキストを含める必要がある場合に依然有用です。段落のみの画像の場合は、[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) を使用してください。
 
-## **FAQ**
+## **よくある質問**
 
 **テキストフレーム内の行折り返しを完全に無効にできますか？**
 
-はい。[ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) を設定して折り返しを無効にすると、行はテキストフレームの端で折り返されません。
+はい。[ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) を設定して折り返しを無効にすれば、行はテキストフレームの端で改行しません。
 
-**特定の段落のスライド上での正確な境界を取得する方法は？**
+**特定の段落のスライド上での正確な境界を取得するにはどうすればよいですか？**
 
-[IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) を使用して段落の境界矩形を取得できます。[IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) は個々のポーションの境界を提供します。
+段落のバウンディング矩形を取得するには [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) を使用します。[IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) は個々のポーションの境界を提供します。
 
-**段落の配置（左揃え、右揃え、中央揃え、両端揃え）はどこで設定しますか？**
+**段落の配置（左揃え、右揃え、中央揃え、両端揃え）はどこで制御されますか？**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) は段落レベルの設定であり、個々のポーションの書式設定に関係なく段落全体に適用されます。
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) は段落レベルの設定で、個々のポーションの書式に関係なく段落全体に適用されます。
 
-行内の異なるフォントサイズのポーションを垂直に揃える方法については、[Align Fonts Within a Line](/slides/ja/java/text-formatting/#align-fonts-within-a-line) を参照してください。
+各行内で異なるフォントサイズのポーションを垂直方向に揃えるには、[Align Fonts Within a Line](/slides/ja/java/text-formatting/#align-fonts-within-a-line) を参照してください。
 
 **段落の一部に校正言語を設定できますか？**
 
-はい。個々のポーションに対して [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) を設定すれば、1 つの段落内で複数の言語のテキストを扱うことができます。
+はい。個々のポーションに対して [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) を設定すれば、1 つの段落内で複数の言語のテキストを含めることができます。

@@ -8,8 +8,8 @@ aliases:
   - /java/paragraph/
   - /java/portion/
 keywords:
-- menambah teks
-- menambah paragraf
+- menambahkan teks
+- menambahkan paragraf
 - mengelola teks
 - mengelola paragraf
 - mengelola bullet
@@ -17,7 +17,7 @@ keywords:
 - indentasi gantung
 - bullet paragraf
 - daftar bernomor
-- daftar bertanda
+- daftar bullet
 - properti paragraf
 - impor HTML
 - teks ke HTML
@@ -31,33 +31,23 @@ keywords:
 - Aspose.Slides
 description: "Pelajari cara membuat dan memformat paragraf, bagian, bullet, daftar bernomor, indentasi, konten HTML, dan gambar paragraf dengan Aspose.Slides untuk Java."
 ---
-## **Ikhtisar**
+## **Ringkasan**
 
-Aspose.Slides for Java mewakili teks sebagai hierarki bingkai teks, paragraf, dan bagian:
+Aspose.Slides for Java merepresentasikan teks sebagai hirarki bingkai teks, paragraf, dan bagian:
 
-* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) mewakili wadah teks dalam sebuah bentuk dan menyediakan akses ke koleksi paragrafnya.
+* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) mewakili wadah teks dalam sebuah shape dan menyediakan akses ke koleksi paragrafnya.
 * [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) mewakili satu paragraf dalam sebuah bingkai teks dan menyediakan akses ke bagian‑bagian serta pemformatan tingkat paragraf.
-* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) mewakili satu run teks dalam paragraf. Setiap bagian dapat memiliki teks dan pemformatan tingkat karakter tersendiri.
+* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) mewakili rentang teks dalam sebuah paragraf. Setiap bagian dapat memiliki teks dan pemformatan tingkat karakter tersendiri.
 
-Dengan demikian, sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan pemformatan lain yang berbeda‑beda menggunakan beberapa bagian.
+Dengan demikian sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan pemformatan lainnya yang berbeda‑beda melalui penggunaan beberapa bagian.
 
 ## **Membuat dan Memformat Paragraf**
 
+Buat paragraf dalam bingkai teks shape dan gunakan bagian untuk memformat rentang teks secara individual. Bagian ini menunjukkan cara menggabungkan beberapa bagian dalam setiap paragraf serta menerapkan warna, ukuran font, dan gaya yang berbeda.
+
 ### **Membuat Paragraf dengan Beberapa Bagian**
 
-Langkah‑langkah berikut membuat sebuah bingkai teks dengan tiga paragraf, masing‑masing berisi tiga bagian:
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Akses slide yang relevan melalui indeknya.
-3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) persegi panjang ke slide.
-4. Akses [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) bentuk tersebut.
-5. Gunakan paragraf default dan tambahkan dua lagi objek [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) ke dalam bingkai teks.
-6. Tambahkan cukup objek [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) untuk setiap paragraf sehingga masing‑masing berisi tiga bagian. Paragraf default sudah berisi satu bagian kosong.
-7. Tentukan teks masing‑masing bagian.
-8. Terapkan pemformatan tingkat karakter melalui [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--).
-9. Simpan presentasi yang telah dimodifikasi.
-
-Contoh Java berikut mengimplementasikan langkah‑langkah tersebut:
+Contoh Java berikut membuat tiga paragraf, masing‑masing berisi tiga rentang teks dalam koleksi yang dikembalikan oleh [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) . Ia kembali menggunakan paragraf default dan bagian kosongnya, lalu menambahkan paragraf serta bagian yang tersisa. Pemformatan diterapkan lewat [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) : bagian pertama pada tiap paragraf berwarna merah, tebal, dan 15 poin; bagian kedua berwarna biru, miring, dan 18 poin. Bagian ketiga mempertahankan pemformatan defaultnya:
 
 ```java
 import com.aspose.slides.*;
@@ -66,6 +56,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
     ITextFrame textFrame = shape.getTextFrame();
 
@@ -113,26 +104,15 @@ try {
 }
 ```
 
-## **Membuat Daftar Bertanda Kuning dan Bernomor**
+## **Membuat Daftar Berbulu dan Bernomor**
 
-### **Membuat Daftar Bertanda Kuning atau Bernomor**
+Atur teks paragraf menjadi daftar dengan simbol, angka, atau gambar khusus. Contoh‑contoh dalam bagian ini mencakup pemformatan bullet, daftar berjenjang, dan angka mulai khusus.
 
-Tanda kuning dan penomoran memudahkan pemindaian item yang terkait. Di Aspose.Slides, pengaturan daftar didefinisikan melalui [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/).
+### **Membuat Daftar Berbulu atau Bernomor**
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Akses slide yang relevan melalui indeknya.
-3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ke slide yang dipilih.
-4. Akses [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) bentuk tersebut.
-5. Hapus paragraf default dari bingkai teks.
-6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) untuk tanda kuning simbol.
-7. Atur [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) menjadi [BulletType.Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/) dan tentukan karakter tanda kuning.
-8. Atur teks paragraf, indentasi, warna tanda kuning, dan tinggi tanda kuning.
-9. Tambahkan paragraf ke dalam bingkai teks.
-10. Buat paragraf kedua dan atur [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) menjadi [BulletType.Numbered](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/).
-11. Konfigurasikan gaya tanda kuning bernomor dan tambahkan paragraf ke dalam bingkai teks.
-12. Simpan presentasi.
+Bullet dan penomoran membuat item terkait lebih mudah dipindai. Di Aspose.Slides, pengaturan daftar didefinisikan lewat [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/).
 
-Contoh Java berikut membuat tanda kuning simbol dan tanda kuning bernomor:
+Contoh Java ini menambahkan bullet simbol dan item bernomor ke bingkai teks yang sama. [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) memilih jenis bullet, sementara [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) menentukan simbol dan [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) memilih gaya penomoran. Kedua item menggunakan bullet hitam dengan tinggi 100 % dan indentasi paragraf 25 poin:
 
 ```java
 import com.aspose.slides.*;
@@ -141,6 +121,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -173,22 +154,11 @@ try {
 }
 ```
 
-### **Menggunakan Tanda Kuning Gambar**
+### **Menggunakan Bullet Gambar**
 
-Tanda kuning gambar memungkinkan Anda menggunakan gambar khusus alih‑alih simbol atau nomor.
+Bullet gambar memungkinkan Anda memakai gambar khusus alih‑alih simbol atau nomor.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Akses slide yang relevan melalui indeknya.
-3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) dan akses [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)‑nya.
-4. Hapus paragraf default dari bingkai teks.
-5. Muat gambar tanda kuning dan tambahkan ke koleksi gambar presentasi sebagai [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/).
-6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) dan atur teksnya.
-7. Atur [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) menjadi [BulletType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/).
-8. Tetapkan gambar melalui [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) dan atur tinggi tanda kuning.
-9. Tambahkan paragraf ke dalam bingkai teks.
-10. Simpan presentasi yang telah dimodifikasi.
-
-Contoh Java berikut membuat tanda kuning gambar:
+Contoh Java ini menambahkan gambar ke koleksi gambar presentasi sebagai [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) dan menggunakannya sebagai bullet paragraf. Ia memanggil [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) untuk memakai bullet gambar dan menetapkan gambar melalui [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--). [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) diset ke 100 % agar bullet berukuran relatif terhadap teks paragraf:
 
 ```java
 import com.aspose.slides.*;
@@ -223,17 +193,11 @@ try {
 }
 ```
 
-### **Membuat Daftar Multilevel**
+### **Membuat Daftar Bertingkat**
 
-Atur [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) untuk menempatkan paragraf pada tingkat yang berbeda dalam sebuah daftar. Tingkat teratas memiliki depth `0`.
+Setel [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) untuk menempatkan paragraf pada level daftar yang berbeda. Level teratas memiliki kedalaman `0`.
 
-1. Buat sebuah [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) dan akses sebuah slide.
-2. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) serta bersihkan paragraf default dari bingkai teksnya.
-3. Buat empat paragraf dan konfigurasikan simbol tanda kuningnya.
-4. Atur nilai [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) mereka menjadi `0`, `1`, `2`, dan `3`.
-5. Tambahkan paragraf‑paragraf ke dalam bingkai teks dan simpan presentasi.
-
-Contoh Java berikut membuat daftar bertanda kuning empat tingkat:
+Contoh Java ini menetapkan nilai [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) dari 0 hingga 3 untuk empat paragraf, membuat hirarki dalam satu bingkai teks. Setiap paragraf menggunakan bullet simbol, dengan [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) berganti antara bullet bulat dan tanda hubung untuk membedakan level yang berdekatan:
 
 ```java
 import com.aspose.slides.*;
@@ -242,6 +206,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -289,17 +254,11 @@ try {
 }
 ```
 
-### **Memulai Nomor Daftar Bernomor dengan Nilai Kustom**
+### **Memulai Item Daftar Bernomor dengan Nilai Khusus**
 
-Gunakan [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) untuk menentukan nomor awal yang ditampilkan pada paragraf bernomor.
+Gunakan [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) untuk mengatur nomor awal yang ditampilkan pada paragraf bernomor.
 
-1. Buat sebuah [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) dan tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ke slide.
-2. Bersihkan paragraf default dari bingkai teks bentuk.
-3. Buat tiga paragraf bernomor.
-4. Atur [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) menjadi `2`, `3`, dan `7` untuk masing‑masing paragraf.
-5. Tambahkan paragraf‑paragraf ke dalam bingkai teks dan simpan presentasi.
-
-Contoh Java berikut menetapkan nomor mulai kustom untuk setiap paragraf:
+Contoh Java ini menyetel [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) untuk memakai penomoran pada tiga paragraf dan menetapkan nilai [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) menjadi 2, 3, dan 7. Nilai mulai dikonfigurasi terpisah untuk tiap paragraf, sehingga nomor yang ditampilkan dapat melewati nilai tertentu:
 
 ```java
 import com.aspose.slides.*;
@@ -307,6 +266,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -337,23 +297,15 @@ try {
 
 ## **Mengontrol Tata Letak Paragraf dan Properti Akhir**
 
-### **Menetapkan Indent Baris Pertama**
+Sesuaikan margin dan indentasi paragraf untuk mengontrol posisi baris pertama serta baris yang dibungkus. Anda juga dapat memformat tanda akhir paragraf secara terpisah dari bagian teks yang terlihat.
 
-Gunakan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) untuk mengontrol indent baris pertama sebuah paragraf. Metode ini memindahkan hanya baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris‑baris lainnya tetap sejajar dengan tubuh paragraf.
+### **Menetapkan Indentasi Baris Pertama**
 
-Gunakan [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) bila Anda ingin memindahkan seluruh paragraf. Gunakan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) bila hanya baris pertama yang ingin dipindahkan.
+Gunakan metode [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) untuk mengontrol indentasi baris pertama paragraf. Pengaturan ini hanya memindahkan baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sedangkan baris‑baris berikutnya tetap sejajar dengan tubuh paragraf.
 
-Contoh di bawah ini membuat beberapa paragraf dan menerapkan nilai‑nilai berbeda pada [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) untuk mendemonstrasikan bagaimana indent baris pertama memengaruhi tata letak paragraf.
+Gunakan [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) ketika Anda perlu memindahkan seluruh paragraf. Gunakan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ketika Anda hanya perlu memindahkan baris pertama.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Akses slide target.
-3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) persegi panjang ke slide.
-4. Akses [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) bentuk dan hapus paragraf default.
-5. Buat beberapa paragraf dan atur nilai‑nilai berbeda pada [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) untuk masing‑masing.
-6. Tambahkan paragraf‑paragraf ke dalam bingkai teks.
-7. Simpan presentasi yang telah dimodifikasi.
-
-Kode ini menunjukkan cara menetapkan indent paragraf:
+Contoh berikut memberikan tiga paragraf margin kiri [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) yang sama sebesar 20 poin dan nilai [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) masing‑masing 0, 20, dan 40 poin. Baris pertama mulai pada offset yang semakin besar, sementara baris yang dibungkus mempertahankan margin kiri yang sama:
 
 ```java
 import com.aspose.slides.*;
@@ -405,26 +357,17 @@ try {
 
 Hasilnya:
 
-![Indent baris pertama pada paragraf](first_line_indent.png)
+![Indentasi baris pertama paragraf](first_line_indent.png)
 
-### **Menetapkan Indent Gantung**
+### **Menetapkan Indentasi Gantung**
 
-Indent gantung adalah tata letak paragraf di mana baris pertama dimulai lebih ke kiri dibandingkan dengan baris‑baris berikutnya. Di Aspose.Slides, Anda membuat efek ini dengan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Berikan nilai negatif untuk menggerakkan baris pertama ke kiri relatif terhadap tubuh paragraf.
+Indentasi gantung adalah tata letak paragraf dimana baris pertama mulai di sebelah kiri baris‑baris berikutnya. Di Aspose.Slides, Anda membuat efek ini dengan properti [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Setel `Indent` ke nilai negatif untuk memindahkan baris pertama ke kiri relatif terhadap tubuh paragraf.
 
-Secara praktik, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) menentukan posisi kiri tubuh paragraf, dan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent gantung, berikan nilai positif pada `setMarginLeft` dan nilai negatif pada `setIndent`.
+Dalam praktiknya, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) menentukan posisi kiri tubuh paragraf, dan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indentasi gantung, tetapkan nilai `MarginLeft` positif dan nilai `Indent` negatif.
 
-Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris‑baris yang dibungkus harus rata di bawah tubuh paragraf, bukan di bawah karakter pertama baris pertama.
+Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain dimana baris yang dibungkus harus sejajar di bawah tubuh paragraf bukan di bawah karakter pertama baris pertama.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Akses slide target.
-3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) persegi panjang ke slide.
-4. Akses [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) bentuk dan hapus paragraf default.
-5. Buat paragraf‑paragraf dan berikan nilai positif pada [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) untuk masing‑masing paragraf.
-6. Berikan nilai negatif pada [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) untuk menghasilkan efek indent gantung.
-7. Tambahkan paragraf‑paragraf ke dalam bingkai teks.
-8. Simpan presentasi yang telah dimodifikasi.
-
-Kode ini menunjukkan cara menetapkan indent gantung untuk sebuah paragraf:
+Contoh Java berikut memadukan nilai [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 40 dan 60 poin dengan nilai [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) -20 dan -30 poin. Pada tiap paragraf, baris pertama mulai di sebelah kiri baris yang dibungkus; paragraf kedua memiliki indentasi gantung yang lebih dalam:
 
 ```java
 import com.aspose.slides.*;
@@ -468,18 +411,11 @@ try {
 
 Hasilnya:
 
-![Indent gantung pada paragraf](hanging_indent.png)
+![Indentasi gantung paragraf](hanging_indent.png)
 
-### **Menetapkan Properti Akhir Paragraf**
+### **Menetapkan Properti Jalur Akhir Paragraf**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) mengontrol pemformatan tanda akhir paragraf. Contoh berikut menetapkan ukuran font dan font Latin pada tanda akhir paragraf kedua:
-
-1. Muat sebuah [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) dan akses sebuah slide.
-2. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) serta bersihkan paragraf defaultnya.
-3. Buat dua paragraf dan tambahkan bagian‑bagian teks ke dalamnya.
-4. Buat sebuah [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) untuk tanda akhir paragraf kedua.
-5. Atur [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) dan [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Tetapkan format dengan [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) dan simpan presentasi.
+Metode [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) mengontrol pemformatan tanda akhir paragraf. Contoh berikut membuat sebuah [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) dengan [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) 48 poin dan [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) Times New Roman. Format ini diterapkan pada tanda akhir paragraf kedua, sementara bagian teks yang terlihat tetap tidak berubah:
 
 ```java
 import com.aspose.slides.*;
@@ -487,6 +423,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("Test.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -513,13 +450,13 @@ try {
 
 ## **Menghitung Baris yang Dirender**
 
-Untuk aturan paragraf yang memengaruhi pembungkusan otomatis dan tanda baca di akhir baris, lihat [Control Line Breaking](/slides/id/java/text-formatting/#control-line-breaking) dan [Control Hanging Punctuation](/slides/id/java/text-formatting/#control-hanging-punctuation).
+Untuk aturan paragraf yang memengaruhi pembungkusan otomatis dan tanda baca pada akhir baris, lihat [Control Line Breaking](/slides/id/java/text-formatting/#control-line-breaking) dan [Control Hanging Punctuation](/slides/id/java/text-formatting/#control-hanging-punctuation).
 
-Gunakan [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) untuk menghitung baris‑baris yang ditempati oleh sebuah paragraf setelah tata letak teks, termasuk pembungkusan otomatis. Ini berguna saat memeriksa panjang teks dan tata letak dalam templat presentasi.
+Gunakan [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) untuk menghitung jumlah baris yang ditempati sebuah paragraf setelah tata letak teks, termasuk pembungkusan otomatis. Ini berguna saat memeriksa panjang teks dan tata letak dalam template presentasi.
 
-Sebuah paragraf adalah satu item dalam [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--), dan dapat menempati beberapa baris yang dirender. Pemisah baris eksplisit dalam paragraf memaksa baris baru tanpa membuat paragraf lain. Pembungkusan otomatis menciptakan baris‑baris berdasarkan lebar yang tersedia tanpa menyisipkan pemisah baris eksplisit ke dalam teks. Oleh karena itu, menghitung jumlah paragraf atau karakter pemisah baris tidak memberikan hitungan baris yang dirender.
+Sebuah paragraf adalah satu item dalam [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--), dan dapat menempati beberapa baris yang dirender. Pemutusan baris eksplisit dalam paragraf memaksa baris baru tanpa membuat paragraf lain. Pembungkusan otomatis menghasilkan baris berdasarkan lebar yang tersedia tanpa menyisipkan pemutusan baris eksplisit ke dalam teks. Oleh karena itu menghitung paragraf atau karakter pemutusan baris tidak memberikan jumlah baris yang dirender.
 
-Contoh berikut membuat sebuah bentuk teks, menghitung baris‑nya, mempersempit bentuk, lalu mengganti teks dengan string yang lebih pendek. Pembungkusan diaktifkan dan autofit dinonaktifkan sehingga lebar bentuk mengontrol pembungkusan tanpa memperkecil teks atau mengubah ukuran bentuk secara otomatis. Dimensi bentuk dalam poin. Akhirnya, contoh menambahkan paragraf lain dan menjumlahkan hitungan baris di seluruh bingkai teks.
+Contoh berikut membuat sebuah shape teks, menghitung barisnya, mempersempit shape, lalu mengganti teks dengan string yang lebih pendek. Contoh ini mengaktifkan pembungkusan dengan [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) dan menonaktifkan autofit dengan [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) sehingga lebar shape mengontrol pembungkusan tanpa secara otomatis memperkecil teks atau mengubah ukuran shape. Setiap pengukuran menggunakan [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--). Dimensi shape dalam poin. Akhirnya, contoh menambahkan paragraf lain dan menjumlahkan hitungan baris di seluruh bingkai teks.
 
 ```java
 import com.aspose.slides.*;
@@ -559,24 +496,19 @@ try {
 }
 ```
 
-Dengan teks dan dimensi ini, mempersempit bentuk meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Hitungan tepat dapat bervariasi tergantung pada ketersediaan font dan substitusi, ukuran font, margin, indentasi, pembungkusan, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang ditujukan untuk lingkungan target saat memeriksa sebuah templat.
+Dengan teks dan dimensi ini, mempersempit shape meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Hitungan tepat dapat bervariasi tergantung pada ketersediaan dan substitusi font, ukuran font, margin, indentasi, pembungkusan, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang ditujukan untuk lingkungan target saat memeriksa template.
 
-Hitungan baris saja tidak menentukan apakah teks melampaui wadahnya. Tinggi yang tersedia, tinggi baris, spasi paragraf dan baris, serta perilaku autofit juga penting; bahkan satu baris dapat melewati lebar yang tersedia bila pembungkusan dinonaktifkan.
+Jumlah baris saja tidak menentukan apakah teks meluap dari wadahnya. Tinggi yang tersedia, tinggi baris, spasi paragraf dan baris, serta perilaku autofit juga penting; bahkan satu baris dapat melampaui lebar yang tersedia bila pembungkusan dinonaktifkan.
 
-## **Impor dan Ekspor Konten Paragraf**
+## **Mengimpor dan Mengekspor Konten Paragraf**
 
-### **Impor Teks HTML ke dalam Paragraf**
+Gunakan HTML untuk memasukkan teks ke dalam presentasi atau mengekspor paragraf yang ada untuk digunakan di luar presentasi. Bagian ini juga menunjukkan cara merender paragraf individu sebagai gambar, termasuk paragraf dalam sel tabel.
 
-Gunakan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) untuk mengonversi markup HTML menjadi paragraf dan bagian dalam sebuah bingkai teks.
+### **Mengimpor Teks HTML ke Paragraf**
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Akses sebuah slide dan tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
-3. Akses [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) bentuk dan bersihkan paragraf defaultnya.
-4. Baca file HTML sumber.
-5. Berikan string HTML ke [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. Simpan presentasi yang telah dimodifikasi.
+Gunakan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) untuk mengonversi markup HTML menjadi paragraf dan bagian dalam bingkai teks.
 
-Contoh Java berikut mengimpor HTML ke dalam bingkai teks:
+Contoh Java ini membaca HTML dari file dan meneruskan markup ke [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-). Ia mengosongkan paragraf default bingkai teks sehingga frame hanya berisi konten yang diimpor. Shape persegi panjang meninggalkan margin 10 poin pada setiap sisi slide:
 
 ```java
 import com.aspose.slides.*;
@@ -588,6 +520,7 @@ import java.nio.file.Paths;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
     float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -607,17 +540,18 @@ try {
 }
 ```
 
-### **Ekspor Teks Paragraf ke HTML**
+### **Mengekspor Teks Paragraf ke HTML**
 
-Gunakan [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) untuk mengekspor rentang paragraf yang dipilih sebagai HTML.
+Gunakan [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) untuk mengekspor rentang paragraf terpilih menjadi HTML. Saat menggunakan kembali teks presentasi pada situs web, Anda mungkin ingin mempertahankan penekanan lokal tanpa membawa gaya font, ukuran, atau kotak teks presentasi. Setel [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) untuk mengontrol sejauh mana ekspor mengikuti pewarisan pemformatan.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) dan muat presentasi yang diinginkan.
-2. Akses slide dan temukan [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) yang berisi teks.
-3. Akses [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) bentuk.
-4. Panggil [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) dengan indeks paragraf awal dan jumlah paragraf yang akan diekspor.
-5. Tulis string HTML yang dikembalikan ke sebuah file.
+Unduh [presentasi contoh](text-inheritance.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi satu shape teks dengan teks "Inherited text; explicit red 18pt". Input secara sengaja menggunakan beberapa tingkat pemformatan:
 
-Contoh Java berikut mengekspor semua paragraf dari bentuk teks pertama:
+- Gaya teks default presentasi menyediakan Calibri dengan ukuran 28 pt.
+- Gaya teks level pertama bingkai teks menyediakan teks biru dan miring.
+- Paragraf secara eksplisit menetapkan teks tebal.
+- Bagian kedua, "explicit red 18pt", secara eksplisit menetapkan teks merah dan ukuran 18 pt.
+
+Contoh lengkap berikut mengekspor paragraf yang sama tiga kali. Ia meneruskan [TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) ke metode ekspor dan menulis setiap hasil sebagai file HTML UTF‑8 terpisah:
 
 ```java
 import com.aspose.slides.*;
@@ -626,7 +560,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-Presentation presentation = new Presentation("ExportingHTMLText.pptx");
+Presentation presentation = new Presentation("text-inheritance.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -635,11 +569,21 @@ try {
         ITextFrame textFrame = textShape.getTextFrame();
         if (textFrame != null) {
             IParagraphCollection paragraphs = textFrame.getParagraphs();
-            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            try {
-                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
-            } catch (IOException exception) {
-                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            
+            int[] modes = { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+            String[] fileNames = { "All.html", "TextBox.html", "ParagraphOnly.html" };
+
+            for (int i = 0; i < modes.length; i++) {
+                TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                byte[] htmlBytes = html.getBytes(StandardCharsets.UTF_8);
+                try {
+                    Files.write(Paths.get(fileNames[i]), htmlBytes);
+                } catch (IOException exception) {
+                    System.out.println("The HTML file could not be written: " + exception.getMessage());
+                }
             }
         } else {
             System.out.println("The first shape does not contain a text frame.");
@@ -652,19 +596,31 @@ try {
 }
 ```
 
+HTML yang dihasilkan berisi CSS berikut untuk bagian pertama, "Inherited text; ". Tabel mencantumkan deklarasi relevan; properti lain yang dihasilkan dihilangkan demi kejelasan.
+
+| Output | CSS yang Relevan untuk Bagian Pertama | Tampilan |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring 28 pt dalam Calibri, bila font tersebut tersedia. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring; halaman atau browser menyediakan keluarga font dan ukuran. |
+| `ParagraphOnly.html` | `font-weight:bold` | Teks tebal; halaman atau browser menyediakan keluarga font, ukuran, warna, dan gaya miring. |
+
+Bagian kedua mempertahankan `color:#ff0000`, `font-size:18pt`, dan `font-weight:bold` pada ketiga output. Ia juga mempertahankan miring pada `All` dan `TextBox`, tetapi tidak pada `ParagraphOnly`. Membatasi pewarisan therefore tidak menghapus pemformatan yang secara eksplisit ditetapkan pada paragraf atau bagian.
+
+Buka file‑file tersebut di browser yang sama untuk membandingkannya. Pada dua mode terbatas, properti CSS yang dihilangkan diselesaikan oleh gaya halaman tujuan atau default browser, sehingga tampilan akhir tergantung pada tempat HTML digunakan.
+
 ### **Merender Paragraf sebagai Gambar**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) merender sebuah paragraf individu secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Simpan hasilnya ke file atau stream dengan [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Anda tidak perlu merender bentuk yang berisi atau memotong bitmap secara manual.
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) merender paragraf individu secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Simpan hasilnya ke file atau aliran dengan [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Anda tidak perlu merender shape yang berisi atau memotong bitmap secara manual.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) dapat mengembalikan `null` bila paragraf tidak ditemukan dalam koleksi induknya, tidak memiliki batasan render yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpannya dan bebaskan gambar yang dikembalikan setelah selesai digunakan.
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) dapat mengembalikan `null` jika paragraf tidak ditemukan dalam koleksi induknya, tidak memiliki batas render yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpannya dan buang gambar yang dikembalikan setelah selesai digunakan.
 
 #### **Merender Paragraf dengan Skala Default**
 
-Misalkan kita memiliki file presentasi bernama sample.pptx dengan satu slide, di mana bentuk pertama adalah kotak teks yang berisi tiga paragraf.
+Contoh ini menggunakan presentasi dengan satu slide yang shape pertamanya adalah kotak teks berisi tiga paragraf.
 
 ![Kotak teks dengan tiga paragraf](paragraph_to_image_input.png)
 
-Contoh berikut merender paragraf kedua dalam bentuk teks biasa pada skala default dan menyimpan gambar yang dikembalikan dalam format PNG. Blok `finally` memastikan gambar dibebaskan dengan benar.
+Contoh berikut memilih paragraf kedua pada indeks 1 dan memanggil [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) tanpa parameter skala. Ia memeriksa bahwa shape berisi paragraf yang diperlukan dan bahwa rendering mengembalikan gambar sebelum memanggil [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) untuk menyimpannya dalam format PNG. Blok `finally` membuang gambar setelah selesai digunakan.
 
 ```java
 import com.aspose.slides.*;
@@ -706,7 +662,7 @@ Hasilnya:
 
 #### **Merender Paragraf dalam Sel Tabel dengan Skala**
 
-Gunakan overload [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) yang menerima parameter `float scaleX` dan `float scaleY` untuk menentukan faktor skala horizontal dan vertikal. Contoh berikut membuat sebuah tabel, merender paragraf dalam sel pertamanya dengan lebar dan tinggi dua kali lipat skala default, dan menyimpan hasilnya sebagai gambar PNG.
+Gunakan overload [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) yang menerima parameter `float scaleX` dan `float scaleY` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat tabel, merender paragraf di sel pertama dengan lebar dan tinggi dua kali ukuran default, dan menyimpan hasilnya sebagai gambar PNG.
 
 ```java
 import com.aspose.slides.*;
@@ -717,6 +673,7 @@ float scaleY = 2f;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
     IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
     paragraph.setText("Text in a table cell");
@@ -736,26 +693,26 @@ try {
 }
 ```
 
-Faktor skala `1` menjaga sumbu pada ukuran piksel defaultnya. Misalnya, `2` untuk kedua faktor menghasilkan gambar yang lebarnya dan tingginya kira‑kira dua kali dimensi default, sehingga menghasilkan empat kali lebih banyak piksel. Faktor yang lebih besar umumnya menghasilkan teks yang lebih tajam untuk zoom atau output resolusi tinggi, tetapi juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar yang lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk mempertahankan aspek rasio paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara independen.
+Faktor skala `1` menjaga sumbu pada ukuran piksel defaultnya. Misalnya, `2` untuk kedua faktor menghasilkan gambar yang lebar dan tingginya kira‑kira dua kali dimensi default, menghasilkan empat kali jumlah piksel. Faktor yang lebih besar biasanya menghasilkan teks yang lebih tajam untuk zoom atau output resolusi tinggi, namun juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara terpisah.
 
-Merender seluruh bentuk dengan [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) tetap berguna ketika output harus menyertakan isi, batas, atau konteks visual lain dari bentuk. Untuk gambar hanya paragraf, gunakan [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--).
+Merender seluruh shape dengan [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) tetap berguna ketika output harus mencakup isi, batas, atau konteks visual shape. Untuk gambar hanya paragraf, gunakan [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--).
 
 ## **FAQ**
 
-**Apakah saya dapat sepenuhnya menonaktifkan pembungkusan baris di dalam bingkai teks?**
+**Apakah saya dapat menonaktifkan pembungkusan baris sepenuhnya di dalam bingkai teks?**
 
-Ya. Atur [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) untuk menonaktifkan pembungkusan sehingga baris tidak terputus di tepi bingkai teks.
+Ya. Setel [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) untuk menonaktifkan pembungkusan sehingga baris tidak terputus di tepi bingkai teks.
 
-**Bagaimana cara mendapatkan batas tepat pada slide untuk paragraf tertentu?**
+**Bagaimana cara mendapatkan ukuran tepat pada slide untuk paragraf tertentu?**
 
-Gunakan [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) untuk mengambil persegi batas paragraf. [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) memberikan batas bagian individual.
+Gunakan [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) untuk mengambil persegi batas paragraf. [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) menyediakan batas bagian individual.
 
-**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau justify) dikontrol?**
+**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau justified) dikendalikan?**
 
 [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) adalah pengaturan tingkat paragraf dan berlaku untuk seluruh paragraf terlepas dari pemformatan bagian individual.
 
-Untuk menyejajarkan vertikal bagian dengan ukuran font berbeda dalam setiap baris, lihat [Align Fonts Within a Line](/slides/id/java/text-formatting/#align-fonts-within-a-line).
+Untuk meratakan vertikal bagian dengan ukuran font berbeda dalam setiap baris, lihat [Align Fonts Within a Line](/slides/id/java/text-formatting/#align-fonts-within-a-line).
 
-**Apakah saya dapat menetapkan bahasa pemeriksaan ejaan untuk sebagian paragraf?**
+**Apakah saya dapat mengatur bahasa pemeriksaan ejaan untuk sebagian paragraf?**
 
-Ya. Atur [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) untuk bagian individual, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.
+Ya. Setel [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) untuk bagian individual, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.

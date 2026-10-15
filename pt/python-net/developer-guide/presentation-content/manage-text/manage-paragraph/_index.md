@@ -12,7 +12,7 @@ keywords:
 - adicionar parágrafo
 - gerenciar texto
 - gerenciar parágrafo
-- gerenciar marcadores
+- gerenciar marcador
 - recuo de parágrafo
 - recuo suspenso
 - marcador de parágrafo
@@ -29,35 +29,25 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Aprenda a criar e formatar parágrafos, porções, marcadores, listas numeradas, recuos, conteúdo HTML e imagens de parágrafos com o Aspose.Slides para Python via .NET."
+description: "Aprenda a criar e formatar parágrafos, porções, marcadores, listas numeradas, recuos, conteúdo HTML e imagens de parágrafos com Aspose.Slides para Python via .NET."
 ---
 ## **Visão geral**
 
 Aspose.Slides for Python via .NET representa o texto como uma hierarquia de quadros de texto, parágrafos e porções:
 
 * [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) representa o contêiner de texto em uma forma e fornece acesso à sua coleção de parágrafos.
-* [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) representa um parágrafo em um quadro de texto e fornece acesso às suas porções e à formatação ao nível do parágrafo.
-* [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) representa uma sequência de texto dentro de um parágrafo. Cada porção pode ter seu próprio texto e formatação ao nível de caractere.
+* [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) representa um parágrafo em um quadro de texto e fornece acesso às suas porções e à formatação em nível de parágrafo.
+* [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) representa uma sequência de texto dentro de um parágrafo. Cada porção pode ter seu próprio texto e formatação em nível de caractere.
 
 Um parágrafo pode, portanto, conter texto com diferentes fontes, cores, tamanhos e outras formatações usando várias porções.
 
 ## **Criar e formatar parágrafos**
 
+Crie parágrafos no quadro de texto de uma forma e use porções para formatar sequências de texto individuais. Esta seção mostra como combinar várias porções dentro de cada parágrafo e aplicar diferentes cores, tamanhos de fonte e estilos.
+
 ### **Criar parágrafos com múltiplas porções**
 
-As etapas a seguir criam um quadro de texto com três parágrafos, cada um contendo três porções:
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Acesse o slide relevante por seu índice.
-3. Adicione uma [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) retangular ao slide.
-4. Acesse o [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) da forma.
-5. Use o parágrafo padrão e adicione mais dois objetos [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) ao quadro de texto.
-6. Adicione objetos [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) suficientes para que cada parágrafo contenha três porções. O parágrafo padrão já contém uma porção vazia.
-7. Defina o texto de cada porção.
-8. Aplique formatação ao nível de caracteres através de [Portion.portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/portion/portion_format/).
-9. Salve a apresentação modificada.
-
-Este exemplo em Python implementa as etapas:
+O exemplo Python a seguir cria três parágrafos, cada um contendo três sequências de texto em sua coleção [Paragraph.portions](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/portions/). Ele reutiliza o parágrafo padrão e sua porção vazia, então adiciona os demais parágrafos e porções. A formatação é aplicada através de [Portion.portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/portion/portion_format/): a primeira porção em cada parágrafo é vermelha, em negrito, e 15 pontos; a segunda é azul, itálico, e 18 pontos. A terceira porção mantém sua formatação padrão:
 
 ```python
 import aspose.pydrawing as draw
@@ -65,6 +55,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
     text_frame = shape.text_frame
 
@@ -106,24 +97,13 @@ with slides.Presentation() as presentation:
 
 ## **Criar listas com marcadores e numeradas**
 
+Organize o texto dos parágrafos em listas com símbolos, números ou imagens personalizadas. Os exemplos nesta seção cobrem formatação de marcadores, listas de vários níveis e números iniciais personalizados.
+
 ### **Criar uma lista com marcadores ou numerada**
 
-Marcadores e numeração tornam itens relacionados mais fáceis de visualizar. No Aspose.Slides, as configurações de lista são definidas através de [BulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/).
+Marcadores e numeração facilitam a leitura de itens relacionados. No Aspose.Slides, as configurações de lista são definidas através de [BulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/).
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Acesse o slide relevante por seu índice.
-3. Adicione um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ao slide selecionado.
-4. Acesse o [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) da forma.
-5. Remova o parágrafo padrão do quadro de texto.
-6. Crie um [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) para um marcador de símbolo.
-7. Defina [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) como [BulletType.SYMBOL](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/) e especifique o caractere do marcador.
-8. Defina o texto do parágrafo, recuo, cor do marcador e altura do marcador.
-9. Adicione o parágrafo ao quadro de texto.
-10. Crie um segundo parágrafo e defina [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) como [BulletType.NUMBERED](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/).
-11. Configure o estilo de marcador numerado e adicione o parágrafo ao quadro de texto.
-12. Salve a apresentação.
-
-Este exemplo em Python cria um marcador de símbolo e um marcador numerado:
+Este exemplo Python adiciona um marcador de símbolo e um item numerado ao mesmo quadro de texto. [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) seleciona o tipo de marcador, enquanto [BulletFormat.char](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/char/) fornece o símbolo e [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_style/) seleciona o estilo de numeração. Ambos os itens usam marcadores pretos com altura de 100 % e recuo de parágrafo de 25 pontos:
 
 ```python
 import aspose.pydrawing as draw
@@ -131,6 +111,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
     text_frame = shape.text_frame
     text_frame.paragraphs.clear()
@@ -164,18 +145,7 @@ with slides.Presentation() as presentation:
 
 Marcadores de imagem permitem usar uma imagem personalizada em vez de um símbolo ou número.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Acesse o slide relevante por seu índice.
-3. Adicione um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) e acesse seu [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-4. Remova o parágrafo padrão do quadro de texto.
-5. Carregue a imagem do marcador e adicione-a à coleção de imagens da apresentação como um [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
-6. Crie um [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) e defina seu texto.
-7. Defina [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) como [BulletType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/).
-8. Atribua a imagem através de [BulletFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/picture/) e defina a altura do marcador.
-9. Adicione o parágrafo ao quadro de texto.
-10. Salve a apresentação modificada.
-
-Este exemplo em Python cria um marcador de imagem:
+O exemplo requer `bullets.png` no diretório de trabalho. Este exemplo Python adiciona uma imagem à coleção de imagens da apresentação como um [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) e a usa como marcador de parágrafo. Ele define [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) para usar um marcador de imagem e atribui a imagem através de [BulletFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/picture/). [BulletFormat.height](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/height/) é definido como 100 % para dimensionar o marcador em relação ao texto do parágrafo:
 
 ```python
 import aspose.slides as slides
@@ -205,13 +175,7 @@ with slides.Presentation() as presentation:
 
 Defina [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) para posicionar os parágrafos em diferentes níveis de uma lista. O nível superior tem profundidade `0`.
 
-1. Crie uma [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) e acesse um slide.
-2. Adicione um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) e limpe o parágrafo padrão de seu quadro de texto.
-3. Crie quatro parágrafos e configure seus símbolos de marcador.
-4. Defina seus valores [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) para `0`, `1`, `2` e `3`.
-5. Adicione os parágrafos ao quadro de texto e salve a apresentação.
-
-Este exemplo em Python cria uma lista com quatro níveis de marcadores:
+Este exemplo Python atribui valores de [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) de 0 a 3 a quatro parágrafos, criando uma hierarquia dentro de um único quadro de texto. Cada parágrafo usa um marcador de símbolo, com [BulletFormat.char](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/char/) alternando entre um marcador redondo e um hífen para distinguir níveis adjacentes:
 
 ```python
 import aspose.pydrawing as draw
@@ -219,6 +183,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
     text_frame = shape.text_frame
     text_frame.paragraphs.clear()
@@ -263,23 +228,18 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Iniciar itens da lista numerada com valores personalizados**
+### **Iniciar itens de lista numerada com valores personalizados**
 
 Use [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) para definir o número inicial exibido para um parágrafo numerado.
 
-1. Crie uma [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) e adicione um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) a um slide.
-2. Limpe o parágrafo padrão do quadro de texto da forma.
-3. Crie três parágrafos numerados.
-4. Defina [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) como `2`, `3` e `7` para os respectivos parágrafos.
-5. Adicione os parágrafos ao quadro de texto e salve a apresentação.
-
-Este exemplo em Python atribui um número inicial personalizado a cada parágrafo:
+Este exemplo Python define [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) para usar numeração em três parágrafos e atribui valores de [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) de 2, 3 e 7. O valor inicial é configurado separadamente para cada parágrafo, permitindo que os números exibidos pulem valores:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
     text_frame = shape.text_frame
     text_frame.paragraphs.clear()
@@ -305,25 +265,17 @@ with slides.Presentation() as presentation:
     presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Controlar o layout do parágrafo e propriedades de finalização**
+## **Controlar layout do parágrafo e propriedades finais**
+
+Ajuste as margens e recuos do parágrafo para controlar a posição da primeira linha e das linhas quebradas. Você também pode formatar a marca de fim do parágrafo separadamente das porções de texto visíveis.
 
 ### **Definir recuo da primeira linha**
 
-Use a propriedade [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) para controlar o recuo da primeira linha de um parágrafo. Esta propriedade move apenas a primeira linha em relação à margem esquerda do parágrafo. Um valor positivo desloca a primeira linha para a direita, enquanto as linhas restantes permanecem alinhadas ao corpo do parágrafo.
+Use a propriedade [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) para controlar o recuo da primeira linha de um parágrafo. Essa propriedade move apenas a primeira linha em relação à margem esquerda do parágrafo. Um valor positivo desloca a primeira linha para a direita, enquanto as linhas restantes permanecem alinhadas ao corpo do parágrafo.
 
-Use [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) quando precisar mover todo o parágrafo. Use [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) quando precisar mover apenas a primeira linha.
+Use [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) quando precisar mover o parágrafo inteiro. Use [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) quando precisar mover apenas a primeira linha.
 
-O exemplo abaixo cria vários parágrafos e aplica diferentes valores de [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) para demonstrar como o recuo da primeira linha afeta o layout do parágrafo.
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Acesse o slide de destino.
-3. Adicione uma [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) retangular ao slide.
-4. Acesse o [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) da forma e remova o parágrafo padrão.
-5. Crie vários parágrafos e defina diferentes valores de [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) para eles.
-6. Adicione os parágrafos ao quadro de texto.
-7. Salve a apresentação modificada.
-
-Este código mostra como definir um recuo de parágrafo:
+O exemplo a seguir atribui a três parágrafos o mesmo [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) de 20 pontos e valores de [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) de 0, 20 e 40 pontos. As primeiras linhas começam em deslocamentos progressivamente maiores, enquanto as linhas quebradas mantêm a mesma margem esquerda:
 
 ```python
 import aspose.pydrawing as draw
@@ -331,6 +283,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
     shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.line_format.fill_format.fill_type = slides.FillType.SOLID
@@ -374,20 +327,13 @@ O resultado:
 
 ### **Definir recuo suspenso**
 
-Um recuo suspenso é um layout de parágrafo em que a primeira linha começa à esquerda das linhas restantes. No Aspose.Slides, você cria esse efeito com a propriedade [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/). Defina `indent` com um valor negativo para mover a primeira linha para a esquerda em relação ao corpo do parágrafo.
+Um recuo suspenso é um layout de parágrafo no qual a primeira linha começa à esquerda das linhas restantes. No Aspose.Slides, você cria esse efeito com a propriedade [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/). Defina `indent` como um valor negativo para mover a primeira linha para a esquerda em relação ao corpo do parágrafo.
 
 Na prática, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) define a posição esquerda do corpo do parágrafo, e [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) define a posição da primeira linha em relação a essa margem. Para criar um recuo suspenso, defina um valor positivo para `margin_left` e um valor negativo para `indent`.
 
-Essa formatação é útil para bibliografias, referências, entradas de glossário e outros parágrafos onde linhas quebradas precisam alinhar-se sob o corpo do parágrafo, em vez de sob o primeiro caractere da primeira linha.
+Essa formatação é útil para bibliografias, referências, entradas de glossário e outros parágrafos onde linhas quebradas devem alinhar-se sob o corpo do parágrafo e não sob o primeiro caractere da primeira linha.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Acesse o slide de destino.
-3. Adicione uma [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) retangular ao slide.
-4. Acesse o [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) da forma e remova o parágrafo padrão.
-5. Crie parágrafos e defina um valor positivo de [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) para cada parágrafo.
-6. Defina um valor negativo de [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) para criar o efeito de recuo suspenso.
-7. Adicione os parágrafos ao quadro de texto.
-8. Salve a apresentação modificada.
+O exemplo Python a seguir combina valores de [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) de 40 e 60 pontos com valores de [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) de -20 e -30 pontos. Em cada parágrafo, a primeira linha começa à esquerda das linhas quebradas; o segundo parágrafo tem um recuo suspenso mais profundo:
 
 ```python
 import aspose.pydrawing as draw
@@ -395,6 +341,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
     shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.line_format.fill_format.fill_type = slides.FillType.SOLID
@@ -428,22 +375,16 @@ O resultado:
 
 ![O recuo suspenso dos parágrafos](hanging_indent.png)
 
-### **Definir propriedades de execução do final do parágrafo**
+### **Definir propriedades de execução de fim do parágrafo**
 
-A propriedade [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) controla a formatação da marca de fim de parágrafo. O exemplo a seguir atribui um tamanho de fonte e fonte latina à marca de fim do segundo parágrafo:
-
-1. Carregue uma [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) e acesse um slide.
-2. Adicione um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) e limpe seu parágrafo padrão.
-3. Crie dois parágrafos e adicione porções de texto a eles.
-4. Crie um [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) para a marca de fim do segundo parágrafo.
-5. Defina [PortionFormat.font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) e [PortionFormat.latin_font](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/latin_font/).
-6. Atribua o formato a [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) e salve a apresentação.
+A propriedade [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) controla a formatação da marca de fim do parágrafo. O exemplo carrega `Test.pptx`, que deve conter ao menos um slide, e cria um [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) com [PortionFormat.font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) definido para 48 pontos e [PortionFormat.latin_font](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/latin_font/) definido para Times New Roman. Ele atribui esse formato à marca de fim do segundo parágrafo, deixando as porções de texto visíveis inalteradas:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("Test.pptx") as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
     text_frame = shape.text_frame
     text_frame.paragraphs.clear()
@@ -467,13 +408,13 @@ with slides.Presentation("Test.pptx") as presentation:
 
 ## **Contar linhas renderizadas**
 
-Para regras de parágrafo que afetam a quebra automática de linha e pontuação ao final das linhas, veja [Controlar quebra de linha](/slides/pt/python-net/text-formatting/#control-line-breaking) e [Controlar pontuação suspensa](/slides/pt/python-net/text-formatting/#control-hanging-punctuation).
+Para regras de parágrafo que afetam a quebra automática e a pontuação no final das linhas, veja [Controlar quebra de linha](/slides/pt/python-net/text-formatting/#control-line-breaking) e [Controlar pontuação suspensa](/slides/pt/python-net/text-formatting/#control-hanging-punctuation).
 
-Use [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) para contar as linhas ocupadas por um parágrafo após a disposição do texto, incluindo quebra automática. Isso é útil ao verificar o comprimento do texto e o layout em modelos de apresentação.
+Use [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) para contar as linhas ocupadas por um parágrafo após o layout do texto, incluindo a quebra automática. Isso é útil ao verificar o comprimento do texto e o layout em modelos de apresentação.
 
-Um parágrafo é um item em [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/), e pode ocupar várias linhas renderizadas. Uma quebra explícita de linha dentro de um parágrafo força uma nova linha sem criar outro parágrafo. A quebra automática cria linhas com base na largura disponível sem inserir quebras de linha explícitas no texto. Portanto, contar parágrafos ou caracteres de quebra de linha não fornece a contagem de linhas renderizadas.
+Um parágrafo é um item em [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/), e pode ocupar várias linhas renderizadas. Uma quebra de linha explícita dentro de um parágrafo força uma nova linha sem criar outro parágrafo. A quebra automática cria linhas com base na largura disponível sem inserir quebras de linha explícitas no texto. Contar parágrafos ou caracteres de quebra de linha, portanto, não fornece a contagem de linhas renderizadas.
 
-O exemplo a seguir cria uma forma de texto, conta suas linhas, estreita a forma e, em seguida, substitui o texto por uma cadeia mais curta. A quebra de linha está habilitada e o ajuste automático está desativado para que a largura da forma controle a quebra sem reduzir automaticamente o texto ou redimensionar a forma. As dimensões da forma estão em pontos. Por fim, o exemplo adiciona outro parágrafo e soma as contagens de linhas em todo o quadro de texto.
+O exemplo a seguir cria uma forma de texto, conta suas linhas, estreita a forma e então substitui o texto por uma string mais curta. O exemplo habilita [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) e desabilita [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) para que a largura da forma controle a quebra de linha sem reduzir automaticamente o texto ou redimensionar a forma. Cada medição usa [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/). As dimensões da forma são em pontos. Por fim, o exemplo adiciona outro parágrafo e soma as contagens de linhas em todo o quadro de texto.
 
 ```python
 import aspose.slides as slides
@@ -508,30 +449,26 @@ with slides.Presentation() as presentation:
     print(f"Total lines in the text frame: {total_line_count}")
 ```
 
-Com este texto e estas dimensões, estreitar a forma aumenta a contagem de linhas, enquanto substituir o texto pela cadeia curta a reduz. Contagens exatas podem variar com a disponibilidade e substituição de fontes, tamanho da fonte, margens, recuo, quebra de linha e configurações de ajuste automático. Use as fontes e configurações de layout previstas para o ambiente de destino ao verificar um modelo.
+Com esse texto e essas dimensões, estreitar a forma aumenta a contagem de linhas, enquanto substituir o texto pela string curta a reduz. Contagens exatas podem variar com a disponibilidade e substituição de fontes, tamanho da fonte, margens, recuos, quebra de linha e configurações de ajuste automático. Use as fontes e configurações de layout previstas para o ambiente de destino ao verificar um modelo.
 
-A contagem de linhas por si só não determina se o texto excede seu contêiner. A altura disponível, alturas das linhas, espaçamento entre parágrafos e linhas e o comportamento de ajuste automático também são importantes; mesmo uma única linha pode exceder a largura disponível quando a quebra automática está desativada.
+Apenas a contagem de linhas não determina se o texto transborda seu contêiner. A altura disponível, altura das linhas, espaçamento entre parágrafos e linhas, e o comportamento de ajuste automático também são importantes; mesmo uma única linha pode exceder a largura disponível quando a quebra de linha está desativada.
 
 ## **Importar e exportar conteúdo de parágrafos**
 
-### **Importar texto HTML para parágrafos**
+Use HTML para trazer texto para uma apresentação ou exportar parágrafos existentes para uso externo. Esta seção também mostra como renderizar parágrafos individuais como imagens, inclusive parágrafos em células de tabela.
+
+### **Importar texto HTML em parágrafos**
 
 Use [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/) para converter marcação HTML em parágrafos e porções em um quadro de texto.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Acesse um slide e adicione um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
-3. Acesse o [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) da forma e limpe o parágrafo padrão.
-4. Leia o arquivo HTML de origem.
-5. Passe a string HTML para [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/).
-6. Salve a apresentação modificada.
-
-Este exemplo em Python importa HTML para um quadro de texto:
+Este exemplo Python lê HTML de `file.html` no diretório de trabalho e passa a marcação para [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/). Ele limpa o parágrafo padrão do quadro de texto para que o quadro contenha apenas o conteúdo importado. A forma retangular deixa uma margem de 10 pontos em cada lado do slide:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape_width = presentation.slide_size.size.width - 20
     shape_height = presentation.slide_size.size.height - 20
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, shape_width, shape_height)
@@ -547,44 +484,64 @@ with slides.Presentation() as presentation:
 
 ### **Exportar texto de parágrafo para HTML**
 
-Use [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) para exportar um intervalo selecionado de parágrafos como HTML.
+Use [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) para exportar um intervalo selecionado de parágrafos como HTML. Ao reutilizar texto de apresentação em um site, pode ser desejável preservar ênfase local sem transportar a fonte, tamanho ou estilos da caixa de texto da apresentação. Defina [TextToHtmlConversionOptions.text_inheritance_limit](https://reference.aspose.com/slides/python-net/aspose.slides.export/texttohtmlconversionoptions/text_inheritance_limit/) para controlar até onde o exportador segue a herança de formatação.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) e carregue a apresentação desejada.
-2. Acesse o slide e encontre o [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) que contém o texto.
-3. Acesse o [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-4. Chame [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) com o índice do parágrafo inicial e o número de parágrafos a exportar.
-5. Escreva a string HTML retornada em um arquivo.
+Baixe [a apresentação de exemplo](text-inheritance.pptx) e coloque-a no diretório de trabalho da aplicação. Seu primeiro slide contém uma forma de texto com o texto "Inherited text; explicit red 18pt". A entrada deliberadamente usa vários níveis de formatação:
 
-Este exemplo em Python exporta todos os parágrafos da primeira forma de texto:
+- O estilo de texto padrão da apresentação fornece Calibri e tamanho de 28 pt.
+- O estilo de texto de primeiro nível do quadro de texto fornece texto azul e itálico.
+- O parágrafo define explicitamente texto em negrito.
+- A segunda porção, "explicit red 18pt", define explicitamente texto vermelho e tamanho de 18 pt.
+
+O exemplo completo a seguir exporta os mesmos parágrafos três vezes. Ele passa [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/texttohtmlconversionoptions/) ao método de exportação e grava cada resultado como um arquivo HTML UTF-8 separado:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("ExportingHTMLText.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
+with slides.Presentation("text-inheritance.pptx") as presentation:
+    text_shape = presentation.slides[0].shapes[0]
+    paragraphs = text_shape.text_frame.paragraphs
+    
+    modes = {
+        "All": slides.export.TextInheritanceLimit.ALL,
+        "TextBox": slides.export.TextInheritanceLimit.TEXT_BOX,
+        "ParagraphOnly": slides.export.TextInheritanceLimit.PARAGRAPH_ONLY,
+    }
 
-    if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
-        paragraphs = shape.text_frame.paragraphs
-        html = paragraphs.export_to_html(0, paragraphs.count, None)
-        with open("paragraphs.html", "w", encoding="utf-8") as html_stream:
+    for name, mode in modes.items():
+        options = slides.export.TextToHtmlConversionOptions()
+        options.text_inheritance_limit = mode
+
+        html = paragraphs.export_to_html(0, paragraphs.count, options)
+        with open(f"{name}.html", "w", encoding="utf-8") as html_stream:
             html_stream.write(html)
-    else:
-        print("The first shape is not a text shape.")
 ```
+
+O HTML gerado contém o seguinte CSS para a primeira porção, "Inherited text; ". A tabela lista as declarações relevantes; outras propriedades geradas são omitidas para clareza.
+
+| Saída | CSS relevante para a primeira porção | Aparência |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, negrito, itálico em 28 pt em Calibri, se essa fonte estiver disponível. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, negrito, itálico; a página ou navegador ao redor fornece a família de fontes e o tamanho. |
+| `ParagraphOnly.html` | `font-weight:bold` | Texto em negrito; a página ou navegador ao redor fornece a família de fontes, tamanho, cor e estilo itálico. |
+
+A segunda porção mantém `color:#ff0000`, `font-size:18pt` e `font-weight:bold` em todas as três saídas. Ela também mantém itálico com `ALL` e `TEXT_BOX`, mas não com `PARAGRAPH_ONLY`. Restringir a herança, portanto, não remove formatação atribuída explicitamente a um parágrafo ou porção.
+
+Abra os arquivos no mesmo navegador para compará-los. Nos dois modos restritos, as propriedades CSS omitidas são resolvidas pelos estilos da página de destino ou pelos padrões do navegador, de modo que a aparência resultante depende de onde o HTML for usado.
 
 ### **Renderizar um parágrafo como imagem**
 
-[Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) fornece o método `get_image` para renderizar diretamente um parágrafo individual. O método retorna um [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) que você pode salvar em um arquivo ou fluxo com [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). Não é necessário renderizar a forma que contém ou recortar um bitmap manualmente.
+[Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) renderiza um parágrafo individual diretamente e retorna um [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/). Salve o resultado em um arquivo ou stream com [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). Não é necessário renderizar a forma que contém ou recortar um bitmap manualmente.
 
-O método `get_image` pode retornar `None` se o parágrafo não for encontrado na coleção pai, não tiver limites de renderização válidos ou não puder ser renderizado. Verifique o resultado antes de salvá‑lo e use a imagem retornada como um gerenciador de contexto para liberar seus recursos.
+[Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) pode retornar `None` se o parágrafo não for encontrado em sua coleção pai, não possuir limites de renderização válidos ou não puder ser renderizado. Verifique o resultado antes de salvá-lo e libere a imagem retornada após o uso.
 
 #### **Renderizar um parágrafo na escala padrão**
 
-Vamos supor que temos um arquivo de apresentação chamado sample.pptx com um slide, onde a primeira forma é uma caixa de texto contendo três parágrafos.
+O exemplo usa `sample.pptx`, uma apresentação com um slide cujo primeiro forma é uma caixa de texto contendo três parágrafos.
 
 ![A caixa de texto com três parágrafos](paragraph_to_image_input.png)
 
-O exemplo a seguir renderiza o segundo parágrafo em uma forma de texto normal na escala padrão e salva a imagem retornada em formato PNG:
+O exemplo a seguir seleciona o segundo parágrafo no índice 1 e chama [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) sem parâmetros de escala. Ele verifica se a forma contém o parágrafo necessário e se a renderização retorna uma imagem antes de chamar [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) para salvá-la em formato PNG. O gerenciador de contexto libera os recursos da imagem após o uso.
 
 ```python
 import aspose.slides as slides
@@ -611,7 +568,7 @@ O resultado:
 
 #### **Renderizar um parágrafo em uma célula de tabela com dimensionamento**
 
-Passe fatores de escala horizontal e vertical para `get_image` a fim de controlar o tamanho do parágrafo renderizado. O exemplo a seguir cria uma tabela, renderiza o parágrafo em sua primeira célula com o dobro da largura e altura padrão e salva o resultado como uma imagem PNG:
+Use a sobrecarga de [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) que aceita os parâmetros `scale_x` e `scale_y` para definir os fatores de escala horizontal e vertical. O exemplo a seguir cria uma tabela, renderiza o parágrafo em sua primeira célula com o dobro da largura e altura padrão, e salva o resultado como uma imagem PNG.
 
 ```python
 import aspose.slides as slides
@@ -621,6 +578,7 @@ scale_y = 2
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     table = slide.shapes.add_table(50, 50, [300], [80])
     paragraph = table.rows[0][0].text_frame.paragraphs[0]
     paragraph.text = "Text in a table cell"
@@ -633,24 +591,24 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-Um fator de escala de `1` mantém esse eixo no tamanho de pixel padrão. Por exemplo, `2` para ambos os fatores produz uma imagem cuja largura e altura são aproximadamente o dobro das dimensões padrão, resultando em quatro vezes mais pixels. Fatores maiores geralmente produzem texto mais nítido para zoom ou saída de alta resolução, mas também aumentam o uso de memória e o tamanho do arquivo. Fatores abaixo de `1` produzem imagens menores com menos detalhe. Use fatores iguais para preservar a proporção do parágrafo; fatores diferentes horizontal e vertical esticam a saída independentemente.
+Um fator de escala de `1` mantém esse eixo no tamanho de pixel padrão. Por exemplo, `2` para ambos os fatores produz uma imagem cuja largura e altura são aproximadamente o dobro das dimensões padrão, resultando em quatro vezes mais pixels. Fatores maiores geralmente produzem texto mais nítido para zoom ou saída de alta resolução, mas também aumentam o uso de memória e o tamanho do arquivo. Fatores abaixo de `1` produzem imagens menores com menos detalhes. Use fatores iguais para preservar a proporção do parágrafo; fatores horizontais e verticais diferentes esticam a saída independentemente.
 
-Renderizar toda a forma com [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) continua útil quando a saída deve incluir o preenchimento, a borda ou outro contexto visual da forma. Para uma imagem contendo apenas o parágrafo, use `Paragraph.get_image`.
+Renderizar uma forma inteira com [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) continua útil quando a saída deve incluir o preenchimento, borda ou outro contexto visual da forma. Para uma imagem apenas do parágrafo, use [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/).
 
 ## **FAQ**
 
-**Posso desativar completamente a quebra automática de linha dentro de um quadro de texto?**
+**Posso desativar completamente a quebra de linha dentro de um quadro de texto?**
 
-Sim. Defina [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) para desativar a quebra de modo que as linhas não se interrompam nas bordas do quadro de texto.
+Sim. Defina [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) para desativar a quebra de linha, de modo que as linhas não quebrem nas bordas do quadro de texto.
 
 **Como posso obter os limites exatos no slide de um parágrafo específico?**
 
 Use [Paragraph.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_rect/) para recuperar o retângulo delimitador do parágrafo. [Portion.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/portion/get_rect/) fornece os limites de uma porção individual.
 
-**Onde o alinhamento de parágrafo (esquerda, direita, centro ou justificado) é controlado?**
+**Onde o alinhamento do parágrafo (esquerda, direita, centro ou justificado) é controlado?**
 
-[ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) é uma configuração ao nível do parágrafo e se aplica a todo o parágrafo, independentemente da formatação de porções individuais. Para alinhar verticalmente porções de tamanhos de fonte diferentes dentro de cada linha, veja [Alinhar fontes dentro de uma linha](/slides/pt/python-net/text-formatting/#align-fonts-within-a-line).
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) é uma configuração em nível de parágrafo e se aplica a todo o parágrafo independentemente da formatação de cada porção. Para alinhar verticalmente porções com diferentes tamanhos de fonte dentro de cada linha, veja [Alinhar fontes dentro de uma linha](/slides/pt/python-net/text-formatting/#align-fonts-within-a-line).
 
-**Posso definir o idioma de revisão para parte de um parágrafo?**
+**Posso definir o idioma de correção para parte de um parágrafo?**
 
 Sim. Defina [PortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) para porções individuais, de modo que um parágrafo possa conter texto em vários idiomas.

@@ -1,5 +1,5 @@
 ---
-title: 在 C++ 中管理 PowerPoint 文本段落
+title: 使用 C++ 管理 PowerPoint 文本段落
 linktitle: 管理段落
 type: docs
 weight: 40
@@ -29,35 +29,25 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for C++ 创建和格式化段落、部分、项目符号、编号列表、缩进、HTML 内容以及段落图像。"
+description: "了解如何使用 Aspose.Slides for C++ 创建和格式化段落、文本段、项目符号、编号列表、缩进、HTML 内容以及段落图像。"
 ---
 ## **概述**
 
-Aspose.Slides for C++ 将文本表示为文本框、段落和部分的层次结构：
+Aspose.Slides for C++ 将文本表示为文本框、段落和文本段的层次结构：
 
-* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) 表示形状中的文本容器并提供对其段落集合的访问。
-* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) 表示文本框中的一个段落并提供对其部分和段落级格式的访问。
-* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) 表示段落中的文本运行。每个部分可以拥有自己的文本和字符级格式。
+* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) 表示形状中的文本容器，并提供对其段落集合的访问。
+* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) 表示文本框中的一个段落，并提供对其文本段和段落级格式的访问。
+* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) 表示段落内的一个文本运行。每个文本段可以拥有自己的文本和字符级格式。
 
-因此，一个段落可以通过使用多个部分来包含具有不同字体、颜色、大小和其他格式的文本。
+因此，一个段落可以通过使用多个文本段来包含具有不同字体、颜色、大小和其他格式的文本。
 
-## **创建和格式化段落**
+## **创建并格式化段落**
 
-### **创建包含多个部分的段落**
+在形状的文本框中创建段落，并使用文本段来格式化各个文本运行。本节展示如何在每个段落中组合多个文本段，并应用不同的颜色、字体大小和样式。
 
-以下步骤创建一个包含三个段落、每个段落包含三个部分的文本框：
+### **创建包含多个文本段的段落**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。
-2. 通过索引获取相应幻灯片的引用。
-3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)。
-4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/)。
-5. 使用默认段落并向文本框再添加两个 [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) 对象。
-6. 为每个段落添加足够的 [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) 对象以包含三个部分。默认段落已经包含一个空部分。
-7. 设置每个部分的文本。
-8. 通过 [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/) 应用字符级格式。
-9. 保存修改后的演示文稿。
-
-下面的 C++ 示例实现了这些步骤：
+以下 C++ 示例在其 [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/) 集合中创建了三个段落，每个段落包含三个文本运行。它复用了默认段落及其空文本段，然后添加其余的段落和文本段。通过 [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/) 应用格式：每个段落的第一个文本段为红色、粗体、15 磅；第二个为蓝色、斜体、18 磅。第三个文本段保留默认格式：
 
 ```cpp
 #include <DOM/FillType.h>
@@ -80,6 +70,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
 auto textFrame = shape->get_TextFrame();
 
@@ -100,11 +91,11 @@ thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
 textFrame->get_Paragraphs()->Add(thirdParagraph);
 
 auto paragraphCount = textFrame->get_Paragraphs()->get_Count();
-for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+for (auto paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 {
     auto paragraph = textFrame->get_Paragraph(paragraphIndex);
     auto portionCount = paragraph->get_Portions()->get_Count();
-    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    for (auto portionIndex = 0; portionIndex < portionCount; portionIndex++)
     {
         auto portion = paragraph->get_Portion(portionIndex);
         portion->set_Text(String::Format(u"Portion {0}.{1}", paragraphIndex + 1, portionIndex + 1));
@@ -133,24 +124,13 @@ presentation->Dispose();
 
 ## **创建项目符号和编号列表**
 
+将段落文本组织为使用符号、数字或自定义图像的列表。本节中的示例涵盖项目符号格式、多级列表以及自定义起始编号。
+
 ### **创建项目符号或编号列表**
 
 项目符号和编号使相关项目更易于浏览。在 Aspose.Slides 中，列表设置通过 [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/) 定义。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。
-2. 通过索引获取相应幻灯片的引用。
-3. 向选定的幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)。
-4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/)。
-5. 从文本框中移除默认段落。
-6. 为符号项目符号创建一个 [Paragraph](https://reference.aspose.com/slides/cpp/aspose.slides/paragraph/)。
-7. 将 [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) 设置为 [BulletType::Symbol](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/) 并指定项目符号字符。
-8. 设置段落文本、缩进、项目符号颜色和项目符号高度。
-9. 将段落添加到文本框。
-10. 创建第二个段落并将 [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) 设置为 [BulletType::Numbered](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/)。
-11. 配置编号项目符号样式并将段落添加到文本框。
-12. 保存演示文稿。
-
-下面的 C++ 示例创建了符号项目符号和编号项目符号：
+此 C++ 示例向同一文本框添加符号项目符号和编号项。[IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) 选择项目符号类型，[IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) 提供符号，而 [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) 选择编号样式。两项均使用黑色项目符号，高度为 100%，段落缩进为 25 磅：
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -173,6 +153,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -205,20 +186,9 @@ presentation->Dispose();
 
 ### **使用图片项目符号**
 
-图片项目符号允许使用自定义图像替代符号或数字。
+图片项目符号允许使用自定义图像代替符号或数字。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。
-2. 通过索引获取相应幻灯片的引用。
-3. 添加一个 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) 并访问其 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/)。
-4. 从文本框中移除默认段落。
-5. 加载项目符号图像并将其作为 [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) 添加到演示文稿的图像集合中。
-6. 创建一个 [Paragraph](https://reference.aspose.com/slides/cpp/aspose.slides/paragraph/) 并设置其文本。
-7. 将 [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) 设置为 [BulletType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/)。
-8. 通过 [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) 关联图像并设置项目符号高度。
-9. 将段落添加到文本框。
-10. 保存修改后的演示文稿。
-
-下面的 C++ 示例创建了图片项目符号：
+示例需要工作目录中存在 `bullets.png`。此 C++ 示例将图像作为 [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) 添加到演示文稿的图像集合，并将其用作段落项目符号。它将 [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) 设置为使用图片项目符号，并通过 [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/) 分配图像。[IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) 设置为 100% 以相对于段落文本大小调整项目符号：
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -261,15 +231,9 @@ presentation->Dispose();
 
 ### **创建多级列表**
 
-将 [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) 设置为在列表的不同层级放置段落。顶层的深度为 `0`。
+通过设置 [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) 将段落放置在列表的不同层级。顶层深度为 `0`。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 并获取一张幻灯片。
-2. 添加一个 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) 并清除其文本框中的默认段落。
-3. 创建四个段落并配置它们的项目符号符号。
-4. 将它们的 [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) 值分别设为 `0`、`1`、`2`、`3`。
-5. 将段落添加到文本框并保存演示文稿。
-
-下面的 C++ 示例创建了四级项目符号列表：
+此 C++ 示例为四个段落分别设置 0 到 3 的 [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) 值，在同一文本框中创建层级结构。每个段落使用符号项目符号，[IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) 在圆形项目符号和连字符之间交替，以区分相邻层级：
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -290,6 +254,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -335,17 +300,11 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **为编号列表项设置自定义起始值**
+### **自定义起始值的编号列表项**
 
-使用 [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 为编号段落设置初始显示数字。
+使用 [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 设置编号段落的起始编号。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 并向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)。
-2. 清除形状文本框中的默认段落。
-3. 创建三个编号段落。
-4. 将 [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 分别设置为 `2`、`3`、`7`。
-5. 将段落添加到文本框并保存演示文稿。
-
-下面的 C++ 示例为每个段落分配自定义起始编号：
+此 C++ 示例将 [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) 设置为使用编号，并为三个段落分别分配 2、3、7 的 [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 值。每个段落的起始值独立配置，使显示的编号可以跳过数值：
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -362,6 +321,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -390,23 +350,15 @@ presentation->Dispose();
 
 ## **控制段落布局和结束属性**
 
+调整段落边距和缩进以控制首行和换行行的位置。您还可以单独格式化段落结束标记，而不影响可见的文本段。
+
 ### **设置首行缩进**
 
-使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 控制段落的首行缩进。此方法仅移动首行相对于段落左边距的位置。正值会将首行向右移动，剩余行保持与段落正文对齐。
+使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 方法控制段落的首行缩进。此方法仅移动首行相对于段落左边距的距离。正值将首行向右移动，剩余行保持与段落主体对齐。
 
-需要整体移动段落时使用 [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/)。仅需移动首行时使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/)。
+当需要整体移动段落时使用 [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/)。仅需移动首行时使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/)。
 
-下面的示例创建了多个段落，并对不同的 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 值进行演示，以展示首行缩进对段落布局的影响。
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。
-2. 访问目标幻灯片。
-3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)。
-4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) 并移除默认段落。
-5. 创建多个段落并为它们设置不同的 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 值。
-6. 将段落添加到文本框。
-7. 保存修改后的演示文稿。
-
-下面的代码展示了如何设置段落缩进：
+下面的示例为三个段落设置相同的 [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 为 20 磅，并将 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 分别设为 0、20、40 磅。首行起始偏移逐渐增大，而换行行保持相同的左边距：
 
 ```cpp
 #include <DOM/FillType.h>
@@ -426,6 +378,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -470,22 +423,13 @@ presentation->Dispose();
 
 ### **设置悬挂缩进**
 
-悬挂缩进是一种段落布局，首行位于其余行的左侧。在 Aspose.Slides 中，可通过 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 实现。将缩进设置为负值即可使首行相对于段落正文向左移动。
+悬挂缩进是一种段落布局，首行位于其余行左侧。在 Aspose.Slides 中，可使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 方法实现。传入负值即可相对于段落主体向左移动首行。
 
-实际使用中，[IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 定义段落正文的左侧位置，而 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 定义首行相对于该左边距的位置。要创建悬挂缩进，需要将左侧边距设置为正值，同时将缩进设置为负值。
+实际操作中，[IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 定义段落主体的左侧位置，[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 定义首行相对于该边距的位置。要创建悬挂缩进，设置正的 `MarginLeft` 值和负的 `Indent` 值。
 
-此类格式常用于参考文献、文献目录、术语表等，需要换行后行首对齐到段落正文而非首字符的段落。
+此布局常用于参考文献、词汇表条目等需要换行行在段落主体下方对齐的段落。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。
-2. 访问目标幻灯片。
-3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)。
-4. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) 并移除默认段落。
-5. 为每个段落创建并设置正的 [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 值。
-6. 将负的 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 值用于创建悬挂缩进效果。
-7. 将段落添加到文本框。
-8. 保存修改后的演示文稿。
-
-下面的代码展示了如何为段落设置悬挂缩进：
+以下 C++ 示例将 [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 分别设为 40 和 60 磅，配合 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 设为 -20 和 -30 磅。每个段落的首行均位于换行行左侧；第二段落的悬挂缩进更深：
 
 ```cpp
 #include <DOM/FillType.h>
@@ -505,6 +449,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -541,14 +486,7 @@ presentation->Dispose();
 
 ### **设置段落结束运行属性**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) 控制段落结束标记的格式。下面的示例为第二段落的结束标记分配字体大小和拉丁字体：
-
-1. 加载一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 并访问一张幻灯片。
-2. 添加一个 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) 并清除其默认段落。
-3. 创建两个段落并向它们添加文本部分。
-4. 为第二段落的结束标记创建一个 [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/)。
-5. 设置 [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) 和 [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/)。
-6. 使用 [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) 应用格式并保存演示文稿。
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) 方法控制段落结束标记的格式。示例加载包含至少一张幻灯片的 `Test.pptx`。下面的示例创建一个 [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) ，将 [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) 设置为 48 磅， 将 [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) 设置为 Times New Roman。随后将该格式分配给第二段落的结束标记，保持可见文本段不变：
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -568,6 +506,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Test.pptx");
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -594,11 +533,11 @@ presentation->Dispose();
 
 有关影响自动换行和行尾标点的段落规则，请参阅 [Control Line Breaking](/slides/zh/cpp/text-formatting/#control-line-breaking) 和 [Control Hanging Punctuation](/slides/zh/cpp/text-formatting/#control-hanging-punctuation)。
 
-使用 [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) 可以统计段落在文本布局后占用的行数，包括自动换行。这在检查演示文稿模板中的文本长度和布局时非常有用。
+使用 [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) 可统计段落在文本布局后占用的行数，包括自动换行。这在检查演示模板中文本长度和布局时非常有用。
 
-段落是 [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/) 中的一个项，可能占用多行已渲染的行。段落内部的显式换行会强制换行但不会创建新段落。自动换行根据可用宽度生成行，而不会在文本中插入显式换行符。因此，仅统计段落或换行字符并不能得到渲染行数。
+段落是 [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/) 中的一个项目，可能占据多行渲染。段落内的显式换行符会强制新行，但不会创建新段落。自动换行根据可用宽度生成行，而不向文本插入显式换行符。因此，仅统计段落或换行字符并不能得到渲染行数。
 
-下面的示例创建一个文本形状，统计其行数，缩窄形状，然后用更短的字符串替换文本。启用了换行并禁用了自动适应，以便形状宽度控制换行而不会自动缩小文本或调整形状大小。形状尺寸使用点为单位。最后，示例向文本框再添加一个段落并汇总所有行数。
+下面的示例创建一个文本形状，统计其行数，随后缩窄形状宽度，再将文本替换为更短的字符串。示例启用 [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) 并禁用 [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/)，使形状宽度控制换行，而不自动缩小文本或调整形状大小。每次测量均使用 [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/)。形状尺寸以磅为单位。最后，示例添加另一段落并对整个文本框的行数求和。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -646,24 +585,19 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-使用上述文本和尺寸时，缩窄形状会增加行数，而用短字符串替换文本会减少行数。确切的计数会因字体可用性与替代、字体大小、边距、缩进、换行和自动适应设置而异；在检查模板时请使用目标环境的字体和布局设置。
+使用这些文本和尺寸时，缩窄形状会增加行数，而将文本替换为短字符串会减少行数。精确计数可能因字体可用性及替换、字体大小、边距、缩进、换行和自动适应设置而异。检查模板时请使用目标环境的字体和布局设置。
 
-仅凭行数并不能判断文本是否溢出容器。可用高度、行高、段落和行间距以及自动适应行为同样重要；即使是一行文本，在禁用换行时也可能超过可用宽度。
+仅凭行数无法判断文本是否溢出容器。可用高度、行高、段落和行间距以及自动适应行为也很重要；即使是一行文本，在关闭换行时也可能超过可用宽度。
 
-## **导入和导出段落内容**
+## **导入与导出段落内容**
+
+使用 HTML 将文本导入演示文稿，或将现有段落导出供外部使用。本节还展示如何将单独段落渲染为图像，包括表格单元格中的段落。
 
 ### **将 HTML 文本导入段落**
 
-使用 [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/addfromhtml/) 可以将 HTML 标记转换为文本框中的段落和部分。
+使用 [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) 将 HTML 标记转换为文本框中的段落和文本段。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。
-2. 访问一张幻灯片并添加一个 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)。
-3. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) 并清除其默认段落。
-4. 读取源 HTML 文件。
-5. 将 HTML 字符串传递给 [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/addfromhtml/)。
-6. 保存修改后的演示文稿。
-
-下面的 C++ 示例将 HTML 导入文本框：
+此 C++ 示例从文件读取 HTML 并将标记传递给 [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/)。它清除文本框的默认段落，使框仅包含导入的内容。矩形形状在幻灯片每侧留有 10 磅的边距：
 
 ```cpp
 #include <DOM/FillType.h>
@@ -682,6 +616,7 @@ using namespace System::IO;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto slideSize = presentation->get_SlideSize()->get_Size();
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, slideSize.get_Width() - 20, slideSize.get_Height() - 20);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -698,41 +633,53 @@ presentation->Dispose();
 
 ### **将段落文本导出为 HTML**
 
-使用 [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/exporttohtml/) 可以将选定范围的段落导出为 HTML。
+使用 [ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) 将选定范围的段落导出为 HTML。当在网站上复用演示文稿文本时，您可能希望保留本地强调而不携带演示文稿的字体、大小或文本框样式。通过设置 [TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) 可以控制导出器遵循格式继承的深度。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例并加载所需的演示文稿。
-2. 访问幻灯片并找到包含文本的 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)。
-3. 访问形状的 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/)。
-4. 调用 [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/exporttohtml/)，传入起始段落索引和要导出的段落数量。
-5. 将返回的 HTML 字符串写入文件。
+下载 [示例演示文稿](text-inheritance.pptx) 并放置在应用程序的工作目录中。其第一张幻灯片包含一个文本形状，文本为 “Inherited text; explicit red 18pt”。输入有意使用了多层格式：
 
-下面的 C++ 示例导出第一个文本形状中的所有段落：
+- 演示文稿的默认文本样式提供 Calibri 字体，大小为 28 pt。
+- 文本框的一级文本样式提供蓝色文本和斜体。
+- 段落显式设置粗体。
+- 第二个文本段 “explicit red 18pt” 显式设置红色文本和 18 pt 大小。
+
+以下示例将相同段落导出三次。它将 [TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) 传递给导出方法，并将每个结果写入单独的 UTF-8 HTML 文件：
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/Presentation.h>
+#include <Export/TextInheritanceLimit.h>
+#include <Export/TextToHtmlConversionOptions.h>
+#include <system/array.h>
 #include <system/console.h>
-#include <system/io/stream_writer.h>
+#include <system/io/file.h>
 #include <system/object_ext.h>
 #include <system/text/encoding.h>
 
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 using namespace System::Text;
 
-auto presentation = MakeObject<Presentation>(u"ExportingHTMLText.pptx");
+auto presentation = MakeObject<Presentation>(u"text-inheritance.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 auto textShape = AsCast<IAutoShape>(shape);
 
 if (textShape != nullptr && textShape->get_TextFrame() != nullptr)
 {
     auto paragraphs = textShape->get_TextFrame()->get_Paragraphs();
-    auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), nullptr);
-    auto writer = MakeObject<StreamWriter>(u"paragraphs.html", false, Encoding::get_UTF8());
-    writer->Write(html);
-    writer->Close();
+    auto modes = MakeArray<TextInheritanceLimit>({TextInheritanceLimit::All, TextInheritanceLimit::TextBox, TextInheritanceLimit::ParagraphOnly});
+    auto fileNames = MakeArray<String>({u"All.html", u"TextBox.html", u"ParagraphOnly.html"});
+
+    for (auto i = 0; i < modes->get_Length(); i++)
+    {
+        auto options = MakeObject<TextToHtmlConversionOptions>();
+        options->set_TextInheritanceLimit(modes[i]);
+
+        auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+        File::WriteAllText(fileNames[i], html, Encoding::get_UTF8());
+    }
 }
 else
 {
@@ -742,19 +689,31 @@ else
 presentation->Dispose();
 ```
 
+生成的 HTML 为第一段（“Inherited text; ”）包含以下 CSS。表格列出了相关声明，其他生成的属性为简洁起见已省略。
+
+| 输出 | 第一段的相关 CSS | 外观 |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | 蓝色、粗体、斜体文本，字号 28 pt，使用 Calibri 字体（如果该字体可用）。 |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | 蓝色、粗体、斜体文本；页面或浏览器提供字体族和大小。 |
+| `ParagraphOnly.html` | `font-weight:bold` | 粗体文本；页面或浏览器提供字体族、大小、颜色和斜体样式。 |
+
+第二个文本段在所有三种输出中均保留 `color:#ff0000`、`font-size:18pt` 和 `font-weight:bold`。在 `All` 与 `TextBox` 中仍保留斜体，而 `ParagraphOnly` 中不保留。限制继承因此不会移除显式分配给段落或文本段的格式。
+
+在同一浏览器中打开这些文件进行对比。在两种受限模式下，省略的 CSS 属性由目标页面的样式或浏览器默认值解析，因此最终外观取决于 HTML 使用的环境。
+
 ### **将段落渲染为图像**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) 直接渲染单个段落并返回一个 [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/)。使用 [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) 将结果保存到文件或流。无需渲染包含的形状或手动裁剪位图。
+[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) 直接渲染单个段落并返回 [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/)。使用 [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) 将结果保存到文件或流。无需渲染包含的形状或手动裁剪位图。
 
-如果段落在其父集合中未找到、没有有效的渲染边界，或无法渲染，[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) 将返回 `nullptr`。在保存之前检查返回值，并在使用后释放返回的图像。
+如果段落在其父集合中找不到、没有有效的渲染边界或无法渲染， [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) 可能返回 `nullptr`。在保存之前检查返回值，并在使用后释放图像。
 
 #### **以默认比例渲染段落**
 
-假设我们有一个名为 sample.pptx 的演示文稿，其中只有一张幻灯片，第一形状是包含三个段落的文本框。
+示例使用 `sample.pptx`，该演示文稿包含一张幻灯片，第一形状为包含三个段落的文本框。
 
 ![包含三个段落的文本框](paragraph_to_image_input.png)
 
-下面的示例以默认比例渲染第二段落并将返回的图像以 PNG 格式保存。
+以下示例在索引为 1 的位置选择第二段落，并在不提供比例参数的情况下调用 [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/)。它检查形状是否包含所需段落，并在渲染返回图像后调用 [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) 将其以 PNG 格式保存。示例在保存后释放图像。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -799,9 +758,9 @@ presentation->Dispose();
 
 ![段落图像](paragraph_to_image_output.png)
 
-#### **在表格单元格中缩放渲染段落**
+#### **在表格单元格中渲染段落并缩放**
 
-使用接受 `float scaleX` 和 `float scaleY` 参数的 [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) 重载，以设置水平和垂直缩放因子。下面的示例创建一个表格，在其第一个单元格中将段落以默认宽高的两倍进行渲染，并将结果保存为 PNG 图像。
+使用接受 `float scaleX` 和 `float scaleY` 参数的 [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) 重载来设置水平和垂直缩放因子。以下示例创建表格，在其第一个单元格中以默认宽度和高度的两倍渲染段落，并将结果保存为 PNG 图像。
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -820,6 +779,7 @@ auto scaleY = 2.0f;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto table = slide->get_Shapes()->AddTable(50, 50, MakeArray<double>({300}), MakeArray<double>({80}));
 auto paragraph = table->idx_get(0, 0)->get_TextFrame()->get_Paragraph(0);
 paragraph->set_Text(u"Text in a table cell");
@@ -838,26 +798,26 @@ else
 presentation->Dispose();
 ```
 
-缩放因子为 `1` 时保持该轴的默认像素大小。例如，两个因子均为 `2` 时，生成的图像宽高约为默认尺寸的两倍，像素数约为四倍。更大的因子通常可在放大或高分辨率输出时提供更清晰的文本，但也会增加内存使用和文件大小。因子小于 `1` 会生成更小且细节更少的图像。使用相等的因子可保持段落的宽高比；不同的水平和垂直因子会独立拉伸输出。
+缩放因子为 `1` 时保持该轴的默认像素尺寸。例如，两者均为 `2` 时，生成的图像宽高约为默认尺寸的两倍，像素数约为四倍。较大因子通常在放大或高分辨率输出时产生更清晰的文本，但也会增加内存使用和文件大小。因子小于 `1` 则生成更小、细节更少的图像。使用相等的因子可保持段落的宽高比；不同的水平和垂直因子会分别拉伸输出。
 
-在需要包含形状填充、边框或其他可视上下文时，使用 [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) 渲染整个形状仍然有用。若仅需段落图像，请使用 [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/)。
+在需要包含形状填充、边框或其他视觉上下文的情况下，使用 [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) 渲染整个形状仍然有用。对于仅段落的图像，请使用 [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/)。
 
 ## **常见问题**
 
 **我可以完全禁用文本框内的换行吗？**
 
-可以。使用 [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) 关闭换行，使行不会在文本框边缘换行。
+可以。使用 [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) 禁用换行，使行不会在文本框边缘断开。
 
-**如何获取特定段落在幻灯片上的精确边界？**
+**如何获取特定段落在幻灯片上的确切边界？**
 
-使用 [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) 获取段落的边界矩形。[IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) 提供单个部分的边界。
+使用 [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) 获取段落的边界矩形。[IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) 提供单个文本段的边界。
 
 **段落对齐（左、右、居中或两端对齐）在哪里控制？**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) 是段落级设置，适用于整个段落，而不受各部分格式的影响。
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) 是段落级设置，适用于整个段落，而不受单个文本段格式的影响。
 
-要在每行中垂直对齐不同字体尺寸的部分，请参阅 [Align Fonts Within a Line](/slides/zh/cpp/text-formatting/#align-fonts-within-a-line)。
+要在每行中垂直对齐不同字号的文本段，请参阅 [Align Fonts Within a Line](/slides/zh/cpp/text-formatting/#align-fonts-within-a-line)。
 
 **我可以为段落的部分设置校对语言吗？**
 
-可以。使用 [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) 为单独的部分设置语言，以便同一段落中包含多种语言的文本。
+可以。使用 [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) 为单独的文本段设置语言，这样一个段落可以包含多种语言的文本。

@@ -1,6 +1,6 @@
 ---
-title: .NET में PowerPoint टेक्स्ट पैराग्राफ प्रबंधित करें
-linktitle: पैराग्राफ प्रबंधित करें
+title: PowerPoint टेक्स्ट पैराग्राफ़ को .NET में प्रबंधित करें
+linktitle: पैराग्राफ़ प्रबंधित करें
 type: docs
 weight: 40
 url: /hi/net/manage-paragraph/
@@ -9,56 +9,46 @@ aliases:
   - /net/portion/
 keywords:
 - टेक्स्ट जोड़ें
-- पैराग्राफ जोड़ें
+- पैराग्राफ़ जोड़ें
 - टेक्स्ट प्रबंधित करें
-- पैराग्राफ प्रबंधित करें
-- बुलेट प्रबंधित करें
-- पैराग्राफ इंडेंट
+- पैराग्राफ़ प्रबंधित करें
+- बुलट प्रबंधित करें
+- पैराग्राफ़ इंडेंट
 - हैंगिंग इंडेंट
-- पैराग्राफ बुलेट
-- नंबरड सूची
+- पैराग्राफ़ बुलट
+- नंबर्ड सूची
 - बुलेटेड सूची
-- पैराग्राफ प्रॉपर्टीज़
+- पैराग्राफ़ गुण
 - HTML आयात करें
-- टेक्स्ट से HTML
-- पैराग्राफ से HTML
-- पैराग्राफ से इमेज
-- टेक्स्ट से इमेज
-- पैराग्राफ निर्यात करें
+- टेक्स्ट को HTML में
+- पैराग्राफ़ को HTML में
+- पैराग्राफ़ को इमेज में
+- टेक्स्ट को इमेज में
+- पैराग्राफ़ निर्यात करें
 - PowerPoint
 - प्रेजेंटेशन
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET के साथ पैराग्राफ, पोर्शन, बुलेट, नंबरड लिस्ट, इंडेंट, HTML सामग्री, और पैराग्राफ इमेज कैसे बनाएं और फ़ॉर्मेट करें, यह सीखें।"
+description: "Aspose.Slides for .NET के साथ पैराग्राफ़, पोर्शन, बुलट, नंबर्ड सूचियाँ, इंडेंट, HTML सामग्री, और पैराग्राफ़ इमेज बनाना और फ़ॉर्मेट करना सीखें।"
 ---
-## **अवलोकन**
+## **समीक्षा**
 
-Aspose.Slides for .NET टेक्स्ट को टेक्स्ट फ्रेम, पैराग्राफ और पोर्शन की पदानुक्रम के रूप में दर्शाता है:
+Aspose.Slides for .NET टेक्स्ट को टेक्स्ट फ़्रेम, पैराग्राफ और पोर्शन की पदानुक्रमिक संरचना में दर्शाता है:
 
-* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) टेक्स्ट कंटेनर को एक आकार में दर्शाता है और इसके पैराग्राफ संग्रह तक पहुंच प्रदान करता है।
-* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) टेक्स्ट फ्रेम में एक पैराग्राफ को दर्शाता है और इसके पोर्शन और पैराग्राफ‑स्तरीय फ़ॉर्मेटिंग तक पहुंच प्रदान करता है।
-* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) पैराग्राफ के भीतर एक टेक्स्ट रन को दर्शाता है। प्रत्येक पोर्शन का अपना टेक्स्ट और कैरेक्टर‑स्तरीय फ़ॉर्मेटिंग हो सकता है।
+* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) शेप में टेक्स्ट कंटेनर का प्रतिनिधित्व करता है और इसके पैराग्राफ संग्रह तक पहुँच प्रदान करता है।
+* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) टेक्स्ट फ़्रेम में एक पैराग्राफ का प्रतिनिधित्व करता है और इसके पोर्शन और पैराग्राफ‑स्तर फ़ॉर्मेटिंग तक पहुँच प्रदान करता है।
+* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) पैराग्राफ के भीतर एक टेक्स्ट रन का प्रतिनिधित्व करता है। प्रत्येक पोर्शन का अपना टेक्स्ट और कैरेक्टर‑स्तर फ़ॉर्मेटिंग हो सकता है।
 
-इस प्रकार एक पैराग्राफ कई पोर्शन का उपयोग करके विभिन्न फ़ॉन्ट, रंग, आकार और अन्य फ़ॉर्मेटिंग वाला टेक्स्ट रख सकता है।
+इस प्रकार एक पैराग्राफ विभिन्न फ़ॉन्ट, रंग, आकार और अन्य फ़ॉर्मेटिंग वाले टेक्स्ट को कई पोर्शन का उपयोग करके रख सकता है।
 
-## **पैराग्राफ बनाना और फ़ॉर्मेट करना**
+## **पैराग्राफ बनाना और स्वरूपित करना**
 
-### **कई पोर्शन वाले पैराग्राफ बनाना**
+शेप के टेक्स्ट फ़्रेम में पैराग्राफ बनाएं और व्यक्तिगत टेक्स्ट रन को स्वरूपित करने के लिए पोर्शन का उपयोग करें। यह अनुभाग दिखाता है कि प्रत्येक पैराग्राफ में कई पोर्शन को कैसे मिलाकर विभिन्न रंग, फ़ॉन्ट आकार और शैली लागू की जा सकती है।
 
-निम्नलिखित चरण एक टेक्स्ट फ्रेम बनाते हैं जिसमें तीन पैराग्राफ होते हैं, प्रत्येक में तीन पोर्शन होते हैं:
+### **कई पोर्शन के साथ पैराग्राफ बनाना**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) जोड़ें।
-4. शेप के [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) तक पहुंचें।
-5. डिफ़ॉल्ट पैराग्राफ का उपयोग करें और टेक्स्ट फ्रेम में दो अतिरिक्त [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) ऑब्जेक्ट जोड़ें।
-6. प्रत्येक पैराग्राफ के लिए पर्याप्त [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) ऑब्जेक्ट जोड़ें ताकि तीन पोर्शन हो सकें। डिफ़ॉल्ट पैराग्राफ में पहले से ही एक खाली पोर्शन होता है।
-7. प्रत्येक पोर्शन का टेक्स्ट सेट करें।
-8. [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/) के माध्यम से कैरेक्टर‑स्तरीय फ़ॉर्मेटिंग लागू करें।
-9. संशोधित प्रेजेंटेशन सहेजें।
-
-यह C# उदाहरण चरणों को लागू करता है:
+निम्न C# उदाहरण तीन पैराग्राफ बनाता है, प्रत्येक में अपने [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/) संग्रह में तीन टेक्स्ट रन होते हैं। यह डिफ़ॉल्ट पैराग्राफ और उसकी खाली पोर्शन को पुनः उपयोग करता है, फिर शेष पैराग्राफ और पोर्शन जोड़ता है। फ़ॉर्मेटिंग [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/) के माध्यम से लागू की जाती है: प्रत्येक पैराग्राफ में पहली पोर्शन लाल, बोल्ड और 15 पॉइंट है; दूसरी नीली, इटैलिक और 18 पॉइंट है। तीसरी पोर्शन अपनी डिफ़ॉल्ट फ़ॉर्मेटिंग रखती है:
 
 ```csharp
 using System.Drawing;
@@ -67,6 +57,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 var textFrame = shape.TextFrame;
 
@@ -116,26 +107,15 @@ for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 ```
 
-## **बुलेटेड और नंबरड लिस्ट बनाना**
+## **बुलटेड और नंबरड सूचियाँ बनाना**
 
-### **बुलेटेड या नंबरड लिस्ट बनाना**
+पैराग्राफ टेक्स्ट को चिन्हों, संख्याओं या कस्टम इमेज़ के साथ सूचियों में व्यवस्थित करें। इस अनुभाग में बुलट फ़ॉर्मेटिंग, मल्टी‑लेवल सूचियों और कस्टम प्रारम्भिक संख्याओं के उदाहरण शामिल हैं।
 
-बुलेट और नंबरिंग संबंधित आइटम्स को स्कैन करना आसान बनाते हैं। Aspose.Slides में लिस्ट सेटिंग्स को [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/) के माध्यम से परिभाषित किया जाता है।
+### **बुलटेड या नंबरड सूची बनाना**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. चयनित स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) जोड़ें।
-4. शेप के [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) तक पहुंचें।
-5. टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ हटाएं।
-6. एक प्रतीक बुलेट के लिए एक [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) बनाएं।
-7. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) को [BulletType.Symbol](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) पर सेट करें और बुलेट कैरेक्टर निर्दिष्ट करें।
-8. पैराग्राफ टेक्स्ट, इंडेंट, बुलेट रंग और बुलेट ऊँचाई सेट करें।
-9. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-10. दूसरा पैराग्राफ बनाएं और [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) को [BulletType.Numbered](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) पर सेट करें।
-11. नंबरड बुलेट शैली को कॉन्फ़िगर करें और पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-12. प्रेजेंटेशन सहेजें।
+बुलट और नंबरिंग संबंधित आइटमों को स्कैन करना आसान बनाते हैं। Aspose.Slides में, सूची सेटिंग्स [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/) के माध्यम से परिभाषित होती हैं।
 
-यह C# उदाहरण एक प्रतीक बुलेट और एक नंबरड बुलेट बनाता है:
+यह C# उदाहरण समान टेक्स्ट फ़्रेम में एक प्रतीक बुलट और एक नंबरड आइटम जोड़ता है। [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) बुलट प्रकार चुनता है, जबकि [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) प्रतीक को प्रदान करता है और [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) क्रमांकन शैली चुनता है। दोनों आइटम काले बुलट के साथ 100 % ऊँचाई और 25 पॉइंट पैराग्राफ इंडेंट के साथ हैं:
 
 ```csharp
 using System;
@@ -145,6 +125,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -172,22 +153,11 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **पिक्चर बुलेट का उपयोग करना**
+### **चित्र बुलट का उपयोग करना**
 
-पिक्चर बुलेट आपको एक कस्टम इमेज को प्रतीक या नंबर के बजाय इस्तेमाल करने देता है।
+चित्र बुलट आपको प्रतीक या संख्या के बजाय कस्टम इमेज़ उपयोग करने की अनुमति देता है।
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. एक [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) जोड़ें और उसका [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) प्राप्त करें।
-4. टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ हटाएं।
-5. बुलेट इमेज लोड करें और उसे प्रेजेंटेशन की इमेज कलेक्शन में एक [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) के रूप में जोड़ें।
-6. एक [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) बनाएं और उसका टेक्स्ट सेट करें।
-7. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) को [BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) पर सेट करें।
-8. [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/) के माध्यम से इमेज असाइन करें और बुलेट ऊँचाई सेट करें।
-9. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-10. संशोधित प्रेजेंटेशन सहेजें।
-
-यह C# उदाहरण एक पिक्चर बुलेट बनाता है:
+यह C# उदाहरण प्रस्तुति की इमेज कलेक्शन में एक [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) जोड़ता है और इसे पैराग्राफ बुलट के रूप में उपयोग करता है। यह [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) को चित्र बुलट उपयोग करने के लिए सेट करता है और इमेज को [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/) के माध्यम से असाइन करता है। [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) को 100 % पर सेट किया जाता है ताकि बुलट का आकार पैराग्राफ टेक्स्ट के सापेक्ष हो:
 
 ```csharp
 using Aspose.Slides;
@@ -213,17 +183,11 @@ presentation.Save("picture_bullet.pptx", SaveFormat.Pptx);
 presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 ```
 
-### **मल्टीलेवल लिस्ट बनाना**
+### **मल्टी‑लेवल सूची बनाना**
 
-[IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) को सेट करके लिस्ट के विभिन्न स्तरों पर पैराग्राफ रख सकते हैं। शीर्ष स्तर की डिफ़ॉल्ट गहराई `0` होती है।
+[IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) को सेट करके पैराग्राफ को सूची के विभिन्न स्तरों पर रख सकते हैं। शीर्ष स्तर की गहराई `0` है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) बनाएं और एक स्लाइड तक पहुंचें।
-2. एक [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) जोड़ें और उसके टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ साफ़ करें।
-3. चार पैराग्राफ बनाएं और उनके बुलेट प्रतीक कॉन्फ़़िगर करें।
-4. उनके [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) मान को क्रमशः `0`, `1`, `2`, और `3` सेट करें।
-5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रेजेंटेशन सहेजें।
-
-यह C# उदाहरण चार‑स्तरीय बुलेटेड लिस्ट बनाता है:
+यह C# उदाहरण चार पैराग्राफ को 0 से 3 तक की [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) मान देता है, जिससे एक ही टेक्स्ट फ़्रेम में पदानुक्रम बनता है। प्रत्येक पैराग्राफ एक प्रतीक बुलट उपयोग करता है, जहाँ [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) गोल बुलट और हाइफ़न के बीच बदलता रहता है जिससे क्रमिक स्तरों में अंतर दिखे:
 
 ```csharp
 using System;
@@ -233,6 +197,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -273,17 +238,11 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **कस्टम मानों से नंबरड लिस्ट आइटम शुरू करना**
+### **कस्टम मूल्यों पर नंबरड सूची आइटम शुरू करना**
 
-[IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) का उपयोग करके नंबरड पैराग्राफ के प्रारंभिक नंबर को सेट किया जा सकता है।
+[IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) का उपयोग करके नंबरड पैराग्राफ के प्रारम्भिक नंबर को सेट किया जाता है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) बनाएं और एक [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) स्लाइड में जोड़ें।
-2. शेप के टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ हटाएं।
-3. तीन नंबरड पैराग्राफ बनाएं।
-4. प्रत्येक पैराग्राफ के लिए [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) को क्रमशः `2`, `3` और `7` पर सेट करें।
-5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रेजेंटेशन सहेजें।
-
-यह C# उदाहरण प्रत्येक पैराग्राफ के लिए कस्टम प्रारंभिक नंबर सेट करता है:
+यह C# उदाहरण तीन पैराग्राफ के लिए [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) को नंबरिंग उपयोग करने के लिए सेट करता है और [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) के मान क्रमशः 2, 3 और 7 रखता है। प्रत्येक पैराग्राफ के लिए प्रारम्भिक मान अलग‑अलग कॉन्फ़िगर किया जाता है, जिससे प्रदर्शित संख्याएँ मानों को छोड़ सकती हैं:
 
 ```csharp
 using Aspose.Slides;
@@ -291,6 +250,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -313,25 +273,17 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **पैराग्राफ लेआउट और एंड प्रॉपर्टीज़ नियंत्रित करना**
+## **पैराग्राफ लेआउट और एंड प्रॉपर्टी को नियंत्रित करना**
 
-### **पहली‑लाइन इंडेंट सेट करना**
+पैराग्राफ मार्जिन और इंडेंट को समायोजित करके पहली पंक्ति और रैप्ड लाइनों की स्थिति को नियंत्रित करें। आप पैराग्राफ एंड मार्क को दृश्यमान टेक्स्ट पोर्शन से अलग भी स्वरूपित कर सकते हैं।
 
-[IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) प्रॉपर्टी का उपयोग करके पैराग्राफ की पहली‑लाइन इंडेंट को नियंत्रित किया जाता है। यह प्रॉपर्टी केवल पहली लाइन को पैराग्राफ के बाएँ मार्जिन के सापेक्ष ले जाती है। सकारात्मक मान पहली लाइन को दाएँ शिफ्ट करता है, जबकि बाकी लाइनों को पैराग्राफ बॉडी के साथ संरेखित रहता है।
+### **पहली‑पंक्ति इंडेंट सेट करना**
 
-पूरे पैराग्राफ को स्थानांतरित करने के लिए [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) का उपयोग करें। केवल पहली लाइन को स्थानांतरित करने के लिए [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) का उपयोग करें।
+[IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) प्रॉपर्टी का उपयोग करके पैराग्राफ की पहली‑पंक्ति इंडेंट को नियंत्रित करें। यह प्रॉपर्टी केवल पहली पंक्ति को पैराग्राफ के बाएँ मार्जिन की तुलना में ले जाती है। सकारात्मक मान पहली पंक्ति को दाएँ शिफ्ट करता है, जबकि शेष पंक्तियाँ पैराग्राफ बॉडी के साथ संरेखित रहती हैं।
 
-निम्न उदाहरण कई पैराग्राफ बनाता है और विभिन्न [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) मान लागू करता है ताकि दिखाया जा सके कि पहली‑लाइन इंडेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है।
+यदि आपको पूरी पैराग्राफ को ले जाना है तो [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) का उपयोग करें। यदि आपको केवल पहली पंक्ति को ले जाना है तो [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) का उपयोग करें।
 
-1. एक [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. लक्ष्य स्लाइड तक पहुंचें।
-3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) जोड़ें।
-4. शेप के [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) तक पहुंचें और डिफ़ॉल्ट पैराग्राफ हटाएं।
-5. कई पैराग्राफ बनाएं और उनके लिए विभिन्न [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) मान सेट करें।
-6. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-7. संशोधित प्रेजेंटेशन सहेजें।
-
-यह कोड पैराग्राफ इंडेंट सेट करने का तरीका दिखाता है:
+निम्न उदाहरण तीन पैराग्राफ को समान [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) 20 पॉइंट और [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) मान 0, 20 और 40 पॉइंट देता है। पहली पंक्तियों का एफ़ेक्ट क्रमशः अधिक पदचिन्हों पर शुरू होता है, जबकि रैप्ड लाइनों का बायाँ मार्जिन समान रहता है:
 
 ```csharp
 using System.Drawing;
@@ -340,6 +292,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -376,26 +329,17 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![पैराग्राफ की पहली‑लाइन इंडेंट](first_line_indent.png)
+![पैराग्राफ़ की पहली‑पंक्ति इंडेंट](first_line_indent.png)
 
 ### **हैंगिंग इंडेंट सेट करना**
 
-हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली लाइन बाकी लाइनों के बाएँ शुरू होती है। Aspose.Slides में यह प्रभाव [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) प्रॉपर्टी से बनाया जाता है। `Indent` को नकारात्मक मान पर सेट करने से पहली लाइन पैराग्राफ बॉडी के सापेक्ष बाएँ शिफ्ट हो जाती है।
+हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली पंक्ति शेष लाइनों से बाईं ओर शुरू होती है। Aspose.Slides में आप इसे [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) प्रॉपर्टी से बना सकते हैं। `Indent` को नकारात्मक मान पर सेट करने से पहली पंक्ति पैराग्राफ बॉडी के सापेक्ष बाएँ शिफ्ट होती है।
 
-व्यावहारिक रूप से, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) पैराग्राफ बॉडी की बायीं स्थिति निर्धारित करता है, और [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) पहली लाइन की स्थिति को उस मार्जिन के सापेक्ष तय करता है। हैंगिंग इंडेंट बनाने के लिए सकारात्मक `MarginLeft` मान और नकारात्मक `Indent` मान सेट करें।
+व्यावहारिक रूप से, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) पैराग्राफ बॉडी की बायीं स्थिति निर्धारित करता है, और [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) पहली पंक्ति की स्थिति को उस मार्जिन के सापेक्ष निर्धारित करता है। हैंगिंग इंडेंट बनाने के लिए सकारात्मक `MarginLeft` और नकारात्मक `Indent` मान सेट करें।
 
-यह फ़ॉर्मेटिंग बाइबिलियोग्राफी, रेफ़रेंसेज़, शब्दकोश प्रविष्टियों और अन्य पैराग्राफ के लिए उपयोगी है जहाँ रैप्ड लाइन्स पैराग्राफ बॉडी के तहत संरेखित होनी चाहिए, न कि पहली लाइन के पहले अक्षर के तहत।
+यह स्वरूपण ग्रंथसूचियों, संदर्भों, शब्दकोश प्रविष्टियों आदि के लिए उपयोगी है जहाँ रैप्ड लाइनों को पैराग्राफ बॉडी के नीचे संरेखित होना चाहिए, न कि पहली पंक्ति के पहले अक्षर के नीचे।
 
-1. एक [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. लक्ष्य स्लाइड तक पहुंचें।
-3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) जोड़ें।
-4. शेप के [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) तक पहुंचें और डिफ़ॉल्ट पैराग्राफ हटाएं।
-5. प्रत्येक पैराग्राफ के लिए सकारात्मक [MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) मान सेट करें।
-6. हैंगिंग इंडेंट प्रभाव बनाने के लिए नकारात्मक [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) मान सेट करें।
-7. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-8. संशोधित प्रेजेंटेशन सहेजें।
-
-यह कोड हैंगिंग इंडेंट सेट करने का तरीका दिखाता है:
+निम्न C# उदाहरण में [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) के मान 40 और 60 पॉइंट को [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) के मान -20 और -30 पॉइंट के साथ जोड़ा गया है। प्रत्येक पैराग्राफ में पहली पंक्ति रैप्ड लाइनों से बाईं ओर शुरू होती है; दूसरे पैराग्राफ में अधिक गहरा हैंगिंग इंडेंट है:
 
 ```csharp
 using System.Drawing;
@@ -404,6 +348,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -433,18 +378,11 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![पैराग्राफ की हैंगिंग इंडेंट](hanging_indent.png)
+![पैराग्राफ़ की हैंगिंग इंडेंट](hanging_indent.png)
 
-### **एंड पैराग्राफ रन प्रॉपर्टीज़ सेट करना**
+### **एंड पैराग्राफ़ रन प्रॉपर्टी सेट करना**
 
-[IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) प्रॉपर्टी पैराग्राफ के एंड मार्क की फ़ॉर्मेटिंग को नियंत्रित करती है। निम्न उदाहरण दूसरे पैराग्राफ के एंड मार्क को फ़ॉन्ट साइज और लैटिन फ़ॉन्ट असाइन करता है:
-
-1. एक [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) लोड करें और एक स्लाइड तक पहुंचें।
-2. एक [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) जोड़ें और उसका डिफ़ॉल्ट पैराग्राफ साफ़ करें।
-3. दो पैराग्राफ बनाएं और उनमें टेक्स्ट पोर्शन जोड़ें।
-4. दूसरे पैराग्राफ के एंड मार्क के लिए एक [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) बनाएं।
-5. [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) और [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) सेट करें।
-6. फ़ॉर्मेट को [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) में असाइन करें और प्रेजेंटेशन सहेजें।
+[IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) प्रॉपर्टी पैराग्राफ एंड मार्क के फ़ॉर्मेट को नियंत्रित करती है। नीचे दिया गया उदाहरण एक [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) बनाता है जिसमें [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) को 48 पॉइंट और [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) को Times New Roman पर सेट किया गया है। यह फ़ॉर्मेट दूसरे पैराग्राफ के एंड मार्क को असाइन किया जाता है, जबकि दृश्यमान टेक्स्ट पोर्शन अपरिवर्तित रहते हैं:
 
 ```csharp
 using Aspose.Slides;
@@ -452,6 +390,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("Test.pptx");
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -473,15 +412,15 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
-## **रेंडर की गई लाइनों की गिनती**
+## **रेंडर की गई लाइनों की गिनती करना**
 
-पैराग्राफ नियम जो स्वतः रैपिंग और लाइन‑एंड पंक्‍टुएशन को प्रभावित करते हैं, उन्हें देखें: [Control Line Breaking](/slides/hi/net/text-formatting/#control-line-breaking) और [Control Hanging Punctuation](/slides/hi/net/text-formatting/#control-hanging-punctuation)।
+लाइन‑ब्रेकिंग और लाइन‑एंड पर विराम चिह्नों को नियंत्रित करने वाले पैराग्राफ नियमों के लिए देखें [Control Line Breaking](/slides/hi/net/text-formatting/#control-line-breaking) और [Control Hanging Punctuation](/slides/hi/net/text-formatting/#control-hanging-punctuation)।
 
-[IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) का उपयोग करके टेक्स्ट लेआउट के बाद एक पैराग्राफ द्वारा औकात ली गई लाइनों की संख्या गिनी जा सकती है, जिसमें स्वतः रैपिंग भी शामिल है। यह प्रेजेंटेशन टेम्प्लेट में टेक्स्ट लंबाई और लेआउट को जांचने में उपयोगी है।
+[IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) का उपयोग करके टेक्स्ट लेआउट के बाद पैराग्राफ द्वारा ली गई लाइनों की संख्या गिनी जा सकती है, जिसमें ऑटॉमैटिक रैपिंग भी शामिल है। यह प्रस्तुति टेम्पलेट में टेक्स्ट लंबाई और लेआउट की जाँच के लिए उपयोगी है।
 
-एक पैराग्राफ [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/) में एक आइटम है, और यह कई रेंडर की गई लाइनों को घेर सकता है। पैराग्राफ के भीतर एक स्पष्ट लाइन‑ब्रेक नई लाइन बनाता है बिना नया पैराग्राफ बनाए। स्वतः रैपिंग उपलब्ध चौड़ाई के आधार पर लाइनों का निर्माण करती है, बिना टेक्स्ट में स्पष्ट लाइन‑ब्रेक डाले। इसलिए पैराग्राफ या लाइन‑ब्रेक कैरेक्टर गिनना रेंडर की गई लाइन‑काउंट नहीं देता।
+पैराग्राफ एक आइटम है [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/) में, और यह कई रेंडर की गई लाइनों को कवर कर सकता है। पैराग्राफ के भीतर स्पष्ट लाइन‑ब्रेक एक नई पंक्ति बनाता है बिना नया पैराग्राफ बनाए। ऑटॉमैटिक रैपिंग उपलब्ध चौड़ाई के आधार पर लाइनों को बनाता है, बिना स्पष्ट लाइन‑ब्रेक डालते। इसलिए पैराग्राफ या लाइन‑ब्रेक कैरेक्टर की गिनती रेंडर की गई लाइन‑गिनती नहीं देती।
 
-निम्न उदाहरण एक टेक्स्ट शेप बनाता है, उसकी लाइनों की गिनती करता है, शेप को संकुचित करता है, और फिर टेक्स्ट को छोटा स्ट्रिंग से बदलता है। रैपिंग सक्षम है और ऑटो‑फ़िट बंद है ताकि शेप की चौड़ाई रैपिंग को नियंत्रित करे बिना टेक्स्ट को स्वतः छोटा या शेप को रिसाइज़ किए। शेप की डाइमेंशन पॉइंट्स में हैं। अंत में उदाहरण एक और पैराग्राफ जोड़ता है और टेक्स्ट फ्रेम में सभी लाइन‑काउंट का योग करता है।
+निम्न उदाहरण एक टेक्स्ट शेप बनाता है, उसकी लाइनों की गिनती करता है, शेप को संकीर्ण करता है, फिर टेक्स्ट को छोटे स्ट्रिंग से बदलता है। उदाहरण [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) को सक्षम करता है और [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) को अक्षम करता है ताकि शेप की चौड़ाई रैपिंग को नियंत्रित करे बिना टेक्स्ट को स्वतः छोटा किए या शेप का आकार बदले। प्रत्येक माप [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) का उपयोग करता है। शेप आयाम पॉइंट में हैं। अंत में उदाहरण एक और पैराग्राफ जोड़ता है और टेक्स्ट फ़्रेम में सभी लाइन‑गिनतियों को जोड़ता है।
 
 ```csharp
 using System;
@@ -518,24 +457,19 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-इन टेक्स्ट और डाइमेंशन के साथ, शेप को संकुचित करने से लाइन‑काउंट बढ़ता है, जबकि छोटा स्ट्रिंग रखने से घटता है। सटीक गिनती फ़ॉन्ट उपलब्धता, प्रतिस्थापन, फ़ॉन्ट साइज, मार्जिन, इंडेंटेशन, रैपिंग और ऑटो‑फ़िट सेटिंग्स पर निर्भर करती है। टेम्प्लेट जांचते समय लक्ष्य वातावरण के लिए निर्धारित फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
+इन टेक्स्ट और आयामों के साथ, शेप को संकीर्ण करने से लाइन‑गिनती बढ़ती है, जबकि छोटे स्ट्रिंग से बदलने पर कम होती है। सटीक गिनती फ़ॉन्ट उपलब्धता, फ़ॉन्ट आकार, मार्जिन, इंडेंट, रैपिंग और ऑटो‑फ़िट सेटिंग्स के अनुसार भिन्न हो सकती है। टेम्पलेट की जाँच करते समय लक्ष्य वातावरण के लिए उपयुक्त फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
 
-केवल लाइन‑काउंट यह निर्धारित नहीं करता कि टेक्स्ट कंटेनर से बाहर जा रहा है या नहीं। उपलब्ध ऊँचाई, लाइन‑हाइट, पैराग्राफ और लाइन स्पेसिंग, तथा ऑटो‑फ़िट व्यवहार भी महत्वपूर्ण हैं; यहां तक कि एक ही लाइन भी जब रैपिंग बंद हो तो उपलब्ध चौड़ाई से अधिक हो सकती है।
+केवल लाइन‑गिनती यह निर्धारित नहीं करती कि टेक्स्ट कंटेनर को ओवरफ़्लो करता है या नहीं। उपलब्ध ऊँचाई, लाइन‑हाइट, पैराग्राफ और लाइन स्पेसिंग, तथा ऑटो‑फ़िट व्यवहार भी महत्वपूर्ण हैं; भले ही एक लाइन ही हो, यदि रैपिंग अक्षम है तो वह उपलब्ध चौड़ाई से अधिक हो सकती है।
 
-## **पैराग्राफ कंटेंट आयात और निर्यात करना**
+## **पैराग्राफ सामग्री आयात और निर्यात करना**
+
+HTML का उपयोग करके टेक्स्ट को प्रस्तुति में लाया जा सकता है या मौजूदा पैराग्राफ को बाहरी उपयोग के लिए निर्यात किया जा सकता है। यह अनुभाग दिखाता है कि कैसे व्यक्तिगत पैराग्राफ को इमेज़ के रूप में रेंडर किया जाए, जिसमें तालिका कोशिकाओं में पैराग्राफ भी शामिल हैं।
 
 ### **HTML टेक्स्ट को पैराग्राफ में आयात करना**
 
-[ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) का उपयोग करके HTML मार्कअप को टेक्स्ट फ्रेम में पैराग्राफ और पोर्शन में बदल सकते हैं।
+[ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) का उपयोग करके HTML मार्कअप को टेक्स्ट फ़्रेम में पैराग्राफ और पोर्शन में परिवर्तित किया जा सकता है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-2. एक स्लाइड तक पहुंचें और एक [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) जोड़ें।
-3. शेप के [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) तक पहुंचें और डिफ़ॉल्ट पैराग्राफ साफ़ करें।
-4. स्रोत HTML फ़ाइल पढ़ें।
-5. HTML स्ट्रिंग को [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) में पास करें।
-6. संशोधित प्रेजेंटेशन सहेजें।
-
-यह C# उदाहरण HTML को टेक्स्ट फ्रेम में आयात करता है:
+यह C# उदाहरण फ़ाइल से HTML पढ़ता है और मार्कअप को [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) को पास करता है। यह टेक्स्ट फ़्रेम के डिफ़ॉल्ट पैराग्राफ को साफ़ करता है ताकि फ़्रेम में केवल आयातित सामग्री हो। आयताकार शेप स्लाइड के प्रत्येक किनारे पर 10‑पॉइंट मार्जिन छोड़ता है:
 
 ```csharp
 using System.IO;
@@ -544,6 +478,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shapeWidth = presentation.SlideSize.Size.Width - 20;
 var shapeHeight = presentation.SlideSize.Size.Height - 20;
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -559,59 +494,71 @@ presentation.Save("html_text.pptx", SaveFormat.Pptx);
 
 ### **पैराग्राफ टेक्स्ट को HTML में निर्यात करना**
 
-[ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) का उपयोग करके चयनित पैराग्राफ रेंज को HTML के रूप में निर्यात किया जा सकता है।
+[ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) का उपयोग करके चयनित पैराग्राफ रेंज को HTML के रूप में निर्यात किया जा सकता है। जब प्रस्तुति टेक्स्ट को वेबसाइट पर पुनः उपयोग किया जाता है, तो आप स्थानीय जोर को फ़ॉन्ट, आकार या टेक्स्ट बॉक्स शैलियों को ले जाए बिना संरक्षित रखना चाह सकते हैं। फ़ॉर्मेटिंग इनहेरिटेंस को नियंत्रित करने के लिए [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) सेट करें।
 
-1. एक [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं और इच्छित प्रेजेंटेशन लोड करें।
-2. स्लाइड तक पहुंचें और वह [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) खोजें जिसमें टेक्स्ट है।
-3. शेप के [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) तक पहुंचें।
-4. प्रारम्भ पैराग्राफ इंडेक्स और निर्यात करने वाले पैराग्राफ की संख्या के साथ [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) को कॉल करें।
-5. लौटाए गए HTML स्ट्रिंग को फ़ाइल में लिखें।
+[sample presentation](text-inheritance.pptx) को डाउनलोड करें और इसे एप्लिकेशन की कार्यशील निर्देशिका में रखें। इसकी पहली स्लाइड में एक टेक्स्ट शेप है जिसमें टेक्स्ट "Inherited text; explicit red 18pt" है। इनपुट जानबूझकर कई फ़ॉर्मेटिंग स्तरों का उपयोग करता है:
 
-यह C# उदाहरण पहले टेक्स्ट शेप के सभी पैराग्राफ निर्यात करता है:
+- प्रस्तुति की डिफ़ॉल्ट टेक्स्ट शैली Calibri और 28 pt आकार प्रदान करती है।
+- टेक्स्ट फ़्रेम की प्रथम‑स्तर की शैली नीले टेक्स्ट और इटैलिक प्रदान करती है।
+- पैराग्राफ स्पष्ट रूप से बोल्ड टेक्स्ट सेट करता है।
+- दूसरा पोर्शन, "explicit red 18pt", स्पष्ट रूप से लाल टेक्स्ट और 18 pt आकार सेट करता है।
+
+निम्न पूर्ण उदाहरण एक ही पैराग्राफ को तीन बार निर्यात करता है। यह [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) को निर्यात मेथड में पास करता है और प्रत्येक परिणाम को अलग‑अलग UTF‑8 HTML फ़ाइल में लिखता है:
 
 ```csharp
-using System;
 using System.IO;
 using System.Text;
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-using var presentation = new Presentation("ExportingHTMLText.pptx");
-var shape = presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-inheritance.pptx");
+var textShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-if (shape is IAutoShape textShape && textShape.TextFrame != null)
+var paragraphs = textShape.TextFrame.Paragraphs;
+var modes = new[] { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+
+foreach (var mode in modes)
 {
-    var paragraphs = textShape.TextFrame.Paragraphs;
-    var html = paragraphs.ExportToHtml(0, paragraphs.Count, null);
-    using var writer = new StreamWriter("paragraphs.html", false, Encoding.UTF8);
-    writer.Write(html);
-}
-else
-{
-    Console.WriteLine("The first shape is not a text shape.");
+    var options = new TextToHtmlConversionOptions { TextInheritanceLimit = mode };
+
+    var html = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+    File.WriteAllText($"{mode}.html", html, Encoding.UTF8);
 }
 ```
 
-### **पैराग्राफ को इमेज के रूप में रेंडर करना**
+जेनरेट किया गया HTML पहली पोर्शन, "Inherited text; ", के लिए निम्न CSS रखता है। तालिका संबंधित घोषणाओं को दिखाती है; अन्य उत्पन्न प्रॉपर्टी स्पष्टता के लिए छोड़ दी गई हैं।
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) व्यक्तिगत पैराग्राफ को सीधे रेंडर करता है और एक [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) लौटाता है। परिणाम को [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) से फ़ाइल या स्ट्रीम में सहेजा जा सकता है। शेप को रेंडर करने या बिटमैप को मैन्युअली काटने की आवश्यकता नहीं है।
+| आउटपुट | पहली पोर्शन के लिए संबंधित CSS | स्वरूप |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | नीला, बोल्ड, इटैलिक टेक्स्ट 28 pt Calibri में, यदि वह फ़ॉन्ट उपलब्ध हो। |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | नीला, बोल्ड, इटैलिक टेक्स्ट; आसपास का पेज या ब्राउज़र फ़ॉन्ट परिवार और आकार प्रदान करता है। |
+| `ParagraphOnly.html` | `font-weight:bold` | बोल्ड टेक्स्ट; आसपास का पेज या ब्राउज़र फ़ॉन्ट परिवार, आकार, रंग और इटैलिक शैली प्रदान करता है। |
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) `null` भी लौटाता है यदि पैराग्राफ उसका पैरेंट संग्रह में नहीं मिलता, कोई वैध रेंडर बाउंड नहीं है, या रेंडर नहीं किया जा सकता। सहेजने से पहले परिणाम जाँचें और उपयोग के बाद लौटाई गई इमेज को डिस्पोज़ करें।
+दूसरी पोर्शन सभी तीन आउटपुट में `color:#ff0000`, `font-size:18pt` और `font-weight:bold` रखती है। यह इटैलिक `All` और `TextBox` में भी रहता है, लेकिन `ParagraphOnly` में नहीं। इनहेरिटेंस को सीमित करने से पैराग्राफ या पोर्शन को स्पष्ट रूप से असाइन किए गए फ़ॉर्मेटिंग को नहीं हटाया जाता।
 
-#### **डिफ़ॉल्ट स्केल पर पैराग्राफ रेंडर करना**
+फ़ाइलें समान ब्राउज़र में खोलें और तुलना करें। प्रतिबंधित मोड में छोड़ें गए CSS प्रॉपर्टी लक्ष्य पेज की शैलियों या ब्राउज़र डिफ़ॉल्ट द्वारा हल होते हैं, इसलिए अंतिम स्वरूप उपयोग की गई HTML स्थान के आधार पर बदल सकता है।
 
-मान लीजिए हमारे पास `sample.pptx` नामक प्रेजेंटेशन फ़ाइल है जिसमें एक स्लाइड है, जहाँ पहला शेप तीन पैराग्राफ वाला टेक्स्ट बॉक्स है।
+### **पैराग्राफ को इमेज़ के रूप में रेंडर करना**
 
-![तीन पैराग्राफ वाला टेक्स्ट बॉक्स](paragraph_to_image_input.png)
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) व्यक्तिगत पैराग्राफ को सीधे रेंडर करता है और एक [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) लौटाता है। आप परिणाम को फ़ाइल या स्ट्रीम में [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) के साथ सहेज सकते हैं। कंटेनिंग शेप को रेंडर करने या बिटमैप को मैन्युअल रूप से क्रॉप करने की आवश्यकता नहीं होती।
 
-निम्न उदाहरण नियमित टेक्स्ट शेप में दूसरे पैराग्राफ को डिफ़ॉल्ट स्केल पर रेंडर करता है और PNG फ़ॉर्मेट में लौटाई गई इमेज सहेजता है। `using` घोषणा सुनिश्चित करती है कि इमेज सही ढंग से डिस्पोज़ हो जाए।
+यदि पैराग्राफ नहीं मिला, मान्य रेंडर बाउंड नहीं है, या रेंडर नहीं किया जा सकता तो [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) `null` लौटा सकता है। उपयोग से पहले परिणाम जाँचें और लौटाई गई इमेज को डिस्पोज़ करें।
+
+#### **डिफॉल्ट स्केले पर पैराग्राफ रेंडर करना**
+
+उदाहरण एक प्रस्तुति उपयोग करता है जिसमें एक स्लाइड है और उसकी पहली शेप तीन पैराग्राफ वाली टेक्स्ट बॉक्स है।
+
+![तीन पैराग्राफ वाली टेक्स्ट बॉक्स](paragraph_to_image_input.png)
+
+निम्न उदाहरण इंडेक्स 1 पर दूसरा पैराग्राफ चुनता है और स्केल पैरामीटर के बिना [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) को कॉल करता है। यह जांचता है कि शेप में आवश्यक पैराग्राफ मौजूद है और रेंडरिंग इमेज लौटाती है, फिर [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) से PNG प्रारूप में सहेजता है। `using` घोषणा उपयोग के बाद इमेज को डिस्पोज़ कर देती है।
 
 ```csharp
 using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation("sample.pptx");
-
 var shape = presentation.Slides[0].Shapes[0];
+
 if (shape is IAutoShape textShape && 
     textShape.TextFrame != null && 
     textShape.TextFrame.Paragraphs.Count > 1)
@@ -636,11 +583,11 @@ else
 
 परिणाम:
 
-![पैराग्राफ इमेज](paragraph_to_image_output.png)
+![पैराग्राफ़ इमेज़](paragraph_to_image_output.png)
 
 #### **टेबल सेल में स्केलिंग के साथ पैराग्राफ रेंडर करना**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) के ओवरलोड का उपयोग करें जो `float scaleX` और `float scaleY` पैरामीटर लेता है ताकि हॉरिज़ोंटल और वर्टिकल स्केल फैक्टर सेट किए जा सकें। नीचे का उदाहरण एक टेबल बनाता है, पहले सेल में पैराग्राफ को डिफ़ॉल्ट चौड़ाई और ऊँचाई के दो गुना पर रेंडर करता है, और परिणाम को PNG इमेज के रूप में सहेजता है।
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) ओवरलोड का उपयोग करें जो `float scaleX` और `float scaleY` पैरामीटर लेता है ताकि क्षैतिज और लंबवत स्केल फैक्टर सेट हों। निम्न उदाहरण एक टेबल बनाता है, पहले सेल में पैराग्राफ को डिफॉल्ट चौड़ाई और ऊँचाई के दो गुणा पर रेंडर करता है, और PNG इमेज के रूप में सहेजता है।
 
 ```csharp
 using System;
@@ -651,6 +598,7 @@ var scaleY = 2f;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var table = slide.Shapes.AddTable(50, 50, new[] { 300d }, new[] { 80d });
 var paragraph = table[0, 0].TextFrame.Paragraphs[0];
 paragraph.Text = "Text in a table cell";
@@ -666,26 +614,26 @@ else
 }
 ```
 
-`1` के स्केल फैक्टर से उस अक्ष की डिफ़ॉल्ट पिक्सेल साइज बरकरार रहती है। उदाहरण के लिए, दोनों फ़ैक्टर को `2` करने से इमेज की चौड़ाई और ऊँचाई लगभग डिफ़ॉल्ट के दो गुना हो जाती है, जिससे चार गुना पिक्सेल मिलते हैं। बड़े फैक्टर ज़ूम या हाई‑रिज़ॉल्यूशन आउटपुट के लिए तेज़ टेक्स्ट देते हैं, लेकिन मेमोरी उपयोग और फ़ाइल आकार बढ़ाते हैं। `1` से कम फैक्टर छोटे इमेज बनाते हैं जिसमें कम डिटेल होती है। इमेज की अनुपातिक आकृति रखने के लिए बराबर फैक्टर उपयोग करें; अलग‑अलग हॉरिज़ोंटल और वर्टिकल फैक्टर आउटपुट को स्वतंत्र रूप से स्ट्रेच करेंगे।
+स्केल फैक्टर `1` अक्ष को डिफॉल्ट पिक्सेल आकार पर रखता है। उदाहरण के लिए, दोनों फैक्टर 2 रखने से इमेज की चौड़ाई और ऊँचाई लगभग दो गुना हो जाती है, जिससे चार गुना पिक्सेल बनते हैं। बड़े फैक्टर ज़ूम या हाई‑रिज़ॉल्यूशन आउटपुट के लिए अधिक स्पष्ट टेक्स्ट देते हैं, लेकिन मेमोरी उपयोग और फ़ाइल आकार भी बढ़ाते हैं। `1` से नीचे के फैक्टर छोटे इमेज कम विवरण के साथ बनाते हैं। समान फैक्टर रखकर पैराग्राफ का अनुपात बनाए रखें; अलग‑अलग क्षैतिज‑लंबवत फैक्टर आउटपुट को अलग‑अलग खींचते हैं।
 
-[IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) के साथ पूरा शेप रेंडर करना उपयोगी रहता है जब आउटपुट में शेप का फ़िल, बॉर्डर या अन्य विज़ुअल कॉन्टेक्स्ट शामिल होना आवश्यक हो। केवल पैराग्राफ‑इमेज के लिए [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) का उपयोग करें।
+जब आउटपुट में शेप की फ़िल, बॉर्डर या अन्य दृश्य संदर्भ शामिल करने की आवश्यकता हो तो [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) से पूरी शेप रेंडर करना उपयोगी रहता है। केवल पैराग्राफ‑इमेज के लिए, [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) का उपयोग करें।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या मैं टेक्स्ट फ्रेम के भीतर लाइन रैपिंग को पूरी तरह बंद कर सकता हूँ?**
+**क्या मैं टेक्स्ट फ़्रेम के भीतर लाइन रैपिंग को पूरी तरह बंद कर सकता हूँ?**
 
-हाँ। [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) को `false` सेट करके रैपिंग बंद कर सकते हैं जिससे लाइनों का ब्रेक टेक्स्ट फ्रेम के किनारों पर नहीं होता।
+हां। [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) को बंद करके रैपिंग निष्क्रिय करें ताकि लाइनों का ब्रेक टेक्स्ट फ़्रेम के किनारों पर न हो।
 
-**मैं किसी विशेष पैराग्राफ की ऑन‑स्लाइड बाउंड्स कैसे प्राप्त कर सकता हूँ?**
+**मैं किसी विशिष्ट पैराग्राफ की स्लाइड पर सटीक बाउंड्स कैसे प्राप्त करूँ?**
 
-[IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) का उपयोग करके पैराग्राफ का बाउंडिंग रेक्टैंगल प्राप्त करें। [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) एक व्यक्तिगत पोर्शन की बाउंड्स देती है।
+[IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) का उपयोग करके पैराग्राफ का बाउंडिंग रेक्टैंगल प्राप्त करें। [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) व्यक्तिगत पोर्शन की बाउंड्स देता है।
 
-**पैराग्राफ एलाइनमेंट (बायाँ, दायाँ, केंद्र, या जस्टिफ़ाइ) कहाँ नियंत्रित होता है?**
+**पैराग्राफ एलाइन्मेंट (left, right, center, या justify) कहाँ नियंत्रित होता है?**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) एक पैराग्राफ‑स्तर की सेटिंग है और पूरे पैराग्राफ पर लागू होती है, चाहे व्यक्तिगत पोर्शन का फ़ॉर्मेटिंग कुछ भी हो।
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) पैराग्राफ‑स्तर सेटिंग है और यह पूरी पैराग्राफ पर लागू होती है, चाहे व्यक्तिगत पोर्शन फ़ॉर्मेटिंग कोई भी हो।
 
-विभिन्न फ़ॉन्ट साइज वाले पोर्शन को प्रत्येक लाइन में वर्टिकली एलाइन करने के लिए देखें: [Align Fonts Within a Line](/slides/hi/net/text-formatting/#align-fonts-within-a-line)।
+विभिन्न फ़ॉन्ट आकारों वाले पोर्शन को प्रत्येक लाइन में वर्टिकली संरेखित करने के लिए देखें [Align Fonts Within a Line](/slides/hi/net/text-formatting/#align-fonts-within-a-line)।
 
-**क्या मैं पैराग्राफ के हिस्से के लिए प्रूफ़िंग भाषा सेट कर सकता हूँ?**
+**क्या मैं पैराग्राफ के भाग के लिए प्रूफिंग भाषा सेट कर सकता हूँ?**
 
-हाँ। व्यक्तिगत पोर्शन के लिए [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) सेट करें, जिससे एक पैराग्राफ में कई भाषाओं का टेक्स्ट हो सकता है।
+हां। [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) को व्यक्तिगत पोर्शन के लिए सेट करें, ताकि एक पैराग्राफ में कई भाषाओं का टेक्स्ट रख सकें।

@@ -12,12 +12,12 @@ keywords:
 - alinea toevoegen
 - tekst beheren
 - alinea beheren
-- opsommingsteken beheren
-- alinea-insprong
-- hangende insprong
-- alinea-opsommingsteken
+- opsomming beheren
+- alinea-inspringing
+- hangende inspringing
+- alinea-opsomming
 - genummerde lijst
-- opsomminglijst
+- opsommingslijst
 - alinea-eigenschappen
 - HTML importeren
 - tekst naar HTML
@@ -34,31 +34,21 @@ description: "Leer hoe u alinea's, delen, opsommingstekens, genummerde lijsten, 
 ---
 ## **Overzicht**
 
-Aspose.Slides voor Android via Java stelt tekst voor als een hiërarchie van tekstframes, alinea's en delen:
+Aspose.Slides for Android via Java stelt tekst voor als een hiërarchie van tekstkaders, alinea’s en delen:
 
-* [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) vertegenwoordigt de tekstcontainer in een vorm en biedt toegang tot de alinea‑collectie.
-* [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) vertegenwoordigt één alinea in een tekstframe en biedt toegang tot de delen en de opmaak op alinea‑niveau.
-* [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) vertegenwoordigt een tekstrun binnen een alinea. Elk deel kan zijn eigen tekst en teken‑niveau opmaak hebben.
+* [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) is de tekstcontainer in een vorm en biedt toegang tot de alinea‑collectie.
+* [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) stelt één alinea in een tekstkader voor en biedt toegang tot de delen en de alinea‑opmaak.
+* [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) is een tekstdelen binnen een alinea. Elk deel kan zijn eigen tekst en teken‑niveau opmaak hebben.
 
-Een alinea kan daarom tekst bevatten met verschillende lettertypen, kleuren, groottes en andere opmaak door meerdere delen te gebruiken.
+Een alinea kan dus tekst met verschillende lettertypen, kleuren, groottes en andere opmaak bevatten door meerdere delen te gebruiken.
 
-## **Alinea's maken en opmaken**
+## **Alinea’s maken en opmaken**
 
-### **Alinea's maken met meerdere delen**
+Maak alinea’s in het tekstkader van een vorm en gebruik delen om individuele tekstsegmenten op te maken. Dit gedeelte laat zien hoe je meerdere delen binnen elke alinea combineert en verschillende kleuren, lettergrootten en stijlen toepast.
 
-De volgende stappen maken een tekstframe met drie alinea's, elk met drie delen:
+### **Alinea’s maken met meerdere delen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) klasse.
-2. Toegang tot de relevante dia via de index.
-3. Voeg een rechthoekige [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) toe aan de dia.
-4. Toegang tot de [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) van de vorm.
-5. Gebruik de standaard alinea en voeg twee extra [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) objecten toe aan het tekstframe.
-6. Voeg voldoende [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) objecten toe zodat elke alinea drie delen bevat. De standaard alinea bevat al één leeg deel.
-7. Stel de tekst van elk deel in.
-8. Pas teken‑niveau opmaak toe via [IPortion.getPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getPortionFormat--).
-9. Sla de gewijzigde presentatie op.
-
-Dit Android‑via‑Java‑voorbeeld implementeert de stappen:
+Het volgende Android‑via‑Java‑voorbeeld maakt drie alinea’s, elk met drie tekstdelen in de verzameling die wordt teruggegeven door [IParagraph.getPortions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getPortions--). Het hergebruikt de standaardalinea en het lege deel, en voegt daarna de resterende alinea’s en delen toe. Opmaak wordt toegepast via [IPortion.getPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getPortionFormat--): het eerste deel in elke alinea is rood, vet en 15 punten; het tweede is blauw, cursief en 18 punten. Het derde deel behoudt de standaardopmaak:
 
 ```java
 import com.aspose.slides.*;
@@ -67,6 +57,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
     ITextFrame textFrame = shape.getTextFrame();
 
@@ -114,26 +105,15 @@ try {
 }
 ```
 
-## **Maken van opsommingstekens en genummerde lijsten**
+## **Opsommingstekens en genummerde lijsten maken**
+
+Organiseer alinea‑tekst in lijsten met symbolen, nummers of aangepaste afbeeldingen. De voorbeelden in dit gedeelte behandelen opsommingsteken‑opmaak, meer‑niveau‑lijsten en aangepaste startnummers.
 
 ### **Een opsomming of genummerde lijst maken**
 
-Opsommingstekens en nummering maken verwante items gemakkelijker scanbaar. In Aspose.Slides worden lijstinstellingen gedefinieerd via [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/).
+Opsommingstekens en nummering maken gerelateerde items makkelijker scanbaar. In Aspose.Slides worden lijstinstellingen gedefinieerd via [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/).
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) klasse.
-2. Toegang tot de relevante dia via de index.
-3. Voeg een [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) toe aan de geselecteerde dia.
-4. Toegang tot de [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) van de vorm.
-5. Verwijder de standaard alinea uit het tekstframe.
-6. Maak een [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) voor een symbool‑opsommingsteken.
-7. Stel [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) in op [BulletType.Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/) en geef het opsommingsteken‑karakter op.
-8. Stel de alinea‑tekst, inspringing, opsommingsteken‑kleur en -hoogte in.
-9. Voeg de alinea toe aan het tekstframe.
-10. Maak een tweede alinea en stel [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) in op [BulletType.Numbered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/).
-11. Configureer de stijl van het genummerde opsommingsteken en voeg de alinea toe aan het tekstframe.
-12. Sla de presentatie op.
-
-Dit Android‑via‑Java‑voorbeeld maakt een symbool‑opsommingsteken en een genummerd opsommingsteken:
+Dit Android‑via‑Java‑voorbeeld voegt een symbool‑opsommingsteken en een genummerd item toe aan hetzelfde tekstkader. [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) selecteert het type opsommingsteken, terwijl [IBulletFormat.setChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setChar-char-) het symbool levert en [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) de nummeringsstijl selecteert. Beide items gebruiken zwarte opsommingstekens met een hoogte van 100 % en een alinea‑inspringing van 25 punten:
 
 ```java
 import com.aspose.slides.*;
@@ -142,6 +122,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -176,20 +157,9 @@ try {
 
 ### **Afbeeldings‑opsommingstekens gebruiken**
 
-Afbeeldings‑opsommingstekens laten u een aangepaste afbeelding gebruiken in plaats van een symbool of cijfer.
+Afbeeldings‑opsommingstekens laten je een aangepaste afbeelding gebruiken in plaats van een symbool of nummer.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) klasse.
-2. Toegang tot de relevante dia via de index.
-3. Voeg een [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) toe en krijg toegang tot de [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
-4. Verwijder de standaard alinea uit het tekstframe.
-5. Laad de opsommingsteken‑afbeelding en voeg deze toe aan de afbeeldingscollectie van de presentatie als een [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/).
-6. Maak een [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) en stel de tekst in.
-7. Stel [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) in op [BulletType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/).
-8. Koppel de afbeelding via [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--) en stel de hoogte van het opsommingsteken in.
-9. Voeg de alinea toe aan het tekstframe.
-10. Sla de gewijzigde presentatie op.
-
-Dit Android‑via‑Java‑voorbeeld maakt een afbeelding‑opsommingsteken:
+Dit Android‑via‑Java‑voorbeeld voegt een afbeelding toe aan de afbeeldingscollectie van de presentatie als een [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) en gebruikt deze als alinea‑opsommingsteken. Het roept [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) aan om een afbeeldings‑opsommingsteken te gebruiken en kent de afbeelding toe via [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--). [IBulletFormat.setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setHeight-float-) wordt ingesteld op 100 % om het opsommingsteken relatief tot de alinea‑tekst te schalen:
 
 ```java
 import com.aspose.slides.*;
@@ -224,17 +194,11 @@ try {
 }
 ```
 
-### **Een meerlagige lijst maken**
+### **Een meer‑niveau‑lijst maken**
 
-Stel [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) in om alinea's op verschillende niveaus van een lijst te plaatsen. Het hoogste niveau heeft een diepte van `0`.
+Stel [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) in om alinea’s op verschillende lijstniveaus te plaatsen. Het bovenste niveau heeft een diepte van `0`.
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) en krijg toegang tot een dia.
-2. Voeg een [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) toe en verwijder de standaard alinea uit het tekstframe.
-3. Maak vier alinea's en configureer hun opsommingsteken‑symbolen.
-4. Stel hun [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) waarden in op `0`, `1`, `2` en `3`.
-5. Voeg de alinea's toe aan het tekstframe en sla de presentatie op.
-
-Dit Android‑via‑Java‑voorbeeld maakt een vier‑niveau opsomminglijst:
+Dit Android‑via‑Java‑voorbeeld kent [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) waarden toe van 0 tot 3 voor vier alinea’s, waardoor een hiërarchie binnen één tekstkader ontstaat. Elke alinea gebruikt een symbool‑opsommingsteken, waarbij [IBulletFormat.setChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setChar-char-) afwisselt tussen een ronde opsomming en een koppelteken om aangrenzende niveaus van elkaar te onderscheiden:
 
 ```java
 import com.aspose.slides.*;
@@ -243,6 +207,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -290,17 +255,11 @@ try {
 }
 ```
 
-### **Genummerde lijstitems starten met aangepaste waarden**
+### **Genummerde lijstitems laten beginnen met aangepaste waarden**
 
-Gebruik [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) om het beginnummer in te stellen dat wordt weergegeven voor een genummerde alinea.
+Gebruik [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) om het beginnummer voor een genummerde alinea in te stellen.
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) en voeg een [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) toe aan een dia.
-2. Verwijder de standaard alinea uit het tekstframe van de vorm.
-3. Maak drie genummerde alinea's.
-4. Stel [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) in op `2`, `3` en `7` voor de respectieve alinea's.
-5. Voeg de alinea's toe aan het tekstframe en sla de presentatie op.
-
-Dit Android‑via‑Java‑voorbeeld kent een aangepast beginnummer toe aan elke alinea:
+Dit Android‑via‑Java‑voorbeeld stelt [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) in om nummering te gebruiken voor drie alinea’s en kent [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) waarden 2, 3 en 7 toe. De startwaarde wordt afzonderlijk per alinea geconfigureerd, waardoor de weergegeven nummers kunnen overslaan:
 
 ```java
 import com.aspose.slides.*;
@@ -308,6 +267,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -336,25 +296,17 @@ try {
 }
 ```
 
-## **Alinea‑indeling en eind‑eigenschappen beheren**
+## **Alinea‑lay‑out en einden‑eigenschappen beheren**
 
-### **Eerste‑lijninsprong instellen**
+Pas alinea‑marges en inspringingen aan om de positie van de eerste regel en omgeslagen regels te regelen. Je kunt het alinea‑eindtekenteken ook apart van de zichtbare tekstdelen opmaken.
 
-Gebruik [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) om de eerste‑lijninsprong van een alinea te regelen. Deze methode verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
+### **Een eerste‑regel‑inspringing instellen**
 
-Gebruik [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) wanneer u de hele alinea moet verplaatsen. Gebruik [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) wanneer u alleen de eerste regel moet verplaatsen.
+Gebruik de methode [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) om de eerste‑regel‑inspringing van een alinea te bepalen. Deze instelling verplaatst alleen de eerste regel ten opzichte van de linker marge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑body.
 
-Het onderstaande voorbeeld maakt meerdere alinea's en past verschillende [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) waarden toe om te demonstreren hoe de eerste‑lijninsprong de alinea‑indeling beïnvloedt.
+Gebruik [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) wanneer je de hele alinea wilt verplaatsen. Gebruik [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) wanneer je alleen de eerste regel wilt verplaatsen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) klasse.
-2. Toegang tot de doel‑dia.
-3. Voeg een rechthoekige [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) toe aan de dia.
-4. Toegang tot de [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) van de vorm en verwijder de standaard alinea.
-5. Maak verschillende alinea's en stel verschillende [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) waarden in voor hen.
-6. Voeg de alinea's toe aan het tekstframe.
-7. Sla de gewijzigde presentatie op.
-
-Deze code toont hoe u een alinea‑insprong instelt:
+Het volgende voorbeeld geeft drie alinea’s dezelfde [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) van 20 punten en [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) waarden van 0, 20 en 40 punten. De eerste regels beginnen bij telkens grotere offset, terwijl omgeslagen regels dezelfde linker marge behouden:
 
 ```java
 import com.aspose.slides.*;
@@ -406,26 +358,17 @@ try {
 
 Het resultaat:
 
-![De eerste‑lijninsprong van de alinea's](first_line_indent.png)
+![De eerste‑regel‑inspringing van de alinea's](first_line_indent.png)
 
-### **Hangende insprong instellen**
+### **Een hangende inspringing instellen**
 
-Een hangende insprong is een alinea‑indeling waarbij de eerste regel links van de overige regels begint. In Aspose.Slides creëert u dit effect met [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Geef een negatieve waarde op om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
+Een hangende inspringing is een alinea‑lay‑out waarbij de eerste regel links van de overige regels begint. In Aspose.Slides creëer je dit effect met de eigenschap [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Stel `Indent` in op een negatieve waarde om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑body.
 
-In de praktijk definieert [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) de linkerpositie van de alinea‑inhoud, en [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) definieert de positie van de eerste regel ten opzichte van die marge. Om een hangende insprong te creëren, geeft u een positieve waarde aan `setMarginLeft` en een negatieve waarde aan `setIndent`.
+In de praktijk definieert [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) de linkermarge van de alinea‑body, en definieert [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) de positie van de eerste regel ten opzichte van die marge. Om een hangende inspringing te maken, stel je een positieve `MarginLeft`‑waarde en een negatieve `Indent`‑waarde in.
 
-Deze opmaak is nuttig voor bibliografieën, referenties, glosstermen en andere alinea's waarbij omgebroken regels moeten uitlijnen onder de alinea‑inhoud in plaats van onder het eerste teken van de eerste regel.
+Deze opmaak is handig voor bibliografieën, referenties, glossarium‑vermeldingen en andere alinea’s waarbij omgeslagen regels onder de alinea‑body moeten uitlijnen in plaats van onder het eerste teken van de eerste regel.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) klasse.
-2. Toegang tot de doel‑dia.
-3. Voeg een rechthoekige [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) toe aan de dia.
-4. Toegang tot de [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) van de vorm en verwijder de standaard alinea.
-5. Maak alinea's en geef een positieve waarde aan [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) voor elke alinea.
-6. Geef een negatieve waarde aan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) om het effect van een hangende insprong te verkrijgen.
-7. Voeg de alinea's toe aan het tekstframe.
-8. Sla de gewijzigde presentatie op.
-
-Deze code toont hoe u een hangende insprong voor een alinea instelt:
+Het volgende Android‑via‑Java‑voorbeeld combineert [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) waarden van 40 en 60 punten met [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) waarden van -20 en -30 punten. In elke alinea begint de eerste regel links van de omgeslagen regels; de tweede alinea heeft een diepere hangende inspringing:
 
 ```java
 import com.aspose.slides.*;
@@ -469,18 +412,11 @@ try {
 
 Het resultaat:
 
-![De hangende insprong van de alinea's](hanging_indent.png)
+![De hangende inspringing van de alinea's](hanging_indent.png)
 
-### **Eind‑alinea‑run‑eigenschappen instellen**
+### **Einde‑alinea‑run‑eigenschappen instellen**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) beheert de opmaak van het alinea‑eindteken. Het volgende voorbeeld kent een lettergrootte en een Latijns lettertype toe aan het eindteken van de tweede alinea:
-
-1. Laad een [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) en krijg toegang tot een dia.
-2. Voeg een [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) toe en verwijder de standaard alinea.
-3. Maak twee alinea's en voeg tekstdelen toe.
-4. Maak een [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/) voor het eindteken van de tweede alinea.
-5. Stel [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) en [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) in.
-6. Ken het formaat toe met [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) en sla de presentatie op.
+De methode [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) regelt de opmaak van het alinea‑eindteken. Het volgende voorbeeld maakt een [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/) met [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) ingesteld op 48 punten en [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) ingesteld op Times New Roman. Het kent dit formaat toe aan het eindteken van de tweede alinea, terwijl de zichtbare tekstdelen ongewijzigd blijven:
 
 ```java
 import com.aspose.slides.*;
@@ -488,6 +424,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("Test.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -512,15 +449,15 @@ try {
 }
 ```
 
-## **Aantal weergegeven regels tellen**
+## **Aantal gerenderde regels tellen**
 
-Voor alinea‑regels die automatische regelafbreking en interpunctie aan het einde van regels beïnvloeden, zie [Control Line Breaking](/slides/nl/androidjava/text-formatting/#control-line-breaking) en [Control Hanging Punctuation](/slides/nl/androidjava/text-formatting/#control-hanging-punctuation).
+Voor alinea‑regels die automatische omloop en interpunctie aan het einde van regels beïnvloeden, zie [Control Line Breaking](/slides/nl/androidjava/text-formatting/#control-line-breaking) en [Control Hanging Punctuation](/slides/nl/androidjava/text-formatting/#control-hanging-punctuation).
 
-Gebruik [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) om het aantal regels te tellen dat een alinea na tekstindeling inneemt, inclusief automatische regelafbreking. Dit is nuttig bij het controleren van tekengrootte en indeling in presentatiesjablonen.
+Gebruik [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) om het aantal regels te tellen dat een alinea inneemt na tekst‑lay‑out, inclusief automatische omloop. Dit is nuttig bij het controleren van tekstlengte en lay‑out in presentatiesjablonen.
 
-Een alinea is één item in [ITextFrame.getParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParagraphs--), en kan meerdere weergegeven regels innemen. Een expliciete regeleinde binnen een alinea forceert een nieuwe regel zonder een extra alinea te maken. Automatische regelafbreking creëert regels op basis van de beschikbare breedte zonder expliciete regeleinde‑tekens in de tekst in te voegen. Het tellen van alinea's of regeleinde‑tekens geeft dus niet het weergegeven aantal regels.
+Een alinea is één item in [ITextFrame.getParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParagraphs--), en kan meerdere gerenderde regels beslaan. Een expliciete regeleinde‑invoeging binnen een alinea dwingt een nieuwe regel af zonder een nieuwe alinea te maken. Automatische omloop maakt regels op basis van de beschikbare breedte zonder expliciete regeleinden in de tekst in te voegen. Het tellen van alinea’s of regeleinde‑tekens geeft dus niet het gerenderde aantal regels.
 
-Het onderstaande voorbeeld maakt een tekstvorm, telt de regels, vernauwt de vorm en vervangt vervolgens de tekst door een kortere string. Regelafbreking is ingeschakeld en autofit is uitgeschakeld zodat de vormbreedte de afbreking regelt zonder de tekst automatisch te verkleinen of de vorm te schalen. Vormafmetingen zijn in points. Ten slotte voegt het voorbeeld een extra alinea toe en telt het totale aantal regels in het tekstframe.
+Het volgende voorbeeld maakt een tekstvorm, telt de regels, vernauwt de vorm en vervangt vervolgens de tekst door een kortere tekenreeks. Het voorbeeld schakelt omloop in met [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) en schakelt autofit uit met [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-), zodat de vormbreedte de omloop regelt zonder de tekst automatisch te verkleinen of de vorm te herschalen. Elke meting gebruikt [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--). Vormafmetingen zijn in punten. Ten slotte voegt het voorbeeld nog een alinea toe en telt de regeleilennummers op over het tekstkader.
 
 ```java
 import com.aspose.slides.*;
@@ -560,24 +497,19 @@ try {
 }
 ```
 
-Met deze tekst en afmetingen verhoogt het vernauwen van de vorm het aantal regels, terwijl het vervangen door de korte string het aantal verlaagt. De exacte aantallen kunnen variëren afhankelijk van de beschikbare lettertypen, substitutie, lettergrootte, marges, inspringing, afbreking en autofit‑instellingen. Gebruik de lettertypen en lay‑outinstellingen die bedoeld zijn voor de doelomgeving bij het controleren van een sjabloon.
+Met deze tekst en afmetingen leidt het vernauwen van de vorm tot een hoger regeleilennummer, terwijl het vervangen van de tekst door de korte tekenreeks dit verlaagt. Exacte aantallen kunnen variëren afhankelijk van beschikbaarheid en substitutie van lettertypen, lettergrootte, marges, inspringingen, omloop en autofit‑instellingen. Gebruik de lettertypen en lay‑outinstellingen die bedoeld zijn voor de doele omgeving bij het controleren van een sjabloon.
 
-Het aantal regels alleen bepaalt niet of tekst buiten zijn container stroomt. De beschikbare hoogte, regelhoogtes, alinea‑ en regelafstand, en autofit‑gedrag zijn eveneens van belang; zelfs een enkele regel kan de beschikbare breedte overschrijden wanneer afbreking is uitgeschakeld.
+Het enige regeleilennummer bepaalt niet of tekst buiten de container stroomt. De beschikbare hoogte, regelhoogtes, alinea‑ en regel‑afstand, en autofit‑gedrag spelen eveneens een rol; zelfs een enkele regel kan de beschikbare breedte overschrijden wanneer omloop is uitgeschakeld.
 
-## **Paragraafinhoud importeren en exporteren**
+## **Alinea‑inhoud importeren en exporteren**
 
-### **HTML‑tekst importeren in alinea's**
+Gebruik HTML om tekst in een presentatie te brengen of om bestaande alinea’s te exporteren voor gebruik buiten de presentatie. Dit gedeelte laat ook zien hoe je individuele alinea’s als afbeeldingen rendert, inclusief alinea’s in tabelcellen.
 
-Gebruik [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) om HTML‑opmaak te converteren naar alinea's en delen in een tekstframe.
+### **HTML‑tekst importeren in alinea’s**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) klasse.
-2. Toegang tot een dia en voeg een [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) toe.
-3. Toegang tot de [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) van de vorm en verwijder de standaard alinea.
-4. Lees het bron‑HTML‑bestand.
-5. Geef de HTML‑string door aan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. Sla de gewijzigde presentatie op.
+Gebruik [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) om HTML‑markup om te zetten in alinea’s en delen in een tekstkader.
 
-Dit Android‑via‑Java‑voorbeeld importeert HTML in een tekstframe:
+Dit Android‑via‑Java‑voorbeeld leest HTML uit een bestand en geeft de markup door aan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-). Het wist de standaardalinea van het tekstkader zodat het kader alleen de geïmporteerde inhoud bevat. De rechthoekige vorm laat een marge van 10 punten aan elke kant van de dia over:
 
 ```java
 import com.aspose.slides.*;
@@ -589,6 +521,7 @@ import java.nio.file.Paths;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
     float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -610,15 +543,16 @@ try {
 
 ### **Alinea‑tekst exporteren naar HTML**
 
-Gebruik [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) om een geselecteerd bereik van alinea's als HTML te exporteren.
+Gebruik [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) om een geselecteerd bereik van alinea’s als HTML te exporteren. Wanneer je presentatietekst opnieuw wilt gebruiken op een website, wil je mogelijk lokale nadruk behouden zonder de lettertype‑, grootte‑ of tekstvak‑stijlen van de presentatie mee te nemen. Stel [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) in om te bepalen hoe ver de exporter de opmaak‑erfenis volgt.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) klasse en laad de gewenste presentatie.
-2. Toegang tot de dia en vind de [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) die de tekst bevat.
-3. Toegang tot de [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
-4. Roep [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) aan met de start‑alinea‑index en het aantal te exporteren alinea's.
-5. Schrijf de geretourneerde HTML‑string naar een bestand.
+Download [de voorbeeldpresentatie](text-inheritance.pptx) en plaats deze in de werkdirectory van de applicatie. De eerste dia bevat één tekstvorm met de tekst “Inherited text; explicit red 18pt”. De invoer gebruikt opzettelijk verschillende opmaak‑niveaus:
 
-Dit Android‑via‑Java‑voorbeeld exporteert alle alinea's van de eerste tekstvorm:
+- De standaardtekststijl van de presentatie levert Calibri en een grootte van 28 pt.
+- De eerste‑niveau‑tekststijl van het tekstkader levert blauwe tekst en cursief.
+- De alinea stelt expliciet vette tekst in.
+- Het tweede deel, “explicit red 18pt”, stelt expliciet rode tekst en een grootte van 18 pt in.
+
+Het volgende volledige voorbeeld exporteert dezelfde alinea’s drie keer. Het geeft [TextToHtmlConversionOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/texttohtmlconversionoptions/) door aan de export‑methode en schrijft elk resultaat naar een apart UTF‑8 HTML‑bestand:
 
 ```java
 import com.aspose.slides.*;
@@ -627,7 +561,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-Presentation presentation = new Presentation("ExportingHTMLText.pptx");
+Presentation presentation = new Presentation("text-inheritance.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -636,11 +570,21 @@ try {
         ITextFrame textFrame = textShape.getTextFrame();
         if (textFrame != null) {
             IParagraphCollection paragraphs = textFrame.getParagraphs();
-            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            try {
-                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
-            } catch (IOException exception) {
-                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            
+            int[] modes = { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+            String[] fileNames = { "All.html", "TextBox.html", "ParagraphOnly.html" };
+
+            for (int i = 0; i < modes.length; i++) {
+                TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                byte[] htmlBytes = html.getBytes(StandardCharsets.UTF_8);
+                try {
+                    Files.write(Paths.get(fileNames[i]), htmlBytes);
+                } catch (IOException exception) {
+                    System.out.println("The HTML file could not be written: " + exception.getMessage());
+                }
             }
         } else {
             System.out.println("The first shape does not contain a text frame.");
@@ -653,19 +597,31 @@ try {
 }
 ```
 
-### **Een alinea renderen als een afbeelding**
+De gegenereerde HTML bevat de volgende CSS voor het eerste deel, “Inherited text; ”. De tabel toont de relevante declaraties; andere gegenereerde eigenschappen zijn weggelaten voor de duidelijkheid.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) rendert een individuele alinea direct en retourneert een [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/). Sla het resultaat op in een bestand of stream met [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). U hoeft de omvattende vorm niet te renderen of handmatig een bitmap bij te snijden.
+| Output | Relevante CSS voor het eerste deel | Uiterlijk |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blauwe, vette, cursieve tekst op 28 pt in Calibri, als dat lettertype beschikbaar is. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blauwe, vette, cursieve tekst; de omringende pagina of browser levert het lettertype en de grootte. |
+| `ParagraphOnly.html` | `font-weight:bold` | Vette tekst; de omringende pagina of browser levert lettertype, grootte, kleur en cursief. |
 
-[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) kan `null` retourneren als de alinea niet gevonden wordt in de bovenliggende collectie, geen geldige render‑bounds heeft, of niet gerenderd kan worden. Controleer het resultaat voordat u het opslaat en maak de geretourneerde afbeelding na gebruik vrij.
+Het tweede deel behoudt `color:#ff0000`, `font-size:18pt` en `font-weight:bold` in alle drie de uitvoerbestanden. Het behoudt ook cursief in `All` en `TextBox`, maar niet in `ParagraphOnly`. Het beperken van de erfenis verwijdert dus niet de expliciet toegewezen opmaak van een alinea of deel.
+
+Open de bestanden in dezelfde browser om ze te vergelijken. In de twee beperkte modi worden weggelaten CSS‑eigenschappen opgelost door de stijlen van de bestemmingspagina of de browser‑standaardinstellingen, waardoor de uiteindelijke weergave afhangt van de context waarin de HTML wordt gebruikt.
+
+### **Een alinea renderen als afbeelding**
+
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) rendert een individuele alinea rechtstreeks en geeft een [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) terug. Sla het resultaat op in een bestand of stream met [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Je hoeft de omvattende vorm niet te renderen of handmatig een bitmap bij te snijden.
+
+[IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) kan `null` retourneren als de alinea niet in de bovenliggende collectie wordt gevonden, geen geldige render‑bounds heeft, of niet kan worden gerenderd. Controleer het resultaat vóór het opslaan en maak de geretourneerde afbeelding na gebruik vrij.
 
 #### **Een alinea renderen op de standaard schaal**
 
-Stel dat we een presentatiebestand hebben genaamd sample.pptx met één dia, waarbij de eerste vorm een tekstvak is met drie alinea's.
+Het voorbeeld gebruikt een presentatie met één dia waarvan de eerste vorm een tekstvak met drie alinea’s is.
 
-![Het tekstvak met drie alinea's](paragraph_to_image_input.png)
+![Het tekstvak met drie alinea’s](paragraph_to_image_input.png)
 
-Het onderstaande voorbeeld rendert de tweede alinea in een gewone tekstvorm op de standaard schaal en slaat de geretourneerde afbeelding op in PNG‑formaat. Het `finally`‑blok zorgt ervoor dat de afbeelding correct wordt vrijgegeven.
+Het volgende voorbeeld selecteert de tweede alinea op index 1 en roept [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) aan zonder schaal‑parameters. Het controleert dat de vorm de vereiste alinea bevat en dat de render een afbeelding oplevert voordat [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) wordt aangeroepen om deze in PNG‑formaat op te slaan. Het `finally`‑blok maakt de afbeelding na gebruik vrij.
 
 ```java
 import com.aspose.slides.*;
@@ -705,9 +661,9 @@ Het resultaat:
 
 ![De alinea‑afbeelding](paragraph_to_image_output.png)
 
-#### **Een alinea renderen in een tabelcel met schaling**
+#### **Een alinea in een tabelcel renderen met schaal**
 
-Gebruik de [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) overload die `float scaleX` en `float scaleY` accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende voorbeeld maakt een tabel, rendert de alinea in de eerste cel op twee keer de standaard breedte en hoogte, en slaat het resultaat op als PNG‑afbeelding.
+Gebruik de overload van [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) die `float scaleX` en `float scaleY` parameters accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende voorbeeld maakt een tabel, rendert de alinea in de eerste cel op het dubbele van de standaard breedte en hoogte, en slaat het resultaat op als PNG‑afbeelding.
 
 ```java
 import com.aspose.slides.*;
@@ -718,6 +674,7 @@ float scaleY = 2f;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
     IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
     paragraph.setText("Text in a table cell");
@@ -737,25 +694,25 @@ try {
 }
 ```
 
-Een schaalfactor van `1` behoudt die as op de standaard pixelgrootte. Bijvoorbeeld, `2` voor beide factoren produceert een afbeelding waarvan breedte en hoogte ongeveer het dubbele zijn van de standaardafmetingen, waardoor het aantal pixels vier keer zo hoog is. Grotere factoren leveren over het algemeen scherper tekst voor zoom of hoge‑resolutie‑output, maar verhogen ook het geheugenverbruik en de bestandsgrootte. Factoren onder `1` produceren kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de aspectratio van de alinea te behouden; verschillende horizontale en verticale factoren rekken de output onafhankelijk uit.
+Een schaalfactor van `1` behoudt die as op de standaard pixelgrootte. Bijvoorbeeld, `2` voor beide factoren levert een afbeelding waarvan breedte en hoogte ongeveer het dubbele zijn van de standaardafmetingen, wat resulteert in vier keer zoveel pixels. Grotere factoren geven doorgaans scherpere tekst voor zoom of hoge‑resolutie‑uitvoer, maar verhogen ook het geheugen‑ en bestandsgrootte‑gebruik. Factoren onder `1` geven kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de aspect‑ratio van de alinea te behouden; verschillende horizontale en verticale factoren rekken de uitvoer onafhankelijk uit.
 
-Het renderen van een volledige vorm met [IShape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getImage--) blijft nuttig wanneer de output de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een alleen‑alinea‑afbeelding, gebruik [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--).
+Het renderen van een volledige vorm met [IShape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getImage--) blijft nuttig wanneer de uitvoer de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een afbeelding die alleen de alinea toont, gebruik je [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--).
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Kan ik regelafbreking volledig uitschakelen in een tekstframe?**
+**Kan ik het automatisch afbreken van regels binnen een tekstkader volledig uitschakelen?**
 
-Ja. Stel [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) in om afbreking uit te schakelen zodat regels niet breken aan de randen van het tekstframe.
+Ja. Stel [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) in om afbreken uit te schakelen zodat regels niet op de randen van het tekstkader worden afgebroken.
 
-**Hoe krijg ik de exacte on‑slide‑grenzen van een specifieke alinea?**
+**Hoe krijg ik de exacte slide‑bounds van een specifieke alinea?**
 
 Gebruik [IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getRect--) om de begrenzende rechthoek van de alinea op te halen. [IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getRect--) levert de grenzen van een individueel deel.
 
-**Waar wordt de alinea‑uitlijning (links, rechts, gecentreerd of uitvullen) geregeld?**
+**Waar wordt de uitlijning van alinea’s (links, rechts, gecentreerd of uitgevuld) geregeld?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) is een alinea‑niveau instelling en wordt toegepast op de hele alinea, ongeacht de opmaak van individuele delen.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) is een alinea‑niveau instelling en geldt voor de hele alinea ongeacht de opmaak van individuele delen.
 
-Zie voor verticale uitlijning van verschillende lettergroottes binnen elke regel [Align Fonts Within a Line](/slides/nl/androidjava/text-formatting/#align-fonts-within-a-line).
+Om delen met verschillende lettergrootten binnen elke regel verticaal uit te lijnen, zie [Align Fonts Within a Line](/slides/nl/androidjava/text-formatting/#align-fonts-within-a-line).
 
 **Kan ik de proefleestaal instellen voor een deel van een alinea?**
 

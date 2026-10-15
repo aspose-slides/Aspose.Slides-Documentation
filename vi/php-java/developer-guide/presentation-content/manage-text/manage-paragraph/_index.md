@@ -1,6 +1,6 @@
 ---
 title: Quản lý các đoạn văn bản PowerPoint trong PHP
-linktitle: Quản lý đoạn
+linktitle: Quản lý đoạn văn
 type: docs
 weight: 40
 url: /vi/php-java/manage-paragraph/
@@ -8,56 +8,46 @@ aliases:
   - /php-java/paragraph/
   - /php-java/portion/
 keywords:
-- thêm văn bản
-- thêm đoạn
-- quản lý văn bản
-- quản lý đoạn
-- quản lý dấu đầu dòng
-- thụt lề đoạn
-- thụt lề treo
-- dấu đầu dòng đoạn
-- danh sách đánh số
-- danh sách dấu đầu dòng
-- thuộc tính đoạn
-- nhập HTML
-- văn bản sang HTML
-- đoạn sang HTML
-- đoạn sang hình ảnh
-- văn bản sang hình ảnh
-- xuất đoạn
-- PowerPoint
-- bản trình chiếu
-- PHP
-- Aspose.Slides
-description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn với Aspose.Slides cho PHP qua Java."
+  - thêm văn bản
+  - thêm đoạn
+  - quản lý văn bản
+  - quản lý đoạn
+  - quản lý dấu đầu dòng
+  - thụt lề đoạn
+  - thụt lề treo
+  - dấu đầu dòng đoạn
+  - danh sách đánh số
+  - danh sách dấu đầu dòng
+  - thuộc tính đoạn
+  - nhập HTML
+  - văn bản sang HTML
+  - đoạn sang HTML
+  - đoạn sang hình ảnh
+  - văn bản sang hình ảnh
+  - xuất đoạn
+  - PowerPoint
+  - bài thuyết trình
+  - PHP
+  - Aspose.Slides
+description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn với Aspose.Slides cho PHP thông qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for PHP via Java biểu diễn văn bản dưới dạng một cấu trúc phân cấp gồm các khung văn bản, đoạn và phần:
+Aspose.Slides cho PHP thông qua Java biểu diễn văn bản như một hệ thống phân cấp gồm khung văn bản, đoạn văn và phần văn bản:
 
-* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập các đoạn.
-* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) đại diện cho một đoạn trong khung văn bản và cung cấp quyền truy cập vào các phần và định dạng mức đoạn.
-* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) đại diện cho một đoạn văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
+* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập các đoạn văn.
+* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) đại diện cho một đoạn trong khung văn bản và cung cấp quyền truy cập vào các phần và định dạng cấp độ đoạn.
+* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) đại diện cho một chuỗi văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng cấp ký tự riêng.
 
-Do đó một đoạn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và định dạng khác nhau bằng cách sử dụng nhiều phần.
+Do đó, một đoạn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và định dạng khác nhau bằng cách sử dụng nhiều phần.
 
-## **Tạo và Định dạng Đoạn**
+## **Tạo và Định dạng Các Đoạn**
+
+Tạo các đoạn trong khung văn bản của một hình dạng và sử dụng các phần để định dạng các chuỗi văn bản riêng lẻ. Phần này cho thấy cách kết hợp nhiều phần trong mỗi đoạn và áp dụng các màu, kích thước phông và kiểu khác nhau.
 
 ### **Tạo Đoạn với Nhiều Phần**
 
-Các bước sau tạo một khung văn bản với ba đoạn, mỗi đoạn chứa ba phần:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Truy cập slide tương ứng thông qua chỉ số của nó.
-3. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) hình chữ nhật vào slide.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) của hình.
-5. Sử dụng đoạn mặc định và thêm hai đối tượng [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) nữa vào khung văn bản.
-6. Thêm đủ các đối tượng [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) để mỗi đoạn chứa ba phần. Đoạn mặc định đã có một phần rỗng.
-7. Đặt văn bản cho mỗi phần.
-8. Áp dụng định dạng cấp ký tự qua [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat--).
-9. Lưu bản trình chiếu đã sửa đổi.
-
-Ví dụ PHP này thực hiện các bước trên:
+Ví dụ PHP sau tạo ba đoạn, mỗi đoạn chứa ba chuỗi văn bản trong bộ sưu tập được trả về bởi [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions). Nó tái sử dụng đoạn mặc định và phần trống của nó, sau đó thêm các đoạn và phần còn lại. Định dạng được áp dụng qua [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): phần đầu tiên trong mỗi đoạn có màu đỏ, in đậm và kích thước 15 điểm; phần thứ hai có màu xanh lam, in nghiêng và kích thước 18 điểm. Phần thứ ba giữ định dạng mặc định của nó:
 
 ```php
 use aspose\slides\FillType;
@@ -71,6 +61,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
     $textFrame = $shape->getTextFrame();
 
@@ -120,24 +111,13 @@ try {
 
 ## **Tạo Danh sách Dấu đầu dòng và Đánh số**
 
+Tổ chức văn bản đoạn thành các danh sách có ký hiệu, số hoặc hình ảnh tùy chỉnh. Các ví dụ trong phần này bao gồm định dạng dấu đầu dòng, danh sách đa cấp và số bắt đầu tùy chỉnh.
+
 ### **Tạo Danh sách Dấu đầu dòng hoặc Đánh số**
 
-Dấu đầu dòng và đánh số giúp người đọc dễ dàng quét các mục liên quan. Trong Aspose.Slides, cài đặt danh sách được định nghĩa qua [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
+Dấu đầu dòng và đánh số giúp người đọc dễ dàng quét các mục liên quan. Trong Aspose.Slides, các cài đặt danh sách được xác định qua [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Truy cập slide tương ứng thông qua chỉ số của nó.
-3. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào slide đã chọn.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) của hình.
-5. Xóa đoạn mặc định khỏi khung văn bản.
-6. Tạo một [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) cho dấu đầu dòng ký hiệu.
-7. Đặt [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) thành [BulletType::Symbol](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/) và chỉ định ký tự dấu đầu dòng.
-8. Đặt văn bản đoạn, thụt lề, màu dấu đầu dòng và chiều cao dấu đầu dòng.
-9. Thêm đoạn vào khung văn bản.
-10. Tạo một đoạn thứ hai và đặt [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) thành [BulletType::Numbered](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/).
-11. Cấu hình kiểu dấu đầu dòng đánh số và thêm đoạn vào khung văn bản.
-12. Lưu bản trình chiếu.
-
-Ví dụ PHP này tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng đánh số:
+Ví dụ PHP này thêm một dấu đầu dòng ký hiệu và một mục đánh số vào cùng một khung văn bản. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) chọn loại dấu đầu dòng, trong khi [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) cung cấp ký hiệu và [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) chọn kiểu đánh số. Cả hai mục đều sử dụng dấu đầu dòng màu đen với chiều cao 100 % và thụt lề đoạn 25 điểm:
 
 ```php
 use aspose\slides\BulletType;
@@ -152,6 +132,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
@@ -186,20 +167,9 @@ try {
 
 ### **Sử dụng Dấu đầu dòng Hình ảnh**
 
-Dấu đầu dòng hình ảnh cho phép bạn sử dụng hình ảnh tùy chỉnh thay cho ký hiệu hoặc số.
+Dấu đầu dòng hình ảnh cho phép bạn sử dụng một hình ảnh tùy chỉnh thay vì ký hiệu hoặc số.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Truy cập slide tương ứng thông qua chỉ số của nó.
-3. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) và truy cập [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) của nó.
-4. Xóa đoạn mặc định khỏi khung văn bản.
-5. Tải hình ảnh dấu đầu dòng và thêm vào bộ sưu tập hình ảnh của bản trình chiếu dưới dạng [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/).
-6. Tạo một [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) và đặt văn bản cho nó.
-7. Đặt [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) thành [BulletType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/).
-8. Gán hình ảnh qua [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture--) và đặt chiều cao dấu đầu dòng.
-9. Thêm đoạn vào khung văn bản.
-10. Lưu bản trình chiếu đã sửa đổi.
-
-Ví dụ PHP này tạo một dấu đầu dòng hình ảnh:
+Ví dụ PHP này thêm một hình ảnh vào bộ sưu tập hình ảnh của bản trình diễn dưới dạng một [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) và sử dụng nó làm dấu đầu dòng cho đoạn. Nó gọi [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) để sử dụng dấu đầu dòng hình ảnh và gán hình ảnh qua [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) được đặt là 100 % để kích thước dấu đầu dòng tương đối so với văn bản đoạn:
 
 ```php
 use aspose\slides\BulletType;
@@ -240,15 +210,9 @@ try {
 
 ### **Tạo Danh sách Đa cấp**
 
-Đặt [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth-short-) để đặt các đoạn ở các cấp độ khác nhau của danh sách. Cấp cao nhất có độ sâu `0`.
+Đặt [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) để đặt các đoạn ở các cấp độ khác nhau của một danh sách. Cấp cao nhất có độ sâu `0`.
 
-1. Tạo một [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) và truy cập một slide.
-2. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) và xóa đoạn mặc định khỏi khung văn bản của nó.
-3. Tạo bốn đoạn và cấu hình các ký hiệu dấu đầu dòng của chúng.
-4. Đặt giá trị [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth-short-) thành `0`, `1`, `2` và `3`.
-5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
-
-Ví dụ PHP này tạo một danh sách dấu đầu dòng bốn cấp:
+Ví dụ PHP này gán các giá trị [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) từ 0 đến 3 cho bốn đoạn, tạo một hệ thống phân cấp trong một khung văn bản. Mỗi đoạn sử dụng dấu đầu dòng ký hiệu, với [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) xen kẽ giữa dấu đầu dòng tròn và dấu gạch ngang để phân biệt các cấp kế cận:
 
 ```php
 use aspose\slides\BulletType;
@@ -261,6 +225,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
@@ -308,17 +273,11 @@ try {
 }
 ```
 
-### **Bắt đầu Các mục Danh sách Đánh số với Giá trị Tùy chỉnh**
+### **Bắt đầu các mục danh sách đánh số với Giá trị Tùy chỉnh**
 
-Sử dụng [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) để đặt số đầu tiên hiển thị cho một đoạn đánh số.
+Sử dụng [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) để đặt số ban đầu hiển thị cho một đoạn đánh số.
 
-1. Tạo một [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) và thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào một slide.
-2. Xóa đoạn mặc định khỏi khung văn bản của hình.
-3. Tạo ba đoạn đánh số.
-4. Đặt [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) thành `2`, `3` và `7` cho các đoạn tương ứng.
-5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
-
-Ví dụ PHP này gán số bắt đầu tùy chỉnh cho mỗi đoạn:
+Ví dụ PHP này đặt [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) để sử dụng đánh số cho ba đoạn và gán các giá trị [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) là 2, 3 và 7. Giá trị khởi đầu được cấu hình riêng cho mỗi đoạn, cho phép các số hiển thị bỏ qua các giá trị:
 
 ```php
 use aspose\slides\BulletType;
@@ -329,7 +288,9 @@ use aspose\slides\ShapeType;
 
 $presentation = new Presentation();
 try {
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
 
@@ -359,23 +320,15 @@ try {
 
 ## **Kiểm soát Bố cục Đoạn và Thuộc tính Kết thúc**
 
-### **Đặt Thụt Lề Dòng Đầu**
+Điều chỉnh lề và thụt lề của đoạn để kiểm soát vị trí của dòng đầu và các dòng gói. Bạn cũng có thể định dạng ký hiệu kết thúc đoạn riêng biệt khỏi các phần văn bản nhìn thấy.
 
-Sử dụng [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) để kiểm soát thụt lề dòng đầu của một đoạn. Phương pháp này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương làm dịch dòng đầu tiên sang phải, trong khi các dòng còn lại vẫn căn theo thân đoạn.
+### **Đặt Thụt lề Dòng đầu**
 
-Sử dụng [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) khi bạn chỉ cần di chuyển dòng đầu tiên.
+Sử dụng phương thức [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) để kiểm soát thụt lề dòng đầu của một đoạn. Cài đặt này chỉ di chuyển dòng đầu so với lề trái của đoạn. Giá trị dương dịch dòng đầu sang phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
 
-Ví dụ dưới đây tạo một số đoạn và áp dụng các giá trị khác nhau của [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) để minh họa cách thụt lề dòng đầu ảnh hưởng đến bố cục đoạn.
+Sử dụng [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) khi cần di chuyển toàn bộ đoạn. Sử dụng [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) khi cần di chuyển chỉ dòng đầu.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Truy cập slide mục tiêu.
-3. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) hình chữ nhật vào slide.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) của hình và xóa đoạn mặc định.
-5. Tạo một số đoạn và đặt các giá trị khác nhau của [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) cho chúng.
-6. Thêm các đoạn vào khung văn bản.
-7. Lưu bản trình chiếu đã sửa đổi.
-
-Mã PHP này cho bạn thấy cách đặt thụt lề đoạn:
+Ví dụ sau đưa ba đoạn cùng một giá trị [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) là 20 điểm và các giá trị [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) là 0, 20 và 40 điểm. Các dòng đầu bắt đầu ở các khoảng cách ngày càng lớn, trong khi các dòng gói giữ cùng một lề trái:
 
 ```php
 use aspose\slides\FillType;
@@ -433,24 +386,15 @@ Kết quả:
 
 ![Thụt lề dòng đầu của các đoạn](first_line_indent.png)
 
-### **Đặt Thụt Lề Treo**
+### **Đặt Thụt lề Treo**
 
-Thụt lề treo là một bố cục đoạn trong đó dòng đầu tiên bắt đầu ở bên trái các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-). Cung cấp giá trị âm để di chuyển dòng đầu tiên sang trái so với thân đoạn.
+Thụt lề treo là bố cục đoạn trong đó dòng đầu bắt đầu ở phía bên trái của các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng thuộc tính [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent). Đặt `Indent` thành giá trị âm để di chuyển dòng đầu sang trái so với thân đoạn.
 
-Trong thực tế, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) xác định vị trí trái của thân đoạn, và [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) xác định vị trí của dòng đầu tiên so với lề đó. Để tạo thụt lề treo, cung cấp giá trị dương cho `setMarginLeft` và giá trị âm cho `setIndent`.
+Trong thực tế, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) xác định vị trí bên trái của thân đoạn, và [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) xác định vị trí của dòng đầu so với lề đó. Để tạo thụt lề treo, đặt `MarginLeft` thành giá trị dương và `Indent` thành giá trị âm.
 
-Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục mục lục và các đoạn khác nơi các dòng gập phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
+Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục từ điển và các đoạn khác nơi các dòng gói phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Truy cập slide mục tiêu.
-3. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) hình chữ nhật vào slide.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) của hình và xóa đoạn mặc định.
-5. Tạo các đoạn và cung cấp giá trị dương cho [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) cho mỗi đoạn.
-6. Cung cấp giá trị âm cho [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) để tạo hiệu ứng thụt lề treo.
-7. Thêm các đoạn vào khung văn bản.
-8. Lưu bản trình chiếu đã sửa đổi.
-
-Mã PHP này cho bạn thấy cách đặt thụt lề treo cho một đoạn:
+Ví dụ PHP sau ghép các giá trị [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) là 40 và 60 điểm với các giá trị [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) là -20 và -30 điểm. Trong mỗi đoạn, dòng đầu bắt đầu ở phía bên trái của các dòng gói; đoạn thứ hai có thụt lề treo sâu hơn:
 
 ```php
 use aspose\slides\FillType;
@@ -502,14 +446,7 @@ Kết quả:
 
 ### **Đặt Thuộc tính Kết thúc Đoạn**
 
-[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) điều khiển định dạng của ký tự kết thúc đoạn. Ví dụ PHP sau gán kích thước phông chữ và phông chữ Latin cho ký tự kết thúc của đoạn thứ hai:
-
-1. Tải một [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) và truy cập một slide.
-2. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) và xóa đoạn mặc định của nó.
-3. Tạo hai đoạn và thêm các phần văn bản vào chúng.
-4. Tạo một [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) cho ký tự kết thúc của đoạn thứ hai.
-5. Đặt [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) và [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Gán định dạng bằng [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) và lưu bản trình chiếu.
+Phương thức [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) kiểm soát định dạng của ký hiệu kết thúc đoạn. Ví dụ sau tạo một [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) với [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) đặt thành 48 điểm và [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) đặt thành Times New Roman. Nó gán định dạng này cho ký hiệu kết thúc của đoạn thứ hai, để các phần văn bản nhìn thấy không thay đổi:
 
 ```php
 use aspose\slides\FontData;
@@ -523,6 +460,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation("Test.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
@@ -547,15 +485,15 @@ try {
 }
 ```
 
-## **Đếm Số Dòng Được Kết Xuất**
+## **Đếm Các Dòng Được Vẽ**
 
-Đối với các quy tắc đoạn ảnh hưởng đến việc gập tự động và dấu câu ở cuối dòng, xem [Control Line Breaking](/slides/vi/php-java/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/php-java/text-formatting/#control-hanging-punctuation).
+Đối với các quy tắc đoạn ảnh hưởng đến việc gói tự động và dấu câu ở cuối dòng, xem [Control Line Breaking](/slides/vi/php-java/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/php-java/text-formatting/#control-hanging-punctuation).
 
-Sử dụng [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount--) để đếm số dòng mà một đoạn chiếm sau khi bố cục văn bản, bao gồm việc gập tự động. Điều này hữu ích khi kiểm tra độ dài và bố cục văn bản trong các mẫu trình chiếu.
+Sử dụng [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm gói tự động. Điều này hữu ích khi kiểm tra độ dài văn bản và bố cục trong mẫu bài thuyết trình.
 
-Một đoạn là một mục trong [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs--), và nó có thể chiếm nhiều dòng đã kết xuất. Một dấu ngắt dòng rõ ràng trong một đoạn buộc tạo dòng mới mà không tạo đoạn mới. Gập tự động tạo các dòng dựa trên độ rộng có sẵn mà không chèn dấu ngắt dòng rõ ràng vào văn bản. Vì vậy, đếm số đoạn hoặc ký tự ngắt dòng không cung cấp số dòng đã kết xuất.
+Một đoạn là một mục trong [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs), và nó có thể chiếm nhiều dòng đã được vẽ. Một ngắt dòng tường minh trong đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Gói tự động tạo các dòng dựa trên chiều rộng khả dụng mà không chèn ký tự ngắt dòng tường minh vào văn bản. Vì vậy, đếm số đoạn hoặc ký tự ngắt dòng không cho biết số dòng đã vẽ.
 
-Ví dụ sau tạo một hình dạng văn bản, đếm các dòng của nó, thu hẹp hình dạng, và sau đó thay thế văn bản bằng một chuỗi ngắn hơn. Gập được bật và tự động vừa (autofit) bị tắt để độ rộng hình dạng kiểm soát việc gập mà không tự động thu nhỏ văn bản hoặc thay đổi kích thước hình dạng. Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn khác và tổng hợp số dòng qua khung văn bản.
+Ví dụ sau tạo một hình dạng văn bản, đếm các dòng của nó, thu hẹp hình dạng, sau đó thay thế văn bản bằng một chuỗi ngắn hơn. Ví dụ bật gói bằng [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) và tắt tự động điều chỉnh kích thước bằng [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) để chiều rộng hình dạng kiểm soát gói mà không tự động thu nhỏ văn bản hoặc thay đổi kích thước hình dạng. Mỗi lần đo lường sử dụng [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount). Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn khác và cộng tổng số dòng trong khung văn bản.
 
 ```php
 use aspose\slides\NullableBool;
@@ -600,24 +538,19 @@ try {
 }
 ```
 
-Với văn bản này và các kích thước này, thu hẹp hình dạng làm tăng số dòng, trong khi thay thế văn bản bằng chuỗi ngắn làm giảm nó. Các số đếm chính xác có thể thay đổi tùy vào việc có sẵn phông chữ và việc thay thế, kích thước phông, lề, thụt lề, gập và cài đặt autofit. Sử dụng phông chữ và cài đặt bố cục dự định cho môi trường mục tiêu khi kiểm tra mẫu.
+Với văn bản và các kích thước này, thu hẹp hình dạng làm tăng số dòng, trong khi thay thế bằng chuỗi ngắn làm giảm số dòng. Các số đếm chính xác có thể thay đổi tùy thuộc vào việc có sẵn phông chữ và phép thay thế, kích thước phông, lề, thụt lề, gói và cài đặt tự động điều chỉnh. Hãy dùng các phông và cài đặt bố cục dự kiến cho môi trường đích khi kiểm tra mẫu.
 
-Số dòng chỉ không quyết định liệu văn bản có tràn ra ngoài vùng chứa hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách đoạn và dòng, và hành vi autofit cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt gập.
+Số dòng một mình không quyết định liệu văn bản có tràn khỏi vùng chứa hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách giữa các đoạn và dòng, và hành vi tự động điều chỉnh cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi gói bị tắt.
 
 ## **Nhập và Xuất Nội dung Đoạn**
 
-### **Nhập Văn bản HTML vào Đoạn**
+Sử dụng HTML để đưa văn bản vào bản thuyết trình hoặc xuất các đoạn hiện có để sử dụng bên ngoài. Phần này cũng cho thấy cách render các đoạn riêng lẻ thành hình ảnh, bao gồm các đoạn trong ô bảng.
 
-Sử dụng [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) để chuyển đổi markup HTML thành các đoạn và phần trong một khung văn bản.
+### **Nhập Văn bản HTML vào Các Đoạn**
 
-1. Tạo một thể hiện của [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Truy cập một slide và thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
-3. Truy cập [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) của hình và xóa đoạn mặc định.
-4. Đọc tệp HTML nguồn.
-5. Gửi chuỗi HTML tới [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. Lưu bản trình chiếu đã sửa đổi.
+Sử dụng [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) để chuyển đổi markup HTML thành các đoạn và phần trong một khung văn bản.
 
-Ví dụ PHP này nhập HTML vào một khung văn bản:
+Ví dụ PHP này đọc HTML từ tệp và truyền markup cho [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml). Nó xóa đoạn mặc định của khung văn bản để khung chỉ chứa nội dung đã nhập. Hình chữ nhật để lại lề 10 điểm ở mỗi bên của slide:
 
 ```php
 use aspose\slides\FillType;
@@ -628,6 +561,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shapeWidth = java_values($presentation->getSlideSize()->getSize()->getWidth()) - 20;
     $shapeHeight = java_values($presentation->getSlideSize()->getSize()->getHeight()) - 20;
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $shapeWidth, $shapeHeight);
@@ -648,20 +582,23 @@ try {
 
 ### **Xuất Văn bản Đoạn ra HTML**
 
-Sử dụng [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) để xuất một phạm vi đã chọn của các đoạn dưới dạng HTML.
+Sử dụng [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) để xuất một phạm vi các đoạn đã chọn dưới dạng HTML. Khi tái sử dụng văn bản bản thuyết trình trên trang web, bạn có thể muốn giữ lại sự nhấn mạnh địa phương mà không mang theo phông, kích thước hoặc kiểu hộp văn bản của bản thuyết trình. Đặt [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) để kiểm soát mức độ exporter tuân theo kế thừa định dạng.
 
-1. Tạo một thể hiện của [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) và tải bản trình chiếu mong muốn.
-2. Truy cập slide và tìm [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) chứa văn bản.
-3. Truy cập [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) của hình.
-4. Gọi [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) với chỉ số đoạn bắt đầu và số đoạn cần xuất.
-5. Ghi chuỗi HTML trả về vào tệp.
+Tải xuống [bản mẫu thuyết trình](text-inheritance.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên của nó chứa một hình dạng văn bản với văn bản "Inherited text; explicit red 18pt". Đầu vào cố ý sử dụng nhiều cấp định dạng:
 
-Ví dụ PHP này xuất tất cả các đoạn từ hình dạng văn bản đầu tiên:
+- Kiểu văn bản mặc định của bản thuyết trình cung cấp Calibri và kích thước 28 pt.
+- Kiểu văn bản cấp một của khung văn bản cung cấp màu xanh và chữ nghiêng.
+- Đoạn đặt in đậm một cách rõ ràng.
+- Phần thứ hai, "explicit red 18pt", đặt màu đỏ và kích thước 18 pt một cách rõ ràng.
+
+Ví dụ hoàn chỉnh sau xuất cùng một nhóm đoạn ba lần. Nó truyền [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) cho phương thức xuất và ghi mỗi kết quả vào một tệp HTML UTF‑8 riêng:
 
 ```php
 use aspose\slides\Presentation;
+use aspose\slides\TextInheritanceLimit;
+use aspose\slides\TextToHtmlConversionOptions;
 
-$presentation = new Presentation("ExportingHTMLText.pptx");
+$presentation = new Presentation("text-inheritance.pptx");
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
@@ -669,9 +606,18 @@ try {
         $textFrame = $shape->getTextFrame();
         if (!java_is_null($textFrame)) {
             $paragraphs = $textFrame->getParagraphs();
-            $html = $paragraphs->exportToHtml(0, $paragraphs->getCount(), null);
-            if (file_put_contents("paragraphs.html", $html) === false) {
-                echo "The HTML file could not be written.";
+
+            $modes = array(TextInheritanceLimit::All, TextInheritanceLimit::TextBox, TextInheritanceLimit::ParagraphOnly);
+            $fileNames = array("All.html", "TextBox.html", "ParagraphOnly.html");
+
+            for ($i = 0; $i < count($modes); $i++) {
+                $options = new TextToHtmlConversionOptions();
+                $options->setTextInheritanceLimit($modes[$i]);
+
+                $html = $paragraphs->exportToHtml(0, $paragraphs->getCount(), $options);
+                if (file_put_contents($fileNames[$i], java_values($html)) === false) {
+                    echo "The HTML file could not be written." . PHP_EOL;
+                }
             }
         } else {
             echo "The first shape does not contain a text frame.";
@@ -684,19 +630,31 @@ try {
 }
 ```
 
-### **Kết xuất Đoạn dưới dạng Hình ảnh**
+HTML tạo ra chứa CSS sau cho phần đầu tiên, "Inherited text; ". Bảng liệt kê các khai báo liên quan; các thuộc tính được tạo khác bị bỏ qua để rõ ràng.
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) kết xuất một đoạn riêng lẻ trực tiếp và trả về một [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng bằng [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save-java.lang.String-int-). Bạn không cần phải kết xuất hình dạng chứa hoặc cắt bitmap thủ công.
+| Đầu ra | CSS liên quan cho phần đầu tiên | Hiển thị |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Văn bản màu xanh, in đậm, nghiêng, kích thước 28 pt trong Calibri, nếu phông đó khả dụng. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Văn bản màu xanh, in đậm, nghiêng; trang hoặc trình duyệt cung cấp phông và kích thước. |
+| `ParagraphOnly.html` | `font-weight:bold` | Văn bản in đậm; trang hoặc trình duyệt cung cấp phông, kích thước, màu và kiểu nghiêng. |
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) có thể trả về `null` nếu đoạn không thể tìm thấy trong bộ sưu tập cha, không có ràng buộc kết xuất hợp lệ, hoặc không thể kết xuất. Kiểm tra kết quả trước khi lưu và giải phóng hình ảnh trả về sau khi sử dụng.
+Phần thứ hai giữ `color:#ff0000`, `font-size:18pt` và `font-weight:bold` trong cả ba đầu ra. Nó cũng giữ chữ nghiêng trong `All` và `TextBox`, nhưng không trong `ParagraphOnly`. Do đó, giới hạn kế thừa không loại bỏ định dạng được gán rõ ràng cho đoạn hoặc phần.
 
-#### **Kết xuất Đoạn ở Tỷ lệ Mặc định**
+Mở các tệp trong cùng một trình duyệt để so sánh chúng. Trong hai chế độ hạn chế, các thuộc tính CSS bị bỏ qua được giải quyết bởi kiểu của trang đích hoặc mặc định của trình duyệt, vì vậy diện mạo cuối cùng phụ thuộc vào nơi HTML được sử dụng.
 
-Giả sử chúng ta có một tệp trình chiếu có tên sample.pptx với một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn.
+### **Render một Đoạn dưới dạng Hình ảnh**
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) render một đoạn riêng lẻ và trả về một [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng bằng [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). Bạn không cần render hình dạng chứa hoặc cắt bitmap thủ công.
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) có thể trả về `null` nếu đoạn không tìm thấy trong bộ sưu tập cha, không có giới hạn render hợp lệ, hoặc không thể render. Kiểm tra kết quả trước khi lưu và giải phóng hình ảnh đã trả về sau khi dùng.
+
+#### **Render một Đoạn ở Tỷ lệ Mặc định**
+
+Ví dụ sử dụng một bản thuyết trình có một slide, trong đó hình dạng đầu tiên là hộp văn bản chứa ba đoạn.
 
 ![Hộp văn bản với ba đoạn](paragraph_to_image_input.png)
 
-Ví dụ PHP sau kết xuất đoạn thứ hai trong một hình dạng văn bản thường ở tỷ lệ mặc định và lưu hình ảnh trả về ở định dạng PNG. Khối `finally` đảm bảo rằng hình ảnh được giải phóng đúng cách.
+Ví dụ sau chọn đoạn thứ hai tại chỉ mục 1 và gọi [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) mà không có tham số tỷ lệ. Nó kiểm tra xem hình dạng có chứa đoạn yêu cầu và việc render có trả về hình ảnh trước khi gọi [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) để lưu dưới dạng PNG. Khối `finally` giải phóng hình ảnh sau khi dùng:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -736,9 +694,9 @@ Kết quả:
 
 ![Hình ảnh đoạn](paragraph_to_image_output.png)
 
-#### **Kết xuất Đoạn trong Ô Bảng với Tỷ lệ**
+#### **Render một Đoạn trong Ô Bảng với Tỷ lệ**
 
-Sử dụng [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage-float-float-) để đặt các hệ số tỷ lệ ngang và dọc `$scaleX` và `$scaleY`. Ví dụ PHP sau tạo một bảng, kết xuất đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng PNG.
+Sử dụng phiên bản [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) chấp nhận các tham số `$scaleX` và `$scaleY` để đặt hệ số tỷ lệ ngang và dọc. Ví dụ sau tạo một bảng, render đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng PNG.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -750,6 +708,7 @@ $scaleY = 2;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+    
     $table = $slide->getShapes()->addTable(50, 50, array(300), array(80));
     $paragraph = $table->get_Item(0, 0)->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->setText("Text in a table cell");
@@ -769,26 +728,26 @@ try {
 }
 ```
 
-Hệ số tỷ lệ `1` giữ trục đó ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số tạo ra một hình ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, dẫn đến bốn lần nhiều pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc xuất khẩu độ phân giải cao, nhưng chúng cũng tăng sử dụng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo ra hình ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỷ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
+Hệ số `1` giữ trục ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số tạo ra hình ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, tức là có bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc xuất độ phân giải cao, nhưng cũng làm tăng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo hình ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỉ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo giãn kết quả một cách độc lập.
 
-Việc kết xuất toàn bộ hình dạng với [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage--) vẫn hữu ích khi đầu ra cần bao gồm việc tô màu, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với hình ảnh chỉ chứa đoạn, hãy sử dụng [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--).
+Render toàn bộ hình dạng bằng [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) vẫn hữu ích khi đầu ra cần bao gồm nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với hình ảnh chỉ chứa đoạn, hãy dùng [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage).
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Can I completely disable line wrapping inside a text frame?**
+**Có thể tắt hoàn toàn việc gói dòng trong một khung văn bản không?**
 
-Có. Đặt [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText-byte-) để tắt gập, để các dòng không ngắt tại các cạnh của khung văn bản.
+Có. Đặt [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) để tắt gói để các dòng không ngắt ở cạnh khung văn bản.
 
-**How can I get the exact on-slide bounds of a specific paragraph?**
+**Làm sao để lấy giới hạn chính xác trên slide của một đoạn cụ thể?**
 
-Sử dụng [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect--) để lấy hình chữ nhật bao quanh đoạn. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect--) cung cấp kích thước của một phần riêng lẻ.
+Sử dụng [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) để lấy hình chữ nhật bao quanh đoạn. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) cung cấp giới hạn của một phần riêng lẻ.
 
-**Where is paragraph alignment (left, right, center, or justify) controlled?**
+**Nơi nào kiểm soát căn chỉnh đoạn (trái, phải, giữa hoặc canh đều)?**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment-int-) là một cài đặt mức độ đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng phần riêng lẻ.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) là cài đặt cấp đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng phần riêng lẻ.
 
-Để căn chỉnh các phần có kích thước phông chữ khác nhau theo chiều dọc trong mỗi dòng, xem [Căn chỉnh phông chữ trong một dòng](/slides/vi/php-java/text-formatting/#align-fonts-within-a-line).
+Để căn chỉnh dọc các phần có kích thước phông khác nhau trong mỗi dòng, xem [Align Fonts Within a Line](/slides/vi/php-java/text-formatting/#align-fonts-within-a-line).
 
-**Can I set the proofing language for part of a paragraph?**
+**Có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn không?**
 
-Có. Đặt [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) cho các phần riêng lẻ, vì vậy một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.
+Có. Đặt [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) cho các phần riêng lẻ, để một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.
