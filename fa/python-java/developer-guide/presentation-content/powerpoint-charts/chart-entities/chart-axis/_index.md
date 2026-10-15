@@ -1,5 +1,5 @@
 ---
-title: سفارشی‌سازی محورها در ارائه‌ها با استفاده از Python
+title: سفارشی‌سازی محورهای نمودار در ارائه‌ها با استفاده از پایتون
 linktitle: محور نمودار
 type: docs
 url: /fa/python-java/chart-axis/
@@ -8,11 +8,11 @@ keywords:
 - محور عمودی
 - محور افقی
 - سفارشی‌سازی محور
-- دستکاری محور
+- دست‌کاری محور
 - مدیریت محور
 - ویژگی‌های محور
-- مقدار حداکثر
-- مقدار حداقل
+- حداکثر مقدار
+- حداقل مقدار
 - خط محور
 - قالب تاریخ
 - عنوان محور
@@ -21,17 +21,17 @@ keywords:
 - ارائه
 - Python
 - Aspose.Slides
-description: "کشف کنید چگونه از Aspose.Slides برای Python از طریق Java استفاده کنید تا محورها را در ارائه‌های PowerPoint برای گزارش‌ها و تجسم‌ها سفارشی کنید."
+description: "کشف کنید چگونه می‌توانید از Aspose.Slides برای پایتون از طریق جاوا برای سفارشی‌سازی محورهای نمودار در ارائه‌های PowerPoint برای گزارش‌ها و تجسم‌ها استفاده کنید."
 ---
-## **مروری**
+## **نمایش کلی**
 
-این مقاله توضیح می‌دهد چگونه محورهای نمودار را با Aspose.Slides برای Python از طریق Java سفارشی کنیم. موضوعات شامل مقادیر محاسبه‌شده محور، جابه‌جایی سطرها و ستون‌های نمودار، قابلیت مشاهده محور، بازه‌های برچسب دسته‌ای و علامت تیک، دسته‌های تاریخی و قالب‌بندی، چرخش عنوان، موقعیت‌گذاری محور، واحدهای نمایش و مقیاس لگاریتمی است.
+این مقاله نحوه سفارشی‌سازی محورهای نمودار را با Aspose.Slides برای Python از طریق Java توضیح می‌دهد. این مقاله به مقادیر محاسبه‌شده محور، جابجایی سطرها و ستون‌های نمودار، نمایش محور، فاصله برچسب‌های دسته و تیک‌ها، دسته‌های تاریخ و قالب‌بندی، چرخش عنوان، موقعیت محور، واحدهای نمایش، و مقیاس لگاریتمی می‌پردازد.
 
-## **دست آوردن بیشینه مقادیر روی محور عمودی یک نمودار**
+## **دریافت حداکثر مقادیر در محور عمودی یک نمودار**
 
-یک [ارائه](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید و یک نمودار ناحیه‌ای با داده‌های پیش‌فرض اضافه کنید. قبل از خواندن مقادیر محاسبه‌شده محور، برای بروز رسانی طرح نمودار، [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) را صدا بزنید.
+یک [ارائه](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ایجاد کنید و یک نمودار ناحیه‌ای با داده‌های پیش‌فرض اضافه کنید. قبل از خواندن مقادیر محاسبه‌شده محور، برای به‌روزرسانی طرح نمودار، [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) را فراخوانی کنید.
 
-[**getActualMaxValue**](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) و [**getActualMinValue**](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) را برای محدودیت‌های محور بخوانید، و [**getActualMajorUnit**](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) و [**getActualMinorUnit**](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) را برای بازه‌های تیک دریافت کنید. [**getActualMajorUnitScale**](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) و [**getActualMinorUnitScale**](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) مقیاس‌های واحد زمان را فراهم می‌کنند که در محورهای تاریخی محتوا دارند. مثال این مقادیر را در متغیرهای محلی ذخیره و نمودار را ذخیره می‌کند.
+مقادیر [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) و [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) را برای حدهای محور بخوانید و برای فواصل تیک‌ها [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) و [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) را استفاده کنید. [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) و [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) مقیاس‌های زمان‑واحد را فراهم می‌کنند که برای محورهای تاریخ مرتبط هستند. مثال این مقادیر را در متغیرهای محلی ذخیره کرده و نمودار را ذخیره می‌کند.
 
 ```python
 import jpype
@@ -65,7 +65,7 @@ finally:
 
 ## **جابه‌جایی داده‌ها بین محورها**
 
-از [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) برای تعویض نقش‌های سری‌ها و دسته‌ها در داده‌های نمودار استفاده کنید. هر دسته‌ی قبلی به یک سری تبدیل می‌شود و هر سری قبلی به یک دسته. این تغییر نحوهٔ گروه‌بندی داده‌ها را تحت تأثیر قرار می‌دهد؛ محور افقی و عمودی جابه‌جا نمی‌شوند. مثال از [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) برای بایند کردن داده‌های پیش‌فرض به `Sheet1!A1:D5`، شامل سطر سرپرست و ستون دسته، پیش از جابه‌جایی سطرها و ستون‌ها استفاده می‌کند. سپس یک نمودار با چهار سری و سه دسته ذخیره می‌کند.
+از [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) برای تعویض نقش سری‌ها و دسته‌ها در داده‌های نمودار استفاده کنید. هر دسته قبلی به یک سری تبدیل می‌شود و هر سری قبلی به یک دسته تبدیل می‌شود. این تغییر، نحوه گروه‌بندی داده‌ها را تغییر می‌دهد؛ محورهای افقی و عمودی تعویض نمی‌شوند. مثال با استفاده از [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) داده‌های پیش‌فرض را به `Sheet1!A1:D5` (شامل سطر سرعنوان و ستون دسته) متصل می‌کند و سپس سطرها و ستون‌ها را جابه‌جا می‌کند. یک نمودار با چهار سری و سه دسته ذخیره می‌کند.
 
 ```python
 import jpype
@@ -89,9 +89,70 @@ finally:
     presentation.dispose()
 ```
 
+## **معکوس کردن ترتیب رسم یک محور**
+
+از [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) برای معکوس کردن محور دسته یا مقدار استفاده کنید. به‌عنوان مثال، یک نمودار میله‌ای افقی می‌تواند مراحل پروژه را از بالا به پایین به همان ترتیب برگه کاری نشان دهد: برنامه‌ریزی، توسعه، آزمایش. معکوس کردن محور جهت رسم را تغییر می‌دهد؛ داده‌های کتاب‌کار را مرتب یا جابه‌جا نمی‌کند. برای مقایسه، [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) نقش سری‌ها و دسته‌ها را تعویض می‌کند.
+
+مثال زیر یک نمودار میله‌ای افقی با سه مرحله و یک سری ایجاد می‌کند. یک ارائه با سه اسلاید ذخیره می‌کند: ترتیب عادی، دسته‌های معکوس، و مقادیر معکوس. هر کپی از همان مجموعه داده استفاده می‌کند و فقط یک محور در هر کپی معکوس می‌شود.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ChartType, CrossesType, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320)
+    chart.setLegend(False)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series = chart.getChartData().getSeries().add(ChartType.ClusteredBar)
+    stages = ["Planning", "Development", "Testing"]
+    values = [10, 30, 20]
+    for i, stage in enumerate(stages):
+        category_cell = workbook.getCell(0, i + 1, 0, stage)
+        chart.getChartData().getCategories().add(category_cell)
+        value_cell = workbook.getCell(0, i + 1, 1, float(values[i]))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    # اسلاید ۲: نمایش اولین دسته در بالا.
+    category_slide = presentation.getSlides().addClone(slide)
+    category_chart = category_slide.getShapes().get_Item(0)
+    category_chart.getAxes().getVerticalAxis().setPlotOrderReversed(True)
+    # محور مقدار افقی را در پایین نگه دارید.
+    category_chart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum)
+
+    # اسلاید ۳: فقط مقیاس عددی افقی را معکوس کنید.
+    value_slide = presentation.getSlides().addClone(slide)
+    value_chart = value_slide.getShapes().get_Item(0)
+    value_chart.getAxes().getHorizontalAxis().setPlotOrderReversed(True)
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+معکوس کردن محور می‌تواند محور عمود بر آن را به سمت مخالف نمودار جابه‌جا کند. [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) تعیین می‌کند که محور دیگر در کجا محور پیکربندی‌شده را قطع می‌کند. در اسلاید ۲، فراخوانی آن با [CrossesType.Maximum](https://reference.aspose.com/slides/python-java/aspose.slides/crossestype/#Maximum) روی محور دسته معکوس، محور مقدار افقی را در پایین نگه می‌دارد. برای یک نقطه قطع خاص، از [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt) استفاده کنید. هنگام تغییر جهت، تنظیمات قطع را بررسی کنید، به‌ویژه اگر نمودار قبلاً نقطه قطع سفارشی دارد. برای بازگرداندن جهت رسم عادی، [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) را با `False` فراخوانی کنید؛ تنظیمات قطع مستقل هستند.
+
+| ترتیب عادی (اسلاید ۱) | دسته‌های معکوس (اسلاید ۲) | مقادیر معکوس (اسلاید ۳) |
+| --- | --- | --- |
+| ![نمودار میله‌ای افقی با ترتیب عادی محور دسته و مقدار](axis-order-normal.png) | ![نمودار میله‌ای افقی با دسته‌های نمایش داده شده از بالا به پایین](axis-order-categories-reversed.png) | ![نمودار میله‌ای افقی با محور مقدار معکوس و صفر در سمت راست](axis-order-values-reversed.png) |
+| دسته‌ها از پایین به بالا می‌روند؛ مقادیر از چپ به راست افزایش می‌یابند. | مراحل برنامه‌ریزی، توسعه و آزمایش از بالا به پایین اجرا می‌شوند. مقادیر و ترتیب سطرهای کتاب کار تغییر نمی‌کند. | دسته‌ها ترتیب عادی خود را حفظ می‌کنند؛ مقادیر از راست به چپ افزایش می‌یابند. محور دسته در صفر سمت راست عبور می‌کند. |
+
 ## **غیرفعال کردن محور عمودی برای نمودارهای خطی**
 
-با فراخوانی [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) با مقدار `False` بر روی محور عمودی، آن را مخفی کنید. مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد کرده و آن را با محور عمودی مخفی ذخیره می‌کند.
+[setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) را با مقدار `False` روی محور عمودی فراخوانی کنید تا مخفی شود. مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند و آن را با محور عمودی مخفی ذخیره می‌کند.
 
 ```python
 import jpype
@@ -116,7 +177,7 @@ finally:
 
 ## **غیرفعال کردن محور افقی برای نمودارهای خطی**
 
-با فراخوانی [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) با مقدار `False` بر روی محور افقی، آن را مخفی کنید. مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد کرده و آن را با محور افقی مخفی ذخیره می‌کند.
+[setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) را با مقدار `False` روی محور افقی فراخوانی کنید تا مخفی شود. مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند و آن را با محور افقی مخفی ذخیره می‌کند.
 
 ```python
 import jpype
@@ -139,16 +200,16 @@ finally:
     presentation.dispose()
 ```
 
-## **تغییر یک محور دسته‌ای**
+## **تغییر محور دسته**
 
-از [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) برای انتخاب یک محور دسته‌ای تاریخی یا متنی استفاده کنید. این مثال به `ExistingChart.pptx` نیاز دارد که در اسلاید اول اولین شکل آن یک نمودار است و سلول‌های دسته شامل مقادیر عددی تاریخ اکسل می‌باشند. محور افقی به یک محور تاریخی تغییر می‌کند. با فراخوانی [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) با مقدار `False`، [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) با مقدار `1` و [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) با [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) تیک‌های اصلی را در بازه‌های یک‑ماه تنظیم می‌کند.
+از [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) برای انتخاب محور دسته تاریخ یا متن استفاده کنید. این مثال به فایل `ExistingChart.pptx` نیاز دارد که در اسلاید اول، اولین شکل، یک نمودار دارد و سلول‌های دسته شامل مقادیر عددی تاریخ Excel هستند. محور افقی را به یک محور تاریخ تغییر می‌دهد. فراخوانی [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) با `False`، [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) با `1` و [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) با [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) تیک‌های اصلی را در فواصل یک‌ماهه قرار می‌دهد.
 
 ```python
-import jpype
+import jpade
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpape.isJVMStarted():
+    jpape.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, CategoryAxisType, TimeUnitType
 
@@ -167,21 +228,21 @@ finally:
     presentation.dispose()
 ```
 
-## **کنترل بازه برچسب‌های محور دسته‌ای**
+## **کنترل فواصل برچسب‌های محور دسته**
 
-زمانی که یک نمودار دسته‌های زیادی دارد، می‌توانید تعداد برچسب‌های قابل مشاهدهٔ محور را بدون حذف دسته‌ها یا نقاط داده کاهش دهید. با فراخوانی [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) با مقدار `False`، سپس بازهٔ دلخواه دسته را به [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing) بدهید. برای دسته‌های متنی به ترتیب عادی، شمارش از اولین دسته شروع می‌شود:
+وقتی نمودار دسته‌های زیادی داشته باشد، تعداد برچسب‌های قابل مشاهده محور را بدون حذف دسته‌ها یا نقاط داده کاهش دهید. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) را با `False` فراخوانی کنید، سپس فاصله دسته دلخواه را به [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing) بدهید. برای دسته‌های متنی در ترتیب عادی، شمارش از اولین دسته آغاز می‌شود:
 
 | فاصله | برچسب‌های نمایش داده شده در مثال |
 | --- | --- |
-| `1` | دسته 1, دسته 2, دسته 3, ... دسته 24 |
-| `2` | دسته 1, دسته 3, دسته 5, ... دسته 23 |
-| `3` | دسته 1, دسته 4, دسته 7, ... دسته 22 |
+| `1` | دسته 1, دسته 2, دسته 3, … دسته 24 |
+| `2` | دسته 1, دسته 3, دسته 5, … دسته 23 |
+| `3` | دسته 1, دسته 4, دسته 7, … دسته 22 |
 
-یک بازهٔ `3` هر برچسب سوم را نمایش می‌دهد و دو برچسب بین برچسب‌های نمایش داده‌شده مخفی می‌مانند. این کار ستون‌های مربوطه را حذف نمی‌کند. فاصلهٔ خودکار بر اساس فضای موجود یک بازه انتخاب می‌کند؛ لزوماً تمام برچسب‌ها را نشان نمی‌دهد.
+یک فاصله `3` هر سومین برچسب را نمایش می‌دهد و دو برچسب میان برچسب‌های نمایش داده‌شده مخفی می‌مانند. این کار ستون‌های مربوطه را حذف نمی‌کند. فاصله خودکار بر پایه فضای موجود یک فاصله انتخاب می‌کند؛ لزوماً همه برچسب‌ها را نمایش نمی‌دهد.
 
-علامت‌های تیک کنترل‌های جداگانه‌ای دارند. با فراخوانی [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) با مقدار `False` و استفاده از [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) بازهٔ آن‌ها را تنظیم کنید. برای مثال، مقدار `1` یک علامت تیک را در هر بازهٔ دسته نگه می‌دارد در حالی که برچسب‌ها فقط هر دستهٔ سوم نمایش داده می‌شوند. با استفاده از [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) یک سبک قابل مشاهده انتخاب کنید تا نتیجه را ببینید. فراخوانی هر کدام از تنظیم‌کننده‌های خودکار با مقدار `True` مجدداً به نمودار اجازه می‌دهد بازهٔ خودکار را انتخاب کند.
+تیک‌ها کنترل جداگانه‌ای دارند. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) را با `False` فراخوانی کنید و از [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) برای تنظیم فواصل آن‌ها استفاده کنید. برای مثال، `1` تیک را در هر فاصله دسته نگه می‌دارد در حالی که برچسب‌ها فقط هر سومین دسته ظاهر می‌شوند. با یک سبک قابل مشاهده، [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) را استفاده کنید تا نتیجه را ببینید. فراخوانی هر یک از تنظیم‌کننده‌های خودکار با `True` دوباره به نمودار اجازه می‌دهد همان فاصله را انتخاب کند.
 
-مثال مستقل زیر ۲۴ دسته و یک سری ایجاد می‌کند و سپس سه اسلاید در `CategoryAxisIntervals.pptx` ذخیره می‌کند: فاصلهٔ خودکار، فاصلهٔ دستی برچسب‌ها با علامت‌های تیک مستقل، و بازگرداندن فاصلهٔ خودکار. دو نسخهٔ کپی داده‌های اصلی نمودار را حفظ می‌کنند. ارائه ورودی لازم نیست. متن برچسب‌های افقی تفاوت تراکم را به‌راحتی نشان می‌دهد.
+مثال زیر ۲۴ دسته و یک سری ایجاد می‌کند، سپس سه اسلاید در `CategoryAxisIntervals.pptx` ذخیره می‌کند: فاصله خودکار، فاصله برچسب دستی با تیک‌های مستقل، و بازگرداندن فاصله خودکار. دو نسخه داده‌های اصلی نمودار را حفظ می‌کنند. ارائه ورودی مورد نیاز نیست. متن برچسب افقی تفاوت چگالی را به‌راحتی نشان می‌دهد.
 
 ```python
 import jpype
@@ -220,7 +281,7 @@ try:
     axis.setAutomaticTickLabelSpacing(True)
     axis.setAutomaticTickMarksSpacing(True)
 
-    # اسلاید ۲: هر برچسب سوم را نشان دهید، اما برای هر دسته یک علامت تیک نگه دارید.
+    # اسلاید ۲: هر سومین برچسب را نمایش دهید، اما برای هر دسته یک تیک نگه دارید.
     manual_slide = presentation.getSlides().addClone(slide)
     manual_chart = manual_slide.getShapes().get_Item(0)
     manual_axis = manual_chart.getAxes().getHorizontalAxis()
@@ -229,7 +290,7 @@ try:
     manual_axis.setAutomaticTickMarksSpacing(False)
     manual_axis.setTickMarksSpacing(1)
 
-    # اسلاید ۳: بگذارید نمودار دوباره هر دو بازه را انتخاب کند.
+    # اسلاید ۳: بگذارید نمودار دوباره هر دو فاصله را انتخاب کند.
     restored_slide = presentation.getSlides().addClone(manual_slide)
     restored_chart = restored_slide.getShapes().get_Item(0)
     restored_chart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(True)
@@ -240,23 +301,23 @@ finally:
     presentation.dispose()
 ```
 
-**فاصلهٔ خودکار (اسلاید ۱):** در این رندر، هر برچسب دوم دسته نمایش داده می‌شود و بر دو خط می‌پیچد. نتیجهٔ خودکار ممکن است بسته به اندازهٔ نمودار، قلم‌ها و رندر کننده متفاوت باشد.
+**فاصله خودکار (اسلاید ۱):** در این رندر، هر دومین برچسب دسته نمایش داده می‌شود و روی دو خط می‌پیچد. نتیجه خودکار بسته به اندازه نمودار، قلم‌ها و رندر کننده می‌تواند متفاوت باشد.
 
-![فاصله برچسب دسته‌بندی خودکار با تمام ۲۴ ستون قابل مشاهده](category-axis-automatic.png)
+![فاصله خودکار برچسب دسته با همه ۲۴ ستون قابل مشاهده](category-axis-automatic.png)
 
-**فاصلهٔ دستی (اسلاید ۲):** هر برچسب سوم روی یک خط نمایش داده می‌شود، در حالی که علامت‌های تیک در هر بازهٔ دسته باقی می‌مانند. تمام ۲۴ ستون، از جمله آن‌هایی که برچسب ندارند، با همان مقادیر قابل مشاهده‌اند. اسلاید ۳ ظاهر خودکار نشان داده شده در بالا را بازگردانده است.
+**فاصله دستی (اسلاید ۲):** هر سومین برچسب روی یک خط نمایش داده می‌شود، در حالی که تیک‌ها در هر فاصله دسته باقی می‌مانند. همه ۲۴ ستون، حتی آن‌هایی که برچسب ندارند، با همان مقادیر قابل مشاهده هستند. اسلاید ۳ ظاهر خودکار را که در بالا نشان داده شد بازمی‌گرداند.
 
-![فاصله برچسب دسته‌بندی دستی به میزان سه با تمام ۲۴ ستون قابل مشاهده](category-axis-manual.png)
+![فاصله برچسب دسته به صورت سه‌تایی با همه ۲۴ ستون قابل مشاهده](category-axis-manual.png)
 
-### **انتخاب محور و بازهٔ صحیح**
+### **انتخاب محور و فاصله صحیح**
 
-از این بازهٔ شمارش دسته برای یک محور دسته‌ای متنی استفاده کنید، مانند محور دسته‌ای یک نمودار ستونی، خطی، ناحیه‌ای یا میله‌ای. در یک نمودار ستونی، این محور افقی است. در یک نمودار میله‌ای افقی، محور دسته‌ای عمودی است، بنابراین این تنظیمات را به محوری که توسط [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) بازگردانده می‌شود اعمال کنید. فاصلهٔ علامت‌گذاری تیک همچنین به محوری سری در نمودارهایی که یک محور سری دارند اعمال می‌شود.
+از این فاصله شمارش دسته برای محور دسته متنی استفاده کنید، مانند محور دسته یک نمودار ستون، خط، مساحت یا میله. در یک نمودار ستون، این محور افقی است. در یک نمودار میله‌ای افقی، محور دسته عمودی است، بنابراین این تنظیمات را به محوری که توسط [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) بازگردانده می‌شود اعمال کنید. فاصله تیک‑مارک همچنین به محور سری در نمودارهایی که چنین محوری دارند، اعمال می‌شود.
 
-از فاصلهٔ برچسب دسته برای تنظیم مقیاس عددی یک محور مقداری استفاده نکنید. در یک محور مقدار، [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) اختلاف مقادیر را تعیین می‌کند: به‌عنوان مثال، یک واحد اصلی `10` تیک‌ها را در ۰، ۱۰، ۲۰ و … وقتی محور از صفر شروع می‌شود، ایجاد می‌کند. بازهٔ برچسب دسته‌ای `3` به‌جای مقادیر عددی، موقعیت‌های دسته‌ای را می‌شمارد. نمودارهای پراکنده و حبابی از محورهاى مقدار استفاده می‌کنند نه از محور دسته‌ای متنی. برای یک محور تاریخی، از واحدهای اصلی مبتنی بر زمان و مقیاس‌ها همان‌طور که در [تغییر یک محور دسته‌ای](#change-a-category-axis) توضیح داده شد، استفاده کنید.
+از فاصله برچسب دسته برای تنظیم مقیاس عددی محور مقدار استفاده نکنید. در یک محور مقدار، [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) اختلافی در مقدارها را مشخص می‌کند: برای مثال، یک واحد اصلی `10` تیک‌ها را در 0، 10، 20 و … وقتی محور از صفر شروع شود، تولید می‌کند. فاصله برچسب دسته `3` به‌جای مقدارها، موقعیت‌های دسته را می‌شمارد، صرف‌نظر از مقدار داده. نمودارهای پراکندگی و حباب از محورها‌ی مقدار استفاده می‌کنند نه محور دسته متنی. برای یک محور تاریخ، از واحدهای اصلی و مقیاس‌های مبتنی بر زمان همان‌طور که در [تغییر محور دسته](#change-a-category-axis) توضیح داده شده، استفاده کنید.
 
-## **تنظیم قالب تاریخ برای مقادیر محور دسته‌ای**
+## **تنظیم قالب تاریخ برای مقادیر محور دسته**
 
-مثال داده‌های پیش‌فرض نمودار را با چهار مقدار سالانه جایگزین می‌کند. تاریخ‌ها به‌عنوان عددهای سریال OLE Automation در اولین کاربرگ (اندیس `0`) ذخیره می‌شوند که به‌عنوان تعداد روزها از ۳۰‑دسامبر‑۱۸۹۹ برای این تاریخ‌ها محاسبه می‌شوند. با استفاده از [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) همراه با [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date)، [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) را با مقدار `False` صدا بزنید و `yyyy` را به [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) بدهید تا برچسب‌های دسته سال‌های چهاررقمی را مستقل از قالب سلول نمایش دهند.
+مثال داده‌های پیش‌فرض نمودار را با چهار مقدار سالانه جایگزین می‌کند. تاریخ‌ها به عنوان شماره‌های سریال OLE Automation در اولین کاربرگ (اندیس `0`) ذخیره می‌شوند که به‌عنوان تعداد روزهای گذشته از 30 دسامبر 1899 محاسبه می‌شوند. از [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) با [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date)، [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) را با `False` فراخوانی کنید و `yyyy` را به [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) بدهید تا برچسب‌های دسته سال‌های چهاررقمی را مستقل از قالب‌ بندی سلول نمایش دهند.
 
 ```python
 from datetime import date
@@ -302,9 +363,9 @@ finally:
     presentation.dispose()
 ```
 
-## **تنظیم زاویهٔ چرخش برای عنوان محور نمودار**
+## **تنظیم زاویه چرخش برای عنوان محور نمودار**
 
-با فراخوانی [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) با مقدار `True` بر روی محور عمودی، متن عنوان را فراهم کنید و زاویهٔ چرخش را در قالب‌بندی بلوک متنی عنوان تنظیم کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود؛ این مثال یک نمودار ستونی را با عنوان محور مقدار که به‌صورت ۹۰ درجه چرخیده ذخیره می‌کند.
+[setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) را با `True` روی محور عمودی فراخوانی کنید، متن عنوان را ارائه دهید و زاویه چرخش را در قالب‌بندی بلوک متن عنوان تنظیم کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود؛ این مثال یک نمودار ستونی را با عنوان محور مقدار چرخانده به‌صورت 90 درجه ذخیره می‌کند.
 
 ```python
 import jpype
@@ -329,9 +390,9 @@ finally:
     presentation.dispose()
 ```
 
-## **تنظیم موقعیت محور بر روی یک محور دسته‌ای یا مقدار**
+## **تنظیم موقعیت محور بر روی محور دسته یا مقدار**
 
-از [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) برای کنترل این‌که آیا محور مقدار محور دسته‌ای را بین دسته‌ها یا بر روی علامت‌های تیک دسته عبور دهد، استفاده کنید. این تنظیم برای محورهاى دسته‌ای اعمال می‌شود. مثال این تنظیم را بر روی محور دسته‌ای افقی یک نمودار ستونی به `True` تغییر می‌دهد و نتیجه را ذخیره می‌کند.
+از [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) برای کنترل این‌که آیا محور مقدار در بین دسته‌ها یا در تیک‌های دسته محور دسته را قطع می‌کند، استفاده کنید. این تنظیم برای محورهای دسته اعمال می‌شود. مثال این تنظیم را روی محور دسته افقی یک نمودار ستونی به‌صورت `True` تنظیم می‌کند و نتیجه را ذخیره می‌کند.
 
 ```python
 import jpype
@@ -354,9 +415,9 @@ finally:
     presentation.dispose()
 ```
 
-## **تنظیم واحد نمایش بر روی محور مقدار یک نمودار**
+## **تنظیم واحد نمایش بر روی محور مقدار نمودار**
 
-با استفاده از [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) می‌توانید برچسب‌های یک محور مقدار را بدون تغییر داده‌های پایه مقیاس‌بندی کنید. با تنظیم [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) به `Millions`، مقدار 60,000,000 به صورت 60 نمایش داده می‌شود. مثال یک نمودار ستونی ایجاد می‌کند و واحد نمایش میلیون‌ها را بر روی محور عمودی آن اعمال می‌نماید.
+از [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) برای مقیاس‌بندی برچسب‌های محور مقدار بدون تغییر داده‌های پایه استفاده کنید. با تنظیم [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) به `Millions`، مقدار 60,000,000 به‌صورت 60 نمایش داده می‌شود. مثال یک نمودار ستونی ایجاد می‌کند و واحد نمایش میلیون‌ها را به محور عمودی آن اعمال می‌کند.
 
 ```python
 import jpype
@@ -381,22 +442,22 @@ finally:
 
 ## **پیکربندی محور مقدار لگاریتمی**
 
-یک محور مقدار لگاریتمی وقتی مفید است که مقادیر مثبت در چندین مرتبهٔ قدرت متفاوت قرار بگیرند. برای مثال، سرویسی ممکن است در پنج دوره درخواست‌های 10، 100، 1,000، 10,000 و 100,000 دریافت کند. در یک مقیاس خطی، مقادیر کوچکتر نزدیک به صفر به‌هم می‌چسبند. مقیاس لگاریتمی رشد نسبی آن‌ها را راحت‌تر مقایسه می‌کند: فواصل برابر نسبت‌های برابر را نشان می‌دهند نه اختلاف‌های عددی برابر.
+یک محور مقدار لگاریتمی زمانی مفید است که مقادیر مثبت چندین مرتبه بزرگ شوند. به‌عنوان مثال، یک سرویس ممکن است در طول پنج دوره 10، 100، 1,000، 10,000 و 100,000 درخواست دریافت کند. در مقیاس خطی، مقادیر کوچک‌تر نزدیک به صفر به‌صورت تجمعی ظاهر می‌شوند. مقیاس لگاریتمی رشد نسبی آنها را آسان‌تر مقایسه می‌کند: فاصله‌های برابر نشان‌دهنده نسبت‌های برابر هستند نه اختلاف‌های برابر.
 
-با فراخوانی [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) با مقدار `True` بر روی محور مقدار و استفاده از [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) برای انتخاب پایه، این تنظیمات نحوهٔ نمایش مقادیر موجود را تغییر می‌دهد؛ داده‌ها را تغییر نمی‌دهد و خط روند لگاریتمی اضافه نمی‌کند. خط روند یک ویژگی جداگانه است که رابطهٔ برازش شده در داده‌ها را نشان می‌دهد.
+[setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) را با `True` روی محور مقدار فراخوانی کنید و از [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) برای انتخاب پایه استفاده کنید. این کار نحوه نمایش مقادیر موجود را تغییر می‌دهد؛ داده‌ها را تغییر نمی‌دهد یا خط روند لگاریتمی اضافه نمی‌کند. خط روند رابطه‌ای برازش‌شده در داده‌ها را نمایش می‌دهد و ویژگی جداگانه‌ای است.
 
 ### **انتخاب محور مقدار و پایه**
 
-برای یک نمودار خطی یا ستونی، محور مقدار توسط [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) بازگردانده می‌شود. برای یک نمودار میله‌ای افقی، توسط [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis) بازگردانده می‌شود. نمودارهای پراکنده و حبابی دو محور مقدار دارند، بنابراین برای مقادیر X محور افقی، برای مقادیر Y محور عمودی یا هر دو را انتخاب کنید. از مقیاس لگاریتمی برای یک محور دسته‌ای استفاده نکنید.
+برای یک نمودار خط یا ستونی، محور مقدار توسط [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) بازگردانده می‌شود. برای یک نمودار میله‌ای افقی، توسط [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis) بازگردانده می‌شود. نمودارهای پراکندگی و حباب دو محور مقدار دارند، بنابراین برای مقادیر X محور افقی، برای مقادیر Y محور عمودی یا هر دو را انتخاب کنید. مقیاس لگاریتمی را بر روی محور دسته اعمال نکنید.
 
-پایهٔ پیش‌فرض لگاریتمی `10` است. برای نمودارهای PPTX می‌توانید پایه‌ای بین `2` تا `1000` (شامل) استفاده کنید؛ پایه‌های کسری مثل `2.5` نیز پشتیبانی می‌شوند. با پایهٔ `10` توان‌های متوالی مانند 10، 100، 1,000 و 10,000 به‌صورت برابر فاصله‌دار هستند.
+پایه پیش‌فرض لگاریتمی `10` است. برای نمودارهای PPTX، می‌توانید پایه‌ای بین `2` تا `1000` (شامل) استفاده کنید؛ پایه‌های کسری مانند `2.5` نیز پشتیبانی می‌شوند. با پایه `10`، توان‌های متوالی مانند 10، 100، 1,000 و 10,000 به‌صورت مساوی فاصله دارند.
 
 ### **مقایسه مقیاس خطی و لگاریتمی**
 
-مثال خودمتضمن زیر یک نمودار خطی با پنج شمارش درخواست در اسلاید اول ایجاد می‌کند، سپس آن اسلاید را کلون کرده و در اسلاید دوم محور مقدار لگاریتمی با پایهٔ 10 را فعال می‌کند. هر دو اسلاید همان داده‌ها را حفظ می‌کنند.
+مثال زیر یک نمودار خطی با پنج شمارش درخواست در اسلاید اول ایجاد می‌کند، سپس آن اسلاید را کپی کرده و در اسلاید دوم محور مقدار لگاریتمی با پایه 10 را فعال می‌کند. هر دو اسلاید داده‌های یکسان را نگه می‌دارند.
 
 ```python
-import jpage
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -428,7 +489,7 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, float(value))
         series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # اسلاید اول را به حالت خطی نگه دارید و فقط مقیاس محور مقدار نسخهٔ کپی را تغییر دهید.
+    # اسلاید اول را خطی نگه دارید و فقط مقیاس محور مقدار نسخه کپی را تغییر دهید.
     logarithmic_slide = presentation.getSlides().addClone(slide)
     logarithmic_chart = logarithmic_slide.getShapes().get_Item(0)
     value_axis = logarithmic_chart.getAxes().getVerticalAxis()
@@ -440,24 +501,24 @@ finally:
     presentation.dispose()
 ```
 
-**مقیاس خطی (اسلاید ۱):** فواصل عمودی برابر نشان‌دهندۀ اختلاف‌های مساوی در شمارش درخواست‌ها هستند. مقدار بزرگ‌ترین مقدار نمودار را تسلط می‌دهد و مقادیر کوچکتر را تشخیص سخت می‌شود.
+**مقیاس خطی (اسلاید ۱):** فواصل عمودی برابر نشان‌دهنده اختلاف‌های برابر در شمارش درخواست‌ها هستند. مقدار بزرگ‌ترین نقطه نمودار را domine می‌کند و مقادیر کوچکتر را تشخیص دشوار می‌سازد.
 
-![نمودار خطی در پاورپوینت که پنج شمارش درخواست را روی محور مقدار خطی نشان می‌دهد](value-axis-linear.png)
+![نمودار خطی در PowerPoint که پنج شمارش درخواست را بر روی محور مقدار خطی نشان می‌دهد](value-axis-linear.png)
 
-**مقیاس لگاریتمی (اسلاید ۲):** فواصل عمودی برابر نشان‌دهندۀ نسبت‌های مساوی هستند. هر دوره ده برابر درخواست دورهٔ قبلی دارد، بنابراین نقاط روی مقیاس لگاریتمی پایهٔ 10 یک خط راست صعودی می‌سازند. برچسب‌های محور هنوز شمارش درخواست‌های اصلی را نشان می‌دهند.
+**مقیاس لگاریتمی (اسلاید ۲):** فواصل عمودی برابر نشان‌دهنده نسبت‌های برابر هستند. هر دوره درخواست‌ها ده‌برابر دوره قبلی است، بنابراین نقاط روی مقیاس پایه‑10 یک خط صعودی مستقیم تشکیل می‌دهند. برچسب‌های محور همچنان شمارش درخواست‌های اصلی را نشان می‌دهند.
 
-![پنج شمارش درخواست همان‌گونه در پاورپوینت روی محور مقدار لگاریتمی پایهٔ 10](value-axis-logarithmic.png)
+![همان پنج شمارش درخواست در PowerPoint بر روی محور مقدار لگاریتمی پایه‑10](value-axis-logarithmic.png)
 
 ### **مدیریت مقادیر صفر و منفی**
 
-مقیاس لگاریتمی فقط مقادیر strictly مثبت را نمایش می‌دهد. پیش از فعال‌سازی آن داده‌ها را بررسی کنید. اگر مقادیر صفر یا منفی معنا دارند، مقیاس خطی را حفظ کنید یا آن‌ها را جداگانه نشان دهید. اگر حذف این مقادیر برای تحلیل مناسب است، دلایل حذف را توضیح دهید. به‌صورت خاموش آن‌ها را با اعداد مثبت کوچک جایگزین نکنید، زیرا معنای داده‌ها را تغییر می‌دهد. هر مقدار حداقل یا حداکثر به‌صورت دستی برای یک محور لگاریتمی نیز باید مثبت باشد.
+مقیاس لگاریتمی فقط می‌تواند مقادیر مثبت صریح را نمایش دهد. قبل از فعال‌سازی آن داده‌ها را بررسی کنید. اگر مقادیر صفر یا منفی معنادار هستند، مقیاس خطی را حفظ کنید یا آنها را جداگانه نمایش دهید. اگر حذف این مقادیر برای تحلیل مناسب است، دلیل آن را توضیح دهید. به‌طور خاموش مقدارهای صفر یا منفی را با اعداد مثبت کوچک جایگزین نکنید، زیرا معنای داده‌ها را تغییر می‌دهد. هر حداقل یا حداکثر به‌صورت دستی تنظیم‌شده برای محور لگاریتمی نیز باید مثبت باشد.
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**چگونه مقدار عبور یک محور از محور دیگر (crossing) را تنظیم کنم؟**
+**چگونه مقدار نقطه تقاطع یک محور با محور دیگر (تقاطع محور) را تنظیم کنم؟**
 
-از [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) برای انتخاب رفتار عبور استفاده کنید. برای تعیین مقدار عددی عبور، از [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt) استفاده کنید. این تنظیمات به شما اجازه می‌دهند عبور محور را به پایه‌ای مناسب ببرید.
+از [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) برای انتخاب رفتار تقاطع استفاده کنید. برای تعیین مقدار عددی تقاطع، از [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt) استفاده کنید. این تنظیمات به شما اجازه می‌دهند تقاطع محور را به پایه مناسب جابه‌جا کنید.
 
-**چگونه می‌توان برچسب‌های تیک را نسبت به محور موقعیت‌دهی کرد؟**
+**چگونه می‌توانم برچسب‌های تیک را نسبت به محور موقعیت‌یابی کنم؟**
 
-با فراخوانی [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) به همراه [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`، `High`، `NextTo` یا `None`. برای کنترل خود علامت‌های تیک، از [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) یا [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark) استفاده کنید؛ این موارد جدا از موقعیت‌دهی برچسب‌ها هستند.
+[setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) را با استفاده از [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/) فراخوانی کنید: `Low`، `High`، `NextTo` یا `None`. برای کنترل خود تیک‌ها، از [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) یا [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark) استفاده کنید؛ این‌ها جدا از موقعیت برچسب‌ها هستند.

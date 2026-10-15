@@ -8,8 +8,8 @@ keywords:
 - แกนแนวตั้ง
 - แกนแนวนอน
 - ปรับแต่งแกน
-- ควบคุมแกน
 - จัดการแกน
+- ดูแลแกน
 - คุณสมบัติของแกน
 - ค่าสูงสุด
 - ค่าต่ำสุด
@@ -19,20 +19,20 @@ keywords:
 - ตำแหน่งแกน
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "ค้นพบวิธีใช้ Aspose.Slides for Python via .NET เพื่อปรับแต่งแกนแผนภูมิในงานนำเสนอ PowerPoint และ OpenDocument สำหรับรายงานและการสร้างภาพ"
+description: "ค้นพบวิธีใช้ Aspose.Slides สำหรับ Python ผ่าน .NET เพื่อปรับแต่งแกนแผนภูมิในงานนำเสนอ PowerPoint และ OpenDocument สำหรับรายงานและการแสดงภาพ"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการปรับแต่งแกนของแผนภูมิด้วย Aspose.Slides for Python via .NET ครอบคลุมค่าที่คำนวณของแกน, การสลับแถวและคอลัมน์ของแผนภูมิ, การแสดงหรือซ่อนแกน, ระยะห่างของป้ายชื่อประเภทและติ๊กมาร์ค, ประเภทของวันที่และการจัดรูปแบบ, การหมุนหัวเรื่อง, การกำหนดตำแหน่งแกน, หน่วยการแสดงผล, และการปรับสเกลลอการิทึม
+บทความนี้อธิบายวิธีการปรับแต่งแกนของแผนภูมิด้วย Aspose.Slides for Python via .NET รวมถึงค่าที่คำนวณได้ของแกน การสลับแถวและคอลัมน์ของแผนภูมิ การแสดงหรือซ่อนแกน ช่วงเวลาของป้ายชื่อประเภทและเครื่องหมายบรรทัด วันที่ของประเภทและการจัดรูปแบบ การหมุนหัวข้อ การวางตำแหน่งแกน หน่วยการแสดงผล และการสเกลแบบลอการิทึม
 
-## **รับค่าสูงสุดบนแกนแนวตั้งของแผนภูมิ**
+## **รับค่ามากสุดบนแกนแนวตั้งในแผนภูมิ**
 
-สร้าง [งานนำเสนอ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) และเพิ่มแผนภูมิพื้นที่พร้อมข้อมูลเริ่มต้น เรียก [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) ก่อนอ่านค่าที่คำนวณของแกนเพื่อให้การจัดวางแผนภูมิเฉพาะล่าสุด
+สร้าง [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) และเพิ่มแผนภูมิแบบพื้นที่กับข้อมูลค่าเริ่มต้น เรียกใช้ [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) ก่อนอ่านค่าที่คำนวณของแกนเพื่อให้การจัดวางแผนภูมิเป็นปัจจุบัน
 
-อ่าน [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) และ [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) เพื่อรับขีดจำกัดของแกน, และ [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) กับ [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) เพื่อรับระยะห่างของติ๊ก [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) และ [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) ให้สเกลหน่วยเวลา ซึ่งเกี่ยวข้องกับแกนวันที่ ตัวอย่างจะเก็บค่าต่าง ๆ ลงในตัวแปรท้องถิ่นและบันทึกแผนภูมิ
+อ่าน [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) และ [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) เพื่อกำหนดขอบเขตของแกน, และ [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) กับ [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) เพื่อกำหนดช่วงของเครื่องหมายบรรทัด [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) และ [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) ให้สเกลหน่วยเวลา ซึ่งเกี่ยวข้องกับแกนวันที่ ตัวอย่างจะเก็บค่าดังกล่าวในตัวแปรท้องถิ่นและบันทึกแผนภูมิ
 
 ```python
 import aspose.slides as slides
@@ -58,7 +58,7 @@ with slides.Presentation() as presentation:
 
 ## **สลับข้อมูลระหว่างแกน**
 
-ใช้ [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) เพื่อสลับบทบาทของ series และ category ในข้อมูลแผนภูมิ แต่ละ category เดิมจะกลายเป็น series และแต่ละ series เดิมจะกลายเป็น category สิ่งนี้เปลี่ยนวิธีการจัดกลุ่มข้อมูล; ไม่ได้สลับแกนแนวนอนและแนวตั้ง ตัวอย่างใช้ [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) เพื่อผูกข้อมูลเริ่มต้นกับ `Sheet1!A1:D5` รวมถึงหัวแถวและคอลัมน์ category ก่อนสลับแถวและคอลัมน์ และบันทึกแผนภูมิที่มีสี่ series และสาม category
+ใช้ [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) เพื่อแลกเปลี่ยนบทบาทของชุดข้อมูลและประเภทในข้อมูลแผนภูมิ แต่ละประเภทก่อนหน้าจะกลายเป็นชุดข้อมูลและแต่ละชุดข้อมูลก่อนหน้าจะกลายเป็นประเภท สิ่งนี้เปลี่ยนการจัดกลุ่มข้อมูล แต่ไม่ได้สลับแกนแนวนอนและแนวตั้ง ตัวอย่างใช้ [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) เพื่อผูกข้อมูลค่าเริ่มต้นกับ `Sheet1!A1:D5` รวมถึงแถวหัวตารางและคอลัมน์ประเภทก่อนสลับแถวและคอลัมน์ จะบันทึกแผนภูมิที่มีสี่ชุดข้อมูลและสามประเภท
 
 ```python
 import aspose.slides as slides
@@ -75,9 +75,62 @@ with slides.Presentation() as presentation:
     presentation.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ปิดการแสดงแกนแนวตั้งสำหรับแผนภูมิเส้น**
+## **กลับลำดับการพล็อตของแกน**
 
-ตั้งค่า [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) เป็น `False` บนแกนแนวตั้งเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้นและบันทึกแผนภูมิที่ซ่อนแกนแนวตั้ง
+ใช้ [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) เพื่อกลับลำดับของแกนประเภทหรือค่า ตัวอย่างเช่น แผนภูมิแท่งแนวนอนสามารถแสดงขั้นตอนของโปรเจกต์จากบนลงล่างในลำดับเดียวกับแผ่นงาน: Planning, Development, Testing การกลับแกนจะเปลี่ยนทิศทางการพล็อต; ไม่ได้เรียงลำดับหรือจัดเรียงข้อมูลในเวิร์กบุ๊ก โดยเปรียบเทียบกับ [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) ที่แลกเปลี่ยนบทบาทของชุดข้อมูลและประเภท
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิแท่งแนวนอนที่มีสามขั้นตอนและหนึ่งชุดข้อมูล จะบันทึกงานนำเสนอที่มีสามสไลด์: ลำดับปกติ, ประเภทกลับลำดับ, และค่ากลับลำดับ แต่ละสำเนาใช้ชุดข้อมูลเดียวกัน และเพียงแกนหนึ่งที่ถูกกลับลำดับในแต่ละสำเนา
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_BAR, 50, 40, 620, 320)
+    chart.has_legend = False
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series = chart.chart_data.series.add(charts.ChartType.CLUSTERED_BAR)
+    stages = ["Planning", "Development", "Testing"]
+    values = [10, 30, 20]
+    for i, stage in enumerate(stages):
+        category_cell = workbook.get_cell(0, i + 1, 0, stage)
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    # สไลด์ 2: แสดงหมวดหมู่แรกที่ด้านบน.
+    category_slide = presentation.slides.add_clone(slide)
+    category_chart = category_slide.shapes[0]
+    category_chart.axes.vertical_axis.is_plot_order_reversed = True
+    # คงแกนค่าตามแนวนอนไว้ที่ด้านล่าง.
+    category_chart.axes.vertical_axis.cross_type = charts.CrossesType.MAXIMUM
+
+    # สไลด์ 3: กลับสเกลตัวเลขแนวนอนเท่านั้น.
+    value_slide = presentation.slides.add_clone(slide)
+    value_chart = value_slide.shapes[0]
+    value_chart.axes.horizontal_axis.is_plot_order_reversed = True
+
+    presentation.save("ReversedAxes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+การกลับแกนยังสามารถย้ายแกนตั้งฉากไปยังด้านตรงข้ามของพล็อตได้ [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) ควบคุมว่ากลไกแกนอื่นจะตัดกับแกนที่กำลังกำหนดไว้ที่ตำแหน่งใด ในสไลด์ 2 การตั้งค่าเป็น `MAXIMUM` บนแกนประเภทที่กลับลำดับทำให้แกนค่าตั้งแนวนอนอยู่ที่ด้านล่าง สำหรับจุดตัดที่เฉพาะเจาะจง ให้ใช้ [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/) ตรวจสอบการตั้งค่าการตัดเมื่อเปลี่ยนทิศทาง, โดยเฉพาะอย่างยิ่งหากแผนภูมิมีจุดตัดที่กำหนดเองแล้ว ตั้งค่า `is_plot_order_reversed` กลับเป็น `False` เพื่อคืนทิศทางการพล็อตปกติ; การตั้งค่าการตัดเป็นค่าแยกต่างหาก
+
+| ลำดับปกติ (สไลด์ 1) | ประเภทกลับลำดับ (สไลด์ 2) | ค่ากลับลำดับ (สไลด์ 3) |
+| --- | --- | --- |
+| ![แผนภูมิแท่งแนวนอนที่มีลำดับประเภทและค่าตามปกติ](axis-order-normal.png) | ![แผนภูมิแท่งแนวนอนที่แสดงประเภทจากบนลงล่าง](axis-order-categories-reversed.png) | ![แผนภูมิแท่งแนวนอนที่มีแกนค่ากลับลำดับและศูนย์อยู่ด้านขวา](axis-order-values-reversed.png) |
+| ประเภทวิ่งจากล่างขึ้นบน; ค่ามาเพิ่มจากซ้ายไปขวา | Planning, Development, และ Testing วิ่งจากบนลงล่าง ค่และลำดับแถวของเวิร์กบุ๊กไม่เปลี่ยน | ประเภทคงลำดับปกติ; ค่ามาเพิ่มจากขวาไปซ้าย แกนประเภทตัดที่ศูนย์ด้านขวา |
+
+## **ซ่อนแกนแนวตั้งสำหรับแผนภูมิเส้น**
+
+ตั้งค่า [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) เป็น `False` บนแกนแนวตั้งเพื่อซ่อน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลค่าเริ่มต้นและบันทึกโดยซ่อนแกนแนวตั้ง
 
 ```python
 import aspose.slides as slides
@@ -92,9 +145,9 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenVerticalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ปิดการแสดงแกนแนวนอนสำหรับแผนภูมิเส้น**
+## **ซ่อนแกนแนวนอนสำหรับแผนภูมิเส้น**
 
-ตั้งค่า [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) เป็น `False` บนแกนแนวนอนเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้นและบันทึกแผนภูมิที่ซ่อนแกนแนวนอน
+ตั้งค่า [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) เป็น `False` บนแกนแนวนอนเพื่อซ่อน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลค่าเริ่มต้นและบันทึกโดยซ่อนแกนแนวนอน
 
 ```python
 import aspose.slides as slides
@@ -111,7 +164,7 @@ with slides.Presentation() as presentation:
 
 ## **เปลี่ยนแกนประเภท**
 
-ตั้งค่า [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) เพื่อเลือกแกนประเภทเป็นวันที่หรือข้อความ ตัวอย่างนี้ต้องใช้ `ExistingChart.pptx` ซึ่งมีแผนภูมิเป็นรูปทรงแรกบนสไลด์แรกและเซลล์ category มีค่าตัวเลขของวันที่ Excel จะเปลี่ยนแกนแนวนอนเป็นแกนวันที่ การตั้งค่า [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) เป็น `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) เป็น `1`, และ [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) เป็น `months` จะทำให้ติ๊กหลักอยู่ที่ช่วงหนึ่งเดือน
+ตั้งค่า [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) เพื่อเลือกแกนประเภทเป็นวันที่หรือข้อความ ตัวอย่างนี้ต้องใช้ `ExistingChart.pptx` โดยที่แผนภูมิเป็นรูปร่างแรกบนสไลด์แรกและเซลล์ประเภทมีค่าที่เป็นเลขวันที่แบบ Excel จะเปลี่ยนแกนแนวนอนเป็นแกนวันที่ การตั้งค่า [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) เป็น `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) เป็น `1`, และ [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) เป็น months จะวางเครื่องหมายหลักที่ช่วงหนึ่งเดือน
 
 ```python
 import aspose.slides as slides
@@ -129,21 +182,21 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ควบคุมระยะห่างของป้ายชื่อแกนประเภท**
+## **ควบคุมช่วงป้ายชื่อแกนประเภท**
 
-เมื่อแผนภูมิมีหลาย category ให้ลดจำนวนป้ายชื่อแกนที่แสดงโดยไม่ต้องลบ category หรือจุดข้อมูล ตั้งค่า [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) เป็น `False` จากนั้นตั้งค่า [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) เป็นช่วง category ที่ต้องการ สำหรับ category แบบข้อความในลำดับปกติ การนับเริ่มจาก category แรก:
+เมื่อแผนภูมิมีหลายประเภท ให้ลดจำนวนป้ายชื่อแกนที่มองเห็นได้โดยไม่ลบประเภทหรือจุดข้อมูล ตั้งค่า [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) เป็น `False` แล้วตั้งค่า [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) เป็นช่วงประเภทที่ต้องการ สำหรับประเภทข้อความในลำดับปกติ การนับเริ่มจากประเภทแรก:
 
-| ช่วง | ป้ายที่แสดงในตัวอย่าง |
+| ช่วง | ป้ายชื่อที่แสดงในตัวอย่าง |
 | --- | --- |
-| `1` | ประเภท 1, ประเภท 2, ประเภท 3, ... ประเภท 24 |
-| `2` | ประเภท 1, ประเภท 3, ประเภท 5, ... ประเภท 23 |
-| `3` | ประเภท 1, ประเภท 4, ประเภท 7, ... ประเภท 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-ช่วง `3` จะแสดงป้ายทุกสามตำแหน่ง โดยมีสองป้ายที่ซ่อนระหว่างป้ายที่แสดง ไม่ได้ลบคอลัมน์ที่สอดคล้องกัน การจัดช่องว่างอัตโนมัติจะเลือกช่วงตามพื้นที่ที่มี; ไม่ได้บังคับให้แสดงทุกป้าย
+ช่วง `3` จะทำให้แสดงทุกป้ายชื่อที่สาม โดยค้างป้ายชื่อสองอันระหว่างที่แสดง ไม่ได้ลบคอลัมน์ที่สอดคล้องกัน การจัดช่องว่างอัตโนมัติโดยระบบจะเลือกช่วงตามพื้นที่ที่มีอยู่; ไม่จำเป็นต้องแสดงทุกป้ายชื่อ
 
-ติ๊กมาร์คมีการควบคุมแยกต่างหาก ตั้งค่า [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) เป็น `False` และใช้ [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) เพื่อกำหนดช่วงของมัน ตัวอย่างเช่น `1` จะทำให้มีติ๊กมาร์คที่ทุกช่วง category ในขณะที่ป้ายชื่อปรากฏเพียงทุกสาม category ตั้งค่า [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) เป็นสไตล์ที่มองเห็นได้เพื่อดูผลลัพธ์ การตั้งค่าคุณสมบัติอัตโนมัติใด ๆ ให้กลับเป็น `True` จะให้แผนภูมิเฝ้าช่วงนั้นใหม่อีกครั้ง
+เครื่องหมายบรรทัดมีการควบคุมแยกกัน ตั้งค่า [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) เป็น `False` และใช้ [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) เพื่อตั้งช่วงของมัน ตัวอย่างเช่น `1` จะทำให้มีเครื่องหมายบรรทัดทุกช่วงประเภทแม้ป้ายชื่อจะปรากฏเพียงทุกประเภทที่สาม ตั้งค่า [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) เป็นสไตล์ที่มองเห็นได้เพื่อให้เห็นผล การตั้งค่า either automatic‑spacing property กลับเป็น `True` จะให้แผนภูมิกำหนดช่วงนั้นใหม่อีกครั้ง
 
-ตัวอย่างต่อไปนี้เป็นตัวอย่างที่สมบูรณ์ซึ่งสร้าง 24 category และ 1 series แล้วบันทึกสามสไลด์ใน `CategoryAxisIntervals.pptx`: การจัดช่องว่างอัตโนมัติ, การจัดช่องว่างป้ายด้วยติ๊กมาร์คอิสระ, และการคืนค่าเป็นอัตโนมัติ สองสำเนาเก็บข้อมูลแผนภูมิดั้งเดิมไว้ ไม่ต้องมีการนำเสนออินพุต ข้อความป้ายแนวนอนทำให้เห็นความแตกต่างของความหนาแน่นได้ง่าย
+ตัวอย่างต่อไปนี้สร้าง 24 ประเภทและหนึ่งชุดข้อมูล จากนั้นบันทึกสามสไลด์ใน `CategoryAxisIntervals.pptx`: การจัดช่องว่างอัตโนมัติ, การจัดช่องว่างป้ายชื่อด้วยเครื่องหมายบรรทัดอิสระ, และการคืนค่าการจัดช่องว่างอัตโนมัติ ทั้งสองสำเนารักษาข้อมูลแผนภูมิดั้งเดิม ไม่ต้องใช้งานนำเข้าก่อน หน้าแสดงป้ายชื่อแนวนอนทำให้ความหนาแน่นดูแตกต่างได้ง่าย
 
 ```python
 import aspose.slides as slides
@@ -176,7 +229,7 @@ with slides.Presentation() as presentation:
     axis.is_automatic_tick_label_spacing = True
     axis.is_automatic_tick_marks_spacing = True
 
-    # สไลด์ 2: แสดงป้ายทุกสามตำแหน่ง แต่คงให้มีติ๊กมาร์คสำหรับทุก category.
+    # สไลด์ 2: แสดงทุกป้ายชื่อที่สาม แต่คงเครื่องหมายบรรทัดสำหรับทุกประเภท.
     manual_slide = presentation.slides.add_clone(slide)
     manual_chart = manual_slide.shapes[0]
     manual_axis = manual_chart.axes.horizontal_axis
@@ -185,7 +238,7 @@ with slides.Presentation() as presentation:
     manual_axis.is_automatic_tick_marks_spacing = False
     manual_axis.tick_marks_spacing = 1
 
-    # สไลด์ 3: ให้แผนภูมิกำหนดช่วงทั้งสองใหม่อีกครั้ง.
+    # สไลด์ 3: ให้แผนภูมเลือกช่วงทั้งสองอย่างใหม่.
     restored_slide = presentation.slides.add_clone(manual_slide)
     restored_chart = restored_slide.shapes[0]
     restored_chart.axes.horizontal_axis.is_automatic_tick_label_spacing = True
@@ -194,23 +247,23 @@ with slides.Presentation() as presentation:
     presentation.save("CategoryAxisIntervals.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**การจัดช่องว่างอัตโนมัติ (สไลด์ 1):** ในการแสดงผลนี้ ป้ายชื่อของทุกสอง category จะถูกแสดงและบรรทัดหักสองบรรทัด ผลลัพธ์อัตโนมัติอาจแตกต่างกันตามขนาดแผนภูมิ, ฟอนท์, และตัวเรนเดอร์
+**การจัดช่องว่างอัตโนมัติ (สไลด์ 1):** ในการเรนเดอร์นี้ จะแสดงป้ายชื่อประเภททุกสองอันและบรรทัดตัดกันสองบรรทัด ผลลัพธ์อัตโนมัติอาจแตกต่างตามขนาดแผนภูมิ, ฟอนต์, และเครื่องเรนเดอร์
 
-![การจัดช่องว่างป้ายประเภทอัตโนมัติพร้อมคอลัมน์ 24 คอลัมน์ที่มองเห็นได้ทั้งหมด](category-axis-automatic.png)
+![การจัดช่องว่างป้ายชื่อประเภทอัตโนมัติที่มีคอลัมน์ทั้งหมด 24 คอลัมน์ที่มองเห็นได้](category-axis-automatic.png)
 
-**การจัดช่องว่างด้วยตนเอง (สไลด์ 2):** ป้ายทุกสามตำแหน่งจะแสดงในบรรทัดเดียว ในขณะที่ติ๊กมาร์คยังคงอยู่ที่ทุกช่วง category ทั้ง 24 คอลัมน์ รวมถึงคอลัมน์ที่ไม่มีป้าย ยังคงมองเห็นได้ด้วยค่าเดียวกัน สไลด์ 3 คืนค่าการแสดงผลอัตโนมัติที่แสดงข้างต้น
+**การจัดช่องว่างด้วยตนเอง (สไลด์ 2):** แสดงป้ายชื่อทุกสามอันในบรรทัดเดียว ขณะที่เครื่องหมายบรรทัดยังคงอยู่ทุกช่วงประเภท คอลัมน์ทั้งหมด 24 คอลัมน์รวมถึงคอลัมน์ที่ไม่มีป้ายชื่อยังคงมองเห็นได้ด้วยค่าเดียวกัน สไลด์ 3 คืนสภาพการแสดงผลอัตโนมัติที่แสดงข้างต้น
 
-![การจัดช่องว่างป้ายประเภทด้วยตนเองโดยใช้ช่วงสาม พร้อมคอลัมน์ 24 คอลัมน์ที่มองเห็นได้ทั้งหมด](category-axis-manual.png)
+![การจัดช่องว่างป้ายชื่อประเภทเป็นสามที่มีคอลัมน์ทั้งหมด 24 คอลัมน์ที่มองเห็นได้](category-axis-manual.png)
 
-### **เลือกแกนและช่วงที่เหมาะสม**
+### **เลือกแกนและช่วงที่ถูกต้อง**
 
-ใช้ช่วงนับ category นี้สำหรับแกนประเภทข้อความ เช่น แกนประเภทของแผนภูมิคอลัมน์, เส้น, พื้นที่, หรือแผนภูมิบาร์ ในแผนภูมิคอลัมน์เป็นแกนแนวนอน ในแผนภูมิบาร์แนวนอนแกนประเภทเป็นแนวตั้ง ดังนั้นให้ใช้การตั้งค่าเหล่านี้กับ [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). การจัดช่องว่างของติ๊กมาร์คยังใช้กับแกน series ในแผนภูมิที่มีแกนดังกล่าว
+ใช้ช่วงจำนวนประเภทนี้กับแกนประเภทข้อความ เช่น แกนประเภทของแผนภูมิคอลัมน์, เส้น, พื้นที่ หรือแท่ง ในแผนภูมิคอลัมน์จะเป็นแกนแนวนอน ส่วนในแผนภูมิแท่งแนวนอนแกนประเภทจะอยู่แนวตั้ง ดังนั้นให้ใช้การตั้งค่านี้กับ [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/) ระยะห่างของเครื่องหมายบรรทัดยังใช้ได้กับแกนชุดข้อมูลในแผนภูมิที่มีแกนชุดข้อมูล
 
-ห้ามใช้การจัดช่องว่างของป้ายประเภทเพื่อกำหนดสเกลเชิงตัวเลขของแกนค่า บนแกนค่า, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) กำหนดความแตกต่างของค่า: ตัวอย่างเช่น major unit ของ `10` จะทำให้มีติ๊กที่ 0, 10, 20 เป็นต้นเมื่อแกนเริ่มจากศูนย์ ส่วนช่วงป้ายประเภท `3` จะนับตำแหน่ง category โดยไม่คำนึงถึงค่าข้อมูล Scatter และ bubble chart ใช้แกนค่าแทนแกนประเภทข้อความ สำหรับแกนวันที่ ให้ใช้ major unit และสเกลตามเวลาตามที่อธิบายใน [Change a Category Axis](#change-a-category-axis)
+อย่าจัดช่องว่างป้ายชื่อประเภทเพื่อกำหนดสเกลเชิงตัวเลขของแกนค่า บนแกนค่า [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) ระบุความแตกต่างของค่า เช่น หน่วยหลัก `10` จะทำให้มีเครื่องหมายที่ 0, 10, 20 เป็นต้นเมื่อแกนเริ่มที่ศูนย์ ส่วนช่วงป้ายชื่อประเภท `3` จะนับตำแหน่งประเภทโดยไม่สนใจค่าข้อมูล แผนภูมิกระจายและฟองอากาศใช้แกนค่ามากกว่าการใช้แกนประเภทข้อความ สำหรับแกนวันที่ ให้ใช้หน่วยและสเกลเชิงเวลาตามที่อธิบายใน [Change a Category Axis](#change-a-category-axis)
 
-## **กำหนดรูปแบบวันที่สำหรับค่าของแกนประเภท**
+## **ตั้งค่ารูปแบบวันที่สำหรับค่าของแกนประเภท**
 
-ตัวอย่างนี้แทนที่ข้อมูลแผนภูมิเบื้องต้นด้วยค่าประจำปีสี่ค่า วันที่ถูกเก็บเป็นหมายเลขซีเรียล OLE Automation ในแผ่นงานแรก (index `0`) ตั้งค่า [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) เป็นแกนวันที่ ปิดการเชื่อมโยง [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) และกำหนด `yyyy` ให้กับ [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) เพื่อให้ป้ายประเภทแสดงปีสี่หลักโดยอิสระจากการจัดรูปแบบของเซลล์
+ตัวอย่างแทนที่ข้อมูลแผนภูมิค่าเริ่มต้นด้วยค่าปีสี่ค่า วันที่ถูกบันทึกเป็นหมายเลขอนุกรม OLE Automation ในแผ่นงานแรก (ดัชนี `0`) ตั้งค่า [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) เป็นแกนวันที่ ปิดการเชื่อมโยงรูปแบบตัวเลขกับแหล่งข้อมูลด้วย [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) แล้วกำหนด `yyyy` ให้กับ [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) เพื่อให้ป้ายชื่อประเภทแสดงปีสี่หลักโดยอิสระจากการจัดรูปแบบเซลล์
 
 ```python
 from datetime import date
@@ -246,9 +299,9 @@ with slides.Presentation() as presentation:
     presentation.save("DateAxisFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ตั้งค่ามุมการหมุนสำหรับหัวเรื่องแกนแผนภูมิ**
+## **ตั้งค่ามุมการหมุนสำหรับชื่อแกนแผนภูมิ**
 
-เปิดใช้ [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) บนแกนแนวตั้ง, ระบุข้อความหัวเรื่อง, และตั้งค่า [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) เพื่อหมุนหัวเรื่อง มุมวัดเป็นองศา; ตัวอย่างนี้บันทึกแผนภูมิคอลัมน์ที่หัวเรื่องแกนค่าถูกหมุน 90 องศา
+เปิดใช้งาน [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) บนแกนแนวตั้ง, ใส่ข้อความชื่อ, และตั้งค่า [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) เพื่อหมุนชื่อ มุมวัดเป็นองศา ตัวอย่างนี้บันทึกแผนภูมิคอลัมน์ที่ชื่อแกนค่าถูกหมุน 90 องศา
 
 ```python
 import aspose.slides as slides
@@ -265,9 +318,9 @@ with slides.Presentation() as presentation:
     presentation.save("RotatedAxisTitle.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **กำหนดตำแหน่งแกนบนแกนประเภทหรือค่า**
+## **ตั้งตำแหน่งแกนบนแกนประเภทหรือค่า**
 
-ใช้ [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) เพื่อควบคุมว่าแกนค่าจะตัดกับแกนประเภทระหว่าง category หรือที่ติ๊กมาร์คของ category คุณสมบัตินี้ใช้กับแกนประเภท ตัวอย่างตั้งค่าเป็น `True` บนแกนประเภทแนวนอนของแผนภูมิคอลัมน์และบันทึกผลลัพธ์
+ใช้ [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) เพื่อควบคุมว่าแกนค่าตัดกับแกนประเภทระหว่างประเภทหรือที่เครื่องหมายบรรทัดของประเภท คุณสมบัตินี้ใช้กับแกนประเภท ตัวอย่างตั้งค่าเป็น `True` บนแกนประเภทแนวนอนของแผนภูมิคอลัมน์และบันทึกผล
 
 ```python
 import aspose.slides as slides
@@ -282,9 +335,9 @@ with slides.Presentation() as presentation:
     presentation.save("AxisBetweenCategories.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **กำหนดหน่วยการแสดงผลบนแกนค่าของแผนภูมิ**
+## **ตั้งค่าหน่วยการแสดงผลบนแกนค่าของแผนภูมิ**
 
-ตั้งค่า [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) เพื่อสเกลป้ายบนแกนค่าโดยไม่เปลี่ยนข้อมูลพื้นฐาน ด้วย [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) ตั้งเป็น `MILLIONS` ค่า 60,000,000 จะปรากฏเป็น 60 ตัวอย่างสร้างแผนภูมิคอลัมน์และกำหนดหน่วยแสดงผลเป็นล้านบนแกนแนวตั้ง
+ตั้งค่า [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) เพื่อสเกลป้ายกำกับบนแกนค่าโดยไม่เปลี่ยนข้อมูลพื้นฐาน เมื่อ [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) ตั้งเป็น `MILLIONS` ค่าที่ 60,000,000 จะถูกแสดงเป็น 60 ตัวอย่างสร้างแผนภูมิคอลัมน์และใส่หน่วยการแสดงผลเป็นล้านบนแกนแนวตั้ง
 
 ```python
 import aspose.slides as slides
@@ -299,21 +352,21 @@ with slides.Presentation() as presentation:
     presentation.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **กำหนดค่าตารางเชิงลอการิทึมสำหรับแกนค่า**
+## **กำหนดค่าแกนค่าลอการิทึม**
 
-แกนค่าลอการิทึมมีประโยชน์เมื่อค่าบวกครอบคลุมหลายระดับตัวอย่างเช่น บริการอาจรับ 10, 100, 1,000, 10,000, และ 100,000 คำขอในห้าวงระยะ บนสเกลเชิงเส้น ค่าที่เล็กกว่าจะอยู่ใกล้ศูนย์กัน การสเกลลอการิทึมทำให้การเติบโตสัมพัทธ์ง่ายต่อการเปรียบเทียบ ระยะห่างที่เท่ากันแสดงอัตราส่วนที่เท่ากันแทนความแตกต่างที่เท่ากัน
+แกนค่าลอการิทึมเป็นประโยชน์เมื่อค่าบวกมีหลายระดับขนาดตัวอย่างเช่น บริการอาจรับคำขอ 10, 100, 1,000, 10,000, และ 100,000 รายการในห้าช่วงเวลา บนสเกลเชิงเส้น ค่าที่เล็กจะอยู่ใกล้ศูนย์กันมาก การสเกลลอการิทึมทำให้การเติบโตสัมพัทธ์ของพวกมันเปรียบเทียบนักง่ายขึ้น: ระยะห่างที่เท่ากันแทนอัตราส่วนที่เท่ากันแทนความต่างที่เท่ากัน
 
-ตั้งค่า [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) เป็น `True` บนแกนค่าและใช้ [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) เพื่อเลือกฐาน การตั้งค่านี้เปลี่ยนการแสดงค่าที่มีอยู่ ไม่ได้เปลี่ยนข้อมูลหรือเพิ่มเส้นแนวโน้มลอการิทึม เส้นแนวโน้มเป็นคุณลักษณะแยกต่างหากที่แสดงความสัมพันธ์ที่ฟิตกับข้อมูล
+ตั้งค่า [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) เป็น `True` บนแกนค่าและใช้ [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) เพื่อเลือกฐาน การทำเช่นนี้จะเปลี่ยนวิธีที่ค่าที่มีอยู่แสดงผล; ไม่ได้เปลี่ยนข้อมูลหรือเพิ่มเส้นแนวโน้มลอการิทึม เส้นแนวโน้มเป็นคุณลักษณะแยกต่างหาก
 
 ### **เลือกแกนค่าและฐาน**
 
-สำหรับแผนภูมิเส้นหรือคอลัมน์ แกนค่าคือ [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). สำหรับแผนภูมิบาร์แนวนอนคือ [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/). Scatter และ bubble chart มีแกนค่าสองแกน ดังนั้นเลือกแกนแนวนอนสำหรับค่า X, แกนแนวตั้งสำหรับค่า Y, หรือทั้งสอง อย่าใช้สเกลลอการิทึมกับแกนประเภท
+สำหรับแผนภูมิเส้นหรือคอลัมน์ แกนค่าคือ [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/) สำหรับแผนภูมิแท่งแนวนอนคือ [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/) แผนภูมิกระจายและฟองอากาศมีแกนค่าสองแกน ดังนั้นให้เลือกแกนแนวนอนสำหรับค่า X, แกนแนวตั้งสำหรับค่า Y หรือทั้งสอง ไม่ควรใช้สเกลลอการิทึมกับแกนประเภท
 
-ฐานลอการิทึมเริ่มต้นคือ `10`. สำหรับแผนภูมิ PPTX สามารถใช้ฐานตั้งแต่ `2` ถึง `1000` รวมถึงฐานเศษส่วนเช่น `2.5`. ด้วยฐาน `10` ค่าพลังที่ต่อเนื่องเช่น 10, 100, 1,000, 10,000 จะห่างกันเท่าเดิม
+ฐานลอการิทึมเริ่มต้นคือ `10` สำหรับแผนภูมิ PPTX ให้ใช้ฐานตั้งแต่ `2` ถึง `1000` รวมถึงฐานเศษส่วนเช่น `2.5` ด้วยฐาน `10` ค่ากำลังต่อเนื่องเช่น 10, 100, 1,000, 10,000 จะถูกจัดระยะห่างเท่ากัน
 
 ### **เปรียบเทียบสเกลเชิงเส้นและลอการิทึม**
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีจำนวนคำขอห้าแบบบนสไลด์แรก, จากนั้นคัดลอกสไลด์นั้นและเปิดใช้งานแกนค่าลอการิทึมฐาน 10 บนสไลด์ที่สอง สไลด์ทั้งสองเก็บข้อมูลเดียวกัน
+ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีจำนวนคำขอห้าช่วงบนสไลด์แรก แล้วคัดลอกสไลด์นั้นและเปิดใช้งานแกนค่าลอการิทึมฐาน 10 บนสไลด์ที่สอง ทั้งสองสไลด์รักษาข้อมูลเดียวกัน
 
 ```python
 import aspose.slides as slides
@@ -342,7 +395,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # เก็บสไลด์แรกเป็นเชิงเส้นและเปลี่ยนสเกลแกนค่าของสำเนาเท่านั้น.
+    # คงสไลด์แรกเป็นเชิงเส้นและเปลี่ยนสเกลแกนค่าของสำเนาเท่านั้น.
     logarithmic_slide = presentation.slides.add_clone(slide)
     logarithmic_chart = logarithmic_slide.shapes[0]
     value_axis = logarithmic_chart.axes.vertical_axis
@@ -352,24 +405,24 @@ with slides.Presentation() as presentation:
     presentation.save("LogarithmicAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**สเกลเชิงเส้น (สไลด์ 1):** ระยะห่างแนวตั้งที่เท่ากันหมายถึงความแตกต่างที่เท่ากันของจำนวนคำขอ ค่าที่ใหญ่ที่สุดจะครอบงำแผนภูมิ ทำให้ค่าที่เล็กกว่าจะมองเห็นได้ยาก
+**สเกลเชิงเส้น (สไลด์ 1):** ระยะห่างแนวตั้งที่เท่ากันแสดงถึงความแตกต่างของจำนวนคำขอที่เท่ากัน ค่าที่ใหญ่ที่สุดครอบงำแผนภูมิ ทำให้ค่าที่เล็กดูยากต่อการแยกแยะ
 
-![แผนภูมิเส้นใน PowerPoint แสดงห้าจำนวนคำขอบนแกนค่าตามสเกลเชิงเส้น](value-axis-linear.png)
+![แผนภูมิเส้นใน PowerPoint ที่แสดงจำนวนคำขอห้าช่วงบนแกนค่เชิงเส้น](value-axis-linear.png)
 
-**สเกลลอการิทึม (สไลด์ 2):** ระยะห่างแนวตั้งที่เท่ากันหมายถึงอัตราส่วนที่เท่าเทียม แต่ละช่วงมีจำนวนคำขอเพิ่มขึ้นสิบเท่า ทำให้จุดต่าง ๆ สร้างเส้นตรงที่ขึ้นสูงบนสเกลฐาน 10 แกนป้ายยังคงแสดงจำนวนคำขอเดิม
+**สเกลลอการิทึม (สไลด์ 2):** ระยะห่างแนวตั้งที่เท่ากันแสดงถึงอัตราส่วนที่เท่ากัน แต่ละช่วงมีจำนวนคำขอเพิ่มขึ้นเท่ากับสิบเท่าจากช่วงก่อนหน้า ดังนั้นจุดจะสร้างเส้นตรงที่เพิ่มขึ้นบนสเกลฐาน‑10 เลเบลแกนยังคงแสดงจำนวนคำขอเดิม
 
-![ห้าจำนวนคำขอเดียวกันใน PowerPoint บนแกนค่าลอการิทึมฐาน 10](value-axis-logarithmic.png)
+![จำนวนคำขอห้าช่วงเดียวกันใน PowerPoint บนแกนค่าลอการิทึมฐาน‑10](value-axis-logarithmic.png)
 
-### **จัดการค่าศูนย์และค่าติดลบ**
+### **จัดการค่าศูนย์และค่าลบ**
 
-สเกลลอการิทึมสามารถแสดงค่าเป็นบวกเท่านั้น ตรวจสอบข้อมูลก่อนเปิดใช้งาน หากค่าศูนย์หรือค่าติดลบมีความหมาย ให้ใช้สเกลเชิงเส้นหรือแสดงแยกออก หากการยกเว้นค่าดังกล่าวเหมาะสมกับการวิเคราะห์ ให้อธิบายการละเว้น อย่าทดแทนโดยอัตโนมัติกับค่าบวกเล็ก ๆ เนื่องจากจะเปลี่ยนความหมายของข้อมูล ค่าต่ำสุดหรือสูงสุดที่กำหนดด้วยตนเองสำหรับแกนลอการิทึมต้องเป็นบวกเช่นกัน
+สเกลลอการิทึมสามารถแสดงค่าเชิงบวกอย่างเคร่งครัดเท่านั้น ตรวจสอบข้อมูลก่อนเปิดใช้งาน หากค่าศูนย์หรือค่าลบมีความหมาย ควรใช้สเกลเชิงเส้นหรือแยกแสดงออก ไม่ควรลบค่าดังกล่าวโดยไม่มีคำอธิบาย อย่าแทนที่ด้วยค่าบวกเล็ก ๆ อย่างเงียบ ๆ เพราะจะเปลี่ยนความหมายของข้อมูล ค่าอย่างต่ำหรือสูงสุดที่ตั้งค่าด้วยตนเองสำหรับแกนลอการิทึมต้องเป็นบวกเช่นกัน
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะกำหนดค่าที่แกนหนึ่งตัดแกนอีก (การตัดแกน) ได้อย่างไร?**
+**ฉันจะกำหนดค่าที่แกนหนึ่งตัดผ่านอีกแกนหนึ่งได้อย่างไร (การตัดแกน)?**
 
-ใช้ [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) เพื่อเลือกพฤติกรรมการตัด เพื่อระบุค่าตัดเชิงตัวเลข ให้ตั้งค่า [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). การตั้งค่าเหล่านี้ช่วยให้คุณย้ายตำแหน่งการตัดแกนไปยังแนวฐานที่เหมาะสม
+ใช้ [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) เพื่อเลือกพฤติกรรมการตัด หากต้องการระบุค่าตัดเชิงตัวเลข ให้ตั้งค่า [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/) การตั้งค่าเหล่านี้ช่วยให้คุณย้ายการตัดแกนไปยังตำแหน่งฐานที่เหมาะสม
 
-**ฉันสามารถกำหนดตำแหน่งป้ายติ๊กสัมพันธ์กับแกนได้อย่างไร?**
+**ฉันจะจัดตำแหน่งป้ายกำกับเครื่องหมายบรรทัดสัมพันธ์กับแกนอย่างไร?**
 
-ตั้งค่า [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) โดยใช้ [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/): `LOW`, `HIGH`, `NEXT_TO`, หรือ `NONE`. เพื่อควบคุมติ๊กมาร์คเอง ใช้ [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) หรือ [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/); สิ่งเหล่านี้แยกจากการกำหนดตำแหน่งป้าย.
+ตั้งค่า [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) โดยใช้ [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/): `LOW`, `HIGH`, `NEXT_TO`, หรือ `NONE` เพื่อควบคุมตำแหน่งป้ายกำกับ เพื่อควบคุมเครื่องหมายบรรทัดเอง ใช้ [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) หรือ [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/) ซึ่งแยกจากการจัดตำแหน่งป้ายกำกับ

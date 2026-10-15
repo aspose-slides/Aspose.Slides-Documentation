@@ -1,5 +1,5 @@
 ---
-title: Personnaliser les axes de graphiques dans les présentations à l'aide de JavaScript
+title: Personnaliser les axes des graphiques dans les présentations en utilisant JavaScript
 linktitle: Axe du graphique
 type: docs
 url: /fr/nodejs-java/chart-axis/
@@ -22,17 +22,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Découvrez comment utiliser JavaScript avec Aspose.Slides pour Node.js via Java afin de personnaliser les axes de graphiques dans les présentations PowerPoint pour les rapports et les visualisations."
+description: "Découvrez comment utiliser JavaScript avec Aspose.Slides pour Node.js via Java afin de personnaliser les axes des graphiques dans les présentations PowerPoint pour les rapports et les visualisations."
 ---
-## **Aperçu**
+## **Vue d'ensemble**
 
-Cet article explique comment personnaliser les axes des graphiques avec Aspose.Slides pour Node.js via Java. Il couvre les valeurs d'axe calculées, l'échange des lignes et colonnes du graphique, la visibilité des axes, les intervalles des libellés de catégorie et des marques de graduation, les catégories de date et leur formatage, la rotation du titre, le positionnement des axes, les unités d'affichage et le redimensionnement logarithmique.
+Cet article explique comment personnaliser les axes des graphiques avec Aspose.Slides pour Node.js via Java. Il couvre les valeurs d'axe calculées, l'échange des lignes et des colonnes du graphique, la visibilité des axes, les intervalles des étiquettes de catégorie et des marques de graduation, les catégories de dates et leur formatage, la rotation du titre, le positionnement des axes, les unités d'affichage et la mise à l'échelle logarithmique.
 
 ## **Obtenir les valeurs maximales sur l'axe vertical des graphiques**
 
-Créez une [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) et ajoutez un graphique en aires avec des données par défaut. Appelez [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) avant de lire les valeurs d'axe calculées afin que la disposition du graphique soit à jour.
+Créez une [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) et ajoutez un graphique en aires avec les données par défaut. Appelez [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) avant de lire les valeurs d'axe calculées afin que la disposition du graphique soit à jour.
 
-Lisez [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) et [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) pour les limites de l'axe, et [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) et [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) pour les intervalles des graduations. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) et [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) fournissent des échelles d'unités de temps, pertinentes pour les axes de date. L'exemple stocke ces valeurs dans des variables locales et enregistre le graphique.
+Lisez [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) et [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) pour les limites de l'axe, et [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) et [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) pour les intervalles des marques. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) et [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) fournissent des échelles d'unités de temps, pertinentes pour les axes de dates. L'exemple stocke ces valeurs dans des variables locales et enregistre le graphique.
 
 ```javascript
 var aspose = aspose || {};
@@ -62,7 +62,7 @@ try {
 
 ## **Échanger les données entre les axes**
 
-Utilisez [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) pour échanger les rôles des séries et des catégories dans les données du graphique. Chaque ancienne catégorie devient une série, et chaque ancienne série devient une catégorie. Cela modifie la façon dont les données sont groupées ; cela n'échange pas les axes horizontal et vertical. L'exemple utilise [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) pour lier les données par défaut à `Sheet1!A1:D5`, y compris la ligne d’en-tête et la colonne de catégorie, avant d’échanger les lignes et colonnes. Il enregistre un graphique avec quatre séries et trois catégories.
+Utilisez [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) pour échanger les rôles des séries et des catégories dans les données du graphique. Chaque ancienne catégorie devient une série, et chaque ancienne série devient une catégorie. Cela modifie la façon dont les données sont groupées ; cela n'échange pas les axes horizontal et vertical. L'exemple utilise [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) pour lier les données par défaut à `Sheet1!A1:D5`, incluant la ligne d'en-tête et la colonne de catégorie, avant d'échanger les lignes et les colonnes. Il enregistre un graphique avec quatre séries et trois catégories.
 
 ```javascript
 var aspose = aspose || {};
@@ -82,9 +82,67 @@ try {
 }
 ```
 
+## **Inverser l'ordre de tracé d'un axe**
+
+Utilisez [setPlotOrderReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setplotorderreversed/) pour inverser un axe de catégorie ou de valeur. Par exemple, un graphique à barres horizontal peut afficher les étapes du projet de haut en bas dans le même ordre que la feuille de calcul : Planning, Development, Testing. Inverser un axe modifie la direction du tracé ; cela ne trie pas et ne réarrange pas les données du classeur. En comparaison, [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) échange les rôles des séries et des catégories.
+
+L'exemple suivant crée un graphique à barres horizontal avec trois étapes et une série. Il enregistre une présentation avec trois diapositives : ordre normal, catégories inversées et valeurs inversées. Chaque copie utilise le même jeu de données, et un seul axe est inversé dans chaque copie.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredBar, 50, 40, 620, 320);
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.ClusteredBar);
+    var stages = ["Planning", "Development", "Testing"];
+    var values = [10, 30, 20];
+    for (var i = 0; i < stages.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, stages[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        var valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    // Diapositive 2: afficher la première catégorie en haut.
+    var categorySlide = presentation.getSlides().addClone(slide);
+    var categoryChart = categorySlide.getShapes().get_Item(0);
+    categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
+    // Conserver l'axe de valeur horizontal en bas.
+    categoryChart.getAxes().getVerticalAxis().setCrossType(aspose.slides.CrossesType.Maximum);
+
+    // Diapositive 3: inverser uniquement l'échelle numérique horizontale.
+    var valueSlide = presentation.getSlides().addClone(slide);
+    var valueChart = valueSlide.getShapes().get_Item(0);
+    valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
+
+    presentation.save("ReversedAxes.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Inverser un axe peut également déplacer l'axe perpendiculaire du côté opposé du tracé. [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) contrôle où l'autre axe croise l'axe en cours de configuration. Dans la diapositive 2, l'appeler avec `aspose.slides.CrossesType.Maximum` sur l'axe de catégorie inversé maintient l'axe de valeur horizontal en bas. Pour un point de croisement spécifique, utilisez [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Vérifiez les paramètres de croisement lors du changement de direction, surtout si le graphique possède déjà un point de croisement personnalisé. Appelez `setPlotOrderReversed` avec `false` pour restaurer la direction de tracé normale ; les paramètres de croisement sont indépendants.
+
+| Ordre normal (diapositive 1) | Catégories inversées (diapositive 2) | Valeurs inversées (diapositive 3) |
+| --- | --- | --- |
+| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
+| Les catégories vont du bas vers le haut ; les valeurs augmentent de gauche à droite. | Planning, Development et Testing s'affichent de haut en bas. Les valeurs et l'ordre des lignes du classeur restent inchangés. | Les catégories conservent leur ordre normal ; les valeurs augmentent de droite à gauche. L'axe de catégorie croise à zéro à droite. |
+
 ## **Désactiver l'axe vertical pour les graphiques en courbes**
 
-Appelez [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) avec `false` sur l'axe vertical pour le masquer. L'exemple crée un graphique en courbes avec des données par défaut et l’enregistre avec l'axe vertical masqué.
+Appelez [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) avec `false` sur l'axe vertical pour le masquer. L'exemple crée un graphique en courbes avec les données par défaut et l'enregistre avec l'axe vertical masqué.
 
 ```javascript
 var aspose = aspose || {};
@@ -105,7 +163,7 @@ try {
 
 ## **Désactiver l'axe horizontal pour les graphiques en courbes**
 
-Appelez [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) avec `false` sur l'axe horizontal pour le masquer. L'exemple crée un graphique en courbes avec des données par défaut et l’enregistre avec l'axe horizontal masqué.
+Appelez [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) avec `false` sur l'axe horizontal pour le masquer. L'exemple crée un graphique en courbes avec les données par défaut et l'enregistre avec l'axe horizontal masqué.
 
 ```javascript
 var aspose = aspose || {};
@@ -126,7 +184,7 @@ try {
 
 ## **Modifier un axe de catégorie**
 
-Utilisez [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) pour choisir un axe de catégorie de type date ou texte. Cet exemple nécessite `ExistingChart.pptx`, avec un graphique comme première forme de la première diapositive et des cellules de catégorie contenant des valeurs de date Excel numériques. Il convertit l'axe horizontal en axe de date. En appelant [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) avec `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) avec `1` et [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) avec `TimeUnitType.Months`, les graduations majeures sont placées à des intervalles d'un mois.
+Utilisez [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) pour choisir un axe de catégorie de type date ou texte. Cet exemple nécessite `ExistingChart.pptx`, avec un graphique comme première forme de la première diapositive et des cellules de catégorie contenant des valeurs de date Excel numériques. Il change l'axe horizontal en axe de date. En appelant [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) avec `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) avec `1` et [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) avec `TimeUnitType.Months`, les marques principales sont placées à des intervalles d'un mois.
 
 ```javascript
 var aspose = aspose || {};
@@ -148,21 +206,21 @@ try {
 }
 ```
 
-## **Contrôler les intervalles des libellés de l'axe de catégorie**
+## **Contrôler les intervalles des étiquettes de l'axe de catégorie**
 
-Lorsque un graphique possède de nombreuses catégories, réduisez le nombre de libellés d'axe visibles sans supprimer de catégories ou de points de données. Appelez [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) avec `false`, puis transmettez l'intervalle de catégorie souhaité à [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). Pour les catégories texte dans leur ordre normal, le comptage commence à la première catégorie :
+Lorsqu'un graphique possède de nombreuses catégories, réduisez le nombre d'étiquettes d'axe visibles sans supprimer les catégories ou les points de données. Appelez [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) avec `false`, puis transmettez l'intervalle de catégorie souhaité à [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). Pour les catégories de texte dans leur ordre normal, le comptage commence à la première catégorie :
 
-| Intervalle | Libellés affichés dans l'exemple |
+| Intervalle | Étiquettes affichées dans l'exemple |
 | --- | --- |
 | `1` | Catégorie 1, Catégorie 2, Catégorie 3, ... Catégorie 24 |
 | `2` | Catégorie 1, Catégorie 3, Catégorie 5, ... Catégorie 23 |
 | `3` | Catégorie 1, Catégorie 4, Catégorie 7, ... Catégorie 22 |
 
-Un intervalle de `3` affiche chaque troisième libellé, laissant deux libellés masqués entre les libellés affichés. Cela ne supprime pas les colonnes correspondantes. Le espacement automatique choisit un intervalle en fonction de l'espace disponible ; il n'affiche pas forcément chaque libellé.
+Un intervalle de `3` affiche chaque troisième étiquette, laissant deux étiquettes cachées entre les étiquettes affichées. Cela ne supprime pas les colonnes correspondantes. L'espacement automatique choisit un intervalle en fonction de l'espace disponible ; il n'affiche pas forcément chaque étiquette.
 
-Les marques de graduation ont des contrôles séparés. Appelez [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) avec `false` et utilisez [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) pour définir leur intervalle. Par exemple, `1` conserve une marque à chaque intervalle de catégorie tandis que les libellés n'apparaissent que toutes les trois catégories. Utilisez [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) avec un style visible pour voir le résultat. Repasser le réglage d'espacement automatique à `true` permet au graphique de choisir de nouveau cet intervalle.
+Les marques de graduation ont des contrôles séparés. Appelez [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) avec `false` et utilisez [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) pour définir leur intervalle. Par exemple, `1` conserve une marque de graduation à chaque intervalle de catégorie tandis que les étiquettes n'apparaissent qu'à chaque troisième catégorie. Utilisez [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) avec un style visible pour voir le résultat. Appeler l'un ou l'autre des réglages d'espacement automatique avec `true` à nouveau permet au graphique de choisir à nouveau cet intervalle.
 
-L'exemple autonome suivant crée 24 catégories et une série, puis enregistre trois diapositives dans `CategoryAxisIntervals.pptx` : espacement automatique, espacement manuel des libellés avec marques de graduation indépendantes, et restauration de l'espacement automatique. Les deux copies conservent les données d'origine du graphique. Aucune présentation d'entrée n'est requise. Le texte des libellés horizontaux rend la différence de densité facile à voir.
+L'exemple autonome suivant crée 24 catégories et une série, puis enregistre trois diapositives dans `CategoryAxisIntervals.pptx` : espacement automatique, espacement manuel des étiquettes avec des marques de graduation indépendantes, et restauration de l'espacement automatique. Les deux copies conservent les données originales du graphique. Aucune présentation d'entrée n'est requise. Le texte des étiquettes horizontales rend la différence de densité facile à voir.
 
 ```javascript
 var aspose = aspose || {};
@@ -197,7 +255,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // Diapositive 2 : afficher chaque troisième libellé, mais garder une marque de graduation pour chaque catégorie.
+    // Diapositive 2: afficher chaque troisième étiquette, mais conserver une marque de graduation pour chaque catégorie.
     var manualSlide = presentation.getSlides().addClone(slide);
     var manualChart = manualSlide.getShapes().get_Item(0);
     var manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -206,7 +264,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // Diapositive 3 : laisser le graphique choisir à nouveau les deux intervalles.
+    // Diapositive 3: laisser le graphique choisir à nouveau les deux intervalles.
     var restoredSlide = presentation.getSlides().addClone(manualSlide);
     var restoredChart = restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -218,23 +276,23 @@ try {
 }
 ```
 
-**Espacement automatique (diapositive 1) :** Dans ce rendu, chaque deuxième libellé de catégorie est affiché et se répartit sur deux lignes. Le résultat automatique peut varier selon la taille du graphique, les polices et le moteur de rendu.
+**Espacement automatique (diapositive 1) :** Dans ce rendu, chaque deuxième étiquette de catégorie est affichée et s'enroule sur deux lignes. Le résultat automatique peut varier selon la taille du graphique, les polices et le moteur de rendu.
 
-![Espacement automatique des libellés de catégorie avec les 24 colonnes visibles](category-axis-automatic.png)
+![Espacement automatique des étiquettes de catégorie avec les 24 colonnes visibles](category-axis-automatic.png)
 
-**Espacement manuel (diapositive 2) :** Chaque troisième libellé est affiché sur une ligne, tandis que les marques de graduation restent à chaque intervalle de catégorie. Toutes les 24 colonnes, y compris celles sans libellé, restent visibles avec les mêmes valeurs. La diapositive 3 restaure l'apparence automatique présentée ci‑dessus.
+**Espacement manuel (diapositive 2) :** Chaque troisième étiquette est affichée sur une ligne, tandis que les marques de graduation restent à chaque intervalle de catégorie. Les 24 colonnes, y compris celles sans étiquette, restent visibles avec les mêmes valeurs. La diapositive 3 restaure l'apparence automatique montrée ci‑dessus.
 
-![Intervalle manuel du libellé de catégorie de trois avec les 24 colonnes visibles](category-axis-manual.png)
+![Intervalle d'étiquette de catégorie manuel de trois avec les 24 colonnes visibles](category-axis-manual.png)
 
 ### **Choisir l'axe et l'intervalle corrects**
 
-Utilisez cet intervalle de comptage des catégories pour un axe de catégorie texte, tel que l'axe de catégorie d'un graphique à colonnes, en courbes, en aires ou à barres. Dans un graphique à colonnes, c'est l'axe horizontal. Dans un graphique à barres horizontal, l'axe de catégorie est vertical, donc appliquez ces paramètres à l'axe retourné par [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). L'espacement des marques de graduation s'applique également à un axe de série dans les graphiques qui en possèdent un.
+Utilisez cet intervalle de comptage de catégories pour un axe de catégorie texte, tel que l'axe de catégorie d'un graphique en colonnes, en courbes, en aires ou à barres. Dans un graphique en colonnes, c'est l'axe horizontal. Dans un graphique à barres horizontal, l'axe de catégorie est vertical, donc appliquez ces paramètres à l'axe retourné par [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). L'espacement des marques de graduation s'applique également à un axe de série dans les graphiques qui en possèdent un.
 
-N'utilisez pas l'espacement des libellés de catégorie pour définir l'échelle numérique d'un axe de valeur. Sur un axe de valeur, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) spécifie une différence de valeurs : par exemple, une unité majeure de `10` produit des graduations à 0, 10, 20, etc. lorsqu'il commence à zéro. Un intervalle de libellé de catégorie de `3` compte les positions de catégorie, indépendamment de leurs valeurs. Les graphiques en nuage de points et à bulles utilisent des axes de valeur plutôt qu'un axe de catégorie texte. Pour un axe de date, utilisez des unités majeures et des échelles basées sur le temps comme décrit dans [Modifier un axe de catégorie](#change-a-category-axis).
+N'utilisez pas l'espacement des étiquettes de catégorie pour définir l'échelle numérique d'un axe de valeur. Sur un axe de valeur, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) spécifie une différence de valeurs : par exemple, une unité majeure de `10` produit des marques à 0, 10, 20, etc. lorsqu'un axe commence à zéro. Un intervalle d'étiquette de catégorie de `3` compte les positions de catégorie, indépendamment de leurs valeurs de données. Les graphiques de dispersion et les bulles utilisent des axes de valeur plutôt qu'un axe de catégorie texte. Pour un axe de date, utilisez des unités majeures et des échelles basées sur le temps comme décrit dans [Change a Category Axis](#change-a-category-axis).
 
 ## **Définir le format de date pour les valeurs de l'axe de catégorie**
 
-L'exemple remplace les données de graphique par défaut par quatre valeurs annuelles. Les dates sont stockées comme nombres de série OLE Automation dans la première feuille de calcul (indice `0`), calculées comme le nombre de jours depuis le 30 décembre 1899 pour ces dates. Le calcul JavaScript utilise les horodatages UTC et divise la différence par 86 400 000 millisecondes par jour. Utilisez [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) avec `CategoryAxisType.Date`, appelez [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) avec `false`, et transmettez `yyyy` à [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) pour que les libellés de catégorie affichent les années sur quatre chiffres indépendamment du format de cellule.
+L'exemple remplace les données de graphique par défaut par quatre valeurs annuelles. Les dates sont stockées comme numéros de série OLE Automation dans la première feuille de calcul (index `0`), calculées comme le nombre de jours depuis le 30 dé décembre 1899 pour ces dates. Le calcul JavaScript utilise des horodatages UTC et divise la différence par 86 400 000 millisecondes par jour. Utilisez [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) avec `CategoryAxisType.Date`, appelez [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) avec `false`, et transmettez `yyyy` à [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) afin que les étiquettes de catégorie affichent des années à quatre chiffres indépendamment du format de la cellule.
 
 ```javascript
 var aspose = aspose || {};
@@ -276,7 +334,7 @@ try {
 
 ## **Définir un angle de rotation pour le titre d'un axe de graphique**
 
-Appelez [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) avec `true` sur l'axe vertical, fournissez le texte du titre, et utilisez [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) pour le faire pivoter. L'angle est mesuré en degrés ; cet exemple enregistre un graphique à colonnes avec le titre de l'axe de valeur tourné de 90 degrés.
+Appelez [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) avec `true` sur l'axe vertical, fournissez le texte du titre et utilisez [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) pour faire pivoter le titre. L'angle est mesuré en degrés ; cet exemple enregistre un graphique en colonnes avec le titre de l'axe de valeur pivoté de 90 degrés.
 
 ```javascript
 var aspose = aspose || {};
@@ -299,7 +357,7 @@ try {
 
 ## **Définir la position de l'axe sur un axe de catégorie ou de valeur**
 
-Utilisez [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) pour contrôler si l'axe de valeur croise l'axe de catégorie entre les catégories ou aux marques de catégorie. Ce réglage s'applique aux axes de catégorie. L'exemple le définit sur `true` pour l'axe de catégorie horizontal d'un graphique à colonnes et enregistre le résultat.
+Utilisez [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) pour contrôler si l'axe de valeur croise l'axe de catégorie entre les catégories ou aux marques de catégorie. Ce réglage s'applique aux axes de catégorie. L'exemple le définit à `true` sur l'axe de catégorie horizontal d'un graphique en colonnes et enregistre le résultat.
 
 ```javascript
 var aspose = aspose || {};
@@ -318,9 +376,9 @@ try {
 }
 ```
 
-## **Définir l'unité d'affichage sur un axe de valeur du graphique**
+## **Définir l'unité d'affichage sur un axe de valeur de graphique**
 
-Utilisez [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) pour mettre à l'échelle les libellés d'un axe de valeur sans modifier les données sous‑jacentes. Avec [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) réglé sur `Millions`, une valeur de 60 000 000 s'affiche sous la forme 60. L'exemple crée un graphique à colonnes et applique l'unité d'affichage « Millions » à son axe vertical.
+Utilisez [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) pour mettre à l'échelle les étiquettes d'un axe de valeur sans modifier les données sous-jacentes. Avec [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) défini sur `Millions`, une valeur de 60 000 000 est affichée comme 60. L'exemple crée un graphique en colonnes et applique l'unité d'affichage millions à son axe vertical.
 
 ```javascript
 var aspose = aspose || {};
@@ -341,19 +399,19 @@ try {
 
 ## **Configurer un axe de valeur logarithmique**
 
-Un axe de valeur logarithmique est utile lorsque des valeurs positives s'étendent sur plusieurs ordres de grandeur. Par exemple, un service pourrait recevoir 10, 100, 1 000, 10 000 et 100 000 requêtes au cours de cinq périodes. Sur une échelle linéaire, les petites valeurs apparaissent très proches du zéro. Une échelle logarithmique rend leur croissance relative plus facile à comparer : des distances égales représentent des rapports égaux plutôt que des différences égales.
+Un axe de valeur logarithmique est utile lorsque les valeurs positives s'étendent sur plusieurs ordres de grandeur. Par exemple, un service peut recevoir 10, 100, 1 000, 10 000 et 100 000 requêtes sur cinq périodes. Sur une échelle linéaire, les petites valeurs apparaissent très proches du zéro. Une échelle logarithmique facilite la comparaison de leur croissance relative : des distances égales représentent des rapports égaux plutôt que des différences égales.
 
-Appelez [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) avec `true` sur l'axe de valeur et utilisez [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) pour choisir la base. Cela modifie la façon dont les valeurs existantes sont affichées ; cela ne change pas les données ni n'ajoute de ligne de tendance logarithmique. Une ligne de tendance représente une relation ajustée aux données et constitue une fonctionnalité distincte.
+Appelez [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) avec `true` sur l'axe de valeur et utilisez [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) pour choisir la base. Cela modifie la façon dont les valeurs existantes sont affichées ; cela ne modifie pas les données ni n'ajoute une ligne de tendance logarithmique. Une ligne de tendance représente une relation ajustée aux données et constitue une fonctionnalité distincte.
 
 ### **Choisir l'axe de valeur et la base**
 
-Pour un graphique en courbes ou à colonnes, l'axe de valeur est retourné par [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). Pour un graphique à barres horizontal, il est retourné par [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/). Les graphiques en nuage de points et à bulles ont deux axes de valeur, choisissez donc l'axe horizontal pour les valeurs X, l'axe vertical pour les valeurs Y, ou les deux. N’appliquez pas le redimensionnement logarithmique à un axe de catégorie.
+Pour un graphique en courbes ou en colonnes, l'axe de valeur est retourné par [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). Pour un graphique à barres horizontal, il est retourné par [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/). Les graphiques de dispersion et à bulles possèdent deux axes de valeur, choisissez donc l'axe horizontal pour les valeurs X, l'axe vertical pour les valeurs Y, ou les deux. N'appliquez pas la mise à l'échelle logarithmique à un axe de catégorie.
 
-La base logarithmique par défaut est `10`. Pour les graphiques PPTX, utilisez une base comprise entre `2` et `1000` inclusivement ; les bases fractionnaires comme `2.5` sont également prises en charge. Avec la base `10`, les puissances successives telles que 10, 100, 1 000 et 10 000 sont espacées de façon égale.
+La base logarithmique par défaut est `10`. Pour les graphiques PPTX, utilisez une base comprise entre `2` et `1000`, inclusive ; les bases fractionnaires comme `2.5` sont également prises en charge. Avec la base `10`, les puissances successives comme 10, 100, 1 000 et 10 000 sont espacées uniformément.
 
-### **Comparer le redimensionnement linéaire et logarithmique**
+### **Comparer la mise à l'échelle linéaire et logarithmique**
 
-L'exemple autonome suivant crée un graphique en courbes avec les cinq comptages de requêtes sur la première diapositive, puis duplique cette diapositive et active un axe de valeur logarithmique base‑10 sur la seconde. Les deux diapositives conservent les mêmes données.
+L'exemple autonome suivant crée un graphique en courbes avec les cinq décomptes de requêtes sur la première diapositive, puis clone cette diapositive et active un axe de valeur logarithmique base 10 sur la seconde. Les deux diapositives conservent les mêmes données.
 
 ```javascript
 var aspose = aspose || {};
@@ -384,7 +442,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Conserver la première diapositive en linéaire et ne modifier que l'échelle de l'axe de valeur de la copie.
+    // Conserver la première diapositive en linéaire et ne modifier que l'échelle de l'axe des valeurs de la copie.
     var logarithmicSlide = presentation.getSlides().addClone(slide);
     var logarithmicChart = logarithmicSlide.getShapes().get_Item(0);
     var valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -397,24 +455,22 @@ try {
 }
 ```
 
-**Échelle linéaire (diapositive 1) :** Des distances verticales égales représentent des différences égales dans les comptages de requêtes. La valeur la plus grande domine le graphique, rendant les petites valeurs difficiles à distinguer.
+**Échelle linéaire (diapositive 1) :** Des distances verticales égales représentent des différences égales dans les décomptes de requêtes. La valeur la plus grande domine le graphique, rendant les petites valeurs difficiles à distinguer.
 
 ![Graphique en courbes PowerPoint montrant cinq décomptes de requêtes sur un axe de valeur linéaire](value-axis-linear.png)
 
-**Échelle logarithmique (diapositive 2) :** Des distances verticales égales représentent des rapports égaux. Chaque période a dix fois plus de requêtes que la précédente, de sorte que les points forment une ligne droite ascendante sur l’échelle base‑10. Les libellés d'axe affichent toujours les comptages de requêtes d'origine.
+**Échelle logarithmique (diapositive 2) :** Des distances verticales égales représentent des rapports égaux. Chaque période a dix fois plus de requêtes que la précédente, donc les points forment une ligne droite ascendante sur l'échelle base 10. Les étiquettes d'axe affichent toujours les décomptes de requêtes originaux.
 
-![Les mêmes cinq décomptes de requêtes dans PowerPoint sur un axe de valeur logarithmique base‑10](value-axis-logarithmic.png)
+![Les mêmes cinq décomptes de requêtes dans PowerPoint sur un axe de valeur logarithmique base 10](value-axis-logarithmic.png)
 
 ### **Gérer les valeurs zéro et négatives**
 
-Une échelle logarithmique ne peut afficher que des valeurs strictement positives. Vérifiez les données avant de l’activer. Si les valeurs zéro ou négatives sont significatives, conservez une échelle linéaire ou affichez‑les séparément. Si les exclure est approprié pour l’analyse, expliquez cette omission. Ne les remplacez pas silencieusement par de petits nombres positifs, car cela changerait le sens des données. Tout minimum ou maximum configuré manuellement pour un axe logarithmique doit également être positif.
+Une échelle logarithmique ne peut afficher que des valeurs strictement positives. Vérifiez les données avant de l'activer. Si les valeurs zéro ou négatives sont significatives, conservez une échelle linéaire ou affichez‑les séparément. Si exclure ces valeurs est approprié pour l'analyse, expliquez l'omission. Ne les remplacez pas silencieusement par de petits nombres positifs, car cela change le sens des données. Tout minimum ou maximum configuré manuellement pour un axe logarithmique doit également être positif.
 
 ## **FAQ**
 
-**Comment définir la valeur à laquelle un axe croise l'autre (croisement d'axes) ?**
+**Comment définir la valeur à laquelle un axe croise l'autre (croisement d'axe) ?**  
+Utilisez [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) pour sélectionner le comportement de croisement. Pour spécifier une valeur de croisement numérique, utilisez [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Ces réglages vous permettent de déplacer le point de croisement de l'axe vers une ligne de base adaptée.
 
-Utilisez [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) pour choisir le comportement de croisement. Pour spécifier une valeur de croisement numérique, utilisez [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Ces paramètres vous permettent de déplacer le croisement des axes vers une ligne de base appropriée.
-
-**Comment positionner les libellés des graduations par rapport à l'axe ?**
-
-Appelez [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) en utilisant [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` ou `None`. Pour contrôler les marques de graduation elles‑mêmes, utilisez [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) ou [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); ceux‑ci sont distincts du positionnement des libellés.
+**Comment positionner les étiquettes de graduation par rapport à l'axe ?**  
+Appelez [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) en utilisant [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` ou `None`. Pour contrôler les marques de graduation elles‑elles‑mêmes, utilisez [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) ou [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); elles sont séparées du positionnement des étiquettes.

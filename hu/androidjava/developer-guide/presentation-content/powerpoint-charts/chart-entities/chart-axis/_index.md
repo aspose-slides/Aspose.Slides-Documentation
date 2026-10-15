@@ -1,10 +1,10 @@
 ---
-title: Diagramtengelyek testreszabása Android prezentációkban
-linktitle: Diagramtengely
+title: Diagram tengelyek testreszabása Android prezentációkban
+linktitle: Diagram tengely
 type: docs
 url: /hu/androidjava/chart-axis/
 keywords:
-- diagramtengely
+- diagram tengely
 - függőleges tengely
 - vízszintes tengely
 - tengely testreszabása
@@ -13,26 +13,26 @@ keywords:
 - tengely tulajdonságok
 - maximális érték
 - minimális érték
-- tengelyvonal
-- dátumformátum
-- tengelycím
-- tengelypozíció
+- tengely vonal
+- dátum formátum
+- tengely cím
+- tengely pozíció
 - PowerPoint
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Fedezze fel, hogyan használható az Aspose.Slides for Android Java nyelven a diagramtengelyek testreszabásához PowerPoint prezentációkban jelentések és vizualizációk számára."
+description: "Fedezze fel, hogyan használhatja az Aspose.Slides for Android Java segítségével a diagram tengelyek testreszabását PowerPoint prezentációkban jelentésekhez és vizualizációkhoz."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet testreszabni a diagram tengelyeit az Aspose.Slides for Android segítségével Java nyelven. Kiterjed a számított tengelyértékekre, a diagram sorainak és oszlopainak felcserélésére, a tengely láthatóságára, a kategória címke‑ és jelölő‑intervallumokra, a dátum kategóriákra és formázásra, a cím forgatására, a tengely pozicionálására, a megjelenítő egységekre és a logaritmikus méretezésre.
+Ez a cikk bemutatja, hogyan testreszabható a diagram tengelye az Aspose.Slides for Android Java segítségével. Kitér a számított tengelyértékekre, a diagram sorok és oszlopok cseréjére, a tengely láthatóságára, a kategória címke- és jelölő-intervalumokra, a dátumkategóriákra és formázásra, a cím forgatására, a tengely helyzetére, a megjelenítési egységekre és a logaritmikus méretezésre.
 
-## **A legnagyobb értékek lekérése a függőleges tengelyen diagramokon**
+## **A maximális értékek lekérése a függőleges tengelyen a diagramokon**
 
-Hozzon létre egy [Prezentáció](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) és adjon hozzá egy területdiagramot alapértelmezett adatokkal. Hívja meg a [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) metódust a számított tengelyértékek beolvasása előtt, hogy a diagram elrendezése naprakész legyen.
+Hozzon létre egy [Prezentáció](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) és adjon hozzá egy területdiagramot alapértelmezett adatokkal. Hívja meg a [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) a számított tengelyértékek olvasása előtt, hogy a diagram elrendezése naprakész legyen.
 
-Olvassa el a [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) és a [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) értékeket a tengely határértékekhez, valamint a [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) és a [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) értékeket a jelölő‑intervallumokhoz. A [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) és a [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) időegység skálákat adnak, amelyek a dátumtengelyekhez relevánsak. A példa ezeket az értékeket helyi változókba menti, majd a diagramot elmenti.
+Olvassa el a [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) és a [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) a tengelykorlátokhoz, valamint a [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) és a [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) a jelölő-intervallumokhoz. A [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) és a [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) időegység-skálákat biztosítanak, amelyek a dátum tengelyekre vonatkoznak. A példa ezeket az értékeket helyi változókba menti, majd elmenti a diagramot.
 
 ```java
 import com.aspose.slides.*;
@@ -59,9 +59,9 @@ try {
 }
 ```
 
-## **Az adatok felcserélése a tengelyek között**
+## **Az adatok cseréje a tengelyek között**
 
-Használja a [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) metódust a sorozatok és kategóriák szerepének felcseréléséhez a diagram adataiban. Minden korábbi kategória sorozattá, minden korábbi sorozat pedig kategóriává válik. Ez az adatcsoportosítást változtatja meg; a vízszintes és függőleges tengelyeket nem cseréli fel. A példa a [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) metódussal köti az alapértelmezett adatokat a `Sheet1!A1:D5` tartományhoz, beleértve a fejlécsort és a kategóriaoszlopot, mielőtt sorokat és oszlopokat cserélne. Így négy sorozattal és három kategóriával rendelkező diagramot hoz létre.
+Használja a [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) metódust a sorozatok és kategóriák szerepének cseréjéhez a diagram adataiban. Minden korábbi kategória sorozattá válik, és minden korábbi sorozat kategóriává. Ez a csoportosítás módját változtatja, nem cseréli fel a vízszintes és függőleges tengelyeket. A példa a [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-)‑t használja, hogy az alapértelmezett adatot a `Sheet1!A1:D5` tartományhoz kötse, beleértve a fejléc sort és a kategória oszlopot, mielőtt sorokat és oszlopokat cserélne. Egy négy sorozatos és három kategóriás diagramot ment.
 
 ```java
 import com.aspose.slides.*;
@@ -80,9 +80,66 @@ try {
 }
 ```
 
+## **A tengely ábrázolási sorrendjének megfordítása**
+
+Használja a [setPlotOrderReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setPlotOrderReversed-boolean-) metódust egy kategória vagy értéktengely megfordításához. Például egy vízszintes sávdiagram a projekt szakaszait felülről lefelé jelenítheti meg ugyanabban a sorrendben, mint a munkalap: Tervezés, Fejlesztés, Tesztelés. Egy tengely megfordítása megváltoztatja a megjelenítési irányt; nem rendezi vagy módosítja a munkafüzet adatait. Összehasonlításként a [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) cseréli a sorozatok és kategóriák szerepét.
+
+Az alább látható példa egy vízszintes sávdiagramot hoz létre három szakasz és egy sorozat felhasználásával. Három diát ment: normál sorrend, megfordított kategóriák, és megfordított értékek. Minden másolat ugyanazt az adatkészletet használja, és minden másolaton csak egy tengely van megfordítva.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320);
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredBar);
+    String[] stages = { "Planning", "Development", "Testing" };
+    int[] values = { 10, 30, 20 };
+    for (int i = 0; i < stages.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, stages[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    // Dia 2: az első kategóriát a tetején jeleníti meg.
+    ISlide categorySlide = presentation.getSlides().addClone(slide);
+    IChart categoryChart = (IChart)categorySlide.getShapes().get_Item(0);
+    categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
+    // Tartsa a vízszintes értéktengelyt alul.
+    categoryChart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum);
+
+    // Dia 3: csak a vízszintes numerikus skálát fordítsa meg.
+    ISlide valueSlide = presentation.getSlides().addClone(slide);
+    IChart valueChart = (IChart)valueSlide.getShapes().get_Item(0);
+    valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A tengely megfordítása a merőleges tengelyt is áthelyezheti a diagram ellenkező oldalára. A [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) szabályozza, hogy a másik tengely hol metszze a konfigurált tengelyt. A 2. diában a `CrossesType.Maximum` használata a megfordított kategória tengelyen a vízszintes értéktengelyt alul tartja. Egy konkrét metszéspont meghatározásához használja a [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-). Ellenőrizze a metszési beállításokat az irányváltáskor, különösen, ha a diagram már saját metszésponttal rendelkezik. Hívja a `setPlotOrderReversed`‑t `false`‑val a normál ábrázolási irány visszaállításához; a metszési beállítások különállóak.
+
+| Normál sorrend (dia 1) | Megfordított kategóriák (dia 2) | Megfordított értékek (dia 3) |
+| --- | --- | --- |
+| ![Vízszintes sávdiagram normál kategória- és értéktengely sorrenddel](axis-order-normal.png) | ![Vízszintes sávdiagram a kategóriákkal felülről lefelé megjelenítve](axis-order-categories-reversed.png) | ![Vízszintes sávdiagram megfordított értéktengellyel, a nulla jobbra](axis-order-values-reversed.png) |
+| A kategóriák alulról felfelé haladnak; az értékek balról jobbra növekednek. | A tervezés, fejlesztés és tesztelés felülről lefelé halad. Az értékek és a munkafüzet sorainak sorrendje változatlan. | A kategóriák megtartják normál sorrendjüket; az értékek jobbról balra növekednek. A kategóriatengely a jobb oldalon, a nullánál keresztezi. |
+
 ## **A függőleges tengely letiltása vonaldiagramoknál**
 
-Hívja meg a [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) metódust `false` értékkel a függőleges tengelyen, hogy elrejtse azt. A példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, és elmenti a függőleges tengely rejtett állapotával.
+Hívja a [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-)‑t `false`‑val a függőleges tengelyen, hogy elrejtse azt. A példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, és elmenti a függőleges tengely elrejtett állapotban.
 
 ```java
 import com.aspose.slides.*;
@@ -102,7 +159,7 @@ try {
 
 ## **A vízszintes tengely letiltása vonaldiagramoknál**
 
-Hívja meg a [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) metódust `false` értékkel a vízszintes tengelyen, hogy elrejtse azt. A példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, és elmenti a vízszintes tengely rejtett állapotával.
+Hívja a [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-)‑t `false`‑val a vízszintes tengelyen, hogy elrejtse azt. A példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, és elmenti a vízszintes tengely elrejtett állapotban.
 
 ```java
 import com.aspose.slides.*;
@@ -120,9 +177,9 @@ try {
 }
 ```
 
-## **Kategóriatengely módosítása**
+## **Kategória tengely módosítása**
 
-Használja a [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) metódust egy dátum vagy szöveges kategóriatengely kiválasztásához. Ez a példa a `ExistingChart.pptx` fájlt igényli, amelyben a diagram az első dia első formájában van, és a kategória cellák numerikus Excel dátumértékeket tartalmaznak. A vízszintes tengelyt dátumtengellyé változtatja. A [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) `false`, a [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) `1`, és a [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) `TimeUnitType.Months` hívások egy hónapos főjelölőket helyeznek el.
+Használja a [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-)‑t, hogy dátum vagy szöveges kategória tengelyt válasszon. Ez a példa a `ExistingChart.pptx` fájlt igényli, amelynek első diájának első alakja egy diagram, a kategória cellák pedig numerikus Excel dátumértékeket tartalmaznak. A vízszintes tengelyt dátum tengelyre változtatja. A [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) `false`‑ra, a [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) `1`‑re és a [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) `TimeUnitType.Months`‑ra állítva a fő jelölőket egyhónapos intervallumokra helyezi.
 
 ```java
 import com.aspose.slides.*;
@@ -143,21 +200,19 @@ try {
 }
 ```
 
-## **A kategóriatengely címkeintervallumok vezérlése**
+## **Kategória tengely címke intervallumok szabályozása**
 
-Ha egy diagram sok kategóriát tartalmaz, csökkentheti a látható tengelycímkék számát a kategóriák vagy adatpontok eltávolítása nélkül. Hívja meg a [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) metódust `false` értékkel, majd adja át a kívánt kategóriaintervallumot a [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-) metódusnak. Szöveges kategóriák esetén a számozás az első kategóriától kezdődik:
+Amikor egy diagram sok kategóriát tartalmaz, csökkentheti a látható tengelycímkék számát anélkül, hogy a kategóriákat vagy adatpontokat eltávolítaná. Hívja a [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-)‑t `false`‑ra, majd adja meg a kívánt kategória intervallumot a [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-)-nek. Szöveges kategóriák esetén a normál sorrendben a számlálás az első kategóriától indul:
 
 | Intervallum | A példában megjelenített címkék |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | Kategória 1, Kategória 2, Kategória 3, ... Kategória 24 |
+| `2` | Kategória 1, Kategória 3, Kategória 5, ... Kategória 23 |
+| `3` | Kategória 1, Kategória 4, Kategória 7, ... Kategória 22 |
 
-A `3` intervallum minden harmadik címkét jelenít meg, a megjelenő címkék között két címke rejtve marad. Nem távolítja el a megfelelő oszlopokat. Az automatikus távolság az elérhető hely alapján választ intervallumot; nem feltétlenül jeleníti meg az összes címkét.
+A `3` intervallum minden harmadik címkét jeleníti meg, a megjelenített címkék között két rejtett címke marad. Ez nem távolítja el a megfelelő oszlopokat. Az automatikus távolság a rendelkezésre álló hely alapján választ intervallumot; nem feltétlenül jeleníti meg az összes címkét.
 
-A jelölő‑pontok külön vezérelhetők. Hívja meg a [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) metódust `false` értékkel, és használja a [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) metódust az intervallum beállításához. Például az `1` minden kategóriaintervallumban elhelyez egy jelölő‑pontot, miközben a címkék csak minden harmadik kategórián jelennek meg. A [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) `visible` stílusa láthatóvá teszi ezeket. Bármelyik automatikus távolság beállítót újra `true`‑ra állítva a diagram újra automatikusan választja az intervallumot.
-
-Az alábbi önálló példa 24 kategóriát és egy sorozatot hoz létre, majd három diát ment `CategoryAxisIntervals.pptx` néven: automatikus távolság, kézi címke‑távolság független jelölő‑pontokkal, és a visszaállított automatikus távolság. A két másolat az eredeti diagramadatokat megtartja. Bemutató prezentációra nincs szükség. A vízszintes címke‑szöveg könnyen láthatóvá teszi a sűrűségkülönbséget.
+A jelölőjelek külön vezérelhetők. Hívja a [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-)‑t `false`‑ra, majd a [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-)‑vel állítsa be az intervallumukat. Például a `1` minden kategória intervallumban egy jelölőjelet hagy, míg a címkék csak minden harmadik kategóriánál jelennek meg. A [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-)‑t látható stílussal használja, hogy lássa az eredményt. Az automatikus beállítások `true`‑ra visszakapcsolása ismét lehetővé teszi a diagram számára, hogy saját magától válassza ki az intervallumot.
 
 ```java
 import com.aspose.slides.*;
@@ -191,7 +246,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // 2. dia: minden harmadik címkét jelenítsen meg, de minden kategóriához tartson egy jelölőpontot.
+    // Dia 2: minden harmadik címkét jelenítse meg, de minden kategóriához tartson egy jelölőjelet.
     ISlide manualSlide = presentation.getSlides().addClone(slide);
     IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
     IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -200,7 +255,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // 3. dia: engedje, hogy a diagram újból kiválassza mindkét intervallumot.
+    // Dia 3: engedje, hogy a diagram újból kiválassza mindkét intervallumot.
     ISlide restoredSlide = presentation.getSlides().addClone(manualSlide);
     IChart restoredChart = (IChart)restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -212,23 +267,23 @@ try {
 }
 ```
 
-**Automatikus elrendezés (1. dia):** Ebben a megjelenítésben minden második kategóriacímke látható, és két sorba törik. Az automatikus eredmény a diagram méretétől, betűtípusától és a renderelőtől függően változhat.
+**Automatikus távolság (dia 1):** Ebben a megjelenítésben minden második kategória címke jelenik meg, és két sorba törik. Az automatikus eredmény a diagram méretétől, betűtípusaitól és a renderertől függően változhat.
 
-![Automatikus kategóriacímke‑távolság az összes 24 oszlop láthatóvá tételekor](category-axis-automatic.png)
+![Automatikus kategória címke távolság 24 látható oszloppal](category-axis-automatic.png)
 
-**Kézi elrendezés (2. dia):** Minden harmadik címke jelenik meg egy sorban, míg a jelölő‑pontok minden kategóriaintervallumban maradnak. Az összes 24 oszlop, beleértve a címke nélküli oszlopokat is, látható ugyanazzal a értékkel. A 3. dia visszaállítja a fenti automatikus megjelenést.
+**Manuális távolság (dia 2):** Minden harmadik címke jelenik meg egy sorban, míg a jelölőjelek minden kategória intervallumban maradnak. Az összes 24 oszlop, beleértve a címke nélküli oszlopokat is, látható marad ugyanazzal az értékkel. A 3. dia visszaállítja a fenti automatikus megjelenést.
 
-![Kézi kategóriacímke‑intervallum háromra az összes 24 oszlop láthatóvá tételekor](category-axis-manual.png)
+![Manuális háromas kategória címke intervallum 24 látható oszloppal](category-axis-manual.png)
 
-### **A megfelelő tengely és intervallum kiválasztása**
+### **Válassza ki a megfelelő tengelyt és intervallumot**
 
-Ezt a kategória‑számláló intervallumot szöveges kategóriatengelyben használja, például oszlop-, vonal-, terület‑ vagy sávdiagramok kategóriatengelyén. Oszlopdiagram esetén ez a vízszintes tengely. Vízszintes sávdiagram esetén a kategóriatengely függőleges, ezért ezeket a beállításokat a [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) által visszaadott tengelyre alkalmazza. Jelölő‑pont távolság vonatkozik egy sorozattengelyre is azon diagramokban, amelyek ilyen tengelyt tartalmaznak.
+Használja ezt a kategória számláló intervallumot szöveges kategória tengelyhez, például egy oszlop, vonal, terület vagy sáv diagram kategória tengelyéhez. Oszlopdiagram esetén ez a vízszintes tengely. Vízes sávdiagram esetén a kategória tengely függőleges, így ezeket a beállításokat a [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) által visszaadott tengelyre alkalmazza. A jelölő jel távolsága egy sorozat tengelyre is vonatkozhat azokban a diagramokban, amelyek ilyenek.
 
-Ne használjon kategóriacímke‑intervallumot az értéktengely numerikus skálájának beállítására. Egy értéktengelyen a [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) az értékek közötti különbséget határozza meg: például a `10` főegység 0, 10, 20 stb. jelölőket hoz létre, ha a tengely nulláról indul. A `3` kategóriacímke‑intervallum csak a kategóriahelyeket számlálja, függetlenül azok adatértékétől. Szórt és buborék diagramok értéktengellyel dolgoznak, nem szöveges kategóriatengellyel. Dátumtengely esetén használjon időalapú főegységeket és skálákat a [Kategóriatengely módosítása](#change-a-category-axis) részben leírtak szerint.
+Ne használja a kategória címke távolságát a számérték skála beállítására egy értéktengelyen. Egy értéktengelyen a [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) az értékek közti különbséget adja meg: például a `10` fő egység 0, 10, 20 stb. jelölőket hoz létre, ha a tengely nulláról indul. A `3` kategória címke intervallum ehelyett a kategóriahelyeket számolja, függetlenül azok adatértékeitől. Pont és buborékkördiagramok értéktengelyeket használnak, nem szöveges kategória tengelyt. Dátum tengely esetén használjon időalapú fő egységeket és skálákat, ahogyan a [Kategória tengely módosítása](#change-a-category-axis) szakaszban le van írva.
 
-## **A kategóriatengely értékek dátumformátumának beállítása**
+## **A kategória tengely értékek dátumformátumának beállítása**
 
-A példa a alapértelmezett diagramadatokat négy éves értékkel helyettesíti. A dátumok OLE Automation sorozatszámként vannak tárolva az első munkalapon (index `0`), a 1899. december 30. óta eltelt napok számaként. Mindkét naptár UTC‑t használ, és a dátumok beállítása előtt törlésre kerülnek, hogy a nyári időszámítás vagy a napszak ne befolyásolja a számítást. Használja a [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) metódust `CategoryAxisType.Date` értékkel, hívja a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) metódust `false`‑ra, és adja meg a `yyyy` értéket a [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) metódusnak, hogy a kategóriacímkék a cellaformázástól függetlenül négyszámjegyű évet jelenítsenek meg.
+A példa az alapértelmezett diagram adatokat négy éves értékkel helyettesíti. A dátumok OLE Automation sorozatszámként vannak tárolva az első munkalapon (index `0`), a 1899. december 30. óta eltelt napok számaként. Mindkét naptár UTC időzónát használ, és a dátumok beállítása előtt törlésre kerülnek, hogy a nyári időszámítás vagy a nap aktuális időpontja ne befolyásolja a számítást. Használja a [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-)‑t `CategoryAxisType.Date`‑el, hívja a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-)‑t `false`‑val, és adja meg a `yyyy`‑t a [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-)‑nek, hogy a kategória címkék a cella formázásától függetlenül négyjegyű évet mutassanak.
 
 ```java
 import com.aspose.slides.*;
@@ -276,9 +331,9 @@ try {
 }
 ```
 
-## **Forgatási szög beállítása a diagramtengely címéhez**
+## **Forgatási szög beállítása a diagram tengely címéhez**
 
-Hívja meg a [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) metódust `true` értékkel a függőleges tengelyen, adja meg a cím szövegét, és használja a [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) metódust a cím forgatásához. A szög fokokban mérhető; ez a példa egy oszlopdiagramot ment el, amelynek az értéktengely címét 90 fokkal elforgatta.
+Hívja a [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-)‑t `true`‑val a függőleges tengelyen, adja meg a cím szövegét, majd a [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-)‑val forgassa el a címet. A szög fokban van mérve; ez a példa egy oszlopdiagramot ment, amelynek értéktengely címke 90 fokban van elforgatva.
 
 ```java
 import com.aspose.slides.*;
@@ -298,9 +353,9 @@ try {
 }
 ```
 
-## **A tengely pozíciójának beállítása kategória‑ vagy értéktengelyen**
+## **A tengely pozíciójának beállítása kategória vagy értéktengelyen**
 
-Használja a [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) metódust annak szabályozására, hogy az értéktengely a kategóriatengelyen a kategóriák között vagy a kategória‑jelölőpontokon keresztül keresse a keresztezést. Ez a beállítás csak kategóriatengelyekre vonatkozik. A példa az oszlopdiagram vízszintes kategóriatengelyén `true`‑ra állítja, majd elmenti az eredményt.
+Használja a [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-)‑t annak szabályozására, hogy az értéktengely a kategóriatengelyet a kategóriák között vagy a kategória jelölőpontokon keresztül keresse. Ez a beállítás a kategória tengelyekre vonatkozik. A példa a vízszintes kategória tengelyen egy oszlopdiagramnál `true`‑ra állítja, és elmenti az eredményt.
 
 ```java
 import com.aspose.slides.*;
@@ -318,9 +373,9 @@ try {
 }
 ```
 
-## **Megjelenítő egység beállítása diagram értéktengelyen**
+## **Megjelenítési egység beállítása diagram értéktengelyen**
 
-Használja a [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) metódust a értéktengely feliratainak skálázásához az adatok tényleges módosítása nélkül. A [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) `Millions` értékre állítása esetén a 60 000 000 érték 60‑ként jelenik meg. A példa egy oszlopdiagramot hoz létre, és a függőleges tengelyen milliók egységét alkalmazza.
+Használja a [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-)‑t az értéktengely feliratainak méretezésére anélkül, hogy az alaptadatok változnának. A [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) `Millions` értékre állításával a 60 000 000 érték 60‑ként jelenik meg. A példa egy oszlopdiagramot hoz létre, és a függőleges tengelyen a millió megjelenítési egységet alkalmazza.
 
 ```java
 import com.aspose.slides.*;
@@ -340,19 +395,19 @@ try {
 
 ## **Logaritmikus értéktengely konfigurálása**
 
-A logaritmikus értéktengely hasznos, ha a pozitív értékek több nagyságrendben is eltérnek. Például egy szolgáltatás öt periódus alatt 10, 100, 1 000, 10 000 és 100 000 kérést kap. Lineáris skálán a kisebb értékek közel nulla csoportba zsúfolódnak. A logaritmikus skála a relatív növekedést könnyebben összehasonlíthatóvá teszi: az egyenlő távolságok egyenlő arányokat jelentenek, nem egyenlő különbségeket.
+A logaritmikus értéktengely hasznos, ha a pozitív értékek több mérettartományt fednek le. Például egy szolgáltatás öt időszakban 10, 100, 1 000, 10 000 és 100 000 kérést fogad. Lineáris skálán a kisebb értékek közel a nullához csoportosulnak. A logaritmikus skála a relatív növekedést könnyebben összehasonlíthatóvá teszi: az egyenlő távolságok egyenlő arányt jelentenek, nem egyenlő különbséget.
 
-Hívja meg a [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-) metódust `true` értékkel az értéktengelyen, és használja a [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-) metódust az alap megadásához. Ez módosítja a meglévő értékek megjelenítését; nem változtatja meg az adatokat, és nem ad hozzá logaritmikus trendvonalat. A trendvonal a megfelelően illesztett adatkapcsolatot jelenti, és külön funkció.
+Hívja a [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-)‑t `true`‑val a értéktengelyen, és használja a [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-)‑t az alap kiválasztásához. Ez csak a meglévő értékek megjelenítését változtatja; nem módosítja az adatokat, és nem ad hozzá logaritmikus trendvonalat. A trendvonal egy adatkapcsolaton alapuló illesztett vonal, külön funkció.
 
 ### **Az értéktengely és az alap kiválasztása**
 
-Vonal- vagy oszlopdiagram esetén az értéktengely a [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) által visszaadott tengely. Vízszintes sávdiagram esetén a [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) adja vissza. Szórt és buborék diagramok két értéktengellyel rendelkeznek, így az X‑értékekhez a vízszintes tengelyt, az Y‑értékekhez a függőleges tengelyt vagy mindkettőt választhatja. Logaritmikus skálázást ne alkalmazzon kategóriatengelyen.
+Vonal vagy oszlop diagram esetén az értéktengely a [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) által visszaadott. Vízes sávdiagramnál a [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) adja vissza. Pont‑ és buborékkördiagramoknak két értéktengelyük van, ezért X‑értékekhez a vízszintes, Y‑értékekhez a függőleges, vagy mindkettő használható. Logaritmikus skálát ne alkalmazzon kategória tengelyen.
 
-Az alapértelmezett logaritmikus alap a `10`. PPTX diagramoknál a `2`‑tól `1000`‑ig terjedő (beleértve) bázist használhat, törtalapú értékek, például `2.5` is támogatottak. A `10` alap esetén a sorozatos hatványok – 10, 100, 1 000, 10 000 – egyenlő távolságra kerülnek.
+Az alapértelmezett logaritmikus alap `10`. PPTX diagramok esetén az alap `2`‑tól `1000`‑ig terjedhet, a törtalapok, például `2.5`, szintén támogatottak. A `10`‑es alappal a sorozatos hatványok, mint 10, 100, 1 000, 10 000 egyenlő távolságra vannak.
 
-### **Lineáris és logaritmikus skálák összehasonlítása**
+### **Lineáris és logaritmikus skálázás összehasonlítása**
 
-Az alábbi önálló példa egy vonaldiagramot hoz létre az első dián az öt kérésszámmal, majd a diát lemásolja, és a második dián a 10‑es alapú logaritmikus értéktengelyt aktiválja. Mindkét dia ugyanazokat az adatokat tartja meg.
+Az alábbi önálló példa egy vonaldiagramot hoz létre az öt kérelem számmal az első dián, majd lemásolja azt, és a második diához 10‑es alapú logaritmikus értéktengelyt kapcsol be. Mindkét dia ugyanazt az adatot tartja.
 
 ```java
 import com.aspose.slides.*;
@@ -382,7 +437,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Tartsa az első diát lineárisnak, és csak a másolat értéktengely skáláját változtassa meg.
+    // Az első diát lineárisnak hagyja, és csak a másolat értéktengely skáláját változtassa meg.
     ISlide logarithmicSlide = presentation.getSlides().addClone(slide);
     IChart logarithmicChart = (IChart)logarithmicSlide.getShapes().get_Item(0);
     IAxis valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -395,24 +450,24 @@ try {
 }
 ```
 
-**Lineáris skála (1. dia):** Az egyenlő függőleges távolságok egyenlő kérésszám‑különbségeket jelentenek. A legnagyobb érték uralja a diagramot, a kisebb értékek nehezen megkülönböztethetők.
+**Lineáris skála (dia 1):** Az egyenlő függőleges távolságok egyenlő különbséget jelentnek a kérelem számokban. A legnagyobb érték uralja a diagramot, így a kisebb értékek nehezen megkülönböztethetők.
 
-![Vonaldiagram PowerPoint‑ban, amely öt kérésszámot mutat lineáris értéktengelyen](value-axis-linear.png)
+![Vonaldiagram PowerPointban öt kérelem számával lineáris értéktengelyen](value-axis-linear.png)
 
-**Logaritmikus skála (2. dia):** Az egyenlő függőleges távolságok egyenlő arányokat jelentenek. Minden periódus tízszer annyi kérést tartalmaz, mint az előző, így a pontok egy egyenesen emelkedő vonalat alkotnak a 10‑es alapú skálán. A tengelyfeliratok továbbra is az eredeti kérésszámokat mutatják.
+**Logaritmikus skála (dia 2):** Az egyenlő függőleges távolságok egyenlő arányt jelentenek. Minden időszak tízszer több kérést tartalmaz, mint az előző, ezért a pontok egy egyenesen emelkedő vonalat alkotnak a 10‑es alapon. A tengelycímkék továbbra is az eredeti kérelem számokat mutatják.
 
-![Ugyanaz az öt kérésszám PowerPoint‑ban 10‑es alapú logaritmikus értéktengelyen](value-axis-logarithmic.png)
+![Ugyanaz az öt kérelem szám a PowerPointban 10‑es alapú logaritmikus értéktengelyen](value-axis-logarithmic.png)
 
 ### **Nulla és negatív értékek kezelése**
 
-A logaritmikus skála csak szigorúan pozitív értékeket jeleníthet meg. Ellenőrizze az adatokat, mielőtt engedélyezi. Ha a nulla vagy negatív értékek értelmesek, tartsa meg a lineáris skálát, vagy jelenítse meg őket külön. Ha az értékek kizárása megfelelő az elemzéshez, magyarázza meg az elhagyást. Ne helyettesítse őket csendben kis pozitív számokkal, mert ez megváltoztatja az adatok jelentését. Bármely, kézzel konfigurált minimum vagy maximum a logaritmikus tengelyen szintén pozitív kell legyen.
+A logaritmikus skála csak szigorúan pozitív értékeket jeleníthet meg. Ellenőrizze az adatokat, mielőtt engedélyezi. Ha a nulla vagy negatív értékek jelentősek, tartsa meg a lineáris skálát, vagy jelenítse meg őket külön. Ha az értékek kizárása megfelelő az elemzéshez, magyarázza meg az elhagyás okát. Ne cserélje őket csendben kis pozitív számokra, mert ez megváltoztatja az adatok jelentését. Bármely, logaritmikus tengelyhez manuálisan beállított minimum vagy maximum értéknek szintén pozitívnak kell lennie.
 
 ## **GYIK**
 
 **Hogyan állíthatom be azt az értéket, ahol egy tengely keresztezi a másikat (tengelykeresztezés)?**
 
-Használja a [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) metódust a keresztezési viselkedés kiválasztásához. Numerikus keresztezési érték megadásához használja a [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) metódust. Ezek a beállítások lehetővé teszik, hogy a tengelykeresztezést egy megfelelő alapvonalra mozgassa.
+Használja a [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-)‑t a keresztelési viselkedés kiválasztásához. Egy numerikus keresztérték megadásához használja a [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-)-t. Ezek a beállítások lehetővé teszik a tengely kereszteződésének áthelyezését egy megfelelő alapvonalra.
 
-**Hogyan helyezhetem el a jelölőcímkéket a tengelyhez viszonyítva?**
+**Hogyan helyezhetem el a jelzések címkéit a tengelyhez képest?**
 
-Hívja meg a [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) metódust a [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/) `Low`, `High`, `NextTo` vagy `None` értékekkel. A jelölőpontok vezérléséhez használja a [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) vagy a [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-) metódusokat; ezek különállóak a címke‑pozicionálástól.
+Hívja a [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-)‑t a [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` vagy `None` használatával. A jelölőjelek maguk szabályozásához használja a [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) vagy a [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-)-t; ezek különállóak a címke pozícionálástól.

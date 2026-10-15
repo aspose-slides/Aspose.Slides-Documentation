@@ -1,38 +1,38 @@
 ---
-title: سفارشی‌سازی محورهای نمودار در ارائه‌های Android
-linktitle: محور نمودار
+title: "سفارشی‌سازی محورهای نمودار در ارائه‌های Android"
+linktitle: "محور نمودار"
 type: docs
 url: /fa/androidjava/chart-axis/
 keywords:
-- محور نمودار
-- محور عمودی
-- محور افقی
-- سفارشی‌سازی محور
-- دستکاری محور
-- مدیریت محور
-- ویژگی‌های محور
-- حداکثر مقدار
-- حداقل مقدار
-- خط محور
-- فرمت تاریخ
-- عنوان محور
-- موقعیت محور
-- PowerPoint
-- ارائه
-- Android
-- Java
-- Aspose.Slides
-description: "کشف کنید چگونه می‌توان از Aspose.Slides برای Android با استفاده از Java برای سفارشی‌سازی محورهای نمودار در ارائه‌های PowerPoint برای گزارش‌ها و تجسم‌ها استفاده کرد."
+- "محور نمودار"
+- "محور عمودی"
+- "محور افقی"
+- "سفارشی‌سازی محور"
+- "دستکاری محور"
+- "مدیریت محور"
+- "ویژگی‌های محور"
+- "حداکثر مقدار"
+- "حداقل مقدار"
+- "خط محور"
+- "قالب تاریخ"
+- "عنوان محور"
+- "موقعیت محور"
+- "PowerPoint"
+- "ارائه"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "کشف کنید چگونه از Aspose.Slides برای Android از طریق Java استفاده کنید تا محورهای نمودار را در ارائه‌های PowerPoint برای گزارش‌ها و تجسم‌ها سفارشی‌سازی کنید."
 ---
 ## **نمای کلی**
 
-این مقاله نحوهٔ سفارشی‌سازی محورهای نمودار با Aspose.Slides برای Android از طریق Java را توضیح می‌دهد. موضوعاتی چون مقادیر محاسبه شدهٔ محور، جابجایی ردیف‌ها و ستون‌های نمودار، قابلیت مشاهدهٔ محور، فاصلهٔ برچسب‌های دسته و عبارت‌های تیک‌مارک، دسته‌های تاریخ و قالب‌بندی، چرخش عنوان، موقعیت‌یابی محور، واحدهای نمایش و مقیاس لگاریتمی را پوشش می‌دهد.
+این مقاله توضیح می‌دهد که چگونه در Aspose.Slides برای Android از طریق Java محورهای نمودار را سفارشی کنید. مواردی مانند مقادیر محاسبه‌شده محور، جابجایی سطرها و ستون‌های نمودار، قابل مشاهده بودن محور، فواصل برچسب و علامت‌گذاری دسته‌ها، دسته‌های تاریخ و قالب‌بندی، چرخش عنوان، موقعیت محور، واحدهای نمایش و مقیاس لگاریتمی پوشش داده می‌شود.
 
-## **دریافت حداکثر مقادیر محور عمودی در نمودارها**
+## **دریافت بیشترین مقدارهای محور عمودی در نمودارها**
 
-یک [ارائه](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید و یک نمودار مساحتی با داده‌های پیش‌فرض اضافه کنید. قبل از خواندن مقادیر محاسبه شدهٔ محور، برای به‌روز نگه داشتن طرح‌بندی نمودار، [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) را فراخوانی کنید.
+یک [ارائه](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید و یک نمودار ناحیه‌ای با داده‌های پیش‌فرض اضافه کنید. پیش از خواندن مقادیر محاسبه‌شده محور، متد [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) را فراخوانی کنید تا چیدمان نمودار به‌روز باشد.
 
-[getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) و [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) را برای محدودیت‌های محور بخوانید و [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) و [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) را برای فواصل تیک‌ها دریافت کنید. [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) و [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) مقیاس‌های واحد زمانی را فراهم می‌کنند که برای محورهای تاریخ مرتبط هستند. این مثال این مقادیر را در متغیرهای محلی ذخیره کرده و نمودار را ذخیره می‌کند.
+برای دریافت حدود محور، از [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) و [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) استفاده کنید و برای فواصل علامت‌گذاری، از [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) و [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) استفاده کنید. مقادیر [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) و [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) مقیاس‌های زمانی را ارائه می‌دهند که برای محورهای تاریخ مرتبط هستند. مثال این مقادیر را در متغیرهای محلی ذخیره می‌کند و نمودار را ذخیره می‌نماید.
 
 ```java
 import com.aspose.slides.*;
@@ -61,7 +61,7 @@ try {
 
 ## **جابه‌جایی داده‌ها بین محورها**
 
-برای تعویض نقش سری‌ها و دسته‌ها در داده‌های نمودار از [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) استفاده کنید. هر دستهٔ پیشین تبدیل به سری می‌شود و هر سری پیشین تبدیل به دسته. این کار نحوهٔ گروه‌بندی داده‌ها را تغییر می‌دهد؛ محورهای افقی و عمودی را جابجا نمی‌کند. این مثال برای اتصال داده‌های پیش‌فرض به `Sheet1!A1:D5` (شامل ردیف سرعنوان و ستون دسته) قبل از جابجایی ردیف‌ها و ستون‌ها از [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) استفاده می‌کند. سپس نموداری با چهار سری و سه دسته ذخیره می‌شود.
+از [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) برای تعویض نقش سری‌ها و دسته‌ها در داده‌های نمودار استفاده کنید. هر دستهٔ قبلی تبدیل به یک سری می‌شود و هر سریٔ قبلی تبدیل به یک دسته. این تغییر فقط نحوهٔ گروه‌بندی داده‌ها را تغییر می‌دهد؛ محورها افقی و عمودی جابه‌جا نمی‌شوند. مثال با استفاده از [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) داده‌های پیش‌فرض را به `Sheet1!A1:D5` (شامل سطر سرآیند و ستون دسته) متصل می‌کند و سپس سطرها و ستون‌ها را جابجا می‌نماید. نتیجه یک نمودار با چهار سری و سه دسته است.
 
 ```java
 import com.aspose.slides.*;
@@ -80,9 +80,66 @@ try {
 }
 ```
 
-## **غیرفعال‌سازی محور عمودی برای نمودارهای خطی**
+## **معکوس کردن ترتیب رسم محور**
 
-برای مخفی کردن محور عمودی، [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) را با مقدار `false` فراخوانی کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد کرده و آن را با محور عمودی مخفی ذخیره می‌کند.
+از [setPlotOrderReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setPlotOrderReversed-boolean-) برای معکوس کردن محور دسته یا مقدار استفاده کنید. به‌عنوان مثال، یک نمودار میله‌ای افقی می‌تواند مراحل پروژه را از بالا به پایین به همان ترتیب شیت کاری نمایش دهد: برنامه‌ریزی، توسعه، آزمون. معکوس کردن محور جهت رسم را تغییر می‌دهد؛ داده‌های ورک‌بوک را مرتب یا جابه‌جا نمی‌کند. در مقایسه، [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) نقش سری‌ها و دسته‌ها را تعویض می‌کند.
+
+مثال زیر یک نمودار میله‌ای افقی با سه مرحله و یک سری ایجاد می‌کند. ارائه‌ای با سه اسلاید ذخیره می‌کند: ترتیب عادی، دسته‌های معکوس و مقادیر معکوس. هر نسخه از همان مجموعه داده استفاده می‌کند و فقط یک محور در هر نسخه معکوس می‌شود.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320);
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredBar);
+    String[] stages = { "Planning", "Development", "Testing" };
+    int[] values = { 10, 30, 20 };
+    for (int i = 0; i < stages.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, stages[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    // اسلاید 2: نمایش اولین دسته در بالای اسلاید.
+    ISlide categorySlide = presentation.getSlides().addClone(slide);
+    IChart categoryChart = (IChart)categorySlide.getShapes().get_Item(0);
+    categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
+    // محور مقدار افقی را در پایین نگه دارید.
+    categoryChart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum);
+
+    // اسلاید 3: فقط مقیاس عددی افقی را معکوس کنید.
+    ISlide valueSlide = presentation.getSlides().addClone(slide);
+    IChart valueChart = (IChart)valueSlide.getShapes().get_Item(0);
+    valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+معکوس کردن یک محور می‌تواند محور عمود را به سمت مخالف نمودار جابه‌جا کند. از [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) برای تعیین نقطهٔ عبور محور دیگر استفاده می‌شود. در اسلاید ۲، فراخوانی آن با مقدار `CrossesType.Maximum` بر روی محور دستهٔ معکوس، محور مقدار افقی را در پایین نگه می‌دارد. برای تعیین نقطهٔ عبور خاص، از [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) استفاده کنید. هنگام تغییر جهت، تنظیمات عبور را بررسی کنید، به‌ویژه اگر نمودار قبلاً نقطهٔ عبور سفارشی داشته باشد. برای بازگرداندن جهت رسم عادی، `setPlotOrderReversed` را با مقدار `false` فراخوانی کنید؛ تنظیمات عبور مستقل از این هستند.
+
+| ترتیب عادی (اسلاید 1) | دسته‌های معکوس (اسلاید 2) | مقادیر معکوس (اسلاید 3) |
+| --- | --- | --- |
+| ![نمودار میله‌ای افقی با ترتیب عادی محور دسته و مقدار](axis-order-normal.png) | ![نمودار میله‌ای افقی با نمایش دسته‌ها از بالا به پایین](axis-order-categories-reversed.png) | ![نمودار میله‌ای افقی با محور مقدار معکوس و صفر در سمت راست](axis-order-values-reversed.png) |
+| دسته‌ها از پایین به بالا حرکت می‌کنند؛ مقادیر از چپ به راست افزایش می‌یابند. | برنامه‌ریزی، توسعه و آزمون از بالا به پایین نمایش داده می‌شوند. مقادیر و ترتیب سطرهای ورک‌بوک تغییر نکرده‌اند. | دسته‌ها ترتیب عادی خود را حفظ می‌کنند؛ مقادیر از راست به چپ افزایش می‌یابند. محور دسته در نقطهٔ صفر سمت راست عبور می‌کند. |
+
+## **غیرفعال کردن محور عمودی برای نمودارهای خطی**
+
+با فراخوانی [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) برابر `false` بر روی محور عمودی، آن را مخفی کنید. مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند و آن را با محور عمودی مخفی ذخیره می‌نماید.
 
 ```java
 import com.aspose.slides.*;
@@ -100,9 +157,9 @@ try {
 }
 ```
 
-## **غیرفعال‌سازی محور افقی برای نمودارهای خطی**
+## **غیرفعال کردن محور افقی برای نمودارهای خطی**
 
-برای مخفی کردن محور افقی، [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) را با مقدار `false` فراخوانی کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد کرده و آن را با محور افقی مخفی ذخیره می‌کند.
+با فراخوانی [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) برابر `false` بر روی محور افقی، آن را مخفی کنید. مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند و آن را با محور افقی مخفی ذخیره می‌نماید.
 
 ```java
 import com.aspose.slides.*;
@@ -120,9 +177,9 @@ try {
 }
 ```
 
-## **تغییر محور دسته‌ای**
+## **تغییر محور دسته**
 
-برای انتخاب یک محور دسته‌ای تاریخ یا متن از [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) استفاده کنید. این مثال نیاز به `ExistingChart.pptx` دارد که در اولین شکل اسلاید اول یک نمودار داشته و سلول‌های دسته شامل مقادیر عددی تاریخ Excel هستند. محور افقی را به یک محور تاریخ تغییر می‌دهد. با فراخوانی [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) با مقدار `false`، [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) با مقدار `1`، و [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) با مقدار `TimeUnitType.Months` تیک‌های بزرگ را در فواصل یک ماهه قرار می‌دهد.
+از [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) برای انتخاب محور دستهٔ تاریخ یا متن استفاده کنید. این مثال نیاز به `ExistingChart.pptx` دارد که نموداری به عنوان اولین شکل در اولین اسلاید دارد و سلول‌های دسته شامل مقدارهای عددی تاریخ اکسل هستند. محور افقی را به محور تاریخ تغییر می‌دهد. با فراخوانی [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) برابر `false`، [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) برابر `1` و [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) برابر `TimeUnitType.Months` علامت‌های اصلی را در فواصل یک‌ماهه قرار می‌دهد.
 
 ```java
 import com.aspose.slides.*;
@@ -143,21 +200,21 @@ try {
 }
 ```
 
-## **کنترل فواصل برچسب‌های محور دسته‌ای**
+## **کنترل فواصل برچسب محور دسته**
 
-زمانی که یک نمودار دارای تعداد زیادی دسته باشد، می‌توانید تعداد برچسب‌های قابل مشاهدهٔ محور را بدون حذف دسته‌ها یا نقاط داده کاهش دهید. ابتدا [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) را با مقدار `false` فراخوانی کنید، سپس فواصل دلخواه را با [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-) تعیین کنید. برای دسته‌های متنی در ترتیب عادی، شمارش از اولین دسته آغاز می‌شود:
+هنگامی که یک نمودار دسته‌های زیادی داشته باشد، می‌توانید تعداد برچسب‌های قابل مشاهدهٔ محور را بدون حذف دسته‌ها یا نقاط داده کاهش دهید. با فراخوانی [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) برابر `false`، سپس فاصلهٔ دستهٔ دلخواه را به [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-) بدهید. برای دسته‌های متنی در ترتیب عادی، شمارش از اولین دسته آغاز می‌شود:
 
-| فواصل | برچسب‌های نمایش داده‌شده در مثال |
+| فاصله | برچسب‌های نمایش داده شده در مثال |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | Category 1, Category 2, Category 3, … Category 24 |
+| `2` | Category 1, Category 3, Category 5, … Category 23 |
+| `3` | Category 1, Category 4, Category 7, … Category 22 |
 
-فاصلهٔ `3` هر برچسب سوم را نمایش می‌دهد و دو برچسب بین برچسب‌های نمایش داده‌شده پنهان می‌مانند. این کار ستون‌های مربوطه را حذف نمی‌کند. فاصلهٔ خودکار بر پایهٔ فضای موجود یک بازه انتخاب می‌کند؛ لزوماً همهٔ برچسب‌ها را نشان نمی‌دهد.
+فاصلهٔ `3` هر برچسب سومی را نمایش می‌دهد و دو برچسب دیگر را بین برچسب‌های نمایش داده‌شده مخفی می‌کند. این کار ستون‌های مربوطه را حذف نمی‌کند. فاصلهٔ خودکار بر پایهٔ فضای موجود انتخاب می‌شود و لزوماً تمام برچسب‌ها را نمایش نمی‌دهد.
 
-تیک‌مارک‌ها کنترل جداگانه‌ای دارند. با فراخوانی [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) با مقدار `false` و استفاده از [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) می‌توانید فواصل آن‌ها را تنظیم کنید. برای مثال، مقدار `1` یک تیک‌مارک را در هر فاصلهٔ دسته حفظ می‌کند در حالی که برچسب‌ها فقط هر سومین دسته ظاهر می‌شوند. با استفاده از [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) می‌توانید یک سبک قابل‌مشاهده انتخاب کنید. تنظیم‌کنندهٔ خودکار فواصل را دوباره با مقدار `true` فعال کنید تا نمودار بازهٔ مناسب را مجدداً انتخاب کند.
+علامت‌گذاری‌ها کنترل‌های جداگانه‌ای دارند. با فراخوانی [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) برابر `false` و استفاده از [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) فاصلهٔ آن‌ها را تنظیم کنید. برای مثال، مقدار `1` یک علامت‌گذاری در هر فاصلهٔ دسته نگه می‌دارد در حالی که برچسب‌ها فقط هر سوم دسته نمایش داده می‌شوند. از [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) با یک سبک قابل مشاهده استفاده کنید تا نتیجه را ببینید. بازگرداندن تنظیمات خودکار با تنظیم دوبارهٔ هر دو متد به `true` باعث می‌شود نمودار دوباره فاصلهٔ مناسب را انتخاب کند.
 
-مثال زیر که به‌صورت مستقل عمل می‌کند، ۲۴ دسته و یک سری ایجاد می‌کند و سپس سه اسلاید در `CategoryAxisIntervals.pptx` ذخیره می‌کند: فاصلهٔ خودکار، فاصلهٔ دستی برچسب‌ها با تیک‌مارک‌های مستقل، و بازگرداندن فاصلهٔ خودکار. دو نسخهٔ ذخیره‌شده داده‌های اصلی نمودار را حفظ می‌کنند. ارائهٔ ورودی نیازی نیست. متن برچسب افقی باعث می‌شود تفاوت چگالی به‌راحتی قابل مشاهده باشد.
+مثال خودمختار زیر ۲۴ دسته و یک سری ایجاد می‌کند و سپس سه اسلاید در `CategoryAxisIntervals.pptx` ذخیره می‌کند: فاصلهٔ خودکار، فاصلهٔ دستی برچسب با علامت‌گذاری‌های مستقل، و بازگرداندن فاصلهٔ خودکار. دو نسخهٔ کپی داده‌های اصلی نمودار را حفظ می‌کنند. هیچ ارائهٔ ورودی‌ای لازم نیست. متن برچسب‌های افقی تمایز چگالی را به‌راحتی نشان می‌دهد.
 
 ```java
 import com.aspose.slides.*;
@@ -191,7 +248,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // اسلاید ۲: هر برچسب سوم را نشان بده، اما یک تیک‌مارک برای هر دسته حفظ کن.
+    // اسلاید 2: هر سومین برچسب را نشان دهید، اما یک علامت‌گذاری برای هر دسته حفظ شود.
     ISlide manualSlide = presentation.getSlides().addClone(slide);
     IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
     IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -200,7 +257,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // اسلاید ۳: اجازه بده نمودار دوباره هر دو بازه را انتخاب کند.
+    // اسلاید 3: اجازه دهید نمودار دوباره هر دو بازه را انتخاب کند.
     ISlide restoredSlide = presentation.getSlides().addClone(manualSlide);
     IChart restoredChart = (IChart)restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -212,23 +269,23 @@ try {
 }
 ```
 
-**فاصلهٔ خودکار (اسلاید ۱):** در این رندر، هر دومین برچسب دسته‌ای نمایش داده می‌شود و به دو خط می‌پیچد. نتیجهٔ خودکار ممکن است با اندازهٔ نمودار، فونت‌ها و رندرر متفاوت باشد.
+**فاصلهٔ خودکار (اسلاید 1):** در این رندر، هر دومین برچسب دسته نمایش داده می‌شود و روی دو خط می‌افتد. نتیجهٔ خودکار می‌تواند بسته به اندازهٔ نمودار، قلم‌ها و رندر کننده متفاوت باشد.
 
-![فاصلهٔ خودکار برچسب دسته‌ای با تمام ۲۴ ستون قابل مشاهده](category-axis-automatic.png)
+![فاصلهٔ خودکار برچسب‌های دسته با نمایش تمام ۲۴ ستون](category-axis-automatic.png)
 
-**فاصلهٔ دستی (اسلاید ۲):** هر سومین برچسب در یک خط نمایش داده می‌شود، در حالی که تیک‌مارک‌ها در هر فاصلهٔ دسته باقی می‌مانند. تمام ۲۴ ستون، حتی آن‌هایی که برچسب ندارند، با همان مقادیر قابل مشاهده‌اند. اسلاید ۳ ظاهر خودکار را که در بالا نشان داده شده بازگردانده است.
+**فاصلهٔ دستی (اسلاید 2):** هر سومین برچسب بر روی یک خط نمایش داده می‌شود، در حالی که علامت‌گذاری‌ها در هر فاصلهٔ دسته باقی می‌مانند. تمام ۲۴ ستون، شامل ستون‌های بدون برچسب، با همان مقادیر قابل مشاهده‌اند. اسلاید ۳ ظاهر خودکار را بازمی‌گرداند.
 
-![فاصلهٔ دستی برچسب دسته‌ای به مقدار سه با تمام ۲۴ ستون قابل مشاهده](category-axis-manual.png)
+![فاصلهٔ دستی برچسب‌های دسته به مقدار سه با نمایش تمام ۲۴ ستون](category-axis-manual.png)
 
 ### **انتخاب محور و فاصلهٔ صحیح**
 
-از این بازهٔ شمارش دسته برای یک محور دسته‌ای متنی استفاده کنید، مانند محور دسته‌ای یک نمودار ستون، خط، مساحت یا میله‌ای. در نمودار ستون، این محور افقی است. در نمودار میله‌ای افقی، محور دسته‌ای عمودی است، بنابراین این تنظیمات را بر روی محوری که توسط [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) برگردانده می‌شود اعمال کنید. فاصلهٔ تیک‌مارک همچنین برای محور سری در نمودارهایی که یکی دارند قابل‌استفاده است.
+از این فاصلهٔ شمارش دسته برای یک محور دستهٔ متنی، مانند محور دستهٔ نمودار ستونی، خطی، مساحتی یا میله‌ای استفاده کنید. در یک نمودار ستونی، این محور افقی است. در یک نمودار میله‌ای افقی، محور دسته عمودی است، بنابراین این تنظیمات را بر روی محوری که توسط [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) بازگردانده می‌شود اعمال کنید. فاصلهٔ علامت‌گذاری همچنین برای محور سری در نمودارهایی که یک محور سری دارند اعمال می‌شود.
 
-از فاصلهٔ برچسب دسته‌ای برای تنظیم مقیاس عددی یک محور مقدار استفاده نکنید. در یک محور مقدار، [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) اختلافی در مقادیر تعیین می‌کند: به عنوان مثال، یک واحد اصلی `10` تیک‌هایی در ۰، ۱۰، ۲۰ و غیره ایجاد می‌کند وقتی محور از صفر شروع شود. یک فاصلهٔ برچسب دسته‌ای `3` به‌جای مقادیر داده‌ای، موقعیت‌های دسته‌ای را می‌شمارد. نمودارهای پراکنده و حبابی از محورهای مقدار استفاده می‌کنند نه از محور دسته‌ای متنی. برای محور تاریخ، از واحدهای اصلی زمان‌محور و مقیاس‌های توصیف‌شده در [تغییر محور دسته‌ای](#change-a-category-axis) استفاده کنید.
+از فاصلهٔ برچسب دسته برای تنظیم مقیاس عددی محور مقدار استفاده نکنید. در یک محور مقدار، [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) اختلافی در مقادیر را تعیین می‌کند: به‌عنوان مثال، مقدار اصلی `10` علامت‌گذاری‌هایی در ۰، ۱۰، ۲۰ و غیره تولید می‌کند هنگامی که محور از صفر آغاز می‌شود. فاصلهٔ برچسب دستهٔ `3` به‌جای مقادیر، موقعیت‌های دسته‌ای را می‌شمارد. نمودارهای پراکندگی و حبابی از محورهای مقدار استفاده می‌کنند نه محور دستهٔ متنی. برای محور تاریخ، از واحدهای اصلی و مقیاس‌های مبتنی بر زمان همان‌طور که در [تغییر محور دسته](#change-a-category-axis) توضیح داده شد، استفاده کنید.
 
-## **تنظیم قالب تاریخ برای مقادیر محور دسته‌ای**
+## **تنظیم قالب تاریخ برای مقادیر محور دسته**
 
-این مثال داده‌های پیش‌فرض نمودار را با چهار مقدار سالانه جایگزین می‌کند. تاریخ‌ها به‌صورت شماره‌های سریال OLE Automation در اولین ورک‌شیٹ (اندیس `0`) ذخیره می‌شوند که به‌عنوان تعداد روزهای سپری شده از ۳۰ دسامبر ۱۸۹۹ محاسبه می‌شوند. هر دو تقویم از UTC استفاده می‌کنند و پیش از تنظیم تاریخ‌ها پاک می‌شوند تا تغییر ساعت تابستانی و زمان فعلی روز تأثیری نداشته باشد. با استفاده از [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) مقدار `CategoryAxisType.Date`، سپس [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) را با `false` فراخوانی کنید و `yyyy` را به [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) بدهید تا برچسب‌های دسته چهار رقم سال را صرف‌نظر از قالب سلول نمایش دهند.
+این مثال داده‌های پیش‌فرض نمودار را با چهار مقدار سالانه جایگزین می‌کند. تاریخ‌ها به‌عنوان شماره‌های سریال OLE Automation در اولین برگه کاری (اندیس `0`) ذخیره می‌شوند؛ این عددها تعداد روزهای گذشته از ۳۰ دسامبر ۱۸۹۹ را نشان می‌دهند. هر دو تقویم به UTC تنظیم شده‌اند و قبل از تنظیم تاریخ‌ها پاک می‌شوند تا ذخیرهٔ ساعت تابستانی و زمان فعلی بر محاسبه تأثیر نگذارند. با استفاده از [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) برابر `CategoryAxisType.Date`، [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) برابر `false` و عبور `yyyy` به [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) برچسب‌های دسته را به‌صورت سال‌های چهاررقمی، صرف‌نظر از قالب سلول، نمایش می‌دهد.
 
 ```java
 import com.aspose.slides.*;
@@ -278,7 +335,7 @@ try {
 
 ## **تنظیم زاویهٔ چرخش برای عنوان محور نمودار**
 
-برای محور عمودی، [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) را با مقدار `true` فراخوانی کنید، متن عنوان را فراهم کنید و با [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) زاویهٔ چرخش را تنظیم کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود؛ این مثال یک نمودار ستون را با عنوان محور مقدار که به‌صورت ۹۰ درجه چرخانده شده ذخیره می‌کند.
+با فراخوانی [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) برابر `true` روی محور عمودی، متن عنوان را تعیین کنید و با [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) زاویهٔ چرخش را تنظیم کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود؛ این مثال یک نمودار ستونی را با عنوان محور مقدار چرخیده به اندازهٔ ۹۰ درجه ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -298,9 +355,9 @@ try {
 }
 ```
 
-## **تنظیم موقعیت محور در محور دسته‌ای یا مقدار**
+## **تنظیم موقعیت محور بر روی یک محور دسته یا مقدار**
 
-برای کنترل اینکه آیا محور مقدار در بین دسته‌ها یا روی تیک‌مارک‌های دسته عبور می‌کند از [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) استفاده کنید. این تنظیم برای محورهای دسته‌ای اعمال می‌شود. مثال این ویژگی را روی محور دسته‌ای افقی یک نمودار ستون با مقدار `true` تنظیم کرده و نتیجه را ذخیره می‌کند.
+با استفاده از [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) کنترل کنید که محور مقدار آیا بین دسته‌ها یا بر روی علامت‌گذاری‌های دسته عبور کند. این تنظیم برای محورهای دسته اعمال می‌شود. مثال این ویژگی را بر روی محور دستهٔ افقی یک نمودار ستونی برابر `true` قرار می‌دهد و نتیجه را ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -318,9 +375,9 @@ try {
 }
 ```
 
-## **تنظیم واحد نمایش در محور مقدار نمودار**
+## **تنظیم واحد نمایش بر روی محور مقدار نمودار**
 
-برای مقیاس‌بندی برچسب‌های یک محور مقدار بدون تغییر داده‌های پایه از [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) استفاده کنید. با تنظیم [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) به `Millions`، مقدار ۶۰٬۰۰۰٬۰۰۰ به صورت ۶۰ نمایش داده می‌شود. این مثال یک نمودار ستون ایجاد کرده و واحد نمایش «میلیون‌ها» را بر روی محور عمودی اعمال می‌کند.
+با استفاده از [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) می‌توانید برچسب‌های محور مقدار را بدون تغییر داده‌های زیرین مقیاس‌بندی کنید. با تنظیم [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) برابر `Millions`، مقدار 60 000 000 به صورت 60 نمایش داده می‌شود. مثال یک نمودار ستونی ایجاد می‌کند و واحد نمایش میلیون را بر روی محور عمودی آن اعمال می‌نماید.
 
 ```java
 import com.aspose.slides.*;
@@ -340,19 +397,19 @@ try {
 
 ## **پیکربندی محور مقدار لگاریتمی**
 
-یک محور مقدار لگاریتمی زمانی مفید است که مقادیر مثبت در چندین مقیاس مختلف قرار داشته باشند. به‌عنوان مثال، ممکن است یک سرویس در پنج دورهٔ زمانی ۱۰، ۱۰۰، ۱٬۰۰۰، ۱۰٬۰۰۰ و ۱۰۰٬۰۰۰ درخواست دریافت کند. در مقیاس خطی، مقادیر کوچکتر نزدیک به صفر به‌هم می‌چسبند. مقیاس لگاریتمی رشد نسبی آن‌ها را به‌صورت برابر توزیع می‌کند: فواصل مساوی نمایانگر نسبت‌های مساوی هستند نه اختلاف‌های عددی.
+یک محور مقدار لگاریتمی زمانی مفید است که مقادیر مثبت در چندین مرتبهٔ بزرگی متفاوت باشند. به‌عنوان مثال، یک سرویس ممکن است در طول پنج دوره ۱۰، ۱۰۰، ۱ ۰۰۰، ۱۰ ۰۰۰ و ۱۰۰ ۰۰۰ درخواست دریافت کند. در مقیاس خطی، مقادیر کوچکتر نزدیک به صفر گروه‌بندی می‌شوند. مقیاس لگاریتمی رشد نسبی آن‌ها را آسان‌تر مقایسه می‌کند: فواصل برابر نشان‌دهندهٔ نسبت‌های برابر هستند نه اختلاف‌های برابر.
 
-با فراخوانی [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-) مقدار `true` بر روی محور مقدار و استفاده از [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-) می‌توانید پایه را انتخاب کنید. این کار نحوهٔ نمایش مقادیر موجود را تغییر می‌دهد؛ داده‌ها یا خط روند لگاریتمی را اضافه نمی‌کند. خط روند یک ویژگی جداگانه است که رابطهٔ برازش شده در داده‌ها را نشان می‌دهد.
+با فراخوانی [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-) برابر `true` روی محور مقدار و استفاده از [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-) پایهٔ دلخواه را انتخاب کنید. این کار نحوهٔ نمایش مقادیر موجود را تغییر می‌دهد؛ داده‌ها یا خط روند لگاریتمی اضافه نمی‌کند. خط روند یک ویژگی جداگانه است.
 
 ### **انتخاب محور مقدار و پایه**
 
-برای یک نمودار خط یا ستون، محور مقدار توسط [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) برگردانده می‌شود. برای یک نمودار میله‌ای افقی، محور مقدار توسط [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) برگردانده می‌شود. نمودارهای پراکنده و حبابی دو محور مقدار دارند، بنابراین می‌توانید محور افقی را برای مقادیر X، محور عمودی را برای مقادیر Y یا هر دو استفاده کنید. مقیاس لگاریتمی را روی محور دسته‌ای اعمال نکنید.
+برای یک نمودار خطی یا ستونی، محور مقدار توسط [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) بازگردانده می‌شود. برای یک نمودار میله‌ای افقی، از [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) استفاده کنید. نمودارهای پراکندگی و حبابی دو محور مقدار دارند، پس برای مقادیر X محور افقی و برای مقادیر Y محور عمودی یا هر دو را می‌توانید انتخاب کنید. مقیاس لگاریتمی را روی محور دسته اعمال نکنید.
 
-پایه پیش‌فرض لگاریتمی `10` است. برای نمودارهای PPTX می‌توانید پایه‌ای بین `2` تا `1000` (شامل) استفاده کنید؛ پایه‌های کسری مانند `2.5` نیز پشتیبانی می‌شوند. با پایه `10` توان‌های متوالی مانند 10، 100، 1٬000 و 10٬000 به‌صورت مساوی فاصله دارند.
+پایهٔ پیش‌فرض لگاریتمی `10` است. برای نمودارهای PPTX می‌توانید پایه‌ای بین `2` تا `1000` (دربرگیرنده) استفاده کنید؛ پایه‌های کسری مانند `2.5` نیز پشتیبانی می‌شوند. با پایهٔ `10` توان‌های متوالی 10، 100، 1 000 و 10 000 به‌صورت مساوی فاصله‌دار هستند.
 
-### **مقایسه مقیاس خطی و لگاریتمی**
+### **مقایسهٔ مقیاس خطی و لگاریتمی**
 
-مثال زیر که به‌صورت مستقل کار می‌کند، یک نمودار خطی با پنج شمارش درخواست در اسلاید اول ایجاد می‌کند، سپس آن اسلاید را کپی کرده و در اسلاید دوم محور مقدار لگاریتمی پایه‑10 را فعال می‌کند. هر دو اسلاید داده‌های یکسانی را حفظ می‌کنند.
+مثال خودمختار زیر یک نمودار خطی با پنج شمارش درخواست در اسلاید اول ایجاد می‌کند، سپس آن اسلاید را کپی می‌کند و در اسلاید دوم یک محور مقدار لگاریتمی با پایهٔ 10 فعال می‌نماید. هر دو اسلاید همان داده‌ها را حفظ می‌کنند.
 
 ```java
 import com.aspose.slides.*;
@@ -382,7 +439,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // اسلاید اول را خطی نگه دارید و تنها مقیاس محور مقدار نسخهٔ کپی را تغییر دهید.
+    // اسلاید اول را خطی نگه دارید و تنها مقیاس محور مقدار نسخهٔ کپی شده را تغییر دهید.
     ISlide logarithmicSlide = presentation.getSlides().addClone(slide);
     IChart logarithmicChart = (IChart)logarithmicSlide.getShapes().get_Item(0);
     IAxis valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -395,24 +452,24 @@ try {
 }
 ```
 
-**مقیاس خطی (اسلاید ۱):** فواصل عمودی مساوی نشان‌دهندهٔ اختلاف‌های مساوی در شمارش درخواست‌ها هستند. بزرگ‌ترین مقدار نمودار را اشباع می‌کند و مقادیر کوچکتر دشوار به‌نظر می‌رسند.
+**مقیاس خطی (اسلاید 1):** فواصل عمودی برابر نشان‌دهندهٔ اختلاف‌های مساوی در شمارش درخواست‌ها هستند. بزرگ‌ترین مقدار dominate نمودار را می‌گیرد و مقادیر کوچکتر را تشخیص دشوار می‌سازد.
 
-![نمودار خطی در PowerPoint که پنج شمارش درخواست را بر روی محور مقدار خطی نشان می‌دهد](value-axis-linear.png)
+![نمودار خطی در پاورپوینت که پنج شمارش درخواست را روی محور مقدار خطی نشان می‌دهد](value-axis-linear.png)
 
-**مقیاس لگاریتمی (اسلاید ۲):** فواصل عمودی مساوی نشان‌دهندهٔ نسبت‌های مساوی هستند. هر دوره درخواست‌ها ده برابر دورهٔ قبلی دارد، بنابراین نقاط در مقیاس پایه‑10 یک خط صعودی مستقیم تشکیل می‌دهند. برچسب‌های محور هنوز مقادیر اصلی درخواست‌ها را نشان می‌دهند.
+**مقیاس لگاریتمی (اسلاید 2):** فواصل عمودی برابر نمایانگر نسبت‌های مساوی هستند. هر دوره ده برابر دورهٔ قبلی درخواست دارد، بنابراین نقاط روی مقیاس پایهٔ 10 یک خط صعودی مستقیم می‌سازند. برچسب‌های محور هنوز مقادیر اصلی درخواست را نشان می‌دهند.
 
-![همان پنج شمارش درخواست در PowerPoint بر روی یک محور مقدار لگاریتمی پایه‑10](value-axis-logarithmic.png)
+![پنج شمارش درخواست یکسان در پاورپوینت روی محور مقدار لگاریتمی با پایهٔ 10](value-axis-logarithmic.png)
 
 ### **مدیریت مقادیر صفر و منفی**
 
-مقیاس لگاریتمی فقط مقادیر مثبت صریح را می‌تواند نمایش دهد. قبل از فعال‌سازی آن داده‌ها را بررسی کنید. اگر مقادیر صفر یا منفی معنی‌دار هستند، مقیاس خطی را حفظ کنید یا آنها را جداگانه نشان دهید. اگر حذف این مقادیر برای تحلیل مناسب است، دلیل حذف را توضیح دهید. به‌صورت خاموش آن‌ها را با عددهای مثبت کوچک جایگزین نکنید، زیرا معنا را تغییر می‌دهد. هر مقدار حداقل یا حداکثر به‌صورت دستی تنظیم‌شده برای یک محور لگاریتمی نیز باید مثبت باشد.
+مقیاس لگاریتمی فقط مقادیر مثبت صریح را نمایش می‌دهد. قبل از فعال‌سازی آن داده‌ها را بررسی کنید. اگر مقادیر صفر یا منفی معنا داشته باشند، از مقیاس خطی استفاده کنید یا آنها را به‌صورت جداگانه نمایش دهید. اگر حذف این مقادیر برای تحلیل مناسب است، دلیل حذف را توضیح دهید. به‌صورت ساکن آنها را با عددهای کوچک مثبت جایگزین نکنید، چون معنای داده را تغییر می‌دهد. هر حداقل یا حداکثر به‌صورت دستی تنظیم‌شده برای یک محور لگاریتمی نیز باید مثبت باشد.
 
 ## **پرسش‌های متداول**
 
-**چگونه مقدار نقطهٔ تقاطع یک محور با محور دیگر (crossing) را تنظیم کنم؟**
+**چگونه مقدار عبور یک محور را نسبت به محور دیگر تنظیم کنم (crossing)؟**
 
-از [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) برای انتخاب رفتار تقاطع استفاده کنید. برای تعیین مقدار عددی تقاطع، از [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) استفاده کنید. این تنظیمات به شما امکان می‌دهد تقاطع محور را به خط مبنای مناسب منتقل کنید.
+از [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) برای انتخاب رفتار عبور استفاده کنید. برای مشخص کردن مقدار عددی عبور، از [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) استفاده کنید. این تنظیمات به شما اجازه می‌دهند عبور محور را به یک مرجع مناسب منتقل کنید.
 
-**چگونه می‌توانم برچسب‌های تیک را نسبت به محور موقعیت‌دهی کنم؟**
+**چگونه می‌توان موقعیت برچسب‌های علامت‌گذاری را نسبت به محور تنظیم کرد؟**
 
-با فراخوانی [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) و استفاده از [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/) مقادیر `Low`، `High`، `NextTo` یا `None` موقعیت برچسب‌ها را تنظیم کنید. برای کنترل خود تیک‌مارک‌ها، از [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) یا [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-) استفاده کنید؛ این تنظیمات جدا از موقعیت‌دهی برچسب‌ها هستند.
+با فراخوانی [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) و استفاده از [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, یا `None`. برای کنترل خود علامت‌گذاری‌ها، از [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) یا [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-) استفاده کنید؛ این‌ها جدا از موقعیت برچسب‌ها هستند.

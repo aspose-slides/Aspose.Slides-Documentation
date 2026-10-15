@@ -15,24 +15,24 @@ keywords:
 - ค่าต่ำสุด
 - เส้นแกน
 - รูปแบบวันที่
-- ชื่อแกน
+- หัวข้อแกน
 - ตำแหน่งแกน
 - PowerPoint
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ค้นพบวิธีใช้ Aspose.Slides สำหรับ .NET เพื่อปรับแต่งแกนแผนภูมิในงานนำเสนอ PowerPoint สำหรับรายงานและการแสดงภาพ"
+description: "ค้นพบวิธีใช้ Aspose.Slides สำหรับ .NET เพื่อปรับแต่งแกนแผนภูมิในงานนำเสนอ PowerPoint สำหรับรายงานและการแสดงผล"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีปรับแต่งแกนของแผนภูมิด้วย Aspose.Slides for .NET ครอบคลุมค่าที่คำนวณได้ของแกน การสลับแถวและคอลัมน์ของแผนภูมิ การแสดงหรือซ่อนแกน ป้ายชื่อประเภทและช่วงของเครื่องหมายระดับวันที่ การจัดรูปแบบวันที่ การหมุนชื่อเรื่อง การกำหนดตำแหน่งแกน หน่วยการแสดงผล และการสเกลเชิงลอการิทึม
+บทความนี้อธิบายวิธีการปรับแต่งแกนของแผนภูมิด้วย Aspose.Slides for .NET ครอบคลุมค่าที่คำนวณได้ของแกน การสลับแถวและคอลัมน์ของแผนภูมิ การแสดงหรือซ่อนแกน ช่วงเวลาระหว่างป้ายชื่อหมวดและเครื่องหมายติ๊ก การจัดรูปแบบและประเภทของหมวดวันที่ การหมุนหัวข้อ การกำหนดตำแหน่งของแกน หน่วยแสดงผล และการปรับสเกลแบบลอการิทึม
 
-## **รับค่ามากสุดบนแกนแนวตั้งของแผนภูมิ**
+## **รับค่ามากที่สุดบนแกนแนวตั้งในแผนภูมิ**
 
-สร้าง [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) และเพิ่มแผนภูมิพื้นที่พร้อมข้อมูลเริ่มต้น เรียกใช้ [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/validatechartlayout/) ก่อนอ่านค่าที่คำนวณได้ของแกน เพื่อให้การจัดวางแผนภูมิมีการอัปเดตล่าสุด
+สร้าง a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) และเพิ่มแผนภูมิแบบพื้นที่ด้วยข้อมูลค่าเริ่มต้น เรียกใช้ [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/validatechartlayout/) ก่อนอ่านค่าที่คำนวณได้ของแกนเพื่อให้การจัดวางแผนภูมิเป็นปัจจุบัน
 
-อ่าน [ActualMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmaxvalue/) และ [ActualMinValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminvalue/) สำหรับขอบเขตของแกน และ [ActualMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunit/) และ [ActualMinorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunit/) สำหรับช่วงของเครื่องหมายระดับ [ActualMajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunitscale/) และ [ActualMinorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunitscale/) จะให้สเกลหน่วยเวลา ซึ่งสำคัญต่อแกนวันที่ ตัวอย่างจะจัดเก็บค่าเหล่านี้ในตัวแปรท้องถิ่นและบันทึกแผนภูมิ
+อ่าน [ActualMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmaxvalue/) และ [ActualMinValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminvalue/) สำหรับขอบเขตของแกน และ [ActualMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunit/) และ [ActualMinorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunit/) สำหรับช่วงของเครื่องหมายติ๊ก [ActualMajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunitscale/) และ [ActualMinorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunitscale/) ให้สเกลหน่วยเวลา ซึ่งเกี่ยวข้องกับแกนวันที่ ตัวอย่างจะเก็บค่าต่าง ๆ ลงในตัวแปรท้องถิ่นและบันทึกแผนภูมิ
 
 ```csharp
 using Aspose.Slides;
@@ -59,7 +59,7 @@ presentation.Save("AxisValues_out.pptx", SaveFormat.Pptx);
 
 ## **สลับข้อมูลระหว่างแกน**
 
-ใช้ [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) เพื่อสลับบทบาทของชุดข้อมูลและประเภทในข้อมูลแผนภูมิ แต่ละประเภทก่อนหน้า จะกลายเป็นชุดข้อมูล และแต่ละชุดข้อมูลก่อนหน้า จะกลายเป็นประเภท สิ่งนี้จะเปลี่ยนวิธีการจัดกลุ่มข้อมูล; ไม่ได้สลับแกนแนวนอนกับแนวตั้ง ตัวอย่างใช้ [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setrange/) เพื่อผูกข้อมูลเริ่มต้นกับ `Sheet1!A1:D5` รวมถึงแถวหัวและคอลัมน์ประเภท ก่อนสลับแถวและคอลัมน์ จากนั้นบันทึกแผนภูมิที่มีสี่ชุดข้อมูลและสามประเภท
+ใช้ [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) เพื่อสลับบทบาทของชุดข้อมูลและหมวดในข้อมูลแผนภูมิ หมวดเดิมจะกลายเป็นชุดข้อมูลและชุดข้อมูลเดิมจะกลายเป็นหมวด ซึ่งเปลี่ยนวิธีการจัดกลุ่มข้อมูล แต่ไม่สลับแกนแนวนอนและแนวตั้ง ตัวอย่างใช้ [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setrange/) เพื่อตั้งค่าช่วงข้อมูลเริ่มต้นเป็น `Sheet1!A1:D5` รวมแถวหัวและคอลัมน์หมวดก่อนสลับแถวและคอลัมน์ และบันทึกแผนภูมิโดยมีสี่ชุดข้อมูลและสามหมวด
 
 ```csharp
 using Aspose.Slides;
@@ -77,9 +77,65 @@ chart.ChartData.SwitchRowColumn();
 presentation.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 ```
 
+## **ย้อนลำดับการพล็อตของแกน**
+
+ใช้ [IsPlotOrderReversed](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isplotorderreversed/) เพื่อย้อนลำดับของแกนหมวดหรือค่าตัวอย่างเช่น แผนภูมิแท่งแนวนอนสามารถแสดงขั้นตอนของโครงการจากบนลงล่างตามลำดับในแผ่นงาน: Planning, Development, Testing การย้อนลำดับแกนจะเปลี่ยนทิศทางการพล็อต ไม่ได้จัดเรียงหรือเปลี่ยนแปลงข้อมูลในเวิร์กบุ๊ก โดยเปรียบเทียบกับ [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) ที่สลับบทบาทของชุดข้อมูลและหมวด
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิแท่งแนวนอนที่มีสามขั้นตอนและหนึ่งชุดข้อมูล โดยบันทึกงานนำเสนอสามสไลด์: ลำดับปกติ, หมวดย้อนลำดับ, และค่าย้อนลำดับ แต่ละสำเนาใช้ชุดข้อมูลเดียวกันและมีการย้อนลำดับของแกนเพียงหนึ่งแกนเท่านั้น
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredBar, 50, 40, 620, 320);
+chart.HasLegend = false;
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.ClusteredBar);
+var stages = new[] { "Planning", "Development", "Testing" };
+var values = new[] { 10, 30, 20 };
+for (var i = 0; i < stages.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, stages[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+}
+
+// สไลด์ 2: แสดงหมวดแรกที่บนสุด.
+var categorySlide = presentation.Slides.AddClone(slide);
+var categoryChart = (IChart)categorySlide.Shapes[0];
+categoryChart.Axes.VerticalAxis.IsPlotOrderReversed = true;
+// คงแกนค่าตามแนวนอนไว้ที่ด้านล่าง.
+categoryChart.Axes.VerticalAxis.CrossType = CrossesType.Maximum;
+
+// สไลด์ 3: พลิกเฉพาะสเกลเชิงตัวเลขแนวนอนเท่านั้น.
+var valueSlide = presentation.Slides.AddClone(slide);
+var valueChart = (IChart)valueSlide.Shapes[0];
+valueChart.Axes.HorizontalAxis.IsPlotOrderReversed = true;
+
+presentation.Save("ReversedAxes.pptx", SaveFormat.Pptx);
+```
+
+การย้อนลำดับแกนยังสามารถย้ายแกนตั้งฉากไปด้านตรงข้ามของพื้นที่พล็อตได้ [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) ควบคุมตำแหน่งที่แกนอื่นตัดกับแกนที่กำลังกำหนดค่า ในสไลด์ 2 การตั้งค่าเป็น `Maximum` บนแกนหมวดที่ย้อนลำดับทำให้แกนค่าตั้งแนวนอนอยู่ที่ด้านล่าง สำหรับจุดตัดที่เฉพาะเจาะจง ให้ใช้ [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/) ตรวจสอบการตั้งค่าการตัดขวางเมื่อเปลี่ยนทิศทางโดยเฉพาะอย่างยิ่งหากแผนภูมิมีจุดตัดที่กำหนดเองแล้ว ตั้งค่า `IsPlotOrderReversed` กลับเป็น `false` เพื่อคืนทิศทางการพล็อตปกติ การตั้งค่าการตัดขวางเป็นเรื่องที่แยกจากกัน
+
+| ลำดับปกติ (สไลด์ 1) | หมวดย้อนลำดับ (สไลด์ 2) | ค่ากลับลำดับ (สไลด์ 3) |
+| --- | --- | --- |
+| ![แผนภูมิแท่งแนวนอนที่มีลำดับแกนหมวดและค่าแบบปกติ](axis-order-normal.png) | ![แผนภูมิแท่งแนวนอนที่แสดงหมวดจากบนลงล่าง](axis-order-categories-reversed.png) | ![แผนภูมิแท่งแนวนอนที่มีแกนค่าย้อนลำดับและศูนย์อยู่ด้านขวา](axis-order-values-reversed.png) |
+| หมวดวิ่งจากล่างขึ้นบน; ค่าเพิ่มจากซ้ายไปขวา. | Planning, Development, และ Testing วิ่งจากบนลงล่าง. ค่าและลำดับแถวในเวิร์กบุ๊กไม่เปลี่ยน. | หมวดยังคงลำดับปกติ; ค่าหน่วยเพิ่มจากขวาไปซ้าย. แกนหมวดตัดที่ศูนย์ด้านขวา. |
+
 ## **ซ่อนแกนแนวตั้งสำหรับแผนภูมิเส้น**
 
-ตั้งค่า [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) เป็น `false` บนแกนแนวตั้งเพื่อซ่อน แสดงตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้นและบันทึกโดยซ่อนแกนแนวตั้ง
+ตั้งค่า [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) เป็น `false` บนแกนแนวตั้งเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลค่าเริ่มต้นและบันทึกโดยซ่อนแกนแนวตั้ง
 
 ```csharp
 using Aspose.Slides;
@@ -97,7 +153,7 @@ presentation.Save("HiddenVerticalAxis.pptx", SaveFormat.Pptx);
 
 ## **ซ่อนแกนแนวนอนสำหรับแผนภูมิเส้น**
 
-ตั้งค่า [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) เป็น `false` บนแกนแนวนอนเพื่อซ่อน แสดงตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้นและบันทึกโดยซ่อนแกนแนวนอน
+ตั้งค่า [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) เป็น `false` บนแกนแนวนอนเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลค่าเริ่มต้นและบันทึกโดยซ่อนแกนแนวนอน
 
 ```csharp
 using Aspose.Slides;
@@ -113,9 +169,9 @@ chart.Axes.HorizontalAxis.IsVisible = false;
 presentation.Save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 ```
 
-## **เปลี่ยนแกนประเภท**
+## **เปลี่ยนแกนหมวด**
 
-ตั้งค่า [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) เพื่อเลือกแกนประเภทแบบวันที่หรือข้อความ ตัวอย่างนี้ต้องใช้ `ExistingChart.pptx` โดยแผนภูมิเป็นรูปร่างแรกบนสไลด์แรกและเซลล์ประเภทมีค่าตัวเลขของวันที่ Excel จะเปลี่ยนแกนแนวนอนเป็นแกนวันที่ การตั้งค่า [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) เป็น `false` , [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) เป็น `1` และ [MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) เป็น months จะวางเครื่องหมายระดับหลักที่ช่วงหนึ่งเดือน
+ตั้งค่า [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) เพื่อเลือกแกนหมวดเป็นวันที่หรือข้อความ ตัวอย่างนี้ต้องการไฟล์ `ExistingChart.pptx` โดยมีแผนภูมิเป็นรูปทรงแรกบนสไลด์แรกและเซลล์หมวดมีค่าตาราง Excel เป็นวันที่แบบตัวเลข จะเปลี่ยนแกนแนวนอนเป็นแกนวันที่ การตั้งค่า [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) เป็น `false` , [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) เป็น `1` และ [MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) เป็น months จะวางเครื่องหมายหลักที่ช่วงหนึ่งเดือน
 
 ```csharp
 using System;
@@ -135,21 +191,21 @@ chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
 presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 ```
 
-## **ควบคุมช่วงป้ายชื่อแกนประเภท**
+## **ควบคุมช่วงเวลาป้ายชื่อแกนหมวด**
 
-เมื่อแผนภูมิมีหลายประเภท ให้ลดจำนวนป้ายชื่อแกนที่มองเห็นได้โดยไม่ลบประเภทหรือจุดข้อมูลออก ตั้งค่า [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) เป็น `false` แล้วตั้งค่า [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) เป็นช่วงประเภทที่ต้องการ สำหรับประเภทข้อความในลำดับปกติ การนับเริ่มจากประเภทแรก:
+เมื่อแผนภูมิมีหมวดจำนวนมาก ให้ลดจำนวนป้ายชื่อแกนที่แสดงโดยไม่ต้องลบหมวดหรือจุดข้อมูล ตั้งค่า [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) เป็น `false` แล้วตั้งค่า [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) เป็นช่วงหมวดที่ต้องการ สำหรับหมวดข้อความในลำดับปกติ การนับจะเริ่มจากหมวดแรก:
 
-| Interval | Labels displayed in the example |
+| ช่วง | ป้ายชื่อที่แสดงในตัวอย่าง |
 | --- | --- |
-| `1` | หมวด 1, หมวด 2, หมวด 3, ... หมวด 24 |
-| `2` | หมวด 1, หมวด 3, หมวด 5, ... หมวด 23 |
-| `3` | หมวด 1, หมวด 4, หมวด 7, ... หมวด 22 |
+| `1` | หมวด 1, หมวด 2, หมวด 3, … หมวด 24 |
+| `2` | หมวด 1, หมวด 3, หมวด 5, … หมวด 23 |
+| `3` | หมวด 1, หมวด 4, หมวด 7, … หมวด 22 |
 
-ช่วง `3` จะทำให้แสดงป้ายชื่อทุกสามตำแหน่ง โดยเหลือสองป้ายอยู่เบื้องหลัง ช่วงนี้ไม่ได้ลบคอลัมน์ที่เกี่ยวข้องออก การเว้นระยะอัตโนมัติจะเลือกช่วงตามพื้นที่ที่มีอยู่; ไม่ได้บังคับให้แสดงป้ายทั้งหมดเสมอ
+ช่วง `3` จะแสดงทุกป้ายชื่อที่สามโดยเว้นสองป้ายชื่อระหว่างที่แสดง ไม่ได้ลบคอลัมน์ที่สอดคล้องกัน การจัดช่องว่างอัตโนมัติจะเลือกช่วงตามพื้นที่ว่างที่มี ไม่ได้จำเป็นต้องแสดงทุกป้ายชื่อ
 
-เครื่องหมายระดับมีการควบคุมแยกกัน ตั้งค่า [IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomatictickmarksspacing/) เป็น `false` แล้วใช้ [TickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/tickmarksspacing/) เพื่อตั้งค่าช่วงของมัน ตัวอย่างเช่น `1` จะทำให้มีเครื่องหมายระดับที่ทุกช่วงประเภท แม้ว่าป้ายชื่อจะแสดงเพียงทุกสามประเภทเท่านั้น ตั้งค่า [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majortickmark/) ให้เป็นสไตล์ที่มองเห็นได้เพื่อดูผลลัพธ์ การตั้งค่าคุณสมบัติระยะอัตโนมัติใด ๆ กลับเป็น `true` จะทำให้แผนภูมือเลือกช่วงนั้นใหม่อีกครั้ง
+เครื่องหมายติ๊กมีการควบคุมแยกกัน ตั้งค่า [IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomatictickmarksspacing/) เป็น `false` แล้วใช้ [TickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/tickmarksspacing/) เพื่อตั้งค่าช่วงของมัน ตัวอย่างเช่น `1` จะวางเครื่องหมายติ๊กที่ทุกช่วงหมวดในขณะที่ป้ายชื่อปรากฏเพียงทุกหมวดที่สาม ตั้งค่า [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majortickmark/) ให้เป็นสไตล์ที่มองเห็นได้เพื่อให้เห็นผล การตั้งค่าคุณสมบัติเชิงอัตโนมัติใด ๆ กลับเป็น `true` จะให้แผนภูมิกำหนดช่วงนั้นใหม่อีกครั้ง
 
-ตัวอย่างอิสระต่อไปนี้สร้าง 24 ประเภทและหนึ่งชุดข้อมูล จากนั้นบันทึกสามสไลด์ใน `CategoryAxisIntervals.pptx`: การเว้นระยะอัตโนมัติ, การเว้นระยะแบบแมนนวลพร้อมเครื่องหมายระดับอิสระ, และการคืนค่าเป็นการเว้นระยะอัตโนมัติ สองสำเนารักษาข้อมูลแผนภูมิดั้งเดิม ไม่จำเป็นต้องมีการนำเข้าผลการนำเสนอ ข้อความป้ายแนวนอนทำให้ความหนาแน่นที่แตกต่างกันเห็นได้ง่าย
+ตัวอย่างต่อไปนี้สร้างหมวด 24 หมวดและหนึ่งชุดข้อมูล แล้วบันทึกสไลด์สามสไลด์ในไฟล์ `CategoryAxisIntervals.pptx`: การจัดช่องว่างอัตโนมัติ, การจัดช่องว่างป้ายชื่อด้วยเครื่องหมายติ๊กอิสระ,และการคืนค่าเป็นอัตโนมัติ สำเนาสองฉบับเก็บข้อมูลแผนภูมิดั้งเดิม ไม่จำเป็นต้องมีงานนำเข้าพรีเซนเทชัน ข้อความป้ายชื่อแนวนอนทำให้เห็นความหนาแน่นได้ชัดเจน
 
 ```csharp
 using Aspose.Slides;
@@ -185,7 +241,7 @@ axis.MajorTickMark = TickMarkType.Outside;
 axis.IsAutomaticTickLabelSpacing = true;
 axis.IsAutomaticTickMarksSpacing = true;
 
-// สไลด์ 2: แสดงทุกป้ายชื่อที่สาม แต่คงเครื่องหมายระดับสำหรับทุกประเภท.
+// สไลด์ 2: แสดงทุกป้ายชื่อที่สาม แต่คงเครื่องหมายติ๊กสำหรับทุกหมวด.
 var manualSlide = presentation.Slides.AddClone(slide);
 var manualChart = (IChart)manualSlide.Shapes[0];
 var manualAxis = manualChart.Axes.HorizontalAxis;
@@ -194,7 +250,7 @@ manualAxis.TickLabelSpacing = 3;
 manualAxis.IsAutomaticTickMarksSpacing = false;
 manualAxis.TickMarksSpacing = 1;
 
-// สไลด์ 3: ให้แผนภูมิเลือกช่วงทั้งสองอีกครั้ง.
+// สไลด์ 3: ให้แผนภูมเลือกระยะเวลาทั้งสองครั้งอีกครั้ง.
 var restoredSlide = presentation.Slides.AddClone(manualSlide);
 var restoredChart = (IChart)restoredSlide.Shapes[0];
 restoredChart.Axes.HorizontalAxis.IsAutomaticTickLabelSpacing = true;
@@ -203,23 +259,23 @@ restoredChart.Axes.HorizontalAxis.IsAutomaticTickMarksSpacing = true;
 presentation.Save("CategoryAxisIntervals.pptx", SaveFormat.Pptx);
 ```
 
-**การเว้นระยะอัตโนมัติ (สไลด์ 1):** ในการแสดงนี้ ทุกป้ายชื่อประเภทที่สองจะแสดงและขึ้นบรรทัดสองบรรทัด ผลลัพธ์อัตโนมัติอาจแตกต่างตามขนาดแผนภูมิ, ฟอนต์, และเครื่องมือแสดงผล
+**การจัดช่องว่างอัตโนมัติ (สไลด์ 1):** ในการแสดงผลนี้ ป้ายชื่อหมวดที่สองจะแสดงและห่อบรรทัดเป็นสองบรรทัด ผลลัพธ์อัตโนมัติอาจแตกต่างกันตามขนาดแผนภูมิ ฟอนต์ และตัวเรนเดอร์
 
-![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+![การจัดช่องว่างป้ายชื่อหมวดอัตโนมัติพร้อมคอลัมน์ทั้งหมด 24 คอลัมน์ที่มองเห็นได้](category-axis-automatic.png)
 
-**การเว้นระยะแบบแมนนวล (สไลด์ 2):** ทุกป้ายชื่อที่สามจะแสดงบนบรรทัดเดียว ในขณะที่เครื่องหมายระดับยังคงอยู่ที่ทุกช่วงประเภท ทั้ง 24 คอลัมน์ รวมถึงคอลัมน์ที่ไม่มีป้ายชื่อ ยังคงมองเห็นได้ด้วยค่าที่เหมือนกัน สไลด์ 3 คืนค่าการแสดงอัตโนมัติที่แสดงด้านบน
+**การจัดช่องว่างด้วยตนเอง (สไลด์ 2):** ทุกป้ายชื่อที่สามจะแสดงในบรรทัดเดียวขณะที่เครื่องหมายติ๊กยังคงอยู่ที่ทุกช่วงหมวด ทุกคอลัมน์ 24 คอลัมน์รวมถึงคอลัมน์ที่ไม่มีป้ายชื่อยังคงมองเห็นได้พร้อมค่าตามเดิม สไลด์ 3 คืนค่าการแสดงผลอัตโนมัติที่แสดงด้านบน
 
-![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+![ช่วงป้ายชื่อหมวดแบบมือที่สามพร้อมคอลัมน์ทั้งหมด 24 คอลัมน์ที่มองเห็นได้](category-axis-manual.png)
 
-### **เลือกแกนและช่วงที่ถูกต้อง**
+### **เลือกแกนและช่วงเวลาที่ถูกต้อง**
 
-ใช้ช่วงจำนวนประเภทนี้สำหรับแกนประเภทข้อความ เช่น แกนประเภทของแผนภูมิคอลัมน์, เส้น, พื้นที่ หรือแถบ ในแผนภูมิคอลัมน์ จะเป็นแกนแนวนอน ในแผนภูมิบาร์แนวนอน แกนประเภทจะเป็นแนวตั้ง ดังนั้นให้ใช้การตั้งค่าเหล่านี้กับ [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/) การเว้นระยะของเครื่องหมายระดับยังใช้กับแกนชุดข้อมูลในแผนภูมิที่มีแกนนี้ด้วย
+ใช้ช่วงเวลานับหมวดนี้สำหรับแกนหมวดแบบข้อความ เช่น แกนหมวดของแผนภูมิคอลัมน์, เส้น, พื้นที่ หรือแท่ง ในแผนภูมิคอลัมน์เป็นแกนแนวนอน ในแผนภูมิแท่งแนวนอนแกนหมวดเป็นแนวตั้ง ดังนั้นให้ใช้การตั้งค่านี้กับ [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/) การจัดช่องว่างของเครื่องหมายติ๊กยังใช้ได้กับแกนชุดข้อมูลในแผนภูมิที่มีแกนชุดข้อมูล
 
-ห้ามใช้การเว้นระยะป้ายชื่อประเภทเพื่อกำหนดสเกลเชิงตัวเลขของแกนค่าตัวเลข บนแกนค่า, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorunit/) ระบุความแตกต่างของค่า เช่น หน่วยหลัก `10` จะสร้างเครื่องหมายระดับที่ 0, 10, 20 เป็นต้น เมื่อแกนเริ่มที่ศูนย์ ช่วงป้ายชื่อประเภท `3` จะนับตำแหน่งประเภทโดยไม่สนใจค่าข้อมูล แผนภูมิกระจายและบับเบิลใช้แกนค่าแทนแกนประเภทข้อความ สำหรับแกนวันที่ ให้ใช้หน่วยหลักและสเกลตามเวลาตามที่อธิบายใน [Change a Category Axis](#change-a-category-axis)
+ห้ามใช้การจัดช่องว่างป้ายชื่อหมวดเพื่อกำหนดสเกลเชิงตัวเลขของแกนค่า บนแกนค่าจะใช้ [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorunit/) เพื่อระบุความแตกต่างของค่า เช่น หน่วยหลัก `10` จะสร้างเครื่องหมายที่ 0, 10, 20 เป็นต้นเมื่อแกนเริ่มจากศูนย์ ส่วนช่วงเวลาป้ายชื่อหมวด `3` จะนับตำแหน่งหมวดโดยไม่สนใจค่าข้อมูล แผนภูมิกระจายและฟองอากาศใช้แกนค่าแทนแกนหมวดแบบข้อความ สำหรับแกนวันที่ ให้ใช้หน่วยหลักและสเกลตามเวลาที่อธิบายในหัวข้อ [เปลี่ยนแกนหมวด](#change-a-category-axis)
 
-## **ตั้งค่ารูปแบบวันที่สำหรับค่าของแกนประเภท**
+## **ตั้งค่ารูปแบบวันที่สำหรับค่าของแกนหมวด**
 
-ตัวอย่างนี้แทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยค่าปีสี่ค่า วันที่ถูกจัดเก็บเป็นหมายเลขซีเรียล OLE Automation ในเวิร์กชีตแรก (ดัชนี `0`) ตั้งค่า [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) ให้เป็นแกนวันที่ ปิดการเชื่อมโยง [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isnumberformatlinkedtosource/) แล้วกำหนด `yyyy` ให้กับ [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberformat/) เพื่อให้ป้ายชื่อประเภทแสดงปีสี่หลักโดยอิสระจากรูปแบบเซลล์
+ตัวอย่างนี้แทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยค่าปีสี่ค่า วันที่ถูกเก็บเป็นหมายเลขอนุกรม OLE Automation ในเวิร์กชีตแรก (ดัชนี `0`) ตั้งค่า [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) เป็นแกนวันที่ ปิดการทำงานของ [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isnumberformatlinkedtosource/) และกำหนด `yyyy` ให้กับ [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberformat/) เพื่อให้ป้ายชื่อหมวดแสดงปีสี่หลักโดยอิสระจากการจัดรูปแบบเซลล์
 
 ```csharp
 using System;
@@ -256,9 +312,9 @@ chart.Axes.HorizontalAxis.NumberFormat = "yyyy";
 presentation.Save("DateAxisFormat.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่ามุมการหมุนสำหรับชื่อแกนแผนภูมิ**
+## **ตั้งค่ามุมการหมุนสำหรับหัวข้อแกนแผนภูมิ**
 
-เปิดใช้ [HasTitle](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/hastitle/) บนแกนแนวตั้ง ให้ข้อความชื่อเรื่อง และตั้งค่า [RotationAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextblockformat/rotationangle/) เพื่อหมุนชื่อเรื่อง มุมวัดเป็นองศา; ตัวอย่างนี้บันทึกแผนภูมิคอลัมน์โดยหมุนชื่อแกนค่าตัวเลขเป็น 90 องศา
+เปิดใช้งาน [HasTitle](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/hastitle/) บนแกนแนวตั้ง ให้ข้อความหัวข้อ และตั้งค่า [RotationAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextblockformat/rotationangle/) เพื่อหมุนหัวข้อ มุมวัดเป็นองศา ตัวอย่างนี้บันทึกแผนภูมิคอลัมน์โดยหัวข้อแกนค่าหมุน 90 องศา
 
 ```csharp
 using Aspose.Slides;
@@ -276,9 +332,9 @@ chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
 presentation.Save("RotatedAxisTitle.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่าตำแหน่งแกนบนแกนประเภทหรือค่า**
+## **ตั้งค่าตำแหน่งแกนบนแกนหมวดหรือแกนค่า**
 
-ใช้ [AxisBetweenCategories](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/axisbetweencategories/) เพื่อควบคุมว่าแกนค่าจะตัดกับแกนประเภทระหว่างประเภทหรือที่เครื่องหมายระดับของประเภท คุณสมบัตินี้ใช้กับแกนประเภท ตัวอย่างตั้งค่าเป็น `true` บนแกนประเภทแนวนอนของแผนภูมิคอลัมน์และบันทึกผลลัพธ์
+ใช้ [AxisBetweenCategories](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/axisbetweencategories/) เพื่อควบคุมว่าแกนค่าตัดแกนหมวดระหว่างหมวดหรือที่เครื่องหมายติ๊กของหมวด คุณสมบัตินี้ใช้กับแกนหมวด ตัวอย่างตั้งค่าเป็น `true` บนแกนหมวดแนวนอนของแผนภูมิคอลัมน์และบันทึกผลลัพธ์
 
 ```csharp
 using Aspose.Slides;
@@ -294,9 +350,9 @@ chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
 presentation.Save("AxisBetweenCategories.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่าหน่วยการแสดงผลบนแกนค่าของแผนภูมิ**
+## **ตั้งค่าหน่วยแสดงผลบนแกนค่าของแผนภูมิ**
 
-ตั้งค่า [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/displayunit/) เพื่อสเกลป้ายบนแกนค่าโดยไม่ได้เปลี่ยนข้อมูลพื้นฐาน กับ [DisplayUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/displayunittype/) เป็น `Millions` ค่าที่เป็น 60,000,000 จะปรากฏเป็น 60 ตัวอย่างสร้างแผนภูมิคอลัมน์และใช้หน่วยการแสดงผลเป็นล้านบนแกนแนวตั้ง
+ตั้งค่า [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/displayunit/) เพื่อสเกลป้ายบนแกนค่าโดยไม่ต้องเปลี่ยนข้อมูลพื้นฐาน เมื่อ [DisplayUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/displayunittype/) ตั้งเป็น `Millions` ค่าที่ 60,000,000 จะปรากฏเป็น 60 ตัวอย่างสร้างแผนภูมิคอลัมน์และใช้หน่วยแสดงผลเป็นล้านบนแกนแนวตั้ง
 
 ```csharp
 using Aspose.Slides;
@@ -312,21 +368,21 @@ chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
 presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
-## **กำหนดค่าแกนค่าลอการิทึม**
+## **กำหนดค่าการแสดงผลแกนค่าลอการิทึม**
 
-แกนค่าลอการิทึมมีประโยชน์เมื่อค่าบวกกระจายหลายลำดับขนาด เช่น บริการอาจรับคำขอ 10, 100, 1,000, 10,000, และ 100,000 ครั้งในห้าช่วง เวลาแบบเชิงเส้น ค่าตัวเล็กจะอยู่อย่างใกล้กันใกล้ศูนย์ สเกลลอการิทึมทำให้การเปรียบเทียบการเติบโตสัมพัทธ์ง่ายขึ้น: ระยะห่างที่เท่ากันแทนอัตราส่วนที่เท่ากันแทนความแตกต่างที่เท่ากัน
+แกนค่าลอการิทึมมีประโยชน์เมื่อค่าบวกกระจายหลายอันดับ ตัวอย่างเช่น บริการอาจรับคำขอ 10, 100, 1,000, 10,000 และ 100,000 ครั้งในห้าช่วง บนสเกลเชิงเส้น ค่าที่เล็กจะอยู่ใกล้ศูนย์กันมาก ลำดับลอการิทึมทำให้การเติบโตสัมพัทธ์ง่ายต่อการเปรียบเทียบ ระยะเท่ากันแทนที่จะแสดงความแตกต่างเชิงจำนวน จะเป็นอัตราส่วนเท่าเดิม
 
-ตั้งค่า [IsLogarithmic](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/islogarithmic/) เป็น `true` บนแกนค่าและใช้ [LogBase](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/logbase/) เพื่อเลือกฐาน สิ่งนี้จะเปลี่ยนวิธีการแสดงค่าที่มีอยู่; ไม่ได้เปลี่ยนข้อมูลหรือเพิ่มเส้นเทรนด์ลอการิทึม เส้นเทรนด์เป็นฟีเจอร์แยกที่แสดงความสัมพันธ์ที่ฟิตกับข้อมูล
+ตั้งค่า [IsLogarithmic](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/islogarithmic/) เป็น `true` บนแกนค่าและใช้ [LogBase](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/logbase/) เพื่อเลือกฐาน การทำเช่นนี้เปลี่ยนวิธีการแสดงค่าที่มีอยู่ ไม่ได้เปลี่ยนข้อมูลหรือเพิ่มเส้นเทรนด์ลอการิทึม เส้นเทรนด์เป็นการแสดงความสัมพันธ์ที่ฟิตกับข้อมูลและเป็นฟีเจอร์แยกต่างหาก
 
-### **เลือกแกนค่และฐาน**
+### **เลือกแกนค่าและฐาน**
 
-สำหรับแผนภูมิเส้นหรือคอลัมน์ แกนค่าคือ [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/) สำหรับแผนภูมิบาร์แนวนอน คือ [HorizontalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/horizontalaxis/) แผนภูมิกระจายและบับเบิลมีสองแกนค่า ดังนั้นเลือกแกนนอนสำหรับค่า X, แกนแนวตั้งสำหรับค่า Y หรือทั้งสอง อย่าใช้สเกลลอการิทึมกับแกนประเภท
+สำหรับแผนภูมิเส้นหรือคอลัมน์ แกนค่าคือ [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/) สำหรับแผนภูมิแท่งแนวนอนคือ [HorizontalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/horizontalaxis/) แผนภูมิกระจายและฟองอากาศมีแกนค่าสองแกน ดังนั้นให้เลือกแกนแนวนอนสำหรับค่า X แกนแนวตั้งสำหรับค่า Y หรือทั้งสองแกน อย่าใช้การสเกลแบบลอการิทึมกับแกนหมวด
 
-ฐานลอการิทึมเริ่มต้นคือ `10` สำหรับแผนภูมิ PPTX ให้ใช้ฐานตั้งแต่ `2` ถึง `1000` รวมทั้งฐานเศษส่วนเช่น `2.5` ก็รองรับด้วย ฐาน `10` จะทำให้กำลังต่อเนื่องเช่น 10, 100, 1,000, และ 10,000 มีระยะห่างเท่ากัน
+ฐานลอการิทึมเริ่มต้นคือ `10` สำหรับแผนภูมิ PPTX สามารถใช้ฐานตั้งแต่ `2` ถึง `1000` รวมถึงฐานเศษส่วนเช่น `2.5` ได้ โดยฐาน `10` จะทำให้กำลังต่อเนื่องเช่น 10, 100, 1,000, 10,000 มีระยะห่างเท่ากัน
 
-### **เปรียบเทียบสเกลเชิงเส้นกับลอการิทึม**
+### **เปรียบเทียบการสเกลเชิงเส้นและลอการิทึม**
 
-ตัวอย่างอิสระต่อไปนี้สร้างแผนภูมิเส้นที่มีจำนวนคำขอห้าช่วงบนสไลด์แรก แล้วทำสำเนาสไลด์นั้นและเปิดใช้แกนค่าลอการิทึมฐาน 10 บนสไลด์ที่สอง ทั้งสองสไลด์เก็บข้อมูลเดียวกัน
+ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีจำนวนคำขอห้าช่วงบนสไลด์แรก จากนั้นคัดลอกสไลด์นั้นและเปิดใช้งานแกนค่าลอการิทึมฐาน 10 บนสไลด์ที่สอง ทั้งสองสไลด์คงข้อมูลเดิม
 
 ```csharp
 using Aspose.Slides;
@@ -358,7 +414,7 @@ for (var i = 0; i < values.Length; i++)
     series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
 
-// เก็บสไลด์แรกเป็นเชิงเส้นและเปลี่ยนสเกลแกนค่าของสำเนาเท่านั้น.
+// คงสไลด์แรกเป็นเชิงเส้นและเปลี่ยนสเกลแกนค่าของสำเนาเฉพาะ.
 var logarithmicSlide = presentation.Slides.AddClone(slide);
 var logarithmicChart = (IChart)logarithmicSlide.Shapes[0];
 var valueAxis = logarithmicChart.Axes.VerticalAxis;
@@ -368,24 +424,24 @@ valueAxis.LogBase = 10;
 presentation.Save("LogarithmicAxis.pptx", SaveFormat.Pptx);
 ```
 
-**สเกลเชิงเส้น (สไลด์ 1):** ระยะแนวตั้งที่เท่ากันแสดงความแตกต่างของจำนวนคำขอที่เท่ากัน ค่ามากที่สุดครอบงำแผนภูมิ ทำให้ค่าตัวเล็กยากที่จะมองเห็น
+**สเกลเชิงเส้น (สไลด์ 1):** ระยะแนวตั้งเท่าเดิมแสดงความแตกต่างของจำนวนคำขอ ค่าที่ใหญ่ที่สุดครอบครองพื้นที่ของแผนภูมิ ทำให้ค่าที่เล็กยากต่อการมองเห็น
 
-![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
+![แผนภูมิเส้นใน PowerPoint ที่แสดงจำนวนคำขอห้าช่วงบนแกนค่าเชิงเส้น](value-axis-linear.png)
 
-**สเกลลอการิทึม (สไลด์ 2):** ระยะแนวตั้งที่เท่ากันแสดงอัตราส่วนที่เท่ากัน ทุกช่วงมีจำนวนคำขอเพิ่มขึ้นสิบเท่าเมื่อเทียบกับช่วงก่อนหน้า ดังนั้นจุดข้อมูลจะแสดงเป็นเส้นตรงที่เพิ่มขึ้นบนสเกลฐาน 10 ป้ายแกนยังคงแสดงจำนวนคำขอเดิม
+**สเกลลอการิทึม (สไลด์ 2):** ระยะแนวตั้งเท่าเดิมแสดงอัตราส่วนเท่าเดิม แต่ละช่วงมีคำขอเพิ่มขึ้นสิบเท่าจึงสร้างเส้นตรงที่ขึ้นสูงบนสเกลฐาน 10 ป้ายแกนยังคงแสดงจำนวนคำขอเดิม
 
-![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+![จำนวนคำขอเดียวกันใน PowerPoint บนแกนค่าลอการิทึมฐาน 10](value-axis-logarithmic.png)
 
 ### **จัดการค่าศูนย์และค่าติดลบ**
 
-สเกลลอการิทึมสามารถแสดงได้เฉพาะค่าบวกอย่างเคร่งครัด ตรวจสอบข้อมูลก่อนเปิดใช้งาน หากค่าศูนย์หรือค่าติดลบมีความหมาย ควรใช้สเกลเชิงเส้นหรือแสดงแยกต่างหาก หากการยกเว้นค่าดังกล่าวเหมาะสมกับการวิเคราะห์ ให้อธิบายเหตุผล อย่าแทนที่ค่าดังกล่าวอย่างเงียบ ๆ ด้วยจำนวนบวกเล็ก ๆ เพราะจะเปลี่ยนความหมายของข้อมูล ค่าต่ำสุดหรือสูงสุดที่กำหนดด้วยตนเองสำหรับแกนลอการิทึมต้องเป็นค่าบวกด้วยเช่นกัน
+สเกลลอการิทึมสามารถแสดงได้เฉพาะค่าบวกเท่านั้น ตรวจสอบข้อมูลก่อนเปิดใช้งาน หากค่าศูนย์หรือค่าติดลบมีความหมาย ให้คงสเกลเชิงเส้นหรือแสดงแยกออกไป หากการละเว้นค่าดังกล่าวเหมาะสมกับการวิเคราะห์ ให้อธิบายเหตุผล อย่าแทนที่ค่าดังกล่าวด้วยจำนวนบวกเล็ก ๆ อย่างเงียบ ๆ เพราะจะเปลี่ยนความหมายของข้อมูล ค่าต่ำสุดหรือค่าสูงสุดที่กำหนดด้วยตนเองสำหรับแกนลอการิทึมต้องเป็นค่าบวกด้วย
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันจะตั้งค่าค่าที่แกนหนึ่งตัดกับแกนอีกอย่างไร (การตัดแกน)?**
+**ฉันจะตั้งค่าค่าที่แกนหนึ่งตัดแกนอีก (การตัดแกน) อย่างไร?**
 
-ใช้ [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) เพื่อเลือกพฤติกรรมการตัด หากต้องการระบุค่าตัดเชิงตัวเลข ตั้งค่า [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/) การตั้งค่าเหล่านี้ทำให้คุณย้ายจุดตัดแกนไปยังพื้นฐานที่เหมาะสม
+ใช้ [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) เพื่อเลือกพฤติกรรมการตัด หากต้องการกำหนดค่าตัดเชิงตัวเลข ให้ตั้งค่า [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/) การตั้งค่าเหล่านี้ทำให้คุณย้ายตำแหน่งการตัดแกนไปยังฐานที่เหมาะสม
 
-**ฉันจะกำหนดตำแหน่งป้ายกำกับเครื่องหมายระดับสัมพันธ์กับแกนอย่างไร?**
+**ฉันจะกำหนดตำแหน่งป้ายเลเบลของเครื่องหมายติ๊กสัมพันธ์กับแกนอย่างไร?**
 
-ตั้งค่า [TickLabelPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/ticklabelposition/) โดยใช้ [TickLabelPositionType](https://reference.aspose.com/slides/net/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` หรือ `None` เพื่อควบคุมตำแหน่งป้ายกำกับ หากต้องการควบคุมเครื่องหมายระดับเอง ให้ใช้ [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) หรือ [MinorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/minortickmark/) ซึ่งแยกจากการกำหนดตำแหน่งป้ายกำกับอย่างอิสระ
+ตั้งค่า [TickLabelPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/ticklabelposition/) โดยใช้ [TickLabelPositionType](https://reference.aspose.com/slides/net/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo`, หรือ `None` เพื่อควบคุมตำแหน่งของป้ายเลเบล สำหรับควบคุมเครื่องหมายติ๊กเอง ให้ใช้ [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) หรือ [MinorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/minortickmark/) ซึ่งแยกจากการจัดตำแหน่งเลเบลอย่างอิสระ.

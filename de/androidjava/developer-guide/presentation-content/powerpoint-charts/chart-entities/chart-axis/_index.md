@@ -1,5 +1,5 @@
 ---
-title: Diagrammachsen in Präsentationen auf Android anpassen
+title: Diagrammachsen in Präsentationen unter Android anpassen
 linktitle: Diagrammachse
 type: docs
 url: /de/androidjava/chart-axis/
@@ -26,13 +26,13 @@ description: "Entdecken Sie, wie Sie Aspose.Slides für Android über Java verwe
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man Diagrammachsen mit Aspose.Slides für Android über Java anpasst. Er behandelt berechnete Achsenwerte, das Vertauschen von Diagramm‑Zeilen und -Spalten, die Achsensichtbarkeit, Kategorien‑Label‑ und Tick‑Mark‑Intervalle, Datums‑Kategorien und -Formatierung, Titelrotation, Achsenpositionierung, Anzeige­einheiten und logarithmische Skalierung.
+Dieser Artikel erklärt, wie man Diagrammachsen mit Aspose.Slides für Android über Java anpasst. Er behandelt berechnete Achsenwerte, das Vertauschen von Diagrammzeilen und -spalten, die Sichtbarkeit von Achsen, Intervall von Kategorienbeschriftungen und Tick‑Marken, Datums­kategorien und deren Formatierung, die Drehung von Titeln, die Positionierung von Achsen, Anzeige­einheiten und logarithmische Skalierung.
 
-## **Ermitteln Sie die Maximalwerte auf der vertikalen Achse von Diagrammen**
+## **Maximalwerte auf der vertikalen Achse von Diagrammen erhalten**
 
-Erstellen Sie eine [Präsentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) und fügen Sie ein Flächendiagramm mit Standarddaten hinzu. Rufen Sie [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) auf, bevor Sie berechnete Achsenwerte auslesen, damit das Diagrammlayout aktuell ist.
+Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) und fügen Sie ein Flächendiagramm mit Standarddaten hinzu. Rufen Sie [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) auf, bevor Sie berechnete Achsenwerte auslesen, damit das Diagrammlayout auf dem neuesten Stand ist.
 
-Lesen Sie [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) und [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) für die Achsen­grenzen sowie [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) und [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) für die Tick‑Intervalle. [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) und [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) liefern Zeiteinheiten‑Skalen, die für Datumsachsen relevant sind. Das Beispiel speichert diese Werte in lokalen Variablen und speichert das Diagramm.
+Lesen Sie [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) und [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) für die Achsenbegrenzungen und [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) sowie [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) für die Tick‑Intervalle. [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) und [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) liefern Zeiteinheiten‑Skalen, die für Datumsachsen relevant sind. Das Beispiel speichert diese Werte in lokalen Variablen und speichert das Diagramm.
 
 ```java
 import com.aspose.slides.*;
@@ -61,7 +61,7 @@ try {
 
 ## **Daten zwischen Achsen austauschen**
 
-Verwenden Sie [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) , um die Rollen von Reihen und Kategorien in Diagrammdaten zu vertauschen. Jede ehemalige Kategorie wird zu einer Reihe und jede ehemalige Reihe zu einer Kategorie. Dies ändert die Gruppierung der Daten; es vertauscht nicht die horizontale und vertikale Achse. Das Beispiel nutzt [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) , um die Standarddaten an `Sheet1!A1:D5` zu binden, einschließlich der Kopfzeile und der Kategorie‑Spalte, bevor Zeilen und Spalten vertauscht werden. Es speichert ein Diagramm mit vier Reihen und drei Kategorien.
+Verwenden Sie [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) , um die Rollen von Reihen und Kategorien in Diagrammdaten auszutauschen. Jede frühere Kategorie wird zu einer Reihe und jede frühere Reihe zu einer Kategorie. Dies ändert die Gruppierung der Daten; die horizontalen und vertikalen Achsen werden nicht vertauscht. Das Beispiel nutzt [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) , um die Standarddaten an `Sheet1!A1:D5` zu binden, einschließlich der Kopfzeile und der Kategorie‑Spalte, bevor Zeilen und Spalten getauscht werden. Es speichert ein Diagramm mit vier Reihen und drei Kategorien.
 
 ```java
 import com.aspose.slides.*;
@@ -79,6 +79,63 @@ try {
     presentation.dispose();
 }
 ```
+
+## **Plotreihenfolge einer Achse umkehren**
+
+Verwenden Sie [setPlotOrderReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setPlotOrderReversed-boolean-) , um eine Kategorien‑ oder Werteachse umzukehren. Beispielsweise kann ein horizontales Balkendiagramm Projektphasen von oben nach unten in derselben Reihenfolge wie das Arbeitsblatt anzeigen: Planung, Entwicklung, Testen. Das Umkehren einer Achse ändert die Plot‑Richtung; sie sortiert oder rearrangiert die Arbeitsmappendaten nicht. Im Vergleich dazu tauscht [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) die Rollen von Reihen und Kategorien aus.
+
+Das folgende Beispiel erstellt ein horizontales Balkendiagramm mit drei Phasen und einer Reihe. Es speichert eine Präsentation mit drei Folien: normale Reihenfolge, umgekehrte Kategorien und umgekehrte Werte. Jede Kopie verwendet denselben Datensatz, und in jeder Kopie ist nur eine Achse umgekehrt.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320);
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredBar);
+    String[] stages = { "Planning", "Development", "Testing" };
+    int[] values = { 10, 30, 20 };
+    for (int i = 0; i < stages.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, stages[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    // Folie 2: Zeige die erste Kategorie oben an.
+    ISlide categorySlide = presentation.getSlides().addClone(slide);
+    IChart categoryChart = (IChart)categorySlide.getShapes().get_Item(0);
+    categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
+    // Behalte die horizontale Werteachse unten.
+    categoryChart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum);
+
+    // Folie 3: Drehe nur die horizontale numerische Skala um.
+    ISlide valueSlide = presentation.getSlides().addClone(slide);
+    IChart valueChart = (IChart)valueSlide.getShapes().get_Item(0);
+    valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Umkehren einer Achse kann auch die senkrechte Achse auf die gegenüberliegende Seite des Diagramms verschieben. [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) steuert, wo die andere Achse die konfigurierten Achse schneidet. In Folie 2 bewirkt ein Aufruf mit `CrossesType.Maximum` auf der umgekehrten Kategorienachse, dass die horizontale Werteachse unten bleibt. Für einen bestimmten Schnittpunkt verwenden Sie [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-). Überprüfen Sie die Schnitt‑Einstellungen beim Ändern der Richtung, insbesondere wenn das Diagramm bereits einen benutzerdefinierten Schnittpunkt besitzt. Rufen Sie `setPlotOrderReversed` mit `false` auf, um die normale Plot‑Richtung wiederherzustellen; die Schnitt‑Einstellungen sind separat.
+
+| Normale Reihenfolge (Folie 1) | Umgekehrte Kategorien (Folie 2) | Umgekehrte Werte (Folie 3) |
+| --- | --- | --- |
+| ![Horizontales Balkendiagramm mit normaler Kategorien‑ und Werteachsenreihenfolge](axis-order-normal.png) | ![Horizontales Balkendiagramm mit von oben nach unten angezeigten Kategorien](axis-order-categories-reversed.png) | ![Horizontales Balkendiagramm mit umgekehrter Werteachse und Null rechts](axis-order-values-reversed.png) |
+| Kategorien laufen von unten nach oben; Werte steigen von links nach rechts. | Planung, Entwicklung und Testen laufen von oben nach unten. Werte und Reihenfolge der Arbeitsmappendaten bleiben unverändert. | Kategorien behalten ihre normale Reihenfolge bei; Werte steigen von rechts nach links. Die Kategorienachse schneidet bei Null rechts. |
 
 ## **Vertikale Achse für Liniendiagramme deaktivieren**
 
@@ -120,9 +177,9 @@ try {
 }
 ```
 
-## **Eine Kategorie‑Achse ändern**
+## **Kategorienachse ändern**
 
-Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) , um einen Datums‑ oder Text‑Kategorie‑Achsentyp auszuwählen. Dieses Beispiel benötigt `ExistingChart.pptx`, wobei das Diagramm das erste Shape auf der ersten Folie ist und die Kategoriezellen numerische Excel‑Datumswerte enthalten. Es ändert die horizontale Achse zu einer Datumsachse. Durch Aufruf von [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) mit `false`, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) mit `1` und [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) mit `TimeUnitType.Months` werden Hauptticks im Abstand von einem Monat platziert.
+Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) , um eine Datums‑ oder Text‑Kategorienachse auszuwählen. Dieses Beispiel erfordert `ExistingChart.pptx`, wobei das Diagramm das erste Shape auf der ersten Folie ist und die Zellen der Kategorie numerische Excel‑Datumswerte enthalten. Es ändert die horizontale Achse zu einer Datumsachse. Ein Aufruf von [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) mit `false`, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) mit `1` und [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) mit `TimeUnitType.Months` legt Hauptticks im Abstand von einem Monat fest.
 
 ```java
 import com.aspose.slides.*;
@@ -143,21 +200,21 @@ try {
 }
 ```
 
-## **Intervall für Kategorie‑Achsen‑Label steuern**
+## **Intervall für Kategorienachsen‑Beschriftungen steuern**
 
-Wenn ein Diagramm viele Kategorien hat, reduzieren Sie die Anzahl sichtbarer Achsenbeschriftungen, ohne Kategorien oder Datenpunkte zu entfernen. Rufen Sie [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) mit `false` auf und übergeben Sie dann das gewünschte Kategorienintervall an [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-). Für Textkategorien in ihrer normalen Reihenfolge beginnt die Zählung bei der ersten Kategorie:
+Wenn ein Diagramm viele Kategorien enthält, reduzieren Sie die Anzahl sichtbarer Achsenbeschriftungen, ohne Kategorien oder Datenpunkte zu entfernen. Rufen Sie [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) mit `false` auf und übergeben Sie dann das gewünschte Kategorienintervall an [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-). Für Textkategorien in ihrer normalen Reihenfolge beginnt die Zählung bei der ersten Kategorie:
 
 | Intervall | Im Beispiel angezeigte Beschriftungen |
 | --- | --- |
-| `1` | Kategorie 1, Kategorie 2, Kategorie 3, ... Kategorie 24 |
-| `2` | Kategorie 1, Kategorie 3, Kategorie 5, ... Kategorie 23 |
-| `3` | Kategorie 1, Kategorie 4, Kategorie 7, ... Kategorie 22 |
+| `1` | Kategorie 1, Kategorie 2, Kategorie 3, … Kategorie 24 |
+| `2` | Kategorie 1, Kategorie 3, Kategorie 5, … Kategorie 23 |
+| `3` | Kategorie 1, Kategorie 4, Kategorie 7, … Kategorie 22 |
 
-Ein Intervall von `3` zeigt jede dritte Beschriftung an und lässt zwei Beschriftungen zwischen den angezeigten verborgen. Es entfernt nicht die entsprechenden Spalten. Das automatische Abstandswählen wählt ein Intervall basierend auf dem verfügbaren Platz; es zeigt nicht zwingend jede Beschriftung an.
+Ein Intervall von `3` zeigt jede dritte Beschriftung an und lässt zwischen den angezeigten Beschriftungen zwei ausgeblendet. Es entfernt die entsprechenden Spalten nicht. Automatischer Abstand wählt ein Intervall basierend auf dem verfügbaren Platz; er zeigt nicht zwingend jede Beschriftung an.
 
-Tick‑Marks haben separate Steuerungen. Rufen Sie [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) mit `false` auf und verwenden Sie [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) , um ihr Intervall festzulegen. Zum Beispiel hält `1` einen Tick‑Mark bei jedem Kategorienintervall, während Beschriftungen nur jede dritte Kategorie erscheinen. Verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) mit einem sichtbaren Stil, damit Sie das Ergebnis sehen können. Wenn Sie einen der automatischen Abstand‑Setzer erneut mit `true` aufrufen, lässt das Diagramm das Intervall wieder selbst wählen.
+Tick‑Marks haben separate Steuerungen. Rufen Sie [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) mit `false` auf und verwenden Sie [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) , um ihr Intervall festzulegen. Beispielsweise sorgt `1` dafür, dass bei jedem Kategorienintervall ein Tick‑Mark gesetzt wird, während Beschriftungen nur bei jeder dritten Kategorie erscheinen. Verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) mit einem sichtbaren Stil, damit Sie das Ergebnis sehen können. Wenn einer der automatischen Abstand‑Setter wieder mit `true` aufgerufen wird, lässt das Diagramm das Intervall erneut automatisch wählen.
 
-Das folgende eigenständige Beispiel erstellt 24 Kategorien und eine Reihe, speichert dann drei Folien in `CategoryAxisIntervals.pptx`: automatischer Abstand, manueller Beschriftungsabstand mit unabhängigen Tick‑Marks und wiederhergestellter automatischer Abstand. Die beiden Kopien enthalten die ursprünglichen Diagrammdaten. Keine Eingabe‑Präsentation ist erforderlich. Der horizontale Beschriftungstext macht den Unterschied in der Dichte leicht erkennbar.
+Das folgende eigenständige Beispiel erstellt 24 Kategorien und eine Reihe und speichert anschließend drei Folien in `CategoryAxisIntervals.pptx`: automatischer Abstand, manueller Beschriftungsabstand mit unabhängigen Tick‑Marks und wiederhergestellter automatischer Abstand. Die beiden Kopien behalten die ursprünglichen Diagrammdaten bei. Keine Eingabepräsentation ist erforderlich. Der horizontale Beschriftungstext macht den Unterschied in der Dichte leicht erkennbar.
 
 ```java
 import com.aspose.slides.*;
@@ -191,7 +248,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // Folie 2: jede dritte Beschriftung anzeigen, aber für jede Kategorie einen Tick-Mark beibehalten.
+    // Folie 2: Zeige jede dritte Beschriftung, aber behalte für jede Kategorie einen Tick-Mark bei.
     ISlide manualSlide = presentation.getSlides().addClone(slide);
     IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
     IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -200,7 +257,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // Folie 3: das Diagramm beide Intervalle erneut auswählen lassen.
+    // Folie 3: Lassen Sie das Diagramm beide Intervalle erneut auswählen.
     ISlide restoredSlide = presentation.getSlides().addClone(manualSlide);
     IChart restoredChart = (IChart)restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -212,23 +269,23 @@ try {
 }
 ```
 
-**Automatischer Abstand (Folie 1):** Bei dieser Darstellung wird jede zweite Kategorienbeschriftung angezeigt und auf zwei Zeilen umgebrochen. Das automatische Ergebnis kann je nach Diagrammgröße, Schriftarten und Renderer variieren.
+**Automatischer Abstand (Folie 1):** In dieser Darstellung wird jede zweite Kategorienbeschriftung angezeigt und auf zwei Zeilen umgebrochen. Das automatische Ergebnis kann je nach Diagrammgröße, Schriftarten und Renderer variieren.
 
-![Automatischer Abstand der Kategorienbeschriftungen bei allen 24 Spalten sichtbar](category-axis-automatic.png)
+![Automatischer Kategorienbeschriftungsabstand mit allen 24 Spalten sichtbar](category-axis-automatic.png)
 
-**Manueller Abstand (Folie 2):** Jede dritte Beschriftung wird in einer Zeile angezeigt, während Tick‑Marks bei jedem Kategorienintervall bleiben. Alle 24 Spalten, einschließlich der ohne Beschriftungen, bleiben mit denselben Werten sichtbar. Folie 3 stellt das oben gezeigte automatische Aussehen wieder her.
+**Manueller Abstand (Folie 2):** Jede dritte Beschriftung wird in einer Zeile angezeigt, während Tick‑Marks bei jedem Kategorienintervall verbleiben. Alle 24 Spalten, einschließlich der ohne Beschriftungen, bleiben mit den gleichen Werten sichtbar. Folie 3 stellt das oben gezeigte automatische Erscheinungsbild wieder her.
 
-![Manueller Kategorienbeschriftungsintervall von drei bei allen 24 Spalten sichtbar](category-axis-manual.png)
+![Manueller Kategorienbeschriftungsintervall von drei mit allen 24 Spalten sichtbar](category-axis-manual.png)
 
-### **Wählen Sie die richtige Achse und das Intervall**
+### **Die richtige Achse und das richtige Intervall wählen**
 
-Verwenden Sie dieses Kategorien‑Zähl‑Intervall für eine Text‑Kategorie‑Achse, z. B. die Kategorie‑Achse eines Säulen‑, Linien‑, Flächen- oder Balkendiagramms. In einem Säulendiagramm ist sie die horizontale Achse. In einem horizontalen Balkendiagramm ist die Kategorie‑Achse vertikal, sodass Sie diese Einstellungen auf die Achse anwenden, die von [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) zurückgegeben wird. Der Abstand von Tick‑Marks gilt auch für eine Reihen‑Achse in Diagrammen, die eine solche besitzen.
+Verwenden Sie dieses Kategorien‑Zähl‑Intervall für eine Text‑Kategorienachse, z. B. die Kategorienachse eines Säulen‑, Linien‑, Flächen‑ oder Balkendiagramms. In einem Säulendiagramm ist sie die horizontale Achse. In einem horizontalen Balkendiagramm ist die Kategorienachse vertikal, daher wenden Sie diese Einstellungen auf die Achse an, die von [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) zurückgegeben wird. Der Tick‑Mark‑Abstand gilt ebenfalls für eine Serienachse in Diagrammen, die eine besitzen.
 
-Verwenden Sie den Kategorien‑Label‑Abstand nicht, um die numerische Skala einer Werte‑Achse zu setzen. Auf einer Werte‑Achse legt [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) einen Unterschied in den Werten fest: Zum Beispiel erzeugt eine Haupteinheit von `10` Ticks bei 0, 10, 20 usw., wenn die Achse bei Null beginnt. Ein Kategorien‑Label‑Intervall von `3` zählt dagegen die Positionen der Kategorien, unabhängig von deren Datenwerten. Streu‑ und Blasendiagramme verwenden Werte‑Achsen anstelle einer Text‑Kategorie‑Achse. Für eine Datumsachse verwenden Sie zeitbasierte Haupteinheiten und Skalen, wie im Abschnitt [Change a Category Axis](#change-a-category-axis) beschrieben.
+Verwenden Sie den Kategorien‑Beschriftungsabstand nicht, um die numerische Skala einer Werteachse festzulegen. Auf einer Werteachse gibt [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) eine Differenz der Werte an: Ein Hauptintervall von `10` erzeugt beispielsweise Ticks bei 0, 10, 20 usw., wenn die Achse bei Null beginnt. Ein Kategorien‑Beschriftungsintervall von `3` zählt dagegen Kategorienpositionen, unabhängig von deren Datenwerten. Streu‑ und Blasendiagramme verwenden Werteachsen statt einer Text‑Kategorienachse. Für eine Datumsachse verwenden Sie zeitbasierte Haupteinheiten und Skalen, wie in [Change a Category Axis](#change-a-category-axis) beschrieben.
 
-## **Datumsformat für Kategorie‑Achsenwerte festlegen**
+## **Datumsformat für Kategorienachsen‑Werte festlegen**
 
-Das Beispiel ersetzt die Standarddiagrammdaten durch vier Jahreswerte. Daten werden als OLE‑Automation‑Seriennummern im ersten Arbeitsblatt (Index `0`) gespeichert, berechnet als die Anzahl der Tage seit dem 30. Dezember 1899 für diese Daten. Beide Kalender verwenden UTC und werden vor dem Setzen der Daten zurückgesetzt, sodass Sommerzeit und die aktuelle Tageszeit die Berechnung nicht beeinflussen. Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) mit `CategoryAxisType.Date`, rufen Sie [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) mit `false` auf und übergeben Sie `yyyy` an [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) , damit die Kategorien‑Beschriftungen vierstellige Jahreszahlen unabhängig vom Zellenformat anzeigen.
+Das Beispiel ersetzt die Standarddiagrammdaten durch vier Jahreswerte. Daten werden als OLE‑Automation‑Seriennummern im ersten Arbeitsblatt (Index `0`) gespeichert, berechnet als die Anzahl der Tage seit dem 30. Dezember 1899 für diese Daten. Beide Kalender verwenden UTC und werden vor dem Setzen der Daten zurückgesetzt, sodass Sommerzeit und die aktuelle Uhrzeit die Berechnung nicht beeinflussen. Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) mit `CategoryAxisType.Date`, rufen Sie [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) mit `false` auf und übergeben Sie `yyyy` an [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-), damit die Kategorienbeschriftungen vierstellige Jahreszahlen unabhängig von der Zellenformatierung anzeigen.
 
 ```java
 import com.aspose.slides.*;
@@ -276,9 +333,9 @@ try {
 }
 ```
 
-## **Drehwinkel für einen Diagrammachsentitel festlegen**
+## **Drehwinkel für den Diagrammachsentitel festlegen**
 
-Rufen Sie [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) mit `true` an der vertikalen Achse auf, geben Sie den Titeltext an und verwenden Sie [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) , um den Titel zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel speichert ein Säulendiagramm mit einem um 90 Grad gedrehten Werte‑Achsentitel.
+Rufen Sie [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) mit `true` für die vertikale Achse auf, geben Sie den Titeltext an und verwenden Sie [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) , um den Titel zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel speichert ein Säulendiagramm mit einem um 90 Grad gedrehten Werteachsentitel.
 
 ```java
 import com.aspose.slides.*;
@@ -298,9 +355,9 @@ try {
 }
 ```
 
-## **Achsenposition auf einer Kategorie‑ oder Werte‑Achse festlegen**
+## **Achsenposition bei einer Kategorien‑ oder Werteachse festlegen**
 
-Verwenden Sie [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) , um zu steuern, ob die Werte‑Achse die Kategorie‑Achse zwischen Kategorien oder an den Kategorie‑Tick‑Marks schneidet. Diese Einstellung gilt für Kategorie‑Achsen. Das Beispiel setzt sie auf `true` bei der horizontalen Kategorie‑Achse eines Säulendiagramms und speichert das Ergebnis.
+Verwenden Sie [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) , um zu steuern, ob die Werteachse die Kategorienachse zwischen den Kategorien oder an den Kategorien‑Tick‑Marks schneidet. Diese Einstellung gilt für Kategorienachsen. Das Beispiel setzt sie auf `true` bei der horizontalen Kategorienachse eines Säulendiagramms und speichert das Ergebnis.
 
 ```java
 import com.aspose.slides.*;
@@ -318,9 +375,9 @@ try {
 }
 ```
 
-## **Anzeigeeinheit auf einer Diagramm‑Werte‑Achse festlegen**
+## **Anzeigeeinheit einer Diagramm‑Werteachse festlegen**
 
-Verwenden Sie [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) , um die Beschriftungen einer Werte‑Achse zu skalieren, ohne die zugrunde liegenden Daten zu ändern. Mit [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) auf `Millions` gesetzt, wird ein Wert von 60 000 000 als 60 angezeigt. Das Beispiel erstellt ein Säulendiagramm und wendet die Millionen‑Anzeigeeinheit auf dessen vertikale Achse an.
+Verwenden Sie [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) , um die Beschriftungen einer Werteachse zu skalieren, ohne die zugrunde liegenden Daten zu ändern. Mit [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) auf `Millions` gesetzt wird ein Wert von 60 000 000 als 60 angezeigt. Das Beispiel erstellt ein Säulendiagramm und wendet die Millionen‑Anzeigeeinheit auf seine vertikale Achse an.
 
 ```java
 import com.aspose.slides.*;
@@ -338,21 +395,21 @@ try {
 }
 ```
 
-## **Logarithmische Werte‑Achse konfigurieren**
+## **Logarithmische Werteachse konfigurieren**
 
-Eine logarithmische Werte‑Achse ist nützlich, wenn positive Werte mehrere Größenordnungen umfassen. Zum Beispiel könnte ein Dienst über fünf Zeiträume 10, 100, 1 000, 10 000 und 100 000 Anfragen erhalten. Auf einer linearen Skala erscheinen die kleineren Werte dicht beieinander nahe Null. Eine logarithmische Skala erleichtert den Vergleich ihres relativen Wachstums: gleiche Abstände repräsentieren gleiche Verhältnisse statt gleicher Differenzen.
+Eine logarithmische Werteachse ist nützlich, wenn positive Werte mehrere Größenordnungen umfassen. Beispielsweise könnte ein Dienst über fünf Zeiträume 10, 100, 1 000, 10 000 und 100 000 Anfragen erhalten. Bei einer linearen Skala erscheinen die kleineren Werte dicht beieinander nahe Null. Eine logarithmische Skala erleichtert den Vergleich ihres relativen Wachstums: gleiche Abstände repräsentieren gleiche Verhältnisse statt gleicher Differenzen.
 
-Rufen Sie [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-) mit `true` an der Werte‑Achse auf und verwenden Sie [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-) , um die Basis zu wählen. Dies ändert, wie die vorhandenen Werte angezeigt werden; es ändert nicht die Daten und fügt keine logarithmische Trendlinie hinzu. Eine Trendlinie stellt eine angepasste Beziehung in den Daten dar und ist ein separates Feature.
+Rufen Sie [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-) mit `true` für die Werteachse auf und verwenden Sie [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-) , um die Basis zu wählen. Dadurch wird die Darstellung der vorhandenen Werte geändert; die Daten werden nicht geändert und es wird keine logarithmische Trendlinie hinzugefügt. Eine Trendlinie stellt eine angepasste Beziehung in den Daten dar und ist eine separate Funktion.
 
-### **Wählen Sie die Werte‑Achse und die Basis**
+### **Werteachse und Basis wählen**
 
-Bei einem Linien‑ oder Säulendiagramm wird die Werte‑Achse von [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) zurückgegeben. Bei einem horizontalen Balkendiagramm wird sie von [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) zurückgegeben. Streu‑ und Blasendiagramme haben zwei Werte‑Achsen, sodass Sie die horizontale Achse für X‑Werte, die vertikale Achse für Y‑Werte oder beide wählen. Wenden Sie die logarithmische Skalierung nicht auf eine Kategorie‑Achse an.
+Bei einem Linien‑ oder Säulendiagramm wird die Werteachse von [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) zurückgegeben. Bei einem horizontalen Balkendiagramm wird sie von [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) zurückgegeben. Streu‑ und Blasendiagramme besitzen zwei Werteachsen, daher wählen Sie die horizontale Achse für X‑Werte, die vertikale Achse für Y‑Werte oder beide. Wenden Sie keine logarithmische Skalierung auf eine Kategorienachse an.
 
-Die Standard‑Logarithmus‑Basis ist `10`. Für PPTX‑Diagramme verwenden Sie eine Basis zwischen `2` und `1000` (einschließlich); Bruchbasen wie `2.5` werden ebenfalls unterstützt. Mit Basis `10` sind aufeinanderfolgende Potenzen wie 10, 100, 1 000 und 10 000 gleichmäßig verteilt.
+Die Standard‑logarithmische Basis ist `10`. Für PPTX‑Diagramme verwenden Sie eine Basis von `2` bis `1000` (einschließlich); Bruchbasen wie `2.5` werden ebenfalls unterstützt. Mit Basis `10` sind aufeinanderfolgende Potenzen wie 10, 100, 1 000 und 10 000 gleichmäßig verteilt.
 
 ### **Lineare und logarithmische Skalierung vergleichen**
 
-Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit den fünf Anfragen‑Zahlen auf der ersten Folie, dupliziert diese Folie und aktiviert auf der zweiten eine logarithmische Werte‑Achse zur Basis 10. Beide Folien behalten dieselben Daten bei.
+Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit den fünf Anfragenzahlen auf der ersten Folie, dupliziert diese Folie und aktiviert auf der zweiten eine logarithmische Werteachse mit Basis 10. Beide Folien behalten dieselben Daten.
 
 ```java
 import com.aspose.slides.*;
@@ -382,7 +439,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Die erste Folie linear lassen und nur die Wertachsen‑Skala der Kopie ändern.
+    // Behalte die erste Folie linear und ändere nur die Skala der Werteachse der Kopie.
     ISlide logarithmicSlide = presentation.getSlides().addClone(slide);
     IChart logarithmicChart = (IChart)logarithmicSlide.getShapes().get_Item(0);
     IAxis valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -395,24 +452,24 @@ try {
 }
 ```
 
-**Lineare Skalierung (Folie 1):** Gleiche vertikale Abstände entsprechen gleichen Unterschieden in den Anfragen‑Zahlen. Der größte Wert dominiert das Diagramm, wodurch die kleineren Werte schwer zu unterscheiden sind.
+**Lineare Skala (Folie 1):** Gleiche vertikale Abstände stehen für gleiche Unterschiede in den Anfragenzahlen. Der größte Wert dominiert das Diagramm, sodass die kleineren Werte schwer zu unterscheiden sind.
 
-![Liniendiagramm in PowerPoint, das fünf Anfragen‑Zahlen auf einer linearen Werte‑Achse zeigt](value-axis-linear.png)
+![Liniendiagramm in PowerPoint mit fünf Anfragenzahlen auf einer linearen Werteachse](value-axis-linear.png)
 
-**Logarithmische Skalierung (Folie 2):** Gleiche vertikale Abstände entsprechen gleichen Verhältnissen. Jede Periode hat zehnmal so viele Anfragen wie die vorherige, sodass die Punkte auf der Basis‑10‑Skala eine gerade ansteigende Linie bilden. Die Achsenbeschriftungen zeigen weiterhin die ursprünglichen Anfragen‑Zahlen.
+**Logarithmische Skala (Folie 2):** Gleiche vertikale Abstände stehen für gleiche Verhältnisse. Jeder Zeitraum hat zehnmal so viele Anfragen wie der vorherige, sodass die Punkte auf der Basis‑10‑Skala eine gerade steigende Linie bilden. Die Achsenbeschriftungen zeigen weiterhin die ursprünglichen Anfragenzahlen.
 
-![Die gleichen fünf Anfragen‑Zahlen in PowerPoint auf einer logarithmischen Werte‑Achse zur Basis 10](value-axis-logarithmic.png)
+![Die gleichen fünf Anfragenzahlen in PowerPoint auf einer logarithmischen Werteachse mit Basis 10](value-axis-logarithmic.png)
 
 ### **Umgang mit Null‑ und Negativwerten**
 
-Eine logarithmische Skala kann nur strikt positive Werte anzeigen. Prüfen Sie die Daten, bevor Sie sie aktivieren. Wenn Null‑ oder Negativwerte bedeutungsvoll sind, behalten Sie eine lineare Skala bei oder zeigen Sie sie separat an. Wenn das Ausschließen dieser Werte für die Analyse sinnvoll ist, erklären Sie die Auslassung. Ersetzen Sie sie nicht stillschweigend durch kleine positive Zahlen, da dies die Bedeutung der Daten verändert. Jeder manuell konfigurierte Minimal‑ oder Maximalwert einer logarithmischen Achse muss ebenfalls positiv sein.
+Eine logarithmische Skala kann nur strikt positive Werte anzeigen. Prüfen Sie die Daten, bevor Sie sie aktivieren. Wenn Null‑ oder Negativwerte sinnvoll sind, behalten Sie eine lineare Skala bei oder zeigen Sie sie separat. Wenn das Ausschließen dieser Werte für die Analyse geeignet ist, erklären Sie das Weglassen. Ersetzen Sie sie nicht stillschweigend durch kleine positive Zahlen, da dies die Bedeutung der Daten ändert. Jeder manuell konfigurierte Minimal‑ oder Maximalwert für eine logarithmische Achse muss ebenfalls positiv sein.
 
 ## **FAQ**
 
 **Wie lege ich den Wert fest, an dem eine Achse die andere schneidet (Achsenkreuzung)?**
 
-Verwenden Sie [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) , um das Kreuzungsverhalten auszuwählen. Um einen numerischen Kreuzungswert anzugeben, benutzen Sie [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) . Diese Einstellungen ermöglichen es Ihnen, das Achsenkreuz an einen geeigneten Basiswert zu verschieben.
+Verwenden Sie [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) , um das Kreuzungsverhalten auszuwählen. Um einen numerischen Kreuzungswert anzugeben, verwenden Sie [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-). Diese Einstellungen ermöglichen es Ihnen, den Achsenkreuzungspunkt auf eine geeignete Basislinie zu verschieben.
 
 **Wie kann ich Tick‑Beschriftungen relativ zur Achse positionieren?**
 
-Rufen Sie [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) unter Verwendung von [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/) : `Low`, `High`, `NextTo` oder `None` auf. Um die Tick‑Marks selbst zu steuern, verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) oder [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-) ; diese sind von der Beschriftungspositionierung getrennt.
+Rufen Sie [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) unter Verwendung von [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/) auf: `Low`, `High`, `NextTo` oder `None`. Um die Tick‑Marks selbst zu steuern, verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) oder [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-); diese sind unabhängig von der Positionierung der Beschriftungen.

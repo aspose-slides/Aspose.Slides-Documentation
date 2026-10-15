@@ -1,5 +1,5 @@
 ---
-title: ปรับแต่งแกนแผนภูมิในงานนำเสนอโดยใช้ JavaScript
+title: ปรับแต่งแกนแผนภูมิในงานนำเสนอด้วย JavaScript
 linktitle: แกนแผนภูมิ
 type: docs
 url: /th/nodejs-java/chart-axis/
@@ -9,30 +9,30 @@ keywords:
 - แกนแนวนอน
 - ปรับแต่งแกน
 - จัดการแกน
-- จัดการแกน
+- บริหารจัดการแกน
 - คุณสมบัติของแกน
-- ค่าสูงสุด
+- ค่ามากสุด
 - ค่าต่ำสุด
 - เส้นแกน
 - รูปแบบวันที่
-- หัวข้อแกน
+- ชื่อแกน
 - ตำแหน่งแกน
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ค้นพบวิธีใช้ JavaScript กับ Aspose.Slides สำหรับ Node.js ผ่าน Java เพื่อปรับแต่งแกนแผนภูมิในงานนำเสนอ PowerPoint สำหรับรายงานและการแสดงภาพ"
+description: "ค้นพบวิธีใช้ JavaScript กับ Aspose.Slides สำหรับ Node.js ผ่าน Java เพื่อปรับแต่งแกนแผนภูมิในงานนำเสนอ PowerPoint สำหรับรายงานและการแสดงผล"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการปรับแต่งแกนของแผนภูมิด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java. ครอบคลุมค่าที่คำนวนของแกน, การสลับแถวและคอลัมน์ของแผนภูมิ, การแสดงหรือซ่อนแกน, ช่วงระยะเวลาของป้ายชื่อหมวดและเครื่องหมายแบ่ง, หมวดวันที่และการจัดรูปแบบ, การหมุนหัวข้อ, การกำหนดตำแหน่งแกน, หน่วยการแสดงผล, และการสเกลแบบลอการิทึม.
+บทความนี้อธิบายวิธีการปรับแต่งแกนของแผนภูมิด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java โดยครอบคลุมค่าที่คำนวณของแกน การสลับแถวและคอลัมน์ของแผนภูมิ การแสดงหรือซ่อนแกน ช่วงเวลาของป้ายชื่อและเครื่องหมายติ๊กของประเภท การจัดรูปแบบวันเวลา การหมุนหัวเรื่อง การกำหนดตำแหน่งของแกน หน่วยการแสดงผล และการปรับขนาดแบบลอการิทึม
 
-## **รับค่าสูงสุดบนแกนแนวตั้งของแผนภูมิ**
+## **รับค่ามากที่สุดบนแกนแนวตั้งในแผนภูมิ**
 
-สร้าง [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) และเพิ่มแผนภูมิแบบพื้นที่พร้อมข้อมูลเริ่มต้น. เรียก [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) ก่อนอ่านค่าที่คำนวนของแกน เพื่อให้การจัดวางแผนภูมิเป็นปัจจุบัน.
+สร้าง [การนำเสนอ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) และเพิ่มแผนภูมิพื้นที่ด้วยข้อมูลเริ่มต้น เรียก [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) ก่อนอ่านค่าที่คำนวณของแกนเพื่อให้โครงร่างแผนภูมิเป็นปัจจุบัน
 
-อ่าน [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) และ [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) สำหรับขอบเขตของแกน, และ [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) และ [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) สำหรับช่วงของเครื่องหมายแบ่ง. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) และ [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) ให้สเกลหน่วยเวลา, ซึ่งเกี่ยวข้องกับแกนวันที่. ตัวอย่างนี้เก็บค่าดังกล่าวในตัวแปรท้องถิ่นและบันทึกแผนภูมิ.
+อ่าน [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) และ [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) เพื่อรับขอบเขตของแกน และอ่าน [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) และ [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) เพื่อรับช่วงระยะของเครื่องหมายติ๊ก [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) และ [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) ให้สเกลหน่วยเวลา ซึ่งเกี่ยวข้องกับแกนวันที่ ตัวอย่างจะเก็บค่าเหล่านี้ในตัวแปรท้องถิ่นและบันทึกแผนภูมิ
 
 ```javascript
 var aspose = aspose || {};
@@ -60,9 +60,9 @@ try {
 }
 ```
 
-## **สลับข้อมูลระหว่างแกน**
+## **เปลี่ยนข้อมูลระหว่างแกน**
 
-ใช้ [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) เพื่อแลกเปลี่ยนบทบาทของชุดข้อมูลและหมวดหมู่ในข้อมูลแผนภูมิ. แต่ละหมวดเดิมจะกลายเป็นชุดข้อมูล, และแต่ละชุดข้อมูลเดิมจะกลายเป็นหมวด. การเปลี่ยนนี้ส่งผลต่อการจัดกลุ่มข้อมูล; มันไม่ได้สลับแกนแนวนอนและแนวตั้ง. ตัวอย่างใช้ [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) เพื่อผูกข้อมูลเริ่มต้นกับ `Sheet1!A1:D5`, รวมแถวหัวและคอลัมน์หมวด, ก่อนสลับแถวและคอลัมน์. ตัวอย่างบันทึกแผนภูมิที่มีสี่ชุดข้อมูลและสามหมวด.
+ใช้ [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) เพื่อสลับบทบาทของซีรีส์และประเภทในข้อมูลแผนภูมิ แต่ละประเภทเดิมจะกลายเป็นซีรีส์ และแต่ละซีรีส์เดิมจะกลายเป็นประเภท สิ่งนี้จะเปลี่ยนวิธีการจัดกลุ่มข้อมูล แต่ไม่ได้สลับแกนแนวนอนและแนวตั้ง ตัวอย่างใช้ [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) เพื่อผูกข้อมูลเริ่มต้นกับ `Sheet1!A1:D5` รวมถึงแถวหัวเรื่องและคอลัมน์ประเภท ก่อนการสลับแถวและคอลัมน์ จะบันทึกแผนภูมิที่มีสี่ซีรีส์และสามประเภท
 
 ```javascript
 var aspose = aspose || {};
@@ -82,9 +82,67 @@ try {
 }
 ```
 
+## **กลับลำดับการพล็อตของแกน**
+
+ใช้ [setPlotOrderReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setplotorderreversed/) เพื่อกลับลำดับของแกนประเภทหรือค่า ตัวอย่างเช่น แผนภูมิแท่งแนวนอนสามารถแสดงขั้นตอนของโครงการจากบนลงล่างในลำดับเดียวกับในแผ่นงาน: Planning, Development, Testing การกลับลำดับของแกนจะเปลี่ยนทิศทางการพล็อต แต่ไม่ได้จัดเรียงหรือปรับตำแหน่งข้อมูลในเวิร์กบุ๊ก สำหรับการเปรียบเทียบ [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) จะสลับบทบาทของซีรีส์และประเภท
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิแท่งแนวนอนที่มีสามขั้นตอนและหนึ่งซีรีส์ จะบันทึกการนำเสนอที่มีสามสไลด์: ลำดับปกติ, ประเภทกลับลำดับ, และค่ากลับลำดับ แต่ละสำเนาใช้ชุดข้อมูลเดียวกันและแต่ละสำเนาจะกลับลำดับของแกนเพียงหนึ่งแกน
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredBar, 50, 40, 620, 320);
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.ClusteredBar);
+    var stages = ["Planning", "Development", "Testing"];
+    var values = [10, 30, 20];
+    for (var i = 0; i < stages.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, stages[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        var valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    // สไลด์ 2: แสดงประเภทแรกที่ด้านบน.
+    var categorySlide = presentation.getSlides().addClone(slide);
+    var categoryChart = categorySlide.getShapes().get_Item(0);
+    categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
+    // คงแกนค่าตามแนวนอนไว้ที่ด้านล่าง.
+    categoryChart.getAxes().getVerticalAxis().setCrossType(aspose.slides.CrossesType.Maximum);
+
+    // สไลด์ 3: กลับลำดับเฉพาะสเกลตัวเลขแนวนอนเท่านั้น.
+    var valueSlide = presentation.getSlides().addClone(slide);
+    var valueChart = valueSlide.getShapes().get_Item(0);
+    valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
+
+    presentation.save("ReversedAxes.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การกลับลำดับของแกนอาจทำให้แกนตั้งฉากย้ายไปยังด้านตรงข้ามของพล็อต [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) ควบคุมว่าตำแหน่งที่แกนอื่นตัดแกนที่กำหนดคือที่ใด ในสไลด์ที่ 2 การเรียกใช้ด้วยค่า `aspose.slides.CrossesType.Maximum` บนแกนประเภทที่กลับลำดับจะทำให้แกนค่าตามแนวนอนอยู่ที่ด้านล่าง สำหรับจุดตัดที่กำหนดให้ใช้ [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) ตรวจสอบการตั้งค่าตัดเมื่อเปลี่ยนทิศทาง โดยเฉพาะหากแผนภูมิมีจุดตัดที่กำหนดเองแล้ว เรียก `setPlotOrderReversed` ด้วยค่า `false` เพื่อคืนทิศทางการพล็อตปกติ; การตั้งค่าตัดเป็นเรื่องแยกจากกัน
+
+| ลำดับปกติ (สไลด์ 1) | ประเภทกลับลำดับ (สไลด์ 2) | ค่ากลับลำดับ (สไลด์ 3) |
+| --- | --- | --- |
+| ![แผนภูมิแท่งแนวนอนที่มีลำดับปกติของแกนประเภทและค่า](axis-order-normal.png) | ![แผนภูมิแท่งแนวนอนที่แสดงประเภทจากบนลงล่าง](axis-order-categories-reversed.png) | ![แผนภูมิแท่งแนวนอนที่มีแกนค่ากลับลำดับและศูนย์อยู่ด้านขวา](axis-order-values-reversed.png) |
+| ประเภทวิ่งจากล่างขึ้นบน; ค่าจะเพิ่มจากซ้ายไปขวา. | Planning, Development, และ Testing วิ่งจากบนลงล่าง ค่และลำดับแถวในเวิร์กบุ๊กไม่เปลี่ยนแปลง. | ประเภทคงลำดับปกติ; ค่าจะเพิ่มจากขวาไปซ้าย แกนประเภทตัดที่ศูนย์ด้านขวา. |
+
 ## **ปิดการแสดงแกนแนวตั้งสำหรับแผนภูมิเส้น**
 
-เรียก [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) ด้วย `false` บนแกนแนวตั้งเพื่อซ่อนมัน. ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้นและบันทึกพร้อมแกนแนวตั้งที่ซ่อนอยู่.
+เรียก [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) ด้วยค่า `false` บนแกนแนวตั้งเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้นและบันทึกโดยมีแกนแนวตั้งซ่อนอยู่
 
 ```javascript
 var aspose = aspose || {};
@@ -105,7 +163,7 @@ try {
 
 ## **ปิดการแสดงแกนแนวนอนสำหรับแผนภูมิเส้น**
 
-เรียก [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) ด้วย `false` บนแกนแนวนอนเพื่อซ่อนมัน. ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้นและบันทึกพร้อมแกนแนวนอนที่ซ่อนอยู่.
+เรียก [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) ด้วยค่า `false` บนแกนแนวนอนเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้นและบันทึกโดยมีแกนแนวนอนซ่อนอยู่
 
 ```javascript
 var aspose = aspose || {};
@@ -124,9 +182,9 @@ try {
 }
 ```
 
-## **เปลี่ยนแกนหมวดหมู่**
+## **เปลี่ยนแกนประเภท**
 
-ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) เพื่อเลือกแกนหมวดหมู่แบบวันที่หรือข้อความ. ตัวอย่างนี้ต้องใช้ `ExistingChart.pptx`, ที่มีแผนภูมิเป็นรูปแบบแรกบนสไลด์แรกและเซลล์หมวดมีค่าตัวเลขของวันที่ใน Excel. ตัวอย่างเปลี่ยนแกนแนวนอนเป็นแกนวันที่. เรียก [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) ด้วย `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) ด้วย `1`, และ [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) ด้วย `TimeUnitType.Months` เพื่อวางเครื่องหมายหลักที่ช่วงเดือนละหนึ่งครั้ง.
+ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) เพื่อเลือกแกนประเภทแบบวันที่หรือข้อความ ตัวอย่างนี้ต้องใช้ไฟล์ `ExistingChart.pptx` ซึ่งมีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรกและเซลล์ประเภทมีค่าตัวเลขวันที่ของ Excel จะเปลี่ยนแกนแนวนอนเป็นแกนวันที่ การเรียก [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) ด้วยค่า `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) ด้วยค่า `1`, และ [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) ด้วยค่า `TimeUnitType.Months` จะวางเครื่องหมายติ๊กหลักในช่วงระยะเวลาเดือนละหนึ่งครั้ง
 
 ```javascript
 var aspose = aspose || {};
@@ -148,21 +206,21 @@ try {
 }
 ```
 
-## **ควบคุมช่วงเวลาของป้ายชื่อแกนหมวดหมู่**
+## **ควบคุมช่วงเวลาของป้ายชื่อแกนประเภท**
 
-เมื่อแผนภูมิมีหมวดจำนวนมาก, ลดจำนวนป้ายชื่อแกนที่มองเห็นได้โดยไม่ต้องลบหมวดหรือจุดข้อมูล. เรียก [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) ด้วย `false`, แล้วส่งค่าช่วงหมวดที่ต้องการไปยัง [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). สำหรับหมวดข้อความในลำดับปกติ, การนับเริ่มจากหมวดแรก:
+เมื่อแผนภูมิมีหลายประเภท ให้ลดจำนวนป้ายชื่อแกนที่มองเห็นได้โดยไม่ต้องลบประเภทหรือจุดข้อมูล เรียก [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) ด้วยค่า `false` จากนั้นส่งค่าช่วงประเภทที่ต้องการไปที่ [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/) สำหรับประเภทข้อความตามลำดับปกติ การนับเริ่มจากประเภทแรก:
 
-| ช่วงเวลา | ป้ายชื่อที่แสดงในตัวอย่าง |
+| ช่วง | ป้ายชื่อที่แสดงในตัวอย่าง |
 | --- | --- |
-| `1` | หมวด 1, หมวด 2, หมวด 3, ... หมวด 24 |
-| `2` | หมวด 1, หมวด 3, หมวด 5, ... หมวด 23 |
-| `3` | หมวด 1, หมวด 4, หมวด 7, ... หมวด 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-ช่วงเวลา `3` จะแสดงป้ายชื่อทุกสามตำแหน่ง, โดยซ่อนสองป้ายระหว่างป้ายที่แสดง. มันไม่ได้ลบคอลัมน์ที่สอดคล้องกัน. การจัดระยะอัตโนมัติโหนดเลือกช่วงตามพื้นที่ที่มี; ไม่ได้จำเป็นต้องแสดงทุกป้าย.
+ช่วง `3` จะแสดงป้ายชื่อทุกสามตำแหน่ง โดยเว้นป้ายสองตำแหน่งระหว่างป้ายที่แสดง ไม่ได้ลบคอลัมน์ที่สอดคล้องกัน การจัดระยะห่างอัตโนมัติเลือกช่วงตามพื้นที่ที่มีอยู่; ไม่ได้แสดงป้ายชื่อทุกอันเสมอ
 
-เครื่องหมายแบ่งมีการควบคุมแยกต่างหาก. เรียก [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) ด้วย `false` และใช้ [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) เพื่อกำหนดช่วงของมัน. ตัวอย่างเช่น, `1` จะทำให้มีเครื่องหมายแบ่งที่ทุกช่วงหมวดขณะที่ป้ายชื่อปรากฏเฉพาะทุกสามหมวด. ใช้ [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) กับสไตล์ที่มองเห็นได้เพื่อดูผล. การเรียกตั้งค่าอัตโนมัติใด ๆ ด้วย `true` อีกครั้งจะทำให้แผนภูมิตั้งค่าช่วงนั้นใหม่.
+เครื่องหมายติ๊กมีการควบคุมแยกต่างหาก เรียก [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) ด้วยค่า `false` แล้วใช้ [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) เพื่อตั้งค่าช่วงของมัน ตัวอย่างเช่นค่า `1` จะทำให้มีเครื่องหมายติ๊กที่ทุกช่วงประเภท ขณะเดียวกันป้ายชื่อจะแสดงเฉพาะทุกสามประเภท ใช้ [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) พร้อมสไตล์ที่มองเห็นได้เพื่อดูผล การเรียกตั้งค่าอัตโนมัติใด ๆ อีกครั้งด้วยค่า `true` จะทำให้แผนภูมิเลือกช่วงนั้นใหม่
 
-ตัวอย่างอิสระต่อไปนี้สร้างหมวด 24 รายการและชุดข้อมูลหนึ่งชุด, จากนั้นบันทึกสามสไลด์ใน `CategoryAxisIntervals.pptx`: การจัดระยะอัตโนมัติ, การจัดระยะด้วยป้ายกำหนดเองพร้อมเครื่องหมายแบ่งอิสระ, และการคืนค่าการจัดระยะอัตโนมัติ. สองสำเนารักษาข้อมูลแผนภูมิดั้งเดิม. ไม่จำเป็นต้องมีการนำเสนออินพุต. ข้อความป้ายแนวนอนทำให้ความหนาแน่นเห็นได้ชัด.
+ตัวอย่างอิสระต่อไปนี้สร้าง 24 ประเภทและหนึ่งซีรีส์ จากนั้นบันทึกสามสไลด์ในไฟล์ `CategoryAxisIntervals.pptx`: การจัดระยะห่างอัตโนมัติ, การจัดระยะห่างป้ายชื่อด้วยตนเองพร้อมเครื่องหมายติ๊กอิสระ, และการคืนค่าการจัดระยะห่างอัตโนมัติ ทั้งสองสำเนารักษาข้อมูลแผนภูมิดั้งเดิม ไม่จำเป็นต้องมีการนำเสนอเข้ามา ข้อความป้ายชื่อแนวนอนทำให้เห็นความแตกต่างของความหนาแน่นได้ง่าย
 
 ```javascript
 var aspose = aspose || {};
@@ -197,7 +255,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // สไลด์ 2: แสดงป้ายชื่อทุกสามตำแหน่ง, แต่ยังคงมีเครื่องหมายแบ่งสำหรับทุกหมวด.
+    // สไลด์ 2: แสดงทุกป้ายกำกับที่สาม แต่คงเครื่องหมายติ๊กไว้สำหรับทุกประเภท.
     var manualSlide = presentation.getSlides().addClone(slide);
     var manualChart = manualSlide.getShapes().get_Item(0);
     var manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -206,7 +264,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // สไลด์ 3: ให้แผนภูมิเลือกช่วงเวลาทั้งสองใหม่อีกครั้ง.
+    // สไลด์ 3: ให้แผนภูมิเลือกช่วงทั้งสองใหม่อีกครั้ง.
     var restoredSlide = presentation.getSlides().addClone(manualSlide);
     var restoredChart = restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -218,23 +276,23 @@ try {
 }
 ```
 
-**การจัดระยะอัตโนมัติ (สไลด์ 1):** ในการแสดงผลนี้, ป้ายชื่อหมวดที่แสดงทุกสองตำแหน่งและห่อบรรทัดเป็นสองบรรทัด. ผลลัพธ์อัตโนมัติอาจแตกต่างตามขนาดแผนภูมิ, ฟอนต์, และเครื่องเรนเดอร์.
+**การจัดระยะห่างอัตโนมัติ (สไลด์ 1):**  
+ในการแสดงผลนี้ ป้ายชื่อประเภททุกสองตำแหน่งจะแสดงและตัดบรรทัดเป็นสองบรรทัด ผลลัพธ์อัตโนมัติอาจแตกต่างกันตามขนาดแผนภูมิ, ฟอนต์, และตัวเรนเดอร์  
+![การจัดระยะห่างป้ายชื่อประเภทอัตโนมัติพร้อมคอลัมน์ทั้งหมด 24 คอลัมน์มองเห็น](category-axis-automatic.png)
 
-![การจัดระยะป้ายชื่อหมวดอัตโนมัติพร้อมคอลัมน์ 24 คอลัมน์ที่มองเห็นทั้งหมด](category-axis-automatic.png)
+**การจัดระยะห่างด้วยตนเอง (สไลด์ 2):**  
+ป้ายชื่อทุกสามตำแหน่งจะแสดงในบรรทัดเดียว ขณะที่เครื่องหมายติ๊กยังคงอยู่ที่ทุกช่วงประเภท ทั้ง 24 คอลัมน์รวมถึงคอลัมน์ที่ไม่มีป้ายชื่อยังคงมองเห็นได้พร้อมค่าที่เหมือนเดิม สไลด์ที่ 3 คืนลักษณะอัตโนมัติที่แสดงข้างต้น  
+![ช่วงป้ายชื่อประเภทด้วยตนเองที่สามพร้อมคอลัมน์ทั้งหมด 24 คอลัมน์มองเห็น](category-axis-manual.png)
 
-**การจัดระยะแบบกำหนดเอง (สไลด์ 2):** ป้ายชื่อทุกสามตำแหน่งจะปรากฏบนบรรทัดเดียว, ในขณะที่เครื่องหมายแบ่งยังคงอยู่ที่ทุกช่วงหมวด. คอลัมน์ 24 ทั้งหมด, รวมถึงที่ไม่มีป้ายชื่อ, ยังคงมองเห็นได้ด้วยค่าเดียวกัน. สไลด์ 3 คืนค่าการแสดงผลอัตโนมัติที่แสดงข้างต้น.
+### **เลือกแกนและช่วงที่ถูกต้อง**
 
-![ช่วงเวลาป้ายชื่อหมวดแบบกำหนดเองเป็นสามพร้อมคอลัมน์ 24 คอลัมน์ที่มองเห็นทั้งหมด](category-axis-manual.png)
+ใช้ช่วงจำนวนประเภทนี้สำหรับแกนประเภทข้อความ เช่น แกนประเภทของแผนภูมิคอลัมน์, เส้น, พื้นที่ หรือแท่ง ในแผนภูมิคอลัมน์ จะเป็นแกนแนวนอน ในแผนภูมิแท่งแนวนอน แกนประเภทจะเป็นแนวตั้ง ดังนั้นให้ใช้การตั้งค่าเหล่านี้กับแกนที่ได้จาก [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) ระยะห่างของเครื่องหมายติ๊กยังใช้กับแกนซีรีส์ในแผนภูมิที่มีแกนซีรีส์
 
-### **เลือกแกนและช่วงเวลาที่ถูกต้อง**
+อย่าใช้การจัดระยะห่างของป้ายชื่อประเภทเพื่อกำหนดสเกลเชิงตัวเลขของแกนค่า บนแกนค่า, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) กำหนดความแตกต่างของค่า: ตัวอย่างเช่น หน่วยหลัก `10` จะสร้างเครื่องหมายติ๊กที่ 0, 10, 20 เป็นต้นเมื่อแกนเริ่มที่ศูนย์ ช่วงป้ายชื่อประเภท `3` จะนับตำแหน่งประเภทโดยไม่คำนึงถึงค่าข้อมูล แผนภูมิกระจายและฟองอากาศใช้แกนค่าแทนแกนประเภทข้อความ สำหรับแกนวันที่ ให้ใช้หน่วยหลักและสเกลตามเวลาอย่างที่อธิบายใน [เปลี่ยนแกนประเภท](#change-a-category-axis)
 
-ใช้ช่วงเวลานับจำนวนหมวดนี้สำหรับแกนหมวดหมู่แบบข้อความ, เช่น แกนหมวดของแผนภูมิคอลัมน์, เส้น, พื้นที่ หรือแผนภูมิแท่ง. ในแผนภูมิคอลัมน์, มันคือแกนแนวนอน. ในแผนภูมิแท่งแนวนอน, แกนหมวดอยู่แนวตั้ง, ดังนั้นให้ใช้การตั้งค่านี้กับแกนที่ได้จาก [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). การจัดระยะเครื่องหมายแบ่งยังใช้ได้กับแกนชุดข้อมูลในแผนภูมิที่มีแกนชุดข้อมูล.
+## **ตั้งค่ารูปแบบวันที่สำหรับค่าแกนประเภท**
 
-อย่าใช้การจัดระยะป้ายชื่อหมวดเพื่อกำหนดสเกลเชิงตัวเลขของแกนค่า. บนแกนค่า, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) ระบุความแตกต่างของค่า: ตัวอย่างเช่น, หน่วยหลัก `10` จะสร้างเครื่องหมายที่ 0, 10, 20 ฯลฯ เมื่อแกนเริ่มที่ศูนย์. ช่วงเวลาป้ายชื่อหมวด `3` จะนับตำแหน่งหมวดโดยไม่คำนึงถึงค่าข้อมูล. แผนภูมิกระจายและฟองใช้แกนค่าแทนแกนหมวดข้อความ. สำหรับแกนวันที่, ใช้หน่วยหลักและสเกลตามเวลาแบบอธิบายใน [Change a Category Axis](#change-a-category-axis).
-
-## **กำหนดรูปแบบวันที่สำหรับค่าของแกนหมวดหมู่**
-
-ตัวอย่างนี้แทนที่ข้อมูลเริ่มต้นของแผนภูมิโดยค่าประจำปีสี่ค่า. วันที่ถูกเก็บเป็นเลขอนุกรม OLE Automation ในชีตแรก (ดัชนี `0`), คำนวณเป็นจำนวนวันตั้งแต่ 30 ธันวาคม 1899 สำหรับวันที่เหล่านี้. การคำนวณใน JavaScript ใช้ timestamp UTC และหารผลต่างด้วย 86,400,000 มิลลิวินาทีต่อวัน. ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) กับ `CategoryAxisType.Date`, เรียก [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) ด้วย `false`, และส่ง `yyyy` ไปยัง [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) เพื่อให้ป้ายชื่อหมวดแสดงปีสี่หลักโดยอิสระจากการจัดรูปแบบเซลล์.
+ตัวอย่างนี้แทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยค่าปีละสี่ค่า วันที่ถูกเก็บเป็นเลขซีเรียล OLE Automation ในแผ่นงานแรก (ดัชนี `0`) ซึ่งคำนวณจากจำนวนวันตั้งแต่วันที่ 30 ธันวาคม 1899 สำหรับวันที่เหล่านี้ การคำนวณใน JavaScript ใช้เวลา UTC แล้วหารผลต่างด้วย 86,400,000 มิลลิวินาทีต่อวัน ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) ด้วยค่า `CategoryAxisType.Date` เรียก [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) ด้วยค่า `false` และส่ง `yyyy` ไปที่ [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) เพื่อให้ป้ายชื่อประเภทแสดงปีสี่หลักโดยอิสระจากการฟอร์แมตของเซลล์
 
 ```javascript
 var aspose = aspose || {};
@@ -274,9 +332,9 @@ try {
 }
 ```
 
-## **ตั้งค่ามุมการหมุนสำหรับหัวข้อแกนของแผนภูมิ**
+## **ตั้งค่ามุมการหมุนสำหรับหัวเรื่องแกนแผนภูมิ**
 
-เรียก [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) ด้วย `true` บนแกนแนวตั้ง, ให้ข้อความหัวข้อ, และใช้ [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) เพื่อหมุนหัวข้อ. มุมวัดเป็นองศา; ตัวอย่างนี้บันทึกแผนภูมิคอลัมน์ที่หัวข้อแกนค่าถูกหมุน 90 องศา.
+เรียก [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) ด้วยค่า `true` บนแกนแนวตั้ง ให้ข้อความหัวเรื่อง และใช้ [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) เพื่อหมุนหัวเรื่อง มุมจะวัดเป็นองศา; ตัวอย่างนี้บันทึกแผนภูมิคอลัมน์ที่หัวเรื่องแกนค่าถูกหมุน 90 องศา
 
 ```javascript
 var aspose = aspose || {};
@@ -297,9 +355,9 @@ try {
 }
 ```
 
-## **ตั้งค่าตำแหน่งแกนบนแกนหมวดหมู่หรือแกนค่า**
+## **ตั้งตำแหน่งแกนบนแกนประเภทหรือแกนค่า**
 
-ใช้ [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) เพื่อควบคุมว่าแกนค่าตัดแกนหมวดระหว่างหมวดหรือที่เครื่องหมายแบ่งหมวด. การตั้งค่านี้ใช้กับแกนหมวด. ตัวอย่างตั้งค่าเป็น `true` บนแกนหมวดแนวนอนของแผนภูมิคอลัมน์และบันทึกผลลัพธ์.
+ใช้ [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) เพื่อควบคุมว่ากราฟค่า จะตัดแกนประเภทระหว่างประเภทหรือที่เครื่องหมายติ๊กของประเภท การตั้งค่านี้ใช้กับแกนประเภท ตัวอย่างตั้งค่าเป็น `true` บนแกนประเภทแนวนอนของแผนภูมิคอลัมน์และบันทึกผลลัพธ์
 
 ```javascript
 var aspose = aspose || {};
@@ -320,7 +378,7 @@ try {
 
 ## **ตั้งค่าหน่วยการแสดงผลบนแกนค่าของแผนภูมิ**
 
-ใช้ [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) เพื่อสเกลป้ายชื่อบนแกนค่าโดยไม่เปลี่ยนข้อมูลพื้นฐาน. เมื่อ [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) ตั้งเป็น `Millions`, ค่า 60,000,000 จะแสดงเป็น 60. ตัวอย่างสร้างแผนภูมิคอลัมน์และกำหนดหน่วยแสดงผลเป็นล้านบนแกนแนวตั้ง.
+ใช้ [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) เพื่อปรับสเกลของป้ายชื่อบนแกนค่าโดยไม่เปลี่ยนข้อมูลพื้นฐาน ด้วยการตั้งค่า [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) เป็น `Millions` ค่าที่ 60,000,000 จะแสดงเป็น 60 ตัวอย่างสร้างแผนภูมิคอลัมน์และใช้หน่วยการแสดงผลเป็นล้านบนแกนแนวตั้งของมัน
 
 ```javascript
 var aspose = aspose || {};
@@ -341,19 +399,19 @@ try {
 
 ## **กำหนดค่าแกนค่าลอการิทึม**
 
-แกนค่าลอการิทึมมีประโยชน์เมื่อค่าบวกกระจายหลายระดับลำดับ. ตัวอย่างเช่น, บริการอาจรับ 10, 100, 1,000, 10,000, และ 100,000 คำขอในห้าช่วงเวลา. บนสเกลเชิงเส้น, ค่าขนาดเล็กจะอยู่ใกล้ศูนย์กัน. สเกลลอการิทึมทำให้การเติบโตสัมพัทธ์ง่ายต่อการเปรียบเทียบ: ระยะห่างที่เท่ากันแทนอัตราส่วนที่เท่ากันแทนความแตกต่างที่เท่ากัน.
+แกนค่าลอการิทึมมีประโยชน์เมื่อค่าบวกมีช่วงหลายระดับขนาด ตัวอย่างเช่น บริการอาจได้รับคำขอ 10, 100, 1,000, 10,000, และ 100,000 ครั้งในห้าช่วง เวลาในสเกลเชิงเส้น ค่าที่เล็กจะอยู่ใกล้กันใกล้ศูนย์ สเกลลอการิทึมทำให้การเปรียบเทียบการเติบโตสัมพัทธ์ง่ายขึ้น: ระยะทางที่เท่ากันแทนอัตราส่วนที่เท่ากัน ไม่ใช่ความแตกต่างที่เท่ากัน
 
-เรียก [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) ด้วย `true` บนแกนค่และใช้ [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) เพื่อเลือกฐาน. การทำเช่นนี้เปลี่ยนวิธีแสดงค่าที่มีอยู่; ไม่ได้เปลี่ยนข้อมูลหรือเพิ่มเส้นแนวโน้มลอการิทึม. เส้นแนวโน้มเป็นฟีเจอร์แยกต่างหากที่แสดงความสัมพันธ์ที่ฟิตกับข้อมูล.
+เรียก [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) ด้วยค่า `true` บนแกนค่าและใช้ [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) เพื่อเลือกฐาน การทำเช่นนี้จะเปลี่ยนวิธีการแสดงค่าที่มีอยู่ ไม่ได้เปลี่ยนข้อมูลหรือเพิ่มเส้นเทรนด์ลอการิทึม เส้นเทรนด์เป็นตัวแทนของความสัมพันธ์ที่ฟิตกับข้อมูลและเป็นคุณลักษณะแยกจากกัน
 
 ### **เลือกแกนค่าและฐาน**
 
-สำหรับแผนภูมิเส้นหรือคอลัมน์, แกนค่าจะได้จาก [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). สำหรับแผนภูมิกระแท่งแนวนอน, จะได้จาก [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/). แผนภูมิกระจายและฟองมีแกนค่าสองแกน, ดังนั้นเลือกแกนแนวนอนสำหรับค่า X, แกนแนวตั้งสำหรับค่า Y, หรือทั้งสอง. อย่าใช้การสเกลลอการิทึมกับแกนหมวด.
+สำหรับแผนภูมิเส้นหรือคอลัมน์ แกนค่าจะได้จาก [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) สำหรับแผนภูมิแท่งแนวนอน จะได้จาก [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/) แผนภูมิกระจายและฟองอากาศมีแกนค่าสองแกน ดังนั้นให้เลือกแกนแนวนอนสำหรับค่า X, แกนนอนสำหรับค่า Y หรือทั้งสองแกน อย่าใช้สเกลลอการิทึมกับแกนประเภท
 
-ฐานลอการิทึมเริ่มต้นคือ `10`. สำหรับแผนภูมิ PPTX, สามารถใช้ฐานตั้งแต่ `2` ถึง `1000` (รวม), รวมถึงฐานเศษส่วนเช่น `2.5`. ด้วยฐาน `10`, พลังต่อเนื่องเช่น 10, 100, 1,000, และ 10,000 จะมีระยะห่างเท่ากัน.
+ฐานลอการิทึมเริ่มต้นคือ `10` สำหรับแผนภูมิ PPTX ให้ใช้ฐานตั้งแต่ `2` ถึง `1000` รวมถึงฐานเศษส่วนเช่น `2.5` ด้วย เมื่อใช้ฐาน `10` กำลังต่อเนื่องเช่น 10, 100, 1,000 และ 10,000 จะมีระยะห่างเท่ากัน
 
 ### **เปรียบเทียบการสเกลเชิงเส้นและลอการิทึม**
 
-ตัวอย่างอิสระต่อไปนี้สร้างแผนภูมิเส้นที่แสดงจำนวนคำขอห้าครั้งบนสไลด์แรก, จากนั้นคัดลอกสไลด์นั้นและเปิดใช้งานแกนค่าลอการิทึมฐาน 10 บนสไลด์ที่สอง. ทั้งสองสไลด์รักษาข้อมูลเดียวกัน.
+ตัวอย่างอิสระต่อไปนี้สร้างแผนภูมิเส้นที่มีจำนวนคำขอห้าค่าบนสไลด์แรก จากนั้นคัดลอกสไลด์นั้นและเปิดใช้งานแกนค่าลอการิทึมฐาน 10 บนสไลด์ที่สอง ทั้งสองสไลด์คงข้อมูลเดิม
 
 ```javascript
 var aspose = aspose || {};
@@ -384,7 +442,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // คงสไลด์แรกเป็นเชิงเส้นและเปลี่ยนเฉพาะสเกลแกนค่าของสำเนา
+    // คงสไลด์แรกเป็นเชิงเส้นและเปลี่ยนสเกลแกนค่าของสำเนาเท่านั้น.
     var logarithmicSlide = presentation.getSlides().addClone(slide);
     var logarithmicChart = logarithmicSlide.getShapes().get_Item(0);
     var valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -397,24 +455,22 @@ try {
 }
 ```
 
-**สเกลเชิงเส้น (สไลด์ 1):** ระยะแนวตั้งที่เท่ากันแทนความแตกต่างที่เท่ากันของจำนวนคำขอ. ค่าที่ใหญ่ที่สุดครอบงำแผนภูมิ, ทำให้ค่าที่เล็กกว่าแยกแยะได้ยาก.
+**สเกลเชิงเส้น (สไลด์ 1):**  
+ระยะแนวตั้งที่เท่ากันแทนความแตกต่างที่เท่ากันของจำนวนคำขอ ค่าที่ใหญ่ที่สุดครอบงำแผนภูมิ ทำให้ค่าที่เล็กกว่าที่ยากต่อการแยกแยะ  
+![แผนภูมิเส้นใน PowerPoint แสดงจำนวนคำขอห้าคาในแกนค่าตามสเกลเชิงเส้น](value-axis-linear.png)
 
-![แผนภูมิเส้นใน PowerPoint แสดงจำนวนการร้องขอห้าครั้งบนแกนค่าที่เป็นเชิงเส้น](value-axis-linear.png)
-
-**สเกลลอการิทึม (สไลด์ 2):** ระยะแนวตั้งที่เท่ากันแทนอัตราส่วนที่เท่ากัน. แต่ละช่วงมีจำนวนคำขอเพิ่มขึ้นสิบเท่า, ดังนั้นจุดจะเป็นเส้นตรงที่ขึ้นบนสเกลฐาน 10. ป้ายแกนยังแสดงจำนวนคำขอเดิม.
-
-![จำนวนการร้องขอห้าครั้งเดียวกันใน PowerPoint บนแกนค่าลอการิทึมฐาน 10](value-axis-logarithmic.png)
+**สเกลลอการิทึม (สไลด์ 2):**  
+ระยะแนวตั้งที่เท่ากันแทนอัตราส่วนที่เท่ากัน แต่ละช่วงมีจำนวนคำขอมากกว่าช่วงก่อนสิบเท่า ดังนั้นจุดจะสร้างเส้นตรงที่โค้งขึ้นบนสเกลฐาน 10 ป้ายชื่อแกนยังคงแสดงจำนวนคำขอเดิม  
+![จำนวนคำขอห้าค่าเดียวกันใน PowerPoint บนแกนค่าลอการิทึมฐาน 10](value-axis-logarithmic.png)
 
 ### **จัดการค่าศูนย์และค่าติดลบ**
 
-สเกลลอการิทึมสามารถแสดงได้เฉพาะค่าบวกที่แน่นอน. ตรวจสอบข้อมูลก่อนเปิดใช้งาน. หากค่าศูนย์หรือค่าติดลบมีความหมาย, ควรใช้สเกลเชิงเส้นหรือแสดงแยกต่างหาก. หากการยกเว้นค่าดังกล่าวเหมาะสมต่อการวิเคราะห์, ให้อธิบายเหตุผล. อย่าแทนที่ค่าดังกล่าวด้วยจำนวนบวกเล็ก ๆ อย่างเงียบ เนื่องจากจะเปลี่ยนความหมายของข้อมูล. ค่าต่ำสุดหรือสูงสุดที่กำหนดด้วยตนเองสำหรับแกนลอการิทึมต้องเป็นบวกเช่นกัน.
+สเกลลอการิทึมสามารถแสดงได้เฉพาะค่าบวกอย่างเคร่งครัด ตรวจสอบข้อมูลก่อนเปิดใช้งาน หากค่าศูนย์หรือค่าติดลบมีความหมาย ให้คงสเกลเชิงเส้นหรือแสดงแยกออก หากการตัดค่าดังกล่าวออกเป็นสิ่งที่เหมาะสมสำหรับการวิเคราะห์ ให้อธิบายการละเว้น อย่าแทนที่ค่าด้วยจำนวนบวกเล็ก ๆ โดยไม่แจ้ง เนื่องจากจะเปลี่ยนความหมายของข้อมูล ค่าต่ำสุดหรือค่าสูงสุดที่กำหนดด้วยตนเองสำหรับแกนลอการิทึมต้องเป็นค่าบวกด้วย
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตั้งค่าที่แกนหนึ่งตัดกับอีกแกนได้อย่างไร (การตัดแกน)?**
+**ฉันจะตั้งค่าค่าที่แกนหนึ่งตัดแกนอีก (การตัดแกน) อย่างไร?**  
+ใช้ [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) เพื่อเลือกพฤติกรรมการตัดแกน หากต้องการระบุค่าตัดเชิงตัวเลข ให้ใช้ [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) การตั้งค่าเหล่านี้ช่วยให้คุณย้ายตำแหน่งการตัดแกนไปยังเส้นฐานที่เหมาะสม
 
-ใช้ [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) เพื่อเลือกพฤติกรรมการตัด. หากต้องการระบุค่าตัดเชิงตัวเลข, ใช้ [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). การตั้งค่าเหล่านี้ทำให้คุณย้ายตำแหน่งการตัดแกนไปยังฐานที่เหมาะสม.
-
-**ฉันจะกำหนดตำแหน่งป้ายกำกับเครื่องหมายแบ่งสัมพันธ์กับแกนได้อย่างไร?**
-
-เรียก [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) โดยใช้ [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, หรือ `None`. เพื่อควบคุมเครื่องหมายแบ่งเอง, ใช้ [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) หรือ [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); สิ่งเหล่านี้แยกจากการจัดตำแหน่งป้าย.
+**ฉันจะกำหนดตำแหน่งป้ายที่ติ๊กสัมพันธ์กับแกนได้อย่างไร?**  
+เรียก [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) ด้วยค่า [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, หรือ `None` เพื่อควบคุมตำแหน่งป้ายที่ติ๊กเอง ใช้ [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) หรือ [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); สิ่งเหล่านี้แยกจากการกำหนดตำแหน่งป้าย

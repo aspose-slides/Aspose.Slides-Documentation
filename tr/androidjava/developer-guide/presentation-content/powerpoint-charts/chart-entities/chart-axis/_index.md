@@ -1,18 +1,18 @@
 ---
-title: Android'de Sunumlarda Çizelge Eksenlerini Özelleştirme
-linktitle: Çizelge Ekseni
+title: Android'de Sunumlarda Grafik Eksenlerini Özelleştirme
+linktitle: Grafik Ekseni
 type: docs
 url: /tr/androidjava/chart-axis/
 keywords:
-- çizelge ekseni
+- grafik ekseni
 - dikey eksen
 - yatay eksen
 - eksen özelleştirme
 - eksen manipülasyonu
 - eksen yönetimi
 - eksen özellikleri
-- maksimum değer
-- minimum değer
+- azami değer
+- asgari değer
 - eksen çizgisi
 - tarih biçimi
 - eksen başlığı
@@ -22,17 +22,17 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Raporlar ve görselleştirmeler için PowerPoint sunumlarında çizelge eksenlerini özelleştirmek amacıyla Android için Aspose.Slides'ı Java aracılığıyla nasıl kullanacağınızı keşfedin."
+description: "Raporlar ve görselleştirmeler için PowerPoint sunumlarında grafik eksenlerini özelleştirmek üzere Java aracılığıyla Android için Aspose.Slides kullanımını keşfedin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Android via Java ile çizelge eksenlerini nasıl özelleştireceğinizi açıklar. Hesaplanmış eksen değerleri, çizelge satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve işaretçi aralıkları, tarih kategorileri ve biçimlendirme, başlık dönüşü, eksen konumlandırma, görüntüleme birimleri ve logaritmik ölçeklendirme konularını kapsar.
+Bu makale, Aspose.Slides for Android via Java ile grafik eksenlerini nasıl özelleştirileceğini açıklar. Hesaplanmış eksen değerleri, grafik satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve işaretçik aralıkları, tarih kategorileri ve biçimlendirme, başlık döndürme, eksen konumlandırma, gösterim birimleri ve logaritmik ölçeklendirme konularını kapsar.
 
-## **Dikey Eksenin Maksimum Değerlerini Almak**
+## **Grafiklerde Dikey Eksenin Maksimum Değerlerini Alın**
 
-Bir [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) oluşturun ve varsayılan verilerle bir alan çizelgesi ekleyin. Hesaplanmış eksen değerlerini okumadan önce, çizelge düzeninin güncel olmasını sağlamak için [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) çağırın.
+Bir [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) oluşturun ve varsayılan verilerle bir alan grafiği ekleyin. Hesaplanmış eksen değerlerini okumadan önce grafik düzeninin güncel olduğundan emin olmak için [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) yöntemini çağırın.
 
-Eksen sınırları için [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) ve [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) okuyun ve işaretçi aralıkları için [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) ve [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) kullanın. Tarih eksenleriyle ilgili zaman birimi ölçeklerini sağlayan [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) ve [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) metodlarıdır. Örnek bu değerleri yerel değişkenlerde saklar ve çizelgeyi kaydeder.
+Eksen sınırları için [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) ve [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) metodunu, işaretçi aralıkları için ise [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) ve [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) metodunu okuyun. [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) ve [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) tarih eksenleriyle ilgili zaman birimi ölçeklerini sağlar. Örnek bu değerleri yerel değişkenlerde saklar ve grafiği kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -59,9 +59,9 @@ try {
 }
 ```
 
-## **Verileri Eksenler Arasında Değiştirin**
+## **Eksenler Arasındaki Verileri Değiştirin**
 
-Çizelge verilerindeki seri ve kategorilerin rollerini değiştirmek için [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) kullanın. Her eski kategori bir seri, her eski seri ise bir kategori olur. Bu, verilerin nasıl gruplanacağını değiştirir; yatay ve dikey eksenleri değiştirmez. Örnek, satır ve sütunları değiştirmeden önce varsayılan verileri `Sheet1!A1:D5` konumuna, başlık satırı ve kategori sütunu dahil olmak üzere bağlamak için [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) metodunu kullanır. Dört seri ve üç kategori içeren bir çizelge kaydeder.
+[swapRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) yöntemini kullanarak grafik verilerinde seri ve kategori rollerini değiştirin. Her önceki kategori bir seri, her önceki seri ise bir kategori olur. Bu, verilerin gruplanma şeklini değiştirir; yatay ve dikey eksenleri değiştirmez. Örnek, satır ve sütunları değiştirmeden önce varsayılan veriyi `Sheet1!A1:D5` adresine (başlık satırı ve kategori sütunu dahil) bağlamak için [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) metodunu kullanır. Dört seri ve üç kategori içeren bir grafik kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -80,9 +80,66 @@ try {
 }
 ```
 
-## **Çizgi Çizelgeleri için Dikey Ekseni Devre Dışı Bırakın**
+## **Bir Eksenin Çizim Sırasını Tersine Çevirin**
 
-Dikey ekseni gizlemek için `false` ile [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) metodunu çağırın. Örnek, varsayılan verilerle bir çizgi çizelgesi oluşturur ve dikey ekseni gizli olarak kaydeder.
+[setPlotOrderReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setPlotOrderReversed-boolean-) metodunu kullanarak bir kategori ya da değer eksenini tersine çevirin. Örneğin, bir yatay çubuk grafiği proje aşamalarını çalışma sayfasındaki aynı sırayla üstten alta gösterebilir: Planlama, Geliştirme, Test. Bir ekseni tersine çevirmek çizim yönünü değiştirir; verileri sıralamaz veya yeniden düzenlemez. Karşılaştırma olarak, [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) seri ve kategori rollerini değiştirir.
+
+Aşağıdaki örnek üç aşamalı ve bir serili bir yatay çubuk grafiği oluşturur. Normal sıralama, tersine çevrilmiş kategoriler ve tersine çevrilmiş değerler olmak üzere üç slayt içeren bir sunum kaydeder. Her kopya aynı veri kümesini kullanır ve her kopyada yalnızca bir eksen tersine çevrilir.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320);
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredBar);
+    String[] stages = { "Planning", "Development", "Testing" };
+    int[] values = { 10, 30, 20 };
+    for (int i = 0; i < stages.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, stages[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    // Slayt 2: ilk kategoriyi üstte göster.
+    ISlide categorySlide = presentation.getSlides().addClone(slide);
+    IChart categoryChart = (IChart)categorySlide.getShapes().get_Item(0);
+    categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
+    // Yatay değer eksenini altta tut.
+    categoryChart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum);
+
+    // Slayt 3: yalnızca yatay sayısal ölçeği tersine çevir.
+    ISlide valueSlide = presentation.getSlides().addClone(slide);
+    IChart valueChart = (IChart)valueSlide.getShapes().get_Item(0);
+    valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Bir ekseni tersine çevirmek, dik ekseni grafiğin karşı tarafına da taşıyabilir. [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) başka bir eksenin yapılandırılan ekseni nerede kestiğini kontrol eder. 2. slaytta, tersine çevrilmiş kategori ekseninde `CrossesType.Maximum` ile çağırmak, yatay değer eksenini altta tutar. Belirli bir kesişim noktası için [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) kullanın. Yön değiştirilirken kesişim ayarlarını kontrol edin, özellikle grafik zaten özel bir kesişim noktasına sahipse. Normal çizim yönünü geri getirmek için `setPlotOrderReversed` metodunu `false` ile çağırın; kesişim ayarları ayrı tutulur.
+
+| Normal sıralama (slayt 1) | Tersine çevrilmiş kategoriler (slayt 2) | Tersine çevrilmiş değerler (slayt 3) |
+| --- | --- | --- |
+| ![Normal kategori ve değer ekseni düzenine sahip yatay çubuk grafiği](axis-order-normal.png) | ![Kategorilerin yukarıdan aşağıya gösterildiği yatay çubuk grafiği](axis-order-categories-reversed.png) | ![Tersine çevrilmiş değer ekseni ve sağda sıfır olan yatay çubuk grafiği](axis-order-values-reversed.png) |
+| Kategoriler alttan üste doğru; değerler soldan sağa artar. | Planlama, Geliştirme ve Test, yukarıdan aşağıya doğru. Değerler ve çalışma kitabı satır sırası değişmez. | Kategoriler normal sıralarını korur; değerler sağdan sola artar. Kategori ekseni sağda sıfırda kesişir. |
+
+## **Çizgi Grafiklerinde Dikey Eksen'i Devre Dışı Bırakın**
+
+Dikey eksende `[setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-)` metodunu `false` olarak çağırarak gizleyin. Örnek, varsayılan verilerle bir çizgi grafiği oluşturur ve dik ekseni gizlenmiş olarak kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -100,9 +157,9 @@ try {
 }
 ```
 
-## **Çizgi Çizelgeleri için Yatay Ekseni Devre Dışı Bırakın**
+## **Çizgi Grafiklerinde Yatay Eksen'i Devre Dışı Bırakın**
 
-Yatay ekseni gizlemek için `false` ile [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) metodunu çağırın. Örnek, varsayılan verilerle bir çizgi çizelgesi oluşturur ve yatay ekseni gizli olarak kaydeder.
+Yatay eksende `[setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-)` metodunu `false` olarak çağırarak gizleyin. Örnek, varsayılan verilerle bir çizgi grafiği oluşturur ve yatay ekseni gizlenmiş olarak kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -122,7 +179,7 @@ try {
 
 ## **Bir Kategori Eksenini Değiştirin**
 
-Tarih veya metin kategori ekseni seçmek için [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) metodunu kullanın. Bu örnek, ilk slayttaki ilk şekil olarak bir çizelgeye ve hücrelerde sayısal Excel tarih değerlerine sahip bir `ExistingChart.pptx` dosyasını gerektirir. Yatay ekseni bir tarih ekseni haline getirir. [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) metodunu `false`, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) metodunu `1` ve [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) metodunu `TimeUnitType.Months` ile ayarlamak, ana işaretçileri bir‑ay aralıklarında konumlandırır.
+[setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) metodunu kullanarak tarih ya da metin kategori ekseni seçin. Bu örnek `ExistingChart.pptx` dosyasını gerektirir; grafik ilk slayttaki ilk şekil olup kategori hücreleri sayısal Excel tarih değerleri içerir. Yatay ekseni tarih ekseni olarak değiştirir. [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) metodunu `false`, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) metodunu `1` ve [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) metodunu `TimeUnitType.Months` olarak ayarlamak, ana işaretçileri bir‑ay aralıklarla yerleştirir.
 
 ```java
 import com.aspose.slides.*;
@@ -143,21 +200,21 @@ try {
 }
 ```
 
-## **Kategori Ekseni Etiket Aralıklarını Kontrol Edin**
+## **Kategori Eksen Etiketi Aralıklarını Kontrol Edin**
 
-Bir çizelgede çok sayıda kategori olduğunda, kategorileri veya veri noktalarını kaldırmadan görünen eksen etiketlerinin sayısını azaltın. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) metodunu `false` ile çağırın, ardından istenen kategori aralığını [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-) metoduna aktarın. Normal sıralamadaki metin kategorileri için sayma ilk kategori’den başlar:
+Bir grafikte çok sayıda kategori olduğunda, kategori ya da veri noktalarını kaldırmadan görünen eksen etiketlerinin sayısını azaltın. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) metodunu `false` yapın, ardından istediğiniz kategori aralığını [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-) metoduna gönderin. Normal sıralamadaki metin kategorileri için sayma ilk kategoriden başlar:
 
-| Aralık | Örnekte görüntülenen etiketler |
+| Aralık | Örnekte gösterilen etiketler |
 | --- | --- |
 | `1` | Kategori 1, Kategori 2, Kategori 3, ... Kategori 24 |
 | `2` | Kategori 1, Kategori 3, Kategori 5, ... Kategori 23 |
 | `3` | Kategori 1, Kategori 4, Kategori 7, ... Kategori 22 |
 
-`3` aralığı, her üçüncü etiketi gösterir; gösterilen etiketler arasında iki etiket gizli kalır. İlgili sütunları kaldırmaz. Otomatik aralık, kullanılabilir alana göre bir aralık seçer; her etiketi mutlaka göstermez.
+`3` aralığı her üçüncü etiketi gösterir, gösterilen etiketlerin arasına iki etiket gizlenir. İlgili sütunlar kaldırılmaz. Otomatik aralık, mevcut alana göre bir aralık seçer; her etiketi mutlaka göstermez.
 
-İşaretçilerin ayrı kontrolleri vardır. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) metodunu `false` ile çağırın ve aralıklarını ayarlamak için [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) metodunu kullanın. Örneğin, `1` işaretçi, her kategori aralığında bir işaretçi bırakırken etiketler yalnızca her üçüncü kategoride görünür. Görünür bir stil elde etmek için [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) metodunu kullanın. Otomatik aralık ayarlarından birini tekrar `true` yapmak, çizelgenin tekrar otomatik aralığı seçmesine izin verir.
+İşaretçikler ayrı kontrollerle ayarlanır. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) metodunu `false` yapın ve [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) metodunu kullanarak aralıklarını belirleyin. Örneğin, `1` değeri, etiketler her üçüncü kategoriye rağmen her kategori aralığında bir işaretçi bırakır. Görünür bir stil için [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) metodunu kullanabilirsiniz. Otomatik‑aralık ayarlarını tekrar `true` yaparsanız grafik yeniden aralığı seçer.
 
-Aşağıdaki bağımsız örnek, 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız işaretçileri olan manuel etiket aralığı ve yeniden otomatik aralık. İki kopya orijinal çizelge verilerini korur. Girdi sunumu gerekmez. Yatay etiket metni, yoğunluk farkını görmeyi kolaylaştırır.
+Aşağıdaki örnek, 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız işaretçikli manuel etiket aralığı ve geri yüklenmiş otomatik aralık. İki kopya orijinal grafik verisini korur. Giriş sunumu gerekmez. Yatay etiket metni yoğunluğu görmeyi kolaylaştırır.
 
 ```java
 import com.aspose.slides.*;
@@ -191,7 +248,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // Slayt 2: her üçüncü etiketi göster, ancak her kategori için bir işaretçi tut.
+    // Slayt 2: her üçüncü etiketi göster, ancak her kategori için bir işaretçiyi koru.
     ISlide manualSlide = presentation.getSlides().addClone(slide);
     IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
     IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -200,7 +257,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // Slayt 3: çizelgenin her iki aralığı da tekrar seçmesine izin ver.
+    // Slayt 3: grafiğin her iki aralığı da tekrar seçmesine izin ver.
     ISlide restoredSlide = presentation.getSlides().addClone(manualSlide);
     IChart restoredChart = (IChart)restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -212,23 +269,23 @@ try {
 }
 ```
 
-**Otomatik aralık (slayt 1):** Bu görüntüde, her ikinci kategori etiketi görüntülenir ve iki satıra kaydırılır. Otomatik sonuç çizelge boyutu, yazı tipleri ve işleyiciye göre değişebilir.
+**Automatic spacing (slide 1):** Bu görüntüde her ikinci kategori etiketi gösterilir ve iki satıra kaydırılır. Otomatik sonuç grafik boyutu, yazı tipi ve işleyiciye göre değişebilir.
 
-![Otomatik kategori etiketi aralığı, 24 sütunun tümü görünür](category-axis-automatic.png)
+![Tüm 24 sütun görünürken otomatik kategori etiketi aralığı](category-axis-automatic.png)
 
-**Manuel aralık (slayt 2):** Her üçüncü etiket tek satırda görüntülenir, işaretçiler her kategori aralığında kalır. Etiketsiz olanlar dahil olmak üzere tüm 24 sütun aynı değerlerle görünür. Slayt 3, yukarıda gösterilen otomatik görünümü geri yükler.
+**Manual spacing (slide 2):** Her üçüncü etiket tek satırda gösterilir, işaretçikler ise her kategori aralığında kalır. Etiketsiz olanlar dahil 24 sütun aynı değerlerle görünür. 3. slayt yukarıdaki otomatik görünümü geri yükler.
 
-![Manuel kategori etiketi aralığı üç, 24 sütunun tümü görünür](category-axis-manual.png)
+![Tüm 24 sütun görünürken üçlü manuel kategori etiketi aralığı](category-axis-manual.png)
 
-### **Doğru Ekseni ve Aralığı Seçin**
+### **Doğru Eksen ve Aralığı Seçin**
 
-Metin kategori ekseni için bu kategori‑sayısı aralığını, örneğin bir sütun, çizgi, alan veya çubuk çizelgesinin kategori ekseni olarak kullanın. Bir sütun çizelgesinde bu, yatay eksendir. Yatay çubuk çizelgesinde kategori ekseni dikeydir; bu ayarları [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) metodu ile dönen eksene uygulayın. İşaretçi aralığı, bir ekseni olan çizelgelerde seri eksenine de uygulanabilir.
+Metin kategori ekseni için bu kategori‑sayı aralığını kullanın; örneğin sütun, çizgi, alan ya da çubuk grafiğinin kategori ekseni. Sütun grafiğinde yatay eksendir. Yatay çubuk grafiğinde kategori ekseni dik olduğundan, bu ayarları [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) metodundan dönen eksene uygulayın. İşaretçik aralığı aynı zamanda bir serinin eksenine de uygulanır.
 
-Değer ekseninin sayısal ölçeğini ayarlamak için kategori etiketi aralığını kullanmayın. Değer ekseninde [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) bir değer farkı belirtir: örneğin, `10` bir birim, eksen sıfırdan başladığında 0, 10, 20 … işaretçilerini üretir. `3` bir kategori etiketi aralığı ise veri değerlerinden bağımsız olarak kategori konumlarını sayar. Dağılım ve balon çizelgeleri, metin kategori ekseni yerine değer eksenleri kullanır. Tarih ekseni için, [Change a Category Axis](#change-a-category-axis) bölümünde açıklandığı gibi zaman tabanlı birim ve ölçekler kullanın.
+Değer ekseninin sayısal ölçeğini ayarlamak için kategori etiketi aralığını kullanmayın. Değer ekseninde [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) yöntemi bir değer farkı belirtir: örneğin `10` ana birim değer eksenini 0, 10, 20 … şeklinde işaretler. `3` kategori etiketi aralığı ise veri değerlerinden bağımsız olarak kategori konumlarını sayar. Dağılım ve balon grafikler metin kategori ekseni yerine değer eksenleri kullanır. Tarih ekseni için, [Change a Category Axis](#change-a-category-axis) bölümünde açıklandığı gibi zaman‑tabanlı ana birimler ve ölçekler kullanın.
 
-## **Kategori Ekseni Değerleri için Tarih Biçimini Ayarlayın**
+## **Kategori Eksen Değerleri için Tarih Formatını Ayarlayın**
 
-Örnek, varsayılan çizelge verilerini dört yıllık değerle değiştirir. Tarihler, ilk çalışma sayfasında (indeks `0`) OLE Automation seri numarası olarak saklanır; bu sayılar 30 Aralık 1899’dan itibaren geçen gün sayısıdır. Her iki takvim de UTC kullanır ve tarihleri ayarlamadan önce temizlenir; böylece yaz saati uygulaması ve günün saati hesaplamayı etkilemez. [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) metodunu `CategoryAxisType.Date` ile, [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) metodunu `false` ile ve [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) metoduna `yyyy` aktararak kategori etiketlerinin hücre biçiminden bağımsız dört basamaklı yıl olarak gösterilmesini sağlayın.
+Örnek, varsayılan grafik verilerini dört yıllık değere değiştirir. Tarihler, ilk çalışma sayfasında (indeks `0`) OLE Automation seri sayıları olarak saklanır; bu sayılar 30 Aralık 1899’dan beri geçen gün sayısıdır. Her iki takvim UTC olarak ayarlanır ve tarih ayarları yapılmadan önce temizlenir; böylece yaz saati değişikliği ve günün saati hesaplamayı etkilemez. [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) metodunu `CategoryAxisType.Date` ile kullanın, [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) metodunu `false` yapın ve [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) metoduna `yyyy` geçerek kategori etiketlerinin hücre biçiminden bağımsız olarak dört basamaklı yıl göstermesini sağlayın.
 
 ```java
 import com.aspose.slides.*;
@@ -276,9 +333,9 @@ try {
 }
 ```
 
-## **Çizelge Ekseni Başlığı için Döndürme Açısı Ayarlayın**
+## **Bir Grafik Eksen Başlığı İçin Döndürme Açısı Ayarlayın**
 
-Dikey eksende başlığı göstermek için [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) metodunu `true` ile çağırın, başlık metnini sağlayın ve başlığı döndürmek için [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) metodunu kullanın. Açı derece cinsindendir; bu örnek, değer‑ekseni başlığı 90 derece döndürülmüş bir sütun çizelgesi kaydeder.
+Dikey eksende `[setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-)` metodunu `true` ile çağırın, başlık metnini sağlayın ve `[setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-)` metodunu kullanarak başlığı döndürün. Açı derece cinsindendir; bu örnek, değer‑eksen başlığı 90 derece döndürülmüş bir sütun grafiği kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -298,9 +355,9 @@ try {
 }
 ```
 
-## **Kategori veya Değer Ekseni Üzerinde Ekseni Konumlandırın**
+## **Kategori ya da Değer Ekseni Üzerinde Eksen Konumunu Ayarlayın**
 
-Değer ekseninin kategori eksenini kategoriler arasında mı yoksa kategori işaretçileri üzerinde mi keseceğini kontrol etmek için [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) metodunu kullanın. Bu ayar kategori eksenlerine uygulanır. Örnek, bir sütun çizelgesinin yatay kategori ekseninde bunu `true` olarak ayarlar ve sonucu kaydeder.
+[setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) metodunu kullanarak değer ekseninin kategori eksenini kategori işaretçikleri arasında mı yoksa işaretçi konumunda mı keseceğini denetleyin. Bu ayar sadece kategori eksenlerine uygulanır. Örnek, bir sütun grafiğinin yatay kategori ekseninde bu ayarı `true` yapar ve sonucu kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -318,9 +375,9 @@ try {
 }
 ```
 
-## **Çizelge Değer Ekseninde Görüntüleme Birimini Ayarlayın**
+## **Bir Grafik Değer Ekseni Üzerinde Görüntüleme Birimini Ayarlayın**
 
-Verileri değiştirmeden bir değer eksenindeki etiketleri ölçeklemek için [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) metodunu kullanın. [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) `Millions` olarak ayarlandığında, 60 000 000 değeri 60 olarak gösterilir. Örnek bir sütun çizelgesi oluşturur ve dikey eksenine milyon görüntüleme birimini uygular.
+[setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) metodunu kullanarak değer eksenindeki etiketleri verileri değiştirmeden ölçeklendirin. [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) `Millions` olarak ayarlandığında 60 000 000 değeri 60 olarak gösterilir. Örnek bir sütun grafiği oluşturur ve dik eksenine milyon görüntüleme birimini uygular.
 
 ```java
 import com.aspose.slides.*;
@@ -338,21 +395,21 @@ try {
 }
 ```
 
-## **Logaritmik Değer Eksenini Yapılandırın**
+## **Logaritmik Değer Ekseni Yapılandırın**
 
-Pozitif değerler birkaç mertebe büyüklük farkı gösterdiğinde bir logaritmik değer ekseni yararlıdır. Örneğin, bir hizmet beş dönemde 10, 100, 1 000, 10 000 ve 100 000 istek alabilir. Doğrusal ölçekte, küçük değerler sıfıra yakın bir arada görünür. Logaritmik ölçek, eşit mesafelerin eşit oranları temsil etmesini sağlar; bu da göreceli büyümeyi karşılaştırmayı kolaylaştırır.
+Pozitif değerler birkaç mertebe boyunca değişiyorsa logaritmik değer ekseni faydalıdır. Örneğin bir hizmet beş dönem içinde 10, 100, 1 000, 10 000 ve 100 000 istek alabilir. Doğrusal ölçekte daha küçük değerler sıfıra yakın bir yerde toplanır. Logaritmik ölçek, büyüme oranlarını karşılaştırmayı kolaylaştırır: eşit mesafeler eşit oranları temsil eder, eşit farkları değil.
 
-Değer ekseninde logaritmik ölçeği etkinleştirmek için [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-) metodunu `true` ile ve tabanı seçmek için [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-) metodunu kullanın. Bu, mevcut değerlerin nasıl gösterildiğini değiştirir; verileri veya logaritmik bir trend çizgisi eklemez. Trend çizgisi, verideki ilişkili bir uyumu temsil eden ayrı bir özelliktir.
+Değer ekseninde `[setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-)` metodunu `true` yapın ve `[setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-)` metoduyla tabanı seçin. Bu, mevcut değerlerin gösterimini değiştirir; verileri ya da logaritmik bir trend çizgisi eklemez. Trend çizgisi, verilerde uygun bir ilişkiyi temsil eden ayrı bir özelliktir.
 
-### **Değer Eksenini ve Tabanı Seçin**
+### **Değer Ekseni ve Tabanı Seçin**
 
-Çizgi veya sütun çizelgesinde değer ekseni, [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) metodu ile döner. Yatay çubuk çizelgesinde ise [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) metodu döner. Dağılım ve balon çizelgelerinde iki değer ekseni bulunduğundan, X değerleri için yatay ekseni, Y değerleri için dikey ekseni veya her ikisini seçin. Logaritmik ölçekleme bir kategori eksenine uygulanmamalıdır.
+Çizgi ya da sütun grafiğinde değer ekseni `[getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--)` metodundan alınır. Yatay çubuk grafiğinde değer ekseni `[getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--)` metodundan alınır. Dağılım ve balon grafiklerin iki değer ekseni olduğundan X değerleri için yatay, Y değerleri için dik eksen ya da her ikisi kullanılabilir. Kategori eksenine logaritmik ölçek uygulamayın.
 
-Varsayılan logaritmik taban `10`dır. PPTX çizelgeleri için `2` ile `1000` arasında (dahil) bir taban kullanabilirsiniz; `2.5` gibi kesirli tabanlar da desteklenir. `10` tabanı ile ardışık güçler 10, 100, 1 000, 10 000 eşit aralıklarla yer alır.
+Varsayılan logaritmik taban `10` dır. PPTX grafiklerde `2`‑`1000` aralığında (dahil) bir taban kullanılabilir; `2.5` gibi kesirli tabanlar da desteklenir. Tabana `10` verirseniz 10, 100, 1 000, 10 000 gibi ardışık güçler eşit aralıkta yer alır.
 
-### **Doğrusal ve Logaritmik Ölçeklemeyi Karşılaştırın**
+### **Doğrusal ve Logaritmik Ölçeklendirmeyi Karşılaştırın**
 
-Aşağıdaki bağımsız örnek, ilk slaytta beş istek sayısını içeren bir çizgi çizelgesi oluşturur, ardından bu slaytı kopyalar ve ikinci slaytta taban‑10 logaritmik değer eksenini etkinleştirir. Her iki slayt da aynı verileri korur.
+Aşağıdaki örnek, ilk slaytta beş istek sayısını gösteren bir çizgi grafiği oluşturur, ardından bu slaytı kopyalar ve ikinci slaytta taban‑10 logaritmik değer eksenini etkinleştirir. İki slayt da aynı veriyi korur.
 
 ```java
 import com.aspose.slides.*;
@@ -395,24 +452,24 @@ try {
 }
 ```
 
-**Doğrusal ölçek (slayt 1):** Eşit dikey mesafeler, istek sayılarındaki eşit farkları temsil eder. En büyük değer çizelgeyi domine eder, küçük değerleri ayırt etmeyi zorlaştırır.
+**Doğrusal ölçek (slayt 1):** Eşit dik mesafeler eşit istek sayısı farklarını temsil eder. En büyük değer grafiği domine eder, küçük değerleri ayırt etmeyi zorlaştırır.
 
-![Doğrusal değer ekseninde beş istek sayısını gösteren PowerPoint çizgi çizelgesi](value-axis-linear.png)
+![Doğrusal değer ekseninde beş istek sayısı gösteren PowerPoint'teki çizgi grafiği](value-axis-linear.png)
 
-**Logaritmik ölçek (slayt 2):** Eşit dikey mesafeler eşit oranları temsil eder. Her dönem, bir önceki dönemin on katı istek alır; bu nedenle noktalar taban‑10 ölçeğinde düz bir yükselen çizgi oluşturur. Eksen etiketleri hâlâ orijinal istek sayılarını gösterir.
+**Logaritmik ölçek (slayt 2):** Eşit dik mesafeler eşit oranları temsil eder. Her dönem bir öncekinin on katı istek alır; bu yüzden noktalar taban‑10 ölçeğinde düz bir yükselen çizgi oluşturur. Ekseni etiketleri hâlâ orijinal istek sayılarını gösterir.
 
-![PowerPoint’te taban‑10 logaritmik değer ekseninde aynı beş istek sayısı](value-axis-logarithmic.png)
+![PowerPoint'te aynı beş istek sayısı temel-10 logaritmik değer ekseni üzerinde](value-axis-logarithmic.png)
 
-### **Sıfır ve Negatif Değerleri Ele Alın**
+### **Sıfır ve Negatif Değerleri İşleyin**
 
-Logaritmik ölçek yalnızca kesin pozitif değerleri gösterebilir. Etkinleştirmeden önce verileri kontrol edin. Sıfır veya negatif değerler anlamlıysa, doğrusal ölçeği koruyun veya bunları ayrı olarak gösterin. Bu değerleri dışlamak analiz için uygunsa, eksikliği açıklayın. Küçük pozitif sayılarla sessizce değiştirmeyin; bu veri anlamını değiştirir. Logaritmik eksen için manuel olarak yapılandırılmış herhangi bir minimum veya maksimum değer de pozitif olmalıdır.
+Logaritmik ölçek yalnızca kesinlikle pozitif değerleri gösterebilir. Etkinleştirmeden önce verileri kontrol edin. Sıfır ya da negatif değerler anlamlıysa doğrusal ölçek kullanın ya da bunları ayrı olarak gösterin. Bu değerleri dışlamak analiz için uygun ise nedeni açıklayın. Küçük pozitif sayılarla sessizce değiştirmeyin; bu veri anlamını değiştirir. Logaritmik eksen için manuel olarak ayarlanan minimum ya da maksimum değer de pozitif olmalıdır.
 
 ## **SSS**
 
-**Bir eksenin diğerini kestiği (eks kesişimi) noktayı nasıl ayarlarım?**
+**Bir eksenin diğerini kestiği değeri (ekseni kesişim) nasıl ayarlarım?**
 
-Kesişme davranışını seçmek için [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) metodunu kullanın. Sayısal bir kesişme değeri belirtmek için [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) metodunu kullanın. Bu ayarlar, eksen kesişimini uygun bir temel çizgisine taşımanıza olanak tanır.
+[setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) metodunu kullanarak kesişim davranışını seçin. Sayısal bir kesişim değeri belirtmek için [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-) metodunu kullanın. Bu ayarlar, eksen kesişimini uygun bir temel çizgiye taşımanızı sağlar.
 
-**İşaretçi etiketlerini eksene göre nasıl konumlandırırım?**
+**İşaretçi etiketlerini eksene göre nasıl konumlandırabilirim?**
 
-[TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/) `Low`, `High`, `NextTo` veya `None` seçeneklerini kullanarak [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) metodunu çağırın. İşaretçileri kontrol etmek için [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) veya [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-) metodlarını kullanın; bunlar etiket konumlandırmadan ayrı işlemlerdir.
+[setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) metodunu [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/) ile `Low`, `High`, `NextTo` veya `None` olarak çağırın. İşaretçi işaretçiklerini kontrol etmek için [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) ya da [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-) metodlarını kullanın; bunlar etiket konumlandırmadan ayrı olarak değerlendirilir.

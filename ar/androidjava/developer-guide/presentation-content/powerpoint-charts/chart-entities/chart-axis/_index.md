@@ -8,7 +8,7 @@ keywords:
 - المحور الرأسي
 - المحور الأفقي
 - تخصيص المحور
-- تعديل المحور
+- معالجة المحور
 - إدارة المحور
 - خصائص المحور
 - القيمة القصوى
@@ -18,21 +18,21 @@ keywords:
 - عنوان المحور
 - موضع المحور
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "اكتشف كيفية استخدام Aspose.Slides للـ Android عبر Java لتخصيص محاور المخططات في عروض PowerPoint التقديمية للتقارير والمرئيات."
+description: "اكتشف كيفية استخدام Aspose.Slides for Android عبر Java لتخصيص محاور المخططات في عروض PowerPoint التقديمية للتقارير والمرئيات."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تخصيص محاور المخطط باستخدام Aspose.Slides للـ Android عبر Java. تتضمن القيم المحسوبة للمحاور، تبديل صفوف وأعمدة المخطط، إظهار المحور أو إخفاؤه، فواصل تسميات الفئات وعلامات التقطيع، الفئات التاريخية وتنسيقها، دوران العنوان، موضع المحور، وحدات العرض، وتدرج اللوغاريتم.
+تشرح هذه المقالة كيفية تخصيص محاور المخطط باستخدام Aspose.Slides for Android عبر Java. تغطي القيم المحسوبة للمحاور، تبديل صفوف وأعمدة المخطط، إظهار أو إخفاء المحور، فواصل تسميات الفئات وعلامات التحديد، فئات التاريخ وتنسيقها، تدوير العنوان، وضع المحور، وحدات العرض، والتدرج اللوغاريتمي.
 
 ## **الحصول على القيم القصوى على المحور الرأسي في المخططات**
 
-إنشاء [العرض التقديمي](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) وإضافة مخطط منطقة مع بيانات افتراضية. استدعِ [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) قبل قراءة القيم المحسوبة للمحاور حتى تكون تخطيط المخطط محدثًا.
+أنشئ [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) وأضف مخططًا مساحيًا بالبيانات الافتراضية. استدعِ [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) قبل قراءة القيم المحسوبة للمحاور حتى يكون تخطيط المخطط محدثًا.
 
-اقرأ [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) و [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) للحصول على حدود المحور، و [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) و [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) لفواصل العلامات. توفر [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) و [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) مقاييس وحدات الوقت، المرتبطة بمحاور التاريخ. يخزن المثال هذه القيم في متغيرات محلية ويحفظ المخطط.
+اقرأ [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) و [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) للحصول على حدود المحور، و [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) و [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) لفواصل العلامات. توفر [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) و [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) مقاييس زمنية، وهي ذات صلة بمحاور التاريخ. يقوم المثال بتخزين هذه القيم في متغيرات محلية ويحفظ المخطط.
 
 ```java
 import com.aspose.slides.*;
@@ -61,7 +61,7 @@ try {
 
 ## **تبديل البيانات بين المحاور**
 
-استخدم [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) لتبادل أدوار السلاسل والفئات في بيانات المخطط. تصبح كل فئة سابقة سلسلة، وتصبح كل سلسلة سابقة فئة. يغير هذا طريقة تجميع البيانات؛ لا يبدل المحاور الأفقية والرأسية. يستخدم المثال [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) لربط البيانات الافتراضية بالنطاق `Sheet1!A1:D5`، بما في ذلك صف العنوان وعمود الفئة، قبل تبديل الصفوف والأعمدة. ثم يحفظ مخططًا يضم أربع سلاسل وثلاث فئات.
+استخدم [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) لتبادل أدوار السلاسل والفئات في بيانات المخطط. تصبح كل فئة سابقة سلسلة، وكل سلسلة سابقة فئة. هذا يغيّر طريقة تجميع البيانات؛ ولا يبدل المحاور الأفقية والرأسية. يستخدم المثال [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) لربط البيانات الافتراضية بـ `Sheet1!A1:D5`، بما في ذلك صف العنوان وعمود الفئة، قبل تبديل الصفوف والأعمدة. ثم يحفظ مخططًا بأربع سلاسل وثلاث فئات.
 
 ```java
 import com.aspose.slides.*;
@@ -80,9 +80,66 @@ try {
 }
 ```
 
-## **إخفاء المحور الرأسي لمخططات الخط**
+## **عكس ترتيب الرسم لمحور**
 
-استدعِ [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) مع القيمة `false` على المحور الرأسي لإخفائه. ينشئ المثال مخطط خط ببيانات افتراضية ويحفظه مع إخفاء المحور الرأسي.
+استخدم [setPlotOrderReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setPlotOrderReversed-boolean-) لعكس محور فئة أو قيمة. على سبيل المثال، يمكن لمخطط شريطي أفقي إظهار مراحل المشروع من الأعلى إلى الأسفل بنفس ترتيب ورقة العمل: التخطيط، التطوير، الاختبار. عكس المحور يغيّر اتجاه الرسم؛ ولا يفرز أو يعيد ترتيب بيانات المصنف. بالمقارنة، يقوم [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) بتبادل أدوار السلاسل والفئات.
+
+المثال التالي ينشئ مخططًا شريطيًا أفقيًا بثلاث مراحل وسلسلة واحدة. يحفظ عرضًا تقديميًا بثلاث شرائح: الترتيب العادي، الفئات المعكوسة، والقيم المعكوسة. كل نسخة تستخدم نفس مجموعة البيانات، ويتم عكس محور واحد فقط في كل نسخة.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320);
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredBar);
+    String[] stages = { "Planning", "Development", "Testing" };
+    int[] values = { 10, 30, 20 };
+    for (int i = 0; i < stages.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, stages[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    // الشريحة 2: عرض الفئة الأولى في الأعلى.
+    ISlide categorySlide = presentation.getSlides().addClone(slide);
+    IChart categoryChart = (IChart)categorySlide.getShapes().get_Item(0);
+    categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
+    // أبقِ محور القيمة الأفقي في الأسفل.
+    categoryChart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum);
+
+    // الشريحة 3: عكس مقياس الأعداد الأفقي فقط.
+    ISlide valueSlide = presentation.getSlides().addClone(slide);
+    IChart valueChart = (IChart)valueSlide.getShapes().get_Item(0);
+    valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+يمكن أيضًا عند عكس محور نقل المحور المتعامد إلى الجانب المقابل من الرسم. يتحكم [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) في مكان عبور المحور الآخر مع المحور المُكوَّن. في الشريحة 2، يتم استدعاؤه بـ `CrossesType.Maximum` على محور الفئة المعكوس لتبقى محور القيمة الأفقي في الأسفل. لنقطة عبور محددة، استخدم [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-). تحقق من إعدادات العبّور عند تغيير الاتجاه، خاصةً إذا كان المخطط يحتوي بالفعل على نقطة عبور مخصصة. استدعِ `setPlotOrderReversed` بـ `false` لاستعادة اتجاه الرسم العادي؛ إعدادات العبّور منفصلة.
+
+| الترتيب العادي (الشريحة 1) | الفئات المعكوسة (الشريحة 2) | القيم المعكوسة (الشريحة 3) |
+| --- | --- | --- |
+| ![مخطط شريطي أفقي بترتيب فئة وقيمة عادي](axis-order-normal.png) | ![مخطط شريطي أفقي مع عرض الفئات من الأعلى إلى الأسفل](axis-order-categories-reversed.png) | ![مخطط شريطي أفقي مع محور قيمة معكوس والصفر على اليمين](axis-order-values-reversed.png) |
+| الفئات تمتد من الأسفل إلى الأعلى؛ القيم تزداد من اليسار إلى اليمين. | التخطيط، التطوير، والاختبار تمتد من الأعلى إلى الأسفل. القيم وترتيب صفوف المصنف لم يتغيرا. | الفئات تحتفظ بترتيبها الطبيعي؛ القيم تزداد من اليمين إلى اليسار. يعبر محور الفئة عند الصفر على اليمين. |
+
+## **إلغاء إظهار المحور الرأسي للمخططات الخطية**
+
+استدعِ [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) بـ `false` على المحور الرأسي لإخفائه. ينشئ المثال مخططًا خطيًا بالبيانات الافتراضية ويحفظه مع إخفاء المحور الرأسي.
 
 ```java
 import com.aspose.slides.*;
@@ -100,9 +157,9 @@ try {
 }
 ```
 
-## **إخفاء المحور الأفقي لمخططات الخط**
+## **إلغاء إظهار المحور الأفقي للمخططات الخطية**
 
-استدعِ [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) مع القيمة `false` على المحور الأفقي لإخفائه. ينشئ المثال مخطط خط ببيانات افتراضية ويحفظه مع إخفاء المحور الأفقي.
+استدعِ [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) بـ `false` على المحور الأفقي لإخفائه. ينشئ المثال مخططًا خطيًا بالبيانات الافتراضية ويحفظه مع إخفاء المحور الأفقي.
 
 ```java
 import com.aspose.slides.*;
@@ -122,7 +179,7 @@ try {
 
 ## **تغيير محور الفئة**
 
-استخدم [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) لاختيار محور فئة تاريخية أو نصية. يتطلب هذا المثال ملف `ExistingChart.pptx`، مع مخطط كأول شكل في الشريحة الأولى وخلايا فئة تحتوي على قيم تاريخية رقمية من Excel. يغير المحور الأفقي إلى محور تاريخ. استدعِ [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) مع `false`، ثم [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) مع `1`، و[setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) مع `TimeUnitType.Months` لتعيين علامات رئيسية بفواصل شهرية.
+استخدم [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) لاختيار محور فئة تاريخ أو نص. يتطلب هذا المثال ملف `ExistingChart.pptx`، مع مخطط كأول شكل في الشريحة الأولى وخلايا فئة تحتوي على قيم تاريخ Excel رقمية. يغيّر المحور الأفقي إلى محور تاريخ. استدعِ [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) بـ `false`، ثم [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) بـ `1`، و [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) بـ `TimeUnitType.Months` لتحديد العلامات الرئيسية بفواصل شهرية.
 
 ```java
 import com.aspose.slides.*;
@@ -145,19 +202,19 @@ try {
 
 ## **التحكم في فواصل تسميات محور الفئة**
 
-عند وجود عدد كبير من الفئات في المخطط، قلل عدد تسميات المحور الظاهرة دون إزالة الفئات أو نقاط البيانات. استدعِ [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) مع `false`، ثم مرّر الفاصل الزمني المطلوب إلى [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-). بالنسبة للفئات النصية بترتيبها الطبيعي، يبدأ العد من الفئة الأولى:
+عند وجود عدد كبير من الفئات، قلل عدد تسميات المحور الظاهرة دون إزالة الفئات أو النقاط البيانية. استدعِ [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) بـ `false`، ثم مرّر الفاصل المطلوب إلى [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-). للفئات النصية بترتيبها الطبيعي، يبدأ العد من الفئة الأولى:
 
-| الفاصل الزمني | التسميات المعروضة في المثال |
+| الفاصل | التسميات المعروضة في المثال |
 | --- | --- |
-| `1` | الفئة 1, الفئة 2, الفئة 3, ... الفئة 24 |
-| `2` | الفئة 1, الفئة 3, الفئة 5, ... الفئة 23 |
-| `3` | الفئة 1, الفئة 4, الفئة 7, ... الفئة 22 |
+| `1` | الفئة 1، الفئة 2، الفئة 3، … الفئة 24 |
+| `2` | الفئة 1، الفئة 3، الفئة 5، … الفئة 23 |
+| `3` | الفئة 1، الفئة 4، الفئة 7، … الفئة 22 |
 
-يعرض الفاصل `3` كل تسمية ثالثة، مع إخفاء تسميتين بين كل تسميات معروضة. لا يزيل ذلك الأعمدة المقابلة. يختار التباعد التلقائي فاصلًا بناءً على المساحة المتاحة؛ لا يضمن عرض كل تسمية.
+يعرض الفاصل `3` كل تسمية ثالثة، ويترك تسميتين مخفيتين بين كل تسمية معروضة. لا يتم إزالة الأعمدة المقابلة. يختار الفاصل التلقائي بناءً على المساحة المتاحة؛ ولا يعرض بالضرورة كل تسمية.
 
-علامات التقطيع لها إعدادات منفصلة. استدعِ [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) مع `false` واستخدم [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) لتحديد فاصلها. على سبيل المثال، يبقي `1` علامة تقطع عند كل فاصل فئة بينما تظهر التسميات كل فئة ثالثة فقط. استخدم [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) بنمط مرئي لتتمكن من رؤية النتيجة. إعادة تفعيل أي من إعدادات التباعد التلقائي بـ `true` يسمح للمخطط باختيار الفاصل مرة أخرى.
+لعلامات التحديد فواصل مستقلة. استدعِ [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) بـ `false` واستخدم [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) لتحديد فاصلها. على سبيل المثال، `1` يبقي علامة تحديد عند كل فاصل فئة بينما تظهر التسميات كل فئة ثالثة فقط. استخدم [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) بنمط مرئي لتتمكن من رؤية النتيجة. استدعاء أي من محددات الفاصل التلقائي بـ `true` مرةً أخرى يسمح للمخطط باختيار الفاصل تلقائيًا مرة أخرى.
 
-المثال المستقل التالي ينشئ 24 فئة وسلسلة واحدة، ثم يحفظ ثلاث شرائح في `CategoryAxisIntervals.pptx`: تباعد تلقائي، تباعد يدوي للتسميات مع علامات تقطع مستقلة، وإعادة تفعيل التباعد التلقائي. النسختان تحتفظان ببيانات المخطط الأصلية. لا يلزم عرض تقديمي مدخل. يجعل النص الأفقي للتسمية الفرق في الكثافة واضحاً للعين.
+المثال التالي المستقل ينشئ 24 فئة وسلسلة واحدة، ثم يحفظ ثلاث شرائح في `CategoryAxisIntervals.pptx`: الفاصل التلقائي، الفاصل اليدوي مع علامات تحديد مستقلة، واستعادة الفاصل التلقائي. تحتفظ النسختان بالبيانات الأصلية للمخطط. لا يلزم وجود عرض تقديمي إدخالي. يجعل نص التسمية الأفقي الاختلاف في الكثافة واضحًا.
 
 ```java
 import com.aspose.slides.*;
@@ -191,7 +248,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // الشريحة 2: عرض كل تسمية ثالثة، مع الحفاظ على علامة تقطع لكل فئة.
+    // الشريحة 2: عرض كل تسمية ثالثة، لكن إبقاء علامة تحديد لكل فئة.
     ISlide manualSlide = presentation.getSlides().addClone(slide);
     IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
     IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -212,23 +269,23 @@ try {
 }
 ```
 
-**التباعد التلقائي (الشريحة 1):** في هذا العرض، تُظهر كل تسمية فئة ثانية وتُلف إلى سطرين. قد يختلف الناتج التلقائي مع حجم المخطط، الخطوط، والمحرك المستخدم.
+**الفاصل التلقائي (الشريحة 1):** في هذا العرض، يتم عرض كل تسمية فئة ثانية وتلتف على سطرين. قد يختلف النتيجة التلقائية حسب حجم المخطط والخطوط وواجهة العرض.
 
-![التباعد التلقائي لتسمية الفئة مع إظهار جميع الأعمدة الـ 24](category-axis-automatic.png)
+![تباعد تلقائي لتسميات فئة مع عرض جميع 24 عمودًا](category-axis-automatic.png)
 
-**التباعد اليدوي (الشريحة 2):** تُظهر كل تسمية ثالثة على سطر واحد، بينما تظل علامات التقطيع عند كل فاصل فئة. جميع الأعمدة الـ 24، بما فيها تلك بدون تسميات، تظل مرئية بنفس القيم. الشريحة 3 تعيد التباعد التلقائي المعروض أعلاه.
+**الفاصل اليدوي (الشريحة 2):** يتم عرض كل تسمية ثالثة على سطر واحد، بينما تبقى علامات التحديد عند كل فاصل فئة. جميع الأعمدة الـ 24، بما فيها غير المعنونة، تبقى مرئية بنفس القيم. الشريحة 3 تستعيد المظهر التلقائي المعروض أعلاه.
 
-![فاصل التسمية اليدوي للفئة بثلاثة مع إظهار جميع الأعمدة الـ 24](category-axis-manual.png)
+![فاصل يدوي لتسمية فئة ثلاثية مع عرض جميع 24 عمودًا](category-axis-manual.png)
 
-### **اختر المحور الصحيح والفاصل الزمني المناسب**
+### **اختر المحور والفاصل الصحيح**
 
-استخدام فاصل عدد الفئات هذا لمحور فئة نصية، مثل محور فئة عمود أو خط أو منطقة أو شريط. في مخطط العمود، يكون هو المحور الأفقي. في مخطط الشريط الأفقي، يكون محور الفئة رأسياً، لذا طبق هذه الإعدادات على المحور الذي تُعيده [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--). ينطبق تباعد علامات التقطيع أيضًا على محور السلسلة في المخططات التي تحتوي على واحد.
+استخدم هذا الفاصل لعدد الفئات لمحور فئة نصية، مثل محور الفئة في مخطط عمودي، خطي، مساحي أو شريطي. في مخطط عمودي، يكون هو المحور الأفقي. في مخطط شريطي أفقي، يكون محور الفئة عموديًا، لذا طبّق هذه الإعدادات على المحور الذي تُرجعه [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--). ينطبق فاصل علامات التحديد أيضًا على محور السلسلة في المخططات التي تحتوي على واحد.
 
-لا تستخدم تباعد تسميات الفئة لتعيين مقياس عددى لمحور القيمة. على محور القيمة، يحدد [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) فرق القيم: مثلاً، وحدة رئيسية `10` تُنتج علامات عند 0، 10، 20، وهكذا عندما يبدأ المحور من الصفر. فاصل تسمية الفئة `3` يُعدّ مواضع الفئات بغض النظر عن قيمها. تستخدم المخططات النقطية والفقاعية محاور قيمة بدلاً من محور فئة نصية. بالنسبة لمحور تاريخ، استخدم الوحدات الزمنية للمحور كما هو موضح في [تغيير محور الفئة](#change-a-category-axis).
+لا تستخدم فاصل تسميات الفئة لتعيين المقياس الرقمي لمحور القيمة. على محور القيمة، يحدد [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) الفرق بين القيم: على سبيل المثال، وحدة رئيسية `10` تنتج علامات عند 0، 10، 20، وهكذا عندما يبدأ المحور من الصفر. فاصل تسمية الفئة `3` يعدّ مواضع الفئات بغض النظر عن قيمها. تستخدم المخططات النقطية والفقاعية محاور قيمة بدلاً من محور فئة نصية. لمحور تاريخ، استخدم الوحدات الزمنية ومقاييسها كما هو موضح في [تغيير محور الفئة](#change-a-category-axis).
 
 ## **تعيين تنسيق التاريخ لقيم محور الفئة**
 
-يستبدل المثال البيانات الافتراضية للمخطط بأربع قيم سنوية. تُخزن التواريخ كأرقام تسلسلية لـ OLE Automation في ورقة العمل الأولى (الفهرس `0`)، محسوبة كعدد الأيام منذ 30 ديسمبر 1899. يُمسح كلا التقويمين قبل تعيين التواريخ لتجنب تأثير التوقيت الصيفي والوقت الحالي. استخدم [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) مع `CategoryAxisType.Date`، استدعِ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) مع `false`، ومرّر `yyyy` إلى [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) حتى تُظهر تسميات الفئة السنوات الأربع بصيغتها الرقمية بغض النظر عن تنسيق الخلية.
+يستبدل المثال البيانات الافتراضية للمخطط بأربع قيم سنوية. تُخزن التواريخ كأرقام تسلسلية OLE Automation في ورقة العمل الأولى (الفهرس `0`)، محسوبة كعدد الأيام منذ 30 ديسمبر 1899. يستخدم كل التقويمين توقيت UTC ويُمسح قبل تعيين التواريخ حتى لا تؤثر التغييرات الموسمية أو الوقت الحالي على الحساب. استدعِ [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) بـ `CategoryAxisType.Date`، ثم [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) بـ `false`، ومرّر `yyyy` إلى [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) لتظهر تسميات الفئة بأربع أرقام سنة مستقلة عن تنسيق الخلية.
 
 ```java
 import com.aspose.slides.*;
@@ -276,9 +333,9 @@ try {
 }
 ```
 
-## **تعيين زاوية دوران عنوان محور المخطط**
+## **تعيين زاوية تدوير لعنوان محور المخطط**
 
-استدعِ [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) مع `true` على المحور الرأسي، قدم نص العنوان، واستخدم [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) لدوران العنوان. تُقاس الزاوية بالدرجات؛ يحفظ المثال مخطط عمود مع تدوير عنوان محور القيمة بمقدار 90 درجة.
+استدعِ [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) بـ `true` على المحور الرأسي، قدم نص العنوان، واستخدم [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) لتدوير العنوان. تُقاس الزاوية بالدرجات؛ يحفظ المثال مخططًا عموديًا مع تدوير عنوان محور القيمة بـ 90 درجة.
 
 ```java
 import com.aspose.slides.*;
@@ -298,9 +355,9 @@ try {
 }
 ```
 
-## **تعيين موضع المحور على محور الفئة أو القيمة**
+## **تحديد موضع المحور على محور فئة أو قيمة**
 
-استخدم [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) للتحكم فيما إذا كان محور القيمة يعبر محور الفئة بين الفئات أو عند علامات التقطيع. ينطبق هذا الإعداد على محاور الفئة. يضبط المثال قيمته على `true` للمحور الفئوي الأفقي في مخطط عمود ويحفظ النتيجة.
+استخدم [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) للتحكم فيما إذا كان محور القيمة يعبر محور الفئة بين الفئات أو عند علامات الفئة. ينطبق هذا الإعداد على محاور الفئة. يضبط المثال القيمة إلى `true` على محور الفئة الأفقي لمخطط عمودي ويحفظ النتيجة.
 
 ```java
 import com.aspose.slides.*;
@@ -320,7 +377,7 @@ try {
 
 ## **تعيين وحدة العرض على محور قيمة المخطط**
 
-استخدم [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) لتكبير أو تصغير التسميات على محور القيمة دون تغيير البيانات الأساسية. مع [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) مضبوط على `Millions`، تُعرض القيمة 60,000,000 كـ 60. ينشئ المثال مخطط عمود ويطبق وحدة العرض بالملايين على محوره الرأسي.
+استخدم [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) لتكبير أو تصغير تسميات محور القيمة دون تغيير البيانات الأساسية. مع [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) مضبوطة على `Millions`، يُعرض القيمة 60,000,000 كـ 60. ينشئ المثال مخططًا عموديًا ويطبق وحدة العرض بالملايين على محوره الرأسي.
 
 ```java
 import com.aspose.slides.*;
@@ -338,21 +395,21 @@ try {
 }
 ```
 
-## **تهيئة محور قيمة لوغاريتمي**
+## **تكوين محور قيمة لوغاريتمي**
 
-محور قيمة لوغاريتمي مفيد عندما تمتد القيم الموجبة عبر عدة أوامر من الحجم. على سبيل المثال، قد يتلقى خدمة 10، 100، 1,000، 10,000، و100,000 طلبًا خلال خمس فترات. على مقياس خطي، تُظهر القيم الصغيرة متقاربةً قرب الصفر. يُسهل المقياس اللوغاريتمي مقارنة النمو النسبي: تمثل المسافات المتساوية نسبًا متساوية بدلاً من اختلافات مقدارية.
+محور قيمة لوغاريتمي مفيد عندما تمتد القيم الموجبة عبر عدة درجات عديدة. على سبيل المثال، قد يتلقى خدمة 10، 100، 1,000، 10,000، و100,000 طلبًا عبر خمس فترات. على مقياس خطي، تظهر القيم الأصغر متقاربة بالقرب من الصفر. يسهّل المقياس اللوغاريتمي مقارنة النمو النسبي: المسافات المتساوية تمثل نسبًا متساوية بدلاً من اختلافات مطلقة.
 
-استدعِ [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-) مع `true` على محور القيمة واستخدم [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-) لاختيار القاعدة. يغير هذا طريقة عرض القيم الموجودة؛ لا يغير البيانات ولا يضيف خط اتجاه لوغاريتمي. خط الاتجاه يمثل علاقة مُلائمة في البيانات وهو ميزة منفصلة.
+استدعِ [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-) بـ `true` على محور القيمة واستخدم [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-) لتحديد القاعدة. يغيّر هذا طريقة عرض القيم الحالية؛ ولا يغيّر البيانات ولا يضيف خط اتجاه لوغاريتمي. خط الاتجاه يمثل علاقة مُناسبة للبيانات وهو ميزة منفصلة.
 
 ### **اختر محور القيمة والقاعدة**
 
-بالنسبة إلى مخطط خط أو عمود، يُعيد [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--) محور القيمة. في مخطط شريط أفقي، يُعيد [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) محور القيمة. للمخططات النقطية والفقاعية يوجد محورا قيمة؛ اختر المحور الأفقي لقيم X والمحور الرأسي لقيم Y أو كلاهما. لا تُطبق التدرج اللوغاريتمي على محور الفئة.
+للمخطط الخطي أو العمودي، يُسترجع محور القيمة بواسطة [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--). للمخطط الشريطي الأفقي، يُسترجع بواسطة [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--). للمخططات النقطية والفقاعية توجد محوري قيمة؛ اختر المحور الأفقي لقيم X، والمحور الرأسي لقيم Y، أو كليهما. لا تُطبق التدرج اللوغاريتمي على محور الفئة.
 
-القاعدة اللوغاريتمية الافتراضية هي `10`. بالنسبة لمخططات PPTX، يمكن استخدام قاعدة من `2` إلى `1000` شاملة؛ وتُدعم القواعد الكسرية مثل `2.5`. مع القاعدة `10`، تكون القوى المتتالية مثل 10، 100، 1,000، و10,000 متساوية المسافة.
+القاعدة اللوغاريتمية الافتراضية هي `10`. لمخططات PPTX، يمكن استخدام قاعدة من `2` إلى `1000` شاملة؛ وتُدعم القواعد الكسورية مثل `2.5`. مع القاعدة `10`، تُتوزع القوى المتتالية مثل 10، 100، 1,000، و10,000 بالتساوي.
 
 ### **مقارنة التدرج الخطي واللوغاريتمي**
 
-المثال المستقل التالي ينشئ مخطط خط مع عدد الطلبات الخمسة في الشريحة الأولى، ثم ينسخ تلك الشريحة ويفعل محور قيمة لوغاريتمي بقاعدة 10 في الشريحة الثانية. تحتفظ كلتا الشريحتين بنفس البيانات.
+ينشئ المثال المستقل مخططًا خطيًا بخمس عدادات طلب في الشريحة الأولى، ثم يستنسخ تلك الشريحة ويفعل محور قيمة لوغاريتمي بقاعدة 10 في الشريحة الثانية. تحتفظ كلتا الشريحتين بنفس البيانات.
 
 ```java
 import com.aspose.slides.*;
@@ -382,7 +439,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // احتفظ بالشريحة الأولى خطيًا وغيّر مقياس محور القيمة فقط في النسخة.
+    // احتفظ بالشرحة الأولى خطية وغيّر فقط مقياس محور القيمة في النسخة.
     ISlide logarithmicSlide = presentation.getSlides().addClone(slide);
     IChart logarithmicChart = (IChart)logarithmicSlide.getShapes().get_Item(0);
     IAxis valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -395,24 +452,24 @@ try {
 }
 ```
 
-**التدرج الخطي (الشريحة 1):** تمثل المسافات العمودية المتساوية اختلافات عددية متساوية في عدد الطلبات. تهيمن القيمة الأكبر على المخطط، مما يصعب تمييز القيم الأصغر.
+**مقياس خطي (الشريحة 1):** المسافات الرأسية المتساوية تمثل اختلافات عددية متساوية في عدد الطلبات. تهيمن القيمة الأكبر على المخطط، مما يصعّب التمييز بين القيم الأصغر.
 
-![مخطط خط في PowerPoint يُظهر خمس طلبات على محور قيمة خطي](value-axis-linear.png)
+![مخطط خطي في PowerPoint يظهر خمس عدادات طلب على محور قيمة خطي](value-axis-linear.png)
 
-**التدرج اللوغاريتمي (الشريحة 2):** تمثل المسافات العمودية المتساوية نسبًا متساوية. كل فترة تحتوي على عشر مرات عدد الطلبات من الفترة السابقة، لذا تشكل النقاط خطًا مستقيمًا صاعدًا على مقياس قاعدة 10. لا تزال تسميات المحور تُظهر أعداد الطلبات الأصلية.
+**مقياس لوغاريتمي (الشريحة 2):** المسافات الرأسية المتساوية تمثل نسبًا متساوية. كل فترة تحتوي على عشر مرات الطلبات السابقة، لذا تشكِّل النقاط خطًا مرتفعًا مستقيمًا على المقياس القاعدي 10. لا تزال تسميات المحور تظهر القيم الأصلية للطلبات.
 
-![نفس خمس الطلبات في PowerPoint على محور قيمة لوغاريتمي بقاعدة 10](value-axis-logarithmic.png)
+![نفس خمس عدادات الطلب في PowerPoint على محور قيمة لوغاريتمي بقاعدة 10](value-axis-logarithmic.png)
 
-### **معالجة الصفر والقيم السالبة**
+### **معالجة القيم الصفرية والسلبية**
 
-لا يمكن للتدرج اللوغاريتمي عرض سوى القيم الموجبة الصارمة. تأكد من البيانات قبل تفعيله. إذا كانت القيم الصفرية أو السالبة ذات معنى، احتفظ بالتدرج الخطي أو اعرضها بشكل منفصل. إذا كان استبعاد تلك القيم مناسبًا للتحليل، فسر الإغفال. لا تستبدلها صمتًا بأعداد موجبة صغيرة، حيث يغيّر ذلك معنى البيانات. يجب أن تكون أي قيمة حد أدنى أو أقصى مُعينة يدويًا لمحور لوغاريتمي موجبة أيضًا.
+يمكن للمقياس اللوغاريتمي عرض القيم الموجبة فقط. تحقق من البيانات قبل تفعيله. إذا كانت القيم الصفرية أو السلبية ذات معنى، احتفظ بمقياس خطي أو اعرضها بشكل منفصل. إذا كان استبعاد تلك القيم مناسبًا للتحليل، فسّره. لا تستبدلها صمتًا بأرقام صغيرة موجبة، فهذا يغيّر معنى البيانات. يجب أن تكون أي حد أدنى أو أقصى مُعيّن يدويًا لمحور لوغاريتمي أيضًا موجبة.
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني تعيين القيمة التي يتقاطع عندها أحد المحاور مع الآخر (تقاطع المحاور)؟**
+**كيف يمكنني تحديد القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحاور)؟**
 
-استخدم [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) لاختيار سلوك التقاطع. لتحديد قيمة عددية للتقاطع، استخدم [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-). تسمح لك هذه الإعدادات بنقل تقاطع المحور إلى خط أساس مناسب.
+استخدم [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) لتحديد سلوك التقاطع. لتحديد قيمة تقاطع رقمية، استخدم [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-). تسمح لك هذه الإعدادات بنقل تقاطع المحور إلى خط أساس مناسب.
 
-**كيف يمكنني موضع تسميات العلامات بالنسبة للمحور؟**
+**كيف يمكنني وضع تسميات العلامات بالنسبة للمحور؟**
 
-استدعِ [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) باستخدام [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, أو `None`. للتحكم في علامات التقطيع نفسها، استخدم [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) أو [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-); هذه منفصلة عن موضع التسميات.
+استدعِ [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) باستخدام [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/): `Low`، `High`، `NextTo` أو `None`. للتحكم في علامات التحديد نفسها، استخدم [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) أو [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-); هذه مستقلة عن موضع التسميات.

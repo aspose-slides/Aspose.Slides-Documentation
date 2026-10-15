@@ -1,37 +1,37 @@
 ---
-title: Přizpůsobení os grafu v prezentacích pomocí PHP
-linktitle: Osa grafu
+title: Přizpůsobení os diagramu v prezentacích pomocí PHP
+linktitle: Os diagramu
 type: docs
 url: /cs/php-java/chart-axis/
 keywords:
-- osa grafu
-- svislá osa
-- vodorovná osa
-- přizpůsobení osy
-- manipulace s osou
-- správa osy
+- os diagramu
+- vertikální osa
+- horizontální osa
+- přizpůsobit osu
+- manipulovat osou
+- spravovat osu
 - vlastnosti osy
 - maximální hodnota
 - minimální hodnota
 - čára osy
 - formát data
 - název osy
-- umístění osy
+- pozice osy
 - PowerPoint
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Objevte, jak pomocí Aspose.Slides pro PHP prostřednictvím Javy přizpůsobit osy grafu v PowerPoint prezentacích pro zprávy a vizualizace."
+description: "Objevte, jak pomocí Aspose.Slides pro PHP přes Java přizpůsobit osy diagramů v PowerPoint prezentacích pro zprávy a vizualizace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak přizpůsobit osy grafu pomocí Aspose.Slides pro PHP prostřednictvím Javy. Pokrývá vypočítané hodnoty os, přepínání řádků a sloupců grafu, viditelnost osy, intervaly popisků kategorií a dělicích značkách, datumové kategorie a formátování, otočení názvu, umístění osy, zobrazovací jednotky a logaritmické škálování.
+Tento článek vysvětluje, jak přizpůsobit osy diagramu pomocí Aspose.Slides pro PHP přes Java. Pokrývá vypočítané hodnoty os, přepínání řádků a sloupců diagramu, viditelnost os, intervaly popisků kategorií a značek os, datumové kategorie a formátování, otáčení názvu, umístění os, zobrazovací jednotky a logaritmické škálování.
 
-## **Získání maximálních hodnot na svislé ose v grafech**
+## **Získání maximálních hodnot na svislé ose v diagramech**
 
-Vytvořte [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) a přidejte plošný graf s výchozími daty. Před načtením vypočítaných hodnot os zavolejte [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/), aby byl rozvržení grafu aktuální.
+Vytvořte [Prezentaci](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) a přidejte plošný diagram s výchozími daty. Zavolejte [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) před načtením vypočítaných hodnot os, aby byl rozvržení diagramu aktuální.
 
-Přečtěte [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) a [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) pro limity osy a [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) a [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) pro intervaly dělicích značek. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) a [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) poskytují časové jednotky, které jsou relevantní pro datumové osy. Příklad ukládá tyto hodnoty do lokálních proměnných a ukládá graf.
+Pro limity os přečtěte [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) a [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/). Pro intervaly značek použijte [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) a [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/). [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) a [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) poskytují časové jednotky, které jsou relevantní pro datumové osy. Příklad uloží tyto hodnoty do lokálních proměnných a uloží diagram.
 
 ```php
 use aspose\slides\ChartType;
@@ -62,7 +62,7 @@ try {
 
 ## **Prohození dat mezi osami**
 
-Použijte [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) k výměně rolí řad a kategorií v datech grafu. Každá bývalá kategorie se stane řadou a každá bývalá řada se stane kategorií. Tím se změní způsob seskupení dat; nevymění se vodorovná a svislá osa. Příklad používá [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) k napojení výchozích dat na `Sheet1!A1:D5`, včetně řádku s hlavičkou a sloupce s kategoriemi, před výměnou řádků a sloupců. Uloží graf se čtyřmi řadami a třemi kategoriemi.
+Použijte [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) k výměně rolí sérií a kategorií v datech diagramu. Každá bývalá kategorie se stane sérií a každá bývalá série se stane kategorií. Tím se změní způsob seskupení dat; neprohodí to vodorovnou a svislou osu. Příklad používá [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) k svázání výchozích dat s `Sheet1!A1:D5`, včetně řádku záhlaví a sloupce kategorií, před výměnou řádků a sloupců. Uloží diagram se čtyřmi sériemi a třemi kategoriemi.
 
 ```php
 use aspose\slides\ChartType;
@@ -83,9 +83,69 @@ try {
 }
 ```
 
-## **Zakázání svislé osy pro čárové grafy**
+## **Obrácení pořadí vykreslování osy**
 
-Zavolejte [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) s hodnotou `false` na svislé ose, aby byla skryta. Příklad vytváří čárový graf s výchozími daty a ukládá jej se skrytou svislou osou.
+Použijte [setPlotOrderReversed](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setplotorderreversed/) k obrácení kategoriální nebo hodnotové osy. Například vodorovný sloupcový diagram může zobrazovat fáze projektu odshora dolů ve stejném pořadí jako list: Plánování, Vývoj, Testování. Obrácení osy mění směr vykreslování; neseřadí ani nepřeskládá data sešitu. Naopak [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) vymění role sérií a kategorií.
+
+Následující příklad vytvoří vodorovný sloupcový diagram se třemi fázemi a jednou sérií. Uloží prezentaci se třemi snímky: normální pořadí, obrácené kategorie a obrácené hodnoty. Každá kopie použije stejnou sadu dat a na každé kopii je obrácena pouze jedna osa.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\CrossesType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredBar, 50, 40, 620, 320);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::ClusteredBar);
+    $stages = ["Planning", "Development", "Testing"];
+    $values = [10, 30, 20];
+    for ($i = 0; $i < count($stages); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $stages[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    // Snímek 2: zobrazit první kategorii nahoře.
+    $categorySlide = $presentation->getSlides()->addClone($slide);
+    $categoryChart = $categorySlide->getShapes()->get_Item(0);
+    $categoryChart->getAxes()->getVerticalAxis()->setPlotOrderReversed(true);
+    // Udržet vodorovnou hodnotovou osu ve spodní části.
+    $categoryChart->getAxes()->getVerticalAxis()->setCrossType(CrossesType::Maximum);
+
+    // Snímek 3: obrátit pouze vodorovnou číselnou škálu.
+    $valueSlide = $presentation->getSlides()->addClone($slide);
+    $valueChart = $valueSlide->getShapes()->get_Item(0);
+    $valueChart->getAxes()->getHorizontalAxis()->setPlotOrderReversed(true);
+
+    $presentation->save("ReversedAxes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Obrácení osy může také přesunout kolmou osu na protější stranu grafu. [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) určuje, kde druhá osa protíná konfigurovanou osu. V snímku 2 volání s `CrossesType::Maximum` na obrácené kategorické ose zachová vodorovnou hodnotovou osu ve spodní části. Pro konkrétní průsečík použijte [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Při změně směru zkontrolujte nastavení průsečíků, zejména pokud diagram již má vlastní bod průsečíků. Zavolejte `setPlotOrderReversed` s `false` pro obnovení normálního směru vykreslování; nastavení průsečíků jsou oddělená.
+
+| Normální pořadí (snímek 1) | Obrácené kategorie (snímek 2) | Obrácené hodnoty (snímek 3) |
+| --- | --- | --- |
+| ![Vodorovný sloupcový diagram s normálním pořadím kategorií a osy hodnot](axis-order-normal.png) | ![Vodorovný sloupcový diagram se zobrazovanými kategoriemi shora dolů](axis-order-categories-reversed.png) | ![Vodorovný sloupcový diagram s obrácenou osou hodnot a nulou vpravo](axis-order-values-reversed.png) |
+| Kategorie běží odspodu nahoru; hodnoty rostou zleva doprava. | Plánování, Vývoj a Testování běží shora dolů. Hodnoty a pořadí řádků sešitu zůstávají nezměněny. | Kategorie si zachovávají normální pořadí; hodnoty rostou zprava doleva. Kategorická osa protíná nulu vpravo. |
+
+## **Zakázání svislé osy pro spojnicové diagramy**
+
+Zavolejte [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) s `false` na svislé ose, aby byla skryta. Příklad vytvoří spojnicový diagram s výchozími daty a uloží jej se skrytou svislou osou.
 
 ```php
 use aspose\slides\ChartType;
@@ -105,9 +165,9 @@ try {
 }
 ```
 
-## **Zakázání vodorovné osy pro čárové grafy**
+## **Zakázání vodorovné osy pro spojnicové diagramy**
 
-Zavolejte [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) s hodnotou `false` na vodorovné ose, aby byla skryta. Příklad vytváří čárový graf s výchozími daty a ukládá jej se skrytou vodorovnou osou.
+Zavolejte [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) s `false` na vodorovné ose, aby byla skryta. Příklad vytvoří spojnicový diagram s výchozími daty a uloží jej se skrytou vodorovnou osou.
 
 ```php
 use aspose\slides\ChartType;
@@ -127,9 +187,9 @@ try {
 }
 ```
 
-## **Změna osy kategorií**
+## **Změna kategoriální osy**
 
-Použijte [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) k výběru datumové nebo textové osy kategorií. Tento příklad vyžaduje `ExistingChart.pptx`, kde je graf prvním tvarem na první snímku a buňky kategorií obsahují číselné hodnoty Excel datumů. Změní vodorovnou osu na datumovou osu. Volání [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) s `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) s `1` a [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) s `TimeUnitType::Months` umístí hlavní dělicí značky v intervalech jednoho měsíce.
+Použijte [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) k výběru datumové nebo textové kategoriální osu. Tento příklad vyžaduje `ExistingChart.pptx`, kde je diagram jako první tvar na prvním snímku a buňky kategorií obsahují číselné datumové hodnoty Excelu. Změní vodorovnou osu na datumovou osu. Volání [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) s `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) s `1` a [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) s `TimeUnitType::Months` umístí hlavní značky v měsíčních intervalech.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -153,19 +213,21 @@ try {
 }
 ```
 
-## **Řízení intervalů popisků osy kategorií**
+## **Řízení intervalů popisků kategoriální osy**
 
-Když má graf mnoho kategorií, snižte počet viditelných popisků osy, aniž byste odstraňovali kategorie nebo datové body. Zavolejte [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) s `false` a poté předáte požadovaný interval kategorií metodě [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Pro textové kategorie v jejich běžném pořadí se číslování začíná od první kategorie:
+Když má diagram mnoho kategorií, snižte počet viditelných popisků os bez odstranění kategorií nebo datových bodů. Zavolejte [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) s `false` a poté předáte požadovaný interval kategorií do [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Pro textové kategorie v jejich normálním pořadí počítání začíná od první kategorie:
 
 | Interval | Popisky zobrazené v příkladu |
 | --- | --- |
-| `1` | Kategorie 1, Kategorie 2, Kategorie 3, … Kategorie 24 |
-| `2` | Kategorie 1, Kategorie 3, Kategorie 5, … Kategorie 23 |
-| `3` | Kategorie 1, Kategorie 4, Kategorie 7, … Kategorie 22 |
+| `1` | Kategorie 1, Kategorie 2, Kategorie 3, ... Kategorie 24 |
+| `2` | Kategorie 1, Kategorie 3, Kategorie 5, ... Kategorie 23 |
+| `3` | Kategorie 1, Kategorie 4, Kategorie 7, ... Kategorie 22 |
 
-Interval `3` zobrazí každou třetí popisku a mezi zobrazenými popisky skryje dvě. Neodstraňuje to odpovídající sloupce. Automatické rozestupy vybírají interval na základě dostupného místa; nemusí zobrazit každou popisku.
+Interval `3` zobrazuje každý třetí popisek a mezi zobrazenými popisky skryje dva popisky. Neodstraňuje to odpovídající sloupce. Automatické rozestupy volí interval na základě dostupného prostoru; nemusí zobrazovat všechny popisky.
 
-Dělicí značky mají samostatná nastavení. Zavolejte [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) s `false` a použijte [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) k nastavení jejich intervalu. Například `1` ponechá dělicí značku v každém intervalu kategorie, zatímco popisky se zobrazí jen každou třetí kategorii. Použijte [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) se stylom, který je viditelný, abyste viděli výsledek. Volání buď automatického, nebo ručního nastavení s `true` opět dovolí grafu zvolit původní interval.
+Značky os mají samostatné ovládání. Zavolejte [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) s `false` a použijte [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/), abyste nastavili jejich interval. Například `1` ponechá značku na každém intervalu kategorie, zatímco popisky se zobrazí jen každou třetí kategorii. Použijte [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) s viditelným stylem, abyste viděli výsledek. Opětovné volání kteréhokoli nastavení automatického rozestupu s `true` umožní diagramu znovu zvolit tento interval.
+
+Následující samostatný příklad vytvoří 24 kategorií a jednu sérii, poté uloží tři snímky do `CategoryAxisIntervals.pptx`: automatické rozestupy, ruční rozestupy popisků s nezávislými značkami a obnovené automatické rozestupy. Obě kopie zachovají původní data diagramu. Vstupní prezentace není vyžadována. Vodorovný text popisků usnadňuje vidět rozdíl v hustotě.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -203,7 +265,7 @@ try {
     $axis->setAutomaticTickLabelSpacing(true);
     $axis->setAutomaticTickMarksSpacing(true);
 
-    // Snímek 2: zobrazit každou třetí popisku, ale ponechat dělicí značku pro každou kategorii.
+    // Snímek 2: zobrazit každý třetí štítek, ale zachovat značku pro každou kategorii.
     $manualSlide = $presentation->getSlides()->addClone($slide);
     $manualChart = $manualSlide->getShapes()->get_Item(0);
     $manualAxis = $manualChart->getAxes()->getHorizontalAxis();
@@ -212,7 +274,7 @@ try {
     $manualAxis->setAutomaticTickMarksSpacing(false);
     $manualAxis->setTickMarksSpacing(1);
 
-    // Snímek 3: nechat graf znovu zvolit oba intervaly.
+    // Snímek 3: nechat diagram znovu vybrat oba intervaly.
     $restoredSlide = $presentation->getSlides()->addClone($manualSlide);
     $restoredChart = $restoredSlide->getShapes()->get_Item(0);
     $restoredChart->getAxes()->getHorizontalAxis()->setAutomaticTickLabelSpacing(true);
@@ -224,23 +286,23 @@ try {
 }
 ```
 
-**Automatické rozestupy (snímek 1):** V tomto vykreslení je zobrazena každá druhá popiska kategorie a zabalí se do dvou řádků. Automatický výsledek se může lišit podle velikosti grafu, fontů a vykreslovače.
+**Automatické rozestupy (snímek 1):** V tomto zobrazení je každý druhý popisek kategorie zobrazen a zalamuje se na dva řádky. Automatický výsledek se může lišit podle velikosti diagramu, fontů a vykreslovacího nástroje.
 
 ![Automatické rozestupy popisků kategorií se všemi 24 sloupci viditelnými](category-axis-automatic.png)
 
-**Manuální rozestupy (snímek 2):** Každá třetí popiska je zobrazena na jednom řádku, zatímco dělicí značky zůstávají v každém intervalu kategorie. Všechny 24 sloupce, včetně těch bez popisků, zůstávají viditelné se stejnými hodnotami. Snímek 3 obnoví automatický vzhled zobrazený výše.
+**Manuální rozestupy (snímek 2):** Každý třetí popisek je zobrazen na jednom řádku, zatímco značky zůstávají na každém intervalu kategorie. Všech 24 sloupců, včetně těch bez popisků, zůstává viditelných se stejnými hodnotami. Snímek 3 obnovuje automatický vzhled zobrazený výše.
 
 ![Manuální interval popisků kategorií tři se všemi 24 sloupci viditelnými](category-axis-manual.png)
 
 ### **Zvolte správnou osu a interval**
 
-Použijte tento interval počtu kategorií pro textovou osu kategorií, například u osy kategorií sloupcového, čárového, plošného nebo pruhového grafu. V sloupcovém grafu je to vodorovná osa. V horizontálním pruhovém grafu je osa kategorií svislá, takže tato nastavení použijte na osu vrácenou metodou [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Rozestupy dělicích značek se také vztahují na osu řad v grafech, které ji mají.
+Použijte tento interval počtu kategorií pro textovou kategoriální osu, například pro osu kategorií sloupcového, spojnicového, plošného nebo pruhového diagramu. V sloupcovém diagramu je to vodorovná osa. Ve vodorovném pruhovém diagramu je osa kategorií svislá, takže tato nastavení aplikujte na osu vrácenou metodou [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Rozestup značek se také vztahuje na osu sérií v diagramech, které takovou osu mají.
 
-Nenastavujte rozestup popisků kategorií jako číselnou stupnici osy hodnot. Na ose hodnot metoda [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) určuje rozdíl v hodnotách: například hlavní jednotka `10` vytvoří značky na 0, 10, 20 atd., pokud osa začíná od nuly. Interval popisků kategorií `3` počítá pozice kategorií, nezávisle na jejich hodnotách. Bodové a bublinové grafy používají osy hodnot, nikoli textovou osu kategorií. Pro datumovou osu používejte časově založené hlavní jednotky a stupnice, jak je popsáno v [Změna osy kategorií](#change-a-category-axis).
+Nepoužívejte rozestupy popisků kategorií k nastavení číselné škály hodnotové osy. Na hodnotové ose [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) určuje rozdíl v hodnotách: například hlavní jednotka `10` vytvoří značky na 0, 10, 20 atd., pokud osa začíná nulou. Interval popisků kategorií `3` počítá pozice kategorií, nezávisle na jejich datových hodnotách. Rozptylové a bublinové diagramy používají hodnotové osy místo textové kategoriální osy. Pro datumovou osu použijte časově založené hlavní jednotky a škály, jak je popsáno v [Change a Category Axis](#change-a-category-axis).
 
-## **Nastavení formátu data pro hodnoty osy kategorií**
+## **Nastavení formátu data pro hodnoty kategoriální osy**
 
-Příklad nahrazuje výchozí data grafu čtyřmi ročními hodnotami. Data jsou uložena jako sériová čísla OLE Automation v první pracovní listu (index `0`), vypočtená jako počet dnů od 30. prosince 1899. Použijte [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) s `CategoryAxisType::Date`, zavolejte [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) s `false` a předávejte `yyyy` metodě [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/), aby popisky kategorií zobrazovaly čtyřciferné roky nezávisle na formátování buňky.
+Příklad nahradí výchozí data diagramu čtyřmi ročními hodnotami. Data jsou uložena jako sériová čísla OLE Automation v první tabulce (index `0`), spočítaná jako počet dní od 30. prosince 1899. Použijte [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) s `CategoryAxisType::Date`, zavolejte [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) s `false` a předávejte `yyyy` do [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/), aby popisky kategorií zobrazovaly čtyřčíslné roky nezávisle na formátování buňky.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -283,9 +345,9 @@ try {
 }
 ```
 
-## **Nastavení úhlu otáčení pro název osy grafu**
+## **Nastavení úhlu otáčení názvu osy diagramu**
 
-Zavolejte [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) s `true` na svislé ose, zadejte text názvu a použijte [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) k otočení názvu. Úhel se měří ve stupních; tento příklad ukládá sloupcový graf s názvem hodnotové osy otočeným o 90 stupňů.
+Zavolejte [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) s `true` na svislé ose, zadejte text názvu a použijte [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) k otáčení názvu. Úhel se měří ve stupních; tento příklad uloží sloupcový diagram s názvem hodnotové osy otočeným o 90 stupňů.
 
 ```php
 use aspose\slides\ChartType;
@@ -307,9 +369,9 @@ try {
 }
 ```
 
-## **Nastavení pozice osy na ose kategorie nebo hodnoty**
+## **Nastavení polohy osy u kategoriální nebo hodnotové osy**
 
-Použijte [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) k řízení, zda hodnotová osa protíná osu kategorií mezi kategoriemi nebo na značkách kategorií. Toto nastavení se vztahuje na osy kategorií. Příklad nastaví tuto volbu na `true` na vodorovné ose kategorií sloupcového grafu a uloží výsledek.
+Použijte [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) k řízení, zda hodnotová osa protíná kategoriální osu mezi kategoriemi nebo na značkách kategorií. Toto nastavení platí pro kategoriální osy. Příklad nastaví hodnotu na `true` na vodorovné kategoriální ose sloupcového diagramu a uloží výsledek.
 
 ```php
 use aspose\slides\ChartType;
@@ -329,9 +391,9 @@ try {
 }
 ```
 
-## **Nastavení zobrazovací jednotky na hodnotové ose grafu**
+## **Nastavení zobrazovací jednotky na hodnotové ose diagramu**
 
-Použijte [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) ke škálování popisků na hodnotové ose, aniž by se změnila podkladová data. S [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) nastaveným na `Millions` se hodnota 60 000 000 zobrazí jako 60. Příklad vytváří sloupcový graf a aplikuje jednotku milionů na jeho svislou osu.
+Použijte [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) k škálování popisků na hodnotové ose, aniž byste měnili podkladová data. S [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) nastaveným na `Millions` se hodnota 60 000 000 zobrazí jako 60. Příklad vytvoří sloupcový diagram a použije jednotku milionů na jeho svislé ose.
 
 ```php
 use aspose\slides\ChartType;
@@ -354,17 +416,19 @@ try {
 
 ## **Konfigurace logaritmické hodnotové osy**
 
-Logaritmická hodnotová osa je užitečná, když kladné hodnoty zasahují několik řádů velikostí. Například služba může během pěti období přijímat 10, 100, 1 000, 10 000 a 100 000 požadavků. Na lineární stupnici jsou menší hodnoty shluknuté blízko nuly. Logaritmická stupnice usnadňuje porovnání relativního růstu: stejné vzdálenosti představují stejné poměry místo stejných rozdílů.
+Logaritmická hodnotová osa je užitečná, když kladné hodnoty pokrývají několik řádů velikosti. Například služba může během pěti období přijímat 10, 100, 1 000, 10 000 a 100 000 požadavků. Na lineární stupnici jsou menší hodnoty blízko sebe u nuly. Logaritmická stupnice usnadňuje porovnání jejich relativního růstu: stejné vzdálenosti představují stejné poměry místo stejných rozdílů.
 
-Zavolejte [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) s `true` na hodnotové ose a použijte [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) k výběru základu. Toto mění způsob, jakým jsou existující hodnoty zobrazeny; nemění data ani nepřidává logaritmickou trendovou čáru. Trendová čára představuje vyhovující vztah v datech a je samostatnou funkcí.
+Zavolejte [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) s `true` na hodnotové ose a použijte [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) k výběru základu. Tím se změní způsob, jakým jsou existující hodnoty zobrazeny; nemění to data ani nepřidává logaritmickou čáru trendu. Čára trendu představuje vhodně přizpůsobený vztah v datech a je samostatnou funkcí.
 
-### **Zvolte hodnotovou osu a základ**
+### **Výběr hodnotové osy a základu**
 
-Pro čárový nebo sloupcový graf je hodnotová osa vrácena metodou [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Pro horizontální pruhový graf je to metoda [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Bodové a bublinové grafy mají dvě hodnotové osy, takže vyberte vodorovnou osu pro hodnoty X, svislou osu pro hodnoty Y nebo obě. Na osu kategorií logaritmické škálování nepoužívejte.
+U spojnicového nebo sloupcového diagramu je hodnotová osa vrácena metodou [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). U vodorovného pruhového diagramu je vrácena metodou [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Rozptylové a bublinové diagramy mají dvě hodnotové osy, takže vyberte vodorovnou osu pro hodnoty X, svislou osu pro hodnoty Y nebo obě. Na kategoriální osu nepoužívejte logaritmické škálování.
 
-Výchozí logaritmický základ je `10`. Pro PPTX grafy můžete použít základ od `2` do `1000` včetně; podporovány jsou i desetinné základy jako `2.5`. Se základem `10` jsou po sobě jdoucí mocniny 10, 100, 1 000 a 10 000 rovnoměrně rozloženy.
+Výchozí logaritmický základ je `10`. Pro diagramy PPTX použijte základ od `2` do `1000` včetně; podporovány jsou také desetinné základy jako `2.5`. Se základem `10` jsou po sobě jdoucí mocniny 10, 100, 1 000 a 10 000 rovnoměrně rozloženy.
 
 ### **Porovnání lineárního a logaritmického škálování**
+
+Následující samostatný příklad vytvoří spojnicový diagram s pěti počty požadavků na prvním snímku, poté tento snímek duplikuje a na druhém povolí logaritmickou hodnotovou osu se základem 10. Oba snímky zachovají stejná data.
 
 ```php
 use aspose\slides\ChartType;
@@ -396,7 +460,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // Udržte první snímek lineární a změňte jen měřítko hodnotové osy v kopii.
+    // Nechte první snímek lineární a změňte jen měřítko hodnotové osy v kopii.
     $logarithmicSlide = $presentation->getSlides()->addClone($slide);
     $logarithmicChart = $logarithmicSlide->getShapes()->get_Item(0);
     $valueAxis = $logarithmicChart->getAxes()->getVerticalAxis();
@@ -409,24 +473,22 @@ try {
 }
 ```
 
-**Lineární škála (snímek 1):** Stejné vertikální vzdálenosti představují stejné rozdíly v počtech požadavků. Největší hodnota dominuje grafu, což ztěžuje rozlišení menších hodnot.
+**Lineární škála (snímek 1):** Rovné vertikální vzdálenosti představují stejné rozdíly v počtech požadavků. Největší hodnota dominuje diagramu, což ztěžuje rozlišení menších hodnot.
 
-![Lineární graf v PowerPointu ukazující pět počtů požadavků na lineární hodnotové ose](value-axis-linear.png)
+![Spojnicový diagram v PowerPointu zobrazující pět počtů požadavků na lineární hodnotové ose](value-axis-linear.png)
 
-**Logaritmická škála (snímek 2):** Stejné vertikální vzdálenosti představují stejné poměry. Každé období má desetkrát více požadavků než předchozí, takže body tvoří přímku na logaritmické stupnici se základem 10. Popisky osy stále ukazují původní počty požadavků.
+**Logaritmická škála (snímek 2):** Rovné vertikální vzdálenosti představují stejné poměry. Každé období má desetkrát více požadavků než předchozí, takže body tvoří rovnou rostoucí linii na stupnici se základem 10. Popisky os stále zobrazují původní počty požadavků.
 
-![Stejných pět požadavků v PowerPointu na logaritmické hodnotové ose se základem 10](value-axis-logarithmic.png)
+![Stejných pět požadavků v PowerPointu na hodnotové ose logaritmické se základem 10](value-axis-logarithmic.png)
 
 ### **Zpracování nulových a záporných hodnot**
 
-Logaritmická stupnice může zobrazovat jen striktně kladné hodnoty. Před jejím zapnutím zkontrolujte data. Pokud jsou nula nebo záporné hodnoty významné, zachovejte lineární stupnici nebo je zobrazte odděleně. Pokud je vyloučení těchto hodnot vhodné pro analýzu, uveďte důvod. Neodstraňujte je tiše nahrazením malými kladnými čísly, protože to mění smysl dat. Jakékoli ručně nastavené minimum nebo maximum pro logaritmickou osu musí být také kladné.
+Logaritmická stupnice může zobrazovat pouze striktně kladné hodnoty. Před jejím povolením data zkontrolujte. Pokud jsou nulové nebo záporné hodnoty relevantní, zachovejte lineární stupnici nebo je zobrazte odděleně. Pokud je vyloučení těchto hodnot vhodné pro analýzu, vysvětlete vynechání. Nepřepisujte je tiše malými kladnými čísly, protože to mění význam dat. Jakýkoli ručně nastavený minimum nebo maximum pro logaritmickou osu musí být také kladné.
 
 ## **Často kladené otázky**
 
-**Jak nastavit hodnotu, kde jedna osa protíná druhou (průsečík os)?**
+**Jak nastavit hodnotu, kde se jedna osa protíná s druhou (průsečík osy)?**  
+Použijte [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) k výběru chování průsečíku. Pro zadání číselné hodnoty průsečíku použijte [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Tato nastavení vám umožní přesunout průsečík osy na vhodnou základnu.
 
-Použijte [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) k výběru chování průsečíku. Pro zadání číselné hodnoty průsečíku použijte [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Tato nastavení vám umožní posunout průsečík osy na vhodnou základnu.
-
-**Jak mohu umístit popisky dělicích značek relativně k ose?**
-
-Zavolejte [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) s [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` nebo `None`. Pro řízení samotných dělicích značek použijte [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) nebo [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); jsou to samostatná nastavení od umístění popisků.
+**Jak mohu umístit popisky značek relativně k ose?**  
+Zavolejte [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) pomocí [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` nebo `None`. Pro řízení samotných značek použijte [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) nebo [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); jsou oddělené od umístění popisků.
