@@ -1,38 +1,38 @@
 ---
-title: Android पर प्रस्तुतियों में चार्ट अक्षों को अनुकूलित करें
-linktitle: चार्ट अक्ष
+title: Android पर प्रस्तुतियों में चार्ट धुरियों को अनुकूलित करें
+linktitle: चार्ट धुरी
 type: docs
 url: /hi/androidjava/chart-axis/
 keywords:
-- चार्ट अक्ष
-- लंबवत अक्ष
-- क्षैतिज अक्ष
-- अक्ष को अनुकूलित करें
-- अक्ष को हेरफेर करें
-- अक्ष का प्रबंधन करें
-- अक्ष गुण
+- चार्ट धुरी
+- लंबवत धुरी
+- क्षैतिज धुरी
+- धुरी को अनुकूलित करें
+- धुरी को संचालित करें
+- धुरी का प्रबंधन
+- धुरी गुण
 - अधिकतम मान
 - न्यूनतम मान
-- अक्ष रेखा
+- धुरी रेखा
 - तिथि स्वरूप
-- अक्ष शीर्षक
-- अक्ष स्थिति
+- धुरी शीर्षक
+- धुरी स्थिति
 - PowerPoint
-- प्रस्तुति
+- प्रेजेंटेशन
 - Android
 - Java
 - Aspose.Slides
-description: "जाने कैसे Aspose.Slides for Android को Java के माध्यम से उपयोग करके रिपोर्ट और विज़ुअलाइज़ेशन के लिए PowerPoint प्रस्तुतियों में चार्ट अक्षों को अनुकूलित किया जा सकता है।"
+description: "रिपोर्ट और विज़ुअलाइज़ेशन के लिए PowerPoint प्रस्तुतियों में चार्ट धुरियों को अनुकूलित करने हेतु Java के माध्यम से Android के लिए Aspose.Slides का प्रयोग कैसे करें, जानें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-यह लेख बताता है कि Aspose.Slides for Android via Java का उपयोग करके चार्ट के अक्षों को कैसे अनुकूलित किया जाए। यह गणना किए गए अक्ष मान, चार्ट की पंक्तियों और स्तम्भों को बदलना, अक्ष की दृश्यता, श्रेणी लेबल और टिक‑मार्क अंतराल, तिथि श्रेणियाँ और फ़ॉर्मेटिंग, शीर्षक घुमाव, अक्ष का स्थान, डिस्प्ले यूनिट और लघुगणकीय स्केलिंग को कवर करता है।
+यह लेख Aspose.Slides for Android via Java के साथ चार्ट धुरियों को अनुकूलित करने का तरीका बताता है। इसमें गणना किए गए धुरी मान, चार्ट पंक्तियों और स्तंभों का परिवर्तन, धुरी का दृश्यमान होना, श्रेणी लेबल और टिक‑मार्क अंतराल, तिथि श्रेणियां और फ़ॉर्मेटिंग, शीर्षक का घुमाव, धुरी की स्थिति, डिस्प्ले इकाइयाँ, और लघुगणकीय स्केलिंग शामिल हैं।
 
-## **चार्ट में लंबवत अक्ष पर अधिकतम मान प्राप्त करें**
+## **चार्ट में लंबवत धुरी पर अधिकतम मान प्राप्त करें**
 
-एक [प्रस्तुति](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) बनाएँ और डिफ़ॉल्ट डेटा के साथ एक एरिया चार्ट जोड़ें। गणना किए गए अक्ष मान पढ़ने से पहले चार्ट लेआउट को अपडेट रखने के लिए [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) को कॉल करें।
+Create a [प्रेजेंटेशन](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) and add an area chart with default data. Call [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) before reading calculated axis values so that the chart layout is up to date.
 
-अक्ष सीमाओं के लिए [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) और [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) पढ़ें, और टिक अंतराल के लिए [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) और [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) पढ़ें। [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) और [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) समय‑इकाई स्केल प्रदान करते हैं, जो तिथि अक्षों के लिए प्रासंगिक है। उदाहरण इन मानों को स्थानीय चरों में संग्रहीत करता है और चार्ट को सहेजता है।
+Read [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) and [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) for the axis limits, and [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) and [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) for the tick intervals. [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) and [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) provide time-unit scales, which are relevant to date axes. The example stores these values in local variables and saves the chart.
 
 ```java
 import com.aspose.slides.*;
@@ -59,9 +59,9 @@ try {
 }
 ```
 
-## **अक्षों के बीच डेटा का अदला‑बदली करें**
+## **धुरियों के बीच डेटा बदलें**
 
-चार्ट डेटा में श्रृंखला और श्रेणियों की भूमिकाओं को बदलने के लिए [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) का उपयोग करें। प्रत्येक पूर्व श्रेणी एक श्रृंखला बन जाती है, और प्रत्येक पूर्व श्रृंखला एक श्रेणी बन जाती है। यह डेटा के समूह बनाने के तरीके को बदलता है; यह क्षैतिज और लंबवत अक्षों को नहीं बदलता। उदाहरण डिफ़ॉल्ट डेटा को `Sheet1!A1:D5` (हेडर पंक्ति और श्रेणी स्तम्भ सहित) से बाइंड करने के लिए [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) का उपयोग करता है, फिर पंक्तियों और स्तम्भों को बदलता है। यह चार्ट में चार श्रृंखला और तीन श्रेणियाँ सहेजता है।
+Use [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) to exchange the roles of series and categories in chart data. Each former category becomes a series, and each former series becomes a category. This changes how the data is grouped; it does not exchange the horizontal and vertical axes. The example uses [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) to bind the default data to `Sheet1!A1:D5`, including the header row and category column, before switching rows and columns. It saves a chart with four series and three categories.
 
 ```java
 import com.aspose.slides.*;
@@ -80,9 +80,66 @@ try {
 }
 ```
 
-## **लाइन चार्ट के लिए लंबवत अक्ष को अक्षम करें**
+## **धुरी की प्लॉटिंग क्रम को उलटें**
 
-लंबवत अक्ष को छिपाने के लिए `false` के साथ [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) को कॉल करें। उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है और उसे लंबवत अक्ष छिपा कर सहेजता है।
+Use [setPlotOrderReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setPlotOrderReversed-boolean-) to reverse a category or value axis. For example, a horizontal bar chart can show project stages from top to bottom in the same order as the worksheet: Planning, Development, Testing. Reversing an axis changes the plotting direction; it does not sort or rearrange the workbook data. By comparison, [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) exchanges the roles of series and categories.
+
+The following example creates a horizontal bar chart with three stages and one series. It saves a presentation with three slides: normal order, reversed categories, and reversed values. Each copy uses the same dataset, and only one axis is reversed on each copy.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320);
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredBar);
+    String[] stages = { "Planning", "Development", "Testing" };
+    int[] values = { 10, 30, 20 };
+    for (int i = 0; i < stages.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, stages[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    // स्लाइड 2: पहली श्रेणी को शीर्ष पर प्रदर्शित करें।
+    ISlide categorySlide = presentation.getSlides().addClone(slide);
+    IChart categoryChart = (IChart)categorySlide.getShapes().get_Item(0);
+    categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
+    // क्षैतिज मान धुरी को नीचे रखें।
+    categoryChart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum);
+
+    // स्लाइड 3: केवल क्षैतिज संख्यात्मक स्केल को उलटें।
+    ISlide valueSlide = presentation.getSlides().addClone(slide);
+    IChart valueChart = (IChart)valueSlide.getShapes().get_Item(0);
+    valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Reversing an axis can also move the perpendicular axis to the opposite side of the plot. [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) controls where the other axis crosses the axis being configured. In slide 2, calling it with `CrossesType.Maximum` on the reversed category axis keeps the horizontal value axis at the bottom. For a specific crossing point, use [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-). Check the crossing settings when changing direction, especially if the chart already has a custom crossing point. Call `setPlotOrderReversed` with `false` to restore the normal plotting direction; crossing settings are separate.
+
+| सामान्य क्रम (स्लाइड 1) | उलटी श्रेणियाँ (स्लाइड 2) | उलटे मान (स्लाइड 3) |
+| --- | --- | --- |
+| ![सामान्य श्रेणी और मान धुरी क्रम के साथ क्षैतिज बार चार्ट](axis-order-normal.png) | ![ऊपर से नीचे की ओर प्रदर्शित श्रेणियों के साथ क्षैतिज बार चार्ट](axis-order-categories-reversed.png) | ![उलटे मान धुरी और दाएँ शून्य के साथ क्षैतिज बार चार्ट](axis-order-values-reversed.png) |
+| श्रेणियाँ नीचे से ऊपर तक चलती हैं; मान बाएँ से दाएँ बढ़ते हैं। | योजना, विकास, और परीक्षण ऊपर से नीचे तक चलते हैं। मान और वर्कबुक पंक्तियों का क्रम नहीं बदला है। | श्रेणियों का सामान्य क्रम बना रहता है; मान दाएँ से बाएँ बढ़ते हैं। श्रेणी धुरी दाएँ ओर शून्य पर पार करती है। |
+
+## **लाइन चार्ट्स के लिए लंबवत धुरी को अक्षम करें**
+
+Call [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) with `false` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
 
 ```java
 import com.aspose.slides.*;
@@ -100,9 +157,9 @@ try {
 }
 ```
 
-## **लाइन चार्ट के लिए क्षैतिज अक्ष को अक्षम करें**
+## **लाइन चार्ट्स के लिए क्षैतिज धुरी को अक्षम करें**
 
-क्षैतिज अक्ष को छिपाने के लिए `false` के साथ [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) को कॉल करें। उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है और उसे क्षैतिज अक्ष छिपा कर सहेजता है।
+Call [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) with `false` on the horizontal axis to hide it. The example creates a line chart with default data and saves it with the horizontal axis hidden.
 
 ```java
 import com.aspose.slides.*;
@@ -120,9 +177,9 @@ try {
 }
 ```
 
-## **श्रेणी अक्ष बदलें**
+## **एक श्रेणी धुरी बदलें**
 
-तिथि या टेक्स्ट श्रेणी अक्ष चुनने के लिए [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) का उपयोग करें। यह उदाहरण `ExistingChart.pptx` की आवश्यकता रखता है, जिसमें पहला स्लाइड पहला आकार चार्ट है और श्रेणी कोशिकाएँ संख्या‑आधारित Excel तिथि मान रखती हैं। यह क्षैतिज अक्ष को तिथि अक्ष में बदलता है। [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) को `false`, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) को `1` और [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) को `TimeUnitType.Months` सेट करने से प्रमुख टिक एक‑माह अंतराल पर रखे जाते हैं।
+Use [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) with `false`, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) with `1`, and [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) with `TimeUnitType.Months` places major ticks at one-month intervals.
 
 ```java
 import com.aspose.slides.*;
@@ -143,21 +200,21 @@ try {
 }
 ```
 
-## **श्रेणी अक्ष लेबल अंतराल नियंत्रित करें**
+## **श्रेणी धुरी लेबल अंतराल नियंत्रित करें**
 
-जब चार्ट में कई श्रेणियाँ हों, तो श्रेणियों या डेटा बिंदुओं को हटाए बिना दृश्यमान अक्ष लेबलों की संख्या घटाएँ। `[setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-)` को `false` के साथ कॉल करें, फिर वांछित श्रेणी अंतराल को `[setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-)` को पास करें। सामान्य क्रम में टेक्स्ट श्रेणियों के लिए, गिनती पहली श्रेणी से शुरू होती है:
+When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Call [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) with `false`, then pass the desired category interval to [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-long-). For text categories in their normal order, counting starts at the first category:
 
 | अंतराल | उदाहरण में प्रदर्शित लेबल |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | श्रेणी 1, श्रेणी 2, श्रेणी 3, … श्रेणी 24 |
+| `2` | श्रेणी 1, श्रेणी 3, श्रेणी 5, … श्रेणी 23 |
+| `3` | श्रेणी 1, श्रेणी 4, श्रेणी 7, … श्रेणी 22 |
 
-`3` का अंतराल प्रत्येक तीसरे लेबल को प्रदर्शित करता है, जिससे दो लेबल छुपे रहते हैं। यह संबंधित स्तम्भों को नहीं हटाता। स्वचालित स्पेसिंग उपलब्ध स्थान के आधार पर अंतराल चुनती है; यह आवश्यक नहीं कि सभी लेबल दिखाएँ।
+An interval of `3` displays every third label, leaving two labels hidden between displayed labels. It does not remove the corresponding columns. Automatic spacing chooses an interval based on the available space; it does not necessarily display every label.
 
-टिक‑मार्क के लिए अलग नियंत्रण होते हैं। `[setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-)` को `false` करें और `[setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-)` का उपयोग करके उनका अंतराल सेट करें। उदाहरण के लिए, `1` प्रत्येक श्रेणी अंतराल पर टिक‑मार्क रखता है जबकि लेबल केवल प्रत्येक तीसरी श्रेणी पर दिखते हैं। `[setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-)` को एक दृश्यमान शैली के साथ सेट करें ताकि परिणाम स्पष्ट हो। स्वचालित‑स्पेसिंग सेट्टर को फिर से `true` करने से चार्ट फिर से वही अंतराल चुन लेगा।
+Tick marks have separate controls. Call [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) with `false` and use [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) to set their interval. For example, `1` keeps a tick mark at every category interval while labels appear only every third category. Use [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) with a visible style so you can see the result. Calling either automatic-spacing setter with `true` again lets the chart choose that interval again.
 
-निम्न स्व-समाहित उदाहरण 24 श्रेणियों और एक श्रृंखला बनाता है, फिर `CategoryAxisIntervals.pptx` में तीन स्लाइड सहेजता है: स्वचालित स्पेसिंग, स्वतंत्र टिक‑मार्क के साथ मैन्युअल लेबल स्पेसिंग, और पुर्नस्थापित स्वचालित स्पेसिंग। दो प्रतियाँ मूल चार्ट डेटा को बरकरार रखती हैं। कोई इनपुट प्रस्तुति आवश्यक नहीं है। क्षैतिज लेबल टेक्स्ट घनत्व के अंतर को स्पष्ट रूप से दिखाता है।
+The following self-contained example creates 24 categories and one series, then saves three slides in `CategoryAxisIntervals.pptx`: automatic spacing, manual label spacing with independent tick marks, and restored automatic spacing. The two copies retain the original chart data. No input presentation is required. Horizontal label text makes the difference in density easy to see.
 
 ```java
 import com.aspose.slides.*;
@@ -191,7 +248,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // स्लाइड 2: प्रत्येक तीसरे लेबल को दिखाएँ, लेकिन प्रत्येक श्रेणी के लिये एक टिक‑मार्क रखें।
+    // स्लाइड 2: हर तीसरा लेबल दिखाएँ, लेकिन हर श्रेणी के लिए एक टिक‑मार्क रखें।
     ISlide manualSlide = presentation.getSlides().addClone(slide);
     IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
     IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -200,7 +257,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // स्लाइड 3: चार्ट को दोनों अंतराल फिर से चुनने दें।
+    // स्लाइड 3: चार्ट को फिर से दोनों अंतराल चुनने दें।
     ISlide restoredSlide = presentation.getSlides().addClone(manualSlide);
     IChart restoredChart = (IChart)restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -212,23 +269,23 @@ try {
 }
 ```
 
-**स्वाचालित स्पेसिंग (स्लाइड 1):** इस रेंडरिंग में प्रत्येक दूसरी श्रेणी लेबल प्रदर्शित होता है और दो पंक्तियों में लिपटा है। स्वचालित परिणाम चार्ट आकार, फ़ॉन्ट और रेंडरर के आधार पर बदल सकता है।
+**स्वचालित स्पेसिंग (स्लाइड 1):** In this rendering, every second category label is displayed and wraps onto two lines. The automatic result can vary with chart size, fonts, and the renderer.
 
-![सभी 24 स्तम्भ दृश्यमान के साथ स्वाचालित श्रेणी लेबल स्पेसिंग](category-axis-automatic.png)
+![सभी 24 कॉलम दृश्यमान के साथ स्वचालित श्रेणी लेबल स्पेसिंग](category-axis-automatic.png)
 
-**मैन्युअल स्पेसिंग (स्लाइड 2):** प्रत्येक तीसरा लेबल एक पंक्ति में दिखाई देता है, जबकि टिक‑मार्क प्रत्येक श्रेणी अंतराल पर रहते हैं। सभी 24 स्तम्भ, जिनमें लेबल नहीं भी हैं, वही मानों के साथ दृश्यमान रहते हैं। स्लाइड 3 स्वाचालित दिखावट को पुनर्स्थापित करता है।
+**मैन्युअल स्पेसिंग (स्लाइड 2):** Every third label is displayed on one line, while tick marks remain at every category interval. All 24 columns, including those without labels, remain visible with the same values. Slide 3 restores the automatic appearance shown above.
 
-![सभी 24 स्तम्भ दृश्यमान के साथ तीन के मैन्युअल श्रेणी लेबल अंतराल](category-axis-manual.png)
+![सभी 24 कॉलम दृश्यमान के साथ मैन्युअल श्रेणी लेबल अंतराल तीन](category-axis-manual.png)
 
-### **सही अक्ष और अंतराल चुनें**
+### **सही धुरी और अंतराल चुनें**
 
-टेक्स्ट श्रेणी अक्ष के लिए इस श्रेणी‑गणना अंतराल का उपयोग करें, जैसे स्तम्भ, रेखा, एरिया या बार चार्ट का श्रेणी अक्ष। स्तम्भ चार्ट में यह क्षैतिज अक्ष होता है। क्षैतिज बार चार्ट में श्रेणी अक्ष लंबवत होता है, इसलिए इसे `[getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--)` द्वारा लौटाए गए अक्ष पर लागू करें। टिक‑मार्क अंतराल उन चार्ट्स में श्रृंखला अक्ष पर भी लागू होता है जिनमें वह मौजूद हो।
+Use this category-count interval for a text category axis, such as the category axis of a column, line, area, or bar chart. In a column chart, it is the horizontal axis. In a horizontal bar chart, the category axis is vertical, so apply these settings to the axis returned by [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--). Tick-mark spacing also applies to a series axis in charts that have one.
 
-संख्या‑अक्ष पर संख्यात्मक स्केल सेट करने के लिए श्रेणी लेबल स्पेसिंग का उपयोग न करें। मान अक्ष पर, `[setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-)` मानों के अंतर को निर्धारित करता है: उदाहरण के लिये, `10` का प्रमुख इकाई 0, 10, 20 आदि पर टिक बनाता है जब अक्ष शून्य से शुरू होता है। `3` का श्रेणी लेबल अंतराल केवल श्रेणी स्थितियों को गिनता है, डेटा मानों की परवाह किए बिना। स्कैटर और बबल चार्ट मान अक्षों का उपयोग करते हैं, न कि टेक्स्ट श्रेणी अक्ष का। तिथि अक्ष के लिये, `[Change a Category Axis](#change-a-category-axis)` में वर्णित समय‑आधारित प्रमुख इकाइयाँ और स्केल उपयोग करें।
+Do not use category label spacing to set the numeric scale of a value axis. On a value axis, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) specifies a difference in values: for example, a major unit of `10` produces ticks at 0, 10, 20, and so on when the axis starts at zero. A category label interval of `3` instead counts category positions, regardless of their data values. Scatter and bubble charts use value axes rather than a text category axis. For a date axis, use time-based major units and scales as described in [Change a Category Axis](#change-a-category-axis).
 
-## **श्रेणी अक्ष मानों के लिए तिथि फ़ॉर्मेट सेट करें**
+## **श्रेणी धुरी मानों के लिए तिथि प्रारूप सेट करें**
 
-यह उदाहरण डिफ़ॉल्ट चार्ट डेटा को चार वार्षिक मानों से बदलता है। तिथियों को पहले कार्यपत्र (सूचकांक `0`) में OLE Automation क्रमिक संख्याओं के रूप में संग्रहीत किया जाता है, जो 30 दिसंबर 1899 से दिनों की संख्या है। दोनों कैलेंडर UTC में होते हैं और तिथियों को सेट करने से पहले साफ़ किए जाते हैं ताकि डे लाइट सेविंग और वर्तमान समय की गणना प्रभावित न हो। `[setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-)` को `CategoryAxisType.Date` के साथ, `[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-)` को `false` और `[setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-)` को `yyyy` सेट करें ताकि श्रेणी लेबल चार अंकों का वर्ष स्वतंत्र रूप से दिखाएँ, चाहे कोशिका फ़ॉर्मेट कुछ भी हो।
+The example replaces the default chart data with four annual values. Dates are stored as OLE Automation serial numbers in the first worksheet (index `0`), calculated as the number of days since December 30, 1899, for these dates. Both calendars use UTC and are cleared before setting the dates so daylight saving time and the current time of day do not affect the calculation. Use [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) with `CategoryAxisType.Date`, call [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) with `false`, and pass `yyyy` to [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) so the category labels display four-digit years independently of the cell formatting.
 
 ```java
 import com.aspose.slides.*;
@@ -276,9 +333,9 @@ try {
 }
 ```
 
-## **चार्ट अक्ष शीर्षक के लिये घूर्णन कोण सेट करें**
+## **एक चार्ट धुरी शीर्षक के लिए घूर्णन कोण सेट करें**
 
-लंबवत अक्ष पर `[setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-)` को `true` के साथ कॉल करें, शीर्षक पाठ प्रदान करें, और `[setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-)` का उपयोग करके शीर्षक घुमाएँ। कोण डिग्री में मापा जाता है; यह उदाहरण एक स्तम्भ चार्ट को 90 डिग्री घुमाए हुए मान‑अक्ष शीर्षक के साथ सहेजता है।
+Call [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) with `true` on the vertical axis, provide title text, and use [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) to rotate the title. The angle is measured in degrees; this example saves a column chart with its value-axis title rotated by 90 degrees.
 
 ```java
 import com.aspose.slides.*;
@@ -298,9 +355,9 @@ try {
 }
 ```
 
-## **श्रेणी या मान अक्ष पर अक्ष की स्थिति सेट करें**
+## **श्रेणी या मान धुरी पर धुरी स्थिति सेट करें**
 
-`[setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-)` का उपयोग करके निर्धारित करें कि मान अक्ष श्रेणी अक्ष को श्रेणियों के बीच या श्रेणी टिक‑मार्क पर पार करे। यह सेटिंग केवल श्रेणी अक्षों पर लागू होती है। उदाहरण इसे स्तम्भ चार्ट के क्षैतिज श्रेणी अक्ष पर `true` सेट करता है और परिणाम सहेजता है।
+Use [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) to control whether the value axis crosses the category axis between categories or at category tick marks. This setting applies to category axes. The example sets it to `true` on the horizontal category axis of a column chart and saves the result.
 
 ```java
 import com.aspose.slides.*;
@@ -318,9 +375,9 @@ try {
 }
 ```
 
-## **चार्ट मान अक्ष पर डिस्प्ले यूनिट सेट करें**
+## **चार्ट मान धुरी पर डिस्प्ले इकाई सेट करें**
 
-`[setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-)` का उपयोग करके मान अक्ष पर लेबलों को स्केल करें बिना मूल डेटा बदले। जब `[DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/)` को `Millions` सेट किया जाता है, तो 60,000,000 को 60 के रूप में दिखाया जाता है। यह उदाहरण एक स्तम्भ चार्ट बनाता है और उसके लंबवत अक्ष पर मिलियन डिस्प्ले यूनिट लागू करता है।
+Use [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) to scale the labels on a value axis without changing the underlying data. With [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) set to `Millions`, a value of 60,000,000 is displayed as 60. The example creates a column chart and applies the millions display unit to its vertical axis.
 
 ```java
 import com.aspose.slides.*;
@@ -338,21 +395,21 @@ try {
 }
 ```
 
-## **लघुगणकीय मान अक्ष को कॉन्फ़िगर करें**
+## **एक लघुगणकीय मान धुरी कॉन्फ़िगर करें**
 
-लघुगणकीय मान अक्ष तब उपयोगी होता है जब सकारात्मक मान कई क्रमों में फैलते हों। उदाहरण के लिये, एक सेवा पाँच अवधियों में 10, 100, 1,000, 10,000 और 100,000 अनुरोध प्राप्त कर सकती है। रैखिक स्केल पर छोटे मान शून्य के निकट एक‑दूसरे के बहुत पास दिखते हैं। लघुगणकीय स्केल उनके सापेक्ष वृद्धि को तुलना करना आसान बनाता है: समान दूरी समान अनुपात दर्शाती है, न कि समान अंतर।
+A logarithmic value axis is useful when positive values span several orders of magnitude. For example, a service might receive 10, 100, 1,000, 10,000, and 100,000 requests over five periods. On a linear scale, the smaller values appear close together near zero. A logarithmic scale makes their relative growth easier to compare: equal distances represent equal ratios rather than equal differences.
 
-मान अक्ष पर `[setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-)` को `true` और बेस चुनने के लिये `[setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-)` का उपयोग करें। यह मौजूदा मानों के प्रदर्शित होने के तरीके को बदलता है; यह डेटा नहीं बदलता और न ही लघुगणकीय ट्रेंड‑लाइन जोड़ता है। ट्रेंड‑लाइन डेटा में फिटेड संबंध का प्रतिनिधित्व करती है और एक अलग सुविधा है।
+Call [setLogarithmic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogarithmic-boolean-) with `true` on the value axis and use [setLogBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setLogBase-double-) to choose the base. This changes how the existing values are displayed; it does not change the data or add a logarithmic trend line. A trend line represents a fitted relationship in the data and is a separate feature.
 
-### **मान अक्ष और बेस चुनें**
+### **मान धुरी और आधार चुनें**
 
-लाइन या स्तम्भ चार्ट के लिये, मान अक्ष `[getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--)` द्वारा लौटाया जाता है। क्षैतिज बार चार्ट पर यह `[getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--)` द्वारा मिलता है। स्कैटर और बबल चार्ट में दो मान अक्ष होते हैं, इसलिए X मानों के लिये क्षैतिज अक्ष, Y मानों के लिये लंबवत अक्ष या दोनों का चयन करें। श्रेणी अक्ष पर लघुगणकीय स्केलिंग लागू न करें।
+For a line or column chart, the value axis is returned by [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--). For a horizontal bar chart, it is returned by [getHorizontalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getHorizontalAxis--). Scatter and bubble charts have two value axes, so choose the horizontal axis for X values, the vertical axis for Y values, or both. Do not apply logarithmic scaling to a category axis.
 
-डिफ़ॉल्ट लघुगणकीय बेस `10` है। PPTX चार्ट्स के लिये बेस `2` से `1000` तक (समावेशी) प्रयोग किया जा सकता है; अंशात्मक बेस जैसे `2.5` भी समर्थित हैं। बेस `10` पर क्रमागत घातांक 10, 100, 1,000, 10,000 समान रूप से स्थित होते हैं।
+The default logarithmic base is `10`. For PPTX charts, use a base from `2` through `1000`, inclusive; fractional bases such as `2.5` are also supported. With base `10`, successive powers such as 10, 100, 1,000, and 10,000 are equally spaced.
 
-### **रैखिक और लघुगणकीय स्केल की तुलना**
+### **रैखिक और लघुगणकीय स्केलिंग की तुलना**
 
-निम्न स्व‑समाहित उदाहरण पहले स्लाइड पर पाँच अनुरोध गणनाओं के साथ एक लाइन चार्ट बनाता है, फिर उस स्लाइड को क्लोन करके दूसरे स्लाइड पर बेस‑10 लघुगणकीय मान अक्ष सक्षम करता है। दोनों स्लाइड समान डेटा को बरकरार रखती हैं।
+The following self-contained example creates a line chart with the five request counts on the first slide, then clones that slide and enables a base-10 logarithmic value axis on the second. Both slides retain the same data.
 
 ```java
 import com.aspose.slides.*;
@@ -382,7 +439,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // पहली स्लाइड को रैखिक रखें और केवल कॉपी के मान‑अक्ष स्केल को बदलें।
+    // पहली स्लाइड को रैखिक रखें और केवल कॉपी की मान‑धुरी स्केल बदलें।
     ISlide logarithmicSlide = presentation.getSlides().addClone(slide);
     IChart logarithmicChart = (IChart)logarithmicSlide.getShapes().get_Item(0);
     IAxis valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -395,24 +452,24 @@ try {
 }
 ```
 
-**रैखिक स्केल (स्लाइड 1):** समान लंबवत दूरी समान अनुरोध गणनाओं के अंतर को दर्शाती है। सबसे बड़ा मान चार्ट को प्रमुख बनाता है, जिससे छोटे मानों को अलग‑अलग देखना कठिन हो जाता है।
+**रैखिक स्केल (स्लाइड 1):** Equal vertical distances represent equal differences in request counts. The largest value dominates the chart, making the smaller values difficult to distinguish.
 
-![पावरपॉइंट में पाँच अनुरोध गणनाओं के साथ रैखिक मान अक्ष पर लाइन चार्ट](value-axis-linear.png)
+![पावरपॉइंट में रैखिक मान धुरी पर पाँच अनुरोध गिनती दिखाने वाला लाइन चार्ट](value-axis-linear.png)
 
-**लघुगणकीय स्केल (स्लाइड 2):** समान लंबवत दूरी समान अनुपात को दर्शाती है। प्रत्येक अवधि में पिछले की तुलना में दस गुना अधिक अनुरोध होते हैं, इसलिए बिंदु बेस‑10 स्केल पर एक सीधा बढ़ता हुआ रेखा बनाते हैं। अक्ष लेबल अभी भी मूल अनुरोध गणनाओं को दिखाते हैं।
+**लघुगणकीय स्केल (स्लाइड 2):** Equal vertical distances represent equal ratios. Each period has ten times as many requests as the previous one, so the points form a straight rising line on the base-10 scale. The axis labels still show the original request counts.
 
-![पावरपॉइंट में बेस‑10 लघुगणकीय मान अक्ष पर समान पाँच अनुरोध गणनाएं](value-axis-logarithmic.png)
+![पावरपॉइंट में बेस-10 लघुगणकीय मान धुरी पर वही पाँच अनुरोध गिनती](value-axis-logarithmic.png)
 
 ### **शून्य और नकारात्मक मानों को संभालें**
 
-लघुगणकीय स्केल केवल शुद्ध सकारात्मक मान प्रदर्शित कर सकता है। सक्षम करने से पहले डेटा जाँचें। यदि शून्य या नकारात्मक मान अर्थपूर्ण हैं, तो रैखिक स्केल रखें या उन्हें अलग‑अलग दिखाएँ। यदि विश्लेषण के लिये उन मानों को बाहर करना उचित है, तो बहिष्कार का कारण बताएँ। उन्हें छोटे सकारात्मक संख्याओं से चुपके से बदलें नहीं, क्योंकि इससे डेटा का अर्थ बदल जाता है। लघुगणकीय अक्ष के लिये मैन्युअल रूप से सेट किया गया न्यूनतम या अधिकतम भी सकारात्मक ही होना चाहिए।
+A logarithmic scale can display only strictly positive values. Check the data before enabling it. If zero or negative values are meaningful, keep a linear scale or show them separately. If excluding those values is appropriate for the analysis, explain the omission. Do not silently replace them with small positive numbers, as this changes the meaning of the data. Any manually configured minimum or maximum for a logarithmic axis must also be positive.
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कैसे वह मान सेट करूँ जिससे एक अक्ष दूसरे के ऊपर क्रॉस करे (अक्ष क्रॉसिंग)?**
+**मैं एक धुरी को दूसरी धुरी के साथ कहाँ क्रॉस हो, वह मान कैसे सेट करूँ?**
 
-क्रॉसिंग व्यवहार चुनने के लिये `[setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-)` का उपयोग करें। संख्यात्मक क्रॉसिंग मान निर्दिष्ट करने के लिये `[setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-)` का उपयोग करें। ये सेटिंग्स आपको अक्ष क्रॉसिंग को उपयुक्त बेसलाइन पर ले जाने की अनुमति देती हैं।
+Use [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) to select the crossing behavior. To specify a numeric crossing value, use [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-). These settings let you move the axis crossing to a suitable baseline.
 
-**मैं टिक‑लेबल को अक्ष के सापेक्ष कैसे स्थित करूँ?**
+**मैं टिक लेबल को धुरी के सापेक्ष कैसे स्थित करूँ?**
 
-`[setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-)` को `[TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/)` के साथ उपयोग करें: `Low`, `High`, `NextTo` या `None`। टिक‑मार्क स्वयं को नियंत्रित करने के लिये `[setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-)` या `[setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-)` का उपयोग करें; ये लेबल पोज़िशनिंग से अलग होते हैं।
+Call [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) using [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, or `None`. To control the tick marks themselves, use [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) or [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-); these are separate from label positioning.

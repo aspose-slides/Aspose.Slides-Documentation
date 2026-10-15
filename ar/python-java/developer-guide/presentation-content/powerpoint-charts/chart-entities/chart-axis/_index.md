@@ -8,7 +8,7 @@ keywords:
 - المحور الرأسي
 - المحور الأفقي
 - تخصيص المحور
-- التلاعب بالمحور
+- معالجة المحور
 - إدارة المحور
 - خصائص المحور
 - القيمة القصوى
@@ -18,20 +18,20 @@ keywords:
 - عنوان المحور
 - موضع المحور
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Python
 - Aspose.Slides
-description: "اكتشف كيفية استخدام Aspose.Slides للغة بايثون عبر Java لتخصيص محاور المخططات في عروض PowerPoint التقديمية للتقارير والتصوير البياني."
+description: "اكتشف كيفية استخدام Aspose.Slides for Python via Java لتخصيص محاور المخططات في عروض PowerPoint التقديمية للتقارير والتصورات."
 ---
 ## **نظرة عامة**
 
-هذا المقال يشرح كيفية تخصيص محاور المخطط باستخدام Aspose.Slides للغة Python عبر Java. يغطي القيم المحسوبة للمحاور، تبديل صفوف وأعمدة المخطط، رؤية المحور، فواصل تسميات الفئة وعلامات القسمة، الفئات التاريخية وتنسيقها، تدوير العنوان، موضع المحور، وحدات العرض، والقياس اللوغاريتمي.
+تشرح هذه المقالة كيفية تخصيص محاور المخطط باستخدام Aspose.Slides for Python via Java. تغطي القيم المحسوبة للمحاور، تبديل صفوف وأعمدة المخطط، إظهار/إخفاء المحاور، فواصل تسميات الفئات وعلامات التقطيع، الفئات التاريخية وتنسيقها، تدوير العنوان، موضع المحور، وحدات العرض، والتدرج اللوغاريتمي.
 
-## **الحصول على القيم القصوى على المحور الرأسي للمخطط**
+## **الحصول على القيم القصوى على المحور العمودي للمخطط**
 
-إنشاء [العرض التقديمي](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) وإضافة مخطط مساحي ببيانات افتراضية. استدعاء [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) قبل قراءة القيم المحسوبة للمحور لضمان تحديث تخطيط المخطط.
+أنشئ [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) وأضف مخططًا مساحيًا ببيانات افتراضية. استدعِ [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) قبل قراءة القيم المحسوبة للمحاور لضمان تحديث تخطيط المخطط.
 
-قراءة [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) و[ getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) لحدود المحور، و[ getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) و[ getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) لفواصل العلامات. [ getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) و[ getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) توفر مقاييس الوحدات الزمنية، وهي ذات صلة بمحاور التاريخ. المثال يخزن هذه القيم في متغيرات محلية ويحفظ المخطط.
+اقرأ [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) و [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) للحصول على حدود المحور، و [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) و [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) لفواصل العلامات. توفر [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) و [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) مقاييس وحدة الوقت، وهي ذات صلة بمحاور التاريخ. يخزن المثال هذه القيم في متغيرات محلية ويحفظ المخطط.
 
 ```python
 import jpype
@@ -65,7 +65,7 @@ finally:
 
 ## **تبديل البيانات بين المحاور**
 
-استخدم [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) لتبادل أدوار السلاسل والفئات في بيانات المخطط. كل فئة سابقة تصبح سلسلة، وكل سلسلة سابقة تصبح فئة. هذا يغير طريقة تجميع البيانات؛ ولا يبدل المحاور الأفقية والرأسية. المثال يستخدم [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) لربط البيانات الافتراضية بـ`Sheet1!A1:D5`، بما في ذلك صف العنوان وعمود الفئة، قبل تبديل الصفوف والأعمدة. يحفظ مخططًا بأربع سلاسل وثلاث فئات.
+استخدم [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) لتبادل أدوار السلاسل والفئات في بيانات المخطط. كل فئة سابقة تصبح سلسلة، وكل سلسلة سابقة تصبح فئة. يغيّر هذا طريقة تجميع البيانات؛ ولا يبدّل المحاور الأفقية والرأسية. يستخدم المثال [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) لربط البيانات الافتراضية بـ `Sheet1!A1:D5`، بما في ذلك صف الرأس وعمود الفئة، قبل تبديل الصفوف والأعمدة. يحفظ مخططًا يحتوي على أربع سلاسل وثلاث فئات.
 
 ```python
 import jpype
@@ -89,9 +89,70 @@ finally:
     presentation.dispose()
 ```
 
-## **تعطيل المحور الرأسي للمخططات الخطية**
+## **عكس ترتيب الرسم للمحور**
 
-استدعاء [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) بـ`False` على المحور الرأسي لإخفائه. المثال ينشئ مخططًا خطيًا ببيانات افتراضية ويحفظه مع إخفاء المحور الرأسي.
+استخدم [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) لعكس محور فئة أو قيمة. على سبيل المثال، يمكن لمخطط شريطي أفقي عرض مراحل المشروع من الأعلى إلى الأسفل بنفس ترتيب ورقة العمل: التخطيط، التطوير، الاختبار. عكس المحور يغيّر اتجاه الرسم؛ ولا يفرز أو يعيد ترتيب بيانات المصنف. بالمقارنة، [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) يبدّل أدوار السلاسل والفئات.
+
+النموذج التالي ينشئ مخطط شريطي أفقي بثلاث مراحل وسلسلة واحدة. يحفظ عرض تقديمي بثلاث شرائح: الترتيب العادي، الفئات المعكوسة، والقيم المعكوسة. كل نسخة تستخدم مجموعة البيانات نفسها، ويُعكس محور واحد فقط في كل نسخة.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpapi.startJVM()
+
+from asposeslides.api import Presentation, ChartType, CrossesType, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320)
+    chart.setLegend(False)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series = chart.getChartData().getSeries().add(ChartType.ClusteredBar)
+    stages = ["Planning", "Development", "Testing"]
+    values = [10, 30, 20]
+    for i, stage in enumerate(stages):
+        category_cell = workbook.getCell(0, i + 1, 0, stage)
+        chart.getChartData().getCategories().add(category_cell)
+        value_cell = workbook.getCell(0, i + 1, 1, float(values[i]))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    # الشريحة 2: عرض الفئة الأولى في الأعلى.
+    category_slide = presentation.getSlides().addClone(slide)
+    category_chart = category_slide.getShapes().get_Item(0)
+    category_chart.getAxes().getVerticalAxis().setPlotOrderReversed(True)
+    # الحفاظ على محور القيمة الأفقي في الأسفل.
+    category_chart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum)
+
+    # الشريحة 3: عكس مقياس القيم الرقمي الأفقي فقط.
+    value_slide = presentation.getSlides().addClone(slide)
+    value_chart = value_slide.getShapes().get_Item(0)
+    value_chart.getAxes().getHorizontalAxis().setPlotOrderReversed(True)
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+عكس المحور يمكن أيضًا أن ينقل المحور العمودي إلى الجانب المقابل من المخطط. يتحكم [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) في مكان تقاطع المحور الآخر مع المحور الذي يتم تكوينه. في الشريحة 2، يتم استدعاؤه بـ [CrossesType.Maximum](https://reference.aspose.com/slides/python-java/aspose.slides/crossestype/#Maximum) على محور الفئة المعكوس للحفاظ على محور القيمة الأفقي في الأسفل. لتحديد نقطة تقاطع معينة، استخدم [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). تحقق من إعدادات التقاطع عند تغيير الاتجاه، خاصة إذا كان المخطط يحتوي بالفعل على نقطة تقاطع مخصصة. استدعِ [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) مع `False` لاستعادة اتجاه الرسم الطبيعي؛ إعدادات التقاطع منفصلة.
+
+| الترتيب العادي (الشريحة 1) | الفئات المعكوسة (الشريحة 2) | القيم المعكوسة (الشريحة 3) |
+| --- | --- | --- |
+| ![مخطط شريطي أفقي بترتيب الفئة والمحور القيمي العادي](axis-order-normal.png) | ![مخطط شريطي أفقي مع عرض الفئات من الأعلى إلى الأسفل](axis-order-categories-reversed.png) | ![مخطط شريطي أفقي مع محور قيم معكوس والصفر على اليمين](axis-order-values-reversed.png) |
+| الفئات تبدأ من الأسفل إلى الأعلى؛ وتزداد القيم من اليسار إلى اليمين. | التخطيط، التطوير، والاختبار تُعرض من الأعلى إلى الأسفل. القيم وترتيب صفوف دفتر العمل لا يتغيران. | تحافظ الفئات على ترتيبها العادي؛ وتزداد القيم من اليمين إلى اليسار. يتقاطع محور الفئة عند الصفر على اليمين. |
+
+## **تعطيل المحور العمودي لمخططات الخط**
+
+استدعِ [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) مع `False` على المحور العمودي لإخفائه. يُنشئ المثال مخططًا خطيًا ببيانات افتراضية ويحفظه مع إخفاء المحور العمودي.
 
 ```python
 import jpype
@@ -114,9 +175,9 @@ finally:
     presentation.dispose()
 ```
 
-## **تعطيل المحور الأفقي للمخططات الخطية**
+## **تعطيل المحور الأفقي لمخططات الخط**
 
-استدعاء [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) بـ`False` على المحور الأفقي لإخفائه. المثال ينشئ مخططًا خطيًا ببيانات افتراضية ويحفظه مع إخفاء المحور الأفقي.
+استدعِ [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) مع `False` على المحور الأفقي لإخفائه. يُنشئ المثال مخططًا خطيًا ببيانات افتراضية ويحفظه مع إخفاء المحور الأفقي.
 
 ```python
 import jpype
@@ -141,7 +202,7 @@ finally:
 
 ## **تغيير محور الفئة**
 
-استخدم [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) لاختيار محور فئة تاريخي أو نصي. يتطلب هذا المثال ملف `ExistingChart.pptx`، مع مخطط كأول شكل في الشريحة الأولى وخلايا فئة تحتوي على قيم تاريخية من Excel رقمية. يغيّر المحور الأفقي إلى محور تاريخ. استدعاء [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) بـ`False`، و[setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) بـ`1`، و[setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) بـ[TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) يضع العلامات الرئيسية بفواصل شهر واحد.
+استخدم [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) لاختيار محور فئة تاريخية أو نصية. يتطلب هذا المثال ملف `ExistingChart.pptx`، مع مخطط كأول شكل في الشريحة الأولى وخلايا الفئة التي تحتوي على قيم تاريخية رقمية من Excel. يغيّر المحور الأفقي إلى محور تاريخ. استدعِ [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) مع `False`، و [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) مع `1`، و [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) مع [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) لتحديد الفواصل الرئيسية على فواصل شهرية.
 
 ```python
 import jpype
@@ -169,19 +230,19 @@ finally:
 
 ## **التحكم في فواصل تسميات محور الفئة**
 
-عند وجود many categories في مخطط، قلل عدد التسميات الظاهرة للمحور دون إزالة الفئات أو نقاط البيانات. استدعاء [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) بـ`False`، ثم مرّر الفاصل المطلوب إلى [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing). بالنسبة للفئات النصية بترتيبها الطبيعي، يبدأ العد من الفئة الأولى:
+عندما يحتوي المخطط على العديد من الفئات، قلل عدد تسميات المحور الظاهرة دون إزالة الفئات أو نقاط البيانات. استدعِ [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) مع `False`، ثم مرّر الفاصل الفئوي المطلوب إلى [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing). بالنسبة للفئات النصية بترتيبها الطبيعي، يبدأ العد من الفئة الأولى:
 
 | الفاصل | التسميات المعروضة في المثال |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | الفئة 1، الفئة 2، الفئة 3، ... الفئة 24 |
+| `2` | الفئة 1، الفئة 3، الفئة 5، ... الفئة 23 |
+| `3` | الفئة 1، الفئة 4، الفئة 7، ... الفئة 22 |
 
-فاصل `3` يعرض كل تسمية ثالثة، مع إخفاء اثنتين بينهما. لا يزيل الأعمدة المقابلة. الاختيار التلقائي للفاصل يحدده وفق المساحة المتاحة؛ ولا يضمن عرض كل تسمية.
+فاصل `3` يعرض كل تسمية ثالثة، مع إخفاء تسميتين بين كل تسمية معروضة. لا يزيل هذا الأعمدة المقابلة. يختار التباعد التلقائي الفاصل بناءً على المساحة المتاحة؛ ولا يضمن عرض كل تسمية.
 
-علامات القسمة لها تحكم منفصل. استدعاء [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) بـ`False` واستخدام [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) لتحديد فاصلها. على سبيل المثال، `1` يحافظ على علامة قسمة عند كل فاصل فئة بينما تظهر التسميات كل فئة ثالثة فقط. استخدم [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) بنمط مرئي لتلاحظ النتيجة. استدعاء أحد مُعدّلات التباعد التلقائي بـ`True` مرة أخرى يسمح للمخطط باختيار الفاصل تلقائيًا مرة أخرى.
+علامات التقطيع لها إعدادات منفصلة. استدعِ [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) مع `False` واستخدم [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) لتحديد فاصلها. على سبيل المثال، `1` يبقي علامة تقطع عند كل فاصل فئة بينما تظهر التسميات فقط كل فئة ثالثة. استخدم [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) بنمط مرئي لتتمكن من رؤية النتيجة. استدعاء أي من الضابطين التلقائيين مع `True` مرة أخرى يتيح للمخطط اختيار ذلك الفاصل مرة أخرى.
 
-المثال المتكامل التالي يخلق 24 فئة وسلسلة واحدة، ثم يحفظ ثلاث شرائح في `CategoryAxisIntervals.pptx`: تباعد تلقائي، تباعد يدوي للتسمية مع علامات قسمة مستقلة، واستعادة التباعد التلقائي. النسختان تحتفظان ببيانات المخطط الأصلية. لا يلزم عرض تقديمي إدخال. نص التسمية الأفقي يُظهر الفرق في الكثافة بوضوح.
+المثال التالي المستقل ينشئ 24 فئة وسلسلة واحدة، ثم يحفظ ثلاث شرائح في `CategoryAxisIntervals.pptx`: تباعد تلقائي، تباعد يدوي للتسميات مع علامات تقطع مستقلة، وإعادة تفعيل التباعد التلقائي. تحتفظ النسختان البيانات الأصلية للمخطط. لا يلزم عرض تقديمي إدخال. يجعل النص الأفقي للتسمية فرق الكثافة واضحًا.
 
 ```python
 import jpype
@@ -220,7 +281,7 @@ try:
     axis.setAutomaticTickLabelSpacing(True)
     axis.setAutomaticTickMarksSpacing(True)
 
-    # Slide 2: إظهار كل تسمية ثالثة، مع الحفاظ على علامة قسمة لكل فئة.
+    # الشريحة 2: عرض كل تسمية ثالثة، مع الحفاظ على علامة تقطع لكل فئة.
     manual_slide = presentation.getSlides().addClone(slide)
     manual_chart = manual_slide.getShapes().get_Item(0)
     manual_axis = manual_chart.getAxes().getHorizontalAxis()
@@ -229,7 +290,7 @@ try:
     manual_axis.setAutomaticTickMarksSpacing(False)
     manual_axis.setTickMarksSpacing(1)
 
-    # Slide 3: السماح للمخطط باختيار كلا الفاصلين مرة أخرى.
+    # الشريحة 3: السماح للمخطط باختيار كلا الفاصلين مرة أخرى.
     restored_slide = presentation.getSlides().addClone(manual_slide)
     restored_chart = restored_slide.getShapes().get_Item(0)
     restored_chart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(True)
@@ -240,23 +301,23 @@ finally:
     presentation.dispose()
 ```
 
-**تباعد تلقائي (الشريحة 1):** في هذا العرض، تُعرض كل تسمية فئة ثانية وتلتف إلى سطرين. النتيجة التلقائية قد تختلف حسب حجم المخطط، الخطوط، والمُظهر.
+**التباعد التلقائي (الشريحة 1):** في هذا العرض، تُعرض كل تسمية فئة ثانية وتنتقل إلى سطرين. قد يختلف النتيجة التلقائية حسب حجم المخطط، الخطوط، والمُعالج.
 
-![تباعد تلقائي لتسميات الفئة مع إظهار جميع الأعمدة الـ24](category-axis-automatic.png)
+![تباعد تسميات الفئة التلقائي مع جميع الأعمدة الـ24 مرئية](category-axis-automatic.png)
 
-**تباعد يدوي (الشريحة 2):** تُعرض كل تسمية ثالثة على سطر واحد، بينما تبقى علامات القسمة عند كل فاصل فئة. جميع الأعمدة الـ24، بما فيها تلك بدون تسميات، تظل مرئية بنفس القيم. الشريحة 3 تستعيد المظهر التلقائي المعروض أعلاه.
+**التباعد اليدوي (الشريحة 2):** تُعرض كل تسمية ثالثة على سطر واحد، بينما تبقى علامات التقطيع عند كل فاصل فئة. جميع الأعمدة الـ24، بما في ذلك تلك التي لا تحتوي على تسميات، تظل مرئية بنفس القيم. الشريحة 3 تستعيد المظهر التلقائي المعروض أعلاه.
 
-![تباعد يدوي لتسميات الفئة ثلاثة مع إظهار جميع الأعمدة الـ24](category-axis-manual.png)
+![فاصل تسميات الفئة يدويًا إلى ثلاثة مع جميع الأعمدة الـ24 مرئية](category-axis-manual.png)
 
-### **اختر المحور والفاصل الصحيح**
+### **اختيار المحور والفاصل الصحيحين**
 
-استخدم هذا الفاصل العددي لمحور فئة نصية، مثل محور الفئة في مخطط عمودي، خطي، مساحي، أو شريطي. في مخطط عمودي، هو المحور الأفقي. في مخطط شريطي أفقي، يكون محور الفئة عموديًا، لذا طبّق هذه الإعدادات على المحور الذي تُرجعه [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). فاصل علامات القسمة ينطبق أيضًا على محور السلسلة في المخططات التي لديها واحد.
+استخدم هذا الفاصل بناءً على عدد الفئات لمحور الفئة النصية، مثل محور الفئة في مخطط عمودي أو خطي أو مساحي أو شريطي. في مخطط العمود، يكون المحور الأفقي. في مخطط شريطي أفقي، يكون محور الفئة عموديًا، لذا يُطبق هذا الإعداد على المحور الذي تُرجعه [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). كذلك يطبق تباعد علامات التقطيع على محور السلسلة في المخططات التي تحتوي على واحد.
 
-لا تستخدم فاصل تسميات الفئة لتعيين مقياس رقمي لمحور القيمة. على محور القيمة، يحدد [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) فرق القيم: على سبيل المثال، وحدة رئيسية `10` تنتج علامات عند 0، 10، 20، وهكذا عندما يبدأ المحور من الصفر. فاصل تسمية الفئة `3` يعد مواضع الفئات بغض النظر عن قيمها. مخططات التناثر والفقاعات تستخدم محاور قيمة بدلًا من محور فئة نصية. بالنسبة لمحور تاريخ، استخدم وحدات زمنية رئيسية ومقاييس كما هو موضح في [تغيير محور الفئة](#change-a-category-axis).
+لا تستخدم تباعد تسميات الفئة لتحديد مقياس رقمية لمحور القيمة. على محور القيمة، تحدد [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) فرق القيم: على سبيل المثال، وحدة رئيسية بقيمة `10` تُنتج علامات عند 0، 10، 20، وهكذا عندما يبدأ المحور من الصفر. فاصل تسميات الفئة `3` يعد مواضع الفئات بغض النظر عن قيمها. تستخدم مخططات التبعثر والفقاعات محاور قيم بدلاً من محور فئة نصية. بالنسبة لمحور التاريخ، استخدم وحدات زمنية رئيسية ومقاييس كما هو موضح في [Change a Category Axis](#change-a-category-axis).
 
 ## **تعيين تنسيق التاريخ لقيم محور الفئة**
 
-يستبدل المثال بيانات المخطط الافتراضية بأربعة قيم سنوية. تُخزن التواريخ كأرقام تسلسلية OLE Automation في الورقة الأولى (الفهرس `0`)، محسوبة كعدد الأيام منذ 30 ديسمبر 1899. استخدم [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) مع [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date)، استدعِ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) بـ`False`، ومرّر `yyyy` إلى [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) ليعرض تسميات الفئة أربع سنوات بأرقام ثابتة بغض النظر عن تنسيق الخلية.
+يستبدل المثال بيانات المخطط الافتراضية بأربعة قيم سنوية. تُخزن التواريخ كأرقام تسلسلية OLE Automation في ورقة العمل الأولى (الفهرس `0`)، محسوبة كعدد الأيام منذ 30 ديسمبر 1899. استخدم [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) مع [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date)، استدعِ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) مع `False`، ومرّر `yyyy` إلى [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) لتعرض تسميات الفئة سنوات بأربعة أرقام بشكل مستقل عن تنسيق الخلية.
 
 ```python
 from datetime import date
@@ -304,7 +365,7 @@ finally:
 
 ## **تعيين زاوية دوران لعنوان محور المخطط**
 
-استدعِ [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) بـ`True` على المحور الرأسي، قدم نص العنوان، واضبط زاوية الدوران في تنسيق كتلة نص العنوان. الزاوية تُقاس بالدرجات؛ المثال يحفظ مخطط عمودي مع دوران عنوان محور القيمة بزاوية 90 درجة.
+استدعِ [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) مع `True` على المحور العمودي، قدم نص العنوان، وحدد زاوية الدوران في تنسيق كتلة نص العنوان. تُقاس الزاوية بالدرجات؛ يحفظ المثال مخطط عمودي بعنوان محور القيمة مدورًا بمقدار 90 درجة.
 
 ```python
 import jpype
@@ -329,12 +390,12 @@ finally:
     presentation.dispose()
 ```
 
-## **تعيين موضع المحور على محور الفئة أو القيمة**
+## **تحديد موضع المحور على محور الفئة أو القيمة**
 
-استخدم [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) للتحكم فيما إذا كان محور القيمة يعبر محور الفئة بين الفئات أو عند علامات الفئات. هذا الإعداد يخص محاور الفئة. المثال يضبطه على `True` على محور الفئة الأفقي لمخطط عمودي ويحفظ النتيجة.
+استخدم [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) للتحكم بما إذا كان محور القيمة يعبر محور الفئة بين الفئات أو عند علامات الفئة. ينطبق هذا الإعداد على محاور الفئة. يضبط المثال هذه الخاصية إلى `True` على محور الفئة الأفقي في مخطط العمود ويحفظ النتيجة.
 
 ```python
-import jpade
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -356,7 +417,7 @@ finally:
 
 ## **تعيين وحدة العرض على محور قيمة المخطط**
 
-استخدم [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) لتقليص تسميات محور القيمة دون تغيير البيانات الأساسية. مع [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) معينًا إلى `Millions`، تُعرض القيمة 60,000,000 كـ60. المثال ينشئ مخططًا عموديًا ويطبق وحدة العرض بالملايين على محوره الرأسي.
+استخدم [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) لتكييف تسميات محور القيمة دون تعديل البيانات الأساسية. مع ضبط [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) إلى `Millions`، يُعرض القيمة 60,000,000 كـ 60. ينشئ المثال مخطط عمودي ويطبق وحدة العرض بالملايين على محوره العمودي.
 
 ```python
 import jpype
@@ -381,19 +442,19 @@ finally:
 
 ## **تكوين محور قيمة لوغاريتمي**
 
-محور قيمة لوغاريتمي مفيد عندما تتراوح القيم الإيجابية عبر عدة مرتبات من الحجم. على سبيل المثال، قد يتلقى خدمة 10، 100، 1,000، 10,000، و100,000 طلبًا عبر خمس فترات. على مقياس خطي، تظهر القيم الصغيرة متقاربة بالقرب من الصفر. مقياس لوغاريتمي يجعل النمو النسبي أسهل للمقارنة: الفواصل المتساوية تمثل نسبًا متساوية بدلًا من فروق متساوية.
+محور قيمة لوغاريتمي مفيد عندما تمتد القيم الموجبة عبر عدة مرتاتب من القدر. على سبيل المثال، قد يتلقى خدمة 10، 100، 1,000، 10,000، و100,000 طلبًا خلال خمس فترات. على مقياس خطي، تظهر القيم الأصغر متقاربة قرب الصفر. يسهّل المقياس اللوغاريتمي مقارنة النمو النسبي: فالمسافات المتساوية تمثل نسبًا متساوية بدلاً من فروقًا متساوية.
 
-استدعِ [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) بـ`True` على محور القيمة واستخدم [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) لاختيار القاعدة. هذا يغيّر طريقة عرض القيم الحالية؛ ولا يغيّر البيانات أو يضيف خط اتجاه لوغاريتمي. خط الاتجاه يمثل علاقة مُركبة في البيانات وهو ميزة منفصلة.
+استدعِ [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) مع `True` على محور القيمة واستخدم [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) لاختيار القاعدة. يغير هذا طريقة عرض القيم الحالية؛ ولا يغير البيانات ولا يضيف خط اتجاه لوغاريتمي. خط الاتجاه يمثل علاقة ملائمة في البيانات وهو ميزة منفصلة.
 
-### **اختر محور القيمة والقاعدة**
+### **اختيار محور القيمة والقاعدة**
 
-للمخطط الخطّي أو العمودي، يُرجع محور القيمة بواسطة [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). للمخطط الشريطي الأفقي، يُرجعه [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis). مخططات التناثر والفقاعات لها محوران قيميان، لذا اختر المحور الأفقي لقيم X، والمحور الرأسي لقيم Y، أو كليهما. لا تُطبق القياس اللوغاريتمي على محور الفئة.
+في مخطط خطي أو عمودي، يُرجع محور القيمة بواسطة [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). في مخطط شريطي أفقي، يُرجع بواسطة [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis). تحتوي مخططات التبعثر والفقاعات على محوري قيمة، لذا اختر المحور الأفقي لقيم X والمحور العمودي لقيم Y، أو كليهما. لا تُطبّق المقياس اللوغاريتمي على محور الفئة.
 
-القاعدة اللوغاريتمية الافتراضية هي `10`. لمخططات PPTX، استخدم قاعدة من `2` إلى `1000` شاملًا؛ القواعد الكسرية مثل `2.5` مدعومة أيضًا. مع القاعدة `10`، تُوزع القوى المتتالية مثل 10، 100، 1,000، و10,000 بالتساوي.
+القاعدة اللوغاريتمية الافتراضية هي `10`. في مخططات PPTX، يمكن استخدام قاعدة من `2` إلى `1000` شاملة؛ وتدعم القواعد الكسرية مثل `2.5`. مع القاعدة `10`، تكون القوى المتتالية مثل 10، 100، 1,000، و10,000 متباعدة بصورة متساوية.
 
-### **قارن القياس الخطي واللوغاريتمي**
+### **مقارنة التدرج الخطي واللوغاريتمي**
 
-المثال المتكامل التالي ينشئ مخططًا خطيًا يحتوي على خمس عدد طلبات على الشريحة الأولى، ثم ينسخ تلك الشريحة ويفعل محور قيمة لوغاريتمي بالقاعدة 10 على الشريحة الثانية. كلا الشريحتين تحتفظان بنفس البيانات.
+المثال التالي المستقل ينشئ مخططًا خطيًا يحتوي على عدد الطلبات الخمسة في الشريحة الأولى، ثم يستنسخ تلك الشريحة ويُفعّل محور قيمة لوغاريتمي بقاعدة 10 في الشريحة الثانية. تحتفظ كلتا الشريحتين بنفس البيانات.
 
 ```python
 import jpype
@@ -428,7 +489,7 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, float(value))
         series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # حافظ على أن تكون الشريحة الأولى خطية وغيّر فقط مقياس محور القيمة للنسخة.
+    # احتفظ بالشريحة الأولى خطيًا وغيّر مقياس محور القيم في النسخة فقط.
     logarithmic_slide = presentation.getSlides().addClone(slide)
     logarithmic_chart = logarithmic_slide.getShapes().get_Item(0)
     value_axis = logarithmic_chart.getAxes().getVerticalAxis()
@@ -440,24 +501,22 @@ finally:
     presentation.dispose()
 ```
 
-**مقياس خطي (الشريحة 1):** المسافات العمودية المتساوية تمثل فروقًا متساوية في عدد الطلبات. القيمة الأكبر تهيمن على المخطط، مما يصعب تمييز القيم الصغيرة.
+**مقياس خطي (الشريحة 1):** المسافات الرأسية المتساوية تمثل اختلافات متساوية في عدد الطلبات. تهيمن القيمة الأكبر على المخطط، مما يصعّب تمييز القيم الأصغر.
 
-![مخطط خطي في PowerPoint يظهر خمس طلبات على محور قيمة خطي](value-axis-linear.png)
+![مخطط خطي في PowerPoint يُظهر خمس عدد طلبات على محور قيمة خطي](value-axis-linear.png)
 
-**مقياس لوغاريتمي (الشريحة 2):** المسافات العمودية المتساوية تمثل نسبًا متساوية. كل فترة لديها عشرة أضعاف الطلبات من السابقة، لذا تشكل النقاط خطًا مستقيمًا صاعدًا على مقياس القاعدة 10. لا تزال تسميات المحور تظهر عدد الطلبات الأصلية.
+**مقياس لوغاريتمي (الشريحة 2):** المسافات الرأسية المتساوية تمثل نسبًا متساوية. كل فترة بها عشرة أضعاف عدد الطلبات مقارنة بالفترة السابقة، لذا تتشكل النقاط كخط مستقيم صاعد على مقياس قاعدة 10. لا تزال تسميات المحور تُظهر عدد الطلبات الأصلي.
 
-![نفس الخمس طلبات في PowerPoint على محور قيمة لوغاريتمي بالقاعدة 10](value-axis-logarithmic.png)
+![نفس خمس عدد طلبات في PowerPoint على محور قيمة لوغاريتمي بقاعدة 10](value-axis-logarithmic.png)
 
 ### **معالجة القيم الصفرية والسالبة**
 
-المقياس اللوغاريتمي يمكنه عرض قيم إيجابية فقط. تحقق من البيانات قبل تفعيله. إذا كانت القيم صفرًا أو سالبة ذات معنى، احتفظ بالمقياس الخطي أو اعرضها بشكل منفصل. إذا كان استبعاد تلك القيم مناسبًا للتحليل، فسّر الإهمال. لا تستبدلها صمتًا بأعداد صغيرة موجبة، لأن ذلك يغيّر معنى البيانات. أي حد أدنى أو أقصى يُضبط يدويًا لمحور لوغاريتمي يجب أن يكون إيجابيًا أيضًا.
+لا يمكن للمقياس اللوغاريتمي عرض إلا القيم الموجبة صراحة. تحقق من البيانات قبل تفعيل المقياس. إذا كانت القيم الصفرية أو السالبة ذات معنى، احتفظ بمقياس خطي أو اعرضها منفصلة. إذا كان استبعاد تلك القيم مناسبًا للتحليل، فسر الإقصاء. لا تستبدلها صامتًا بأرقام موجبة صغيرة، لأن ذلك يغيّر معنى البيانات. يجب أن تكون أي قيمة دنيا أو عظمى مُحددة يدويًا للمحور اللوغاريتمي موجبة également.
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني تحديد القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحور)؟**
+**كيف يمكنني تعيين القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحور)؟**  
+استخدم [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) لتحديد سلوك التقاطع. لتحديد قيمة تقاطع رقمية، استخدم [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). تتيح لك هذه الإعدادات نقل تقاطع المحور إلى خط أساس مناسب.
 
-استخدم [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) لتحديد سلوك التقاطع. لتحديد قيمة تقاطع رقمية، استخدم [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). هذه الإعدادات تسمح لك بتحريك تقاطع المحور إلى خط أساس مناسب.
-
-**كيف يمكنني وضع تسميات العلامات بالنسبة إلى المحور؟**
-
-استدعِ [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) باستخدام [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`، `High`، `NextTo`، أو `None`. للتحكم في علامات القسمة نفسها، استخدم [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) أو [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark)؛ هذه منفصلة عن وضع التسميات.
+**كيف يمكنني وضع تسميات العلامات بالنسبة للمحور؟**  
+استدعِ [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) باستخدام [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`، `High`, `NextTo` أو `None`. للتحكم في علامات التقطيع نفسها، استخدم [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) أو [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark)؛ وهذه إعدادات مستقلة عن وضعية التسميات.

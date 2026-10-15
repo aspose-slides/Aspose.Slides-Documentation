@@ -7,9 +7,9 @@ keywords:
 - grafik ekseni
 - dikey eksen
 - yatay eksen
-- eksen özelleştirme
-- eksen manipülasyonu
-- eksen yönetimi
+- eksen özelleştir
+- eksen üzerinde işlem yap
+- eksen yönet
 - eksen özellikleri
 - azami değer
 - asgari değer
@@ -25,13 +25,13 @@ description: "Raporlar ve görselleştirmeler için PowerPoint sunumlarında gra
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Python via Java ile grafik eksenlerini nasıl özelleştireceğinizi açıklar. Hesaplanmış eksen değerleri, grafik satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve işaretçi aralıkları, tarih kategorileri ve biçimlendirme, başlık döndürme, eksen konumlandırma, görüntü birimleri ve logaritmik ölçeklendirme konularını kapsar.
+Bu makale, Aspose.Slides for Python via Java ile grafik eksenlerini nasıl özelleştireceğinizi açıklar. Hesaplanan eksen değerleri, grafik satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve tik işareti aralıkları, tarih kategorileri ve biçimlendirme, başlık döndürme, eksen konumlandırma, gösterim birimleri ve logaritmik ölçeklendirme konularını kapsar.
 
 ## **Bir Grafiğin Dikey Eksenindeki Azami Değerleri Almak**
 
-Varsayılan verilerle bir alan grafiği ekleyerek bir [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) oluşturun. Hesaplanmış eksen değerlerini okumadan önce grafiğin düzeninin güncel olması için [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) çağırın.
+Bir [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) oluşturun ve varsayılan verilerle bir alan grafiği ekleyin. Hesaplanan eksen değerlerini okumadan önce grafiğin düzeninin güncel olması için [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) metodunu çağırın.
 
-[getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) ve [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) ile eksen sınırlarını, [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) ve [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) ile işaretçi aralıklarını okuyun. [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) ve [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) tarih eksenleriyle ilgili zaman birimi ölçeklerini sağlar. Örnek bu değerleri yerel değişkenlerde saklar ve grafiği kaydeder.
+Eksen sınırları için [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) ve [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) metodlarını, tik aralıkları için [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) ve [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) metodlarını okuyun. [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) ve [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) tarih eksenleriyle ilgili zaman birimi ölçeklerini sağlar. Örnek bu değerleri yerel değişkenlere saklar ve grafiği kaydeder.
 
 ```python
 import jpype
@@ -63,9 +63,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Eksenler Arasındaki Verileri Değiştirin**
+## **Eksenler Arasındaki Verileri Değiştir**
 
-[switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) kullanarak grafik verilerinde seri ve kategorilerin rollerini değiştirin. Her eski kategori bir seri, her eski seri ise bir kategori olur. Bu, verilerin nasıl gruplandığını değiştirir; yatay ve dikey eksenleri değiştirmez. Örnek, satır ve sütunları değiştirmeden önce varsayılan verileri `Sheet1!A1:D5` aralığına, başlık satırı ve kategori sütunu dahil olmak üzere bağlamak için [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) kullanır. Dört seri ve üç kategori içeren bir grafik kaydeder.
+[switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) metodunu kullanarak grafik verilerinde serilerin ve kategorilerin rollerini değiştirin. Her eski kategori bir seri, her eski seri bir kategori olur. Bu, verilerin gruplanma şeklini değiştirir; yatay ve dikey eksenleri değiştirmez. Örnek satır ve sütunları değiştirmeden önce varsayılan verileri `Sheet1!A1:D5` aralığına bağlamak için [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) metodunu kullanır; başlık satırı ve kategori sütunu dahildir. Dört seri ve üç kategori içeren bir grafik kaydeder.
 
 ```python
 import jpype
@@ -89,9 +89,70 @@ finally:
     presentation.dispose()
 ```
 
-## **Çizgi Grafiklerde Dikey Eksen'i Devre Dışı Bırakma**
+## **Bir Eksenin Çizim Sırasını Tersine Çevir**
 
-Dikey ekseni gizlemek için `False` ile [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) çağırın. Örnek, varsayılan verilerle bir çizgi grafik oluşturur ve dikey eksen gizli olarak kaydeder.
+[setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) metodunu kullanarak bir kategori veya değer eksenini tersine çevirin. Örneğin, yatay çubuk grafik, proje aşamalarını çalışma sayfasındaki aynı sırayla üstten alta gösterebilir: Planlama, Geliştirme, Test. Bir ekseni tersine çevirmek çizim yönünü değiştirir; çalışma kitabı verilerini sıralamaz veya yeniden düzenlemez. Buna karşılık, [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) serilerin ve kategorilerin rollerini değiştirir.
+
+Aşağıdaki örnek, üç aşama ve bir seri içeren yatay çubuk grafik oluşturur. Normal sıra, ters kategoriler ve ters değerler olmak üzere üç slaytlı bir sunum kaydeder. Her kopya aynı veri kümesini kullanır ve her kopyada yalnızca bir eksen ters çevrilir.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ChartType, CrossesType, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320)
+    chart.setLegend(False)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series = chart.getChartData().getSeries().add(ChartType.ClusteredBar)
+    stages = ["Planning", "Development", "Testing"]
+    values = [10, 30, 20]
+    for i, stage in enumerate(stages):
+        category_cell = workbook.getCell(0, i + 1, 0, stage)
+        chart.getChartData().getCategories().add(category_cell)
+        value_cell = workbook.getCell(0, i + 1, 1, float(values[i]))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    # Slayt 2: ilk kategoriyi üstte göster.
+    category_slide = presentation.getSlides().addClone(slide)
+    category_chart = category_slide.getShapes().get_Item(0)
+    category_chart.getAxes().getVerticalAxis().setPlotOrderReversed(True)
+    # Yatay değer eksenini altta tut.
+    category_chart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum)
+
+    # Slayt 3: yalnızca yatay sayısal ölçeği ters çevir.
+    value_slide = presentation.getSlides().addClone(slide)
+    value_chart = value_slide.getShapes().get_Item(0)
+    value_chart.getAxes().getHorizontalAxis().setPlotOrderReversed(True)
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Ters bir eksen, dik ekseni çizimin karşı tarafına taşıyabilir. [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) diğer eksenin yapılandırılan ekseni nerede kestiğini kontrol eder. 2. slaytta, ters kategori ekseninde [CrossesType.Maximum](https://reference.aspose.com/slides/python-java/aspose.slides/crossestype/#Maximum) ile çağırmak yatay değer eksenini altta tutar. Belirli bir kesişme noktası için [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt) kullanın. Yön değiştirirken, özellikle grafik zaten özel bir kesişme noktasına sahipse, kesişme ayarlarını kontrol edin. Normal çizim yönünü geri getirmek için [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) metodunu `False` ile çağırın; kesişme ayarları ayrı tutulur.
+
+| Normal sıra (slayt 1) | Ters kategoriler (slayt 2) | Ters değerler (slayt 3) |
+| --- | --- | --- |
+| ![Normal kategori ve değer ekseni sırasına sahip yatay çubuk grafik](axis-order-normal.png) | ![Kategorilerin üstten alta gösterildiği yatay çubuk grafik](axis-order-categories-reversed.png) | ![Ters değer ekseni ve sağda sıfır olan yatay çubuk grafik](axis-order-values-reversed.png) |
+| Kategoriler altardan üste yürür; değerler soldan sağa artar. | Planlama, Geliştirme ve Test üstten alta yürür. Değerler ve çalışma kitabı satır sırası değişmez. | Kategoriler normal sırasını korur; değerler sağdan sola artar. Kategori ekseni sağda sıfırda kesişir. |
+
+## **Çizgi Grafiklerde Dikey Ekseni Devre Dışı Bırak**
+
+Dikey ekseni gizlemek için [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) metodunu `False` ile çağırın. Örnek varsayılan verilerle bir çizgi grafik oluşturur ve dik eksen gizli olarak kaydeder.
 
 ```python
 import jpype
@@ -114,9 +175,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Çizgi Grafiklerde Yatay Eksen'i Devre Dışı Bırakma**
+## **Çizgi Grafiklerde Yatay Ekseni Devre Dışı Bırak**
 
-Yatay ekseni gizlemek için `False` ile [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) çağırın. Örnek, varsayılan verilerle bir çizgi grafik oluşturur ve yatay eksen gizli olarak kaydeder.
+Yatay ekseni gizlemek için [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) metodunu `False` ile çağırın. Örnek varsayılan verilerle bir çizgi grafik oluşturur ve yatay eksen gizli olarak kaydeder.
 
 ```python
 import jpype
@@ -139,9 +200,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Bir Kategori Eksenini Değiştirme**
+## **Bir Kategori Eksenini Değiştir**
 
-[setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) kullanarak tarih veya metin kategori ekseni seçin. Bu örnek, ilk slayttaki ilk şekil olarak bir grafik ve kategori hücrelerinde sayısal Excel tarih değerleri bulunan `ExistingChart.pptx` dosyasını gerektirir. Yatay ekseni bir tarih eksenine dönüştürür. [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) `1` ve [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) ile çağırarak ana işaretçileri bir‑aylık aralıklarla yerleştirir.
+[setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) metodunu kullanarak tarih veya metin kategori ekseni seçin. Bu örnek `ExistingChart.pptx` dosyasını gerektirir; ilk slayttaki ilk şekil bir grafik ve kategori hücreleri sayısal Excel tarih değerleri içerir. Yatay ekseni tarih ekseni olarak değiştirir. [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) `1` ve [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) ile [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) kullanmak ana tikleri bir aylık aralıklarla yerleştirir.
 
 ```python
 import jpype
@@ -167,9 +228,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Kategori Ekseni Etiket Aralıklarını Kontrol Etme**
+## **Kategori Eksen Etiketi Aralıklarını Kontrol Et**
 
-Bir grafikte birçok kategori olduğunda, kategorileri veya veri noktalarını kaldırmadan görünen eksen etiketlerinin sayısını azaltın. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) `False` ile çağırın, ardından istenen kategori aralığını [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing) parametresi olarak geçirin. Normal sıradaki metin kategorileri için sayım ilk kategoriden başlar:
+Bir grafikte birçok kategori olduğunda, kategori veya veri noktalarını kaldırmadan görünür eksen etiketlerinin sayısını azaltın. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) metodunu `False` ile çağırın, ardından istediğiniz kategori aralığını [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing) metoduna geçirin. Normal sıradaki metin kategorileri için sayım ilk kategoriden başlar:
 
 | Aralık | Örnekte görüntülenen etiketler |
 | --- | --- |
@@ -177,14 +238,14 @@ Bir grafikte birçok kategori olduğunda, kategorileri veya veri noktalarını k
 | `2` | Kategori 1, Kategori 3, Kategori 5, ... Kategori 23 |
 | `3` | Kategori 1, Kategori 4, Kategori 7, ... Kategori 22 |
 
-`3` aralığı her üçüncü etiketi gösterir ve gösterilen etiketler arasında iki etiket gizli kalır. İlgili sütunları kaldırmaz. Otomatik aralık, mevcut alana göre bir aralık seçer; her etiketi mutlaka göstermez.
+`3` aralığı her üçüncü etiketi gösterir, gösterilen etiketler arasında iki etiket gizli kalır. İlgili sütunları kaldırmaz. Otomatik aralık, mevcut alana göre bir aralık seçer; her etiketi mutlaka göstermez.
 
-İşaretçiler ayrı kontrollerle ayarlanır. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) `False` ile çağırın ve aralıklarını ayarlamak için [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) kullanın. Örneğin, `1` her kategori aralığında bir işaretçi bırakırken etiketler yalnızca her üçüncü kategoride görünür. Sonucu görebilmek için görünür bir stil ile [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) kullanın. Otomatik‑aralık ayarlayıcısını tekrar `True` ile çağırmak, grafiğin tekrar o aralığı seçmesini sağlar.
+Tik işaretlerinin ayrı kontrolleri vardır. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) metodunu `False` ile çağırın ve aralıklarını ayarlamak için [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) yöntemini kullanın. Örneğin, `1` her kategori aralığında bir tik işareti tutarken etiketler sadece her üçüncü kategoride görünür. Görünür bir stil ile [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) kullanarak sonucu görebilirsiniz. Otomatik aralık ayarlarından birini `True` yaparak grafiğin yeniden o aralığı seçmesine izin verilir.
 
-Aşağıdaki bağımsız örnek 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız işaretçilerle manuel etiket aralığı ve yeniden otomatik aralık. İki kopya özgün grafik verilerini korur. Giriş sunumu gerekmez. Yatay etiket metni, yoğunluk farkını görmeyi kolaylaştırır.
+Aşağıdaki bağımsız örnek, 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız tik işaretleriyle manuel etiket aralığı ve yeniden otomatik aralık. İki kopya orijinal grafik verilerini korur. Giriş sunumu gerektirmez. Yatay etiket metni, yoğunluktaki farkı görmeyi kolaylaştırır.
 
 ```python
-import jpype
+import jpime
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -220,7 +281,7 @@ try:
     axis.setAutomaticTickLabelSpacing(True)
     axis.setAutomaticTickMarksSpacing(True)
 
-    # Slayt 2: her üçüncü etiketi göster, ancak her kategori için bir işaretçi tut.
+    # Slide 2: her üçüncü etiketi göster, ancak her kategori için bir tik işareti tut.
     manual_slide = presentation.getSlides().addClone(slide)
     manual_chart = manual_slide.getShapes().get_Item(0)
     manual_axis = manual_chart.getAxes().getHorizontalAxis()
@@ -229,7 +290,7 @@ try:
     manual_axis.setAutomaticTickMarksSpacing(False)
     manual_axis.setTickMarksSpacing(1)
 
-    # Slayt 3: grafiğin her iki aralığı da tekrar seçmesine izin ver.
+    # Slide 3: grafiğin her iki aralığı da yeniden seçmesine izin ver.
     restored_slide = presentation.getSlides().addClone(manual_slide)
     restored_chart = restored_slide.getShapes().get_Item(0)
     restored_chart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(True)
@@ -240,23 +301,23 @@ finally:
     presentation.dispose()
 ```
 
-**Otomatik aralık (slayt 1):** Bu gösterimde her ikinci kategori etiketi gösterilir ve iki satıra sarılır. Otomatik sonuç, grafik boyutu, yazı tipleri ve işleyiciye göre değişebilir.
+**Otomatik aralık (slayt 1):** Bu görüntüde, her ikinci kategori etiketi gösterilir ve iki satıra kaydırılır. Otomatik sonuç grafik boyutu, yazı tipleri ve işleyiciye bağlı olarak değişebilir.
 
-![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+![Tüm 24 sütun görünürken otomatik kategori etiketi aralığı](category-axis-automatic.png)
 
-**Manuel aralık (slayt 2):** Her üçüncü etiket tek satırda gösterilir, işaretçiler ise her kategori aralığında kalır. Etiketsiz olanlar dahil, tüm 24 sütun aynı değerlerle görünür. Slayt 3 yukarıda gösterilen otomatik görünümü geri yükler.
+**Manuel aralık (slayt 2):** Her üçüncü etiket tek satırda gösterilir, tik işaretleri ise her kategori aralığında kalır. Etiketsiz olanlar dahil tüm 24 sütun aynı değerlerle görünür. 3. slayt yukarıdaki otomatik görünümü geri getirir.
 
-![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+![Tüm 24 sütun görünürken üçlü manuel kategori etiketi aralığı](category-axis-manual.png)
 
-### **Doğru Ekseni ve Aralığı Seçin**
+### **Doğru Eksen ve Aralığı Seç**
 
-Bu kategori‑sayısı aralığını, sütun, çizgi, alan veya çubuk grafik gibi bir metin kategori ekseni için kullanın. Sütun grafiğinde yatay eksen olur. Yatay çubuk grafiğinde kategori ekseni dikeydir, bu yüzden bu ayarları [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) tarafından döndürülen eksene uygulayın. İşaretçi aralığı, bir seriye sahip grafiklerde seri eksenine de uygulanır.
+Bu kategori sayısı aralığını, bir sütun, çizgi, alan veya çubuk grafiğin kategori ekseni gibi metin kategori ekseni için kullanın. Sütun grafiğinde yatay eksen, yatay çubuk grafiğinde ise kategori ekseni dik olduğundan, bu ayarları [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) tarafından döndürülen eksene uygulayın. Tik işareti aralığı, bir seriye sahip grafiklerde seri eksenine de uygulanır.
 
-Kategori etiketi aralığını, değer ekseninin sayısal ölçeğini ayarlamak için kullanmayın. Değer ekseninde, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) değer farkını belirtir: örneğin, `10` bir ana birim eksen sıfırdan başladığında 0, 10, 20 vb. işaretçiler üretir. `3` bir kategori etiketi aralığı ise veri değerlerinden bağımsız olarak kategori konumlarını sayar. Dağılım ve balon grafikler metin kategori ekseni yerine değer eksenleri kullanır. Tarih ekseni için, [Change a Category Axis](#change-a-category-axis) bölümünde açıklandığı gibi zaman tabanlı ana birimler ve ölçekler kullanın.
+Kategori etiketi aralığını bir değer ekseninin sayısal ölçeğini ayarlamak için kullanmayın. Değer ekseninde, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) bir değer farkı belirler: örneğin, `10` birim, eksen sıfırdan başladığında 0, 10, 20 vb. noktalarda tik oluşturur. `3` bir kategori etiketi aralığı, veri değerlerinden bağımsız olarak kategori konumlarını sayar. Dağılım ve balon grafikleri metin kategori ekseni yerine değer eksenleri kullanır. Tarih ekseni için, [Change a Category Axis](#change-a-category-axis) bölümünde açıklandığı gibi zaman temelli ana birimler ve ölçekler kullanın.
 
-## **Kategori Eksen Değerleri için Tarih Biçimini Ayarlama**
+## **Kategori Eksen Değerleri İçin Tarih Biçimini Ayarla**
 
-Örnek, varsayılan grafik verilerini dört yıllık değerle değiştirir. Tarihler, ilk çalışma sayfasında (indeks `0`) OLE Automation seri numaraları olarak depolanır; bu tarihler 30 Aralık 1899'dan itibaren gün sayısı olarak hesaplanır. [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) ile [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date) kullanın, [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) `False` ile çağırın ve kategori etiketlerinin hücre biçiminden bağımsız olarak dört basamaklı yıl göstermesi için `yyyy` değerini [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) ile geçirin.
+Örnek, varsayılan grafik verilerini dört yıllık değerle değiştirir. Tarihler, ilk çalışma sayfasında (indeks `0`) OLE Automation seri numaraları olarak saklanır; bu tarihler 30 Aralık 1899'dan itibaren gün sayısı olarak hesaplanır. [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) metodunu [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date) ile kullanın, [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) metodunu `False` ile çağırın ve kategori etiketlerinin hücre biçiminden bağımsız olarak dört basamaklı yıl göstermesi için `yyyy` değerini [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) metoduna geçirin.
 
 ```python
 from datetime import date
@@ -302,9 +363,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Grafik Eksen Başlığı için Döndürme Açısını Ayarlama**
+## **Grafik Eksen Başlığı İçin Döndürme Açısı Ayarla**
 
-Dikey eksende `True` ile [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) çağırın, başlık metnini sağlayın ve başlığın metin bloğu biçiminde döndürme açısını ayarlayın. Açı dereceler cinsinden ölçülür; bu örnek, değer ekseni başlığı 90 derece döndürülmüş bir sütun grafik kaydeder.
+Dikey eksende [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) metodunu `True` ile çağırın, başlık metnini sağlayın ve başlığın metin bloğu biçimlendirmesinde döndürme açısını ayarlayın. Açı derece cinsindendir; bu örnek, değer ekseni başlığı 90 derece döndürülmüş bir sütun grafik kaydeder.
 
 ```python
 import jpype
@@ -329,9 +390,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Kategori veya Değer Ekseninde Eksen Konumunu Ayarlama**
+## **Kategori veya Değer Ekseninde Eksen Konumunu Ayarla**
 
-[setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) kullanarak değer ekseninin kategori eksenini kategoriler arasında mı yoksa kategori işaretçileri üzerinde mi kestiğini kontrol edin. Bu ayar kategori eksenlerine uygulanır. Örnek, bir sütun grafiğinin yatay kategori ekseninde `True` olarak ayarlar ve sonucu kaydeder.
+[setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) metodunu kullanarak değer ekseninin kategori eksenini kategoriler arasında mı yoksa kategori tik işaretlerinde mi kestiğini kontrol edin. Bu ayar kategori eksenlerine uygulanır. Örnek, bir sütun grafiğinin yatay kategori ekseninde bunu `True` olarak ayarlar ve sonucu kaydeder.
 
 ```python
 import jpype
@@ -354,9 +415,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Grafik Değer Ekseninde Görüntüleme Birimini Ayarlama**
+## **Grafik Değer Ekseninde Gösterim Birimini Ayarla**
 
-[setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) kullanarak değer eksenindeki etiketleri veri değişmeden ölçeklendirin. [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) `Millions` (Milyon) olarak ayarlandığında 60.000.000 değeri 60 olarak gösterilir. Örnek bir sütun grafik oluşturur ve dikey eksenine milyon görüntüleme birimini uygular.
+[setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) metodunu, temel verileri değiştirmeden bir değer eksenindeki etiketleri ölçeklendirmek için kullanın. [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) `Millions` olarak ayarlandığında, 60.000.000 değeri 60 olarak gösterilir. Örnek bir sütun grafik oluşturur ve dik eksenine milyon gösterim birimini uygular.
 
 ```python
 import jpype
@@ -381,19 +442,19 @@ finally:
 
 ## **Logaritmik Değer Ekseni Yapılandırma**
 
-Pozitif değerler birkaç büyüklük mertebesi kapsadığında logaritmik değer ekseni yararlıdır. Örneğin bir hizmet, beş dönem boyunca 10, 100, 1.000, 10.000 ve 100.000 istek alabilir. Doğrusal ölçekte küçük değerler sıfıra yakın bir arada görünür. Logaritmik ölçek, göreceli büyümeyi karşılaştırmayı kolaylaştırır: eşit mesafeler eşit oranları, eşit farkları göstermez.
+Pozitif değerler birkaç mertebe boyunca genişlediğinde logaritmik değer ekseni faydalıdır. Örneğin, bir hizmet beş dönemde 10, 100, 1.000, 10.000 ve 100.000 istek alabilir. Doğrusal ölçekte, küçük değerler sıfıra yakın bir arada görünür. Logaritmik ölçek, göreceli büyümeyi karşılaştırmayı kolaylaştırır: eşit mesafeler eşit oranları, eşit farkları değil temsil eder.
 
-Değer ekseninde `True` ile [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) çağırın ve tabanı seçmek için [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) kullanın. Bu, mevcut değerlerin görüntülenme şeklini değiştirir; veriyi değiştirmez veya logaritmik bir eğri eklemez. Eğri çizgisi, verideki uygun ilişkiyi temsil eder ve ayrı bir özelliktir.
+Değer ekseninde [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) metodunu `True` ile çağırın ve tabanı seçmek için [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) metodunu kullanın. Bu, mevcut değerlerin nasıl gösterildiğini değiştirir; verileri değiştirmez veya logaritmik bir trend çizgisi eklemez. Trend çizgisi, verilerdeki uyarlanmış bir ilişkiyi temsil eder ve ayrı bir özelliktir.
 
-### **Değer Eksenini ve Tabanı Seçme**
+### **Değer Ekseni ve Tabanı Seç**
 
-Çizgi veya sütun grafiği için değer ekseni [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) tarafından döndürülür. Yatay çubuk grafiği için [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis) döndürür. Dağılım ve balon grafiklerde iki değer ekseni vardır; X değerleri için yatay ekseni, Y değerleri için dikey ekseni veya her ikisini seçin. Kategori eksenine logaritmik ölçeklendirme uygulamayın.
+Çizgi veya sütun grafiğinde değer ekseni [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) tarafından döndürülür. Yatay çubuk grafiğinde ise [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis) tarafından döndürülür. Dağılım ve balon grafiklerde iki değer ekseni vardır; X değerleri için yatay ekseni, Y değerleri için dik ekseni veya her ikisini seçin. Bir kategori eksenine logaritmik ölçek uygulamayın.
 
-Varsayılan logaritmik taban `10`'dur. PPTX grafiklerinde `2` ile `1000` arasında (dahil) bir taban kullanın; `2.5` gibi kesirli tabanlar da desteklenir. `10` tabanı ile ardışık kuvvetler 10, 100, 1.000 ve 10.000 eşit aralıklarla yer alır.
+Varsayılan logaritmik taban `10`'dur. PPTX grafiklerinde, `2` ile `1000` arasında (dahil) bir taban kullanın; `2.5` gibi kesirli bazlar da desteklenir. `10` tabanı ile ardışık katlar 10, 100, 1.000 ve 10.000 eşit aralıklarla yer alır.
 
-### **Doğrusal ve Logaritmik Ölçeklendirmeyi Karşılaştırma**
+### **Doğrusal ve Logaritmik Ölçekleme Karşılaştırması**
 
-Aşağıdaki bağımsız örnek, ilk slaytta beş istek sayısı ile bir çizgi grafik oluşturur, ardından bu slaytı çoğaltır ve ikinci slaytta taban‑10 logaritmik değer eksenini etkinleştirir. Her iki slayt da aynı veriyi korur.
+Aşağıdaki bağımsız örnek, ilk slaytta beş istek sayısıyla bir çizgi grafik oluşturur, ardından bu slaytı kopyalar ve ikinci slaytta taban-10 logaritmik değer eksenini etkinleştirir. Her iki slayt da aynı veriyi korur.
 
 ```python
 import jpype
@@ -428,7 +489,7 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, float(value))
         series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # İlk slaytı doğrusal tutun ve yalnızca kopyanın değer ekseni ölçeğini değiştirin.
+    # İlk slaytı doğrusal tut ve yalnızca kopyanın değer ekseni ölçeğini değiştir.
     logarithmic_slide = presentation.getSlides().addClone(slide)
     logarithmic_chart = logarithmic_slide.getShapes().get_Item(0)
     value_axis = logarithmic_chart.getAxes().getVerticalAxis()
@@ -440,22 +501,22 @@ finally:
     presentation.dispose()
 ```
 
-**Doğrusal ölçek (slayt 1):** Eşit dikey mesafeler istek sayılarındaki eşit farkları temsil eder. En büyük değer grafiği domine eder, küçük değerleri ayırt etmeyi zorlaştırır.
+**Doğrusal ölçek (slayt 1):** Eşit dikey mesafeler istek sayısındaki eşit farkları temsil eder. En büyük değer grafiği domine eder, daha küçük değerleri ayırt etmeyi zorlaştırır.
 
-![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
+![Doğrusal değer ekseninde beş istek sayısını gösteren PowerPoint çizgi grafiği](value-axis-linear.png)
 
-**Logaritmik ölçek (slayt 2):** Eşit dikey mesafeler eşit oranları temsil eder. Her dönem, bir önceki dönemin on katı istek alır, bu yüzden noktalar taban‑10 ölçeğinde düz bir yükselen çizgi oluşturur. Eksen etiketleri hâlâ özgün istek sayısını gösterir.
+**Logaritmik ölçek (slayt 2):** Eşit dikey mesafeler eşit oranları temsil eder. Her dönem, bir önceki döneme göre on kat daha fazla istek alır; bu yüzden noktalar taban-10 ölçeğinde düz bir yükselen hat oluşturur. Eksen etiketleri hâlâ orijinal istek sayılarını gösterir.
 
-![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+![PowerPoint'te aynı beş istek sayısının taban-10 logaritmik değer ekseninde gösterimi](value-axis-logarithmic.png)
 
-### **Sıfır ve Negatif Değerleri Ele Alma**
+### **Sıfır ve Negatif Değerlerle Baş et**
 
-Logaritmik ölçek yalnızca kesinlikle pozitif değerleri gösterebilir. Etkinleştirmeden önce verileri kontrol edin. Sıfır veya negatif değerler anlamlıysa, doğrusal ölçeği koruyun veya ayrı gösterin. Analiz için bu değerleri dışlamak uygun ise, dışlamayı açıklayın. Veri anlamını değiştirdiği için onları sessizce küçük pozitif sayılarla değiştirmeyin. Logaritmik eksen için manuel olarak ayarlanan herhangi bir minimum veya maksimum da pozitif olmalıdır.
+Logaritmik ölçek yalnızca kesinlikle pozitif değerleri gösterebilir. Etkinleştirmeden önce verileri kontrol edin. Sıfır veya negatif değerler anlamlıysa, doğrusal ölçek tutun veya bunları ayrı gösterin. Analiz için bu değerleri dışlamak uygun ise, eksikliği açıklayın. Verileri sessizce küçük pozitif sayılarla değiştirmeyin; bu, verinin anlamını değiştirir. Logaritmik eksen için manuel olarak ayarlanan herhangi bir minimum veya maksimum da pozitif olmalıdır.
 
 ## **SSS**
 
 **Bir eksenin diğerini kestiği değeri (ekseni kesişim) nasıl ayarlarım?**  
-[setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) kullanarak kesişim davranışını seçin. Sayısal bir kesişim değeri belirlemek için [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt) kullanın. Bu ayarlar, eksen kesişimini uygun bir temel çizgiye taşımanıza olanak verir.
+[setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) metodunu kullanarak kesişim davranışını seçin. Sayısal bir kesişim değeri belirtmek için [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt) metodunu kullanın; bu ayarlar eksen kesişimini uygun bir temel çizgiye taşımanıza izin verir.
 
-**İşaretçi etiketlerini eksene göre nasıl konumlandırabilirim?**  
-[setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) kullanarak [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` veya `None` değerlerinden birini seçin. İşaretçileri kendilerini kontrol etmek için [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) veya [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark) kullanın; bunlar etiket konumlandırmadan ayrı özelliklerdir.
+**Tik etiketlerini eksene göre nasıl konumlandırabilirim?**  
+[setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) metodunu [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/) kullanarak çağırın: `Low`, `High`, `NextTo` veya `None`. Tik işaretlerini kontrol etmek için [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) veya [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark) metodlarını kullanın; bunlar etiket konumlandırmasından ayrı.

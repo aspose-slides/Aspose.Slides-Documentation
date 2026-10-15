@@ -1,12 +1,12 @@
 ---
-title: Přizpůsobení os grafů v prezentacích pomocí Pythonu
+title: Přizpůsobení os grafu v prezentacích pomocí Pythonu
 linktitle: Osa grafu
 type: docs
 url: /cs/python-net/chart-axis/
 keywords:
 - osa grafu
-- svislá osa
-- vodorovná osa
+- vertikální osa
+- horizontální osa
 - přizpůsobit osu
 - manipulovat osou
 - spravovat osu
@@ -22,17 +22,17 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Objevte, jak pomocí Aspose.Slides pro Python přes .NET přizpůsobit osy grafů v prezentacích PowerPoint a OpenDocument pro zprávy a vizualizace."
+description: "Objevte, jak pomocí Aspose.Slides for Python via .NET přizpůsobit osy grafu v prezentacích PowerPoint a OpenDocument pro zprávy a vizualizace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak přizpůsobit osy grafu pomocí Aspose.Slides pro Python přes .NET. Pokrývá vypočtené hodnoty os, přepínání řádků a sloupců v grafu, viditelnost os, intervaly popisků kategorií a značek os, datumové kategorie a formátování, rotaci názvu, umístění os, jednotky zobrazení a logaritmické škálování.
+Tento článek vysvětluje, jak přizpůsobit osy grafů pomocí Aspose.Slides for Python via .NET. Pokrývá vypočtené hodnoty os, přepínání řádků a sloupců grafu, viditelnost os, intervaly popisků kategorií a značek, datumové kategorie a formátování, otáčení názvu, umístění os, jednotky zobrazení a logaritmické škálování.
 
-## **Získání maximálních hodnot na svislé ose v grafech**
+## **Získání maximálních hodnot na svislé ose grafů**
 
-Vytvořte [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) a přidejte plošný graf s výchozími daty. Před načtením vypočtených hodnot os zavolejte [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/), aby byl rozvržení grafu aktuální.
+Vytvořte [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) a přidejte plošný graf s výchozími daty. Zavolejte [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) před načtením vypočtených hodnot os, aby byl rozložení grafu aktuální.
 
-Načtěte [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) a [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) pro limity os a [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) a [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) pro intervaly značek. [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) a [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) poskytují časové měřítka, která jsou relevantní pro datumové osy. Příklad ukládá tyto hodnoty do lokálních proměnných a ukládá graf.
+Přečtěte [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) a [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) pro limity osy a [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) a [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) pro intervaly značek. [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) a [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) poskytují časové jednotky, které jsou relevantní pro datumové osy. Příklad uloží tyto hodnoty do místních proměnných a uloží graf.
 
 ```python
 import aspose.slides as slides
@@ -58,7 +58,7 @@ with slides.Presentation() as presentation:
 
 ## **Prohození dat mezi osami**
 
-Použijte [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) k výměně rolí řad a kategorií v datech grafu. Každá bývalá kategorie se stane řadou a každá bývalá řada se stane kategorií. Toto mění způsob seskupování dat; neprovádí výměnu vodorovné a svislé osy. Příklad používá [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) k navázání výchozích dat na `Sheet1!A1:D5`, včetně řádku záhlaví a sloupce kategorií, před přepnutím řádků a sloupců. Uloží graf se čtyřmi řadami a třemi kategoriemi.
+Použijte [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) aby jste vyměnili role sérií a kategorií v datech grafu. Každá dřívější kategorie se stane sérií a každá dřívější série se stane kategorií. Tím se změní způsob, jakým jsou data seskupena; neprohne to vodorovnou a svislou osu. Příklad používá [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) aby svázal výchozí data s `Sheet1!A1:D5`, včetně řádku záhlaví a sloupce kategorií, před přepnutím řádků a sloupců. Uloží graf se čtyřmi sériemi a třemi kategoriemi.
 
 ```python
 import aspose.slides as slides
@@ -75,9 +75,62 @@ with slides.Presentation() as presentation:
     presentation.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Obrácení pořadí vykreslování osy**
+
+Použijte [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) abyste obrátili kategorickou nebo hodnotovou osu. Například vodorovný sloupcový graf může zobrazovat fáze projektu shora dolů ve stejném pořadí jako list: Plánování, Vývoj, Testování. Obrácení osy změní směr vykreslování; neseřadí ani nepřeskupí data listu. Naopak [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) prohodí role sérií a kategorií.
+
+Následující příklad vytvoří vodorovný sloupcový graf se třemi fázemi a jednou sérií. Uloží prezentaci se třemi snímky: normální pořadí, obrácené kategorie a obrácené hodnoty. Každá kopie používá stejnou datovou sadu a v každé kopii je obrácena pouze jedna osa.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_BAR, 50, 40, 620, 320)
+    chart.has_legend = False
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series = chart.chart_data.series.add(charts.ChartType.CLUSTERED_BAR)
+    stages = ["Planning", "Development", "Testing"]
+    values = [10, 30, 20]
+    for i, stage in enumerate(stages):
+        category_cell = workbook.get_cell(0, i + 1, 0, stage)
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    # Snímek 2: zobrazit první kategorii nahoře.
+    category_slide = presentation.slides.add_clone(slide)
+    category_chart = category_slide.shapes[0]
+    category_chart.axes.vertical_axis.is_plot_order_reversed = True
+    # Udržet vodorovnou hodnotovou osu dole.
+    category_chart.axes.vertical_axis.cross_type = charts.CrossesType.MAXIMUM
+
+    # Snímek 3: obrátit pouze vodorovnou číselnou stupnici.
+    value_slide = presentation.slides.add_clone(slide)
+    value_chart = value_slide.shapes[0]
+    value_chart.axes.horizontal_axis.is_plot_order_reversed = True
+
+    presentation.save("ReversedAxes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Obrácení osy může také přesunout kolmé osu na opačnou stranu grafu. [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) řídí, kde se druhá osa protíná s konfigurovanou osou. Ve snímku 2 nastavení na `MAXIMUM` na obrácené kategorické ose ponechává vodorovnou hodnotovou osu dole. Pro konkrétní průsečík použijte [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Při změně směru zkontrolujte nastavení průsečíků, zejména pokud má graf již vlastní průsečík. Nastavte `is_plot_order_reversed` zpět na `False`, aby se obnovil normální směr vykreslování; nastavení průsečíků jsou samostatná.
+
+| Normální pořadí (snímek 1) | Obrácené kategorie (snímek 2) | Obrácené hodnoty (snímek 3) |
+| --- | --- | --- |
+| ![Vodorovný sloupcový graf s normálním pořádkem kategorií a hodnotových os](axis-order-normal.png) | ![Vodorovný sloupcový graf s kategoriemi zobrazovanými shora dolů](axis-order-categories-reversed.png) | ![Vodorovný sloupcový graf s obrácenou hodnotovou osou a nulou vpravo](axis-order-values-reversed.png) |
+| Kategorie běží od spodku nahoru; hodnoty rostou zleva doprava. | Plánování, Vývoj a Testování běží shora dolů. Hodnoty a pořadí řádků listu zůstávají nezměněny. | Kategorie zachovávají svůj normální pořádek; hodnoty rostou zprava doleva. Kategorická osa se protíná v nule vpravo. |
+
 ## **Zakázání svislé osy pro čárové grafy**
 
-Nastavte [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) na `False` u svislé osy, aby byla skryta. Příklad vytvoří čárový graf s výchozími daty a uloží jej se skrytou svislou osou.
+Nastavte [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) na `False` na svislé ose, aby byla skryta. Příklad vytvoří čárový graf s výchozími daty a uloží jej se skrytou svislou osou.
 
 ```python
 import aspose.slides as slides
@@ -94,7 +147,7 @@ with slides.Presentation() as presentation:
 
 ## **Zakázání vodorovné osy pro čárové grafy**
 
-Nastavte [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) na `False` u vodorovné osy, aby byla skryta. Příklad vytvoří čárový graf s výchozími daty a uloží jej se skrytou vodorovnou osou.
+Nastavte [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) na `False` na vodorovné ose, aby byla skryta. Příklad vytvoří čárový graf s výchozími daty a uloží jej se skrytou vodorovnou osou.
 
 ```python
 import aspose.slides as slides
@@ -109,9 +162,9 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenHorizontalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Změna osy kategorií**
+## **Změna kategoriální osy**
 
-Nastavte [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) pro výběr datumové nebo textové osy kategorií. Tento příklad vyžaduje `ExistingChart.pptx`, kde je graf jako první tvar na první snímku a buňky kategorií obsahují číselné hodnoty datumu v Excelu. Změní vodorovnou osu na datumovou osu. Nastavením [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) na `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) na `1` a [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) na měsíce umístí hlavní značky v intervalech jednoho měsíce.
+Nastavte [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) abyste zvolili datumovou nebo textovou kategoriální osu. Tento příklad vyžaduje `ExistingChart.pptx`, kde je graf jako první objekt na prvním snímku a buňky kategorií obsahují číselné datumové hodnoty z Excelu. Změní vodorovnou osu na datumovou osu. Nastavením [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) na `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) na `1` a [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) na měsíce umístí hlavní značky do intervalů jednoho měsíce.
 
 ```python
 import aspose.slides as slides
@@ -129,21 +182,21 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Řízení intervalů popisků osy kategorií**
+## **Řízení intervalů popisků kategoriální osy**
 
-Když má graf mnoho kategorií, můžete snížit počet viditelných popisků osy, aniž byste odstraňovali kategorie nebo datové body. Nastavte [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) na `False` a pak nastavte [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) na požadovaný interval kategorií. Pro textové kategorie v jejich normálním pořadí se číslování začíná u první kategorie:
+Když má graf mnoho kategorií, snižte počet viditelných popisků osy, aniž byste odstraňovali kategorie nebo datové body. Nastavte [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) na `False` a poté nastavte [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) na požadovaný interval kategorií. Pro textové kategorie v jejich normálním pořadí se počítá od první kategorie:
 
-| Interval | Štítky zobrazené v příkladu |
+| Interval | Popisky zobrazené v příkladu |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | Kategorie 1, Kategorie 2, Kategorie 3, ... Kategorie 24 |
+| `2` | Kategorie 1, Kategorie 3, Kategorie 5, ... Kategorie 23 |
+| `3` | Kategorie 1, Kategorie 4, Kategorie 7, ... Kategorie 22 |
 
-Interval `3` zobrazí každý třetí štítek a mezi zobrazenými štítky skrývá dva. Neodstraňuje odpovídající sloupce. Automatické rozestupy volí interval podle dostupného místa; nemusí zobrazit každý štítek.
+Interval `3` zobrazuje každý třetí popisek a mezi zobrazenými popisky jsou skryty dva popisky. Neuklízí související sloupce. Automatické rozestupování vybírá interval podle dostupného prostoru; nemusí zobrazit každý popisek.
 
-Značky mají samostatná nastavení. Nastavte [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) na `False` a použijte [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) pro nastavení jejich intervalu. Například `1` ponechá značku u každého intervalu kategorie, zatímco štítky se zobrazí jen každou třetí kategorii. Nastavte [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) na viditelný styl, abyste viděli výsledek. Vrácením kterékoliv automatické vlastnosti na `True` necháte graf znovu zvolit interval.
+Značky mají samostatné ovládání. Nastavte [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) na `False` a použijte [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) k nastavení jejich intervalu. Například `1` ponechá značku u každého intervalu kategorie, zatímco popisky se objeví jen u každé třetí kategorie. Nastavte [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) na viditelný styl, abyste viděli výsledek. Nastavení kteréhokoli automatického rozestupování zpět na `True` nechá graf znovu zvolit tento interval.
 
-Následující samostatný příklad vytvoří 24 kategorií a jednu řadu, poté uloží tři snímky v `CategoryAxisIntervals.pptx`: automatické rozestupy, manuální rozestupy popisků s nezávislými značkami a obnovené automatické rozestupy. Obě kopie zachovávají původní data grafu. Vstupní prezentace není vyžadována. Vodorovný text popisků usnadňuje rozdíl v hustotě.
+Následující příklad vytvoří 24 kategorií a jednu sérii, pak uloží tři snímky v `CategoryAxisIntervals.pptx`: automatické rozestupování, manuální rozestupování popisků s nezávislými značkami a obnovené automatické rozestupování. Obě kopie zachovávají původní data grafu. Vstupní prezentace není vyžadována. Vodorovný text popisků usnadňuje vnímat rozdíl v hustotě.
 
 ```python
 import aspose.slides as slides
@@ -176,7 +229,7 @@ with slides.Presentation() as presentation:
     axis.is_automatic_tick_label_spacing = True
     axis.is_automatic_tick_marks_spacing = True
 
-    # Slide 2: zobrazit každý třetí štítek, ale zachovat značku pro každou kategorii.
+    # Snímek 2: zobrazit každý třetí popisek, ale zachovat značku pro každou kategorii.
     manual_slide = presentation.slides.add_clone(slide)
     manual_chart = manual_slide.shapes[0]
     manual_axis = manual_chart.axes.horizontal_axis
@@ -185,7 +238,7 @@ with slides.Presentation() as presentation:
     manual_axis.is_automatic_tick_marks_spacing = False
     manual_axis.tick_marks_spacing = 1
 
-    # Slide 3: nechat graf znovu zvolit oba intervaly.
+    # Snímek 3: nechat graf znovu zvolit oba intervaly.
     restored_slide = presentation.slides.add_clone(manual_slide)
     restored_chart = restored_slide.shapes[0]
     restored_chart.axes.horizontal_axis.is_automatic_tick_label_spacing = True
@@ -194,23 +247,23 @@ with slides.Presentation() as presentation:
     presentation.save("CategoryAxisIntervals.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Automatické rozestupy (snímek 1):** V tomto zobrazení se zobrazí každý druhý popisek kategorie a zalomí se do dvou řádků. Výsledek automatického rozestupu se může lišit podle velikosti grafu, fontů a rendereru.
+**Automatické rozestupování (snímek 1):** V tomto vykreslení je zobrazen každý druhý popisek kategorie a zalamuje se do dvou řádků. Automatický výsledek se může lišit podle velikosti grafu, písem a vykreslovacího enginu.
 
-![Automatické rozestupy popisků kategorií se všemi 24 sloupci viditelnými](category-axis-automatic.png)
+![Automatické rozestupování popisků kategorií se všemi 24 sloupci viditelnými](category-axis-automatic.png)
 
-**Manuální rozestupy (snímek 2):** Každý třetí popisek se zobrazí na jednom řádku, zatímco značky zůstávají u každého intervalu kategorie. Všechny 24 sloupců, včetně těch bez popisků, zůstávají viditelné se stejnými hodnotami. Snímek 3 obnovuje automatický vzhled uvedený výše.
+**Manuální rozestupování (snímek 2):** Každý třetí popisek je zobrazen v jednom řádku, zatímco značky zůstávají u každého intervalu kategorie. Všechny 24 sloupců, včetně těch bez popisků, zůstávají viditelné se stejnými hodnotami. Snímek 3 obnovuje automatický vzhled uvedený výše.
 
 ![Manuální interval popisků kategorií tři se všemi 24 sloupci viditelnými](category-axis-manual.png)
 
 ### **Zvolte správnou osu a interval**
 
-Použijte tento interval počtu kategorií pro textovou osu kategorií, např. osu kategorií sloupcového, čárového, plošného nebo pruhového grafu. Ve sloupcovém grafu je to vodorovná osa. V horizontálním pruhovém grafu je osa kategorií svislá, takže použijte nastavení na [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Rozestup značek se také vztahuje na osu řady v grafech, které ji mají.
+Použijte tento interval počtu kategorií pro textovou kategoriální osu, například pro kategoriální osu sloupcového, čárového, plošného nebo sloupcového grafu. Ve sloupcovém grafu je to vodorovná osa. Ve vodorovném sloupcovém grafu je kategoriální osa svislá, takže tyto nastavení použijte na [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Rozestupování značek se také vztahuje na sériovou osu v grafech, které ji mají.
 
-Nenastavujte rozestup popisků kategorií pro změnu číselné stupnice hodnotové osy. Na hodnotové ose [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) udává rozdíl v hodnotách: např. hlavní jednotka `10` vytvoří značky při 0, 10, 20 atd., když osa začíná od nuly. Interval popisků kategorií `3` počítá pozice kategorií bez ohledu na jejich datové hodnoty. Diagramy rozptýlení a bublinové používají hodnotové osy místo textové osy kategorií. Pro datumovou osu použijte časové hlavní jednotky a měřítka popsaná v [Změna osy kategorií](#změna-osy-kategorií).
+Nepožadujte rozestupování popisků kategorií k nastavení číselné stupnice hodnotové osy. Na hodnotové ose [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) určuje rozdíl v hodnotách: například hlavní jednotka `10` vytvoří značky na 0, 10, 20 atd., pokud osa začíná nulou. Interval popisků kategorií `3` počítá místo kategorií, nezávisle na jejich hodnotách. Bodové a bublinové grafy používají hodnotové osy místo textové kategoriální osy. Pro datumovou osu použijte časově založené hlavní jednotky a stupnice, jak je popsáno v [Změna kategoriální osy](#change-a-category-axis).
 
-## **Nastavení formátu data pro hodnoty osy kategorií**
+## **Nastavení formátu data pro hodnoty kategoriální osy**
 
-Příklad nahradí výchozí data grafu čtyřmi ročními hodnotami. Data jsou uložena jako sériová čísla OLE Automation v první listě (index `0`). Nastavte [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) na datumovou osu, zakažte [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) a přiřaďte `yyyy` k [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/), aby se štítky kategorií zobrazovaly jako čtyřciferné roky nezávisle na formátování buňky.
+Příklad nahradí výchozí data grafu čtyřmi ročními hodnotami. Data jsou uložena jako sériová čísla OLE Automation v první tabulce (index `0`). Nastavte [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) na datumovou osu, vypněte [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) a přiřaďte `yyyy` k [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/), aby se popisky kategorií zobrazovaly jako čtyřciferné roky nezávisle na formátování buňky.
 
 ```python
 from datetime import date
@@ -246,9 +299,9 @@ with slides.Presentation() as presentation:
     presentation.save("DateAxisFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nastavení úhlu otočení pro název osy grafu**
+## **Nastavení úhlu otočení názvu osy grafu**
 
-Povolte [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) na svislé ose, zadejte text názvu a nastavte [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) pro otočení názvu. Úhel se měří ve stupních; tento příklad uloží sloupcový graf s názvem hodnotové osy otočeným o 90 stupňů.
+Povolte [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) na svislé ose, zadejte text názvu a nastavte [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) k otáčení názvu. Úhel se měří ve stupních; tento příklad ukládá sloupcový graf s názvem hodnotové osy otočeným o 90°.
 
 ```python
 import aspose.slides as slides
@@ -265,9 +318,9 @@ with slides.Presentation() as presentation:
     presentation.save("RotatedAxisTitle.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nastavení polohy osy na ose kategorií nebo hodnot**
+## **Nastavení pozice osy na kategoriální nebo hodnotové ose**
 
-Použijte [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) k ovládání, zda hodnotová osa protíná osu kategorií mezi kategoriemi nebo na značkách kategorií. Tato vlastnost se vztahuje na osy kategorií. Příklad nastaví tuto vlastnost na `True` u vodorovné osy kategorií sloupcového grafu a uloží výsledek.
+Použijte [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) aby jste určili, zda se hodnotová osa protíná s kategoriální osou mezi kategoriemi nebo na značkách kategorií. Toto nastavení platí pro kategoriální osy. Příklad nastaví tuto vlastnost na `True` na vodorovné kategoriální ose sloupcového grafu a uloží výsledek.
 
 ```python
 import aspose.slides as slides
@@ -284,7 +337,7 @@ with slides.Presentation() as presentation:
 
 ## **Nastavení jednotky zobrazení na hodnotové ose grafu**
 
-Nastavte [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) pro změnu měřítka štítků na hodnotové ose, aniž by se změnila podkladová data. S [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) nastaveným na `MILLIONS` se hodnota 60 000 000 zobrazí jako 60. Příklad vytvoří sloupcový graf a použije jednotku zobrazení miliony na jeho svislé ose.
+Nastavte [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) k měřítku popisků na hodnotové ose, aniž by se změnila podkladová data. S [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) nastaveným na `MILLIONS` se hodnota 60 000 000 zobrazí jako 60. Příklad vytvoří sloupcový graf a použije jednotku milionů na jeho svislé ose.
 
 ```python
 import aspose.slides as slides
@@ -301,19 +354,19 @@ with slides.Presentation() as presentation:
 
 ## **Konfigurace logaritmické hodnotové osy**
 
-Logaritmická hodnotová osa je užitečná, když kladné hodnoty zasahují několik řádů velikosti. Například služba může během pěti období přijímat 10, 100, 1 000, 10 000 a 100 000 požadavků. Na lineárním měřítku se menší hodnoty seskupí blízko nuly. Logaritmické měřítko usnadňuje porovnání relativního růstu: stejné vzdálenosti představují stejné poměry místo stejných rozdílů.
+Logaritmická hodnotová osa je užitečná, když kladné hodnoty zasahují několik řádů velikosti. Například služba může během pěti období přijímat 10, 100, 1 000, 10 000 a 100 000 požadavků. Na lineární stupnici jsou menší hodnoty blízko sebe u nuly. Logaritmická stupnice usnadňuje porovnání relativního růstu: stejné vzdálenosti představují stejné poměry, ne stejné rozdíly.
 
-Nastavte [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) na `True` u hodnotové osy a použijte [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) pro výběr základu. Tím se změní způsob zobrazení existujících hodnot; data samotná a logaritmická trendová čára se nezmění. Trendová čára představuje vyhovující vztah v datech a je samostatnou funkcí.
+Nastavte [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) na `True` na hodnotové ose a použijte [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) k výběru základu. Toto změní, jak jsou existující hodnoty zobrazovány; nezmění data ani nepřidá logaritmickou trendovou čáru. Trendová čára představuje aproximaci vztahu v datech a je samostatnou funkcí.
 
-### **Zvolte hodnotovou osu a základ**
+### **Zvolte hodnotovou osu a základnu**
 
-U čárového nebo sloupcového grafu je hodnotová osa [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). U horizontálního pruhového grafu je to [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/). Diagramy rozptýlení a bublinové mají dvě hodnotové osy, takže pro X‑hodnoty vyberte horizontální osu, pro Y‑hodnoty vertikální osu nebo obě. Logaritmické škálování nepoužívejte na osu kategorií.
+Pro čárový nebo sloupcový graf je hodnotová osa [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Pro vodorovný sloupcový graf je to [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/). Bodové a bublinové grafy mají dvě hodnotové osy, takže vyberte vodorovnou osu pro hodnoty X, svislou pro hodnoty Y, nebo obě. Logaritmické škálování neaplikujte na kategoriální osu.
 
-Výchozí logaritmický základ je `10`. Pro PPTX grafy použijte základ v rozmezí od `2` do `1000` včetně; podporovány jsou i zlomkové základy jako `2.5`. Se základem `10` jsou po sobě jdoucí mocniny 10, 100, 1 000 a 10 000 rovnoměrně rozloženy.
+Výchozí logaritmický základ je `10`. Pro PPTX grafy použijte základ od `2` do `1000` inkluzivně; podporovány jsou i zlomek základny jako `2.5`. Se základnou `10` jsou po sobě jdoucí mocniny 10, 100, 1 000 a 10 000 rovnoměrně rozloženy.
 
-### **Porovnání lineární a logaritmické škálování**
+### **Porovnání lineárního a logaritmického škálování**
 
-Následující samostatný příklad vytvoří čárový graf s pěti počty požadavků na prvním snímku, poté tento snímek zduplikuje a na druhém povolí logaritmickou hodnotovou osu s základem 10. Oba snímky zachovávají stejná data.
+Následující příklad vytvoří čárový graf s pěti počty požadavků na prvním snímku, poté tento snímek klonuje a na druhém povolí logaritmickou hodnotovou osu s bází 10. Oba snímky zachovávají stejná data.
 
 ```python
 import aspose.slides as slides
@@ -342,7 +395,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # Ponechat první snímek lineární a změnit jen měřítko hodnotové osy u kopie.
+    # Zachovat první snímek lineární a změnit jen stupnici hodnotové osy v kopii.
     logarithmic_slide = presentation.slides.add_clone(slide)
     logarithmic_chart = logarithmic_slide.shapes[0]
     value_axis = logarithmic_chart.axes.vertical_axis
@@ -352,24 +405,24 @@ with slides.Presentation() as presentation:
     presentation.save("LogarithmicAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Lineární škála (snímek 1):** Stejné svislé vzdálenosti představují stejné rozdíly v počtech požadavků. Největší hodnota dominuje grafu, což ztěžuje rozeznání menších hodnot.
+**Lineární škála (snímek 1):** Stejné vertikální vzdálenosti představují stejné rozdíly v počtu požadavků. Největší hodnota dominuje grafu, což ztěžuje rozlišení menších hodnot.
 
-![Lineární čárový graf zobrazující pět požadavků na lineární hodnotové ose](value-axis-linear.png)
+![Čárový graf v PowerPointu ukazující pět požadavků na lineární hodnotové ose](value-axis-linear.png)
 
-**Logaritmická škála (snímek 2):** Stejné svislé vzdálenosti představují stejné poměry. Každé období má desetkrát více požadavků než předchozí, takže body tvoří přímou rostoucí čáru na logaritmické škále s základem 10. Štítky osy stále ukazují původní počty požadavků.
+**Logaritmická škála (snímek 2):** Stejné vertikální vzdálenosti představují stejné poměry. Každé období má desetkrát více požadavků než předchozí, takže body tvoří rovnou stoupající čáru na logaritmické stupnici s bází 10. Popisky osy stále ukazují původní počty požadavků.
 
-![Pět požadavků v PowerPointu na logaritmické hodnotové ose se základem 10](value-axis-logarithmic.png)
+![Stejných pět požadavků v PowerPointu na logaritmické hodnotové ose s bází 10](value-axis-logarithmic.png)
 
 ### **Zpracování nulových a záporných hodnot**
 
-Logaritmické měřítko může zobrazovat jen striktně kladné hodnoty. Před jeho povolením zkontrolujte data. Pokud jsou nuly nebo záporné hodnoty významné, zachovejte lineární měřítko nebo je zobrazte odděleně. Pokud je vhodné tyto hodnoty v analýze vynechat, uveďte důvod vynechání. Nenahrazujte je tichým převodem na malé kladné číslo, protože by to změnilo smysl dat. Jakékoli ručně nastavené minimum nebo maximum pro logaritmickou osu musí být také kladné.
+Logaritmická stupnice může zobrazovat jen striktně kladné hodnoty. Před jejím povolením data zkontrolujte. Pokud jsou nuly nebo záporné hodnoty smysluplné, zachovejte lineární stupnici nebo je zobrazte samostatně. Pokud je vyloučení těchto hodnot vhodné pro analýzu, uveďte důvod. Nepřepisujte je tiše malými kladnými čísly, protože to mění význam dat. Každý ručně nastavený minimální nebo maximální limit pro logaritmickou osu musí být také kladný.
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jak nastavit hodnotu, při které se jedna osa protíná s druhou (průsečík os)?**
+**Jak nastavit hodnotu, při které se jedna osa protíná s druhou (průsečík osy)?**
 
-Použijte [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) k výběru chování průsečíku. Pro zadání číselné hodnoty průsečíku nastavte [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Tato nastavení vám umožní posunout průsečík osy na vhodnou základnu.
+Použijte [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) k výběru chování průsečíku. Pro specifikaci číselné hodnoty průsečíku nastavte [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Tím můžete posunout průsečík osy na vhodnou úroveň.
 
 **Jak mohu umístit popisky značek relativně k ose?**
 
-Nastavte [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) pomocí [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/): `LOW`, `HIGH`, `NEXT_TO` nebo `NONE`. Pro ovládání samotných značek použijte [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) nebo [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/); ty jsou oddělené od umístění popisků.
+Nastavte [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) pomocí [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/): `LOW`, `HIGH`, `NEXT_TO` nebo `NONE`. Pro řízení samotných značek použijte [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) nebo [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/); jsou oddělené od umístění popisků.

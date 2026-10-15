@@ -1,10 +1,10 @@
 ---
-title: Personnaliser les axes de graphiques dans les présentations avec PHP
-linktitle: Axe du graphique
+title: Personnaliser les axes de graphique dans les présentations avec PHP
+linktitle: Axe de graphique
 type: docs
 url: /fr/php-java/chart-axis/
 keywords:
-- axe du graphique
+- axe de graphique
 - axe vertical
 - axe horizontal
 - personnaliser l'axe
@@ -21,17 +21,17 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Découvrez comment utiliser Aspose.Slides pour PHP via Java afin de personnaliser les axes de graphiques dans les présentations PowerPoint pour les rapports et les visualisations."
+description: "Découvrez comment utiliser Aspose.Slides pour PHP via Java afin de personnaliser les axes de graphique dans les présentations PowerPoint pour les rapports et les visualisations."
 ---
-## **Vue d'ensemble**
+## **Aperçu**
 
-Cet article explique comment personnaliser les axes de graphiques avec Aspose.Slides pour PHP via Java. Il couvre les valeurs d’axe calculées, l’inversion des lignes et colonnes du graphique, la visibilité des axes, les intervalles des étiquettes de catégorie et des marques de graduation, les catégories de dates et leur formatage, la rotation du titre, le positionnement de l’axe, les unités d’affichage et le redimensionnement logarithmique.
+Cet article explique comment personnaliser les axes de graphiques avec Aspose.Slides pour PHP via Java. Il couvre les valeurs d’axe calculées, l’échange des lignes et colonnes du graphique, la visibilité des axes, les intervalles d’étiquettes de catégorie et de marques de graduation, les catégories de dates et leur formatage, la rotation du titre, le positionnement des axes, les unités d’affichage et le redimensionnement logarithmique.
 
-## **Obtenir les valeurs maximales sur l’axe vertical des graphiques**
+## **Obtenir les valeurs maximales sur l'axe vertical des graphiques**
 
-Créez une [Présentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) et ajoutez un graphique en aires avec les données par défaut. Appelez [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) avant de lire les valeurs d’axe calculées afin que la disposition du graphique soit à jour.
+Créez une [Présentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) et ajoutez un diagramme en aires avec les données par défaut. Appelez [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) avant de lire les valeurs d’axe calculées afin que la disposition du diagramme soit à jour.
 
-Lisez [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) et [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) pour connaître les limites de l’axe, ainsi que [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) et [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) pour les intervalles des graduations. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) et [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) fournissent les échelles d’unité de temps, pertinentes pour les axes de dates. L’exemple stocke ces valeurs dans des variables locales et enregistre le graphique.
+Lisez [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) et [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) pour les limites de l’axe, et [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) et [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) pour les intervalles de graduation. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) et [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) fournissent les échelles d’unités de temps, pertinentes pour les axes de dates. L’exemple stocke ces valeurs dans des variables locales et enregistre le diagramme.
 
 ```php
 use aspose\slides\ChartType;
@@ -62,7 +62,7 @@ try {
 
 ## **Échanger les données entre les axes**
 
-Utilisez [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) pour permuter les rôles des séries et des catégories dans les données du graphique. Chaque ancienne catégorie devient une série, et chaque ancienne série devient une catégorie. Cela modifie la façon dont les données sont regroupées ; cela n’échange pas les axes horizontal et vertical. L’exemple utilise [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) pour lier les données par défaut à `Sheet1!A1:D5`, incluant la ligne d’en‑tête et la colonne de catégories, avant d’inverser les lignes et colonnes. Il enregistre un graphique avec quatre séries et trois catégories.
+Utilisez [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) pour échanger les rôles des séries et des catégories dans les données du graphique. Chaque ancienne catégorie devient une série, et chaque ancienne série devient une catégorie. Cela modifie la façon dont les données sont regroupées ; cela n’échange pas les axes horizontal et vertical. L’exemple utilise [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) pour lier les données par défaut à `Sheet1!A1:D5`, incluant la ligne d’en-tête et la colonne de catégorie, avant d’échanger les lignes et colonnes. Il enregistre un diagramme avec quatre séries et trois catégories.
 
 ```php
 use aspose\slides\ChartType;
@@ -83,9 +83,69 @@ try {
 }
 ```
 
-## **Désactiver l’axe vertical pour les graphiques en ligne**
+## **Inverser l'ordre de tracé d'un axe**
 
-Appelez [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) avec `false` sur l’axe vertical pour le masquer. L’exemple crée un graphique en ligne avec les données par défaut et l’enregistre avec l’axe vertical masqué.
+Utilisez [setPlotOrderReversed](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setplotorderreversed/) pour inverser un axe de catégorie ou de valeur. Par exemple, un diagramme à barres horizontales peut afficher les étapes du projet de haut en bas dans le même ordre que la feuille : Planification, Développement, Test. L’inversion d’un axe change la direction du tracé ; cela ne trie pas et ne réarrange pas les données du classeur. En comparaison, [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) échange les rôles des séries et des catégories.
+
+L’exemple suivant crée un diagramme à barres horizontales avec trois étapes et une série. Il enregistre une présentation avec trois diapositives : ordre normal, catégories inversées et valeurs inversées. Chaque copie utilise le même jeu de données, et un seul axe est inversé dans chaque copie.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\CrossesType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredBar, 50, 40, 620, 320);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::ClusteredBar);
+    $stages = ["Planning", "Development", "Testing"];
+    $values = [10, 30, 20];
+    for ($i = 0; $i < count($stages); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $stages[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    // Diapositive 2 : afficher la première catégorie en haut.
+    $categorySlide = $presentation->getSlides()->addClone($slide);
+    $categoryChart = $categorySlide->getShapes()->get_Item(0);
+    $categoryChart->getAxes()->getVerticalAxis()->setPlotOrderReversed(true);
+    // Conserver l'axe de valeurs horizontal en bas.
+    $categoryChart->getAxes()->getVerticalAxis()->setCrossType(CrossesType::Maximum);
+
+    // Diapositive 3 : inverser uniquement l'échelle numérique horizontale.
+    $valueSlide = $presentation->getSlides()->addClone($slide);
+    $valueChart = $valueSlide->getShapes()->get_Item(0);
+    $valueChart->getAxes()->getHorizontalAxis()->setPlotOrderReversed(true);
+
+    $presentation->save("ReversedAxes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Inverser un axe peut aussi déplacer l’axe perpendiculaire du côté opposé du tracé. [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) contrôle où l’autre axe croise l’axe en cours de configuration. Dans la diapositive 2, en l’appelant avec `CrossesType::Maximum` sur l’axe de catégorie inversé, l’axe de valeur horizontal reste en bas. Pour un point de croisement spécifique, utilisez [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Vérifiez les paramètres de croisement lors du changement de direction, surtout si le diagramme possède déjà un point de croisement personnalisé. Appelez `setPlotOrderReversed` avec `false` pour rétablir la direction de tracé normale ; les paramètres de croisement sont séparés.
+
+| Ordre normal (diapositive 1) | Catégories inversées (diapositive 2) | Valeurs inversées (diapositive 3) |
+| --- | --- | --- |
+| ![Diagramme à barres horizontales avec ordre normal des axes de catégorie et de valeur](axis-order-normal.png) | ![Diagramme à barres horizontales avec catégories affichées de haut en bas](axis-order-categories-reversed.png) | ![Diagramme à barres horizontales avec un axe de valeur inversé et zéro à droite](axis-order-values-reversed.png) |
+| Les catégories s'étendent du bas vers le haut ; les valeurs augmentent de gauche à droite. | Planification, Développement et Test s'étendent du haut vers le bas. Les valeurs et l'ordre des lignes du classeur restent inchangés. | Les catégories conservent leur ordre normal ; les valeurs augmentent de droite à gauche. L'axe de catégorie croise à zéro à droite. |
+
+## **Désactiver l'axe vertical pour les graphiques en courbes**
+
+Appelez [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) avec `false` sur l’axe vertical pour le masquer. L’exemple crée un diagramme en courbes avec les données par défaut et l’enregistre avec l’axe vertical masqué.
 
 ```php
 use aspose\slides\ChartType;
@@ -105,9 +165,9 @@ try {
 }
 ```
 
-## **Désactiver l’axe horizontal pour les graphiques en ligne**
+## **Désactiver l'axe horizontal pour les graphiques en courbes**
 
-Appelez [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) avec `false` sur l’axe horizontal pour le masquer. L’exemple crée un graphique en ligne avec les données par défaut et l’enregistre avec l’axe horizontal masqué.
+Appelez [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) avec `false` sur l’axe horizontal pour le masquer. L’exemple crée un diagramme en courbes avec les données par défaut et l’enregistre avec l’axe horizontal masqué.
 
 ```php
 use aspose\slides\ChartType;
@@ -129,7 +189,7 @@ try {
 
 ## **Modifier un axe de catégorie**
 
-Utilisez [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) pour choisir un axe de catégorie de type date ou texte. Cet exemple nécessite `ExistingChart.pptx`, contenant un graphique en première forme de la première diapositive et des cellules de catégorie contenant des valeurs de date Excel numériques. Il change l’axe horizontal en axe de date. En appelant [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) avec `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) avec `1` et [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) avec `TimeUnitType::Months`, les graduations majeures sont placées à des intervalles d’un mois.
+Utilisez [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) pour choisir un axe de catégorie date ou texte. Cet exemple nécessite `ExistingChart.pptx`, avec un diagramme comme première forme de la première diapositive et des cellules de catégorie contenant des valeurs de date Excel numériques. Il change l’axe horizontal en axe de date. En appelant [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) avec `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) avec `1`, et [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) avec `TimeUnitType::Months`, les graduations majeures sont placées à des intervalles d’un mois.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -153,21 +213,21 @@ try {
 }
 ```
 
-## **Contrôler les intervalles des étiquettes d’axe de catégorie**
+## **Contrôler les intervalles d'étiquettes d'axe de catégorie**
 
-Lorsque le graphique comporte de nombreuses catégories, réduisez le nombre d’étiquettes d’axe visibles sans supprimer les catégories ou les points de données. Appelez [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) avec `false`, puis transmettez l’intervalle de catégorie souhaité à [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Pour les catégories texte dans leur ordre normal, le comptage commence à la première catégorie :
+Lorsque le diagramme possède de nombreuses catégories, réduisez le nombre d’étiquettes d’axe visibles sans supprimer les catégories ni les points de données. Appelez [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) avec `false`, puis transmettez l’intervalle de catégorie souhaité à [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Pour des catégories texte dans leur ordre normal, le comptage commence à la première catégorie :
 
-| Intervalle | Étiquettes affichées dans l’exemple |
+| Intervalle | Étiquettes affichées dans l'exemple |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, … Category 24 |
-| `2` | Category 1, Category 3, Category 5, … Category 23 |
-| `3` | Category 1, Category 4, Category 7, … Category 22 |
+| `1` | Catégorie 1, Catégorie 2, Catégorie 3, … Catégorie 24 |
+| `2` | Catégorie 1, Catégorie 3, Catégorie 5, … Catégorie 23 |
+| `3` | Catégorie 1, Catégorie 4, Catégorie 7, … Catégorie 22 |
 
-Un intervalle de `3` affiche chaque troisième étiquette, les deux étiquettes intermédiaires restant cachées. Cela ne supprime pas les colonnes correspondantes. Le espacement automatique choisit un intervalle en fonction de l’espace disponible ; il ne garantit pas l’affichage de chaque étiquette.
+Un intervalle de `3` affiche chaque troisième étiquette, laissant deux étiquettes masquées entre les étiquettes affichées. Cela ne supprime pas les colonnes correspondantes. L’espacement automatique choisit un intervalle en fonction de l’espace disponible ; il n’affiche pas nécessairement chaque étiquette.
 
-Les marques de graduation ont des contrôles distincts. Appelez [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) avec `false` et utilisez [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) pour définir leur intervalle. Par exemple, `1` maintient une marque de graduation à chaque intervalle de catégorie tandis que les étiquettes n’apparaissent que tous les trois catégories. Utilisez [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) avec un style visible afin de voir le résultat. En réactivant le réglage automatique (valeur `true`) le graphique choisira à nouveau cet intervalle.
+Les marques de graduation ont des contrôles séparés. Appelez [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) avec `false` et utilisez [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) pour définir leur intervalle. Par exemple, `1` maintient une marque de graduation à chaque intervalle de catégorie tandis que les étiquettes n’apparaissent que toutes les trois catégories. Utilisez [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) avec un style visible afin de pouvoir voir le résultat. Le fait d’appeler à nouveau le réglage d’espacement automatique avec `true` laisse le diagramme choisir cet intervalle de nouveau.
 
-L’exemple autonome suivant crée 24 catégories et une série, puis enregistre trois diapositives dans `CategoryAxisIntervals.pptx` : espacement automatique, espacement manuel des étiquettes avec marques de graduation indépendantes, puis restauration de l’espacement automatique. Les deux copies conservent les données d’origine du graphique. Aucune présentation d’entrée n’est requise. Le texte des étiquettes horizontales rend la différence de densité facilement perceptible.
+L’exemple autonome suivant crée 24 catégories et une série, puis enregistre trois diapositives dans `CategoryAxisIntervals.pptx` : espacement automatique, espacement manuel des étiquettes avec marques de graduation indépendantes, et restauration de l’espacement automatique. Les deux copies conservent les données du diagramme d’origine. Aucune présentation d’entrée n’est requise. Le texte des étiquettes horizontales rend la différence de densité facile à voir.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -214,7 +274,7 @@ try {
     $manualAxis->setAutomaticTickMarksSpacing(false);
     $manualAxis->setTickMarksSpacing(1);
 
-    // Diapositive 3 : laisser le graphique choisir à nouveau les deux intervalles.
+    // Diapositive 3 : laisser le diagramme choisir à nouveau les deux intervalles.
     $restoredSlide = $presentation->getSlides()->addClone($manualSlide);
     $restoredChart = $restoredSlide->getShapes()->get_Item(0);
     $restoredChart->getAxes()->getHorizontalAxis()->setAutomaticTickLabelSpacing(true);
@@ -226,23 +286,23 @@ try {
 }
 ```
 
-**Espacement automatique (diapositive 1) :** dans ce rendu, chaque deuxième étiquette de catégorie est affichée et passe à la ligne. Le résultat automatique peut varier selon la taille du graphique, les polices et le moteur de rendu.
+**Espacement automatique (diapositive 1)** : dans ce rendu, chaque deuxième étiquette de catégorie est affichée et se renvoie sur deux lignes. Le résultat automatique peut varier selon la taille du diagramme, les polices et le moteur de rendu.
 
 ![Espacement automatique des étiquettes de catégorie avec les 24 colonnes visibles](category-axis-automatic.png)
 
-**Espacement manuel (diapositive 2) :** chaque troisième étiquette est affichée sur une ligne, tandis que les marques de graduation restent à chaque intervalle de catégorie. Les 24 colonnes, y compris celles sans étiquettes, restent visibles avec les mêmes valeurs. La diapositive 3 restaure l’apparence automatique présentée ci‑dessus.
+**Espacement manuel (diapositive 2)** : chaque troisième étiquette est affichée sur une ligne, tandis que les marques de graduation restent à chaque intervalle de catégorie. Toutes les 24 colonnes, y compris celles sans étiquettes, restent visibles avec les mêmes valeurs. La diapositive 3 restaure l’apparence automatique présentée ci‑dessus.
 
-![Intervalle d’étiquette de catégorie manuelle de trois avec les 24 colonnes visibles](category-axis-manual.png)
+![Intervalle d'étiquette de catégorie manuel de trois avec les 24 colonnes visibles](category-axis-manual.png)
 
-### **Choisir l’axe et l’intervalle corrects**
+### **Choisir l'axe et l'intervalle corrects**
 
-Utilisez cet intervalle de comptage de catégories pour un axe de catégorie texte, tel que l’axe de catégorie d’un graphique en colonnes, en lignes, en aires ou en barres. Dans un graphique en colonnes, il s’agit de l’axe horizontal. Dans un graphique à barres horizontal, l’axe de catégorie est vertical, appliquez donc ces paramètres à l’axe renvoyé par [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). L’espacement des marques de graduation s’applique également à un axe de série dans les graphiques qui en possèdent un.
+Utilisez cet intervalle de comptage de catégories pour un axe de catégorie texte, tel que l’axe de catégorie d’un diagramme en colonnes, en lignes, en aires ou à barres. Dans un diagramme en colonnes, il s’agit de l’axe horizontal. Dans un diagramme à barres horizontales, l’axe de catégorie est vertical, donc appliquez ces paramètres à l’axe renvoyé par [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). L’espacement des marques de graduation s’applique également à un axe de séries dans les diagrammes qui en possèdent un.
 
-N’utilisez pas l’espacement des étiquettes de catégorie pour définir l’échelle numérique d’un axe de valeur. Sur un axe de valeur, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) spécifie une différence de valeurs : par exemple, une unité majeure de `10` produit des graduations à 0, 10, 20, etc. lorsqu’un axe débute à zéro. Un intervalle d’étiquette de catégorie de `3` compte quant à lui les positions de catégorie, quelles que soient leurs valeurs de données. Les graphiques en nuage de points et en bulles utilisent des axes de valeur plutôt qu’un axe de catégorie texte. Pour un axe de date, utilisez des unités majeures et des échelles basées sur le temps comme décrit dans [Modifier un axe de catégorie](#change-a-category-axis).
+N’utilisez pas l’espacement des étiquettes de catégorie pour définir l’échelle numérique d’un axe de valeur. Sur un axe de valeur, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) spécifie une différence de valeurs : par exemple, une unité majeure de `10` produit des graduations à 0, 10, 20, etc. lorsque l’axe démarre à zéro. Un intervalle d’étiquette de catégorie de `3` compte simplement les positions de catégorie, indépendamment de leurs valeurs de données. Les diagrammes de dispersion et à bulles utilisent des axes de valeur plutôt qu’un axe de catégorie texte. Pour un axe de date, utilisez des unités majeures basées sur le temps et des échelles comme décrit dans [Modifier un axe de catégorie](#modifier-un-axe-de-catégorie).
 
-## **Définir le format de date pour les valeurs d’axe de catégorie**
+## **Définir le format de date pour les valeurs d'axe de catégorie**
 
-L’exemple remplace les données de graphique par défaut par quatre valeurs annuelles. Les dates sont stockées sous forme de nombres de série OLE Automation dans la première feuille de calcul (index `0`), calculées comme le nombre de jours écoulés depuis le 30 décembre 1899 pour ces dates. Utilisez [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) avec `CategoryAxisType::Date`, appelez [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) avec `false`, et transmettez `yyyy` à [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) afin que les étiquettes de catégorie affichent les années à quatre chiffres indépendamment du format de la cellule.
+L’exemple remplace les données du diagramme par défaut par quatre valeurs annuelles. Les dates sont stockées comme nombres de série OLE Automation dans la première feuille de calcul (indice `0`), calculées comme le nombre de jours depuis le 30 décembre 1899 pour ces dates. Utilisez [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) avec `CategoryAxisType::Date`, appelez [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) avec `false`, et transmettez `yyyy` à [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) afin que les étiquettes de catégorie affichent les années sur quatre chiffres indépendamment du format de cellule.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -285,9 +345,9 @@ try {
 }
 ```
 
-## **Définir un angle de rotation pour le titre d’un axe de graphique**
+## **Définir un angle de rotation pour le titre d'un axe de graphique**
 
-Appelez [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) avec `true` sur l’axe vertical, fournissez le texte du titre et utilisez [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) pour faire pivoter le titre. L’angle est mesuré en degrés ; cet exemple enregistre un graphique en colonnes avec le titre de l’axe de valeurs pivoté de 90 degrés.
+Appelez [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) avec `true` sur l’axe vertical, fournissez le texte du titre, et utilisez [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) pour faire pivoter le titre. L’angle est mesuré en degrés ; cet exemple enregistre un diagramme en colonnes avec le titre de l’axe de valeur tourné de 90 degrés.
 
 ```php
 use aspose\slides\ChartType;
@@ -309,9 +369,9 @@ try {
 }
 ```
 
-## **Définir la position de l’axe sur un axe de catégorie ou de valeur**
+## **Définir la position de l'axe sur un axe de catégorie ou de valeur**
 
-Utilisez [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) pour contrôler si l’axe de valeur coupe l’axe de catégorie entre les catégories ou aux marques de graduation de catégorie. Ce paramètre s’applique aux axes de catégorie. L’exemple le définit à `true` sur l’axe de catégorie horizontal d’un graphique en colonnes et enregistre le résultat.
+Utilisez [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) pour contrôler si l’axe de valeur croise l’axe de catégorie entre les catégories ou aux marques de graduation des catégories. Ce réglage s’applique aux axes de catégorie. L’exemple le définit sur `true` pour l’axe de catégorie horizontal d’un diagramme en colonnes et enregistre le résultat.
 
 ```php
 use aspose\slides\ChartType;
@@ -331,9 +391,9 @@ try {
 }
 ```
 
-## **Définir l’unité d’affichage sur un axe de valeur de graphique**
+## **Définir l'unité d'affichage sur un axe de valeur de graphique**
 
-Utilisez [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) pour mettre à l’échelle les étiquettes d’un axe de valeur sans modifier les données sous‑jacentes. Avec [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) défini sur `Millions`, une valeur de 60 000 000 s’affiche comme 60. L’exemple crée un graphique en colonnes et applique l’unité d’affichage millions à son axe vertical.
+Utilisez [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) pour mettre à l’échelle les libellés d’un axe de valeur sans modifier les données sous‑jacentes. Avec [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) défini sur `Millions`, une valeur de 60 000 000 s’affiche comme 60. L’exemple crée un diagramme en colonnes et applique l’unité d’affichage millions à son axe vertical.
 
 ```php
 use aspose\slides\ChartType;
@@ -356,19 +416,19 @@ try {
 
 ## **Configurer un axe de valeur logarithmique**
 
-Un axe de valeur logarithmique est utile lorsque des valeurs positives couvrent plusieurs ordres de grandeur. Par exemple, un service peut recevoir 10, 100, 1 000, 10 000 et 100 000 requêtes sur cinq périodes. Sur une échelle linéaire, les petites valeurs apparaissent très proches du zéro. Une échelle logarithmique rend leur croissance relative plus facile à comparer : des distances égales représentent des rapports égaux plutôt que des différences égales.
+Un axe de valeur logarithmique est utile lorsque les valeurs positives couvrent plusieurs ordres de grandeur. Par exemple, un service peut recevoir 10, 100, 1 000, 10 000 et 100 000 requêtes sur cinq périodes. Sur une échelle linéaire, les petites valeurs apparaissent très proches les unes des autres près de zéro. Une échelle logarithmique rend leur croissance relative plus facile à comparer : des distances égales représentent des rapports égaux plutôt que des différences égales.
 
-Appelez [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) avec `true` sur l’axe de valeur et utilisez [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) pour choisir la base. Cela modifie la façon dont les valeurs existantes sont affichées ; cela ne change pas les données ni n’ajoute de courbe de tendance logarithmique. Une courbe de tendance représente une relation ajustée aux données et constitue une fonctionnalité distincte.
+Appelez [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) avec `true` sur l’axe de valeur et utilisez [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) pour choisir la base. Cela modifie la façon dont les valeurs existantes sont affichées ; cela ne change pas les données ni n’ajoute une ligne de tendance logarithmique. Une ligne de tendance représente une relation ajustée aux données et constitue une fonctionnalité distincte.
 
-### **Choisir l’axe de valeur et la base**
+### **Choisir l'axe de valeur et la base**
 
-Pour un graphique en lignes ou en colonnes, l’axe de valeur est renvoyé par [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Pour un graphique à barres horizontal, il est renvoyé par [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Les graphiques en nuage de points et en bulles possèdent deux axes de valeur, choisissez donc l’axe horizontal pour les valeurs X, l’axe vertical pour les valeurs Y, ou les deux. N’appliquez pas le redimensionnement logarithmique à un axe de catégorie.
+Pour un diagramme en lignes ou en colonnes, l’axe de valeur est renvoyé par [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Pour un diagramme à barres horizontales, il est renvoyé par [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Les diagrammes de dispersion et à bulles possèdent deux axes de valeur, choisissez donc l’axe horizontal pour les valeurs X, l’axe vertical pour les valeurs Y, ou les deux. N’appliquez pas le redimensionnement logarithmique à un axe de catégorie.
 
-La base logarithmique par défaut est `10`. Pour les graphiques PPTX, utilisez une base comprise entre `2` et `1000` inclusivement ; les bases fractionnaires telles que `2.5` sont également prises en charge. Avec une base de `10`, les puissances successives 10, 100, 1 000 et 10 000 sont espacées de façon égale.
+La base logarithmique par défaut est `10`. Pour les diagrammes PPTX, utilisez une base comprise entre `2` et `1000` inclusivement ; les bases fractionnaires comme `2.5` sont également prises en charge. Avec la base `10`, les puissances successives telles que 10, 100, 1 000 et 10 000 sont espacées de manière égale.
 
-### **Comparer l’échelle linéaire et logarithmique**
+### **Comparer les échelles linéaire et logarithmique**
 
-L’exemple autonome suivant crée un graphique en lignes avec les cinq décomptes de requêtes sur la première diapositive, puis duplique cette diapositive et active un axe de valeur logarithmique base‑10 sur la seconde. Les deux diapositives conservent les mêmes données.
+L’exemple autonome suivant crée un diagramme en lignes avec les cinq décomptes de requêtes sur la première diapositive, puis duplique cette diapositive et active un axe de valeur logarithmique base‑10 sur la seconde. Les deux diapositives conservent les mêmes données.
 
 ```php
 use aspose\slides\ChartType;
@@ -400,7 +460,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // Conserver la première diapositive en linéaire et ne modifier que l'échelle de l'axe de valeur de la copie.
+    // Conserver la première diapositive lineaire et ne modifier que l'echelle de l'axe de valeurs de la copie.
     $logarithmicSlide = $presentation->getSlides()->addClone($slide);
     $logarithmicChart = $logarithmicSlide->getShapes()->get_Item(0);
     $valueAxis = $logarithmicChart->getAxes()->getVerticalAxis();
@@ -413,24 +473,24 @@ try {
 }
 ```
 
-**Échelle linéaire (diapositive 1) :** des distances verticales égales représentent des différences égales dans le nombre de requêtes. La valeur la plus élevée domine le graphique, rendant les valeurs plus petites difficiles à distinguer.
+**Échelle linéaire (diapositive 1)** : des distances verticales égales représentent des différences égales dans les décomptes de requêtes. La valeur la plus élevée domine le diagramme, rendant les petites valeurs difficiles à distinguer.
 
-![Graphique en lignes PowerPoint montrant cinq décomptes de requêtes sur un axe de valeur linéaire](value-axis-linear.png)
+![Diagramme linéaire dans PowerPoint montrant cinq décomptes de requêtes sur un axe de valeur linéaire](value-axis-linear.png)
 
-**Échelle logarithmique (diapositive 2) :** des distances verticales égales représentent des rapports égaux. Chaque période a dix fois plus de requêtes que la précédente, de sorte que les points forment une ligne droite ascendante sur l’échelle base‑10. Les étiquettes d’axe affichent toujours les décomptes de requêtes d’origine.
+**Échelle logarithmique (diapositive 2)** : des distances verticales égales représentent des rapports égaux. Chaque période a dix fois plus de requêtes que la précédente, de sorte que les points forment une droite ascendante sur l’échelle base‑10. Les libellés d’axe affichent toujours les décomptes de requêtes d’origine.
 
 ![Les mêmes cinq décomptes de requêtes dans PowerPoint sur un axe de valeur logarithmique base‑10](value-axis-logarithmic.png)
 
 ### **Gérer les valeurs zéro et négatives**
 
-Une échelle logarithmique ne peut afficher que des valeurs strictement positives. Vérifiez les données avant de l’activer. Si des valeurs zéro ou négatives sont significatives, conservez une échelle linéaire ou affichez‑les séparément. Si leur exclusion est justifiée pour l’analyse, expliquez‑là. Ne les remplacez pas silencieusement par de petits nombres positifs, car cela modifie le sens des données. Tout minimum ou maximum configuré manuellement pour un axe logarithmique doit également être positif.
+Une échelle logarithmique ne peut afficher que des valeurs strictement positives. Vérifiez les données avant de l’activer. Si les valeurs zéro ou négatives sont significatives, conservez une échelle linéaire ou affichez‑les séparément. Si leur exclusion est appropriée pour l’analyse, expliquez‑lui l’omission. Ne les remplacez pas silencieusement par de petits nombres positifs, car cela changerait le sens des données. Toute valeur minimale ou maximale configurée manuellement pour un axe logarithmique doit également être positive.
 
 ## **FAQ**
 
-**Comment définir la valeur à laquelle un axe croise l’autre (croisement d’axes) ?**
+**Comment définir la valeur à laquelle un axe croise l'autre (croisement d'axe) ?**
 
-Utilisez [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) pour sélectionner le comportement du croisement. Pour spécifier une valeur numérique de croisement, utilisez [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Ces paramètres vous permettent de déplacer le point de croisement de l’axe à une ligne de base adaptée.
+Utilisez [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) pour sélectionner le comportement du croisement. Pour spécifier une valeur numérique de croisement, utilisez [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Ces réglages vous permettent de déplacer le croisement de l’axe vers une ligne de base appropriée.
 
-**Comment positionner les étiquettes de graduation par rapport à l’axe ?**
+**Comment positionner les étiquettes de graduation par rapport à l'axe ?**
 
-Appelez [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) en utilisant [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/) : `Low`, `High`, `NextTo` ou `None`. Pour contrôler les marques de graduation elles‑mêmes, utilisez [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) ou [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/) ; ils sont indépendants du positionnement des étiquettes.
+Appelez [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) en utilisant [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/) : `Low`, `High`, `NextTo` ou `None`. Pour contrôler les marques de graduation elles‑mêmes, utilisez [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) ou [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/) ; ceux‑ci sont distincts du positionnement des étiquettes.

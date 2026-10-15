@@ -1,37 +1,37 @@
 ---
-title: Diagramtengelyek testreszabása prezentációkban PHP használatával
-linktitle: Diagramtengely
+title: Diagram tengelyek testreszabása prezentációkban PHP használatával
+linktitle: Diagram tengely
 type: docs
 url: /hu/php-java/chart-axis/
 keywords:
-- diagramtengely
+- diagram tengely
 - függőleges tengely
 - vízszintes tengely
 - tengely testreszabása
 - tengely manipulálása
 - tengely kezelése
-- tengely tulajdonságai
+- tengely tulajdonságok
 - maximális érték
 - minimális érték
-- tengely vonal
+- tengelyvonal
 - dátumformátum
 - tengelycím
-- tengely pozíció
+- tengelypozíció
 - PowerPoint
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Ismerje meg, hogyan használhatja az Aspose.Slides for PHP via Java a diagramtengelyek testreszabásához PowerPoint-prezentációkban jelentések és vizualizációk számára."
+description: "Fedezze fel, hogyan használhatja az Aspose.Slides for PHP via Java-t a diagram tengelyek testreszabásához PowerPoint prezentációkban jelentések és visualizációk számára."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan szabhatók testre a diagram tengelyek az Aspose.Slides for PHP via Java segítségével. Tárgyalja a kiszámított tengelyértékeket, a diagram sorok és oszlopok felcserélését, a tengely láthatóságát, a kategória címke és jelölő távolságokat, a dátumkategóriákat és formázást, a cím forgatását, a tengely elhelyezkedését, a megjelenítési egységeket és a logaritmikus skálázást.
+Ez a cikk bemutatja, hogyan lehet testreszabni a diagram tengelyeket az Aspose.Slides for PHP via Java segítségével. Tárgyalja a számított tengelyértékeket, a diagram sorok és oszlopok cseréjét, a tengely láthatóságát, a kategória címke- és jelölőközök intervallumait, a dátumkategóriákat és formázást, a cím forgatását, a tengely pozicionálását, a megjelenítési egységeket és a logaritmikus skálázást.
 
-## **A legnagyobb értékek lekérése a függőleges tengelyen a diagramoknál**
+## **A függőleges tengely maximális értékeinek lekérése a diagramokon**
 
-Hozzon létre egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) objektumot, és adjon hozzá egy területdiagramot alapértelmezett adatokkal. Hívja meg a [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) metódust a kiszámított tengelyértékek olvasása előtt, hogy a diagram elrendezése naprakész legyen.
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) és adjon hozzá egy területdiagramot alapértelmezett adatokkal. Hívja meg a [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) metódust a számított tengelyértékek beolvasása előtt, hogy a diagram elrendezése naprakész legyen.
 
-Olvassa a [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) és a [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) értékeket a tengely határértékeihez, valamint a [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) és a [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) értékeket a jelölő-intervalhez. A [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) és a [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) időegység skálákat adnak vissza, amelyek dátumtengelyek esetén relevánsak. A példában ezeket az értékeket helyi változókba tárolja, és elmenti a diagramot.
+Olvassa el a [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) és a [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) értékeket a tengely határértékekhez, valamint a [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) és a [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) értékeket a jelölőközökhez. A [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) és a [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) időegység skálákat adnak, amelyek a dátumtengelyeknél relevánsak. A példa ezeket az értékeket helyi változókba menti, és elmenti a diagramot.
 
 ```php
 use aspose\slides\ChartType;
@@ -60,9 +60,9 @@ try {
 }
 ```
 
-## **Az adatok felcserélése a tengelyek között**
+## **Adatok cseréje a tengelyek között**
 
-Használja a [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) metódust a sorozatok és kategóriák szerepének felcseréléséhez a diagram adataiban. Minden korábbi kategória sorozattá, minden korábbi sorozat pedig kategóriává válik. Ez a csoportosítást változtatja, de nem cseréli fel a vízszintes és függőleges tengelyeket. A példa a [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) metódust használja az alapértelmezett adatok `Sheet1!A1:D5` tartományra kötéséhez, beleértve a fejléc sort és a kategória oszlopot, a sorok és oszlopok felcserélése előtt. Egy diagramot ment négy sorozattal és három kategóriával.
+Használja a [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) metódust a sorozatok és kategóriák szerepének felcseréléséhez a diagram adatában. Minden korábbi kategória sorozattá, minden korábbi sorozat pedig kategóriává alakul. Ez megváltoztatja az adatok csoportosításának módját; nem cseréli fel a vízszintes és függőleges tengelyeket. A példa a [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) metódust használja, hogy az alapértelmezett adatot a `Sheet1!A1:D5` tartományra kössön, beleértve a fejlécsort és a kategóriaoszlopot, mielőtt sorokat és oszlopokat cserélne. Egy négy sorozatos és három kategóriás diagramot ment el.
 
 ```php
 use aspose\slides\ChartType;
@@ -83,9 +83,69 @@ try {
 }
 ```
 
-## **A függőleges tengely letiltása vonaldiagramoknál**
+## **A tengely ábrázolási sorrendjének megfordítása**
 
-Hívja meg a [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) metódust `false` értékkel a függőleges tengelyen, hogy elrejtse azt. A példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, és a függőleges tengely elrejtve menti.
+Használja a [setPlotOrderReversed](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setplotorderreversed/) metódust egy kategória- vagy értéktengely megfordításához. Például egy vízszintes sávdiagram felülről lefelé jelenítheti meg a projekt szakaszait ugyanabban a sorrendben, mint a munkalapon: Tervezés, Fejlesztés, Tesztelés. A tengely megfordítása megváltoztatja a rajzolási irányt; nem rendez vagy átrendezi a munkafüzet adatokat. Ezzel szemben a [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) felcseréli a sorozatok és kategóriák szerepét.
+
+Az alábbi példa egy vízszintes sávdiagramot hoz létre három szakasz és egy sorozat felhasználásával. A prezentáció három diát tartalmaz: normál sorrend, megfordított kategóriák és megfordított értékek. Minden másolat ugyanazt az adatkészletet használja, és minden másolaton csak egy tengely van megfordítva.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\CrossesType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredBar, 50, 40, 620, 320);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::ClusteredBar);
+    $stages = ["Planning", "Development", "Testing"];
+    $values = [10, 30, 20];
+    for ($i = 0; $i < count($stages); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $stages[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    // 2. dia: jelenítse meg az első kategóriát felül.
+    $categorySlide = $presentation->getSlides()->addClone($slide);
+    $categoryChart = $categorySlide->getShapes()->get_Item(0);
+    $categoryChart->getAxes()->getVerticalAxis()->setPlotOrderReversed(true);
+    // Tartsa a vízszintes értéktengelyt alul.
+    $categoryChart->getAxes()->getVerticalAxis()->setCrossType(CrossesType::Maximum);
+
+    // 3. dia: csak a vízszintes numerikus skálát fordítsa meg.
+    $valueSlide = $presentation->getSlides()->addClone($slide);
+    $valueChart = $valueSlide->getShapes()->get_Item(0);
+    $valueChart->getAxes()->getHorizontalAxis()->setPlotOrderReversed(true);
+
+    $presentation->save("ReversedAxes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A tengely megfordítása a merőleges tengelyt is áthelyezheti a diagram ellenkező oldalára. A [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) határozza meg, hogy a másik tengely hol metszi a beállított tengelyt. A 2. dián a `CrossesType::Maximum` értékkel a megfordított kategóriatengelyen a vízszintes értéktengely alul marad. Egy adott metszéspont meghatározásához használja a [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/) metódust. Ellenőrizze a metszés beállításait az irányváltáskor, különösen ha a diagram már egyedi metszésponttal rendelkezik. A `setPlotOrderReversed` hívása `false` értékkel visszaállítja a normál rajzolási irányt; a metszési beállítások külön kezelendők.
+
+| Normál sorrend (1. dia) | Megfordított kategóriák (2. dia) | Megfordított értékek (3. dia) |
+| --- | --- | --- |
+| ![Vízszintes sávdiagram normál kategória- és értéktengely sorrenddel](axis-order-normal.png) | ![Vízszintes sávdiagram, ahol a kategóriák felülről lefelé jelennek meg](axis-order-categories-reversed.png) | ![Vízszintes sávdiagram megfordított értéktengellyel és nullával jobb oldalon](axis-order-values-reversed.png) |
+| A kategóriák alulról felfelé futnak; az értékek balról jobbra növekednek. | A tervezés, fejlesztés és tesztelés felülről lefelé fut. Az értékek és a munkafüzet sorrendje változatlan. | A kategóriák megtartják normál sorrendjüket; az értékek jobbról balra növekednek. A kategóriatengely a jobboldali nullánál metsződik. |
+
+## **A függőleges tengely letiltása vonaldiagramok esetén**
+
+Hívja meg a [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) metódust `false` értékkel a függőleges tengelyen, hogy elrejtse azt. A példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, és a függőleges tengely elrejtése után menti el.
 
 ```php
 use aspose\slides\ChartType;
@@ -105,9 +165,9 @@ try {
 }
 ```
 
-## **A vízszintes tengely letiltása vonaldiagramoknál**
+## **A vízszintes tengely letiltása vonaldiagramok esetén**
 
-Hívja meg a [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) metódust `false` értékkel a vízszintes tengelyen, hogy elrejtse azt. A példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, és a vízszintes tengely elrejtve menti.
+Hívja meg a [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) metódust `false` értékkel a vízszintes tengelyen, hogy elrejtse azt. A példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, és a vízszintes tengely elrejtése után menti el.
 
 ```php
 use aspose\slides\ChartType;
@@ -129,7 +189,7 @@ try {
 
 ## **Kategória tengely módosítása**
 
-Használja a [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) metódust, hogy dátum vagy szöveg kategória tengelyt válasszon. Ez a példa az `ExistingChart.pptx` fájlt igényli, amelynek első diáján az első alakzat egy diagram, és a kategória cellák numerikus Excel dátumértékeket tartalmaznak. A vízszintes tengelyt dátumtengelyre változtatja. A [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) `false`, a [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) `1`, és a [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) `TimeUnitType::Months` beállításával a fő jelölők egyhónapos intervalumokra kerülnek.
+Használja a [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) metódust dátum vagy szöveges kategória tengely kiválasztásához. Ez a példa az `ExistingChart.pptx` fájlt igényli, amelyben a diagram az első dia első alakja, és a kategória cellák numerikus Excel dátumértékeket tartalmaznak. A vízszintes tengelyt dátumtengelyre változtatja. A [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) `false`, a [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) `1`, és a [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) `TimeUnitType::Months` beállítása egyhónapos fő jelölőket helyez el.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -153,21 +213,21 @@ try {
 }
 ```
 
-## **Kategória tengely címke intervallumok vezérlése**
+## **Kategória tengely címkeintervallumok szabályozása**
 
-Ha egy diagramnak sok kategóriája van, csökkentse a látható tengelycímkék számát anélkül, hogy eltávolítaná a kategóriákat vagy adatpontokat. Hívja meg a [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) metódust `false`, majd adja meg a kívánt kategória intervallumot a [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/) számára. Szöveges kategóriák esetén a normál sorrendben a számlálás az első kategóriától indul:
+Amikor egy diagram sok kategóriát tartalmaz, csökkentse a látható tengelycímkék számát anélkül, hogy a kategóriákat vagy adatpontokat eltávolítaná. Hívja meg a [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) metódust `false` értékkel, majd adja át a kívánt kategória intervallumot a [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/) metódusnak. Szöveges kategóriák normál sorrendjében a számozás az első kategóriától indul:
 
-| Interval | Labels displayed in the example |
+| Intervallum | Példában megjelenített címkék |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | Kategória 1, Kategória 2, Kategória 3, ... Kategória 24 |
+| `2` | Kategória 1, Kategória 3, Kategória 5, ... Kategória 23 |
+| `3` | Kategória 1, Kategória 4, Kategória 7, ... Kategória 22 |
 
-A `3` intervallum minden harmadik címkét jeleníti meg, a megjelenő címkék között két címke marad rejtve. Nem távolítja el a megfelelő oszlopokat. Az automatikus távolság a rendelkezésre álló hely alapján választ intervallumot; nem feltétlenül jeleníti meg az összes címkét.
+A `3` intervallum minden harmadik címkét jelenít meg, két címke marad rejtve a megjelenített címkék között. Nem távolítja el a megfelelő oszlopokat. Az automatikus távolság a rendelkezésre álló hely alapján választ intervallumot; nem feltétlenül jeleníti meg az összes címkét.
 
-A jelölő vonalaknak külön vezérlése van. Hívja meg a [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) metódust `false`, és használja a [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) metódust az intervallum beállításához. Például a `1` azt eredményezi, hogy minden kategória intervallumban van jelölő vonal, míg a címkék csak minden harmadik kategórián jelennek meg. Használja a [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) metódust látható stílussal, hogy lássa az eredményt. Az automatikus beállítás újra `true`-ra állítása után a diagram újra kiválasztja az intervallumot.
+Az jelölőjeleknek külön vezérlése van. Hívja meg a [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) metódust `false` értékkel, és használja a [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) metódust az intervallum beállításához. Például a `1` minden kategória intervallumban egy jelölőjelet hagy, míg a címkék csak minden harmadik kategóriánál jelennek meg. A [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) látható stílusával láthatóvá teheti az eredményt. Az automatikus beállítót `true`-ra állítva a diagram újra kiválasztja az intervallumot.
 
-Az alábbi önálló példa 24 kategóriát és egy sorozatot hoz létre, majd három diát ment a `CategoryAxisIntervals.pptx` fájlba: automatikus távolság, kézi címke távolság független jelölő vonalakkal, és visszaállított automatikus távolság. A két másolat megőrzi az eredeti diagram adatokat. Bemutató bemenet nem szükséges. A vízszintes címke szövege megkönnyíti a sűrűség különbségének észlelését.
+Az alábbi önálló példa 24 kategóriát és egy sorozatot hoz létre, majd három diát ment el a `CategoryAxisIntervals.pptx` fájlba: automatikus távolság, kézi címke távolság független jelölőjelekkel, és visszaállított automatikus távolság. A két másolat megtartja az eredeti diagram adatokat. Bemeneti prezentáció nem szükséges. A vízszintes címkék szövege megkönnyíti a sűrűség észlelését.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -205,7 +265,7 @@ try {
     $axis->setAutomaticTickLabelSpacing(true);
     $axis->setAutomaticTickMarksSpacing(true);
 
-    // 2. dia: minden harmadik címkét mutassa, de minden kategóriához tartson meg egy jelölő vonalat.
+    // 2. dia: jelenítse meg minden harmadik címkét, de tartsa meg a jelölőjelet minden kategóriához.
     $manualSlide = $presentation->getSlides()->addClone($slide);
     $manualChart = $manualSlide->getShapes()->get_Item(0);
     $manualAxis = $manualChart->getAxes()->getHorizontalAxis();
@@ -214,7 +274,7 @@ try {
     $manualAxis->setAutomaticTickMarksSpacing(false);
     $manualAxis->setTickMarksSpacing(1);
 
-    // 3. dia: hagyja, hogy a diagram újra kiválassza mindkét intervallumot.
+    // 3. dia: engedje, hogy a diagram újra kiválassza mindkét intervallumot.
     $restoredSlide = $presentation->getSlides()->addClone($manualSlide);
     $restoredChart = $restoredSlide->getShapes()->get_Item(0);
     $restoredChart->getAxes()->getHorizontalAxis()->setAutomaticTickLabelSpacing(true);
@@ -226,23 +286,23 @@ try {
 }
 ```
 
-**Automatikus távolság (1. dia):** Ebben a megjelenítésben minden második kategória címke látható, és két sorra törik. Az automatikus eredmény a diagram méretétől, betűtípusától és a renderertől függően változhat.
+**Automatikus térköz (1. dia):** Ebben a megjelenítésben minden második kategória címke látható, és két sorba törik. Az automatikus eredmény a diagram méretétől, a betűtípusoktól és a renderertől függően változhat.
 
-![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+![Automatikus kategória címke távolság, az összes 24 oszlop látható](category-axis-automatic.png)
 
-**Kézi távolság (2. dia):** Minden harmadik címke jelenik meg egy sorban, míg a jelölő vonalak minden kategória intervallumban maradnak. Az összes 24 oszlop, beleértve a címke nélküli oszlopokat is, látható ugyanazzal az értékkel. A 3. dia visszaállítja a fenti automatikus megjelenést.
+**Kézi térköz (2. dia):** Minden harmadik címke egy sorban jelenik meg, míg a jelölőjelek minden kategória intervallumban maradnak. Az összes 24 oszlop, beleértve a címkék nélküli oszlopokat is, látható marad ugyanazzal az értékkel. A 3. dia visszaállítja a fent bemutatott automatikus megjelenést.
 
-![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+![Kézi háromas kategória címke intervallum, az összes 24 oszlop látható](category-axis-manual.png)
 
 ### **A megfelelő tengely és intervallum kiválasztása**
 
-Használja ezt a kategória‑szám intervallumot szöveg kategória tengelyhez, például oszlop-, vonal-, terület- vagy sávdiagramok kategória tengelyéhez. Oszlopdiagramnál ez a vízszintes tengely. Vízszintes sávdiagramnál a kategória tengely függőleges, ezért alkalmazza ezeket a beállításokat a [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/) által visszaadott tengelyhez. A jelölő vonal távolság vonatkozik sorozat tengelyre is azon diagramoknál, amelyeknek van ilyen.
+Használja ezt a kategóriaszám-intervallumot szöveges kategória tengelyhez, például oszlop, vonal, terület vagy sáv diagram kategóriatengelyéhez. Oszlopdiagram esetén ez a vízszintes tengely. Vízszintes sávdiagram esetén a kategóriatengely függőleges, ezért alkalmazza ezeket a beállításokat a [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/) által visszaadott tengelyre. Jelölőjelek távolsága egy sorozat tengelyre is vonatkozik azokban a diagramokban, amelyek ilyen tengelyt tartalmaznak.
 
-Ne használjon kategória címke távolságot a numerikus skála beállításához egy értéktengelyen. Egy értéktengelyen a [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) a különbséget adja meg értékekben: például a `10` fő egység 0, 10, 20 stb. jelölőket hoz létre, ha a tengely nulláról indul. A `3` kategória címke intervallum a kategóriahelyeket számolja, függetlenül az adatértékektől. Szórt és buborék diagramok értéktengelyeket használnak, nem szöveg kategória tengelyt. Dátumtengely esetén használjon időalapú fő egységeket és skálákat, ahogyan a [Change a Category Axis](#change-a-category-axis) részben le van írva.
+Ne használja a kategória címke távolságát az értéktengely numerikus skálájának beállítására. Egy értéktengelyen a [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) a játékos egységkülönbséget határozza meg: például a `10` fő egység 0, 10, 20 stb. jelölőket hoz létre, ha a tengely nulláról indul. A `3` kategória címke intervallum ezzel szemben a kategória pozíciókat számolja, függetlenül az adatértékektől. Szórt és buborék diagramok értéktengelyeket használnak, nem szöveges kategória tengelyt. Dátumtengely esetén használjon időalapú fő egységeket és skálákat, ahogy a [Kategória tengely módosítása](#change-a-category-axis) részben le van írva.
 
-## **A dátumformátum beállítása a kategória tengely értékeihez**
+## **A kategória tengely értékek dátumformátumának beállítása**
 
-A példa az alapértelmezett diagram adatokat négy éves értékkel helyettesíti. A dátumok OLE Automation sorozatszámként vannak tárolva az első munkalapon (index `0`), ami a 1899. december 30. óta eltelt napok száma. Használja a [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) metódust `CategoryAxisType::Date` értékkel, hívja a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) metódust `false` értékkel, és adja meg a `yyyy` formátumot a [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) metódusnak, hogy a kategória címkék négyjegyű évszámot jelenítsenek meg a cella formázásától függetlenül.
+A példa az alapértelmezett diagram adatot négy éves értékkel helyettesíti. A dátumok OLE Automation sorozatszámként tárolódnak az első munkalapon (index `0`), a 1899. december 30. óta eltelt napok számaként számítva. Használja a [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) metódust `CategoryAxisType::Date` értékkel, hívja a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) metódust `false` értékkel, és adja át a `yyyy` formátumot a [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) metódusnak, hogy a kategória címkék négy számjegyű évet jelenítsenek meg a cella formázásától függetlenül.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -285,9 +345,9 @@ try {
 }
 ```
 
-## **Forgatási szög beállítása egy diagram tengely címéhez**
+## **Tengelycím forgatási szögének beállítása**
 
-Hívja meg a [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) metódust `true` értékkel a függőleges tengelyen, adja meg a cím szövegét, majd használja a [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) metódust a cím elforgatásához. A szög fokban van megadva; ez a példa egy oszlopdiagramot ment, amelynek értéktengely címkéje 90 fokkal van elfordítva.
+Hívja meg a [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) metódust `true` értékkel a függőleges tengelyen, adja meg a cím szövegét, és használja a [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) metódust a cím forgatásához. A szög fokban van megadva; ez a példa egy oszlopdiagramot ment el, amelynek értéktengely címe 90 fokban van elforgatva.
 
 ```php
 use aspose\slides\ChartType;
@@ -309,9 +369,9 @@ try {
 }
 ```
 
-## **A tengely pozíciójának beállítása egy kategória vagy értéktengelyen**
+## **Tengely pozíciójának beállítása kategória vagy értéktengelyen**
 
-Használja a [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) metódust annak szabályozására, hogy az értéktengely a kategóriatengelyen a kategóriák között vagy a kategória jelölőpontokon keresztül metszi-e. Ez a beállítás csak kategóriatengelyekre vonatkozik. A példa `true` értékkel állítja be a vízszintes kategóriatengelyen egy oszlopdiagramon, és elmenti az eredményt.
+Használja a [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) metódust annak szabályozásához, hogy az értéktengely a kategóriatengely közötti kategóriák vagy a kategória jelölőjelek között metsze-e. Ez a beállítás a kategóriatengelyekre vonatkozik. A példa a vízszintes kategóriatengelyen `true` értékkel állítja be, egy oszlopdiagramon, és elmenti az eredményt.
 
 ```php
 use aspose\slides\ChartType;
@@ -331,9 +391,9 @@ try {
 }
 ```
 
-## **Megjelenítési egység beállítása egy diagram értéktengelyén**
+## **Megjelenítési egység beállítása diagram értéktengelyen**
 
-Használja a [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) metódust a címkék skálázására egy értéktengelyen anélkül, hogy az alapszámokat módosítaná. A [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) `Millions` beállításával a 60 000 000 érték 60‑ként jelenik meg. A példa egy oszlopdiagramot hoz létre, és a függőleges tengelyén a millió egységet alkalmazza.
+Használja a [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) metódust a címkék skálázásához egy értéktengelyen anélkül, hogy az alapadatok változnának. A [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) `Millions` beállításával a 60 000 000 érték 60‑ként jelenik meg. A példa egy oszlopdiagramot hoz létre, és a millió egységet alkalmazza a függőleges tengelyén.
 
 ```php
 use aspose\slides\ChartType;
@@ -354,21 +414,21 @@ try {
 }
 ```
 
-## **Logaritmikus értéktengely konfigurálása**
+## **Logaritmikus értéktengely beállítása**
 
-A logaritmikus értéktengely hasznos, ha a pozitív értékek több nagyságrendet fednek le. Például egy szolgáltatás 10, 100, 1 000, 10 000 és 100 000 kérést kaphat öt periódus alatt. Lineáris skálán a kisebb értékek közel jelennek meg a nullához. A logaritmikus skála a relatív növekedést könnyebben összehasonlíthatóvá teszi: az egyenlő távolságok egyenlő arányokat jelentenek, nem egyenlő különbségeket.
+Egy logaritmikus értéktengely hasznos, ha a pozitív értékek több nagyságrendet fednek le. Például egy szolgáltatás öt időszakban 10, 100, 1 000, 10 000 és 100 000 kérést kaphat. Lineáris skálán a kisebb értékek közel jelennek meg a nullához. A logaritmikus skála a relatív növekedést könnyebben összehasonlíthatóvá teszi: az egyenlő távolságok egyenlő arányokat, nem egyenlő különbségeket jelentenek.
 
-Hívja meg a [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) metódust `true` értékkel az értéktengelyen, és használja a [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) metódust az alap kiválasztásához. Ez megváltoztatja a meglévő értékek megjelenítését; nem módosítja az adatokat, és nem ad hozzá logaritmikus trendvonalat. A trendvonal az adatokhoz illesztett kapcsolatot jelöli, és külön funkció.
+Hívja meg a [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) metódust `true` értékkel az értéktengelyen, és használja a [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) metódust az alap kiválasztásához. Ez megváltoztatja a meglévő értékek megjelenítését; nem változtatja az adatokat, és nem ad hozzá logaritmikus trendvonalat. A trendvonal az adatokban illeszkedő kapcsolatot ábrázolja, és külön funkció.
 
 ### **Az értéktengely és az alap kiválasztása**
 
-Vonal- vagy oszlopdiagram esetén az értéktengely a [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/) által visszaadott. Vízszintes sávdiagramnál a [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/) adja vissza. Szórt és buborék diagramok két értéktengellyel rendelkeznek, így az X‑értékekhez a vízszintes, a Y‑értékekhez a függőleges tengelyt kell választani, vagy mindkettőt. Ne alkalmazzon logaritmikus skálázást kategóriatengelyen.
+Vonall vagy oszlop diagram esetén az értéktengelyt a [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/) metódus adja vissza. Vízszintes sávdiagram esetén a [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/) adja vissza. Szórt és buborék diagramok két értéktengellyel rendelkeznek, ezért válassza a vízszintes tengelyt az X értékekhez, a függőleges tengelyt a Y értékekhez, vagy mindkettőt. Ne alkalmazzon logaritmikus skálázást kategóriatengelyen.
 
-Az alapértelmezett logaritmikus alap `10`. PPTX diagramok esetén a `2`‑től `1000`‑ig terjedő, inkluzív egész számokat, valamint a tört értékeket, például `2.5`, is használhatja. A `10` alap esetén a sorozatos hatványok (10, 100, 1 000, 10 000) egyenlően vannak elosztva.
+Az alapértelmezett logaritmikus alap a `10`. PPTX diagramok esetén az `2`‑tól `1000`‑ig terjedő értéket használhat, a tört alapok, például a `2.5` is támogatott. A `10` alappal a sorozatos hatványok, mint 10, 100, 1 000 és 10 000 egyenlő távolságra helyezkednek el.
 
 ### **Lineáris és logaritmikus skálázás összehasonlítása**
 
-Az alábbi önálló példa egy vonaldiagramot hoz létre az öt kérés számával az első dián, majd másolja azt, és a második dián engedélyezi a 10‑es alapú logaritmikus értéktengelyt. Mindkét dia ugyanazt az adatot tartalmazza.
+Az alábbi önálló példa egy vonaldiagramot hoz létre az öt kérésszámmal az első dián, majd lemásolja azt, és a második dián a 10‑es alapú logaritmikus értéktengelyt engedélyezi. Mindkét dia azonos adatot tartalmaz.
 
 ```php
 use aspose\slides\ChartType;
@@ -400,7 +460,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // Tartsa az első diát lineárisnak, és csak a másolat értéktengely skáláját változtassa meg.
+    // Tartsa az első diát lineárisnak, és csak a másolat értéktengelyének skáláját változtassa meg.
     $logarithmicSlide = $presentation->getSlides()->addClone($slide);
     $logarithmicChart = $logarithmicSlide->getShapes()->get_Item(0);
     $valueAxis = $logarithmicChart->getAxes()->getVerticalAxis();
@@ -413,24 +473,24 @@ try {
 }
 ```
 
-**Lineáris skála (1. dia):** Az egyenlő függőleges távolságok egyenlő különbségeket jelentenek a kérés számában. A legnagyobb érték dominálja a diagramot, a kisebb értékek nehezen láthatóak.
+**Lineáris skála (1. dia):** Az egyenlő függőleges távolságok egyenlő különbségeket jelentenek a kérésszámok között. A legnagyobb érték uralja a diagramot, ezért a kisebb értékek nehezen megkülönböztethetők.
 
-![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
+![Vonaldiagram PowerPointban, amely öt kérésszámot mutat lineáris értéktengelyen](value-axis-linear.png)
 
-**Logaritmikus skála (2. dia):** Az egyenlő függőleges távolságok egyenlő arányokat jelentenek. Minden periódus tízszer több kérést tartalmaz, mint az előző, ezért a pontok egy egyenes vonalat alkotnak a 10‑es alapú skálán. A tengelycímkék továbbra is az eredeti kérés számokat mutatják.
+**Logaritmikus skála (2. dia):** Az egyenlő függőleges távolságok egyenlő arányokat jelentenek. Minden időszak a előzőnél tízszer több kérést kap, ezért a pontok egyenes, emelkedő vonalat alkotnak a 10‑es alapú skálán. A tengelycímkék továbbra is az eredeti kérésszámokat mutatják.
 
-![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+![Ugyanaz az öt kérésszám PowerPointban, alap-10 logaritmikus értéktengelyen](value-axis-logarithmic.png)
 
 ### **Nulla és negatív értékek kezelése**
 
-A logaritmikus skála csak szigorúan pozitív értékeket képes megjeleníteni. Ellenőrizze az adatokat a bekapcsolása előtt. Ha a nulla vagy a negatív értékek jelentősek, használjon lineáris skálát, vagy jelenítse meg őket külön. Ha az értékek kizárása indokolt az elemzéshez, magyarázza el a kivételt. Ne cserélje szívesen a nullákat vagy negatív értékeket kis pozitív számokra, mert ez megváltoztatja az adatok jelentését. Bármely kézzel beállított minimum vagy maximum egy logaritmikus tengelyen is pozitívnak kell lennie.
+Egy logaritmikus skála csak szigorúan pozitív értékeket jeleníthet meg. Ellenőrizze az adatokat, mielőtt engedélyezi. Ha a nulla vagy a negatív értékek jelentősek, tartsa meg a lineáris skálát, vagy jelenítse meg őket külön. Ha a kizárásuk megfelelő az elemzéshez, magyarázza meg az elhagyást. Ne cserélje őket néma módon kis pozitív számokra, mert ez megváltoztatja az adatok jelentését. Bármely manuálisan beállított minimum vagy maximum logaritmikus tengelyen szintén pozitívnak kell lennie.
 
-## **GYIK**
+## **FAQ**
 
-**Hogyan állíthatom be azt az értéket, ahol egy tengely a másikat metszik (tengelykereszt)?**
+**Hogyan állíthatom be, hogy egy tengely hol metszéssel a másikhoz (tengelymetszés)?**
 
-Használja a [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) metódust a keresztezési viselkedés kiválasztásához. Numerikus keresztezési érték megadásához használja a [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/) metódust. Ezek a beállítások lehetővé teszik a tengelykereszt elhelyezését egy megfelelő kiindulópontra.
+Használja a [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) metódust a metszés viselkedésének kiválasztásához. Numerikus metszéspont megadásához használja a [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/) metódust. Ezek a beállítások lehetővé teszik, hogy a tengelymetszést megfelelő alapvonalra helyezze.
 
-**Hogyan helyezhetem el a jelölőcímkéket a tengelyhez viszonyítva?**
+**Hogyan helyezhetem el a jelölőcímkéket a tengelyhez képest?**
 
-Hívja meg a [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) metódust a [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/) értékekkel: `Low`, `High`, `NextTo` vagy `None`. A jelölővonalak vezérléséhez használja a [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) vagy a [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/) metódusokat; ezek különállóak a címke pozicionálásától.
+Hívja meg a [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) metódust a [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/) segítségével: `Low`, `High`, `NextTo` vagy `None`. A jelölőjelek saját beállításához használja a [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) vagy a [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/) metódusokat; ezek különállóak a címke pozicionálásától.

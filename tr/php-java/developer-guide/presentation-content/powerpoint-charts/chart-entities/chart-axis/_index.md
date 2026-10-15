@@ -21,17 +21,17 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Raporlar ve görselleştirmeler için PowerPoint sunumlarında grafik eksenlerini özelleştirmek amacıyla Java aracılığıyla PHP için Aspose.Slides kullanımını keşfedin."
+description: "Raporlar ve görselleştirmeler için PowerPoint sunumlarında grafik eksenlerini özelleştirmek üzere Java aracılığıyla PHP için Aspose.Slides kullanımını keşfedin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for PHP via Java kullanarak grafik eksenlerini nasıl özelleştireceğinizi açıklar. Hesaplanan eksen değerleri, grafik satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve işaretleme aralıkları, tarih kategorileri ve biçimlendirme, başlık dönüşü, eksen konumlandırma, görüntü birimleri ve logaritmik ölçeklendirme konularını kapsar.
+Bu makale, Aspose.Slides for PHP via Java ile grafik eksenlerini nasıl özelleştireceğinizi açıklar. Hesaplanmış eksen değerleri, grafik satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve tik işareti aralıkları, tarih kategorileri ve biçimlendirme, başlık döndürme, eksen konumlandırma, gösterim birimleri ve logaritmik ölçeklendirme konularını kapsar.
 
-## **Grafiklerde Dikey Eksenin Azami Değerlerini Almak**
+## **Grafiklerde Dikey Eksende Maksimum Değerleri Almak**
 
-Bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) oluşturun ve varsayılan verilerle bir alan grafiği ekleyin. Hesaplanan eksen değerlerini okumadan önce grafiğin düzeninin güncel olduğundan emin olmak için [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) metodunu çağırın.
+Bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) oluşturun ve varsayılan veri ile bir alan grafik ekleyin. Hesaplanmış eksen değerlerini okumadan önce grafik düzeninin güncel olduğundan emin olmak için [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) metodunu çağırın.
 
-Eksen sınırları için [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) ve [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) metodlarını, işaretleme aralıkları için [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) ve [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) metodlarını okuyun. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) ve [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) zaman birimi ölçeklerini sağlar; bunlar tarih eksenleriyle ilgilidir. Örnek, bu değerleri yerel değişkenlerde saklar ve grafiği kaydeder.
+Eksen sınırları için [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) ve [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) metodlarını okuyun, tik aralıkları için ise [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) ve [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) metodlarını kullanın. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) ve [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) tarih eksenleri için geçerli zaman birimi ölçeklerini sağlar. Örnek, bu değerleri yerel değişkenlerde saklar ve grafik kaydeder.
 
 ```php
 use aspose\slides\ChartType;
@@ -59,10 +59,9 @@ try {
     $presentation->dispose();
 }
 ```
-
 ## **Eksenler Arasındaki Verileri Değiştir**
 
-Grafik verilerinde seri ve kategorilerin rollerini değiştirmek için [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) metodunu kullanın. Her eski kategori bir seri, her eski seri ise bir kategori haline gelir. Bu, verilerin nasıl gruplanacağını değiştirir; yatay ve dikey eksenleri değiştirmez. Örnek, satır ve sütunları değiştirmeden önce varsayılan verileri `Sheet1!A1:D5` adresine, başlık satırı ve kategori sütunu da dahil olmak üzere bağlamak için [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) metodunu kullanır. Dört seri ve üç kategori içeren bir grafik kaydeder.
+[switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) metodunu kullanarak grafik verilerinde seriler ve kategorilerin rollerini değiştirin. Önceki her kategori bir seri, önceki her seri bir kategori olur. Bu, verilerin gruplanma şeklini değiştirir; yatay ve dikey eksenleri değiştirmez. Örnek, satır ve sütunları değiştirmeden önce varsayılan verileri `Sheet1!A1:D5` adresine (başlık satırı ve kategori sütunu dahil) bağlamak için [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) metodunu kullanır. Dört seri ve üç kategori içeren bir grafik kaydeder.
 
 ```php
 use aspose\slides\ChartType;
@@ -82,10 +81,68 @@ try {
     $presentation->dispose();
 }
 ```
+## **Bir Eksenin Çizim Sırasını Tersine Çevir**
 
-## **Çizgi Grafiklerinde Dikey Eksen'i Devre Dışı Bırak**
+[setPlotOrderReversed](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setplotorderreversed/) metodunu kullanarak bir kategori veya değer ekseninin çizim yönünü tersine çevirin. Örneğin, bir yatay çubuk grafik, proje aşamalarını çalışma sayfasındaki aynı sırada, üstten alta: Planlama, Geliştirme, Test olarak gösterebilir. Bir ekseni tersine çevirmek çizim yönünü değiştirir; çalışma sayfası verilerini sıralamaz ya da yeniden düzenlemez. Buna karşılık, [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) seriler ve kategorilerin rollerini değiştirir.
 
-Dikey eksende gizlemek için `false` değerini kullanarak [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) metodunu çağırın. Örnek, varsayılan verilerle bir çizgi grafiği oluşturur ve dikey ekseni gizli olarak kaydeder.
+Aşağıdaki örnek, üç aşama ve bir seriden oluşan bir yatay çubuk grafik oluşturur. Normal sıra, ters kategoriler ve ters değerler olmak üzere üç slayt içeren bir sunum kaydeder. Her kopya aynı veri kümesini kullanır ve her kopyada yalnızca bir eksen tersine çevrilir.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\CrossesType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredBar, 50, 40, 620, 320);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::ClusteredBar);
+    $stages = ["Planning", "Development", "Testing"];
+    $values = [10, 30, 20];
+    for ($i = 0; $i < count($stages); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $stages[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    // Slayt 2: ilk kategoriyi üstte göster.
+    $categorySlide = $presentation->getSlides()->addClone($slide);
+    $categoryChart = $categorySlide->getShapes()->get_Item(0);
+    $categoryChart->getAxes()->getVerticalAxis()->setPlotOrderReversed(true);
+    // Yatay değer eksenini altta tut.
+    $categoryChart->getAxes()->getVerticalAxis()->setCrossType(CrossesType::Maximum);
+
+    // Slayt 3: yalnızca yatay sayısal ölçeği tersine çevir.
+    $valueSlide = $presentation->getSlides()->addClone($slide);
+    $valueChart = $valueSlide->getShapes()->get_Item(0);
+    $valueChart->getAxes()->getHorizontalAxis()->setPlotOrderReversed(true);
+
+    $presentation->save("ReversedAxes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+Bir ekseni tersine çevirmek, dikey ekseni çizimin karşı tarafına taşıyabilir. [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) metoduyla yapılandırılan eksenin diğer ekseni nerede kesişeceği kontrol edilir. 2. slaytta, ters kategori ekseninde `CrossesType::Maximum` ile çağrıldığında yatay değer ekseni altta kalır. Belirli bir kesişme noktası için [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/) kullanın. Yön değiştirirken, özellikle grafiğin zaten özel bir kesişme noktasına sahip olması durumunda, kesişme ayarlarını kontrol edin. Normal çizim yönünü geri getirmek için `setPlotOrderReversed` metodunu `false` ile çağırın; kesişme ayarları ayrı tutulur.
+
+| Normal sıra (slayt 1) | Ters kategoriler (slayt 2) | Ters değerler (slayt 3) |
+| --- | --- | --- |
+| ![Normal kategori ve değer eksen sırası ile yatay çubuk grafik](axis-order-normal.png) | ![Kategoriler üstten alta gösterilen yatay çubuk grafik](axis-order-categories-reversed.png) | ![Ters değer ekseni ve sağda sıfır ile yatay çubuk grafik](axis-order-values-reversed.png) |
+| Kategoriler alttan üste doğru; değerler soldan sağa artar. | Planlama, Geliştirme ve Test üstten aşağı doğru. Değerler ve çalışma sayfası satır sırası değişmemiştir. | Kategoriler normal sıralarını korur; değerler sağdan sola artar. Kategori ekseni sağda sıfırda kesişir. |
+
+## **Çizgi Grafiklerde Dikey Eksen'i Devre Dışı Bırak**
+
+Dikey eksende `false` ile [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) metodunu çağırarak onu gizleyin. Örnek, varsayılan veri ile bir çizgi grafik oluşturur ve dikey ekseni gizli olarak kaydeder.
 
 ```php
 use aspose\slides\ChartType;
@@ -104,10 +161,9 @@ try {
     $presentation->dispose();
 }
 ```
+## **Çizgi Grafiklerde Yatay Eksen'i Devre Dışı Bırak**
 
-## **Çizgi Grafiklerinde Yatay Eksen'i Devre Dışı Bırak**
-
-Yatay eksende gizlemek için `false` değerini kullanarak [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) metodunu çağırın. Örnek, varsayılan verilerle bir çizgi grafiği oluşturur ve yatay ekseni gizli olarak kaydeder.
+Yatay eksende `false` ile [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) metodunu çağırarak gizleyin. Örnek, varsayılan veri ile bir çizgi grafik oluşturur ve yatay ekseni gizli olarak kaydeder.
 
 ```php
 use aspose\slides\ChartType;
@@ -126,10 +182,9 @@ try {
     $presentation->dispose();
 }
 ```
+## **Bir Kategori Ekseni Değiştir**
 
-## **Kategori Ekseni Değiştir**
-
-Bir tarih veya metin kategori ekseni seçmek için [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) metodunu kullanın. Bu örnek, ilk slayttaki ilk şekil olarak bir grafik içeren ve kategori hücreleri sayısal Excel tarih değerleri içeren `ExistingChart.pptx` dosyasını gerektirir. Yatay ekseni tarih ekseni olarak değiştirir. [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) metodunu `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) metodunu `1` ve [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) metodunu `TimeUnitType::Months` ile çağırmak, büyük işaretçileri bir‑aylık aralıklarla yerleştirir.
+[setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) metodunu kullanarak tarih ya da metin kategori ekseni seçebilirsiniz. Bu örnek, ilk slayttaki ilk şekil olarak bir grafik içeren ve kategori hücrelerinin sayısal Excel tarih değerleri içerdiği `ExistingChart.pptx` dosyasını gerektirir. Yatay ekseni bir tarih ekseni olarak değiştirir. [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) metodunu `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) metodunu `1` ve [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) metodunu `TimeUnitType::Months` ile çağırmak, ana tik işaretlerini bir aylık aralıklara yerleştirir.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -152,22 +207,21 @@ try {
     $presentation->dispose();
 }
 ```
+## **Kategori Ekseni Etiket Aralıklarını Kontrol Et**
 
-## **Kategori Eksen Etiketi Aralıklarını Kontrol Et**
+Bir grafikte çok sayıda kategori olduğunda, kategori ya da veri noktalarını kaldırmadan görünür eksen etiketlerinin sayısını azaltın. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) metodunu `false` ile çağırın, ardından istediğiniz kategori aralığını [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/) metoduna aktarın. Normal sıradaki metin kategorileri için sayım ilk kategoriden başlar:
 
-Bir grafikte çok sayıda kategori olduğunda, kategorileri veya veri noktalarını kaldırmadan görünür eksen etiketlerinin sayısını azaltın. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) metodunu `false` ile çağırın, ardından istediğiniz kategori aralığını [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/) metoduna iletin. Normal sıradaki metin kategorileri için sayma ilk kategoriden başlar:
-
-| Aralık | Örnekte gösterilen etiketler |
+| Aralık | Örnekte görüntülenen etiketler |
 | --- | --- |
 | `1` | Kategori 1, Kategori 2, Kategori 3, ... Kategori 24 |
 | `2` | Kategori 1, Kategori 3, Kategori 5, ... Kategori 23 |
 | `3` | Kategori 1, Kategori 4, Kategori 7, ... Kategori 22 |
 
-`3` aralığı her üçüncü etiketi gösterir, gösterilen etiketler arasında iki etiket gizli kalır. İlgili sütunları kaldırmaz. Otomatik aralık, kullanılabilir alana göre bir aralık seçer; her etiketi zorunlu olarak göstermez.
+`3` aralığı her üçüncü etiketi gösterir, gösterilen etiketler arasında iki etiket gizli kalır. İlgili sütunları kaldırmaz. Otomatik aralık, mevcut alana göre bir aralık seçer; mutlaka tüm etiketleri göstermez.
 
-İşaretleme çizgileri ayrı kontrolere sahiptir. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) metodunu `false` ile çağırın ve aralığını ayarlamak için [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) metodunu kullanın. Örneğin, `1` her kategori aralığında bir işaretleme bırakırken, etiketler sadece her üçüncü kategoride görülür. Görünür bir stil ile [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) metodunu kullanarak sonucu görebilirsiniz. Otomatik‑aralık ayarlayıcısını `true` ile tekrar çağırmak, grafiğin tekrar o aralığı seçmesini sağlar.
+Tik işaretlerinin ayrı kontrolleri vardır. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) metodunu `false` ile çağırın ve aralığı ayarlamak için [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) metodunu kullanın. Örneğin, `1` her kategori aralığında bir tik işareti bırakırken etiketler yalnızca her üçüncü kategoride görünür. Görünür bir stil ile [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) metodunu kullanın. Otomatik-aralık ayarını `true` yaparak tekrar çağırmak, grafiğin aralığı yeniden seçmesini sağlar.
 
-İzleyen bağımsız örnek 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız işaretleme çizgileriyle manuel etiket aralığı ve geri yüklenmiş otomatik aralık. İki kopya orijinal grafik verilerini korur. Giriş sunumu gerekmez. Yatay etiket metni yoğunluk farkını kolayca görmenizi sağlar.
+Aşağıdaki bağımsız örnek 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız tik işaretleri ile manuel etiket aralığı ve geri yüklenen otomatik aralık. İki kopya orijinal grafik verisini korur. Giriş sunumu gerekmez. Yatay etiket metni, yoğunluktaki farkı kolayca görmenizi sağlar.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -205,7 +259,7 @@ try {
     $axis->setAutomaticTickLabelSpacing(true);
     $axis->setAutomaticTickMarksSpacing(true);
 
-    // Slide 2: her üçüncü etiketi göster, ancak her kategori için bir işaretleme tut.
+    // Slayt 2: her üçüncü etiketi göster, ancak her kategori için bir tik işareti tut.
     $manualSlide = $presentation->getSlides()->addClone($slide);
     $manualChart = $manualSlide->getShapes()->get_Item(0);
     $manualAxis = $manualChart->getAxes()->getHorizontalAxis();
@@ -214,7 +268,7 @@ try {
     $manualAxis->setAutomaticTickMarksSpacing(false);
     $manualAxis->setTickMarksSpacing(1);
 
-    // Slide 3: grafiğin her iki aralığı da tekrar seçmesine izin ver.
+    // Slayt 3: grafiğin her iki aralığı da tekrar seçmesine izin ver.
     $restoredSlide = $presentation->getSlides()->addClone($manualSlide);
     $restoredChart = $restoredSlide->getShapes()->get_Item(0);
     $restoredChart->getAxes()->getHorizontalAxis()->setAutomaticTickLabelSpacing(true);
@@ -226,23 +280,23 @@ try {
 }
 ```
 
-**Otomatik aralık (slayt 1):** Bu görüntüde, her ikinci kategori etiketi gösterilir ve iki satıra kayar. Otomatik sonuç, grafik boyutu, fontlar ve işleyiciye göre değişebilir.
+**Otomatik aralık (slayt 1):** Bu renderda, her ikinci kategori etiketi görüntülenir ve iki satıra döner. Otomatik sonuç grafik boyutu, yazı tipleri ve renderleyiciye bağlı olarak değişebilir.
 
 ![Tüm 24 sütun görünürken otomatik kategori etiketi aralığı](category-axis-automatic.png)
 
-**Manuel aralık (slayt 2):** Her üçüncü etiket bir satırda gösterilir, işaretleme çizgeleri ise her kategori aralığında kalır. Etiketsiz olanlar da dahil olmak üzere tüm 24 sütun aynı değerlerle görünür kalır. Slayt 3, yukarıda gösterilen otomatik görünümü geri getirir.
+**Manuel aralık (slayt 2):** Her üçüncü etiket tek satırda gösterilir, tik işaretleri ise her kategori aralığında kalır. Etiketsiz olanlar da dahil olmak üzere tüm 24 sütun aynı değerlerle görünür. 3. slayt, yukarıdaki otomatik görünümü geri yükler.
 
-![Manuel kategori etiketi üç aralıkla tüm 24 sütun görünür](category-axis-manual.png)
+![Tüm 24 sütun görünürken üçlü manuel kategori etiketi aralığı](category-axis-manual.png)
 
 ### **Doğru Eksen ve Aralığı Seç**
 
-Bu kategori‑sayısı aralığını, bir sütun, çizgi, alan veya çubuk grafiğin kategori ekseni gibi bir metin kategori ekseni için kullanın. Bir sütun grafiğinde, bu yatay eksen olur. Yatay çubuk grafiğinde kategori ekseni dikeydir, bu yüzden bu ayarları [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/) metodunun döndürdüğü eksene uygulayın. İşaretleme aralığı, bir seri eksenine sahip grafiklerde de geçerlidir.
+Bu kategori-sayısı aralığını metin kategori ekseni için kullanın; örneğin sütun, çizgi, alan veya çubuk grafiğin kategori ekseni. Bir sütun grafiğinde yatay eksen olur. Yatay çubuk grafiğinde kategori ekseni dikey olduğundan bu ayarları [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/) tarafından döndürülen eksene uygulayın. Tik işareti aralığı, bir seriye sahip grafiklerde seriler eksenine de uygulanır.
 
-Kategori etiketi aralığını, değer ekseninin sayısal ölçeğini ayarlamak için kullanmayın. Değer ekseninde, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) bir değer farkını belirtir: örneğin, `10` bir birim, eksen sıfırdan başlıyorsa 0, 10, 20 vb. gibi işaretler oluşturur. `3` bir kategori etiketi aralığı ise veri değerlerinden bağımsız olarak kategori konumlarını sayar. Dağılım ve balon grafikleri, metin kategori ekseni yerine değer eksenleri kullanır. Tarih ekseni için, [Kategori Eksenini Değiştir](#change-a-category-axis) bölümünde açıklandığı gibi zaman temelli büyük birimler ve ölçekler kullanın.
+Kategori etiketi aralığını, değer ekseninin sayısal ölçeğini ayarlamak için kullanmayın. Değer ekseninde, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) bir değer farkını belirtir: örneğin, `10` ana birim, eksen sıfırdan başladığında 0, 10, 20 vb. tick işaretleri oluşturur. `3` kategori etiketi aralığı ise veri değerlerinden bağımsız olarak kategori konumlarını sayar. Dağılım ve balon grafikler metin kategori ekseni yerine değer eksenleri kullanır. Tarih ekseni için, [Change a Category Axis](#change-a-category-axis) bölümünde açıklandığı gibi zaman tabanlı ana birimler ve ölçekler kullanın.
 
-## **Kategori Eksen Değerleri İçin Tarih Biçimini Ayarla**
+## **Kategori Ekseni Değerleri için Tarih Biçimini Ayarla**
 
-Örnek, varsayılan grafik verilerini dört yıllık değerle değiştirir. Tarihler, ilk çalışma sayfasında (`0` indeks) OLE Automation seri numaraları olarak depolanır; bu tarihler 30 Aralık 1899’dan itibaren geçen gün sayısıdır. [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) metodunu `CategoryAxisType::Date` ile kullanın, [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) metodunu `false` ile çağırın ve kategori etiketlerinin hücre biçimlendirmesinden bağımsız olarak dört basamaklı yıl göstermesi için `yyyy` değerini [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) metoduna iletin.
+Örnek, varsayılan grafik verisini dört yıllık değerle değiştirir. Tarihler, ilk çalışma sayfasında (indeks `0`) OLE Automation seri numaraları olarak depolanır; bu tarihler 30 Aralık 1899'dan itibaren geçen gün sayısı olarak hesaplanır. [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) metodunu `CategoryAxisType::Date` ile kullanın, [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) metodunu `false` ile çağırın ve kategori etiketlerinin hücre biçiminden bağımsız olarak dört basamaklı yıl gösterimi için `yyyy` değerini [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) metoduna geçirin.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -284,10 +338,9 @@ try {
     $presentation->dispose();
 }
 ```
+## **Grafik Ekseni Başlığı için Döndürme Açısı Ayarla**
 
-## **Grafik Eksen Başlığı İçin Döndürme Açısı Ayarla**
-
-Dikey eksende başlığı etkinleştirmek için `true` ile [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) metodunu çağırın, başlık metnini sağlayın ve başlığı döndürmek için [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) metodunu kullanın. Açı derece cinsindendir; bu örnek, değer‑ekseni başlığı 90 derece döndürülmüş bir sütun grafiği kaydeder.
+Dikey eksende `true` ile [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) metodunu çağırın, başlık metni sağlayın ve başlığı döndürmek için [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) metodunu kullanın. Açı derece cinsindedir; bu örnek, değer ekseni başlığı 90 derece döndürülmüş bir sütun grafik kaydeder.
 
 ```php
 use aspose\slides\ChartType;
@@ -308,10 +361,9 @@ try {
     $presentation->dispose();
 }
 ```
-
 ## **Kategori veya Değer Ekseninde Eksen Konumunu Ayarla**
 
-[setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) metodunu, değer ekseninin kategori eksenini kategoriler arasında mı yoksa kategori işaretlemelerinde mi kesişeceğini kontrol etmek için kullanın. Bu ayar kategori eksenlerine uygulanır. Örnek, bir sütun grafiğinin yatay kategori ekseninde bunu `true` olarak ayarlar ve sonucu kaydeder.
+[setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) metodunu kullanarak değer ekseninin kategori eksenini kategoriler arasında mı yoksa kategori tik işaretlerinde mi kesişeceğini kontrol edin. Bu ayar kategori eksenlerine uygulanır. Örnek, bir sütun grafiğin yatay kategori ekseninde bunu `true` olarak ayarlar ve sonucu kaydeder.
 
 ```php
 use aspose\slides\ChartType;
@@ -330,10 +382,9 @@ try {
     $presentation->dispose();
 }
 ```
+## **Grafik Değer Ekseninde Görüntüleme Birimini Ayarla**
 
-## **Grafik Değer Ekseninde Görüntü Birimini Ayarla**
-
-[setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) metodunu, altta yatan verileri değiştirmeden değer eksenindeki etiketleri ölçeklendirmek için kullanın. [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) `Millions` olarak ayarlandığında, 60.000.000 değeri 60 olarak gösterilir. Örnek, bir sütun grafiği oluşturur ve dikey eksenine milyon görüntü birimini uygular.
+[setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) metodunu kullanarak değer eksenindeki etiketleri temel veriyi değiştirmeden ölçeklendirin. [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) `Millions` olarak ayarlandığında, 60.000.000 değeri 60 olarak gösterilir. Örnek bir sütun grafik oluşturur ve dikey eksenine milyon birimini uygular.
 
 ```php
 use aspose\slides\ChartType;
@@ -353,22 +404,21 @@ try {
     $presentation->dispose();
 }
 ```
+## **Logaritmik Değer Ekseni Yapılandır**
 
-## **Logaritmik Değer Eksenini Yapılandır**
+Pozitif değerler birkaç mertebe büyüklük farkı gösterdiğinde logaritmik değer ekseni faydalıdır. Örneğin, bir hizmet beş dönem boyunca 10, 100, 1.000, 10.000 ve 100.000 istek alabilir. Doğrusal ölçekle küçük değerler sıfıra yakın bir arada görünür. Logaritmik ölçek, göreceli büyümeyi karşılaştırmayı kolaylaştırır: eşit mesafeler eşit oranları, eşit farkları değil gösterir.
 
-Pozitif değerler birkaç büyüklük mertebesi kapsadığında logaritmik değer ekseni faydalıdır. Örneğin, bir hizmet beş dönemde 10, 100, 1.000, 10.000 ve 100.000 istek alabilir. Doğrusal ölçekte, daha küçük değerler sıfıra yakın bir yerde sıkışık görünür. Logaritmik ölçek, büyüme oranlarını karşılaştırmayı kolaylaştırır: eşit mesafeler eşit oranları temsil eder, eşit farkları değil.
-
-Değer ekseninde logaritmik özelliği etkinleştirmek için [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) metodunu `true` ile çağırın ve tabanı seçmek için [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) metodunu kullanın. Bu, mevcut değerlerin gösterilme şeklini değiştirir; verileri değiştirmez veya logaritmik bir trend çizgisi eklemez. Trend çizgisi, verideki uyarlanmış ilişkiyi temsil eder ve ayrı bir özelliktir.
+Değer ekseninde `true` ile [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) metodunu çağırın ve tabanı seçmek için [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) metodunu kullanın. Bu, mevcut değerlerin gösterim şeklini değiştirir; veriyi değiştirmez veya logaritmik bir eğilim çizgisi eklemez. Eğilim çizgisi, verideki uyarlanmış ilişkiyi temsil eder ve ayrı bir özelliktir.
 
 ### **Değer Eksenini ve Tabanı Seç**
 
-Çizgi veya sütun grafiği için değer ekseni, [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/) tarafından döndürülür. Yatay çubuk grafiği için ise [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/) döndürür. Dağılım ve balon grafiklerde iki değer ekseni bulunur; X değerleri için yatay eksen, Y değerleri için dikey eksen veya ikisi de kullanılabilir. Kategori eksenine logaritmik ölçekleme uygulamayın.
+Çizgi veya sütun grafiğinde değer ekseni [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/) tarafından döndürülür. Yatay çubuk grafiğinde ise [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/) döndürür. Dağılım ve balon grafiklerde iki değer ekseni bulunur; X değerleri için yatay ekseni, Y değerleri için dikey ekseni veya her ikisini seçin. Bir kategori eksenine logaritmik ölçeklendirme uygulamayın.
 
-Varsayılan logaritmik taban `10`dur. PPTX grafiklerinde, `2` ile `1000` arasında (her ikisi dahil) bir taban kullanın; `2.5` gibi kesirli tabanlar da desteklenir. Tabana `10` verildiğinde, 10, 100, 1.000 ve 10.000 gibi ardışık kuvvetler eşit aralıklarla yer alır.
+Varsayılan logaritmik taban `10` dur. PPTX grafiklerde `2` ile `1000` arasında (dahil) bir taban kullanın; `2.5` gibi kesirli tabanlar da desteklenir. `10` tabanı ile ardışık katlar 10, 100, 1.000 ve 10.000 eşit aralıklıdır.
 
 ### **Doğrusal ve Logaritmik Ölçeklendirmeyi Karşılaştır**
 
-Aşağıdaki bağımsız örnek, ilk slaytta beş istek sayısı ile bir çizgi grafiği oluşturur, ardından bu slaytı kopyalar ve ikinci slaytta taban‑10 logaritmik değer eksenini etkinleştirir. Her iki slayt da aynı veriyi korur.
+Aşağıdaki bağımsız örnek, ilk slaytta beş istek sayısı ile bir çizgi grafik oluşturur, ardından bu slaytı kopyalar ve ikinci slaytta taban-10 logaritmik değer eksenini etkinleştirir. Her iki slayt da aynı veriyi korur.
 
 ```php
 use aspose\slides\ChartType;
@@ -412,25 +462,23 @@ try {
     $presentation->dispose();
 }
 ```
+**Doğrusal ölçek (slayt 1):** Eşit düşey mesafeler istek sayısındaki eşit farkları gösterir. En büyük değer grafiği domine eder, küçük değerleri ayırt etmeyi zorlaştırır.
 
-**Doğrusal ölçek (slayt 1):** Eşit dikey mesafeler, istek sayılarındaki eşit farkları temsil eder. En büyük değer grafiği domine eder, küçük değerlerin ayırt edilmesini zorlaştırır.
+![Doğrusal değer ekseninde beş istek sayısını gösteren PowerPoint çizgi grafiği](value-axis-linear.png)
 
-![Doğrusal değer ekseninde beş istek sayısını gösteren PowerPoint çizgi grafik](value-axis-linear.png)
+**Logaritmik ölçek (slayt 2):** Eşit düşey mesafeler eşit oranları gösterir. Her dönem, bir önceki dönemin on katı istek alır, bu yüzden noktalar taban-10 ölçeğinde düz bir yükselen çizgi oluşturur. Eksen etiketleri hâlâ orijinal istek sayılarını gösterir.
 
-**Logaritmik ölçek (slayt 2):** Eşit dikey mesafeler eşit oranları temsil eder. Her dönem, bir önceki döneme göre on kat daha fazla istek alır; bu yüzden noktalar taban‑10 ölçeğinde düz bir yükselen çizgi oluşturur. Eksen etiketleri hâlâ orijinal istek sayılarını gösterir.
-
-![PowerPoint'te aynı beş istek sayısı taban‑10 logaritmik değer ekseninde](value-axis-logarithmic.png)
+![PowerPoint'te aynı beş istek sayısı taban-10 logaritmik değer ekseninde](value-axis-logarithmic.png)
 
 ### **Sıfır ve Negatif Değerleri İşle**
 
-Logaritmik ölçek yalnızca sıfırdan büyük değerleri gösterebilir. Etkinleştirmeden önce verileri kontrol edin. Sıfır veya negatif değerler anlamlıysa, doğrusal ölçeği koruyun veya bunları ayrı olarak gösterin. Analiz için bu değerleri dışlamak uygun ise, nedeni açıklayın. Bunları küçük pozitif sayılarla sessizce değiştirmeyin; bu veri anlamını değiştirir. Logaritmik eksen için elle ayarlanmış herhangi bir minimum veya maksimum da pozitif olmalıdır.
+Logaritmik ölçek yalnızca kesin pozitif değerleri gösterebilir. Etkinleştirmeden önce verileri kontrol edin. Sıfır veya negatif değerler anlamlıysa, doğrusal ölçeği koruyun ya da ayrı olarak gösterin. Analiz için bu değerleri dışlamak uygun ise, eksikliği açıklayın. Verileri gizlice küçük pozitif sayılarla değiştirmeyin; bu veri anlamını değiştirir. Logaritmik eksen için manuel olarak ayarlanan minimum veya maksimum da pozitif olmalıdır.
 
-## **FAQ**
+## **SSS**
+**Bir eksenin diğerini kestiği değeri (ekseni kesişim) nasıl ayarlarım?**
 
-**Bir eksenin diğerini kestiği değeri (eksen kesişimi) nasıl ayarlarım?**
+[setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) metodunu kullanarak kesişim davranışını seçin. Sayısal bir kesişim değeri belirtmek için [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/) metodunu kullanın; bu ayarlar eksen kesişimini uygun bir temel çizgiye taşımayı sağlar.
 
-[setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) metodunu kullanarak kesişim davranışını seçin. Sayısal bir kesişim değeri belirlemek için [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/) metodunu kullanın. Bu ayarlar, eksen kesişimini uygun bir temel çizgiye taşımanıza olanak tanır.
+**Tik etiketlerini eksene göre nasıl konumlandırabilirim?**
 
-**İşaretleme etiketlerini eksene göre nasıl konumlandırabilirim?**
-
-[setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) metodunu [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/) ile `Low`, `High`, `NextTo` veya `None` değerleriyle çağırın. İşaretleme çizgilerini kontrol etmek için [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) veya [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/) metodlarını kullanın; bunlar etiket konumlandırmadan ayrı olarak işlem görür.
+[setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) metodunu [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/) kullanarak `Low`, `High`, `NextTo` veya `None` değerleriyle çağırın. Tik işaretlerini kontrol etmek için [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) veya [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/) metodlarını kullanın; bunlar etiket konumlandırmadan ayrı ayrı çalışır.

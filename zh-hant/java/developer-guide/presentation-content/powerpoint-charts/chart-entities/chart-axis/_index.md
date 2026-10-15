@@ -1,37 +1,36 @@
 ---
-title: 使用 Java 在簡報中自訂圖表軸
-linktitle: 圖表軸
+title: 使用 Java 自訂簡報中的圖表坐標軸
+linktitle: 圖表坐標軸
 type: docs
 url: /zh-hant/java/chart-axis/
 keywords:
-- 圖表軸
-- 垂直軸
-- 水平軸
-- 自訂軸
-- 操作軸
-- 管理軸
-- 軸屬性
+- 圖表坐標軸
+- 垂直坐標軸
+- 水平坐標軸
+- 自訂坐標軸
+- 操作坐標軸
+- 管理坐標軸
+- 坐標軸屬性
 - 最大值
 - 最小值
-- 軸線
+- 坐標軸線
 - 日期格式
-- 軸標題
-- 軸位置
+- 坐標軸標題
+- 坐標軸位置
 - PowerPoint
 - 簡報
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Java 在 PowerPoint 簡報中自訂圖表軸，以製作報告和視覺化。"
+description: "了解如何使用 Aspose.Slides for Java 在 PowerPoint 簡報中自訂圖表坐標軸，以製作報告和視覺化。"
 ---
-## **概覽**
+## **概述**
 
-本文說明如何使用 Aspose.Slides for Java 自訂圖表軸。內容涵蓋計算軸值、切換圖表列與欄、軸可見性、類別標籤與刻度間隔、日期類別與格式、標題旋轉、軸位置、顯示單位以及對數縮放。
+本文章說明如何使用 Aspose.Slides for Java 自訂圖表坐標軸。它涵蓋計算坐標軸值、切換圖表的列與欄、坐標軸可見性、類別標籤與刻度間隔、日期類別與格式設定、標題旋轉、坐標軸位置、顯示單位以及對數縮放。
 
-## **取得圖表垂直軸的最大值**
+## **取得圖表垂直坐標軸的最大值**
 
-建立一個 [簡報](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)，並以預設資料新增區域圖表。於讀取計算軸值前呼叫 [validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#validateChartLayout--)，使圖表版面保持最新。
-
-讀取 [getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMaxValue--) 與 [getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinValue--) 以取得軸限制，並使用 [getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMajorUnit--) 與 [getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinorUnit--) 取得刻度間隔。 [getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMajorUnitScale--) 與 [getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinorUnitScale--) 提供時間單位比例，對日期軸尤為相關。範例將這些值存入本機變數，並儲存圖表。
+建立一個[簡報](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)並加入具有預設資料的區域圖表。在讀取計算坐標軸值之前，呼叫[validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#validateChartLayout--)以確保圖表佈局為最新狀態。  
+讀取[getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMaxValue--)和[getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinValue--)以取得坐標軸限制，並讀取[getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMajorUnit--)和[getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinorUnit--)以取得刻度間隔。[getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMajorUnitScale--)和[getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinorUnitScale--)提供時間單位比例，與日期坐標軸相關。範例將這些值存入本機變數，並儲存圖表。
 
 ```java
 import com.aspose.slides.*;
@@ -58,9 +57,9 @@ try {
 }
 ```
 
-## **交換軸之間的資料**
+## **交換坐標軸之間的資料**
 
-使用 [switchRowColumn](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#switchRowColumn--) 交換圖表資料中系列與類別的角色。先前的每個類別會變成系列，先前的每個系列會變成類別。這會改變資料的分組方式，並不會交換水平與垂直軸。範例使用 [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setRange-java.lang.String-) 將預設資料繫結至 `Sheet1!A1:D5`（包含表頭列與類別欄），再切換列與欄，最後產生包含四個系列與三個類別的圖表。
+使用[switchRowColumn](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#switchRowColumn--)交換系列與類別在圖表資料中的角色。每個原先的類別變成系列，而每個原先的系列變成類別。這會改變資料的分組方式；不會交換水平與垂直坐標軸。範例使用[setRange](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setRange-java.lang.String-)將預設資料綁定至 `Sheet1!A1:D5`（包括標頭列與類別欄），再進行列與欄的交換。它會儲存一個包含四個系列和三個類別的圖表。
 
 ```java
 import com.aspose.slides.*;
@@ -79,9 +78,65 @@ try {
 }
 ```
 
-## **為折線圖停用垂直軸**
+## **反轉坐標軸的繪製順序**
 
-在垂直軸上呼叫 [setVisible](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setVisible-boolean-) 並傳入 `false` 以隱藏軸。範例建立一個預設資料的折線圖，並以隱藏垂直軸的方式儲存。
+使用[setPlotOrderReversed](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setPlotOrderReversed-boolean-)反轉類別或數值坐標軸。例如，水平條形圖可以依工作表的相同順序從上至下顯示專案階段：Planning、Development、Testing。反轉坐標軸會改變繪製方向；不會對工作簿資料進行排序或重新排列。相比之下，[switchRowColumn](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#switchRowColumn--)交換系列與類別的角色。  
+以下範例建立一個具有三個階段和一個系列的水平條形圖。它會儲存一個包含三張投影片的簡報：正常順序、類別反轉和數值反轉。每個副本使用相同的資料集，且每個副本僅反轉一條坐標軸。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320);
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredBar);
+    String[] stages = { "Planning", "Development", "Testing" };
+    int[] values = { 10, 30, 20 };
+    for (int i = 0; i < stages.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, stages[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    // 投影片 2：將第一個類別顯示在頂部。
+    ISlide categorySlide = presentation.getSlides().addClone(slide);
+    IChart categoryChart = (IChart)categorySlide.getShapes().get_Item(0);
+    categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
+    // 保留水平數值坐標軸在底部。
+    categoryChart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum);
+
+    // 投影片 3：僅反轉水平數值比例。
+    ISlide valueSlide = presentation.getSlides().addClone(slide);
+    IChart valueChart = (IChart)valueSlide.getShapes().get_Item(0);
+    valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+反轉坐標軸還可以將垂直坐標軸移至圖形的相對側。[setCrossType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-)控制另一條坐標軸在被設定的坐標軸上的交叉位置。在第 2 張投影片中，對反轉的類別坐標軸以 `CrossesType.Maximum` 呼叫它，將水平數值坐標軸保持在底部。若需特定的交叉點，請使用[setCrossAt](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossAt-float-)。在改變方向時，請檢查交叉設定，特別是圖表已有自訂交叉點時。以 `false` 呼叫 `setPlotOrderReversed` 以恢復正常的繪製方向；交叉設定是獨立的。  
+
+| 正常順序（投影片 1） | 類別反轉（投影片 2） | 數值反轉（投影片 3） |
+| --- | --- | --- |
+| ![水平條形圖，類別與數值坐標軸的正常順序](axis-order-normal.png) | ![水平條形圖，類別從上至下顯示](axis-order-categories-reversed.png) | ![水平條形圖，數值坐標軸反轉且零位於右側](axis-order-values-reversed.png) |
+| 類別從底部到頂部排列；數值由左至右遞增。 | Planning、Development、Testing 從上至下排列。數值與工作表列順序保持不變。 | 類別保留其正常順序；數值由右至左遞增。類別坐標軸於右側零點交叉。 |
+
+## **停用折線圖的垂直坐標軸**
+
+在垂直坐標軸上呼叫[setVisible](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setVisible-boolean-)並傳入 `false` 以隱藏它。範例建立一個具有預設資料的折線圖，並將垂直坐標軸隱藏後儲存。
 
 ```java
 import com.aspose.slides.*;
@@ -99,9 +154,9 @@ try {
 }
 ```
 
-## **為折線圖停用水平軸**
+## **停用折線圖的水平坐標軸**
 
-在水平軸上呼叫 [setVisible](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setVisible-boolean-) 並傳入 `false` 以隱藏軸。範例建立一個預設資料的折線圖，並以隱藏水平軸的方式儲存。
+在水平坐標軸上呼叫[setVisible](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setVisible-boolean-)並傳入 `false` 以隱藏它。範例建立一個具有預設資料的折線圖，並將水平坐標軸隱藏後儲存。
 
 ```java
 import com.aspose.slides.*;
@@ -119,9 +174,9 @@ try {
 }
 ```
 
-## **變更類別軸**
+## **變更類別坐標軸**
 
-使用 [setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCategoryAxisType-int-) 來選擇日期或文字類別軸。本範例需要 `ExistingChart.pptx`，其中第一張投影片的第一個圖形為圖表，且類別儲存格含有 Excel 數值日期。它將水平軸變更為日期軸。呼叫 [setAutomaticMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) 並傳入 `false`，[setMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorUnit-double-) 傳入 `1`，以及 [setMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorUnitScale-int-) 傳入 `TimeUnitType.Months`，即可使主要刻度間隔為一個月。
+使用[setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCategoryAxisType-int-)以選擇日期或文字類別坐標軸。此範例需要 `ExistingChart.pptx`，其第一張投影片的第一個圖形為圖表，且類別儲存格包含數值型 Excel 日期。它會將水平坐標軸變更為日期坐標軸。呼叫[setAutomaticMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-)並傳入 `false`、[setMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorUnit-double-)並傳入 `1`，以及[setMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorUnitScale-int-)並傳入 `TimeUnitType.Months`，可使主刻度以一個月為間隔。
 
 ```java
 import com.aspose.slides.*;
@@ -142,21 +197,21 @@ try {
 }
 ```
 
-## **控制類別軸標籤間隔**
+## **控制類別坐標軸標籤間隔**
 
-當圖表有許多類別時，可在不移除類別或資料點的前提下減少可見軸標籤的數量。呼叫 [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) 並傳入 `false`，再將想要的類別間隔傳給 [setTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickLabelSpacing-long-)。對於文字類別且維持正常排序時，計數從第一個類別開始：
+當圖表具有許多類別時，可減少可見坐標軸標籤的數量，而不移除類別或資料點。先以 `false` 呼叫[setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-)，再將欲使用的類別間隔傳入[setTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickLabelSpacing-long-)。對於正常順序的文字類別，計數從第一個類別開始：
 
-| 間隔 | 示例中顯示的標籤 |
+| 間隔 | 範例中顯示的標籤 |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | 類別 1、類別 2、類別 3、⋯ 類別 24 |
+| `2` | 類別 1、類別 3、類別 5、⋯ 類別 23 |
+| `3` | 類別 1、類別 4、類別 7、⋯ 類別 22 |
 
-間隔 `3` 會每三個標籤顯示一次，兩個標籤會被隱藏，且不會移除相對應的欄位。自動間隔會根據可用空間選擇間隔，未必會顯示每個標籤。
+`3` 的間隔會顯示每第三個標籤，於顯示的標籤之間隱藏兩個標籤。它不會移除相應的欄位。自動間距會根據可用空間選擇間隔；不一定會顯示所有標籤。  
 
-刻度線有獨立的控制。呼叫 [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) 並傳入 `false`，再使用 [setTickMarksSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) 設定其間隔。例如 `1` 會在每個類別間隔保留刻度線，而標籤僅每三個類別顯示一次。搭配可見的樣式使用 [setMajorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMajorTickMark-int-) 以觀察結果。再次將任一自動間隔設定為 `true`，圖表會重新使用自動間隔。
+刻度線有獨立的控制。以 `false` 呼叫[setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-)，並使用[setTickMarksSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickMarksSpacing-long-)來設定其間隔。例如，`1` 會在每個類別間隔保留刻度線，而標籤僅每三個類別顯示一次。使用[setMajorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMajorTickMark-int-)並設定為可見樣式，以便觀察結果。再次以 `true` 呼叫任一自動間距設定器，圖表將重新選擇間隔。  
 
-以下自足範例建立 24 個類別與一個系列，然後在 `CategoryAxisIntervals.pptx` 中儲存三張投影片：自動間隔、手動標籤間隔（刻度線獨立）以及恢復自動間隔。兩個副本保留原始圖表資料，無需輸入簡報。水平標籤文字使密度差異一目了然。
+以下獨立範例建立 24 個類別及一個系列，然後在 `CategoryAxisIntervals.pptx` 中儲存三張投影片：自動間距、手動標籤間距且刻度線獨立，以及恢復自動間距。兩個副本保留原始圖表資料。無需輸入簡報。水平標籤文字使密度差異一目了然。
 
 ```java
 import com.aspose.slides.*;
@@ -190,7 +245,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // 投影片 2：顯示每三個標籤，但為每個類別保留刻度線。
+    // 投影片 2：顯示每三個標籤，但仍為每個類別保留刻度線。
     ISlide manualSlide = presentation.getSlides().addClone(slide);
     IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
     IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -211,23 +266,21 @@ try {
 }
 ```
 
-**自動間隔（幻燈片 1）：** 在此呈現中，每第二個類別標籤會顯示，且會換行成兩行。自動結果會因圖表尺寸、字型與渲染器不同而有所變化。
+**自動間距（投影片 1）:** 在此呈現中，每第二個類別標籤會顯示且換成兩行。自動結果會因圖表大小、字型與渲染器而異。  
+![自動類別標籤間距，顯示所有 24 欄](category-axis-automatic.png)
 
-![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+**手動間距（投影片 2）:** 每第三個標籤顯示於一行，而刻度線仍保留在每個類別間隔。所有 24 欄（包括未標示的欄位）仍以相同數值顯示。投影片 3 恢復上述的自動外觀。  
+![手動類別標籤間隔為三，顯示所有 24 欄](category-axis-manual.png)
 
-**手動間隔（幻燈片 2）：** 每第三個標籤會顯示在單行，且刻度線仍保留在每個類別間隔。所有 24 欄（包括未顯示標籤的欄）皆保持可見且值相同。幻燈片 3 恢復上述自動外觀。
+### **選擇正確的坐標軸與間隔**
 
-![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+對於文字類別坐標軸（例如柱狀圖、折線圖、區域圖或條形圖的類別坐標軸），使用此類別計數間隔。在柱狀圖中，它是水平坐標軸。於水平條形圖中，類別坐標軸為垂直，故將此設定套用至 [getVerticalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getVerticalAxis--) 回傳的坐標軸。刻度線間距亦適用於具有系列坐標軸的圖表。  
 
-### **選擇正確的軸與間隔**
+請勿使用類別標籤間隔來設定數值坐標軸的數值比例。於數值坐標軸上，[setMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMajorUnit-double-) 指定值的差異：例如，主單位為 `10` 時，若坐標軸從零開始，則會在 0、10、20 等處產生刻度。`3` 的類別標籤間隔則是計算類別位置，與資料值無關。散佈圖與氣泡圖使用數值坐標軸，而非文字類別坐標軸。對於日期坐標軸，請使用基於時間的主單位與比例，如 [Change a Category Axis](#change-a-category-axis) 所述。
 
-對於文字類別軸（例如柱狀圖、折線圖、區域圖或條形圖的類別軸）使用此類別計數間隔。在柱狀圖中，它是水平軸；在水平條形圖中，類別軸是垂直的，請對由 [getVerticalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getVerticalAxis--) 取得的軸套用本設定。刻度線間隔亦適用於具有系列軸的圖表。
+## **設定類別坐標軸值的日期格式**
 
-請勿使用類別標籤間隔來設定值軸的數值比例。在值軸上，[setMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMajorUnit-double-) 會指定數值差距；例如，`10` 的主要單位會在 0、10、20 … 等位置產生刻度，而類別標籤間隔 `3` 則僅計算類別位置，與實際資料值無關。散佈圖與氣泡圖使用值軸而非文字類別軸。對於日期軸，請參照 [變更類別軸](#變更類別軸) 使用基於時間的主要單位與比例。
-
-## **為類別軸值設定日期格式**
-
-範例以四個年度值取代預設圖表資料。日期以 OLE Automation 序號儲存在第一個工作表（索引 `0`）中，計算方式為自 1899 年 12 月 30 日起的天數。使用 [setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCategoryAxisType-int-) 並傳入 `CategoryAxisType.Date`，呼叫 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) 傳入 `false`，再將 `yyyy` 傳給 [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setNumberFormat-java.lang.String-)，使類別標籤顯示四位數年份，且不受儲存格格式影響。
+此範例以四個年度值取代預設圖表資料。日期以 OLE Automation 序號儲存在第一個工作表（索引 `0`）中，計算方式為自 1899 年 12 月 30 日起的天數。使用[setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCategoryAxisType-int-) 並傳入 `CategoryAxisType.Date`，呼叫[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) 並傳入 `false`，再將 `yyyy` 傳給[setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setNumberFormat-java.lang.String-)，使類別標籤顯示四位數年份，且不受儲存格格式影響。
 
 ```java
 import com.aspose.slides.*;
@@ -267,9 +320,9 @@ try {
 }
 ```
 
-## **為圖表軸標題設定旋轉角度**
+## **設定圖表坐標軸標題的旋轉角度**
 
-在垂直軸上呼叫 [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setTitle-boolean-) 並傳入 `true`，提供標題文字，並使用 [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) 旋轉標題。角度以度為單位；此範例將欄狀圖的值軸標題旋轉 90 度後儲存。
+在垂直坐標軸上呼叫[setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setTitle-boolean-) 並傳入 `true`，提供標題文字，並使用[setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) 來旋轉標題。角度以度數為單位；此範例儲存一個柱狀圖，其數值坐標軸標題旋轉 90 度。
 
 ```java
 import com.aspose.slides.*;
@@ -289,9 +342,9 @@ try {
 }
 ```
 
-## **設定類別軸或值軸的軸位置**
+## **設定類別或數值坐標軸的位置**
 
-使用 [setAxisBetweenCategories](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) 來控制值軸是穿過類別軸的類別之間，還是穿過類別刻度。此設定僅適用於類別軸。範例在柱狀圖的水平類別軸上設定 `true`，並儲存結果。
+使用[setAxisBetweenCategories](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) 來控制數值坐標軸是於類別之間還是於類別刻度標記處與類別坐標軸相交。此設定適用於類別坐標軸。範例在柱狀圖的水平類別坐標軸上將其設為 `true`，並儲存結果。
 
 ```java
 import com.aspose.slides.*;
@@ -309,9 +362,9 @@ try {
 }
 ```
 
-## **為圖表值軸設定顯示單位**
+## **設定圖表數值坐標軸的顯示單位**
 
-使用 [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setDisplayUnit-int-) 可在不更改底層資料的情況下縮放值軸標籤。將 [DisplayUnitType](https://reference.aspose.com/slides/java/com.aspose.slides/displayunittype/) 設為 `Millions`，則 60,000,000 會顯示為 60。範例建立柱狀圖，並將其垂直軸的顯示單位設定為百萬。
+使用[setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setDisplayUnit-int-) 以縮放數值坐標軸的標籤而不變更底層資料。將 [DisplayUnitType](https://reference.aspose.com/slides/java/com.aspose.slides/displayunittype/) 設為 `Millions` 時，60,000,000 會顯示為 60。範例建立一個柱狀圖，並將百萬顯示單位套用於其垂直坐標軸。
 
 ```java
 import com.aspose.slides.*;
@@ -329,21 +382,19 @@ try {
 }
 ```
 
-## **設定對數值軸**
+## **設定對數數值坐標軸**
 
-當正值的量級跨越多個階段時，對數值軸相當有用。例如，服務可能在五個時段分別收到 10、100、1,000、10,000 與 100,000 個請求。於線性比例下，較小的值會聚集在接近零的位置。對數比例則使相對成長較易比較：相等的距離代表相等的比例，而非相等的差值。
+當正值跨越多個數量級時，對數數值坐標軸相當有用。例如，某服務於五個時段可能分別收到 10、100、1,000、10,000、100,000 個請求。使用線性比例時，較小的值會聚集在接近零的區域。對數比例則使其相對增長更易於比較：相等的距離代表相等的比例，而非相等的差異。  
+在數值坐標軸上以 `true` 呼叫[setLogarithmic](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setLogarithmic-boolean-)，並使用[setLogBase](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setLogBase-double-) 來選擇底數。此操作會變更現有值的顯示方式；不會改變資料或新增對數趨勢線。趨勢線表示資料的擬合關係，屬於另一項功能。
 
-在值軸上呼叫 [setLogarithmic](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setLogarithmic-boolean-) 並傳入 `true`，再使用 [setLogBase](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setLogBase-double-) 來選擇底數。這會變更現有值的顯示方式，但不會修改資料或加入對數趨勢線。趨勢線屬於另一項功能，代表對資料的擬合關係。
+### **選擇數值坐標軸與底數**
 
-### **選擇值軸與底數**
-
-對於折線圖或柱狀圖，值軸由 [getVerticalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getVerticalAxis--) 取得。對於水平條形圖，則由 [getHorizontalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) 取得。散佈圖與氣泡圖有兩個值軸，請於 X 值使用水平軸、Y 值使用垂直軸，或同時使用兩者。不要將對數縮放套用於類別軸。
-
-預設的對數底數為 `10`。對於 PPTX 圖表，底數可介於 `2` 至 `1000`（含）之間，亦支援 `2.5` 等分數底數。以底數 `10` 為例，10、100、1,000、10,000 等次方會等距排列。
+對於折線圖或柱狀圖，數值坐標軸由 [getVerticalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getVerticalAxis--) 回傳。對於水平條形圖，則由 [getHorizontalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getHorizontalAxis--) 回傳。散佈圖與氣泡圖具有兩個數值坐標軸，故可為 X 值選擇水平坐標軸，為 Y 值選擇垂直坐標軸，或同時選擇。請勿對類別坐標軸套用對數縮放。  
+預設的對數底數為 `10`。對於 PPTX 圖表，可使用介於 `2` 到 `1000`（含）的底數；亦支援如 `2.5` 的分數底數。使用底數 `10` 時，連續的次方（如 10、100、1,000、10,000）間距相等。
 
 ### **比較線性與對數縮放**
 
-以下自足範例在第一張投影片建立包含五筆請求數的折線圖，然後複製該投影片並在第二張啟用底數 10 的對數值軸。兩張投影片保留相同資料。
+以下獨立範例在第一張投影片建立一個包含五個請求次數的折線圖，然後複製該投影片並在第二張啟用底數為 10 的對數數值坐標軸。兩張投影片保留相同的資料。
 
 ```java
 import com.aspose.slides.*;
@@ -373,7 +424,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // 保持第一張投影片為線性，僅變更副本的值軸比例。
+    // 保持第一張投影片線性，且僅更改副本的數值坐標軸比例。
     ISlide logarithmicSlide = presentation.getSlides().addClone(slide);
     IChart logarithmicChart = (IChart)logarithmicSlide.getShapes().get_Item(0);
     IAxis valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -386,24 +437,20 @@ try {
 }
 ```
 
-**線性比例（幻燈片 1）：** 等距的垂直距離代表請求數的等差。最大值主導圖表，使較小的值難以辨識。
+**線性比例（投影片 1）:** 相等的垂直距離代表請求次數的相等差異。最大值主導圖表，使較小的值難以辨識。  
+![PowerPoint 折線圖，顯示在線性數值坐標軸上的五個請求次數](value-axis-linear.png)
 
-![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
-
-**對數比例（幻燈片 2）：** 等距的垂直距離代表等比例。每個時段的請求數是前一時段的十倍，於底數 10 的比例下形成直線上升。軸標籤仍顯示原始請求數。
-
-![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+**對數比例（投影片 2）:** 相等的垂直距離代表相等的比例。每個時期的請求量是前一個的十倍，因而在底數為 10 的比例下，點形成一條直上升線。坐標軸標籤仍顯示原始請求次數。  
+![相同的五個請求次數於 PowerPoint 的底數 10 對數數值坐標軸上](value-axis-logarithmic.png)
 
 ### **處理零與負值**
 
-對數比例只能顯示嚴格正值。啟用前請先檢查資料。若零或負值具有意義，請保留線性比例或另行顯示。若排除這些值符合分析需求，請說明省略原因。切勿悄悄將它們替換為小的正值，因會改變資料意義。任何手動設定的對數軸最小值或最大值亦必須為正值。
+對數比例只能顯示嚴格正值。啟用前請檢查資料。若零或負值具備意義，應保留線性比例或分別顯示。若因分析需要排除這些值，請說明排除原因。不要在未說明的情況下將其替換為小的正數，因為會改變資料的意義。對數坐標軸的手動最小值或最大值亦必須為正值。
 
 ## **常見問題**
 
-**如何設定軸交叉的數值（軸交叉點）？**
+**如何設定一條坐標軸與另一條交叉的數值（坐標軸交叉）？**  
+使用[setCrossType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-) 來選擇交叉行為。若要指定數值型的交叉點，請使用[setCrossAt](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossAt-float-)。這些設定讓您將坐標軸交叉位置移至合適的基線。  
 
-使用 [setCrossType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-) 來選擇交叉行為。若要指定數值交叉點，使用 [setCrossAt](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossAt-float-)。這些設定可將軸交叉移至合適的基線。
-
-**如何相對於軸定位刻度標籤？**
-
-呼叫 [setTickLabelPosition](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setTickLabelPosition-int-) 並使用 [TickLabelPositionType](https://reference.aspose.com/slides/java/com.aspose.slides/ticklabelpositiontype/) 之 `Low`、`High`、`NextTo` 或 `None`。若要控制刻度線本身，請使用 [setMajorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) 或 [setMinorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMinorTickMark-int-)，這與標籤位置是分開的。
+**如何相對於坐標軸定位刻度標籤？**  
+以[setTickLabelPosition](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setTickLabelPosition-int-) 搭配 [TickLabelPositionType](https://reference.aspose.com/slides/java/com.aspose.slides/ticklabelpositiontype/)：`Low`、`High`、`NextTo` 或 `None` 來呼叫。若要控制刻度線本身，請使用[setMajorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) 或[setMinorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMinorTickMark-int-)；這與標籤定位是分開的設定。

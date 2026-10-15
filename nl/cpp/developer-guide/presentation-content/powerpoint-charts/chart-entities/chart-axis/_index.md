@@ -1,37 +1,37 @@
 ---
-title: Aangepaste diagramassen in presentaties met C++
-linktitle: Diagramas
+title: Grafiekassen aanpassen in presentaties met C++
+linktitle: Grafiekas
 type: docs
 url: /nl/cpp/chart-axis/
 keywords:
-- diagramas
+- grafiekas
 - verticale as
 - horizontale as
 - as aanpassen
 - as manipuleren
 - as beheren
-- as‑eigenschappen
+- as-eigenschappen
 - maximale waarde
 - minimale waarde
 - aslijn
-- datumindeling
-- as‑titel
-- as‑positie
+- datumnotatie
+- as-titel
+- as-positie
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Ontdek hoe u Aspose.Slides voor C++ kunt gebruiken om diagramassen in PowerPoint‑presentaties aan te passen voor rapporten en visualisaties."
+description: "Ontdek hoe u Aspose.Slides voor C++ kunt gebruiken om grafiekassen aan te passen in PowerPoint-presentaties voor rapporten en visualisaties."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u diagramassen kunt aanpassen met Aspose.Slides for C++. Het behandelt berekende aswaarden, het wisselen van rijen en kolommen in een diagram, aszichtbaarheid, interval voor categorie‑labels en tick‑marks, datumcategorieën en -opmaak, rotatie van de titel, aspositionering, weergave‑eenheden en logaritmische schaal.
+Dit artikel legt uit hoe u de assen van grafieken kunt aanpassen met Aspose.Slides voor C++. Het behandelt berekende aswaarden, het wisselen van rijen en kolommen in grafieken, aszichtbaarheid, intervallen voor categorie‑labels en tik‑markeringen, datumcategorieën en -opmaak, titelrotatie, aspositionering, weergave‑eenheden en logaritmische schaling.
 
-## **Maximumwaarden op de verticale as van diagrammen ophalen**
+## **De maximale waarden op de verticale as van grafieken ophalen**
 
-Maak een [Presentatie](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) en voeg een gebiedsdiagram toe met standaardgegevens. Roep [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) aan voordat u berekende aswaarden leest, zodat de diagramindeling up‑to‑date is.
+Maak een [Presentatie](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) en voeg een gebiedsgrafiek toe met standaardgegevens. Roep [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) aan voordat u berekende aswaarden leest, zodat de grafieklay-out up‑to‑date is.
 
-Lees [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) en [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) voor de aslimieten, en [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) en [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) voor de tick‑intervallen. [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) en [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) geven tijd‑eenheidschalen terug, die relevant zijn voor datumassen. Het voorbeeld slaat deze waarden op in lokale variabelen en slaat het diagram op.
+Lees [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) en [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) voor de aslimieten, en [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) en [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) voor de tic‑intervallen. [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) en [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) leveren tijdseenheid‑schalen, die relevant zijn voor datumassen. Het voorbeeld slaat deze waarden op in lokale variabelen en slaat de grafiek op.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -65,9 +65,9 @@ auto minorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnit
 presentation->Save(u"AxisValues_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Gegevens tussen assen uitwisselen**
+## **Gegevens tussen assen verwisselen**
 
-Gebruik [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) om de rollen van series en categorieën in diagramgegevens uit te wisselen. Elke voormalige categorie wordt een serie, en elke voormalige serie wordt een categorie. Dit verandert hoe de gegevens worden gegroepeerd; het wisselt de horizontale en verticale assen niet uit. Het voorbeeld gebruikt [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) om de standaardgegevens te binden aan `Sheet1!A1:D5`, inclusief de koprij en categoriekolom, vóór het wisselen van rijen en kolommen. Het slaat een diagram op met vier series en drie categorieën.
+Gebruik [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) om de rollen van reeksen en categorieën in de grafiekgegevens uit te wisselen. Elke voormalige categorie wordt een reeks, en elke voormalige reeks wordt een categorie. Dit verandert hoe de gegevens worden gegroepeerd; het wisselt niet de horizontale en verticale assen uit. Het voorbeeld gebruikt [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) om de standaardgegevens te binden aan `Sheet1!A1:D5`, inclusief de koprij en categoriekolom, voordat rijen en kolommen worden verwisseld. Het slaat een grafiek op met vier reeksen en drie categorieën.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -95,7 +95,83 @@ chart->get_ChartData()->SwitchRowColumn();
 presentation->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Verticale as voor lijndiagrammen uitschakelen**
+## **Volgorde van plotten van een as omkeren**
+
+Gebruik [set_IsPlotOrderReversed](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isplotorderreversed/) om een categorie‑ of waardenas om te keren. Bijvoorbeeld, een horizontale staafgrafiek kan projectfasen van boven naar beneden weergeven in dezelfde volgorde als het werkblad: Planning, Ontwikkeling, Testen. Het omkeren van een as verandert de plot‑richting; het sorteert of herschikt de werkboekgegevens niet. Ter vergelijking wisselt [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) de rollen van reeksen en categorieën.
+
+Het volgende voorbeeld maakt een horizontale staafgrafiek met drie fasen en één reeks. Het slaat een presentatie op met drie dia's: normale volgorde, omgekeerde categorieën en omgekeerde waarden. Elke kopie gebruikt dezelfde dataset, en er wordt slechts één as omgekeerd in elke kopie.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/CrossesType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredBar, 50, 40, 620, 320);
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::ClusteredBar);
+auto stages = std::array<System::String, 3>{u"Planning", u"Development", u"Testing"};
+auto values = std::array<int, 3>{10, 30, 20};
+for (auto i = 0; i < stages.size(); i++)
+{
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(stages[i]));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(values[i]));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+// Dia 2: toon de eerste categorie bovenaan.
+auto categorySlide = presentation->get_Slides()->AddClone(slide);
+auto categoryChart = System::ExplicitCast<IChart>(categorySlide->get_Shape(0));
+categoryChart->get_Axes()->get_VerticalAxis()->set_IsPlotOrderReversed(true);
+// Behoud de horizontale waardenas onderaan.
+categoryChart->get_Axes()->get_VerticalAxis()->set_CrossType(CrossesType::Maximum);
+
+// Dia 3: keer alleen de horizontale numerieke schaal om.
+auto valueSlide = presentation->get_Slides()->AddClone(slide);
+auto valueChart = System::ExplicitCast<IChart>(valueSlide->get_Shape(0));
+valueChart->get_Axes()->get_HorizontalAxis()->set_IsPlotOrderReversed(true);
+
+presentation->Save(u"ReversedAxes.pptx", SaveFormat::Pptx);
+```
+
+Het omkeren van een as kan ook de loodrechte as naar de tegenovergestelde kant van de tekening verplaatsen. [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) bepaalt waar de andere as de geconfigureerde as kruist. In dia 2 houdt het instellen op `Maximum` op de omgekeerde categorieas de horizontale waardenas onderaan. Voor een specifiek kruispunt gebruikt u [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Controleer de kruisinginstellingen bij het wijzigen van de richting, vooral als de grafiek al een aangepast kruispunt heeft. Roep `set_IsPlotOrderReversed` aan met `false` om de normale plot‑richting te herstellen; kruisinginstellingen zijn onafhankelijk.
+
+| Normale volgorde (dia 1) | Omgekeerde categorieën (dia 2) | Omgekeerde waarden (dia 3) |
+| --- | --- | --- |
+| ![Horizontale staafgrafiek met normale categorie‑ en waardenas‑volgorde](axis-order-normal.png) | ![Horizontale staafgrafiek met van boven naar beneden weergegeven categorieën](axis-order-categories-reversed.png) | ![Horizontale staafgrafiek met een omgekeerde waardenas en nul aan de rechterkant](axis-order-values-reversed.png) |
+| Categorieën lopen van onder naar boven; waarden nemen toe van links naar rechts. | Planning, Ontwikkeling en Testen lopen van boven naar beneden. Waarden en de volgorde van werkboekrijen blijven ongewijzigd. | Categorieën behouden hun normale volgorde; waarden nemen toe van rechts naar links. De categorieas kruist op nul aan de rechterkant. |
+
+## **De verticale as uitschakelen voor lijndiagrammen**
 
 Gebruik [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) met `false` op de verticale as om deze te verbergen. Het voorbeeld maakt een lijndiagram met standaardgegevens en slaat het op met de verticale as verborgen.
 
@@ -122,7 +198,7 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 presentation->Save(u"HiddenVerticalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Horizontale as voor lijndiagrammen uitschakelen**
+## **De horizontale as uitschakelen voor lijndiagrammen**
 
 Gebruik [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) met `false` op de horizontale as om deze te verbergen. Het voorbeeld maakt een lijndiagram met standaardgegevens en slaat het op met de horizontale as verborgen.
 
@@ -149,9 +225,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 presentation->Save(u"HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Categorieas wijzigen**
+## **Een categorieas wijzigen**
 
-Gebruik [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) om een datum‑ of tekst‑categorieas te kiezen. Dit voorbeeld vereist `ExistingChart.pptx`, met een diagram als het eerste object op de eerste dia en categoricellen die numerieke Excel‑datumnummers bevatten. Het wijzigt de horizontale as naar een datumas. Het aanroepen van [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) met `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) met `1`, en [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) met maanden plaatst grote ticks op een‑maandintervallen.
+Gebruik [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) om een datum‑ of tekstcategorieas te kiezen. Dit voorbeeld vereist `ExistingChart.pptx`, met een grafiek als eerste vorm op de eerste dia en categoriecellen die numerieke Excel‑datumnummers bevatten. Het wijzigt de horizontale as naar een datumas. Het aanroepen van [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) met `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) met `1` en [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) met maanden plaatst de hoofd‑tikmarkeringen op een‑maand‑intervallen.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -182,9 +258,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_MajorUnitScale(TimeUnitType::Months
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Intervallen voor categorie‑as‑labels beheren**
+## **Intervallen voor labels van een categorieas beheren**
 
-Wanneer een diagram veel categorieën heeft, kunt u het aantal zichtbare aslabels verminderen zonder categorieën of gegevenspunten te verwijderen. Gebruik [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) met `false`, gebruik daarna [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) met het gewenste categorie‑interval. Voor tekstcategorieën in hun normale volgorde begint de telling bij de eerste categorie:
+Wanneer een grafiek veel categorieën bevat, vermindert u het aantal zichtbare aslabels zonder categorieën of gegevenspunten te verwijderen. Gebruik [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) met `false`, en gebruik vervolgens [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) met het gewenste categorie‑interval. Voor tekstcategorieën in hun normale volgorde begint de telling bij de eerste categorie:
 
 | Interval | Labels die in het voorbeeld worden weergegeven |
 | --- | --- |
@@ -192,11 +268,11 @@ Wanneer een diagram veel categorieën heeft, kunt u het aantal zichtbare aslabel
 | `2` | Categorie 1, Categorie 3, Categorie 5, ... Categorie 23 |
 | `3` | Categorie 1, Categorie 4, Categorie 7, ... Categorie 22 |
 
-Een interval van `3` toont elke derde label, waarbij twee labels verborgen blijven tussen de weergegeven labels. Het verwijdert de bijbehorende kolommen niet. Automatische spacing kiest een interval op basis van de beschikbare ruimte; het toont niet per se elke label.
+Een interval van `3` toont elk derde label, waarbij twee labels tussen de weergegeven labels verborgen blijven. Het verwijdert de bijbehorende kolommen niet. Automatische spacing kiest een interval op basis van de beschikbare ruimte; het toont niet per se elk label.
 
-Tick‑marks hebben afzonderlijke instellingen. Gebruik [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) met `false` en gebruik [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) om hun interval in te stellen. Bijvoorbeeld, `1` houdt een tick‑mark bij elk categorie‑interval terwijl labels alleen elke derde categorie verschijnen. Gebruik [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) met een zichtbare stijl zodat u het resultaat kunt zien. Het terugzetten van een van de automatische‑spacing‑eigenschappen naar `true` laat het diagram dat interval opnieuw kiezen.
+Tic‑markeringen hebben afzonderlijke instellingen. Gebruik [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) met `false` en gebruik [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) om hun interval in te stellen. Bijvoorbeeld, `1` behoudt een tic‑markering bij elk categorie‑interval terwijl labels slechts elke derde categorie verschijnen. Gebruik [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) met een zichtbaar stijl zodat u het resultaat kunt zien. Het terugzetten van een van de automatische‑spacing‑eigenschappen naar `true` laat de grafiek dat interval opnieuw kiezen.
 
-Het volgende zelfstandige voorbeeld maakt 24 categorieën en één serie, en slaat vervolgens drie dia's op in `CategoryAxisIntervals.pptx`: automatische spacing, handmatige label‑spacing met onafhankelijke tick‑marks, en herstelde automatische spacing. De twee kopieën behouden de oorspronkelijke diagramgegevens. Geen invoer‑presentatie is vereist. Horizontale labeltekst maakt het verschil in dichtheid gemakkelijk zichtbaar.
+Het volgende zelfstandige voorbeeld maakt 24 categorieën en één reeks, en slaat vervolgens drie dia's op in `CategoryAxisIntervals.pptx`: automatische spacing, handmatige label‑spacing met onafhankelijke tic‑markeringen, en herstelde automatische spacing. De twee kopieën behouden de originele grafiekgegevens. Er is geen invoerpresentatie vereist. Horizontale labeltekst maakt het verschil in dichtheid gemakkelijk zichtbaar.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -256,7 +332,7 @@ axis->set_MajorTickMark(TickMarkType::Outside);
 axis->set_IsAutomaticTickLabelSpacing(true);
 axis->set_IsAutomaticTickMarksSpacing(true);
 
-// Dia 2: toon elke derde label, maar behoud een tick mark voor elke categorie.
+// Dia 2: toon elk derde label, maar behoud een tic-markering voor elke categorie.
 auto manualSlide = presentation->get_Slides()->AddClone(slide);
 auto manualChart = System::ExplicitCast<IChart>(manualSlide->get_Shape(0));
 auto manualAxis = manualChart->get_Axes()->get_HorizontalAxis();
@@ -265,7 +341,7 @@ manualAxis->set_TickLabelSpacing(3);
 manualAxis->set_IsAutomaticTickMarksSpacing(false);
 manualAxis->set_TickMarksSpacing(1);
 
-// Dia 3: laat het diagram beide intervallen opnieuw kiezen.
+// Dia 3: laat de grafiek beide intervallen opnieuw kiezen.
 auto restoredSlide = presentation->get_Slides()->AddClone(manualSlide);
 auto restoredChart = System::ExplicitCast<IChart>(restoredSlide->get_Shape(0));
 restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickLabelSpacing(true);
@@ -274,23 +350,23 @@ restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickMarksSpacing
 presentation->Save(u"CategoryAxisIntervals.pptx", SaveFormat::Pptx);
 ```
 
-**Automatische spacing (dia 1):** In deze weergave wordt elke tweede categorie‑label weergegeven en wordt op twee regels afgebroken. Het automatische resultaat kan variëren afhankelijk van diagramgrootte, lettertypen en de renderer.
+**Automatische spacing (dia 1):** In deze weergave wordt elk tweede categorielabel weergegeven en wordt op twee regels afgebroken. Het automatische resultaat kan variëren met grafiekgrootte, lettertypen en de renderer.
 
-![Automatische categorie‑label‑spacing met alle 24 kolommen zichtbaar](category-axis-automatic.png)
+![Automatische categorie‑labelspacing met alle 24 kolommen zichtbaar](category-axis-automatic.png)
 
-**Handmatige spacing (dia 2):** Elke derde label wordt op één regel weergegeven, terwijl tick‑marks behouden blijven bij elk categorie‑interval. Alle 24 kolommen, inclusief die zonder labels, blijven zichtbaar met dezelfde waarden. Dia 3 herstelt de bovenstaande automatische weergave.
+**Handmatige spacing (dia 2):** Elk derde label wordt op één regel weergegeven, terwijl tic‑markeringen bij elk categorie‑interval blijven. Alle 24 kolommen, inclusief die zonder labels, blijven zichtbaar met dezelfde waarden. Dia 3 herstelt de bovenstaande automatische weergave.
 
-![Handmatig categorie‑label‑interval van drie met alle 24 kolommen zichtbaar](category-axis-manual.png)
+![Handmatig categorie‑labelinterval van drie met alle 24 kolommen zichtbaar](category-axis-manual.png)
 
-### **Kies de juiste as en interval**
+### **De juiste as en interval kiezen**
 
-Gebruik dit categorie‑aantal‑interval voor een tekst‑categorieas, zoals de categorieas van een kolom-, lijn-, gebieds‑ of staafdiagram. In een kolomdiagram is dit de horizontale as. In een horizontaal staafdiagram is de categorieas verticaal, dus pas deze instellingen toe op [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Tick‑mark‑spacing geldt ook voor een seriesas in diagrammen die er een hebben.
+Gebruik dit categorie‑telinterval voor een tekst‑categorieas, zoals de categorieas van een kolom‑, lijn‑, gebieds‑ of staafgrafiek. In een kolomgrafiek is dit de horizontale as. In een horizontale staafgrafiek is de categorieas verticaal, dus pas deze instellingen toe op [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Tic‑mark‑spacing is ook van toepassing op een reeksenas in grafieken die die hebben.
 
-Gebruik categorie‑label‑spacing niet om de numerieke schaal van een waardenas in te stellen. Op een waardenas specificeert [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) een verschil in waarden: bijvoorbeeld, een grote eenheid van `10` produceert ticks op 0, 10, 20, enzovoort wanneer de as bij nul begint. Een categorie‑label‑interval van `3` telt in plaats daarvan categorie‑posities, ongeacht hun gegevenswaarden. Scatter‑ en bubbel‑diagrammen gebruiken waardenassen in plaats van een tekst‑categorieas. Voor een datumas gebruikt u tijd‑gebaseerde grote eenheden en schalen zoals beschreven in [Categorieas wijzigen](#categorieas-wijzigen).
+Gebruik geen categorie‑labelspacing om de numerieke schaal van een waardenas in te stellen. Op een waardenas bepaalt [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) een verschil in waarden: bijvoorbeeld, een hoofd‑eenheid van `10` produceert tikken op 0, 10, 20, enzovoort wanneer de as bij nul begint. Een categorie‑labelinterval van `3` telt daarentegen categorieposities, ongeacht hun gegevenswaarden. Spreidings‑ en bolgrafieken gebruiken waardenassen in plaats van een tekst‑categorieas. Voor een datumas gebruikt u tijdgebaseerde hoofd‑eenheden en schalen zoals beschreven in [Change a Category Axis](#change-a-category-axis).
 
-## **Datumopmaak instellen voor categorie‑as‑waarden**
+## **Het datumnotatieformaat voor categorieaswaarden instellen**
 
-Het voorbeeld vervangt de standaarddiagramgegevens door vier jaarlijkse waarden. Data worden opgeslagen als OLE‑Automation‑serienummers in het eerste werkblad (index `0`). Gebruik [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) om een datumas te selecteren, schakel bron‑gekoppelde opmaak uit met [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), en wijs `yyyy` toe met [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) zodat de categorie‑labels viercijferige jaren weergeven, onafhankelijk van de celopmaak.
+Het voorbeeld vervangt de standaardgrafiekgegevens door vier jaarlijkse waarden. Datums worden opgeslagen als OLE‑Automation‑serienummers in het eerste werkblad (index `0`). Gebruik [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) om een datumas te selecteren, schakel bron‑gekoppelde opmaak uit met [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), en ken `yyyy` toe met [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) zodat de categorie‑labels viercijferige jaartallen weergeven, onafhankelijk van de celopmaak.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -345,9 +421,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_NumberFormat(u"yyyy");
 presentation->Save(u"DateAxisFormat.pptx", SaveFormat::Pptx);
 ```
 
-## **Rotatie‑hoek voor een diagramas‑titel instellen**
+## **Een rotatie‑hoek voor een grafiekas‑titel instellen**
 
-Schakel de verticale‑as‑titel in met [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), geef de titeltekst op, en gebruik [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/) om de titel te roteren. De hoek wordt gemeten in graden; dit voorbeeld slaat een kolomdiagram op met de waardenas‑titel geroteerd met 90 graden.
+Schakel de titel van de verticale as in met [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), geef titeltekst op, en gebruik [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/) om de titel te roteren. De hoek wordt gemeten in graden; dit voorbeeld slaat een kolomgrafiek op met de titels van de waardenas gedraaid met 90 graden.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -377,9 +453,9 @@ chart->get_Axes()->get_VerticalAxis()->get_Title()->get_TextFormat()->get_TextBl
 presentation->Save(u"RotatedAxisTitle.pptx", SaveFormat::Pptx);
 ```
 
-## **Aspositie instellen op een categorie‑ of waardenas**
+## **De positie van de as op een categorie‑ of waardenas instellen**
 
-Gebruik [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) om te bepalen of de waardenas de categorieas kruist tussen categorieën of op categorie‑tick‑marks. Deze eigenschap geldt voor categorieassen. Het voorbeeld stelt dit in op `true` op de horizontale categorieas van een kolomdiagram en slaat het resultaat op.
+Gebruik [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) om te bepalen of de waardenas de categorieas tussen categorieën of op categorie‑tikmarkeringen kruist. Deze eigenschap geldt voor categorieassen. Het voorbeeld stelt dit in op `true` op de horizontale categorieas van een kolomgrafiek en slaat het resultaat op.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -404,9 +480,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 presentation->Save(u"AxisBetweenCategories.pptx", SaveFormat::Pptx);
 ```
 
-## **Weergave‑eenheid instellen op een diagram‑waardenas**
+## **De weergave‑eenheid op een grafiekwaardenas instellen**
 
-Gebruik [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) om de labels op een waardenas te schalen zonder de onderliggende gegevens te wijzigen. Met [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) ingesteld op `Millions` wordt een waarde van 60.000.000 weergegeven als 60. Het voorbeeld maakt een kolomdiagram en past de miljoenen‑weergave‑eenheid toe op de verticale as.
+Gebruik [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) om de labels op een waardenas te schalen zonder de onderliggende gegevens te wijzigen. Met [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) ingesteld op `Millions` wordt een waarde van 60.000.000 weergegeven als 60. Het voorbeeld maakt een kolomgrafiek en past de miljoenen‑weergave‑eenheid toe op de verticale as.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -432,21 +508,21 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 presentation->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-## **Logaritmische waardenas configureren**
+## **Een logaritmische waardenas configureren**
 
-Een logaritmische waardenas is nuttig wanneer positieve waarden zich over meerdere grootte‑ordes uitstrekken. Bijvoorbeeld, een service kan 10, 100, 1.000, 10.000 en 100.000 verzoeken ontvangen over vijf periodes. Op een lineaire schaal verschijnen de kleinere waarden dicht bij nul. Een logaritmische schaal maakt hun relatieve groei makkelijker vergelijkbaar: gelijke afstanden vertegenwoordigen gelijke verhoudingen in plaats van gelijke verschillen.
+Een logaritmische waardenas is nuttig wanneer positieve waarden zich over meerdere groottenordes uitstrekken. Bijvoorbeeld, een dienst kan 10, 100, 1.000, 10.000 en 100.000 aanvragen ontvangen over vijf periodes. Op een lineaire schaal verschijnen de kleinere waarden dicht bij nul bij elkaar. Een logaritmische schaal maakt hun relatieve groei makkelijker te vergelijken: gelijke afstanden staan voor gelijke verhoudingen in plaats van gelijke verschillen.
 
-Roep [set_IsLogarithmic](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_islogarithmic/) met `true` aan op de waardenas en gebruik [set_LogBase](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_logbase/) om de basis te kiezen. Dit verandert hoe de bestaande waarden worden weergegeven; het wijzigt de gegevens niet en voegt geen logaritmische trendlijn toe. Een trendlijn vertegenwoordigt een aangepaste relatie in de gegevens en is een aparte functie.
+Roep [set_IsLogarithmic](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_islogarithmic/) aan met `true` op de waardenas en gebruik [set_LogBase](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_logbase/) om de basis te kiezen. Dit verandert hoe de bestaande waarden worden weergegeven; het wijzigt de gegevens niet of voegt een logaritmische trendlijn toe. Een trendlijn geeft een aangepaste relatie in de gegevens weer en is een aparte functie.
 
-### **Kies de waardenas en basis**
+### **De waardenas en basis kiezen**
 
-Voor een lijn‑ of kolomdiagram is de waardenas [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Voor een horizontaal staafdiagram is het [get_HorizontalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_horizontalaxis/). Scatter‑ en bubbel‑diagrammen hebben twee waardenassen, dus kies de horizontale as voor X‑waarden, de verticale as voor Y‑waarden, of beide. Pas geen logaritmische schaal toe op een categorieas.
+Voor een lijn‑ of kolomgrafiek is de waardenas [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Voor een horizontale staafgrafiek is dit [get_HorizontalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_horizontalaxis/). Spreidings‑ en bolgrafieken hebben twee waardenassen, dus kies de horizontale as voor X‑waarden, de verticale as voor Y‑waarden, of beide. Pas geen logaritmische schaal toe op een categorieas.
 
-De standaard logaritmische basis is `10`. Voor PPTX‑diagrammen kunt u een basis gebruiken van `2` tot en met `1000`, inclusief; fractionele bases zoals `2.5` worden ook ondersteund. Met basis `10` zijn opeenvolgende machten zoals 10, 100, 1.000 en 10.000 gelijkmatig verdeeld.
+De standaard logaritmische basis is `10`. Voor PPTX‑grafieken gebruikt u een basis van `2` tot en met `1000`, inclusief; fractionele bases zoals `2.5` worden ook ondersteund. Met basis `10` zijn opeenvolgende machten zoals 10, 100, 1.000 en 10.000 gelijkmatig gespreid.
 
 ### **Lineaire en logaritmische schaal vergelijken**
 
-Het volgende zelfstandige voorbeeld maakt een lijndiagram met de vijf verzoek‑aantallen op de eerste dia, dupliceert die dia vervolgens en schakelt een logaritmische waardenas met basis 10 in op de tweede. Beide dia's behouden dezelfde gegevens.
+Het volgende zelfstandige voorbeeld maakt een lijndiagram met de vijf aanvraag‑telwaarden op de eerste dia, klont vervolgens die dia en schakelt op de tweede een logaritmische waardenas met basis‑10 in. Beide dia's behouden dezelfde gegevens.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -498,7 +574,7 @@ for (auto i = 0; i < values.size(); i++)
     series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
 }
 
-// Behoud de eerste dia lineair en wijzig alleen de schaal van de waardenas van de kopie.
+// Houd de eerste dia lineair en wijzig alleen de schaal van de waardenas van de kopie.
 auto logarithmicSlide = presentation->get_Slides()->AddClone(slide);
 auto logarithmicChart = System::ExplicitCast<IChart>(logarithmicSlide->get_Shape(0));
 auto valueAxis = logarithmicChart->get_Axes()->get_VerticalAxis();
@@ -508,24 +584,24 @@ valueAxis->set_LogBase(10);
 presentation->Save(u"LogarithmicAxis.pptx", SaveFormat::Pptx);
 ```
 
-**Lineaire schaal (dia 1):** Gelijke verticale afstanden vertegenwoordigen gelijke verschillen in verzoek‑aantallen. De grootste waarde domineert het diagram, waardoor de kleinere waarden moeilijk te onderscheiden zijn.
+**Lineaire schaal (dia 1):** Gelijke verticale afstanden staan voor gelijke verschillen in het aantal aanvragen. De grootste waarde domineert de grafiek, waardoor de kleinere waarden moeilijk te onderscheiden zijn.
 
-![Lijndiagram in PowerPoint dat vijf verzoek‑aantallen toont op een lineaire waardenas](value-axis-linear.png)
+![Lijndiagram in PowerPoint met vijf aanvraag‑telwaarden op een lineaire waardenas](value-axis-linear.png)
 
-**Logaritmische schaal (dia 2):** Gelijke verticale afstanden vertegenwoordigen gelijke verhoudingen. Elke periode heeft tien keer zoveel verzoeken als de vorige, dus de punten vormen een rechte stijgende lijn op de basis‑10‑schaal. De aslabels tonen nog steeds de oorspronkelijke verzoek‑aantallen.
+**Logaritmische schaal (dia 2):** Gelijke verticale afstanden staan voor gelijke verhoudingen. Elke periode heeft tien keer zoveel aanvragen als de vorige, waardoor de punten een rechte stijgende lijn vormen op de basis‑10 schaal. De aslabels tonen nog steeds de oorspronkelijke aanvraag‑telwaarden.
 
-![Dezelfde vijf verzoek‑aantallen in PowerPoint op een logaritmische waardenas met basis 10](value-axis-logarithmic.png)
+![Dezelfde vijf aanvraag‑telwaarden in PowerPoint op een logaritmische waardenas met basis‑10](value-axis-logarithmic.png)
 
-### **Omgaan met nul‑ en negatieve waarden**
+### **Nul‑ en negatieve waarden behandelen**
 
-Een logaritmische schaal kan alleen strikt positieve waarden weergeven. Controleer de gegevens voordat u deze inschakelt. Als nul‑ of negatieve waarden betekenisvol zijn, houd een lineaire schaal aan of toon ze afzonderlijk. Als het weglaten van die waarden passend is voor de analyse, leg dan de omissie uit. Vervang ze niet stilletjes door kleine positieve getallen, want dat wijzigt de betekenis van de gegevens. Elke handmatig geconfigureerde minimum‑ of maximumwaarde voor een logaritmische as moet ook positief zijn.
+Een logaritmische schaal kan alleen strikt positieve waarden weergeven. Controleer de gegevens voordat u deze inschakelt. Als nul‑ of negatieve waarden betekenisvol zijn, behoud dan een lineaire schaal of toon ze afzonderlijk. Als het weglaten van die waarden geschikt is voor de analyse, licht dan de omissie toe. Vervang ze niet stilletjes door kleine positieve getallen, want dat verandert de betekenis van de gegevens. Elke handmatig geconfigureerde minimum‑ of maximumwaarde voor een logaritmische as moet ook positief zijn.
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Hoe stel ik de waarde in waarop één as de andere (as‑kruising) kruist?**
+**Hoe stel ik de waarde in waarop één as de andere kruist (as‑kruising)?**
 
-Gebruik [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) om het kruising‑gedrag te selecteren. Om een numerieke kruisingswaarde op te geven, gebruik [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Met deze instellingen kunt u de askruising naar een geschikte basislijn verplaatsen.
+Gebruik [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) om het kruisk gedrag te selecteren. Om een numerieke kruiswaarde op te geven, gebruik [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Deze instellingen laten u de askruising verplaatsen naar een geschikte basislijn.
 
-**Hoe kan ik tick‑labels ten opzichte van de as positioneren?**
+**Hoe kan ik tic‑labels positioneren ten opzichte van de as?**
 
-Gebruik [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) met een waarde uit [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` of `None`. Om de tick‑marks zelf te regelen, gebruik [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) of [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); deze staan los van de label‑positionering.
+Gebruik [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) met een waarde uit [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` of `None`. Om de tic‑markeringen zelf te regelen, gebruik [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) of [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); deze zijn los van de labelpositionering.

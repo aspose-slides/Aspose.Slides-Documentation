@@ -1,10 +1,10 @@
 ---
-title: Προσαρμογή αξόνων διαγράμματος σε παρουσιάσεις με PHP
-linktitle: Άξονας διαγράμματος
+title: Προσαρμογή Αξόνων Γραφημάτων σε Παρουσιάσεις Χρησιμοποιώντας PHP
+linktitle: Άξονας Γραφήματος
 type: docs
 url: /el/php-java/chart-axis/
 keywords:
-- άξονας διαγράμματος
+- άξονας γραφήματος
 - κατακόρυφος άξονας
 - οριζόντιος άξονας
 - προσαρμογή άξονα
@@ -21,17 +21,17 @@ keywords:
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Ανακαλύψτε πώς να χρησιμοποιήσετε το Aspose.Slides για PHP μέσω Java για να προσαρμόσετε τους άξονες διαγράμματος σε παρουσιάσεις PowerPoint για εκθέσεις και οπτικοποιήσεις."
+description: "Ανακαλύψτε πώς να χρησιμοποιήσετε το Aspose.Slides για PHP μέσω Java για να προσαρμόσετε τους άξονες γραφημάτων σε παρουσιάσεις PowerPoint για αναφορές και οπτικοποιήσεις."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να προσαρμόζετε τους άξονες των διαγραμμάτων με το Aspose.Slides για PHP μέσω Java. Καλύπτει υπολογισμένες τιμές άξονα, εναλλαγή γραμμών και στηλών διαγράμματος, ορατότητα άξονα, διαστήματα ετικετών κατηγορίας και σημείων σκαλαρίσματος, ημερολογιακές κατηγορίες και μορφοποίηση, περιστροφή τίτλου, θέση άξονα, μονάδες εμφάνισης και λογαριθμική κλιμάκωση.
+Αυτό το άρθρο εξηγεί πώς να προσαρμόζετε τους άξονες γραφημάτων με το Aspose.Slides for PHP μέσω Java. Καλύπτει τις υπολογισμένες τιμές άξονα, την εναλλαγή γραμμών και στηλών γραφήματος, την ορατότητα του άξονα, τα διαστήματα ετικετών κατηγορίας και σημείων σκαλαρίσματος, τις κατηγορίες ημερομηνίας και τη διαμόρφωση, την περιστροφή του τίτλου, τη θέση του άξονα, τις μονάδες εμφάνισης και τη λογαριθμική κλίμακα.
 
-## **Λήψη των μέγιστων τιμών στον κάθετο άξονα στα διαγράμματα**
+## **Λάβετε τις Μέγιστες Τιμές στον Κατακόρυφο Άξονα σε Γραφήματα**
 
-Δημιουργήστε μια [Παρουσίαση](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) και προσθέστε ένα διάγραμμα περιοχής με προεπιλεγμένα δεδομένα. Κλήστε το [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) πριν διαβάσετε τις υπολογισμένες τιμές άξονα ώστε η διάταξη του διαγράμματος να είναι ενημερωμένη.
+Δημιουργήστε μια [Παρουσίαση](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) και προσθέστε έναArea chart με προεπιλεγμένα δεδομένα. Καλείτε το [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) πριν διαβάσετε τις υπολογισμένες τιμές άξονα ώστε η διάταξη του γραφήματος να είναι ενημερωμένη.
 
-Διαβάστε [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) και [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) για τα όρια του άξονα, και [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) και [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) για τα διαστήματα σημείων. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) και [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) παρέχουν κλίμακες χρονικής μονάδας, οι οποίες αφορούν τους ημερολογιακούς άξονες. Το παράδειγμα αποθηκεύει αυτές τις τιμές σε τοπικές μεταβλητές και αποθηκεύει το διάγραμμα.
+Διαβάστε τα [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) και [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) για τα όρια του άξονα, καθώς και τα [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) και [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) για τα διαστήματα σημείων σκαλαρίσματος. Τα [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) και [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) παρέχουν κλίμακες μονάδας χρόνου, σχετικές με άξονες ημερομηνίας. Το παράδειγμα αποθηκεύει αυτές τις τιμές σε τοπικές μεταβλητές και αποθηκεύει το γράφημα.
 
 ```php
 use aspose\slides\ChartType;
@@ -60,9 +60,9 @@ try {
 }
 ```
 
-## **Αντιστροφή των δεδομένων μεταξύ των αξόνων**
+## **Ανταλλαγή Δεδομένων μεταξύ των Αξόνων**
 
-Χρησιμοποιήστε το [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) για να ανταλλάξετε τους ρόλους των σειρών και των κατηγοριών στα δεδομένα του διαγράμματος. Κάθε προηγούμενη κατηγορία γίνεται σειρά, και κάθε προηγούμενη σειρά γίνεται κατηγορία. Αυτό αλλάζει τον τρόπο ομαδοποίησης των δεδομένων· δεν ανταλλάσσει τους οριζόντιους και κατακόρυφους άξονες. Το παράδειγμα χρησιμοποιεί το [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) για να συνδέσει τα προεπιλεγμένα δεδομένα με `Sheet1!A1:D5`, συμπεριλαμβανομένης της γραμμής κεφαλίδας και της στήλης κατηγορίας, πριν ανταλλάξει γραμμές και στήλες. Αποθηκεύει ένα διάγραμμα με τέσσερις σειρές και τρεις κατηγορίες.
+Χρησιμοποιήστε το [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) για να ανταλλάξετε τους ρόλους των σειρών και των κατηγοριών στα δεδομένα του γραφήματος. Κάθε προηγούμενη κατηγορία γίνεται σειρά, και κάθε προηγούμενη σειρά γίνεται κατηγορία. Αυτό αλλάζει τον τρόπο ομαδοποίησης των δεδομένων· δεν ανταλλάσσει τους οριζόντιους και κατακόρυφους άξονες. Το παράδειγμα χρησιμοποιεί το [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) για να συνδέσει τα προεπιλεγμένα δεδομένα με `Sheet1!A1:D5`, συμπεριλαμβανομένων της σειράς κεφαλίδας και της στήλης κατηγορίας, πριν την εναλλαγή γραμμών και στηλών. Αποθηκεύει ένα γράφημα με τέσσερις σειρές και τρεις κατηγορίες.
 
 ```php
 use aspose\slides\ChartType;
@@ -83,9 +83,69 @@ try {
 }
 ```
 
-## **Απενεργοποίηση του κατακόρυφου άξονα για διαγράμματα γραμμής**
+## **Αντιστροφή της Σειράς Σχεδίασης ενός Άξονα**
 
-Κλήστε το [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) με `false` στον κατακόρυφο άξονα για να τον κρύψετε. Το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με προεπιλεγμένα δεδομένα και το αποθηκεύει με τον κατακόρυφο άξονα κρυφό.
+Χρησιμοποιήστε το [setPlotOrderReversed](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setplotorderreversed/) για να αντιστρέψετε έναν άξονα κατηγορίας ή τιμής. Για παράδειγμα, ένα οριζόντιο ράβδικο γράφημα μπορεί να εμφανίζει τα στάδια του έργου από πάνω προς τα κάτω με τη ίδια σειρά όπως το φύλλο εργασίας: Σχεδιασμός, Ανάπτυξη, Δοκιμές. Η αντιστροφή ενός άξονα αλλάζει την κατεύθυνση σχεδίασης· δεν ταξινομεί ή αναδιατάσσει τα δεδομένα του βιβλίου εργασίας. Σε σύγκριση, το [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) ανταλλάσσει τους ρόλους των σειρών και των κατηγοριών.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα οριζόντιο ράβδικο γράφημα με τρία στάδια και μία σειρά. Αποθηκεύει μια παρουσίαση με τρία διαφάνειες: κανονική σειρά, αντιστροφές κατηγοριών και αντιστροφή τιμών. Κάθε αντίγραφο χρησιμοποιεί το ίδιο σύνολο δεδομένων, και μόνο ένας άξονας είναι αντιστραμμένος σε κάθε αντίγραφο.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\CrossesType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredBar, 50, 40, 620, 320);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::ClusteredBar);
+    $stages = ["Planning", "Development", "Testing"];
+    $values = [10, 30, 20];
+    for ($i = 0; $i < count($stages); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $stages[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    // Διαφάνεια 2: εμφάνιση της πρώτης κατηγορίας στην κορυφή.
+    $categorySlide = $presentation->getSlides()->addClone($slide);
+    $categoryChart = $categorySlide->getShapes()->get_Item(0);
+    $categoryChart->getAxes()->getVerticalAxis()->setPlotOrderReversed(true);
+    // Διατήρηση του οριζόντιου άξονα τιμών στο κάτω μέρος.
+    $categoryChart->getAxes()->getVerticalAxis()->setCrossType(CrossesType::Maximum);
+
+    // Διαφάνεια 3: αντιστροφή μόνο της οριζόντιας αριθμητικής κλίμακας.
+    $valueSlide = $presentation->getSlides()->addClone($slide);
+    $valueChart = $valueSlide->getShapes()->get_Item(0);
+    $valueChart->getAxes()->getHorizontalAxis()->setPlotOrderReversed(true);
+
+    $presentation->save("ReversedAxes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Η αντιστροφή ενός άξονα μπορεί επίσης να μετακινήσει τον κάθετο άξονα στην αντίθετη πλευρά του σχεδίου. Το [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) ελέγχει πού ο άλλος άξονας διασχίζει τον άξονα που ρυθμίζεται. Στη διαφάνεια 2, καλώντας το με `CrossesType::Maximum` στον αντιστραμμένο άξονα κατηγορίας διατηρεί τον οριζόντιο άξονα τιμής στο κάτω μέρος. Για συγκεκριμένο σημείο διασταύρωσης, χρησιμοποιήστε το [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Ελέγξτε τις ρυθμίσεις διασταύρωσης όταν αλλάζετε κατεύθυνση, ειδικά αν το γράφημα έχει ήδη προσαρμοσμένο σημείο διασταύρωσης. Καλέστε το `setPlotOrderReversed` με `false` για να επαναφέρετε την κανονική κατεύθυνση σχεδίασης· οι ρυθμίσεις διασταύρωσης είναι ξεχωριστές.
+
+| Κανονική σειρά (διαφ. 1) | Αντιστροφή κατηγοριών (διαφ. 2) | Αντιστροφή τιμών (διαφ. 3) |
+| --- | --- | --- |
+| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
+| Οι κατηγορίες τρέχουν από κάτω προς τα πάνω· οι τιμές αυξάνονται από αριστερά προς δεξιά. | Οι Σχεδιασμός, Ανάπτυξη και Δοκιμές τρέχουν από πάνω προς τα κάτω. Οι τιμές και η σειρά των γραμμών του βιβλίου εργασίας παραμένουν αμετάβλητες. | Οι κατηγορίες διατηρούν τη φυσική τους σειρά· οι τιμές αυξάνονται από δεξιά προς αριστερά. Ο άξονας κατηγορίας διασχίζει στο μηδέν στα δεξιά. |
+
+## **Απενεργοποίηση του Κατακόρυφου Άξονα για Γραφήματα Γραμμής**
+
+Καλέστε το [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) με `false` στον κατακόρυφο άξονα για να τον κρύψετε. Το παράδειγμα δημιουργεί ένα γράφημα γραμμής με προεπιλεγμένα δεδομένα και το αποθηκεύει με τον κατακόρυφο άξονα κρυμμένο.
 
 ```php
 use aspose\slides\ChartType;
@@ -105,9 +165,9 @@ try {
 }
 ```
 
-## **Απενεργοποίηση του οριζόντιου άξονα για διαγράμματα γραμμής**
+## **Απενεργοποίηση του Οριζόντιου Άξονα για Γραφήματα Γραμμής**
 
-Κλήστε το [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) με `false` στον οριζόντιο άξονα για να τον κρύψετε. Το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με προεπιλεγμένα δεδομένα και το αποθηκεύει με τον οριζόντιο άξονα κρυφό.
+Καλέστε το [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) με `false` στον οριζόντιο άξονα για να τον κρύψετε. Το παράδειγμα δημιουργεί ένα γράφημα γραμμής με προεπιλεγμένα δεδομένα και το αποθηκεύει με τον οριζόντιο άξονα κρυμμένο.
 
 ```php
 use aspose\slides\ChartType;
@@ -127,9 +187,9 @@ try {
 }
 ```
 
-## **Αλλαγή άξονα κατηγορίας**
+## **Αλλαγή Άξονα Κατηγορίας**
 
-Χρησιμοποιήστε το [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) για να επιλέξετε έναν ημερολογιακό ή κειμενικό άξονα κατηγορίας. Αυτό το παράδειγμα απαιτεί το `ExistingChart.pptx`, με ένα διάγραμμα ως το πρώτο σχήμα στην πρώτη διαφάνεια και κελιά κατηγορίας που περιέχουν αριθμητικές τιμές ημερομηνίας του Excel. Αλλάζει τον οριζόντιο άξονα σε ημερολογιακό άξονα. Καλώντας το [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) με `false`, το [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) με `1` και το [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) με `TimeUnitType::Months` τοποθετούνται οι κύριες τιμές σήματος σε διαστήματα ενός μηνός.
+Χρησιμοποιήστε το [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) για να επιλέξετε άξονα κατηγορίας ημερομηνίας ή κειμένου. Το παράδειγμα απαιτεί το `ExistingChart.pptx`, με ένα γράφημα ως το πρώτο σχήμα στην πρώτη διαφάνεια και κελιά κατηγορίας που περιέχουν αριθμητικές τιμές ημερομηνίας Excel. Αλλάζει τον οριζόντιο άξονα σε άξονα ημερομηνίας. Καλώντας το [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) με `false`, το [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) με `1`, και το [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) με `TimeUnitType::Months` τοποθετεί τα κύρια σημεία σε διαστήματα ενός μήνα.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -153,21 +213,21 @@ try {
 }
 ```
 
-## **Έλεγχος διαστημάτων ετικετών άξονα κατηγορίας**
+## **Έλεγχος Διαστημάτων Ετικετών Άξονα Κατηγορίας**
 
-Όταν ένα διάγραμμα έχει πολλές κατηγορίες, μειώστε τον αριθμό των ορατών ετικετών του άξονα χωρίς να αφαιρέσετε κατηγορίες ή σημεία δεδομένων. Κλήστε το [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) με `false`, στη συνέχεια περάστε το επιθυμητό διάστημα κατηγορίας στο [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Για κειμενικές κατηγορίες στη φυσική τους σειρά, η καταμέτρηση ξεκινά από την πρώτη κατηγορία:
+Όταν ένα γράφημα έχει πολλές κατηγορίες, μειώστε τον αριθμό των ορατών ετικετών άξονα χωρίς να αφαιρέσετε κατηγορίες ή σημεία δεδομένων. Καλέστε το [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) με `false`, στη συνέχεια περάστε το επιθυμητό διάστημα κατηγορίας στο [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Για κατηγορίες κειμένου στη φυσική τους σειρά, η αρίθμηση ξεκινά από την πρώτη κατηγορία:
 
 | Διάστημα | Ετικέτες που εμφανίζονται στο παράδειγμα |
 | --- | --- |
-| `1` | Κατηγορία 1, Κατηγορία 2, Κατηγορία 3, ... Κατηγορία 24 |
-| `2` | Κατηγορία 1, Κατηγορία 3, Κατηγορία 5, ... Κατηγορία 23 |
-| `3` | Κατηγορία 1, Κατηγορία 4, Κατηγορία 7, ... Κατηγορία 22 |
+| `1` | Category 1, Category 2, Category 3, … Category 24 |
+| `2` | Category 1, Category 3, Category 5, … Category 23 |
+| `3` | Category 1, Category 4, Category 7, … Category 22 |
 
-Ένα διάστημα `3` εμφανίζει κάθε τρίτη ετικέτα, αφήνοντας δύο ετικέτες κρυμμένες μεταξύ των εμφανιζόμενων. Δεν αφαιρεί τις αντίστοιχες στήλες. Η αυτόματη απόσταση επιλέγει διάστημα με βάση τον διαθέσιμο χώρο· δεν εμφανίζει απαραίτητα κάθε ετικέτα.
+Διάστημα `3` εμφανίζει κάθε τρίτη ετικέτα, αφήνοντας δύο ετικέτες κρυμμένες μεταξύ των εμφανιζόμενων. Δεν αφαιρεί τις αντίστοιχες στήλες. Η αυτόματη απόσταση επιλέγει διάστημα βάσει του διαθέσιμου χώρου· δεν εμφανίζει υποχρεωτικά κάθε ετικέτα.
 
-Τα σημεία σκαλαρίσματος έχουν ξεχωριστό έλεγχο. Κλήστε το [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) με `false` και χρησιμοποιήστε το [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) για να ορίσετε το διάστημά τους. Για παράδειγμα, το `1` διατηρεί ένα σημείο σκαλαρίσματος σε κάθε διάστημα κατηγορίας ενώ οι ετικέτες εμφανίζονται μόνο κάθε τρίτη κατηγορία. Χρησιμοποιήστε το [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) με ορατό στυλ ώστε να δείτε το αποτέλεσμα. Καλώντας οποιοδήποτε αυτόματο setter με `true` ξανά επιτρέπει στο διάγραμμα να επιλέξει πάλι εκείνο το διάστημα.
+Τα σημεία σκαλαρίσματος έχουν ξεχωριστό έλεγχο. Καλέστε το [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) με `false` και χρησιμοποιήστε το [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) για να ορίσετε το διάστημα τους. Για παράδειγμα, το `1` διατηρεί ένα σημείο σκαλαρίσματος σε κάθε διάστημα κατηγορίας ενώ οι ετικέτες εμφανίζονται μόνο κάθε τρίτη κατηγορία. Χρησιμοποιήστε το [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) με ένα ορατό στυλ ώστε να δείτε το αποτέλεσμα. Καλώντας ξανά οποιονδήποτε αυτόματο οριστή με `true` επιτρέπει στο γράφημα να επιλέξει πάλι εκείνο το διάστημα.
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί 24 κατηγορίες και μία σειρά, στη συνέχεια αποθηκεύει τρεις διαφάνειες στο `CategoryAxisIntervals.pptx`: αυτόματο διάστημα, χειροκίνητο διάστημα ετικέτας με ανεξάρτητα σημεία σκαλαρίσματος, και επαναφορά του αυτόματου διαστήματος. Τα δύο αντίγραφα διατηρούν τα αρχικά δεδομένα του διαγράμματος. Δεν απαιτείται εισαγωγική παρουσίαση. Το οριζόντιο κείμενο ετικέτας καθιστά εύκολη την αντίληψη της διασποράς.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί 24 κατηγορίες και μία σειρά, έπειτα αποθηκεύει τρεις διαφάνειες σε `CategoryAxisIntervals.pptx`: αυτόματη απόσταση, χειροκίνητη απόσταση ετικετών με ανεξάρτητα σημεία σκαλαρίσματος, και επαναφορά της αυτόματης απόστασης. Τα δύο αντίγραφα διατηρούν τα αρχικά δεδομένα του γραφήματος. Δεν απαιτείται παρουσίαση εισόδου. Το οριζόντιο κείμενο ετικέτας διευκολύνει την παρατήρηση της πυκνότητας.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -214,7 +274,7 @@ try {
     $manualAxis->setAutomaticTickMarksSpacing(false);
     $manualAxis->setTickMarksSpacing(1);
 
-    // Διαφάνεια 3: αφήστε το διάγραμμα να επιλέξει ξανά και τα δύο διαστήματα.
+    // Διαφάνεια 3: άδεια στο γράφημα να επιλέξει ξανά και τα δύο διαστήματα.
     $restoredSlide = $presentation->getSlides()->addClone($manualSlide);
     $restoredChart = $restoredSlide->getShapes()->get_Item(0);
     $restoredChart->getAxes()->getHorizontalAxis()->setAutomaticTickLabelSpacing(true);
@@ -226,23 +286,23 @@ try {
 }
 ```
 
-**Αυτόματο διάστημα (διαφάνεια 1):** Σε αυτήν την απόδοση, κάθε δεύτερη ετικέτα κατηγορίας εμφανίζεται και αναδιπλώνεται σε δύο γραμμές. Το αυτόματο αποτέλεσμα μπορεί να διαφέρει ανάλογα με το μέγεθος του διαγράμματος, τις γραμματοσειρές και τον μηχανισμό απόδοσης.
+**Αυτόματη απόσταση (διαφ. 1):** Σε αυτήν την απόδοση, εμφανίζεται κάθε δεύτερη ετικέτα κατηγορίας και τυλίγεται σε δύο γραμμές. Το αυτόματο αποτέλεσμα μπορεί να διαφέρει ανάλογα με το μέγεθος του γραφήματος, τις γραμματοσειρές και το render.
 
-![Αυτόματο διάστημα ετικετών κατηγορίας με όλες τις 24 στήλες ορατές](category-axis-automatic.png)
+![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
 
-**Χειροκίνητο διάστημα (διαφάνεια 2):** Κάθε τρίτη ετικέτα εμφανίζεται σε μία γραμμή, ενώ τα σημεία σκαλαρίσματος παραμένουν σε κάθε διάστημα κατηγορίας. Όλες οι 24 στήλες, συμπεριλαμβανομένων των χωρίς ετικέτες, παραμένουν ορατές με τις ίδιες τιμές. Η διαφάνεια 3 επαναφέρει την αυτόματη εμφάνιση που φαίνεται παραπάνω.
+**Χειροκίνητη απόσταση (διαφ. 2):** Κάθε τρίτη ετικέτα εμφανίζεται σε μία γραμμή, ενώ τα σημεία σκαλαρίσματος παραμένουν σε κάθε διάστημα κατηγορίας. Όλες οι 24 στήλες, συμπεριλαμβανομένων των μίας ετικέτας, παραμένουν ορατές με τις ίδιες τιμές. Η διαφάνεια 3 επαναφέρει την αυτόματη εμφάνιση που φαίνεται πιο πάνω.
 
-![Χειροκίνητο διάστημα ετικέτας κατηγορίας τριών με όλες τις 24 στήλες ορατές](category-axis-manual.png)
+![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
 
-### **Επιλογή του σωστού άξονα και διαστήματος**
+### **Επιλέξτε τον Σωστό Άξονα και Διάστημα**
 
-Χρησιμοποιήστε αυτό το διάστημα καταμέτρησης κατηγοριών για έναν κειμενικό άξονα κατηγορίας, όπως ο άξονας κατηγορίας ενός διαγράμματος στήλης, γραμμής, περιοχής ή ράβδου. Σε διάγραμμα στήλης, είναι ο οριζόντιος άξονας. Σε οριζόντιο διάγραμμα ράβδων, ο άξονας κατηγορίας είναι κάθετος, οπότε εφαρμόστε αυτές τις ρυθμίσεις στον άξονα που επιστρέφεται από το [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Η απόσταση σημείων σκαλαρίσματος ισχύει επίσης για άξονα σειράς σε διαγράμματα που το διαθέτουν.
+Χρησιμοποιήστε αυτό το διάστημα καταμέτρησης κατηγοριών για άξονα κειμένου, όπως ο άξονας κατηγορίας ενός ράβδικού, γραμμικού, περιοχής ή ράβδου. Σε γράφημα στήλης, είναι ο οριζόντιος άξονας. Σε ένα οριζόντιο ράβδικο γράφημα, ο άξονας κατηγορίας είναι κατακόρυφος, οπότε εφαρμόστε αυτές τις ρυθμίσεις στον άξονα που επιστρέφει το [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Η απόσταση σημείων σκαλαρίσματος ισχύει επίσης για άξονα σειράς σε γραφήματα που έχουν έναν.
 
-Μην χρησιμοποιήσετε τη ρύθμιση διαστήματος ετικέτας κατηγορίας για να ορίσετε την αριθμητική κλίμακα ενός άξονα τιμής. Σε άξονα τιμής, το [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) ορίζει μια διαφορά στις τιμές: π.χ., μια κύρια μονάδα `10` παράγει σημεία σκαλαρίσματος στα 0, 10, 20 κ.λπ. όταν ο άξονας ξεκινά από το μηδέν. Ένα διάστημα ετικέτας κατηγορίας `3` μετρά αντίθετα τις θέσεις κατηγορίας, ανεξάρτητα από τις τιμές δεδομένων. Τα διαγράμματα διασποράς και φυσαλίδων χρησιμοποιούν άξονες τιμής αντί για κειμενικό άξονα κατηγορίας. Για άξονα ημερομηνίας, χρησιμοποιήστε τις βασισμένες στο χρόνο κύριες μονάδες και κλίμακες όπως περιγράφεται στην ενότητα [Αλλαγή άξονα κατηγορίας](#change-a-category-axis).
+Μην χρησιμοποιείτε την απόσταση ετικετών κατηγορίας για να ορίσετε την αριθμητική κλίμακα ενός άξονα τιμής. Σε άξονα τιμής, το [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) καθορίζει τη διαφορά τιμών: π.χ., μια κύρια μονάδα `10` δημιουργεί σημεία στο 0, 10, 20 κ.λπ. όταν ο άξονας ξεκινά στο μηδέν. Ένα διάστημα ετικέτας κατηγορίας `3` μετράει θέσεις κατηγορίας, ανεξαρτήτως των τιμών δεδομένων. Τα διαγράμματα διασποράς και φυσαλίδας χρησιμοποιούν άξονες τιμών αντί για άξονα κειμένου κατηγορίας. Σε άξονα ημερομηνίας, χρησιμοποιήστε μονάδες χρόνου όπως περιγράφεται στην [Αλλαγή Άξονα Κατηγορίας](#change-a-category-axis).
 
-## **Ορισμός μορφής ημερομηνίας για τιμές άξονα κατηγορίας**
+## **Ορίστε τη Μορφή Ημερομηνίας για Τιμές Άξονα Κατηγορίας**
 
-Το παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα του διαγράμματος με τέσσερις ετήσιες τιμές. Οι ημερομηνίες αποθηκεύονται ως σειριακοί αριθμοί OLE Automation στο πρώτο φύλλο εργασίας (δείκτης `0`), υπολογιζόμενοι ως ο αριθμός ημερών από τις 30 Δεκεμβρίου 1899 για αυτές τις ημερομηνίες. Χρησιμοποιήστε το [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) με `CategoryAxisType::Date`, καλέστε το [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) με `false` και περάστε `yyyy` στο [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) ώστε οι ετικέτες κατηγορίας να εμφανίζουν τέσσερα ψηφία του έτους ανεξάρτητα από τη μορφοποίηση των κελιών.
+Το παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα γραφήματος με τέσσερις ετήσιες τιμές. Οι ημερομηνίες αποθηκεύονται ως σειριακοί αριθμοί OLE Automation στο πρώτο φύλλο εργασίας (δείκτης `0`), υπολογιζόμενοι ως ο αριθμός ημερών από τις 30 Δεκεμβρίου 1899, για αυτές τις ημερομηνίες. Χρησιμοποιήστε το [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) με `CategoryAxisType::Date`, καλέστε το [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) με `false`, και περάστε `yyyy` στο [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) ώστε οι ετικέτες κατηγορίας να εμφανίζουν τέσσερα ψηφία χρόνου ανεξάρτητα από τη μορφοποίηση των κελιών.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -285,9 +345,9 @@ try {
 }
 ```
 
-## **Ορισμός γωνίας περιστροφής για τίτλο άξονα διαγράμματος**
+## **Ορίστε Γωνία Περιστροφής για Τίτλο Άξονα Γραφήματος**
 
-Κλήστε το [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) με `true` στον κατακόρυφο άξονα, δώστε το κείμενο του τίτλου και χρησιμοποιήστε το [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) για να περιστρέψετε τον τίτλο. Η γωνία μετράται σε μοίρες· αυτό το παράδειγμα αποθηκεύει ένα διάγραμμα στήλης με τον τίτλο του άξονα τιμής περιστραμμένο κατά 90 μοίρες.
+Καλέστε το [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) με `true` στον κατακόρυφο άξονα, δώστε κείμενο τίτλου και χρησιμοποιήστε το [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) για να περιστρέψετε τον τίτλο. Η γωνία μετράται σε μοίρες· το παράδειγμα αποθηκεύει ένα γράφημα στήλης με τον τίτλο του άξονα τιμής του περιστραμμένο κατά 90 μοίρες.
 
 ```php
 use aspose\slides\ChartType;
@@ -309,9 +369,9 @@ try {
 }
 ```
 
-## **Ορισμός θέσης άξονα σε άξονα κατηγορίας ή τιμής**
+## **Ορίστε τη Θέση του Άξονα σε Άξονα Κατηγορίας ή Τιμής**
 
-Χρησιμοποιήστε το [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) για να ελέγξετε εάν ο άξονας τιμής διασχίζει τον άξονα κατηγορίας μεταξύ των κατηγοριών ή στα σημεία σήματος κατηγορίας. Αυτή η ρύθμιση ισχύει για άξονες κατηγορίας. Το παράδειγμα το ορίζει σε `true` στον οριζόντιο άξονα κατηγορίας ενός διαγράμματος στήλης και αποθηκεύει το αποτέλεσμα.
+Χρησιμοποιήστε το [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) για να ελέγξετε αν ο άξονας τιμής διασχίζει τον άξονα κατηγορίας μεταξύ των κατηγοριών ή στα σημεία σκαλαρίσματος κατηγορίας. Αυτή η ρύθμιση ισχύει για άξονες κατηγορίας. Το παράδειγμα το ορίζει σε `true` στον οριζόντιο άξονα κατηγορίας ενός γραφήματος στήλης και αποθηκεύει το αποτέλεσμα.
 
 ```php
 use aspose\slides\ChartType;
@@ -331,9 +391,9 @@ try {
 }
 ```
 
-## **Ορισμός μονάδας εμφάνισης σε άξονα τιμής διαγράμματος**
+## **Ορίστε τη Μονάδα Εμφάνισης σε Άξονα Τιμής Γραφήματος**
 
-Χρησιμοποιήστε το [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) για να κλιμακώσετε τις ετικέτες ενός άξονα τιμής χωρίς να αλλάξετε τα υποκείμενα δεδομένα. Με το [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) ορισμένο σε `Millions`, μια τιμή των 60 000 000 εμφανίζεται ως 60. Το παράδειγμα δημιουργεί ένα διάγραμμα στήλης και εφαρμόζει τη μονάδα εμφάνισης εκατομμυρίων στον κάθετο άξονά του.
+Χρησιμοποιήστε το [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) για να κλιμακώσετε τις ετικέτες σε άξονα τιμής χωρίς να αλλάξετε τα υποκείμενα δεδομένα. Με το [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) ορισμένο σε `Millions`, μια τιμή των 60 000 000 εμφανίζεται ως 60. Το παράδειγμα δημιουργεί ένα γράφημα στήλης και εφαρμόζει τη μονάδα εμφάνισης εκατομμυρίων στον κατακόρυφο άξονά του.
 
 ```php
 use aspose\slides\ChartType;
@@ -354,21 +414,21 @@ try {
 }
 ```
 
-## **Διαμόρφωση λογαριθμικού άξονα τιμής**
+## **Διαμόρφωση Λογαριθμικού Άξονα Τιμής**
 
-Ένας λογαριθμικός άξονας τιμής είναι χρήσιμος όταν οι θετικές τιμές καλύπτουν πολλές τάξεις μεγέθους. Για παράδειγμα, μια υπηρεσία μπορεί να λαμβάνει 10, 100, 1 000, 10 000 και 100 000 αιτήματα σε πέντε περιόδους. Σε γραμμική κλίμακα, οι μικρότερες τιμές εμφανίζονται πολύ κοντά μεταξύ τους κοντά στο μηδέν. Μια λογαριθμική κλίμακα κάνει την σχετική τους αύξηση πιο εύκολη στην σύγκριση: ίδιες αποστάσεις αντιπροσωπεύουν ίσους λόγους αντί για ίσες διαφορές.
+Ένας λογαριθμικός άξονας τιμής είναι χρήσιμος όταν οι θετικές τιμές καλύπτουν πολλές τάξεις μεγέθους. Για παράδειγμα, μια υπηρεσία μπορεί να λαμβάνει 10, 100, 1 000, 10 000 και 100 000 αιτήματα σε πέντε περιόδους. Σε γραμμική κλίμακα, οι μικρότερες τιμές εμφανίζονται κοντά μεταξύ τους κοντά στο μηδέν. Μια λογαριθμική κλίμακα κάνει τη σχετική τους ανάπτυξη πιο εύκολη στη σύγκριση: ίσες αποστάσεις αντιπροσωπεύουν ίσους λόγους αντί για ίσες διαφορές.
 
-Κλήστε το [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) με `true` στον άξονα τιμής και χρησιμοποιήστε το [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) για να επιλέξετε τη βάση. Αυτό αλλάζει τον τρόπο εμφάνισης των υφιστάμενων τιμών· δεν αλλάζει τα δεδομένα ούτε προσθέτει λογαριθμική γραμμή τάσης. Μια γραμμή τάσης αντιπροσωπεύει μια προσαρμοσμένη σχέση στα δεδομένα και είναι ξεχωριστό χαρακτηριστικό.
+Καλέστε το [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) με `true` στον άξονα τιμής και χρησιμοποιήστε το [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) για να επιλέξετε τη βάση. Αυτό αλλάζει τον τρόπο εμφάνισης των υπαρχόντων τιμών· δεν αλλάζει τα δεδομένα ούτε προσθέτει λογαριθμική γραμμή τάσης. Μια γραμμή τάσης αντιπροσωπεύει μια προσαρμοσμένη σχέση στα δεδομένα και είναι ξεχωριστό χαρακτηριστικό.
 
-### **Επιλογή του άξονα τιμής και βάσης**
+### **Επιλέξτε Άξονα Τιμής και Βάση**
 
-Για διάγραμμα γραμμής ή στήλης, ο άξονας τιμής επιστρέφεται από το [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Για οριζόντιο διάγραμμα ράβδων, επιστρέφεται από το [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Τα διαγράμματα διασποράς και φυσαλίδων έχουν δύο άξονες τιμής, οπότε επιλέξτε τον οριζόντιο άξονα για τις τιμές X, τον κατακόρυφο για τις τιμές Y, ή και τους δύο. Μην εφαρμόζετε λογαριθμική κλιμάκωση σε άξονα κατηγορίας.
+Για γράφημα γραμμής ή στήλης, ο άξονας τιμής επιστρέφεται από το [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Για ένα οριζόντιο ράβδικο γράφημα, επιστρέφεται από το [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Τα γραφήματα διασποράς και φυσαλίδας έχουν δύο άξονες τιμής, οπότε επιλέξτε τον οριζόντιο άξονα για τιμές X, τον κατακόρυφο για τιμές Y, ή και τους δύο. Μην εφαρμόζετε λογαριθμική κλίμακα σε άξονα κατηγορίας.
 
-Η προεπιλεγμένη λογαριθμική βάση είναι `10`. Για διαγράμματα PPTX, χρησιμοποιήστε βάση από `2` έως `1000`, συμπεριλαμβανομένου· υποστηρίζονται επίσης κλασματικές βάσεις όπως `2.5`. Με τη βάση `10`, οι διαδοχικές δυνάμεις 10, 100, 1 000 και 10 000 είναι εξίσου διαστημένες.
+Η προεπιλεγμένη λογαριθμική βάση είναι `10`. Για διαγράμματα PPTX, χρησιμοποιήστε βάση από `2` μέχρι `1000`, συμπεριλαμβανομένων· υποστηρίζονται και κλασματικές βάσεις όπως `2.5`. Με βάση `10`, οι διαδοχικές δυνάμεις όπως 10, 100, 1 000 και 10 000 είναι ισόχρονα τοποθετημένες.
 
-### **Σύγκριση γραμμικής και λογαριθμικής κλιμάκωσης**
+### **Σύγκριση Γραμμικής και Λογαριθμικής Κλίμακας**
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με τις πέντε μετρήσεις αιτημάτων στην πρώτη διαφάνεια, στη συνέχεια κλωνοποιεί αυτή τη διαφάνεια και ενεργοποιεί λογαριθμικό άξονα τιμής βάσης‑10 στη δεύτερη. Και οι δύο διαφάνειες διατηρούν τα ίδια δεδομένα.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα γράφημα γραμμής με τις πέντε μετρήσεις αιτημάτων στη πρώτη διαφάνεια, έπειτα κλωνοποιεί αυτήν τη διαφάνεια και ενεργοποιεί λογαριθμικό άξονα τιμής βάσης‑10 στη δεύτερη. Και οι δύο διαφάνειες διατηρούν τα ίδια δεδομένα.
 
 ```php
 use aspose\slides\ChartType;
@@ -400,7 +460,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // Διατηρήστε την πρώτη διαφάνεια γραμμική και αλλάξτε μόνο την κλίμακα του άξονα τιμής του αντιγράφου.
+    // Διατηρήστε την πρώτη διαφάνεια γραμμική και αλλάξτε μόνο την κλίμακα του άξονα τιμών του αντιγράφου.
     $logarithmicSlide = $presentation->getSlides()->addClone($slide);
     $logarithmicChart = $logarithmicSlide->getShapes()->get_Item(0);
     $valueAxis = $logarithmicChart->getAxes()->getVerticalAxis();
@@ -413,24 +473,24 @@ try {
 }
 ```
 
-**Γραμμική κλίμακα (διαφάνεια 1):** Ίσες κατακόρυφες αποστάσεις αντιπροσωπεύουν ίσες διαφορές στις μετρήσεις αιτημάτων. Η μεγαλύτερη τιμή κυριαρχεί στο διάγραμμα, καθιστώντας τις μικρότερες τιμές δύσκολες στην διάκριση.
+**Γραμμική κλίμακα (διαφ. 1):** Ίσες κατακόρυφες αποστάσεις αντιπροσωπεύουν ίσες διαφορές στις μετρήσεις αιτημάτων. Η μεγαλύτερη τιμή κυριαρχεί στο γράφημα, καθιστώντας δύσκολη τη διάκριση των μικρότερων τιμών.
 
-![Διάγραμμα γραμμής στο PowerPoint που εμφανίζει πέντε μετρήσεις αιτημάτων σε γραμμικό άξονα τιμής](value-axis-linear.png)
+![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
 
-**Λογαριθμική κλίμακα (διαφάνεια 2):** Ίσες κατακόρυφες αποστάσεις αντιπροσωπεύουν ίσους λόγους. Κάθε περίοδος έχει δέκα φορές περισσότερα αιτήματα από την προηγούμενη, έτσι τα σημεία σχηματίζουν μια ευθεία ανερχόμενη γραμμή στη βάση‑10 κλίμακα. Οι ετικέτες του άξονα εξακολουθούν να δείχνουν τις αρχικές μετρήσεις αιτημάτων.
+**Λογαριθμική κλίμακα (διαφ. 2):** Ίσες κατακόρυφες αποστάσεις αντιπροσωπεύουν ίσους λόγους. Κάθε περίοδος έχει δέκα φορές περισσότερα αιτήματα από την προηγούμενη, έτσι τα σημεία σχηματίζουν μια ευθεία γραμμή στην κλίμακα βάσης‑10. Οι ετικέτες του άξονα εξακολουθούν να δείχνουν τις αρχικές μετρήσεις.
 
-![Οι ίδιες πέντε μετρήσεις αιτημάτων στο PowerPoint σε λογαριθμικό άξονα τιμής βάσης 10](value-axis-logarithmic.png)
+![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
 
-### **Διαχείριση μηδενικών και αρνητικών τιμών**
+### **Διαχείριση Μηδενικών και Αρνητικών Τιμών**
 
-Μια λογαριθμική κλίμακα μπορεί να εμφανίσει μόνο αυστηρά θετικές τιμές. Ελέγξτε τα δεδομένα πριν την ενεργοποιήσετε. Εάν μηδενικές ή αρνητικές τιμές έχουν νόημα, διατηρήστε μια γραμμική κλίμακα ή εμφανίστε τις χωριστά. Εάν η εξαίρεση αυτών των τιμών είναι κατάλληλη για την ανάλυση, εξηγήστε την παράλειψη. Μην τις αντικαθιστάτε αθόρυβα με μικρούς θετικούς αριθμούς, καθώς αυτό αλλάζει το νόημα των δεδομένων. Οποιαδήποτε χειροκίνητη ρύθμιση ελάχιστου ή μέγιστου για λογαριθμικό άξονα πρέπει επίσης να είναι θετική.
+Μια λογαριθμική κλίμακα μπορεί να εμφανίσει μόνο αυστηρά θετικές τιμές. Ελέγξτε τα δεδομένα πριν την ενεργοποιήσετε. Εάν μηδενικές ή αρνητικές τιμές έχουν νόημα, διατηρήστε μια γραμμική κλίμακα ή εμφανίστε τις χωριστά. Εάν η εξαίρεση αυτών των τιμών είναι κατάλληλη για την ανάλυση, εξηγήστε την εξαίρεση. Μην αντικαθιστάτε σιωπηρά τις τιμές με μικρά θετικά νούμερα, καθώς αυτό αλλάζει το νόημα των δεδομένων. Οποιοδήποτε χειροκίνητα ρυθμισμένο ελάχιστο ή μέγιστο για λογαριθμικό άξονα πρέπει επίσης να είναι θετικό.
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
 **Πώς ορίζω την τιμή στην οποία ένας άξονας διασχίζει τον άλλο (διασταύρωση άξονα);**
 
-Χρησιμοποιήστε το [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) για να επιλέξετε τη συμπεριφορά διασταύρωσης. Για να καθορίσετε μια αριθμητική τιμή διασταύρωσης, χρησιμοποιήστε το [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Αυτές οι ρυθμίσεις σας επιτρέπουν να μετακινήσετε τη διασταύρωση του άξονα σε κατάλληλη βάση.
+Χρησιμοποιήστε το [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) για να επιλέξετε τη συμπεριφορά διασταύρωσης. Για να καθορίσετε αριθμητική τιμή διασταύρωσης, χρησιμοποιήστε το [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Αυτές οι ρυθμίσεις σας επιτρέπουν να μετακινήσετε τη διασταύρωση άξονα σε κατάλληλη βάση.
 
 **Πώς μπορώ να τοποθετήσω τις ετικέτες σημείων σκαλαρίσματος σχετικά με τον άξονα;**
 
-Κλήστε το [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) χρησιμοποιώντας το [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` ή `None`. Για έλεγχο των ίδιων των σημείων σκαλαρίσματος, χρησιμοποιήστε το [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) ή το [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); αυτά είναι ξεχωριστά από τη θέση των ετικετών.
+Καλέστε το [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) χρησιμοποιώντας το [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` ή `None`. Για να ελέγξετε τα ίδια τα σημεία σκαλαρίσματος, χρησιμοποιήστε το [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) ή το [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); αυτά είναι ξεχωριστά από τη θέση ετικέτας.
