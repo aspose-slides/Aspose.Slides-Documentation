@@ -44,21 +44,11 @@ A paragraph can therefore contain text with different fonts, colors, sizes, and 
 
 ## **Create and Format Paragraphs**
 
+Create paragraphs in a shape's text frame and use portions to format individual text runs. This section shows how to combine multiple portions within each paragraph and apply different colors, font sizes, and styles.
+
 ### **Create Paragraphs with Multiple Portions**
 
-The following steps create a text frame with three paragraphs, each containing three portions:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add a rectangular [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
-5. Use the default paragraph and add two more [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) objects to the text frame.
-6. Add enough [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) objects for each paragraph to contain three portions. The default paragraph already contains one empty portion.
-7. Set the text of each portion.
-8. Apply character-level formatting through [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/).
-9. Save the modified presentation.
-
-This C++ example implements the steps:
+The following C++ example creates three paragraphs, each containing three text runs in its [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/) collection. It reuses the default paragraph and its empty portion, then adds the remaining paragraphs and portions. Formatting is applied through [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/): the first portion in each paragraph is red, bold, and 15 points; the second is blue, italic, and 18 points. The third portion retains its default formatting:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -81,6 +71,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
 auto textFrame = shape->get_TextFrame();
 
@@ -101,11 +92,11 @@ thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
 textFrame->get_Paragraphs()->Add(thirdParagraph);
 
 auto paragraphCount = textFrame->get_Paragraphs()->get_Count();
-for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+for (auto paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 {
     auto paragraph = textFrame->get_Paragraph(paragraphIndex);
     auto portionCount = paragraph->get_Portions()->get_Count();
-    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    for (auto portionIndex = 0; portionIndex < portionCount; portionIndex++)
     {
         auto portion = paragraph->get_Portion(portionIndex);
         portion->set_Text(String::Format(u"Portion {0}.{1}", paragraphIndex + 1, portionIndex + 1));
@@ -134,24 +125,13 @@ presentation->Dispose();
 
 ## **Create Bulleted and Numbered Lists**
 
+Organize paragraph text into lists with symbols, numbers, or custom images. The examples in this section cover bullet formatting, multilevel lists, and custom starting numbers.
+
 ### **Create a Bulleted or Numbered List**
 
 Bullets and numbering make related items easier to scan. In Aspose.Slides, list settings are defined through [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/).
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the selected slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
-5. Remove the default paragraph from the text frame.
-6. Create a [Paragraph](https://reference.aspose.com/slides/cpp/aspose.slides/paragraph/) for a symbol bullet.
-7. Set [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) to [BulletType::Symbol](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/) and specify the bullet character.
-8. Set the paragraph text, indent, bullet color, and bullet height.
-9. Add the paragraph to the text frame.
-10. Create a second paragraph and set [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) to [BulletType::Numbered](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/).
-11. Configure the numbered bullet style and add the paragraph to the text frame.
-12. Save the presentation.
-
-This C++ example creates a symbol bullet and a numbered bullet:
+This C++ example adds a symbol bullet and a numbered item to the same text frame. [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) selects the bullet type, while [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) supplies the symbol and [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) selects the numbering style. Both items use black bullets with a height of 100 percent and a paragraph indent of 25 points:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -174,6 +154,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -208,18 +189,7 @@ presentation->Dispose();
 
 Picture bullets let you use a custom image instead of a symbol or number.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) and access its [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
-4. Remove the default paragraph from the text frame.
-5. Load the bullet image and add it to the presentation's image collection as an [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/).
-6. Create a [Paragraph](https://reference.aspose.com/slides/cpp/aspose.slides/paragraph/) and set its text.
-7. Set [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) to [BulletType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/).
-8. Assign the image through [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) and set the bullet height.
-9. Add the paragraph to the text frame.
-10. Save the modified presentation.
-
-This C++ example creates a picture bullet:
+The example requires `bullets.png` in the working directory. This C++ example adds an image to the presentation's image collection as an [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) and uses it as a paragraph bullet. It sets [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) to use a picture bullet and assigns the image through [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/). [IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) is set to 100 percent to size the bullet relative to the paragraph text:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -264,13 +234,7 @@ presentation->Dispose();
 
 Set [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) to place paragraphs at different levels of a list. The top level has a depth of `0`.
 
-1. Create a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) and access a slide.
-2. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) and clear the default paragraph from its text frame.
-3. Create four paragraphs and configure their bullet symbols.
-4. Set their [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) values to `0`, `1`, `2`, and `3`.
-5. Add the paragraphs to the text frame and save the presentation.
-
-This C++ example creates a four-level bulleted list:
+This C++ example assigns [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) values from 0 to 3 to four paragraphs, creating a hierarchy within one text frame. Each paragraph uses a symbol bullet, with [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) alternating between a round bullet and a hyphen to distinguish adjacent levels:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -291,6 +255,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -340,13 +305,7 @@ presentation->Dispose();
 
 Use [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) to set the initial number displayed for a numbered paragraph.
 
-1. Create a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) and add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to a slide.
-2. Clear the default paragraph from the shape's text frame.
-3. Create three numbered paragraphs.
-4. Set [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) to `2`, `3`, and `7` for the respective paragraphs.
-5. Add the paragraphs to the text frame and save the presentation.
-
-This C++ example assigns a custom starting number to each paragraph:
+This C++ example sets [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) to use numbering for three paragraphs and assigns [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) values of 2, 3, and 7. The starting value is configured separately for each paragraph, allowing the displayed numbers to skip values:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -363,6 +322,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -391,23 +351,15 @@ presentation->Dispose();
 
 ## **Control Paragraph Layout and End Properties**
 
+Adjust paragraph margins and indents to control the position of the first line and wrapped lines. You can also format the paragraph end mark separately from the visible text portions.
+
 ### **Set a First-Line Indent**
 
-Use [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) to control the first-line indent of a paragraph. This method moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
+Use the [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) method to control the first-line indent of a paragraph. This method moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
 
 Use [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) when you need to move the whole paragraph. Use [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) when you need to move only the first line.
 
-The example below creates several paragraphs and applies different [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) values to demonstrate how the first-line indent affects paragraph layout.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2. Access the target slide.
-3. Add a rectangular [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) and remove the default paragraph.
-5. Create several paragraphs and set different [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) values for them.
-6. Add the paragraphs to the text frame.
-7. Save the modified presentation.
-
-This code shows you how to set a paragraph indent:
+The following example gives three paragraphs the same [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) of 20 points and [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) values of 0, 20, and 40 points. The first lines start at progressively larger offsets, while wrapped lines retain the same left margin:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -427,6 +379,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -471,22 +424,13 @@ The result:
 
 ### **Set a Hanging Indent**
 
-A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/). Set the indent to a negative value to move the first line to the left relative to the paragraph body.
+A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with the [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) method. Pass a negative value to move the first line to the left relative to the paragraph body.
 
-In practice, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) defines the left position of the paragraph body, and [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) defines the position of the first line relative to that margin. To create a hanging indent, set a positive margin-left value and a negative indent value.
+In practice, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) defines the left position of the paragraph body, and [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) defines the position of the first line relative to that margin. To create a hanging indent, set a positive `MarginLeft` value and a negative `Indent` value.
 
 This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2. Access the target slide.
-3. Add a rectangular [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) and remove the default paragraph.
-5. Create paragraphs and set a positive [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) value for each paragraph.
-6. Set a negative [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) value to create the hanging indent effect.
-7. Add the paragraphs to the text frame.
-8. Save the modified presentation.
-
-This code shows you how to set a hanging indent for a paragraph:
+The following C++ example pairs [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) values of 40 and 60 points with [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) values of -20 and -30 points. In each paragraph, the first line starts to the left of the wrapped lines; the second paragraph has a deeper hanging indent:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -506,6 +450,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -542,14 +487,7 @@ The result:
 
 ### **Set End Paragraph Run Properties**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) controls the formatting of the paragraph end mark. The following example assigns a font size and Latin font to the end mark of the second paragraph:
-
-1. Load a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) and access a slide.
-2. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) and clear its default paragraph.
-3. Create two paragraphs and add text portions to them.
-4. Create a [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) for the second paragraph's end mark.
-5. Set [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) and [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/).
-6. Assign the format with [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) and save the presentation.
+The [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) method controls the formatting of the paragraph end mark. The example loads `Test.pptx`, which must contain at least one slide. The following example creates a [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) with [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) set to 48 points and [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) set to Times New Roman. It assigns this format to the second paragraph's end mark, leaving the visible text portions unchanged:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -569,6 +507,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Test.pptx");
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -599,7 +538,7 @@ Use [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.s
 
 A paragraph is one item in [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
 
-The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. Wrapping is enabled and autofit is disabled so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
+The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. The example enables [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) and disables [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Each measurement uses [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/). Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -653,18 +592,13 @@ The line count alone does not determine whether text overflows its container. Th
 
 ## **Import and Export Paragraph Content**
 
+Use HTML to bring text into a presentation or export existing paragraphs for use outside it. This section also shows how to render individual paragraphs as images, including paragraphs in table cells.
+
 ### **Import HTML Text into Paragraphs**
 
-Use [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/addfromhtml/) to convert HTML markup into paragraphs and portions in a text frame.
+Use [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) to convert HTML markup into paragraphs and portions in a text frame.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2. Access a slide and add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
-3. Access the shape's [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) and clear its default paragraph.
-4. Read the source HTML file.
-5. Pass the HTML string to [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/addfromhtml/).
-6. Save the modified presentation.
-
-This C++ example imports HTML into a text frame:
+This C++ example reads HTML from a file and passes the markup to [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/). It clears the text frame's default paragraph so that the frame contains only the imported content. The rectangular shape leaves a 10-point margin on each side of the slide:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -683,6 +617,7 @@ using namespace System::IO;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto slideSize = presentation->get_SlideSize()->get_Size();
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, slideSize.get_Width() - 20, slideSize.get_Height() - 20);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -699,41 +634,53 @@ presentation->Dispose();
 
 ### **Export Paragraph Text to HTML**
 
-Use [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/exporttohtml/) to export a selected range of paragraphs as HTML.
+Use [ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) to export a selected range of paragraphs as HTML. When reusing presentation text on a website, you may want to preserve local emphasis without carrying over the presentation's font, size, or text box styles. Set [TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) to control how far the exporter follows formatting inheritance.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class and load the desired presentation.
-2. Access the slide and find the [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) that contains the text.
-3. Access the shape's [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
-4. Call [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/exporttohtml/) with the starting paragraph index and the number of paragraphs to export.
-5. Write the returned HTML string to a file.
+Download [the sample presentation](text-inheritance.pptx) and place it in the application's working directory. Its first slide contains one text shape with the text "Inherited text; explicit red 18pt". The input deliberately uses several formatting levels:
 
-This C++ example exports all paragraphs from the first text shape:
+- The presentation's default text style supplies Calibri and a size of 28 pt.
+- The text frame's first-level text style supplies blue text and italics.
+- The paragraph explicitly sets bold text.
+- The second portion, "explicit red 18pt", explicitly sets red text and a size of 18 pt.
+
+The following example exports the same paragraphs three times. It passes [TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) to the export method and writes each result as a separate UTF-8 HTML file:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/Presentation.h>
+#include <Export/TextInheritanceLimit.h>
+#include <Export/TextToHtmlConversionOptions.h>
+#include <system/array.h>
 #include <system/console.h>
-#include <system/io/stream_writer.h>
+#include <system/io/file.h>
 #include <system/object_ext.h>
 #include <system/text/encoding.h>
 
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 using namespace System::Text;
 
-auto presentation = MakeObject<Presentation>(u"ExportingHTMLText.pptx");
+auto presentation = MakeObject<Presentation>(u"text-inheritance.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 auto textShape = AsCast<IAutoShape>(shape);
 
 if (textShape != nullptr && textShape->get_TextFrame() != nullptr)
 {
     auto paragraphs = textShape->get_TextFrame()->get_Paragraphs();
-    auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), nullptr);
-    auto writer = MakeObject<StreamWriter>(u"paragraphs.html", false, Encoding::get_UTF8());
-    writer->Write(html);
-    writer->Close();
+    auto modes = MakeArray<TextInheritanceLimit>({TextInheritanceLimit::All, TextInheritanceLimit::TextBox, TextInheritanceLimit::ParagraphOnly});
+    auto fileNames = MakeArray<String>({u"All.html", u"TextBox.html", u"ParagraphOnly.html"});
+
+    for (auto i = 0; i < modes->get_Length(); i++)
+    {
+        auto options = MakeObject<TextToHtmlConversionOptions>();
+        options->set_TextInheritanceLimit(modes[i]);
+
+        auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+        File::WriteAllText(fileNames[i], html, Encoding::get_UTF8());
+    }
 }
 else
 {
@@ -743,6 +690,18 @@ else
 presentation->Dispose();
 ```
 
+The generated HTML contains the following CSS for the first portion, "Inherited text; ". The table lists the relevant declarations; other generated properties are omitted for clarity.
+
+| Output | Relevant CSS for the first portion | Appearance |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blue, bold, italic text at 28 pt in Calibri, if that font is available. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blue, bold, italic text; the surrounding page or browser supplies the font family and size. |
+| `ParagraphOnly.html` | `font-weight:bold` | Bold text; the surrounding page or browser supplies the font family, size, color, and italic style. |
+
+The second portion retains `color:#ff0000`, `font-size:18pt`, and `font-weight:bold` in all three outputs. It also retains italics with `All` and `TextBox`, but not with `ParagraphOnly`. Restricting inheritance therefore does not remove formatting explicitly assigned to a paragraph or portion.
+
+Open the files in the same browser to compare them. In the two restricted modes, omitted CSS properties are resolved by the destination page's styles or browser defaults, so the resulting appearance depends on where the HTML is used.
+
 ### **Render a Paragraph as an Image**
 
 [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) renders an individual paragraph directly and returns an [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/). Save the result to a file or stream with [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). You do not need to render the containing shape or crop a bitmap manually.
@@ -751,11 +710,11 @@ presentation->Dispose();
 
 #### **Render a Paragraph at the Default Scale**
 
-Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
+The example uses `sample.pptx`, a presentation with one slide whose first shape is a text box containing three paragraphs.
 
 ![The text box with three paragraphs](paragraph_to_image_input.png)
 
-The following example renders the second paragraph in a regular text shape at the default scale and saves the returned image in PNG format.
+The following example selects the second paragraph at index 1 and calls [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) without scale parameters. It checks that the shape contains the required paragraph and that rendering returns an image before calling [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) to save it in PNG format. The example disposes of the image after saving it.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -821,6 +780,7 @@ auto scaleY = 2.0f;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto table = slide->get_Shapes()->AddTable(50, 50, MakeArray<double>({300}), MakeArray<double>({80}));
 auto paragraph = table->idx_get(0, 0)->get_TextFrame()->get_Paragraph(0);
 paragraph->set_Text(u"Text in a table cell");
