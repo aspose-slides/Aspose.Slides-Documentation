@@ -44,21 +44,11 @@ A paragraph can therefore contain text with different fonts, colors, sizes, and 
 
 ## **Create and Format Paragraphs**
 
+Create paragraphs in a shape's text frame and use portions to format individual text runs. This section shows how to combine multiple portions within each paragraph and apply different colors, font sizes, and styles.
+
 ### **Create Paragraphs with Multiple Portions**
 
-The following steps create a text frame with three paragraphs, each containing three portions:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
-2. Access the relevant slide through its index.
-3. Add a rectangular [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/).
-5. Use the default paragraph and add two more [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) objects to the text frame.
-6. Add enough [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) objects for each paragraph to contain three portions. The default paragraph already contains one empty portion.
-7. Set the text of each portion.
-8. Apply character-level formatting through [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--).
-9. Save the modified presentation.
-
-This Java example implements the steps:
+The following Java example creates three paragraphs, each containing three text runs in the collection returned by [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) collection. It reuses the default paragraph and its empty portion, then adds the remaining paragraphs and portions. Formatting is applied through [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--): the first portion in each paragraph is red, bold, and 15 points; the second is blue, italic, and 18 points. The third portion retains its default formatting:
 
 ```java
 import com.aspose.slides.*;
@@ -67,6 +57,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
     ITextFrame textFrame = shape.getTextFrame();
 
@@ -114,27 +105,15 @@ try {
 }
 ```
 
-
 ## **Create Bulleted and Numbered Lists**
+
+Organize paragraph text into lists with symbols, numbers, or custom images. The examples in this section cover bullet formatting, multilevel lists, and custom starting numbers.
 
 ### **Create a Bulleted or Numbered List**
 
 Bullets and numbering make related items easier to scan. In Aspose.Slides, list settings are defined through [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/).
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
-2. Access the relevant slide through its index.
-3. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the selected slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/).
-5. Remove the default paragraph from the text frame.
-6. Create a [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) for a symbol bullet.
-7. Set [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) to [BulletType.Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/) and specify the bullet character.
-8. Set the paragraph text, indent, bullet color, and bullet height.
-9. Add the paragraph to the text frame.
-10. Create a second paragraph and set [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) to [BulletType.Numbered](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/).
-11. Configure the numbered bullet style and add the paragraph to the text frame.
-12. Save the presentation.
-
-This Java example creates a symbol bullet and a numbered bullet:
+This Java example adds a symbol bullet and a numbered item to the same text frame. [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) selects the bullet type, while [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) supplies the symbol and [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) selects the numbering style. Both items use black bullets with a height of 100 percent and a paragraph indent of 25 points:
 
 ```java
 import com.aspose.slides.*;
@@ -143,6 +122,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -175,23 +155,11 @@ try {
 }
 ```
 
-
 ### **Use Picture Bullets**
 
 Picture bullets let you use a custom image instead of a symbol or number.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
-2. Access the relevant slide through its index.
-3. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) and access its [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/).
-4. Remove the default paragraph from the text frame.
-5. Load the bullet image and add it to the presentation's image collection as an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/).
-6. Create a [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) and set its text.
-7. Set [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) to [BulletType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/).
-8. Assign the image through [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) and set the bullet height.
-9. Add the paragraph to the text frame.
-10. Save the modified presentation.
-
-This Java example creates a picture bullet:
+This Java example adds an image to the presentation's image collection as an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) and uses it as a paragraph bullet. It calls [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) to use a picture bullet and assigns the image through [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--). [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) is set to 100 percent to size the bullet relative to the paragraph text:
 
 ```java
 import com.aspose.slides.*;
@@ -226,18 +194,11 @@ try {
 }
 ```
 
-
 ### **Create a Multilevel List**
 
 Set [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) to place paragraphs at different levels of a list. The top level has a depth of `0`.
 
-1. Create a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) and access a slide.
-2. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) and clear the default paragraph from its text frame.
-3. Create four paragraphs and configure their bullet symbols.
-4. Set their [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) values to `0`, `1`, `2`, and `3`.
-5. Add the paragraphs to the text frame and save the presentation.
-
-This Java example creates a four-level bulleted list:
+This Java example assigns [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) values from 0 to 3 to four paragraphs, creating a hierarchy within one text frame. Each paragraph uses a symbol bullet, with [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) alternating between a round bullet and a hyphen to distinguish adjacent levels:
 
 ```java
 import com.aspose.slides.*;
@@ -246,6 +207,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -293,18 +255,11 @@ try {
 }
 ```
 
-
 ### **Start Numbered List Items at Custom Values**
 
 Use [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) to set the initial number displayed for a numbered paragraph.
 
-1. Create a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) and add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to a slide.
-2. Clear the default paragraph from the shape's text frame.
-3. Create three numbered paragraphs.
-4. Set [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) to `2`, `3`, and `7` for the respective paragraphs.
-5. Add the paragraphs to the text frame and save the presentation.
-
-This Java example assigns a custom starting number to each paragraph:
+This Java example sets [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) to use numbering for three paragraphs and assigns [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) values of 2, 3, and 7. The starting value is configured separately for each paragraph, allowing the displayed numbers to skip values:
 
 ```java
 import com.aspose.slides.*;
@@ -312,6 +267,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -342,23 +298,15 @@ try {
 
 ## **Control Paragraph Layout and End Properties**
 
+Adjust paragraph margins and indents to control the position of the first line and wrapped lines. You can also format the paragraph end mark separately from the visible text portions.
+
 ### **Set a First-Line Indent**
 
-Use [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) to control the first-line indent of a paragraph. This method moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
+Use the [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) method to control the first-line indent of a paragraph. This setting moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
 
 Use [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) when you need to move the whole paragraph. Use [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) when you need to move only the first line.
 
-The example below creates several paragraphs and applies different [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) values to demonstrate how the first-line indent affects paragraph layout.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
-2. Access the target slide.
-3. Add a rectangular [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) and remove the default paragraph.
-5. Create several paragraphs and set different [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) values for them.
-6. Add the paragraphs to the text frame.
-7. Save the modified presentation.
-
-This code shows you how to set a paragraph indent:
+The following example gives three paragraphs the same [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) of 20 points and [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) values of 0, 20, and 40 points. The first lines start at progressively larger offsets, while wrapped lines retain the same left margin:
 
 ```java
 import com.aspose.slides.*;
@@ -414,22 +362,13 @@ The result:
 
 ### **Set a Hanging Indent**
 
-A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Pass a negative value to move the first line to the left relative to the paragraph body.
+A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with the [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) property. Set `Indent` to a negative value to move the first line to the left relative to the paragraph body.
 
-In practice, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) defines the left position of the paragraph body, and [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) defines the position of the first line relative to that margin. To create a hanging indent, pass a positive value to `setMarginLeft` and a negative value to `setIndent`.
+In practice, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) defines the left position of the paragraph body, and [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) defines the position of the first line relative to that margin. To create a hanging indent, set a positive `MarginLeft` value and a negative `Indent` value.
 
 This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
-2. Access the target slide.
-3. Add a rectangular [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) and remove the default paragraph.
-5. Create paragraphs and pass a positive value to [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) for each paragraph.
-6. Pass a negative value to [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) to create the hanging indent effect.
-7. Add the paragraphs to the text frame.
-8. Save the modified presentation.
-
-This code shows you how to set a hanging indent for a paragraph:
+The following Java example pairs [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) values of 40 and 60 points with [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) values of -20 and -30 points. In each paragraph, the first line starts to the left of the wrapped lines; the second paragraph has a deeper hanging indent:
 
 ```java
 import com.aspose.slides.*;
@@ -477,14 +416,7 @@ The result:
 
 ### **Set End Paragraph Run Properties**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) controls the formatting of the paragraph end mark. The following example assigns a font size and Latin font to the end mark of the second paragraph:
-
-1. Load a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) and access a slide.
-2. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) and clear its default paragraph.
-3. Create two paragraphs and add text portions to them.
-4. Create a [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) for the second paragraph's end mark.
-5. Set [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) and [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Assign the format with [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) and save the presentation.
+The [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) method controls the formatting of the paragraph end mark. The following example creates a [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) with [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) set to 48 points and [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) set to Times New Roman. It assigns this format to the second paragraph's end mark, leaving the visible text portions unchanged:
 
 ```java
 import com.aspose.slides.*;
@@ -492,6 +424,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("Test.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -516,7 +449,6 @@ try {
 }
 ```
 
-
 ## **Count Rendered Lines**
 
 For paragraph rules that affect automatic wrapping and punctuation at line endings, see [Control Line Breaking](/slides/java/text-formatting/#control-line-breaking) and [Control Hanging Punctuation](/slides/java/text-formatting/#control-hanging-punctuation).
@@ -525,7 +457,7 @@ Use [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspo
 
 A paragraph is one item in [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
 
-The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. Wrapping is enabled and autofit is disabled so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
+The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. The example enables wrapping with [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) and disables autofit with [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Each measurement uses [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--). Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
 
 ```java
 import com.aspose.slides.*;
@@ -571,18 +503,13 @@ The line count alone does not determine whether text overflows its container. Th
 
 ## **Import and Export Paragraph Content**
 
+Use HTML to bring text into a presentation or export existing paragraphs for use outside it. This section also shows how to render individual paragraphs as images, including paragraphs in table cells.
+
 ### **Import HTML Text into Paragraphs**
 
 Use [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) to convert HTML markup into paragraphs and portions in a text frame.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
-2. Access a slide and add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
-3. Access the shape's [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) and clear its default paragraph.
-4. Read the source HTML file.
-5. Pass the HTML string to [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. Save the modified presentation.
-
-This Java example imports HTML into a text frame:
+This Java example reads HTML from a file and passes the markup to [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-). It clears the text frame's default paragraph so that the frame contains only the imported content. The rectangular shape leaves a 10-point margin on each side of the slide:
 
 ```java
 import com.aspose.slides.*;
@@ -594,6 +521,7 @@ import java.nio.file.Paths;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
     float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -613,18 +541,18 @@ try {
 }
 ```
 
-
 ### **Export Paragraph Text to HTML**
 
-Use [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) to export a selected range of paragraphs as HTML.
+Use [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) to export a selected range of paragraphs as HTML. When reusing presentation text on a website, you may want to preserve local emphasis without carrying over the presentation's font, size, or text box styles. Set [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) to control how far the exporter follows formatting inheritance.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the desired presentation.
-2. Access the slide and find the [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) that contains the text.
-3. Access the shape's [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/).
-4. Call [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) with the starting paragraph index and the number of paragraphs to export.
-5. Write the returned HTML string to a file.
+Download [the sample presentation](text-inheritance.pptx) and place it in the application's working directory. Its first slide contains one text shape with the text "Inherited text; explicit red 18pt". The input deliberately uses several formatting levels:
 
-This Java example exports all paragraphs from the first text shape:
+- The presentation's default text style supplies Calibri and a size of 28 pt.
+- The text frame's first-level text style supplies blue text and italics.
+- The paragraph explicitly sets bold text.
+- The second portion, "explicit red 18pt", explicitly sets red text and a size of 18 pt.
+
+The following complete example exports the same paragraphs three times. It passes [TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) to the export method and writes each result as a separate UTF-8 HTML file:
 
 ```java
 import com.aspose.slides.*;
@@ -633,7 +561,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-Presentation presentation = new Presentation("ExportingHTMLText.pptx");
+Presentation presentation = new Presentation("text-inheritance.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -642,11 +570,21 @@ try {
         ITextFrame textFrame = textShape.getTextFrame();
         if (textFrame != null) {
             IParagraphCollection paragraphs = textFrame.getParagraphs();
-            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            try {
-                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
-            } catch (IOException exception) {
-                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            
+            int[] modes = { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+            String[] fileNames = { "All.html", "TextBox.html", "ParagraphOnly.html" };
+
+            for (int i = 0; i < modes.length; i++) {
+                TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                byte[] htmlBytes = html.getBytes(StandardCharsets.UTF_8);
+                try {
+                    Files.write(Paths.get(fileNames[i]), htmlBytes);
+                } catch (IOException exception) {
+                    System.out.println("The HTML file could not be written: " + exception.getMessage());
+                }
             }
         } else {
             System.out.println("The first shape does not contain a text frame.");
@@ -659,6 +597,18 @@ try {
 }
 ```
 
+The generated HTML contains the following CSS for the first portion, "Inherited text; ". The table lists the relevant declarations; other generated properties are omitted for clarity.
+
+| Output | Relevant CSS for the first portion | Appearance |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blue, bold, italic text at 28 pt in Calibri, if that font is available. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blue, bold, italic text; the surrounding page or browser supplies the font family and size. |
+| `ParagraphOnly.html` | `font-weight:bold` | Bold text; the surrounding page or browser supplies the font family, size, color, and italic style. |
+
+The second portion retains `color:#ff0000`, `font-size:18pt`, and `font-weight:bold` in all three outputs. It also retains italics with `All` and `TextBox`, but not with `ParagraphOnly`. Restricting inheritance therefore does not remove formatting explicitly assigned to a paragraph or portion.
+
+Open the files in the same browser to compare them. In the two restricted modes, omitted CSS properties are resolved by the destination page's styles or browser defaults, so the resulting appearance depends on where the HTML is used.
+
 ### **Render a Paragraph as an Image**
 
 [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) renders an individual paragraph directly and returns an [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Save the result to a file or stream with [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). You do not need to render the containing shape or crop a bitmap manually.
@@ -667,11 +617,11 @@ try {
 
 #### **Render a Paragraph at the Default Scale**
 
-Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
+The example uses a presentation with one slide whose first shape is a text box containing three paragraphs.
 
 ![The text box with three paragraphs](paragraph_to_image_input.png)
 
-The following example renders the second paragraph in a regular text shape at the default scale and saves the returned image in PNG format. The `finally` block ensures that the image is disposed of correctly.
+The following example selects the second paragraph at index 1 and calls [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) without scale parameters. It checks that the shape contains the required paragraph and that rendering returns an image before calling [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) to save it in PNG format. The `finally` block disposes of the image after use.
 
 ```java
 import com.aspose.slides.*;
@@ -724,6 +674,7 @@ float scaleY = 2f;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
     IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
     paragraph.setText("Text in a table cell");

@@ -45,21 +45,11 @@ A paragraph can therefore contain text with different fonts, colors, sizes, and 
 
 ## **Create and Format Paragraphs**
 
+Create paragraphs in a shape's text frame and use portions to format individual text runs. This section shows how to combine multiple portions within each paragraph and apply different colors, font sizes, and styles.
+
 ### **Create Paragraphs with Multiple Portions**
 
-The following steps create a text frame with three paragraphs, each containing three portions:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Access the relevant slide's reference through its index.
-3. Add a rectangular [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
-5. Use the default paragraph and add two more [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) objects to the text frame.
-6. Add enough [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) objects for each paragraph to contain three portions. The default paragraph already contains one empty portion.
-7. Set the text of each portion.
-8. Apply character-level formatting through [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/).
-9. Save the modified presentation.
-
-This C# example implements the steps:
+The following C# example creates three paragraphs, each containing three text runs in its [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/) collection. It reuses the default paragraph and its empty portion, then adds the remaining paragraphs and portions. Formatting is applied through [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/): the first portion in each paragraph is red, bold, and 15 points; the second is blue, italic, and 18 points. The third portion retains its default formatting:
 
 ```csharp
 using System.Drawing;
@@ -68,6 +58,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 var textFrame = shape.TextFrame;
 
@@ -119,24 +110,13 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ## **Create Bulleted and Numbered Lists**
 
+Organize paragraph text into lists with symbols, numbers, or custom images. The examples in this section cover bullet formatting, multilevel lists, and custom starting numbers.
+
 ### **Create a Bulleted or Numbered List**
 
 Bullets and numbering make related items easier to scan. In Aspose.Slides, list settings are defined through [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the selected slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
-5. Remove the default paragraph from the text frame.
-6. Create a [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) for a symbol bullet.
-7. Set [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) to [BulletType.Symbol](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) and specify the bullet character.
-8. Set the paragraph text, indent, bullet color, and bullet height.
-9. Add the paragraph to the text frame.
-10. Create a second paragraph and set [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) to [BulletType.Numbered](https://reference.aspose.com/slides/net/aspose.slides/bullettype/).
-11. Configure the numbered bullet style and add the paragraph to the text frame.
-12. Save the presentation.
-
-This C# example creates a symbol bullet and a numbered bullet:
+This C# example adds a symbol bullet and a numbered item to the same text frame. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) selects the bullet type, while [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) supplies the symbol and [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) selects the numbering style. Both items use black bullets with a height of 100 percent and a paragraph indent of 25 points:
 
 ```csharp
 using System;
@@ -146,6 +126,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -177,18 +158,7 @@ presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 
 Picture bullets let you use a custom image instead of a symbol or number.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) and access its [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
-4. Remove the default paragraph from the text frame.
-5. Load the bullet image and add it to the presentation's image collection as an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/).
-6. Create a [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) and set its text.
-7. Set [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) to [BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/).
-8. Assign the image through [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/) and set the bullet height.
-9. Add the paragraph to the text frame.
-10. Save the modified presentation.
-
-This C# example creates a picture bullet:
+This C# example adds an image to the presentation's image collection as an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) and uses it as a paragraph bullet. It sets [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) to use a picture bullet and assigns the image through [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) is set to 100 percent to size the bullet relative to the paragraph text:
 
 ```csharp
 using Aspose.Slides;
@@ -218,13 +188,7 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 Set [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) to place paragraphs at different levels of a list. The top level has a depth of `0`.
 
-1. Create a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) and access a slide.
-2. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) and clear the default paragraph from its text frame.
-3. Create four paragraphs and configure their bullet symbols.
-4. Set their [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) values to `0`, `1`, `2`, and `3`.
-5. Add the paragraphs to the text frame and save the presentation.
-
-This C# example creates a four-level bulleted list:
+This C# example assigns [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) values from 0 to 3 to four paragraphs, creating a hierarchy within one text frame. Each paragraph uses a symbol bullet, with [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) alternating between a round bullet and a hyphen to distinguish adjacent levels:
 
 ```csharp
 using System;
@@ -234,6 +198,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -278,13 +243,7 @@ presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 
 Use [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) to set the initial number displayed for a numbered paragraph.
 
-1. Create a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) and add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to a slide.
-2. Clear the default paragraph from the shape's text frame.
-3. Create three numbered paragraphs.
-4. Set [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) to `2`, `3`, and `7` for the respective paragraphs.
-5. Add the paragraphs to the text frame and save the presentation.
-
-This C# example assigns a custom starting number to each paragraph:
+This C# example sets [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) to use numbering for three paragraphs and assigns [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) values of 2, 3, and 7. The starting value is configured separately for each paragraph, allowing the displayed numbers to skip values:
 
 ```csharp
 using Aspose.Slides;
@@ -292,6 +251,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -316,23 +276,15 @@ presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 
 ## **Control Paragraph Layout and End Properties**
 
+Adjust paragraph margins and indents to control the position of the first line and wrapped lines. You can also format the paragraph end mark separately from the visible text portions.
+
 ### **Set a First-Line Indent**
 
 Use the [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) property to control the first-line indent of a paragraph. This property moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
 
 Use [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) when you need to move the whole paragraph. Use [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) when you need to move only the first line.
 
-The example below creates several paragraphs and applies different [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) values to demonstrate how the first-line indent affects paragraph layout.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-2. Access the target slide.
-3. Add a rectangular [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) and remove the default paragraph.
-5. Create several paragraphs and set different [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) values for them.
-6. Add the paragraphs to the text frame.
-7. Save the modified presentation.
-
-This code shows you how to set a paragraph indent:
+The following example gives three paragraphs the same [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) of 20 points and [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) values of 0, 20, and 40 points. The first lines start at progressively larger offsets, while wrapped lines retain the same left margin:
 
 ```csharp
 using System.Drawing;
@@ -341,6 +293,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -387,16 +340,7 @@ In practice, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/n
 
 This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-2. Access the target slide.
-3. Add a rectangular [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
-4. Access the shape's [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) and remove the default paragraph.
-5. Create paragraphs and set a positive [MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) value for each paragraph.
-6. Set a negative [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) value to create the hanging indent effect.
-7. Add the paragraphs to the text frame.
-8. Save the modified presentation.
-
-This code shows you how to set a hanging indent for a paragraph:
+The following C# example pairs [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) values of 40 and 60 points with [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) values of -20 and -30 points. In each paragraph, the first line starts to the left of the wrapped lines; the second paragraph has a deeper hanging indent:
 
 ```csharp
 using System.Drawing;
@@ -405,6 +349,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -438,14 +383,7 @@ The result:
 
 ### **Set End Paragraph Run Properties**
 
-The [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) property controls the formatting of the paragraph end mark. The following example assigns a font size and Latin font to the end mark of the second paragraph:
-
-1. Load a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) and access a slide.
-2. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) and clear its default paragraph.
-3. Create two paragraphs and add text portions to them.
-4. Create a [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) for the second paragraph's end mark.
-5. Set [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) and [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/).
-6. Assign the format to [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) and save the presentation.
+The [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) property controls the formatting of the paragraph end mark. The following example creates a [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) with [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) set to 48 points and [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) set to Times New Roman. It assigns this format to the second paragraph's end mark, leaving the visible text portions unchanged:
 
 ```csharp
 using Aspose.Slides;
@@ -453,6 +391,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("Test.pptx");
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -474,7 +413,6 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
-
 ## **Count Rendered Lines**
 
 For paragraph rules that affect automatic wrapping and punctuation at line endings, see [Control Line Breaking](/slides/net/text-formatting/#control-line-breaking) and [Control Hanging Punctuation](/slides/net/text-formatting/#control-hanging-punctuation).
@@ -483,7 +421,7 @@ Use [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.sl
 
 A paragraph is one item in [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
 
-The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. Wrapping is enabled and autofit is disabled so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
+The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. The example enables [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) and disables [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Each measurement uses [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/). Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
 
 ```csharp
 using System;
@@ -526,18 +464,13 @@ The line count alone does not determine whether text overflows its container. Th
 
 ## **Import and Export Paragraph Content**
 
+Use HTML to bring text into a presentation or export existing paragraphs for use outside it. This section also shows how to render individual paragraphs as images, including paragraphs in table cells.
+
 ### **Import HTML Text into Paragraphs**
 
 Use [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) to convert HTML markup into paragraphs and portions in a text frame.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Access a slide and add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
-3. Access the shape's [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) and clear its default paragraph.
-4. Read the source HTML file.
-5. Pass the HTML string to [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/).
-6. Save the modified presentation.
-
-This C# example imports HTML into a text frame:
+This C# example reads HTML from a file and passes the markup to [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/). It clears the text frame's default paragraph so that the frame contains only the imported content. The rectangular shape leaves a 10-point margin on each side of the slide:
 
 ```csharp
 using System.IO;
@@ -546,6 +479,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shapeWidth = presentation.SlideSize.Size.Width - 20;
 var shapeHeight = presentation.SlideSize.Size.Height - 20;
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -561,37 +495,49 @@ presentation.Save("html_text.pptx", SaveFormat.Pptx);
 
 ### **Export Paragraph Text to HTML**
 
-Use [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) to export a selected range of paragraphs as HTML.
+Use [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) to export a selected range of paragraphs as HTML. When reusing presentation text on a website, you may want to preserve local emphasis without carrying over the presentation's font, size, or text box styles. Set [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) to control how far the exporter follows formatting inheritance.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the desired presentation.
-2. Access the slide and find the [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) that contains the text.
-3. Access the shape's [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
-4. Call [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) with the starting paragraph index and the number of paragraphs to export.
-5. Write the returned HTML string to a file.
+Download [the sample presentation](text-inheritance.pptx) and place it in the application's working directory. Its first slide contains one text shape with the text "Inherited text; explicit red 18pt". The input deliberately uses several formatting levels:
 
-This C# example exports all paragraphs from the first text shape:
+- The presentation's default text style supplies Calibri and a size of 28 pt.
+- The text frame's first-level text style supplies blue text and italics.
+- The paragraph explicitly sets bold text.
+- The second portion, "explicit red 18pt", explicitly sets red text and a size of 18 pt.
+
+The following complete example exports the same paragraphs three times. It passes [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) to the export method and writes each result as a separate UTF-8 HTML file:
 
 ```csharp
-using System;
 using System.IO;
 using System.Text;
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-using var presentation = new Presentation("ExportingHTMLText.pptx");
-var shape = presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-inheritance.pptx");
+var textShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-if (shape is IAutoShape textShape && textShape.TextFrame != null)
+var paragraphs = textShape.TextFrame.Paragraphs;
+var modes = new[] { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+
+foreach (var mode in modes)
 {
-    var paragraphs = textShape.TextFrame.Paragraphs;
-    var html = paragraphs.ExportToHtml(0, paragraphs.Count, null);
-    using var writer = new StreamWriter("paragraphs.html", false, Encoding.UTF8);
-    writer.Write(html);
-}
-else
-{
-    Console.WriteLine("The first shape is not a text shape.");
+    var options = new TextToHtmlConversionOptions { TextInheritanceLimit = mode };
+
+    var html = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+    File.WriteAllText($"{mode}.html", html, Encoding.UTF8);
 }
 ```
+
+The generated HTML contains the following CSS for the first portion, "Inherited text; ". The table lists the relevant declarations; other generated properties are omitted for clarity.
+
+| Output | Relevant CSS for the first portion | Appearance |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blue, bold, italic text at 28 pt in Calibri, if that font is available. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blue, bold, italic text; the surrounding page or browser supplies the font family and size. |
+| `ParagraphOnly.html` | `font-weight:bold` | Bold text; the surrounding page or browser supplies the font family, size, color, and italic style. |
+
+The second portion retains `color:#ff0000`, `font-size:18pt`, and `font-weight:bold` in all three outputs. It also retains italics with `All` and `TextBox`, but not with `ParagraphOnly`. Restricting inheritance therefore does not remove formatting explicitly assigned to a paragraph or portion.
+
+Open the files in the same browser to compare them. In the two restricted modes, omitted CSS properties are resolved by the destination page's styles or browser defaults, so the resulting appearance depends on where the HTML is used.
 
 ### **Render a Paragraph as an Image**
 
@@ -601,19 +547,19 @@ else
 
 #### **Render a Paragraph at the Default Scale**
 
-Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
+The example uses a presentation with one slide whose first shape is a text box containing three paragraphs.
 
 ![The text box with three paragraphs](paragraph_to_image_input.png)
 
-The following example renders the second paragraph in a regular text shape at the default scale and saves the returned image in PNG format. The `using` declaration ensures that the image is disposed of correctly.
+The following example selects the second paragraph at index 1 and calls [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) without scale parameters. It checks that the shape contains the required paragraph and that rendering returns an image before calling [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) to save it in PNG format. The `using` declaration disposes of the image after use.
 
 ```csharp
 using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation("sample.pptx");
-
 var shape = presentation.Slides[0].Shapes[0];
+
 if (shape is IAutoShape textShape && 
     textShape.TextFrame != null && 
     textShape.TextFrame.Paragraphs.Count > 1)
@@ -653,6 +599,7 @@ var scaleY = 2f;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var table = slide.Shapes.AddTable(50, 50, new[] { 300d }, new[] { 80d });
 var paragraph = table[0, 0].TextFrame.Paragraphs[0];
 paragraph.Text = "Text in a table cell";

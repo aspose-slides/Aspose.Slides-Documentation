@@ -44,21 +44,11 @@ A paragraph can therefore contain text with different fonts, colors, sizes, and 
 
 ## **Create and Format Paragraphs**
 
+Create paragraphs in a shape's text frame and use portions to format individual text runs. This section shows how to combine multiple portions within each paragraph and apply different colors, font sizes, and styles.
+
 ### **Create Paragraphs with Multiple Portions**
 
-The following steps create a text frame with three paragraphs, each containing three portions:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the relevant slide through its index.
-3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
-4. Access the shape's [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-5. Use the default paragraph and add two more [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) objects to the text frame.
-6. Add enough [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) objects for each paragraph to contain three portions. The default paragraph already contains one empty portion.
-7. Set the text of each portion.
-8. Apply character-level formatting through [Portion.portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/portion/portion_format/).
-9. Save the modified presentation.
-
-This Python example implements the steps:
+The following Python example creates three paragraphs, each containing three text runs in its [Paragraph.portions](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/portions/) collection. It reuses the default paragraph and its empty portion, then adds the remaining paragraphs and portions. Formatting is applied through [Portion.portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/portion/portion_format/): the first portion in each paragraph is red, bold, and 15 points; the second is blue, italic, and 18 points. The third portion retains its default formatting:
 
 ```python
 import aspose.pydrawing as draw
@@ -66,6 +56,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
     text_frame = shape.text_frame
 
@@ -107,24 +98,13 @@ with slides.Presentation() as presentation:
 
 ## **Create Bulleted and Numbered Lists**
 
+Organize paragraph text into lists with symbols, numbers, or custom images. The examples in this section cover bullet formatting, multilevel lists, and custom starting numbers.
+
 ### **Create a Bulleted or Numbered List**
 
 Bullets and numbering make related items easier to scan. In Aspose.Slides, list settings are defined through [BulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/).
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the relevant slide through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the selected slide.
-4. Access the shape's [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-5. Remove the default paragraph from the text frame.
-6. Create a [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) for a symbol bullet.
-7. Set [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) to [BulletType.SYMBOL](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/) and specify the bullet character.
-8. Set the paragraph text, indent, bullet color, and bullet height.
-9. Add the paragraph to the text frame.
-10. Create a second paragraph and set [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) to [BulletType.NUMBERED](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/).
-11. Configure the numbered bullet style and add the paragraph to the text frame.
-12. Save the presentation.
-
-This Python example creates a symbol bullet and a numbered bullet:
+This Python example adds a symbol bullet and a numbered item to the same text frame. [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) selects the bullet type, while [BulletFormat.char](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/char/) supplies the symbol and [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_style/) selects the numbering style. Both items use black bullets with a height of 100 percent and a paragraph indent of 25 points:
 
 ```python
 import aspose.pydrawing as draw
@@ -132,6 +112,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
     text_frame = shape.text_frame
     text_frame.paragraphs.clear()
@@ -165,18 +146,7 @@ with slides.Presentation() as presentation:
 
 Picture bullets let you use a custom image instead of a symbol or number.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the relevant slide through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) and access its [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-4. Remove the default paragraph from the text frame.
-5. Load the bullet image and add it to the presentation's image collection as a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
-6. Create a [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) and set its text.
-7. Set [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) to [BulletType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/bullettype/).
-8. Assign the image through [BulletFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/picture/) and set the bullet height.
-9. Add the paragraph to the text frame.
-10. Save the modified presentation.
-
-This Python example creates a picture bullet:
+The example requires `bullets.png` in the working directory. This Python example adds an image to the presentation's image collection as an [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) and uses it as a paragraph bullet. It sets [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) to use a picture bullet and assigns the image through [BulletFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/picture/). [BulletFormat.height](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/height/) is set to 100 percent to size the bullet relative to the paragraph text:
 
 ```python
 import aspose.slides as slides
@@ -206,13 +176,7 @@ with slides.Presentation() as presentation:
 
 Set [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) to place paragraphs at different levels of a list. The top level has a depth of `0`.
 
-1. Create a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) and access a slide.
-2. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) and clear the default paragraph from its text frame.
-3. Create four paragraphs and configure their bullet symbols.
-4. Set their [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) values to `0`, `1`, `2`, and `3`.
-5. Add the paragraphs to the text frame and save the presentation.
-
-This Python example creates a four-level bulleted list:
+This Python example assigns [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) values from 0 to 3 to four paragraphs, creating a hierarchy within one text frame. Each paragraph uses a symbol bullet, with [BulletFormat.char](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/char/) alternating between a round bullet and a hyphen to distinguish adjacent levels:
 
 ```python
 import aspose.pydrawing as draw
@@ -220,6 +184,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
     text_frame = shape.text_frame
     text_frame.paragraphs.clear()
@@ -268,19 +233,14 @@ with slides.Presentation() as presentation:
 
 Use [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) to set the initial number displayed for a numbered paragraph.
 
-1. Create a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) and add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to a slide.
-2. Clear the default paragraph from the shape's text frame.
-3. Create three numbered paragraphs.
-4. Set [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) to `2`, `3`, and `7` for the respective paragraphs.
-5. Add the paragraphs to the text frame and save the presentation.
-
-This Python example assigns a custom starting number to each paragraph:
+This Python example sets [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) to use numbering for three paragraphs and assigns [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) values of 2, 3, and 7. The starting value is configured separately for each paragraph, allowing the displayed numbers to skip values:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
     text_frame = shape.text_frame
     text_frame.paragraphs.clear()
@@ -308,23 +268,15 @@ with slides.Presentation() as presentation:
 
 ## **Control Paragraph Layout and End Properties**
 
+Adjust paragraph margins and indents to control the position of the first line and wrapped lines. You can also format the paragraph end mark separately from the visible text portions.
+
 ### **Set a First-Line Indent**
 
 Use the [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) property to control the first-line indent of a paragraph. This property moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
 
 Use [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) when you need to move the whole paragraph. Use [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) when you need to move only the first line.
 
-The example below creates several paragraphs and applies different [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) values to demonstrate how the first-line indent affects paragraph layout.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the target slide.
-3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
-4. Access the shape's [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) and remove the default paragraph.
-5. Create several paragraphs and set different [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) values for them.
-6. Add the paragraphs to the text frame.
-7. Save the modified presentation.
-
-This code shows you how to set a paragraph indent:
+The following example gives three paragraphs the same [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) of 20 points and [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) values of 0, 20, and 40 points. The first lines start at progressively larger offsets, while wrapped lines retain the same left margin:
 
 ```python
 import aspose.pydrawing as draw
@@ -332,6 +284,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
     shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.line_format.fill_format.fill_type = slides.FillType.SOLID
@@ -381,16 +334,7 @@ In practice, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/p
 
 This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the target slide.
-3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
-4. Access the shape's [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) and remove the default paragraph.
-5. Create paragraphs and set a positive [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) value for each paragraph.
-6. Set a negative [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) value to create the hanging indent effect.
-7. Add the paragraphs to the text frame.
-8. Save the modified presentation.
-
-This code shows you how to set a hanging indent for a paragraph:
+The following Python example pairs [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) values of 40 and 60 points with [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) values of -20 and -30 points. In each paragraph, the first line starts to the left of the wrapped lines; the second paragraph has a deeper hanging indent:
 
 ```python
 import aspose.pydrawing as draw
@@ -398,6 +342,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
     shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.line_format.fill_format.fill_type = slides.FillType.SOLID
@@ -433,20 +378,14 @@ The result:
 
 ### **Set End Paragraph Run Properties**
 
-The [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) property controls the formatting of the paragraph end mark. The following example assigns a font size and Latin font to the end mark of the second paragraph:
-
-1. Load a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) and access a slide.
-2. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) and clear its default paragraph.
-3. Create two paragraphs and add text portions to them.
-4. Create a [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) for the second paragraph's end mark.
-5. Set [PortionFormat.font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) and [PortionFormat.latin_font](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/latin_font/).
-6. Assign the format to [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) and save the presentation.
+The [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) property controls the formatting of the paragraph end mark. The example loads `Test.pptx`, which must contain at least one slide, and creates a [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) with [PortionFormat.font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) set to 48 points and [PortionFormat.latin_font](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/latin_font/) set to Times New Roman. It assigns this format to the second paragraph's end mark, leaving the visible text portions unchanged:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("Test.pptx") as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
     text_frame = shape.text_frame
     text_frame.paragraphs.clear()
@@ -476,7 +415,7 @@ Use [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/a
 
 A paragraph is one item in [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
 
-The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. Wrapping is enabled and autofit is disabled so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
+The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. The example enables [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) and disables [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Each measurement uses [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/). Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
 
 ```python
 import aspose.slides as slides
@@ -517,24 +456,20 @@ The line count alone does not determine whether text overflows its container. Th
 
 ## **Import and Export Paragraph Content**
 
+Use HTML to bring text into a presentation or export existing paragraphs for use outside it. This section also shows how to render individual paragraphs as images, including paragraphs in table cells.
+
 ### **Import HTML Text into Paragraphs**
 
 Use [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/) to convert HTML markup into paragraphs and portions in a text frame.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access a slide and add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
-3. Access the shape's [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) and clear its default paragraph.
-4. Read the source HTML file.
-5. Pass the HTML string to [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/).
-6. Save the modified presentation.
-
-This Python example imports HTML into a text frame:
+This Python example reads HTML from `file.html` in the working directory and passes the markup to [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/). It clears the text frame's default paragraph so that the frame contains only the imported content. The rectangular shape leaves a 10-point margin on each side of the slide:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape_width = presentation.slide_size.size.width - 20
     shape_height = presentation.slide_size.size.height - 20
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, shape_width, shape_height)
@@ -550,44 +485,64 @@ with slides.Presentation() as presentation:
 
 ### **Export Paragraph Text to HTML**
 
-Use [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) to export a selected range of paragraphs as HTML.
+Use [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) to export a selected range of paragraphs as HTML. When reusing presentation text on a website, you may want to preserve local emphasis without carrying over the presentation's font, size, or text box styles. Set [TextToHtmlConversionOptions.text_inheritance_limit](https://reference.aspose.com/slides/python-net/aspose.slides.export/texttohtmlconversionoptions/text_inheritance_limit/) to control how far the exporter follows formatting inheritance.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the desired presentation.
-2. Access the slide and find the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) that contains the text.
-3. Access the shape's [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-4. Call [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) with the starting paragraph index and the number of paragraphs to export.
-5. Write the returned HTML string to a file.
+Download [the sample presentation](text-inheritance.pptx) and place it in the application's working directory. Its first slide contains one text shape with the text "Inherited text; explicit red 18pt". The input deliberately uses several formatting levels:
 
-This Python example exports all paragraphs from the first text shape:
+- The presentation's default text style supplies Calibri and a size of 28 pt.
+- The text frame's first-level text style supplies blue text and italics.
+- The paragraph explicitly sets bold text.
+- The second portion, "explicit red 18pt", explicitly sets red text and a size of 18 pt.
+
+The following complete example exports the same paragraphs three times. It passes [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/texttohtmlconversionoptions/) to the export method and writes each result as a separate UTF-8 HTML file:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("ExportingHTMLText.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
+with slides.Presentation("text-inheritance.pptx") as presentation:
+    text_shape = presentation.slides[0].shapes[0]
+    paragraphs = text_shape.text_frame.paragraphs
+    
+    modes = {
+        "All": slides.export.TextInheritanceLimit.ALL,
+        "TextBox": slides.export.TextInheritanceLimit.TEXT_BOX,
+        "ParagraphOnly": slides.export.TextInheritanceLimit.PARAGRAPH_ONLY,
+    }
 
-    if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
-        paragraphs = shape.text_frame.paragraphs
-        html = paragraphs.export_to_html(0, paragraphs.count, None)
-        with open("paragraphs.html", "w", encoding="utf-8") as html_stream:
+    for name, mode in modes.items():
+        options = slides.export.TextToHtmlConversionOptions()
+        options.text_inheritance_limit = mode
+
+        html = paragraphs.export_to_html(0, paragraphs.count, options)
+        with open(f"{name}.html", "w", encoding="utf-8") as html_stream:
             html_stream.write(html)
-    else:
-        print("The first shape is not a text shape.")
 ```
+
+The generated HTML contains the following CSS for the first portion, "Inherited text; ". The table lists the relevant declarations; other generated properties are omitted for clarity.
+
+| Output | Relevant CSS for the first portion | Appearance |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blue, bold, italic text at 28 pt in Calibri, if that font is available. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blue, bold, italic text; the surrounding page or browser supplies the font family and size. |
+| `ParagraphOnly.html` | `font-weight:bold` | Bold text; the surrounding page or browser supplies the font family, size, color, and italic style. |
+
+The second portion retains `color:#ff0000`, `font-size:18pt`, and `font-weight:bold` in all three outputs. It also retains italics with `ALL` and `TEXT_BOX`, but not with `PARAGRAPH_ONLY`. Restricting inheritance therefore does not remove formatting explicitly assigned to a paragraph or portion.
+
+Open the files in the same browser to compare them. In the two restricted modes, omitted CSS properties are resolved by the destination page's styles or browser defaults, so the resulting appearance depends on where the HTML is used.
 
 ### **Render a Paragraph as an Image**
 
-[Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) provides the `get_image` method for rendering an individual paragraph directly. The method returns an [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) that you can save to a file or stream with [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). You do not need to render the containing shape or crop a bitmap manually.
+[Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) renders an individual paragraph directly and returns an [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/). Save the result to a file or stream with [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). You do not need to render the containing shape or crop a bitmap manually.
 
-The `get_image` method can return `None` if the paragraph cannot be found in its parent collection, has no valid rendering bounds, or cannot be rendered. Check the result before saving it and use the returned image as a context manager to release its resources.
+[Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) can return `None` if the paragraph cannot be found in its parent collection, has no valid rendering bounds, or cannot be rendered. Check the result before saving it and dispose of the returned image after use.
 
 #### **Render a Paragraph at the Default Scale**
 
-Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
+The example uses `sample.pptx`, a presentation with one slide whose first shape is a text box containing three paragraphs.
 
 ![The text box with three paragraphs](paragraph_to_image_input.png)
 
-The following example renders the second paragraph in a regular text shape at the default scale and saves the returned image in PNG format:
+The following example selects the second paragraph at index 1 and calls [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) without scale parameters. It checks that the shape contains the required paragraph and that rendering returns an image before calling [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) to save it in PNG format. The context manager releases the image resources after use.
 
 ```python
 import aspose.slides as slides
@@ -614,7 +569,7 @@ The result:
 
 #### **Render a Paragraph in a Table Cell with Scaling**
 
-Pass horizontal and vertical scale factors to `get_image` to control the size of the rendered paragraph. The following example creates a table, renders the paragraph in its first cell at twice its default width and height, and saves the result as a PNG image:
+Use the [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) overload that accepts `scale_x` and `scale_y` parameters to set the horizontal and vertical scale factors. The following example creates a table, renders the paragraph in its first cell at twice its default width and height, and saves the result as a PNG image.
 
 ```python
 import aspose.slides as slides
@@ -624,6 +579,7 @@ scale_y = 2
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     table = slide.shapes.add_table(50, 50, [300], [80])
     paragraph = table.rows[0][0].text_frame.paragraphs[0]
     paragraph.text = "Text in a table cell"
@@ -638,7 +594,7 @@ with slides.Presentation() as presentation:
 
 A scale factor of `1` keeps that axis at its default pixel size. For example, `2` for both factors produces an image whose width and height are approximately twice the default dimensions, resulting in four times as many pixels. Larger factors generally produce sharper text for zooming or high-resolution output, but they also increase memory use and file size. Factors below `1` produce smaller images with less detail. Use equal factors to preserve the paragraph's aspect ratio; different horizontal and vertical factors stretch the output independently.
 
-Rendering a whole shape with [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) remains useful when the output must include the shape's fill, border, or other visual context. For a paragraph-only image, use `Paragraph.get_image`.
+Rendering a whole shape with [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) remains useful when the output must include the shape's fill, border, or other visual context. For a paragraph-only image, use [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/).
 
 ## **FAQ**
 

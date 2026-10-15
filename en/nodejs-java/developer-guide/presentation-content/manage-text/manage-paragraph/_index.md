@@ -45,21 +45,11 @@ A paragraph can therefore contain text with different fonts, colors, sizes, and 
 
 ## **Create and Format Paragraphs**
 
+Create paragraphs in a shape's text frame and use portions to format individual text runs. This section shows how to combine multiple portions within each paragraph and apply different colors, font sizes, and styles.
+
 ### **Create Paragraphs with Multiple Portions**
 
-The following steps create a text frame with three paragraphs, each containing three portions:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
-2. Access the relevant slide through its index.
-3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
-4. Access the shape's [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
-5. Use the default paragraph and add two more [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) objects to the text frame.
-6. Add enough [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) objects for each paragraph to contain three portions. The default paragraph already contains one empty portion.
-7. Set the text of each portion.
-8. Apply character-level formatting through [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/).
-9. Save the modified presentation.
-
-This JavaScript example implements the steps:
+The following JavaScript example creates three paragraphs, each containing three text runs in the collection returned by [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). It reuses the default paragraph and its empty portion, then adds the remaining paragraphs and portions. Formatting is applied through [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): the first portion in each paragraph is red, bold, and 15 points; the second is blue, italic, and 18 points. The third portion retains its default formatting:
 
 ```javascript
 var aspose = aspose || {};
@@ -69,6 +59,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
     const textFrame = shape.getTextFrame();
 
@@ -118,24 +109,13 @@ try {
 
 ## **Create Bulleted and Numbered Lists**
 
+Organize paragraph text into lists with symbols, numbers, or custom images. The examples in this section cover bullet formatting, multilevel lists, and custom starting numbers.
+
 ### **Create a Bulleted or Numbered List**
 
 Bullets and numbering make related items easier to scan. In Aspose.Slides, list settings are defined through [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
-2. Access the relevant slide through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the selected slide.
-4. Access the shape's [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
-5. Remove the default paragraph from the text frame.
-6. Create a [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) for a symbol bullet.
-7. Set [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) to [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) and specify the bullet character.
-8. Set the paragraph text, indent, bullet color, and bullet height.
-9. Add the paragraph to the text frame.
-10. Create a second paragraph and set [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) to [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
-11. Configure the numbered bullet style and add the paragraph to the text frame.
-12. Save the presentation.
-
-This JavaScript example creates a symbol bullet and a numbered bullet:
+This JavaScript example adds a symbol bullet and a numbered item to the same text frame. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) selects the bullet type, while [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) supplies the symbol and [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) selects the numbering style. Both items use black bullets with a height of 100 percent and a paragraph indent of 25 points:
 
 ```javascript
 var aspose = aspose || {};
@@ -145,6 +125,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -181,18 +162,7 @@ try {
 
 Picture bullets let you use a custom image instead of a symbol or number.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
-2. Access the relevant slide through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) and access its [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
-4. Remove the default paragraph from the text frame.
-5. Load the bullet image and add it to the presentation's image collection as a [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/).
-6. Create a [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) and set its text.
-7. Set [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) to [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
-8. Assign the image through [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) and set the bullet height.
-9. Add the paragraph to the text frame.
-10. Save the modified presentation.
-
-This JavaScript example creates a picture bullet:
+This JavaScript example loads `image.png` from the application's working directory, adds the image to the presentation's image collection as an [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) and uses it as a paragraph bullet. It calls [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) to use a picture bullet and assigns the image through [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) is set to 100 percent to size the bullet relative to the paragraph text:
 
 ```javascript
 var aspose = aspose || {};
@@ -233,13 +203,7 @@ try {
 
 Set [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) to place paragraphs at different levels of a list. The top level has a depth of `0`.
 
-1. Create a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) and access a slide.
-2. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) and clear the default paragraph from its text frame.
-3. Create four paragraphs and configure their bullet symbols.
-4. Set their [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) values to `0`, `1`, `2`, and `3`.
-5. Add the paragraphs to the text frame and save the presentation.
-
-This JavaScript example creates a four-level bulleted list:
+This JavaScript example assigns [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) values from 0 to 3 to four paragraphs, creating a hierarchy within one text frame. Each paragraph uses a symbol bullet, with [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) alternating between a round bullet and a hyphen to distinguish adjacent levels:
 
 ```javascript
 var aspose = aspose || {};
@@ -249,6 +213,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -300,13 +265,7 @@ try {
 
 Use [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) to set the initial number displayed for a numbered paragraph.
 
-1. Create a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) and add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to a slide.
-2. Clear the default paragraph from the shape's text frame.
-3. Create three numbered paragraphs.
-4. Set [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) to `2`, `3`, and `7` for the respective paragraphs.
-5. Add the paragraphs to the text frame and save the presentation.
-
-This JavaScript example assigns a custom starting number to each paragraph:
+This JavaScript example sets [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) to use numbering for three paragraphs and assigns [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) values of 2, 3, and 7. The starting value is configured separately for each paragraph, allowing the displayed numbers to skip values:
 
 ```javascript
 var aspose = aspose || {};
@@ -316,6 +275,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -346,23 +306,15 @@ try {
 
 ## **Control Paragraph Layout and End Properties**
 
+Adjust paragraph margins and indents to control the position of the first line and wrapped lines. You can also format the paragraph end mark separately from the visible text portions.
+
 ### **Set a First-Line Indent**
 
-Use [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) to control the first-line indent of a paragraph. This method moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
+Use the [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) method to control the first-line indent of a paragraph. This setting moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
 
 Use [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) when you need to move the whole paragraph. Use [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) when you need to move only the first line.
 
-The example below creates several paragraphs and applies different [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) values to demonstrate how the first-line indent affects paragraph layout.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
-2. Access the target slide.
-3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
-4. Access the shape's [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) and remove the default paragraph.
-5. Create several paragraphs and set different [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) values for them.
-6. Add the paragraphs to the text frame.
-7. Save the modified presentation.
-
-This code shows you how to set a paragraph indent:
+The following example gives three paragraphs the same [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) of 20 points and [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) values of 0, 20, and 40 points. The first lines start at progressively larger offsets, while wrapped lines retain the same left margin:
 
 ```javascript
 var aspose = aspose || {};
@@ -419,22 +371,13 @@ The result:
 
 ### **Set a Hanging Indent**
 
-A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Pass a negative value to move the first line to the left relative to the paragraph body.
+A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with the [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) method. Set the indent to a negative value to move the first line to the left relative to the paragraph body.
 
-In practice, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) defines the left position of the paragraph body, and [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) defines the position of the first line relative to that margin. To create a hanging indent, pass a positive value to `setMarginLeft` and a negative value to `setIndent`.
+In practice, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) defines the left position of the paragraph body, and [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) defines the position of the first line relative to that margin. To create a hanging indent, set a positive left margin and a negative indent.
 
 This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
-2. Access the target slide.
-3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
-4. Access the shape's [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) and remove the default paragraph.
-5. Create paragraphs and pass a positive value to [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) for each paragraph.
-6. Pass a negative value to [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) to create the hanging indent effect.
-7. Add the paragraphs to the text frame.
-8. Save the modified presentation.
-
-This code shows you how to set a hanging indent for a paragraph:
+The following JavaScript example pairs [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) values of 40 and 60 points with [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) values of -20 and -30 points. In each paragraph, the first line starts to the left of the wrapped lines; the second paragraph has a deeper hanging indent:
 
 ```javascript
 var aspose = aspose || {};
@@ -483,14 +426,7 @@ The result:
 
 ### **Set End Paragraph Run Properties**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) controls the formatting of the paragraph end mark. The following example assigns a font size and Latin font to the end mark of the second paragraph:
-
-1. Create or load a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) and access a slide.
-2. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) and clear its default paragraph.
-3. Create two paragraphs and add text portions to them.
-4. Create a [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) for the second paragraph's end mark.
-5. Set [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) and [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
-6. Assign the format with [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) and save the presentation.
+The [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) method controls the formatting of the paragraph end mark. The following example creates a [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) with [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) set to 48 points and [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) set to Times New Roman. It assigns this format to the second paragraph's end mark, leaving the visible text portions unchanged:
 
 ```javascript
 var aspose = aspose || {};
@@ -499,6 +435,7 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -529,9 +466,9 @@ For paragraph rules that affect automatic wrapping and punctuation at line endin
 
 Use [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) to count the lines occupied by a paragraph after text layout, including automatic wrapping. This is useful when checking text length and layout in presentation templates.
 
-A paragraph is one item in [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParagraphs), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
+A paragraph is one item in [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), and it can occupy several rendered lines. An explicit line break within a paragraph forces a new line without creating another paragraph. Automatic wrapping creates lines based on the available width without inserting explicit line breaks into the text. Counting paragraphs or line-break characters therefore does not give the rendered line count.
 
-The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. Wrapping is enabled and autofit is disabled so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
+The following example creates a text shape, counts its lines, narrows the shape, and then replaces the text with a shorter string. The example enables wrapping with [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) and disables autofit with [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/) so that the shape width controls wrapping without automatically shrinking the text or resizing the shape. Each measurement uses [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount). Shape dimensions are in points. Finally, the example adds another paragraph and sums the line counts across the text frame.
 
 ```javascript
 var aspose = aspose || {};
@@ -580,52 +517,13 @@ The line count alone does not determine whether text overflows its container. Th
 
 ## **Import and Export Paragraph Content**
 
+Use HTML to bring text into a presentation or export existing paragraphs for use outside it. This section also shows how to render individual paragraphs as images, including paragraphs in table cells.
+
 ### **Import HTML Text into Paragraphs**
 
 Use [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) to convert HTML markup into paragraphs and portions in a text frame.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
-2. Access a slide and add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
-3. Access the shape's [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) and clear its default paragraph.
-4. Define or read the source HTML string.
-5. Pass the HTML string to [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
-6. Save the modified presentation.
-
-This JavaScript example imports HTML into a text frame:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const presentation = new aspose.slides.Presentation();
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
-    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
-    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
-    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shape.getTextFrame().getParagraphs().clear();
-
-    const html = "<p><b>Aspose.Slides</b> imports HTML text into presentation paragraphs.</p>";
-    shape.getTextFrame().getParagraphs().addFromHtml(html);
-    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-### **Export Paragraph Text to HTML**
-
-Use [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) to export a selected range of paragraphs as HTML.
-
-1. Create or load an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
-2. Access the slide and find the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) that contains the text.
-3. Access the shape's [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
-4. Call [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) with the starting paragraph index and the number of paragraphs to export.
-5. Write the returned HTML string to a file.
-
-This self-contained JavaScript example creates a text shape and exports all its paragraphs:
+This JavaScript example reads HTML from `file.html` in the application's working directory and passes the markup to [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). It clears the text frame's default paragraph so that the frame contains only the imported content. The rectangular shape leaves a 10-point margin on each side of the slide:
 
 ```javascript
 var aspose = aspose || {};
@@ -636,22 +534,59 @@ const fs = require("fs");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
-    const sourceTextFrame = sourceShape.getTextFrame();
-    sourceTextFrame.getParagraphs().clear();
-    for (const text of ["First paragraph", "Second paragraph", "Third paragraph"]) {
-        const sourceParagraph = new aspose.slides.Paragraph();
-        sourceParagraph.setText(text);
-        sourceTextFrame.getParagraphs().add(sourceParagraph);
-    }
-    const shape = slide.getShapes().get_Item(0);
+
+    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
+    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getTextFrame().getParagraphs().clear();
+
+    const html = fs.readFileSync("file.html", "utf8");
+    shape.getTextFrame().getParagraphs().addFromHtml(html);
+    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Export Paragraph Text to HTML**
+
+Use [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) to export a selected range of paragraphs as HTML. When reusing presentation text on a website, you may want to preserve local emphasis without carrying over the presentation's font, size, or text box styles. Set [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) to control how far the exporter follows formatting inheritance.
+
+Download [the sample presentation](text-inheritance.pptx) and place it in the application's working directory. Its first slide contains one text shape with the text "Inherited text; explicit red 18pt". The input deliberately uses several formatting levels:
+
+- The presentation's default text style supplies Calibri and a size of 28 pt.
+- The text frame's first-level text style supplies blue text and italics.
+- The paragraph explicitly sets bold text.
+- The second portion, "explicit red 18pt", explicitly sets red text and a size of 18 pt.
+
+The following complete example exports the same paragraphs three times. It passes [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) to the export method and writes each result as a separate UTF-8 HTML file:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("text-inheritance.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
     if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
         const textFrame = shape.getTextFrame();
         if (textFrame !== null) {
             const paragraphs = textFrame.getParagraphs();
-            const html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            fs.writeFileSync("paragraphs.html", html, "utf8");
+
+            const modes = [aspose.slides.TextInheritanceLimit.All, aspose.slides.TextInheritanceLimit.TextBox, aspose.slides.TextInheritanceLimit.ParagraphOnly];
+            const fileNames = ["All.html", "TextBox.html", "ParagraphOnly.html"];
+
+            for (let i = 0; i < modes.length; i++) {
+                const options = new aspose.slides.TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                const html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                fs.writeFileSync(fileNames[i], html, "utf8");
+            }
         } else {
             console.log("The first shape does not contain a text frame.");
         }
@@ -663,19 +598,31 @@ try {
 }
 ```
 
+The generated HTML contains the following CSS for the first portion, "Inherited text; ". The table lists the relevant declarations; other generated properties are omitted for clarity.
+
+| Output | Relevant CSS for the first portion | Appearance |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blue, bold, italic text at 28 pt in Calibri, if that font is available. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blue, bold, italic text; the surrounding page or browser supplies the font family and size. |
+| `ParagraphOnly.html` | `font-weight:bold` | Bold text; the surrounding page or browser supplies the font family, size, color, and italic style. |
+
+The second portion retains `color:#ff0000`, `font-size:18pt`, and `font-weight:bold` in all three outputs. It also retains italics with `All` and `TextBox`, but not with `ParagraphOnly`. Restricting inheritance therefore does not remove formatting explicitly assigned to a paragraph or portion.
+
+Open the files in the same browser to compare them. In the two restricted modes, omitted CSS properties are resolved by the destination page's styles or browser defaults, so the resulting appearance depends on where the HTML is used.
+
 ### **Render a Paragraph as an Image**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) renders an individual paragraph directly and returns an [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Save the result to a file with [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). You do not need to render the containing shape or crop a bitmap manually.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) renders an individual paragraph directly and returns an [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Save the result to a file or stream with [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). You do not need to render the containing shape or crop a bitmap manually.
 
 [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) can return `null` if the paragraph cannot be found in its parent collection, has no valid rendering bounds, or cannot be rendered. Check the result before saving it and dispose of the returned image after use.
 
 #### **Render a Paragraph at the Default Scale**
 
-The following text box contains three paragraphs:
+The example creates a presentation with one slide whose first shape is a text box containing three paragraphs.
 
 ![The text box with three paragraphs](paragraph_to_image_input.png)
 
-The following example renders the second paragraph in a regular text shape at the default scale and saves the returned image in PNG format. The `finally` block ensures that the image is disposed of correctly.
+The following example selects the second paragraph at index 1 and calls [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) without scale parameters. It checks that the shape contains the required paragraph and that rendering returns an image before calling [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) to save it in PNG format. The `finally` block disposes of the image after use.
 
 ```javascript
 var aspose = aspose || {};
@@ -685,6 +632,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
     const sourceTextFrame = sourceShape.getTextFrame();
     sourceTextFrame.getParagraphs().clear();
@@ -740,6 +688,7 @@ const scaleY = 2;
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+    
     const columnWidths = java.newArray("double", [300]);
     const rowHeights = java.newArray("double", [80]);
     const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
@@ -773,7 +722,7 @@ Yes. Set [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodej
 
 **How can I get the exact on-slide bounds of a specific paragraph?**
 
-Use [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) to retrieve the paragraph's bounding rectangle. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/#getRect) provides the bounds of an individual portion.
+Use [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) to retrieve the paragraph's bounding rectangle. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) provides the bounds of an individual portion.
 
 **Where is paragraph alignment (left, right, center, or justify) controlled?**
 
