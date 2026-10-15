@@ -18,7 +18,7 @@ keywords:
 - styckepunkt
 - numrerad lista
 - punktlista
-- styckeegenskaper
+- styckegenskaper
 - importera HTML
 - text till HTML
 - stycke till HTML
@@ -29,35 +29,25 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Lär dig hur du skapar och formaterar stycken, delar, punkter, numrerade listor, indrag, HTML-innehåll och styckebilder med Aspose.Slides för C++."
+description: "Lär dig hur du skapar och formaterar stycken, delar, punkter, numrerade listor, indrag, HTML‑innehåll och stycke‑bilder med Aspose.Slides för C++."
 ---
 ## **Översikt**
 
 Aspose.Slides för C++ representerar text som en hierarki av textramar, stycken och delar:
 
-* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) representerar textbehållaren i en form och ger åtkomst till dess styckeinsamling.
-* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) representerar ett stycke i en textram och ger åtkomst till dess delar och styckeformatering.
-* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) representerar en textsekvens inom ett stycke. Varje del kan ha sin egen text och teckenformatering.
+* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) representerar textbehållaren i en form och ger åtkomst till dess stycke‑samling.
+* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) representerar ett stycke i en textram och ger åtkomst till dess delar och formatering på styckesnivå.
+* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) representerar ett textkör i ett stycke. Varje del kan ha sin egen text och tecken‑nivåformatering.
 
 Ett stycke kan därför innehålla text med olika typsnitt, färger, storlekar och annan formatering genom att använda flera delar.
 
 ## **Skapa och formatera stycken**
 
+Skapa stycken i en forms textram och använd delar för att formatera enskilda textkör. Detta avsnitt visar hur du kombinerar flera delar i varje stycke och tillämpar olika färger, teckenstorlekar och stilar.
+
 ### **Skapa stycken med flera delar**
 
-Följande steg skapar en textram med tre stycken, var och en med tre delar:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-2. Få åtkomst till den relevanta bildens referens via dess index.
-3. Lägg till en rektangulär [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
-4. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
-5. Använd standardstycket och lägg till två ytterligare [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/)‑objekt i textramen.
-6. Lägg till tillräckligt många [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/)‑objekt så att varje stycke innehåller tre delar. Standardstycket innehåller redan en tom del.
-7. Ställ in texten för varje del.
-8. Tillämpa tecken‑nivå formatering via [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/).
-9. Spara den ändrade presentationen.
-
-Detta C++‑exempel implementerar stegen:
+Följande C++‑exempel skapar tre stycken, var och en innehållande tre textkör i sin [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/)‑samling. Det återanvänder standardstycket och dess tomma del, för att sedan lägga till de återstående styckena och delarna. Formatering appliceras via [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/): den första delen i varje stycke är röd, fet och 15 punkter; den andra är blå, kursiv och 18 punkter. Den tredje delen behåller sin standardformatering:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -80,6 +70,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
 auto textFrame = shape->get_TextFrame();
 
@@ -100,11 +91,11 @@ thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
 textFrame->get_Paragraphs()->Add(thirdParagraph);
 
 auto paragraphCount = textFrame->get_Paragraphs()->get_Count();
-for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+for (auto paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 {
     auto paragraph = textFrame->get_Paragraph(paragraphIndex);
     auto portionCount = paragraph->get_Portions()->get_Count();
-    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    for (auto portionIndex = 0; portionIndex < portionCount; portionIndex++)
     {
         auto portion = paragraph->get_Portion(portionIndex);
         portion->set_Text(String::Format(u"Portion {0}.{1}", paragraphIndex + 1, portionIndex + 1));
@@ -131,26 +122,15 @@ presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Skapa punkt- och numrerade listor**
+## **Skapa punktlistor och numrerade listor**
+
+Organisera styckestext i listor med symboler, siffror eller anpassade bilder. Exemplen i detta avsnitt täcker punktformatering, flernivålistor och anpassade startnummer.
 
 ### **Skapa en punkt- eller numrerad lista**
 
-Punkter och numrering gör relaterade objekt enklare att överblicka. I Aspose.Slides definieras listinställningar via [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/).
+Punkter och numrering gör relaterade objekt enklare att skanna. I Aspose.Slides definieras listinställningar via [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/).
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-2. Få åtkomst till den relevanta bildens referens via dess index.
-3. Lägg till en [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på den valda bilden.
-4. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
-5. Ta bort standardstycket från textramen.
-6. Skapa ett [Paragraph](https://reference.aspose.com/slides/cpp/aspose.slides/paragraph/) för en symbolpunkt.
-7. Ställ in [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) till [BulletType::Symbol](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/) och ange punkttecknet.
-8. Ange styckets text, indrag, punktfärg och punktens höjd.
-9. Lägg till stycket i textramen.
-10. Skapa ett andra stycke och ställ in [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) till [BulletType::Numbered](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/).
-11. Konfigurera den numrerade punktstilen och lägg till stycket i textramen.
-12. Spara presentationen.
-
-Detta C++‑exempel skapar en symbolpunkt och en numrerad punkt:
+Detta C++‑exempel lägger till en symbolpunkt och ett numrerat objekt i samma textram. [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) väljer punkttypen, medan [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) tillhandahåller symbolen och [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) väljer numreringsstilen. Båda objekten använder svarta punkter med en höjd på 100 procent och ett styckeindrag på 25 punkter:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -173,6 +153,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -205,20 +186,9 @@ presentation->Dispose();
 
 ### **Använd bildpunkter**
 
-Bildpunkter låter dig använda en anpassad bild istället för en symbol eller ett nummer.
+Bildpunkter låter dig använda en anpassad bild istället för en symbol eller siffra.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-2. Få åtkomst till den relevanta bildens referens via dess index.
-3. Lägg till en [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) och få åtkomst till dess [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
-4. Ta bort standardstycket från textramen.
-5. Läs in punktbilden och lägg till den i presentationens bildsamling som en [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/).
-6. Skapa ett [Paragraph](https://reference.aspose.com/slides/cpp/aspose.slides/paragraph/) och ange dess text.
-7. Ställ in [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) till [BulletType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/).
-8. Tilldela bilden via [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) och ange punktens höjd.
-9. Lägg till stycket i textramen.
-10. Spara den ändrade presentationen.
-
-Detta C++‑exempel skapar en bildpunkt:
+Exemplet kräver `bullets.png` i arbetskatalogen. Detta C++‑exempel lägger till en bild i presentationens bildsamling som en [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) och använder den som styckespunkt. Det sätter [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) till bildpunkt och tilldelar bilden via [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/). [IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) sätts till 100 procent för att dimensionera punkten relativt styckestexten:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -261,13 +231,9 @@ presentation->Dispose();
 
 ### **Skapa en flernivålista**
 
-Använd [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) för att placera stycken på olika nivåer i en lista. Top‑nivån har ett djup på `0`.
+Sätt [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) för att placera stycken på olika nivåer i en lista. Den översta nivån har ett djup på `0`.
 
-1. Skapa en [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) och få åtkomst till en bild.
-2. Lägg till en [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) och rensa standardstycket från dess textram.
-3. Skapa fyra stycken och konfigurera deras punkt‑symboler.
-4. Ställ in deras [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/)‑värden till `0`, `1`, `2` och `3`.
-5. Lägg till styckena i textramen och spara presentationen.
+Detta C++‑exempel tilldelar [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/)‑värden från 0 till 3 till fyra stycken och skapar en hierarki inom en textram. Varje stycke använder en symbolpunkt, där [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) växlar mellan en rund punkt och ett bindestreck för att särskilja intilliggande nivåer:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -288,6 +254,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -333,15 +300,11 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Starta numrerade listobjekt med egna värden**
+### **Starta numrerade listobjekt med anpassade värden**
 
-Använd [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) för att ange det initiala numret som visas för ett numrerat stycke.
+Använd [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) för att ange det inledande numret som visas för ett numrerat stycke.
 
-1. Skapa en [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) och lägg till en [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på en bild.
-2. Rensa standardstycket från formens textram.
-3. Skapa tre numrerade stycken.
-4. Ställ in [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) till `2`, `3` och `7` för respektive stycke.
-5. Lägg till styckena i textramen och spara presentationen.
+Detta C++‑exempel sätter [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) till numrering för tre stycken och tilldelar [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) värdena 2, 3 och 7. Startvärdet konfigureras separat för varje stycke, vilket gör att de visade siffrorna kan hoppa över värden:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -358,6 +321,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -384,23 +348,17 @@ presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Kontrollera stycke‑layout och slut‑egenskaper**
+## **Styr stycke‑layout och slutproperties**
 
-### **Ställ in ett indrag för första raden**
+Justera stycke‑marginaler och indrag för att kontrollera placeringen av den första raden och omslagna rader. Du kan också formatera styckets slutmarkering separat från de synliga textdelarna.
 
-Använd [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) för att kontrollera indraget för den första raden i ett stycke. Denna metod flyttar endast den första raden i förhållande till styckets vänstra marginal. Ett positivt värde flyttar den första raden åt höger, medan de resterande raderna förblir justerade med styckeskroppen.
+### **Ange indrag för första raden**
 
-Använd [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) när du behöver flytta hela stycket. Använd [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) när du bara vill flytta den första raden.
+Använd metoden [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) för att kontrollera indraget för den första raden i ett stycke. Denna metod flyttar endast den första raden relativt styckets vänstra marginal. Ett positivt värde förskjuter den första raden åt höger, medan de återstående raderna förblir justerade till styckets kropp.
 
-Exemplet nedan skapar flera stycken och tillämpar olika [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/)‑värden för att demonstrera hur indraget för den första raden påverkar stycke‑layouten.
+Använd [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) när du behöver flytta hela stycket. Använd [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) när du bara ska flytta den första raden.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-2. Få åtkomst till mål‑bilden.
-3. Lägg till en rektangulär [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
-4. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) och ta bort standardstycket.
-5. Skapa flera stycken och ange olika [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/)‑värden för dem.
-6. Lägg till styckena i textramen.
-7. Spara den ändrade presentationen.
+Följande exempel ger tre stycken samma [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) på 20 punkter och [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) på 0, 20 respektive 40 punkter. De första raderna börjar på successivt större avstånd, medan omslagna rader behåller samma vänstra marginal:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -420,6 +378,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -460,24 +419,17 @@ presentation->Dispose();
 
 Resultatet:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Styckets indrag för första raden](first_line_indent.png)
 
-### **Ställ in ett hängande indrag**
+### **Ange hängande indrag**
 
-Ett hängande indrag är en stycke‑layout där den första raden börjar åt vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/). Ställ in indraget på ett negativt värde för att flytta den första raden åt vänster i förhållande till styckeskroppen.
+Ett hängande indrag är en stycke‑layout där den första raden startar vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med metoden [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/). Ange ett negativt värde för att flytta den första raden åt vänster relativt styckets kropp.
 
-I praktiken definierar [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) den vänstra positionen för styckeskroppen, och [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) definierar positionen för den första raden i förhållande till den marginalen. För att skapa ett hängande indrag, ange ett positivt värde för vänster marginal och ett negativt indrag‑värde.
+I praktiken definierar [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) den vänstra positionen för styckets kropp, och [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, sätt ett positivt `MarginLeft`‑värde och ett negativt `Indent`‑värde.
 
-Denna formatering är användbar för bibliografier, referenser, uppslagsord och andra stycken där radbrytna rader måste justeras under styckeskroppen snarare än under den första tecknet i den första raden.
+Denna formatering är användbar för bibliografier, referenser, ordlistposter och andra stycken där omslagna rader måste justeras under styckets kropp snarare än under den första tecknet i den första raden.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-2. Få åtkomst till mål‑bilden.
-3. Lägg till en rektangulär [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) på bilden.
-4. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) och ta bort standardstycket.
-5. Skapa stycken och ange ett positivt [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/)‑värde för varje stycke.
-6. Ange ett negativt [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/)‑värde för att skapa hängande indrag‑effekten.
-7. Lägg till styckena i textramen.
-8. Spara den ändrade presentationen.
+Följande C++‑exempel parar ihop [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) på 40 respektive 60 punkter med [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) på –20 respektive –30 punkter. I varje stycke startar den första raden till vänster om de omslagna raderna; det andra stycket har ett djupare hängande indrag:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -497,6 +449,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -523,24 +476,17 @@ secondParagraph->get_ParagraphFormat()->set_Indent(-30);
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
 
-presentation->Save(u"hhang_indent.pptx", SaveFormat::Pptx);
+presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 Resultatet:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Styckets hängande indrag](hanging_indent.png)
 
-### **Ställ in slut‑segment egenskaper för stycke**
+### **Ställ in slut‑styckefilegenskaper**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) styr formateringen av styckets slutmarkering. Följande exempel tilldelar en teckenstorlek och ett latin‑teckensnitt till slutmarkeringen för det andra stycket:
-
-1. Läs in en [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) och få åtkomst till en bild.
-2. Lägg till en [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) och rensa dess standardstycke.
-3. Skapa två stycken och lägg till textdelar i dem.
-4. Skapa ett [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) för det andra styckets slutmarkering.
-5. Ange [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) och [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/).
-6. Tilldela formatet med [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) och spara presentationen.
+Metoden [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) styr formateringen av styckets slutmarkering. Exemplet laddar `Test.pptx`, som måste innehålla minst en bild. Följande exempel skapar ett [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) med [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) satt till 48 punkter och [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) satt till Times New Roman. Det tilldelar detta format till det andra styckets slutmarkering, utan att ändra de synliga textdelarna:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -560,6 +506,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Test.pptx");
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -584,13 +531,13 @@ presentation->Dispose();
 
 ## **Räkna renderade rader**
 
-För stycke‑regler som påverkar automatisk radbrytning och skiljetecken vid radslut, se [Control Line Breaking](/slides/sv/cpp/text-formatting/#control-line-breaking) och [Control Hanging Punctuation](/slides/sv/cpp/text-formatting/#control-hanging-punctuation).
+För styckeregel som påverkar automatisk radbrytning och interpunktion i radslutet, se [Control Line Breaking](/slides/sv/cpp/text-formatting/#control-line-breaking) och [Control Hanging Punctuation](/slides/sv/cpp/text-formatting/#control-hanging-punctuation).
 
 Använd [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) för att räkna antalet rader som ett stycke upptar efter textlayout, inklusive automatisk radbrytning. Detta är användbart när du kontrollerar textlängd och layout i presentationsmallar.
 
-Ett stycke är ett objekt i [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/), och det kan uppta flera renderade rader. Ett explicit radbrytningstecken inom ett stycke tvingar en ny rad utan att skapa ett nytt stycke. Automatisk radbrytning skapar rader baserat på den tillgängliga bredden utan att infoga explicita radbrytningstecken i texten. Att räkna stycken eller radbrytningstecken ger därför inte det renderade radantalet.
+Ett stycke är ett objekt i [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/), och det kan uppta flera renderade rader. En explicit radbrytning i ett stycke tvingar en ny rad utan att skapa ett nytt stycke. Automatisk radbrytning skapar rader baserat på tillgänglig bredd utan att infoga explicita radbrytningstecken i texten. Att räkna stycken eller radbrytnings‑tecken ger därför inte det renderade radantalet.
 
-Följande exempel skapar en textrams, räknar dess rader, smalnar av formen och ersätter sedan texten med en kortare sträng. Radbrytning är aktiverad och autofit är inaktiverat så att formens bredd styr radbrytning utan att automatiskt krympa texten eller ändra formens storlek. Formens dimensioner anges i punkter. Till sist lägger exemplet till ett ytterligare stycke och summerar radantalet över textramen.
+Följande exempel skapar en textruta, räknar dess rader, smalnar av formen och ersätter sedan texten med en kortare sträng. Exemplet aktiverar [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) och inaktiverar [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) så att formbredden styr radbrytning utan att automatiskt krympa texten eller ändra formens storlek. Varje mätning använder [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/). Formens dimensioner är i punkter. Slutligen lägger exemplet till ytterligare ett stycke och summerar radantalet i hela textramen.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -638,22 +585,19 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-Med denna text och dessa dimensioner ökar ett minskat format radantalet, medan ett byte till den korta strängen minskar det. Exakta antal kan variera beroende på teckensnittstillgänglighet och ersättning, teckenstorlek, marginaler, indrag, radbrytning och autofit‑inställningar. Använd de teckensnitt och layout‑inställningar som är avsedda för målmiljön när du kontrollerar en mall.
+Med denna text och dessa dimensioner ökar radantalet när formen smalnas, medan ersättning av texten med den korta strängen minskar det. Exakta siffror kan variera beroende på tillgängliga typsnitt och ersättningar, teckenstorlek, marginaler, indrag, radbrytning och autofit‑inställningar. Använd de typsnitt och layout‑inställningar som är avsedda för målmiljön när du kontrollerar en mall.
 
-Enbart radantalet avgör inte om texten överskrider sin behållare. Tillgänglig höjd, radhöjder, stycke‑ och radavstånd samt autofit‑beteende spelar också roll; även en ensam rad kan överstiga den tillgängliga bredden när radbrytning är inaktiverad.
+Radantalet ensam avgör inte om texten överskrider sin behållare. Tillgänglig höjd, radhöjder, stycke‑ och radavstånd samt autofit‑beteende spelar också roll; även en enda rad kan överskrida tillgänglig bredd när radbrytning är inaktiverad.
 
 ## **Importera och exportera styckeinnehåll**
 
-### **Importera HTML‑text i stycken**
+Använd HTML för att föra in text i en presentation eller exportera befintliga stycken för användning utanför den. Detta avsnitt visar också hur du renderar enskilda stycken som bilder, inklusive stycken i tabellceller.
 
-Använd [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/addfromhtml/) för att konvertera HTML‑markup till stycken och delar i en textram.
+### **Importera HTML‑text till stycken**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-2. Få åtkomst till en bild och lägg till en [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
-3. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) och rensa dess standardstycke.
-4. Läs in käll‑HTML‑filen.
-5. Skicka HTML‑strängen till [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/addfromhtml/).
-6. Spara den ändrade presentationen.
+Använd [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) för att konvertera HTML‑markup till stycken och delar i en textram.
+
+Detta C++‑exempel läser HTML från en fil och passerar markupen till [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/). Det rensar textrammens standardstycke så att ramen endast innehåller den importerade innehållet. Den rektangulära formen lämnar en marginal på 10 punkter på varje sida av bilden:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -672,6 +616,7 @@ using namespace System::IO;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto slideSize = presentation->get_SlideSize()->get_Size();
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, slideSize.get_Width() - 20, slideSize.get_Height() - 20);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -688,39 +633,53 @@ presentation->Dispose();
 
 ### **Exportera stycketext till HTML**
 
-Använd [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/exporttohtml/) för att exportera ett valt intervall av stycken som HTML.
+Använd [ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) för att exportera ett markerat intervall av stycken som HTML. När du återanvänder presentations­text på en webbplats kan du vilja bevara lokal betoning utan att föra över presentationens typsnitt, storlek eller textruta‑stilar. Sätt [TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) för att kontrollera hur långt exportören följer formaterings‑arv.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) och läs in den önskade presentationen.
-2. Få åtkomst till bilden och hitta den [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) som innehåller texten.
-3. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
-4. Anropa [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/exporttohtml/) med start‑styckeindexet och antalet stycken som ska exporteras.
-5. Skriv den returnerade HTML‑strängen till en fil.
+Ladda ner [exempel‑presentationen](text-inheritance.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller en textruta med texten "Inherited text; explicit red 18pt". Indatan använder avsiktligt flera formateringsnivåer:
+
+- Presentationens standard‑textstil tillhandahåller Calibri i storlek 28 pt.
+- Textrammens förstnivå‑textstil ger blå text och kursiv stil.
+- Stycket sätter explicit fet stil.
+- Den andra delen, "explicit red 18pt", sätter explicit röd text och en storlek på 18 pt.
+
+Följande exempel exporterar samma stycken tre gånger. Det passerar [TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) till export‑metoden och skriver varje resultat som en separat UTF‑8‑HTML‑fil:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/Presentation.h>
+#include <Export/TextInheritanceLimit.h>
+#include <Export/TextToHtmlConversionOptions.h>
+#include <system/array.h>
 #include <system/console.h>
-#include <system/io/stream_writer.h>
+#include <system/io/file.h>
 #include <system/object_ext.h>
 #include <system/text/encoding.h>
 
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 using namespace System::Text;
 
-auto presentation = MakeObject<Presentation>(u"ExportingHTMLText.pptx");
+auto presentation = MakeObject<Presentation>(u"text-inheritance.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 auto textShape = AsCast<IAutoShape>(shape);
 
 if (textShape != nullptr && textShape->get_TextFrame() != nullptr)
 {
     auto paragraphs = textShape->get_TextFrame()->get_Paragraphs();
-    auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), nullptr);
-    auto writer = MakeObject<StreamWriter>(u"paragraphs.html", false, Encoding::get_UTF8());
-    writer->Write(html);
-    writer->Close();
+    auto modes = MakeArray<TextInheritanceLimit>({TextInheritanceLimit::All, TextInheritanceLimit::TextBox, TextInheritanceLimit::ParagraphOnly});
+    auto fileNames = MakeArray<String>({u"All.html", u"TextBox.html", u"ParagraphOnly.html"});
+
+    for (auto i = 0; i < modes->get_Length(); i++)
+    {
+        auto options = MakeObject<TextToHtmlConversionOptions>();
+        options->set_TextInheritanceLimit(modes[i]);
+
+        auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+        File::WriteAllText(fileNames[i], html, Encoding::get_UTF8());
+    }
 }
 else
 {
@@ -730,19 +689,31 @@ else
 presentation->Dispose();
 ```
 
-### **Rendera ett stycke som en bild**
+Den genererade HTML‑koden innehåller följande CSS för den första delen, "Inherited text; ". Tabellen listar de relevanta deklarationerna; andra genererade egenskaper har utelämnats för tydlighet.
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) renderar ett enskilt stycke direkt och returnerar en [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/). Spara resultatet till en fil eller ström med [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). Du behöver inte rendera den omgivande formen eller manuellt beskära en bitmap.
+| Output | Relevant CSS for the first portion | Appearance |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text på 28 pt i Calibri, om det typsnittet finns. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text; den omgivande sidan eller webbläsaren tillhandahåller typsnitt och storlek. |
+| `ParagraphOnly.html` | `font-weight:bold` | Fet text; den omgivande sidan eller webbläsaren tillhandahåller typsnitt, storlek, färg och kursiv stil. |
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) kan returnera `nullptr` om stycket inte kan hittas i sin föräldrakollektion, saknar giltiga renderingsgränser eller inte kan renderas. Kontrollera resultatet innan du sparar det och frigör den returnerade bilden efter användning.
+Den andra delen behåller `color:#ff0000`, `font-size:18pt` och `font-weight:bold` i alla tre utdata. Den behåller även kursiv stil i `All` och `TextBox`, men inte i `ParagraphOnly`. Att begränsa arv tar alltså inte bort formatering som explicit tilldelats ett stycke eller en del.
+
+Öppna filerna i samma webbläsare för att jämföra dem. I de två begränsade lägena löses uteblivna CSS‑egenskaper av destinationens stilar eller webbläsarens standarder, så det slutgiltiga utseendet beror på var HTML‑filen används.
+
+### **Rendera ett stycke som bild**
+
+[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) renderar ett enskilt stycke direkt och returnerar en [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/). Spara resultatet till en fil eller ström med [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). Du behöver inte rendera den omgivande formen eller beskära en bitmap manuellt.
+
+[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) kan returnera `nullptr` om stycket inte kan hittas i sin föräldrasamling, saknar giltiga renderingsgränser eller inte kan renderas. Kontrollera resultatet innan du sparar det och frigör den returnerade bilden efter användning.
 
 #### **Rendera ett stycke i standardskala**
 
-Anta att vi har en presentationsfil som heter sample.pptx med en bild, där den första formen är en textruta som innehåller tre stycken.
+Exemplet använder `sample.pptx`, en presentation med en bild vars första form är en textruta som innehåller tre stycken.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Textrutan med tre stycken](paragraph_to_image_input.png)
 
-Följande exempel renderar det andra stycket i en vanlig textruta i standardskala och sparar den returnerade bilden i PNG‑format.
+Följande exempel väljer det andra stycket med index 1 och anropar [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) utan skalparametrar. Det kontrollerar att formen innehåller det begärda stycket och att renderingen returnerar en bild innan [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) anropas för att spara den i PNG‑format. Exemplet frigör bilden efter att den sparats.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -785,11 +756,11 @@ presentation->Dispose();
 
 Resultatet:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Stycke‑bilden](paragraph_to_image_output.png)
 
 #### **Rendera ett stycke i en tabellcell med skalning**
 
-Använd [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/)-överladdningen som accepterar parametrarna `float scaleX` och `float scaleY` för att sätta horisontella och vertikala skalningsfaktorer. Följande exempel skapar en tabell, renderar stycket i dess första cell med dubbelt så stor bredd och höjd som standard, och sparar resultatet som en PNG‑bild.
+Använd överlastningen av [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) som accepterar parametrarna `float scaleX` och `float scaleY` för att ange de horisontella och vertikala skalningsfaktorerna. Följande exempel skapar en tabell, renderar stycket i dess första cell med dubbelt så stor bredd och höjd som standard, och sparar resultatet som en PNG‑bild.
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -808,6 +779,7 @@ auto scaleY = 2.0f;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto table = slide->get_Shapes()->AddTable(50, 50, MakeArray<double>({300}), MakeArray<double>({80}));
 auto paragraph = table->idx_get(0, 0)->get_TextFrame()->get_Paragraph(0);
 paragraph->set_Text(u"Text in a table cell");
@@ -826,24 +798,26 @@ else
 presentation->Dispose();
 ```
 
-En skalningsfaktor på `1` behåller den axeln på sin standardpixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standard, vilket resulterar i fyra gånger så många pixlar. Större faktorer ger vanligtvis skarpare text för zoomning eller högupplöst utskrift, men de ökar också minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detaljrikedom. Använd lika faktorer för att bevara styckets bildförhållande; olika horisontella och vertikala faktorer sträcker utdata oberoende.
+En skalningsfaktor på `1` behåller den axeln på standardpixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standardmåtten, vilket resulterar i fyra gånger så många pixlar. Större faktorer ger generellt skarpare text för zoom eller högupplöst utskrift, men ökar även minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detalj. Använd lika faktorer för att bevara styckets proportioner; olika horisontella och vertikala faktorer sträcker ut bilden oberoende.
 
-Renderering av en hel form med [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) är fortfarande användbart när resultatet måste inkludera formens fyllning, ram eller annan visuell kontext. För en bild som bara innehåller ett stycke, använd [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/).
+Att rendera en hel form med [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) är fortfarande användbart när utdata måste inkludera formens fyllning, kant eller annan visuell kontext. För enbart en bild av ett stycke, använd [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
 **Kan jag helt inaktivera radbrytning i en textram?**
 
-Ja. Använd [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) för att inaktivera radbrytning så att rader inte bryts vid textrammens kanter.
+Ja. Använd [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) för att inaktivera radbrytning så att raderna inte bryts vid textrammens kanter.
 
-**Hur kan jag få de exakta gränserna på bilden för ett specifikt stycke?**
+**Hur kan jag få exakt plats för ett specifikt stycke på bilden?**
 
-Använd [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) för att hämta styckets begränsningsrektangel. [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) ger gränserna för en enskild del.
+Använd [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) för att hämta styckets omgivande rektangel. [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) ger gränserna för en enskild del.
 
-**Var styrs styckejustering (vänster, höger, centrerad eller justerad)?**
+**Var styrs styckejustering (vänster, höger, centrerad eller fullständig) ?**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) är en inställning på stycknivå och tillämpas på hela stycket oavsett individuell delformatering. För att vertikalt justera delar med olika teckenstorlekar inom varje rad, se [Align Fonts Within a Line](/slides/sv/cpp/text-formatting/#align-fonts-within-a-line).
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) är en inställning på styckesnivå och tillämpas på hela stycket oavsett enskild del‑formatering.
 
-**Kan jag ange korrekturspråk för en del av ett stycke?**
+För att vertikalt justera delar med olika teckenstorlekar inom varje rad, se [Align Fonts Within a Line](/slides/sv/cpp/text-formatting/#align-fonts-within-a-line).
+
+**Kan jag ange språkgranskning för en del av ett stycke?**
 
 Ja. Använd [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) för enskilda delar, så att ett stycke kan innehålla text på flera språk.

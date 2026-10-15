@@ -12,12 +12,12 @@ keywords:
 - προσθήκη παραγράφου
 - διαχείριση κειμένου
 - διαχείριση παραγράφου
-- διαχείριση κουκίδας
+- διαχείριση κουκκίδας
 - εσοχή παραγράφου
-- αναρριχητική εσοχή
-- κουκίδα παραγράφου
+- εσώματη εσοχή
+- κουκκίδα παραγράφου
 - αριθμημένη λίστα
-- λίστα με κουκίδες
+- λίστα με κουκκίδες
 - ιδιότητες παραγράφου
 - εισαγωγή HTML
 - κείμενο σε HTML
@@ -29,35 +29,25 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφων με το Aspose.Slides για Java."
+description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφων με το Aspose.Slides για Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides για Java αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
+Aspose.Slides for Java αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
 
-* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) αντιπροσωπεύει το περιέκτη κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
-* [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) αντιπροσωπεύει μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματά της και στη μορφοποίηση σε επίπεδο παραγράφου.
-* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) αντιπροσωπεύει μια ακολουθία κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει το δικό του κείμενο και μορφοποίηση χαρακτήρων.
+* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) αντιπροσωπεύει το δοχείο κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
+* [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) αντιπροσωπεύει μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα και τη μορφοποίηση επιπέδου παραγράφου.
+* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) αντιπροσωπεύει ένα τμήμα κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει τη δική του μορφοποίηση κειμένου και χαρακτήρων.
 
-Έτσι, μια παράγραφος μπορεί να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλη μορφοποίηση χρησιμοποιώντας πολλαπλά τμήματα.
+Μια παράγραφος μπορεί επομένως να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες μορφοποιήσεις χρησιμοποιώντας πολλαπλά τμήματα.
 
-## **Δημιουργία και Διαμόρφωση Παραγράφων**
+## **Δημιουργία και Μορφοποίηση Παραγράφων**
+
+Δημιουργήστε παραγράφους στο πλαίσιο κειμένου ενός σχήματος και χρησιμοποιήστε τμήματα για τη μορφοποίηση μεμονωμένων τρεξίσεων κειμένου. Αυτή η ενότητα δείχνει πώς να συνδυάσετε πολλαπλά τμήματα σε κάθε παράγραφο και να εφαρμόσετε διαφορετικά χρώματα, μεγέθη γραμματοσειράς και στυλ.
 
 ### **Δημιουργία Παραγράφων με Πολλαπλά Τμήματα**
 
-Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφους, καθεμία από τις οποίες περιέχει τρία τμήματα:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα ορθογώνιο [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) του σχήματος.
-5. Χρησιμοποιήστε την προεπιλεγμένη παράγραφο και προσθέστε δύο ακόμη αντικείμενα [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) στο πλαίσιο κειμένου.
-6. Προσθέστε αρκετά αντικείμενα [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) ώστε κάθε παράγραφος να περιέχει τρία τμήματα. Η προεπιλεγμένη παράγραφος περιέχει ήδη ένα κενό τμήμα.
-7. Ορίστε το κείμενο του κάθε τμήματος.
-8. Εφαρμόστε μορφοποίηση επιπέδου χαρακτήρων μέσω του [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--).
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτό το παράδειγμα Java υλοποιεί τα βήματα:
+Το παρακάτω παράδειγμα Java δημιουργεί τρεις παραγράφους, η καθεμία από τις οποίες περιέχει τρεις τρεξίδες κειμένου στη συλλογή που επιστρέφεται από [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) . Επαναχρησιμοποιεί την προεπιλεγμένη παράγραφο και το κενό τμήμα της, στη συνέχεια προσθέτει τις υπόλοιπες παραγράφους και τμήματα. Η μορφοποίηση εφαρμόζεται μέσω του [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) : το πρώτο τμήμα σε κάθε παράγραφο είναι κόκκινο, έντονο και 15 σημεία· το δεύτερο είναι μπλε, πλάγιο και 18 σημεία. Το τρίτο τμήμα διατηρεί την προεπιλεγμένη μορφοποίησή του:
 
 ```java
 import com.aspose.slides.*;
@@ -66,6 +56,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
     ITextFrame textFrame = shape.getTextFrame();
 
@@ -113,26 +104,15 @@ try {
 }
 ```
 
-## **Δημιουργία Καταλόγων με Κουκίδες και Αριθμημένων Λιστών**
+## **Δημιουργία Λιστών με Κουκκίδες και Αρίθμηση**
 
-### **Δημιουργία Λίστας με Κουκίδες ή Αριθμημένης Λίστας**
+Οργανώστε το κείμενο των παραγράφων σε λίστες με σύμβολα, αριθμούς ή προσαρμοσμένες εικόνες. Τα παραδείγματα σε αυτήν την ενότητα καλύπτουν τη μορφοποίηση κουκκίδων, τις πολυεπίπεδες λίστες και την προσαρμοσμένη έναρξη αριθμών.
 
-Οι κουκίδες και η αρίθμηση διευκολύνουν την ανάγνωση σχετικών στοιχείων. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/).
+### **Δημιουργία Λίστας με Κουκκίδες ή Αρίθμηση**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη επιλεγμένη διαφάνεια.
-4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) του σχήματος.
-5. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
-6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) για μια κουκίδα σύμβολου.
-7. Ορίστε το [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) σε [BulletType.Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/) και καθορίστε τον χαρακτήρα της κουκίδας.
-8. Ορίστε το κείμενο της παραγράφου, το εσοχή, το χρώμα της κουκίδας και το ύψος της κουκίδας.
-9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-10. Δημιουργήστε μια δεύτερη παράγραφο και ορίστε το [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) σε [BulletType.Numbered](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/).
-11. Διαμορφώστε το στυλ αριθμημένης κουκίδας και προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-12. Αποθηκεύστε την παρουσίαση.
+Οι κουκκίδες και η αρίθμηση κάνουν τα σχετικά στοιχεία πιο εύκολα στην ανάγνωση. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/) .
 
-Αυτό το παράδειγμα Java δημιουργεί μια κουκίδα σύμβολου και μια αριθμημένη κουκίδα:
+Αυτό το παράδειγμα Java προσθέτει μια κουκκίδα συμβόλου και ένα αριθμημένο στοιχείο στο ίδιο πλαίσιο κειμένου. Το [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) επιλέγει τον τύπο της κουκκίδας, ενώ το [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) παρέχει το σύμβολο και το [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) επιλέγει το στυλ αρίθμησης. Και τα δύο στοιχεία χρησιμοποιούν μαύρες κουκκίδες με ύψος 100 % και εσοχή παραγράφου 25 σημεία:
 
 ```java
 import com.aspose.slides.*;
@@ -141,6 +121,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -173,22 +154,11 @@ try {
 }
 ```
 
-### **Χρήση Κουκίδων Εικόνας**
+### **Χρήση Εικόνας ως Κουκκίδα**
 
-Οι κουκίδες εικόνας σάς επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
+Οι κουκκίδες εικόνας σας επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) και προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) του.
-4. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
-5. Φορτώστε την εικόνα της κουκίδας και προσθέστε την στη συλλογή εικόνων της παρουσίασης ως [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/).
-6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) και ορίστε το κείμενό του.
-7. Ορίστε το [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-int-) σε [BulletType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/).
-8. Αναθέστε την εικόνα μέσω του [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) και ορίστε το ύψος της κουκίδας.
-9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτό το παράδειγμα Java δημιουργεί μια κουκίδα εικόνας:
+Αυτό το παράδειγμα Java προσθέτει μια εικόνα στη συλλογή εικόνων της παρουσίασης ως [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) και τη χρησιμοποιεί ως κουκκίδα παραγράφου. Καλεί το [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) για να χρησιμοποιήσει κουκκίδα εικόνας και ορίζει την εικόνα μέσω του [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) . Το [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) ορίζεται στο 100 % για να μεγέθυνει την κουκκίδα σχετικά με το κείμενο της παραγράφου:
 
 ```java
 import com.aspose.slides.*;
@@ -223,17 +193,11 @@ try {
 }
 ```
 
-### **Δημιουργία Πολλαπλών Επιπέδων Λίστας**
+### **Δημιουργία Πολυεπίπεδης Λίστας**
 
-Ορίστε το [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) ώστε να τοποθετεί τις παραγράφους σε διαφορετικά επίπεδα λίστας. Το ανώτερο επίπεδο έχει βάθος `0`.
+Ορίστε το [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) για να τοποθετήσετε τις παραγράφους σε διαφορετικά επίπεδα λίστας. Το κορυφαίο επίπεδο έχει βάθος `0`.
 
-1. Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
-2. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του.
-3. Δημιουργήστε τέσσερις παραγράφους και διαμορφώστε τα σύμβολα των κουκίδων τους.
-4. Ορίστε τις τιμές [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) σε `0`, `1`, `2` και `3`.
-5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσίαση.
-
-Αυτό το παράδειγμα Java δημιουργεί μια λίστα με τέσσερα επίπεδα κουκίδων:
+Αυτό το παράδειγμα Java αντιστοιχεί τιμές [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) από 0 έως 3 σε τέσσερις παραγράφους, δημιουργώντας ιεραρχία μέσα σε ένα πλαίσιο κειμένου. Κάθε παράγραφος χρησιμοποιεί μια κουκκίδα συμβόλου, με το [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) να εναλλάσσεται μεταξύ στρογγυλής κουκκίδας και παύλας για να διακρίνει τα γειτονικά επίπεδα:
 
 ```java
 import com.aspose.slides.*;
@@ -242,6 +206,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -293,13 +258,7 @@ try {
 
 Χρησιμοποιήστε το [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται για μια αριθμημένη παράγραφο.
 
-1. Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) και προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) σε μια διαφάνεια.
-2. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του σχήματος.
-3. Δημιουργήστε τρεις αριθμημένες παραγράφους.
-4. Ορίστε το [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) σε `2`, `3` και `7` για τις αντίστοιχες παραγράφους.
-5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσίαση.
-
-Αυτό το παράδειγμα Java εκχωρεί έναν προσαρμοσμένο αρχικό αριθμό σε κάθε παράγραφο:
+Αυτό το παράδειγμα Java ορίζει το [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) για να χρησιμοποιήσει αρίθμηση για τρεις παραγράφους και καθορίζει τιμές [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 2, 3 και 7. Η αρχική τιμή ρυθμίζεται ξεχωριστά για κάθε παράγραφο, επιτρέποντας την παράλειψη αριθμών:
 
 ```java
 import com.aspose.slides.*;
@@ -307,6 +266,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -337,23 +297,15 @@ try {
 
 ## **Έλεγχος Διάταξης Παραγράφων και Ιδιοτήτων Λήξης**
 
+Ρυθμίστε τα περιθώρια και τις εσοχές της παραγράφου για να ελέγξετε τη θέση της πρώτης γραμμής και των αναδιπλωμένων γραμμών. Μπορείτε επίσης να μορφοποιήσετε το σημείο λήξης της παραγράφου ξεχωριστά από τις ορατές τμηματικές μορφές.
+
 ### **Ορισμός Εσοχής Πρώτης Γραμμής**
 
-Χρησιμοποιήστε το [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η μέθοδος μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
+Χρησιμοποιήστε τη μέθοδο [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η ρύθμιση μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
 
 Χρησιμοποιήστε το [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) όταν χρειάζεται να μετακινήσετε μόνο την πρώτη γραμμή.
 
-Το παρακάτω παράδειγμα δημιουργεί πολλές παραγράφους και εφαρμόζει διαφορετικές τιμές [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) για να δείξει πώς η εσοχή της πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Προσπελάστε τη στοχευμένη διαφάνεια.
-3. Προσθέστε ένα ορθογώνιο [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) του σshape και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) για καθεμία.
-6. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτός ο κώδικας δείχνει πώς να ορίσετε εσοχή παραγράφου:
+Το παρακάτω παράδειγμα δίνει σε τρεις παραγράφους το ίδιο [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 20 σημείων και τιμές [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 0, 20 και 40 σημείων. Οι πρώτες γραμμές ξεκινούν σταδιακά με μεγαλύτερες μετατοπίσεις, ενώ οι αναδιπλωμένες γραμμές διατηρούν το ίδιο αριστερό περιθώριο:
 
 ```java
 import com.aspose.slides.*;
@@ -405,26 +357,17 @@ try {
 
 Το αποτέλεσμα:
 
-![Η εσοχή πρώτης γραμμής των παραγράφων](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-### **Ορισμός Αναρριχητικής Εσοχής**
+### **Ορισμός Εσώματης Εσοχής**
 
-Η αναρριχητική εσοχή είναι μια διάταξη παραγράφου στην οποία η πρώτη γραμμή ξεκινά αριστερτέρα από τις υπόλοιπες γραμμές. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με το [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Δώστε μια αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
+Η εσώματη εσοχή είναι μια διάταξη παραγράφου στην οποία η πρώτη γραμμή ξεκινά αριστερά των υπολοίπων γραμμών. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με την ιδιότητα [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) . Ορίστε το `Indent` σε αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
 
-Σε πρακτική, το [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) ορίζει τη θέση αριστερά του σώματος της παραγράφου, και το [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε μια αναρριχητική εσοχή, δώστε μια θετική τιμή στο `setMarginLeft` και μια αρνητική τιμή στο `setIndent`.
+Στην πράξη, το [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) ορίζει τη θέση του αριστερού περιθωρίου του σώματος της παραγράφου, και το [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε εσώματη εσοχή, ορίστε μια θετική τιμή `MarginLeft` και μια αρνητική τιμή `Indent`.
 
-Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, όρους γλωσσολογίας, και άλλες παραγράφους όπου οι αναδιπλωμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου αντί κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
+Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, εγγραφές γλωσσολογίου και άλλες παραγράφους όπου οι αναδιπλωμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου αντί κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Προσπελάστε τη στοχευμένη διαφάνεια.
-3. Προσθέστε ένα ορθογώνιο [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-4. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) του σshape και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε παραγράφους και δώστε μια θετική τιμή στο [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) για κάθε παράγραφο.
-6. Δώστε μια αρνητική τιμή στο [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) για να δημιουργήσετε το εφέ της αναρριχητικής εσοχής.
-7. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτός ο κώδικας δείχνει πώς να ορίσετε μια αναρριχητική εσοχή για μια παράγραφο:
+Το παρακάτω παράδειγμα Java συνδυάζει τιμές [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 40 και 60 σημείων με τιμές [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) -20 και -30 σημείων. Σε κάθε παράγραφο, η πρώτη γραμμή ξεκινά αριστερά των αναδιπλωμένων γραμμών· η δεύτερη παράγραφος έχει πιο βαθιά εσώματη εσοχή:
 
 ```java
 import com.aspose.slides.*;
@@ -468,18 +411,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Η αναρριχητική εσοχή των παραγράφων](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-### **Ορισμός Ιδιοτήτων Τερματισμού Παραγράφου**
+### **Ορισμός Ιδιοτήτων Τερματικού Τμηματος Παραγράφου**
 
-Η μέθοδος [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) ελέγχει τη μορφοποίηση του σημείου τερματισμού της παραγράφου. Το παρακάτω παράδειγμα εκχωρεί μέγεθος γραμματοσειράς και λατινική γραμματοσειρά στο σημείο τερματισμού της δεύτερης παραγράφου:
-
-1. Φορτώστε μια [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
-2. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) και αφαιρέστε την προεπιλεγμένη του παράγραφο.
-3. Δημιουργήστε δύο παραγράφους και προσθέστε σε αυτές τμήματα κειμένου.
-4. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) για το σημείο τερματισμού της δεύτερης παραγράφου.
-5. Ορίστε το [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) και το [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Εκχωρήστε τη μορφοποίηση με το [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) και αποθηκεύστε την παρουσίαση.
+Η μέθοδος [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) ελέγχει τη μορφοποίηση του σημείου λήξης της παραγράφου. Το παρακάτω παράδειγμα δημιουργεί ένα [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) με [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) 48 σημείων και [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) σε Times New Roman. Αναθέτει αυτή τη μορφοποίηση στο τερματικό σημείο της δεύτερης παραγράφου, αφήνοντας αμετάβλητα τα ορατά τμήματα κειμένου:
 
 ```java
 import com.aspose.slides.*;
@@ -487,6 +423,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("Test.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -511,15 +448,15 @@ try {
 }
 ```
 
-## **Καταμέτρηση Απεικόνιστων Γραμμών**
+## **Καταμέτρηση Σχεδιασμένων Γραμμών**
 
-Για κανόνες παραγράφων που επηρεάζουν την αυτόματη αναδίπλωση και την στίξη στο τέλος των γραμμών, δείτε [Έλεγχος Αναδίπλωσης Γραμμής](/slides/el/java/text-formatting/#control-line-breaking) και [Έλεγχος Κρεμαστής Στιγμής](/slides/el/java/text-formatting/#control-hanging-punctuation).
+Για κανόνες παραγράφων που επηρεάζουν την αυτόματη αναδίπλωση και την στίξη στα τέλη γραμμής, δείτε [Control Line Breaking](/slides/el/java/text-formatting/#control-line-breaking) και [Control Hanging Punctuation](/slides/el/java/text-formatting/#control-hanging-punctuation).
 
-Χρησιμοποιήστε το [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) για να μετρήσετε τις γραμμές που καταλαμβάνει μια παράγραφος μετά τη διάταξη του κειμένου, συμπεριλαμβανομένης της αυτόματης αναδίπλωσης. Αυτό είναι χρήσιμο όταν ελέγχετε το μήκος του κειμένου και τη διάταξη σε πρότυπα παρουσίασης.
+Χρησιμοποιήστε το [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) για να μετρήσετε τις γραμμές που καταλαμβάνει μια παράγραφος μετά τη διάταξη του κειμένου, συμπεριλαμβανομένης της αυτόματης αναδίπλωσης. Αυτό είναι χρήσιμο κατά τον έλεγχο του μήκους κειμένου και της διάταξης σε πρότυπα παρουσίασης.
 
-Μια παράγραφος αποτελεί ένα στοιχείο στο [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--) και μπορεί να καταλαμβάνει πολλές απεικονισμένες γραμμές. Μία ρητή αλλαγή γραμμής μέσα σε μια παράγραφο επιβάλλει νέα γραμμή χωρίς να δημιουργεί νέα παράγραφο. Η αυτόματη αναδίπλωση δημιουργεί γραμμές βάσει του διαθέσιμου πλάτους χωρίς να εισάγει ρητές αλλαγές γραμμής στο κείμενο. Επομένως η καταμέτρηση παραγράφων ή χαρακτήρων αλλαγής γραμμής δεν δίνει τον αριθμό των απεικονισμένων γραμμών.
+Μια παράγραφος είναι ένα αντικείμενο στο [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--) και μπορεί να καταλάβει αρκετές σχεδιασμένες γραμμές. Ένα ρητό διακοπή γραμμής μέσα σε μια παράγραφο αναγκάζει νέα γραμμή χωρίς να δημιουργεί άλλη παράγραφο. Η αυτόματη αναδίπλωση δημιουργεί γραμμές βάσει του διαθέσιμου πλάτους χωρίς να εισάγει ρητές διακοπές γραμμής στο κείμενο. Συνεπώς η καταμέτρηση παραγράφων ή χαρακτήρων νέας γραμμής δεν δίνει τον αριθμό των σχεδιασμένων γραμμών.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, στενεύει το σχήμα και στη συνέχεια αντικαθιστά το κείμενο με ένα πιο σύντομο κείμενο. Η αναδίπλωση είναι ενεργοποιημένη και το autofit είναι απενεργοποιημένο ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς να μειώνει αυτόματα το κείμενο ή να αλλάζει το μέγεθος του σχήματος. Οι διαστάσεις του σχήματος είναι σε points. Τέλος, το παράδειγμα προσθέτει μια ακόμη παράγραφο και αθροίζει τις μετρήσεις γραμμών σε όλο το πλαίσιο κειμένου.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, μειώνει το πλάτος του σχήματος και στη συνέχεια αντικαθιστά το κείμενο με μια πιο σύντομη συμβολοσειρά. Το παράδειγμα ενεργοποιεί την αναδίπλωση με το [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) και απενεργοποιεί την αυτόματη προσαρμογή με το [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς αυτόματη σμίκρυνση του κειμένου ή αλλαγή μεγέθους του σχήματος. Κάθε μέτρηση χρησιμοποιεί το [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) . Οι διαστάσεις του σχήματος δίνονται σε σημεία. Τέλος, το παράδειγμα προσθέτει άλλη μια παράγραφο και αθροίζει τις μετρήσεις γραμμών σε όλο το πλαίσιο κειμένου.
 
 ```java
 import com.aspose.slides.*;
@@ -559,24 +496,19 @@ try {
 }
 ```
 
-Με αυτό το κείμενο και αυτές τις διαστάσεις, η στενότερη σχήμα αυξάνει τον αριθμό των γραμμών, ενώ η αντικατάσταση του κειμένου με το σύντομο κείμενο το μειώνει. Τα ακριβή νούμερα μπορεί να διαφέρουν ανάλογα με τη διαθεσιμότητα και την αντικατάσταση των γραμματοσειρών, το μέγεθος γραμματοσειράς, τα περιθώρια, την εσοχή, την αναδίπλωση και τις ρυθμίσεις autofit. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το περιβάλλον στόχο όταν ελέγχετε ένα πρότυπο.
+Με αυτό το κείμενο και αυτές τις διαστάσεις, η σμίκρυνση του σχήματος αυξάνει τον αριθμό των γραμμών, ενώ η αντικατάσταση του κειμένου με τη σύντομη συμβολοσειρά τον μειώνει. Οι ακριβείς μετρήσεις μπορεί να διαφέρουν ανάλογα με τη διαθεσιμότητα και την υποκατάσταση γραμματοσειρών, το μέγεθος γραμματοσειράς, τα περιθώρια, την εσοχή, την αναδίπλωση και τις ρυθμίσεις αυτόματης προσαρμογής. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το περιβάλλον στόχο όταν ελέγχετε ένα πρότυπο.
 
-Ο μόνος ο αριθμός γραμμών δεν καθορίζει αν το κείμενο υπερβαίνει το κοντέινερ του. Το διαθέσιμο ύψος, τα ύψη γραμμών, η απόσταση παραγράφων και γραμμών, και η συμπεριφορά του autofit επίσης παίζουν ρόλο· ακόμη και μία γραμμή μπορεί να υπερβεί το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
+Ο μόνος ο αριθμός γραμμών δεν καθορίζει αν το κείμενο υπερβαίνει το δοχείο του. Το διαθέσιμο ύψος, το ύψος των γραμμών, η απόσταση παραγράφων και γραμμών και η συμπεριφορά αυτόματης προσαρμογής επίσης παίζουν ρόλο· ακόμη και μια μόνο γραμμή μπορεί να ξεπερνά το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
 
 ## **Εισαγωγή και Εξαγωγή Περιεχομένου Παραγράφων**
 
-### **Εισαγωγή Κειμένου HTML σε Παραγράφους**
+Χρησιμοποιήστε HTML για να εισάγετε κείμενο σε μια παρουσίαση ή να εξάγετε υπάρχουσες παραγράφους για χρήση εκτός αυτής. Αυτή η ενότητα δείχνει επίσης πώς να αποδίδετε μεμονωμένες παραγράφους ως εικόνες, συμπεριλαμβανομένων των παραγράφων σε κελιά πινάκων.
+
+### **Εισαγωγή HTML Κειμένου σε Παραγράφους**
 
 Χρησιμοποιήστε το [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) για να μετατρέψετε την σήμανση HTML σε παραγράφους και τμήματα σε ένα πλαίσιο κειμένου.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Προσπελάστε μια διαφάνεια και προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
-3. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
-4. Διαβάστε το πηγαίο αρχείο HTML.
-5. Δώστε το κείμενο HTML στο [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτό το παράδειγμα Java εισάγει HTML σε ένα πλαίσιο κειμένου:
+Αυτό το παράδειγμα Java διαβάζει HTML από αρχείο και περνά τη σήμανση στο [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) . Εκκαθαρίζει την προεπιλεγμένη παράγραφο του πλαισίου κειμένου ώστε το πλαίσιο να περιέχει μόνο το εισαγόμενο περιεχόμενο. Το ορθογώνιο σχήμα αφήνει περιθώριο 10 σημείων σε κάθε πλευρά της διαφάνειας:
 
 ```java
 import com.aspose.slides.*;
@@ -588,6 +520,7 @@ import java.nio.file.Paths;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
     float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -609,15 +542,16 @@ try {
 
 ### **Εξαγωγή Κειμένου Παραγράφου σε HTML**
 
-Χρησιμοποιήστε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) για να εξάγετε μια επιλεγμένη περιοχή παραγράφων ως HTML.
+Χρησιμοποιήστε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) για να εξάγετε ένα επιλεγμένο εύρος παραγράφων ως HTML. Όταν επαναχρησιμοποιείτε το κείμενο παρουσίασης σε ιστότοπο, μπορεί να θέλετε να διατηρήσετε τη τοπική έμφαση χωρίς να μεταφέρετε τη γραμματοσειρά, το μέγεθος ή τα στυλ του πλαισίου κειμένου. Ορίστε το [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) για να ελέγξετε πόσο μακριά ακολουθεί ο εξαγώγων η κληρονομιά μορφοποίησης.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) και φορτώστε την επιθυμητή παρουσίαση.
-2. Προσπελάστε τη διαφάνεια και βρείτε το [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) που περιέχει το κείμενο.
-3. Προσπελάστε το [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) του σχήματος.
-4. Καλέστε το [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) με το αρχικό δείκτη παραγράφου και τον αριθμό των παραγράφων προς εξαγωγή.
-5. Γράψτε το επιστρεφόμενο κείμενο HTML σε ένα αρχείο.
+Κατεβάστε την [sample presentation](text-inheritance.pptx) και τοποθετήστε το στον φάκελο εργασίας της εφαρμογής. Η πρώτη της διαφάνεια περιέχει ένα σχήμα κειμένου με το κείμενο "Inherited text; explicit red 18pt". Η είσοδος χρησιμοποιεί σκόπιμα πολλά επίπεδα μορφοποίησης:
 
-Αυτό το παράδειγμα Java εξάγει όλες τις παραγράφους από το πρώτο σχήμα κειμένου:
+- Το προεπιλεγμένο στυλ κειμένου της παρουσίασης παρέχει Calibri και μέγεθος 28 pt.
+- Το στυλ κειμένου πρώτου επιπέδου του πλαισίου κειμένου παρέχει μπλε κείμενο και πλάγια γραφή.
+- Η παράγραφος ορίζει ρητά έντονο κείμενο.
+- Το δεύτερο τμήμα, "explicit red 18pt", ορίζει ρητά κόκκινο κείμενο και μέγεθος 18 pt.
+
+Το παρακάτω πλήρες παράδειγμα εξάγει τις ίδιες παραγράφους τρεις φορές. Περνά το [TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) στη μέθοδο εξαγωγής και γράφει κάθε αποτέλεσμα σε ξεχωριστό αρχείο HTML UTF‑8:
 
 ```java
 import com.aspose.slides.*;
@@ -626,7 +560,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-Presentation presentation = new Presentation("ExportingHTMLText.pptx");
+Presentation presentation = new Presentation("text-inheritance.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -635,11 +569,21 @@ try {
         ITextFrame textFrame = textShape.getTextFrame();
         if (textFrame != null) {
             IParagraphCollection paragraphs = textFrame.getParagraphs();
-            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            try {
-                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
-            } catch (IOException exception) {
-                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            
+            int[] modes = { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+            String[] fileNames = { "All.html", "TextBox.html", "ParagraphOnly.html" };
+
+            for (int i = 0; i < modes.length; i++) {
+                TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                byte[] htmlBytes = html.getBytes(StandardCharsets.UTF_8);
+                try {
+                    Files.write(Paths.get(fileNames[i]), htmlBytes);
+                } catch (IOException exception) {
+                    System.out.println("The HTML file could not be written: " + exception.getMessage());
+                }
             }
         } else {
             System.out.println("The first shape does not contain a text frame.");
@@ -652,19 +596,31 @@ try {
 }
 ```
 
+Το παραγόμενο HTML περιέχει το ακόλουθο CSS για το πρώτο τμήμα, "Inherited text; ". Ο πίνακας παραθέτει τις σχετικές δηλώσεις· άλλες παραγόμενες ιδιότητες παραλείπονται για σαφήνεια.
+
+| Output | Relevant CSS for the first portion | Appearance |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Μπλε, έντονο, πλάγιο κείμενο 28 pt σε Calibri, αν η γραμματοσειρά είναι διαθέσιμη. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Μπλε, έντονο, πλάγιο κείμενο· η σελίδα ή ο φυλλομετρητής παρέχει τη γραμματοσειρά και το μέγεθος. |
+| `ParagraphOnly.html` | `font-weight:bold` | Έντονο κείμενο· η σελίδα ή ο φυλλομετρητής παρέχει γραμματοσειρά, μέγεθος, χρώμα και πλάγια γραφή. |
+
+Το δεύτερο τμήμα διατηρεί `color:#ff0000`, `font-size:18pt` και `font-weight:bold` σε όλες τις τρεις εξόδους. Διατηρεί επίσης πλάγια γραφή στα `All` και `TextBox`, αλλά όχι στο `ParagraphOnly`. Ο περιορισμός κληρονομιάς επομένως δεν αφαιρεί τη μορφοποίηση που έχει οριστεί ρητά σε παράγραφο ή τμήμα.
+
+Ανοίξτε τα αρχεία στον ίδιο φυλλομετρητή για να τα συγκρίνετε. Στις δύο περιορισμένες λειτουργίες, οι παραλειπόμενες ιδιότητες CSS επιλύονται από τα στυλ της σελίδας προορισμού ή τις προεπιλογές του φυλλομετρητή, οπότε η τελική εμφάνιση εξαρτάται από το πού χρησιμοποιείται το HTML.
+
 ### **Απόδοση Παραγράφου ως Εικόνας**
 
-Η μέθοδος [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) αποδίδει απευθείας μια μεμονωμένη παράγραφο και επιστρέφει ένα αντικείμενο [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο ή ροή με τη [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Δεν χρειάζεται να αποδώσετε το περιέχομενο σχήμα ή να περικόψετε ένα bitmap χειροκίνητα.
+Το [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) αποδίδει άμεσα μια μεμονωμένη παράγραφο και επιστρέφει ένα [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο ή ροή με το [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) . Δεν χρειάζεται να αποδώσετε το σχήμα-παιδί ή να περικόψετε bitmap χειροκίνητα.
 
-Η [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) μπορεί να επιστρέψει `null` εάν η παράγραφος δεν βρεθεί στη συλλογή της, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και αποδεσμεύστε την επιστρεφόμενη εικόνα μετά τη χρήση.
+Το [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) μπορεί να επιστρέψει `null` εάν η παράγραφος δεν βρεθεί στη γονική της συλλογή, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και απελευθερώστε την εικόνα μετά τη χρήση.
 
 #### **Απόδοση Παραγράφου στην Προεπιλεγμένη Κλίμακα**
 
-Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης με όνομα sample.pptx με μία διαφάνεια, όπου το πρώτο σχήμα είναι ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους.
+Το παράδειγμα χρησιμοποιεί μια παρουσίαση με μία διαφάνεια της οποίας το πρώτο σχήμα είναι ένα πλαίσιο κειμένου με τρεις παραγράφους.
 
-![Το πλαίσιο κειμένου με τρεις παραγράφους](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-Το παρακάτω παράδειγμα αποδίδει τη δεύτερη παράγραφο σε ένα κανονικό σχήμα κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την επιστρεφόμενη εικόνα σε μορφή PNG. Το μπλοκ `finally` διασφαλίζει ότι η εικόνα αποδεσμεύεται σωστά.
+Το παρακάτω παράδειγμα επιλέγει τη δεύτερη παράγραφο με δείκτη 1 και καλεί το [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) χωρίς παραμέτρους κλίμακας. Ελέγχει ότι το σχήμα περιέχει την απαιτούμενη παράγραφο και ότι η απόδοση επιστρέφει εικόνα πριν καλέσει το [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) για να την αποθηκεύσει σε μορφή PNG. Το μπλοκ `finally` απελευθερώνει την εικόνα μετά τη χρήση.
 
 ```java
 import com.aspose.slides.*;
@@ -702,11 +658,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Η εικόνα της παραγράφου](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-#### **Απόδοση Παραγράφου σε Κελί Πίνακα με Κλιμάκωση**
+#### **Απόδοση Παραγράφου σε Κελί Πίνακα με Κλίμακα**
 
-Χρησιμοποιήστε την υπερφόρτωση της [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) που δέχεται τις παραμέτρους `float scaleX` και `float scaleY` για να ορίσετε τους οριζόντιους και κάθετους συντελεστές κλιμάκωσης. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί με διπλάσιο από το προεπιλεγμένο πλάτος και ύψος, και αποθηκεύει το αποτέλεσμα σε εικόνα PNG.
+Χρησιμοποιήστε την υπερφόρτωση του [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) που δέχεται τις παραμέτρους `float scaleX` και `float scaleY` για να ορίσετε τους οριζόντιους και κατακόρυφους συντελεστές κλίμακας. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο κελί του με διπλάσιο πλάτος και ύψος από την προεπιλεγμένη, και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
 
 ```java
 import com.aspose.slides.*;
@@ -717,6 +673,7 @@ float scaleY = 2f;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
     IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
     paragraph.setText("Text in a table cell");
@@ -736,24 +693,26 @@ try {
 }
 ```
 
-Ένας συντελεστής κλιμάκωσης `1` διατηρεί αυτόν τον άξονα στο προεπιλεγμένο μέγεθος εικονοστοιχείου. Για παράδειγμα, `2` και για τους δύο παράγοντες παράγει μια εικόνα του οποίου το πλάτος και το ύψος είναι περίπου διπλάσια από τις προεπιλεγμένες διαστάσεις, με τέσσερις φορές περισσότερα εικονοστοιχεία. Μεγαλύτεροι παράγοντες συνήθως παράγουν πιο καθαρό κείμενο για μεγέθυνση ή υψηλής ανάλυσης έξοδο, αλλά επίσης αυξάνουν τη χρήση μνήμης και το μέγεθος του αρχείου. Παράγοντες μικρότεροι από `1` παράγουν μικρότερες εικόνες με λιγότερη λεπτομέρεια. Χρησιμοποιήστε ίσους παράγοντες για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κάθετοι παράγοντες τεντώνουν το αποτέλεσμα ανεξάρτητα.
+Ένας συντελεστής κλίμακας `1` διατηρεί αυτόν τον άξονα στο προεπιλεγμένο μέγεθος εικονοστοιχείου. Για παράδειγμα, `2` και για τους δύο παράγοντες παράγει μια εικόνα του οποίου το πλάτος και το ύψος είναι περίπου διπλάσιο του προεπιλεγμένου, με αποτέλεσμα τέσσερις φορές περισσότερα εικονοστοιχεία. Μεγαλύτεροι παράγοντες γενικά προσφέρουν πιο οξεία γραφή για ζουμά ή εξαγωγή υψηλής ανάλυσης, αλλά αυξάνουν επίσης τη μνήμη και το μέγεθος του αρχείου. Παράγοντες κάτω του `1` παράγουν μικρότερες εικόνες με λιγότερη λεπτομέρεια. Χρησιμοποιήστε ίσους παράγοντες για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κατακόρυφοι παράγοντες τεντώνονται ανεξάρτητα.
 
-Η απόδοση ολόκληρου του σχήματος με τη [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) παραμένει χρήσιμη όταν το αποτέλεσμα πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλα οπτικά στοιχεία του σχήματος. Για εικόνα μόνο παραγράφου, χρησιμοποιήστε τη [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--).
+Η απόδοση ολόκληρου σχήματος με το [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) παραμένει χρήσιμη όταν το αποτέλεσμα πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλο οπτικό περιεχόμενο του σχήματος. Για εικόνα μόνο παραγράφου, χρησιμοποιήστε το [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) .
 
 ## **Συχνές Ερωτήσεις**
 
 **Μπορώ να απενεργοποιήσω εντελώς την αναδίπλωση γραμμών μέσα σε ένα πλαίσιο κειμένου;**
 
-Ναι. Ορίστε το [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) ώστε να απενεργοποιηθεί η αναδίπλωση, ώστε οι γραμμές να μην σπάζουν στις άκρες του πλαισίου κειμένου.
+Ναι. Ορίστε το [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) για να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην σπάνε στις άκρες του πλαισίου κειμένου.
 
-**Πώς μπορώ να λάβω τα ακριβή όρια στο διαφάνεια μιας συγκεκριμένης παραγράφου;**
+**Πώς μπορώ να λάβω τα ακριβή όρια στοσλάιν μιας συγκεκριμένης παραγράφου;**
 
-Χρησιμοποιήστε το [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) για να ανακτήσετε το ορθογώνιο περιοχής της παραγράφου. Το [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) παρέχει τα όρια ενός μεμονωμένου τμήματος.
+Χρησιμοποιήστε το [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) για να ανακτήσετε το ορθογώνιο περιθώριο της παραγράφου. Το [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) παρέχει τα όρια ενός μεμονωμένου τμήματος.
 
-**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά, δεξιά, κέντρο ή ευθυγράμμιση);**
+**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά, δεξιά, κέντρο ή πλήρης στοίχιση);**
 
-Η [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) είναι ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο ανεξάρτητα από τη μορφοποίηση των επιμέρους τμημάτων. Για κάθετη στοίχιση τμημάτων διαφορετικών μεγεθών γραμματοσειράς μέσα σε κάθε γραμμή, δείτε [Στοίχιση Γραμματοσειρών Στο Εσωτερικό Μιας Γραμμής](/slides/el/java/text-formatting/#align-fonts-within-a-line).
+Το [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) είναι ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε όλη την παράγραφο ανεξάρτητα από τη μορφοποίηση των επιμέρους τμημάτων.
 
-**Μπορώ να ορίσω τη γλώσσα ελέγχου για μέρος μιας παραγράφου;**
+Για κάθετη στοίχιση τμημάτων με διαφορετικά μεγέθη γραμματοσειρών μέσα σε κάθε γραμμή, δείτε [Align Fonts Within a Line](/slides/el/java/text-formatting/#align-fonts-within-a-line).
 
-Ναι. Ορίστε το [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) για τα επιμέρους τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλαπλές γλώσσες.
+**Μπορώ να ορίσω τη γλώσσα απόδοσης για μέρος μιας παραγράφου;**
+
+Ναι. Ορίστε το [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλαπλές γλώσσες.

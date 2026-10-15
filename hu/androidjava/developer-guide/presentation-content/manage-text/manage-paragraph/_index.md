@@ -12,13 +12,13 @@ keywords:
 - bekezdés hozzáadása
 - szöveg kezelése
 - bekezdés kezelése
-- pont kezelése
-- bekezdés behúzása
+- felsorolás kezelése
+- bekezdés behúzás
 - függő behúzás
-- bekezdés felsorolásjel
+- bekezdés felsorolás
 - számozott lista
-- felsorolt lista
-- bekezdés tulajdonságok
+- felsorolásos lista
+- bekezdés tulajdonságai
 - HTML importálása
 - szöveg HTML-re
 - bekezdés HTML-re
@@ -26,39 +26,29 @@ keywords:
 - szöveg képre
 - bekezdés exportálása
 - PowerPoint
-- prezentáció
+- bemutató
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és formázhat bekezdéseket, részeket, felsorolásjeleket, számozott listákat, behúzásokat, HTML tartalmat és bekezdés képeket az Aspose.Slides for Android via Java segítségével."
+description: "Ismerje meg, hogyan hozhat létre és formázhat bekezdéseket, részeket, felsorolásjeleket, számozott listákat, behúzásokat, HTML tartalmakat és bekezdés képeket az Aspose.Slides for Android via Java segítségével."
 ---
 ## **Áttekintés**
 
 Az Aspose.Slides for Android via Java a szöveget szövegkeretek, bekezdések és részek hierarchiájaként ábrázolja:
 
-* [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) a szövegtároló egy alakzatban, és hozzáférést biztosít a bekezdésgyűjteményéhez.
-* [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) egy bekezdést képvisel egy szövegkeretben, és hozzáférést ad a részeihez valamint a bekezdés‑szintű formázáshoz.
-* [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) egy szövegrészt jelöl egy bekezdésen belül. Minden résznek saját szövege és karakter‑szintű formázása lehet.
+* [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) a szövegtárolót egy alakzatban képviseli, és hozzáférést biztosít a bekezdésgyűjteményéhez.
+* [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) egy bekezdést képvisel egy szövegkeretben, és hozzáférést biztosít a részeihez és a bekezdés-szintű formázáshoz.
+* [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) egy szövegrészt képvisel egy bekezdésen belül. Minden résznek saját szövege és karakter-szintű formázása lehet.
 
-Egy bekezdés tehát különböző betűtípusokkal, színekkel, méretekkel és egyéb formázással rendelkező szöveget tartalmazhat több rész használatával.
+Ezáltal egy bekezdés különböző betűtípusú, színű, méretű és egyéb formázású szövegeket is tartalmazhat több rész használatával.
 
 ## **Bekezdések létrehozása és formázása**
 
-### **Bekezdések létrehozása több részlettel**
+Hozzon létre bekezdéseket egy alakzat szövegkeretében, és használjon részeket az egyes szövegrészek formázásához. Ez a szakasz azt mutatja be, hogyan lehet több részt kombinálni minden bekezdésben, és különböző színeket, betűméreteket és stílusokat alkalmazni.
 
-Az alábbi lépések egy szövegkeretet hoznak létre három bekezdéssel, mindegyik három részt tartalmazva:
+### **Több részes bekezdések létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
-2. A megfelelő diát indexével érje el.
-3. Adj hozzá egy téglalap alakú [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet a diához.
-4. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑ét.
-5. Használja az alapértelmezett bekezdést, és adjon hozzá két további [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) objektumot a szövegkerethez.
-6. Adj elegendő [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) objektumot minden bekezdéshez, hogy három részt tartalmazzanak. Az alapértelmezett bekezdés már egy üres részt tartalmaz.
-7. Állítsa be minden rész szövegét.
-8. Alkalmazzon karakter‑szintű formázást az [IPortion.getPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getPortionFormat--) segítségével.
-9. Mentse a módosított bemutatót.
-
-Ez a Android via Java példa megvalósítja a lépéseket:
+A következő Android via Java példa három bekezdést hoz létre, mindegyik három szövegrészt tartalmazva a [IParagraph.getPortions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getPortions--)- által visszaadott gyűjteményben. Újra felhasználja az alapértelmezett bekezdést és annak üres részét, majd hozzáadja a maradék bekezdéseket és részeket. A formázást a [IPortion.getPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getPortionFormat--) segítségével alkalmazzák: az első rész minden bekezdésben piros, félkövér és 15 pont; a második kék, dőlt és 18 pont. A harmadik rész az alapértelmezett formázást megtartja:
 
 ```java
 import com.aspose.slides.*;
@@ -67,6 +57,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
     ITextFrame textFrame = shape.getTextFrame();
 
@@ -114,26 +105,15 @@ try {
 }
 ```
 
-## **Felsorolási és számozott listák létrehozása**
+## **Felsorolások és számozott listák létrehozása**
 
-### **Felsorolt vagy számozott lista létrehozása**
+Rendezze a bekezdés szövegét listákba szimbólumokkal, számokkal vagy egyéni képekkel. Ebben a szakaszban bemutatott példák a felsorolásformázást, a többszintű listákat és az egyedi kezdőszámokat fedik le.
 
-A felsorolások és számozás megkönnyítik a kapcsolódó elemek átláthatóságát. Az Aspose.Slides‑ben a lista beállításait az [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/) definiálja.
+### **Felsorolás vagy számozott lista létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
-2. A megfelelő diát indexével érje el.
-3. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet a kiválasztott diához.
-4. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑ét.
-5. Távolítsa el az alapértelmezett bekezdést a szövegkeretből.
-6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) elemet egy szimbólum‑ponthoz.
-7. Állítsa be az [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) értékét a [BulletType.Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/)‑ra, és adja meg a pont karakterét.
-8. Állítsa be a bekezdés szövegét, behúzását, pont színét és magasságát.
-9. Adja hozzá a bekezdést a szövegkerethez.
-10. Hozzon létre egy második bekezdést, és állítsa be az [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) értékét a [BulletType.Numbered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/)‑ra.
-11. Konfigurálja a számozott pont stílusát, és adja hozzá a bekezdést a szövegkerethez.
-12. Mentse a bemutatót.
+A felsorolások és a számozás megkönnyítik a kapcsolódó elemek áttekintését. Az Aspose.Slides-ben a lista beállításait a [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/) segítségével definiálják.
 
-Ez az Android via Java példa egy szimbólum‑pontot és egy számozott pontot hoz létre:
+Ez az Android via Java példa egy szimbólumos felsorolást és egy számozott elemet ad ugyanahhoz a szövegkerethez. A [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) kiválasztja a felsorolás típusát, míg a [IBulletFormat.setChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setChar-char-) megadja a szimbólumot, és a [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) kiválasztja a számozási stílust. Mindkét elem fekete felsorolást használ, amelynek magassága 100 százalék, és a bekezdés behúzása 25 pont:
 
 ```java
 import com.aspose.slides.*;
@@ -142,6 +122,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -174,22 +155,11 @@ try {
 }
 ```
 
-### **Képjelölő pontok használata**
+### **Képes felsorolások használata**
 
-A képjelölő pontok lehetővé teszik egy egyéni kép használatát szimbólum vagy szám helyett.
+A képes felsorolások lehetővé teszik, hogy egy egyéni képet használjon szimbólum vagy szám helyett.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
-2. A megfelelő diát indexével érje el.
-3. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet, és érje el annak [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑ét.
-4. Távolítsa el az alapértelmezett bekezdést a szövegkeretből.
-5. Töltse be a pont képet, és adja hozzá a prezentáció képgyűjteményéhez [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/)‑ként.
-6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) elemet, és állítsa be a szövegét.
-7. Állítsa be az [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-int-) értékét a [BulletType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/)‑ra.
-8. Rendelje hozzá a képet az [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--) segítségével, és állítsa be a pont magasságát.
-9. Adja hozzá a bekezdést a szövegkerethez.
-10. Mentse a módosított bemutatót.
-
-Ez az Android via Java példa egy kép‑pontot hoz létre:
+Ez az Android via Java példa egy képet ad a prezentáció képgyűjteményéhez [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/)‑ként, és bekezdés felsorolásként használja. A [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) hívásával képes felsorolást állít be, és a képet a [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--) segítségével rendeli hozzá. A [IBulletFormat.setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setHeight-float-) 100 százalékra van beállítva, hogy a felsorolás mérete a bekezdés szövegéhez képest legyen:
 
 ```java
 import com.aspose.slides.*;
@@ -226,15 +196,9 @@ try {
 
 ### **Többszintű lista létrehozása**
 
-Állítsa be az [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) értékét, hogy a bekezdéseket a lista különböző szintjein helyezze el. A felső szint mélysége `0`.
+Az [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) beállításával a bekezdéseket a lista különböző szintjeire helyezhetjük. A legfelső szint mélysége `0`.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) elemet, és érje el egy diát.
-2. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet, és törölje le az alapértelmezett bekezdést a szövegkeretéből.
-3. Hozzon létre négy bekezdést, és konfigurálja azok pontszimbólumait.
-4. Állítsa be a [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) értékeit `0`, `1`, `2` és `3`‑ra.
-5. Adja hozzá a bekezdéseket a szövegkerethez, majd mentse a bemutatót.
-
-Ez az Android via Java példa egy négy szintű felsorolt listát hoz létre:
+Ez az Android via Java példa a [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) értékeit 0‑tól 3‑ig rendeli négy bekezdéshez, egy hierarchiát hozva létre egy szövegkereten belül. Minden bekezdés szimbólumos felsorolást használ, a [IBulletFormat.setChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setChar-char-) váltakozva egy kör alakú felsorolás és egy kötőjel között a szomszédos szintek megkülönböztetésére:
 
 ```java
 import com.aspose.slides.*;
@@ -243,6 +207,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -290,17 +255,11 @@ try {
 }
 ```
 
-### **Számozott listaelemek egyéni kezdőértékkel**
+### **Számozott listaelemek egyéni kezdőértékekkel**
 
-Használja az [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) metódust, hogy a számozott bekezdés kezdeti számát állítsa be.
+A [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) használatával állítható be a számozott bekezdés elsőként megjelenő száma.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) elemet, és adj egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet egy diára.
-2. Törölje az alapértelmezett bekezdést az alakzat szövegkeretéből.
-3. Hozzon létre három számozott bekezdést.
-4. Állítsa be az [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) értékét `2`, `3` és `7`‑re a megfelelő bekezdésekhez.
-5. Adja hozzá a bekezdéseket a szövegkerethez, majd mentse a bemutatót.
-
-Ez az Android via Java példa egy egyéni kezdőszámmal rendelkező bekezdést állít be:
+Ez az Android via Java példa a [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) beállítja a számozást három bekezdéshez, és a [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) értékeit 2, 3 és 7‑re állítja. A kezdőérték minden bekezdésnél külön van beállítva, lehetővé téve, hogy a megjelenő számok kihagyjanak értékeket:
 
 ```java
 import com.aspose.slides.*;
@@ -308,6 +267,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -336,25 +296,17 @@ try {
 }
 ```
 
-## **Bekezdéselrendezés és befejezési tulajdonságok vezérlése**
+## **Bekezdés elrendezésének és befejező tulajdonságainak vezérlése**
+
+Állítsa be a bekezdés margóit és behúzásait a első sor és a tördelve megjelenő sorok helyzetének szabályozásához. A bekezdés befejezési jelét is formázhatja külön a látható szövegrészektől.
 
 ### **Első sor behúzásának beállítása**
 
-Használja az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) metódust az első sor behúzásának szabályozásához. Ez a metódus csak az első sort mozgatja a bekezdés bal margójához képest. A pozitív érték jobbra tolatja az első sort, míg a többi sor a bekezdés törzséhez igazodik.
+Használja az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) metódust a bekezdés első sorának behúzásának szabályozásához. Ez a beállítás csak az első sort mozgatja a bekezdés bal margójához képest. A pozitív érték jobbra tolja az első sort, míg a többi sor a bekezdés törzséhez illeszkedik.
 
-Használja az [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) metódust, ha az egész bekezdést szeretné mozgatni. Az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) csak az első sort érinti.
+Használja az [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) metódust, ha az egész bekezdést kell eltolni. Használja az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) metódust, ha csak az első sort kell eltolni.
 
-Az alábbi példa több bekezdést hoz létre, és különböző [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) értékeket alkalmaz, hogy bemutassa, hogyan befolyásolja a bekezdéselrendezést az első sor behúzása.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Érje el a céldiát.
-3. Adj hozzá egy téglalap [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet a diához.
-4. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑ét, és távolítsa el az alapértelmezett bekezdést.
-5. Hozzon létre több bekezdést, és állítson be különböző [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) értékeket számukra.
-6. Adja hozzá a bekezdéseket a szövegkerethez.
-7. Mentse a módosított bemutatót.
-
-Ez a kód megmutatja, hogyan állítsa be egy bekezdés behúzását:
+A következő példa három bekezdésnek ugyanazt a [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 20 pont értéket ad, és [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) értékeket 0, 20 és 40 pont között. Az első sorok fokozatosan nagyobb eltolással kezdődnek, míg a tördelő sorok ugyanazt a bal margót megtartják:
 
 ```java
 import com.aspose.slides.*;
@@ -404,28 +356,17 @@ try {
 }
 ```
 
-Az eredmény:
-
 ![A bekezdések első sorának behúzása](first_line_indent.png)
 
 ### **Függő behúzás beállítása**
 
-A függő behúzás olyan bekezdéselrendezés, ahol az első sor balra indul a többi sorhoz képest. Az Aspose.Slides‑ben ezt az effektust az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)‑vel érhetjük el, negatív érték megadásával mozdítva az első sort balra a bekezdéstörzshöz képest.
+A függő behúzás egy olyan bekezdéselrendezés, amelyben az első sor a maradék sorok bal oldalán kezdődik. Az Aspose.Slides-ben ezt a hatást az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) tulajdonsággal hozhatja létre. Az `Indent` negatív értéke az első sort balra mozgatja a bekezdés törzséhez képest.
 
-Gyakorlatban az [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) határozza meg a bekezdés törzs bal pozícióját, az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) pedig az első sor relatív pozícióját ehhez a margóhoz. A függő behúzás létrehozásához állítsa be a `setMarginLeft`‑t pozitív értékre, és a `setIndent`‑t negatív értékre.
+Gyakorlati példában az [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) határozza meg a bekezdés törzsének bal pozícióját, míg az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) meghatározza az első sor pozícióját ehhez a margóhoz képest. Függő behúzás létrehozásához állítson be pozitív `MarginLeft` értéket és negatív `Indent` értéket.
 
-Ez a formázás hasznos bibliográfiák, hivatkozások, szószedetek és más bekezdések esetén, ahol a sortöréseknek a bekezdés törzsének alá kell illeszkedniük, nem pedig az első karakter alá.
+Ez a formázás hasznos bibliográfiákhoz, hivatkozásokhoz, szószedet‑bejegyzésekhez és egyéb bekezdésekhez, ahol a tördelő soroknak a bekezdés törzse alatt kell igazodniuk, nem pedig az első sor első karaktere alatt.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Érje el a céldiát.
-3. Adj hozzá egy téglalap [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet a diához.
-4. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑ét, és távolítsa el az alapértelmezett bekezdést.
-5. Hozzon bekezdéseket, és állítson pozitív értéket az [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)‑nek minden bekezdéshez.
-6. Állítson negatív értéket az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)‑nek, hogy létrehozza a függő behúzást.
-7. Adja hozzá a bekezdéseket a szövegkerethez.
-8. Mentse a módosított bemutatót.
-
-Ez a kód megmutatja, hogyan állítsa be egy bekezdés függő behúzását:
+A következő Android via Java példa a [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 40 és 60 pont értékeit párosítja az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) -20 és -30 pont értékeivel. Minden bekezdésben az első sor a tördelő sorok bal oldalán kezdődik; a második bekezdés mélyebb függő behúzást kap:
 
 ```java
 import com.aspose.slides.*;
@@ -467,20 +408,11 @@ try {
 }
 ```
 
-Az eredmény:
-
 ![A bekezdések függő behúzása](hanging_indent.png)
 
-### **A bekezdés befejező rész tulajdonságainak beállítása**
+### **Befejező bekezdés részformátumának beállítása**
 
-Az [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) szabályozza a bekezdés végjelzésének formázását. Az alábbi példa betűméretet és latin betűtípust állít be a második bekezdés végjelzésére:
-
-1. Töltsön be egy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) elemet, és érje el egy diát.
-2. Adj egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet, és törölje a alapértelmezett bekezdést.
-3. Hozzon létre két bekezdést, és adjon hozzá szövegrészeket.
-4. Hozzon létre egy [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/) objektumot a második bekezdés végjelzéséhez.
-5. Állítsa be az [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) és az [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) értékeket.
-6. Rendelje hozzá a formátumot az [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) metódussal, majd mentse a bemutatót.
+Az [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) metódus szabályozza a bekezdés befejezési jel formázását. A következő példa egy [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/) objektumot hoz létre, amelynek [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) 48 pontra, [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) pedig Times New Roman-ra van beállítva. Ezt a formátumot a második bekezdés befejezési jeléhez rendeli, míg a látható szövegrészek változatlanok maradnak:
 
 ```java
 import com.aspose.slides.*;
@@ -488,6 +420,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("Test.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
     ITextFrame textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -512,15 +445,15 @@ try {
 }
 ```
 
-## **Megjelenített sorok számlálása**
+## **Renderelt sorok számlálása**
 
-A bekezdés szabályaival, amelyek az automatikus sortörést és a sorvégeken lévő központozást befolyásolják, lásd a [Vonalak törésének vezérlése](/slides/hu/androidjava/text-formatting/#control-line-breaking) és a [Függő központozás vezérlése](/slides/hu/androidjava/text-formatting/#control-hanging-punctuation) című oldalakat.
+A bekezdés szabályok, amelyek befolyásolják az automatikus tördelést és a sorvégi írásjeleket, lásd a [Control Line Breaking](/slides/hu/androidjava/text-formatting/#control-line-breaking) és a [Control Hanging Punctuation](/slides/hu/androidjava/text-formatting/#control-hanging-punctuation) oldalakat.
 
-Használja az [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) metódust a bekezdés által a szövegelrendezés után elfoglalt sorok számának megszámolásához, beleértve az automatikus sortörést. Ez hasznos a szöveghossz és elrendezés ellenőrzésénél prezentációs sablonokban.
+A [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) használatával megszámolhatók a bekezdés által elfoglalt sorok a szöveg elrendezése után, beleértve az automatikus tördelést. Ez hasznos a szöveghossz és az elrendezés ellenőrzésénél prezentációs sablonokban.
 
-Egy bekezdés egy elem az [ITextFrame.getParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParagraphs--) gyűjteményében, és több megjelenített sort is elfoglalhat. Egy expliciten beillesztett sortörés a bekezdésen belül új sort eredményez anélkül, hogy új bekezdést hozna létre. Az automatikus sortörés a rendelkezésre álló szélesség alapján hoz létre sorokat, anélkül, hogy explicit sortöréseket illesztene be a szövegbe. Ezért a bekezdések vagy sortörés karakterek számlálása nem adja meg a megjelenített sorok számát.
+Egy bekezdés egy eleme a [ITextFrame.getParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParagraphs--) gyűjteménynek, és több renderelt sort is elfoglalhat. Egy explicit sortörés egy bekezdésen belül új sort hoz létre anélkül, hogy újabb bekezdést hozna létre. Az automatikus tördelés a rendelkezésre álló szélesség alapján hoz létre sorokat anélkül, hogy explicit sortörés karaktereket illesztene a szövegbe. Ezért a bekezdések vagy sortörés karakterek számlálása nem adja meg a renderelt sorok számát.
 
-Az alábbi példa létrehoz egy szöveges alakzatot, megszámolja a sorait, szűkíti az alakzatot, majd a szöveget egy rövidebb karakterláncra cseréli. A sortörés engedélyezett, az automatikus méretezés (autofit) le van tiltva, így a forma szélessége szabályozza a sortörést anélkül, hogy a szöveget vagy a formát automatikusan kicsinyítené. Az alakzat méretei pontban vannak megadva. Végül a példa egy újabb bekezdést ad hozzá, és összeadja a sorok számát az egész szövegkeretben.
+A következő példa egy szöveges alakzatot hoz létre, megszámolja a sorait, szűkíti az alakzatot, majd a szöveget egy rövidebb karakterláncra cseréli. A példa engedélyezi a tördelést a [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) segítségével, és letiltja az autofit‑et a [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) segítségével, így a forma szélessége szabályozza a tördelést anélkül, hogy automatikusan kicsinyítené a szöveget vagy átméretezné az alakzatot. Minden mérés a [IParagraph.getLinesCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) használatával történik. A forma méretei pontban vannak. Végül a példa egy újabb bekezdést ad hozzá és összeadja a sorok számát a szövegkeretben.
 
 ```java
 import com.aspose.slides.*;
@@ -560,24 +493,19 @@ try {
 }
 ```
 
-Ezzel a szöveggel és méretekkel a forma szűkítése növeli a sorok számát, míg a szöveg rövid változatra cserélése csökkenti azt. A pontos számok a betűkészlet elérhetőségétől, helyettesítésétől, betűmérettől, margóktól, behúzástól, sortöréstől és az autofit beállításoktól függenek. A célkörnyezetben használandó betűtípusokat és elrendezési beállításokat alkalmazza sablon ellenőrzésekor.
+Ezzel a szöveggel és ezeket a méretekkel a forma szűkítése növeli a sorok számát, míg a szöveg rövid karakterláncra cserélése csökkenti azt. A pontos számlálás a betűtípus elérhetőségétől és helyettesítésétől, betűmérettől, margóktól, behúzásoktól, tördeléstől és autofit beállításoktól függ. A célnyelvi környezetben használandó betűtípusok és elrendezés beállításait használja a sablon ellenőrzésekor.
 
-A sorok száma önmagában nem határozza meg, hogy a szöveg túllépi-e a tárolóját. A rendelkezésre álló magasság, a sortávolságok, a bekezdés‑ és sorközök, valamint az autofit viselkedés is számít; még egyetlen sor is meghaladhatja a rendelkezésre álló szélességet, ha a sortörés ki van kapcsolva.
+A sorok számának önmagában nem határozza meg, hogy a szöveg túllépi-e a tárolóját. A rendelkezésre álló magasság, sormagasságok, bekezdés‑ és sorköz, valamint az autofit viselkedés is számít; még egyetlen sor is meghaladhatja a rendelkezésre álló szélességet, ha a tördelés le van tiltva.
 
 ## **Bekezdés tartalmának importálása és exportálása**
 
+Használjon HTML‑t a szöveg prezentációba való beviteléhez vagy a meglévő bekezdések exportálásához a kívülről való felhasználáshoz. Ebben a szakaszban bemutatjuk, hogyan lehet egyes bekezdéseket képként renderelni, beleértve a táblázatcellákban lévő bekezdéseket is.
+
 ### **HTML szöveg importálása bekezdésekbe**
 
-Használja a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metódust HTML jelölés konvertálásához bekezdésekké és részekké egy szövegkeretben.
+A [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) használatával a HTML jelölőnyelvet bekezdésekké és részekké konvertálhatja egy szövegkeretben.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Érje el egy diát, és adj egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet.
-3. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑ét, és törölje az alapértelmezett bekezdést.
-4. Olvassa be a forrás HTML‑fájlt.
-5. Adja át a HTML‑szöveget a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metódusnak.
-6. Mentse a módosított bemutatót.
-
-Ez az Android via Java példa HTML‑t importál egy szövegkeretbe:
+Ez az Android via Java példa egy fájlból olvas HTML‑t, és a jelölőnyelvet átadja a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metódusnak. Törli a szövegkeret alapértelmezett bekezdését, így a keret csak az importált tartalmat tartalmazza. A téglalap alakzat 10 pontos margót hagy a diák mindkét oldalán:
 
 ```java
 import com.aspose.slides.*;
@@ -589,6 +517,7 @@ import java.nio.file.Paths;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
     float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -608,17 +537,18 @@ try {
 }
 ```
 
-### **Bekezdés szövegének exportálása HTML‑be**
+### **Bekezdés szöveg exportálása HTML‑be**
 
-Használja a [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metódust a kiválasztott bekezdéstartomány HTML‑ként történő exportálásához.
+A [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) használatával a kiválasztott bekezdés‑tartományt exportálhatja HTML‑ként. Ha a prezentáció szövegét weboldalon használja újra, megőrizheti a helyi hangsúlyt anélkül, hogy a prezentáció betűtípusát, méretét vagy szövegdoboz stílusait átvinné. A [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) beállításával szabályozhatja, milyen mélységig kövesse a formázás öröklődését az exportáló.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból, és töltse be a kívánt prezentációt.
-2. Érje el a diát, és keresse meg a szöveget tartalmazó [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet.
-3. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑ét.
-4. Hívja meg a [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metódust a kezdő bekezdés indexével és az exportálandó bekezdések számával.
-5. Írja a visszakapott HTML‑szöveget egy fájlba.
+Töltse le a [mintaprezentációt](text-inheritance.pptx) és helyezze az alkalmazás munkakönyvtárába. Az első diája egy szöveges alakzatot tartalmaz a "Inherited text; explicit red 18pt" szöveggel. A bemenet szándékosan több formázási szintet használ:
 
-Ez az Android via Java példa az első szöveges alakzat összes bekezdését exportálja:
+- A prezentáció alapértelmezett szövegstílusa Calibri‑t és 28 pt méretet biztosít.
+- A szövegkeret első szintű szövegstílusa kék szöveget és dőlt betűt biztosít.
+- A bekezdés kifejezetten félkövér szöveget állít be.
+- A második rész, "explicit red 18pt", kifejezetten piros szöveget és 18 pt méretet állít be.
+
+A következő teljes példa háromszor exportálja ugyanazokat a bekezdéseket. A [TextToHtmlConversionOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/texttohtmlconversionoptions/) objektumot adja át az export metódusnak, és minden eredményt külön UTF‑8 HTML fájlba ír:
 
 ```java
 import com.aspose.slides.*;
@@ -627,7 +557,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-Presentation presentation = new Presentation("ExportingHTMLText.pptx");
+Presentation presentation = new Presentation("text-inheritance.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -636,11 +566,21 @@ try {
         ITextFrame textFrame = textShape.getTextFrame();
         if (textFrame != null) {
             IParagraphCollection paragraphs = textFrame.getParagraphs();
-            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            try {
-                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
-            } catch (IOException exception) {
-                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            
+            int[] modes = { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+            String[] fileNames = { "All.html", "TextBox.html", "ParagraphOnly.html" };
+
+            for (int i = 0; i < modes.length; i++) {
+                TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                byte[] htmlBytes = html.getBytes(StandardCharsets.UTF_8);
+                try {
+                    Files.write(Paths.get(fileNames[i]), htmlBytes);
+                } catch (IOException exception) {
+                    System.out.println("The HTML file could not be written: " + exception.getMessage());
+                }
             }
         } else {
             System.out.println("The first shape does not contain a text frame.");
@@ -653,19 +593,31 @@ try {
 }
 ```
 
+A generált HTML a következő CSS‑t tartalmazza az első részhez, "Inherited text; ". A táblázat felsorolja a releváns deklarációkat; a többi generált tulajdonság el van hagyva az átláthatóság kedvéért.
+
+| Kimenet | Az első részhez releváns CSS | Megjelenés |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Kék, félkövér, dőlt szöveg 28 pt mérettel a Calibri betűtípussal, ha az a betűtípus elérhető. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Kék, félkövér, dőlt szöveg; a környező oldal vagy böngésző biztosítja a betűcsaládot és a méretet. |
+| `ParagraphOnly.html` | `font-weight:bold` | Félkövér szöveg; a körnész oldal vagy böngésző biztosítja a betűcsaládot, méretet, színt és a dőlt stílust. |
+
+A második rész megtartja a `color:#ff0000`, `font-size:18pt` és `font-weight:bold` értékeket mindhárom kimenetben. A dőlt formázást is megtartja az `All` és `TextBox` esetén, de a `ParagraphOnly` esetén nem. A öröklődés korlátozása tehát nem távolítja el a bekezdéshez vagy részhez kifejezetten hozzárendelt formázást.
+
+Nyissa meg a fájlokat ugyanabban a böngészőben a összehasonlításhoz. A két korlátozott módban a kihagyott CSS tulajdonságokat a céloldal stílusai vagy a böngésző alapértelmezései oldják fel, ezért a megjelenés attól függ, hogy hol használják a HTML‑t.
+
 ### **Bekezdés renderelése képként**
 
-Az [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) egy egyedi bekezdést renderel közvetlenül, és egy [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) objektumot ad vissza. Az eredményt fájlba vagy adatfolyamba mentheti az [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) metódussal. Nem szükséges a szülő alakzatot renderelni vagy képet manuálisan vágni.
+A [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) közvetlenül renderel egy egyedi bekezdést, és egy [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) objektumot ad vissza. Az eredményt fájlba vagy adatfolyamba mentheti a [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) segítségével. Nem kell a tartalmazó alakzatot renderelni vagy a bitmapet kézzel vágni.
 
-Az [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) null értéket adhat vissza, ha a bekezdés nem található a szülő gyűjteményben, nincs érvényes renderelési határa, vagy nem renderelhető. Ellenőrizze az eredményt a mentés előtt, és a használat után szabadítsa fel a visszakapott képet.
+A [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) `null` értéket adhat vissza, ha a bekezdés nem található a szülőgyűjteményben, nincs érvényes renderelési határa, vagy nem renderelhető. Ellenőrizze az eredményt mentés előtt, és a használat után szabadítsa fel a visszaadott képet.
 
-#### **Bekezdés renderelése alapértelmezett mérettel**
+#### **Bekezdés renderelése alapértelmezett méretezésben**
 
-Tegyük fel, hogy van egy *sample.pptx* nevű bemutatófájl egy diával, ahol az első alakzat egy három bekezdést tartalmazó szövegdoboz.
+A példa egy olyan prezentációt használ, amelynek egy diája van, és az első alakzata egy három bekezdést tartalmazó szövegdoboz.
 
-![A három bekezdést tartalmazó szövegdoboz](paragraph_to_image_input.png)
+![A szövegdoboz három bekezdéssel](paragraph_to_image_input.png)
 
-Az alábbi példa a második bekezdést egy szabályos szövegdobozban rendereli alapértelmezett mérettel, és a visszakapott képet PNG formátumban menti. A **finally** blokk biztosítja, hogy a kép helyesen legyen felszabadítva.
+A következő példa a második bekezdést (1. index) választja ki, és a [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) metódust skálaparaméterek nélkül hívja. Ellenőrzi, hogy az alakzat tartalmazza‑e a szükséges bekezdést, és hogy a renderelés képet ad‑e vissza, mielőtt a [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) metódussal PNG formátumban mentené. A `finally` blokk a használat után felszabadítja a képet.
 
 ```java
 import com.aspose.slides.*;
@@ -701,13 +653,11 @@ try {
 }
 ```
 
-Az eredmény:
-
 ![A bekezdés képe](paragraph_to_image_output.png)
 
-#### **Bekezdés renderelése táblázatcellában nagyítással**
+#### **Bekezdés renderelése táblázatcellában méretezéssel**
 
-Használja az [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) túlterhelést, amely a `float scaleX` és `float scaleY` paramétereket fogadja, a vízszintes és függőleges méretezési tényezők beállításához. Az alábbi példa egy táblázatot hoz létre, és a bekezdést az első cellájában duplájára méretezi, majd PNG képként menti az eredményt.
+Használja a [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) túlterhelését, amely `float scaleX` és `float scaleY` paramétereket fogad, a vízszintes és függőleges skálázási tényezők beállításához. A következő példa egy táblázatot hoz létre, a bekezdést az első cellájában a alapértelmezett szélesség és magasság kétszeresére rendereli, és az eredményt PNG képként menti.
 
 ```java
 import com.aspose.slides.*;
@@ -718,6 +668,7 @@ float scaleY = 2f;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
     IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
     paragraph.setText("Text in a table cell");
@@ -737,26 +688,26 @@ try {
 }
 ```
 
-Az `1` érték megtartja az adott tengelyt az alapértelmezett pixelméretben. Például a `2` mindkét tényezőnél olyan képet eredményez, amelynek szélessége és magassága körülbelül kétszerese az alapértelmezett méretnak, így a pixelek száma négyszeresre nő. A nagyobb tényezők általában élesebb szöveget biztosítanak nagyítás vagy nagy felbontású kimenet esetén, de növelik a memóriahasználatot és a fájlméretet. Az `1` alatti tényezők kisebb, részletgazdagabb képet eredményeznek. Használjon egyenlő tényezőket az oldalarány megőrzéséhez; a különböző vízszintes és függőleges tényezők önállóan nyújtják a képet.
+Egy `1` skálafaktor megtartja az adott tengely alapértelmezett képméretét. Például a `2` mindkét tényező esetén olyan képet eredményez, amelynek szélessége és magassága körülbelül a kétszerese az alapértelmezett méretnek, ezáltal négyszer annyi pixel keletkezik. A nagyobb tényezők általában élesebb szöveget adnak a nagyításhoz vagy a nagy felbontású kimenethez, de növelik a memóriahasználatot és a fájlméretet. Az `1` alatti tényezők kisebb, kevésbé részletes képeket adnak. Egyenlő tényezőket használjon a bekezdés képarányának megtartásához; különböző vízszintes és függőleges tényezők függetlenül nyújtják a kimenetet.
 
-A teljes alakzat renderelése az [IShape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getImage--) segítségével akkor hasznos, ha a kimenetnek tartalmaznia kell az alakzat kitöltését, keretét vagy egyéb vizuális kontextusát. Egy kizárólag bekezdés‑képhoz használja az [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) metódust.
+Egy egész alakzat renderelése a [IShape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getImage--) segítségével akkor hasznos, ha a kimenetnek tartalmaznia kell az alakzat kitöltését, szegélyét vagy más vizuális kontextusát. Egy csak bekezdésképet igénylő esetben használja a [IParagraph.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getImage--) metódust.
 
-## **GYIK**
+## **FAQ**
 
-**Teljesen letiltható a sortörés egy szövegkereten belül?**
+**Teljesen letilthatom a sortördelést egy szövegkereten belül?**
 
-Igen. Állítsa az [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) értékét a sortörés letiltásához, így a sorok nem törnek a szövegkeret szélén.
+Igen. Állítsa az [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) értékét a wrap (tördelés) letiltásához, így a sorok nem szakadnak meg a szövegkeret szélén.
 
-**Hogyan kaphatom meg egy adott bekezdés pontos helyi határait a dián?**
+**Hogyan kaphatom meg egy adott bekezdés pontos diára vonatkozó határait?**
 
-Használja az [IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getRect--) metódust a bekezdés körülhatároló téglalap lekéréséhez. Az [IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getRect--) egyetlen rész határait adja vissza.
+Használja az [IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getRect--) metódust a bekezdés határoló téglalapjának lekéréséhez. Az [IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/#getRect--) egy egyedi rész határait adja meg.
 
-**Hol van a bekezdés igazítása (balra, jobbra, középre vagy sorkizárás) szabályozva?**
+**Hol vezérelhető a bekezdés igazítása (balra, jobbra, középre vagy sorkizárt)?**
 
-Az [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) bekezdés‑szintű beállítás, amely az egész bekezdésre vonatkozik, függetlenül az egyes részek formázásától.
+Az [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) bekezdés‑sztűi beállítás, amely a teljes bekezdésre vonatkozik, függetlenül az egyes részek formázásától.
 
-A különböző betűméretű részek függőleges igazításához egy soron belül lásd a [Betűk soron belüli igazítása](/slides/hu/androidjava/text-formatting/#align-fonts-within-a-line) útmutatót.
+A különböző betűméretű részek függőleges igazításához egy soron belül, lásd a [Align Fonts Within a Line](/slides/hu/androidjava/text-formatting/#align-fonts-within-a-line) oldalt.
 
-**Beállítható-e a helyesírási nyelv egy bekezdés részére?**
+**Beállíthatom a helyesírási nyelvet egy bekezdés részéhez?**
 
-Igen. Állítsa be az [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) értékét egyes részeknél, így egy bekezdés több nyelven írt szöveget is tartalmazhat.
+Igen. Az [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) használatával egyedi részekhez állíthatja be a nyelvet, így egy bekezdés több nyelven is tartalmazhat szöveget.

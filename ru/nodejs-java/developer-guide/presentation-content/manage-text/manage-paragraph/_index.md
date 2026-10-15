@@ -8,57 +8,47 @@ aliases:
   - /nodejs-java/paragraph/
   - /nodejs-java/portion/
 keywords:
-- добавить текст
-- добавить абзац
-- управлять текстом
-- управлять абзацем
-- управлять маркером
-- отступ абзаца
-- висячий отступ
-- маркер абзаца
-- нумерованный список
-- маркированный список
-- свойства абзаца
-- импорт HTML
-- текст в HTML
-- абзац в HTML
-- абзац в изображение
-- текст в изображение
-- экспортировать абзац
-- PowerPoint
-- презентация
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Узнайте, как создавать и форматировать абзацы, фрагменты, маркеры, нумерованные списки, отступы, HTML‑контент и изображения абзацев с помощью Aspose.Slides для Node.js через Java."
+  - добавить текст
+  - добавить абзац
+  - управлять текстом
+  - управлять абзацем
+  - управлять маркером
+  - отступ абзаца
+  - висячий отступ
+  - маркер абзаца
+  - нумерованный список
+  - маркированный список
+  - свойства абзаца
+  - импорт HTML
+  - текст в HTML
+  - абзац в HTML
+  - абзац в изображение
+  - текст в изображение
+  - экспортировать абзац
+  - PowerPoint
+  - презентация
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "Узнайте, как создавать и форматировать абзацы, фрагменты, маркеры, нумерованные списки, отступы, HTML‑контент и изображения абзацев с помощью Aspose.Slides for Node.js via Java."
 ---
 ## **Обзор**
 
-Aspose.Slides for Node.js via Java представляет текст как иерархию текстовых фреймов, абзацев и фрагментов:
+Aspose.Slides for Node.js via Java представляет текст как иерархию текстовых фреймов, абзацев и частей:
 
-* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) представляет контейнер текста в фигуре и предоставляет доступ к его коллекции абзацев.
-* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) представляет один абзац в текстовом фрейме и предоставляет доступ к его фрагментам и форматированию уровня абзаца.
-* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) представляет текстовый ран внутри абзаца. Каждый фрагмент может иметь собственный текст и форматирование на уровне символов.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) представляет контейнер текста в фигуре и предоставляет доступ к её коллекции абзацев.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) представляет один абзац в текстовом фрейме и предоставляет доступ к его частям и форматированию уровня абзаца.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) представляет текстовый фрагмент внутри абзаца. Каждая часть может иметь собственный текст и форматирование на уровне символов.
 
-Таким образом, абзац может содержать текст с разными шрифтами, цветами, размерами и другим форматированием, используя несколько фрагментов.
+Таким образом, абзац может содержать текст с разными шрифтами, цветами, размерами и другим форматированием, используя несколько частей.
 
 ## **Создание и форматирование абзацев**
 
-### **Создание абзацев с несколькими фрагментами**
+Создавайте абзацы в текстовом фрейме фигуры и используйте части для форматирования отдельных фрагментов текста. В этом разделе показано, как комбинировать несколько частей внутри каждого абзаца и применять разные цвета, размеры шрифта и стили.
 
-Следующие шаги создают текстовый фрейм с тремя абзацами, каждый из которых содержит три фрагмента:
+### **Создание абзацев с несколькими частями**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Получите нужный слайд по его индексу.
-3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) фигуры.
-5. Используйте абзац по умолчанию и добавьте ещё два объекта [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) в текстовый фрейм.
-6. Добавьте достаточное количество объектов [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) для каждого абзаца, чтобы получить по три фрагмента. Абзац по умолчанию уже содержит один пустой фрагмент.
-7. Задайте текст каждому фрагменту.
-8. Примените форматирование уровня символов через [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/).
-9. Сохраните изменённую презентацию.
-
-Этот пример JavaScript реализует шаги:
+Следующий пример на JavaScript создаёт три абзаца, каждый из которых содержит три текстовых фрагмента в коллекции, возвращаемой методом [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). Он переиспользует абзац по умолчанию и его пустую часть, затем добавляет оставшиеся абзацы и части. Форматирование применяется через [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): первая часть в каждом абзаце красная, полужирная и 15 пунктов; вторая — синяя, курсивная и 18 пунктов. Третья часть сохраняет форматирование по умолчанию:
 
 ```javascript
 var aspose = aspose || {};
@@ -68,6 +58,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
     const textFrame = shape.getTextFrame();
 
@@ -117,24 +108,13 @@ try {
 
 ## **Создание маркированных и нумерованных списков**
 
+Организуйте текст абзаца в списки с символами, цифрами или пользовательскими изображениями. Примеры в этом разделе охватывают форматирование маркеров, многоуровневые списки и пользовательские начальные номера.
+
 ### **Создание маркированного или нумерованного списка**
 
-Маркировка и нумерация упрощают восприятие связанных элементов. В Aspose.Slides настройки списка определяются через [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
+Маркеры и нумерация делают связанные элементы более удобными для просмотра. В Aspose.Slides настройки списка определяются через [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Получите нужный слайд по его индексу.
-3. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на выбранный слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) фигуры.
-5. Удалите абзац по умолчанию из текстового фрейма.
-6. Создайте [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) для символической маркера.
-7. Установите [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) в [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) и задайте символ маркера.
-8. Установите текст абзаца, отступ, цвет маркера и высоту маркера.
-9. Добавьте абзац в текстовый фрейм.
-10. Создайте второй абзац и установите [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) в [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
-11. Настройте стиль нумерованного маркера и добавьте абзац в текстовый фрейм.
-12. Сохраните презентацию.
-
-Этот пример JavaScript создаёт символический маркер и нумерованный маркер:
+Этот пример на JavaScript добавляет символ‑маркер и нумерованный элемент в один и тот же текстовый фрейм. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) выбирает тип маркера, а [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) задаёт символ и [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) выбирает стиль нумерации. Оба элемента используют чёрные маркеры высотой 100 % и отступ абзаца 25 пунктов:
 
 ```javascript
 var aspose = aspose || {};
@@ -144,6 +124,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -178,20 +159,9 @@ try {
 
 ### **Использование изображений в качестве маркеров**
 
-Изображения‑маркеры позволяют использовать пользовательскую картинку вместо символа или числа.
+Изображения‑маркеры позволяют использовать пользовательское изображение вместо символа или числа.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Получите нужный слайд по его индексу.
-3. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) и получите его [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
-4. Удалите абзац по умолчанию из текстового фрейма.
-5. Загрузите изображение маркера и добавьте его в коллекцию изображений презентации как [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/).
-6. Создайте [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) и задайте его текст.
-7. Установите [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) в [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
-8. Присвойте изображение через [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) и задайте высоту маркера.
-9. Добавьте абзац в текстовый фрейм.
-10. Сохраните изменённую презентацию.
-
-Этот пример JavaScript создаёт изображение‑маркер:
+Этот пример на JavaScript загружает `image.png` из рабочей директории приложения, добавляет изображение в коллекцию изображений презентации как [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) и использует его в качестве маркера абзаца. Он вызывает [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) для использования маркера‑изображения и назначает изображение через [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) установлен в 100 % для масштабирования маркера относительно текста абзаца:
 
 ```javascript
 var aspose = aspose || {};
@@ -232,13 +202,7 @@ try {
 
 Установите [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) для размещения абзацев на разных уровнях списка. Верхний уровень имеет глубину `0`.
 
-1. Создайте [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) и получите слайд.
-2. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) и очистите абзац по умолчанию из его текстового фрейма.
-3. Создайте четыре абзаца и настройте их символы маркеров.
-4. Установите их значения [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) в `0`, `1`, `2` и `3`.
-5. Добавьте абзацы в текстовый фрейм и сохраните презентацию.
-
-Этот пример JavaScript создаёт четырёхуровневый маркированный список:
+Этот пример на JavaScript присваивает значения [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) от 0 до 3 четырём абзацам, создавая иерархию внутри одного текстового фрейма. Каждый абзац использует символ‑маркер, при этом [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) чередуется между круглым маркером и дефисом для различения соседних уровней:
 
 ```javascript
 var aspose = aspose || {};
@@ -248,6 +212,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -295,17 +260,11 @@ try {
 }
 ```
 
-### **Задание пользовательского начала нумерованных элементов списка**
+### **Начало нумерованных пунктов списка с пользовательских значений**
 
-Используйте [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) для задания начального номера, отображаемого для нумерованного абзаца.
+Используйте [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) для установки начального номера, отображаемого для нумерованного абзаца.
 
-1. Создайте [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) и добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-2. Очистите абзац по умолчанию из текстового фрейма фигуры.
-3. Создайте три нумерованных абзаца.
-4. Установите [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) в `2`, `3` и `7` для соответствующих абзацев.
-5. Добавьте абзацы в текстовый фрейм и сохраните презентацию.
-
-Этот пример JavaScript задаёт пользовательское начальное число для каждого абзаца:
+Этот пример на JavaScript устанавливает [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) для использования нумерации в трёх абзацах и задаёт значения [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 2, 3 и 7. Начальное значение задаётся отдельно для каждого абзаца, позволяя пропускать числа:
 
 ```javascript
 var aspose = aspose || {};
@@ -315,6 +274,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -343,25 +303,17 @@ try {
 }
 ```
 
-## **Управление расположением абзаца и свойствами конца**
+## **Управление расположением абзаца и свойствами завершения**
+
+Регулируйте поля и отступы абзаца, чтобы контролировать положение первой строки и строк переноса. Вы также можете форматировать маркер конца абзаца отдельно от видимых текстовых частей.
 
 ### **Установка отступа первой строки**
 
-Используйте [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) для управления отступом первой строки абзаца. Этот метод перемещает только первую строку относительно левого поля абзаца. Положительное значение сдвигает первую строку вправо, остальные строки остаются выровненными по телу абзаца.
+Используйте метод [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) для контроля отступа первой строки абзаца. Эта настройка смещает только первую строку относительно левого поля абзаца. Положительное значение сдвигает первую строку вправо, остальные строки остаются выровненными по телу абзаца.
 
-Используйте [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) когда нужно переместить весь абзац. Используйте [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) когда необходимо сместить только первую строку.
+Используйте [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) когда нужно переместить весь абзац. Используйте [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) когда требуется сдвинуть только первую строку.
 
-Ниже пример, создающий несколько абзацев и применяющий разные значения [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) для демонстрации влияния отступа первой строки на расположение абзаца.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Получите целевой слайд.
-3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) фигуры и удалите абзац по умолчанию.
-5. Создайте несколько абзацев и задайте им разные значения [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/).
-6. Добавьте абзацы в текстовый фрейм.
-7. Сохраните изменённую презентацию.
-
-Этот код показывает, как задать отступ абзаца:
+Следующий пример задаёт трём абзацам одинаковый [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) — 20 пунктов и значения [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) — 0, 20 и 40 пунктов. Первые строки начинаются с постепенно большего смещения, в то время как строки переноса сохраняют одинаковое левое поле:
 
 ```javascript
 var aspose = aspose || {};
@@ -414,26 +366,17 @@ try {
 
 Результат:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Отступ первой строки абзацев](first_line_indent.png)
 
 ### **Установка висячего отступа**
 
-Висячий отступ — это расположение абзаца, при котором первая строка начинается слева от остальных строк. В Aspose.Slides такой эффект создаётся с помощью [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Передайте отрицательное значение, чтобы переместить первую строку влево относительно тела абзаца.
+Висячий отступ — это расположение абзаца, при котором первая строка начинается левее остальных строк. В Aspose.Slides этот эффект создаётся методом [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Установите отступ в отрицательное значение, чтобы переместить первую строку влево относительно тела абзаца.
 
-На практике [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) определяет левую позицию тела абзаца, а [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) задаёт позицию первой строки относительно этого поля. Чтобы создать висячий отступ, задайте положительное значение для `setMarginLeft` и отрицательное значение для `setIndent`.
+На практике [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) определяет левую позицию тела абзаца, а [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) — позицию первой строки относительно этого поля. Чтобы создать висячий отступ, задайте положительное левое поле и отрицательный отступ.
 
-Такое форматирование полезно для библиографий, ссылок, глоссариев и других абзацев, где переносимые строки должны выравниваться под телом абзаца, а не под первым символом первой строки.
+Это форматирование полезно для библиографий, ссылок, глоссариев и других абзацев, где строки переноса должны выравниваться под телом абзаца, а не под первым символом первой строки.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Получите целевой слайд.
-3. Добавьте прямоугольный [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-4. Получите [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) фигуры и удалите абзац по умолчанию.
-5. Создайте абзацы и задайте положительное значение [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) для каждого из них.
-6. Задайте отрицательное значение [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) для создания эффекта висячего отступа.
-7. Добавьте абзацы в текстовый фрейм.
-8. Сохраните изменённую презентацию.
-
-Этот код показывает, как задать висячий отступ для абзаца:
+Следующий пример на JavaScript сочетает значения [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) — 40 и 60 пунктов с значениями [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) — ‑20 и ‑30 пунктов. В каждом абзаце первая строка начинается левее строк переноса; во втором абзаце висячий отступ глубже:
 
 ```javascript
 var aspose = aspose || {};
@@ -478,18 +421,11 @@ try {
 
 Результат:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Висячий отступ абзацев](hanging_indent.png)
 
-### **Установка свойств конца абзаца**
+### **Установка свойств завершающего фрагмента абзаца**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) управляет форматированием знака конца абзаца. В следующем примере задаётся размер шрифта и латинский шрифт для знака конца второго абзаца:
-
-1. Создайте или загрузите [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) и получите слайд.
-2. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) и очистите его абзац по умолчанию.
-3. Создайте два абзаца и добавьте к ним текстовые фрагменты.
-4. Создайте [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) для знака конца второго абзаца.
-5. Установите [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) и [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
-6. Примените формат с помощью [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) и сохраните презентацию.
+Метод [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) контролирует форматирование маркера конца абзаца. Следующий пример создаёт [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) с [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) = 48 пунктов и [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) = Times New Roman. Этот формат назначается маркеру конца второго абзаца, оставляя видимые части текста без изменений:
 
 ```javascript
 var aspose = aspose || {};
@@ -498,6 +434,7 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -522,15 +459,15 @@ try {
 }
 ```
 
-## **Подсчёт отрисованных строк**
+## **Подсчет отрисованных строк**
 
-Для правил абзаца, влияющих на автоматический перенос и пунктуацию в конце строк, см. [Control Line Breaking](/slides/ru/nodejs-java/text-formatting/#control-line-breaking) и [Control Hanging Punctuation](/slides/ru/nodejs-java/text-formatting/#control-hanging-punctuation).
+Для правил абзаца, влияющих на автоматический перенос и пунктуацию в конце строки, см. [Control Line Breaking](/slides/ru/nodejs-java/text-formatting/#control-line-breaking) и [Control Hanging Punctuation](/slides/ru/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Используйте [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) для подсчёта строк, занимаемых абзацем после раскладки текста, включая автоматический перенос. Это полезно при проверке длины текста и раскладки в шаблонах презентаций.
+Используйте [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) для подсчёта строк, занимаемых абзацем после размещения текста, включая автоматический перенос. Это полезно при проверке длины текста и разметки в шаблонах презентаций.
 
-Абзац — один элемент в [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParagraphs) и может занимать несколько отрисованных строк. Явный перевод строки внутри абзаца принудительно создаёт новую строку без создания нового абзаца. Автоматический перенос формирует строки в зависимости от доступной ширины без вставки явных переводов строк в текст. Поэтому подсчёт абзацев или символов переноса не даёт количества отрисованных строк.
+Абзац — это один элемент в [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), и он может занимать несколько отрисованных строк. Явный разрыв строки внутри абзаца принудительно создаёт новую строку без создания нового абзаца. Автоматический перенос формирует строки на основе доступной ширины без вставки явных разрывов в текст. Поэтому подсчёт абзацев или символов разрыва не даёт количества отрисованных строк.
 
-Следующий пример создаёт текстовую фигуру, считает её строки, сужает фигуру, а затем заменяет текст более короткой строкой. Перенос включён, а автоподгонка отключена, чтобы ширина фигуры контролировала перенос без автоматического уменьшения текста или изменения размера фигуры. Размеры фигуры указаны в пунктах. В конце пример добавляет ещё один абзац и суммирует количество строк по всему текстовому фрейму.
+Следующий пример создаёт текстовую фигуру, считает её строки, сужает фигуру, а затем заменяет текст более короткой строкой. Пример включает перенос, задав [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) и отключив автоподгонку через [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/), чтобы ширина фигуры регулировала перенос без автоматического уменьшения текста или изменения размеров фигуры. Каждое измерение использует [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount). Размеры фигур указаны в пунктах. В конце пример добавляет ещё один абзац и суммирует количество строк по всему текстовому фрейму.
 
 ```javascript
 var aspose = aspose || {};
@@ -573,58 +510,19 @@ try {
 }
 ```
 
-При данном тексте и этих размерах сужение фигуры увеличивает количество строк, а замена текста на короткую строку уменьшает его. Точные цифры могут различаться в зависимости от доступных шрифтов и их замен, размера шрифта, полей, отступов, переноса и настроек автоподгонки. При проверке шаблона используйте шрифты и параметры раскладки, предназначенные для целевой среды.
+С этими текстом и размерами сужение фигуры увеличивает количество строк, а замена текста короткой строкой уменьшает его. Точные значения могут различаться в зависимости от доступных шрифтов и их замен, размера шрифта, полей, отступов, переноса и настроек автоподгонки. Используйте шрифты и параметры разметки, предназначенные для целевой среды, при проверке шаблона.
 
-Само количество строк не определяет, выходит ли текст за пределы контейнера. Важны доступная высота, высота строк, интервалы между абзацами и строками, а также поведение автоподгонки; даже одна строка может превысить доступную ширину при отключённом переносе.
+Само количество строк не определяет, выходит ли текст за пределы контейнера. Важны доступная высота, высота строк, межстрочный и абзацный интервал, а также поведение автоподгонки; даже одна строка может превышать доступную ширину, если перенос отключён.
 
-## **Импорт и экспорт содержимого абзацев**
+## **Импорт и экспорт содержимого абзаца**
+
+Используйте HTML для импорта текста в презентацию или экспорта существующих абзацев для использования вне её. В этом разделе также показано, как визуализировать отдельные абзацы как изображения, включая абзацы в ячейках таблиц.
 
 ### **Импорт HTML‑текста в абзацы**
 
-Используйте [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) для преобразования HTML‑разметки в абзацы и фрагменты в текстовом фрейме.
+Для преобразования разметки HTML в абзацы и части внутри текстового фрейма используйте [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Получите слайд и добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
-3. Получите [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) фигуры и очистите её абзац по умолчанию.
-4. Определите или прочитайте исходную HTML‑строку.
-5. Передайте HTML‑строку в [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
-6. Сохраните изменённую презентацию.
-
-Этот пример JavaScript импортирует HTML в текстовый фрейм:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const presentation = new aspose.slides.Presentation();
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
-    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
-    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
-    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shape.getTextFrame().getParagraphs().clear();
-
-    const html = "<p><b>Aspose.Slides</b> imports HTML text into presentation paragraphs.</p>";
-    shape.getTextFrame().getParagraphs().addFromHtml(html);
-    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-### **Экспорт текста абзаца в HTML**
-
-Используйте [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) для экспорта выбранного диапазона абзацев в виде HTML.
-
-1. Создайте или загрузите экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Получите слайд и найдите [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), содержащий текст.
-3. Получите [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) фигуры.
-4. Вызовите [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) с индексом начального абзаца и количеством абзацев для экспорта.
-5. Запишите полученную HTML‑строку в файл.
-
-Этот автономный пример JavaScript создаёт текстовую фигуру и экспортирует все её абзацы:
+Этот пример на JavaScript читает HTML из `file.html` в рабочей директории приложения и передаёт разметку в [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). Он очищает абзац по умолчанию в текстовом фрейме, так что фрейм содержит только импортированный контент. Прямоугольная фигура оставляет 10‑пунктовый отступ со всех сторон слайда:
 
 ```javascript
 var aspose = aspose || {};
@@ -635,22 +533,59 @@ const fs = require("fs");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
-    const sourceTextFrame = sourceShape.getTextFrame();
-    sourceTextFrame.getParagraphs().clear();
-    for (const text of ["First paragraph", "Second paragraph", "Third paragraph"]) {
-        const sourceParagraph = new aspose.slides.Paragraph();
-        sourceParagraph.setText(text);
-        sourceTextFrame.getParagraphs().add(sourceParagraph);
-    }
-    const shape = slide.getShapes().get_Item(0);
+
+    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
+    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getTextFrame().getParagraphs().clear();
+
+    const html = fs.readFileSync("file.html", "utf8");
+    shape.getTextFrame().getParagraphs().addFromHtml(html);
+    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Экспорт текста абзаца в HTML**
+
+Для экспорта выбранного диапазона абзацев в HTML используйте [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/). При повторном использовании текста презентации на веб‑сайте вы можете захотеть сохранить локальное акцентирование без переноса шрифта, размера или стилей текстового окна презентации. Установите [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) для ограничения глубины наследования форматирования.
+
+Скачайте [пример презентации](text-inheritance.pptx) и разместите её в рабочей директории приложения. На первом слайде находится один текстовый блок с текстом «Inherited text; explicit red 18pt». Входной файл намеренно использует несколько уровней форматирования:
+
+- Стиль текста по умолчанию презентации задаёт шрифт Calibri и размер 28 pt.
+- Стиль текста первого уровня в текстовом фрейме задаёт синий цвет и курсив.
+- Абзац явно задаёт полужирный текст.
+- Вторая часть, «explicit red 18pt», явно задаёт красный цвет и размер 18 pt.
+
+Следующий полный пример экспортирует те же абзацы трижды. Он передаёт [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) в метод экспорта и записывает каждый результат в отдельный UTF‑8 HTML‑файл:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("text-inheritance.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
     if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
         const textFrame = shape.getTextFrame();
         if (textFrame !== null) {
             const paragraphs = textFrame.getParagraphs();
-            const html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            fs.writeFileSync("paragraphs.html", html, "utf8");
+
+            const modes = [aspose.slides.TextInheritanceLimit.All, aspose.slides.TextInheritanceLimit.TextBox, aspose.slides.TextInheritanceLimit.ParagraphOnly];
+            const fileNames = ["All.html", "TextBox.html", "ParagraphOnly.html"];
+
+            for (let i = 0; i < modes.length; i++) {
+                const options = new aspose.slides.TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                const html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                fs.writeFileSync(fileNames[i], html, "utf8");
+            }
         } else {
             console.log("The first shape does not contain a text frame.");
         }
@@ -662,19 +597,31 @@ try {
 }
 ```
 
-### **Отрисовка абзаца как изображения**
+Сгенерированный HTML содержит следующий CSS для первой части, «Inherited text; ». Таблица перечисляет соответствующие свойства; остальные сгенерированные свойства опущены для ясности.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) отрисовывает отдельный абзац напрямую и возвращает [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Сохраните результат в файл с помощью [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Вам не требуется отрисовывать содержащую фигуру или вручную обрезать bitmap.
+| Вывод | Соответствующий CSS для первой части | Внешний вид |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Синий, полужирный, курсивный текст размером 28 pt в шрифте Calibri, если этот шрифт доступен. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Синий, полужирный, курсивный текст; окружная страница или браузер задаёт семейство шрифтов и размер. |
+| `ParagraphOnly.html` | `font-weight:bold` | Полужирный текст; окружная страница или браузер задаёт семейство шрифтов, размер, цвет и курсив. |
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) может вернуть `null`, если абзац не найден в родительской коллекции, не имеет действительных границ отрисовки или не может быть отрисован. Проверьте результат перед сохранением и освободите полученное изображение после использования.
+Вторая часть сохраняет `color:#ff0000`, `font-size:18pt` и `font-weight:bold` во всех трёх выводах. Она также сохраняет курсив в `All` и `TextBox`, но не в `ParagraphOnly`. Ограничение наследования therefore does not remove formatting explicitly assigned to a paragraph or portion.
 
-#### **Отрисовка абзаца в масштабе по умолчанию**
+Откройте файлы в одном браузере для их сравнения. В двух ограниченных режимах пропущенные CSS‑свойства разрешаются стилями целевой страницы или браузерными настройками, поэтому окончательный вид зависит от места использования HTML.
 
-Следующий текстовый блок содержит три абзаца:
+### **Рендеринг абзаца как изображения**
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) рендерит отдельный абзац напрямую и возвращает [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Сохраните результат в файл или поток с помощью [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Вам не требуется рендерить содержащую фигуру или вручную обрезать bitmap.
 
-Следующий пример отрисовывает второй абзац в обычной текстовой фигуре в масштабе по умолчанию и сохраняет полученное изображение в формате PNG. Блок `finally` гарантирует корректное освобождение изображения.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) может вернуть `null`, если абзац не найден в родительской коллекции, не имеет допустимых границ рендеринга или не может быть отрендерен. Проверьте результат перед сохранением и освободите возвращённое изображение после использования.
+
+#### **Рендеринг абзаца в масштабе по умолчанию**
+
+Пример создаёт презентацию с одним слайдом, первый объект — текстовый блок, содержащий три абзаца.
+
+![Текстовый блок с тремя абзацами](paragraph_to_image_input.png)
+
+Следующий пример выбирает второй абзац с индексом 1 и вызывает [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) без параметров масштаба. Он проверяет, что фигура содержит требуемый абзац и что рендеринг возвращает изображение, прежде чем вызвать [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) для сохранения в формате PNG. Блок `finally` освобождает изображение после использования.
 
 ```javascript
 var aspose = aspose || {};
@@ -684,6 +631,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
     const sourceTextFrame = sourceShape.getTextFrame();
     sourceTextFrame.getParagraphs().clear();
@@ -722,11 +670,11 @@ try {
 
 Результат:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Изображение абзаца](paragraph_to_image_output.png)
 
-#### **Отрисовка абзаца в ячейке таблицы с масштабированием**
+#### **Рендеринг абзаца в ячейке таблицы с масштабированием**
 
-Используйте перегрузку [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage), принимающую параметры `scaleX` и `scaleY`, чтобы задать коэффициенты горизонтального и вертикального масштабов. Следующий пример создаёт таблицу, отрисовывает абзац в её первой ячейке с удвоенной шириной и высотой и сохраняет результат в виде PNG‑изображения.
+Используйте перегрузку [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage), принимающую параметры `scaleX` и `scaleY` для задания горизонтального и вертикального коэффициентов масштаба. Следующий пример создаёт таблицу, рендерит абзац в её первой ячейке с двойной шириной и высотой по сравнению с масштабом по умолчанию и сохраняет результат в виде PNG‑изображения.
 
 ```javascript
 var aspose = aspose || {};
@@ -739,6 +687,7 @@ const scaleY = 2;
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+    
     const columnWidths = java.newArray("double", [300]);
     const rowHeights = java.newArray("double", [80]);
     const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
@@ -760,26 +709,26 @@ try {
 }
 ```
 
-Коэффициент масштабирования `1` сохраняет размер оси по умолчанию. Например, `2` для обоих коэффициентов создаёт изображение, ширина и высота которого примерно вдвое больше исходных, что даёт в четыре раза больше пикселей. Большие коэффициенты обычно дают более чёткий текст для увеличения или вывода в высоком разрешении, но также увеличивают использование памяти и размер файла. Коэффициенты ниже `1` дают меньшие изображения с меньшей детализацией. Используйте одинаковые коэффициенты, чтобы сохранить соотношение сторон абзаца; разные горизонтальные и вертикальные коэффициенты растягивают вывод независимо.
+Коэффициент масштаба `1` сохраняет размер по умолчанию для соответствующей оси. Например, `2` для обеих осей создаёт изображение, ширина и высота которого примерно вдвое превышают исходные размеры, что приводит к четырёхкратному количеству пикселей. Большие коэффициенты обычно дают более чёткий текст при увеличении или выводе в высоком разрешении, но также увеличивают потребление памяти и размер файла. Коэффициенты ниже `1` создают меньшее изображение с меньшим детализмом. Используйте одинаковые коэффициенты, чтобы сохранять пропорции абзаца; разные горизонтальные и вертикальные коэффициенты растягивают вывод независимо.
 
-Отрисовка всей фигуры с помощью [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) остаётся полезной, когда в выводе требуется включить заливку, границу или другой визуальный контекст фигуры. Для изображения только абзаца используйте [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
+Рендеринг всей фигуры с помощью [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) остаётся полезным, когда необходимо включить заливку, границу или иной визуальный контекст фигуры. Для изображения только абзаца используйте [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Можно ли полностью отключить перенос строк внутри текстового фрейма?**
+**Могу ли я полностью отключить перенос строк внутри текстового фрейма?**
 
-Да. Установите [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) чтобы отключить перенос, чтобы строки не разбивались по краям текстового фрейма.
+Да. Установите [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) для отключения переноса, чтобы строки не разбивались у границ текстового фрейма.
 
-**Как получить точные границы конкретного абзаца на слайде?**
+**Как я могу получить точные границы конкретного абзаца на слайде?**
 
-Используйте [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) для получения ограничивающего прямоугольника абзаца. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/#getRect) даёт границы отдельного фрагмента.
+Используйте [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) для получения ограничивающего прямоугольника абзаца. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) предоставляет границы отдельной части.
 
-**Где контролируется выравнивание абзаца (по левому, правому краю, по центру или по ширине)?**
+**Где управляется выравнивание абзаца (по левому, правому, центру или по ширине)?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) — это настройка уровня абзаца и применяется ко всему абзацу независимо от отдельного форматирования фрагментов.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) — это настройка уровня абзаца, применяемая ко всему абзацу независимо от форматирования отдельных частей.
 
-Чтобы вертикально выровнять фрагменты разного размера шрифта в каждой строке, см. [Align Fonts Within a Line](/slides/ru/nodejs-java/text-formatting/#align-fonts-within-a-line).
+Чтобы вертикально выравнивать части с разными размерами шрифтов в каждой строке, см. [Align Fonts Within a Line](/slides/ru/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
-**Можно ли задать язык проверки правописания только для части абзаца?**
+**Могу ли я задать язык подтверждения для части абзаца?**
 
-Да. Установите [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) для отдельных фрагментов, чтобы один абзац мог содержать текст на нескольких языках.
+Да. Установите [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) для отдельных частей, чтобы один абзац мог содержать текст на нескольких языках.

@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie akapitami tekstu PowerPoint w JavaScript
+title: Zarządzaj akapitami tekstu PowerPoint w JavaScript
 linktitle: Zarządzaj akapitem
 type: docs
 weight: 40
@@ -15,9 +15,9 @@ keywords:
 - zarządzaj wypunktowaniem
 - wcięcie akapitu
 - wcięcie wiszące
-- punktowanie akapitu
+- wypunktowanie akapitu
 - lista numerowana
-- lista punktowana
+- lista wypunktowana
 - właściwości akapitu
 - importuj HTML
 - tekst do HTML
@@ -30,35 +30,25 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i formatować akapity, części, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla Node.js via Java."
+description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla Node.js via Java."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Node.js via Java represents text as a hierarchy of text frames, paragraphs, and portions:
+Aspose.Slides for Node.js via Java reprezentuje tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
 
-* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) reprezentuje kontener tekstu w kształcie i zapewnia dostęp do jego kolekcji akapitów.
-* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) reprezentuje jeden akapit w ramce tekstowej i zapewnia dostęp do jego części oraz formatowania na poziomie akapitu.
-* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) reprezentuje ciąg tekstowy w akapicie. Każda część może mieć własny tekst i formatowanie na poziomie znaków.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) reprezentuje pojemnik tekstu w kształcie i zapewnia dostęp do jego kolekcji akapitów.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) reprezentuje jeden akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) reprezentuje fragment tekstu w akapicie. Każdy fragment może mieć własny tekst i formatowanie na poziomie znaków.
 
-Dlatego akapit może zawierać tekst w różnych czcionkach, kolorach, rozmiarach i innych formatach, używając wielu części.
+Dlatego akapit może zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innych formatowaniach, wykorzystując wiele fragmentów.
 
 ## **Tworzenie i formatowanie akapitów**
 
-### **Tworzenie akapitów z wieloma częściami**
+Twórz akapity w ramce tekstowej kształtu i używaj fragmentów do formatowania poszczególnych fragmentów tekstu. Ta sekcja pokazuje, jak łączyć wiele fragmentów w każdym akapicie oraz stosować różne kolory, rozmiary czcionek i style.
 
-Poniższe kroki tworzą ramkę tekstową z trzema akapitami, z których każdy zawiera trzy części:
+### **Tworzenie akapitów z wieloma fragmentami**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do slajdu.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) kształtu.
-5. Użyj domyślnego akapitu i dodaj dwa kolejne obiekty [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) do ramki tekstowej.
-6. Dodaj wystarczającą liczbę obiektów [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) dla każdego akapitu, aby zawierały po trzy części. Domyślny akapit już zawiera jedną pustą część.
-7. Ustaw tekst każdej części.
-8. Zastosuj formatowanie na poziomie znaków przy użyciu [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/).
-9. Zapisz zmodyfikowaną prezentację.
-
-Ten przykład w języku JavaScript implementuje te kroki:
+Poniższy przykład JavaScript tworzy trzy akapity, z których każdy zawiera trzy fragmenty tekstu w kolekcji zwróconej przez [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). Ponownie wykorzystuje domyślny akapit i jego pusty fragment, a następnie dodaje pozostałe akapity i fragmenty. Formatowanie jest stosowane przez [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): pierwszy fragment w każdym akapicie jest czerwony, pogrubiony i ma 15 punktów; drugi jest niebieski, pochylony i ma 18 punktów. Trzeci fragment zachowuje domyślne formatowanie:
 
 ```javascript
 var aspose = aspose || {};
@@ -68,6 +58,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
     const textFrame = shape.getTextFrame();
 
@@ -115,26 +106,15 @@ try {
 }
 ```
 
-## **Tworzenie list punktowanych i numerowanych**
+## **Tworzenie list wypunktowanych i numerowanych**
 
-### **Tworzenie listy punktowanej lub numerowanej**
+Organizuj tekst akapitu w listy z symbolami, numerami lub niestandardowymi obrazami. Przykłady w tej sekcji obejmują formatowanie wypunktowań, listy wielopoziomowe i niestandardowe numery początkowe.
 
-Punkty i numeracja ułatwiają szybkie przeglądanie powiązanych elementów. W Aspose.Slides ustawienia listy definiowane są za pomocą [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
+### **Tworzenie listy wypunktowanej lub numerowanej**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do wybranego slajdu.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) kształtu.
-5. Usuń domyślny akapit z ramki tekstowej.
-6. Utwórz [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) dla punktu symbolicznego.
-7. Ustaw [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) i określ znak punktu.
-8. Ustaw tekst akapitu, wcięcie, kolor punktu i wysokość punktu.
-9. Dodaj akapit do ramki tekstowej.
-10. Utwórz drugi akapit i ustaw [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
-11. Skonfiguruj styl numerowanego punktu i dodaj akapit do ramki tekstowej.
-12. Zapisz prezentację.
+Wypunktowania i numeracje ułatwiają przeglądanie powiązanych elementów. W Aspose.Slides ustawienia listy definiowane są przez [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
 
-Ten przykład w języku JavaScript tworzy punkt symboliczny oraz punkt numerowany:
+Ten przykład JavaScript dodaje wypunktowanie symboliczne i element numerowany do tej samej ramki tekstowej. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) wybiera typ wypunktowania, podczas gdy [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) podaje symbol, a [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) wybiera styl numeracji. Oba elementy używają czarnych wypunktowań o wysokości 100 % i wcięciu akapitu 25 punktów:
 
 ```javascript
 var aspose = aspose || {};
@@ -144,6 +124,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -176,22 +157,11 @@ try {
 }
 ```
 
-### **Użycie punktów graficznych**
+### **Użycie wypunktowania obrazkowego**
 
-Punkty graficzne pozwalają używać własnego obrazu zamiast symbolu lub liczby.
+Wypunktowania obrazkowe pozwalają użyć własnego obrazu zamiast symbolu lub numeru.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj dostęp do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) i uzyskaj dostęp do jego [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
-4. Usuń domyślny akapit z ramki tekstowej.
-5. Załaduj obraz punktu i dodaj go do kolekcji obrazów prezentacji jako [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/).
-6. Utwórz [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) i ustaw jego tekst.
-7. Ustaw [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
-8. Przypisz obraz za pomocą [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) i ustaw wysokość punktu.
-9. Dodaj akapit do ramki tekstowej.
-10. Zapisz zmodyfikowaną prezentację.
-
-Ten przykład w języku JavaScript tworzy punkt graficzny:
+Ten przykład JavaScript wczytuje `image.png` z katalogu roboczego aplikacji, dodaje obraz do kolekcji obrazów prezentacji jako [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) i używa go jako wypunktowania akapitu. Wywołuje [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) aby użyć wypunktowania obrazkowego i przypisuje obraz poprzez [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) jest ustawione na 100 % aby dopasować rozmiar wypunktowania względem tekstu akapitu:
 
 ```javascript
 var aspose = aspose || {};
@@ -228,17 +198,11 @@ try {
 }
 ```
 
-### **Utworzenie listy wielopoziomowej**
+### **Tworzenie listy wielopoziomowej**
 
-Ustaw [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) , aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
+Ustaw [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
 
-1. Utwórz [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
-2. Dodaj [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) i usuń domyślny akapit z jego ramki tekstowej.
-3. Utwórz cztery akapity i skonfiguruj ich symbole punktów.
-4. Ustaw ich wartości [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) na `0`, `1`, `2` i `3`.
-5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
-
-Ten przykład w języku JavaScript tworzy listę punktowaną czterech poziomów:
+Ten przykład JavaScript przypisuje wartości [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) od 0 do 3 czterem akapitom, tworząc hierarchię w jednej ramce tekstowej. Każdy akapit używa wypunktowania symbolicznego, przy czym [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) przełącza się między okrągłym wypunktowaniem a myślnikiem, aby odróżnić sąsiadujące poziomy:
 
 ```javascript
 var aspose = aspose || {};
@@ -248,6 +212,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -295,17 +260,11 @@ try {
 }
 ```
 
-### **Rozpoczęcie elementów listy numerowanej od własnych wartości**
+### **Rozpoczęcie numerowanych elementów listy od wartości własnych**
 
-Użyj [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) , aby ustawić początkowy numer wyświetlany dla numerowanego akapitu.
+Użyj [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) aby ustawić początkowy numer wyświetlany dla numerowanego akapitu.
 
-1. Utwórz [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) i dodaj [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do slajdu.
-2. Usuń domyślny akapit z ramki tekstowej kształtu.
-3. Utwórz trzy numerowane akapity.
-4. Ustaw [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) na `2`, `3` i `7` dla odpowiednich akapitów.
-5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
-
-Ten przykład w języku JavaScript przypisuje własny początkowy numer dla każdego akapitu:
+Ten przykład JavaScript ustawia [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) na numerację dla trzech akapitów i przypisuje wartości [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 2, 3 i 7. Wartość początkowa jest konfigurowana osobno dla każdego akapitu, co pozwala pomijać numery:
 
 ```javascript
 var aspose = aspose || {};
@@ -315,6 +274,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -345,23 +305,15 @@ try {
 
 ## **Kontrola układu akapitu i właściwości końcowych**
 
-### **Ustaw wcięcie pierwszej linii**
+Dostosuj marginesy i wcięcia akapitu, aby kontrolować pozycję pierwszej linii oraz linii złamanych. Możesz także formatować znak końca akapitu oddzielnie od widocznych fragmentów tekstu.
 
-Użyj [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) , aby kontrolować wcięcie pierwszej linii akapitu. Ta metoda przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do ciała akapitu.
+### **Ustawienie wcięcia pierwszej linii**
 
-Użyj [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) , gdy potrzebujesz przesunąć cały akapit. Użyj [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) , gdy potrzebujesz przesunąć tylko pierwszą linię.
+Użyj metody [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) aby kontrolować wcięcie pierwszej linii akapitu. To ustawienie przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Wartość dodatnia przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do ciała akapitu.
 
-Poniższy przykład tworzy kilka akapitów i stosuje różne wartości [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) , aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
+Użyj [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) gdy potrzebujesz przesunąć cały akapit. Użyj [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) gdy potrzebujesz przesunąć tylko pierwszą linię.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj dostęp do docelowego slajdu.
-3. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do slajdu.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) kształtu i usuń domyślny akapit.
-5. Utwórz kilka akapitów i ustaw dla nich różne wartości [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) .
-6. Dodaj akapity do ramki tekstowej.
-7. Zapisz zmodyfikowaną prezentację.
-
-Ten kod pokazuje, jak ustawić wcięcie akapitu:
+Poniższy przykład nadaje trzem akapitom identyczny [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) = 20 punktów oraz wartości [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) = 0, 20 i 40 punktów. Pierwsze linie zaczynają się w coraz większych odstępach, podczas gdy linie złamane zachowują ten sam lewy margines:
 
 ```javascript
 var aspose = aspose || {};
@@ -416,24 +368,15 @@ Wynik:
 
 ![Wcięcie pierwszej linii akapitów](first_line_indent.png)
 
-### **Ustaw wcięcie wiszące**
+### **Ustawienie wcięcia wiszącego**
 
-Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt za pomocą [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) . Przekaż ujemną wartość, aby przesunąć pierwszą linię w lewo względem ciała akapitu.
+Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt metodą [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Ustaw wcięcie na wartość ujemną, aby przesunąć pierwszą linię w lewo względem ciała akapitu.
 
-W praktyce [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) definiuje lewą pozycję ciała akapitu, a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) definiuje pozycję pierwszej linii względem tego marginesu. Aby stworzyć wcięcie wiszące, przekaż dodatnią wartość do `setMarginLeft` i ujemną wartość do `setIndent`.
+W praktyce [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) definiuje lewą pozycję ciała akapitu, a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) określa pozycję pierwszej linii względem tego marginesu. Aby utworzyć wcięcie wiszące, ustaw dodatni lewy margines i ujemne wcięcie.
 
-Takie formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, w których zawinięte linie muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
+To formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, gdzie linie złamane muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj dostęp do docelowego slajdu.
-3. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) do slajdu.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) kształtu i usuń domyślny akapit.
-5. Utwórz akapity i przekaż dodatnią wartość do [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) dla każdego akapitu.
-6. Przekaż ujemną wartość do [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) , aby uzyskać efekt wcięcia wiszącego.
-7. Dodaj akapity do ramki tekstowej.
-8. Zapisz zmodyfikowaną prezentację.
-
-Ten kod pokazuje, jak ustawić wcięcie wiszące dla akapitu:
+Poniższy przykład JavaScript łączy wartości [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) = 40 i 60 punktów z wartościami [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) = -20 i -30 punktów. W każdym akapicie pierwsza linia zaczyna się po lewej stronie linii złamanych; drugi akapit ma głębsze wcięcie wiszące:
 
 ```javascript
 var aspose = aspose || {};
@@ -480,16 +423,9 @@ Wynik:
 
 ![Wcięcie wiszące akapitów](hanging_indent.png)
 
-### **Ustaw właściwości końcowego fragmentu akapitu**
+### **Ustawienie właściwości końcowego uruchomienia akapitu**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) kontroluje formatowanie znaku końca akapitu. Poniższy przykład przypisuje rozmiar czcionki i czcionkę łacińską do znaku końcowego drugiego akapitu:
-
-1. Utwórz lub wczytaj [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
-2. Dodaj [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) i usuń jego domyślny akapit.
-3. Utwórz dwa akapity i dodaj do nich części tekstu.
-4. Utwórz [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) dla znaku końcowego drugiego akapitu.
-5. Ustaw [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) oraz [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) .
-6. Przypisz format za pomocą [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) i zapisz prezentację.
+Metoda [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) kontroluje formatowanie znaku końca akapitu. Poniższy przykład tworzy [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) z [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) = 48 punktów oraz [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) ustawioną na Times New Roman. Przypisuje ten format do znaku końcowego drugiego akapitu, pozostawiając niezmienione widoczne fragmenty tekstu:
 
 ```javascript
 var aspose = aspose || {};
@@ -498,6 +434,7 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -524,13 +461,13 @@ try {
 
 ## **Zliczanie renderowanych linii**
 
-W odniesieniu do reguł akapitu, które wpływają na automatyczne zawijanie i interpunkcję na końcu linii, zobacz [Control Line Breaking](/slides/pl/nodejs-java/text-formatting/#control-line-breaking) oraz [Control Hanging Punctuation](/slides/pl/nodejs-java/text-formatting/#control-hanging-punctuation).
+Dla reguł akapitu wpływających na automatyczne zawijanie i interpunkcję przy końcach linii, zobacz [Kontrola łamania linii](/slides/pl/nodejs-java/text-formatting/#control-line-breaking) i [Kontrola interpunkcji wiszącej](/slides/pl/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Użyj [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) , aby policzyć linie zajmowane przez akapit po ułożeniu tekstu, włączając automatyczne zawijanie. Jest to przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
+Użyj [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) aby policzyć linie zajmowane przez akapit po rozmieszczeniu tekstu, w tym automatyczne zawijanie. Jest to przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
 
-Akapit jest jednym elementem w [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParagraphs) i może zajmować kilka renderowanych linii. Jawne złamanie linii w akapicie wymusza nową linię bez tworzenia kolejnego akapitu. Automatyczne zawijanie tworzy linie w oparciu o dostępną szerokość, nie wstawiając jawnych znaków końca linii do tekstu. Dlatego liczenie akapitów lub znaków złamania linii nie daje liczby renderowanych linii.
+Akapit jest jednym elementem w [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), i może zajmować kilka renderowanych linii. Jawne znakowanie nowej linii w akapicie wymusza nową linię bez tworzenia kolejnego akapitu. Automatyczne zawijanie tworzy linie na podstawie dostępnej szerokości, nie wstawiając jawnych znaków końca linii do tekstu. Dlatego liczenie akapitów lub znaków nowej linii nie daje rzeczywistej liczby renderowanych linii.
 
-Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zwęża kształt, a następnie zamienia tekst na krótszy ciąg. Zawijanie jest włączone, a automatyczne dopasowanie wyłączone, tak aby szerokość kształtu kontrolowała zawijanie bez automatycznego zmniejszania tekstu lub zmiany rozmiaru kształtu. Wymiary kształtu podawane są w punktach. Na koniec przykład dodaje kolejny akapit i sumuje liczby linii w całej ramce tekstowej.
+Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zwęża kształt, a następnie zastępuje tekst krótszym ciągiem. Przykład włącza zawijanie przy pomocy [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) i wyłącza autofit przy pomocy [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/), tak aby szerokość kształtu kontrolowała zawijanie bez automatycznego zmniejszania tekstu lub zmiany rozmiaru kształtu. Każdy pomiar używa [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount). Wymiary kształtu podawane są w punktach. Na końcu przykład dodaje kolejny akapit i sumuje liczbę linii w całej ramce tekstowej.
 
 ```javascript
 var aspose = aspose || {};
@@ -573,58 +510,19 @@ try {
 }
 ```
 
-Przy tym tekście i tych wymiarach zwężenie kształtu zwiększa liczbę linii, natomiast zamiana tekstu na krótki ciąg ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności i podstawiania czcionek, rozmiaru czcionki, marginesów, wcięć, zawijania i ustawień automatycznego dopasowania. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska przy sprawdzaniu szablonu.
+Przy podanym tekście i wymiarach, zwężenie kształtu zwiększa liczbę linii, natomiast zastąpienie tekstu krótkim ciągiem ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności i podstawiania czcionek, rozmiaru czcionki, marginesów, wcięć, zawijania i ustawień autofitu. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska przy weryfikacji szablonu.
 
-Jedynie liczba linii nie określa, czy tekst wykracza poza kontener. Ważna jest dostępna wysokość, wysokość linii, odstępy między akapitami i liniami oraz zachowanie automatycznego dopasowania; nawet pojedyncza linia może przekroczyć dostępną szerokość, gdy zawijanie jest wyłączone.
+Sam licznik linii nie decyduje o tym, czy tekst wykracza poza pojemnik. Ważne są także dostępna wysokość, wysokość linii, odstępy między akapitami i liniami oraz zachowanie autofitu; nawet pojedyncza linia może przekroczyć dostępną szerokość, gdy zawijanie jest wyłączone.
 
 ## **Import i eksport treści akapitu**
 
+Użyj HTML, aby wprowadzić tekst do prezentacji lub wyeksportować istniejące akapity do wykorzystania poza nią. Ta sekcja pokazuje także, jak renderować pojedyncze akapity jako obrazy, w tym akapity w komórkach tabel.
+
 ### **Importowanie tekstu HTML do akapitów**
 
-Użyj [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) , aby przekonwertować znacznik HTML na akapity i części w ramce tekstowej.
+Użyj [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) aby przekształcić znacznik HTML w akapity i fragmenty w ramce tekstowej.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj dostęp do slajdu i dodaj [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) .
-3. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) kształtu i usuń jego domyślny akapit.
-4. Zdefiniuj lub odczytaj źródłowy ciąg HTML.
-5. Przekaż ciąg HTML do [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) .
-6. Zapisz zmodyfikowaną prezentację.
-
-Ten przykład w języku JavaScript importuje HTML do ramki tekstowej:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const presentation = new aspose.slides.Presentation();
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
-    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
-    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
-    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shape.getTextFrame().getParagraphs().clear();
-
-    const html = "<p><b>Aspose.Slides</b> imports HTML text into presentation paragraphs.</p>";
-    shape.getTextFrame().getParagraphs().addFromHtml(html);
-    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-### **Eksport tekstu akapitu do HTML**
-
-Użyj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) , aby wyeksportować wybrany zakres akapitów jako HTML.
-
-1. Utwórz lub wczytaj instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Uzyskaj dostęp do slajdu i znajdź [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) , który zawiera tekst.
-3. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) kształtu.
-4. Wywołaj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) z indeksem początkowego akapitu oraz liczbą akapitów do eksportu.
-5. Zapisz zwrócony ciąg HTML do pliku.
-
-Ten samodzielny przykład w języku JavaScript tworzy kształt tekstowy i eksportuje wszystkie jego akapity:
+Ten przykład JavaScript odczytuje HTML z `file.html` w katalogu roboczym aplikacji i przekazuje znacznik do [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). Czyści domyślny akapit ramki tekstowej, tak aby ramka zawierała wyłącznie zaimportowaną zawartość. Prostokątny kształt pozostawia margines 10 punktów po każdej stronie slajdu:
 
 ```javascript
 var aspose = aspose || {};
@@ -635,22 +533,59 @@ const fs = require("fs");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
-    const sourceTextFrame = sourceShape.getTextFrame();
-    sourceTextFrame.getParagraphs().clear();
-    for (const text of ["First paragraph", "Second paragraph", "Third paragraph"]) {
-        const sourceParagraph = new aspose.slides.Paragraph();
-        sourceParagraph.setText(text);
-        sourceTextFrame.getParagraphs().add(sourceParagraph);
-    }
-    const shape = slide.getShapes().get_Item(0);
+
+    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
+    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getTextFrame().getParagraphs().clear();
+
+    const html = fs.readFileSync("file.html", "utf8");
+    shape.getTextFrame().getParagraphs().addFromHtml(html);
+    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Eksport tekstu akapitu do HTML**
+
+Użyj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) aby wyeksportować wybrany zakres akapitów jako HTML. Przy ponownym wykorzystaniu tekstu prezentacji na stronie internetowej możesz chcieć zachować lokalne wyróżnienia bez przenoszenia stylów czcionki, rozmiaru czy stylu pola tekstowego. Ustaw [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) aby kontrolować, jak daleko eksporter podąża za dziedziczeniem formatowania.
+
+Pobierz [przykładową prezentację](text-inheritance.pptx) i umieść ją w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera jeden kształt tekstowy z tekstem „Inherited text; explicit red 18pt”. Dane wejściowe celowo używają kilku poziomów formatowania:
+
+- Domyślny styl tekstu prezentacji dostarcza czcionkę Calibri i rozmiar 28 pt.
+- Styl tekstu pierwszego poziomu ramki tekstowej dostarcza niebieski tekst i kursywę.
+- Akapit jawnie ustawia pogrubiony tekst.
+- Drugi fragment, „explicit red 18pt”, jawnie ustawia czerwony tekst i rozmiar 18 pt.
+
+Poniższy kompletny przykład eksportuje te same akapity trzykrotnie. Przekazuje [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) do metody eksportu i zapisuje każdy wynik jako osobny plik HTML w kodowaniu UTF‑8:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("text-inheritance.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
     if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
         const textFrame = shape.getTextFrame();
         if (textFrame !== null) {
             const paragraphs = textFrame.getParagraphs();
-            const html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            fs.writeFileSync("paragraphs.html", html, "utf8");
+
+            const modes = [aspose.slides.TextInheritanceLimit.All, aspose.slides.TextInheritanceLimit.TextBox, aspose.slides.TextInheritanceLimit.ParagraphOnly];
+            const fileNames = ["All.html", "TextBox.html", "ParagraphOnly.html"];
+
+            for (let i = 0; i < modes.length; i++) {
+                const options = new aspose.slides.TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                const html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                fs.writeFileSync(fileNames[i], html, "utf8");
+            }
         } else {
             console.log("The first shape does not contain a text frame.");
         }
@@ -662,19 +597,31 @@ try {
 }
 ```
 
+Wygenerowany HTML zawiera następujący CSS dla pierwszego fragmentu, „Inherited text; ”. Tabela wymienia odpowiednie deklaracje; pozostałe wygenerowane właściwości zostały pominięte dla przejrzystości.
+
+| Wyjście | Odpowiedni CSS dla pierwszego fragmentu | Wygląd |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, pochylony tekst o rozmiarze 28 pt w Calibri, jeśli ta czcionka jest dostępna. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, pochylony tekst; otaczająca strona lub przeglądarka dostarcza rodzinę czcionki i rozmiar. |
+| `ParagraphOnly.html` | `font-weight:bold` | Pogrubiony tekst; otaczająca strona lub przeglądarka dostarcza rodzinę czcionki, rozmiar, kolor i styl kursywy. |
+
+Drugi fragment zachowuje `color:#ff0000`, `font-size:18pt` i `font-weight:bold` we wszystkich trzech wynikach. Zachowuje także kursywę w `All` i `TextBox`, ale nie w `ParagraphOnly`. Ograniczenie dziedziczenia nie usuwa więc formatowania przypisanego explicite do akapitu lub fragmentu.
+
+Otwórz pliki w tej samej przeglądarce, aby je porównać. W dwóch trybach ograniczonych pominięte właściwości CSS są rozwiązywane przez style strony docelowej lub domyślne przeglądarki, więc ostateczny wygląd zależy od miejsca użycia HTML.
+
 ### **Renderowanie akapitu jako obrazu**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) . Zapisz wynik do pliku za pomocą [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) . Nie musisz renderować zawierającego kształtu ani ręcznie przycinać bitmapy.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Zapisz wynik do pliku lub strumienia przy pomocy [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Nie musisz renderować całego kształtu ani ręcznie przycinać bitmapy.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) może zwrócić `null`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może zostać wyrenderowany. Sprawdź wynik przed zapisem i zwolnij zwrócony obraz po użyciu.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) może zwrócić `null`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisem i zwolnij zwrócony obraz po użyciu.
 
 #### **Renderowanie akapitu w domyślnej skali**
 
-Poniższe pole tekstowe zawiera trzy akapity:
+Przykład tworzy prezentację z jednym slajdem, którego pierwszy kształt jest polem tekstowym zawierającym trzy akapity.
 
 ![Pole tekstowe z trzema akapitami](paragraph_to_image_input.png)
 
-Poniższy przykład renderuje drugi akapit w zwykłym kształcie tekstowym w domyślnej skali i zapisuje zwrócony obraz w formacie PNG. Blok `finally` zapewnia prawidłowe zwolnienie obrazu.
+Poniższy przykład wybiera drugi akapit o indeksie 1 i wywołuje [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) bez parametrów skali. Sprawdza, czy kształt zawiera wymagany akapit i czy renderowanie zwróciło obraz przed wywołaniem [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) w formacie PNG. W bloku `finally` obraz jest zwalniany po użyciu.
 
 ```javascript
 var aspose = aspose || {};
@@ -684,6 +631,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
     const sourceTextFrame = sourceShape.getTextFrame();
     sourceTextFrame.getParagraphs().clear();
@@ -726,7 +674,7 @@ Wynik:
 
 #### **Renderowanie akapitu w komórce tabeli ze skalowaniem**
 
-Użyj przeciążenia [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) , które akceptuje parametry `scaleX` i `scaleY`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce przy podwojonej domyślnej szerokości i wysokości oraz zapisuje wynik jako obraz PNG.
+Użyj przeciążenia [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) przyjmującego parametry `scaleX` i `scaleY`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce przy dwukrotności domyślnej szerokości i wysokości oraz zapisuje wynik jako obraz PNG.
 
 ```javascript
 var aspose = aspose || {};
@@ -739,6 +687,7 @@ const scaleY = 2;
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+    
     const columnWidths = java.newArray("double", [300]);
     const rowHeights = java.newArray("double", [80]);
     const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
@@ -760,25 +709,26 @@ try {
 }
 ```
 
-Czynnik skali `1` utrzymuje tę oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu czynników tworzy obraz, którego szerokość i wysokość są w przybliżeniu dwukrotnie większe od domyślnych wymiarów, co daje czterokrotnie więcej pikseli. Większe czynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wyjściu o wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Czynniki poniżej `1` tworzą mniejsze obrazy z mniejszą ilością szczegółów. Używaj równych czynników, aby zachować proporcje akapitu; różne czynniki poziome i pionowe rozciągają wynik niezależnie.
+Współczynnik skali `1` utrzymuje dany oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu współczynników tworzy obraz, którego szerokość i wysokość są w przybliżeniu dwa razy większe od domyślnych wymiarów, co daje cztery razy więcej pikseli. Wyższe współczynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wyjściu wysokiej rozdzielczości, ale zwiększają także zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` tworzą mniejsze obrazy z mniejszą szczegółowością. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają obraz niezależnie.
 
-Renderowanie całego kształtu przy użyciu [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) jest przydatne, gdy wyjście musi zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Do obrazu zawierającego tylko akapit użyj [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) .
+Renderowanie całego kształtu metodą [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) pozostaje przydatne, gdy wyjście musi obejmować wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu wyłącznie akapitu użyj [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
 
 ## **FAQ**
 
-**Czy mogę całkowicie wyłączyć zawijanie tekstu wewnątrz ramki tekstowej?**
+**Czy mogę całkowicie wyłączyć zawijanie linii w ramce tekstowej?**
 
-Tak. Ustaw [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) , aby wyłączyć zawijanie, dzięki czemu linie nie będą łamane na krawędziach ramki tekstowej.
+Tak. Ustaw [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) aby wyłączyć zawijanie, dzięki czemu linie nie będą łamane przy krawędziach ramki tekstowej.
 
-**Jak mogę uzyskać dokładne granice konkretnego akapitu na slajdzie?**
+**Jak mogę uzyskać dokładne granice akapitu na slajdzie?**
 
-Użyj [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) , aby pobrać prostokąt otaczający akapit. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/#getRect) dostarcza granice pojedynczej części.
+Użyj [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) aby pobrać prostokąt graniczy akapitu. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) zapewnia granice pojedynczego fragmentu.
 
-**Gdzie kontrolowane jest wyrównanie akapitu (do lewej, prawej, wyśrodkowanie lub wyjustowanie)?**
+**Gdzie kontrolowane jest wyrównanie akapitu (lewe, prawe, wyśrodkowane lub justowane)?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) jest ustawieniem na poziomie akapitu i ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych części.  
-Aby pionowo wyrównać części o różnych rozmiarach czcionki w obrębie każdej linii, zobacz [Align Fonts Within a Line](/slides/pl/nodejs-java/text-formatting/#align-fonts-within-a-line).
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) jest ustawieniem na poziomie akapitu i obowiązuje cały akapit, niezależnie od formatowania poszczególnych fragmentów.
+
+Aby pionowo wyrównać fragmenty o różnych rozmiarach czcionki w każdej linii, zobacz [Align Fonts Within a Line](/slides/pl/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
 **Czy mogę ustawić język korekty dla części akapitu?**
 
-Tak. Ustaw [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) dla poszczególnych części, dzięki czemu jeden akapit może zawierać tekst w wielu językach.
+Tak. Ustaw [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) dla poszczególnych fragmentów, aby jeden akapit mógł zawierać tekst w wielu językach.

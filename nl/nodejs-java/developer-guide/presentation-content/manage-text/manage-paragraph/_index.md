@@ -1,5 +1,5 @@
 ---
-title: Beheer PowerPoint-tekst alinea's in JavaScript
+title: Beheer PowerPoint-tekstalinea's in JavaScript
 linktitle: Beheer alinea
 type: docs
 weight: 40
@@ -8,57 +8,47 @@ aliases:
   - /nodejs-java/paragraph/
   - /nodejs-java/portion/
 keywords:
-  - tekst toevoegen
-  - alinea toevoegen
-  - tekst beheren
-  - alinea beheren
-  - opsommingsteken beheren
-  - alinea-inspringing
-  - hangende inspringing
-  - alinea-opsommingsteken
-  - genummerde lijst
-  - opsomminglijst
-  - alinea-eigenschappen
-  - HTML importeren
-  - tekst naar HTML
-  - alinea naar HTML
-  - alinea naar afbeelding
-  - tekst naar afbeelding
-  - alinea exporteren
-  - PowerPoint
-  - presentatie
-  - Node.js
-  - JavaScript
-  - Aspose.Slides
-description: "Leer hoe je alinea's, porties, opsommingstekens, genummerde lijsten, inspringingen, HTML-inhoud en alinea-afbeeldingen kunt maken en opmaken met Aspose.Slides voor Node.js via Java."
+- tekst toevoegen
+- alinea toevoegen
+- tekst beheren
+- alinea beheren
+- opsommingsteken beheren
+- alinea-inspring
+- hangende inspring
+- alinea-opsommingsteken
+- genummerde lijst
+- opsommingslijst
+- alinea-eigenschappen
+- HTML importeren
+- tekst naar HTML
+- alinea naar HTML
+- alinea naar afbeelding
+- tekst naar afbeelding
+- alinea exporteren
+- PowerPoint
+- presentatie
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Leer hoe u alinea's, fragmenten, opsommingstekens, genummerde lijsten, inspringingen, HTML-inhoud en alinea-afbeeldingen maakt en opmaakt met Aspose.Slides voor Node.js via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Node.js via Java represents text as a hierarchy of text frames, paragraphs, and portions:
+Aspose.Slides for Node.js via Java vertegenwoordigt tekst als een hiërarchie van tekstframes, alinea’s en fragmenten:
 
-* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) vertegenwoordigt de tekstcontainer in een vorm en biedt toegang tot de alinea‑collectie.
-* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) vertegenwoordigt één alinea in een tekstkader en biedt toegang tot de porties en op alinea‑niveau vormgeving.
-* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) vertegenwoordigt een tekstrun binnen een alinea. Elke portie kan zijn eigen tekst en karakter‑niveau vormgeving hebben.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) vertegenwoordigt de tekstopslag in een vorm en biedt toegang tot de alinea‑verzameling.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) vertegenwoordigt één alinea in een tekstframe en biedt toegang tot de fragmenten en alinea‑niveau opmaak.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) vertegenwoordigt een tekstrun binnen een alinea. Elk fragment kan zijn eigen tekst en teken‑niveau opmaak hebben.
 
-Een alinea kan daarom tekst bevatten met verschillende lettertypes, kleuren, groottes en andere vormgeving door meerdere porties te gebruiken.
+Een alinea kan dus tekst met verschillende lettertypen, kleuren, groottes en andere opmaak bevatten door meerdere fragmenten te gebruiken.
 
-## **Alinea's maken en opmaken**
+## **Alinea’s maken en opmaken**
 
-### **Alinea's maken met meerdere porties**
+Maak alinea’s in het tekstframe van een vorm en gebruik fragmenten om individuele tekstruns op te maken. Deze sectie laat zien hoe meerdere fragmenten binnen elke alinea gecombineerd kunnen worden en hoe verschillende kleuren, lettergrootten en stijlen toegepast kunnen worden.
 
-De onderstaande stappen maken een tekstkader met drie alinea's, elk met drie porties:
+### **Alinea’s maken met meerdere fragmenten**
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Toegang tot de betreffende dia via de index.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-4. Toegang tot het [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) van de vorm.
-5. Gebruik de standaardalinea en voeg twee extra [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) objecten toe aan het tekstkader.
-6. Voeg voldoende [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) objecten toe zodat elke alinea drie porties bevat. De standaardalinea bevat al één lege portie.
-7. Stel de tekst van elke portie in.
-8. Pas karakter‑niveau opmaak toe via [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/).
-9. Sla de gewijzigde presentatie op.
-
-Dit JavaScript‑voorbeeld implementeert de stappen:
+Het volgende JavaScript‑voorbeeld maakt drie alinea’s, elk met drie tekstruns in de collectie die wordt geretourneerd door [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). Het hergebruikt de standaardalinea en het lege fragment, waarna de resterende alinea’s en fragmenten worden toegevoegd. Opmaak wordt toegepast via [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): het eerste fragment in elke alinea is rood, vet en 15 punten; het tweede is blauw, cursief en 18 punten. Het derde fragment behoudt de standaardopmaak:
 
 ```javascript
 var aspose = aspose || {};
@@ -68,6 +58,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
     const textFrame = shape.getTextFrame();
 
@@ -117,24 +108,13 @@ try {
 
 ## **Opsommingstekens en genummerde lijsten maken**
 
-### **Een opsomming of genummerde lijst maken**
+Organiseer alinea‑tekst in lijsten met symbolen, cijfers of aangepaste afbeeldingen. De voorbeelden in deze sectie behandelen opsommingsteken‑opmaak, meerlagige lijsten en aangepaste startnummers.
 
-Opsommingstekens en nummering maken gerelateerde items gemakkelijker scanbaar. In Aspose.Slides worden lijstinstellingen gedefinieerd via [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
+### **Een opsomming met opsommingsteken of nummer maken**
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Toegang tot de betreffende dia via de index.
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de geselecteerde dia.
-4. Toegang tot het [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) van de vorm.
-5. Verwijder de standaardalinea uit het tekstkader.
-6. Maak een [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) voor een symbool‑opsommingsteken.
-7. Stel [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) in op [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) en specificeer het opsommingsteken‑karakter.
-8. Stel de alinea‑tekst, inspringing, kleur van het opsommingsteken en hoogte van het opsommingsteken in.
-9. Voeg de alinea toe aan het tekstkader.
-10. Maak een tweede alinea en stel [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) in op [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
-11. Configureer de genummerde opsommingsteken‑stijl en voeg de alinea toe aan het tekstkader.
-12. Sla de presentatie op.
+Opsommingstekens en nummering maken gerelateerde items makkelijker scanbaar. In Aspose.Slides worden lijstinstellingen gedefinieerd via [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
 
-Dit JavaScript‑voorbeeld maakt een symbool‑opsommingsteken en een genummerde opsommingsteken:
+Dit JavaScript‑voorbeeld voegt een symbool‑opsommingsteken en een genummerd item toe aan hetzelfde tekstframe. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) selecteert het type opsommingsteken, terwijl [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) het symbool levert en [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) de nummeringsstijl kiest. Beide items gebruiken zwarte opsommingstekens met een hoogte van 100 % en een alinea‑inspring van 25 punten:
 
 ```javascript
 var aspose = aspose || {};
@@ -144,6 +124,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -176,22 +157,11 @@ try {
 }
 ```
 
-### **Afbeeldings‑opsommingstekens gebruiken**
+### **Afbeeldingsopsommingstekens gebruiken**
 
-Afbeeldings‑opsommingstekens laten je een aangepast beeld gebruiken in plaats van een symbool of nummer.
+Afbeeldingsopsommingstekens laten je een aangepaste afbeelding gebruiken in plaats van een symbool of cijfer.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Toegang tot de betreffende dia via de index.
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe en krijg toegang tot zijn [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
-4. Verwijder de standaardalinea uit het tekstkader.
-5. Laad de opsommingsteken‑afbeelding en voeg deze toe aan de afbeeldingscollectie van de presentatie als een [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/).
-6. Maak een [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) en stel de tekst in.
-7. Stel [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) in op [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/).
-8. Wijs de afbeelding toe via [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) en stel de hoogte van het opsommingsteken in.
-9. Voeg de alinea toe aan het tekstkader.
-10. Sla de gewijzigde presentatie op.
-
-Dit JavaScript‑voorbeeld maakt een afbeeldings‑opsommingsteken:
+Dit JavaScript‑voorbeeld laadt `image.png` uit de werkmap van de applicatie, voegt de afbeelding toe aan de presentatie‑afbeeldingscollectie als een [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) en gebruikt deze als alinea‑opsommingsteken. Het roept [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) aan om een afbeeldingsopsommingsteken te gebruiken en kent de afbeelding toe via [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) wordt ingesteld op 100 % om het opsommingsteken ten opzichte van de alinea‑tekst te dimensioneren:
 
 ```javascript
 var aspose = aspose || {};
@@ -230,15 +200,9 @@ try {
 
 ### **Een meerlagige lijst maken**
 
-Stel [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) in om alinea's op verschillende niveaus van een lijst te plaatsen. Het bovenste niveau heeft een diepte van `0`.
+Stel [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) in om alinea’s op verschillende niveaus van een lijst te plaatsen. Het hoogste niveau heeft een diepte van `0`.
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) en krijg toegang tot een dia.
-2. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe en verwijder de standaardalinea uit het tekstkader.
-3. Maak vier alinea's en configureer hun opsommingsteken‑symbolen.
-4. Stel hun [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) waarden in op `0`, `1`, `2` en `3`.
-5. Voeg de alinea's toe aan het tekstkader en sla de presentatie op.
-
-Dit JavaScript‑voorbeeld maakt een vier-niveau opsomminglijst:
+Dit JavaScript‑voorbeeld kent [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) waarden van 0 tot 3 toe aan vier alinea’s, waardoor er een hiërarchie binnen één tekstframe ontstaat. Elke alinea gebruikt een symbool‑opsommingsteken, waarbij [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) afwisselt tussen een ronde bullet en een koppelteken om aangrenzende niveaus te onderscheiden:
 
 ```javascript
 var aspose = aspose || {};
@@ -248,6 +212,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -297,15 +262,9 @@ try {
 
 ### **Genummerde lijstitems starten met aangepaste waarden**
 
-Gebruik [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) om het initiële nummer voor een genummerde alinea in te stellen.
+Gebruik [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) om het initiële nummer in te stellen dat voor een genummerde alinea wordt getoond.
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) en voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan een dia.
-2. Verwijder de standaardalinea uit het tekstkader van de vorm.
-3. Maak drie genummerde alinea's.
-4. Stel [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) in op `2`, `3` en `7` voor de respectievelijke alinea's.
-5. Voeg de alinea's toe aan het tekstkader en sla de presentatie op.
-
-Dit JavaScript‑voorbeeld kent een aangepast startnummer toe aan elke alinea:
+Dit JavaScript‑voorbeeld stelt [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) in op nummering voor drie alinea’s en kent [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) waarden 2, 3 en 7 toe. De startwaarde wordt afzonderlijk per alinea geconfigureerd, waardoor de weergegeven nummers waarden kunnen overslaan:
 
 ```javascript
 var aspose = aspose || {};
@@ -315,6 +274,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -343,25 +303,17 @@ try {
 }
 ```
 
-## **Alinea‑indeling en eind‑eigenschappen beheren**
+## **Alinea‑opmaak en -einde eigenschappen beheren**
 
-### **Een eerste‑regelin­ding instellen**
+Pas alinea‑marges en inspringingen aan om de positie van de eerste regel en ingesprongen regels te regelen. Je kunt ook het einde‑teken van de alinea apart opmaken van de zichtbare tekstfragmenten.
 
-Gebruik [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) om de eerste‑regelin­ding van een alinea te regelen. Deze methode verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de resterende regels uitgelijnd blijven met de alinea‑inhoud.
+### **Een eerste‑regelinspring instellen**
 
-Gebruik [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) wanneer je de hele alinea wilt verplaatsen. Gebruik [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) wanneer je alleen de eerste regel wilt verplaatsen.
+Gebruik de methode [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) om de eerste‑regelinspring van een alinea te regelen. Deze instelling verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde schuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinia‑inhoud.
 
-Het onderstaande voorbeeld maakt verschillende alinea's en past verschillende [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) waarden toe om te demonstreren hoe de eerste‑regelin­ding de alinea‑lay-out beïnvloedt.
+Gebruik [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) wanneer je de hele alinea moet verplaatsen. Gebruik [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) wanneer je alleen de eerste regel moet verplaatsen.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Toegang tot de doeldia.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-4. Toegang tot het [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
-5. Maak verschillende alinea's en stel verschillende [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) waarden voor hen in.
-6. Voeg de alinea's toe aan het tekstkader.
-7. Sla de gewijzigde presentatie op.
-
-Deze code laat zien hoe je een alinea‑inspringing instelt:
+Het volgende voorbeeld geeft drie alinea’s dezelfde [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) van 20 punten en [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) waarden van 0, 20 en 40 punten. De eerste regels beginnen steeds verder naar rechts, terwijl ingesprongen regels dezelfde linkermarge behouden:
 
 ```javascript
 var aspose = aspose || {};
@@ -414,26 +366,17 @@ try {
 
 Het resultaat:
 
-![De eerste‑regelin­ding van de alinea's](first_line_indent.png)
+![De eerste‑regelinspring van de alinea's](first_line_indent.png)
 
-### **Een hangende inspringing instellen**
+### **Een hangende inspring instellen**
 
-Een hangende inspringing is een alinea‑lay-out waarbij de eerste regel links van de overige regels begint. In Aspose.Slides creëer je dit effect met [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Geef een negatieve waarde op om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
+Een hangende inspring is een alinea‑opmaak waarbij de eerste regel links van de overige regels begint. In Aspose.Slides creëer je dit effect met de methode [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Stel de inspringing in op een negatieve waarde om de eerste regel naar links te verplaatsen ten opzichte van de alinia‑inhoud.
 
-In de praktijk definieert [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) de linkse positie van de alinea‑inhoud, en [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) bepaalt de positie van de eerste regel ten opzichte van die marge. Om een hangende inspringing te creëren, geef je een positieve waarde aan `setMarginLeft` en een negatieve waarde aan `setIndent`.
+In de praktijk bepaalt [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) de linkse positie van de alinia‑inhoud, en bepaalt [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) de positie van de eerste regel ten opzichte van die marge. Om een hangende inspring te creëren, stel je een positieve linkermarge en een negatieve inspringing in.
 
-Deze opmaak is nuttig voor bibliografieën, referenties, glossarium‑items en andere alinea's waarbij regel­aftrekkingen onder de alinea‑inhoud moeten uitlijnen i.p.v. onder het eerste teken van de eerste regel.
+Deze opmaak is nuttig voor bibliografieën, referenties, woordenlijstvermeldingen en andere alinea’s waarbij ingesprongen regels moeten uitlijnen onder de alinia‑inhoud in plaats van onder het eerste teken van de eerste regel.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Toegang tot de doeldia.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-4. Toegang tot het [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
-5. Maak alinea's en geef een positieve waarde aan [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) voor elke alinea.
-6. Geef een negatieve waarde aan [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) om het hangende‑inspringing‑effect te creëren.
-7. Voeg de alinea's toe aan het tekstkader.
-8. Sla de gewijzigde presentatie op.
-
-Deze code laat zien hoe je een hangende inspringing voor een alinea instelt:
+Het volgende JavaScript‑voorbeeld combineert [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) waarden van 40 en 60 punten met [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) waarden van -20 en -30 punten. In elke alinea begint de eerste regel links van de ingesprongen regels; de tweede alinea heeft een diepere hangende inspring:
 
 ```javascript
 var aspose = aspose || {};
@@ -478,18 +421,11 @@ try {
 
 Het resultaat:
 
-![De hangende inspringing van de alinea's](hanging_indent.png)
+![De hangende inspring van de alinea's](hanging_indent.png)
 
-### **Eind‑alinea‑run‑eigenschappen instellen**
+### **Einde‑alinea‑run‑eigenschappen instellen**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) regelt de opmaak van het alinea‑eindteken. Het volgende voorbeeld kent een lettergrootte en een Latijns lettertype toe aan het eindteken van de tweede alinea:
-
-1. Maak of laad een [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) en krijg toegang tot een dia.
-2. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe en wis de standaardalinea.
-3. Maak twee alinea's en voeg tekstporties toe.
-4. Maak een [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) voor het eindteken van de tweede alinea.
-5. Stel [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) en [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) in.
-6. Wijs de opmaak toe met [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) en sla de presentatie op.
+De methode [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) regelt de opmaak van het einde‑teken van een alinea. Het volgende voorbeeld maakt een [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) met [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) ingesteld op 48 punten en [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) ingesteld op Times New Roman. Het kent dit formaat toe aan het einde‑teken van de tweede alinea, zonder de zichtbare tekstfragmenten te wijzigen:
 
 ```javascript
 var aspose = aspose || {};
@@ -498,6 +434,7 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
     const textFrame = shape.getTextFrame();
     textFrame.getParagraphs().clear();
@@ -522,15 +459,15 @@ try {
 }
 ```
 
-## **Aantal gerenderde regels tellen**
+## **Aantal weergegeven regels tellen**
 
-Voor alinea‑regels die automatische regel­afbreking en interpunctie aan het einde van regels beïnvloeden, zie [Regelafbreking beheersen](/slides/nl/nodejs-java/text-formatting/#control-line-breaking) en [Hangende interpunctie beheersen](/slides/nl/nodejs-java/text-formatting/#control-hanging-punctuation).
+Voor alinea‑regels die automatisch afbreken en interpunctie aan het einde van een regel beïnvloeden, zie [Regelafbreking beheren](/slides/nl/nodejs-java/text-formatting/#control-line-breaking) en [Hangende interpunctie beheren](/slides/nl/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Gebruik [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) om het aantal regels dat een alinea na tekstlay-out inneemt te tellen, inclusief automatische afbreking. Dit is nuttig bij het controleren van tekstlengte en lay-out in presentatiesjablonen.
+Gebruik [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) om het aantal regels te tellen dat een alinea na tekstlay-out occupyert, inclusief automatische afbreking. Handig bij het controleren van tekstopmaak en lay-out in presentatiesjablonen.
 
-Een alinea is één item in [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParagraphs), en kan verschillende gerenderde regels innemen. Een expliciete regel­onderbreking binnen een alinea dwingt een nieuwe regel zonder een nieuwe alinea te creëren. Automatische afbreking maakt regels op basis van de beschikbare breedte zonder expliciete regel­onderbrekingen in de tekst in te voegen. Het tellen van alinea's of regel­onderbrekingstekens geeft dus niet het gerenderde regel‑aantal.
+Een alinea is één item in [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), en kan meerdere weergegeven regels in beslag nemen. Een expliciete regeleinde binnen een alinea dwingt een nieuwe regel af zonder een extra alinea te maken. Automatische afbreking genereert regels op basis van de beschikbare breedte zonder expliciete regeleindes in de tekst in te voegen. Het tellen van alinea’s of regeleinde‑tekens levert dus niet het aantal weergegeven regels op.
 
-Het volgende voorbeeld maakt een tekstoppervlak, telt de regels, vernauwt het oppervlak en vervangt vervolgens de tekst door een kortere string. Afbreking is ingeschakeld en autofit uitgeschakeld zodat de breedte van het oppervlak de afbreking bepaalt zonder de tekst automatisch te verkleinen of het oppervlak te schalen. De afmetingen van het oppervlak zijn in points. Ten slotte voegt het voorbeeld nog een alinea toe en somt de regel‑aantallen van het tekstkader op.
+Het volgende voorbeeld maakt een tekstoppervlak, telt de regels, vernauwt de vorm en vervangt daarna de tekst door een kortere string. Het voorbeeld schakelt afbreken in via [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) en schakelt autofit uit via [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/) zodat de vormbreedte de afbreking regelt zonder de tekst automatisch te verkleinen of de vorm te schalen. Elke meting gebruikt [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount). Vormafmetingen zijn in punten. Ten slotte voegt het voorbeeld nog een alinea toe en telt de regelaantallen op over het tekstframe.
 
 ```javascript
 var aspose = aspose || {};
@@ -573,58 +510,19 @@ try {
 }
 ```
 
-Met deze tekst en deze afmetingen verhoogt het vernauwen van het oppervlak het aantal regels, terwijl het vervangen van de tekst door de korte string dit verlaagt. Exacte aantallen kunnen variëren afhankelijk van de beschikbaarheid en vervanging van lettertypes, lettergrootte, marges, inspringingen, afbreking en autofit‑instellingen. Gebruik de lettertypes en lay‑out‑instellingen die bedoeld zijn voor de doeleomgeving bij het controleren van een sjabloon.
+Met deze tekst en afmetingen verhoogt het vernauwen van de vorm het aantal regels, terwijl het vervangen van de tekst door de korte string het aantal verlaagt. Precieze aantallen kunnen variëren afhankelijk van de beschikbare lettertypen en substitutie, lettergrootte, marges, inspringen, afbreking en autofit‑instellingen. Gebruik de lettertypen en lay‑outinstellingen die bedoeld zijn voor de doelomgeving bij het controleren van een sjabloon.
 
-Het aantal regels alleen bepaalt niet of tekst buiten de container overlijdt. De beschikbare hoogte, regelhoogtes, alinea‑ en regel­afstand, en autofit‑gedrag spelen eveneens een rol; zelfs een enkele regel kan de beschikbare breedte overschrijden wanneer afbreking is uitgeschakeld.
+Het aantal regels alleen bepaalt niet of tekst buiten het vlak uitsteekt. De beschikbare hoogte, regelhoogtes, alinea‑ en regelafstanden en autofit‑gedrag spelen ook een rol; zelfs één regel kan de beschikbare breedte overschrijden wanneer afbreken uitgeschakeld is.
 
 ## **Alinea‑inhoud importeren en exporteren**
 
-### **HTML‑tekst importeren in alinea's**
+Gebruik HTML om tekst in een presentatie te brengen of bestaande alinea’s te exporteren voor gebruik daarbuiten. Deze sectie laat ook zien hoe individuele alinea’s als afbeeldingen gerenderd kunnen worden, inclusief alinea’s in tabelcellen.
 
-Gebruik [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) om HTML‑opmaak om te zetten naar alinea's en porties in een tekstkader.
+### **HTML‑tekst importeren in alinea’s**
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Toegang tot een dia en voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe.
-3. Toegang tot het [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
-4. Definieer of lees de bron‑HTML‑string.
-5. Geef de HTML‑string door aan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
-6. Sla de gewijzigde presentatie op.
+Gebruik [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) om HTML‑markup om te zetten in alinea’s en fragmenten in een tekstframe.
 
-Dit JavaScript‑voorbeeld importeert HTML in een tekstkader:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const presentation = new aspose.slides.Presentation();
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
-    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
-    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
-    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shape.getTextFrame().getParagraphs().clear();
-
-    const html = "<p><b>Aspose.Slides</b> imports HTML text into presentation paragraphs.</p>";
-    shape.getTextFrame().getParagraphs().addFromHtml(html);
-    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-### **Alinea‑tekst exporteren naar HTML**
-
-Gebruik [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) om een geselecteerd bereik van alinea's als HTML te exporteren.
-
-1. Maak of laad een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Toegang tot de dia en vind de [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) die de tekst bevat.
-3. Toegang tot het [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) van de vorm.
-4. Roep [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) aan met de beginalinea‑index en het aantal alinea's dat moet worden geëxporteerd.
-5. Schrijf de geretourneerde HTML‑string naar een bestand.
-
-Dit zelfstandige JavaScript‑voorbeeld maakt een tekstoppervlak en exporteert al haar alinea's:
+Dit JavaScript‑voorbeeld leest HTML uit `file.html` in de werkmap van de applicatie en geeft de markup door aan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). Het leegt het standaard‑alinea‑fragment van het tekstframe zodat het frame alleen de geïmporteerde inhoud bevat. De rechthoekige vorm laat een marge van 10 punten aan elke kant van de dia over:
 
 ```javascript
 var aspose = aspose || {};
@@ -635,22 +533,59 @@ const fs = require("fs");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
-    const sourceTextFrame = sourceShape.getTextFrame();
-    sourceTextFrame.getParagraphs().clear();
-    for (const text of ["First paragraph", "Second paragraph", "Third paragraph"]) {
-        const sourceParagraph = new aspose.slides.Paragraph();
-        sourceParagraph.setText(text);
-        sourceTextFrame.getParagraphs().add(sourceParagraph);
-    }
-    const shape = slide.getShapes().get_Item(0);
+
+    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
+    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getTextFrame().getParagraphs().clear();
+
+    const html = fs.readFileSync("file.html", "utf8");
+    shape.getTextFrame().getParagraphs().addFromHtml(html);
+    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Alinea‑tekst exporteren naar HTML**
+
+Gebruik [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) om een geselecteerd bereik van alinea’s als HTML te exporteren. Wanneer je presentatietekst opnieuw wilt gebruiken op een website, wil je misschien lokale nadruk behouden zonder de lettertype‑, grootte‑ of tekstvak‑stijlen van de presentatie mee te nemen. Stel [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) in om te bepalen hoe ver de exporteur de opmaak‑erfenis volgt.
+
+Download [de voorbeeldpresentatie](text-inheritance.pptx) en plaats deze in de werkmap van de applicatie. De eerste dia bevat één tekstvorm met de tekst “Inherited text; explicit red 18pt”. De invoer gebruikt opzettelijk verschillende opmaak‑niveaus:
+
+- De standaard‑tekststijl van de presentatie levert Calibri en een grootte van 28 pt.
+- De eerste‑niveau tekststijl van het tekstframe levert blauwe tekst en cursief.
+- De alinea stelt expliciet vetgedrukte tekst in.
+- Het tweede fragment, “explicit red 18pt”, stelt expliciet rode tekst en een grootte van 18 pt in.
+
+Het volgende volledige voorbeeld exporteert dezelfde alinea’s drie keer. Het geeft [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) door aan de export‑methode en schrijft elk resultaat naar een apart UTF‑8 HTML‑bestand:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("text-inheritance.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
     if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
         const textFrame = shape.getTextFrame();
         if (textFrame !== null) {
             const paragraphs = textFrame.getParagraphs();
-            const html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
-            fs.writeFileSync("paragraphs.html", html, "utf8");
+
+            const modes = [aspose.slides.TextInheritanceLimit.All, aspose.slides.TextInheritanceLimit.TextBox, aspose.slides.TextInheritanceLimit.ParagraphOnly];
+            const fileNames = ["All.html", "TextBox.html", "ParagraphOnly.html"];
+
+            for (let i = 0; i < modes.length; i++) {
+                const options = new aspose.slides.TextToHtmlConversionOptions();
+                options.setTextInheritanceLimit(modes[i]);
+
+                const html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+                fs.writeFileSync(fileNames[i], html, "utf8");
+            }
         } else {
             console.log("The first shape does not contain a text frame.");
         }
@@ -662,19 +597,31 @@ try {
 }
 ```
 
+De gegenereerde HTML bevat de volgende CSS voor het eerste fragment, “Inherited text; ”. De tabel toont de relevante declaraties; andere gegenereerde eigenschappen zijn weggelaten voor de duidelijkheid.
+
+| Uitvoer | Relevante CSS voor het eerste fragment | Uiterlijk |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blauwe, vetgedrukte, cursieve tekst op 28 pt in Calibri, indien dat lettertype beschikbaar is. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blauwe, vetgedrukte, cursieve tekst; de omringende pagina of browser levert het lettertype en de grootte. |
+| `ParagraphOnly.html` | `font-weight:bold` | Vetgedrukte tekst; de omringende pagina of browser levert het lettertype, de grootte, de kleur en de cursieve stijl. |
+
+Het tweede fragment behoudt `color:#ff0000`, `font-size:18pt` en `font-weight:bold` in alle drie de uitvoerbestanden. Het behoudt ook cursief in `All` en `TextBox`, maar niet in `ParagraphOnly`. Het beperken van erfelijkheid verwijdert dus niet de opmaak die expliciet aan een alinea of fragment is toegewezen.
+
+Open de bestanden in dezelfde browser om ze te vergelijken. In de twee beperkte modi worden weggelaten CSS‑eigenschappen opgelost door de stijlen van de bestemmingspagina of de browser‑standaarden, waardoor het uiteindelijke uiterlijk afhankelijk is van waar de HTML wordt gebruikt.
+
 ### **Een alinea renderen als afbeelding**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) rendert een individuele alinea direct en retourneert een [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Sla het resultaat op in een bestand met [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Je hoeft de omvattende vorm niet te renderen of een bitmap handmatig bij te snijden.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) rendert een individuele alinea direct en retourneert een [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Sla het resultaat op in een bestand of stream met [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Je hoeft de omliggende vorm niet te renderen of handmatig een bitmap bij te snijden.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) kan `null` retourneren als de alinea niet gevonden wordt in de bovenliggende collectie, geen geldige render‑grenzen heeft, of niet gerenderd kan worden. Controleer het resultaat vóór het opslaan en ruim de geretourneerde afbeelding correct op na gebruik.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) kan `null` retourneren als de alinea niet in de bovenliggende collectie wordt gevonden, geen geldige render‑bounds heeft, of niet gerenderd kan worden. Controleer het resultaat voordat je het opslaat en maak de geretourneerde afbeelding na gebruik weer vrij.
 
 #### **Een alinea renderen op de standaard schaal**
 
-Het volgende tekstvak bevat drie alinea's:
+Het voorbeeld maakt een presentatie met één dia waarvan de eerste vorm een tekstvak is met drie alinea’s.
 
 ![Het tekstvak met drie alinea's](paragraph_to_image_input.png)
 
-Het volgende voorbeeld rendert de tweede alinea in een regulier tekstkader op de standaard schaal en slaat de geretourneerde afbeelding op in PNG‑formaat. Het `finally`‑blok zorgt ervoor dat de afbeelding correct wordt vrijgegeven.
+Het volgende voorbeeld selecteert de tweede alinea op index 1 en roept [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) aan zonder schaal‑parameters. Het controleert dat de vorm de vereiste alinea bevat en dat de weergave een afbeelding retourneert voordat [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) wordt aangeroepen om deze in PNG‑formaat op te slaan. Het `finally`‑blok maakt de afbeelding na gebruik vrij.
 
 ```javascript
 var aspose = aspose || {};
@@ -684,6 +631,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
     const sourceTextFrame = sourceShape.getTextFrame();
     sourceTextFrame.getParagraphs().clear();
@@ -722,11 +670,11 @@ try {
 
 Het resultaat:
 
-![De alinea‑afbeelding](paragraph_to_image_output.png)
+![De alinea afbeelding](paragraph_to_image_output.png)
 
-#### **Een alinea renderen in een tabelcel met schalen**
+#### **Een alinea renderen in een tabelcel met schaling**
 
-Gebruik de [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) overload die de parameters `scaleX` en `scaleY` accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende voorbeeld maakt een tabel, rendert de alinea in de eerste cel op tweemaal de standaard breedte en hoogte, en slaat het resultaat op als PNG‑afbeelding.
+Gebruik de overload van [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) die `scaleX` en `scaleY` parameters accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende voorbeeld maakt een tabel, rendert de alinea in de eerste cel op twee keer de standaardbreedte en -hoogte, en slaat het resultaat op als PNG‑afbeelding.
 
 ```javascript
 var aspose = aspose || {};
@@ -739,6 +687,7 @@ const scaleY = 2;
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+    
     const columnWidths = java.newArray("double", [300]);
     const rowHeights = java.newArray("double", [80]);
     const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
@@ -760,26 +709,26 @@ try {
 }
 ```
 
-Een schaalfactor van `1` behoudt die as op de standaard pixelgrootte. Bijvoorbeeld `2` voor beide factoren produceert een afbeelding waarvan breedte en hoogte ongeveer twee keer de standaard afmetingen zijn, wat resulteert in vier keer zoveel pixels. Grotere factoren leveren doorgaans scherper tekst voor vergroting of hoge‑resolutie uitvoer, maar verhogen ook het geheugengebruik en de bestandsgrootte. Factoren onder `1` produceren kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de aspect‑ratio van de alinea te behouden; verschillende horizontale en verticale factoren rekken de uitvoer onafhankelijk uit.
+Een schaalfactor van `1` behoudt die as op de standaard pixelgrootte. Bijvoorbeeld, `2` voor beide factoren produceert een afbeelding waarvan de breedte en hoogte ongeveer twee keer de standaardafmetingen zijn, wat resulteert in vier keer zoveel pixels. Grotere factoren leveren over het algemeen scherper tekst voor inzoomen of hoge‑resolutie‑output, maar verhogen ook het geheugen‑ en bestandsgrootte‑gebruik. Factoren onder `1` geven kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de beeldverhouding van de alinea te behouden; verschillende horizontale en verticale factoren rekken de output onafhankelijk uit.
 
-Het renderen van een volledige vorm met [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) blijft nuttig wanneer de uitvoer de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een uitsluitend alinea‑afbeelding, gebruik [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
+Het renderen van een volledige vorm met [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) blijft nuttig wanneer de output de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een afbeelding van alleen de alinea, gebruik [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
 
 ## **FAQ**
 
-**Kan ik het regelomloop volledig uitschakelen binnen een tekstkader?**
+**Kan ik het automatisch afbreken van tekst in een tekstframe volledig uitschakelen?**
 
-Ja. Stel [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) in om omslag uit te schakelen zodat regels niet afbreken aan de randen van het tekstkader.
+Ja. Stel [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) in op uitschakelen van afbreken zodat regels niet bij de randen van het tekstframe afbreken.
 
-**Hoe kan ik de exacte grenzen op de dia van een specifieke alinea verkrijgen?**
+**Hoe kan ik de exacte on-slide‑afmetingen van een specifieke alinea verkrijgen?**
 
-Gebruik [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) om de omringende rechthoek van de alinea op te halen. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/#getRect) geeft de grenzen van een individuele portie.
+Gebruik [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) om de begrenzende rechthoek van de alinea op te halen. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) geeft de afmetingen van een afzonderlijk fragment.
 
-**Waar wordt de alinea‑uitlijning (links, rechts, gecentreerd of blok) ingesteld?**
+**Waar wordt de uitlijning van alinea's (links, rechts, gecentreerd of uitgevuld) geregeld?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) is een alinea‑niveau instelling en wordt toegepast op de hele alinea, ongeacht de individuele portie‑opmaak.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) is een alinea‑niveau instelling en wordt toegepast op de hele alinea, ongeacht de opmaak van individuele fragmenten.
 
-Om porties met verschillende lettergroottes verticaal uit te lijnen binnen elke regel, zie [Lettertypen verticaal uitlijnen binnen een regel](/slides/nl/nodejs-java/text-formatting/#align-fonts-within-a-line).
+Om delen van verschillende lettergroottes verticaal uit te lijnen binnen elke regel, zie [Align Fonts Within a Line](/slides/nl/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
-**Kan ik de taal van de proeflezer voor een deel van een alinea instellen?**
+**Kan ik de proeflees‑taal voor een deel van een alinea instellen?**
 
-Ja. Stel [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) in voor individuele porties, zodat één alinea tekst in meerdere talen kan bevatten.
+Ja. Stel [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) in voor individuele fragmenten, zodat één alinea tekst in meerdere talen kan bevatten.

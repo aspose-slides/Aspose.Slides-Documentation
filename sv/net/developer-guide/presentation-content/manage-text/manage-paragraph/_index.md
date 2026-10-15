@@ -8,57 +8,47 @@ aliases:
   - /net/paragraph/
   - /net/portion/
 keywords:
-  - lägg till text
-  - lägg till stycke
-  - hantera text
-  - hantera stycke
-  - hantera punkt
-  - styckeindrag
-  - hängande indrag
-  - styckepunkt
-  - numrerad lista
-  - punktlista
-  - styckeegenskaper
-  - importera HTML
-  - text till HTML
-  - stycke till HTML
-  - stycke till bild
-  - text till bild
-  - exportera stycke
-  - PowerPoint
-  - presentation
-  - .NET
-  - C#
-  - Aspose.Slides
+- lägga till text
+- lägga till stycke
+- hantera text
+- hantera stycke
+- hantera punkt
+- styckeindrag
+- hängande indrag
+- styckepunkt
+- numrerad lista
+- punktlista
+- styckeegenskaper
+- importera HTML
+- text till HTML
+- stycke till HTML
+- stycke till bild
+- text till bild
+- exportera stycke
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
 description: "Lär dig hur du skapar och formaterar stycken, portioner, punkter, numrerade listor, indrag, HTML‑innehåll och styckebilder med Aspose.Slides för .NET."
 ---
 ## **Översikt**
 
-Aspose.Slides för .NET representerar text som en hierarki av textramar, stycken och portioner:
+Aspose.Slides for .NET representerar text som en hierarki av textramar, stycken och portioner:
 
-* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) representerar textbehållaren i en form och ger åtkomst till dess stycke‑samling.
-* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) representerar ett stycke i en textram och ger åtkomst till dess portioner och formatering på styckennivå.
-* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) representerar ett textkör i ett stycke. Varje portion kan ha egen text och tecken‑nivå formatering.
+* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) representerar textbehållaren i en form och ger åtkomst till dess stycke­samling.
+* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) representerar ett stycke i en textram och ger åtkomst till dess portioner och styckesnivå‑formatering.
+* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) representerar en textkörning inom ett stycke. Varje portion kan ha sin egen text och teckennivå‑formatering.
 
 Ett stycke kan därför innehålla text med olika teckensnitt, färger, storlekar och annan formatering genom att använda flera portioner.
 
 ## **Skapa och formatera stycken**
 
+Skapa stycken i en formes textram och använd portioner för att formatera enskilda textkörningar. Denna sektion visar hur man kombinerar flera portioner i varje stycke och applicerar olika färger, teckenstorlekar och stilar.
+
 ### **Skapa stycken med flera portioner**
 
-Följande steg skapar en textram med tre stycken, där varje stycke innehåller tre portioner:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Få åtkomst till den relevanta bildens referens via dess index.
-3. Lägg till en rektangulär [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) på bilden.
-4. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
-5. Använd standardstycket och lägg till två ytterligare [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/)‑objekt i textramen.
-6. Lägg till tillräckligt med [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/)‑objekt så att varje stycke innehåller tre portioner. Standardstycket innehåller redan en tom portion.
-7. Sätt texten för varje portion.
-8. Tillämpa tecken‑nivå formatering via [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/).
-9. Spara den ändrade presentationen.
-
-Detta C#‑exempel implementerar stegen:
+Följande C#‑exempel skapar tre stycken, vardera innehållande tre textkörningar i dess [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/)‑samling. Det återanvänder standardstycket och dess tomma portion, och lägger sedan till de återstående styckena och portionerna. Formatering appliceras via [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/): den första portionen i varje stycke är röd, fet och 15 punkter; den andra är blå, kursiv och 18 punkter. Den tredje portionen behåller sin standardformatering:
 
 ```csharp
 using System.Drawing;
@@ -67,6 +57,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 var textFrame = shape.TextFrame;
 
@@ -116,26 +107,15 @@ for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 ```
 
-## **Skapa punkt‑ och numrerade listor**
+## **Skapa punktlistor och numrerade listor**
 
-### **Skapa en punkt‑ eller numrerad lista**
+Organisera stycketext i listor med symboler, siffror eller egna bilder. Exemplen i denna sektion täcker punktformatering, flernivålistor och anpassade startnummer.
+
+### **Skapa en punkt- eller numrerad lista**
 
 Punkter och numrering gör relaterade objekt enklare att skanna. I Aspose.Slides definieras listinställningar via [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑klassen.
-2. Få åtkomst till den relevanta bildens referens via dess index.
-3. Lägg till en [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) på den valda bilden.
-4. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
-5. Ta bort standardstycket från textramen.
-6. Skapa ett [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) för en symbolpunkt.
-7. Sätt [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) till [BulletType.Symbol](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) och ange punkttecknet.
-8. Sätt styckets text, indrag, punktfärg och punktens höjd.
-9. Lägg till stycket i textramen.
-10. Skapa ett andra stycke och sätt [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) till [BulletType.Numbered](https://reference.aspose.com/slides/net/aspose.slides/bullettype/).
-11. Konfigurera den numrerade punktstilen och lägg till stycket i textramen.
-12. Spara presentationen.
-
-Detta C#‑exempel skapar en symbolpunkt och en numrerad punkt:
+Detta C#‑exempel lägger till en symbolpunkt och ett numrerat objekt i samma textram. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) väljer punkt‑typen, medan [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) anger symbolen och [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) väljer numreringsstilen. Båda objekten använder svarta punkter med en höjd på 100 % och ett stycke‑indrag på 25 punkter:
 
 ```csharp
 using System;
@@ -145,6 +125,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -174,20 +155,9 @@ presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 
 ### **Använd bildpunkter**
 
-Bildpunkter låter dig använda en egen bild istället för en symbol eller siffra.
+Bildpunkter låter dig använda en anpassad bild i stället för en symbol eller ett nummer.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑klassen.
-2. Få åtkomst till den relevanta bildens referens via dess index.
-3. Lägg till en [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) och få åtkomst till dess [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
-4. Ta bort standardstycket från textramen.
-5. Läs in punktbilden och lägg till den i presentationens bildsamling som en [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/).
-6. Skapa ett [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) och sätt dess text.
-7. Sätt [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) till [BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/).
-8. Tilldela bilden via [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/) och sätt punktens höjd.
-9. Lägg till stycket i textramen.
-10. Spara den ändrade presentationen.
-
-Detta C#‑exempel skapar en bildpunkt:
+Detta C#‑exempel lägger till en bild i presentationens bildsamling som en [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) och använder den som ett styckepunkt. Det sätter [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) för att använda en bildpunkt och tilldelar bilden via [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) sätts till 100 % för att dimensionera punkten i förhållande till stycketexten:
 
 ```csharp
 using Aspose.Slides;
@@ -215,15 +185,9 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 ### **Skapa en flernivålista**
 
-Sätt [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) för att placera stycken på olika nivåer i en lista. Toppland har ett djup på `0`.
+Ange [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) för att placera stycken på olika nivåer i en lista. Toppnivån har ett djup på `0`.
 
-1. Skapa en [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) och få åtkomst till en bild.
-2. Lägg till en [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) och rensa standardstycket från dess textram.
-3. Skapa fyra stycken och konfigurera deras punkt‑symboler.
-4. Sätt deras [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/)‑värden till `0`, `1`, `2` och `3`.
-5. Lägg till styckena i textramen och spara presentationen.
-
-Detta C#‑exempel skapar en fyranivå‑punktlista:
+Detta C#‑exempel tilldelar [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) värden från 0 till 3 för fyra stycken, vilket skapar en hierarki i en textram. Varje stycke använder en symbolpunkt, med [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) som växlar mellan en rund punkt och ett bindestreck för att särskilja intilliggande nivåer:
 
 ```csharp
 using System;
@@ -233,6 +197,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -275,15 +240,9 @@ presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 
 ### **Starta numrerade listobjekt med anpassade värden**
 
-Använd [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) för att ange startnumret för ett numrerat stycke.
+Använd [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) för att ange det första numret som visas för ett numrerat stycke.
 
-1. Skapa en [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) och lägg till en [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) på en bild.
-2. Rensa standardstycket från formens textram.
-3. Skapa tre numrerade stycken.
-4. Sätt [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) till `2`, `3` respektive `7` för de tre styckena.
-5. Lägg till styckena i textramen och spara presentationen.
-
-Detta C#‑exempel tilldelar ett eget startnummer till varje stycke:
+Detta C#‑exempel sätter [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) för att använda numrering för tre stycken och tilldelar [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) värdena 2, 3 och 7. Startvärdet konfigureras separat för varje stycke, vilket gör att de visade numren kan hoppa över värden:
 
 ```csharp
 using Aspose.Slides;
@@ -291,6 +250,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -313,25 +273,17 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Styr stycke‑layout och slut‑egenskaper**
+## **Styr stycke‑layout och avslutnings‑egenskaper**
+
+Justera styckemarginaler och indrag för att styra positionen för den första raden och de radbryta raderna. Du kan också formatera stycke‑slutmärket separat från de synliga textdelarna.
 
 ### **Ställ in ett första‑rad‑indrag**
 
-Använd egenskapen [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) för att kontrollera första‑rad‑indraget i ett stycke. Detta flyttar bara den första raden i förhållande till styckets vänstra marginal. Ett positivt värde förflyttar den första raden åt höger, medan resterande rader förblir justerade med styckets brödtext.
+Använd egenskapen [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) för att kontrollera första‑rad‑indraget för ett stycke. Denna egenskap flyttar endast den första raden i förhållande till styckets vänstra marginal. Ett positivt värde förskjuter den första raden åt höger, medan de återstående raderna förblir justerade med styckekroppen.
 
-Använd [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) när du vill flytta hela stycket. Använd [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) när du bara vill flytta den första raden.
+Använd [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) när du behöver flytta hela stycket. Använd [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) när du endast behöver flytta den första raden.
 
-Exemplet nedan skapar flera stycken och tilldelar olika [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/)‑värden för att visa hur första‑rad‑indraget påverkar layouten.
-
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑klassen.
-2. Få åtkomst till mål‑bilden.
-3. Lägg till en rektangulär [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) på bilden.
-4. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) och ta bort standardstycket.
-5. Skapa flera stycken och sätt olika [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/)‑värden för dem.
-6. Lägg till styckena i textramen.
-7. Spara den ändrade presentationen.
-
-Den här koden visar hur du sätter ett stycke‑indrag:
+Följande exempel ger tre stycken samma [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) på 20 punkter och [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/)‑värden på 0, 20 och 40 punkter. De första raderna börjar med successivt större avstånd, medan radbrytade rader behåller samma vänstra marginal:
 
 ```csharp
 using System.Drawing;
@@ -340,6 +292,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -376,26 +329,17 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 Resultatet:
 
-![Det första radens indrag för styckena](first_line_indent.png)
+![Första‑rad‑indraget för styckena](first_line_indent.png)
 
 ### **Ställ in ett hängande indrag**
 
-Ett hängande indrag är en stycke‑layout där den första raden börjar till vänster om de resterande raderna. I Aspose.Slides skapar du denna effekt med egenskapen [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Sätt `Indent` till ett negativt värde för att flytta den första raden åt vänster i förhållande till styckets brödtext.
+Ett hängande indrag är en stycke‑layout där den första raden startar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med egenskapen [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Sätt `Indent` till ett negativt värde för att flytta den första raden åt vänster i förhållande till styckekroppen.
 
-I praktiken definierar [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) den vänstra positionen för styckets brödtext, och [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) definierar positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, sätt ett positivt `MarginLeft`‑värde och ett negativt `Indent`‑värde.
+I praktiken definierar [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) den vänstra positionen för styckekroppen, och [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) definierar positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, sätt ett positivt `MarginLeft`‑värde och ett negativt `Indent`‑värde.
 
-Denna formatering är användbar för bibliografier, referenser, ordlistposter och andra stycken där omslagna rader måste justeras under styckets brödtext snarare än under den första tecknet i den första raden.
+Denna formatering är användbar för bibliografier, referenser, förklaringsordlista‑poster och andra stycken där radbrytade rader måste justeras under styckekroppen snarare än under det första tecknet i den första raden.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑klassen.
-2. Få åtkomst till mål‑bilden.
-3. Lägg till en rektangulär [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) på bilden.
-4. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) och ta bort standardstycket.
-5. Skapa stycken och sätt ett positivt [MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/)‑värde för varje stycke.
-6. Sätt ett negativt [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/)‑värde för att skapa hängande indragseffekt.
-7. Lägg till styckena i textramen.
-8. Spara den ändrade presentationen.
-
-Den här koden visar hur du sätter ett hängande indrag för ett stycke:
+Det följande C#‑exemplet parar ihop [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) värden på 40 och 60 punkter med [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) värden på -20 och -30 punkter. I varje stycke startar den första raden till vänster om de radbrytade raderna; det andra stycket har ett djupare hängande indrag:
 
 ```csharp
 using System.Drawing;
@@ -404,6 +348,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -435,16 +380,9 @@ Resultatet:
 
 ![Det hängande indraget för styckena](hanging_indent.png)
 
-### **Ställ in slut‑stycke‑egenskaper**
+### **Ställ in egenskaper för stycke‑slutkörning**
 
-Egenskapen [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) styr formateringen av styckets sluttecken. Följande exempel tilldelar en teckenstorlek och ett latinskt teckensnitt till sluttecknet för det andra stycket:
-
-1. Läs in en [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) och få åtkomst till en bild.
-2. Lägg till en [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) och rensa dess standardstycke.
-3. Skapa två stycken och lägg till textportioner i dem.
-4. Skapa ett [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) för det andra styckets sluttecken.
-5. Sätt [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) och [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/).
-6. Tilldela formatet till [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) och spara presentationen.
+Egenskapen [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) styr formateringen av styckets slutmarkör. Följande exempel skapar ett [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) med [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) inställt på 48 punkter och [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) inställt på Times New Roman. Det tilldelar detta format till det andra styckets slutmarkör, utan att ändra de synliga textdelarna:
 
 ```csharp
 using Aspose.Slides;
@@ -452,6 +390,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("Test.pptx");
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -475,13 +414,13 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 
 ## **Räkna renderade rader**
 
-För stycke‑regler som påverkar automatisk radbrytning och skiljetecken vid radslut, se [Control Line Breaking](/slides/sv/net/text-formatting/#control-line-breaking) och [Control Hanging Punctuation](/slides/sv/net/text-formatting/#control-hanging-punctuation).
+För stycke‑regler som påverkar automatisk radbrytning och skiljetecken vid radslut, se [Kontroll av radbrytning](/slides/sv/net/text-formatting/#control-line-breaking) och [Kontroll av hängande skiljetecken](/slides/sv/net/text-formatting/#control-hanging-punctuation).
 
-Använd [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) för att räkna antalet rader som ett stycke upptar efter textlayout, inklusive automatisk radbrytning. Detta är användbart när du kontrollerar textlängd och layout i presentationsmallar.
+Använd [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) för att räkna antalet rader som ett stycke upptar efter textlayout, inklusive automatisk radbrytning. Detta är användbart när man kontrollerar textlängd och layout i presentationsmallar.
 
-Ett stycke är ett objekt i [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), och det kan omfatta flera renderade rader. Ett explicit radbrytningstecken i ett stycke tvingar en ny rad utan att skapa ett nytt stycke. Automatisk radbrytning skapar rader utifrån tillgänglig bredd utan att infoga explicita radbrytningstecken i texten. Att räkna stycken eller radbrytningstecken ger därför inte det renderade radantalet.
+Ett stycke är ett objekt i [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), och det kan uppta flera renderade rader. Ett explicit radbrytningstecken inom ett stycke tvingar en ny rad utan att skapa ett nytt stycke. Automatisk radbrytning skapar rader baserat på tillgänglig bredd utan att infoga explicita radbrytningar i texten. Att räkna stycken eller radbrytningstecken ger därför inte det renderade radantalet.
 
-Följande exempel skapar en textruta, räknar dess rader, smalnar av formen och ersätter sedan texten med en kortare sträng. Radbrytning är aktiverad och autofit är inaktiverat så att formens bredd styr radbrytning utan att automatiskt minska texten eller ändra formens storlek. Formens dimensioner anges i punkter. Slutligen lägger exemplet till ett ytterligare stycke och summerar radantalet över textramen.
+Det följande exemplet skapar en textruta, räknar dess rader, smalnar av formen och ersätter sedan texten med en kortare sträng. Exemplet aktiverar [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) och inaktiverar [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) så att formens bredd styr radbrytning utan att automatiskt krympa texten eller ändra formens storlek. Varje mätning använder [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/). Formens dimensioner är i punkter. Slutligen lägger exemplet till ett annat stycke och summerar radantalet över textramen.
 
 ```csharp
 using System;
@@ -518,24 +457,19 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Med denna text och dessa dimensioner ökar radantalet när formen smalnas, medan ersättningen med den korta strängen minskar det. Exakta tal kan variera beroende på teckensnittstillgänglighet och ersättning, teckenstorlek, marginaler, indrag, radbrytning och autofit‑inställningar. Använd de teckensnitt och layout‑inställningar som avses för målmiljön när du kontrollerar en mall.
+Med denna text och dessa dimensioner ökar radantalet när formen smalnar av, medan ersättning av texten med den korta strängen minskar det. Exakta räknare kan variera beroende på teckensnittstillgänglighet och -substitution, teckenstorlek, marginaler, indrag, radbrytning och autofit‑inställningar. Använd de teckensnitt och layoutinställningar som är avsedda för målmiljön när du kontrollerar en mall.
 
-Radantalet ensam avgör inte om texten överskrider sin behållare. Tillgänglig höjd, radhöjder, stycke‑ och radavstånd samt autofit‑beteende spelar också roll; även en enda rad kan överskrida den tillgängliga bredden när radbrytning är inaktiverad.
+Radantalet ensam bestämmer inte om texten överflödar sin behållare. Tillgänglig höjd, radhöjder, stycke‑ och radavstånd samt autofit‑beteende spelar också roll; även en enda rad kan överskrida den tillgängliga bredden när radbrytning är inaktiverad.
 
 ## **Importera och exportera styckeinnehåll**
 
-### **Importera HTML‑text till stycken**
+Använd HTML för att föra in text i en presentation eller exportera befintliga stycken för användning utanför den. Denna sektion visar också hur man renderar enskilda stycken som bilder, inklusive stycken i tabellceller.
+
+### **Importera HTML‑text i stycken**
 
 Använd [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) för att konvertera HTML‑markup till stycken och portioner i en textram.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑klassen.
-2. Få åtkomst till en bild och lägg till en [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
-3. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) och rensa dess standardstycke.
-4. Läs in käll‑HTML‑filen.
-5. Skicka HTML‑strängen till [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/).
-6. Spara den ändrade presentationen.
-
-Detta C#‑exempel importerar HTML till en textram:
+Detta C#‑exempel läser HTML från en fil och skickar markupen till [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/). Det rensar textrammans standardstycke så att ramen endast innehåller det importerade innehållet. Den rektangulära formen lämnar en marginal på 10 punkter på varje sida av bilden:
 
 ```csharp
 using System.IO;
@@ -544,6 +478,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shapeWidth = presentation.SlideSize.Size.Width - 20;
 var shapeHeight = presentation.SlideSize.Size.Height - 20;
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -557,61 +492,73 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **Exportera stycket‑text till HTML**
+### **Exportera stycketext till HTML**
 
-Använd [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) för att exportera ett valt intervall av stycken som HTML.
+Använd [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) för att exportera ett valt område av stycken som HTML. När du återanvänder presentationstext på en webbplats kan du vilja bevara lokal betoning utan att föra över presentationens teckensnitt, storlek eller textrutestilar. Ställ in [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) för att kontrollera hur långt exportören följer formatarv.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑klassen och läs in önskad presentation.
-2. Få åtkomst till bilden och hitta den [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) som innehåller texten.
-3. Få åtkomst till formens [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
-4. Anropa [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) med start‑stycke‑index och antalet stycken som ska exporteras.
-5. Skriv den returnerade HTML‑strängen till en fil.
+Ladda ner [exempelpresentationen](text-inheritance.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller en textruta med texten "Inherited text; explicit red 18pt". Inmatningen använder avsiktligt flera formateringsnivåer:
 
-Detta C#‑exempel exporterar alla stycken från den första textrutan:
+- Presentationens standardtextstil tillhandahåller Calibri och en storlek på 28 pt.
+- Textramens förstalinjesta textstil tillhandahåller blå text och kursiv.
+- Stycket anger uttryckligen fet text.
+- Den andra portionen, "explicit red 18pt", anger uttryckligen röd text och en storlek på 18 pt.
+
+Det följande kompletta exemplet exporterar samma stycken tre gånger. Det skickar [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) till exportmetoden och skriver varje resultat som en separat UTF‑8‑HTML‑fil:
 
 ```csharp
-using System;
 using System.IO;
 using System.Text;
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-using var presentation = new Presentation("ExportingHTMLText.pptx");
-var shape = presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-inheritance.pptx");
+var textShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-if (shape is IAutoShape textShape && textShape.TextFrame != null)
+var paragraphs = textShape.TextFrame.Paragraphs;
+var modes = new[] { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+
+foreach (var mode in modes)
 {
-    var paragraphs = textShape.TextFrame.Paragraphs;
-    var html = paragraphs.ExportToHtml(0, paragraphs.Count, null);
-    using var writer = new StreamWriter("paragraphs.html", false, Encoding.UTF8);
-    writer.Write(html);
-}
-else
-{
-    Console.WriteLine("The first shape is not a text shape.");
+    var options = new TextToHtmlConversionOptions { TextInheritanceLimit = mode };
+
+    var html = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+    File.WriteAllText($"{mode}.html", html, Encoding.UTF8);
 }
 ```
 
-### **Rendera ett stycke som bild**
+Den genererade HTML‑koden innehåller följande CSS för den första portionen, "Inherited text; ". Tabellen listar de relevanta deklarationerna; andra genererade egenskaper har utelämnats för tydlighet.
+
+| Utdata | Relevant CSS för den första portionen | Utseende |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text på 28 pt i Calibri, om det teckensnittet är tillgängligt. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text; den omgivande sidan eller webbläsaren tillhandahåller teckensnittsfamiljen och storleken. |
+| `ParagraphOnly.html` | `font-weight:bold` | Fet text; den omgivande sidan eller webbläsaren tillhandahåller teckensnittsfamiljen, storleken, färgen och kursiv stil. |
+
+Den andra portionen behåller `color:#ff0000`, `font-size:18pt` och `font-weight:bold` i alla tre utskrifterna. Den behåller även kursiv med `All` och `TextBox`, men inte med `ParagraphOnly`. Att begränsa arv tar därför inte bort formatering som uttryckligen tilldelats ett stycke eller en portion.
+
+Öppna filerna i samma webbläsare för att jämföra dem. I de två begränsade lägena löses utelämnade CSS‑egenskaper av destinationssidans stilar eller webbläsarstandarder, så det resulterande utseendet beror på var HTML‑koden används.
+
+### **Rendera ett stycke som en bild**
 
 [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) renderar ett enskilt stycke direkt och returnerar en [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Spara resultatet till en fil eller ström med [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Du behöver inte rendera den omgivande formen eller beskära en bitmap manuellt.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) kan returnera `null` om stycket inte kan hittas i sin föräldrasamling, saknar giltiga renderingsgränser eller inte kan renderas. Kontrollera resultatet innan du sparar det och frigör den returnerade bilden efter användning.
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) kan returnera `null` om stycket inte kan hittas i sin föräldrasamling, saknar giltiga renderingsgränser eller inte kan renderas. Kontrollera resultatet innan du sparar det och disponera den returnerade bilden efter användning.
 
 #### **Rendera ett stycke i standardskala**
 
-Anta att vi har en presentationsfil som heter sample.pptx med en bild, där den första formen är en textruta som innehåller tre stycken.
+Exemplet använder en presentation med en bild där den första formen är en textruta som innehåller tre stycken.
 
 ![Textrutan med tre stycken](paragraph_to_image_input.png)
 
-Följande exempel renderar det andra stycket i en vanlig textruta i standardskala och sparar den returnerade bilden i PNG‑format. `using`‑deklarationen säkerställer att bilden frigörs korrekt.
+Det följande exemplet väljer det andra stycket med index 1 och anropar [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) utan skalparametrar. Det kontrollerar att formen innehåller det nödvändiga stycket och att renderingen returnerar en bild innan den anropar [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) för att spara den i PNG‑format. `using`‑deklarationen disponerar bilden efter användning.
 
 ```csharp
 using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation("sample.pptx");
-
 var shape = presentation.Slides[0].Shapes[0];
+
 if (shape is IAutoShape textShape && 
     textShape.TextFrame != null && 
     textShape.TextFrame.Paragraphs.Count > 1)
@@ -636,11 +583,11 @@ else
 
 Resultatet:
 
-![Stycke‑bilden](paragraph_to_image_output.png)
+![Styckebilden](paragraph_to_image_output.png)
 
 #### **Rendera ett stycke i en tabellcell med skalning**
 
-Använd den [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/)‑överskrivning som accepterar `float scaleX` och `float scaleY`‑parametrar för att ange horisontella och vertikala skalningsfaktorer. Följande exempel skapar en tabell, renderar stycket i dess första cell med dubbelt så stor bredd och höjd som standard, och sparar resultatet som en PNG‑bild.
+Använd den överlagrade versionen av [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) som accepterar `float scaleX` och `float scaleY`‑parametrar för att ange de horisontella och vertikala skalningsfaktorerna. Det följande exemplet skapar en tabell, renderar stycket i dess första cell med dubbelt så stor bredd och höjd som standard, och sparar resultatet som en PNG‑bild.
 
 ```csharp
 using System;
@@ -651,6 +598,7 @@ var scaleY = 2f;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var table = slide.Shapes.AddTable(50, 50, new[] { 300d }, new[] { 80d });
 var paragraph = table[0, 0].TextFrame.Paragraphs[0];
 paragraph.Text = "Text in a table cell";
@@ -666,26 +614,24 @@ else
 }
 ```
 
-En skalfaktor på `1` behåller den axeln i dess standardpixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standardmåtten, vilket resulterar i fyra gånger så många pixlar. Större faktorer ger i allmänhet skarpare text för zoomning eller högupplöst utmatning, men de ökar också minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detaljrikedom. Använd lika faktorer för att bevara styckets bildförhållande; olika horisontella och vertikala faktorer sträcker ut resultatet oberoende.
+En skalningsfaktor på `1` behåller den axeln på dess standardpixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standarddimensionerna, vilket resulterar i fyra gånger så många pixlar. Större faktorer ger generellt skarpare text för zoomning eller högupplöst utskrift, men de ökar även minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detalj. Använd lika faktorer för att bevara styckets bildförhållande; olika horisontella och vertikala faktorer sträcker utdata oberoende.
 
-Att rendera en hel form med [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) är fortfarande användbart när utdata måste inkludera formens fyllning, ram eller annan visuell kontext. För enbart en stycke‑bild, använd [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
+Att rendera en hel form med [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) är fortfarande användbart när utdata måste inkludera formens fyllning, kant eller annan visuell kontext. För en bild som bara innehåller ett stycke, använd [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Kan jag helt inaktivera radbrytning i en textram?**
 
-Ja. Sätt [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) för att inaktivera radbrytning så att rader inte bryts vid textramens kanter.
+Ja. Ställ in [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) för att inaktivera radbrytning så att rader inte bryts vid textrammens kanter.
 
-**Hur får jag exakt plats för ett specifikt stycke på bilden?**
+**Hur kan jag få de exakta gränserna på bilden för ett specifikt stycke?**
 
 Använd [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) för att hämta styckets omgivande rektangel. [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) ger gränserna för en enskild portion.
 
-**Var kontrolleras styckejustering (vänster, höger, centrerad eller marginaljusterad)?**
+**Var styrs styckejustering (vänster, höger, centrerad eller marginaljusterad)?**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) är en inställning på styckennivå och tillämpas på hela stycket oavsett individuell portionsformatering.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) är en styckesnivåinställning och gäller hela stycket oavsett enskild portions formatering. För att vertikalt justera portioner med olika teckenstorlekar inom varje rad, se [Justera teckensnitt inom en rad](/slides/sv/net/text-formatting/#align-fonts-within-a-line).
 
-För att vertikalt justera portioner med olika teckenstorlekar inom varje rad, se [Align Fonts Within a Line](/slides/sv/net/text-formatting/#align-fonts-within-a-line).
+**Kan jag ange korrekturspråket för en del av ett stycke?**
 
-**Kan jag ställa in korrekturspråk för en del av ett stycke?**
-
-Ja. Sätt [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) för enskilda portioner, så att ett stycke kan innehålla text på flera språk.
+Ja. Ställ in [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) för enskilda portioner, så att ett stycke kan innehålla text på flera språk.

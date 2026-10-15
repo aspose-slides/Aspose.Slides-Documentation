@@ -1,6 +1,6 @@
 ---
-title: Gestionar párrafos de texto de PowerPoint en .NET
-linktitle: Gestionar párrafo
+title: Administrar párrafos de texto de PowerPoint en .NET
+linktitle: Administrar párrafo
 type: docs
 weight: 40
 url: /es/net/manage-paragraph/
@@ -8,31 +8,31 @@ aliases:
   - /net/paragraph/
   - /net/portion/
 keywords:
-- añadir texto
-- añadir párrafo
-- gestionar texto
-- gestionar párrafo
-- gestionar viñeta
-- sangría de párrafo
-- sangría colgante
-- viñeta de párrafo
-- lista numerada
-- lista con viñetas
-- propiedades del párrafo
-- importar HTML
-- texto a HTML
-- párrafo a HTML
-- párrafo a imagen
-- texto a imagen
-- exportar párrafo
-- PowerPoint
-- presentación
-- .NET
-- C#
-- Aspose.Slides
+  - agregar texto
+  - agregar párrafo
+  - gestionar texto
+  - gestionar párrafo
+  - gestionar viñeta
+  - sangría de párrafo
+  - sangría colgante
+  - viñeta de párrafo
+  - lista numerada
+  - lista con viñetas
+  - propiedades del párrafo
+  - importar HTML
+  - texto a HTML
+  - párrafo a HTML
+  - párrafo a imagen
+  - texto a imagen
+  - exportar párrafo
+  - PowerPoint
+  - presentación
+  - .NET
+  - C#
+  - Aspose.Slides
 description: "Aprenda a crear y dar formato a párrafos, porciones, viñetas, listas numeradas, sangrías, contenido HTML y imágenes de párrafos con Aspose.Slides para .NET."
 ---
-## **Descripción general**
+## **Visión general**
 
 Aspose.Slides for .NET representa el texto como una jerarquía de marcos de texto, párrafos y porciones:
 
@@ -42,23 +42,13 @@ Aspose.Slides for .NET representa el texto como una jerarquía de marcos de text
 
 Por lo tanto, un párrafo puede contener texto con diferentes fuentes, colores, tamaños y otros formatos mediante el uso de varias porciones.
 
-## **Crear y dar formato a los párrafos**
+## **Crear y dar formato a párrafos**
 
-### **Crear párrafos con varias porciones**
+Cree párrafos en el marco de texto de una forma y utilice porciones para dar formato a ejecuciones de texto individuales. Esta sección muestra cómo combinar varias porciones dentro de cada párrafo y aplicar diferentes colores, tamaños de fuente y estilos.
 
-Los siguientes pasos crean un marco de texto con tres párrafos, cada uno con tres porciones:
+### **Crear párrafos con múltiples porciones**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Acceder a la referencia de la diapositiva pertinente mediante su índice.
-3. Añadir una [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) rectangular a la diapositiva.
-4. Acceder al [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) de la forma.
-5. Utilizar el párrafo predeterminado y añadir dos objetos [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) más al marco de texto.
-6. Añadir suficientes objetos [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) para que cada párrafo contenga tres porciones. El párrafo predeterminado ya contiene una porción vacía.
-7. Establecer el texto de cada porción.
-8. Aplicar formato a nivel de carácter mediante [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/).
-9. Guardar la presentación modificada.
-
-Este ejemplo en C# implementa los pasos:
+El siguiente ejemplo en C# crea tres párrafos, cada uno con tres ejecuciones de texto en su colección [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/). Reutiliza el párrafo predeterminado y su porción vacía, luego agrega los párrafos y porciones restantes. El formato se aplica a través de [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/): la primera porción en cada párrafo es roja, en negrita y de 15 puntos; la segunda es azul, en cursiva y de 18 puntos. La tercera porción conserva su formato predeterminado:
 
 ```csharp
 using System.Drawing;
@@ -67,6 +57,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 var textFrame = shape.TextFrame;
 
@@ -118,24 +109,13 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ## **Crear listas con viñetas y numeradas**
 
+Organice el texto de los párrafos en listas con símbolos, números o imágenes personalizadas. Los ejemplos de esta sección cubren el formato de viñetas, listas multinivel y números de inicio personalizados.
+
 ### **Crear una lista con viñetas o numerada**
 
-Las viñetas y la numeración facilitan la lectura de elementos relacionados. En Aspose.Slides, la configuración de la lista se define mediante [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
+Las viñetas y la numeración facilitan la exploración de elementos relacionados. En Aspose.Slides, la configuración de la lista se define mediante [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Acceder a la referencia de la diapositiva pertinente mediante su índice.
-3. Añadir una [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva seleccionada.
-4. Acceder al [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) de la forma.
-5. Eliminar el párrafo predeterminado del marco de texto.
-6. Crear un [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) para una viñeta de símbolo.
-7. Establecer [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) a [BulletType.Symbol](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) y especificar el carácter de la viñeta.
-8. Establecer el texto del párrafo, la sangría, el color de la viñeta y la altura de la viñeta.
-9. Añadir el párrafo al marco de texto.
-10. Crear un segundo párrafo y establecer [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) a [BulletType.Numbered](https://reference.aspose.com/slides/net/aspose.slides/bullettype/).
-11. Configurar el estilo de la viñeta numerada y añadir el párrafo al marco de texto.
-12. Guardar la presentación.
-
-Este ejemplo en C# crea una viñeta de símbolo y una viñeta numerada:
+Este ejemplo en C# agrega una viñeta de símbolo y un elemento numerado al mismo marco de texto. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) selecciona el tipo de viñeta, mientras que [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) proporciona el símbolo y [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) selecciona el estilo de numeración. Ambos elementos usan viñetas negras con una altura del 100 % y una sangría de párrafo de 25 puntos:
 
 ```csharp
 using System;
@@ -145,6 +125,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -172,22 +153,11 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Utilizar viñetas con imagen**
+### **Usar viñetas de imagen**
 
-Las viñetas con imagen permiten usar una imagen personalizada en lugar de un símbolo o número.
+Las viñetas de imagen le permiten usar una imagen personalizada en lugar de un símbolo o número.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Acceder a la referencia de la diapositiva pertinente mediante su índice.
-3. Añadir una [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) y acceder a su [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
-4. Eliminar el párrafo predeterminado del marco de texto.
-5. Cargar la imagen de la viñeta y añadirla a la colección de imágenes de la presentación como un [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/).
-6. Crear un [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) y establecer su texto.
-7. Establecer [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) a [BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/).
-8. Asignar la imagen mediante [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/) y establecer la altura de la viñeta.
-9. Añadir el párrafo al marco de texto.
-10. Guardar la presentación modificada.
-
-Este ejemplo en C# crea una viñeta de imagen:
+Este ejemplo en C# agrega una imagen a la colección de imágenes de la presentación como un [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) y la utiliza como viñeta de párrafo. Establece [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) para usar una viñeta de imagen y asigna la imagen mediante [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) se establece en 100 % para dimensionar la viñeta en relación con el texto del párrafo:
 
 ```csharp
 using Aspose.Slides;
@@ -215,15 +185,9 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 ### **Crear una lista multinivel**
 
-Establecer [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) para colocar los párrafos en diferentes niveles de una lista. El nivel superior tiene una profundidad de `0`.
+Establezca [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) para situar los párrafos en diferentes niveles de una lista. El nivel superior tiene una profundidad de `0`.
 
-1. Crear una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) y acceder a una diapositiva.
-2. Añadir una [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) y eliminar el párrafo predeterminado de su marco de texto.
-3. Crear cuatro párrafos y configurar sus símbolos de viñeta.
-4. Establecer sus valores de [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) a `0`, `1`, `2` y `3`.
-5. Añadir los párrafos al marco de texto y guardar la presentación.
-
-Este ejemplo en C# crea una lista con viñetas de cuatro niveles:
+Este ejemplo en C# asigna valores de [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) de 0 a 3 a cuatro párrafos, creando una jerarquía dentro de un mismo marco de texto. Cada párrafo usa una viñeta de símbolo, con [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) alternando entre una viñeta redonda y un guion para diferenciar los niveles adyacentes:
 
 ```csharp
 using System;
@@ -233,6 +197,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -273,17 +238,11 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Iniciar los elementos de la lista numerada con valores personalizados**
+### **Iniciar elementos de lista numerada con valores personalizados**
 
-Utilizar [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) para establecer el número inicial que se muestra en un párrafo numerado.
+Utilice [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) para establecer el número inicial que se muestra en un párrafo numerado.
 
-1. Crear una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) y añadir una [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a una diapositiva.
-2. Eliminar el párrafo predeterminado del marco de texto de la forma.
-3. Crear tres párrafos numerados.
-4. Establecer [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) a `2`, `3` y `7` para los párrafos respectivos.
-5. Añadir los párrafos al marco de texto y guardar la presentación.
-
-Este ejemplo en C# asigna un número de inicio personalizado a cada párrafo:
+Este ejemplo en C# establece [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) para usar numeración en tres párrafos y asigna valores de [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) de 2, 3 y 7. El valor de inicio se configura por separado para cada párrafo, lo que permite que los números mostrados omitan valores:
 
 ```csharp
 using Aspose.Slides;
@@ -291,6 +250,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -313,25 +273,17 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Controlar el diseño y las propiedades finales del párrafo**
+## **Controlar el diseño del párrafo y sus propiedades finales**
+
+Ajuste los márgenes y sangrías de los párrafos para controlar la posición de la primera línea y de las líneas continuas. También puede dar formato al carácter de fin de párrafo por separado del texto visible.
 
 ### **Establecer una sangría de primera línea**
 
-Utilizar la propiedad [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) para controlar la sangría de la primera línea de un párrafo. Esta propiedad solo desplaza la primera línea respecto al margen izquierdo del párrafo. Un valor positivo desplaza la primera línea a la derecha, mientras que el resto de líneas permanece alineado con el cuerpo del párrafo.
+Utilice la propiedad [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) para controlar la sangría de la primera línea de un párrafo. Esta propiedad solo desplaza la primera línea respecto al margen izquierdo del párrafo. Un valor positivo desplaza la primera línea a la derecha, mientras que las líneas restantes permanecen alineadas con el cuerpo del párrafo.
 
-Utilice [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) cuando necesite mover todo el párrafo. Utilice [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) cuando necesite mover solo la primera línea.
+Use [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) cuando necesite mover todo el párrafo. Use [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) cuando necesite mover solo la primera línea.
 
-El ejemplo a continuación crea varios párrafos y aplica diferentes valores de [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) para demostrar cómo la sangría de primera línea afecta el diseño del párrafo.
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-2. Acceder a la diapositiva objetivo.
-3. Añadir una [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) rectangular a la diapositiva.
-4. Acceder al [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) de la forma y eliminar el párrafo predeterminado.
-5. Crear varios párrafos y establecer diferentes valores de [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) para ellos.
-6. Añadir los párrafos al marco de texto.
-7. Guardar la presentación modificada.
-
-Este código muestra cómo establecer una sangría de párrafo:
+El siguiente ejemplo asigna a tres párrafos la misma [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) de 20 puntos y valores de [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) de 0, 20 y 40 puntos. Las primeras líneas comienzan en desplazamientos progresivamente mayores, mientras que las líneas continuas conservan el mismo margen izquierdo:
 
 ```csharp
 using System.Drawing;
@@ -340,6 +292,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -376,26 +329,17 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 El resultado:
 
-![La sangría de primera línea de los párrafos](first_line_indent.png)
+![El sangrado de primera línea de los párrafos](first_line_indent.png)
 
 ### **Establecer una sangría colgante**
 
-Una sangría colgante es un diseño de párrafo en el que la primera línea comienza a la izquierda del resto de líneas. En Aspose.Slides, crea este efecto con la propiedad [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Establezca `Indent` a un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
+Una sangría colgante es un diseño de párrafo en el que la primera línea comienza a la izquierda de las líneas restantes. En Aspose.Slides, crea este efecto con la propiedad [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Establezca `Indent` a un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
 
 En la práctica, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) define la posición izquierda del cuerpo del párrafo, y [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) define la posición de la primera línea respecto a ese margen. Para crear una sangría colgante, establezca un valor positivo de `MarginLeft` y un valor negativo de `Indent`.
 
-Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas envueltas deben alinearse bajo el cuerpo del párrafo y no bajo el primer carácter de la primera línea.
+Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas continuas deben alinearse bajo el cuerpo del párrafo y no bajo el primer carácter de la primera línea.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-2. Acceder a la diapositiva objetivo.
-3. Añadir una [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) rectangular a la diapositiva.
-4. Acceder al [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) de la forma y eliminar el párrafo predeterminado.
-5. Crear párrafos y establecer un valor positivo de [MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) para cada párrafo.
-6. Establecer un valor negativo de [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) para crear el efecto de sangría colgante.
-7. Añadir los párrafos al marco de texto.
-8. Guardar la presentación modificada.
-
-Este código muestra cómo establecer una sangría colgante para un párrafo:
+El siguiente ejemplo en C# combina valores de [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) de 40 y 60 puntos con valores de [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) de -20 y -30 puntos. En cada párrafo, la primera línea comienza a la izquierda de las líneas continuas; el segundo párrafo tiene una sangría colgante más profunda:
 
 ```csharp
 using System.Drawing;
@@ -404,6 +348,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -437,14 +382,7 @@ El resultado:
 
 ### **Establecer propiedades de ejecución al final del párrafo**
 
-La propiedad [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) controla el formato del marcador de fin de párrafo. El siguiente ejemplo asigna un tamaño de fuente y una fuente latina al marcador de fin del segundo párrafo:
-
-1. Cargar una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) y acceder a una diapositiva.
-2. Añadir una [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) y borrar su párrafo predeterminado.
-3. Crear dos párrafos y añadirles porciones de texto.
-4. Crear un [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) para el marcador de fin del segundo párrafo.
-5. Establecer [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) y [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) .
-6. Asignar el formato a [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) y guardar la presentación.
+La propiedad [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) controla el formato del carácter de fin de párrafo. El siguiente ejemplo crea un [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) con [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) establecido en 48 puntos y [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) a Times New Roman. Asigna este formato al carácter de fin del segundo párrafo, dejando sin cambios las porciones de texto visibles:
 
 ```csharp
 using Aspose.Slides;
@@ -452,6 +390,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("Test.pptx");
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -475,13 +414,13 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 
 ## **Contar líneas renderizadas**
 
-Para reglas de párrafo que afectan el ajuste automático y la puntuación al final de las líneas, consulte [Control Line Breaking](/slides/es/net/text-formatting/#control-line-breaking) y [Control Hanging Punctuation](/slides/es/net/text-formatting/#control-hanging-punctuation).
+Para las reglas de párrafo que afectan el ajuste automático y la puntuación al final de línea, consulte [Control Line Breaking](/slides/es/net/text-formatting/#control-line-breaking) y [Control Hanging Punctuation](/slides/es/net/text-formatting/#control-hanging-punctuation).
 
-Utilice [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) para contar las líneas que ocupa un párrafo después del diseño del texto, incluido el ajuste automático. Esto es útil al comprobar la longitud del texto y el diseño en plantillas de presentaciones.
+Utilice [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) para contar las líneas ocupadas por un párrafo después del diseño del texto, incluido el ajuste automático. Esto es útil al comprobar la longitud del texto y el diseño en plantillas de presentaciones.
 
-Un párrafo es un elemento de [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), y puede ocupar varias líneas renderizadas. Un salto de línea explícito dentro de un párrafo fuerza una nueva línea sin crear otro párrafo. El ajuste automático crea líneas basándose en el ancho disponible sin insertar saltos de línea explícitos en el texto. Por lo tanto, contar párrafos o caracteres de salto de línea no proporciona el recuento de líneas renderizadas.
+Un párrafo es un elemento de [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), y puede ocupar varias líneas renderizadas. Un salto de línea explícito dentro de un párrafo fuerza una nueva línea sin crear otro párrafo. El ajuste automático crea líneas en función del ancho disponible sin insertar saltos de línea explícitos en el texto. Por lo tanto, contar párrafos o caracteres de salto de línea no proporciona el recuento de líneas renderizadas.
 
-El siguiente ejemplo crea una forma de texto, cuenta sus líneas, estrecha la forma y luego sustituye el texto por una cadena más corta. El ajuste está habilitado y el autofit está desactivado, de modo que el ancho de la forma controla el ajuste sin reducir automáticamente el texto ni redimensionar la forma. Las dimensiones de la forma se expresan en puntos. Finalmente, el ejemplo añade otro párrafo y suma los recuentos de líneas en todo el marco de texto.
+El siguiente ejemplo crea una forma de texto, cuenta sus líneas, estrecha la forma y luego reemplaza el texto por una cadena más corta. El ejemplo habilita [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) y deshabilita [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) para que el ancho de la forma controle el ajuste sin reducir automáticamente el texto ni redimensionar la forma. Cada medición utiliza [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/). Las dimensiones de la forma están en puntos. Finalmente, el ejemplo agrega otro párrafo y suma los recuentos de líneas de todo el marco de texto.
 
 ```csharp
 using System;
@@ -518,24 +457,19 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Con este texto y estas dimensiones, estrechar la forma aumenta el recuento de líneas, mientras que sustituir el texto por la cadena corta lo reduce. Los recuentos exactos pueden variar según la disponibilidad y sustitución de fuentes, el tamaño de la fuente, los márgenes, la sangría, el ajuste y la configuración de autofit. Utilice las fuentes y la configuración de diseño previstas para el entorno objetivo al comprobar una plantilla.
+Con este texto y estas dimensiones, estrechar la forma incrementa el número de líneas, mientras que reemplazar el texto por la cadena corta lo reduce. Los recuentos exactos pueden variar según la disponibilidad y sustitución de fuentes, el tamaño de fuente, los márgenes, la sangría, el ajuste y la configuración de autofit. Use las fuentes y la configuración de diseño previstas para el entorno de destino al validar una plantilla.
 
-El recuento de líneas por sí solo no determina si el texto desborda su contenedor. La altura disponible, la altura de las líneas, el interlineado del párrafo y el comportamiento de autofit también son importantes; incluso una sola línea puede exceder el ancho disponible cuando el ajuste está desactivado.
+El recuento de líneas por sí solo no determina si el texto se desborda del contenedor. También importan la altura disponible, la altura de línea, el espaciado de párrafo y línea, y el comportamiento de autofit; incluso una sola línea puede superar el ancho disponible cuando el ajuste está desactivado.
 
 ## **Importar y exportar contenido de párrafos**
 
-### **Importar texto HTML en párrafos**
+Utilice HTML para introducir texto en una presentación o exportar párrafos existentes para usarlos fuera de ella. Esta sección también muestra cómo renderizar párrafos individuales como imágenes, incluidos los párrafos en celdas de tabla.
 
-Utilice [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) para convertir marcado HTML en párrafos y porciones dentro de un marco de texto.
+### **Importar texto HTML a párrafos**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. Acceder a una diapositiva y añadir una [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) .
-3. Acceder al [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) de la forma y limpiar su párrafo predeterminado.
-4. Leer el archivo HTML fuente.
-5. Pasar la cadena HTML a [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) .
-6. Guardar la presentación modificada.
+Use [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) para convertir marcado HTML en párrafos y porciones en un marco de texto.
 
-Este ejemplo en C# importa HTML a un marco de texto:
+Este ejemplo en C# lee HTML de un archivo y pasa el marcado a [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/). Elimina el párrafo predeterminado del marco de texto para que el marco contenga solo el contenido importado. La forma rectangular deja un margen de 10 puntos en cada lado de la diapositiva:
 
 ```csharp
 using System.IO;
@@ -544,6 +478,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shapeWidth = presentation.SlideSize.Size.Width - 20;
 var shapeHeight = presentation.SlideSize.Size.Height - 20;
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -559,59 +494,71 @@ presentation.Save("html_text.pptx", SaveFormat.Pptx);
 
 ### **Exportar texto de párrafo a HTML**
 
-Utilice [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) para exportar un rango seleccionado de párrafos como HTML.
+Use [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) para exportar un rango seleccionado de párrafos como HTML. Al reutilizar texto de una presentación en un sitio web, puede desear conservar el énfasis local sin trasladar la fuente, el tamaño o los estilos del cuadro de texto de la presentación. Establezca [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) para controlar hasta dónde sigue el exportador la herencia de formato.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) y cargar la presentación deseada.
-2. Acceder a la diapositiva y localizar la [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) que contiene el texto.
-3. Acceder al [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) de la forma.
-4. Llamar a [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) con el índice del párrafo inicial y el número de párrafos a exportar.
-5. Escribir la cadena HTML devuelta en un archivo.
+Descargue [la presentación de ejemplo](text-inheritance.pptx) y colóquela en el directorio de trabajo de la aplicación. Su primera diapositiva contiene una forma de texto con el texto "Inherited text; explicit red 18pt". La entrada usa deliberadamente varios niveles de formato:
 
-Este ejemplo en C# exporta todos los párrafos del primer objeto de texto:
+- El estilo de texto predeterminado de la presentación suministra Calibri y un tamaño de 28 pt.
+- El estilo de texto de primer nivel del marco de texto suministra texto azul e itálica.
+- El párrafo establece explícitamente texto en negrita.
+- La segunda porción, "explicit red 18pt", establece explícitamente texto rojo y un tamaño de 18 pt.
+
+El siguiente ejemplo completo exporta los mismos párrafos tres veces. Pasa [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) al método de exportación y escribe cada resultado en un archivo HTML UTF‑8 separado:
 
 ```csharp
-using System;
 using System.IO;
 using System.Text;
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-using var presentation = new Presentation("ExportingHTMLText.pptx");
-var shape = presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-inheritance.pptx");
+var textShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-if (shape is IAutoShape textShape && textShape.TextFrame != null)
+var paragraphs = textShape.TextFrame.Paragraphs;
+var modes = new[] { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+
+foreach (var mode in modes)
 {
-    var paragraphs = textShape.TextFrame.Paragraphs;
-    var html = paragraphs.ExportToHtml(0, paragraphs.Count, null);
-    using var writer = new StreamWriter("paragraphs.html", false, Encoding.UTF8);
-    writer.Write(html);
-}
-else
-{
-    Console.WriteLine("The first shape is not a text shape.");
+    var options = new TextToHtmlConversionOptions { TextInheritanceLimit = mode };
+
+    var html = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+    File.WriteAllText($"{mode}.html", html, Encoding.UTF8);
 }
 ```
+
+El HTML generado contiene el siguiente CSS para la primera porción, "Inherited text; ". La tabla enumera las declaraciones relevantes; otras propiedades generadas se omiten por claridad.
+
+| Salida | CSS relevante para la primera porción | Apariencia |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, en negrita y cursiva a 28 pt en Calibri, si esa fuente está disponible. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, en negrita y cursiva; la página o el navegador proporcionan la familia y el tamaño de fuente. |
+| `ParagraphOnly.html` | `font-weight:bold` | Texto en negrita; la página o el navegador proporcionan la familia, el tamaño, el color y el estilo cursiva. |
+
+La segunda porción conserva `color:#ff0000`, `font-size:18pt` y `font-weight:bold` en los tres resultados. También conserva la cursiva en `All` y `TextBox`, pero no en `ParagraphOnly`. Restringir la herencia, por tanto, no elimina el formato asignado explícitamente a un párrafo o porción.
+
+Abra los archivos en el mismo navegador para compararlos. En los dos modos restringidos, las propiedades CSS omitidas se resuelven mediante los estilos de la página de destino o los valores predeterminados del navegador, de modo que la apariencia resultante depende del entorno donde se utilice el HTML.
 
 ### **Renderizar un párrafo como imagen**
 
 [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) renderiza directamente un párrafo individual y devuelve un [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Guarde el resultado en un archivo o flujo con [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). No es necesario renderizar la forma contenedora ni recortar manualmente un mapa de bits.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) puede devolver `null` si el párrafo no se encuentra en su colección principal, no tiene límites de renderizado válidos o no puede ser renderizado. Verifique el resultado antes de guardarlo y libere la imagen devuelta después de su uso.
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) puede devolver `null` si el párrafo no se encuentra en su colección padre, no tiene límites de renderizado válidos o no se puede renderizar. Verifique el resultado antes de guardarlo y libere la imagen devuelta después de usarla.
 
-#### **Renderizar un párrafo a la escala predeterminada**
+#### **Renderizar un párrafo a escala predeterminada**
 
-Supongamos que tenemos un archivo de presentación llamado sample.pptx con una sola diapositiva, donde la primera forma es un cuadro de texto que contiene tres párrafos.
+El ejemplo usa una presentación con una diapositiva cuya primera forma es un cuadro de texto que contiene tres párrafos.
 
 ![El cuadro de texto con tres párrafos](paragraph_to_image_input.png)
 
-El siguiente ejemplo renderiza el segundo párrafo en una forma de texto normal a la escala predeterminada y guarda la imagen resultante en formato PNG. La declaración `using` garantiza que la imagen se libere correctamente.
+El siguiente ejemplo selecciona el segundo párrafo en el índice 1 y llama a [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) sin parámetros de escala. Verifica que la forma contenga el párrafo requerido y que el renderizado devuelva una imagen antes de llamar a [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) para guardarla en formato PNG. La declaración `using` libera la imagen después de su uso.
 
 ```csharp
 using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation("sample.pptx");
-
 var shape = presentation.Slides[0].Shapes[0];
+
 if (shape is IAutoShape textShape && 
     textShape.TextFrame != null && 
     textShape.TextFrame.Paragraphs.Count > 1)
@@ -640,7 +587,7 @@ El resultado:
 
 #### **Renderizar un párrafo en una celda de tabla con escalado**
 
-Utilice la sobrecarga de [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) que acepta los parámetros `float scaleX` y `float scaleY` para establecer los factores de escala horizontal y vertical. El siguiente ejemplo crea una tabla, renderiza el párrafo en su primera celda al doble de su ancho y alto predeterminados y guarda el resultado como una imagen PNG.
+Utilice la sobrecarga de [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) que acepta los parámetros `float scaleX` y `float scaleY` para establecer los factores de escala horizontal y vertical. El siguiente ejemplo crea una tabla, renderiza el párrafo en su primera celda al doble de su ancho y alto predeterminados, y guarda el resultado como imagen PNG.
 
 ```csharp
 using System;
@@ -651,6 +598,7 @@ var scaleY = 2f;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var table = slide.Shapes.AddTable(50, 50, new[] { 300d }, new[] { 80d });
 var paragraph = table[0, 0].TextFrame.Paragraphs[0];
 paragraph.Text = "Text in a table cell";
@@ -666,26 +614,26 @@ else
 }
 ```
 
-Un factor de escala de `1` mantiene ese eje en su tamaño de píxel predeterminado. Por ejemplo, `2` para ambos factores produce una imagen cuya anchura y altura son aproximadamente el doble de las dimensiones predeterminadas, resultando en cuatro veces más píxeles. Los factores mayores suelen producir texto más nítido para ampliaciones o salidas de alta resolución, pero también aumentan el uso de memoria y el tamaño del archivo. Los factores inferiores a `1` generan imágenes más pequeñas con menos detalle. Use factores iguales para conservar la proporción del párrafo; factores diferentes en horizontal y vertical estiran la salida independientemente.
+Un factor de escala de `1` mantiene ese eje en su tamaño de píxel predeterminado. Por ejemplo, `2` para ambos factores produce una imagen cuyo ancho y alto son aproximadamente el doble de las dimensiones originales, lo que genera cuatro veces más píxeles. Factores mayores suelen producir texto más nítido para ampliaciones o salidas de alta resolución, pero también aumentan el uso de memoria y el tamaño del archivo. Factores por debajo de `1` producen imágenes más pequeñas con menos detalle. Use factores iguales para conservar la proporción del párrafo; factores diferentes en horizontal y vertical estiran la salida de forma independiente.
 
-Renderizar una forma completa con [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) sigue siendo útil cuando la salida debe incluir el relleno, el contorno u otro contexto visual de la forma. Para una imagen sólo de párrafo, utilice [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) .
+Renderizar una forma completa con [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) sigue siendo útil cuando la salida debe incluir el relleno, el borde u otro contexto visual de la forma. Para una imagen solo del párrafo, utilice [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Puedo desactivar completamente el ajuste de línea dentro de un marco de texto?**
 
-Sí. Establezca [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) para desactivar el ajuste, de modo que las líneas no se partan en los bordes del marco de texto.
+Sí. Establezca [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) para desactivar el ajuste y que las líneas no se rompan en los bordes del marco de texto.
 
 **¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo específico?**
 
 Utilice [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) para obtener el rectángulo delimitador del párrafo. [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) proporciona los límites de una porción individual.
 
-**¿Dónde se controla la alineación de los párrafos (izquierda, derecha, centrado o justificado)?**
+**¿Dónde se controla la alineación de párrafo (izquierda, derecha, centrado o justificado)?**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) es una configuración a nivel de párrafo y se aplica a todo el párrafo sin importar el formato de las porciones individuales.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) es una configuración a nivel de párrafo y se aplica a todo el párrafo independientemente del formato de porciones individuales.
 
-Para alinear verticalmente porciones con diferentes tamaños de fuente dentro de cada línea, consulte [Align Fonts Within a Line](/slides/es/net/text-formatting/#align-fonts-within-a-line).
+Para alinear verticalmente porciones de diferentes tamaños de fuente dentro de cada línea, consulte [Align Fonts Within a Line](/slides/es/net/text-formatting/#align-fonts-within-a-line).
 
-**¿Puedo establecer el idioma de revisión para una parte de un párrafo?**
+**¿Puedo establecer el idioma de revisión para parte de un párrafo?**
 
 Sí. Establezca [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) para porciones individuales, de modo que un párrafo pueda contener texto en varios idiomas.

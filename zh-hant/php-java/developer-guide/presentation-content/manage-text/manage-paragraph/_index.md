@@ -1,5 +1,5 @@
 ---
-title: 在 PHP 中管理 PowerPoint 文字段落
+title: 管理 PowerPoint 文字段落於 PHP
 linktitle: 管理段落
 type: docs
 weight: 40
@@ -31,35 +31,25 @@ keywords:
 - 簡報
 - PHP
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for PHP via Java 建立與格式化段落、片段、項目符號、編號清單、縮排、HTML 內容以及段落影像。"
+description: "了解如何使用 Aspose.Slides for PHP via Java 建立與格式化段落、部分、項目符號、編號清單、縮排、HTML 內容，以及段落影像。"
 ---
 ## **概觀**
 
-Aspose.Slides for PHP via Java 將文字表示為文字框、段落和片段的階層結構：
+Aspose.Slides for PHP via Java 以文字框、段落和部分的層次結構來表示文字：
 
-* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) 表示形狀中的文字容器，並提供對其段落集合的存取。
-* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) 表示文字框中的一個段落，並提供對其片段和段落級格式的存取。
-* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) 表示段落內的文字片段。每個片段可以擁有自己的文字和字元級格式。
+* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) 代表形狀中的文字容器，並提供對其段落集合的存取。
+* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) 代表文字框中的一個段落，並提供對其部分與段落層級格式的存取。
+* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) 代表段落內的文字執行區塊。每個部分可以有自己的文字和字元層級格式。
 
-因此，一個段落可以透過使用多個片段，包含具有不同字型、顏色、大小以及其他格式的文字。
+因此，一個段落可以透過使用多個部分來包含具有不同字型、顏色、大小和其他格式設定的文字。
 
 ## **建立與格式化段落**
 
-### **建立具有多個片段的段落**
+在形狀的文字框中建立段落，並使用部分來格式化個別的文字執行區塊。本節說明如何在每個段落內結合多個部分，並套用不同的顏色、字型大小與樣式。
 
-以下步驟建立一個文字框，內含三個段落，每個段落包含三個片段：
+### **使用多個部分建立段落**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引存取相關投影片。
-3. 在投影片上新增一個矩形的 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)。
-4. 存取形狀的 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)。
-5. 使用預設段落，並在文字框中再加入兩個 [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) 物件。
-6. 為每個段落加入足夠的 [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) 物件，使其包含三個片段。預設段落已包含一個空的片段。
-7. 設定每個片段的文字。
-8. 透過 [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat--) 套用字元級格式。
-9. 儲存已修改的簡報。
-
-此 PHP 範例實作上述步驟：
+以下 PHP 範例建立三個段落，每個段落在由 [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions) 回傳的集合中包含三個文字執行。它重複使用預設段落與其空白部分，然後加入其餘的段落和部分。格式化透過 [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat) 套用：每個段落的第一個部分為紅色、粗體、15 點；第二個為藍色、斜體、18 點。第三個部分保留其預設格式：
 
 ```php
 use aspose\slides\FillType;
@@ -73,6 +63,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
     $textFrame = $shape->getTextFrame();
 
@@ -122,24 +113,13 @@ try {
 
 ## **建立項目符號與編號清單**
 
+將段落文字組織成使用符號、編號或自訂影像的清單。本節的範例涵蓋項目符號格式、多層清單以及自訂起始編號。
+
 ### **建立項目符號或編號清單**
 
-項目符號與編號可讓相關項目更易於掃描。在 Aspose.Slides 中，清單設定透過 [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/) 定義。
+項目符號與編號讓相關項目更易於瀏覽。在 Aspose.Slides 中，清單設定透過 [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/) 定義。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引存取相關投影片。
-3. 在選取的投影片上新增一個 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)。
-4. 存取形狀的 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)。
-5. 從文字框中移除預設段落。
-6. 為符號項目符號建立一個 [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/)。
-7. 將 [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) 設為 [BulletType::Symbol](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/) 並指定項目符號字元。
-8. 設定段落文字、縮排、項目符號顏色與項目符號高度。
-9. 將段落加入文字框。
-10. 建立第二個段落，並將 [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) 設為 [BulletType::Numbered](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/)。
-11. 設定編號項目符號樣式，並將段落加入文字框。
-12. 儲存簡報。
-
-此 PHP 範例建立符號項目符號與編號項目符號：
+此 PHP 範例在同一文字框中加入符號項目符號與編號項目。[BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) 用來選擇項目符號類型；[BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) 提供符號；[BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) 選擇編號樣式。兩個項目皆使用黑色項目符號，高度為 100%，段落縮排為 25 點：
 
 ```php
 use aspose\slides\BulletType;
@@ -154,6 +134,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
@@ -188,20 +169,9 @@ try {
 
 ### **使用圖片項目符號**
 
-圖片項目符號讓您使用自訂圖像取代符號或編號。
+圖片項目符號讓您以自訂影像取代符號或編號。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例。
-2. 透過索引存取相關投影片。
-3. 新增一個 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 並存取其 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)。
-4. 從文字框中移除預設段落。
-5. 載入項目符號圖片，並以 [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) 加入簡報的圖片集合。
-6. 建立一個 [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) 並設定其文字。
-7. 將 [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) 設為 [BulletType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/)。
-8. 透過 [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture--) 指定圖片，並設定項目符號高度。
-9. 將段落加入文字框。
-10. 儲存已修改的簡報。
-
-此 PHP 範例建立圖片項目符號：
+此 PHP 範例將影像加入簡報的影像收藏，作為 [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)，並將其作為段落的項目符號。它呼叫 [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) 以使用圖片項目符號，並透過 [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture) 指定影像。[BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) 設為 100% 以依段落文字的比例調整項目符號大小：
 
 ```php
 use aspose\slides\BulletType;
@@ -240,17 +210,11 @@ try {
 }
 ```
 
-### **建立多層次清單**
+### **建立多層清單**
 
-將 [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth-short-) 設為不同值，可將段落放置於清單的不同層級。第一層的深度為 `0`。
+設定 [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) 以將段落放置於清單的不同層級。最高層的深度為 `0`。
 
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 並存取投影片。
-2. 新增一個 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 並清除其文字框中的預設段落。
-3. 建立四個段落，並設定其項目符號符號。
-4. 將其 [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth-short-) 值分別設定為 `0`、`1`、`2`、`3`。
-5. 將段落加入文字框，並儲存簡報。
-
-此 PHP 範例建立四層級的項目符號清單：
+此 PHP 範例將 [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) 的值從 0 設為 3，於四個段落中建立層次結構。每個段落使用符號項目符號，並透過 [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) 在圓形項目符號與連字號之間交替，以區分相鄰層級：
 
 ```php
 use aspose\slides\BulletType;
@@ -263,6 +227,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
@@ -310,17 +275,11 @@ try {
 }
 ```
 
-### **自訂編號清單項目的起始值**
+### **以自訂值開始編號清單項目**
 
-使用 [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) 可設定編號段落的起始號碼。
+使用 [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) 設定編號段落的起始編號。
 
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 並在投影片上新增一個 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)。
-2. 清除形狀文字框中的預設段落。
-3. 建立三個編號段落。
-4. 分別將 [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) 設為 `2`、`3`、`7`。
-5. 將段落加入文字框，並儲存簡報。
-
-此 PHP 範例為每個段落指派自訂的起始編號：
+此 PHP 範例將 [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) 設為編號，並為三個段落分別指定 [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) 為 2、3、7。每個段落各自的起始值可獨立設定，讓顯示的編號跳過特定數字：
 
 ```php
 use aspose\slides\BulletType;
@@ -331,7 +290,9 @@ use aspose\slides\ShapeType;
 
 $presentation = new Presentation();
 try {
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
 
@@ -359,25 +320,17 @@ try {
 }
 ```
 
-## **控制段落版面配置與結尾屬性**
+## **控制段落版面與結尾屬性**
+
+調整段落的邊距與縮排，以控制首行與換行行的位置。您也可以分別為段落結尾標記與可見文字部分設定格式。
 
 ### **設定首行縮排**
 
-使用 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) 來控制段落的首行縮排。此方法僅移動首行相對於段落左邊距的距離。正值會將首行向右移動，而其餘行保持與段落正文對齊。
+使用 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) 方法控制段落的首行縮排。此設定僅移動首行相對於段落左邊距的位移。正值會將首行向右移動，而其餘行仍與段落主體對齊。
 
-當需要移動整個段落時，請使用 [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-)。僅需移動首行時，請使用 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-)。
+需要移動整個段落時，使用 [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft)；只需移動首行時，使用 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent)。
 
-下面的範例建立多個段落，並套用不同的 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) 值，以示範首行縮排如何影響段落版面。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例。
-2. 存取目標投影片。
-3. 在投影片上新增一個矩形的 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)。
-4. 存取形狀的 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) 並移除預設段落。
-5. 建立多個段落，為它們設定不同的 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) 值。
-6. 將段落加入文字框。
-7. 儲存已修改的簡報。
-
-此 PHP 程式碼示範如何設定段落縮排：
+下列範例為三個段落設定相同的 [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) 為 20 點，並分別設定 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) 為 0、20、40 點。首行的起始位置逐漸增大，而換行行則保留相同的左邊距：
 
 ```php
 use aspose\slides\FillType;
@@ -437,22 +390,13 @@ try {
 
 ### **設定懸掛縮排**
 
-懸掛縮排是一種段落版面配置，首行會位於其餘行的左側。在 Aspose.Slides 中，可透過 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) 並傳入負值來實作此效果。
+懸掛縮排是在首行位於其餘行左側的段落版面配置。於 Aspose.Slides 中，可使用 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) 屬性達成此效果。將 `Indent` 設為負值，即可使首行相對於段落主體向左移動。
 
-實務上，[ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) 定義段落正文的左側位置，而 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) 定義首行相對於該左側的位移。要建立懸掛縮排，請將正值傳給 `setMarginLeft`，並將負值傳給 `setIndent`。
+實務上，[ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) 定義段落主體的左側位置，而 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) 定義首行相對於該邊距的位置。若要建立懸掛縮排，將正值的 `MarginLeft` 與負值的 `Indent` 結合使用。
 
-此格式特別適用於書目、參考文獻、詞彙表項目，以及其他需要讓換行後的文字對齊於段落正文而非首行首字的段落。
+此版面配置常用於參考文獻、引用、術語表項目等需要讓換行行對齊於段落主體而非首字的情形。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例。
-2. 存取目標投影片。
-3. 在投影片上新增一個矩形的 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)。
-4. 存取形狀的 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) 並移除預設段落。
-5. 為每個段落傳入正值到 [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-)。
-6. 將負值傳給 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) 以產生懸掛縮排效果。
-7. 將段落加入文字框。
-8. 儲存已修改的簡報。
-
-此 PHP 程式碼示範如何為段落設定懸掛縮排：
+以下 PHP 範例將 [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) 設為 40 與 60 點，並將 [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) 設為 -20 與 -30 點。每個段落的首行皆位於換行行左側；第二段落的懸掛縮排更深：
 
 ```php
 use aspose\slides\FillType;
@@ -504,14 +448,7 @@ try {
 
 ### **設定段落結尾執行屬性**
 
-[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) 控制段落結尾標記的格式。以下 PHP 範例為第二段落的結尾標記指定字型大小與拉丁字型：
-
-1. 載入一個 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 並存取投影片。
-2. 新增一個 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 並清除其預設段落。
-3. 建立兩個段落，並為它們加入文字片段。
-4. 為第二段落的結尾標記建立一個 [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/)。
-5. 設定 [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) 以及 [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-)。
-6. 使用 [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) 套用格式，並儲存簡報。
+[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) 方法控制段落結尾標記的格式。以下範例建立一個 [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) ，將 [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) 設為 48 點，並將 [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) 設為 Times New Roman。接著將此格式套用至第二段落的結尾標記，而保持可見文字部分不變：
 
 ```php
 use aspose\slides\FontData;
@@ -525,6 +462,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation("Test.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
@@ -549,15 +487,15 @@ try {
 }
 ```
 
-## **計算已渲染的行數**
+## **計算已呈現的行數**
 
-關於影響自動換行與行尾標點的段落規則，請參閱 [Control Line Breaking](/slides/zh-hant/php-java/text-formatting/#control-line-breaking) 與 [Control Hanging Punctuation](/slides/zh-hant/php-java/text-formatting/#control-hanging-punctuation)。
+有關影響自動換行與行尾標點的段落規則，請參閱 [Control Line Breaking](/slides/zh-hant/php-java/text-formatting/#control-line-breaking) 與 [Control Hanging Punctuation](/slides/zh-hant/php-java/text-formatting/#control-hanging-punctuation)。
 
-使用 [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount--) 可計算段落在文字版面配置後佔用的行數，包括自動換行。這在檢查簡報範本中的文字長度與版面配置時很有用。
+使用 [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) 取得段落在文字排版後佔用的行數，包含自動換行。這在檢查簡報範本中文本長度與版面時非常有用。
 
-段落是 [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs--) 中的單一項目，可能佔用多行已渲染的行。段落內的顯式換行會導致新行但不會建立新段落。自動換行則根據可用寬度產生行，而不會在文字中插入換行字元。因此，僅計算段落或換行字元無法得到已渲染的行數。
+段落是 [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs) 中的一個項目，可能佔用多行已呈現的行數。段落內的顯式換行符會強制產生新行，而不會建立新段落。自動換行則根據可用寬度產生行，但不會在文字中插入顯式換行符。因此，僅計算段落或換行字元並不會得到已呈現的行數。
 
-下列範例建立一個文字形狀，計算其行數，縮小形狀，然後以較短的字串取代文字。已啟用換行且已停用自動調整大小，以便形狀寬度控制換行而不會自動縮小文字或調整形狀大小。形狀尺寸以點為單位。最後，範例再加入另一個段落，並將文字框中的行數總合。
+以下範例建立一個文字形狀，計算其行數，縮小形狀後再以較短的字串取代文字。範例使用 [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) 開啟換行，並使用 [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) 停用自動調整大小，使形狀寬度控制換行且不會自動縮小文字或調整形狀大小。每次測量皆使用 [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount)。形狀尺寸以點為單位。最後，範例加入另一段落，並將整個文字框的行數相加。
 
 ```php
 use aspose\slides\NullableBool;
@@ -602,24 +540,19 @@ try {
 }
 ```
 
-使用此文字與這些尺寸，縮小形狀會增加行數，而以短字串取代文字則會減少行數。實際行數會因字型可用性與替換、字型大小、邊距、縮排、換行與自動調整設定而異。檢查範本時請使用目標環境的字型與版面設定。
+以此文字與尺寸測試時，縮小形狀會增加行數，取代為短字串則會減少行數。精確的行數會因字型可用性與替代、字型大小、邊距、縮排、換行與自動調整設定而有所不同；請使用目標環境的字型與版面設定來檢查範本。
 
-單純的行數並不能決定文字是否溢出其容器。可用高度、行高、段落與行間距以及自動調整行為也很重要；即使是單行，在關閉換行時也可能超過可用寬度。
+僅靠行數無法判斷文字是否溢出容器。可用高度、行高、段落與行間距以及自動調整行為也會影響；即便只有單行文字，若關閉換行功能，仍可能超出可用寬度。
 
 ## **匯入與匯出段落內容**
 
+使用 HTML 將文字帶入簡報，或將現有段落匯出以供外部使用。本節亦說明如何將單一段落渲染為影像，包括表格儲存格內的段落。
+
 ### **將 HTML 文字匯入段落**
 
-使用 [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) 可將 HTML 標記轉換為文字框中的段落與片段。
+使用 [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) 將 HTML 標記轉換為文字框中的段落與部分。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例。
-2. 存取投影片並新增一個 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)。
-3. 存取形狀的 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) 並清除其預設段落。
-4. 讀取來源 HTML 檔案。
-5. 將 HTML 字串傳給 [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)。
-6. 儲存已修改的簡報。
-
-此 PHP 範例將 HTML 匯入文字框：
+此 PHP 範例從檔案讀取 HTML，並將標記傳遞給 [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml)。它會清除文字框的預設段落，使框架僅包含匯入的內容。矩形形狀在投影片的每一側保留 10 點的邊距：
 
 ```php
 use aspose\slides\FillType;
@@ -630,6 +563,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shapeWidth = java_values($presentation->getSlideSize()->getSize()->getWidth()) - 20;
     $shapeHeight = java_values($presentation->getSlideSize()->getSize()->getHeight()) - 20;
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $shapeWidth, $shapeHeight);
@@ -650,20 +584,23 @@ try {
 
 ### **將段落文字匯出為 HTML**
 
-使用 [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 可將選取的段落範圍匯出為 HTML。
+使用 [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) 將選取的段落範圍匯出為 HTML。當在網站上重複使用簡報文字時，您可能希望保留本地的強調效果，而不帶入簡報的字型、大小或文字方塊樣式。設定 [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) 以控制匯出程式追蹤格式繼承的深度。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例並載入目標簡報。
-2. 存取投影片，並找到包含文字的 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)。
-3. 存取形狀的 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)。
-4. 呼叫 [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-)，傳入起始段落索引與要匯出的段落數目。
-5. 將回傳的 HTML 字串寫入檔案。
+下載 [範例簡報](text-inheritance.pptx) 並放置於應用程式的工作目錄。其第一張投影片包含一個文字形狀，文字為「Inherited text; explicit red 18pt」。輸入刻意使用了多層格式：
 
-此 PHP 範例匯出第一個文字形狀的所有段落：
+- 簡報的預設文字樣式提供 Calibri 字型與 28 點大小。
+- 文字框的第一層文字樣式提供藍色文字與斜體。
+- 段落明確設定為粗體。
+- 第二個部分「explicit red 18pt」明確設定為紅色文字與 18 點大小。
+
+以下完整範例將相同的段落匯出三次。它將 [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) 傳遞給匯出方法，並將每個結果寫入不同的 UTF-8 HTML 檔案：
 
 ```php
 use aspose\slides\Presentation;
+use aspose\slides\TextInheritanceLimit;
+use aspose\slides\TextToHtmlConversionOptions;
 
-$presentation = new Presentation("ExportingHTMLText.pptx");
+$presentation = new Presentation("text-inheritance.pptx");
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
@@ -671,9 +608,18 @@ try {
         $textFrame = $shape->getTextFrame();
         if (!java_is_null($textFrame)) {
             $paragraphs = $textFrame->getParagraphs();
-            $html = $paragraphs->exportToHtml(0, $paragraphs->getCount(), null);
-            if (file_put_contents("paragraphs.html", $html) === false) {
-                echo "The HTML file could not be written.";
+
+            $modes = array(TextInheritanceLimit::All, TextInheritanceLimit::TextBox, TextInheritanceLimit::ParagraphOnly);
+            $fileNames = array("All.html", "TextBox.html", "ParagraphOnly.html");
+
+            for ($i = 0; $i < count($modes); $i++) {
+                $options = new TextToHtmlConversionOptions();
+                $options->setTextInheritanceLimit($modes[$i]);
+
+                $html = $paragraphs->exportToHtml(0, $paragraphs->getCount(), $options);
+                if (file_put_contents($fileNames[$i], java_values($html)) === false) {
+                    echo "The HTML file could not be written." . PHP_EOL;
+                }
             }
         } else {
             echo "The first shape does not contain a text frame.";
@@ -686,19 +632,31 @@ try {
 }
 ```
 
+產生的 HTML 包含以下 CSS，針對第一部分「Inherited text; 」：
+
+| 輸出 | 第一部分相關的 CSS | 外觀 |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | 藍色、粗體、斜體文字，字型為 28 pt Calibri（若該字型可用）。 |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | 藍色、粗體、斜體文字；字型與大小由頁面或瀏覽器提供。 |
+| `ParagraphOnly.html` | `font-weight:bold` | 粗體文字；字型、大小、顏色與斜體樣式由頁面或瀏覽器提供。 |
+
+第二部分在所有三個輸出中皆保留 `color:#ff0000`、`font-size:18pt` 與 `font-weight:bold`。在 `All` 與 `TextBox` 中仍保留斜體，但在 `ParagraphOnly` 中不保留。限制繼承因此不會移除明確指定給段落或部分的格式。
+
+在同一瀏覽器中開啟這些檔案以比較結果。於受限模式下，省略的 CSS 屬性會由目標頁面的樣式或瀏覽器預設補足，最終外觀取決於 HTML 的使用環境。
+
 ### **將段落渲染為影像**
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) 直接渲染單一段落並回傳 [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/)。使用 [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save-java.lang.String-int-) 可將結果儲存為檔案或串流。您不需要渲染包含形狀或手動裁剪位圖。
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) 直接渲染單一段落，並回傳一個 [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/)。使用 [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) 可將結果儲存為檔案或串流，無需手動渲染包含的形狀或裁切位圖。
 
-如果段落無法在其父集合中找到、沒有有效的渲染邊界，或無法渲染，[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) 可能會回傳 `null`。在儲存之前請檢查結果，並在使用完畢後釋放返回的影像。
+如果段落在其父集合中找不到、沒有有效的渲染邊界，或無法渲染，則 [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) 可能回傳 `null`。請在儲存前檢查回傳結果，並在使用完畢後釋放影像。
 
 #### **以預設比例渲染段落**
 
-假設我們有一個名為 `sample.pptx` 的簡報檔案，內含一張投影片，第一個形狀是一個包含三個段落的文字方塊。
+此範例使用一個投影片，第一個形狀為包含三個段落的文字方塊。
 
-![含有三個段落的文字方塊](paragraph_to_image_input.png)
+![包含三個段落的文字方塊](paragraph_to_image_input.png)
 
-以下 PHP 範例在預設比例下渲染第二個段落，並以 PNG 格式儲存返回的影像。`finally` 區塊確保影像正確釋放。
+以下範例選取索引為 1 的第二段落，呼叫 [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage)（未傳遞比例參數）。它會先確認形狀包含所需段落，且渲染回傳影像後，再呼叫 [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) 以 PNG 格式儲存。`finally` 區塊會在使用後釋放影像。
 
 ```php
 use aspose\slides\ImageFormat;
@@ -736,11 +694,11 @@ try {
 
 結果：
 
-![段落影像](paragraph_to_image_output.png)
+![段落圖像](paragraph_to_image_output.png)
 
-#### **在表格儲存格中以比例渲染段落**
+#### **在表格儲存格中以縮放渲染段落**
 
-使用接受 `$scaleX` 與 `$scaleY` 參數的 [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage-float-float-) 之重載，可設定水平與垂直的縮放因子。以下 PHP 範例建立一個表格，並在其第一個儲存格中以兩倍寬高渲染段落，最後將結果儲存為 PNG 影像。
+使用接受 `$scaleX` 與 `$scaleY` 參數的 [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) 重載，設定水平與垂直的縮放係數。以下範例建立一個表格，於第一個儲存格中以預設寬高的兩倍渲染段落，並將結果存為 PNG 影像。
 
 ```php
 use aspose\slides\ImageFormat;
@@ -752,6 +710,7 @@ $scaleY = 2;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+    
     $table = $slide->getShapes()->addTable(50, 50, array(300), array(80));
     $paragraph = $table->get_Item(0, 0)->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->setText("Text in a table cell");
@@ -771,26 +730,26 @@ try {
 }
 ```
 
-縮放因子 `1` 保持該軸的預設像素大小。例如，同時設定為 `2` 會產生寬度與高度約為預設的兩倍的影像，像素數量為原来的四倍。較大的因子通常會在放大或高解析度輸出時產生更銳利的文字，但也會增加記憶體使用與檔案大小。小於 `1` 的因子會產生較小且細節較少的影像。使用相同的因子可保留段落的長寬比例；不同的水平與垂直因子會分別拉伸輸出。
+縮放係數為 `1` 時保持該軸的預設像素大小。例如，兩個係數皆為 `2` 時，影像的寬度與高度約為預設尺寸的兩倍，像素數量則為四倍。較大的係數通常能在縮放或高解析度輸出時提供更銳利的文字，但也會增加記憶體使用量與檔案大小。小於 `1` 的係數會產生較小且細節較少的影像。若想保留段落的長寬比，請使用相同的係數；不同的水平與垂直係數會分別拉伸輸出。
 
-在需要包含形狀填色、邊框或其他視覺上下文時，使用 [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage--) 仍然有用。若僅需要段落的影像，請使用 [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--)。
+在需要包含形狀填色、邊框或其他視覺上下文的情況下，仍可使用 [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) 渲染整個形狀。若只需段落圖像，請使用 [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage)。
 
-## **FAQ**
+## **常見問題集**
 
-**我可以完全停用文字框內的換行嗎？**
+**我能完全停用文字框內的換行嗎？**
 
-可以。將 [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText-byte-) 設為停用，即可禁止換行，使行不會在文字框邊緣斷開。
+可以。將 [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) 設為停用，即可讓行不在文字框邊緣斷行。
 
-**我要如何取得特定段落在投影片上的確切邊界？**
+**如何取得特定段落在投影片上的精確邊界？**
 
-使用 [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect--) 取得段落的邊界矩形。[Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect--) 則提供單一片段的邊界。
+使用 [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) 取得段落的外框矩形。[Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) 可取得單一部分的邊界。
 
-**段落對齊（左、右、置中或兩端對齊）是在哪裡控制的？**
+**段落對齊（左、右、置中或兩端對齊）在哪裡設定？**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment-int-) 是段落層級的設定，會套用於整個段落，與個別片段的格式無關。
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) 為段落層級設定，套用於整個段落，與個別部分的格式無關。
 
-若要在每行中垂直對齊不同字型大小的片段，請參閱 [Align Fonts Within a Line](/slides/zh-hant/php-java/text-formatting/#align-fonts-within-a-line)。
+若要在每行內垂直對齊不同字型大小的部分，請參閱 [Align Fonts Within a Line](/slides/zh-hant/php-java/text-formatting/#align-fonts-within-a-line)。
 
-**我可以為段落的部分文字設定校對語言嗎？**
+**我能為段落的部分設定校對語言嗎？**
 
-可以。對個別片段使用 [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)，即可讓同一段落內的文字使用多種語言。
+可以。對個別部分使用 [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) 即可，使同一段落內的文字可包含多種語言。

@@ -1,5 +1,5 @@
 ---
-title: مدیریت پاراگراف‌های متن پاورپوینت در .NET
+title: مدیریت پاراگراف‌های متن PowerPoint در .NET
 linktitle: مدیریت پاراگراف
 type: docs
 weight: 40
@@ -12,53 +12,43 @@ keywords:
 - افزودن پاراگراف
 - مدیریت متن
 - مدیریت پاراگراف
-- مدیریت بولت
+- مدیریت گلوله
 - تورفتگی پاراگراف
 - تورفتگی معلق
-- بولت پاراگراف
+- گلوله پاراگراف
 - فهرست شماره‌دار
-- فهرست بولت‌دار
-- ویژگی‌های پاراگراف
-- وارد کردن HTML
+- فهرست نقطه‌ای
+- ویژگی‌های پاراگرف
+- واردات HTML
 - متن به HTML
 - پاراگراف به HTML
 - پاراگراف به تصویر
 - متن به تصویر
-- خروجی پاراگراف
-- پاورپوینت
+- صادرات پاراگراف
+- PowerPoint
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، بولت‌ها، فهرست‌های شماره‌دار، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را با Aspose.Slides برای .NET ایجاد و قالب‌بندی کنید."
+description: "یاد بگیرید چگونه با Aspose.Slides برای .NET پاراگراف‌ها، بخش‌ها، گلوله‌ها، فهرست‌های شماره‌دار، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را ایجاد و قالب‌بندی کنید."
 ---
-## **بررسی کلی**
+## **مرور کلی**
 
-Aspose.Slides for .NET متن را به صورت یک سلسله‌مراتبی از قاب‌های متن، پاراگراف‌ها و بخش‌ها نمایش می‌دهد:
+Aspose.Slides for .NET متن را به‌عنوان سلسله‌مراتی از فریم‌های متن، پاراگراف‌ها و بخش‌ها نشان می‌دهد:
 
 * [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) نمایانگر محفظه متن در یک شکل است و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌کند.
-* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) نمایانگر یک پاراگراف در یک قاب متن است و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را می‌دهد.
-* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) نمایانگر یک بخش متن درون یک پاراگراف است. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتر خود را داشته باشد.
+* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) نمایانگر یک پاراگراف در فریم متن است و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌کند.
+* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) نمایانگر یک بخش متن درون یک پاراگراف است. هر بخش می‌تواند متن و قالب‌بندی در سطح کاراکتر خود را داشته باشد.
 
-بنابراین یک پاراگراف می‌تواند متن با قلم‌ها، رنگ‌ها، اندازه‌ها و سایر قالب‌بندی‌های مختلف را با استفاده از چندین بخش شامل شود.
+بنابراین یک پاراگراف می‌تواند متن با فونت‌ها، رنگ‌ها، اندازه‌ها و سایر قالب‌بندی‌های مختلف را با استفاده از چندین بخش داشته باشد.
 
 ## **ایجاد و قالب‌بندی پاراگراف‌ها**
 
-### **ایجاد پاراگراف‌ها با بخش‌های متعدد**
+پاراگراف‌ها را در فریم متن یک شکل ایجاد کنید و از بخش‌ها برای قالب‌بندی اجرای متن‌های فردی استفاده کنید. این بخش نشان می‌دهد چگونه چندین بخش را در هر پاراگراف ترکیب کنید و رنگ‌ها، اندازه‌های قلم و سبک‌های مختلف را اعمال کنید.
 
-مراحل زیر یک قاب متن با سه پاراگراف، هر کدام شامل سه بخش، ایجاد می‌کند:
+### **ایجاد پاراگراف با چندین بخش**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) ایجاد کنید.
-2. مرجع اسلاید موردنظر را از طریق ایندکس آن دسترسی پیدا کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
-4. به [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-5. از پاراگراف پیش‌فرض استفاده کنید و دو شیء [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) دیگر به قاب متن اضافه کنید.
-6. برای هر پاراگراف به اندازه کافی شیء [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) اضافه کنید تا سه بخش داشته باشد. پاراگراف پیش‌فرض در حال حاضر یک بخش خالی دارد.
-7. متن هر بخش را تنظیم کنید.
-8. قالب‌بندی سطح کاراکتر را از طریق [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/) اعمال کنید.
-9. ارائه اصلاح‌شده را ذخیره کنید.
-
-این مثال C# مراحل را پیاده‌سازی می‌کند:
+مثال زیر به زبان C# سه پاراگراف ایجاد می‌کند که هر کدام شامل سه اجرای متن در مجموعه [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/) خود هستند. این مثال پاراگراف پیش‌فرض و بخش خالی آن را مجدداً استفاده می‌کند، سپس پاراگراف‌ها و بخش‌های باقی‌مانده را اضافه می‌کند. قالب‌بندی از طریق [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/) اعمال می‌شود: اولین بخش در هر پاراگراف قرمز، بولد و 15 پوینت است؛ دومین بخش آبی، ایتالیک و 18 پوینت؛ بخش سوم قالب‌بندی پیش‌فرض خود را حفظ می‌کند:
 
 ```csharp
 using System.Drawing;
@@ -67,6 +57,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 var textFrame = shape.TextFrame;
 
@@ -116,26 +107,15 @@ for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 ```
 
-## **ایجاد فهرست‌های بولت‌دار و شماره‌دار**
+## **ایجاد فهرست‌های نقطه‌ای و عددی**
 
-### **ایجاد فهرست بولت‌دار یا شماره‌دار**
+متن پاراگراف را در فهرست‌هایی با نمادها، اعداد یا تصاویر سفارشی سازماندهی کنید. مثال‌های این بخش شامل قالب‌بندی گلوله‌ها، فهرست‌های چندسطحه‌ای و شروع اعداد سفارشی هستند.
 
-بولت‌ها و شماره‌گذاری موارد مرتبط را برای اسکن آسان‌تر می‌کنند. در Aspose.Slides تنظیمات فهرست از طریق [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/) تعریف می‌شود.
+### **ایجاد فهرست نقطه‌ای یا عددی**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) ایجاد کنید.
-2. مرجع اسلاید موردنظر را از طریق ایندکس آن دسترسی پیدا کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) به اسلاید انتخاب‌شده اضافه کنید.
-4. به [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض را از قاب متن حذف کنید.
-6. یک [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) برای بولت نماد ایجاد کنید.
-7. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) را به [BulletType.Symbol](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) تنظیم کنید و کاراکتر بولت را مشخص کنید.
-8. متن پاراگراف، تورفتگی، رنگ بولت و ارتفاع بولت را تنظیم کنید.
-9. پاراگراف را به قاب متن اضافه کنید.
-10. پاراگراف دوم را ایجاد کنید و [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) را به [BulletType.Numbered](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) تنظیم کنید.
-11. سبک بولت شماره‌دار را پیکربندی کنید و پاراگراف را به قاب متن اضافه کنید.
-12. ارائه را ذخیره کنید.
+گلوله‌ها و شماره‌گذاری موارد مرتبط را برای اسکن آسان‌تر می‌کند. در Aspose.Slides، تنظیمات فهرست از طریق [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/) تعریف می‌شوند.
 
-این مثال C# یک بولت نماد و یک بولت شماره‌دار ایجاد می‌کند:
+این مثال به زبان C# یک گلوله نمادین و یک مورد شماره‌دار را به همان فریم متن اضافه می‌کند. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) نوع گلوله را انتخاب می‌کند، در حالی که [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) نماد را ارائه می‌دهد و [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) سبک شماره‌گذاری را انتخاب می‌کند. هر دو مورد از گلوله‌های سیاه با ارتفاع 100 درصد و تورفتگی پاراگراف 25 پوینت استفاده می‌کنند:
 
 ```csharp
 using System;
@@ -145,6 +125,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -172,22 +153,11 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **استفاده از بولت تصویر**
+### **استفاده از گلوله‌های تصویری**
 
-بولت‌های تصویری به شما امکان می‌دهند به جای نماد یا عدد از یک تصویر سفارشی استفاده کنید.
+گلوله‌های تصویری به شما امکان می‌دهند به جای نماد یا عدد، از یک تصویر سفارشی استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) ایجاد کنید.
-2. مرجع اسلاید موردنظر را از طریق ایندکس آن دسترسی پیدا کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) اضافه کنید و به [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) آن دسترسی پیدا کنید.
-4. پاراگراف پیش‌فرض را از قاب متن حذف کنید.
-5. تصویر بولت را بارگیری کنید و به مجموعه تصویرهای ارائه به‌عنوان یک [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) اضافه کنید.
-6. یک [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) ایجاد کنید و متن آن را تنظیم کنید.
-7. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) را به [BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) تنظیم کنید.
-8. تصویر را از طریق [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/) اختصاص دهید و ارتفاع بولت را تنظیم کنید.
-9. پاراگراف را به قاب متن اضافه کنید.
-10. ارائه اصلاح‌شده را ذخیره کنید.
-
-این مثال C# یک بولت تصویری ایجاد می‌کند:
+این مثال به زبان C# یک تصویر را به مجموعه تصویرهای ارائه به عنوان یک [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) اضافه می‌کند و به عنوان گلوله پاراگراف استفاده می‌کند. این مثال [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) را برای استفاده از گلوله تصویری تنظیم می‌کند و تصویر را از طریق [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/) اختصاص می‌دهد. [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) بر روی 100 درصد تنظیم می‌شود تا اندازه گلوله نسبت به متن پاراگراف تنظیم شود:
 
 ```csharp
 using Aspose.Slides;
@@ -215,15 +185,9 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 ### **ایجاد فهرست چندسطحی**
 
-[ IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف یک فهرست قرار گیرند. سطح بالایی دارای عمق `0` است.
+مقدار [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف یک فهرست قرار گیرند. سطح بالایی عمق `0` دارد.
 
-1. یک [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ایجاد کنید و به یک اسلاید دسترسی پیدا کنید.
-2. یک [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض را از قاب متن آن پاک کنید.
-3. چهار پاراگراف ایجاد کنید و نمادهای بولت آن‌ها را پیکربندی کنید.
-4. مقدارهای [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) آن‌ها را به ترتیب `0`، `1`، `2` و `3` تنظیم کنید.
-5. پاراگراف‌ها را به قاب متن اضافه کنید و ارائه را ذخیره کنید.
-
-این مثال C# فهرست بولت‌دار چهار سطحی ایجاد می‌کند:
+این مثال به زبان C# مقادیر [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) را از 0 تا 3 به چهار پاراگراف اختصاص می‌دهد و یک سلسله‌مراتبی در یک فریم متن ایجاد می‌کند. هر پاراگراف از یک گلوله نماد استفاده می‌کند، به‌طوری که [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) بین یک گلوله گرد و یک خط تیره برای تمایز سطوح مجاور جابجا می‌شود:
 
 ```csharp
 using System;
@@ -233,6 +197,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -273,17 +238,11 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **شروع موارد فهرست شماره‌دار با مقادیر دلخواه**
+### **شروع موارد فهرست شماره‌دار با مقادیر سفارشی**
 
-از [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) برای تعیین عدد اولیه نمایش داده‌شده برای یک پاراگراف شماره‌دار استفاده کنید.
+از [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) برای تنظیم عدد اولیه نمایش داده شده برای یک پاراگراف شماره‌دار استفاده کنید.
 
-1. یک [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ایجاد کنید و یک [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-2. پاراگراف پیش‌فرض را از قاب متن شکل پاک کنید.
-3. سه پاراگراف شماره‌دار ایجاد کنید.
-4. برای هر پاراگراف [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) را به ترتیب به `2`، `3` و `7` تنظیم کنید.
-5. پاراگراف‌ها را به قاب متن اضافه کنید و ارائه را ذخیره کنید.
-
-این مثال C# عدد شروع سفارشی را به هر پاراگراف اختصاص می‌دهد:
+این مثال به زبان C# مقدار [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) را برای استفاده از شماره‌گذاری برای سه پاراگراف تنظیم می‌کند و مقادیر [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) را به ترتیب 2، 3 و 7 اختصاص می‌دهد. مقدار شروع به‌صورت جداگانه برای هر پاراگراف پیکربندی می‌شود تا اعداد نمایش داده شده مقادیر را صرف‌نظر کنند:
 
 ```csharp
 using Aspose.Slides;
@@ -291,6 +250,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -313,25 +273,17 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **کنترل چیدمان پاراگراف و ویژگی‌های انتهایی**
+## **کنترل طرح‌بندی پاراگراف و ویژگی‌های انتهای آن**
 
-### **تنظیم تورفتگی اولین خط**
+حاشیه‌ها و تورفتگی‌های پاراگراف را تنظیم کنید تا موقعیت خط اول و خطوط بسته‌شده را کنترل کنید. همچنین می‌توانید علامت انتهای پاراگراف را جدا از بخش‌های متن قابل مشاهده قالب‌بندی کنید.
 
-از ویژگی [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) برای کنترل تورفتگی اولین خط یک پاراگراف استفاده کنید. این ویژگی فقط خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت اولین خط را به سمت راست می‌برد، در حالی که خطوط باقی‌مانده در جای خود باقی می‌مانند.
+### **تنظیم تورفتگی خط اول**
 
-زمانی که نیاز به جابه‌جایی کل پاراگراف دارید از [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) استفاده کنید. وقتی فقط اولین خط را می‌خواهید جابه‌جا کنید، از [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) استفاده کنید.
+از ویژگی [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این ویژگی فقط خط اول را نسبت به حاشیه چپ پاراگراف جابجا می‌کند. مقدار مثبت، خط اول را به راست منتقل می‌کند، در حالی که خطوط باقی‌مانده نسبت به بدنه پاراگراف هم‌راستا می‌مانند.
 
-مثال زیر چند پاراگراف ایجاد می‌کند و مقادیر مختلف [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) را برای نشان دادن اثر تورفتگی اولین خط بر چیدمان پاراگراف اعمال می‌کند.
+از [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) زمانی که نیاز دارید تمام پاراگراف را جابجا کنید، استفاده کنید. از [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) زمانی که فقط خط اول را می‌خواهید جابجا کنید، استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید هدف را دسترسی پیدا کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
-4. به [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. چند پاراگراف ایجاد کنید و مقادیر مختلف [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) را برای آن‌ها تنظیم کنید.
-6. پاراگراف‌ها را به قاب متن اضافه کنید.
-7. ارائه اصلاح‌شده را ذخیره کنید.
-
-این کد نحوه تنظیم تورفتگی پاراگراف را نشان می‌دهد:
+مثال زیر سه پاراگراف را با همان مقدار [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) برابر 20 پوینت و مقادیر [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) برابر 0، 20 و 40 پوینت می‌دهد. خطوط اول در فاصله‌های افزایشی بزرگتر شروع می‌شوند، در حالی که خطوط بسته‌شده همان حاشیه چپ را حفظ می‌کنند:
 
 ```csharp
 using System.Drawing;
@@ -340,6 +292,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -380,22 +333,13 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 ### **تنظیم تورفتگی معلق**
 
-تورفتگی معلق یک چیدمان پاراگراف است که در آن خط اول به سمت چپ خطوط باقی‌مانده شروع می‌شود. در Aspose.Slides این اثر را با ویژگی [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) ایجاد می‌کنید. مقدار `Indent` را به مقدار منفی تنظیم کنید تا خط اول نسبت به بدنه پاراگراف به سمت چپ جابه‌جا شود.
+تورفتگی معلق یک طرح‌بندی پاراگراف است که در آن خط اول نسبت به بقیه خطوط به سمت چپ شروع می‌شود. در Aspose.Slides، می‌توانید این اثر را با ویژگی [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) ایجاد کنید. مقدار `Indent` را به مقدار منفی تنظیم کنید تا خط اول نسبت به بدنه پاراگراف به سمت چپ حرکت کند.
 
-در عمل، [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) موقعیت چپ بدنه پاراگراف را تعریف می‌کند و [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) موقعیت خط اول را نسبت به آن حاشیه تنظیم می‌کند. برای ایجاد تورفتگی معلق، مقدار `MarginLeft` را مثبت و مقدار `Indent` را منفی تنظیم کنید.
+در عمل، [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) موقعیت چپ بدنه پاراگراف را تعریف می‌کند و [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) موقعیت خط اول را نسبت به آن حاشیه مشخص می‌کند. برای ایجاد تورفتگی معلق، مقدار `MarginLeft` مثبت و مقدار `Indent` منفی تنظیم کنید.
 
-این قالب‌بندی برای کتاب‌شناسی‌ها، مراجع، واژگان و سایر پاراگراف‌هایی که خطوط بسته‌بندی‌شده باید زیر بدنه پاراگراف نه زیر اولین کاراکتر خط اول هم‌راستا شوند مفید است.
+این قالب‌بندی برای کتاب‌های مرجع، مراجع، ورودی‌های واژه‌نامه و سایر پاراگراف‌هایی که خطوط بسته‌شده باید زیر بدنه پاراگراف و نه زیر اولین کاراکتر خط اول قرار گیرند، مفید است.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید هدف را دسترسی پیدا کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
-4. به [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. پاراگراف‌ها ایجاد کنید و برای هرکدام مقدار مثبت [MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) تنظیم کنید.
-6. مقدار منفی [Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) تنظیم کنید تا اثر تورفتگی معلق ایجاد شود.
-7. پاراگراف‌ها را به قاب متن اضافه کنید.
-8. ارائه اصلاح‌شده را ذخیره کنید.
-
-این کد نحوه تنظیم تورفتگی معلق برای یک پاراگراف را نشان می‌دهد:
+مثال زیر به زبان C# مقادیر [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) برابر 40 و 60 پوینت را با مقادیر [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) برابر -20 و -30 پوینت ترکیب می‌کند. در هر پاراگراف، خط اول نسبت به خطوط بسته‌شده به سمت چپ شروع می‌شود؛ پاراگراف دوم تورفتگی معلق عمیق‌تری دارد:
 
 ```csharp
 using System.Drawing;
@@ -404,6 +348,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -435,16 +380,9 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 
 ![تورفتگی معلق پاراگراف‌ها](hanging_indent.png)
 
-### **تنظیم ویژگی‌های انتهایی پاراگراف**
+### **تنظیم ویژگی‌های اجرا در انتهای پاراگراف**
 
-ویژگی [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) قالب‌بندی علامت انتهای پاراگراف را کنترل می‌کند. مثال زیر اندازه قلم و قلم لاتین را به علامت انتهای پاراگراف دوم اختصاص می‌دهد:
-
-1. یک [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) بارگذاری کنید و به یک اسلاید دسترسی پیدا کنید.
-2. یک [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض آن را پاک کنید.
-3. دو پاراگراف ایجاد کنید و به آن‌ها بخش‌های متنی اضافه کنید.
-4. برای علامت انتهای پاراگراف دوم یک [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) ایجاد کنید.
-5. [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) و [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) را تنظیم کنید.
-6. قالب را به [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) اختصاص دهید و ارائه را ذخیره کنید.
+ویژگی [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) قالب‌بندی علامت انتهای پاراگراف را کنترل می‌کند. مثال زیر یک [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) با [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) برابر 48 پوینت و [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) برابر Times New Roman ایجاد می‌کند. این قالب را به علامت انتهای پاراگراف دوم اختصاص می‌دهد و بخش‌های متن قابل مشاهده را بدون تغییر می‌گذارد:
 
 ```csharp
 using Aspose.Slides;
@@ -452,6 +390,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("Test.pptx");
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -475,13 +414,13 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 
 ## **شمارش خطوط رندر شده**
 
-برای قوانین پاراگرافی که بر بسته‌بندی خودکار و نقطه‌گذاری در انتهای خطوط تأثیر می‌گذارند، به بخش‌های [Control Line Breaking](/slides/fa/net/text-formatting/#control-line-breaking) و [Control Hanging Punctuation](/slides/fa/net/text-formatting/#control-hanging-punctuation) مراجعه کنید.
+برای قواعد پاراگراف که بر بسته شدن خودکار و نقطه‌گذاری در انتهای خطوط تأثیر می‌گذارند، به [Control Line Breaking](/slides/fa/net/text-formatting/#control-line-breaking) و [Control Hanging Punctuation](/slides/fa/net/text-formatting/#control-hanging-punctuation) مراجعه کنید.
 
-از [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) برای شمارش خطوطی که یک پاراگراف پس از چیدمان متن اشغال می‌کند، از جمله بسته‌بندی خودکار استفاده کنید. این قابلیت هنگام بررسی طول متن و چیدمان در قالب‌های ارائه مفید است.
+از [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) برای شمارش خطوطی که یک پاراگراف پس از چیدمان متن اشغال می‌کند، شامل بسته شدن خودکار، استفاده کنید. این برای بررسی طول متن و چیدمان در قالب‌های ارائه مفید است.
 
-یک پاراگراف یکی از آیتم‌های [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/) است و می‌تواند چندین خط رندر شده داشته باشد. یک شکست خط صریح داخل یک پاراگراف یک خط جدید ایجاد می‌کند بدون اینکه پاراگراف جدیدی ساخته شود. بسته‌بندی خودکار خطوط را بر اساس عرض موجود تولید می‌کند بدون اینکه شکست‌های خط صریح به متن افزوده شود. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، شمارش خطوط رندر شده را نمی‌دهد.
+پاراگراف یک مورد در [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/) است و می‌تواند چندین خط رندر شده را اشغال کند. یک شکست خط صریح درون پاراگراف یک خط جدید ایجاد می‌کند بدون اینکه پاراگراف دیگری ساخته شود. بسته شدن خودکار خطوط را بر اساس عرض موجود ایجاد می‌کند بدون اینکه شکست‌های صریح در متن درج شود. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط شمارش خطوط رندر شده را نمی‌دهد.
 
-مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشته کوتاه‌تری جایگزین می‌کند. بسته‌بندی فعال است و AutoFit غیرفعال شده تا عرض شکل کنترل بسته‌بندی را بدون کوچک‌کردن خودکار متن یا تغییر اندازه شکل بر عهده گیرد. ابعاد شکل بر حسب نقطه (pt) است. در نهایت، مثال یک پاراگراف دیگر اضافه می‌کند و مجموع شمارش خطوط را در کل قاب متن محاسبه می‌کند.
+مثال زیر یک شکل متن ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشته کوتاه‌تری جایگزین می‌کند. این مثال [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) را فعال می‌کند و [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) را غیرفعال می‌سازد تا عرض شکل بسته شدن را کنترل کند بدون اینکه متن یا شکل به‌صورت خودکار کوچک شود. هر اندازه‌گیری با استفاده از [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) انجام می‌شود. ابعاد شکل بر پایه پوینت هستند. در نهایت، مثال یک پاراگراف دیگر اضافه می‌کند و شمارش خطوط را در سراسر فریم متن جمع می‌کند:
 
 ```csharp
 using System;
@@ -518,24 +457,19 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-با این متن و این ابعاد، باریک کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه شمارش را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به در دسترس بودن قلم‌ها و جایگزینی، اندازه قلم، حاشیه‌ها، تورفتگی، بسته‌بندی و تنظیمات AutoFit متفاوت باشد. هنگام بررسی قالب، از قلم‌ها و تنظیمات چیدمان موردنظر برای محیط هدف استفاده کنید.
+با این متن و این ابعاد، باریک کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه تعداد آن را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به در دسترس بودن قلم و جایگزینی، اندازه قلم، حاشیه‌ها، تورفتگی، بسته شدن و تنظیمات autofit متفاوت باشد. برای بررسی قالب، از قلم‌ها و تنظیمات چیدمان مورد نظر برای محیط هدف استفاده کنید.
 
-تنها شمارش خطوط تعیین‌کنندهٔ خروجی متن از محفظه نیست. ارتفاع موجود، ارتفاع خطوط، فاصله‌های پاراگراف و خط، و رفتار AutoFit نیز مهم‌اند؛ حتی یک خط واحد می‌تواند عرض موجود را در صورت غیرفعال بودن بسته‌بندی تجاوز کند.
+تعداد خطوط به تنهایی تعیین‌کننده این نیست که آیا متن از محفظه خود تجاوز می‌کند یا نه. ارتفاع موجود، ارتفاع خطوط، فاصله پاراگراف و خط، و رفتار autofit نیز مهم هستند؛ حتی یک خط می‌تواند عرض موجود را در صورت غیرفعال بودن بسته شدن تجاوز کند.
 
 ## **واردات و صادرات محتوای پاراگراف**
 
+از HTML برای وارد کردن متن به یک ارائه یا صادرات پاراگراف‌های موجود برای استفاده خارج از آن استفاده کنید. این بخش همچنین نحوه رندر کردن پاراگراف‌های منفرد به عنوان تصویر، شامل پاراگراف‌های داخل سلول‌های جدول را نشان می‌دهد.
+
 ### **وارد کردن متن HTML به پاراگراف‌ها**
 
-از [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک قاب متن استفاده کنید.
+از [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک فریم متن استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) ایجاد کنید.
-2. به یک اسلاید دسترسی پیدا کنید و یک [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) اضافه کنید.
-3. به [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض آن را پاک کنید.
-4. فایل HTML منبع را بخوانید.
-5. رشته HTML را به [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) پاس دهید.
-6. ارائه اصلاح‌شده را ذخیره کنید.
-
-این مثال C# HTML را به یک قاب متن وارد می‌کند:
+این مثال به زبان C# HTML را از یک فایل می‌خواند و نشانه‌گذاری را به [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) می‌فرستد. این مثال پاراگراف پیش‌فرض فریم متن را پاک می‌کند تا فریم فقط شامل محتوای وارد شده باشد. شکل مستطیلی حاشیه 10 پوینت در هر طرف اسلاید را باقی می‌گذارد:
 
 ```csharp
 using System.IO;
@@ -544,6 +478,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shapeWidth = presentation.SlideSize.Size.Width - 20;
 var shapeHeight = presentation.SlideSize.Size.Height - 20;
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -557,61 +492,73 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **صادرات متن پاراگراف به HTML**
+### **صادر کردن متن پاراگراف به HTML**
 
-از [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) برای صادرات یک محدوده انتخابی از پاراگراف‌ها به قالب HTML استفاده کنید.
+از [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) برای صادرات یک بازه انتخاب شده از پاراگراف‌ها به HTML استفاده کنید. هنگام استفاده دوباره از متن ارائه در یک وب‌سایت، ممکن است بخواهید تأکید محلی را حفظ کنید بدون اینکه قلم، اندازه یا سبک جعبه متن ارائه را به‌هم بزنید. مقدار [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) را تنظیم کنید تا کنترل کنید مبدل تا چه حد ویژگی‌های قالب‌بندی را دنبال می‌کند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) ایجاد کنید و ارائه موردنظر را بارگذاری کنید.
-2. به اسلاید دسترسی پیدا کنید و [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) حاوی متن را پیدا کنید.
-3. به [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-4. با استفاده از [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) شاخص پاراگراف اولیه و تعداد پاراگراف‌های موردنظر برای صادرات را مشخص کنید.
-5. رشته HTML بازگردانده‌شده را در یک فایل بنویسید.
+فایل نمونه ارائه را از طریق [the sample presentation](text-inheritance.pptx) دانلود کنید و آن را در پوشه کاری برنامه قرار دهید. اسلاید اول آن شامل یک شکل متن با متن "Inherited text; explicit red 18pt" است. ورودی عمداً از چندین سطح قالب‌بندی استفاده می‌کند:
 
-این مثال C# تمام پاراگراف‌های اولین شکل متنی را صادر می‌کند:
+- قالب متن پیش‌فرض ارائه Calibri و اندازه 28 پوینت را فراهم می‌کند.
+- قالب متن سطح اول فریم متن متن آبی و ایتالیک را فراهم می‌کند.
+- پاراگراف به‌صراحت متن بولد تنظیم می‌کند.
+- بخش دوم، "explicit red 18pt"، به‌صراحت متن قرمز و اندازه 18 پوینت تنظیم می‌کند.
+
+مثال کامل زیر همان پاراگراف‌ها را سه بار صادر می‌کند. این مثال [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) را به متد صادرات می‌فرستد و هر نتیجه را به عنوان یک فایل HTML UTF-8 جداگانه می‌نویسد:
 
 ```csharp
-using System;
 using System.IO;
 using System.Text;
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-using var presentation = new Presentation("ExportingHTMLText.pptx");
-var shape = presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-inheritance.pptx");
+var textShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-if (shape is IAutoShape textShape && textShape.TextFrame != null)
+var paragraphs = textShape.TextFrame.Paragraphs;
+var modes = new[] { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+
+foreach (var mode in modes)
 {
-    var paragraphs = textShape.TextFrame.Paragraphs;
-    var html = paragraphs.ExportToHtml(0, paragraphs.Count, null);
-    using var writer = new StreamWriter("paragraphs.html", false, Encoding.UTF8);
-    writer.Write(html);
-}
-else
-{
-    Console.WriteLine("The first shape is not a text shape.");
+    var options = new TextToHtmlConversionOptions { TextInheritanceLimit = mode };
+
+    var html = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+    File.WriteAllText($"{mode}.html", html, Encoding.UTF8);
 }
 ```
 
+HTML تولید شده شامل CSS زیر برای بخش اول، "Inherited text; " است. جدول اعلان‌های مربوطه را فهرست می‌کند؛ سایر ویژگی‌های تولید شده برای وضوح حذف شده‌اند.
+
+| خروجی | CSS مربوط به بخش اول | ظاهر |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، بولد، ایتالیک با اندازه 28 پوینت در Calibri، اگر این قلم موجود باشد. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، بولد، ایتالیک؛ فونت و اندازه توسط صفحه یا مرورگر پیرامونی فراهم می‌شود. |
+| `ParagraphOnly.html` | `font-weight:bold` | متن بولد؛ فونت، اندازه، رنگ و سبک ایتالیک توسط صفحه یا مرورگر پیرامونی تأمین می‌شود. |
+
+بخش دوم `color:#ff0000`، `font-size:18pt` و `font-weight:bold` را در هر سه خروجی حفظ می‌کند. همچنین ایتالیک را در `All` و `TextBox` حفظ می‌کند، اما در `ParagraphOnly` نیست. محدود کردن وراثت بنابراین قالب‌بندی اختصاصی به یک پاراگراف یا بخش را حذف نمی‌کند.
+
+فایل‌ها را در یک مرورگر یکسان باز کنید تا آنها را مقایسه کنید. در دو حالت محدود شده، ویژگی‌های CSS حذف‌شده توسط سبک‌های صفحه مقصد یا پیش‌فرض‌های مرورگر حل می‌شوند، بنابراین ظاهر نهایی به جایی که HTML استفاده می‌شود بستگی دارد.
+
 ### **رندر کردن یک پاراگراف به عنوان تصویر**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) یک پاراگراف منفرد را به‌طور مستقیم رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) باز می‌گرداند. نتیجه را با [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) در یک فایل یا جریان ذخیره کنید؛ نیازی به رندر کردن شکل حامل یا برش دستی بیت‌مپ نیست.
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) یک پاراگراف منفرد را مستقیماً رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) برمی‌گرداند. نتیجه را می‌توانید با [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) در فایل یا جریان ذخیره کنید. نیازی به رندر شکل حاوی یا برش بیت‌مپ به‌صورت دستی ندارید.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) می‌تواند `null` برگرداند اگر پاراگراف در مجموعه والد یافت نشود، مرزهای رندر معتبری نداشته باشد یا امکان رندر شدن نداشته باشد. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگشتی را آزاد کنید.
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) می‌تواند `null` برگرداند اگر پاراگراف در مجموعه والد خود یافت نشود، مرزهای رندر معتبر نداشته باشد یا نتواند رندر شود. پیش از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگردانده‌شده را آزاد کنید.
 
-#### **رندر کردن پاراگراف با مقیاس پیش‌فرض**
+#### **رندر یک پاراگراف با مقیاس پیش‌فرض**
 
-فرض کنید فایل ارائه‌ای به نام sample.pptx داریم که شامل یک اسلاید است و اولین شکل آن یک جعبه متن با سه پاراگراف است.
+این مثال از ارائه‌ای با یک اسلاید استفاده می‌کند که اولین شکل آن یک جعبه متن شامل سه پاراگراف است.
 
 ![جعبه متن با سه پاراگراف](paragraph_to_image_input.png)
 
-مثال زیر پاراگراف دوم را در یک شکل متنی عادی با مقیاس پیش‌فرض رندر می‌کند و تصویر بازگشت‌داده‌شده را در قالب PNG ذخیره می‌نماید. اعلان `using` اطمینان می‌دهد که تصویر به‌درستی آزاد شود.
+مثال زیر پاراگراف دوم را با شاخص 1 انتخاب می‌کند و بدون پارامترهای مقیاس [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) را صدا می‌زند. این مثال بررسی می‌کند که شکل پاراگراف مورد نیاز را دارد و رندر تصویر را قبل از فراخوانی [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) برای ذخیره به فرمت PNG بررسی می‌کند. دستور `using` تصویر را پس از استفاده آزاد می‌کند.
 
 ```csharp
 using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation("sample.pptx");
-
 var shape = presentation.Slides[0].Shapes[0];
+
 if (shape is IAutoShape textShape && 
     textShape.TextFrame != null && 
     textShape.TextFrame.Paragraphs.Count > 1)
@@ -638,9 +585,9 @@ else
 
 ![تصویر پاراگراف](paragraph_to_image_output.png)
 
-#### **رندر کردن پاراگراف در یک سلول جدول با مقیاس‌بندی**
+#### **رندر یک پاراگراف در سلول جدول با مقیاس‌بندی**
 
-از بارگذاری [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) که پارامترهای `float scaleX` و `float scaleY` را می‌پذیرد استفاده کنید تا عوامل مقیاس افقی و عمودی را تنظیم کنید. مثال زیر یک جدول ایجاد می‌کند، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به‌صورت تصویر PNG ذخیره می‌نماید.
+از بارگذاری [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) که پارامترهای `float scaleX` و `float scaleY` را می‌پذیرند استفاده کنید تا عوامل مقیاس افقی و عمودی را تنظیم کنید. مثال زیر یک جدول ایجاد می‌کند، پاراگراف را در اولین سلول آن با عرض و ارتفاع دو برابر مقدار پیش‌فرض رندر می‌کند و نتیجه را به عنوان تصویر PNG ذخیره می‌کند.
 
 ```csharp
 using System;
@@ -651,6 +598,7 @@ var scaleY = 2f;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var table = slide.Shapes.AddTable(50, 50, new[] { 300d }, new[] { 80d });
 var paragraph = table[0, 0].TextFrame.Paragraphs[0];
 paragraph.Text = "Text in a table cell";
@@ -666,26 +614,24 @@ else
 }
 ```
 
-عامل مقیاس `1` آن محور را در اندازه پیش‌فرض پیکسل نگه می‌دارد. به عنوان مثال، مقدار `2` برای هر دو عامل تصویری تولید می‌کند که عرض و ارتفاع آن تقریباً دو برابر ابعاد پیش‌فرض است، که منجر به چهار برابر پیکسل می‌شود. عوامل بزرگتر معمولاً متن شفاف‌تری برای زوم یا خروجی با وضوح بالا تولید می‌کنند، اما استفاده از حافظه و اندازه فایل را نیز افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتر با جزئیات کمتر ایجاد می‌کنند. برای حفظ نسبت تصویر پاراگراف از عوامل برابر استفاده کنید؛ عوامل افقی و عمودی متفاوت تصویر را به‌صورت مستقل کش می‌دهند.
+یک عامل مقیاس `1` آن محور را با اندازه پیکسلی پیش‌فرض حفظ می‌کند. به‌عنوان مثال، `2` برای هر دو عامل تصویری با عرض و ارتفاع تقریباً دو برابر ابعاد پیش‌فرض تولید می‌کند که چهار برابر پیکسل دارد. عوامل بزرگ‌تر معمولاً متن واضح‌تری برای بزرگ‌نمایی یا خروجی با وضوح بالا تولید می‌کنند، اما مصرف حافظه و حجم فایل را نیز افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتری با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت تصویر پاراگراف از عوامل مساوی استفاده کنید؛ عوامل افقی و عمودی متفاوت خروجی را به‌صورت مستقل کشیده می‌کنند.
 
-رندر کردن کل یک شکل با [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) زمانی مفید است که خروجی نیاز به شامل پرکردگی، مرز یا سایر زمینه‌های بصری شکل داشته باشد. برای تصویر تنها شامل پاراگراف، از [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) استفاده کنید.
+رندر یک شکل کامل با [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) زمانی مفید است که خروجی باید شامل پر، کمر یا سایر زمینه‌های بصری شکل باشد. برای تصویر فقط پاراگراف، از [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) استفاده کنید.
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**آیا می‌توانم بسته‌بندی خطوط داخل یک قاب متن را به‌طور کامل غیرفعال کنم؟**
+**آیا می‌توانم به‌طور کامل بسته شدن خط درون یک فریم متن را غیرفعال کنم؟**
 
-بله. ویژگی [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) را برای غیرفعال‌سازی بسته‌بندی تنظیم کنید تا خطوط در لبه‌های قاب متن شکسته نشوند.
+بله. مقدار [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) را تنظیم کنید تا بسته شدن غیرفعال شود و خطوط در لبه‌های فریم متن شکست نخورند.
 
-**چگونه می‌توانم مرزهای دقیق روی اسلاید یک پاراگراف خاص را دریافت کنم؟**
+**چگونه می‌توانم محدوده دقیق روی اسلاید یک پاراگراف خاص را به دست آورم؟**
 
-از [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) برای دریافت مستطیل محدودکننده پاراگراف استفاده کنید. [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) مرزهای یک بخش منفرد را فراهم می‌کند.
+از [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) برای دریافت مستطیل محاطی پاراگراف استفاده کنید. [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) مرزهای یک بخش منفرد را فراهم می‌کند.
 
-**کنترل تراز پاراگراف (چپ، راست، وسط یا توجیه) کجا انجام می‌شود؟**
+**محل کنترل تراز پاراگراف (چپ، راست، مرکز یا توزیع) کجا است؟**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) یک تنظیم سطح پاراگراف است و بر کل پاراگراف اعمال می‌شود بدون در نظر گرفتن قالب‌بندی بخش‌های منفرد.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) یک تنظیم سطح پاراگراف است و بر تمام پاراگراف اعمال می‌شود، صرف‌نظر از قالب‌بندی بخش‌های فردی. برای تراز عمودی بخش‌های مختلف با اندازه‌های قلم متفاوت در هر خط، به [Align Fonts Within a Line](/slides/fa/net/text-formatting/#align-fonts-within-a-line) مراجعه کنید.
 
-برای تراز عمودی بخش‌های با اندازه‌های قلم مختلف در هر خط، به [Align Fonts Within a Line](/slides/fa/net/text-formatting/#align-fonts-within-a-line) مراجعه کنید.
+**آیا می‌توانم زبان بررسی املای بخشی از یک پاراگراف را تنظیم کنم؟**
 
-**آیا می‌توانم زبان تصحیح املای بخشی از یک پاراگراف را تنظیم کنم؟**
-
-بله. برای بخش‌های منفرد [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) تنظیم کنید تا یک پاراگراف بتواند متنی به چند زبان مختلف داشته باشد.
+بله. مقدار [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) را برای بخش‌های منفرد تنظیم کنید، به‌طوری که یک پاراگراف بتواند متن را در چند زبان مختلف داشته باشد.

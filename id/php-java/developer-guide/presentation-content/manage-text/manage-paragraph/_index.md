@@ -1,5 +1,5 @@
 ---
-title: Kelola Paragraf Teks PowerPoint di PHP
+title: Kelola Paragraf Teks PowerPoint dalam PHP
 linktitle: Kelola Paragraf
 type: docs
 weight: 40
@@ -8,16 +8,16 @@ aliases:
   - /php-java/paragraph/
   - /php-java/portion/
 keywords:
-- menambahkan teks
-- menambahkan paragraf
-- mengelola teks
-- mengelola paragraf
-- mengelola bullet
+- tambahkan teks
+- tambahkan paragraf
+- kelola teks
+- kelola paragraf
+- kelola bullet
 - indentasi paragraf
-- indentasi menggantung
+- indentasi gantung
 - bullet paragraf
 - daftar bernomor
-- daftar bertanda
+- daftar bullet
 - properti paragraf
 - impor HTML
 - teks ke HTML
@@ -29,35 +29,25 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Pelajari cara membuat dan memformat paragraf, Portion, bullet, daftar bernomor, indentasi, konten HTML, dan gambar paragraf dengan Aspose.Slides untuk PHP via Java."
+description: "Pelajari cara membuat dan memformat paragraf, portion, bullet, daftar bernomor, indentasi, konten HTML, dan gambar paragraf dengan Aspose.Slides untuk PHP via Java."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides for PHP via Java merepresentasikan teks sebagai hirarki frame teks, paragraf, dan portion:
+Aspose.Slides for PHP via Java merepresentasikan teks sebagai hierarki frame teks, paragraf, dan portion:
 
-* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) mewakili wadah teks dalam sebuah shape dan menyediakan akses ke koleksi paragrafnya.
-* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) mewakili satu paragraf dalam sebuah text frame dan menyediakan akses ke bagiannya serta pemformatan tingkat paragraf.
-* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) mewakili sekuens teks dalam sebuah paragraf. Setiap portion dapat memiliki teks dan pemformatan tingkat karakter sendiri.
+* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) mewakili kontainer teks dalam sebuah shape dan menyediakan akses ke koleksi paragrafnya.
+* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) mewakili satu paragraf dalam sebuah text frame dan menyediakan akses ke bagian-bagiannya serta format level paragraf.
+* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) mewakili satu run teks dalam paragraf. Setiap portion dapat memiliki teks dan format karakter masing‑masing.
 
-Dengan demikian, sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan pemformatan lain yang berbeda‑beda dengan menggunakan banyak portion.
+Dengan demikian sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan format lain yang berbeda dengan menggunakan beberapa portion.
 
 ## **Buat dan Format Paragraf**
 
+Buat paragraf dalam text frame sebuah shape dan gunakan portion untuk memformat run teks individu. Bagian ini menunjukkan cara menggabungkan beberapa portion dalam setiap paragraf serta menerapkan warna, ukuran font, dan gaya yang berbeda.
+
 ### **Buat Paragraf dengan Beberapa Portion**
 
-Langkah‑langkah berikut membuat sebuah text frame dengan tiga paragraf, masing‑masing berisi tiga portion:
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Akses slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) berbentuk persegi panjang ke slide.
-4. Akses [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) dari shape.
-5. Gunakan paragraf default dan tambahkan dua objek [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) lagi ke text frame.
-6. Tambahkan cukup objek [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) untuk setiap paragraf agar berisi tiga portion. Paragraf default sudah berisi satu portion kosong.
-7. Setel teks untuk setiap portion.
-8. Terapkan pemformatan tingkat karakter melalui [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat--).
-9. Simpan presentasi yang telah dimodifikasi.
-
-Contoh PHP ini menerapkan langkah‑langkah tersebut:
+Contoh PHP berikut membuat tiga paragraf, masing‑masing berisi tiga run teks dalam koleksi yang dikembalikan oleh [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions). Contoh ini menggunakan kembali paragraf default dan portion kosongnya, kemudian menambahkan paragraf dan portion yang tersisa. Pemformatan diterapkan melalui [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): portion pertama di tiap paragraf berwarna merah, tebal, dan berukuran 15 poin; yang kedua berwarna biru, miring, dan berukuran 18 poin. Portion ketiga mempertahankan format defaultnya:
 
 ```php
 use aspose\slides\FillType;
@@ -71,6 +61,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
     $textFrame = $shape->getTextFrame();
 
@@ -118,26 +109,15 @@ try {
 }
 ```
 
-## **Buat Daftar Bertanda dan Bernomor**
+## **Buat Daftar Bullet dan Bernomor**
 
-### **Buat Daftar Bertanda atau Bernomor**
+Susun teks paragraf menjadi daftar dengan simbol, angka, atau gambar khusus. Contoh pada bagian ini meliputi format bullet, daftar berjenjang, dan penomoran mulai dari angka khusus.
 
-Bullet dan penomoran membuat item terkait lebih mudah dipindai. Dalam Aspose.Slides, pengaturan daftar didefinisikan melalui [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
+### **Buat Daftar Bullet atau Bernomor**
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Akses slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ke slide.
-4. Akses [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) shape.
-5. Hapus paragraf default dari text frame.
-6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) untuk bullet simbol.
-7. Setel [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) ke [BulletType::Symbol](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/) dan tentukan karakter bullet.
-8. Setel teks paragraf, indent, warna bullet, dan tinggi bullet.
-9. Tambahkan paragraf ke text frame.
-10. Buat paragraf kedua dan setel [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) ke [BulletType::Numbered](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/).
-11. Konfigurasikan gaya bullet bernomor dan tambahkan paragraf ke text frame.
-12. Simpan presentasi.
+Bullet dan penomoran memudahkan pemindaian item terkait. Di Aspose.Slides, pengaturan daftar didefinisikan melalui [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
 
-Contoh PHP ini membuat bullet simbol dan bullet bernomor:
+Contoh PHP ini menambahkan bullet simbol dan item bernomor ke dalam satu text frame yang sama. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) memilih tipe bullet, sementara [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) menyediakan simbol dan [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) memilih gaya penomoran. Kedua item menggunakan bullet hitam dengan tinggi 100 % dan indent paragraf 25 poin:
 
 ```php
 use aspose\slides\BulletType;
@@ -152,6 +132,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
@@ -186,20 +167,9 @@ try {
 
 ### **Gunakan Bullet Gambar**
 
-Bullet gambar memungkinkan Anda menggunakan gambar khusus alih‑alih simbol atau angka.
+Bullet gambar memungkinkan Anda memakai gambar khusus alih‑alih simbol atau angka.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Akses slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) dan akses [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)‑nya.
-4. Hapus paragraf default dari text frame.
-5. Muat gambar bullet dan tambahkan ke koleksi gambar presentasi sebagai [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/).
-6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) dan setel teksnya.
-7. Setel [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) ke [BulletType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/).
-8. Tetapkan gambar melalui [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture--) dan setel tinggi bullet.
-9. Tambahkan paragraf ke text frame.
-10. Simpan presentasi yang telah dimodifikasi.
-
-Contoh PHP ini membuat bullet gambar:
+Contoh PHP ini menambahkan gambar ke koleksi gambar presentasi sebagai [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) dan menggunakannya sebagai bullet paragraf. Ia memanggil [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) untuk memakai bullet gambar dan menetapkan gambar melalui [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) diatur ke 100 % untuk menyesuaikan ukuran bullet relatif terhadap teks paragraf:
 
 ```php
 use aspose\slides\BulletType;
@@ -238,17 +208,11 @@ try {
 }
 ```
 
-### **Buat Daftar Bertingkat**
+### **Buat Daftar Berjenjang**
 
-Setel [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth-short-) untuk menempatkan paragraf pada tingkat yang berbeda dalam sebuah daftar. Tingkat atas memiliki depth `0`.
+Setel [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) untuk menempatkan paragraf pada level berbeda dalam sebuah daftar. Level teratas memiliki depth `0`.
 
-1. Buat sebuah [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) dan akses sebuah slide.
-2. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) dan bersihkan paragraf default dari text frame‑nya.
-3. Buat empat paragraf dan konfigurasikan simbol bullet masing‑masing.
-4. Setel nilai [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth-short-) mereka menjadi `0`, `1`, `2`, dan `3`.
-5. Tambahkan paragraf ke text frame dan simpan presentasi.
-
-Contoh PHP ini membuat daftar bertanda empat tingkat:
+Contoh PHP ini menetapkan nilai [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) dari 0 hingga 3 untuk empat paragraf, sehingga menciptakan hierarki dalam satu text frame. Setiap paragraf menggunakan bullet simbol, dengan [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) berganti antara bullet bulat dan tanda hubung untuk membedakan level yang berdekatan:
 
 ```php
 use aspose\slides\BulletType;
@@ -261,6 +225,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
@@ -308,17 +273,11 @@ try {
 }
 ```
 
-### **Mulai Item Daftar Bernomor dengan Nilai Kustom**
+### **Mulai Penomoran Daftar dengan Nilai Kustom**
 
-Gunakan [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) untuk mengatur nomor awal yang ditampilkan pada paragraf bernomor.
+Gunakan [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) untuk menentukan nomor awal yang ditampilkan pada paragraf bernomor.
 
-1. Buat sebuah [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) dan tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ke sebuah slide.
-2. Bersihkan paragraf default dari text frame shape.
-3. Buat tiga paragraf bernomor.
-4. Setel [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) ke `2`, `3`, dan `7` untuk masing‑masing paragraf.
-5. Tambahkan paragraf ke text frame dan simpan presentasi.
-
-Contoh PHP ini menetapkan nomor awal kustom untuk setiap paragraf:
+Contoh PHP ini mengatur [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) untuk memakai penomoran pada tiga paragraf dan menetapkan nilai [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) masing‑masing 2, 3, dan 7. Nilai awal dikonfigurasi secara terpisah untuk tiap paragraf, sehingga nomor yang ditampilkan dapat melewatkan nilai tertentu:
 
 ```php
 use aspose\slides\BulletType;
@@ -329,7 +288,9 @@ use aspose\slides\ShapeType;
 
 $presentation = new Presentation();
 try {
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
 
@@ -359,23 +320,15 @@ try {
 
 ## **Kontrol Tata Letak Paragraf dan Properti Akhir**
 
-### **Setel Inden Baris Pertama**
+Sesuaikan margin dan indent paragraf untuk mengontrol posisi baris pertama serta baris terbungkus. Anda juga dapat memformat tanda akhir paragraf secara terpisah dari bagian teks yang terlihat.
 
-Gunakan [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) untuk mengontrol inden baris pertama pada sebuah paragraf. Metode ini memindahkan hanya baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris‑baris lainnya tetap sejajar dengan isi paragraf.
+### **Setel Indent Baris Pertama**
 
-Gunakan [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) ketika Anda perlu memindahkan seluruh paragraf. Gunakan [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) ketika Anda hanya perlu memindahkan baris pertama.
+Gunakan metode [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) untuk mengontrol indent baris pertama paragraf. Pengaturan ini hanya memindahkan baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris lainnya tetap sejajar dengan badan paragraf.
 
-Contoh di bawah ini membuat beberapa paragraf dan menerapkan nilai [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) yang berbeda untuk mendemonstrasikan bagaimana inden baris pertama memengaruhi tata letak paragraf.
+Gunakan [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) bila Anda perlu memindahkan seluruh paragraf. Gunakan [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) bila Anda hanya perlu memindahkan baris pertama.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Akses slide target.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) berbentuk persegi panjang ke slide.
-4. Akses [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) shape dan hapus paragraf default.
-5. Buat beberapa paragraf dan setel nilai [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) yang berbeda untuk masing‑masing.
-6. Tambahkan paragraf ke text frame.
-7. Simpan presentasi yang telah dimodifikasi.
-
-Kode PHP ini menunjukkan cara mengatur inden paragraf:
+Contoh berikut memberi tiga paragraf margin kiri yang sama melalui [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) sebesar 20 poin dan nilai [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) masing‑masing 0, 20, dan 40 poin. Baris pertama mulai pada offset yang semakin besar, sementara baris terbungkus tetap mempertahankan margin kiri yang sama:
 
 ```php
 use aspose\slides\FillType;
@@ -433,24 +386,15 @@ Hasilnya:
 
 ![Indent baris pertama paragraf](first_line_indent.png)
 
-### **Setel Inden Menggantung**
+### **Setel Indent Gantung**
 
-Indent menggantung adalah tata letak paragraf dimana baris pertama dimulai di sebelah kiri baris‑baris berikutnya. Di Aspose.Slides, Anda membuat efek ini dengan [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-). Berikan nilai negatif untuk memindahkan baris pertama ke kiri relatif terhadap isi paragraf.
+Indent gantung adalah tata letak paragraf di mana baris pertama dimulai lebih ke kiri dibandingkan baris‑baris berikutnya. Di Aspose.Slides, Anda membuat efek ini dengan properti [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent). Atur `Indent` ke nilai negatif untuk memindahkan baris pertama ke kiri relatif terhadap badan paragraf.
 
-Secara praktik, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) menentukan posisi kiri isi paragraf, dan [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent menggantung, berikan nilai positif pada `setMarginLeft` dan nilai negatif pada `setIndent`.
+Dalam praktiknya, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) menentukan posisi kiri badan paragraf, dan [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent gantung, atur nilai `MarginLeft` positif dan nilai `Indent` negatif.
 
-Penyusunan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain dimana baris terbungkus harus sejajar di bawah isi paragraf bukan di bawah karakter pertama baris pertama.
+Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris terbungkus harus rata di bawah badan paragraf, bukan di bawah karakter pertama baris pertama.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Akses slide target.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) berbentuk persegi panjang ke slide.
-4. Akses [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) shape dan hapus paragraf default.
-5. Buat paragraf dan berikan nilai positif pada [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) untuk setiap paragraf.
-6. Berikan nilai negatif pada [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) untuk menciptakan efek indent menggantung.
-7. Tambahkan paragraf ke text frame.
-8. Simpan presentasi yang telah dimodifikasi.
-
-Kode PHP ini menunjukkan cara mengatur indent menggantung untuk sebuah paragraf:
+Contoh PHP berikut menggabungkan nilai [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) sebesar 40 poin dan 60 poin dengan nilai [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) sebesar –20 poin dan –30 poin. Pada setiap paragraf, baris pertama mulai di kiri baris terbungkus; paragraf kedua memiliki indent gantung yang lebih dalam:
 
 ```php
 use aspose\slides\FillType;
@@ -498,18 +442,11 @@ try {
 
 Hasilnya:
 
-![Indent menggantung paragraf](hanging_indent.png)
+![Indent gantung paragraf](hanging_indent.png)
 
 ### **Setel Properti Run Akhir Paragraf**
 
-[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) mengontrol pemformatan tanda akhir paragraf. Contoh PHP berikut menetapkan ukuran font dan font Latin untuk tanda akhir paragraf kedua:
-
-1. Muat sebuah [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) dan akses sebuah slide.
-2. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) dan bersihkan paragraf defaultnya.
-3. Buat dua paragraf dan tambahkan bagian teks ke masing‑masing.
-4. Buat sebuah [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) untuk tanda akhir paragraf kedua.
-5. Setel [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) dan [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Terapkan format dengan [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) dan simpan presentasi.
+Metode [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) mengontrol format tanda akhir paragraf. Contoh berikut membuat sebuah [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) dengan [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) 48 poin dan [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) Times New Roman. Format ini diterapkan pada tanda akhir paragraf kedua, sementara bagian teks yang terlihat tetap tidak berubah:
 
 ```php
 use aspose\slides\FontData;
@@ -523,6 +460,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation("Test.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
@@ -549,13 +487,13 @@ try {
 
 ## **Hitung Baris yang Dirender**
 
-Untuk aturan paragraf yang memengaruhi pembungkusan otomatis dan tanda baca di akhir baris, lihat [Control Line Breaking](/slides/id/php-java/text-formatting/#control-line-breaking) dan [Control Hanging Punctuation](/slides/id/php-java/text-formatting/#control-hanging-punctuation).
+Untuk aturan paragraf yang memengaruhi pembungkusan otomatis dan tanda baca pada akhir baris, lihat [Control Line Breaking](/slides/id/php-java/text-formatting/#control-line-breaking) dan [Control Hanging Punctuation](/slides/id/php-java/text-formatting/#control-hanging-punctuation).
 
-Gunakan [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount--) untuk menghitung baris yang ditempati oleh sebuah paragraf setelah tata letak teks, termasuk pembungkusan otomatis. Ini berguna saat memeriksa panjang teks dan tata letak dalam templat presentasi.
+Gunakan [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) untuk menghitung jumlah baris yang ditempati oleh sebuah paragraf setelah tata letak teks, termasuk pembungkusan otomatis. Ini berguna saat memeriksa panjang teks dan tata letak dalam templat presentasi.
 
-Paragraf adalah satu item dalam [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs--), dan dapat menempati beberapa baris yang dirender. Pemisah baris eksplisit dalam paragraf memaksa baris baru tanpa membuat paragraf lain. Pembungkusan otomatis membuat baris berdasarkan lebar yang tersedia tanpa menyisipkan pemisah baris eksplisit ke dalam teks. Karena itu menghitung paragraf atau karakter pemisah baris tidak memberikan jumlah baris yang dirender.
+Sebuah paragraf adalah satu item dalam [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs), dan dapat menempati beberapa baris yang dirender. Break baris eksplisit dalam paragraf memaksa baris baru tanpa membuat paragraf baru. Pembungkusan otomatis menghasilkan baris berdasarkan lebar yang tersedia tanpa menyisipkan break baris eksplisit ke dalam teks. Oleh karena itu menghitung paragraf atau karakter break baris tidak memberikan jumlah baris yang dirender.
 
-Contoh berikut membuat sebuah bentuk teks, menghitung barisnya, mempersempit bentuk, lalu mengganti teks dengan string yang lebih pendek. Pembungkusan diaktifkan dan autofit dinonaktifkan sehingga lebar bentuk mengontrol pembungkusan tanpa secara otomatis memperkecil teks atau mengubah ukuran bentuk. Dimensi bentuk dalam poin. Akhirnya, contoh menambahkan paragraf lain dan menjumlahkan jumlah baris di seluruh text frame.
+Contoh berikut membuat sebuah shape teks, menghitung barisnya, mempersempit shape, lalu mengganti teks dengan string yang lebih pendek. Contoh ini mengaktifkan pembungkusan dengan [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) dan menonaktifkan autofit dengan [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) sehingga lebar shape mengontrol pembungkusan tanpa otomatis memperkecil teks atau mengubah ukuran shape. Setiap pengukuran menggunakan [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount). Dimensi shape dalam poin. Akhirnya, contoh menambahkan paragraf lain dan menjumlahkan hitungan baris di seluruh text frame.
 
 ```php
 use aspose\slides\NullableBool;
@@ -600,24 +538,19 @@ try {
 }
 ```
 
-Dengan teks ini dan dimensi tersebut, mempersempit bentuk meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Jumlah yang tepat dapat bervariasi tergantung pada ketersediaan dan substitusi font, ukuran font, margin, inden, pembungkusan, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang ditujukan untuk lingkungan target saat memeriksa sebuah templat.
+Dengan teks dan dimensi ini, mempersempit shape meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Hitungan tepat dapat bervariasi tergantung ketersediaan font dan substitusi, ukuran font, margin, indentasi, pembungkusan, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang ditujukan untuk lingkungan target saat memeriksa templat.
 
-Jumlah baris saja tidak menentukan apakah teks meluap dari wadahnya. Tinggi yang tersedia, tinggi baris, spasi paragraf dan baris, serta perilaku autofit juga penting; bahkan satu baris dapat melebihi lebar yang tersedia bila pembungkusan dinonaktifkan.
+Jumlah baris saja tidak menentukan apakah teks meluap dari kontainernya. Tinggi yang tersedia, tinggi baris, spasi paragraf dan baris, serta perilaku autofit juga berpengaruh; bahkan satu baris dapat melampaui lebar yang tersedia bila pembungkusan dinonaktifkan.
 
 ## **Impor dan Ekspor Konten Paragraf**
 
-### **Impor Teks HTML ke dalam Paragraf**
+Gunakan HTML untuk memasukkan teks ke dalam presentasi atau mengekspor paragraf yang ada untuk digunakan di luar presentasi. Bagian ini juga menunjukkan cara merender paragraf individu sebagai gambar, termasuk paragraf dalam sel tabel.
 
-Gunakan [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) untuk mengonversi markup HTML menjadi paragraf dan portion dalam sebuah text frame.
+### **Impor Teks HTML ke Paragraf**
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. Akses sebuah slide dan tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
-3. Akses [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) shape dan bersihkan paragraf default.
-4. Baca file HTML sumber.
-5. Berikan string HTML ke [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. Simpan presentasi yang telah dimodifikasi.
+Gunakan [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) untuk mengonversi markup HTML menjadi paragraf dan portion dalam sebuah text frame.
 
-Contoh PHP ini mengimpor HTML ke dalam sebuah text frame:
+Contoh PHP ini membaca HTML dari file dan meneruskan markup ke [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml). Ia menghapus paragraf default text frame sehingga frame hanya berisi konten yang diimpor. Bentuk persegi panjang meninggalkan margin 10 poin pada setiap sisi slide:
 
 ```php
 use aspose\slides\FillType;
@@ -628,6 +561,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shapeWidth = java_values($presentation->getSlideSize()->getSize()->getWidth()) - 20;
     $shapeHeight = java_values($presentation->getSlideSize()->getSize()->getHeight()) - 20;
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $shapeWidth, $shapeHeight);
@@ -648,20 +582,23 @@ try {
 
 ### **Ekspor Teks Paragraf ke HTML**
 
-Gunakan [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) untuk mengekspor rentang paragraf yang dipilih sebagai HTML.
+Gunakan [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) untuk mengekspor rentang paragraf terpilih sebagai HTML. Saat menggunakan kembali teks presentasi di situs web, Anda mungkin ingin mempertahankan penekanan lokal tanpa membawa gaya font, ukuran, atau kotak teks presentasi. Atur [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) untuk mengontrol sejauh mana exporter mengikuti pewarisan format.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) dan muat presentasi yang diinginkan.
-2. Akses slide dan temukan [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) yang berisi teks.
-3. Akses [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) shape.
-4. Panggil [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) dengan indeks paragraf mulai dan jumlah paragraf yang akan diekspor.
-5. Tuliskan string HTML yang dikembalikan ke sebuah file.
+Unduh [presentasi contoh](text-inheritance.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi satu shape teks dengan teks "Inherited text; explicit red 18pt". Input sengaja menggunakan beberapa tingkat format:
 
-Contoh PHP ini mengekspor semua paragraf dari shape teks pertama:
+- Gaya teks default presentasi menyediakan Calibri dengan ukuran 28 pt.
+- Gaya teks level pertama text frame menyediakan teks biru dan miring.
+- Paragraf secara eksplisit menetapkan teks tebal.
+- Portion kedua, "explicit red 18pt", secara eksplisit menetapkan teks merah dan ukuran 18 pt.
+
+Contoh lengkap berikut mengekspor paragraf yang sama tiga kali. Ia meneruskan [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) ke metode ekspor dan menulis tiap hasil sebagai file HTML UTF‑8 terpisah:
 
 ```php
 use aspose\slides\Presentation;
+use aspose\slides\TextInheritanceLimit;
+use aspose\slides\TextToHtmlConversionOptions;
 
-$presentation = new Presentation("ExportingHTMLText.pptx");
+$presentation = new Presentation("text-inheritance.pptx");
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
@@ -669,9 +606,18 @@ try {
         $textFrame = $shape->getTextFrame();
         if (!java_is_null($textFrame)) {
             $paragraphs = $textFrame->getParagraphs();
-            $html = $paragraphs->exportToHtml(0, $paragraphs->getCount(), null);
-            if (file_put_contents("paragraphs.html", $html) === false) {
-                echo "The HTML file could not be written.";
+
+            $modes = array(TextInheritanceLimit::All, TextInheritanceLimit::TextBox, TextInheritanceLimit::ParagraphOnly);
+            $fileNames = array("All.html", "TextBox.html", "ParagraphOnly.html");
+
+            for ($i = 0; $i < count($modes); $i++) {
+                $options = new TextToHtmlConversionOptions();
+                $options->setTextInheritanceLimit($modes[$i]);
+
+                $html = $paragraphs->exportToHtml(0, $paragraphs->getCount(), $options);
+                if (file_put_contents($fileNames[$i], java_values($html)) === false) {
+                    echo "The HTML file could not be written." . PHP_EOL;
+                }
             }
         } else {
             echo "The first shape does not contain a text frame.";
@@ -684,19 +630,31 @@ try {
 }
 ```
 
-### **Render Sebuah Paragraf sebagai Gambar**
+HTML yang dihasilkan berisi CSS berikut untuk portion pertama, "Inherited text; ". Tabel mencantumkan deklarasi yang relevan; properti lain yang dihasilkan dihilangkan demi kejelasan.
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) merender sebuah paragraf individu secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Simpan hasilnya ke file atau stream dengan [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save-java.lang.String-int-). Anda tidak perlu merender shape yang mengandungnya atau memotong bitmap secara manual.
+| Output | CSS Relevan untuk Portion Pertama | Penampilan |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring berukuran 28 pt dalam Calibri, bila font tersedia. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring; halaman atau browser menyediakan font family dan ukuran. |
+| `ParagraphOnly.html` | `font-weight:bold` | Teks tebal; halaman atau browser menyediakan font family, ukuran, warna, dan gaya miring. |
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) dapat mengembalikan `null` jika paragraf tidak dapat ditemukan dalam koleksi induknya, tidak memiliki batas render yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpannya dan bersihkan gambar yang dikembalikan setelah digunakan.
+Portion kedua mempertahankan `color:#ff0000`, `font-size:18pt`, dan `font-weight:bold` di ketiga output. Ia juga mempertahankan miring pada `All` dan `TextBox`, tetapi tidak pada `ParagraphOnly`. Membatasi pewarisan sehingga tidak menghapus format yang secara eksplisit ditetapkan pada paragraf atau portion.
 
-#### **Render Paragraf pada Skala Default**
+Buka file‑file tersebut di browser yang sama untuk membandingkannya. Pada dua mode terbatas, properti CSS yang dihilangkan diselesaikan oleh gaya halaman tujuan atau default browser, sehingga tampilan akhir tergantung pada tempat HTML digunakan.
 
-Misalkan kita memiliki file presentasi bernama sample.pptx dengan satu slide, dimana shape pertama adalah kotak teks yang berisi tiga paragraf.
+### **Render Paragraf sebagai Gambar**
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) merender paragraf individu secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Simpan hasilnya ke file atau stream dengan [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). Anda tidak perlu merender shape yang menyertainya atau memotong bitmap secara manual.
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) dapat mengembalikan `null` bila paragraf tidak ditemukan dalam koleksi induknya, tidak memiliki batas render yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpannya dan buang gambar yang dikembalikan setelah selesai digunakan.
+
+#### **Render Paragraf dengan Skala Default**
+
+Contoh ini menggunakan presentasi dengan satu slide yang shapanya pertama adalah kotak teks berisi tiga paragraf.
 
 ![Kotak teks dengan tiga paragraf](paragraph_to_image_input.png)
 
-Contoh PHP berikut merender paragraf kedua dalam sebuah shape teks standar pada skala default dan menyimpan gambar yang dikembalikan dalam format PNG. Blok `finally` memastikan gambar dibersihkan dengan benar.
+Contoh berikut memilih paragraf kedua pada indeks 1 dan memanggil [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) tanpa parameter skala. Ia memeriksa bahwa shape berisi paragraf yang diperlukan dan bahwa rendering menghasilkan gambar sebelum memanggil [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) untuk menyimpannya dalam format PNG. Blok `finally` membuang gambar setelah selesai.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -736,9 +694,9 @@ Hasilnya:
 
 ![Gambar paragraf](paragraph_to_image_output.png)
 
-#### **Render Paragraf dalam Sel Tabel dengan Skala**
+#### **Render Paragraf dalam Sel Tabel dengan Skalasi**
 
-Gunakan overload [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage-float-float-) yang menerima parameter `$scaleX` dan `$scaleY` untuk mengatur faktor skala horizontal dan vertikal. Contoh PHP berikut membuat sebuah tabel, merender paragraf dalam sel pertama dengan lebar dan tinggi dua kali lipat ukuran default, dan menyimpan hasilnya sebagai gambar PNG.
+Gunakan overload [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) yang menerima parameter `$scaleX` dan `$scaleY` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat tabel, merender paragraf di sel pertama dengan lebar dan tinggi dua kali ukuran default, dan menyimpan hasilnya sebagai gambar PNG.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -750,6 +708,7 @@ $scaleY = 2;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+    
     $table = $slide->getShapes()->addTable(50, 50, array(300), array(80));
     $paragraph = $table->get_Item(0, 0)->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->setText("Text in a table cell");
@@ -769,25 +728,26 @@ try {
 }
 ```
 
-Faktor skala `1` mempertahankan sumbu tersebut pada ukuran piksel default. Misalnya, `2` untuk kedua faktor menghasilkan gambar yang lebar dan tingginya kira‑kira dua kali dimensi default, menghasilkan empat kali lebih banyak piksel. Faktor yang lebih besar umumnya menghasilkan teks yang lebih tajam untuk zoom atau output resolusi tinggi, namun juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar yang lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk menjaga rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara terpisah.
+Faktor skala `1` mempertahankan ukuran piksel default pada sumbu tersebut. Misalnya, `2` pada kedua faktor menghasilkan gambar yang lebar dan tingginya kira‑kira dua kali dimensi default, sehingga menghasilkan empat kali lebih banyak piksel. Faktor yang lebih besar umumnya menghasilkan teks yang lebih tajam untuk zoom atau output resolusi tinggi, namun juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horisontal dan vertikal yang berbeda akan meregangkan output secara terpisah.
 
-Merender seluruh shape dengan [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage--) tetap berguna ketika output harus mencakup isi shape, border, atau konteks visual lainnya. Untuk gambar hanya paragraf, gunakan [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--).
+Merender seluruh shape dengan [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) tetap berguna ketika output harus menyertakan isi, batas, atau konteks visual lain dari shape. Untuk gambar hanya paragraf, gunakan [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage).
 
 ## **FAQ**
 
-**Apakah saya dapat sepenuhnya menonaktifkan pembungkusan baris di dalam text frame?**
+**Apakah saya dapat menonaktifkan pembungkusan baris di dalam text frame sepenuhnya?**
 
-Ya. Setel [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText-byte-) untuk menonaktifkan pembungkusan sehingga baris tidak terputus di tepi text frame.
+Ya. Atur [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) untuk menonaktifkan pembungkusan sehingga baris tidak terputus di tepi text frame.
 
-**Bagaimana saya dapat memperoleh batas tepat pada slide untuk paragraf tertentu?**
+**Bagaimana cara mendapatkan batas on‑slide yang tepat untuk paragraf tertentu?**
 
-Gunakan [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect--) untuk mengambil rectangle batas paragraf. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect--) memberikan batas sebuah portion individu.
+Gunakan [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) untuk mengambil persegi panjang pembatas paragraf. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) menyediakan batas untuk portion individu.
 
-**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau justify) dikontrol?**
+**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau justify) dikendalikan?**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment-int-) merupakan pengaturan tingkat paragraf dan berlaku untuk seluruh paragraf terlepas dari pemformatan portion individu.  
-Untuk menyejajarkan secara vertikal portion dengan ukuran font berbeda dalam setiap baris, lihat [Align Fonts Within a Line](/slides/id/php-java/text-formatting/#align-fonts-within-a-line).
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) adalah pengaturan level paragraf dan berlaku untuk seluruh paragraf terlepas dari format portion individu.
 
-**Apakah saya dapat mengatur bahasa proofing untuk bagian dari paragraf?**
+Untuk meratakan vertikal portion dengan ukuran font berbeda dalam tiap baris, lihat [Align Fonts Within a Line](/slides/id/php-java/text-formatting/#align-fonts-within-a-line).
 
-Ya. Setel [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) untuk portion individu, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.
+**Apakah saya dapat mengatur bahasa proofing untuk bagian paragraf?**
+
+Ya. Atur [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) untuk portion individu, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.

@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie akapitami tekstu PowerPoint w .NET
+title: Zarządzanie akapitami tekstowymi PowerPoint w .NET
 linktitle: Zarządzaj akapitem
 type: docs
 weight: 40
@@ -17,14 +17,14 @@ keywords:
 - wcięcie wiszące
 - wypunktowanie akapitu
 - lista numerowana
-- lista punktowana
+- lista wypunktowana
 - właściwości akapitu
-- importuj HTML
+- import HTML
 - tekst do HTML
 - akapit do HTML
 - akapit do obrazu
 - tekst do obrazu
-- eksportuj akapit
+- eksport akapitu
 - PowerPoint
 - prezentacja
 - .NET
@@ -36,29 +36,19 @@ description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypun
 
 Aspose.Slides for .NET reprezentuje tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
 
-* [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) reprezentuje kontener tekstowy w kształcie i zapewnia dostęp do jego kolekcji akapitów.
-* [IParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/) reprezentuje pojedynczy akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
-* [IPortion](https://reference.aspose.com/slides/pl/net/aspose.slides/iportion/) reprezentuje fragment tekstu w akapicie. Każdy fragment może mieć własny tekst i formatowanie na poziomie znaków.
+* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) reprezentuje kontener tekstowy w kształcie i zapewnia dostęp do jego kolekcji akapitów.
+* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) reprezentuje jeden akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
+* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) reprezentuje ciąg tekstowy w obrębie akapitu. Każdy fragment może mieć własny tekst i formatowanie na poziomie znaków.
 
-Akapit może więc zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innych formatach, używając wielu fragmentów.
+Akapit może więc zawierać tekst w różnych czcionkach, kolorach, rozmiarach i innych formatach przy użyciu wielu fragmentów.
 
-## **Utwórz i sformatuj akapity**
+## **Tworzenie i formatowanie akapitów**
 
-### **Utwórz akapity z wieloma fragmentami**
+Twórz akapity w ramce tekstowej kształtu i używaj fragmentów do formatowania pojedynczych ciągów tekstowych. Ta sekcja pokazuje, jak łączyć wiele fragmentów w każdym akapicie oraz stosować różne kolory, rozmiary czcionek i style.
 
-Poniższe kroki tworzą ramkę tekstową z trzema akapitami, z których każdy zawiera trzy fragmenty:
+### **Tworzenie akapitów z wieloma fragmentami**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-2. Uzyskaj odwołanie do odpowiedniego slajdu przez jego indeks.
-3. Dodaj prostokątną [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) kształtu.
-5. Użyj domyślnego akapitu i dodaj dwa kolejne obiekty [IParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/) do ramki tekstowej.
-6. Dodaj wystarczającą liczbę obiektów [IPortion](https://reference.aspose.com/slides/pl/net/aspose.slides/iportion/) do każdego akapitu, aby zawierały po trzy fragmenty. Domyślny akapit już zawiera jeden pusty fragment.
-7. Ustaw tekst każdego fragmentu.
-8. Zastosuj formatowanie na poziomie znaków za pomocą [IPortion.PortionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iportion/portionformat/).
-9. Zapisz zmodyfikowaną prezentację.
-
-Ten przykład w C# implementuje kroki:
+Poniższy przykład w C# tworzy trzy akapity, z których każdy zawiera trzy ciągi tekstowe w swojej kolekcji [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/). Ponownie używa domyślnego akapitu i jego pustego fragmentu, a następnie dodaje pozostałe akapity i fragmenty. Formatowanie jest stosowane przez [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/): pierwszy fragment w każdym akapicie jest czerwony, pogrubiony i ma 15 punktów; drugi jest niebieski, pochylony i ma 18 punktów. Trzeci fragment zachowuje domyślne formatowanie:
 
 ```csharp
 using System.Drawing;
@@ -67,6 +57,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 var textFrame = shape.TextFrame;
 
@@ -116,26 +107,15 @@ for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 ```
 
-## **Utwórz listy punktowane i numerowane**
+## **Tworzenie list wypunktowanych i numerowanych**
 
-### **Utwórz listę punktowaną lub numerowaną**
+Organizuj tekst akapitu w listy ze znakami, numerami lub własnymi obrazkami. Przykłady w tej sekcji obejmują formatowanie wypunktowania, listy wielopoziomowe oraz własne liczby początkowe.
 
-Znaki wypunktowania i numeracja ułatwiają przeglądanie powiązanych elementów. W Aspose.Slides ustawienia listy definiowane są przy pomocy [IBulletFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/).
+### **Tworzenie listy wypunktowanej lub numerowanej**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-2. Uzyskaj odwołanie do odpowiedniego slajdu przez jego indeks.
-3. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do wybranego slajdu.
-4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/).
-5. Usuń domyślny akapit z ramki tekstowej.
-6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/net/aspose.slides/paragraph/) dla symbolu wypunktowania.
-7. Ustaw [IBulletFormat.Type](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/type/) na [BulletType.Symbol](https://reference.aspose.com/slides/pl/net/aspose.slides/bullettype/) i określ znak wypunktowania.
-8. Ustaw tekst akapitu, wcięcie, kolor wypunktowania i wysokość wypunktowania.
-9. Dodaj akapit do ramki tekstowej.
-10. Utwórz drugi akapit i ustaw [IBulletFormat.Type](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/type/) na [BulletType.Numbered](https://reference.aspose.com/slides/pl/net/aspose.slides/bullettype/).
-11. Skonfiguruj styl numerowanego wypunktowania i dodaj akapit do ramki tekstowej.
-12. Zapisz prezentację.
+Wypunktowanie i numeracja ułatwiają przeglądanie powiązanych elementów. W Aspose.Slides ustawienia listy definiowane są przez [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
 
-Ten przykład w C# tworzy wypunktowanie symboliczne i numerowane:
+Ten przykład w C# dodaje symbol wypunktowania i numerowaną pozycję do tej samej ramki tekstowej. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) wybiera typ wypunktowania, podczas gdy [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) dostarcza symbol, a [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) wybiera styl numeracji. Oba elementy używają czarnych wypunktowań o wysokości 100 % i wcięciu akapitu wynoszącym 25 punktów:
 
 ```csharp
 using System;
@@ -145,6 +125,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -172,22 +153,11 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Użyj wypunktowań obrazkowych**
+### **Użycie wypunktowania obrazkowego**
 
-Wypunktowania obrazkowe umożliwiają użycie własnego obrazu zamiast symbolu lub liczby.
+Wypunktowanie obrazkowe pozwala użyć własnego obrazu zamiast symbolu lub liczby.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-2. Uzyskaj odwołanie do odpowiedniego slajdu przez jego indeks.
-3. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) i uzyskaj dostęp do jego [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/).
-4. Usuń domyślny akapit z ramki tekstowej.
-5. Wczytaj obraz wypunktowania i dodaj go do kolekcji obrazów prezentacji jako [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/).
-6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/net/aspose.slides/paragraph/) i ustaw jego tekst.
-7. Ustaw [IBulletFormat.Type](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/type/) na [BulletType.Picture](https://reference.aspose.com/slides/pl/net/aspose.slides/bullettype/).
-8. Przypisz obraz za pomocą [IBulletFormat.Picture](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/picture/) i ustaw wysokość wypunktowania.
-9. Dodaj akapit do ramki tekstowej.
-10. Zapisz zmodyfikowaną prezentację.
-
-Ten przykład w C# tworzy wypunktowanie obrazkowe:
+Ten przykład w C# dodaje obraz do kolekcji obrazów prezentacji jako [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) i używa go jako wypunktowania akapitu. Ustawia [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) na użycie wypunktowania obrazkowego i przypisuje obraz przez [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) jest ustawione na 100 % w celu dopasowania rozmiaru wypunktowania względem tekstu akapitu:
 
 ```csharp
 using Aspose.Slides;
@@ -213,17 +183,11 @@ presentation.Save("picture_bullet.pptx", SaveFormat.Pptx);
 presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 ```
 
-### **Utwórz listę wielopoziomową**
+### **Tworzenie listy wielopoziomowej**
 
-Ustaw [IParagraphFormat.Depth](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/depth/) aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
+Ustaw [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
 
-1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
-2. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) i usuń domyślny akapit z jego ramki tekstowej.
-3. Utwórz cztery akapity i skonfiguruj ich symbole wypunktowań.
-4. Ustaw ich wartości [IParagraphFormat.Depth](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/depth/) na `0`, `1`, `2` i `3`.
-5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
-
-Ten przykład w C# tworzy czteropoziomową listę wypunktowaną:
+Ten przykład w C# przypisuje wartości [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) od 0 do 3 czterem akapitom, tworząc hierarchię w jednej ramce tekstowej. Każdy akapit używa symbolu wypunktowania, przy czym [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) naprzemiennie przełącza się między okrągłym wypunktowaniem a myślnikiem, aby odróżnić sąsiednie poziomy:
 
 ```csharp
 using System;
@@ -233,6 +197,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -273,17 +238,11 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Rozpocznij elementy listy numerowane od niestandardowych wartości**
+### **Rozpoczęcie elementów listy numerowanej od własnych wartości**
 
-Użyj [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/numberedbulletstartwith/) aby ustawić początkowy numer wyświetlany dla numerowanego akapitu.
+Użyj [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) aby ustawić początkowy numer wyświetlany dla numerowanego akapitu.
 
-1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) i dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-2. Usuń domyślny akapit z ramki tekstowej kształtu.
-3. Utwórz trzy numerowane akapity.
-4. Ustaw [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/numberedbulletstartwith/) na `2`, `3` i `7` dla odpowiednich akapitów.
-5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
-
-Ten przykład w C# przypisuje niestandardowy numer początkowy każdemu akapitowi:
+Ten przykład w C# ustawia [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) na użycie numeracji dla trzech akapitów i przypisuje wartości [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) równą 2, 3 i 7. Wartość początkowa jest konfigurowana oddzielnie dla każdego akapitu, co pozwala pomijać niektóre liczby:
 
 ```csharp
 using Aspose.Slides;
@@ -291,6 +250,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -313,25 +273,17 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Kontroluj układ akapitu i właściwości końcowe**
+## **Kontrola układu akapitu i właściwości końcowych**
 
-### **Ustaw wcięcie pierwszej linii**
+Dostosuj marginesy i wcięcia akapitu, aby kontrolować pozycję pierwszej linii i linii zawijanych. Możesz także formatować znak końcowy akapitu oddzielnie od widocznych fragmentów tekstu.
 
-Użyj właściwości [IParagraphFormat.Indent](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/indent/) aby kontrolować wcięcie pierwszej linii akapitu. Ta właściwość przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Wartość dodatnia przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do ciała akapitu.
+### **Ustawienie wcięcia pierwszej linii**
 
-Użyj [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/marginleft/) gdy potrzebujesz przesunąć cały akapit. Użyj [IParagraphFormat.Indent](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/indent/) gdy potrzebujesz przesunąć tylko pierwszą linię.
+Użyj własności [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) aby kontrolować wcięcie pierwszej linii akapitu. Właściwość ta przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do ciała akapitu.
 
-Przykład poniżej tworzy kilka akapitów i stosuje różne wartości [IParagraphFormat.Indent], aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
+Użyj [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) gdy potrzebujesz przesunąć cały akapit. Użyj [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) gdy potrzebujesz przesunąć tylko pierwszą linię.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-2. Uzyskaj dostęp do docelowego slajdu.
-3. Dodaj prostokątną [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) kształtu i usuń domyślny akapit.
-5. Utwórz kilka akapitów i ustaw dla nich różne wartości [Indent](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/indent/) .
-6. Dodaj akapity do ramki tekstowej.
-7. Zapisz zmodyfikowaną prezentację.
-
-Ten kod pokazuje, jak ustawić wcięcie akapitu:
+Poniższy przykład nadaje trzem akapitom taki sam [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) równy 20 punktów oraz wartości [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) równą 0, 20 i 40 punktów. Pierwsze linie zaczynają się przy kolejno większych odsunięciach, podczas gdy linie zawijane zachowują ten sam lewy margines:
 
 ```csharp
 using System.Drawing;
@@ -340,6 +292,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -378,24 +331,15 @@ Wynik:
 
 ![Wcięcie pierwszej linii akapitów](first_line_indent.png)
 
-### **Ustaw wcięcie wiszące**
+### **Ustawienie wcięcia wiszącego**
 
-Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt za pomocą właściwości [IParagraphFormat.Indent](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/indent/). Ustaw `Indent` na wartość ujemną, aby przesunąć pierwszą linię w lewo względem ciała akapitu.
+Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt przy pomocy własności [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Ustaw `Indent` na ujemną wartość, aby przesunąć pierwszą linię w lewo względem ciała akapitu.
 
-W praktyce [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/marginleft/) definiuje lewą pozycję ciała akapitu, a [IParagraphFormat.Indent](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/indent/) określa pozycję pierwszej linii względem tego marginesu. Aby uzyskać wcięcie wiszące, ustaw dodatnią wartość `MarginLeft` i ujemną wartość `Indent`.
+W praktyce [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) określa lewą pozycję ciała akapitu, a [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) określa pozycję pierwszej linii względem tego marginesu. Aby stworzyć wcięcie wiszące, ustaw dodatnią wartość `MarginLeft` i ujemną wartość `Indent`.
 
-To formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, w których zawijane linie muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
+To formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, w których linie zawijane muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-2. Uzyskaj dostęp do docelowego slajdu.
-3. Dodaj prostokątną [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) do slajdu.
-4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) kształtu i usuń domyślny akapit.
-5. Utwórz akapity i ustaw dodatnią wartość [MarginLeft](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/marginleft/) dla każdego akapitu.
-6. Ustaw ujemną wartość [Indent](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/indent/) aby uzyskać efekt wcięcia wiszącego.
-7. Dodaj akapity do ramki tekstowej.
-8. Zapisz zmodyfikowaną prezentację.
-
-Ten kod pokazuje, jak ustawić wcięcie wiszące dla akapitu:
+Poniższy przykład w C# paruje wartości [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) równe 40 i 60 punktów z wartościami [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) równymi -20 i -30 punktów. W każdym akapicie pierwsza linia zaczyna się po lewej stronie linii zawijanych; drugi akapit ma głębsze wcięcie wiszące:
 
 ```csharp
 using System.Drawing;
@@ -404,6 +348,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
 shape.FillFormat.FillType = FillType.NoFill;
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -435,16 +380,9 @@ Wynik:
 
 ![Wcięcie wiszące akapitów](hanging_indent.png)
 
-### **Ustaw właściwości końcowego fragmentu akapitu**
+### **Ustawienie właściwości końcowych akapitu**
 
-Właściwość [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/endparagraphportionformat/) kontroluje formatowanie znaku końcowego akapitu. Poniższy przykład przypisuje rozmiar czcionki i czcionkę łacińską do znaku końcowego drugiego akapitu:
-
-1. Wczytaj [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
-2. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) i usuń jego domyślny akapit.
-3. Utwórz dwa akapity i dodaj do nich fragmenty tekstu.
-4. Utwórz [PortionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/portionformat/) dla znaku końcowego drugiego akapitu.
-5. Ustaw [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/fontheight/) oraz [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/latinfont/).
-6. Przypisz format do [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/endparagraphportionformat/) i zapisz prezentację.
+Własność [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) kontroluje formatowanie znaku końcowego akapitu. Poniższy przykład tworzy [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) z [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) ustawionym na 48 punktów oraz [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) ustawionym na Times New Roman. Przypisuje ten format do znaku końcowego drugiego akapitu, pozostawiając niezmienione widoczne fragmenty tekstu:
 
 ```csharp
 using Aspose.Slides;
@@ -452,6 +390,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("Test.pptx");
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
 var textFrame = shape.TextFrame;
 textFrame.Paragraphs.Clear();
@@ -473,15 +412,15 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
-## **Policz wyrenderowane linie**
+## **Liczenie renderowanych linii**
 
-Aby uzyskać zasady akapitu wpływające na automatyczne zawijanie i interpunkcję przy końcach linii, zobacz [Control Line Breaking](/slides/pl/net/text-formatting/#control-line-breaking) oraz [Control Hanging Punctuation](/slides/pl/net/text-formatting/#control-hanging-punctuation).
+W odniesieniu do reguł akapitu, które wpływają na automatyczne zawijanie i interpunkcję przy końcach linii, zobacz [Control Line Breaking](/slides/pl/net/text-formatting/#control-line-breaking) oraz [Control Hanging Punctuation](/slides/pl/net/text-formatting/#control-hanging-punctuation).
 
-Użyj [IParagraph.GetLinesCount](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/getlinescount/) aby policzyć linie zajmowane przez akapit po ułożeniu tekstu, w tym automatyczne zawijanie. Jest to przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
+Użyj [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) aby policzyć linie zajmowane przez akapit po rozmieszczeniu tekstu, w tym automatyczne zawijanie. Przydaje się przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
 
-Akapit jest jednym elementem w [ITextFrame.Paragraphs](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/paragraphs/), i może zajmować kilka wyrenderowanych linii. Jawne przełamanie linii w akapicie wymusza nową linię bez tworzenia nowego akapitu. Automatyczne zawijanie tworzy linie w oparciu o dostępną szerokość, nie wstawiając jawnych znaków nowej linii do tekstu. Dlatego liczenie akapitów lub znaków przełamania linii nie daje liczby wyrenderowanych linii.
+Akapit jest jednym elementem w [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), i może zajmować kilka renderowanych linii. Jawny podział wiersza w akapicie wymusza nową linię bez tworzenia kolejnego akapitu. Automatyczne zawijanie tworzy linie w oparciu o dostępną szerokość, nie wstawiając jawnych podziałów wiersza do tekstu. Dlatego liczenie akapitów lub znaków podziału wiersza nie daje liczby renderowanych linii.
 
-Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zwęża kształt, a następnie zastępuje tekst krótszym ciągiem. Zawijanie jest włączone, a dopasowanie automatyczne wyłączone, tak aby szerokość kształtu kontrolowała zawijanie bez automatycznego zmniejszania tekstu ani zmiany rozmiaru kształtu. Wymiary kształtu podane są w punktach. Na końcu przykład dodaje kolejny akapit i sumuje liczbę linii w całej ramce tekstowej.
+Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zwęża kształt, a następnie zamienia tekst na krótszy ciąg. Przykład włącza [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) i wyłącza [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/), tak aby szerokość kształtu kontrolowała zawijanie bez automatycznego zmniejszania tekstu lub zmiany rozmiaru kształtu. Każdy pomiar używa [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/). Wymiary kształtu podawane są w punktach. Na koniec przykład dodaje kolejny akapit i sumuje liczby linii w całej ramce tekstowej.
 
 ```csharp
 using System;
@@ -518,24 +457,19 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Przy tym tekście i tych wymiarach zwężanie kształtu zwiększa liczbę linii, natomiast zastąpienie tekstu krótkim ciągiem ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności czcionek i ich podstawień, rozmiaru czcionki, marginesów, wcięć, zawijania i ustawień dopasowania automatycznego. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska przy sprawdzaniu szablonu.
+Przy tym tekście i wymiarach zwężenie kształtu zwiększa liczbę linii, natomiast zamiana tekstu na krótki ciąg ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności i substytucji czcionek, rozmiaru czcionki, marginesów, wcięć, zawijania i ustawień autofitu. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska przy sprawdzaniu szablonu.
 
-Sama liczba linii nie określa, czy tekst wykracza poza kontener. Decydują także dostępna wysokość, wysokości linii, odstępy akapitu i linii oraz zachowanie dopasowania automatycznego; nawet pojedyncza linia może przekroczyć dostępną szerokość, gdy zawijanie jest wyłączone.
+Sama liczba linii nie określa, czy tekst przekracza swój pojemnik. Ważna jest dostępna wysokość, wysokość linii, interlinia akapitu i linii oraz zachowanie autofitu; nawet pojedyncza linia może przekroczyć dostępną szerokość, gdy zawijanie jest wyłączone.
 
-## **Importuj i eksportuj zawartość akapitu**
+## **Import i eksport treści akapitu**
 
-### **Importuj tekst HTML do akapitów**
+Użyj HTML, aby wprowadzić tekst do prezentacji lub wyeksportować istniejące akapity do użycia poza nią. Ta sekcja pokazuje również, jak renderować pojedyncze akapity jako obrazy, w tym akapity w komórkach tabel.
 
-Użyj [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/pl/net/aspose.slides/paragraphcollection/addfromhtml/) aby przekształcić znacznik HTML w akapity i fragmenty w ramce tekstowej.
+### **Importowanie tekstu HTML do akapitów**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-2. Uzyskaj dostęp do slajdu i dodaj [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/).
-3. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) kształtu i usuń jego domyślny akapit.
-4. Odczytaj źródłowy plik HTML.
-5. Przekaż ciąg HTML do [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/pl/net/aspose.slides/paragraphcollection/addfromhtml/).
-6. Zapisz zmodyfikowaną prezentację.
+Użyj [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) aby przekształcić znacznik HTML w akapity i fragmenty w ramce tekstowej.
 
-Ten przykład w C# importuje HTML do ramki tekstowej:
+Ten przykład w C# odczytuje HTML z pliku i przekazuje znacznik do [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/). Czyści domyślny akapit ramki tekstowej, tak aby ramka zawierała tylko zaimportowaną zawartość. Prostokątny kształt pozostawia margines 10 punktów po każdej stronie slajdu:
 
 ```csharp
 using System.IO;
@@ -544,6 +478,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shapeWidth = presentation.SlideSize.Size.Width - 20;
 var shapeHeight = presentation.SlideSize.Size.Height - 20;
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
@@ -557,61 +492,73 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **Eksportuj tekst akapitu do HTML**
+### **Eksport tekstu akapitu do HTML**
 
-Użyj [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/pl/net/aspose.slides/paragraphcollection/exporttohtml/) aby wyeksportować wybrany zakres akapitów jako HTML.
+Użyj [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) aby wyeksportować wybrany zakres akapitów jako HTML. Przy ponownym użyciu tekstu prezentacji na stronie internetowej możesz chcieć zachować lokalne wyróżnienia bez przenoszenia czcionki, rozmiaru ani stylów pola tekstowego z prezentacji. Ustaw [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) aby kontrolować, jak daleko eksporter podąża za dziedziczeniem formatowania.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) i wczytaj żądaną prezentację.
-2. Uzyskaj dostęp do slajdu i znajdź [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/), który zawiera tekst.
-3. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) kształtu.
-4. Wywołaj [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/pl/net/aspose.slides/paragraphcollection/exporttohtml/) podając indeks początkowego akapitu i liczbę akapitów do wyeksportowania.
-5. Zapisz zwrócony ciąg HTML do pliku.
+Pobierz [przykładową prezentację](text-inheritance.pptx) i umieść ją w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera jedną formę tekstową z tekstem „Inherited text; explicit red 18pt”. Wejście celowo używa kilku poziomów formatowania:
 
-Ten przykład w C# eksportuje wszystkie akapity z pierwszego kształtu tekstowego:
+- Domyślny styl tekstu prezentacji dostarcza czcionkę Calibri i rozmiar 28 pt.
+- Styl tekstu pierwszego poziomu ramki tekstowej dostarcza niebieski kolor i kursywę.
+- Akapit wyraźnie ustawia pogrubiony tekst.
+- Drugi fragment, „explicit red 18pt”, wyraźnie ustawia czerwony kolor i rozmiar 18 pt.
+
+Poniższy kompletny przykład eksportuje te same akapity trzy razy. Przekazuje [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) do metody eksportu i zapisuje każdy wynik jako osobny plik HTML w kodowaniu UTF‑8:
 
 ```csharp
-using System;
 using System.IO;
 using System.Text;
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-using var presentation = new Presentation("ExportingHTMLText.pptx");
-var shape = presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-inheritance.pptx");
+var textShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-if (shape is IAutoShape textShape && textShape.TextFrame != null)
+var paragraphs = textShape.TextFrame.Paragraphs;
+var modes = new[] { TextInheritanceLimit.All, TextInheritanceLimit.TextBox, TextInheritanceLimit.ParagraphOnly };
+
+foreach (var mode in modes)
 {
-    var paragraphs = textShape.TextFrame.Paragraphs;
-    var html = paragraphs.ExportToHtml(0, paragraphs.Count, null);
-    using var writer = new StreamWriter("paragraphs.html", false, Encoding.UTF8);
-    writer.Write(html);
-}
-else
-{
-    Console.WriteLine("The first shape is not a text shape.");
+    var options = new TextToHtmlConversionOptions { TextInheritanceLimit = mode };
+
+    var html = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+    File.WriteAllText($"{mode}.html", html, Encoding.UTF8);
 }
 ```
 
-### **Renderuj akapit jako obraz**
+Wygenerowany HTML zawiera następujący CSS dla pierwszego fragmentu, „Inherited text; “. Tabela wymienia odpowiednie deklaracje; inne wygenerowane właściwości zostały pominięte dla przejrzystości.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/getimage/) renderuje pojedynczy akapit i zwraca [IImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/). Zapisz wynik do pliku lub strumienia przy pomocy [IImage.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/save/). Nie musisz renderować otaczającego kształtu ani ręcznie przycinać bitmapy.
+| Wyjście | Odpowiedni CSS dla pierwszego fragmentu | Wygląd |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, kursywa tekstu 28 pt w Calibri, jeśli ta czcionka jest dostępna. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, kursywa; otaczająca strona lub przeglądarka dostarcza rodzinę czcionki i rozmiar. |
+| `ParagraphOnly.html` | `font-weight:bold` | Pogrubiony tekst; otaczająca strona lub przeglądarka dostarcza rodzinę czcionki, rozmiar, kolor i styl kursywy. |
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/getimage/) może zwrócić `null`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisem i usuń zwrócony obraz po użyciu.
+Drugi fragment zachowuje `color:#ff0000`, `font-size:18pt` i `font-weight:bold` we wszystkich trzech wyjściach. Zachowuje także kursywę w `All` i `TextBox`, lecz nie w `ParagraphOnly`. Ograniczenie dziedziczenia nie usuwa więc formatowania przypisanego explicite do akapitu lub fragmentu.
 
-#### **Renderuj akapit w domyślnej skali**
+Otwórz pliki w tej samej przeglądarce, aby je porównać. W dwóch ograniczonych trybach pominięte właściwości CSS są rozwiązywane przez style docelowej strony lub domyślne ustawienia przeglądarki, więc ostateczny wygląd zależy od miejsca użycia HTML.
 
-Załóżmy, że mamy plik prezentacji o nazwie sample.pptx z jednym slajdem, gdzie pierwszy kształt jest polem tekstowym zawierającym trzy akapity.
+### **Renderowanie akapitu jako obrazu**
+
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Zapisz wynik do pliku lub strumienia za pomocą [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Nie musisz renderować zawierającego kształtu ani ręcznie przycinać bitmapy.
+
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) może zwrócić `null`, jeśli akapit nie zostanie znaleziony w kolekcji rodzica, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisem i zwolnij zwrócony obraz po użyciu.
+
+#### **Renderowanie akapitu w domyślnej skali**
+
+Przykład używa prezentacji z jednym slajdem, którego pierwszy kształt jest polem tekstowym zawierającym trzy akapity.
 
 ![Pole tekstowe z trzema akapitami](paragraph_to_image_input.png)
 
-Poniższy przykład renderuje drugi akapit w zwykłym kształcie tekstowym w domyślnej skali i zapisuje zwrócony obraz w formacie PNG. Deklaracja `using` zapewnia prawidłowe zwolnienie zasobów obrazu.
+Poniższy przykład wybiera drugi akapit o indeksie 1 i wywołuje [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) bez parametrów skali. Sprawdza, czy kształt zawiera wymaganego akapitu i czy renderowanie zwróciło obraz przed wywołaniem [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) w celu zapisania go w formacie PNG. Deklaracja `using` zwalnia obraz po użyciu.
 
 ```csharp
 using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation("sample.pptx");
-
 var shape = presentation.Slides[0].Shapes[0];
+
 if (shape is IAutoShape textShape && 
     textShape.TextFrame != null && 
     textShape.TextFrame.Paragraphs.Count > 1)
@@ -638,9 +585,9 @@ Wynik:
 
 ![Obraz akapitu](paragraph_to_image_output.png)
 
-#### **Renderuj akapit w komórce tabeli ze skalowaniem**
+#### **Renderowanie akapitu w komórce tabeli ze skalowaniem**
 
-Użyj przeciążenia [IParagraph.GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/getimage/) przyjmującego parametry `float scaleX` i `float scaleY`, aby ustawić współczynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce przy dwukrotnej domyślnej szerokości i wysokości oraz zapisuje wynik jako obraz PNG.
+Użyj przeciążenia [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/), które akceptuje parametry `float scaleX` i `float scaleY` w celu ustawienia współczynników skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce przy dwukrotnej domyślnej szerokości i wysokości i zapisuje wynik jako obraz PNG.
 
 ```csharp
 using System;
@@ -651,6 +598,7 @@ var scaleY = 2f;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var table = slide.Shapes.AddTable(50, 50, new[] { 300d }, new[] { 80d });
 var paragraph = table[0, 0].TextFrame.Paragraphs[0];
 paragraph.Text = "Text in a table cell";
@@ -666,24 +614,26 @@ else
 }
 ```
 
-Współczynnik skali `1` zachowuje tę oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu współczynników daje obraz, którego szerokość i wysokość są mniej więcej dwa razy większe od domyślnych wymiarów, co skutkuje czterokrotnie większą liczbą pikseli. Większe współczynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wyjściu wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` dają mniejsze obrazy o niższej szczegółowości. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają wyjście niezależnie.
+Współczynnik skali `1` utrzymuje dany oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu współczynników daje obraz, którego szerokość i wysokość są w przybliżeniu dwukrotne względem domyślnych wymiarów, co skutkuje czterokrotnie większą liczbą pikseli. Większe współczynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wyjściu o wysokiej rozdzielczości, ale zwiększają także zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` tworzą mniejsze obrazy o mniejszej szczegółowości. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają wynik niezależnie.
 
-Renderowanie całego kształtu przy pomocy [IShape.GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/getimage/) pozostaje przydatne, gdy wyjście musi zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu zawierającego tylko akapit użyj [IParagraph.GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/getimage/).
+Renderowanie całego kształtu przy pomocy [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) pozostaje przydatne, gdy wynik ma zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu wyłącznie akapitu użyj [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
-**Czy mogę całkowicie wyłączyć łamanie linii w ramce tekstowej?**
+**Czy mogę całkowicie wyłączyć automatyczne zawijanie w ramce tekstowej?**
 
-Tak. Ustaw [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframeformat/wraptext/) aby wyłączyć zawijanie, dzięki czemu linie nie będą przerywane na krawędziach ramki tekstowej.
+Tak. Ustaw [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) aby wyłączyć zawijanie, dzięki czemu linie nie będą łamane przy krawędziach ramki tekstowej.
 
-**Jak mogę uzyskać dokładne granice na slajdzie konkretnego akapitu?**
+**Jak uzyskać dokładne granice na slajdzie konkretnego akapitu?**
 
-Użyj [IParagraph.GetRect](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/getrect/) aby pobrać prostokąt ograniczający akapit. [IPortion.GetRect](https://reference.aspose.com/slides/pl/net/aspose.slides/iportion/getrect/) podaje granice pojedynczego fragmentu.
+Użyj [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) aby pobrać prostokąt granicowy akapitu. [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) podaje granice pojedynczego fragmentu.
 
-**Gdzie kontrolowane jest wyrównanie akapitu (lewo, prawo, środek lub wyrównanie do obu krawędzi)?**
+**Gdzie kontrolowane jest wyrównanie akapitu (lewe, prawe, wyśrodkowane lub justowane)?**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/alignment/) jest ustawieniem na poziomie akapitu i ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) jest ustawieniem na poziomie akapitu i ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
+
+Aby pionowo wyrównać fragmenty o różnych rozmiarach czcionki w każdej linii, zobacz [Align Fonts Within a Line](/slides/pl/net/text-formatting/#align-fonts-within-a-line).
 
 **Czy mogę ustawić język korekty dla części akapitu?**
 
-Tak. Ustaw [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/languageid/) dla poszczególnych fragmentów, aby jeden akapit mógł zawierać tekst w wielu językach.
+Tak. Ustaw [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) dla poszczególnych fragmentów, aby jeden akapit mógł zawierać tekst w wielu językach.
