@@ -90,6 +90,67 @@ finally:
     presentation.dispose()
 ```
 
+## **Reverse the Plotting Order of an Axis**
+
+Use [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) to reverse a category or value axis. For example, a horizontal bar chart can show project stages from top to bottom in the same order as the worksheet: Planning, Development, Testing. Reversing an axis changes the plotting direction; it does not sort or rearrange the workbook data. By comparison, [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) exchanges the roles of series and categories.
+
+The following example creates a horizontal bar chart with three stages and one series. It saves a presentation with three slides: normal order, reversed categories, and reversed values. Each copy uses the same dataset, and only one axis is reversed on each copy.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ChartType, CrossesType, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredBar, 50, 40, 620, 320)
+    chart.setLegend(False)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series = chart.getChartData().getSeries().add(ChartType.ClusteredBar)
+    stages = ["Planning", "Development", "Testing"]
+    values = [10, 30, 20]
+    for i, stage in enumerate(stages):
+        category_cell = workbook.getCell(0, i + 1, 0, stage)
+        chart.getChartData().getCategories().add(category_cell)
+        value_cell = workbook.getCell(0, i + 1, 1, float(values[i]))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    # Slide 2: display the first category at the top.
+    category_slide = presentation.getSlides().addClone(slide)
+    category_chart = category_slide.getShapes().get_Item(0)
+    category_chart.getAxes().getVerticalAxis().setPlotOrderReversed(True)
+    # Keep the horizontal value axis at the bottom.
+    category_chart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum)
+
+    # Slide 3: reverse only the horizontal numeric scale.
+    value_slide = presentation.getSlides().addClone(slide)
+    value_chart = value_slide.getShapes().get_Item(0)
+    value_chart.getAxes().getHorizontalAxis().setPlotOrderReversed(True)
+
+    presentation.save("ReversedAxes.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Reversing an axis can also move the perpendicular axis to the opposite side of the plot. [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) controls where the other axis crosses the axis being configured. In slide 2, calling it with [CrossesType.Maximum](https://reference.aspose.com/slides/python-java/aspose.slides/crossestype/#Maximum) on the reversed category axis keeps the horizontal value axis at the bottom. For a specific crossing point, use [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Check the crossing settings when changing direction, especially if the chart already has a custom crossing point. Call [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) with `False` to restore the normal plotting direction; crossing settings are separate.
+
+| Normal order (slide 1) | Reversed categories (slide 2) | Reversed values (slide 3) |
+| --- | --- | --- |
+| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
+| Categories run from bottom to top; values increase from left to right. | Planning, Development, and Testing run from top to bottom. Values and workbook row order are unchanged. | Categories retain their normal order; values increase from right to left. The category axis crosses at zero on the right. |
+
 ## **Disable the Vertical Axis for Line Charts**
 
 Call [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) with `False` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.

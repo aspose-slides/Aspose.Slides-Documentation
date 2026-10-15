@@ -78,6 +78,62 @@ chart.ChartData.SwitchRowColumn();
 presentation.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Reverse the Plotting Order of an Axis**
+
+Use [IsPlotOrderReversed](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isplotorderreversed/) to reverse a category or value axis. For example, a horizontal bar chart can show project stages from top to bottom in the same order as the worksheet: Planning, Development, Testing. Reversing an axis changes the plotting direction; it does not sort or rearrange the workbook data. By comparison, [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) exchanges the roles of series and categories.
+
+The following example creates a horizontal bar chart with three stages and one series. It saves a presentation with three slides: normal order, reversed categories, and reversed values. Each copy uses the same dataset, and only one axis is reversed on each copy.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredBar, 50, 40, 620, 320);
+chart.HasLegend = false;
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var series = chart.ChartData.Series.Add(ChartType.ClusteredBar);
+var stages = new[] { "Planning", "Development", "Testing" };
+var values = new[] { 10, 30, 20 };
+for (var i = 0; i < stages.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, stages[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(0, i + 1, 1, values[i]);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+}
+
+// Slide 2: display the first category at the top.
+var categorySlide = presentation.Slides.AddClone(slide);
+var categoryChart = (IChart)categorySlide.Shapes[0];
+categoryChart.Axes.VerticalAxis.IsPlotOrderReversed = true;
+// Keep the horizontal value axis at the bottom.
+categoryChart.Axes.VerticalAxis.CrossType = CrossesType.Maximum;
+
+// Slide 3: reverse only the horizontal numeric scale.
+var valueSlide = presentation.Slides.AddClone(slide);
+var valueChart = (IChart)valueSlide.Shapes[0];
+valueChart.Axes.HorizontalAxis.IsPlotOrderReversed = true;
+
+presentation.Save("ReversedAxes.pptx", SaveFormat.Pptx);
+```
+
+Reversing an axis can also move the perpendicular axis to the opposite side of the plot. [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) controls where the other axis crosses the axis being configured. In slide 2, setting it to `Maximum` on the reversed category axis keeps the horizontal value axis at the bottom. For a specific crossing point, use [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/). Check the crossing settings when changing direction, especially if the chart already has a custom crossing point. Set `IsPlotOrderReversed` back to `false` to restore the normal plotting direction; crossing settings are separate.
+
+| Normal order (slide 1) | Reversed categories (slide 2) | Reversed values (slide 3) |
+| --- | --- | --- |
+| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
+| Categories run from bottom to top; values increase from left to right. | Planning, Development, and Testing run from top to bottom. Values and workbook row order are unchanged. | Categories retain their normal order; values increase from right to left. The category axis crosses at zero on the right. |
+
 ## **Disable the Vertical Axis for Line Charts**
 
 Set [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) to `false` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.

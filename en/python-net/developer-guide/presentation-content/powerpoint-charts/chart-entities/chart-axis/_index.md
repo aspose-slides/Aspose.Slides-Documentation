@@ -76,6 +76,59 @@ with slides.Presentation() as presentation:
     presentation.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Reverse the Plotting Order of an Axis**
+
+Use [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) to reverse a category or value axis. For example, a horizontal bar chart can show project stages from top to bottom in the same order as the worksheet: Planning, Development, Testing. Reversing an axis changes the plotting direction; it does not sort or rearrange the workbook data. By comparison, [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) exchanges the roles of series and categories.
+
+The following example creates a horizontal bar chart with three stages and one series. It saves a presentation with three slides: normal order, reversed categories, and reversed values. Each copy uses the same dataset, and only one axis is reversed on each copy.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_BAR, 50, 40, 620, 320)
+    chart.has_legend = False
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series = chart.chart_data.series.add(charts.ChartType.CLUSTERED_BAR)
+    stages = ["Planning", "Development", "Testing"]
+    values = [10, 30, 20]
+    for i, stage in enumerate(stages):
+        category_cell = workbook.get_cell(0, i + 1, 0, stage)
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, values[i])
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    # Slide 2: display the first category at the top.
+    category_slide = presentation.slides.add_clone(slide)
+    category_chart = category_slide.shapes[0]
+    category_chart.axes.vertical_axis.is_plot_order_reversed = True
+    # Keep the horizontal value axis at the bottom.
+    category_chart.axes.vertical_axis.cross_type = charts.CrossesType.MAXIMUM
+
+    # Slide 3: reverse only the horizontal numeric scale.
+    value_slide = presentation.slides.add_clone(slide)
+    value_chart = value_slide.shapes[0]
+    value_chart.axes.horizontal_axis.is_plot_order_reversed = True
+
+    presentation.save("ReversedAxes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Reversing an axis can also move the perpendicular axis to the opposite side of the plot. [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) controls where the other axis crosses the axis being configured. In slide 2, setting it to `MAXIMUM` on the reversed category axis keeps the horizontal value axis at the bottom. For a specific crossing point, use [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Check the crossing settings when changing direction, especially if the chart already has a custom crossing point. Set `is_plot_order_reversed` back to `False` to restore the normal plotting direction; crossing settings are separate.
+
+| Normal order (slide 1) | Reversed categories (slide 2) | Reversed values (slide 3) |
+| --- | --- | --- |
+| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
+| Categories run from bottom to top; values increase from left to right. | Planning, Development, and Testing run from top to bottom. Values and workbook row order are unchanged. | Categories retain their normal order; values increase from right to left. The category axis crosses at zero on the right. |
+
 ## **Disable the Vertical Axis for Line Charts**
 
 Set [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) to `False` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
