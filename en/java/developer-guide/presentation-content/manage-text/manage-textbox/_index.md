@@ -262,6 +262,25 @@ try {
 
 This traversal updates text only in auto shapes. Text stored in tables, charts, SmartArt, or grouped shapes requires traversal of those objects' own collections.
 
+### **Link a Text Box to a Chart Workbook Cell**
+
+Aspose.Slides for Java does not provide a dynamic link between a regular text box and a chart workbook cell. To keep the text box value in sync with a cell, read the cell value with `IChartDataWorkbook.getCell(...)` and assign it to the text box using `ITextFrame.setText(...)`. This needs to be performed programmatically each time the chart data changes.
+
+```java
+// Assume chart is already added to the slide
+IChart chart = ...;
+IChartDataWorkbook workbook = chart.getChartData().getWorkbook();
+
+// Retrieve the value from a specific cell (e.g., row 1, column 1)
+String cellValue = workbook.getCell(0, 0).getStringValue();
+
+// Find the text box shape you want to update
+IAutoShape textBox = (IAutoShape) slide.getShapes().get_Item(textBoxShapeIndex);
+textBox.getTextFrame().setText(cellValue);
+```
+
+Add this logic wherever the chart data is modified to keep the text box updated.
+
 ## **Add a Text Box with a Hyperlink**
 
 A hyperlink can be assigned to a specific text portion, so only that text acts as the clickable link. Use [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) to associate the portion with an external URL.
