@@ -281,6 +281,43 @@ Do not keep an effective data object as a permanent snapshot. Aspose.Slides may 
 
 To change a value, update the appropriate local format object and then call `getEffective` to verify the result. Effective data objects themselves are read-only.
 
+## **Handle Font Size When Resizing Slides**
+
+When using `SlideSizeScaleType.Maximize` followed by `SlideSizeScaleType.EnsureFit`, text portions that do not have an explicitly set font height may get a different size after the scaling operation. To keep the font size consistent, set a default font height for any portion whose `fontHeight` is `NaN` before calling the resize methods.
+
+```java
+// Ensure all portions have a concrete font height before scaling
+setMissingFontSizes(presentation);
+resizeSlideWithScaling(presentation, baseWidth, baseHeight);
+```
+
+```java
+private static void setMissingFontSizes(Presentation presentation) {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+            ITextFrame textFrame = ((IAutoShape) shape).getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                float defaultSize = paragraph.getParagraphFormat()
+                        .getDefaultPortionFormat()
+                        .getEffective()
+                        .getFontHeight();
+                for (IPortion portion : paragraph.getPortions()) {
+                    if (Float.isNaN(portion.getPortionFormat().getFontHeight())) {
+                        portion.getPortionFormat().setFontHeight(defaultSize);
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
 ## **FAQ**
 
 **How can I tell which level supplied an effective value?**
